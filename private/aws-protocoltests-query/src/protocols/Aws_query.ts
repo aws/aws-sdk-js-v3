@@ -93,24 +93,21 @@ import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCo
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, CustomCodeError, InvalidGreeting } from "../models/errors";
 import {
-  ComplexError,
   ComplexNestedErrorData,
-  CustomCodeError,
   DatetimeOffsetsOutput,
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
   FlattenedXmlMapOutput,
   FlattenedXmlMapWithXmlNameOutput,
   FlattenedXmlMapWithXmlNamespaceOutput,
-  FooEnum,
   FractionalSecondsOutput,
   GreetingStruct,
   GreetingWithErrorsOutput,
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
-  IntegerEnum,
-  InvalidGreeting,
   NestedStructuresInput,
   NestedStructWithList,
   NestedStructWithMap,

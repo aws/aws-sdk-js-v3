@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_1";
+import { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_0";
 import { PutProfileObjectType } from "../schemas/schemas_0";
 
 /**

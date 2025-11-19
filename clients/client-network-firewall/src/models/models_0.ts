@@ -1,7 +1,34 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { NetworkFirewallServiceException as __BaseException } from "./NetworkFirewallServiceException";
+import {
+  AttachmentStatus,
+  ConfigurationSyncState,
+  EnabledAnalysisType,
+  EncryptionType,
+  FirewallStatusValue,
+  FlowOperationStatus,
+  FlowOperationType,
+  GeneratedRulesType,
+  IdentifiedType,
+  IPAddressType,
+  LogDestinationType,
+  LogType,
+  OverrideAction,
+  PerObjectSyncStatus,
+  ResourceManagedStatus,
+  ResourceManagedType,
+  ResourceStatus,
+  RevocationCheckAction,
+  RuleGroupType,
+  RuleOrder,
+  StatefulAction,
+  StatefulRuleDirection,
+  StatefulRuleProtocol,
+  StreamExceptionPolicy,
+  SummaryRuleOption,
+  TargetType,
+  TCPFlag,
+  TransitGatewayAttachmentStatus,
+} from "./enums";
 
 /**
  * @public
@@ -13,28 +40,6 @@ export interface AcceptNetworkFirewallTransitGatewayAttachmentRequest {
    */
   TransitGatewayAttachmentId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TransitGatewayAttachmentStatus = {
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  FAILED: "FAILED",
-  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
-  READY: "READY",
-  REJECTED: "REJECTED",
-  REJECTING: "REJECTING",
-} as const;
-
-/**
- * @public
- */
-export type TransitGatewayAttachmentStatus =
-  (typeof TransitGatewayAttachmentStatus)[keyof typeof TransitGatewayAttachmentStatus];
 
 /**
  * @public
@@ -89,108 +94,6 @@ export interface AcceptNetworkFirewallTransitGatewayAttachmentResponse {
    * @public
    */
   TransitGatewayAttachmentStatus: TransitGatewayAttachmentStatus | undefined;
-}
-
-/**
- * <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Unable to locate a resource using the parameters that you provided.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Unable to process the request due to throttling limitations.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -270,20 +173,6 @@ export interface Address {
    */
   AddressDefinition: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnabledAnalysisType = {
-  HTTP_HOST: "HTTP_HOST",
-  TLS_SNI: "TLS_SNI",
-} as const;
-
-/**
- * @public
- */
-export type EnabledAnalysisType = (typeof EnabledAnalysisType)[keyof typeof EnabledAnalysisType];
 
 /**
  * <p>A report that captures key activity from the last 30 days of network traffic monitored by your firewall.</p>
@@ -384,20 +273,6 @@ export interface AnalysisTypeReportResult {
    */
   UniqueSources?: UniqueSources | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentifiedType = {
-  STATELESS_RULE_CONTAINS_TCP_FLAGS: "STATELESS_RULE_CONTAINS_TCP_FLAGS",
-  STATELESS_RULE_FORWARDING_ASYMMETRICALLY: "STATELESS_RULE_FORWARDING_ASYMMETRICALLY",
-} as const;
-
-/**
- * @public
- */
-export type IdentifiedType = (typeof IdentifiedType)[keyof typeof IdentifiedType];
 
 /**
  * <p>The analysis result for Network Firewall's stateless rule group analyzer. Every time you call <a>CreateRuleGroup</a>, <a>UpdateRuleGroup</a>, or <a>DescribeRuleGroup</a> on a stateless rule group, Network Firewall analyzes the stateless rule groups in your account and identifies the rules that might adversely effect your firewall's functionality. For example, if Network Firewall detects a rule that's routing traffic asymmetrically, which impacts the service's ability to properly process traffic, the service includes the rule in a list of analysis results.</p>
@@ -526,74 +401,6 @@ export interface AssociateAvailabilityZonesResponse {
 }
 
 /**
- * <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
- *          request later. </p>
- * @public
- */
-export class InsufficientCapacityException extends __BaseException {
-  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
-    super({
-      name: "InsufficientCapacityException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation failed because it's not valid. For example, you might have tried to delete
- *          a rule group or firewall policy that's in use.</p>
- * @public
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The token you provided is stale or isn't valid for the operation. </p>
- * @public
- */
-export class InvalidTokenException extends __BaseException {
-  readonly name: "InvalidTokenException" = "InvalidTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
-    super({
-      name: "InvalidTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateFirewallPolicyRequest {
@@ -656,21 +463,6 @@ export interface AssociateFirewallPolicyResponse {
    */
   UpdateToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IPAddressType = {
-  DUALSTACK: "DUALSTACK",
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-
-/**
- * @public
- */
-export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
 
 /**
  * <p>The ID for a subnet that's used in an association with a firewall. This is used in
@@ -756,24 +548,6 @@ export interface AssociateSubnetsResponse {
    */
   UpdateToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachmentStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  FAILED: "FAILED",
-  READY: "READY",
-  SCALING: "SCALING",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
 
 /**
  * <p>The definition and status of the firewall endpoint for a single subnet. In each configured subnet, Network Firewall instantiates a firewall
@@ -934,21 +708,6 @@ export interface TlsCertificateData {
 }
 
 /**
- * @public
- * @enum
- */
-export const RevocationCheckAction = {
-  DROP: "DROP",
-  PASS: "PASS",
-  REJECT: "REJECT",
-} as const;
-
-/**
- * @public
- */
-export type RevocationCheckAction = (typeof RevocationCheckAction)[keyof typeof RevocationCheckAction];
-
-/**
  * <p>Defines the actions to take on the SSL/TLS connection if the certificate presented by the server in the connection has a revoked or unknown status.</p>
  * @public
  */
@@ -993,35 +752,6 @@ export interface CheckCertificateRevocationStatusActions {
    */
   UnknownStatusAction?: RevocationCheckAction | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationSyncState = {
-  CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
-  IN_SYNC: "IN_SYNC",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationSyncState = (typeof ConfigurationSyncState)[keyof typeof ConfigurationSyncState];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
-  CUSTOMER_KMS: "CUSTOMER_KMS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
@@ -1301,36 +1031,6 @@ export interface Firewall {
 }
 
 /**
- * @public
- * @enum
- */
-export const FirewallStatusValue = {
-  DELETING: "DELETING",
-  PROVISIONING: "PROVISIONING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type FirewallStatusValue = (typeof FirewallStatusValue)[keyof typeof FirewallStatusValue];
-
-/**
- * @public
- * @enum
- */
-export const PerObjectSyncStatus = {
-  CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
-  IN_SYNC: "IN_SYNC",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type PerObjectSyncStatus = (typeof PerObjectSyncStatus)[keyof typeof PerObjectSyncStatus];
-
-/**
  * <p>Provides configuration status for a single policy or rule group that is used for a firewall endpoint. Network Firewall
  *          provides each endpoint with the rules that are configured in the firewall policy. Each time
  *          you add a subnet or modify the associated firewall policy, Network Firewall synchronizes the
@@ -1564,28 +1264,6 @@ export interface CreateFirewallResponse {
 }
 
 /**
- * <p>Unable to perform the operation because doing so would violate a limit setting. </p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A list of IP addresses and address ranges, in CIDR notation. This is part of a <a>RuleVariables</a>. </p>
  * @public
  */
@@ -1629,35 +1307,6 @@ export interface FlowTimeouts {
    */
   TcpIdleTimeoutSeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleOrder = {
-  DEFAULT_ACTION_ORDER: "DEFAULT_ACTION_ORDER",
-  STRICT_ORDER: "STRICT_ORDER",
-} as const;
-
-/**
- * @public
- */
-export type RuleOrder = (typeof RuleOrder)[keyof typeof RuleOrder];
-
-/**
- * @public
- * @enum
- */
-export const StreamExceptionPolicy = {
-  CONTINUE: "CONTINUE",
-  DROP: "DROP",
-  REJECT: "REJECT",
-} as const;
-
-/**
- * @public
- */
-export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof StreamExceptionPolicy];
 
 /**
  * <p>Configuration settings for the handling of the stateful rule groups in a firewall policy. </p>
@@ -1706,19 +1355,6 @@ export interface StatefulEngineOptions {
    */
   FlowTimeouts?: FlowTimeouts | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OverrideAction = {
-  DROP_TO_ALERT: "DROP_TO_ALERT",
-} as const;
-
-/**
- * @public
- */
-export type OverrideAction = (typeof OverrideAction)[keyof typeof OverrideAction];
 
 /**
  * <p>The setting that allows the policy owner to change the behavior of the rule group within a policy. </p>
@@ -1994,21 +1630,6 @@ export interface CreateFirewallPolicyRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
-
-/**
  * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
  * @public
  */
@@ -2133,36 +1754,6 @@ export interface ReferenceSets {
 }
 
 /**
- * @public
- * @enum
- */
-export const GeneratedRulesType = {
-  ALERTLIST: "ALERTLIST",
-  ALLOWLIST: "ALLOWLIST",
-  DENYLIST: "DENYLIST",
-  REJECTLIST: "REJECTLIST",
-} as const;
-
-/**
- * @public
- */
-export type GeneratedRulesType = (typeof GeneratedRulesType)[keyof typeof GeneratedRulesType];
-
-/**
- * @public
- * @enum
- */
-export const TargetType = {
-  HTTP_HOST: "HTTP_HOST",
-  TLS_SNI: "TLS_SNI",
-} as const;
-
-/**
- * @public
- */
-export type TargetType = (typeof TargetType)[keyof typeof TargetType];
-
-/**
  * <p>Stateful inspection criteria for a domain list rule group. </p>
  *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
  *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and
@@ -2200,69 +1791,6 @@ export interface RulesSourceList {
    */
   GeneratedRulesType: GeneratedRulesType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatefulAction = {
-  ALERT: "ALERT",
-  DROP: "DROP",
-  PASS: "PASS",
-  REJECT: "REJECT",
-} as const;
-
-/**
- * @public
- */
-export type StatefulAction = (typeof StatefulAction)[keyof typeof StatefulAction];
-
-/**
- * @public
- * @enum
- */
-export const StatefulRuleDirection = {
-  ANY: "ANY",
-  FORWARD: "FORWARD",
-} as const;
-
-/**
- * @public
- */
-export type StatefulRuleDirection = (typeof StatefulRuleDirection)[keyof typeof StatefulRuleDirection];
-
-/**
- * @public
- * @enum
- */
-export const StatefulRuleProtocol = {
-  ANY: "IP",
-  DCERPC: "DCERPC",
-  DHCP: "DHCP",
-  DNS: "DNS",
-  FTP: "FTP",
-  HTTP: "HTTP",
-  HTTP2: "HTTP2",
-  ICMP: "ICMP",
-  IKEV2: "IKEV2",
-  IMAP: "IMAP",
-  KRB5: "KRB5",
-  MSN: "MSN",
-  NTP: "NTP",
-  QUIC: "QUIC",
-  SMB: "SMB",
-  SMTP: "SMTP",
-  SSH: "SSH",
-  TCP: "TCP",
-  TFTP: "TFTP",
-  TLS: "TLS",
-  UDP: "UDP",
-} as const;
-
-/**
- * @public
- */
-export type StatefulRuleProtocol = (typeof StatefulRuleProtocol)[keyof typeof StatefulRuleProtocol];
 
 /**
  * <p>The basic rule criteria for Network Firewall to use to inspect packet headers in stateful
@@ -2448,26 +1976,6 @@ export interface PortRange {
    */
   ToPort: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TCPFlag = {
-  ACK: "ACK",
-  CWR: "CWR",
-  ECE: "ECE",
-  FIN: "FIN",
-  PSH: "PSH",
-  RST: "RST",
-  SYN: "SYN",
-  URG: "URG",
-} as const;
-
-/**
- * @public
- */
-export type TCPFlag = (typeof TCPFlag)[keyof typeof TCPFlag];
 
 /**
  * <p>TCP flags and masks to inspect packets for, used in stateless rules <a>MatchAttributes</a> settings.</p>
@@ -2804,21 +2312,6 @@ export interface SourceMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const SummaryRuleOption = {
-  METADATA: "METADATA",
-  MSG: "MSG",
-  SID: "SID",
-} as const;
-
-/**
- * @public
- */
-export type SummaryRuleOption = (typeof SummaryRuleOption)[keyof typeof SummaryRuleOption];
-
-/**
  * <p>A complex type that specifies which Suricata rule metadata fields to use when displaying threat information. Contains:</p>
  *          <ul>
  *             <li>
@@ -2836,20 +2329,6 @@ export interface SummaryConfiguration {
    */
   RuleOptions?: SummaryRuleOption[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleGroupType = {
-  STATEFUL: "STATEFUL",
-  STATELESS: "STATELESS",
-} as const;
-
-/**
- * @public
- */
-export type RuleGroupType = (typeof RuleGroupType)[keyof typeof RuleGroupType];
 
 /**
  * @public
@@ -3578,28 +3057,6 @@ export interface DeleteFirewallResponse {
 }
 
 /**
- * <p>The operation you requested isn't supported by Network Firewall. </p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteFirewallPolicyRequest {
@@ -3712,28 +3169,6 @@ export interface DeleteResourcePolicyRequest {
  * @public
  */
 export interface DeleteResourcePolicyResponse {}
-
-/**
- * <p>The policy statement failed validation.</p>
- * @public
- */
-export class InvalidResourcePolicyException extends __BaseException {
-  readonly name: "InvalidResourcePolicyException" = "InvalidResourcePolicyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourcePolicyException, __BaseException>) {
-    super({
-      name: "InvalidResourcePolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourcePolicyException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -4081,36 +3516,6 @@ export interface FlowOperation {
 
 /**
  * @public
- * @enum
- */
-export const FlowOperationStatus = {
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type FlowOperationStatus = (typeof FlowOperationStatus)[keyof typeof FlowOperationStatus];
-
-/**
- * @public
- * @enum
- */
-export const FlowOperationType = {
-  FLOW_CAPTURE: "FLOW_CAPTURE",
-  FLOW_FLUSH: "FLOW_FLUSH",
-} as const;
-
-/**
- * @public
- */
-export type FlowOperationType = (typeof FlowOperationType)[keyof typeof FlowOperationType];
-
-/**
- * @public
  */
 export interface DescribeFlowOperationResponse {
   /**
@@ -4195,36 +3600,6 @@ export interface DescribeLoggingConfigurationRequest {
    */
   FirewallName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogDestinationType = {
-  CLOUDWATCH_LOGS: "CloudWatchLogs",
-  KINESIS_DATA_FIREHOSE: "KinesisDataFirehose",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDestinationType];
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  ALERT: "ALERT",
-  FLOW: "FLOW",
-  TLS: "TLS",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * <p>Defines where Network Firewall sends logs for the firewall for one log type. This is used
@@ -5406,35 +4781,6 @@ export interface ListFlowOperationsResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceManagedType = {
-  ACTIVE_THREAT_DEFENSE: "ACTIVE_THREAT_DEFENSE",
-  AWS_MANAGED_DOMAIN_LISTS: "AWS_MANAGED_DOMAIN_LISTS",
-  AWS_MANAGED_THREAT_SIGNATURES: "AWS_MANAGED_THREAT_SIGNATURES",
-} as const;
-
-/**
- * @public
- */
-export type ResourceManagedType = (typeof ResourceManagedType)[keyof typeof ResourceManagedType];
-
-/**
- * @public
- * @enum
- */
-export const ResourceManagedStatus = {
-  ACCOUNT: "ACCOUNT",
-  MANAGED: "MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type ResourceManagedStatus = (typeof ResourceManagedStatus)[keyof typeof ResourceManagedStatus];
-
-/**
- * @public
  */
 export interface ListRuleGroupsRequest {
   /**
@@ -5679,28 +5025,6 @@ export interface ListVpcEndpointAssociationsResponse {
    * @public
    */
   VpcEndpointAssociations?: VpcEndpointAssociationMetadata[] | undefined;
-}
-
-/**
- * <p>Unable to send logs to a configured logging destination. </p>
- * @public
- */
-export class LogDestinationPermissionException extends __BaseException {
-  readonly name: "LogDestinationPermissionException" = "LogDestinationPermissionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LogDestinationPermissionException, __BaseException>) {
-    super({
-      name: "LogDestinationPermissionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LogDestinationPermissionException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -6045,28 +5369,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * <p>Unable to change the resource because your account doesn't own it. </p>
- * @public
- */
-export class ResourceOwnerCheckException extends __BaseException {
-  readonly name: "ResourceOwnerCheckException" = "ResourceOwnerCheckException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceOwnerCheckException, __BaseException>) {
-    super({
-      name: "ResourceOwnerCheckException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceOwnerCheckException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

@@ -1613,7 +1613,7 @@ import {
   UnsupportedParameterType as __UnsupportedParameterType,
   UnsupportedPlatformType as __UnsupportedPlatformType,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SSMServiceException as __SSMServiceException } from "../models/SSMServiceException";
 
 /* eslint no-var: 0 */

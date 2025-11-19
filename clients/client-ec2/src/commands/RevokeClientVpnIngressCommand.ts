@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_8";
+import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_7";
 import { RevokeClientVpnIngress } from "../schemas/schemas_0";
 
 /**

@@ -1,75 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ARCZonalShiftServiceException as __BaseException } from "./ARCZonalShiftServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AppliedStatus = {
-  APPLIED: "APPLIED",
-  NOT_APPLIED: "NOT_APPLIED",
-} as const;
-
-/**
- * @public
- */
-export type AppliedStatus = (typeof AppliedStatus)[keyof typeof AppliedStatus];
-
-/**
- * <p>There was an internal server error.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutoshiftExecutionStatus = {
-  ACTIVE: "ACTIVE",
-  COMPLETED: "COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type AutoshiftExecutionStatus = (typeof AutoshiftExecutionStatus)[keyof typeof AutoshiftExecutionStatus];
+import {
+  AppliedStatus,
+  AutoshiftAppliedStatus,
+  AutoshiftExecutionStatus,
+  AutoshiftObserverNotificationStatus,
+  ControlConditionType,
+  PracticeRunOutcome,
+  ShiftType,
+  ZonalAutoshiftStatus,
+  ZonalShiftStatus,
+} from "./enums";
 
 /**
  * @public
@@ -142,94 +82,6 @@ export interface ListAutoshiftsResponse {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  AUTOSHIFT_UPDATE_NOT_ALLOWED: "AutoshiftUpdateNotAllowed",
-  CONFLICTING_PRACTICE_WINDOWS: "InvalidPracticeWindows",
-  FIS_EXPERIMENT_UPDATE_NOT_ALLOWED: "FISExperimentUpdateNotAllowed",
-  INVALID_ALARM_CONDITION: "InvalidAlarmCondition",
-  INVALID_AZ: "InvalidAz",
-  INVALID_CONDITION_TYPE: "InvalidConditionType",
-  INVALID_EXPIRES_IN: "InvalidExpiresIn",
-  INVALID_PRACTICE_ALLOWED_WINDOW: "InvalidPracticeAllowedWindow",
-  INVALID_PRACTICE_BLOCKER: "InvalidPracticeBlocker",
-  INVALID_RESOURCE_IDENTIFIER: "InvalidResourceIdentifier",
-  INVALID_STATUS: "InvalidStatus",
-  INVALID_TOKEN: "InvalidToken",
-  MISSING_VALUE: "MissingValue",
-  UNSUPPORTED_AZ: "UnsupportedAz",
-  UNSUPPORTED_PRACTICE_CANCEL_SHIFT_TYPE: "UnsupportedPracticeCancelShiftType",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the validation exception.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutoshiftAppliedStatus = {
-  APPLIED: "APPLIED",
-  NOT_APPLIED: "NOT_APPLIED",
-} as const;
-
-/**
- * @public
- */
-export type AutoshiftAppliedStatus = (typeof AutoshiftAppliedStatus)[keyof typeof AutoshiftAppliedStatus];
-
-/**
  * <p>A complex structure that lists an autoshift that is currently active for a managed resource and information about the autoshift.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html">How zonal autoshift and practice runs work</a> in the Amazon Application Recovery Controller Developer Guide.</p>
  * @public
  */
@@ -257,21 +109,6 @@ export interface AutoshiftInResource {
  * @public
  */
 export interface GetAutoshiftObserverNotificationStatusRequest {}
-
-/**
- * @public
- * @enum
- */
-export const AutoshiftObserverNotificationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutoshiftObserverNotificationStatus =
-  (typeof AutoshiftObserverNotificationStatus)[keyof typeof AutoshiftObserverNotificationStatus];
 
 /**
  * @public
@@ -307,19 +144,6 @@ export interface UpdateAutoshiftObserverNotificationStatusResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ControlConditionType = {
-  CLOUDWATCH: "CLOUDWATCH",
-} as const;
-
-/**
- * @public
- */
-export type ControlConditionType = (typeof ControlConditionType)[keyof typeof ControlConditionType];
-
-/**
  * <p>A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an <i>outcome alarm</i>, to monitor application health during practice runs and, optionally, a <i>blocking alarm</i>, to block practice runs from starting or to interrupt a practice run in progress.</p> <p>Control condition alarms do not apply for autoshifts.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html"> Considerations when you configure zonal autoshift</a> in the Amazon Application Recovery Controller Developer Guide.</p>
  * @public
  */
@@ -347,21 +171,6 @@ export interface CancelPracticeRunRequest {
    */
   zonalShiftId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ZonalShiftStatus = {
-  ACTIVE: "ACTIVE",
-  CANCELED: "CANCELED",
-  EXPIRED: "EXPIRED",
-} as const;
-
-/**
- * @public
- */
-export type ZonalShiftStatus = (typeof ZonalShiftStatus)[keyof typeof ZonalShiftStatus];
 
 /**
  * @public
@@ -408,84 +217,6 @@ export interface CancelPracticeRunResponse {
    * @public
    */
   comment: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  AUTOSHIFT_ENABLED: "AutoShiftEnabled",
-  PRACTICE_BLOCKING_ALARMS_RED: "PracticeBlockingAlarmsRed",
-  PRACTICE_CONFIGURATION_ALREADY_EXISTS: "PracticeConfigurationAlreadyExists",
-  PRACTICE_CONFIGURATION_DOES_NOT_EXIST: "PracticeConfigurationDoesNotExist",
-  PRACTICE_IN_BLOCKED_DATES: "PracticeInBlockedDates",
-  PRACTICE_IN_BLOCKED_WINDOWS: "PracticeInBlockedWindows",
-  PRACTICE_OUTCOME_ALARMS_RED: "PracticeOutcomeAlarmsRed",
-  PRACTICE_OUTSIDE_ALLOWED_WINDOWS: "PracticeOutsideAllowedWindows",
-  SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT: "SimultaneousZonalShiftsConflict",
-  ZONAL_AUTOSHIFT_ACTIVE: "ZonalAutoshiftActive",
-  ZONAL_SHIFT_ALREADY_EXISTS: "ZonalShiftAlreadyExists",
-  ZONAL_SHIFT_STATUS_NOT_ACTIVE: "ZonalShiftStatusNotActive",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * <p>The request could not be processed because of conflict in the current state of the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the conflict exception.</p>
-   * @public
-   */
-  reason: ConflictExceptionReason | undefined;
-
-  /**
-   * <p>The zonal shift ID associated with the conflict exception.</p>
-   * @public
-   */
-  zonalShiftId?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.reason = opts.reason;
-    this.zonalShiftId = opts.zonalShiftId;
-  }
-}
-
-/**
- * <p>The input requested a resource that was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -625,20 +356,6 @@ export interface PracticeRunConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const ZonalAutoshiftStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ZonalAutoshiftStatus = (typeof ZonalAutoshiftStatus)[keyof typeof ZonalAutoshiftStatus];
-
-/**
- * @public
  */
 export interface CreatePracticeRunConfigurationResponse {
   /**
@@ -710,39 +427,6 @@ export interface GetManagedResourceRequest {
    */
   resourceIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PracticeRunOutcome = {
-  CAPACITY_CHECK_FAILED: "CAPACITY_CHECK_FAILED",
-  FAILED: "FAILED",
-  INTERRUPTED: "INTERRUPTED",
-  PENDING: "PENDING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type PracticeRunOutcome = (typeof PracticeRunOutcome)[keyof typeof PracticeRunOutcome];
-
-/**
- * @public
- * @enum
- */
-export const ShiftType = {
-  FIS_EXPERIMENT: "FIS_EXPERIMENT",
-  PRACTICE_RUN: "PRACTICE_RUN",
-  ZONAL_AUTOSHIFT: "ZONAL_AUTOSHIFT",
-  ZONAL_SHIFT: "ZONAL_SHIFT",
-} as const;
-
-/**
- * @public
- */
-export type ShiftType = (typeof ShiftType)[keyof typeof ShiftType];
 
 /**
  * <p>A complex structure that lists the zonal shifts for a managed resource and their statuses for the resource.</p>

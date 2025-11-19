@@ -188,7 +188,7 @@ import {
 } from "@smithy/types";
 
 import { EC2ProtocolServiceException as __EC2ProtocolServiceException } from "../models/EC2ProtocolServiceException";
-import { ComplexError as __ComplexError, InvalidGreeting as __InvalidGreeting } from "../models/index";
+import { ComplexError as __ComplexError, InvalidGreeting as __InvalidGreeting } from "../models/errors";
 
 /* eslint no-var: 0 */
 

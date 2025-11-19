@@ -1,7 +1,42 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceException";
+import {
+  ActivityType,
+  AdditionalResponseFieldType,
+  BooleanEnumType,
+  CommentStatusType,
+  CommentVisibilityType,
+  ContentCategoryType,
+  DocumentSourceType,
+  DocumentStatusType,
+  DocumentThumbnailType,
+  DocumentVersionStatus,
+  FolderContentType,
+  LanguageCodeType,
+  LocaleType,
+  OrderByFieldType,
+  OrderType,
+  PrincipalRoleType,
+  PrincipalType,
+  ResourceCollectionType,
+  ResourceSortType,
+  ResourceStateType,
+  ResourceType,
+  ResponseItemType,
+  RolePermissionType,
+  RoleType,
+  SearchCollectionType,
+  SearchQueryScopeType,
+  SearchResourceType,
+  ShareStatusType,
+  SortOrder,
+  StorageType,
+  SubscriptionProtocolType,
+  SubscriptionType,
+  UserFilterType,
+  UserSortType,
+  UserStatusType,
+  UserType,
+} from "./enums";
 
 /**
  * @public
@@ -27,170 +62,6 @@ export interface AbortDocumentVersionUploadRequest {
 }
 
 /**
- * <p>The resource hierarchy is changing.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource does not exist.</p>
- * @public
- */
-export class EntityNotExistsException extends __BaseException {
-  readonly name: "EntityNotExistsException" = "EntityNotExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The IDs of the non-existent resources.</p>
-   * @public
-   */
-  EntityIds?: string[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityNotExistsException, __BaseException>) {
-    super({
-      name: "EntityNotExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityNotExistsException.prototype);
-    this.Message = opts.Message;
-    this.EntityIds = opts.EntityIds;
-  }
-}
-
-/**
- * <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
- * @public
- */
-export class FailedDependencyException extends __BaseException {
-  readonly name: "FailedDependencyException" = "FailedDependencyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FailedDependencyException, __BaseException>) {
-    super({
-      name: "FailedDependencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FailedDependencyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified document version is not in the INITIALIZED state.</p>
- * @public
- */
-export class ProhibitedStateException extends __BaseException {
-  readonly name: "ProhibitedStateException" = "ProhibitedStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProhibitedStateException, __BaseException>) {
-    super({
-      name: "ProhibitedStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProhibitedStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more of the dependencies is unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation is not permitted.</p>
- * @public
- */
-export class UnauthorizedOperationException extends __BaseException {
-  readonly name: "UnauthorizedOperationException" = "UnauthorizedOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedOperationException, __BaseException>) {
-    super({
-      name: "UnauthorizedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedOperationException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The caller does not have access to perform the action on the resource.</p>
- * @public
- */
-export class UnauthorizedResourceAccessException extends __BaseException {
-  readonly name: "UnauthorizedResourceAccessException" = "UnauthorizedResourceAccessException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedResourceAccessException, __BaseException>) {
-    super({
-      name: "UnauthorizedResourceAccessException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedResourceAccessException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ActivateUserRequest {
@@ -206,58 +77,6 @@ export interface ActivateUserRequest {
    */
   AuthenticationToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LocaleType = {
-  DE: "de",
-  DEFAULT: "default",
-  EN: "en",
-  ES: "es",
-  FR: "fr",
-  JA: "ja",
-  KO: "ko",
-  PT_BR: "pt_BR",
-  RU: "ru",
-  ZH_CN: "zh_CN",
-  ZH_TW: "zh_TW",
-} as const;
-
-/**
- * @public
- */
-export type LocaleType = (typeof LocaleType)[keyof typeof LocaleType];
-
-/**
- * @public
- * @enum
- */
-export const UserStatusType = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type UserStatusType = (typeof UserStatusType)[keyof typeof UserStatusType];
-
-/**
- * @public
- * @enum
- */
-export const StorageType = {
-  QUOTA: "QUOTA",
-  UNLIMITED: "UNLIMITED",
-} as const;
-
-/**
- * @public
- */
-export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
  * <p>Describes the storage for a user.</p>
@@ -294,23 +113,6 @@ export interface UserStorageMetadata {
    */
   StorageRule?: StorageRuleType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserType = {
-  ADMIN: "ADMIN",
-  MINIMALUSER: "MINIMALUSER",
-  POWERUSER: "POWERUSER",
-  USER: "USER",
-  WORKSPACESUSER: "WORKSPACESUSER",
-} as const;
-
-/**
- * @public
- */
-export type UserType = (typeof UserType)[keyof typeof UserType];
 
 /**
  * <p>Describes a user.</p>
@@ -420,21 +222,6 @@ export interface ActivateUserResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const CommentStatusType = {
-  DELETED: "DELETED",
-  DRAFT: "DRAFT",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type CommentStatusType = (typeof CommentStatusType)[keyof typeof CommentStatusType];
-
-/**
  * <p>Describes the metadata of a comment.</p>
  * @public
  */
@@ -511,20 +298,6 @@ export interface UserMetadata {
    */
   EmailAddress?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  DOCUMENT: "DOCUMENT",
-  FOLDER: "FOLDER",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * <p>Describes the metadata of a resource.</p>
@@ -612,51 +385,6 @@ export interface Participants {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActivityType = {
-  DOCUMENT_ANNOTATION_ADDED: "DOCUMENT_ANNOTATION_ADDED",
-  DOCUMENT_ANNOTATION_DELETED: "DOCUMENT_ANNOTATION_DELETED",
-  DOCUMENT_CHECKED_IN: "DOCUMENT_CHECKED_IN",
-  DOCUMENT_CHECKED_OUT: "DOCUMENT_CHECKED_OUT",
-  DOCUMENT_COMMENT_ADDED: "DOCUMENT_COMMENT_ADDED",
-  DOCUMENT_COMMENT_DELETED: "DOCUMENT_COMMENT_DELETED",
-  DOCUMENT_MOVED: "DOCUMENT_MOVED",
-  DOCUMENT_RECYCLED: "DOCUMENT_RECYCLED",
-  DOCUMENT_RENAMED: "DOCUMENT_RENAMED",
-  DOCUMENT_RESTORED: "DOCUMENT_RESTORED",
-  DOCUMENT_REVERTED: "DOCUMENT_REVERTED",
-  DOCUMENT_SHAREABLE_LINK_CREATED: "DOCUMENT_SHAREABLE_LINK_CREATED",
-  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED: "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
-  DOCUMENT_SHAREABLE_LINK_REMOVED: "DOCUMENT_SHAREABLE_LINK_REMOVED",
-  DOCUMENT_SHARED: "DOCUMENT_SHARED",
-  DOCUMENT_SHARE_PERMISSION_CHANGED: "DOCUMENT_SHARE_PERMISSION_CHANGED",
-  DOCUMENT_UNSHARED: "DOCUMENT_UNSHARED",
-  DOCUMENT_VERSION_DELETED: "DOCUMENT_VERSION_DELETED",
-  DOCUMENT_VERSION_DOWNLOADED: "DOCUMENT_VERSION_DOWNLOADED",
-  DOCUMENT_VERSION_UPLOADED: "DOCUMENT_VERSION_UPLOADED",
-  DOCUMENT_VERSION_VIEWED: "DOCUMENT_VERSION_VIEWED",
-  FOLDER_CREATED: "FOLDER_CREATED",
-  FOLDER_DELETED: "FOLDER_DELETED",
-  FOLDER_MOVED: "FOLDER_MOVED",
-  FOLDER_RECYCLED: "FOLDER_RECYCLED",
-  FOLDER_RENAMED: "FOLDER_RENAMED",
-  FOLDER_RESTORED: "FOLDER_RESTORED",
-  FOLDER_SHAREABLE_LINK_CREATED: "FOLDER_SHAREABLE_LINK_CREATED",
-  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED: "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
-  FOLDER_SHAREABLE_LINK_REMOVED: "FOLDER_SHAREABLE_LINK_REMOVED",
-  FOLDER_SHARED: "FOLDER_SHARED",
-  FOLDER_SHARE_PERMISSION_CHANGED: "FOLDER_SHARE_PERMISSION_CHANGED",
-  FOLDER_UNSHARED: "FOLDER_UNSHARED",
-} as const;
-
-/**
- * @public
- */
-export type ActivityType = (typeof ActivityType)[keyof typeof ActivityType];
-
-/**
  * <p>Describes the activity information.</p>
  * @public
  */
@@ -724,20 +452,6 @@ export interface Activity {
 }
 
 /**
- * @public
- * @enum
- */
-export const AdditionalResponseFieldType = {
-  WEBURL: "WEBURL",
-} as const;
-
-/**
- * @public
- */
-export type AdditionalResponseFieldType =
-  (typeof AdditionalResponseFieldType)[keyof typeof AdditionalResponseFieldType];
-
-/**
  * <p>Set of options which defines notification preferences of given action.</p>
  * @public
  */
@@ -755,39 +469,6 @@ export interface NotificationOptions {
    */
   EmailMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RoleType = {
-  CONTRIBUTOR: "CONTRIBUTOR",
-  COOWNER: "COOWNER",
-  OWNER: "OWNER",
-  VIEWER: "VIEWER",
-} as const;
-
-/**
- * @public
- */
-export type RoleType = (typeof RoleType)[keyof typeof RoleType];
-
-/**
- * @public
- * @enum
- */
-export const PrincipalType = {
-  ANONYMOUS: "ANONYMOUS",
-  GROUP: "GROUP",
-  INVITE: "INVITE",
-  ORGANIZATION: "ORGANIZATION",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * <p>Describes the recipient type and ID, if available.</p>
@@ -843,20 +524,6 @@ export interface AddResourcePermissionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ShareStatusType = {
-  FAILURE: "FAILURE",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ShareStatusType = (typeof ShareStatusType)[keyof typeof ShareStatusType];
-
-/**
  * <p>Describes the share results of a resource.</p>
  * @public
  */
@@ -908,20 +575,6 @@ export interface AddResourcePermissionsResponse {
    */
   ShareResults?: ShareResult[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CommentVisibilityType = {
-  PRIVATE: "PRIVATE",
-  PUBLIC: "PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type CommentVisibilityType = (typeof CommentVisibilityType)[keyof typeof CommentVisibilityType];
 
 /**
  * @public
@@ -1054,51 +707,6 @@ export interface CreateCommentResponse {
 }
 
 /**
- * <p>This exception is thrown when the document is locked for comments and user tries to
- *             create or delete a comment on that document.</p>
- * @public
- */
-export class DocumentLockedForCommentsException extends __BaseException {
-  readonly name: "DocumentLockedForCommentsException" = "DocumentLockedForCommentsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DocumentLockedForCommentsException, __BaseException>) {
-    super({
-      name: "DocumentLockedForCommentsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DocumentLockedForCommentsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested operation is not allowed on the specified comment object.</p>
- * @public
- */
-export class InvalidCommentOperationException extends __BaseException {
-  readonly name: "InvalidCommentOperationException" = "InvalidCommentOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCommentOperationException, __BaseException>) {
-    super({
-      name: "InvalidCommentOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCommentOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateCustomMetadataRequest {
@@ -1134,51 +742,6 @@ export interface CreateCustomMetadataRequest {
 export interface CreateCustomMetadataResponse {}
 
 /**
- * <p>The limit has been reached on the number of custom properties for the specified
- *             resource.</p>
- * @public
- */
-export class CustomMetadataLimitExceededException extends __BaseException {
-  readonly name: "CustomMetadataLimitExceededException" = "CustomMetadataLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomMetadataLimitExceededException, __BaseException>) {
-    super({
-      name: "CustomMetadataLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomMetadataLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
- * @public
- */
-export class ConflictingOperationException extends __BaseException {
-  readonly name: "ConflictingOperationException" = "ConflictingOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictingOperationException, __BaseException>) {
-    super({
-      name: "ConflictingOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictingOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateFolderRequest {
@@ -1200,22 +763,6 @@ export interface CreateFolderRequest {
    */
   ParentFolderId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceStateType = {
-  ACTIVE: "ACTIVE",
-  RECYCLED: "RECYCLED",
-  RECYCLING: "RECYCLING",
-  RESTORING: "RESTORING",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStateType = (typeof ResourceStateType)[keyof typeof ResourceStateType];
 
 /**
  * <p>Describes a folder.</p>
@@ -1302,50 +849,6 @@ export interface CreateFolderResponse {
 }
 
 /**
- * <p>The resource already exists.</p>
- * @public
- */
-export class EntityAlreadyExistsException extends __BaseException {
-  readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
-    super({
-      name: "EntityAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateLabelsRequest {
@@ -1372,56 +875,6 @@ export interface CreateLabelsRequest {
  * @public
  */
 export interface CreateLabelsResponse {}
-
-/**
- * <p>The limit has been reached on the number of labels for the specified
- *             resource.</p>
- * @public
- */
-export class TooManyLabelsException extends __BaseException {
-  readonly name: "TooManyLabelsException" = "TooManyLabelsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyLabelsException, __BaseException>) {
-    super({
-      name: "TooManyLabelsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyLabelsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionProtocolType = {
-  HTTPS: "HTTPS",
-  SQS: "SQS",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionProtocolType = (typeof SubscriptionProtocolType)[keyof typeof SubscriptionProtocolType];
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionType = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
  * @public
@@ -1487,51 +940,6 @@ export interface CreateNotificationSubscriptionResponse {
    * @public
    */
   Subscription?: Subscription | undefined;
-}
-
-/**
- * <p>The pagination marker or limit fields are not valid.</p>
- * @public
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of subscriptions for the WorkDocs
- *             instance.</p>
- * @public
- */
-export class TooManySubscriptionsException extends __BaseException {
-  readonly name: "TooManySubscriptionsException" = "TooManySubscriptionsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManySubscriptionsException, __BaseException>) {
-    super({
-      name: "TooManySubscriptionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManySubscriptionsException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1736,28 +1144,6 @@ export interface DeleteDocumentVersionRequest {
    * @public
    */
   DeletePriorVersions: boolean | undefined;
-}
-
-/**
- * <p>The operation is invalid.</p>
- * @public
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2053,49 +1439,6 @@ export interface DescribeDocumentVersionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DocumentSourceType = {
-  ORIGINAL: "ORIGINAL",
-  WITH_COMMENTS: "WITH_COMMENTS",
-} as const;
-
-/**
- * @public
- */
-export type DocumentSourceType = (typeof DocumentSourceType)[keyof typeof DocumentSourceType];
-
-/**
- * @public
- * @enum
- */
-export const DocumentStatusType = {
-  ACTIVE: "ACTIVE",
-  INITIALIZED: "INITIALIZED",
-} as const;
-
-/**
- * @public
- */
-export type DocumentStatusType = (typeof DocumentStatusType)[keyof typeof DocumentStatusType];
-
-/**
- * @public
- * @enum
- */
-export const DocumentThumbnailType = {
-  LARGE: "LARGE",
-  SMALL: "SMALL",
-  SMALL_HQ: "SMALL_HQ",
-} as const;
-
-/**
- * @public
- */
-export type DocumentThumbnailType = (typeof DocumentThumbnailType)[keyof typeof DocumentThumbnailType];
-
-/**
  * <p>Describes a version of a document.</p>
  * @public
  */
@@ -2196,71 +1539,6 @@ export interface DescribeDocumentVersionsResponse {
    */
   Marker?: string | undefined;
 }
-
-/**
- * <p>The password is invalid.</p>
- * @public
- */
-export class InvalidPasswordException extends __BaseException {
-  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
-    super({
-      name: "InvalidPasswordException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const OrderType = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type OrderType = (typeof OrderType)[keyof typeof OrderType];
-
-/**
- * @public
- * @enum
- */
-export const ResourceSortType = {
-  DATE: "DATE",
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type ResourceSortType = (typeof ResourceSortType)[keyof typeof ResourceSortType];
-
-/**
- * @public
- * @enum
- */
-export const FolderContentType = {
-  ALL: "ALL",
-  DOCUMENT: "DOCUMENT",
-  FOLDER: "FOLDER",
-} as const;
-
-/**
- * @public
- */
-export type FolderContentType = (typeof FolderContentType)[keyof typeof FolderContentType];
 
 /**
  * @public
@@ -2528,20 +1806,6 @@ export interface DescribeResourcePermissionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const RolePermissionType = {
-  DIRECT: "DIRECT",
-  INHERITED: "INHERITED",
-} as const;
-
-/**
- * @public
- */
-export type RolePermissionType = (typeof RolePermissionType)[keyof typeof RolePermissionType];
-
-/**
  * <p>Describes the permissions.</p>
  * @public
  */
@@ -2641,37 +1905,6 @@ export interface DescribeRootFoldersResponse {
    */
   Marker?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserFilterType = {
-  ACTIVE_PENDING: "ACTIVE_PENDING",
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type UserFilterType = (typeof UserFilterType)[keyof typeof UserFilterType];
-
-/**
- * @public
- * @enum
- */
-export const UserSortType = {
-  FULL_NAME: "FULL_NAME",
-  STORAGE_LIMIT: "STORAGE_LIMIT",
-  STORAGE_USED: "STORAGE_USED",
-  USER_NAME: "USER_NAME",
-  USER_STATUS: "USER_STATUS",
-} as const;
-
-/**
- * @public
- */
-export type UserSortType = (typeof UserSortType)[keyof typeof UserSortType];
 
 /**
  * @public
@@ -2781,28 +2014,6 @@ export interface DescribeUsersResponse {
    * @public
    */
   Marker?: string | undefined;
-}
-
-/**
- * <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
- * @public
- */
-export class RequestedEntityTooLargeException extends __BaseException {
-  readonly name: "RequestedEntityTooLargeException" = "RequestedEntityTooLargeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestedEntityTooLargeException, __BaseException>) {
-    super({
-      name: "RequestedEntityTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestedEntityTooLargeException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3086,19 +2297,6 @@ export interface GetFolderPathResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceCollectionType = {
-  SHARED_WITH_ME: "SHARED_WITH_ME",
-} as const;
-
-/**
- * @public
- */
-export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeof ResourceCollectionType];
-
-/**
- * @public
  */
 export interface GetResourcesRequest {
   /**
@@ -3154,29 +2352,6 @@ export interface GetResourcesResponse {
    * @public
    */
   Marker?: string | undefined;
-}
-
-/**
- * <p>This exception is thrown when a valid checkout ID is not presented on document
- *             version upload calls for a document that has been checked out from Web client.</p>
- * @public
- */
-export class DraftUploadOutOfSyncException extends __BaseException {
-  readonly name: "DraftUploadOutOfSyncException" = "DraftUploadOutOfSyncException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DraftUploadOutOfSyncException, __BaseException>) {
-    super({
-      name: "DraftUploadOutOfSyncException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DraftUploadOutOfSyncException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3268,72 +2443,6 @@ export interface InitiateDocumentVersionUploadResponse {
 }
 
 /**
- * <p>The resource is already checked out.</p>
- * @public
- */
-export class ResourceAlreadyCheckedOutException extends __BaseException {
-  readonly name: "ResourceAlreadyCheckedOutException" = "ResourceAlreadyCheckedOutException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyCheckedOutException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyCheckedOutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyCheckedOutException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The storage limit has been exceeded.</p>
- * @public
- */
-export class StorageLimitExceededException extends __BaseException {
-  readonly name: "StorageLimitExceededException" = "StorageLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StorageLimitExceededException, __BaseException>) {
-    super({
-      name: "StorageLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StorageLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The storage limit will be exceeded.</p>
- * @public
- */
-export class StorageLimitWillExceedException extends __BaseException {
-  readonly name: "StorageLimitWillExceedException" = "StorageLimitWillExceedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StorageLimitWillExceedException, __BaseException>) {
-    super({
-      name: "StorageLimitWillExceedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StorageLimitWillExceedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface RemoveAllResourcePermissionsRequest {
@@ -3397,27 +2506,6 @@ export interface RestoreDocumentVersionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContentCategoryType = {
-  AUDIO: "AUDIO",
-  DOCUMENT: "DOCUMENT",
-  IMAGE: "IMAGE",
-  OTHER: "OTHER",
-  PDF: "PDF",
-  PRESENTATION: "PRESENTATION",
-  SOURCE_CODE: "SOURCE_CODE",
-  SPREADSHEET: "SPREADSHEET",
-  VIDEO: "VIDEO",
-} as const;
-
-/**
- * @public
- */
-export type ContentCategoryType = (typeof ContentCategoryType)[keyof typeof ContentCategoryType];
-
-/**
  * <p>Filters results based on timestamp range (in epochs).</p>
  * @public
  */
@@ -3434,22 +2522,6 @@ export interface DateRangeType {
    */
   EndValue?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PrincipalRoleType = {
-  CONTRIBUTOR: "CONTRIBUTOR",
-  COOWNER: "COOWNER",
-  OWNER: "OWNER",
-  VIEWER: "VIEWER",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalRoleType = (typeof PrincipalRoleType)[keyof typeof PrincipalRoleType];
 
 /**
  * <p>Filter based on UserIds or GroupIds.</p>
@@ -3470,36 +2542,6 @@ export interface SearchPrincipalType {
 }
 
 /**
- * @public
- * @enum
- */
-export const SearchResourceType = {
-  COMMENT: "COMMENT",
-  DOCUMENT: "DOCUMENT",
-  DOCUMENT_VERSION: "DOCUMENT_VERSION",
-  FOLDER: "FOLDER",
-} as const;
-
-/**
- * @public
- */
-export type SearchResourceType = (typeof SearchResourceType)[keyof typeof SearchResourceType];
-
-/**
- * @public
- * @enum
- */
-export const SearchCollectionType = {
-  OWNED: "OWNED",
-  SHARED_WITH_ME: "SHARED_WITH_ME",
-} as const;
-
-/**
- * @public
- */
-export type SearchCollectionType = (typeof SearchCollectionType)[keyof typeof SearchCollectionType];
-
-/**
  * <p>Filter based on size (in bytes).</p>
  * @public
  */
@@ -3516,49 +2558,6 @@ export interface LongRangeType {
    */
   EndValue?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LanguageCodeType = {
-  AR: "AR",
-  BG: "BG",
-  BN: "BN",
-  CS: "CS",
-  DA: "DA",
-  DE: "DE",
-  DEFAULT: "DEFAULT",
-  EL: "EL",
-  EN: "EN",
-  ES: "ES",
-  FA: "FA",
-  FI: "FI",
-  FR: "FR",
-  HI: "HI",
-  HU: "HU",
-  ID: "ID",
-  IT: "IT",
-  JA: "JA",
-  KO: "KO",
-  LT: "LT",
-  LV: "LV",
-  NL: "NL",
-  NO: "NO",
-  PT: "PT",
-  RO: "RO",
-  RU: "RU",
-  SV: "SV",
-  SW: "SW",
-  TH: "TH",
-  TR: "TR",
-  ZH: "ZH",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCodeType = (typeof LanguageCodeType)[keyof typeof LanguageCodeType];
 
 /**
  * <p>Filters results based on entity metadata.</p>
@@ -3627,37 +2626,6 @@ export interface Filters {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrderByFieldType = {
-  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
-  MODIFIED_TIMESTAMP: "MODIFIED_TIMESTAMP",
-  NAME: "NAME",
-  RELEVANCE: "RELEVANCE",
-  SIZE: "SIZE",
-} as const;
-
-/**
- * @public
- */
-export type OrderByFieldType = (typeof OrderByFieldType)[keyof typeof OrderByFieldType];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
  * <p>The result of the sort operation.</p>
  * @public
  */
@@ -3674,20 +2642,6 @@ export interface SearchSortResult {
    */
   Order?: SortOrder | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SearchQueryScopeType = {
-  CONTENT: "CONTENT",
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type SearchQueryScopeType = (typeof SearchQueryScopeType)[keyof typeof SearchQueryScopeType];
 
 /**
  * @public
@@ -3748,22 +2702,6 @@ export interface SearchResourcesRequest {
    */
   Marker?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResponseItemType = {
-  COMMENT: "COMMENT",
-  DOCUMENT: "DOCUMENT",
-  DOCUMENT_VERSION: "DOCUMENT_VERSION",
-  FOLDER: "FOLDER",
-} as const;
-
-/**
- * @public
- */
-export type ResponseItemType = (typeof ResponseItemType)[keyof typeof ResponseItemType];
 
 /**
  * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
@@ -3862,19 +2800,6 @@ export interface UpdateDocumentRequest {
 
 /**
  * @public
- * @enum
- */
-export const DocumentVersionStatus = {
-  ACTIVE: "ACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type DocumentVersionStatus = (typeof DocumentVersionStatus)[keyof typeof DocumentVersionStatus];
-
-/**
- * @public
  */
 export interface UpdateDocumentVersionRequest {
   /**
@@ -3937,66 +2862,6 @@ export interface UpdateFolderRequest {
    */
   ResourceState?: ResourceStateType | undefined;
 }
-
-/**
- * <p>The last user in the organization is being deactivated.</p>
- * @public
- */
-export class DeactivatingLastSystemUserException extends __BaseException {
-  readonly name: "DeactivatingLastSystemUserException" = "DeactivatingLastSystemUserException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeactivatingLastSystemUserException, __BaseException>) {
-    super({
-      name: "DeactivatingLastSystemUserException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeactivatingLastSystemUserException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The user is undergoing transfer of ownership.</p>
- * @public
- */
-export class IllegalUserStateException extends __BaseException {
-  readonly name: "IllegalUserStateException" = "IllegalUserStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalUserStateException, __BaseException>) {
-    super({
-      name: "IllegalUserStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalUserStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const BooleanEnumType = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-} as const;
-
-/**
- * @public
- */
-export type BooleanEnumType = (typeof BooleanEnumType)[keyof typeof BooleanEnumType];
 
 /**
  * @public

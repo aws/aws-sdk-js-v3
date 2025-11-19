@@ -1200,7 +1200,7 @@ import {
   RegionSetupInProgressException as __RegionSetupInProgressException,
   ServiceException as __ServiceException,
   UnauthenticatedException as __UnauthenticatedException,
-} from "../models/index";
+} from "../models/errors";
 import { LightsailServiceException as __LightsailServiceException } from "../models/LightsailServiceException";
 
 /* eslint no-var: 0 */

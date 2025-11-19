@@ -618,7 +618,7 @@ import {
   UnableToRollbackStageException as __UnableToRollbackStageException,
   ValidationException as __ValidationException,
   WebhookNotFoundException as __WebhookNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

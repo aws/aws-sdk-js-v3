@@ -1,21 +1,38 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BatchServiceException as __BaseException } from "./BatchServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ArrayJobDependency = {
-  N_TO_N: "N_TO_N",
-  SEQUENTIAL: "SEQUENTIAL",
-} as const;
-
-/**
- * @public
- */
-export type ArrayJobDependency = (typeof ArrayJobDependency)[keyof typeof ArrayJobDependency];
+import {
+  ArrayJobDependency,
+  AssignPublicIp,
+  CEState,
+  CEStatus,
+  CEType,
+  CRAllocationStrategy,
+  CRType,
+  CRUpdateAllocationStrategy,
+  DeviceCgroupPermission,
+  EFSAuthorizationConfigIAM,
+  EFSTransitEncryption,
+  FirelensConfigurationType,
+  JobDefinitionType,
+  JobQueueType,
+  JobStateTimeLimitActionsAction,
+  JobStateTimeLimitActionsState,
+  JobStatus,
+  JQState,
+  JQStatus,
+  LogDriver,
+  OrchestrationType,
+  PlatformCapability,
+  ResourceType,
+  RetryAction,
+  ServiceEnvironmentState,
+  ServiceEnvironmentStatus,
+  ServiceEnvironmentType,
+  ServiceJobRetryAction,
+  ServiceJobStatus,
+  ServiceJobType,
+  ServiceResourceIdName,
+  UserdataType,
+} from "./enums";
 
 /**
  * <p>An object that represents an Batch array job.</p>
@@ -73,20 +90,6 @@ export interface ArrayPropertiesSummary {
    */
   index?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssignPublicIp = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
 
 /**
  * <p>An object that represents the elastic network interface for a multi-node parallel job
@@ -290,64 +293,6 @@ export interface CancelJobRequest {
 export interface CancelJobResponse {}
 
 /**
- * <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
- * @public
- */
-export class ClientException extends __BaseException {
-  readonly name: "ClientException" = "ClientException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
-    super({
-      name: "ClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClientException.prototype);
-  }
-}
-
-/**
- * <p>These errors are usually caused by a server issue.</p>
- * @public
- */
-export class ServerException extends __BaseException {
-  readonly name: "ServerException" = "ServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
-    super({
-      name: "ServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CRAllocationStrategy = {
-  BEST_FIT: "BEST_FIT",
-  BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
-  SPOT_PRICE_CAPACITY_OPTIMIZED: "SPOT_PRICE_CAPACITY_OPTIMIZED",
-} as const;
-
-/**
- * @public
- */
-export type CRAllocationStrategy = (typeof CRAllocationStrategy)[keyof typeof CRAllocationStrategy];
-
-/**
  * <p>Provides information used to select Amazon Machine Images (AMIs) for instances in the
  *    compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
  *     <code>ECS_AL2</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux 2</a>).</p>
@@ -485,20 +430,6 @@ export interface Ec2Configuration {
    */
   imageKubernetesVersion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserdataType = {
-  EKS_BOOTSTRAP_SH: "EKS_BOOTSTRAP_SH",
-  EKS_NODEADM: "EKS_NODEADM",
-} as const;
-
-/**
- * @public
- */
-export type UserdataType = (typeof UserdataType)[keyof typeof UserdataType];
 
 /**
  * <p>An object that represents a launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not
@@ -661,22 +592,6 @@ export interface LaunchTemplateSpecification {
    */
   userdataType?: UserdataType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CRType = {
-  EC2: "EC2",
-  FARGATE: "FARGATE",
-  FARGATE_SPOT: "FARGATE_SPOT",
-  SPOT: "SPOT",
-} as const;
-
-/**
- * @public
- */
-export type CRType = (typeof CRType)[keyof typeof CRType];
 
 /**
  * <p>An object that represents an Batch compute resource. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in
@@ -1034,34 +949,6 @@ export interface EksConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CEState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CEState = (typeof CEState)[keyof typeof CEState];
-
-/**
- * @public
- * @enum
- */
-export const CEType = {
-  MANAGED: "MANAGED",
-  UNMANAGED: "UNMANAGED",
-} as const;
-
-/**
- * @public
- */
-export type CEType = (typeof CEType)[keyof typeof CEType];
-
-/**
  * <p>Contains the parameters for <code>CreateComputeEnvironment</code>.</p>
  * @public
  */
@@ -1289,51 +1176,6 @@ export interface ComputeEnvironmentOrder {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobQueueType = {
-  ECS: "ECS",
-  ECS_FARGATE: "ECS_FARGATE",
-  EKS: "EKS",
-  SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type JobQueueType = (typeof JobQueueType)[keyof typeof JobQueueType];
-
-/**
- * @public
- * @enum
- */
-export const JobStateTimeLimitActionsAction = {
-  CANCEL: "CANCEL",
-  TERMINATE: "TERMINATE",
-} as const;
-
-/**
- * @public
- */
-export type JobStateTimeLimitActionsAction =
-  (typeof JobStateTimeLimitActionsAction)[keyof typeof JobStateTimeLimitActionsAction];
-
-/**
- * @public
- * @enum
- */
-export const JobStateTimeLimitActionsState = {
-  RUNNABLE: "RUNNABLE",
-} as const;
-
-/**
- * @public
- */
-export type JobStateTimeLimitActionsState =
-  (typeof JobStateTimeLimitActionsState)[keyof typeof JobStateTimeLimitActionsState];
-
-/**
  * <p>Specifies an action that Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.</p>
  * @public
  */
@@ -1382,20 +1224,6 @@ export interface ServiceEnvironmentOrder {
    */
   serviceEnvironment: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JQState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type JQState = (typeof JQState)[keyof typeof JQState];
 
 /**
  * <p>Contains the parameters for <code>CreateJobQueue</code>.</p>
@@ -1652,33 +1480,6 @@ export interface CapacityLimit {
 
 /**
  * @public
- * @enum
- */
-export const ServiceEnvironmentType = {
-  SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type ServiceEnvironmentType = (typeof ServiceEnvironmentType)[keyof typeof ServiceEnvironmentType];
-
-/**
- * @public
- * @enum
- */
-export const ServiceEnvironmentState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ServiceEnvironmentState = (typeof ServiceEnvironmentState)[keyof typeof ServiceEnvironmentState];
-
-/**
- * @public
  */
 export interface CreateServiceEnvironmentRequest {
   /**
@@ -1868,38 +1669,6 @@ export interface DescribeComputeEnvironmentsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OrchestrationType = {
-  ECS: "ECS",
-  EKS: "EKS",
-} as const;
-
-/**
- * @public
- */
-export type OrchestrationType = (typeof OrchestrationType)[keyof typeof OrchestrationType];
-
-/**
- * @public
- * @enum
- */
-export const CEStatus = {
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  INVALID: "INVALID",
-  UPDATING: "UPDATING",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type CEStatus = (typeof CEStatus)[keyof typeof CEStatus];
 
 /**
  * <p>Specifies the infrastructure update policy for the Amazon EC2 compute environment. For more information
@@ -2292,21 +2061,6 @@ export interface FargatePlatformConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeviceCgroupPermission = {
-  MKNOD: "MKNOD",
-  READ: "READ",
-  WRITE: "WRITE",
-} as const;
-
-/**
- * @public
- */
-export type DeviceCgroupPermission = (typeof DeviceCgroupPermission)[keyof typeof DeviceCgroupPermission];
-
-/**
  * <p>An object that represents a container instance host device.</p>
  *          <note>
  *             <p>This object isn't applicable to jobs that are running on Fargate resources and shouldn't
@@ -2489,26 +2243,6 @@ export interface LinuxParameters {
    */
   swappiness?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogDriver = {
-  AWSFIRELENS: "awsfirelens",
-  AWSLOGS: "awslogs",
-  FLUENTD: "fluentd",
-  GELF: "gelf",
-  JOURNALD: "journald",
-  JSON_FILE: "json-file",
-  SPLUNK: "splunk",
-  SYSLOG: "syslog",
-} as const;
-
-/**
- * @public
- */
-export type LogDriver = (typeof LogDriver)[keyof typeof LogDriver];
 
 /**
  * <p>An object that represents the secret to expose to your container. Secrets can be exposed to
@@ -2702,21 +2436,6 @@ export interface RepositoryCredentials {
    */
   credentialsParameter: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  GPU: "GPU",
-  MEMORY: "MEMORY",
-  VCPU: "VCPU",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * <p>The type and amount of a resource to assign to a container. The supported resources include
@@ -2980,20 +2699,6 @@ export interface Ulimit {
 }
 
 /**
- * @public
- * @enum
- */
-export const EFSAuthorizationConfigIAM = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EFSAuthorizationConfigIAM = (typeof EFSAuthorizationConfigIAM)[keyof typeof EFSAuthorizationConfigIAM];
-
-/**
  * <p>The authorization configuration details for the Amazon EFS file system.</p>
  * @public
  */
@@ -3021,20 +2726,6 @@ export interface EFSAuthorizationConfig {
    */
   iam?: EFSAuthorizationConfigIAM | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EFSTransitEncryption = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EFSTransitEncryption = (typeof EFSTransitEncryption)[keyof typeof EFSTransitEncryption];
 
 /**
  * <p>This is used when you're using an Amazon Elastic File System file system for job storage. For more
@@ -3468,20 +3159,6 @@ export interface TaskContainerDependency {
    */
   condition?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FirelensConfigurationType = {
-  FLUENTBIT: "fluentbit",
-  FLUENTD: "fluentd",
-} as const;
-
-/**
- * @public
- */
-export type FirelensConfigurationType = (typeof FirelensConfigurationType)[keyof typeof FirelensConfigurationType];
 
 /**
  * <p>The FireLens configuration for the container. This is used to specify and configure a
@@ -4617,34 +4294,6 @@ export interface NodeProperties {
 }
 
 /**
- * @public
- * @enum
- */
-export const PlatformCapability = {
-  EC2: "EC2",
-  FARGATE: "FARGATE",
-} as const;
-
-/**
- * @public
- */
-export type PlatformCapability = (typeof PlatformCapability)[keyof typeof PlatformCapability];
-
-/**
- * @public
- * @enum
- */
-export const RetryAction = {
-  EXIT: "EXIT",
-  RETRY: "RETRY",
-} as const;
-
-/**
- * @public
- */
-export type RetryAction = (typeof RetryAction)[keyof typeof RetryAction];
-
-/**
  * <p>Specifies an array of up to 5 conditions to be met, and an action to take
  *     (<code>RETRY</code> or <code>EXIT</code>) if all conditions are met. If none of the
  *     <code>EvaluateOnExit</code> conditions in a <code>RetryStrategy</code> match, then the job is
@@ -4935,24 +4584,6 @@ export interface DescribeJobQueuesRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JQStatus = {
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  INVALID: "INVALID",
-  UPDATING: "UPDATING",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type JQStatus = (typeof JQStatus)[keyof typeof JQStatus];
 
 /**
  * <p>An object that represents the details for an Batch job queue.</p>
@@ -6102,25 +5733,6 @@ export interface NodeDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNABLE: "RUNNABLE",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  SUBMITTED: "SUBMITTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
  * <p>An object that represents an Batch job.</p>
  * @public
  */
@@ -6452,24 +6064,6 @@ export interface DescribeServiceEnvironmentsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceEnvironmentStatus = {
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  INVALID: "INVALID",
-  UPDATING: "UPDATING",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type ServiceEnvironmentStatus = (typeof ServiceEnvironmentStatus)[keyof typeof ServiceEnvironmentStatus];
-
-/**
  * <p>Detailed information about a service environment, including its configuration, state, and capacity limits.</p>
  * @public
  */
@@ -6546,19 +6140,6 @@ export interface DescribeServiceJobRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceResourceIdName = {
-  SAGEMAKER_TRAINING_JOB_ARN: "TrainingJobArn",
-} as const;
-
-/**
- * @public
- */
-export type ServiceResourceIdName = (typeof ServiceResourceIdName)[keyof typeof ServiceResourceIdName];
-
-/**
  * <p>The Batch unique identifier.</p>
  * @public
  */
@@ -6619,20 +6200,6 @@ export interface LatestServiceJobAttempt {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceJobRetryAction = {
-  EXIT: "EXIT",
-  RETRY: "RETRY",
-} as const;
-
-/**
- * @public
- */
-export type ServiceJobRetryAction = (typeof ServiceJobRetryAction)[keyof typeof ServiceJobRetryAction];
-
-/**
  * <p>Specifies conditions for when to exit or retry a service job based on the exit status or status reason.</p>
  * @public
  */
@@ -6667,39 +6234,6 @@ export interface ServiceJobRetryStrategy {
    */
   evaluateOnExit?: ServiceJobEvaluateOnExit[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceJobType = {
-  SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type ServiceJobType = (typeof ServiceJobType)[keyof typeof ServiceJobType];
-
-/**
- * @public
- * @enum
- */
-export const ServiceJobStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNABLE: "RUNNABLE",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  STARTING: "STARTING",
-  SUBMITTED: "SUBMITTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ServiceJobStatus = (typeof ServiceJobStatus)[keyof typeof ServiceJobStatus];
 
 /**
  * <p>The timeout configuration for service jobs. </p>
@@ -7737,20 +7271,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobDefinitionType = {
-  Container: "container",
-  Multinode: "multinode",
-} as const;
-
-/**
- * @public
- */
-export type JobDefinitionType = (typeof JobDefinitionType)[keyof typeof JobDefinitionType];
-
-/**
  * <p>Contains the parameters for <code>RegisterJobDefinition</code>.</p>
  * @public
  */
@@ -8636,21 +8156,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @public
- * @enum
- */
-export const CRUpdateAllocationStrategy = {
-  BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
-  SPOT_PRICE_CAPACITY_OPTIMIZED: "SPOT_PRICE_CAPACITY_OPTIMIZED",
-} as const;
-
-/**
- * @public
- */
-export type CRUpdateAllocationStrategy = (typeof CRUpdateAllocationStrategy)[keyof typeof CRUpdateAllocationStrategy];
 
 /**
  * <p>An object that represents the attributes of a compute environment that can be updated. For

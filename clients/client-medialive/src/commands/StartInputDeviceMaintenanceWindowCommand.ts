@@ -8,7 +8,7 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   StartInputDeviceMaintenanceWindowRequest,
   StartInputDeviceMaintenanceWindowResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import { StartInputDeviceMaintenanceWindow } from "../schemas/schemas_0";
 
 /**

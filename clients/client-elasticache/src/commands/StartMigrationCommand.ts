@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartMigrationMessage, StartMigrationResponse } from "../models/models_1";
+import { StartMigrationMessage, StartMigrationResponse } from "../models/models_0";
 import { StartMigration } from "../schemas/schemas_0";
 
 /**

@@ -5,10 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutModelInvocationLoggingConfigurationRequest,
-  PutModelInvocationLoggingConfigurationResponse,
-} from "../models/models_1";
+import { PutModelInvocationLoggingConfigurationRequest } from "../models/models_0";
+import { PutModelInvocationLoggingConfigurationResponse } from "../models/models_1";
 import { PutModelInvocationLoggingConfiguration } from "../schemas/schemas_0";
 
 /**

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
-} from "../models/models_7";
+} from "../models/models_6";
 import { GetVpnConnectionDeviceSampleConfiguration } from "../schemas/schemas_0";
 
 /**

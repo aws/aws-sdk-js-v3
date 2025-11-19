@@ -8,7 +8,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ListRelatedResourcesForAuditFindingRequest,
   ListRelatedResourcesForAuditFindingResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import { ListRelatedResourcesForAuditFinding } from "../schemas/schemas_0";
 
 /**

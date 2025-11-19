@@ -119,7 +119,6 @@ const n0 = "com.amazonaws.healthlake";
 import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { HealthLakeServiceException as __HealthLakeServiceException } from "../models/HealthLakeServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -127,7 +126,8 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { HealthLakeServiceException as __HealthLakeServiceException } from "../models/HealthLakeServiceException";
 
 /* eslint no-var: 0 */
 

@@ -1,40 +1,13 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CloudSearchServiceException as __BaseException } from "./CloudSearchServiceException";
-
-/**
- * <p>An error occurred while processing the request.</p>
- * @public
- */
-export class BaseException extends __BaseException {
-  readonly name: "BaseException" = "BaseException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
-    super({
-      name: "BaseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BaseException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
+import {
+  AlgorithmicStemming,
+  AnalysisSchemeLanguage,
+  IndexFieldType,
+  OptionState,
+  PartitionInstanceType,
+  SuggesterFuzzyMatching,
+  TLSSecurityPolicy,
+} from "./enums";
 
 /**
  * <p>Container for the parameters to the <code><a>BuildSuggester</a></code> operation. Specifies the name of the domain you want to update.</p>
@@ -58,106 +31,6 @@ export interface BuildSuggestersResponse {
    * @public
    */
   FieldNames?: string[] | undefined;
-}
-
-/**
- * <p>An internal error occurred while processing the request. If this problem persists,
- *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because it has invalid parameters.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -285,88 +158,6 @@ export interface CreateDomainResponse {
 }
 
 /**
- * <p>The request was rejected because a resource limit has already been met.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because it attempted to create a resource that already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AlgorithmicStemming = {
-  full: "full",
-  light: "light",
-  minimal: "minimal",
-  none: "none",
-} as const;
-
-/**
- * @public
- */
-export type AlgorithmicStemming = (typeof AlgorithmicStemming)[keyof typeof AlgorithmicStemming];
-
-/**
  * <p>Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.</p>
  * @public
  */
@@ -401,53 +192,6 @@ export interface AnalysisOptions {
    */
   AlgorithmicStemming?: AlgorithmicStemming | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnalysisSchemeLanguage = {
-  ar: "ar",
-  bg: "bg",
-  ca: "ca",
-  cs: "cs",
-  da: "da",
-  de: "de",
-  el: "el",
-  en: "en",
-  es: "es",
-  eu: "eu",
-  fa: "fa",
-  fi: "fi",
-  fr: "fr",
-  ga: "ga",
-  gl: "gl",
-  he: "he",
-  hi: "hi",
-  hu: "hu",
-  hy: "hy",
-  id: "id",
-  it: "it",
-  ja: "ja",
-  ko: "ko",
-  lv: "lv",
-  mul: "mul",
-  nl: "nl",
-  no: "no",
-  pt: "pt",
-  ro: "ro",
-  ru: "ru",
-  sv: "sv",
-  th: "th",
-  tr: "tr",
-  zh_Hans: "zh-Hans",
-  zh_Hant: "zh-Hant",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisSchemeLanguage = (typeof AnalysisSchemeLanguage)[keyof typeof AnalysisSchemeLanguage];
 
 /**
  * <p>Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.</p>
@@ -491,22 +235,6 @@ export interface DefineAnalysisSchemeRequest {
    */
   AnalysisScheme: AnalysisScheme | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OptionState = {
-  Active: "Active",
-  FailedToValidate: "FailedToValidate",
-  Processing: "Processing",
-  RequiresIndexDocuments: "RequiresIndexDocuments",
-} as const;
-
-/**
- * @public
- */
-export type OptionState = (typeof OptionState)[keyof typeof OptionState];
 
 /**
  * <p>The status of domain configuration option.</p>
@@ -577,39 +305,6 @@ export interface DefineAnalysisSchemeResponse {
    * @public
    */
   AnalysisScheme: AnalysisSchemeStatus | undefined;
-}
-
-/**
- * <p>The request was rejected because it specified an invalid type definition.</p>
- * @public
- */
-export class InvalidTypeException extends __BaseException {
-  readonly name: "InvalidTypeException" = "InvalidTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTypeException, __BaseException>) {
-    super({
-      name: "InvalidTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTypeException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -847,29 +542,6 @@ export interface DoubleOptions {
    */
   SortEnabled?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexFieldType = {
-  date: "date",
-  date_array: "date-array",
-  double: "double",
-  double_array: "double-array",
-  int: "int",
-  int_array: "int-array",
-  latlon: "latlon",
-  literal: "literal",
-  literal_array: "literal-array",
-  text: "text",
-  text_array: "text-array",
-} as const;
-
-/**
- * @public
- */
-export type IndexFieldType = (typeof IndexFieldType)[keyof typeof IndexFieldType];
 
 /**
  * <p>Options for a field that contains an array of 64-bit signed integers.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.</p>
@@ -1332,21 +1004,6 @@ export interface DefineIndexFieldResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SuggesterFuzzyMatching = {
-  high: "high",
-  low: "low",
-  none: "none",
-} as const;
-
-/**
- * @public
- */
-export type SuggesterFuzzyMatching = (typeof SuggesterFuzzyMatching)[keyof typeof SuggesterFuzzyMatching];
-
-/**
  * <p>Options for a search suggester.</p>
  * @public
  */
@@ -1672,39 +1329,6 @@ export interface DescribeAvailabilityOptionsResponse {
 }
 
 /**
- * <p>The request was rejected because it attempted an operation which is not enabled.</p>
- * @public
- */
-export class DisabledOperationException extends __BaseException {
-  readonly name: "DisabledOperationException" = "DisabledOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DisabledOperationException, __BaseException>) {
-    super({
-      name: "DisabledOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DisabledOperationException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Container for the parameters to the <code><a>DescribeDomainEndpointOptions</a></code> operation. Specify the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.</p>
  * @public
  */
@@ -1721,20 +1345,6 @@ export interface DescribeDomainEndpointOptionsRequest {
    */
   Deployed?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TLSSecurityPolicy = {
-  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
-} as const;
-
-/**
- * @public
- */
-export type TLSSecurityPolicy = (typeof TLSSecurityPolicy)[keyof typeof TLSSecurityPolicy];
 
 /**
  * <p>The domain's endpoint options.</p>
@@ -1892,35 +1502,6 @@ export interface DescribeScalingParametersRequest {
    */
   DomainName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PartitionInstanceType = {
-  search_2xlarge: "search.2xlarge",
-  search_large: "search.large",
-  search_m1_large: "search.m1.large",
-  search_m1_small: "search.m1.small",
-  search_m2_2xlarge: "search.m2.2xlarge",
-  search_m2_xlarge: "search.m2.xlarge",
-  search_m3_2xlarge: "search.m3.2xlarge",
-  search_m3_large: "search.m3.large",
-  search_m3_medium: "search.m3.medium",
-  search_m3_xlarge: "search.m3.xlarge",
-  search_medium: "search.medium",
-  search_previousgeneration_2xlarge: "search.previousgeneration.2xlarge",
-  search_previousgeneration_large: "search.previousgeneration.large",
-  search_previousgeneration_small: "search.previousgeneration.small",
-  search_previousgeneration_xlarge: "search.previousgeneration.xlarge",
-  search_small: "search.small",
-  search_xlarge: "search.xlarge",
-} as const;
-
-/**
- * @public
- */
-export type PartitionInstanceType = (typeof PartitionInstanceType)[keyof typeof PartitionInstanceType];
 
 /**
  * <p>The desired instance type and desired number of replicas of each index partition.</p>

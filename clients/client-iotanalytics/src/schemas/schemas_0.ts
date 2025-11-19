@@ -373,7 +373,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTAnalyticsServiceException as __IoTAnalyticsServiceException } from "../models/IoTAnalyticsServiceException";
 
 /* eslint no-var: 0 */

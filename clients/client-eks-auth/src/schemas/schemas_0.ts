@@ -56,7 +56,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

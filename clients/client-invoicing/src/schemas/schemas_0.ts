@@ -171,7 +171,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { InvoicingServiceException as __InvoicingServiceException } from "../models/InvoicingServiceException";
 
 /* eslint no-var: 0 */

@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreatePresignedMlflowTrackingServerUrlRequest,
   CreatePresignedMlflowTrackingServerUrlResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreatePresignedMlflowTrackingServerUrl } from "../schemas/schemas_0";
 

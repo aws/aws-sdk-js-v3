@@ -164,7 +164,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { IdentitystoreServiceException as __IdentitystoreServiceException } from "../models/IdentitystoreServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -173,7 +172,8 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { IdentitystoreServiceException as __IdentitystoreServiceException } from "../models/IdentitystoreServiceException";
 
 /* eslint no-var: 0 */
 

@@ -2,7 +2,7 @@
 import { EchoCommandInput, EchoCommandOutput } from "../commands/EchoCommand";
 import { LengthCommandInput, LengthCommandOutput } from "../commands/LengthCommand";
 import { EchoServiceServiceException as __BaseException } from "../models/EchoServiceServiceException";
-import { PalindromeException } from "../models/models_0";
+import { PalindromeException } from "../models/errors";
 import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";

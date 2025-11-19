@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClusterVersionsMessage } from "../models/models_0";
-import { DescribeClusterVersionsMessage } from "../models/models_1";
+import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeClusterVersions } from "../schemas/schemas_0";
 

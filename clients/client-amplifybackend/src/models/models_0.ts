@@ -1,50 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AmplifyBackendServiceException as __BaseException } from "./AmplifyBackendServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AdditionalConstraintsElement = {
-  REQUIRE_DIGIT: "REQUIRE_DIGIT",
-  REQUIRE_LOWERCASE: "REQUIRE_LOWERCASE",
-  REQUIRE_SYMBOL: "REQUIRE_SYMBOL",
-  REQUIRE_UPPERCASE: "REQUIRE_UPPERCASE",
-} as const;
-
-/**
- * @public
- */
-export type AdditionalConstraintsElement =
-  (typeof AdditionalConstraintsElement)[keyof typeof AdditionalConstraintsElement];
-
-/**
- * <p>An error returned if a request is not formed properly.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error message to inform that the request failed.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  AdditionalConstraintsElement,
+  AuthenticatedElement,
+  AuthResources,
+  DeliveryMethod,
+  MFAMode,
+  MfaTypesElement,
+  Mode,
+  OAuthGrantType,
+  OAuthScopesElement,
+  RequiredSignUpAttributesElement,
+  ResolutionStrategy,
+  Service,
+  ServiceName,
+  SignInMethod,
+  Status,
+  UnAuthenticatedElement,
+} from "./enums";
 
 /**
  * <p>The request body for CloneBackend.</p>
@@ -109,98 +81,6 @@ export interface CloneBackendResponse {
    * @public
    */
   Status?: string | undefined;
-}
-
-/**
- * <p>An error returned if there's a temporary issue with the service.</p>
- * @public
- */
-export class GatewayTimeoutException extends __BaseException {
-  readonly name: "GatewayTimeoutException" = "GatewayTimeoutException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>An error message to inform that the request failed.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GatewayTimeoutException, __BaseException>) {
-    super({
-      name: "GatewayTimeoutException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GatewayTimeoutException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An error returned when a specific resource type is not found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error message to inform that the request has failed.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The type of resource that is not found.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The type of limit that was exceeded.</p>
-   * @public
-   */
-  LimitType?: string | undefined;
-
-  /**
-   * <p>An error message to inform that the request has failed.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.LimitType = opts.LimitType;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -287,22 +167,6 @@ export interface CreateBackendResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const Mode = {
-  AMAZON_COGNITO_USER_POOLS: "AMAZON_COGNITO_USER_POOLS",
-  API_KEY: "API_KEY",
-  AWS_IAM: "AWS_IAM",
-  OPENID_CONNECT: "OPENID_CONNECT",
-} as const;
-
-/**
- * @public
- */
-export type Mode = (typeof Mode)[keyof typeof Mode];
-
-/**
  * <p>The authentication settings for accessing provisioned data models in your Amplify project.</p>
  * @public
  */
@@ -373,22 +237,6 @@ export interface BackendAPIAuthType {
    */
   Settings?: BackendAPIAppSyncAuthSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolutionStrategy = {
-  AUTOMERGE: "AUTOMERGE",
-  LAMBDA: "LAMBDA",
-  NONE: "NONE",
-  OPTIMISTIC_CONCURRENCY: "OPTIMISTIC_CONCURRENCY",
-} as const;
-
-/**
- * @public
- */
-export type ResolutionStrategy = (typeof ResolutionStrategy)[keyof typeof ResolutionStrategy];
 
 /**
  * <p>Describes the conflict resolution configuration for your data model configured in your Amplify project.</p>
@@ -516,20 +364,6 @@ export interface CreateBackendAPIResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthResources = {
-  IDENTITY_POOL_AND_USER_POOL: "IDENTITY_POOL_AND_USER_POOL",
-  USER_POOL_ONLY: "USER_POOL_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type AuthResources = (typeof AuthResources)[keyof typeof AuthResources];
-
-/**
  * <p>Describes authorization configurations for the auth resources, configured as a part of your Amplify project.</p>
  * @public
  */
@@ -546,33 +380,6 @@ export interface CreateBackendAuthIdentityPoolConfig {
    */
   UnauthenticatedLogin: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Service = {
-  COGNITO: "COGNITO",
-} as const;
-
-/**
- * @public
- */
-export type Service = (typeof Service)[keyof typeof Service];
-
-/**
- * @public
- * @enum
- */
-export const DeliveryMethod = {
-  EMAIL: "EMAIL",
-  SMS: "SMS",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryMethod = (typeof DeliveryMethod)[keyof typeof DeliveryMethod];
 
 /**
  * <p>The configuration for the email sent when an app user forgets their password.</p>
@@ -629,35 +436,6 @@ export interface CreateBackendAuthForgotPasswordConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const MFAMode = {
-  OFF: "OFF",
-  ON: "ON",
-  OPTIONAL: "OPTIONAL",
-} as const;
-
-/**
- * @public
- */
-export type MFAMode = (typeof MFAMode)[keyof typeof MFAMode];
-
-/**
- * @public
- * @enum
- */
-export const MfaTypesElement = {
-  SMS: "SMS",
-  TOTP: "TOTP",
-} as const;
-
-/**
- * @public
- */
-export type MfaTypesElement = (typeof MfaTypesElement)[keyof typeof MfaTypesElement];
-
-/**
  * <p>The settings of your MFA configuration for the backend of your Amplify project.</p>
  * @public
  */
@@ -692,37 +470,6 @@ export interface CreateBackendAuthMFAConfig {
    */
   Settings?: Settings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OAuthGrantType = {
-  CODE: "CODE",
-  IMPLICIT: "IMPLICIT",
-} as const;
-
-/**
- * @public
- */
-export type OAuthGrantType = (typeof OAuthGrantType)[keyof typeof OAuthGrantType];
-
-/**
- * @public
- * @enum
- */
-export const OAuthScopesElement = {
-  AWS_COGNITO_SIGNIN_USER_ADMIN: "AWS_COGNITO_SIGNIN_USER_ADMIN",
-  EMAIL: "EMAIL",
-  OPENID: "OPENID",
-  PHONE: "PHONE",
-  PROFILE: "PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type OAuthScopesElement = (typeof OAuthScopesElement)[keyof typeof OAuthScopesElement];
 
 /**
  * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
@@ -861,52 +608,6 @@ export interface CreateBackendAuthPasswordPolicyConfig {
    */
   MinimumLength: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RequiredSignUpAttributesElement = {
-  ADDRESS: "ADDRESS",
-  BIRTHDATE: "BIRTHDATE",
-  EMAIL: "EMAIL",
-  FAMILY_NAME: "FAMILY_NAME",
-  GENDER: "GENDER",
-  GIVEN_NAME: "GIVEN_NAME",
-  LOCALE: "LOCALE",
-  MIDDLE_NAME: "MIDDLE_NAME",
-  NAME: "NAME",
-  NICKNAME: "NICKNAME",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  PICTURE: "PICTURE",
-  PREFERRED_USERNAME: "PREFERRED_USERNAME",
-  PROFILE: "PROFILE",
-  UPDATED_AT: "UPDATED_AT",
-  WEBSITE: "WEBSITE",
-  ZONE_INFO: "ZONE_INFO",
-} as const;
-
-/**
- * @public
- */
-export type RequiredSignUpAttributesElement =
-  (typeof RequiredSignUpAttributesElement)[keyof typeof RequiredSignUpAttributesElement];
-
-/**
- * @public
- * @enum
- */
-export const SignInMethod = {
-  EMAIL: "EMAIL",
-  EMAIL_AND_PHONE_NUMBER: "EMAIL_AND_PHONE_NUMBER",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  USERNAME: "USERNAME",
-} as const;
-
-/**
- * @public
- */
-export type SignInMethod = (typeof SignInMethod)[keyof typeof SignInMethod];
 
 /**
  * <p>Creates an email or SMS verification message for the auth resource configured for your Amplify project.</p>
@@ -1135,36 +836,6 @@ export interface CreateBackendConfigResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthenticatedElement = {
-  CREATE_AND_UPDATE: "CREATE_AND_UPDATE",
-  DELETE: "DELETE",
-  READ: "READ",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticatedElement = (typeof AuthenticatedElement)[keyof typeof AuthenticatedElement];
-
-/**
- * @public
- * @enum
- */
-export const UnAuthenticatedElement = {
-  CREATE_AND_UPDATE: "CREATE_AND_UPDATE",
-  DELETE: "DELETE",
-  READ: "READ",
-} as const;
-
-/**
- * @public
- */
-export type UnAuthenticatedElement = (typeof UnAuthenticatedElement)[keyof typeof UnAuthenticatedElement];
-
-/**
  * <p>Describes the read, write, and delete permissions users have against your storage S3 bucket.</p>
  * @public
  */
@@ -1181,19 +852,6 @@ export interface BackendStoragePermissions {
    */
   UnAuthenticated?: UnAuthenticatedElement[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceName = {
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 
 /**
  * <p>The resource configuration for creating backend storage.</p>
@@ -1817,20 +1475,6 @@ export interface GetBackendAPIModelsRequest {
    */
   ResourceName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  LATEST: "LATEST",
-  STALE: "STALE",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public

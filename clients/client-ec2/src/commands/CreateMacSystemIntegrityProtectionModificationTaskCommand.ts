@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMacSystemIntegrityProtectionModificationTaskRequest,
   CreateMacSystemIntegrityProtectionModificationTaskResult,
-} from "../models/models_2";
+} from "../models/models_1";
 import { CreateMacSystemIntegrityProtectionModificationTask } from "../schemas/schemas_0";
 
 /**

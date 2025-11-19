@@ -49,6 +49,9 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { SSOOIDCExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { SSOOIDCServiceException } from "./models/SSOOIDCServiceException";

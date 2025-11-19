@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { GetJobsQueryResultsRequest, GetJobsQueryResultsResponse } from "../models/models_2";
+import { GetJobsQueryResultsRequest, GetJobsQueryResultsResponse } from "../models/models_0";
 import { GetJobsQueryResults } from "../schemas/schemas_0";
 
 /**

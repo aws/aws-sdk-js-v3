@@ -235,7 +235,7 @@ import {
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

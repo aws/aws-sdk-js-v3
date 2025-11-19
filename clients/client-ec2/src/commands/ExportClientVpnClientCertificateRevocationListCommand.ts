@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ExportClientVpnClientCertificateRevocationListRequest,
   ExportClientVpnClientCertificateRevocationListResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { ExportClientVpnClientCertificateRevocationList } from "../schemas/schemas_0";
 
 /**

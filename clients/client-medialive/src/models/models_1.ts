@@ -1,3480 +1,3340 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import {
-  AdditionalDestinations,
-  Algorithm,
-  CaptionLanguageMapping,
-  ChannelEngineVersionResponse,
-  CmafIngestCaptionLanguageMapping,
-  DvbNitSettings,
-  DvbSdtSettings,
-  DvbTdtSettings,
-  Hdr10Settings,
-  HlsAdMarkers,
-  InputLocation,
-  M2tsAbsentInputAudioBehavior,
-  M2tsArib,
-  M2tsAribCaptionsPidControl,
-  M2tsAudioBufferModel,
-  M2tsAudioStreamType,
-  M2tsBufferModel,
-  M2tsCcDescriptor,
+  AcceptHeader,
+  ChannelClass,
+  ChannelPipelineIdToRestart,
+  ChannelPlacementGroupState,
+  ChannelState,
+  CloudWatchAlarmTemplateComparisonOperator,
+  CloudWatchAlarmTemplateStatistic,
+  CloudWatchAlarmTemplateTargetResourceType,
+  CloudWatchAlarmTemplateTreatMissingData,
+  ClusterState,
+  ClusterType,
+  ContentType,
+  DeviceSettingsSyncState,
+  DeviceUpdateStatus,
+  EventBridgeRuleTemplateEventType,
+  GlobalConfigurationInputEndAction,
+  GlobalConfigurationLowFramerateInputs,
+  GlobalConfigurationOutputLockingMode,
+  GlobalConfigurationOutputTimingSource,
+  InputClass,
+  InputDeviceCodec,
+  InputDeviceConfiguredInput,
+  InputDeviceConnectionState,
+  InputDeviceOutputType,
+  InputDeviceType,
+  InputNetworkLocation,
+  InputSecurityGroupState,
+  InputSourceType,
+  InputState,
+  InputType,
+  LogLevel,
+  MaintenanceDay,
+  MotionGraphicsInsertion,
+  MultiplexState,
+  NetworkState,
+  NielsenPcmToId3TaggingState,
+  NodeConnectionState,
+  NodeRole,
+  NodeState,
   OfferingDurationUnits,
   OfferingType,
-  OutputLocationRef,
+  PreferredChannelPipeline,
+  RebootInputDeviceForce,
+  ReservationState,
+  SdiSourceMode,
+  SdiSourceState,
+  SdiSourceType,
+  SignalMapMonitorDeploymentStatus,
+  SignalMapStatus,
+  ThumbnailState,
+  TimecodeConfigSource,
+  UpdateNodeStateShape,
+} from "./enums";
+
+import {
+  AccountConfiguration,
+  AnywhereSettings,
+  AudioDescription,
+  AvailBlanking,
+  AvailConfiguration,
+  BlackoutSlate,
+  CaptionDescription,
+  CdiInputSpecification,
+  ChannelAlert,
+  ChannelEgressEndpoint,
+  ChannelEngineVersionResponse,
+  ChannelSummary,
+  CloudWatchAlarmTemplateGroupSummary,
+  CloudWatchAlarmTemplateSummary,
+  ClusterAlert,
+  ClusterNetworkSettings,
+  ColorCorrectionSettings,
+  DescribeAnywhereSettings,
+  DescribeChannelPlacementGroupSummary,
+  DescribeClusterSummary,
+  DescribeNetworkSummary,
+  DescribeNodeSummary,
+  EventBridgeRuleTemplateGroupSummary,
+  EventBridgeRuleTemplateSummary,
+  EventBridgeRuleTemplateTarget,
+  FeatureActivations,
+  Input,
+  InputAttachment,
+  InputDestination,
+  InputDestinationRequest,
+  InputDeviceConfigurableAudioChannelPairConfig,
+  InputDeviceHdSettings,
+  InputDeviceNetworkSettings,
+  InputDeviceRequest,
+  InputDeviceSettings,
+  InputDeviceSummary,
+  InputDeviceUhdSettings,
+  InputLossBehavior,
+  InputSecurityGroup,
+  InputSource,
+  InputSourceRequest,
+  InputSpecification,
+  InputWhitelistRule,
+  InputWhitelistRuleCidr,
+  InterfaceMappingCreateRequest,
+  InterfaceMappingUpdateRequest,
+  IpPool,
+  IpPoolCreateRequest,
+  IpPoolUpdateRequest,
+  MaintenanceStatus,
+  MediaConnectFlow,
+  MediaConnectFlowRequest,
+  MediaResourceNeighbor,
+  MulticastSettings,
+  MulticastSourceCreateRequest,
+  MulticastSourceUpdateRequest,
+  MultiplexAlert,
+  MultiplexOutputDestination,
+  MultiplexProgramPipelineDetail,
+  MultiplexProgramSummary,
+  MultiplexSummary,
+  NodeInterfaceMapping,
+  NodeInterfaceMappingCreateRequest,
+  Offering,
+  OutputDestination,
+  OutputGroup,
+  PipelineDetail,
+  RenewalSettings,
+  Reservation,
   ReservationResourceSpecification,
+  Route,
+  RouteCreateRequest,
+  RouteUpdateRequest,
+  ScheduleAction,
+  SdiSourceMapping,
+  SdiSourceSummary,
+  SignalMapSummary,
+  Smpte2110ReceiverGroupSettings,
+  SrtCallerSourceRequest,
+  SrtSettings,
+  ThumbnailDetail,
+  TransferringInputDeviceSummary,
+  VideoDescription,
+  VpcOutputSettingsDescription,
 } from "./models_0";
 
 /**
+ * Epoch Locking Settings
  * @public
- * @enum
  */
-export const M2tsEbifControl = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
+export interface EpochLockingSettings {
+  /**
+   * Optional. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
+   * @public
+   */
+  CustomEpoch?: string | undefined;
+
+  /**
+   * Optional. Enter a time for the jam sync. The default is midnight UTC. When epoch locking is enabled, MediaLive performs a daily jam sync on every output encode to ensure timecodes don’t diverge from the wall clock. The jam sync applies only to encodes with frame rate of 29.97 or 59.94 FPS. To override, enter a time in HH:MM:SS in UTC. Always set the MM:SS portion to 00:00.
+   * @public
+   */
+  JamSyncTime?: string | undefined;
+}
 
 /**
+ * Pipeline Locking Settings
  * @public
  */
-export type M2tsEbifControl = (typeof M2tsEbifControl)[keyof typeof M2tsEbifControl];
+export interface PipelineLockingSettings {}
 
 /**
+ * Output Locking Settings
  * @public
- * @enum
  */
-export const M2tsAudioInterval = {
-  VIDEO_AND_FIXED_INTERVALS: "VIDEO_AND_FIXED_INTERVALS",
-  VIDEO_INTERVAL: "VIDEO_INTERVAL",
-} as const;
+export interface OutputLockingSettings {
+  /**
+   * Epoch Locking Settings
+   * @public
+   */
+  EpochLockingSettings?: EpochLockingSettings | undefined;
+
+  /**
+   * Pipeline Locking Settings
+   * @public
+   */
+  PipelineLockingSettings?: PipelineLockingSettings | undefined;
+}
 
 /**
+ * Global Configuration
  * @public
  */
-export type M2tsAudioInterval = (typeof M2tsAudioInterval)[keyof typeof M2tsAudioInterval];
-
-/**
- * @public
- * @enum
- */
-export const M2tsEbpPlacement = {
-  VIDEO_AND_AUDIO_PIDS: "VIDEO_AND_AUDIO_PIDS",
-  VIDEO_PID: "VIDEO_PID",
-} as const;
-
-/**
- * @public
- */
-export type M2tsEbpPlacement = (typeof M2tsEbpPlacement)[keyof typeof M2tsEbpPlacement];
-
-/**
- * @public
- * @enum
- */
-export const M2tsEsRateInPes = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsEsRateInPes = (typeof M2tsEsRateInPes)[keyof typeof M2tsEsRateInPes];
-
-/**
- * @public
- * @enum
- */
-export const M2tsKlv = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsKlv = (typeof M2tsKlv)[keyof typeof M2tsKlv];
-
-/**
- * @public
- * @enum
- */
-export const M2tsNielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsNielsenId3Behavior = (typeof M2tsNielsenId3Behavior)[keyof typeof M2tsNielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const M2tsPcrControl = {
-  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
-} as const;
-
-/**
- * @public
- */
-export type M2tsPcrControl = (typeof M2tsPcrControl)[keyof typeof M2tsPcrControl];
-
-/**
- * @public
- * @enum
- */
-export const M2tsRateMode = {
-  CBR: "CBR",
-  VBR: "VBR",
-} as const;
-
-/**
- * @public
- */
-export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];
-
-/**
- * @public
- * @enum
- */
-export const M2tsScte35Control = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsScte35Control = (typeof M2tsScte35Control)[keyof typeof M2tsScte35Control];
-
-/**
- * @public
- * @enum
- */
-export const M2tsSegmentationMarkers = {
-  EBP: "EBP",
-  EBP_LEGACY: "EBP_LEGACY",
-  NONE: "NONE",
-  PSI_SEGSTART: "PSI_SEGSTART",
-  RAI_ADAPT: "RAI_ADAPT",
-  RAI_SEGSTART: "RAI_SEGSTART",
-} as const;
-
-/**
- * @public
- */
-export type M2tsSegmentationMarkers = (typeof M2tsSegmentationMarkers)[keyof typeof M2tsSegmentationMarkers];
-
-/**
- * @public
- * @enum
- */
-export const M2tsSegmentationStyle = {
-  MAINTAIN_CADENCE: "MAINTAIN_CADENCE",
-  RESET_CADENCE: "RESET_CADENCE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsSegmentationStyle = (typeof M2tsSegmentationStyle)[keyof typeof M2tsSegmentationStyle];
-
-/**
- * @public
- * @enum
- */
-export const M2tsTimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsTimedMetadataBehavior = (typeof M2tsTimedMetadataBehavior)[keyof typeof M2tsTimedMetadataBehavior];
-
-/**
- * M2ts Settings
- * @public
- */
-export interface M2tsSettings {
+export interface GlobalConfiguration {
   /**
-   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
+   * Value to set the initial audio gain for the Live Event.
    * @public
    */
-  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | undefined;
+  InitialAudioGain?: number | undefined;
 
   /**
-   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
+   * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
    * @public
    */
-  Arib?: M2tsArib | undefined;
+  InputEndAction?: GlobalConfigurationInputEndAction | undefined;
 
   /**
-   * Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * Settings for system actions when input is lost.
    * @public
    */
-  AribCaptionsPid?: string | undefined;
+  InputLossBehavior?: InputLossBehavior | undefined;
 
   /**
-   * If set to auto, pid number used for ARIB Captions will be auto-selected from unused pids.  If set to useConfigured, ARIB Captions will be on the configured pid number.
-   * @public
-   */
-  AribCaptionsPidControl?: M2tsAribCaptionsPidControl | undefined;
-
-  /**
-   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
-   * @public
-   */
-  AudioBufferModel?: M2tsAudioBufferModel | undefined;
-
-  /**
-   * The number of audio frames to insert for each PES packet.
-   * @public
-   */
-  AudioFramesPerPes?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values. Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  AudioPids?: string | undefined;
-
-  /**
-   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
-   * @public
-   */
-  AudioStreamType?: M2tsAudioStreamType | undefined;
-
-  /**
-   * The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate.
-   * @public
-   */
-  Bitrate?: number | undefined;
-
-  /**
-   * Controls the timing accuracy for output network traffic. Leave as MULTIPLEX to ensure accurate network packet timing. Or set to NONE, which might result in lower latency but will result in more variability in output network packet timing. This variability might cause interruptions, jitter, or bursty behavior in your playback or receiving devices.
-   * @public
-   */
-  BufferModel?: M2tsBufferModel | undefined;
-
-  /**
-   * When set to enabled, generates captionServiceDescriptor in PMT.
-   * @public
-   */
-  CcDescriptor?: M2tsCcDescriptor | undefined;
-
-  /**
-   * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
-   * @public
-   */
-  DvbNitSettings?: DvbNitSettings | undefined;
-
-  /**
-   * Inserts DVB Service Description Table (SDT) at the specified table repetition interval.
-   * @public
-   */
-  DvbSdtSettings?: DvbSdtSettings | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source DVB Subtitle data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  DvbSubPids?: string | undefined;
-
-  /**
-   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
-   * @public
-   */
-  DvbTdtSettings?: DvbTdtSettings | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source DVB Teletext data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  DvbTeletextPid?: string | undefined;
-
-  /**
-   * If set to passthrough, passes any EBIF data from the input source to this output.
-   * @public
-   */
-  Ebif?: M2tsEbifControl | undefined;
-
-  /**
-   * When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval.
-   * @public
-   */
-  EbpAudioInterval?: M2tsAudioInterval | undefined;
-
-  /**
-   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
-   * @public
-   */
-  EbpLookaheadMs?: number | undefined;
-
-  /**
-   * Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP markers will be placed on the video PID and all audio PIDs.  If set to videoPid, EBP markers will be placed on only the video PID.
-   * @public
-   */
-  EbpPlacement?: M2tsEbpPlacement | undefined;
-
-  /**
-   * This field is unused and deprecated.
-   * @public
-   */
-  EcmPid?: string | undefined;
-
-  /**
-   * Include or exclude the ES Rate field in the PES header.
-   * @public
-   */
-  EsRateInPes?: M2tsEsRateInPes | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source ETV Platform data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  EtvPlatformPid?: string | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source ETV Signal data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  EtvSignalPid?: string | undefined;
-
-  /**
-   * The length in seconds of each fragment. Only used with EBP markers.
-   * @public
-   */
-  FragmentTime?: number | undefined;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  Klv?: M2tsKlv | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  KlvDataPids?: string | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: M2tsNielsenId3Behavior | undefined;
-
-  /**
-   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
-   * @public
-   */
-  NullPacketBitrate?: number | undefined;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.  Valid values are 0, 10..1000.
-   * @public
-   */
-  PatInterval?: number | undefined;
-
-  /**
-   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   * @public
-   */
-  PcrControl?: M2tsPcrControl | undefined;
-
-  /**
-   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
-   * @public
-   */
-  PcrPeriod?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  PcrPid?: string | undefined;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. Valid values are 0, 10..1000.
-   * @public
-   */
-  PmtInterval?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  PmtPid?: string | undefined;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   * @public
-   */
-  ProgramNum?: number | undefined;
-
-  /**
-   * When vbr, does not insert null packets into transport stream to fill specified bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
-   * @public
-   */
-  RateMode?: M2tsRateMode | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  Scte27Pids?: string | undefined;
-
-  /**
-   * Optionally pass SCTE-35 signals from the input source to this output.
-   * @public
-   */
-  Scte35Control?: M2tsScte35Control | undefined;
-
-  /**
-   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  Scte35Pid?: string | undefined;
-
-  /**
-   * Inserts segmentation markers at each segmentationTime period. raiSegstart sets the Random Access Indicator bit in the adaptation field. raiAdapt sets the RAI bit and adds the current timecode in the private data bytes. psiSegstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
-   * @public
-   */
-  SegmentationMarkers?: M2tsSegmentationMarkers | undefined;
-
-  /**
-   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.
+   * Indicates how MediaLive pipelines are synchronized.
    *
-   * When a segmentation style of "resetCadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds.
-   *
-   * When a segmentation style of "maintainCadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule.
+   * PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
+   * EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+   * DISABLED - MediaLive will not attempt to synchronize the output of pipelines. We advise against disabling output locking because it has negative side effects in most workflows. For more information, see the section about output locking (pipeline locking) in the Medialive user guide.
    * @public
    */
-  SegmentationStyle?: M2tsSegmentationStyle | undefined;
+  OutputLockingMode?: GlobalConfigurationOutputLockingMode | undefined;
 
   /**
-   * The length in seconds of each segment. Required unless markers is set to _none_.
+   * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
    * @public
    */
-  SegmentationTime?: number | undefined;
+  OutputTimingSource?: GlobalConfigurationOutputTimingSource | undefined;
 
   /**
-   * When set to passthrough, timed metadata will be passed through from input to output.
+   * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
    * @public
    */
-  TimedMetadataBehavior?: M2tsTimedMetadataBehavior | undefined;
+  SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | undefined;
 
   /**
-   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * Advanced output locking settings
    * @public
    */
-  TimedMetadataPid?: string | undefined;
-
-  /**
-   * The value of the transport stream ID field in the Program Map Table.
-   * @public
-   */
-  TransportStreamId?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  VideoPid?: string | undefined;
-
-  /**
-   * Defines the amount SCTE-35 preroll will be increased (in milliseconds) on the output. Preroll is the amount of time between the presence of a SCTE-35 indication in a transport stream and the PTS of the video frame it references. Zero means don't add pullup (it doesn't mean set the preroll to zero). Negative pullup is not supported, which means that you can't make the preroll shorter. Be aware that latency in the output will increase by the pullup amount.
-   * @public
-   */
-  Scte35PrerollPullupMilliseconds?: number | undefined;
+  OutputLockingSettings?: OutputLockingSettings | undefined;
 }
 
 /**
- * Raw Settings
+ * Html Motion Graphics Settings
  * @public
  */
-export interface RawSettings {}
+export interface HtmlMotionGraphicsSettings {}
 
 /**
- * Archive Container Settings
+ * Motion Graphics Settings
  * @public
  */
-export interface ArchiveContainerSettings {
+export interface MotionGraphicsSettings {
   /**
-   * M2ts Settings
+   * Html Motion Graphics Settings
    * @public
    */
-  M2tsSettings?: M2tsSettings | undefined;
-
-  /**
-   * Raw Settings
-   * @public
-   */
-  RawSettings?: RawSettings | undefined;
+  HtmlMotionGraphicsSettings?: HtmlMotionGraphicsSettings | undefined;
 }
 
 /**
- * Archive Output Settings
+ * Motion Graphics Configuration
  * @public
  */
-export interface ArchiveOutputSettings {
+export interface MotionGraphicsConfiguration {
   /**
-   * Container for this output. Can be auto-detected from extension field.
+   * Motion Graphics Insertion
    * @public
    */
-  ContainerSettings: ArchiveContainerSettings | undefined;
+  MotionGraphicsInsertion?: MotionGraphicsInsertion | undefined;
 
   /**
-   * Output file extension. If excluded, this will be auto-selected from the container type.
+   * Motion Graphics Settings
    * @public
    */
-  Extension?: string | undefined;
-
-  /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-   * @public
-   */
-  NameModifier?: string | undefined;
+  MotionGraphicsSettings: MotionGraphicsSettings | undefined;
 }
 
 /**
- * Cmaf Ingest Output Settings
+ * Nielsen Configuration
  * @public
  */
-export interface CmafIngestOutputSettings {
+export interface NielsenConfiguration {
   /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * Enter the Distributor ID assigned to your organization by Nielsen.
    * @public
    */
-  NameModifier?: string | undefined;
+  DistributorId?: string | undefined;
+
+  /**
+   * Enables Nielsen PCM to ID3 tagging
+   * @public
+   */
+  NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState | undefined;
 }
 
 /**
- * Frame Capture Output Settings
+ * Thumbnail Configuration
  * @public
  */
-export interface FrameCaptureOutputSettings {
+export interface ThumbnailConfiguration {
   /**
-   * Required if the output group contains more than one output. This modifier forms part of the output file name.
+   * Enables the thumbnail feature. The feature generates thumbnails of the incoming video in each pipeline in the channel. AUTO turns the feature on, DISABLE turns the feature off.
    * @public
    */
-  NameModifier?: string | undefined;
+  State: ThumbnailState | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const HlsH265PackagingType = {
-  HEV1: "HEV1",
-  HVC1: "HVC1",
-} as const;
-
-/**
+ * Timecode Config
  * @public
  */
-export type HlsH265PackagingType = (typeof HlsH265PackagingType)[keyof typeof HlsH265PackagingType];
-
-/**
- * @public
- * @enum
- */
-export const AudioOnlyHlsTrackType = {
-  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM: "AUDIO_ONLY_VARIANT_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type AudioOnlyHlsTrackType = (typeof AudioOnlyHlsTrackType)[keyof typeof AudioOnlyHlsTrackType];
-
-/**
- * @public
- * @enum
- */
-export const AudioOnlyHlsSegmentType = {
-  AAC: "AAC",
-  FMP4: "FMP4",
-} as const;
-
-/**
- * @public
- */
-export type AudioOnlyHlsSegmentType = (typeof AudioOnlyHlsSegmentType)[keyof typeof AudioOnlyHlsSegmentType];
-
-/**
- * Audio Only Hls Settings
- * @public
- */
-export interface AudioOnlyHlsSettings {
+export interface TimecodeConfig {
   /**
-   * Specifies the group to which the audio Rendition belongs.
+   * Identifies the source for the timecode that will be associated with the events outputs.
+   * -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
+   * -System Clock (systemclock): Use the UTC time.
+   * -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
    * @public
    */
-  AudioGroupId?: string | undefined;
+  Source: TimecodeConfigSource | undefined;
 
   /**
-   * Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
-   *
-   * The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
+   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
    * @public
    */
-  AudioOnlyImage?: InputLocation | undefined;
-
-  /**
-   * Four types of audio-only tracks are supported:
-   *
-   * Audio-Only Variant Stream
-   * The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.
-   *
-   * Alternate Audio, Auto Select, Default
-   * Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES
-   *
-   * Alternate Audio, Auto Select, Not Default
-   * Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES
-   *
-   * Alternate Audio, not Auto Select
-   * Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-   * @public
-   */
-  AudioTrackType?: AudioOnlyHlsTrackType | undefined;
-
-  /**
-   * Specifies the segment type.
-   * @public
-   */
-  SegmentType?: AudioOnlyHlsSegmentType | undefined;
+  SyncThreshold?: number | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const Fmp4NielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
+ * Encoder Settings
  * @public
  */
-export type Fmp4NielsenId3Behavior = (typeof Fmp4NielsenId3Behavior)[keyof typeof Fmp4NielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const Fmp4TimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type Fmp4TimedMetadataBehavior = (typeof Fmp4TimedMetadataBehavior)[keyof typeof Fmp4TimedMetadataBehavior];
-
-/**
- * Fmp4 Hls Settings
- * @public
- */
-export interface Fmp4HlsSettings {
+export interface EncoderSettings {
   /**
-   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   * Placeholder documentation for __listOfAudioDescription
    * @public
    */
-  AudioRenditionSets?: string | undefined;
+  AudioDescriptions: AudioDescription[] | undefined;
 
   /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * Settings for ad avail blanking.
    * @public
    */
-  NielsenId3Behavior?: Fmp4NielsenId3Behavior | undefined;
+  AvailBlanking?: AvailBlanking | undefined;
 
   /**
-   * Set to PASSTHROUGH to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group or individual outputs, or you add an ID3 action to the channel schedule.
+   * Event-wide configuration settings for ad avail insertion.
    * @public
    */
-  TimedMetadataBehavior?: Fmp4TimedMetadataBehavior | undefined;
+  AvailConfiguration?: AvailConfiguration | undefined;
+
+  /**
+   * Settings for blackout slate.
+   * @public
+   */
+  BlackoutSlate?: BlackoutSlate | undefined;
+
+  /**
+   * Settings for caption decriptions
+   * @public
+   */
+  CaptionDescriptions?: CaptionDescription[] | undefined;
+
+  /**
+   * Feature Activations
+   * @public
+   */
+  FeatureActivations?: FeatureActivations | undefined;
+
+  /**
+   * Configuration settings that apply to the event as a whole.
+   * @public
+   */
+  GlobalConfiguration?: GlobalConfiguration | undefined;
+
+  /**
+   * Settings for motion graphics.
+   * @public
+   */
+  MotionGraphicsConfiguration?: MotionGraphicsConfiguration | undefined;
+
+  /**
+   * Nielsen configuration settings.
+   * @public
+   */
+  NielsenConfiguration?: NielsenConfiguration | undefined;
+
+  /**
+   * Placeholder documentation for __listOfOutputGroup
+   * @public
+   */
+  OutputGroups: OutputGroup[] | undefined;
+
+  /**
+   * Contains settings used to acquire and adjust timecode information from inputs.
+   * @public
+   */
+  TimecodeConfig: TimecodeConfig | undefined;
+
+  /**
+   * Placeholder documentation for __listOfVideoDescription
+   * @public
+   */
+  VideoDescriptions: VideoDescription[] | undefined;
+
+  /**
+   * Thumbnail configuration settings.
+   * @public
+   */
+  ThumbnailConfiguration?: ThumbnailConfiguration | undefined;
+
+  /**
+   * Color Correction Settings
+   * @public
+   */
+  ColorCorrectionSettings?: ColorCorrectionSettings | undefined;
 }
 
 /**
- * Frame Capture Hls Settings
+ * Placeholder documentation for Channel
  * @public
  */
-export interface FrameCaptureHlsSettings {}
-
-/**
- * @public
- * @enum
- */
-export const M3u8KlvBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8KlvBehavior = (typeof M3u8KlvBehavior)[keyof typeof M3u8KlvBehavior];
-
-/**
- * @public
- * @enum
- */
-export const M3u8NielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8NielsenId3Behavior = (typeof M3u8NielsenId3Behavior)[keyof typeof M3u8NielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const M3u8PcrControl = {
-  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
-} as const;
-
-/**
- * @public
- */
-export type M3u8PcrControl = (typeof M3u8PcrControl)[keyof typeof M3u8PcrControl];
-
-/**
- * @public
- * @enum
- */
-export const M3u8Scte35Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8Scte35Behavior = (typeof M3u8Scte35Behavior)[keyof typeof M3u8Scte35Behavior];
-
-/**
- * @public
- * @enum
- */
-export const M3u8TimedMetadataBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M3u8TimedMetadataBehavior = (typeof M3u8TimedMetadataBehavior)[keyof typeof M3u8TimedMetadataBehavior];
-
-/**
- * Settings information for the .m3u8 container
- * @public
- */
-export interface M3u8Settings {
-  /**
-   * The number of audio frames to insert for each PES packet.
-   * @public
-   */
-  AudioFramesPerPes?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
-   * @public
-   */
-  AudioPids?: string | undefined;
-
-  /**
-   * This parameter is unused and deprecated.
-   * @public
-   */
-  EcmPid?: string | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: M3u8NielsenId3Behavior | undefined;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-   * @public
-   */
-  PatInterval?: number | undefined;
-
-  /**
-   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   * @public
-   */
-  PcrControl?: M3u8PcrControl | undefined;
-
-  /**
-   * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
-   * @public
-   */
-  PcrPeriod?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  PcrPid?: string | undefined;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-   * @public
-   */
-  PmtInterval?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  PmtPid?: string | undefined;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   * @public
-   */
-  ProgramNum?: number | undefined;
-
-  /**
-   * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
-   * @public
-   */
-  Scte35Behavior?: M3u8Scte35Behavior | undefined;
-
-  /**
-   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  Scte35Pid?: string | undefined;
-
-  /**
-   * Set to PASSTHROUGH to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group or individual outputs, or you add an ID3 action to the channel schedule.
-   * @public
-   */
-  TimedMetadataBehavior?: M3u8TimedMetadataBehavior | undefined;
-
-  /**
-   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  TimedMetadataPid?: string | undefined;
-
-  /**
-   * The value of the transport stream ID field in the Program Map Table.
-   * @public
-   */
-  TransportStreamId?: number | undefined;
-
-  /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
-   * @public
-   */
-  VideoPid?: string | undefined;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  KlvBehavior?: M3u8KlvBehavior | undefined;
-
-  /**
-   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-   * @public
-   */
-  KlvDataPids?: string | undefined;
-}
-
-/**
- * Standard Hls Settings
- * @public
- */
-export interface StandardHlsSettings {
-  /**
-   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-   * @public
-   */
-  AudioRenditionSets?: string | undefined;
-
-  /**
-   * Settings information for the .m3u8 container
-   * @public
-   */
-  M3u8Settings: M3u8Settings | undefined;
-}
-
-/**
- * Hls Settings
- * @public
- */
-export interface HlsSettings {
-  /**
-   * Audio Only Hls Settings
-   * @public
-   */
-  AudioOnlyHlsSettings?: AudioOnlyHlsSettings | undefined;
-
-  /**
-   * Fmp4 Hls Settings
-   * @public
-   */
-  Fmp4HlsSettings?: Fmp4HlsSettings | undefined;
-
-  /**
-   * Frame Capture Hls Settings
-   * @public
-   */
-  FrameCaptureHlsSettings?: FrameCaptureHlsSettings | undefined;
-
-  /**
-   * Standard Hls Settings
-   * @public
-   */
-  StandardHlsSettings?: StandardHlsSettings | undefined;
-}
-
-/**
- * Hls Output Settings
- * @public
- */
-export interface HlsOutputSettings {
-  /**
-   * Only applicable when this output is referencing an H.265 video description.
-   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-   * @public
-   */
-  H265PackagingType?: HlsH265PackagingType | undefined;
-
-  /**
-   * Settings regarding the underlying stream. These settings are different for audio-only outputs.
-   * @public
-   */
-  HlsSettings: HlsSettings | undefined;
-
-  /**
-   * String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
-   * @public
-   */
-  NameModifier?: string | undefined;
-
-  /**
-   * String concatenated to end of segment filenames.
-   * @public
-   */
-  SegmentModifier?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsAutoSelect = {
-  NO: "NO",
-  OMIT: "OMIT",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type HlsAutoSelect = (typeof HlsAutoSelect)[keyof typeof HlsAutoSelect];
-
-/**
- * @public
- * @enum
- */
-export const HlsDefault = {
-  NO: "NO",
-  OMIT: "OMIT",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type HlsDefault = (typeof HlsDefault)[keyof typeof HlsDefault];
-
-/**
- * Media Package V2 Destination Settings
- * @public
- */
-export interface MediaPackageV2DestinationSettings {
-  /**
-   * Applies only to an output that contains audio. If you want to put several audio encodes into one audio rendition group, decide on a name (ID) for the group. Then in every audio output that you want to belong to that group, enter that ID in this field. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
-   * @public
-   */
-  AudioGroupId?: string | undefined;
-
-  /**
-   * Applies only to an output that contains video, and only if you want to associate one or more audio groups to this video. In this field you assign the groups that you create (in the Group ID fields in the various audio outputs). Enter one group ID, or enter a comma-separated list of group IDs. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
-   * @public
-   */
-  AudioRenditionSets?: string | undefined;
-
-  /**
-   * Specifies whether MediaPackage should set this output as the auto-select rendition in the HLS manifest. YES means this must be the auto-select. NO means this should never be the auto-select. OMIT means MediaPackage decides what to set on this rendition.
-   * When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
-   * @public
-   */
-  HlsAutoSelect?: HlsAutoSelect | undefined;
-
-  /**
-   * Specifies whether MediaPackage should set this output as the default rendition in the HLS manifest. YES means this must be the default. NO means this should never be the default. OMIT means MediaPackage decides what to set on this rendition.
-   * When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
-   * @public
-   */
-  HlsDefault?: HlsDefault | undefined;
-}
-
-/**
- * Media Package Output Settings
- * @public
- */
-export interface MediaPackageOutputSettings {
-  /**
-   * Optional settings for MediaPackage V2 destinations
-   * @public
-   */
-  MediaPackageV2DestinationSettings?: MediaPackageV2DestinationSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MsSmoothH265PackagingType = {
-  HEV1: "HEV1",
-  HVC1: "HVC1",
-} as const;
-
-/**
- * @public
- */
-export type MsSmoothH265PackagingType = (typeof MsSmoothH265PackagingType)[keyof typeof MsSmoothH265PackagingType];
-
-/**
- * Ms Smooth Output Settings
- * @public
- */
-export interface MsSmoothOutputSettings {
-  /**
-   * Only applicable when this output is referencing an H.265 video description.
-   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-   * @public
-   */
-  H265PackagingType?: MsSmoothH265PackagingType | undefined;
-
-  /**
-   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-   * @public
-   */
-  NameModifier?: string | undefined;
-}
-
-/**
- * Multiplex M2ts Settings
- * @public
- */
-export interface MultiplexM2tsSettings {
-  /**
-   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
-   * @public
-   */
-  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | undefined;
-
-  /**
-   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
-   * @public
-   */
-  Arib?: M2tsArib | undefined;
-
-  /**
-   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
-   * @public
-   */
-  AudioBufferModel?: M2tsAudioBufferModel | undefined;
-
-  /**
-   * The number of audio frames to insert for each PES packet.
-   * @public
-   */
-  AudioFramesPerPes?: number | undefined;
-
-  /**
-   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
-   * @public
-   */
-  AudioStreamType?: M2tsAudioStreamType | undefined;
-
-  /**
-   * When set to enabled, generates captionServiceDescriptor in PMT.
-   * @public
-   */
-  CcDescriptor?: M2tsCcDescriptor | undefined;
-
-  /**
-   * If set to passthrough, passes any EBIF data from the input source to this output.
-   * @public
-   */
-  Ebif?: M2tsEbifControl | undefined;
-
-  /**
-   * Include or exclude the ES Rate field in the PES header.
-   * @public
-   */
-  EsRateInPes?: M2tsEsRateInPes | undefined;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  Klv?: M2tsKlv | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: M2tsNielsenId3Behavior | undefined;
-
-  /**
-   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   * @public
-   */
-  PcrControl?: M2tsPcrControl | undefined;
-
-  /**
-   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
-   * @public
-   */
-  PcrPeriod?: number | undefined;
-
-  /**
-   * Optionally pass SCTE-35 signals from the input source to this output.
-   * @public
-   */
-  Scte35Control?: M2tsScte35Control | undefined;
-
-  /**
-   * Defines the amount SCTE-35 preroll will be increased (in milliseconds) on the output. Preroll is the amount of time between the presence of a SCTE-35 indication in a transport stream and the PTS of the video frame it references. Zero means don't add pullup (it doesn't mean set the preroll to zero). Negative pullup is not supported, which means that you can't make the preroll shorter. Be aware that latency in the output will increase by the pullup amount.
-   * @public
-   */
-  Scte35PrerollPullupMilliseconds?: number | undefined;
-}
-
-/**
- * Multiplex Container Settings
- * @public
- */
-export interface MultiplexContainerSettings {
-  /**
-   * Multiplex M2ts Settings
-   * @public
-   */
-  MultiplexM2tsSettings?: MultiplexM2tsSettings | undefined;
-}
-
-/**
- * Multiplex Output Settings
- * @public
- */
-export interface MultiplexOutputSettings {
-  /**
-   * Destination is a Multiplex.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Multiplex Container Settings
-   * @public
-   */
-  ContainerSettings?: MultiplexContainerSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RtmpOutputCertificateMode = {
-  SELF_SIGNED: "SELF_SIGNED",
-  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
-} as const;
-
-/**
- * @public
- */
-export type RtmpOutputCertificateMode = (typeof RtmpOutputCertificateMode)[keyof typeof RtmpOutputCertificateMode];
-
-/**
- * Rtmp Output Settings
- * @public
- */
-export interface RtmpOutputSettings {
-  /**
-   * If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
-   * @public
-   */
-  CertificateMode?: RtmpOutputCertificateMode | undefined;
-
-  /**
-   * Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number | undefined;
-
-  /**
-   * The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Number of retry attempts.
-   * @public
-   */
-  NumRetries?: number | undefined;
-}
-
-/**
- * Udp Container Settings
- * @public
- */
-export interface UdpContainerSettings {
-  /**
-   * M2ts Settings
-   * @public
-   */
-  M2tsSettings?: M2tsSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SrtEncryptionType = {
-  AES128: "AES128",
-  AES192: "AES192",
-  AES256: "AES256",
-} as const;
-
-/**
- * @public
- */
-export type SrtEncryptionType = (typeof SrtEncryptionType)[keyof typeof SrtEncryptionType];
-
-/**
- * Srt Output Settings
- * @public
- */
-export interface SrtOutputSettings {
-  /**
-   * SRT output buffering in milliseconds. A higher value increases latency through the encoder. But the benefits are that it helps to maintain a constant, low-jitter SRT output, and it accommodates clock recovery, input switching, input disruptions, picture reordering, and so on. Range: 0-10000 milliseconds.
-   * @public
-   */
-  BufferMsec?: number | undefined;
-
-  /**
-   * Udp Container Settings
-   * @public
-   */
-  ContainerSettings: UdpContainerSettings | undefined;
-
-  /**
-   * Reference to an OutputDestination ID defined in the channel
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * The encryption level for the content. Valid values are AES128, AES192, AES256. You and the downstream system should plan how to set this field because the values must not conflict with each other.
-   * @public
-   */
-  EncryptionType?: SrtEncryptionType | undefined;
-
-  /**
-   * The latency value, in milliseconds, that is proposed during the SRT connection handshake. SRT will choose the maximum of the values proposed by the sender and receiver. On the sender side, latency is the amount of time a packet is held to give it a chance to be delivered successfully. On the receiver side, latency is the amount of time the packet is held before delivering to the application, aiding in packet recovery and matching as closely as possible the packet timing of the sender. Range: 40-16000 milliseconds.
-   * @public
-   */
-  Latency?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FecOutputIncludeFec = {
-  COLUMN: "COLUMN",
-  COLUMN_AND_ROW: "COLUMN_AND_ROW",
-} as const;
-
-/**
- * @public
- */
-export type FecOutputIncludeFec = (typeof FecOutputIncludeFec)[keyof typeof FecOutputIncludeFec];
-
-/**
- * Fec Output Settings
- * @public
- */
-export interface FecOutputSettings {
-  /**
-   * Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
-   * @public
-   */
-  ColumnDepth?: number | undefined;
-
-  /**
-   * Enables column only or column and row based FEC
-   * @public
-   */
-  IncludeFec?: FecOutputIncludeFec | undefined;
-
-  /**
-   * Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
-   * @public
-   */
-  RowLength?: number | undefined;
-}
-
-/**
- * Udp Output Settings
- * @public
- */
-export interface UdpOutputSettings {
-  /**
-   * UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-   * @public
-   */
-  BufferMsec?: number | undefined;
-
-  /**
-   * Udp Container Settings
-   * @public
-   */
-  ContainerSettings: UdpContainerSettings | undefined;
-
-  /**
-   * Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Settings for enabling and adjusting Forward Error Correction on UDP outputs.
-   * @public
-   */
-  FecOutputSettings?: FecOutputSettings | undefined;
-}
-
-/**
- * Output Settings
- * @public
- */
-export interface OutputSettings {
-  /**
-   * Archive Output Settings
-   * @public
-   */
-  ArchiveOutputSettings?: ArchiveOutputSettings | undefined;
-
-  /**
-   * Frame Capture Output Settings
-   * @public
-   */
-  FrameCaptureOutputSettings?: FrameCaptureOutputSettings | undefined;
-
-  /**
-   * Hls Output Settings
-   * @public
-   */
-  HlsOutputSettings?: HlsOutputSettings | undefined;
-
-  /**
-   * Media Package Output Settings
-   * @public
-   */
-  MediaPackageOutputSettings?: MediaPackageOutputSettings | undefined;
-
-  /**
-   * Ms Smooth Output Settings
-   * @public
-   */
-  MsSmoothOutputSettings?: MsSmoothOutputSettings | undefined;
-
-  /**
-   * Multiplex Output Settings
-   * @public
-   */
-  MultiplexOutputSettings?: MultiplexOutputSettings | undefined;
-
-  /**
-   * Rtmp Output Settings
-   * @public
-   */
-  RtmpOutputSettings?: RtmpOutputSettings | undefined;
-
-  /**
-   * Udp Output Settings
-   * @public
-   */
-  UdpOutputSettings?: UdpOutputSettings | undefined;
-
-  /**
-   * Cmaf Ingest Output Settings
-   * @public
-   */
-  CmafIngestOutputSettings?: CmafIngestOutputSettings | undefined;
-
-  /**
-   * Srt Output Settings
-   * @public
-   */
-  SrtOutputSettings?: SrtOutputSettings | undefined;
-}
-
-/**
- * Output settings. There can be multiple outputs within a group.
- * @public
- */
-export interface Output {
-  /**
-   * The names of the AudioDescriptions used as audio sources for this output.
-   * @public
-   */
-  AudioDescriptionNames?: string[] | undefined;
-
-  /**
-   * The names of the CaptionDescriptions used as caption sources for this output.
-   * @public
-   */
-  CaptionDescriptionNames?: string[] | undefined;
-
-  /**
-   * The name used to identify an output.
-   * @public
-   */
-  OutputName?: string | undefined;
-
-  /**
-   * Output type-specific settings.
-   * @public
-   */
-  OutputSettings: OutputSettings | undefined;
-
-  /**
-   * The name of the VideoDescription used as the source for this output.
-   * @public
-   */
-  VideoDescriptionName?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const S3CannedAcl = {
-  AUTHENTICATED_READ: "AUTHENTICATED_READ",
-  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
-  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
-  PUBLIC_READ: "PUBLIC_READ",
-} as const;
-
-/**
- * @public
- */
-export type S3CannedAcl = (typeof S3CannedAcl)[keyof typeof S3CannedAcl];
-
-/**
- * Archive S3 Settings
- * @public
- */
-export interface ArchiveS3Settings {
-  /**
-   * Specify the canned ACL to apply to each S3 request. Defaults to none.
-   * @public
-   */
-  CannedAcl?: S3CannedAcl | undefined;
-}
-
-/**
- * Archive Cdn Settings
- * @public
- */
-export interface ArchiveCdnSettings {
-  /**
-   * Archive S3 Settings
-   * @public
-   */
-  ArchiveS3Settings?: ArchiveS3Settings | undefined;
-}
-
-/**
- * Archive Group Settings
- * @public
- */
-export interface ArchiveGroupSettings {
-  /**
-   * Parameters that control interactions with the CDN.
-   * @public
-   */
-  ArchiveCdnSettings?: ArchiveCdnSettings | undefined;
-
-  /**
-   * A directory and base filename where archive files should be written.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Number of seconds to write to archive file before closing and starting a new one.
-   * @public
-   */
-  RolloverInterval?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CmafId3Behavior = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmafId3Behavior = (typeof CmafId3Behavior)[keyof typeof CmafId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const CmafKLVBehavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type CmafKLVBehavior = (typeof CmafKLVBehavior)[keyof typeof CmafKLVBehavior];
-
-/**
- * @public
- * @enum
- */
-export const CmafNielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type CmafNielsenId3Behavior = (typeof CmafNielsenId3Behavior)[keyof typeof CmafNielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const Scte35Type = {
-  NONE: "NONE",
-  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
-} as const;
-
-/**
- * @public
- */
-export type Scte35Type = (typeof Scte35Type)[keyof typeof Scte35Type];
-
-/**
- * @public
- * @enum
- */
-export const CmafIngestSegmentLengthUnits = {
-  MILLISECONDS: "MILLISECONDS",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type CmafIngestSegmentLengthUnits =
-  (typeof CmafIngestSegmentLengthUnits)[keyof typeof CmafIngestSegmentLengthUnits];
-
-/**
- * @public
- * @enum
- */
-export const CmafTimedMetadataId3Frame = {
-  NONE: "NONE",
-  PRIV: "PRIV",
-  TDRL: "TDRL",
-} as const;
-
-/**
- * @public
- */
-export type CmafTimedMetadataId3Frame = (typeof CmafTimedMetadataId3Frame)[keyof typeof CmafTimedMetadataId3Frame];
-
-/**
- * @public
- * @enum
- */
-export const CmafTimedMetadataPassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmafTimedMetadataPassthrough =
-  (typeof CmafTimedMetadataPassthrough)[keyof typeof CmafTimedMetadataPassthrough];
-
-/**
- * Cmaf Ingest Group Settings
- * @public
- */
-export interface CmafIngestGroupSettings {
-  /**
-   * A HTTP destination for the tracks
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
-
-  /**
-   * Type of scte35 track to add. none or scte35WithoutSegmentation
-   * @public
-   */
-  Scte35Type?: Scte35Type | undefined;
-
-  /**
-   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
-   * @public
-   */
-  SegmentLength?: number | undefined;
-
-  /**
-   * Time unit for segment length parameter.
-   * @public
-   */
-  SegmentLengthUnits?: CmafIngestSegmentLengthUnits | undefined;
-
-  /**
-   * Number of milliseconds to delay the output from the second pipeline.
-   * @public
-   */
-  SendDelayMs?: number | undefined;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  KlvBehavior?: CmafKLVBehavior | undefined;
-
-  /**
-   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies a KLV track. The default is "klv", which means the default name will be Streams(klv.cmfm). Any string you enter here will replace the "klv" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
-   * @public
-   */
-  KlvNameModifier?: string | undefined;
-
-  /**
-   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies a Nielsen ID3 track. The default is "nid3", which means the default name will be Streams(nid3.cmfm). Any string you enter here will replace the "nid3" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
-   * @public
-   */
-  NielsenId3NameModifier?: string | undefined;
-
-  /**
-   * Change the modifier that MediaLive automatically adds to the Streams() name for a SCTE 35 track. The default is "scte", which means the default name will be Streams(scte.cmfm). Any string you enter here will replace the "scte" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
-   * @public
-   */
-  Scte35NameModifier?: string | undefined;
-
-  /**
-   * Set to ENABLED to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group, or you add an ID3 action to the channel schedule.
-   * @public
-   */
-  Id3Behavior?: CmafId3Behavior | undefined;
-
-  /**
-   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies an ID3 track. The default is "id3", which means the default name will be Streams(id3.cmfm). Any string you enter here will replace the "id3" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
-   * @public
-   */
-  Id3NameModifier?: string | undefined;
-
-  /**
-   * An array that identifies the languages in the four caption channels in the embedded captions.
-   * @public
-   */
-  CaptionLanguageMappings?: CmafIngestCaptionLanguageMapping[] | undefined;
-
-  /**
-   * Set to none if you don't want to insert a timecode in the output. Otherwise choose the frame type for the timecode.
-   * @public
-   */
-  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame | undefined;
-
-  /**
-   * If you set up to insert a timecode in the output, specify the frequency for the frame, in seconds.
-   * @public
-   */
-  TimedMetadataId3Period?: number | undefined;
-
-  /**
-   * Set to enabled to pass through ID3 metadata from the input sources.
-   * @public
-   */
-  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
-
-  /**
-   * Optional an array of additional destinational HTTP destinations for the OutputGroup outputs
-   * @public
-   */
-  AdditionalDestinations?: AdditionalDestinations[] | undefined;
-}
-
-/**
- * Frame Capture S3 Settings
- * @public
- */
-export interface FrameCaptureS3Settings {
-  /**
-   * Specify the canned ACL to apply to each S3 request. Defaults to none.
-   * @public
-   */
-  CannedAcl?: S3CannedAcl | undefined;
-}
-
-/**
- * Frame Capture Cdn Settings
- * @public
- */
-export interface FrameCaptureCdnSettings {
-  /**
-   * Frame Capture S3 Settings
-   * @public
-   */
-  FrameCaptureS3Settings?: FrameCaptureS3Settings | undefined;
-}
-
-/**
- * Frame Capture Group Settings
- * @public
- */
-export interface FrameCaptureGroupSettings {
-  /**
-   * The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Parameters that control interactions with the CDN.
-   * @public
-   */
-  FrameCaptureCdnSettings?: FrameCaptureCdnSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsCaptionLanguageSetting = {
-  INSERT: "INSERT",
-  NONE: "NONE",
-  OMIT: "OMIT",
-} as const;
-
-/**
- * @public
- */
-export type HlsCaptionLanguageSetting = (typeof HlsCaptionLanguageSetting)[keyof typeof HlsCaptionLanguageSetting];
-
-/**
- * @public
- * @enum
- */
-export const HlsClientCache = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsClientCache = (typeof HlsClientCache)[keyof typeof HlsClientCache];
-
-/**
- * @public
- * @enum
- */
-export const HlsCodecSpecification = {
-  RFC_4281: "RFC_4281",
-  RFC_6381: "RFC_6381",
-} as const;
-
-/**
- * @public
- */
-export type HlsCodecSpecification = (typeof HlsCodecSpecification)[keyof typeof HlsCodecSpecification];
-
-/**
- * @public
- * @enum
- */
-export const HlsDirectoryStructure = {
-  SINGLE_DIRECTORY: "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM: "SUBDIRECTORY_PER_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type HlsDirectoryStructure = (typeof HlsDirectoryStructure)[keyof typeof HlsDirectoryStructure];
-
-/**
- * @public
- * @enum
- */
-export const HlsDiscontinuityTags = {
-  INSERT: "INSERT",
-  NEVER_INSERT: "NEVER_INSERT",
-} as const;
-
-/**
- * @public
- */
-export type HlsDiscontinuityTags = (typeof HlsDiscontinuityTags)[keyof typeof HlsDiscontinuityTags];
-
-/**
- * @public
- * @enum
- */
-export const HlsEncryptionType = {
-  AES128: "AES128",
-  SAMPLE_AES: "SAMPLE_AES",
-} as const;
-
-/**
- * @public
- */
-export type HlsEncryptionType = (typeof HlsEncryptionType)[keyof typeof HlsEncryptionType];
-
-/**
- * @public
- * @enum
- */
-export const HlsAkamaiHttpTransferMode = {
-  CHUNKED: "CHUNKED",
-  NON_CHUNKED: "NON_CHUNKED",
-} as const;
-
-/**
- * @public
- */
-export type HlsAkamaiHttpTransferMode = (typeof HlsAkamaiHttpTransferMode)[keyof typeof HlsAkamaiHttpTransferMode];
-
-/**
- * Hls Akamai Settings
- * @public
- */
-export interface HlsAkamaiSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number | undefined;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number | undefined;
-
-  /**
-   * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
-   * @public
-   */
-  HttpTransferMode?: HlsAkamaiHttpTransferMode | undefined;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number | undefined;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number | undefined;
-
-  /**
-   * Salt for authenticated Akamai.
-   * @public
-   */
-  Salt?: string | undefined;
-
-  /**
-   * Token parameter for authenticated akamai. If not specified, _gda_ is used.
-   * @public
-   */
-  Token?: string | undefined;
-}
-
-/**
- * Hls Basic Put Settings
- * @public
- */
-export interface HlsBasicPutSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number | undefined;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number | undefined;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number | undefined;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsMediaStoreStorageClass = {
-  TEMPORAL: "TEMPORAL",
-} as const;
-
-/**
- * @public
- */
-export type HlsMediaStoreStorageClass = (typeof HlsMediaStoreStorageClass)[keyof typeof HlsMediaStoreStorageClass];
-
-/**
- * Hls Media Store Settings
- * @public
- */
-export interface HlsMediaStoreSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number | undefined;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number | undefined;
-
-  /**
-   * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
-   * @public
-   */
-  MediaStoreStorageClass?: HlsMediaStoreStorageClass | undefined;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number | undefined;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number | undefined;
-}
-
-/**
- * Hls S3 Settings
- * @public
- */
-export interface HlsS3Settings {
-  /**
-   * Specify the canned ACL to apply to each S3 request. Defaults to none.
-   * @public
-   */
-  CannedAcl?: S3CannedAcl | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsWebdavHttpTransferMode = {
-  CHUNKED: "CHUNKED",
-  NON_CHUNKED: "NON_CHUNKED",
-} as const;
-
-/**
- * @public
- */
-export type HlsWebdavHttpTransferMode = (typeof HlsWebdavHttpTransferMode)[keyof typeof HlsWebdavHttpTransferMode];
-
-/**
- * Hls Webdav Settings
- * @public
- */
-export interface HlsWebdavSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number | undefined;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number | undefined;
-
-  /**
-   * Specify whether or not to use chunked transfer encoding to WebDAV.
-   * @public
-   */
-  HttpTransferMode?: HlsWebdavHttpTransferMode | undefined;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number | undefined;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number | undefined;
-}
-
-/**
- * Hls Cdn Settings
- * @public
- */
-export interface HlsCdnSettings {
-  /**
-   * Hls Akamai Settings
-   * @public
-   */
-  HlsAkamaiSettings?: HlsAkamaiSettings | undefined;
-
-  /**
-   * Hls Basic Put Settings
-   * @public
-   */
-  HlsBasicPutSettings?: HlsBasicPutSettings | undefined;
-
-  /**
-   * Hls Media Store Settings
-   * @public
-   */
-  HlsMediaStoreSettings?: HlsMediaStoreSettings | undefined;
-
-  /**
-   * Hls S3 Settings
-   * @public
-   */
-  HlsS3Settings?: HlsS3Settings | undefined;
-
-  /**
-   * Hls Webdav Settings
-   * @public
-   */
-  HlsWebdavSettings?: HlsWebdavSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsId3SegmentTaggingState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsId3SegmentTaggingState = (typeof HlsId3SegmentTaggingState)[keyof typeof HlsId3SegmentTaggingState];
-
-/**
- * @public
- * @enum
- */
-export const IFrameOnlyPlaylistType = {
-  DISABLED: "DISABLED",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type IFrameOnlyPlaylistType = (typeof IFrameOnlyPlaylistType)[keyof typeof IFrameOnlyPlaylistType];
-
-/**
- * @public
- * @enum
- */
-export const HlsIncompleteSegmentBehavior = {
-  AUTO: "AUTO",
-  SUPPRESS: "SUPPRESS",
-} as const;
-
-/**
- * @public
- */
-export type HlsIncompleteSegmentBehavior =
-  (typeof HlsIncompleteSegmentBehavior)[keyof typeof HlsIncompleteSegmentBehavior];
-
-/**
- * @public
- * @enum
- */
-export const InputLossActionForHlsOut = {
-  EMIT_OUTPUT: "EMIT_OUTPUT",
-  PAUSE_OUTPUT: "PAUSE_OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type InputLossActionForHlsOut = (typeof InputLossActionForHlsOut)[keyof typeof InputLossActionForHlsOut];
-
-/**
- * @public
- * @enum
- */
-export const HlsIvInManifest = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsIvInManifest = (typeof HlsIvInManifest)[keyof typeof HlsIvInManifest];
-
-/**
- * @public
- * @enum
- */
-export const HlsIvSource = {
-  EXPLICIT: "EXPLICIT",
-  FOLLOWS_SEGMENT_NUMBER: "FOLLOWS_SEGMENT_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type HlsIvSource = (typeof HlsIvSource)[keyof typeof HlsIvSource];
-
-/**
- * Static Key Settings
- * @public
- */
-export interface StaticKeySettings {
-  /**
-   * The URL of the license server used for protecting content.
-   * @public
-   */
-  KeyProviderServer?: InputLocation | undefined;
-
-  /**
-   * Static key value as a 32 character hexadecimal string.
-   * @public
-   */
-  StaticKeyValue: string | undefined;
-}
-
-/**
- * Key Provider Settings
- * @public
- */
-export interface KeyProviderSettings {
-  /**
-   * Static Key Settings
-   * @public
-   */
-  StaticKeySettings?: StaticKeySettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsManifestCompression = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type HlsManifestCompression = (typeof HlsManifestCompression)[keyof typeof HlsManifestCompression];
-
-/**
- * @public
- * @enum
- */
-export const HlsManifestDurationFormat = {
-  FLOATING_POINT: "FLOATING_POINT",
-  INTEGER: "INTEGER",
-} as const;
-
-/**
- * @public
- */
-export type HlsManifestDurationFormat = (typeof HlsManifestDurationFormat)[keyof typeof HlsManifestDurationFormat];
-
-/**
- * @public
- * @enum
- */
-export const HlsMode = {
-  LIVE: "LIVE",
-  VOD: "VOD",
-} as const;
-
-/**
- * @public
- */
-export type HlsMode = (typeof HlsMode)[keyof typeof HlsMode];
-
-/**
- * @public
- * @enum
- */
-export const HlsOutputSelection = {
-  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY: "SEGMENTS_ONLY",
-  VARIANT_MANIFESTS_AND_SEGMENTS: "VARIANT_MANIFESTS_AND_SEGMENTS",
-} as const;
-
-/**
- * @public
- */
-export type HlsOutputSelection = (typeof HlsOutputSelection)[keyof typeof HlsOutputSelection];
-
-/**
- * @public
- * @enum
- */
-export const HlsProgramDateTime = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsProgramDateTime];
-
-/**
- * @public
- * @enum
- */
-export const HlsProgramDateTimeClock = {
-  INITIALIZE_FROM_OUTPUT_TIMECODE: "INITIALIZE_FROM_OUTPUT_TIMECODE",
-  SYSTEM_CLOCK: "SYSTEM_CLOCK",
-} as const;
-
-/**
- * @public
- */
-export type HlsProgramDateTimeClock = (typeof HlsProgramDateTimeClock)[keyof typeof HlsProgramDateTimeClock];
-
-/**
- * @public
- * @enum
- */
-export const HlsRedundantManifest = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsRedundantManifest = (typeof HlsRedundantManifest)[keyof typeof HlsRedundantManifest];
-
-/**
- * @public
- * @enum
- */
-export const HlsSegmentationMode = {
-  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
-} as const;
-
-/**
- * @public
- */
-export type HlsSegmentationMode = (typeof HlsSegmentationMode)[keyof typeof HlsSegmentationMode];
-
-/**
- * @public
- * @enum
- */
-export const HlsStreamInfResolution = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsStreamInfResolution = (typeof HlsStreamInfResolution)[keyof typeof HlsStreamInfResolution];
-
-/**
- * @public
- * @enum
- */
-export const HlsTimedMetadataId3Frame = {
-  NONE: "NONE",
-  PRIV: "PRIV",
-  TDRL: "TDRL",
-} as const;
-
-/**
- * @public
- */
-export type HlsTimedMetadataId3Frame = (typeof HlsTimedMetadataId3Frame)[keyof typeof HlsTimedMetadataId3Frame];
-
-/**
- * @public
- * @enum
- */
-export const HlsTsFileMode = {
-  SEGMENTED_FILES: "SEGMENTED_FILES",
-  SINGLE_FILE: "SINGLE_FILE",
-} as const;
-
-/**
- * @public
- */
-export type HlsTsFileMode = (typeof HlsTsFileMode)[keyof typeof HlsTsFileMode];
-
-/**
- * Hls Group Settings
- * @public
- */
-export interface HlsGroupSettings {
-  /**
-   * Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
-   * @public
-   */
-  AdMarkers?: HlsAdMarkers[] | undefined;
-
-  /**
-   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
-   * @public
-   */
-  BaseUrlContent?: string | undefined;
-
-  /**
-   * Optional. One value per output group.
-   *
-   * This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
-   * @public
-   */
-  BaseUrlContent1?: string | undefined;
-
-  /**
-   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
-   * @public
-   */
-  BaseUrlManifest?: string | undefined;
-
-  /**
-   * Optional. One value per output group.
-   *
-   * Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
-   * @public
-   */
-  BaseUrlManifest1?: string | undefined;
-
-  /**
-   * Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
-   * @public
-   */
-  CaptionLanguageMappings?: CaptionLanguageMapping[] | undefined;
-
-  /**
-   * Applies only to 608 Embedded output captions.
-   * insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions.
-   * none: Include CLOSED-CAPTIONS=NONE line in the manifest.
-   * omit: Omit any CLOSED-CAPTIONS line from the manifest.
-   * @public
-   */
-  CaptionLanguageSetting?: HlsCaptionLanguageSetting | undefined;
-
-  /**
-   * When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
-   * @public
-   */
-  ClientCache?: HlsClientCache | undefined;
-
-  /**
-   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
-   * @public
-   */
-  CodecSpecification?: HlsCodecSpecification | undefined;
-
-  /**
-   * For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
-   * @public
-   */
-  ConstantIv?: string | undefined;
-
-  /**
-   * A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Place segments in subdirectories.
-   * @public
-   */
-  DirectoryStructure?: HlsDirectoryStructure | undefined;
-
-  /**
-   * Specifies whether to insert EXT-X-DISCONTINUITY tags in the HLS child manifests for this output group.
-   * Typically, choose Insert because these tags are required in the manifest (according to the HLS specification) and serve an important purpose.
-   * Choose Never Insert only if the downstream system is doing real-time failover (without using the MediaLive automatic failover feature) and only if that downstream system has advised you to exclude the tags.
-   * @public
-   */
-  DiscontinuityTags?: HlsDiscontinuityTags | undefined;
-
-  /**
-   * Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
-   * @public
-   */
-  EncryptionType?: HlsEncryptionType | undefined;
-
-  /**
-   * Parameters that control interactions with the CDN.
-   * @public
-   */
-  HlsCdnSettings?: HlsCdnSettings | undefined;
-
-  /**
-   * State of HLS ID3 Segment Tagging
-   * @public
-   */
-  HlsId3SegmentTagging?: HlsId3SegmentTaggingState | undefined;
-
-  /**
-   * DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
-   *
-   * STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
-   * @public
-   */
-  IFrameOnlyPlaylists?: IFrameOnlyPlaylistType | undefined;
-
-  /**
-   * Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
-   * Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
-   * Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
-   * @public
-   */
-  IncompleteSegmentBehavior?: HlsIncompleteSegmentBehavior | undefined;
-
-  /**
-   * Applies only if Mode field is LIVE.
-   *
-   * Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be smaller than the number in the Keep Segments field.
-   * @public
-   */
-  IndexNSegments?: number | undefined;
-
-  /**
-   * Parameter that control output group behavior on input loss.
-   * @public
-   */
-  InputLossAction?: InputLossActionForHlsOut | undefined;
-
-  /**
-   * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
-   * @public
-   */
-  IvInManifest?: HlsIvInManifest | undefined;
-
-  /**
-   * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
-   * @public
-   */
-  IvSource?: HlsIvSource | undefined;
-
-  /**
-   * Applies only if Mode field is LIVE.
-   *
-   * Specifies the number of media segments to retain in the destination directory. This number should be bigger than indexNSegments (Num segments). We recommend (value = (2 x indexNsegments) + 1).
-   *
-   * If this "keep segments" number is too low, the following might happen: the player is still reading a media manifest file that lists this segment, but that segment has been removed from the destination directory (as directed by indexNSegments). This situation would result in a 404 HTTP error on the player.
-   * @public
-   */
-  KeepSegments?: number | undefined;
-
-  /**
-   * The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
-   * @public
-   */
-  KeyFormat?: string | undefined;
-
-  /**
-   * Either a single positive integer version value or a slash delimited list of version values (1/2/3).
-   * @public
-   */
-  KeyFormatVersions?: string | undefined;
-
-  /**
-   * The key provider settings.
-   * @public
-   */
-  KeyProviderSettings?: KeyProviderSettings | undefined;
-
-  /**
-   * When set to gzip, compresses HLS playlist.
-   * @public
-   */
-  ManifestCompression?: HlsManifestCompression | undefined;
-
-  /**
-   * Indicates whether the output manifest should use floating point or integer values for segment duration.
-   * @public
-   */
-  ManifestDurationFormat?: HlsManifestDurationFormat | undefined;
-
-  /**
-   * Minimum length of MPEG-2 Transport Stream segments in seconds. When set, minimum segment length is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
-   * @public
-   */
-  MinSegmentLength?: number | undefined;
-
-  /**
-   * If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.
-   *
-   * VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
-   * @public
-   */
-  Mode?: HlsMode | undefined;
-
-  /**
-   * MANIFESTS_AND_SEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
-   *
-   * VARIANT_MANIFESTS_AND_SEGMENTS: Generates media manifests for this output group, but not a master manifest.
-   *
-   * SEGMENTS_ONLY: Does not generate any manifests for this output group.
-   * @public
-   */
-  OutputSelection?: HlsOutputSelection | undefined;
-
-  /**
-   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated using the program date time clock.
-   * @public
-   */
-  ProgramDateTime?: HlsProgramDateTime | undefined;
-
-  /**
-   * Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME clock. Options include:
-   *
-   * INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock is initialized as a function of the first output timecode, then incremented by the EXTINF duration of each encoded segment.
-   *
-   * SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall clock, then incremented by the EXTINF duration of each encoded segment. If the PDT clock diverges from the wall clock by more than 500ms, it is resynchronized to the wall clock.
-   * @public
-   */
-  ProgramDateTimeClock?: HlsProgramDateTimeClock | undefined;
-
-  /**
-   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-   * @public
-   */
-  ProgramDateTimePeriod?: number | undefined;
-
-  /**
-   * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines.
-   *
-   * DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only.
-   *
-   * For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
-   * @public
-   */
-  RedundantManifest?: HlsRedundantManifest | undefined;
-
-  /**
-   * Length of MPEG-2 Transport Stream segments to create in seconds. Note that segments will end on the next keyframe after this duration, so actual segment length may be longer.
-   * @public
-   */
-  SegmentLength?: number | undefined;
-
-  /**
-   * useInputSegmentation has been deprecated. The configured segment size is always used.
-   * @public
-   */
-  SegmentationMode?: HlsSegmentationMode | undefined;
-
-  /**
-   * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
-   * @public
-   */
-  SegmentsPerSubdirectory?: number | undefined;
-
-  /**
-   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
-   * @public
-   */
-  StreamInfResolution?: HlsStreamInfResolution | undefined;
-
-  /**
-   * Indicates ID3 frame that has the timecode.
-   * @public
-   */
-  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | undefined;
-
-  /**
-   * Timed Metadata interval in seconds.
-   * @public
-   */
-  TimedMetadataId3Period?: number | undefined;
-
-  /**
-   * Provides an extra millisecond delta offset to fine tune the timestamps.
-   * @public
-   */
-  TimestampDeltaMilliseconds?: number | undefined;
-
-  /**
-   * SEGMENTED_FILES: Emit the program as segments - multiple .ts media files.
-   *
-   * SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
-   * @public
-   */
-  TsFileMode?: HlsTsFileMode | undefined;
-}
-
-/**
- * Media Package V2 Group Settings
- * @public
- */
-export interface MediaPackageV2GroupSettings {
-  /**
-   * Mapping of up to 4 caption channels to caption languages.
-   * @public
-   */
-  CaptionLanguageMappings?: CaptionLanguageMapping[] | undefined;
-
-  /**
-   * Set to ENABLED to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group, or you add an ID3 action to the channel schedule.
-   * @public
-   */
-  Id3Behavior?: CmafId3Behavior | undefined;
-
-  /**
-   * If set to passthrough, passes any KLV data from the input source to this output.
-   * @public
-   */
-  KlvBehavior?: CmafKLVBehavior | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
-
-  /**
-   * Type of scte35 track to add. none or scte35WithoutSegmentation
-   * @public
-   */
-  Scte35Type?: Scte35Type | undefined;
-
-  /**
-   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
-   * @public
-   */
-  SegmentLength?: number | undefined;
-
-  /**
-   * Time unit for segment length parameter.
-   * @public
-   */
-  SegmentLengthUnits?: CmafIngestSegmentLengthUnits | undefined;
-
-  /**
-   * Set to none if you don't want to insert a timecode in the output. Otherwise choose the frame type for the timecode.
-   * @public
-   */
-  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame | undefined;
-
-  /**
-   * If you set up to insert a timecode in the output, specify the frequency for the frame, in seconds.
-   * @public
-   */
-  TimedMetadataId3Period?: number | undefined;
-
-  /**
-   * Set to enabled to pass through ID3 metadata from the input sources.
-   * @public
-   */
-  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
-}
-
-/**
- * Media Package Group Settings
- * @public
- */
-export interface MediaPackageGroupSettings {
-  /**
-   * MediaPackage channel destination.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Parameters that apply only if the destination parameter (for the output group) specifies a channelGroup and channelName. Use of these two paramters indicates that the output group is for MediaPackage V2 (CMAF Ingest).
-   * @public
-   */
-  MediapackageV2GroupSettings?: MediaPackageV2GroupSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupAudioOnlyTimecodeControl = {
-  PASSTHROUGH: "PASSTHROUGH",
-  USE_CONFIGURED_CLOCK: "USE_CONFIGURED_CLOCK",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupAudioOnlyTimecodeControl =
-  (typeof SmoothGroupAudioOnlyTimecodeControl)[keyof typeof SmoothGroupAudioOnlyTimecodeControl];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupCertificateMode = {
-  SELF_SIGNED: "SELF_SIGNED",
-  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupCertificateMode = (typeof SmoothGroupCertificateMode)[keyof typeof SmoothGroupCertificateMode];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupEventIdMode = {
-  NO_EVENT_ID: "NO_EVENT_ID",
-  USE_CONFIGURED: "USE_CONFIGURED",
-  USE_TIMESTAMP: "USE_TIMESTAMP",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupEventIdMode = (typeof SmoothGroupEventIdMode)[keyof typeof SmoothGroupEventIdMode];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupEventStopBehavior = {
-  NONE: "NONE",
-  SEND_EOS: "SEND_EOS",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupEventStopBehavior =
-  (typeof SmoothGroupEventStopBehavior)[keyof typeof SmoothGroupEventStopBehavior];
-
-/**
- * @public
- * @enum
- */
-export const InputLossActionForMsSmoothOut = {
-  EMIT_OUTPUT: "EMIT_OUTPUT",
-  PAUSE_OUTPUT: "PAUSE_OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type InputLossActionForMsSmoothOut =
-  (typeof InputLossActionForMsSmoothOut)[keyof typeof InputLossActionForMsSmoothOut];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupSegmentationMode = {
-  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupSegmentationMode =
-  (typeof SmoothGroupSegmentationMode)[keyof typeof SmoothGroupSegmentationMode];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupSparseTrackType = {
-  NONE: "NONE",
-  SCTE_35: "SCTE_35",
-  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupSparseTrackType = (typeof SmoothGroupSparseTrackType)[keyof typeof SmoothGroupSparseTrackType];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupStreamManifestBehavior = {
-  DO_NOT_SEND: "DO_NOT_SEND",
-  SEND: "SEND",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupStreamManifestBehavior =
-  (typeof SmoothGroupStreamManifestBehavior)[keyof typeof SmoothGroupStreamManifestBehavior];
-
-/**
- * @public
- * @enum
- */
-export const SmoothGroupTimestampOffsetMode = {
-  USE_CONFIGURED_OFFSET: "USE_CONFIGURED_OFFSET",
-  USE_EVENT_START_DATE: "USE_EVENT_START_DATE",
-} as const;
-
-/**
- * @public
- */
-export type SmoothGroupTimestampOffsetMode =
-  (typeof SmoothGroupTimestampOffsetMode)[keyof typeof SmoothGroupTimestampOffsetMode];
-
-/**
- * Ms Smooth Group Settings
- * @public
- */
-export interface MsSmoothGroupSettings {
-  /**
-   * The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
-   * @public
-   */
-  AcquisitionPointId?: string | undefined;
-
-  /**
-   * If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
-   * @public
-   */
-  AudioOnlyTimecodeControl?: SmoothGroupAudioOnlyTimecodeControl | undefined;
-
-  /**
-   * If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
-   * @public
-   */
-  CertificateMode?: SmoothGroupCertificateMode | undefined;
-
-  /**
-   * Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
-   * @public
-   */
-  ConnectionRetryInterval?: number | undefined;
-
-  /**
-   * Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * MS Smooth event ID to be sent to the IIS server.
-   *
-   * Should only be specified if eventIdMode is set to useConfigured.
-   * @public
-   */
-  EventId?: string | undefined;
-
-  /**
-   * Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
-   *
-   * Options:
-   * - "useConfigured" - use the value provided in eventId
-   * - "useTimestamp" - generate and send an event ID based on the current timestamp
-   * - "noEventId" - do not send an event ID to the IIS server.
-   * @public
-   */
-  EventIdMode?: SmoothGroupEventIdMode | undefined;
-
-  /**
-   * When set to sendEos, send EOS signal to IIS server when stopping the event
-   * @public
-   */
-  EventStopBehavior?: SmoothGroupEventStopBehavior | undefined;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number | undefined;
-
-  /**
-   * Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
-   * @public
-   */
-  FragmentLength?: number | undefined;
-
-  /**
-   * Parameter that control output group behavior on input loss.
-   * @public
-   */
-  InputLossAction?: InputLossActionForMsSmoothOut | undefined;
-
-  /**
-   * Number of retry attempts.
-   * @public
-   */
-  NumRetries?: number | undefined;
-
-  /**
-   * Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
-   * @public
-   */
-  RestartDelay?: number | undefined;
-
+export interface Channel {
   /**
-   * useInputSegmentation has been deprecated. The configured segment size is always used.
+   * The unique arn of the channel.
    * @public
    */
-  SegmentationMode?: SmoothGroupSegmentationMode | undefined;
+  Arn?: string | undefined;
 
   /**
-   * Number of milliseconds to delay the output from the second pipeline.
+   * Specification of CDI inputs for this channel
    * @public
    */
-  SendDelayMs?: number | undefined;
+  CdiInputSpecification?: CdiInputSpecification | undefined;
 
   /**
-   * Identifies the type of data to place in the sparse track:
-   * - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
-   * - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
-   * - NONE: Don't generate a sparse track for any outputs in this output group.
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    * @public
    */
-  SparseTrackType?: SmoothGroupSparseTrackType | undefined;
+  ChannelClass?: ChannelClass | undefined;
 
   /**
-   * When set to send, send stream manifest so publishing point doesn't start until all streams start.
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
    * @public
    */
-  StreamManifestBehavior?: SmoothGroupStreamManifestBehavior | undefined;
+  Destinations?: OutputDestination[] | undefined;
 
   /**
-   * Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
+   * The endpoints where outgoing connections initiate from
    * @public
    */
-  TimestampOffset?: string | undefined;
+  EgressEndpoints?: ChannelEgressEndpoint[] | undefined;
 
   /**
-   * Type of timestamp date offset to use.
-   * - useEventStartDate: Use the date the event was started as the offset
-   * - useConfiguredOffset: Use an explicitly configured date as the offset
+   * Encoder Settings
    * @public
    */
-  TimestampOffsetMode?: SmoothGroupTimestampOffsetMode | undefined;
-}
+  EncoderSettings?: EncoderSettings | undefined;
 
-/**
- * Multiplex Group Settings
- * @public
- */
-export interface MultiplexGroupSettings {}
-
-/**
- * @public
- * @enum
- */
-export const RtmpAdMarkers = {
-  ON_CUE_POINT_SCTE35: "ON_CUE_POINT_SCTE35",
-} as const;
-
-/**
- * @public
- */
-export type RtmpAdMarkers = (typeof RtmpAdMarkers)[keyof typeof RtmpAdMarkers];
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationScheme = {
-  AKAMAI: "AKAMAI",
-  COMMON: "COMMON",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationScheme = (typeof AuthenticationScheme)[keyof typeof AuthenticationScheme];
-
-/**
- * @public
- * @enum
- */
-export const RtmpCacheFullBehavior = {
-  DISCONNECT_IMMEDIATELY: "DISCONNECT_IMMEDIATELY",
-  WAIT_FOR_SERVER: "WAIT_FOR_SERVER",
-} as const;
-
-/**
- * @public
- */
-export type RtmpCacheFullBehavior = (typeof RtmpCacheFullBehavior)[keyof typeof RtmpCacheFullBehavior];
-
-/**
- * @public
- * @enum
- */
-export const RtmpCaptionData = {
-  ALL: "ALL",
-  FIELD1_608: "FIELD1_608",
-  FIELD1_AND_FIELD2_608: "FIELD1_AND_FIELD2_608",
-} as const;
-
-/**
- * @public
- */
-export type RtmpCaptionData = (typeof RtmpCaptionData)[keyof typeof RtmpCaptionData];
-
-/**
- * @public
- * @enum
- */
-export const IncludeFillerNalUnits = {
-  AUTO: "AUTO",
-  DROP: "DROP",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type IncludeFillerNalUnits = (typeof IncludeFillerNalUnits)[keyof typeof IncludeFillerNalUnits];
-
-/**
- * @public
- * @enum
- */
-export const InputLossActionForRtmpOut = {
-  EMIT_OUTPUT: "EMIT_OUTPUT",
-  PAUSE_OUTPUT: "PAUSE_OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type InputLossActionForRtmpOut = (typeof InputLossActionForRtmpOut)[keyof typeof InputLossActionForRtmpOut];
-
-/**
- * Rtmp Group Settings
- * @public
- */
-export interface RtmpGroupSettings {
-  /**
-   * Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
-   * @public
-   */
-  AdMarkers?: RtmpAdMarkers[] | undefined;
-
-  /**
-   * Authentication scheme to use when connecting with CDN
-   * @public
-   */
-  AuthenticationScheme?: AuthenticationScheme | undefined;
-
-  /**
-   * Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
-   * @public
-   */
-  CacheFullBehavior?: RtmpCacheFullBehavior | undefined;
-
-  /**
-   * Cache length, in seconds, is used to calculate buffer size.
-   * @public
-   */
-  CacheLength?: number | undefined;
-
-  /**
-   * Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
-   * @public
-   */
-  CaptionData?: RtmpCaptionData | undefined;
-
-  /**
-   * Controls the behavior of this RTMP group if input becomes unavailable.
-   *
-   * - emitOutput: Emit a slate until input returns.
-   * - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
-   * @public
-   */
-  InputLossAction?: InputLossActionForRtmpOut | undefined;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number | undefined;
-
-  /**
-   * Applies only when the rate control mode (in the codec settings) is CBR (constant bit rate). Controls whether the RTMP output stream is padded (with FILL NAL units) in order to achieve a constant bit rate that is truly constant. When there is no padding, the bandwidth varies (up to the bitrate value in the codec settings). We recommend that you choose Auto.
-   * @public
-   */
-  IncludeFillerNalUnits?: IncludeFillerNalUnits | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InputLossActionForUdpOut = {
-  DROP_PROGRAM: "DROP_PROGRAM",
-  DROP_TS: "DROP_TS",
-  EMIT_PROGRAM: "EMIT_PROGRAM",
-} as const;
-
-/**
- * @public
- */
-export type InputLossActionForUdpOut = (typeof InputLossActionForUdpOut)[keyof typeof InputLossActionForUdpOut];
-
-/**
- * Srt Group Settings
- * @public
- */
-export interface SrtGroupSettings {
-  /**
-   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
-   * @public
-   */
-  InputLossAction?: InputLossActionForUdpOut | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UdpTimedMetadataId3Frame = {
-  NONE: "NONE",
-  PRIV: "PRIV",
-  TDRL: "TDRL",
-} as const;
-
-/**
- * @public
- */
-export type UdpTimedMetadataId3Frame = (typeof UdpTimedMetadataId3Frame)[keyof typeof UdpTimedMetadataId3Frame];
-
-/**
- * Udp Group Settings
- * @public
- */
-export interface UdpGroupSettings {
-  /**
-   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
-   * @public
-   */
-  InputLossAction?: InputLossActionForUdpOut | undefined;
-
-  /**
-   * Indicates ID3 frame that has the timecode.
-   * @public
-   */
-  TimedMetadataId3Frame?: UdpTimedMetadataId3Frame | undefined;
-
-  /**
-   * Timed Metadata interval in seconds.
-   * @public
-   */
-  TimedMetadataId3Period?: number | undefined;
-}
-
-/**
- * Output Group Settings
- * @public
- */
-export interface OutputGroupSettings {
-  /**
-   * Archive Group Settings
-   * @public
-   */
-  ArchiveGroupSettings?: ArchiveGroupSettings | undefined;
-
-  /**
-   * Frame Capture Group Settings
-   * @public
-   */
-  FrameCaptureGroupSettings?: FrameCaptureGroupSettings | undefined;
-
-  /**
-   * Hls Group Settings
-   * @public
-   */
-  HlsGroupSettings?: HlsGroupSettings | undefined;
-
-  /**
-   * Media Package Group Settings
-   * @public
-   */
-  MediaPackageGroupSettings?: MediaPackageGroupSettings | undefined;
-
-  /**
-   * Ms Smooth Group Settings
-   * @public
-   */
-  MsSmoothGroupSettings?: MsSmoothGroupSettings | undefined;
-
   /**
-   * Multiplex Group Settings
+   * The unique id of the channel.
    * @public
    */
-  MultiplexGroupSettings?: MultiplexGroupSettings | undefined;
+  Id?: string | undefined;
 
   /**
-   * Rtmp Group Settings
+   * List of input attachments for channel.
    * @public
    */
-  RtmpGroupSettings?: RtmpGroupSettings | undefined;
+  InputAttachments?: InputAttachment[] | undefined;
 
   /**
-   * Udp Group Settings
+   * Specification of network and file inputs for this channel
    * @public
    */
-  UdpGroupSettings?: UdpGroupSettings | undefined;
+  InputSpecification?: InputSpecification | undefined;
 
   /**
-   * Cmaf Ingest Group Settings
+   * The log level being written to CloudWatch Logs.
    * @public
    */
-  CmafIngestGroupSettings?: CmafIngestGroupSettings | undefined;
+  LogLevel?: LogLevel | undefined;
 
   /**
-   * Srt Group Settings
+   * Maintenance settings for this channel.
    * @public
    */
-  SrtGroupSettings?: SrtGroupSettings | undefined;
-}
+  Maintenance?: MaintenanceStatus | undefined;
 
-/**
- * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
- * @public
- */
-export interface OutputGroup {
   /**
-   * Custom output group name optionally defined by the user.
+   * The name of the channel. (user-mutable)
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * Settings associated with the output group.
+   * Runtime details for the pipelines of a running channel.
    * @public
    */
-  OutputGroupSettings: OutputGroupSettings | undefined;
+  PipelineDetails?: PipelineDetail[] | undefined;
 
   /**
-   * Placeholder documentation for __listOfOutput
+   * The number of currently healthy pipelines.
    * @public
    */
-  Outputs: Output[] | undefined;
-}
+  PipelinesRunningCount?: number | undefined;
 
-/**
- * Runtime details of a pipeline when a channel is running.
- * @public
- */
-export interface PipelineDetail {
   /**
-   * The name of the active input attachment currently being ingested by this pipeline.
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    * @public
    */
-  ActiveInputAttachmentName?: string | undefined;
+  RoleArn?: string | undefined;
 
   /**
-   * The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
+   * Placeholder documentation for ChannelState
    * @public
    */
-  ActiveInputSwitchActionName?: string | undefined;
+  State?: ChannelState | undefined;
 
   /**
-   * The name of the motion graphics activate action that occurred most recently and that resulted in the current graphics URI for this pipeline.
+   * A collection of key-value pairs.
    * @public
    */
-  ActiveMotionGraphicsActionName?: string | undefined;
+  Tags?: Record<string, string> | undefined;
 
   /**
-   * The current URI being used for HTML5 motion graphics for this pipeline.
+   * Settings for VPC output
    * @public
    */
-  ActiveMotionGraphicsUri?: string | undefined;
+  Vpc?: VpcOutputSettingsDescription | undefined;
 
   /**
-   * Pipeline ID
+   * Anywhere settings for this channel.
    * @public
    */
-  PipelineId?: string | undefined;
+  AnywhereSettings?: DescribeAnywhereSettings | undefined;
 
   /**
-   * Current engine version of the encoder for this pipeline.
+   * Requested engine version for this channel.
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const PipelineId = {
-  PIPELINE_0: "PIPELINE_0",
-  PIPELINE_1: "PIPELINE_1",
-} as const;
-
-/**
+ * Placeholder documentation for ChannelEngineVersionRequest
  * @public
  */
-export type PipelineId = (typeof PipelineId)[keyof typeof PipelineId];
-
-/**
- * Settings for pausing a pipeline.
- * @public
- */
-export interface PipelinePauseStateSettings {
+export interface ChannelEngineVersionRequest {
   /**
-   * Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+   * The build identifier of the engine version to use for this channel. Specify 'DEFAULT' to reset to the default version.
    * @public
    */
-  PipelineId: PipelineId | undefined;
+  Version?: string | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const ReservationAutomaticRenewal = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
+ * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
  * @public
  */
-export type ReservationAutomaticRenewal =
-  (typeof ReservationAutomaticRenewal)[keyof typeof ReservationAutomaticRenewal];
-
-/**
- * The Renewal settings for Reservations
- * @public
- */
-export interface RenewalSettings {
+export interface ClaimDeviceRequest {
   /**
-   * Automatic renewal status for the reservation
+   * The id of the device you want to claim.
    * @public
    */
-  AutomaticRenewal?: ReservationAutomaticRenewal | undefined;
-
-  /**
-   * Count for the reservation renewal
-   * @public
-   */
-  RenewalCount?: number | undefined;
+  Id?: string | undefined;
 }
 
 /**
+ * Placeholder documentation for ClaimDeviceResponse
  * @public
- * @enum
  */
-export const ReservationState = {
-  ACTIVE: "ACTIVE",
-  CANCELED: "CANCELED",
-  DELETED: "DELETED",
-  EXPIRED: "EXPIRED",
-} as const;
+export interface ClaimDeviceResponse {}
 
 /**
+ * Used in a CreateClusterRequest.
  * @public
  */
-export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
+export interface ClusterNetworkSettingsCreateRequest {
+  /**
+   * Specify one network interface as the default route for traffic to and from the Node. MediaLive Anywhere uses this default when the destination for the traffic isn't covered by the route table for any of the networks. Specify the value of the appropriate logicalInterfaceName parameter that you create in the interfaceMappings.
+   * @public
+   */
+  DefaultRoute?: string | undefined;
+
+  /**
+   * An array of interfaceMapping objects for this Cluster. You must create a mapping for node interfaces that you plan to use for encoding traffic. You typically don't create a mapping for the management interface. You define this mapping in the Cluster so that the mapping can be used by all the Nodes. Each mapping logically connects one interface on the nodes with one Network. Each mapping consists of a pair of parameters. The logicalInterfaceName parameter creates a logical name for the Node interface that handles a specific type of traffic. For example, my-Inputs-Interface. The networkID parameter refers to the ID of the network. When you create the Nodes in this Cluster, you will associate the logicalInterfaceName with the appropriate physical interface.
+   * @public
+   */
+  InterfaceMappings?: InterfaceMappingCreateRequest[] | undefined;
+}
 
 /**
- * Reserved resources available to use
+ * Placeholder documentation for ClusterNetworkSettingsUpdateRequest
  * @public
  */
-export interface Reservation {
+export interface ClusterNetworkSettingsUpdateRequest {
+  /**
+   * Include this parameter only if you want to change the default route for the Cluster. Specify one network interface as the default route for traffic to and from the node. MediaLive Anywhere uses this default when the destination for the traffic isn't covered by the route table for any of the networks. Specify the value of the appropriate logicalInterfaceName parameter that you create in the interfaceMappings.
+   * @public
+   */
+  DefaultRoute?: string | undefined;
+
+  /**
+   * An array of interfaceMapping objects for this Cluster. Include this parameter only if you want to change the interface mappings for the Cluster. Typically, you change the interface mappings only to fix an error you made when creating the mapping. In an update request, make sure that you enter the entire set of mappings again, not just the mappings that you want to add or change. You define this mapping so that the mapping can be used by all the Nodes. Each mapping logically connects one interface on the nodes with one Network. Each mapping consists of a pair of parameters. The logicalInterfaceName parameter creates a logical name for the Node interface that handles a specific type of traffic. For example, my-Inputs-Interface. The networkID parameter refers to the ID of the network. When you create the Nodes in this Cluster, you will associate the logicalInterfaceName with the appropriate physical interface.
+   * @public
+   */
+  InterfaceMappings?: InterfaceMappingUpdateRequest[] | undefined;
+}
+
+/**
+ * Placeholder documentation for MaintenanceCreateSettings
+ * @public
+ */
+export interface MaintenanceCreateSettings {
+  /**
+   * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
+   * @public
+   */
+  MaintenanceDay?: MaintenanceDay | undefined;
+
+  /**
+   * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
+   * @public
+   */
+  MaintenanceStartTime?: string | undefined;
+}
+
+/**
+ * The properties for a private VPC Output
+ * When this property is specified, the output egress addresses will be created in a user specified VPC
+ * @public
+ */
+export interface VpcOutputSettings {
+  /**
+   * List of public address allocation ids to associate with ENIs that will be created in Output VPC.
+   * Must specify one for SINGLE_PIPELINE, two for STANDARD channels
+   * @public
+   */
+  PublicAddressAllocationIds?: string[] | undefined;
+
+  /**
+   * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces.
+   * If none are specified then the VPC default security group will be used
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * A list of VPC subnet IDs from the same VPC.
+   * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * A request to create a channel
+ * @public
+ */
+export interface CreateChannelRequest {
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass | undefined;
+
+  /**
+   * Placeholder documentation for __listOfOutputDestination
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[] | undefined;
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification | undefined;
+
+  /**
+   * The log level to write to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceCreateSettings | undefined;
+
+  /**
+   * Name of channel.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Unique request ID to be specified. This is needed to prevent retries from
+   * creating multiple resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * Deprecated field that's only usable by whitelisted customers.
+   *
+   * @deprecated deprecated
+   * @public
+   */
+  Reserved?: string | undefined;
+
+  /**
+   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Settings for the VPC outputs
+   * @public
+   */
+  Vpc?: VpcOutputSettings | undefined;
+
+  /**
+   * The Elemental Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: AnywhereSettings | undefined;
+
+  /**
+   * The desired engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionRequest | undefined;
+
+  /**
+   * Placeholder documentation for __boolean
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateChannelResponse
+ * @public
+ */
+export interface CreateChannelResponse {
+  /**
+   * Placeholder documentation for Channel
+   * @public
+   */
+  Channel?: Channel | undefined;
+}
+
+/**
+ * A request to create a channel placement group.
+ * @public
+ */
+export interface CreateChannelPlacementGroupRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array of one ID for the Node that you want to associate with the ChannelPlacementGroup. (You can't associate more than one Node with the ChannelPlacementGroup.) The Node and the ChannelPlacementGroup must be in the same Cluster.
+   * @public
+   */
+  Nodes?: string[] | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources. the request.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateChannelPlacementGroupResponse
+ * @public
+ */
+export interface CreateChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[] | undefined;
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateRequest
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateRequest {
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator: CloudWatchAlarmTemplateComparisonOperator | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData: CloudWatchAlarmTemplateTreatMissingData | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateResponse
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateResponse {
+  /**
+   * A cloudwatch alarm template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods?: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period?: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic?: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold?: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateGroupRequest
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateGroupRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateCloudWatchAlarmTemplateGroupResponse
+ * @public
+ */
+export interface CreateCloudWatchAlarmTemplateGroupResponse {
+  /**
+   * A cloudwatch alarm template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Create as many Clusters as you want, but create at least one. Each Cluster groups together Nodes that you want to treat as a collection. Within the Cluster, you will set up some Nodes as active Nodes, and some as backup Nodes, for Node failover purposes. Each Node can belong to only one Cluster.
+ * @public
+ */
+export interface CreateClusterRequest {
+  /**
+   * Specify a type. All the Nodes that you later add to this Cluster must be this type of hardware. One Cluster instance can't contain different hardware types. You won't be able to change this parameter after you create the Cluster.
+   * @public
+   */
+  ClusterType?: ClusterType | undefined;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. The role must include all the operations that you expect these Node to perform. If necessary, create a role in IAM, then attach it here.
+   * @public
+   */
+  InstanceRoleArn?: string | undefined;
+
+  /**
+   * Specify a name that is unique in the AWS account. We recommend that you assign a name that hints at the types of Nodes in the Cluster. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettingsCreateRequest | undefined;
+
+  /**
+   * The unique ID of the request.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateClusterResponse
+ * @public
+ */
+export interface CreateClusterResponse {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType | undefined;
+
+  /**
+   * The ID of the  Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings | undefined;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateRequest
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+   * @public
+   */
+  EventTargets?: EventBridgeRuleTemplateTarget[] | undefined;
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateResponse
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateResponse {
+  /**
+   * An eventbridge rule template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+   * @public
+   */
+  EventTargets?: EventBridgeRuleTemplateTarget[] | undefined;
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType?: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateGroupRequest
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateGroupRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateEventBridgeRuleTemplateGroupResponse
+ * @public
+ */
+export interface CreateEventBridgeRuleTemplateGroupResponse {
+  /**
+   * An eventbridge rule template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+ * @public
+ */
+export interface MulticastSettingsCreateRequest {
+  /**
+   * Placeholder documentation for __listOfMulticastSourceCreateRequest
+   * @public
+   */
+  Sources?: MulticastSourceCreateRequest[] | undefined;
+}
+
+/**
+ * Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource.
+ * @public
+ */
+export interface SrtSettingsRequest {
+  /**
+   * Placeholder documentation for __listOfSrtCallerSourceRequest
+   * @public
+   */
+  SrtCallerSources?: SrtCallerSourceRequest[] | undefined;
+}
+
+/**
+ * Settings for a private VPC Input.
+ * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+ * This property requires setting the roleArn property on Input creation.
+ * Not compatible with the inputSecurityGroups property.
+ * @public
+ */
+export interface InputVpcRequest {
+  /**
+   * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+   * Requires subnetIds. If none are specified then the VPC default security group will be used.
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * A list of 2 VPC subnet IDs from the same VPC.
+   * Subnet IDs must be mapped to two unique availability zones (AZ).
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * The name of the input
+ * @public
+ */
+export interface CreateInputRequest {
+  /**
+   * Destination settings for PUSH type inputs.
+   * @public
+   */
+  Destinations?: InputDestinationRequest[] | undefined;
+
+  /**
+   * Settings for the devices.
+   * @public
+   */
+  InputDevices?: InputDeviceSettings[] | undefined;
+
+  /**
+   * A list of security groups referenced by IDs to attach to the input.
+   * @public
+   */
+  InputSecurityGroups?: string[] | undefined;
+
+  /**
+   * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
+   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+   * @public
+   */
+  MediaConnectFlows?: MediaConnectFlowRequest[] | undefined;
+
+  /**
+   * Name of the input.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * The source URLs for a PULL-type input. Every PULL type input needs
+   * exactly two source URLs for redundancy.
+   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   * @public
+   */
+  Sources?: InputSourceRequest[] | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The different types of inputs that AWS Elemental MediaLive supports.
+   * @public
+   */
+  Type?: InputType | undefined;
+
+  /**
+   * Settings for a private VPC Input.
+   * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+   * This property requires setting the roleArn property on Input creation.
+   * Not compatible with the inputSecurityGroups property.
+   * @public
+   */
+  Vpc?: InputVpcRequest | undefined;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettingsRequest | undefined;
+
+  /**
+   * The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for
+   * an input in a customer network.
+   * @public
+   */
+  InputNetworkLocation?: InputNetworkLocation | undefined;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettingsCreateRequest | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateInputResponse
+ * @public
+ */
+export interface CreateInputResponse {
+  /**
+   * Placeholder documentation for Input
+   * @public
+   */
+  Input?: Input | undefined;
+}
+
+/**
+ * The IPv4 CIDRs to whitelist for this Input Security Group
+ * @public
+ */
+export interface CreateInputSecurityGroupRequest {
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * List of IPv4 CIDR addresses to whitelist
+   * @public
+   */
+  WhitelistRules?: InputWhitelistRuleCidr[] | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateInputSecurityGroupResponse
+ * @public
+ */
+export interface CreateInputSecurityGroupResponse {
+  /**
+   * An Input Security Group
+   * @public
+   */
+  SecurityGroup?: InputSecurityGroup | undefined;
+}
+
+/**
+ * Contains configuration for a Multiplex event
+ * @public
+ */
+export interface MultiplexSettings {
+  /**
+   * Maximum video buffer delay in milliseconds.
+   * @public
+   */
+  MaximumVideoBufferDelayMilliseconds?: number | undefined;
+
+  /**
+   * Transport stream bit rate.
+   * @public
+   */
+  TransportStreamBitrate: number | undefined;
+
+  /**
+   * Transport stream ID.
+   * @public
+   */
+  TransportStreamId: number | undefined;
+
+  /**
+   * Transport stream reserved bit rate.
+   * @public
+   */
+  TransportStreamReservedBitrate?: number | undefined;
+}
+
+/**
+ * A request to create a multiplex.
+ * @public
+ */
+export interface CreateMultiplexRequest {
+  /**
+   * A list of availability zones for the multiplex. You must specify exactly two.
+   * @public
+   */
+  AvailabilityZones: string[] | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings: MultiplexSettings | undefined;
+
+  /**
+   * Name of multiplex.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Unique request ID. This prevents retries from creating multiple
+   * resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * The multiplex object.
+ * @public
+ */
+export interface Multiplex {
+  /**
+   * The unique arn of the multiplex.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * A list of availability zones for the multiplex.
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * A list of the multiplex output destinations.
+   * @public
+   */
+  Destinations?: MultiplexOutputDestination[] | undefined;
+
+  /**
+   * The unique id of the multiplex.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings?: MultiplexSettings | undefined;
+
+  /**
+   * The name of the multiplex.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The number of programs in the multiplex.
+   * @public
+   */
+  ProgramCount?: number | undefined;
+
+  /**
+   * The current state of the multiplex.
+   * @public
+   */
+  State?: MultiplexState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateMultiplexResponse
+ * @public
+ */
+export interface CreateMultiplexResponse {
+  /**
+   * The newly created multiplex.
+   * @public
+   */
+  Multiplex?: Multiplex | undefined;
+}
+
+/**
+ * Transport stream service descriptor configuration for the Multiplex program.
+ * @public
+ */
+export interface MultiplexProgramServiceDescriptor {
+  /**
+   * Name of the provider.
+   * @public
+   */
+  ProviderName: string | undefined;
+
+  /**
+   * Name of the service.
+   * @public
+   */
+  ServiceName: string | undefined;
+}
+
+/**
+ * Statmux rate control settings
+ * @public
+ */
+export interface MultiplexStatmuxVideoSettings {
+  /**
+   * Maximum statmux bitrate.
+   * @public
+   */
+  MaximumBitrate?: number | undefined;
+
+  /**
+   * Minimum statmux bitrate.
+   * @public
+   */
+  MinimumBitrate?: number | undefined;
+
+  /**
+   * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others. Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+   * @public
+   */
+  Priority?: number | undefined;
+}
+
+/**
+ * The video configuration for each program in a multiplex.
+ * @public
+ */
+export interface MultiplexVideoSettings {
+  /**
+   * The constant bitrate configuration for the video encode.
+   * When this field is defined, StatmuxSettings must be undefined.
+   * @public
+   */
+  ConstantBitrate?: number | undefined;
+
+  /**
+   * Statmux rate control settings.
+   * When this field is defined, ConstantBitrate must be undefined.
+   * @public
+   */
+  StatmuxSettings?: MultiplexStatmuxVideoSettings | undefined;
+}
+
+/**
+ * Multiplex Program settings configuration.
+ * @public
+ */
+export interface MultiplexProgramSettings {
+  /**
+   * Indicates which pipeline is preferred by the multiplex for program ingest.
+   * @public
+   */
+  PreferredChannelPipeline?: PreferredChannelPipeline | undefined;
+
+  /**
+   * Unique program number.
+   * @public
+   */
+  ProgramNumber: number | undefined;
+
+  /**
+   * Transport stream service descriptor configuration for the Multiplex program.
+   * @public
+   */
+  ServiceDescriptor?: MultiplexProgramServiceDescriptor | undefined;
+
+  /**
+   * Program video settings configuration.
+   * @public
+   */
+  VideoSettings?: MultiplexVideoSettings | undefined;
+}
+
+/**
+ * A request to create a program in a multiplex.
+ * @public
+ */
+export interface CreateMultiplexProgramRequest {
+  /**
+   * ID of the multiplex where the program is to be created.
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The settings for this multiplex program.
+   * @public
+   */
+  MultiplexProgramSettings: MultiplexProgramSettings | undefined;
+
+  /**
+   * Name of multiplex program.
+   * @public
+   */
+  ProgramName: string | undefined;
+
+  /**
+   * Unique request ID. This prevents retries from creating multiple
+   * resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * Packet identifiers map for a given Multiplex program.
+ * @public
+ */
+export interface MultiplexProgramPacketIdentifiersMap {
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  AudioPids?: number[] | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  DvbSubPids?: number[] | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  DvbTeletextPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EtvPlatformPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EtvSignalPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  KlvDataPids?: number[] | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  PcrPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  PmtPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  PrivateMetadataPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  Scte27Pids?: number[] | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  Scte35Pid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  TimedMetadataPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  VideoPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  AribCaptionsPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   * @public
+   */
+  DvbTeletextPids?: number[] | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  EcmPid?: number | undefined;
+
+  /**
+   * Placeholder documentation for __integer
+   * @public
+   */
+  Smpte2038Pid?: number | undefined;
+}
+
+/**
+ * The multiplex program object.
+ * @public
+ */
+export interface MultiplexProgram {
+  /**
+   * The MediaLive channel associated with the program.
+   * @public
+   */
+  ChannelId?: string | undefined;
+
+  /**
+   * The settings for this multiplex program.
+   * @public
+   */
+  MultiplexProgramSettings?: MultiplexProgramSettings | undefined;
+
+  /**
+   * The packet identifier map for this multiplex program.
+   * @public
+   */
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap | undefined;
+
+  /**
+   * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+   * @public
+   */
+  PipelineDetails?: MultiplexProgramPipelineDetail[] | undefined;
+
+  /**
+   * The name of the multiplex program.
+   * @public
+   */
+  ProgramName?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateMultiplexProgramResponse
+ * @public
+ */
+export interface CreateMultiplexProgramResponse {
+  /**
+   * The newly created multiplex program.
+   * @public
+   */
+  MultiplexProgram?: MultiplexProgram | undefined;
+}
+
+/**
+ * A request to create a Network.
+ * @public
+ */
+export interface CreateNetworkRequest {
+  /**
+   * An array of IpPoolCreateRequests that identify a collection of IP addresses in your network that you want to reserve for use in MediaLive Anywhere. MediaLiveAnywhere uses these IP addresses for Push inputs (in both Bridge and NATnetworks) and for output destinations (only in Bridge networks). EachIpPoolUpdateRequest specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPoolCreateRequest[] | undefined;
+
+  /**
+   * Specify a name that is unique in the AWS account. We recommend that you assign a name that hints at the type of traffic on the network. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: RouteCreateRequest[] | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateNetworkResponse
+ * @public
+ */
+export interface CreateNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[] | undefined;
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[] | undefined;
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[] | undefined;
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState | undefined;
+}
+
+/**
+ * A request to create a node
+ * @public
+ */
+export interface CreateNodeRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The user-specified name of the Node to be created.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMappingCreateRequest[] | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateNodeResponse
+ * @public
+ */
+export interface CreateNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState | undefined;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
+}
+
+/**
+ * A request to create a new node registration script.
+ * @public
+ */
+export interface CreateNodeRegistrationScriptRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * If you're generating a re-registration script for an already existing node, this is where you provide the id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Specify a pattern for MediaLive Anywhere to use to assign a name to each Node in the Cluster. The pattern can include the variables $hn (hostname of the node hardware) and $ts for the date and time that the Node is created, in UTC (for example, 2024-08-20T23:35:12Z).
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateNodeRegistrationScriptResponse
+ * @public
+ */
+export interface CreateNodeRegistrationScriptResponse {
+  /**
+   * A script that can be run on a Bring Your Own Device Elemental Anywhere system to create a node in a cluster.
+   * @public
+   */
+  NodeRegistrationScript?: string | undefined;
+}
+
+/**
+ * A request to create a partner input
+ * @public
+ */
+export interface CreatePartnerInputRequest {
+  /**
+   * Unique ID of the input.
+   * @public
+   */
+  InputId: string | undefined;
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreatePartnerInputResponse
+ * @public
+ */
+export interface CreatePartnerInputResponse {
+  /**
+   * Placeholder documentation for Input
+   * @public
+   */
+  Input?: Input | undefined;
+}
+
+/**
+ * A request to create a SdiSource.
+ * @public
+ */
+export interface CreateSdiSourceRequest {
+  /**
+   * Applies only if the type is QUAD. Specify the mode for handling the quad-link signal: QUADRANT or INTERLEAVE.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Specify the  type of the SDI source: SINGLE: The source  is a single-link source. QUAD: The source  is one part of a quad-link source.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * Used in CreateSdiSourceResponse, DeleteSdiSourceResponse, DescribeSdiSourceResponse, ListSdiSourcesResponse, UpdateSdiSourceResponse
+ * @public
+ */
+export interface SdiSource {
+  /**
+   * The ARN of this SdiSource. It is automatically assigned when the SdiSource is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The ID of the SdiSource. Unique in the AWS account.The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The list of inputs that are currently using this SDI source. This list will be empty if the SdiSource has just been deleted.
+   * @public
+   */
+  Inputs?: string[] | undefined;
+
+  /**
+   * Applies only if the type is QUAD. The mode for handling the quad-link signal QUADRANT or INTERLEAVE.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * The name of the SdiSource.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Specifies whether the SDI source is attached to an SDI input (IN_USE) or not (IDLE).
+   * @public
+   */
+  State?: SdiSourceState | undefined;
+
+  /**
+   * Used in SdiSource, CreateSdiSourceRequest, UpdateSdiSourceRequest.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateSdiSourceResponse
+ * @public
+ */
+export interface CreateSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateSignalMapRequest
+ * @public
+ */
+export interface CreateSignalMapRequest {
+  /**
+   * Placeholder documentation for __listOf__stringPatternS
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringPatternS
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * An AWS resource used in media workflows.
+ * @public
+ */
+export interface MediaResource {
+  /**
+   * Placeholder documentation for __listOfMediaResourceNeighbor
+   * @public
+   */
+  Destinations?: MediaResourceNeighbor[] | undefined;
+
+  /**
+   * The logical name of an AWS media resource.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfMediaResourceNeighbor
+   * @public
+   */
+  Sources?: MediaResourceNeighbor[] | undefined;
+}
+
+/**
+ * Represents the latest successful monitor deployment of a signal map.
+ * @public
+ */
+export interface SuccessfulMonitorDeployment {
+  /**
+   * URI associated with a signal map's monitor deployment.
+   * @public
+   */
+  DetailsUri: string | undefined;
+
+  /**
+   * A signal map's monitor deployment status.
+   * @public
+   */
+  Status: SignalMapMonitorDeploymentStatus | undefined;
+}
+
+/**
+ * Represents the latest monitor deployment of a signal map.
+ * @public
+ */
+export interface MonitorDeployment {
+  /**
+   * URI associated with a signal map's monitor deployment.
+   * @public
+   */
+  DetailsUri?: string | undefined;
+
+  /**
+   * Error message associated with a failed monitor deployment of a signal map.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * A signal map's monitor deployment status.
+   * @public
+   */
+  Status: SignalMapMonitorDeploymentStatus | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateSignalMapResponse
+ * @public
+ */
+export interface CreateSignalMapResponse {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string | undefined;
+
+  /**
+   * Error message associated with a failed creation or failed update attempt of a signal map.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * A map representing an incomplete AWS media workflow as a graph.
+   * @public
+   */
+  FailedMediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  LastDiscoveredAt?: Date | undefined;
+
+  /**
+   * Represents the latest successful monitor deployment of a signal map.
+   * @public
+   */
+  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment | undefined;
+
+  /**
+   * A map representing an AWS media workflow as a graph.
+   * @public
+   */
+  MediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * If true, there are pending monitor changes for this signal map that can be deployed.
+   * @public
+   */
+  MonitorChangesPendingDeployment?: boolean | undefined;
+
+  /**
+   * Represents the latest monitor deployment of a signal map.
+   * @public
+   */
+  MonitorDeployment?: MonitorDeployment | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status?: SignalMapStatus | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateTagsRequest
+ * @public
+ */
+export interface CreateTagsRequest {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * Placeholder documentation for Tags
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelRequest
+ * @public
+ */
+export interface DeleteChannelRequest {
+  /**
+   * Unique ID of the channel.
+   * @public
+   */
+  ChannelId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelResponse
+ * @public
+ */
+export interface DeleteChannelResponse {
+  /**
+   * The unique arn of the channel.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass | undefined;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   * @public
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[] | undefined;
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * The unique id of the channel.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[] | undefined;
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification | undefined;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceStatus | undefined;
+
+  /**
+   * The name of the channel. (user-mutable)
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   * @public
+   */
+  PipelineDetails?: PipelineDetail[] | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * Placeholder documentation for ChannelState
+   * @public
+   */
+  State?: ChannelState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Settings for VPC output
+   * @public
+   */
+  Vpc?: VpcOutputSettingsDescription | undefined;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelPlacementGroupRequest
+ * @public
+ */
+export interface DeleteChannelPlacementGroupRequest {
+  /**
+   * The ID of the channel placement group.
+   * @public
+   */
+  ChannelPlacementGroupId: string | undefined;
+
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelPlacementGroupResponse
+ * @public
+ */
+export interface DeleteChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[] | undefined;
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteCloudWatchAlarmTemplateRequest
+ * @public
+ */
+export interface DeleteCloudWatchAlarmTemplateRequest {
+  /**
+   * A cloudwatch alarm template's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteCloudWatchAlarmTemplateGroupRequest
+ * @public
+ */
+export interface DeleteCloudWatchAlarmTemplateGroupRequest {
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteClusterRequest
+ * @public
+ */
+export interface DeleteClusterRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteClusterResponse
+ * @public
+ */
+export interface DeleteClusterResponse {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType | undefined;
+
+  /**
+   * The ID of the  Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings | undefined;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteEventBridgeRuleTemplateRequest
+ * @public
+ */
+export interface DeleteEventBridgeRuleTemplateRequest {
+  /**
+   * An eventbridge rule template's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteEventBridgeRuleTemplateGroupRequest
+ * @public
+ */
+export interface DeleteEventBridgeRuleTemplateGroupRequest {
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteInputRequest
+ * @public
+ */
+export interface DeleteInputRequest {
+  /**
+   * Unique ID of the input
+   * @public
+   */
+  InputId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteInputResponse
+ * @public
+ */
+export interface DeleteInputResponse {}
+
+/**
+ * Placeholder documentation for DeleteInputSecurityGroupRequest
+ * @public
+ */
+export interface DeleteInputSecurityGroupRequest {
+  /**
+   * The Input Security Group to delete
+   * @public
+   */
+  InputSecurityGroupId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteInputSecurityGroupResponse
+ * @public
+ */
+export interface DeleteInputSecurityGroupResponse {}
+
+/**
+ * Placeholder documentation for DeleteMultiplexRequest
+ * @public
+ */
+export interface DeleteMultiplexRequest {
+  /**
+   * The ID of the multiplex.
+   * @public
+   */
+  MultiplexId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteMultiplexResponse
+ * @public
+ */
+export interface DeleteMultiplexResponse {
+  /**
+   * The unique arn of the multiplex.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * A list of availability zones for the multiplex.
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * A list of the multiplex output destinations.
+   * @public
+   */
+  Destinations?: MultiplexOutputDestination[] | undefined;
+
+  /**
+   * The unique id of the multiplex.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings?: MultiplexSettings | undefined;
+
+  /**
+   * The name of the multiplex.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The number of programs in the multiplex.
+   * @public
+   */
+  ProgramCount?: number | undefined;
+
+  /**
+   * The current state of the multiplex.
+   * @public
+   */
+  State?: MultiplexState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteMultiplexProgramRequest
+ * @public
+ */
+export interface DeleteMultiplexProgramRequest {
+  /**
+   * The ID of the multiplex that the program belongs to.
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The multiplex program name.
+   * @public
+   */
+  ProgramName: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteMultiplexProgramResponse
+ * @public
+ */
+export interface DeleteMultiplexProgramResponse {
+  /**
+   * The MediaLive channel associated with the program.
+   * @public
+   */
+  ChannelId?: string | undefined;
+
+  /**
+   * The settings for this multiplex program.
+   * @public
+   */
+  MultiplexProgramSettings?: MultiplexProgramSettings | undefined;
+
+  /**
+   * The packet identifier map for this multiplex program.
+   * @public
+   */
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap | undefined;
+
+  /**
+   * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+   * @public
+   */
+  PipelineDetails?: MultiplexProgramPipelineDetail[] | undefined;
+
+  /**
+   * The name of the multiplex program.
+   * @public
+   */
+  ProgramName?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteNetworkRequest
+ * @public
+ */
+export interface DeleteNetworkRequest {
+  /**
+   * The ID of the network.
+   * @public
+   */
+  NetworkId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteNetworkResponse
+ * @public
+ */
+export interface DeleteNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[] | undefined;
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[] | undefined;
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[] | undefined;
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteNodeRequest
+ * @public
+ */
+export interface DeleteNodeRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteNodeResponse
+ * @public
+ */
+export interface DeleteNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState | undefined;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteReservationRequest
+ * @public
+ */
+export interface DeleteReservationRequest {
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   * @public
+   */
+  ReservationId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DeleteReservationResponse
+ * @public
+ */
+export interface DeleteReservationResponse {
   /**
    * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
    * @public
@@ -3591,1091 +3451,1376 @@ export interface Reservation {
 }
 
 /**
- * Used in CreateNetworkRequest.
+ * Placeholder documentation for DeleteScheduleRequest
  * @public
  */
-export interface RouteCreateRequest {
+export interface DeleteScheduleRequest {
   /**
-   * A CIDR block for one Route.
+   * Id of the channel whose schedule is being deleted.
    * @public
    */
-  Cidr?: string | undefined;
-
-  /**
-   * The IP address of the Gateway for this route, if applicable.
-   * @public
-   */
-  Gateway?: string | undefined;
+  ChannelId: string | undefined;
 }
 
 /**
- * Used in UpdateNetworkRequest.
+ * Placeholder documentation for DeleteScheduleResponse
  * @public
  */
-export interface RouteUpdateRequest {
-  /**
-   * A CIDR block for one Route.
-   * @public
-   */
-  Cidr?: string | undefined;
+export interface DeleteScheduleResponse {}
 
+/**
+ * Placeholder documentation for DeleteSdiSourceRequest
+ * @public
+ */
+export interface DeleteSdiSourceRequest {
   /**
-   * The IP address of the Gateway for this route, if applicable.
+   * The ID of the SdiSource.
    * @public
    */
-  Gateway?: string | undefined;
+  SdiSourceId: string | undefined;
 }
 
 /**
- * Settings for the action to insert ID3 metadata in every segment, in HLS output groups.
+ * Placeholder documentation for DeleteSdiSourceResponse
  * @public
  */
-export interface HlsId3SegmentTaggingScheduleActionSettings {
+export interface DeleteSdiSourceResponse {
   /**
-   * Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number.
+   * Settings for the SDI source.
    * @public
    */
-  Tag?: string | undefined;
-
-  /**
-   * Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-   * @public
-   */
-  Id3?: string | undefined;
+  SdiSource?: SdiSource | undefined;
 }
 
 /**
- * Settings for the action to insert ID3 metadata (as a one-time action) in HLS output groups.
+ * Placeholder documentation for DeleteSignalMapRequest
  * @public
  */
-export interface HlsTimedMetadataScheduleActionSettings {
+export interface DeleteSignalMapRequest {
   /**
-   * Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * A signal map's identifier. Can be either be its id or current name.
    * @public
    */
-  Id3: string | undefined;
+  Identifier: string | undefined;
 }
 
 /**
- * Settings for the action to insert ID3 metadata in every segment, in applicable output groups.
+ * Placeholder documentation for DeleteTagsRequest
  * @public
  */
-export interface Id3SegmentTaggingScheduleActionSettings {
+export interface DeleteTagsRequest {
   /**
-   * Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * Placeholder documentation for __string
    * @public
    */
-  Id3?: string | undefined;
+  ResourceArn: string | undefined;
 
   /**
-   * Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number.
+   * An array of tag keys to delete
    * @public
    */
-  Tag?: string | undefined;
+  TagKeys: string[] | undefined;
 }
 
 /**
+ * Placeholder documentation for DescribeAccountConfigurationRequest
  * @public
- * @enum
  */
-export const InputTimecodeSource = {
-  EMBEDDED: "EMBEDDED",
-  ZEROBASED: "ZEROBASED",
-} as const;
+export interface DescribeAccountConfigurationRequest {}
 
 /**
+ * Placeholder documentation for DescribeAccountConfigurationResponse
  * @public
  */
-export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof InputTimecodeSource];
-
-/**
- * Settings to identify the start of the clip.
- * @public
- */
-export interface StartTimecode {
+export interface DescribeAccountConfigurationResponse {
   /**
-   * The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+   * Placeholder documentation for AccountConfiguration
    * @public
    */
-  Timecode?: string | undefined;
+  AccountConfiguration?: AccountConfiguration | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const LastFrameClippingBehavior = {
-  EXCLUDE_LAST_FRAME: "EXCLUDE_LAST_FRAME",
-  INCLUDE_LAST_FRAME: "INCLUDE_LAST_FRAME",
-} as const;
-
-/**
+ * Placeholder documentation for DescribeChannelRequest
  * @public
  */
-export type LastFrameClippingBehavior = (typeof LastFrameClippingBehavior)[keyof typeof LastFrameClippingBehavior];
-
-/**
- * Settings to identify the end of the clip.
- * @public
- */
-export interface StopTimecode {
+export interface DescribeChannelRequest {
   /**
-   * If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
+   * channel ID
    * @public
    */
-  LastFrameClippingBehavior?: LastFrameClippingBehavior | undefined;
-
-  /**
-   * The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-   * @public
-   */
-  Timecode?: string | undefined;
+  ChannelId: string | undefined;
 }
 
 /**
- * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+ * Placeholder documentation for DescribeChannelResponse
  * @public
  */
-export interface InputClippingSettings {
+export interface DescribeChannelResponse {
   /**
-   * The source of the timecodes in the source being clipped.
-   * @public
-   */
-  InputTimecodeSource: InputTimecodeSource | undefined;
-
-  /**
-   * Settings to identify the start of the clip.
-   * @public
-   */
-  StartTimecode?: StartTimecode | undefined;
-
-  /**
-   * Settings to identify the end of the clip.
-   * @public
-   */
-  StopTimecode?: StopTimecode | undefined;
-}
-
-/**
- * Action to prepare an input for a future immediate input switch.
- * @public
- */
-export interface InputPrepareScheduleActionSettings {
-  /**
-   * The name of the input attachment that should be prepared by this action. If no name is provided, the action will stop the most recent prepare (if any) when activated.
-   * @public
-   */
-  InputAttachmentNameReference?: string | undefined;
-
-  /**
-   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
-   * @public
-   */
-  InputClippingSettings?: InputClippingSettings | undefined;
-
-  /**
-   * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
-   * @public
-   */
-  UrlPath?: string[] | undefined;
-}
-
-/**
- * Settings for the "switch input" action: to switch from ingesting one input to ingesting another input.
- * @public
- */
-export interface InputSwitchScheduleActionSettings {
-  /**
-   * The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
-   * @public
-   */
-  InputAttachmentNameReference: string | undefined;
-
-  /**
-   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
-   * @public
-   */
-  InputClippingSettings?: InputClippingSettings | undefined;
-
-  /**
-   * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
-   * @public
-   */
-  UrlPath?: string[] | undefined;
-}
-
-/**
- * Settings to specify the rendering of motion graphics into the video stream.
- * @public
- */
-export interface MotionGraphicsActivateScheduleActionSettings {
-  /**
-   * Duration (in milliseconds) that motion graphics should render on to the video stream. Leaving out this property or setting to 0 will result in rendering continuing until a deactivate action is processed.
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * Key used to extract the password from EC2 Parameter store
-   * @public
-   */
-  PasswordParam?: string | undefined;
-
-  /**
-   * URI of the HTML5 content to be rendered into the live stream.
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * Documentation update needed
-   * @public
-   */
-  Username?: string | undefined;
-}
-
-/**
- * Settings to specify the ending of rendering motion graphics into the video stream.
- * @public
- */
-export interface MotionGraphicsDeactivateScheduleActionSettings {}
-
-/**
- * Settings for the action to set pause state of a channel.
- * @public
- */
-export interface PauseStateScheduleActionSettings {
-  /**
-   * Placeholder documentation for __listOfPipelinePauseStateSettings
-   * @public
-   */
-  Pipelines?: PipelinePauseStateSettings[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Scte35InputMode = {
-  FIXED: "FIXED",
-  FOLLOW_ACTIVE: "FOLLOW_ACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type Scte35InputMode = (typeof Scte35InputMode)[keyof typeof Scte35InputMode];
-
-/**
- * Scte35Input Schedule Action Settings
- * @public
- */
-export interface Scte35InputScheduleActionSettings {
-  /**
-   * In fixed mode, enter the name of the input attachment that you want to use as a SCTE-35 input. (Don't enter the ID of the input.)"
-   * @public
-   */
-  InputAttachmentNameReference?: string | undefined;
-
-  /**
-   * Whether the SCTE-35 input should be the active input or a fixed input.
-   * @public
-   */
-  Mode: Scte35InputMode | undefined;
-}
-
-/**
- * Settings for a SCTE-35 return_to_network message.
- * @public
- */
-export interface Scte35ReturnToNetworkScheduleActionSettings {
-  /**
-   * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-   * @public
-   */
-  SpliceEventId: number | undefined;
-}
-
-/**
- * Settings for a SCTE-35 splice_insert message.
- * @public
- */
-export interface Scte35SpliceInsertScheduleActionSettings {
-  /**
-   * Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-   * @public
-   */
-  SpliceEventId: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Scte35ArchiveAllowedFlag = {
-  ARCHIVE_ALLOWED: "ARCHIVE_ALLOWED",
-  ARCHIVE_NOT_ALLOWED: "ARCHIVE_NOT_ALLOWED",
-} as const;
-
-/**
- * @public
- */
-export type Scte35ArchiveAllowedFlag = (typeof Scte35ArchiveAllowedFlag)[keyof typeof Scte35ArchiveAllowedFlag];
-
-/**
- * @public
- * @enum
- */
-export const Scte35DeviceRestrictions = {
-  NONE: "NONE",
-  RESTRICT_GROUP0: "RESTRICT_GROUP0",
-  RESTRICT_GROUP1: "RESTRICT_GROUP1",
-  RESTRICT_GROUP2: "RESTRICT_GROUP2",
-} as const;
-
-/**
- * @public
- */
-export type Scte35DeviceRestrictions = (typeof Scte35DeviceRestrictions)[keyof typeof Scte35DeviceRestrictions];
-
-/**
- * @public
- * @enum
- */
-export const Scte35NoRegionalBlackoutFlag = {
-  NO_REGIONAL_BLACKOUT: "NO_REGIONAL_BLACKOUT",
-  REGIONAL_BLACKOUT: "REGIONAL_BLACKOUT",
-} as const;
-
-/**
- * @public
- */
-export type Scte35NoRegionalBlackoutFlag =
-  (typeof Scte35NoRegionalBlackoutFlag)[keyof typeof Scte35NoRegionalBlackoutFlag];
-
-/**
- * @public
- * @enum
- */
-export const Scte35WebDeliveryAllowedFlag = {
-  WEB_DELIVERY_ALLOWED: "WEB_DELIVERY_ALLOWED",
-  WEB_DELIVERY_NOT_ALLOWED: "WEB_DELIVERY_NOT_ALLOWED",
-} as const;
-
-/**
- * @public
- */
-export type Scte35WebDeliveryAllowedFlag =
-  (typeof Scte35WebDeliveryAllowedFlag)[keyof typeof Scte35WebDeliveryAllowedFlag];
-
-/**
- * Corresponds to SCTE-35 delivery_not_restricted_flag parameter. To declare delivery restrictions, include this element and its four "restriction" flags. To declare that there are no restrictions, omit this element.
- * @public
- */
-export interface Scte35DeliveryRestrictions {
-  /**
-   * Corresponds to SCTE-35 archive_allowed_flag.
-   * @public
-   */
-  ArchiveAllowedFlag: Scte35ArchiveAllowedFlag | undefined;
-
-  /**
-   * Corresponds to SCTE-35 device_restrictions parameter.
-   * @public
-   */
-  DeviceRestrictions: Scte35DeviceRestrictions | undefined;
-
-  /**
-   * Corresponds to SCTE-35 no_regional_blackout_flag parameter.
-   * @public
-   */
-  NoRegionalBlackoutFlag: Scte35NoRegionalBlackoutFlag | undefined;
-
-  /**
-   * Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
-   * @public
-   */
-  WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Scte35SegmentationCancelIndicator = {
-  SEGMENTATION_EVENT_CANCELED: "SEGMENTATION_EVENT_CANCELED",
-  SEGMENTATION_EVENT_NOT_CANCELED: "SEGMENTATION_EVENT_NOT_CANCELED",
-} as const;
-
-/**
- * @public
- */
-export type Scte35SegmentationCancelIndicator =
-  (typeof Scte35SegmentationCancelIndicator)[keyof typeof Scte35SegmentationCancelIndicator];
-
-/**
- * Corresponds to SCTE-35 segmentation_descriptor.
- * @public
- */
-export interface Scte35SegmentationDescriptor {
-  /**
-   * Holds the four SCTE-35 delivery restriction parameters.
-   * @public
-   */
-  DeliveryRestrictions?: Scte35DeliveryRestrictions | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
-   * @public
-   */
-  SegmentNum?: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
-   * @public
-   */
-  SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
-   * @public
-   */
-  SegmentationDuration?: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_event_id.
-   * @public
-   */
-  SegmentationEventId: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
-   * @public
-   */
-  SegmentationTypeId?: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
-   * @public
-   */
-  SegmentationUpid?: string | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
-   * @public
-   */
-  SegmentationUpidType?: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
-   * @public
-   */
-  SegmentsExpected?: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
-   * @public
-   */
-  SubSegmentNum?: number | undefined;
-
-  /**
-   * Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-   * @public
-   */
-  SubSegmentsExpected?: number | undefined;
-}
-
-/**
- * SCTE-35 Descriptor settings.
- * @public
- */
-export interface Scte35DescriptorSettings {
-  /**
-   * SCTE-35 Segmentation Descriptor.
-   * @public
-   */
-  SegmentationDescriptorScte35DescriptorSettings: Scte35SegmentationDescriptor | undefined;
-}
-
-/**
- * Holds one set of SCTE-35 Descriptor Settings.
- * @public
- */
-export interface Scte35Descriptor {
-  /**
-   * SCTE-35 Descriptor Settings.
-   * @public
-   */
-  Scte35DescriptorSettings: Scte35DescriptorSettings | undefined;
-}
-
-/**
- * Settings for a SCTE-35 time_signal.
- * @public
- */
-export interface Scte35TimeSignalScheduleActionSettings {
-  /**
-   * The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
-   * @public
-   */
-  Scte35Descriptors: Scte35Descriptor[] | undefined;
-}
-
-/**
- * Settings for the action to activate a static image.
- * @public
- */
-export interface StaticImageActivateScheduleActionSettings {
-  /**
-   * The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
-   * @public
-   */
-  FadeIn?: number | undefined;
-
-  /**
-   * Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
-   * @public
-   */
-  FadeOut?: number | undefined;
-
-  /**
-   * The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
-   * @public
-   */
-  Height?: number | undefined;
-
-  /**
-   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
-   * @public
-   */
-  Image: InputLocation | undefined;
-
-  /**
-   * Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
-   * @public
-   */
-  ImageX?: number | undefined;
-
-  /**
-   * Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
-   * @public
-   */
-  ImageY?: number | undefined;
-
-  /**
-   * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
-   * @public
-   */
-  Layer?: number | undefined;
-
-  /**
-   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
-   * @public
-   */
-  Opacity?: number | undefined;
-
-  /**
-   * The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-   * @public
-   */
-  Width?: number | undefined;
-}
-
-/**
- * Settings for the action to deactivate the image in a specific layer.
- * @public
- */
-export interface StaticImageDeactivateScheduleActionSettings {
-  /**
-   * The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
-   * @public
-   */
-  FadeOut?: number | undefined;
-
-  /**
-   * The image overlay layer to deactivate, 0 to 7. Default is 0.
-   * @public
-   */
-  Layer?: number | undefined;
-}
-
-/**
- * Settings for the action to activate a static image.
- * @public
- */
-export interface StaticImageOutputActivateScheduleActionSettings {
-  /**
-   * The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
-   * @public
-   */
-  FadeIn?: number | undefined;
-
-  /**
-   * Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
-   * @public
-   */
-  FadeOut?: number | undefined;
-
-  /**
-   * The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
-   * @public
-   */
-  Height?: number | undefined;
-
-  /**
-   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
-   * @public
-   */
-  Image: InputLocation | undefined;
-
-  /**
-   * Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
-   * @public
-   */
-  ImageX?: number | undefined;
-
-  /**
-   * Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
-   * @public
-   */
-  ImageY?: number | undefined;
-
-  /**
-   * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
-   * @public
-   */
-  Layer?: number | undefined;
-
-  /**
-   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
-   * @public
-   */
-  Opacity?: number | undefined;
-
-  /**
-   * The name(s) of the output(s) the activation should apply to.
-   * @public
-   */
-  OutputNames: string[] | undefined;
-
-  /**
-   * The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-   * @public
-   */
-  Width?: number | undefined;
-}
-
-/**
- * Settings for the action to deactivate the image in a specific layer.
- * @public
- */
-export interface StaticImageOutputDeactivateScheduleActionSettings {
-  /**
-   * The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
-   * @public
-   */
-  FadeOut?: number | undefined;
-
-  /**
-   * The image overlay layer to deactivate, 0 to 7. Default is 0.
-   * @public
-   */
-  Layer?: number | undefined;
-
-  /**
-   * The name(s) of the output(s) the deactivation should apply to.
-   * @public
-   */
-  OutputNames: string[] | undefined;
-}
-
-/**
- * Settings for the action to insert ID3 metadata (as a one-time action) in applicable output groups.
- * @public
- */
-export interface TimedMetadataScheduleActionSettings {
-  /**
-   * Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure
-   * @public
-   */
-  Id3: string | undefined;
-}
-
-/**
- * Holds the settings for a single schedule action.
- * @public
- */
-export interface ScheduleActionSettings {
-  /**
-   * Action to insert ID3 metadata in every segment, in HLS output groups
-   * @public
-   */
-  HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings | undefined;
-
-  /**
-   * Action to insert ID3 metadata once, in HLS output groups
-   * @public
-   */
-  HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings | undefined;
-
-  /**
-   * Action to prepare an input for a future immediate input switch
-   * @public
-   */
-  InputPrepareSettings?: InputPrepareScheduleActionSettings | undefined;
-
-  /**
-   * Action to switch the input
-   * @public
-   */
-  InputSwitchSettings?: InputSwitchScheduleActionSettings | undefined;
-
-  /**
-   * Action to activate a motion graphics image overlay
-   * @public
-   */
-  MotionGraphicsImageActivateSettings?: MotionGraphicsActivateScheduleActionSettings | undefined;
-
-  /**
-   * Action to deactivate a motion graphics image overlay
-   * @public
-   */
-  MotionGraphicsImageDeactivateSettings?: MotionGraphicsDeactivateScheduleActionSettings | undefined;
-
-  /**
-   * Action to pause or unpause one or both channel pipelines
-   * @public
-   */
-  PauseStateSettings?: PauseStateScheduleActionSettings | undefined;
-
-  /**
-   * Action to specify scte35 input
-   * @public
-   */
-  Scte35InputSettings?: Scte35InputScheduleActionSettings | undefined;
-
-  /**
-   * Action to insert SCTE-35 return_to_network message
-   * @public
-   */
-  Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings | undefined;
-
-  /**
-   * Action to insert SCTE-35 splice_insert message
-   * @public
-   */
-  Scte35SpliceInsertSettings?: Scte35SpliceInsertScheduleActionSettings | undefined;
-
-  /**
-   * Action to insert SCTE-35 time_signal message
-   * @public
-   */
-  Scte35TimeSignalSettings?: Scte35TimeSignalScheduleActionSettings | undefined;
-
-  /**
-   * Action to activate a static image overlay
-   * @public
-   */
-  StaticImageActivateSettings?: StaticImageActivateScheduleActionSettings | undefined;
-
-  /**
-   * Action to deactivate a static image overlay
-   * @public
-   */
-  StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings | undefined;
-
-  /**
-   * Action to activate a static image overlay in one or more specified outputs
-   * @public
-   */
-  StaticImageOutputActivateSettings?: StaticImageOutputActivateScheduleActionSettings | undefined;
-
-  /**
-   * Action to deactivate a static image overlay in one or more specified outputs
-   * @public
-   */
-  StaticImageOutputDeactivateSettings?: StaticImageOutputDeactivateScheduleActionSettings | undefined;
-
-  /**
-   * Action to insert ID3 metadata in every segment, in applicable output groups
-   * @public
-   */
-  Id3SegmentTaggingSettings?: Id3SegmentTaggingScheduleActionSettings | undefined;
-
-  /**
-   * Action to insert ID3 metadata once, in applicable output groups
-   * @public
-   */
-  TimedMetadataSettings?: TimedMetadataScheduleActionSettings | undefined;
-}
-
-/**
- * Start time for the action.
- * @public
- */
-export interface FixedModeScheduleActionStartSettings {
-  /**
-   * Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants "T" for time and "Z" for "UTC format".
-   * @public
-   */
-  Time: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FollowPoint = {
-  END: "END",
-  START: "START",
-} as const;
-
-/**
- * @public
- */
-export type FollowPoint = (typeof FollowPoint)[keyof typeof FollowPoint];
-
-/**
- * Settings to specify if an action follows another.
- * @public
- */
-export interface FollowModeScheduleActionStartSettings {
-  /**
-   * Identifies whether this action starts relative to the start or relative to the end of the reference action.
-   * @public
-   */
-  FollowPoint: FollowPoint | undefined;
-
-  /**
-   * The action name of another action that this one refers to.
-   * @public
-   */
-  ReferenceActionName: string | undefined;
-}
-
-/**
- * Settings to configure an action so that it occurs as soon as possible.
- * @public
- */
-export interface ImmediateModeScheduleActionStartSettings {}
-
-/**
- * Settings to specify when an action should occur. Only one of the options must be selected.
- * @public
- */
-export interface ScheduleActionStartSettings {
-  /**
-   * Option for specifying the start time for an action.
-   * @public
-   */
-  FixedModeScheduleActionStartSettings?: FixedModeScheduleActionStartSettings | undefined;
-
-  /**
-   * Option for specifying an action as relative to another action.
-   * @public
-   */
-  FollowModeScheduleActionStartSettings?: FollowModeScheduleActionStartSettings | undefined;
-
-  /**
-   * Option for specifying an action that should be applied immediately.
-   * @public
-   */
-  ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings | undefined;
-}
-
-/**
- * Contains information on a single schedule action.
- * @public
- */
-export interface ScheduleAction {
-  /**
-   * The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
-   * @public
-   */
-  ActionName: string | undefined;
-
-  /**
-   * Settings for this schedule action.
-   * @public
-   */
-  ScheduleActionSettings: ScheduleActionSettings | undefined;
-
-  /**
-   * The time for the action to start in the channel.
-   * @public
-   */
-  ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SdiSourceMode = {
-  INTERLEAVE: "INTERLEAVE",
-  QUADRANT: "QUADRANT",
-} as const;
-
-/**
- * @public
- */
-export type SdiSourceMode = (typeof SdiSourceMode)[keyof typeof SdiSourceMode];
-
-/**
- * @public
- * @enum
- */
-export const SdiSourceState = {
-  DELETED: "DELETED",
-  IDLE: "IDLE",
-  IN_USE: "IN_USE",
-} as const;
-
-/**
- * @public
- */
-export type SdiSourceState = (typeof SdiSourceState)[keyof typeof SdiSourceState];
-
-/**
- * @public
- * @enum
- */
-export const SdiSourceType = {
-  QUAD: "QUAD",
-  SINGLE: "SINGLE",
-} as const;
-
-/**
- * @public
- */
-export type SdiSourceType = (typeof SdiSourceType)[keyof typeof SdiSourceType];
-
-/**
- * Used in CreateSdiSourceResponse, DeleteSdiSourceResponse, DescribeSdiSourceResponse, ListSdiSourcesResponse, UpdateSdiSourceResponse
- * @public
- */
-export interface SdiSourceSummary {
-  /**
-   * The ARN of this SdiSource. It is automatically assigned when the SdiSource is created.
+   * The unique arn of the channel.
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * The ID of the SdiSource. Unique in the AWS account.The ID is the resource-id portion of the ARN.
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass | undefined;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   * @public
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[] | undefined;
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * The unique id of the channel.
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * The list of inputs that are currently using this SDI source. This list will be empty if the SdiSource has just been deleted.
+   * List of input attachments for channel.
    * @public
    */
-  Inputs?: string[] | undefined;
+  InputAttachments?: InputAttachment[] | undefined;
 
   /**
-   * Applies only if the type is QUAD. The mode for handling the quad-link signal QUADRANT or INTERLEAVE.
+   * Specification of network and file inputs for this channel
    * @public
    */
-  Mode?: SdiSourceMode | undefined;
+  InputSpecification?: InputSpecification | undefined;
 
   /**
-   * The name of the SdiSource.
+   * The log level being written to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceStatus | undefined;
+
+  /**
+   * The name of the channel. (user-mutable)
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * Specifies whether the SDI source is attached to an SDI input (IN_USE) or not (IDLE).
+   * Runtime details for the pipelines of a running channel.
    * @public
    */
-  State?: SdiSourceState | undefined;
+  PipelineDetails?: PipelineDetail[] | undefined;
 
   /**
-   * Used in SdiSource, CreateSdiSourceRequest, UpdateSdiSourceRequest.
+   * The number of currently healthy pipelines.
    * @public
    */
-  Type?: SdiSourceType | undefined;
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * Placeholder documentation for ChannelState
+   * @public
+   */
+  State?: ChannelState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Settings for VPC output
+   * @public
+   */
+  Vpc?: VpcOutputSettingsDescription | undefined;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const SignalMapMonitorDeploymentStatus = {
-  DELETE_COMPLETE: "DELETE_COMPLETE",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DEPLOYMENT_COMPLETE: "DEPLOYMENT_COMPLETE",
-  DEPLOYMENT_FAILED: "DEPLOYMENT_FAILED",
-  DEPLOYMENT_IN_PROGRESS: "DEPLOYMENT_IN_PROGRESS",
-  DRY_RUN_DEPLOYMENT_COMPLETE: "DRY_RUN_DEPLOYMENT_COMPLETE",
-  DRY_RUN_DEPLOYMENT_FAILED: "DRY_RUN_DEPLOYMENT_FAILED",
-  DRY_RUN_DEPLOYMENT_IN_PROGRESS: "DRY_RUN_DEPLOYMENT_IN_PROGRESS",
-  NOT_DEPLOYED: "NOT_DEPLOYED",
-} as const;
-
-/**
+ * Placeholder documentation for DescribeChannelPlacementGroupRequest
  * @public
  */
-export type SignalMapMonitorDeploymentStatus =
-  (typeof SignalMapMonitorDeploymentStatus)[keyof typeof SignalMapMonitorDeploymentStatus];
-
-/**
- * @public
- * @enum
- */
-export const SignalMapStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  NOT_READY: "NOT_READY",
-  READY: "READY",
-  UPDATE_COMPLETE: "UPDATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_REVERTED: "UPDATE_REVERTED",
-} as const;
-
-/**
- * @public
- */
-export type SignalMapStatus = (typeof SignalMapStatus)[keyof typeof SignalMapStatus];
-
-/**
- * Placeholder documentation for SignalMapSummary
- * @public
- */
-export interface SignalMapSummary {
+export interface DescribeChannelPlacementGroupRequest {
   /**
-   * A signal map's ARN (Amazon Resource Name)
+   * The ID of the channel placement group.
    * @public
    */
-  Arn: string | undefined;
+  ChannelPlacementGroupId: string | undefined;
+
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeChannelPlacementGroupResponse
+ * @public
+ */
+export interface DescribeChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[] | undefined;
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeClusterRequest
+ * @public
+ */
+export interface DescribeClusterRequest {
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeClusterResponse
+ * @public
+ */
+export interface DescribeClusterResponse {
+  /**
+   * The ARN of this Cluster. It is automatically assigned when the Cluster is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType | undefined;
+
+  /**
+   * The ID of the  Cluster. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the IAM role for the Node in this Cluster. Any Nodes that are associated with this Cluster assume this role. The role gives permissions to the operations that you expect these Node to perform.
+   * @public
+   */
+  InstanceRoleArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Cluster.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings | undefined;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputRequest
+ * @public
+ */
+export interface DescribeInputRequest {
+  /**
+   * Unique ID of the input
+   * @public
+   */
+  InputId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputResponse
+ * @public
+ */
+export interface DescribeInputResponse {
+  /**
+   * The Unique ARN of the input (generated, immutable).
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
+   * @public
+   */
+  AttachedChannels?: string[] | undefined;
+
+  /**
+   * A list of the destinations of the input (PUSH-type).
+   * @public
+   */
+  Destinations?: InputDestination[] | undefined;
+
+  /**
+   * The generated ID of the input (unique for user account, immutable).
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
+   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+   * @public
+   */
+  InputClass?: InputClass | undefined;
+
+  /**
+   * Settings for the input devices.
+   * @public
+   */
+  InputDevices?: InputDeviceSettings[] | undefined;
+
+  /**
+   * A list of IDs for all Inputs which are partners of this one.
+   * @public
+   */
+  InputPartnerIds?: string[] | undefined;
+
+  /**
+   * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
+   * during input switch actions. Presently, this functionality only works with MP4_FILE and TS_FILE inputs.
+   * @public
+   */
+  InputSourceType?: InputSourceType | undefined;
+
+  /**
+   * A list of MediaConnect Flows for this input.
+   * @public
+   */
+  MediaConnectFlows?: MediaConnectFlow[] | undefined;
+
+  /**
+   * The user-assigned name (This is a mutable value).
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the input.
+   * @public
+   */
+  SecurityGroups?: string[] | undefined;
+
+  /**
+   * A list of the sources of the input (PULL-type).
+   * @public
+   */
+  Sources?: InputSource[] | undefined;
+
+  /**
+   * Placeholder documentation for InputState
+   * @public
+   */
+  State?: InputState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The different types of inputs that AWS Elemental MediaLive supports.
+   * @public
+   */
+  Type?: InputType | undefined;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettings | undefined;
+
+  /**
+   * The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for
+   * an input in a customer network.
+   * @public
+   */
+  InputNetworkLocation?: InputNetworkLocation | undefined;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettings | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceRequest
+ * @public
+ */
+export interface DescribeInputDeviceRequest {
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceResponse
+ * @public
+ */
+export interface DescribeInputDeviceResponse {
+  /**
+   * The unique ARN of the input device.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The state of the connection between the input device and AWS.
+   * @public
+   */
+  ConnectionState?: InputDeviceConnectionState | undefined;
+
+  /**
+   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+   * @public
+   */
+  DeviceSettingsSyncState?: DeviceSettingsSyncState | undefined;
+
+  /**
+   * The status of software on the input device.
+   * @public
+   */
+  DeviceUpdateStatus?: DeviceUpdateStatus | undefined;
+
+  /**
+   * Settings that describe an input device that is type HD.
+   * @public
+   */
+  HdDeviceSettings?: InputDeviceHdSettings | undefined;
+
+  /**
+   * The unique ID of the input device.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The network MAC address of the input device.
+   * @public
+   */
+  MacAddress?: string | undefined;
+
+  /**
+   * A name that you specify for the input device.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The network settings for the input device.
+   * @public
+   */
+  NetworkSettings?: InputDeviceNetworkSettings | undefined;
+
+  /**
+   * The unique serial number of the input device.
+   * @public
+   */
+  SerialNumber?: string | undefined;
+
+  /**
+   * The type of the input device.
+   * @public
+   */
+  Type?: InputDeviceType | undefined;
+
+  /**
+   * Settings that describe an input device that is type UHD.
+   * @public
+   */
+  UhdDeviceSettings?: InputDeviceUhdSettings | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The Availability Zone associated with this input device.
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * An array of the ARNs for the MediaLive inputs attached to the device. Returned only if the outputType is MEDIALIVE_INPUT.
+   * @public
+   */
+  MedialiveInputArns?: string[] | undefined;
+
+  /**
+   * The output attachment type of the input device. Specifies MEDIACONNECT_FLOW if this device is the source for a MediaConnect flow. Specifies MEDIALIVE_INPUT if this device is the source for a MediaLive input.
+   * @public
+   */
+  OutputType?: InputDeviceOutputType | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceThumbnailRequest
+ * @public
+ */
+export interface DescribeInputDeviceThumbnailRequest {
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+
+  /**
+   * The HTTP Accept header. Indicates the requested type for the thumbnail.
+   * @public
+   */
+  Accept: AcceptHeader | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputDeviceThumbnailResponse
+ * @public
+ */
+export interface DescribeInputDeviceThumbnailResponse {
+  /**
+   * The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
+   * @public
+   */
+  Body?: StreamingBlobTypes | undefined;
+
+  /**
+   * Specifies the media type of the thumbnail.
+   * @public
+   */
+  ContentType?: ContentType | undefined;
+
+  /**
+   * The length of the content.
+   * @public
+   */
+  ContentLength?: number | undefined;
+
+  /**
+   * The unique, cacheable version of this thumbnail.
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * The date and time the thumbnail was last updated at the device.
+   * @public
+   */
+  LastModified?: Date | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputSecurityGroupRequest
+ * @public
+ */
+export interface DescribeInputSecurityGroupRequest {
+  /**
+   * The id of the Input Security Group to describe
+   * @public
+   */
+  InputSecurityGroupId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeInputSecurityGroupResponse
+ * @public
+ */
+export interface DescribeInputSecurityGroupResponse {
+  /**
+   * Unique ARN of Input Security Group
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The Id of the Input Security Group
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The list of inputs currently using this Input Security Group.
+   * @public
+   */
+  Inputs?: string[] | undefined;
+
+  /**
+   * The current state of the Input Security Group.
+   * @public
+   */
+  State?: InputSecurityGroupState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Whitelist rules and their sync status
+   * @public
+   */
+  WhitelistRules?: InputWhitelistRule[] | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeMultiplexRequest
+ * @public
+ */
+export interface DescribeMultiplexRequest {
+  /**
+   * The ID of the multiplex.
+   * @public
+   */
+  MultiplexId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeMultiplexResponse
+ * @public
+ */
+export interface DescribeMultiplexResponse {
+  /**
+   * The unique arn of the multiplex.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * A list of availability zones for the multiplex.
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * A list of the multiplex output destinations.
+   * @public
+   */
+  Destinations?: MultiplexOutputDestination[] | undefined;
+
+  /**
+   * The unique id of the multiplex.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings?: MultiplexSettings | undefined;
+
+  /**
+   * The name of the multiplex.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The number of programs in the multiplex.
+   * @public
+   */
+  ProgramCount?: number | undefined;
+
+  /**
+   * The current state of the multiplex.
+   * @public
+   */
+  State?: MultiplexState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeMultiplexProgramRequest
+ * @public
+ */
+export interface DescribeMultiplexProgramRequest {
+  /**
+   * The ID of the multiplex that the program belongs to.
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The name of the program.
+   * @public
+   */
+  ProgramName: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeMultiplexProgramResponse
+ * @public
+ */
+export interface DescribeMultiplexProgramResponse {
+  /**
+   * The MediaLive channel associated with the program.
+   * @public
+   */
+  ChannelId?: string | undefined;
+
+  /**
+   * The settings for this multiplex program.
+   * @public
+   */
+  MultiplexProgramSettings?: MultiplexProgramSettings | undefined;
+
+  /**
+   * The packet identifier map for this multiplex program.
+   * @public
+   */
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap | undefined;
+
+  /**
+   * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+   * @public
+   */
+  PipelineDetails?: MultiplexProgramPipelineDetail[] | undefined;
+
+  /**
+   * The name of the multiplex program.
+   * @public
+   */
+  ProgramName?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeNetworkRequest
+ * @public
+ */
+export interface DescribeNetworkRequest {
+  /**
+   * The ID of the network.
+   * @public
+   */
+  NetworkId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeNetworkResponse
+ * @public
+ */
+export interface DescribeNetworkResponse {
+  /**
+   * The ARN of this Network. It is automatically assigned when the Network is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__string
+   * @public
+   */
+  AssociatedClusterIds?: string[] | undefined;
+
+  /**
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
+   * @public
+   */
+  IpPools?: IpPool[] | undefined;
+
+  /**
+   * The name that you specified for the Network.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+   * @public
+   */
+  Routes?: Route[] | undefined;
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeNodeRequest
+ * @public
+ */
+export interface DescribeNodeRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeNodeResponse
+ * @public
+ */
+export interface DescribeNodeResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState | undefined;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
+
+  /**
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+   * @public
+   */
+  Role?: NodeRole | undefined;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeOfferingRequest
+ * @public
+ */
+export interface DescribeOfferingRequest {
+  /**
+   * Unique offering ID, e.g. '87654321'
+   * @public
+   */
+  OfferingId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeOfferingResponse
+ * @public
+ */
+export interface DescribeOfferingResponse {
+  /**
+   * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * Lease duration, e.g. '12'
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   * @public
+   */
+  DurationUnits?: OfferingDurationUnits | undefined;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   * @public
+   */
+  OfferingDescription?: string | undefined;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   * @public
+   */
+  OfferingId?: string | undefined;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   * @public
+   */
+  OfferingType?: OfferingType | undefined;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * Resource configuration details
+   * @public
+   */
+  ResourceSpecification?: ReservationResourceSpecification | undefined;
+
+  /**
+   * Recurring usage charge for each reserved resource, e.g. '157.0'
+   * @public
+   */
+  UsagePrice?: number | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeReservationRequest
+ * @public
+ */
+export interface DescribeReservationRequest {
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   * @public
+   */
+  ReservationId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeReservationResponse
+ * @public
+ */
+export interface DescribeReservationResponse {
+  /**
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Number of reserved resources
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * Lease duration, e.g. '12'
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   * @public
+   */
+  DurationUnits?: OfferingDurationUnits | undefined;
+
+  /**
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   * @public
+   */
+  End?: string | undefined;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * User specified reservation name
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   * @public
+   */
+  OfferingDescription?: string | undefined;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   * @public
+   */
+  OfferingId?: string | undefined;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   * @public
+   */
+  OfferingType?: OfferingType | undefined;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * Renewal settings for the reservation
+   * @public
+   */
+  RenewalSettings?: RenewalSettings | undefined;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   * @public
+   */
+  ReservationId?: string | undefined;
+
+  /**
+   * Resource configuration details
+   * @public
+   */
+  ResourceSpecification?: ReservationResourceSpecification | undefined;
+
+  /**
+   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+   * @public
+   */
+  Start?: string | undefined;
+
+  /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   * @public
+   */
+  State?: ReservationState | undefined;
+
+  /**
+   * A collection of key-value pairs
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Recurring usage charge for each reserved resource, e.g. '157.0'
+   * @public
+   */
+  UsagePrice?: number | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeScheduleRequest
+ * @public
+ */
+export interface DescribeScheduleRequest {
+  /**
+   * Id of the channel whose schedule is being updated.
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeScheduleResponse
+ * @public
+ */
+export interface DescribeScheduleResponse {
+  /**
+   * The next token; for use in pagination.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The list of actions in the schedule.
+   * @public
+   */
+  ScheduleActions?: ScheduleAction[] | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeSdiSourceRequest
+ * @public
+ */
+export interface DescribeSdiSourceRequest {
+  /**
+   * Get details about an SdiSource.
+   * @public
+   */
+  SdiSourceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeSdiSourceResponse
+ * @public
+ */
+export interface DescribeSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeThumbnailsRequest
+ * @public
+ */
+export interface DescribeThumbnailsRequest {
+  /**
+   * Unique ID of the channel
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Pipeline ID ("0" or "1")
+   * @public
+   */
+  PipelineId: string | undefined;
+
+  /**
+   * thumbnail type
+   * @public
+   */
+  ThumbnailType: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeThumbnailsResponse
+ * @public
+ */
+export interface DescribeThumbnailsResponse {
+  /**
+   * Placeholder documentation for __listOfThumbnailDetail
+   * @public
+   */
+  ThumbnailDetails?: ThumbnailDetail[] | undefined;
+}
+
+/**
+ * Placeholder documentation for GetCloudWatchAlarmTemplateRequest
+ * @public
+ */
+export interface GetCloudWatchAlarmTemplateRequest {
+  /**
+   * A cloudwatch alarm template's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for GetCloudWatchAlarmTemplateResponse
+ * @public
+ */
+export interface GetCloudWatchAlarmTemplateResponse {
+  /**
+   * A cloudwatch alarm template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator | undefined;
 
   /**
    * Placeholder documentation for __timestampIso8601
    * @public
    */
-  CreatedAt: Date | undefined;
+  CreatedAt?: Date | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number | undefined;
 
   /**
    * A resource's optional description.
@@ -4684,10 +4829,28 @@ export interface SignalMapSummary {
   Description?: string | undefined;
 
   /**
-   * A signal map's id.
+   * The number of periods over which data is compared to the specified threshold.
    * @public
    */
-  Id: string | undefined;
+  EvaluationPeriods?: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName?: string | undefined;
 
   /**
    * Placeholder documentation for __timestampIso8601
@@ -4696,22 +4859,100 @@ export interface SignalMapSummary {
   ModifiedAt?: Date | undefined;
 
   /**
-   * A signal map's monitor deployment status.
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
    * @public
    */
-  MonitorDeploymentStatus: SignalMapMonitorDeploymentStatus | undefined;
+  Name?: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period?: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic?: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold?: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
+ * Placeholder documentation for GetCloudWatchAlarmTemplateGroupRequest
+ * @public
+ */
+export interface GetCloudWatchAlarmTemplateGroupRequest {
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for GetCloudWatchAlarmTemplateGroupResponse
+ * @public
+ */
+export interface GetCloudWatchAlarmTemplateGroupResponse {
+  /**
+   * A cloudwatch alarm template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
 
   /**
    * A resource's name. Names must be unique within the scope of a resource type in a specific region.
    * @public
    */
-  Name: string | undefined;
-
-  /**
-   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
-   * @public
-   */
-  Status: SignalMapStatus | undefined;
+  Name?: string | undefined;
 
   /**
    * Represents the tags associated with a resource.
@@ -4721,140 +4962,3548 @@ export interface SignalMapSummary {
 }
 
 /**
- * Complete these parameters only if the content is encrypted.
+ * Placeholder documentation for GetEventBridgeRuleTemplateRequest
  * @public
  */
-export interface SrtCallerDecryptionRequest {
+export interface GetEventBridgeRuleTemplateRequest {
   /**
-   * The algorithm used to encrypt content.
+   * An eventbridge rule template's identifier. Can be either be its id or current name.
    * @public
    */
-  Algorithm?: Algorithm | undefined;
-
-  /**
-   * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. This secret holds the passphrase that MediaLive will use to decrypt the source content.
-   * @public
-   */
-  PassphraseSecretArn?: string | undefined;
+  Identifier: string | undefined;
 }
 
 /**
- * Configures the connection for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always the caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+ * Placeholder documentation for GetEventBridgeRuleTemplateResponse
  * @public
  */
-export interface SrtCallerSourceRequest {
+export interface GetEventBridgeRuleTemplateResponse {
   /**
-   * Complete these parameters only if the content is encrypted.
+   * An eventbridge rule template's ARN (Amazon Resource Name)
    * @public
    */
-  Decryption?: SrtCallerDecryptionRequest | undefined;
+  Arn?: string | undefined;
 
   /**
-   * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT. Obtain this value from the operator at the upstream system.
+   * Placeholder documentation for __timestampIso8601
    * @public
    */
-  MinimumLatency?: number | undefined;
+  CreatedAt?: Date | undefined;
 
   /**
-   * The IP address at the upstream system (the listener) that MediaLive (the caller) will connect to.
+   * A resource's optional description.
    * @public
    */
-  SrtListenerAddress?: string | undefined;
+  Description?: string | undefined;
 
   /**
-   * The port at the upstream system (the listener) that MediaLive (the caller) will connect to.
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
    * @public
    */
-  SrtListenerPort?: string | undefined;
+  EventTargets?: EventBridgeRuleTemplateTarget[] | undefined;
 
   /**
-   * This value is required if the upstream system uses this identifier because without it, the SRT handshake between MediaLive (the caller) and the upstream system (the listener) might fail.
+   * The type of event to match with the rule.
    * @public
    */
-  StreamId?: string | undefined;
+  EventType?: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const ThumbnailType = {
-  CURRENT_ACTIVE: "CURRENT_ACTIVE",
-  UNSPECIFIED: "UNSPECIFIED",
-} as const;
-
-/**
+ * Placeholder documentation for GetEventBridgeRuleTemplateGroupRequest
  * @public
  */
-export type ThumbnailType = (typeof ThumbnailType)[keyof typeof ThumbnailType];
-
-/**
- * Details of a single thumbnail
- * @public
- */
-export interface Thumbnail {
+export interface GetEventBridgeRuleTemplateGroupRequest {
   /**
-   * The binary data for the latest thumbnail.
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
    * @public
    */
-  Body?: string | undefined;
-
-  /**
-   * The content type for the latest thumbnail.
-   * @public
-   */
-  ContentType?: string | undefined;
-
-  /**
-   * Thumbnail Type
-   * @public
-   */
-  ThumbnailType?: ThumbnailType | undefined;
-
-  /**
-   * Time stamp for the latest thumbnail.
-   * @public
-   */
-  TimeStamp?: Date | undefined;
+  Identifier: string | undefined;
 }
 
 /**
- * Thumbnail details for one pipeline of a running channel.
+ * Placeholder documentation for GetEventBridgeRuleTemplateGroupResponse
  * @public
  */
-export interface ThumbnailDetail {
+export interface GetEventBridgeRuleTemplateGroupResponse {
   /**
-   * Pipeline ID
+   * An eventbridge rule template group's ARN (Amazon Resource Name)
    * @public
    */
-  PipelineId?: string | undefined;
+  Arn?: string | undefined;
 
   /**
-   * thumbnails of a single pipeline
+   * Placeholder documentation for __timestampIso8601
    * @public
    */
-  Thumbnails?: Thumbnail[] | undefined;
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
+ * Placeholder documentation for GetSignalMapRequest
  * @public
- * @enum
  */
-export const InputDeviceTransferType = {
-  INCOMING: "INCOMING",
-  OUTGOING: "OUTGOING",
-} as const;
+export interface GetSignalMapRequest {
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
 
 /**
+ * Placeholder documentation for GetSignalMapResponse
  * @public
  */
-export type InputDeviceTransferType = (typeof InputDeviceTransferType)[keyof typeof InputDeviceTransferType];
+export interface GetSignalMapResponse {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string | undefined;
+
+  /**
+   * Error message associated with a failed creation or failed update attempt of a signal map.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * A map representing an incomplete AWS media workflow as a graph.
+   * @public
+   */
+  FailedMediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  LastDiscoveredAt?: Date | undefined;
+
+  /**
+   * Represents the latest successful monitor deployment of a signal map.
+   * @public
+   */
+  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment | undefined;
+
+  /**
+   * A map representing an AWS media workflow as a graph.
+   * @public
+   */
+  MediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * If true, there are pending monitor changes for this signal map that can be deployed.
+   * @public
+   */
+  MonitorChangesPendingDeployment?: boolean | undefined;
+
+  /**
+   * Represents the latest monitor deployment of a signal map.
+   * @public
+   */
+  MonitorDeployment?: MonitorDeployment | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status?: SignalMapStatus | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
 
 /**
- * Details about the input device that is being transferred.
+ * Parameters required to attach a MediaConnect flow to the device.
  * @public
  */
-export interface TransferringInputDeviceSummary {
+export interface InputDeviceMediaConnectConfigurableSettings {
+  /**
+   * The ARN of the MediaConnect flow to attach this device to.
+   * @public
+   */
+  FlowArn?: string | undefined;
+
+  /**
+   * The ARN for the role that MediaLive assumes to access the attached flow and secret. For more information about how to create this role, see the MediaLive user guide.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * The ARN for the secret that holds the encryption key to encrypt the content output by the device.
+   * @public
+   */
+  SecretArn?: string | undefined;
+
+  /**
+   * The name of the MediaConnect Flow source to stream to.
+   * @public
+   */
+  SourceName?: string | undefined;
+}
+
+/**
+ * Configurable settings for the input device.
+ * @public
+ */
+export interface InputDeviceConfigurableSettings {
+  /**
+   * The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
+   * @public
+   */
+  ConfiguredInput?: InputDeviceConfiguredInput | undefined;
+
+  /**
+   * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms).
+   * @public
+   */
+  LatencyMs?: number | undefined;
+
+  /**
+   * Choose the codec for the video that the device produces. Only UHD devices can specify this parameter.
+   * @public
+   */
+  Codec?: InputDeviceCodec | undefined;
+
+  /**
+   * To attach this device to a MediaConnect flow, specify these parameters. To detach an existing flow, enter \{\} for the value of mediaconnectSettings. Only UHD devices can specify this parameter.
+   * @public
+   */
+  MediaconnectSettings?: InputDeviceMediaConnectConfigurableSettings | undefined;
+
+  /**
+   * An array of eight audio configurations, one for each audio pair in the source. Set up each audio configuration either to exclude the pair, or to format it and include it in the output from the device. This parameter applies only to UHD devices, and only when the device is configured as the source for a MediaConnect flow. For an HD device, you configure the audio by setting up audio selectors in the channel configuration.
+   * @public
+   */
+  AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[] | undefined;
+
+  /**
+   * Choose the resolution of the Link device's source (HD or UHD). Make sure the resolution matches the current source from the device. This value determines MediaLive resource allocation and billing for this input. Only UHD devices can specify this parameter.
+   * @public
+   */
+  InputResolution?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListAlertsRequest
+ * @public
+ */
+export interface ListAlertsRequest {
+  /**
+   * The unique ID of the channel
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * The maximum number of items to return
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The next pagination token
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+   * @public
+   */
+  StateFilter?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListAlertsResponse
+ * @public
+ */
+export interface ListAlertsResponse {
+  /**
+   * The alerts found for this channel
+   * @public
+   */
+  Alerts?: ChannelAlert[] | undefined;
+
+  /**
+   * The token to use to retrieve the next page of results
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListChannelPlacementGroupsRequest
+ * @public
+ */
+export interface ListChannelPlacementGroupsRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListChannelPlacementGroupsResponse
+ * @public
+ */
+export interface ListChannelPlacementGroupsResponse {
+  /**
+   * An array of ChannelPlacementGroups that exist in the Cluster.
+   * @public
+   */
+  ChannelPlacementGroups?: DescribeChannelPlacementGroupSummary[] | undefined;
+
+  /**
+   * Token for the next result.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListChannelsRequest
+ * @public
+ */
+export interface ListChannelsRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListChannelsResponse
+ * @public
+ */
+export interface ListChannelsResponse {
+  /**
+   * Placeholder documentation for __listOfChannelSummary
+   * @public
+   */
+  Channels?: ChannelSummary[] | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListCloudWatchAlarmTemplateGroupsRequest
+ * @public
+ */
+export interface ListCloudWatchAlarmTemplateGroupsRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Represents the scope of a resource, with options for all scopes, AWS provided resources, or local resources.
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  SignalMapIdentifier?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListCloudWatchAlarmTemplateGroupsResponse
+ * @public
+ */
+export interface ListCloudWatchAlarmTemplateGroupsResponse {
+  /**
+   * Placeholder documentation for __listOfCloudWatchAlarmTemplateGroupSummary
+   * @public
+   */
+  CloudWatchAlarmTemplateGroups?: CloudWatchAlarmTemplateGroupSummary[] | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListCloudWatchAlarmTemplatesRequest
+ * @public
+ */
+export interface ListCloudWatchAlarmTemplatesRequest {
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier?: string | undefined;
+
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Represents the scope of a resource, with options for all scopes, AWS provided resources, or local resources.
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  SignalMapIdentifier?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListCloudWatchAlarmTemplatesResponse
+ * @public
+ */
+export interface ListCloudWatchAlarmTemplatesResponse {
+  /**
+   * Placeholder documentation for __listOfCloudWatchAlarmTemplateSummary
+   * @public
+   */
+  CloudWatchAlarmTemplates?: CloudWatchAlarmTemplateSummary[] | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListClusterAlertsRequest
+ * @public
+ */
+export interface ListClusterAlertsRequest {
+  /**
+   * The unique ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The maximum number of items to return
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The next pagination token
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+   * @public
+   */
+  StateFilter?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListClusterAlertsResponse
+ * @public
+ */
+export interface ListClusterAlertsResponse {
+  /**
+   * The alerts found for this cluster
+   * @public
+   */
+  Alerts?: ClusterAlert[] | undefined;
+
+  /**
+   * The token to use to retrieve the next page of results
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListClustersRequest
+ * @public
+ */
+export interface ListClustersRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListClustersResponse
+ * @public
+ */
+export interface ListClustersResponse {
+  /**
+   * A list of the Clusters that exist in your AWS account.
+   * @public
+   */
+  Clusters?: DescribeClusterSummary[] | undefined;
+
+  /**
+   * Token for the next result.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListEventBridgeRuleTemplateGroupsRequest
+ * @public
+ */
+export interface ListEventBridgeRuleTemplateGroupsRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  SignalMapIdentifier?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListEventBridgeRuleTemplateGroupsResponse
+ * @public
+ */
+export interface ListEventBridgeRuleTemplateGroupsResponse {
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateGroupSummary
+   * @public
+   */
+  EventBridgeRuleTemplateGroups?: EventBridgeRuleTemplateGroupSummary[] | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListEventBridgeRuleTemplatesRequest
+ * @public
+ */
+export interface ListEventBridgeRuleTemplatesRequest {
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier?: string | undefined;
+
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  SignalMapIdentifier?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListEventBridgeRuleTemplatesResponse
+ * @public
+ */
+export interface ListEventBridgeRuleTemplatesResponse {
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateSummary
+   * @public
+   */
+  EventBridgeRuleTemplates?: EventBridgeRuleTemplateSummary[] | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputDevicesRequest
+ * @public
+ */
+export interface ListInputDevicesRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputDevicesResponse
+ * @public
+ */
+export interface ListInputDevicesResponse {
+  /**
+   * The list of input devices.
+   * @public
+   */
+  InputDevices?: InputDeviceSummary[] | undefined;
+
+  /**
+   * A token to get additional list results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputDeviceTransfersRequest
+ * @public
+ */
+export interface ListInputDeviceTransfersRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  TransferType: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputDeviceTransfersResponse
+ * @public
+ */
+export interface ListInputDeviceTransfersResponse {
+  /**
+   * The list of devices that you are transferring or are being transferred to you.
+   * @public
+   */
+  InputDeviceTransfers?: TransferringInputDeviceSummary[] | undefined;
+
+  /**
+   * A token to get additional list results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputsRequest
+ * @public
+ */
+export interface ListInputsRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputsResponse
+ * @public
+ */
+export interface ListInputsResponse {
+  /**
+   * Placeholder documentation for __listOfInput
+   * @public
+   */
+  Inputs?: Input[] | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputSecurityGroupsRequest
+ * @public
+ */
+export interface ListInputSecurityGroupsRequest {
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListInputSecurityGroupsResponse
+ * @public
+ */
+export interface ListInputSecurityGroupsResponse {
+  /**
+   * List of input security groups
+   * @public
+   */
+  InputSecurityGroups?: InputSecurityGroup[] | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexAlertsRequest
+ * @public
+ */
+export interface ListMultiplexAlertsRequest {
+  /**
+   * The maximum number of items to return
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The unique ID of the multiplex
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The next pagination token
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+   * @public
+   */
+  StateFilter?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexAlertsResponse
+ * @public
+ */
+export interface ListMultiplexAlertsResponse {
+  /**
+   * The alerts found for this multiplex
+   * @public
+   */
+  Alerts?: MultiplexAlert[] | undefined;
+
+  /**
+   * The token to use to retrieve the next page of results
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexesRequest
+ * @public
+ */
+export interface ListMultiplexesRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexesResponse
+ * @public
+ */
+export interface ListMultiplexesResponse {
+  /**
+   * List of multiplexes.
+   * @public
+   */
+  Multiplexes?: MultiplexSummary[] | undefined;
+
+  /**
+   * Token for the next ListMultiplexes request.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexProgramsRequest
+ * @public
+ */
+export interface ListMultiplexProgramsRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The ID of the multiplex that the programs belong to.
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexProgramsResponse
+ * @public
+ */
+export interface ListMultiplexProgramsResponse {
+  /**
+   * List of multiplex programs.
+   * @public
+   */
+  MultiplexPrograms?: MultiplexProgramSummary[] | undefined;
+
+  /**
+   * Token for the next ListMultiplexProgram request.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListNetworksRequest
+ * @public
+ */
+export interface ListNetworksRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListNetworksResponse
+ * @public
+ */
+export interface ListNetworksResponse {
+  /**
+   * An array of networks that you have created.
+   * @public
+   */
+  Networks?: DescribeNetworkSummary[] | undefined;
+
+  /**
+   * Token for the next ListNetworks request.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListNodesRequest
+ * @public
+ */
+export interface ListNodesRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListNodesResponse
+ * @public
+ */
+export interface ListNodesResponse {
+  /**
+   * Token for the next result.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * An array of Nodes that exist in the Cluster.
+   * @public
+   */
+  Nodes?: DescribeNodeSummary[] | undefined;
+}
+
+/**
+ * Placeholder documentation for ListOfferingsRequest
+ * @public
+ */
+export interface ListOfferingsRequest {
+  /**
+   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+   * @public
+   */
+  ChannelClass?: string | undefined;
+
+  /**
+   * Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)
+   * @public
+   */
+  ChannelConfiguration?: string | undefined;
+
+  /**
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', 'LINK', or 'AV1'
+   * @public
+   */
+  Codec?: string | undefined;
+
+  /**
+   * Filter by offering duration, e.g. '12'
+   * @public
+   */
+  Duration?: string | undefined;
+
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+   * @public
+   */
+  MaximumBitrate?: string | undefined;
+
+  /**
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   * @public
+   */
+  MaximumFramerate?: string | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+   * @public
+   */
+  Resolution?: string | undefined;
+
+  /**
+   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   * @public
+   */
+  SpecialFeature?: string | undefined;
+
+  /**
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   * @public
+   */
+  VideoQuality?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListOfferingsResponse
+ * @public
+ */
+export interface ListOfferingsResponse {
+  /**
+   * Token to retrieve the next page of results
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * List of offerings
+   * @public
+   */
+  Offerings?: Offering[] | undefined;
+}
+
+/**
+ * Placeholder documentation for ListReservationsRequest
+ * @public
+ */
+export interface ListReservationsRequest {
+  /**
+   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+   * @public
+   */
+  ChannelClass?: string | undefined;
+
+  /**
+   * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', 'LINK', or 'AV1'
+   * @public
+   */
+  Codec?: string | undefined;
+
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+   * @public
+   */
+  MaximumBitrate?: string | undefined;
+
+  /**
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   * @public
+   */
+  MaximumFramerate?: string | undefined;
+
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+   * @public
+   */
+  Resolution?: string | undefined;
+
+  /**
+   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   * @public
+   */
+  SpecialFeature?: string | undefined;
+
+  /**
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   * @public
+   */
+  VideoQuality?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListReservationsResponse
+ * @public
+ */
+export interface ListReservationsResponse {
+  /**
+   * Token to retrieve the next page of results
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * List of reservations
+   * @public
+   */
+  Reservations?: Reservation[] | undefined;
+}
+
+/**
+ * Placeholder documentation for ListSdiSourcesRequest
+ * @public
+ */
+export interface ListSdiSourcesRequest {
+  /**
+   * The maximum number of items to return.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The token to retrieve the next page of results.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListSdiSourcesResponse
+ * @public
+ */
+export interface ListSdiSourcesResponse {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfSdiSourceSummary
+   * @public
+   */
+  SdiSources?: SdiSourceSummary[] | undefined;
+}
+
+/**
+ * Placeholder documentation for ListSignalMapsRequest
+ * @public
+ */
+export interface ListSignalMapsRequest {
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIdentifier?: string | undefined;
+
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIdentifier?: string | undefined;
+
+  /**
+   * Placeholder documentation for MaxResults
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListSignalMapsResponse
+ * @public
+ */
+export interface ListSignalMapsResponse {
+  /**
+   * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfSignalMapSummary
+   * @public
+   */
+  SignalMaps?: SignalMapSummary[] | undefined;
+}
+
+/**
+ * Placeholder documentation for ListTagsForResourceRequest
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListTagsForResourceResponse
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * Placeholder documentation for Tags
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for ListVersionsRequest
+ * @public
+ */
+export interface ListVersionsRequest {}
+
+/**
+ * Placeholder documentation for ListVersionsResponse
+ * @public
+ */
+export interface ListVersionsResponse {
+  /**
+   * List of engine versions that are available for this AWS account.
+   * @public
+   */
+  Versions?: ChannelEngineVersionResponse[] | undefined;
+}
+
+/**
+ * Placeholder documentation for MaintenanceUpdateSettings
+ * @public
+ */
+export interface MaintenanceUpdateSettings {
+  /**
+   * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
+   * @public
+   */
+  MaintenanceDay?: MaintenanceDay | undefined;
+
+  /**
+   * Choose a specific date for maintenance to occur. The chosen date is used for the next maintenance window only.
+   * @public
+   */
+  MaintenanceScheduledDate?: string | undefined;
+
+  /**
+   * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
+   * @public
+   */
+  MaintenanceStartTime?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for PurchaseOfferingRequest
+ * @public
+ */
+export interface PurchaseOfferingRequest {
+  /**
+   * Number of resources
+   * @public
+   */
+  Count: number | undefined;
+
+  /**
+   * Name for the new reservation
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Offering to purchase, e.g. '87654321'
+   * @public
+   */
+  OfferingId: string | undefined;
+
+  /**
+   * Renewal settings for the reservation
+   * @public
+   */
+  RenewalSettings?: RenewalSettings | undefined;
+
+  /**
+   * Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
+   * @public
+   */
+  Start?: string | undefined;
+
+  /**
+   * A collection of key-value pairs
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for PurchaseOfferingResponse
+ * @public
+ */
+export interface PurchaseOfferingResponse {
+  /**
+   * Reserved resources available to use
+   * @public
+   */
+  Reservation?: Reservation | undefined;
+}
+
+/**
+ * A request to reboot an AWS Elemental device.
+ * @public
+ */
+export interface RebootInputDeviceRequest {
+  /**
+   * Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
+   * @public
+   */
+  Force?: RebootInputDeviceForce | undefined;
+
+  /**
+   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for RebootInputDeviceResponse
+ * @public
+ */
+export interface RebootInputDeviceResponse {}
+
+/**
+ * Placeholder documentation for RejectInputDeviceTransferRequest
+ * @public
+ */
+export interface RejectInputDeviceTransferRequest {
+  /**
+   * The unique ID of the input device to reject. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for RejectInputDeviceTransferResponse
+ * @public
+ */
+export interface RejectInputDeviceTransferResponse {}
+
+/**
+ * Pipelines to restart.
+ * @public
+ */
+export interface RestartChannelPipelinesRequest {
+  /**
+   * ID of channel
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * An array of pipelines to restart in this channel. Format PIPELINE_0 or PIPELINE_1.
+   * @public
+   */
+  PipelineIds?: ChannelPipelineIdToRestart[] | undefined;
+}
+
+/**
+ * Placeholder documentation for RestartChannelPipelinesResponse
+ * @public
+ */
+export interface RestartChannelPipelinesResponse {
+  /**
+   * The unique arn of the channel.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass | undefined;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   * @public
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[] | undefined;
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * The unique id of the channel.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[] | undefined;
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification | undefined;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceStatus | undefined;
+
+  /**
+   * The time in milliseconds by when the PVRE restart must occur.
+   * @public
+   */
+  MaintenanceStatus?: string | undefined;
+
+  /**
+   * The name of the channel. (user-mutable)
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   * @public
+   */
+  PipelineDetails?: PipelineDetail[] | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * Placeholder documentation for ChannelState
+   * @public
+   */
+  State?: ChannelState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Settings for VPC output
+   * @public
+   */
+  Vpc?: VpcOutputSettingsDescription | undefined;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+}
+
+/**
+ * Placeholder documentation for StartChannelRequest
+ * @public
+ */
+export interface StartChannelRequest {
+  /**
+   * A request to start a channel
+   * @public
+   */
+  ChannelId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartChannelResponse
+ * @public
+ */
+export interface StartChannelResponse {
+  /**
+   * The unique arn of the channel.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass | undefined;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   * @public
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[] | undefined;
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * The unique id of the channel.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[] | undefined;
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification | undefined;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceStatus | undefined;
+
+  /**
+   * The name of the channel. (user-mutable)
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   * @public
+   */
+  PipelineDetails?: PipelineDetail[] | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * Placeholder documentation for ChannelState
+   * @public
+   */
+  State?: ChannelState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Settings for VPC output
+   * @public
+   */
+  Vpc?: VpcOutputSettingsDescription | undefined;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+}
+
+/**
+ * Placeholder documentation for StartDeleteMonitorDeploymentRequest
+ * @public
+ */
+export interface StartDeleteMonitorDeploymentRequest {
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartDeleteMonitorDeploymentResponse
+ * @public
+ */
+export interface StartDeleteMonitorDeploymentResponse {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string | undefined;
+
+  /**
+   * Error message associated with a failed creation or failed update attempt of a signal map.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * A map representing an incomplete AWS media workflow as a graph.
+   * @public
+   */
+  FailedMediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  LastDiscoveredAt?: Date | undefined;
+
+  /**
+   * Represents the latest successful monitor deployment of a signal map.
+   * @public
+   */
+  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment | undefined;
+
+  /**
+   * A map representing an AWS media workflow as a graph.
+   * @public
+   */
+  MediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * If true, there are pending monitor changes for this signal map that can be deployed.
+   * @public
+   */
+  MonitorChangesPendingDeployment?: boolean | undefined;
+
+  /**
+   * Represents the latest monitor deployment of a signal map.
+   * @public
+   */
+  MonitorDeployment?: MonitorDeployment | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status?: SignalMapStatus | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for StartInputDeviceRequest
+ * @public
+ */
+export interface StartInputDeviceRequest {
+  /**
+   * The unique ID of the input device to start. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartInputDeviceResponse
+ * @public
+ */
+export interface StartInputDeviceResponse {}
+
+/**
+ * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
+ * @public
+ */
+export interface StartInputDeviceMaintenanceWindowRequest {
+  /**
+   * The unique ID of the input device to start a maintenance window for. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartInputDeviceMaintenanceWindowResponse
+ * @public
+ */
+export interface StartInputDeviceMaintenanceWindowResponse {}
+
+/**
+ * Placeholder documentation for StartMonitorDeploymentRequest
+ * @public
+ */
+export interface StartMonitorDeploymentRequest {
+  /**
+   * Placeholder documentation for __boolean
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartMonitorDeploymentResponse
+ * @public
+ */
+export interface StartMonitorDeploymentResponse {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string | undefined;
+
+  /**
+   * Error message associated with a failed creation or failed update attempt of a signal map.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * A map representing an incomplete AWS media workflow as a graph.
+   * @public
+   */
+  FailedMediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  LastDiscoveredAt?: Date | undefined;
+
+  /**
+   * Represents the latest successful monitor deployment of a signal map.
+   * @public
+   */
+  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment | undefined;
+
+  /**
+   * A map representing an AWS media workflow as a graph.
+   * @public
+   */
+  MediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * If true, there are pending monitor changes for this signal map that can be deployed.
+   * @public
+   */
+  MonitorChangesPendingDeployment?: boolean | undefined;
+
+  /**
+   * Represents the latest monitor deployment of a signal map.
+   * @public
+   */
+  MonitorDeployment?: MonitorDeployment | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status?: SignalMapStatus | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for StartMultiplexRequest
+ * @public
+ */
+export interface StartMultiplexRequest {
+  /**
+   * The ID of the multiplex.
+   * @public
+   */
+  MultiplexId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartMultiplexResponse
+ * @public
+ */
+export interface StartMultiplexResponse {
+  /**
+   * The unique arn of the multiplex.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * A list of availability zones for the multiplex.
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * A list of the multiplex output destinations.
+   * @public
+   */
+  Destinations?: MultiplexOutputDestination[] | undefined;
+
+  /**
+   * The unique id of the multiplex.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings?: MultiplexSettings | undefined;
+
+  /**
+   * The name of the multiplex.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The number of programs in the multiplex.
+   * @public
+   */
+  ProgramCount?: number | undefined;
+
+  /**
+   * The current state of the multiplex.
+   * @public
+   */
+  State?: MultiplexState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for StartUpdateSignalMapRequest
+ * @public
+ */
+export interface StartUpdateSignalMapRequest {
+  /**
+   * Placeholder documentation for __listOf__stringPatternS
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringPatternS
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
+   * @public
+   */
+  ForceRediscovery?: boolean | undefined;
+
+  /**
+   * A signal map's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartUpdateSignalMapResponse
+ * @public
+ */
+export interface StartUpdateSignalMapResponse {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string | undefined;
+
+  /**
+   * Error message associated with a failed creation or failed update attempt of a signal map.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIds?: string[] | undefined;
+
+  /**
+   * A map representing an incomplete AWS media workflow as a graph.
+   * @public
+   */
+  FailedMediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  LastDiscoveredAt?: Date | undefined;
+
+  /**
+   * Represents the latest successful monitor deployment of a signal map.
+   * @public
+   */
+  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment | undefined;
+
+  /**
+   * A map representing an AWS media workflow as a graph.
+   * @public
+   */
+  MediaResourceMap?: Record<string, MediaResource> | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * If true, there are pending monitor changes for this signal map that can be deployed.
+   * @public
+   */
+  MonitorChangesPendingDeployment?: boolean | undefined;
+
+  /**
+   * Represents the latest monitor deployment of a signal map.
+   * @public
+   */
+  MonitorDeployment?: MonitorDeployment | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status?: SignalMapStatus | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for StopChannelRequest
+ * @public
+ */
+export interface StopChannelRequest {
+  /**
+   * A request to stop a running channel
+   * @public
+   */
+  ChannelId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StopChannelResponse
+ * @public
+ */
+export interface StopChannelResponse {
+  /**
+   * The unique arn of the channel.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * @public
+   */
+  ChannelClass?: ChannelClass | undefined;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   * @public
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[] | undefined;
+
+  /**
+   * Encoder Settings
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * The unique id of the channel.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * List of input attachments for channel.
+   * @public
+   */
+  InputAttachments?: InputAttachment[] | undefined;
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification | undefined;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceStatus | undefined;
+
+  /**
+   * The name of the channel. (user-mutable)
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   * @public
+   */
+  PipelineDetails?: PipelineDetail[] | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * Placeholder documentation for ChannelState
+   * @public
+   */
+  State?: ChannelState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Settings for VPC output
+   * @public
+   */
+  Vpc?: VpcOutputSettingsDescription | undefined;
+
+  /**
+   * Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: DescribeAnywhereSettings | undefined;
+
+  /**
+   * Requested engine version for this channel.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+}
+
+/**
+ * Placeholder documentation for StopInputDeviceRequest
+ * @public
+ */
+export interface StopInputDeviceRequest {
+  /**
+   * The unique ID of the input device to stop. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StopInputDeviceResponse
+ * @public
+ */
+export interface StopInputDeviceResponse {}
+
+/**
+ * Placeholder documentation for StopMultiplexRequest
+ * @public
+ */
+export interface StopMultiplexRequest {
+  /**
+   * The ID of the multiplex.
+   * @public
+   */
+  MultiplexId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StopMultiplexResponse
+ * @public
+ */
+export interface StopMultiplexResponse {
+  /**
+   * The unique arn of the multiplex.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * A list of availability zones for the multiplex.
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * A list of the multiplex output destinations.
+   * @public
+   */
+  Destinations?: MultiplexOutputDestination[] | undefined;
+
+  /**
+   * The unique id of the multiplex.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Configuration for a multiplex event.
+   * @public
+   */
+  MultiplexSettings?: MultiplexSettings | undefined;
+
+  /**
+   * The name of the multiplex.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The number of currently healthy pipelines.
+   * @public
+   */
+  PipelinesRunningCount?: number | undefined;
+
+  /**
+   * The number of programs in the multiplex.
+   * @public
+   */
+  ProgramCount?: number | undefined;
+
+  /**
+   * The current state of the multiplex.
+   * @public
+   */
+  State?: MultiplexState | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * A request to transfer an input device.
+ * @public
+ */
+export interface TransferInputDeviceRequest {
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+
+  /**
+   * The AWS account ID (12 digits) for the recipient of the device transfer.
+   * @public
+   */
+  TargetCustomerId?: string | undefined;
+
+  /**
+   * The target AWS region to transfer the device.
+   * @public
+   */
+  TargetRegion?: string | undefined;
+
+  /**
+   * An optional message for the recipient. Maximum 280 characters.
+   * @public
+   */
+  TransferMessage?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for TransferInputDeviceResponse
+ * @public
+ */
+export interface TransferInputDeviceResponse {}
+
+/**
+ * List of account configuration parameters to update.
+ * @public
+ */
+export interface UpdateAccountConfigurationRequest {
+  /**
+   * Placeholder documentation for AccountConfiguration
+   * @public
+   */
+  AccountConfiguration?: AccountConfiguration | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateAccountConfigurationResponse
+ * @public
+ */
+export interface UpdateAccountConfigurationResponse {
+  /**
+   * Placeholder documentation for AccountConfiguration
+   * @public
+   */
+  AccountConfiguration?: AccountConfiguration | undefined;
+}
+
+/**
+ * A request to update a channel.
+ * @public
+ */
+export interface UpdateChannelRequest {
+  /**
+   * Specification of CDI inputs for this channel
+   * @public
+   */
+  CdiInputSpecification?: CdiInputSpecification | undefined;
+
+  /**
+   * channel ID
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * A list of output destinations for this channel.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+
+  /**
+   * The encoder settings for this channel.
+   * @public
+   */
+  EncoderSettings?: EncoderSettings | undefined;
+
+  /**
+   * Placeholder documentation for __listOfInputAttachment
+   * @public
+   */
+  InputAttachments?: InputAttachment[] | undefined;
+
+  /**
+   * Specification of network and file inputs for this channel
+   * @public
+   */
+  InputSpecification?: InputSpecification | undefined;
+
+  /**
+   * The log level to write to CloudWatch Logs.
+   * @public
+   */
+  LogLevel?: LogLevel | undefined;
+
+  /**
+   * Maintenance settings for this channel.
+   * @public
+   */
+  Maintenance?: MaintenanceUpdateSettings | undefined;
+
+  /**
+   * The name of the channel.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * Channel engine version for this channel
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionRequest | undefined;
+
+  /**
+   * Placeholder documentation for __boolean
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * The Elemental Anywhere settings for this channel.
+   * @public
+   */
+  AnywhereSettings?: AnywhereSettings | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateChannelResponse
+ * @public
+ */
+export interface UpdateChannelResponse {
+  /**
+   * Placeholder documentation for Channel
+   * @public
+   */
+  Channel?: Channel | undefined;
+}
+
+/**
+ * Channel class that the channel should be updated to.
+ * @public
+ */
+export interface UpdateChannelClassRequest {
+  /**
+   * The channel class that you wish to update this channel to use.
+   * @public
+   */
+  ChannelClass: ChannelClass | undefined;
+
+  /**
+   * Channel Id of the channel whose class should be updated.
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * A list of output destinations for this channel.
+   * @public
+   */
+  Destinations?: OutputDestination[] | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateChannelClassResponse
+ * @public
+ */
+export interface UpdateChannelClassResponse {
+  /**
+   * Placeholder documentation for Channel
+   * @public
+   */
+  Channel?: Channel | undefined;
+}
+
+/**
+ * A request to update the channel placement group
+ * @public
+ */
+export interface UpdateChannelPlacementGroupRequest {
+  /**
+   * The ID of the channel placement group.
+   * @public
+   */
+  ChannelPlacementGroupId: string | undefined;
+
+  /**
+   * The ID of the cluster.
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the current name of the ChannelPlacementGroup. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the list of Nodes that are associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateChannelPlacementGroupResponse
+ * @public
+ */
+export interface UpdateChannelPlacementGroupResponse {
+  /**
+   * The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Used in ListChannelPlacementGroupsResult
+   * @public
+   */
+  Channels?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The ID of the ChannelPlacementGroup. Unique in the AWS account. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name that you specified for the ChannelPlacementGroup.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * An array with one item, which is the single Node that is associated with the ChannelPlacementGroup.
+   * @public
+   */
+  Nodes?: string[] | undefined;
+
+  /**
+   * The current state of the ChannelPlacementGroup.
+   * @public
+   */
+  State?: ChannelPlacementGroupState | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateCloudWatchAlarmTemplateRequest
+ * @public
+ */
+export interface UpdateCloudWatchAlarmTemplateRequest {
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods?: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period?: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic?: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold?: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateCloudWatchAlarmTemplateResponse
+ * @public
+ */
+export interface UpdateCloudWatchAlarmTemplateResponse {
+  /**
+   * A cloudwatch alarm template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods?: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period?: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic?: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold?: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateCloudWatchAlarmTemplateGroupRequest
+ * @public
+ */
+export interface UpdateCloudWatchAlarmTemplateGroupRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateCloudWatchAlarmTemplateGroupResponse
+ * @public
+ */
+export interface UpdateCloudWatchAlarmTemplateGroupResponse {
+  /**
+   * A cloudwatch alarm template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * A request to update the cluster.
+ * @public
+ */
+export interface UpdateClusterRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the current name of the Cluster. Specify a name that is unique in the AWS account. You can't change the name. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Include this property only if you want to change the current connections between the Nodes in the Cluster and the Networks the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettingsUpdateRequest | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateClusterResponse
+ * @public
+ */
+export interface UpdateClusterResponse {
+  /**
+   * The ARN of the Cluster.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An array of the IDs of the Channels that are associated with this Cluster. One Channel is associated with the Cluster as follows: A Channel belongs to a ChannelPlacementGroup. A ChannelPlacementGroup is attached to a Node. A Node belongs to a Cluster.
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * The hardware type for the Cluster
+   * @public
+   */
+  ClusterType?: ClusterType | undefined;
+
+  /**
+   * The unique ID of the Cluster.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The user-specified name of the Cluster.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
+   * @public
+   */
+  NetworkSettings?: ClusterNetworkSettings | undefined;
+
+  /**
+   * The current state of the Cluster.
+   * @public
+   */
+  State?: ClusterState | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateEventBridgeRuleTemplateRequest
+ * @public
+ */
+export interface UpdateEventBridgeRuleTemplateRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+   * @public
+   */
+  EventTargets?: EventBridgeRuleTemplateTarget[] | undefined;
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType?: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  GroupIdentifier?: string | undefined;
+
+  /**
+   * An eventbridge rule template's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateEventBridgeRuleTemplateResponse
+ * @public
+ */
+export interface UpdateEventBridgeRuleTemplateResponse {
+  /**
+   * An eventbridge rule template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+   * @public
+   */
+  EventTargets?: EventBridgeRuleTemplateTarget[] | undefined;
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType?: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateEventBridgeRuleTemplateGroupRequest
+ * @public
+ */
+export interface UpdateEventBridgeRuleTemplateGroupRequest {
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * An eventbridge rule template group's identifier. Can be either be its id or current name.
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateEventBridgeRuleTemplateGroupResponse
+ * @public
+ */
+export interface UpdateEventBridgeRuleTemplateGroupResponse {
+  /**
+   * An eventbridge rule template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+ * @public
+ */
+export interface MulticastSettingsUpdateRequest {
+  /**
+   * Placeholder documentation for __listOfMulticastSourceUpdateRequest
+   * @public
+   */
+  Sources?: MulticastSourceUpdateRequest[] | undefined;
+}
+
+/**
+ * A request to update an input.
+ * @public
+ */
+export interface UpdateInputRequest {
+  /**
+   * Destination settings for PUSH type inputs.
+   * @public
+   */
+  Destinations?: InputDestinationRequest[] | undefined;
+
+  /**
+   * Settings for the devices.
+   * @public
+   */
+  InputDevices?: InputDeviceRequest[] | undefined;
+
+  /**
+   * Unique ID of the input.
+   * @public
+   */
+  InputId: string | undefined;
+
+  /**
+   * A list of security groups referenced by IDs to attach to the input.
+   * @public
+   */
+  InputSecurityGroups?: string[] | undefined;
+
+  /**
+   * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
+   * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+   * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+   * @public
+   */
+  MediaConnectFlows?: MediaConnectFlowRequest[] | undefined;
+
+  /**
+   * Name of the input.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * The source URLs for a PULL-type input. Every PULL type input needs
+   * exactly two source URLs for redundancy.
+   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   * @public
+   */
+  Sources?: InputSourceRequest[] | undefined;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettingsRequest | undefined;
+
+  /**
+   * Multicast Input settings.
+   * @public
+   */
+  MulticastSettings?: MulticastSettingsUpdateRequest | undefined;
+
+  /**
+   * Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+   * @public
+   */
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings | undefined;
+
+  /**
+   * SDI Sources for this Input.
+   * @public
+   */
+  SdiSources?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateInputResponse
+ * @public
+ */
+export interface UpdateInputResponse {
+  /**
+   * Placeholder documentation for Input
+   * @public
+   */
+  Input?: Input | undefined;
+}
+
+/**
+ * A request to update an input device.
+ * @public
+ */
+export interface UpdateInputDeviceRequest {
+  /**
+   * The settings that you want to apply to the HD input device.
+   * @public
+   */
+  HdDeviceSettings?: InputDeviceConfigurableSettings | undefined;
+
+  /**
+   * The unique ID of the input device. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+
+  /**
+   * The name that you assigned to this input device (not the unique ID).
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The settings that you want to apply to the UHD input device.
+   * @public
+   */
+  UhdDeviceSettings?: InputDeviceConfigurableSettings | undefined;
+
+  /**
+   * The Availability Zone you want associated with this input device.
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateInputDeviceResponse
+ * @public
+ */
+export interface UpdateInputDeviceResponse {
+  /**
+   * The unique ARN of the input device.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The state of the connection between the input device and AWS.
+   * @public
+   */
+  ConnectionState?: InputDeviceConnectionState | undefined;
+
+  /**
+   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+   * @public
+   */
+  DeviceSettingsSyncState?: DeviceSettingsSyncState | undefined;
+
+  /**
+   * The status of software on the input device.
+   * @public
+   */
+  DeviceUpdateStatus?: DeviceUpdateStatus | undefined;
+
+  /**
+   * Settings that describe an input device that is type HD.
+   * @public
+   */
+  HdDeviceSettings?: InputDeviceHdSettings | undefined;
+
   /**
    * The unique ID of the input device.
    * @public
@@ -4862,2744 +8511,562 @@ export interface TransferringInputDeviceSummary {
   Id?: string | undefined;
 
   /**
-   * The optional message that the sender has attached to the transfer.
+   * The network MAC address of the input device.
    * @public
    */
-  Message?: string | undefined;
+  MacAddress?: string | undefined;
 
   /**
-   * The AWS account ID for the recipient of the input device transfer.
+   * A name that you specify for the input device.
    * @public
    */
-  TargetCustomerId?: string | undefined;
+  Name?: string | undefined;
 
   /**
-   * The type (direction) of the input device transfer.
+   * The network settings for the input device.
    * @public
    */
-  TransferType?: InputDeviceTransferType | undefined;
+  NetworkSettings?: InputDeviceNetworkSettings | undefined;
+
+  /**
+   * The unique serial number of the input device.
+   * @public
+   */
+  SerialNumber?: string | undefined;
+
+  /**
+   * The type of the input device.
+   * @public
+   */
+  Type?: InputDeviceType | undefined;
+
+  /**
+   * Settings that describe an input device that is type UHD.
+   * @public
+   */
+  UhdDeviceSettings?: InputDeviceUhdSettings | undefined;
+
+  /**
+   * A collection of key-value pairs.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * The Availability Zone associated with this input device.
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * An array of the ARNs for the MediaLive inputs attached to the device. Returned only if the outputType is MEDIALIVE_INPUT.
+   * @public
+   */
+  MedialiveInputArns?: string[] | undefined;
+
+  /**
+   * The output attachment type of the input device. Specifies MEDIACONNECT_FLOW if this device is the source for a MediaConnect flow. Specifies MEDIALIVE_INPUT if this device is the source for a MediaLive input.
+   * @public
+   */
+  OutputType?: InputDeviceOutputType | undefined;
 }
 
 /**
- * Placeholder documentation for ValidationError
+ * The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.
  * @public
  */
-export interface ValidationError {
+export interface UpdateInputSecurityGroupRequest {
   /**
-   * Path to the source of the error.
+   * The id of the Input Security Group to update.
    * @public
    */
-  ElementPath?: string | undefined;
+  InputSecurityGroupId: string | undefined;
 
   /**
-   * The error message.
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AfdSignaling = {
-  AUTO: "AUTO",
-  FIXED: "FIXED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
-
-/**
- * Passthrough applies no color space conversion to the output
- * @public
- */
-export interface ColorSpacePassthroughSettings {}
-
-/**
- * Rec601 Settings
- * @public
- */
-export interface Rec601Settings {}
-
-/**
- * Rec709 Settings
- * @public
- */
-export interface Rec709Settings {}
-
-/**
- * Av1 Color Space Settings
- * @public
- */
-export interface Av1ColorSpaceSettings {
-  /**
-   * Passthrough applies no color space conversion to the output
-   * @public
-   */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings | undefined;
-
-  /**
-   * Hdr10 Settings
-   * @public
-   */
-  Hdr10Settings?: Hdr10Settings | undefined;
-
-  /**
-   * Rec601 Settings
-   * @public
-   */
-  Rec601Settings?: Rec601Settings | undefined;
-
-  /**
-   * Rec709 Settings
-   * @public
-   */
-  Rec709Settings?: Rec709Settings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FixedAfd = {
-  AFD_0000: "AFD_0000",
-  AFD_0010: "AFD_0010",
-  AFD_0011: "AFD_0011",
-  AFD_0100: "AFD_0100",
-  AFD_1000: "AFD_1000",
-  AFD_1001: "AFD_1001",
-  AFD_1010: "AFD_1010",
-  AFD_1011: "AFD_1011",
-  AFD_1101: "AFD_1101",
-  AFD_1110: "AFD_1110",
-  AFD_1111: "AFD_1111",
-} as const;
-
-/**
- * @public
- */
-export type FixedAfd = (typeof FixedAfd)[keyof typeof FixedAfd];
-
-/**
- * @public
- * @enum
- */
-export const Av1GopSizeUnits = {
-  FRAMES: "FRAMES",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type Av1GopSizeUnits = (typeof Av1GopSizeUnits)[keyof typeof Av1GopSizeUnits];
-
-/**
- * @public
- * @enum
- */
-export const Av1Level = {
-  AV1_LEVEL_2: "AV1_LEVEL_2",
-  AV1_LEVEL_2_1: "AV1_LEVEL_2_1",
-  AV1_LEVEL_3: "AV1_LEVEL_3",
-  AV1_LEVEL_3_1: "AV1_LEVEL_3_1",
-  AV1_LEVEL_4: "AV1_LEVEL_4",
-  AV1_LEVEL_4_1: "AV1_LEVEL_4_1",
-  AV1_LEVEL_5: "AV1_LEVEL_5",
-  AV1_LEVEL_5_1: "AV1_LEVEL_5_1",
-  AV1_LEVEL_5_2: "AV1_LEVEL_5_2",
-  AV1_LEVEL_5_3: "AV1_LEVEL_5_3",
-  AV1_LEVEL_6: "AV1_LEVEL_6",
-  AV1_LEVEL_6_1: "AV1_LEVEL_6_1",
-  AV1_LEVEL_6_2: "AV1_LEVEL_6_2",
-  AV1_LEVEL_6_3: "AV1_LEVEL_6_3",
-  AV1_LEVEL_AUTO: "AV1_LEVEL_AUTO",
-} as const;
-
-/**
- * @public
- */
-export type Av1Level = (typeof Av1Level)[keyof typeof Av1Level];
-
-/**
- * @public
- * @enum
- */
-export const Av1LookAheadRateControl = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type Av1LookAheadRateControl = (typeof Av1LookAheadRateControl)[keyof typeof Av1LookAheadRateControl];
-
-/**
- * @public
- * @enum
- */
-export const Av1RateControlMode = {
-  CBR: "CBR",
-  QVBR: "QVBR",
-} as const;
-
-/**
- * @public
- */
-export type Av1RateControlMode = (typeof Av1RateControlMode)[keyof typeof Av1RateControlMode];
-
-/**
- * @public
- * @enum
- */
-export const Av1SceneChangeDetect = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Av1SceneChangeDetect = (typeof Av1SceneChangeDetect)[keyof typeof Av1SceneChangeDetect];
-
-/**
- * @public
- * @enum
- */
-export const Av1SpatialAq = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Av1SpatialAq = (typeof Av1SpatialAq)[keyof typeof Av1SpatialAq];
-
-/**
- * @public
- * @enum
- */
-export const Av1TemporalAq = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Av1TemporalAq = (typeof Av1TemporalAq)[keyof typeof Av1TemporalAq];
-
-/**
- * @public
- * @enum
- */
-export const TimecodeBurninFontSize = {
-  EXTRA_SMALL_10: "EXTRA_SMALL_10",
-  LARGE_48: "LARGE_48",
-  MEDIUM_32: "MEDIUM_32",
-  SMALL_16: "SMALL_16",
-} as const;
-
-/**
- * @public
- */
-export type TimecodeBurninFontSize = (typeof TimecodeBurninFontSize)[keyof typeof TimecodeBurninFontSize];
-
-/**
- * @public
- * @enum
- */
-export const TimecodeBurninPosition = {
-  BOTTOM_CENTER: "BOTTOM_CENTER",
-  BOTTOM_LEFT: "BOTTOM_LEFT",
-  BOTTOM_RIGHT: "BOTTOM_RIGHT",
-  MIDDLE_CENTER: "MIDDLE_CENTER",
-  MIDDLE_LEFT: "MIDDLE_LEFT",
-  MIDDLE_RIGHT: "MIDDLE_RIGHT",
-  TOP_CENTER: "TOP_CENTER",
-  TOP_LEFT: "TOP_LEFT",
-  TOP_RIGHT: "TOP_RIGHT",
-} as const;
-
-/**
- * @public
- */
-export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeof TimecodeBurninPosition];
-
-/**
- * Timecode Burnin Settings
- * @public
- */
-export interface TimecodeBurninSettings {
-  /**
-   * Choose a timecode burn-in font size
-   * @public
-   */
-  FontSize: TimecodeBurninFontSize | undefined;
-
-  /**
-   * Choose a timecode burn-in output position
-   * @public
-   */
-  Position: TimecodeBurninPosition | undefined;
-
-  /**
-   * Create a timecode burn-in prefix (optional)
-   * @public
-   */
-  Prefix?: string | undefined;
-}
-
-/**
- * Av1 Settings
- * @public
- */
-export interface Av1Settings {
-  /**
-   * Configures whether MediaLive will write AFD values into the video.
-   * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
-   * FIXED: the AFD value will be the value configured in the fixedAfd parameter.
-   * NONE: MediaLive won't write AFD into the video
-   * @public
-   */
-  AfdSignaling?: AfdSignaling | undefined;
-
-  /**
-   * The size of the buffer (HRD buffer model) in bits.
-   * @public
-   */
-  BufSize?: number | undefined;
-
-  /**
-   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
-   * @public
-   */
-  ColorSpaceSettings?: Av1ColorSpaceSettings | undefined;
-
-  /**
-   * Complete this property only if you set the afdSignaling property to FIXED. Choose the AFD value (4 bits) to write on all frames of the video encode.
-   * @public
-   */
-  FixedAfd?: FixedAfd | undefined;
-
-  /**
-   * The denominator for the framerate. Framerate is a fraction, for example, 24000 / 1001.
-   * @public
-   */
-  FramerateDenominator: number | undefined;
-
-  /**
-   * The numerator for the framerate. Framerate is a fraction, for example, 24000 / 1001.
-   * @public
-   */
-  FramerateNumerator: number | undefined;
-
-  /**
-   * The GOP size (keyframe interval).
-   * If GopSizeUnits is frames, GopSize must be a whole number and must be greater than or equal to 1.
-   * If GopSizeUnits is seconds, GopSize must be greater than 0, but it can be a decimal.
-   * @public
-   */
-  GopSize?: number | undefined;
-
-  /**
-   * Choose the units for the GOP size: FRAMES or SECONDS. For SECONDS, MediaLive converts the size into a frame count at run time.
-   * @public
-   */
-  GopSizeUnits?: Av1GopSizeUnits | undefined;
-
-  /**
-   * Sets the level. This parameter is one of the properties of the encoding scheme for AV1.
-   * @public
-   */
-  Level?: Av1Level | undefined;
-
-  /**
-   * Sets the amount of lookahead. A value of LOW can decrease latency and memory usage. A value of HIGH can produce better quality for certain content.
-   * @public
-   */
-  LookAheadRateControl?: Av1LookAheadRateControl | undefined;
-
-  /**
-   * The maximum bitrate to assign.
-   * For recommendations, see the description for qvbrQualityLevel.
-   * @public
-   */
-  MaxBitrate?: number | undefined;
-
-  /**
-   * Applies only if you enable SceneChangeDetect. Sets the interval between frames. This property ensures a minimum separation between repeated (cadence) I-frames and any I-frames inserted by scene change detection (SCD frames).
-   * Enter a number for the interval, measured in number of frames.
-   * If an SCD frame and a cadence frame are closer than the specified number of frames, MediaLive shrinks or stretches the GOP to include the SCD frame. Then normal cadence resumes in the next GOP. For GOP stretch to succeed, you must enable LookAheadRateControl.
-   * Note that the maximum GOP stretch = (GOP size) + (Minimum I-interval) - 1
-   * @public
-   */
-  MinIInterval?: number | undefined;
-
-  /**
-   * The denominator for the output pixel aspect ratio (PAR).
-   * @public
-   */
-  ParDenominator?: number | undefined;
-
-  /**
-   * The numerator for the output pixel aspect ratio (PAR).
-   * @public
-   */
-  ParNumerator?: number | undefined;
-
-  /**
-   * Controls the target quality for the video encode. With QVBR rate control mode, the final quality is the target quality, constrained by the maxBitrate.
-   * Set values for the qvbrQualityLevel property and maxBitrate property that suit your most important viewing devices.
-   * To let MediaLive set the quality level (AUTO mode), leave the qvbrQualityLevel field empty. In this case, MediaLive uses the maximum bitrate, and the quality follows from that: more complex content might have a lower quality.
-   * Or set a target quality level and a maximum bitrate. With more complex content, MediaLive will try to achieve the target quality, but it won't exceed the maximum bitrate. With less complex content, This option will use only the bitrate needed to reach the target quality.
-   * Recommended values are:
-   * Primary screen: qvbrQualityLevel: Leave empty. maxBitrate: 4,000,000
-   * PC or tablet: qvbrQualityLevel: Leave empty. maxBitrate: 1,500,000 to 3,000,000
-   * Smartphone: qvbrQualityLevel: Leave empty. maxBitrate: 1,000,000 to 1,500,000
-   * @public
-   */
-  QvbrQualityLevel?: number | undefined;
-
-  /**
-   * Controls whether MediaLive inserts I-frames when it detects a scene change. ENABLED or DISABLED.
-   * @public
-   */
-  SceneChangeDetect?: Av1SceneChangeDetect | undefined;
-
-  /**
-   * Configures the timecode burn-in feature. If you enable this feature, the timecode will become part of the video.
-   * @public
-   */
-  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
-
-  /**
-   * Average bitrate in bits/second. Required when the rate control mode is CBR. Not used for QVBR.
-   * @public
-   */
-  Bitrate?: number | undefined;
-
-  /**
-   * Rate control mode.
+   * A collection of key-value pairs.
    *
-   * QVBR: Quality will match the specified quality level except when it is constrained by the
-   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
-   *
-   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
-   * your assets to devices that cannot handle variable bitrates.
+   * @deprecated This API is deprecated. You must use UpdateTagsForResource instead.
    * @public
    */
-  RateControlMode?: Av1RateControlMode | undefined;
+  Tags?: Record<string, string> | undefined;
 
   /**
-   * Used for QVBR rate control mode only.
-   * Optional.
-   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * List of IPv4 CIDR addresses to whitelist
    * @public
    */
-  MinBitrate?: number | undefined;
-
-  /**
-   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. Enabled: MediaLive will determine the appropriate level of spatial AQ to apply. Disabled: No spatial AQ. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
-   * @public
-   */
-  SpatialAq?: Av1SpatialAq | undefined;
-
-  /**
-   * Temporal AQ makes adjustments within each frame based on variations in content complexity over time. Enabled: MediaLive will determine the appropriate level of temporal AQ to apply. Disabled: No temporal AQ. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
-   * @public
-   */
-  TemporalAq?: Av1TemporalAq | undefined;
+  WhitelistRules?: InputWhitelistRuleCidr[] | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const FrameCaptureIntervalUnit = {
-  MILLISECONDS: "MILLISECONDS",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
+ * Placeholder documentation for UpdateInputSecurityGroupResponse
  * @public
  */
-export type FrameCaptureIntervalUnit = (typeof FrameCaptureIntervalUnit)[keyof typeof FrameCaptureIntervalUnit];
-
-/**
- * Frame Capture Settings
- * @public
- */
-export interface FrameCaptureSettings {
+export interface UpdateInputSecurityGroupResponse {
   /**
-   * The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
+   * An Input Security Group
    * @public
    */
-  CaptureInterval?: number | undefined;
-
-  /**
-   * Unit for the frame capture interval.
-   * @public
-   */
-  CaptureIntervalUnits?: FrameCaptureIntervalUnit | undefined;
-
-  /**
-   * Timecode burn-in settings
-   * @public
-   */
-  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+  SecurityGroup?: InputSecurityGroup | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const H264AdaptiveQuantization = {
-  AUTO: "AUTO",
-  HIGH: "HIGH",
-  HIGHER: "HIGHER",
-  LOW: "LOW",
-  MAX: "MAX",
-  MEDIUM: "MEDIUM",
-  OFF: "OFF",
-} as const;
-
-/**
+ * A request to update a multiplex.
  * @public
  */
-export type H264AdaptiveQuantization = (typeof H264AdaptiveQuantization)[keyof typeof H264AdaptiveQuantization];
-
-/**
- * @public
- * @enum
- */
-export const H264ColorMetadata = {
-  IGNORE: "IGNORE",
-  INSERT: "INSERT",
-} as const;
-
-/**
- * @public
- */
-export type H264ColorMetadata = (typeof H264ColorMetadata)[keyof typeof H264ColorMetadata];
-
-/**
- * H264 Color Space Settings
- * @public
- */
-export interface H264ColorSpaceSettings {
+export interface UpdateMultiplexRequest {
   /**
-   * Passthrough applies no color space conversion to the output
+   * ID of the multiplex to update.
    * @public
    */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings | undefined;
+  MultiplexId: string | undefined;
 
   /**
-   * Rec601 Settings
+   * The new settings for a multiplex.
    * @public
    */
-  Rec601Settings?: Rec601Settings | undefined;
+  MultiplexSettings?: MultiplexSettings | undefined;
 
   /**
-   * Rec709 Settings
+   * Name of the multiplex.
    * @public
    */
-  Rec709Settings?: Rec709Settings | undefined;
+  Name?: string | undefined;
+
+  /**
+   * Placeholder documentation for MultiplexPacketIdentifiersMapping
+   * @public
+   */
+  PacketIdentifiersMapping?: Record<string, MultiplexProgramPacketIdentifiersMap> | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const H264EntropyEncoding = {
-  CABAC: "CABAC",
-  CAVLC: "CAVLC",
-} as const;
-
-/**
+ * Placeholder documentation for UpdateMultiplexResponse
  * @public
  */
-export type H264EntropyEncoding = (typeof H264EntropyEncoding)[keyof typeof H264EntropyEncoding];
-
-/**
- * @public
- * @enum
- */
-export const BandwidthReductionPostFilterSharpening = {
-  DISABLED: "DISABLED",
-  SHARPENING_1: "SHARPENING_1",
-  SHARPENING_2: "SHARPENING_2",
-  SHARPENING_3: "SHARPENING_3",
-} as const;
-
-/**
- * @public
- */
-export type BandwidthReductionPostFilterSharpening =
-  (typeof BandwidthReductionPostFilterSharpening)[keyof typeof BandwidthReductionPostFilterSharpening];
-
-/**
- * @public
- * @enum
- */
-export const BandwidthReductionFilterStrength = {
-  AUTO: "AUTO",
-  STRENGTH_1: "STRENGTH_1",
-  STRENGTH_2: "STRENGTH_2",
-  STRENGTH_3: "STRENGTH_3",
-  STRENGTH_4: "STRENGTH_4",
-} as const;
-
-/**
- * @public
- */
-export type BandwidthReductionFilterStrength =
-  (typeof BandwidthReductionFilterStrength)[keyof typeof BandwidthReductionFilterStrength];
-
-/**
- * Bandwidth Reduction Filter Settings
- * @public
- */
-export interface BandwidthReductionFilterSettings {
+export interface UpdateMultiplexResponse {
   /**
-   * Configures the sharpening control, which is available when the bandwidth reduction filter is enabled. This
-   * control sharpens edges and contours, which produces a specific artistic effect that you might want.
-   *
-   * We recommend that you test each of the values (including DISABLED) to observe the sharpening effect on the
-   * content.
+   * The updated multiplex.
    * @public
    */
-  PostFilterSharpening?: BandwidthReductionPostFilterSharpening | undefined;
-
-  /**
-   * Enables the bandwidth reduction filter. The filter strengths range from 1 to 4. We recommend that you always
-   * enable this filter and use AUTO, to let MediaLive apply the optimum filtering for the context.
-   * @public
-   */
-  Strength?: BandwidthReductionFilterStrength | undefined;
+  Multiplex?: Multiplex | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const TemporalFilterPostFilterSharpening = {
-  AUTO: "AUTO",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
+ * A request to update a program in a multiplex.
  * @public
  */
-export type TemporalFilterPostFilterSharpening =
-  (typeof TemporalFilterPostFilterSharpening)[keyof typeof TemporalFilterPostFilterSharpening];
-
-/**
- * @public
- * @enum
- */
-export const TemporalFilterStrength = {
-  AUTO: "AUTO",
-  STRENGTH_1: "STRENGTH_1",
-  STRENGTH_10: "STRENGTH_10",
-  STRENGTH_11: "STRENGTH_11",
-  STRENGTH_12: "STRENGTH_12",
-  STRENGTH_13: "STRENGTH_13",
-  STRENGTH_14: "STRENGTH_14",
-  STRENGTH_15: "STRENGTH_15",
-  STRENGTH_16: "STRENGTH_16",
-  STRENGTH_2: "STRENGTH_2",
-  STRENGTH_3: "STRENGTH_3",
-  STRENGTH_4: "STRENGTH_4",
-  STRENGTH_5: "STRENGTH_5",
-  STRENGTH_6: "STRENGTH_6",
-  STRENGTH_7: "STRENGTH_7",
-  STRENGTH_8: "STRENGTH_8",
-  STRENGTH_9: "STRENGTH_9",
-} as const;
-
-/**
- * @public
- */
-export type TemporalFilterStrength = (typeof TemporalFilterStrength)[keyof typeof TemporalFilterStrength];
-
-/**
- * Temporal Filter Settings
- * @public
- */
-export interface TemporalFilterSettings {
+export interface UpdateMultiplexProgramRequest {
   /**
-   * If you enable this filter, the results are the following:
-   * - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
-   * - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+   * The ID of the multiplex of the program to update.
    * @public
    */
-  PostFilterSharpening?: TemporalFilterPostFilterSharpening | undefined;
+  MultiplexId: string | undefined;
 
   /**
-   * Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+   * The new settings for a multiplex program.
    * @public
    */
-  Strength?: TemporalFilterStrength | undefined;
+  MultiplexProgramSettings?: MultiplexProgramSettings | undefined;
+
+  /**
+   * The name of the program to update.
+   * @public
+   */
+  ProgramName: string | undefined;
 }
 
 /**
- * H264 Filter Settings
+ * Placeholder documentation for UpdateMultiplexProgramResponse
  * @public
  */
-export interface H264FilterSettings {
+export interface UpdateMultiplexProgramResponse {
   /**
-   * Temporal Filter Settings
+   * The updated multiplex program.
    * @public
    */
-  TemporalFilterSettings?: TemporalFilterSettings | undefined;
-
-  /**
-   * Bandwidth Reduction Filter Settings
-   * @public
-   */
-  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+  MultiplexProgram?: MultiplexProgram | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const H264FlickerAq = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
+ * A request to update the network.
  * @public
  */
-export type H264FlickerAq = (typeof H264FlickerAq)[keyof typeof H264FlickerAq];
-
-/**
- * @public
- * @enum
- */
-export const H264ForceFieldPictures = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H264ForceFieldPictures = (typeof H264ForceFieldPictures)[keyof typeof H264ForceFieldPictures];
-
-/**
- * @public
- * @enum
- */
-export const H264FramerateControl = {
-  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
-  SPECIFIED: "SPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type H264FramerateControl = (typeof H264FramerateControl)[keyof typeof H264FramerateControl];
-
-/**
- * @public
- * @enum
- */
-export const H264GopBReference = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H264GopBReference = (typeof H264GopBReference)[keyof typeof H264GopBReference];
-
-/**
- * @public
- * @enum
- */
-export const H264GopSizeUnits = {
-  FRAMES: "FRAMES",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type H264GopSizeUnits = (typeof H264GopSizeUnits)[keyof typeof H264GopSizeUnits];
-
-/**
- * @public
- * @enum
- */
-export const H264Level = {
-  H264_LEVEL_1: "H264_LEVEL_1",
-  H264_LEVEL_1_1: "H264_LEVEL_1_1",
-  H264_LEVEL_1_2: "H264_LEVEL_1_2",
-  H264_LEVEL_1_3: "H264_LEVEL_1_3",
-  H264_LEVEL_2: "H264_LEVEL_2",
-  H264_LEVEL_2_1: "H264_LEVEL_2_1",
-  H264_LEVEL_2_2: "H264_LEVEL_2_2",
-  H264_LEVEL_3: "H264_LEVEL_3",
-  H264_LEVEL_3_1: "H264_LEVEL_3_1",
-  H264_LEVEL_3_2: "H264_LEVEL_3_2",
-  H264_LEVEL_4: "H264_LEVEL_4",
-  H264_LEVEL_4_1: "H264_LEVEL_4_1",
-  H264_LEVEL_4_2: "H264_LEVEL_4_2",
-  H264_LEVEL_5: "H264_LEVEL_5",
-  H264_LEVEL_5_1: "H264_LEVEL_5_1",
-  H264_LEVEL_5_2: "H264_LEVEL_5_2",
-  H264_LEVEL_AUTO: "H264_LEVEL_AUTO",
-} as const;
-
-/**
- * @public
- */
-export type H264Level = (typeof H264Level)[keyof typeof H264Level];
-
-/**
- * @public
- * @enum
- */
-export const H264LookAheadRateControl = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type H264LookAheadRateControl = (typeof H264LookAheadRateControl)[keyof typeof H264LookAheadRateControl];
-
-/**
- * @public
- * @enum
- */
-export const H264ParControl = {
-  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
-  SPECIFIED: "SPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type H264ParControl = (typeof H264ParControl)[keyof typeof H264ParControl];
-
-/**
- * @public
- * @enum
- */
-export const H264Profile = {
-  BASELINE: "BASELINE",
-  HIGH: "HIGH",
-  HIGH_10BIT: "HIGH_10BIT",
-  HIGH_422: "HIGH_422",
-  HIGH_422_10BIT: "HIGH_422_10BIT",
-  MAIN: "MAIN",
-} as const;
-
-/**
- * @public
- */
-export type H264Profile = (typeof H264Profile)[keyof typeof H264Profile];
-
-/**
- * @public
- * @enum
- */
-export const H264QualityLevel = {
-  ENHANCED_QUALITY: "ENHANCED_QUALITY",
-  STANDARD_QUALITY: "STANDARD_QUALITY",
-} as const;
-
-/**
- * @public
- */
-export type H264QualityLevel = (typeof H264QualityLevel)[keyof typeof H264QualityLevel];
-
-/**
- * @public
- * @enum
- */
-export const H264RateControlMode = {
-  CBR: "CBR",
-  MULTIPLEX: "MULTIPLEX",
-  QVBR: "QVBR",
-  VBR: "VBR",
-} as const;
-
-/**
- * @public
- */
-export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
-
-/**
- * @public
- * @enum
- */
-export const H264ScanType = {
-  INTERLACED: "INTERLACED",
-  PROGRESSIVE: "PROGRESSIVE",
-} as const;
-
-/**
- * @public
- */
-export type H264ScanType = (typeof H264ScanType)[keyof typeof H264ScanType];
-
-/**
- * @public
- * @enum
- */
-export const H264SceneChangeDetect = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H264SceneChangeDetect = (typeof H264SceneChangeDetect)[keyof typeof H264SceneChangeDetect];
-
-/**
- * @public
- * @enum
- */
-export const H264SpatialAq = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H264SpatialAq = (typeof H264SpatialAq)[keyof typeof H264SpatialAq];
-
-/**
- * @public
- * @enum
- */
-export const H264SubGopLength = {
-  DYNAMIC: "DYNAMIC",
-  FIXED: "FIXED",
-} as const;
-
-/**
- * @public
- */
-export type H264SubGopLength = (typeof H264SubGopLength)[keyof typeof H264SubGopLength];
-
-/**
- * @public
- * @enum
- */
-export const H264Syntax = {
-  DEFAULT: "DEFAULT",
-  RP2027: "RP2027",
-} as const;
-
-/**
- * @public
- */
-export type H264Syntax = (typeof H264Syntax)[keyof typeof H264Syntax];
-
-/**
- * @public
- * @enum
- */
-export const H264TemporalAq = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H264TemporalAq = (typeof H264TemporalAq)[keyof typeof H264TemporalAq];
-
-/**
- * @public
- * @enum
- */
-export const H264TimecodeInsertionBehavior = {
-  DISABLED: "DISABLED",
-  PIC_TIMING_SEI: "PIC_TIMING_SEI",
-} as const;
-
-/**
- * @public
- */
-export type H264TimecodeInsertionBehavior =
-  (typeof H264TimecodeInsertionBehavior)[keyof typeof H264TimecodeInsertionBehavior];
-
-/**
- * H264 Settings
- * @public
- */
-export interface H264Settings {
+export interface UpdateNetworkRequest {
   /**
-   * Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide.
+   * Include this parameter only if you want to change the pool of IP addresses in the network. An array of IpPoolCreateRequests that identify a collection of IP addresses in this network that you want to reserve for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPoolUpdateRequest specifies one CIDR block.
    * @public
    */
-  AdaptiveQuantization?: H264AdaptiveQuantization | undefined;
+  IpPools?: IpPoolUpdateRequest[] | undefined;
 
   /**
-   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   * Include this parameter only if you want to change the name of the Network. Specify a name that is unique in the AWS account. Names are case-sensitive.
    * @public
    */
-  AfdSignaling?: AfdSignaling | undefined;
+  Name?: string | undefined;
 
   /**
-   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * The ID of the network
    * @public
    */
-  Bitrate?: number | undefined;
+  NetworkId: string | undefined;
 
   /**
-   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   * Include this parameter only if you want to change or add routes in the Network. An array of Routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
    * @public
    */
-  BufFillPct?: number | undefined;
-
-  /**
-   * Size of buffer (HRD buffer model) in bits.
-   * @public
-   */
-  BufSize?: number | undefined;
-
-  /**
-   * Includes colorspace metadata in the output.
-   * @public
-   */
-  ColorMetadata?: H264ColorMetadata | undefined;
-
-  /**
-   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
-   * @public
-   */
-  ColorSpaceSettings?: H264ColorSpaceSettings | undefined;
-
-  /**
-   * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
-   * @public
-   */
-  EntropyEncoding?: H264EntropyEncoding | undefined;
-
-  /**
-   * Optional. Both filters reduce bandwidth by removing imperceptible details. You can enable one of the filters. We
-   * recommend that you try both filters and observe the results to decide which one to use.
-   *
-   * The Temporal Filter reduces bandwidth by removing imperceptible details in the content. It combines perceptual
-   * filtering and motion compensated temporal filtering (MCTF). It operates independently of the compression level.
-   *
-   * The Bandwidth Reduction filter is a perceptual filter located within the encoding loop. It adapts to the current
-   * compression level to filter imperceptible signals. This filter works only when the resolution is 1080p or lower.
-   * @public
-   */
-  FilterSettings?: H264FilterSettings | undefined;
-
-  /**
-   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
-   * @public
-   */
-  FixedAfd?: FixedAfd | undefined;
-
-  /**
-   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
-   * @public
-   */
-  FlickerAq?: H264FlickerAq | undefined;
-
-  /**
-   * This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
-   * enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
-   * disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
-   * @public
-   */
-  ForceFieldPictures?: H264ForceFieldPictures | undefined;
-
-  /**
-   * This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
-   * @public
-   */
-  FramerateControl?: H264FramerateControl | undefined;
-
-  /**
-   * Framerate denominator.
-   * @public
-   */
-  FramerateDenominator?: number | undefined;
-
-  /**
-   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
-   * @public
-   */
-  FramerateNumerator?: number | undefined;
-
-  /**
-   * Documentation update needed
-   * @public
-   */
-  GopBReference?: H264GopBReference | undefined;
-
-  /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
-   * @public
-   */
-  GopClosedCadence?: number | undefined;
-
-  /**
-   * Number of B-frames between reference frames.
-   * @public
-   */
-  GopNumBFrames?: number | undefined;
-
-  /**
-   * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
-   * If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
-   * If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
-   * @public
-   */
-  GopSize?: number | undefined;
-
-  /**
-   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
-   * @public
-   */
-  GopSizeUnits?: H264GopSizeUnits | undefined;
-
-  /**
-   * H.264 Level.
-   * @public
-   */
-  Level?: H264Level | undefined;
-
-  /**
-   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
-   * @public
-   */
-  LookAheadRateControl?: H264LookAheadRateControl | undefined;
-
-  /**
-   * For QVBR: See the tooltip for Quality level
-   *
-   * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-   * @public
-   */
-  MaxBitrate?: number | undefined;
-
-  /**
-   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-   * @public
-   */
-  MinIInterval?: number | undefined;
-
-  /**
-   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
-   * @public
-   */
-  NumRefFrames?: number | undefined;
-
-  /**
-   * This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
-   * @public
-   */
-  ParControl?: H264ParControl | undefined;
-
-  /**
-   * Pixel Aspect Ratio denominator.
-   * @public
-   */
-  ParDenominator?: number | undefined;
-
-  /**
-   * Pixel Aspect Ratio numerator.
-   * @public
-   */
-  ParNumerator?: number | undefined;
-
-  /**
-   * H.264 Profile.
-   * @public
-   */
-  Profile?: H264Profile | undefined;
-
-  /**
-   * Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
-   * - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
-   * - STANDARD_QUALITY: Valid for any Rate control mode.
-   * @public
-   */
-  QualityLevel?: H264QualityLevel | undefined;
-
-  /**
-   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. You can set a target quality or you can let MediaLive determine the best quality. To set a target quality, enter values in the QVBR quality level field and the Max bitrate field. Enter values that suit your most important viewing devices. Recommended values are:
-   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
-   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
-   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
-   * To let MediaLive decide, leave the QVBR quality level field empty, and in Max bitrate enter the maximum rate you want in the video. For more information, see the section called "Video - rate control mode" in the MediaLive user guide
-   * @public
-   */
-  QvbrQualityLevel?: number | undefined;
-
-  /**
-   * Rate control mode.
-   *
-   * QVBR: Quality will match the specified quality level except when it is constrained by the
-   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
-   *
-   * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR
-   * if you want to maintain a specific average bitrate over the duration of the channel.
-   *
-   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
-   * your assets to devices that cannot handle variable bitrates.
-   *
-   * Multiplex: This rate control mode is only supported (and is required) when the video is being
-   * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
-   * by the properties within the Multiplex Program.
-   * @public
-   */
-  RateControlMode?: H264RateControlMode | undefined;
-
-  /**
-   * Sets the scan type of the output to progressive or top-field-first interlaced.
-   * @public
-   */
-  ScanType?: H264ScanType | undefined;
-
-  /**
-   * Scene change detection.
-   *
-   * - On: inserts I-frames when scene change is detected.
-   * - Off: does not force an I-frame when scene change is detected.
-   * @public
-   */
-  SceneChangeDetect?: H264SceneChangeDetect | undefined;
-
-  /**
-   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
-   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
-   * @public
-   */
-  Slices?: number | undefined;
-
-  /**
-   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.  If not set to zero, must be greater than 15.
-   * @public
-   */
-  Softness?: number | undefined;
-
-  /**
-   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
-   * @public
-   */
-  SpatialAq?: H264SpatialAq | undefined;
-
-  /**
-   * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
-   * @public
-   */
-  SubgopLength?: H264SubGopLength | undefined;
-
-  /**
-   * Produces a bitstream compliant with SMPTE RP-2027.
-   * @public
-   */
-  Syntax?: H264Syntax | undefined;
-
-  /**
-   * Temporal makes adjustments within each frame based on variations in content complexity over time. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
-   * @public
-   */
-  TemporalAq?: H264TemporalAq | undefined;
-
-  /**
-   * Determines how timecodes should be inserted into the video elementary stream.
-   * - 'disabled': Do not include timecodes
-   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
-   * @public
-   */
-  TimecodeInsertion?: H264TimecodeInsertionBehavior | undefined;
-
-  /**
-   * Timecode burn-in settings
-   * @public
-   */
-  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
-
-  /**
-   * Sets the minimum QP. If you aren't familiar with quantization adjustment, leave the field empty. MediaLive will
-   * apply an appropriate value.
-   * @public
-   */
-  MinQp?: number | undefined;
-
-  /**
-   * Used for QVBR rate control mode only.
-   * Optional.
-   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
-   * @public
-   */
-  MinBitrate?: number | undefined;
+  Routes?: RouteUpdateRequest[] | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const H265AdaptiveQuantization = {
-  AUTO: "AUTO",
-  HIGH: "HIGH",
-  HIGHER: "HIGHER",
-  LOW: "LOW",
-  MAX: "MAX",
-  MEDIUM: "MEDIUM",
-  OFF: "OFF",
-} as const;
-
-/**
+ * Placeholder documentation for UpdateNetworkResponse
  * @public
  */
-export type H265AdaptiveQuantization = (typeof H265AdaptiveQuantization)[keyof typeof H265AdaptiveQuantization];
-
-/**
- * @public
- * @enum
- */
-export const H265AlternativeTransferFunction = {
-  INSERT: "INSERT",
-  OMIT: "OMIT",
-} as const;
-
-/**
- * @public
- */
-export type H265AlternativeTransferFunction =
-  (typeof H265AlternativeTransferFunction)[keyof typeof H265AlternativeTransferFunction];
-
-/**
- * @public
- * @enum
- */
-export const H265ColorMetadata = {
-  IGNORE: "IGNORE",
-  INSERT: "INSERT",
-} as const;
-
-/**
- * @public
- */
-export type H265ColorMetadata = (typeof H265ColorMetadata)[keyof typeof H265ColorMetadata];
-
-/**
- * Dolby Vision81 Settings
- * @public
- */
-export interface DolbyVision81Settings {}
-
-/**
- * Hlg2020 Settings
- * @public
- */
-export interface Hlg2020Settings {}
-
-/**
- * H265 Color Space Settings
- * @public
- */
-export interface H265ColorSpaceSettings {
+export interface UpdateNetworkResponse {
   /**
-   * Passthrough applies no color space conversion to the output
+   * The ARN of this Network. It is automatically assigned when the Network is created.
    * @public
    */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings | undefined;
+  Arn?: string | undefined;
 
   /**
-   * Dolby Vision81 Settings
+   * Placeholder documentation for __listOf__string
    * @public
    */
-  DolbyVision81Settings?: DolbyVision81Settings | undefined;
+  AssociatedClusterIds?: string[] | undefined;
 
   /**
-   * Hdr10 Settings
+   * The ID of the Network. Unique in the AWS account. The ID is the resource-id portion of the ARN.
    * @public
    */
-  Hdr10Settings?: Hdr10Settings | undefined;
+  Id?: string | undefined;
 
   /**
-   * Rec601 Settings
+   * An array of IpPools in your organization's network that identify a collection of IP addresses in this network that are reserved for use in MediaLive Anywhere. MediaLive Anywhere uses these IP addresses for Push inputs (in both Bridge and NAT networks) and for output destinations (only in Bridge networks). Each IpPool specifies one CIDR block.
    * @public
    */
-  Rec601Settings?: Rec601Settings | undefined;
+  IpPools?: IpPool[] | undefined;
 
   /**
-   * Rec709 Settings
+   * The name that you specified for the Network.
    * @public
    */
-  Rec709Settings?: Rec709Settings | undefined;
+  Name?: string | undefined;
 
   /**
-   * Hlg2020 Settings
+   * An array of Routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
    * @public
    */
-  Hlg2020Settings?: Hlg2020Settings | undefined;
+  Routes?: Route[] | undefined;
+
+  /**
+   * The current state of the Network. Only MediaLive Anywhere can change the state.
+   * @public
+   */
+  State?: NetworkState | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const H265Deblocking = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
+ * Used in SdiSourceMappingsUpdateRequest. One SDI source mapping. It connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses. You must specify all three parameters in this object.
  * @public
  */
-export type H265Deblocking = (typeof H265Deblocking)[keyof typeof H265Deblocking];
-
-/**
- * H265 Filter Settings
- * @public
- */
-export interface H265FilterSettings {
+export interface SdiSourceMappingUpdateRequest {
   /**
-   * Temporal Filter Settings
+   * A number that uniquely identifies the SDI card on the node hardware. For information about how physical cards are identified on your node hardware, see the documentation for your node hardware. The numbering always starts at 1.
    * @public
    */
-  TemporalFilterSettings?: TemporalFilterSettings | undefined;
+  CardNumber?: number | undefined;
 
   /**
-   * Bandwidth Reduction Filter Settings
+   * A number that uniquely identifies a port on the card. This must be an SDI port (not a timecode port, for example). For information about how ports are identified on physical cards, see the documentation for your node hardware.
    * @public
    */
-  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+  ChannelNumber?: number | undefined;
+
+  /**
+   * The ID of a SDI source streaming on the given SDI capture card port.
+   * @public
+   */
+  SdiSource?: string | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const H265FlickerAq = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
+ * A request to update the node.
  * @public
  */
-export type H265FlickerAq = (typeof H265FlickerAq)[keyof typeof H265FlickerAq];
-
-/**
- * @public
- * @enum
- */
-export const H265GopBReference = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H265GopBReference = (typeof H265GopBReference)[keyof typeof H265GopBReference];
-
-/**
- * @public
- * @enum
- */
-export const H265GopSizeUnits = {
-  FRAMES: "FRAMES",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type H265GopSizeUnits = (typeof H265GopSizeUnits)[keyof typeof H265GopSizeUnits];
-
-/**
- * @public
- * @enum
- */
-export const H265Level = {
-  H265_LEVEL_1: "H265_LEVEL_1",
-  H265_LEVEL_2: "H265_LEVEL_2",
-  H265_LEVEL_2_1: "H265_LEVEL_2_1",
-  H265_LEVEL_3: "H265_LEVEL_3",
-  H265_LEVEL_3_1: "H265_LEVEL_3_1",
-  H265_LEVEL_4: "H265_LEVEL_4",
-  H265_LEVEL_4_1: "H265_LEVEL_4_1",
-  H265_LEVEL_5: "H265_LEVEL_5",
-  H265_LEVEL_5_1: "H265_LEVEL_5_1",
-  H265_LEVEL_5_2: "H265_LEVEL_5_2",
-  H265_LEVEL_6: "H265_LEVEL_6",
-  H265_LEVEL_6_1: "H265_LEVEL_6_1",
-  H265_LEVEL_6_2: "H265_LEVEL_6_2",
-  H265_LEVEL_AUTO: "H265_LEVEL_AUTO",
-} as const;
-
-/**
- * @public
- */
-export type H265Level = (typeof H265Level)[keyof typeof H265Level];
-
-/**
- * @public
- * @enum
- */
-export const H265LookAheadRateControl = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type H265LookAheadRateControl = (typeof H265LookAheadRateControl)[keyof typeof H265LookAheadRateControl];
-
-/**
- * @public
- * @enum
- */
-export const H265MvOverPictureBoundaries = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H265MvOverPictureBoundaries =
-  (typeof H265MvOverPictureBoundaries)[keyof typeof H265MvOverPictureBoundaries];
-
-/**
- * @public
- * @enum
- */
-export const H265MvTemporalPredictor = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H265MvTemporalPredictor = (typeof H265MvTemporalPredictor)[keyof typeof H265MvTemporalPredictor];
-
-/**
- * @public
- * @enum
- */
-export const H265Profile = {
-  MAIN: "MAIN",
-  MAIN_10BIT: "MAIN_10BIT",
-} as const;
-
-/**
- * @public
- */
-export type H265Profile = (typeof H265Profile)[keyof typeof H265Profile];
-
-/**
- * @public
- * @enum
- */
-export const H265RateControlMode = {
-  CBR: "CBR",
-  MULTIPLEX: "MULTIPLEX",
-  QVBR: "QVBR",
-} as const;
-
-/**
- * @public
- */
-export type H265RateControlMode = (typeof H265RateControlMode)[keyof typeof H265RateControlMode];
-
-/**
- * @public
- * @enum
- */
-export const H265ScanType = {
-  INTERLACED: "INTERLACED",
-  PROGRESSIVE: "PROGRESSIVE",
-} as const;
-
-/**
- * @public
- */
-export type H265ScanType = (typeof H265ScanType)[keyof typeof H265ScanType];
-
-/**
- * @public
- * @enum
- */
-export const H265SceneChangeDetect = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type H265SceneChangeDetect = (typeof H265SceneChangeDetect)[keyof typeof H265SceneChangeDetect];
-
-/**
- * @public
- * @enum
- */
-export const H265SubGopLength = {
-  DYNAMIC: "DYNAMIC",
-  FIXED: "FIXED",
-} as const;
-
-/**
- * @public
- */
-export type H265SubGopLength = (typeof H265SubGopLength)[keyof typeof H265SubGopLength];
-
-/**
- * @public
- * @enum
- */
-export const H265Tier = {
-  HIGH: "HIGH",
-  MAIN: "MAIN",
-} as const;
-
-/**
- * @public
- */
-export type H265Tier = (typeof H265Tier)[keyof typeof H265Tier];
-
-/**
- * @public
- * @enum
- */
-export const H265TilePadding = {
-  NONE: "NONE",
-  PADDED: "PADDED",
-} as const;
-
-/**
- * @public
- */
-export type H265TilePadding = (typeof H265TilePadding)[keyof typeof H265TilePadding];
-
-/**
- * @public
- * @enum
- */
-export const H265TimecodeInsertionBehavior = {
-  DISABLED: "DISABLED",
-  PIC_TIMING_SEI: "PIC_TIMING_SEI",
-} as const;
-
-/**
- * @public
- */
-export type H265TimecodeInsertionBehavior =
-  (typeof H265TimecodeInsertionBehavior)[keyof typeof H265TimecodeInsertionBehavior];
-
-/**
- * @public
- * @enum
- */
-export const H265TreeblockSize = {
-  AUTO: "AUTO",
-  TREE_SIZE_32X32: "TREE_SIZE_32X32",
-} as const;
-
-/**
- * @public
- */
-export type H265TreeblockSize = (typeof H265TreeblockSize)[keyof typeof H265TreeblockSize];
-
-/**
- * H265 Settings
- * @public
- */
-export interface H265Settings {
+export interface UpdateNodeRequest {
   /**
-   * Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. Flicker is the only type that you can customize. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide.
+   * The ID of the cluster
    * @public
    */
-  AdaptiveQuantization?: H265AdaptiveQuantization | undefined;
+  ClusterId: string | undefined;
 
   /**
-   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   * Include this parameter only if you want to change the current name of the Node. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
    * @public
    */
-  AfdSignaling?: AfdSignaling | undefined;
+  Name?: string | undefined;
 
   /**
-   * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
+   * The ID of the node.
    * @public
    */
-  AlternativeTransferFunction?: H265AlternativeTransferFunction | undefined;
+  NodeId: string | undefined;
 
   /**
-   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
    * @public
    */
-  Bitrate?: number | undefined;
+  Role?: NodeRole | undefined;
 
   /**
-   * Size of buffer (HRD buffer model) in bits.
+   * The mappings of a SDI capture card port to a logical SDI data stream
    * @public
    */
-  BufSize?: number | undefined;
-
-  /**
-   * Includes colorspace metadata in the output.
-   * @public
-   */
-  ColorMetadata?: H265ColorMetadata | undefined;
-
-  /**
-   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
-   * @public
-   */
-  ColorSpaceSettings?: H265ColorSpaceSettings | undefined;
-
-  /**
-   * Optional. Both filters reduce bandwidth by removing imperceptible details. You can enable one of the filters. We
-   * recommend that you try both filters and observe the results to decide which one to use.
-   *
-   * The Temporal Filter reduces bandwidth by removing imperceptible details in the content. It combines perceptual
-   * filtering and motion compensated temporal filtering (MCTF). It operates independently of the compression level.
-   *
-   * The Bandwidth Reduction filter is a perceptual filter located within the encoding loop. It adapts to the current
-   * compression level to filter imperceptible signals. This filter works only when the resolution is 1080p or lower.
-   * @public
-   */
-  FilterSettings?: H265FilterSettings | undefined;
-
-  /**
-   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
-   * @public
-   */
-  FixedAfd?: FixedAfd | undefined;
-
-  /**
-   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
-   * @public
-   */
-  FlickerAq?: H265FlickerAq | undefined;
-
-  /**
-   * Framerate denominator.
-   * @public
-   */
-  FramerateDenominator: number | undefined;
-
-  /**
-   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
-   * @public
-   */
-  FramerateNumerator: number | undefined;
-
-  /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
-   * @public
-   */
-  GopClosedCadence?: number | undefined;
-
-  /**
-   * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
-   * If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
-   * If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
-   * @public
-   */
-  GopSize?: number | undefined;
-
-  /**
-   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
-   * @public
-   */
-  GopSizeUnits?: H265GopSizeUnits | undefined;
-
-  /**
-   * H.265 Level.
-   * @public
-   */
-  Level?: H265Level | undefined;
-
-  /**
-   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
-   * @public
-   */
-  LookAheadRateControl?: H265LookAheadRateControl | undefined;
-
-  /**
-   * For QVBR: See the tooltip for Quality level
-   * @public
-   */
-  MaxBitrate?: number | undefined;
-
-  /**
-   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-   * @public
-   */
-  MinIInterval?: number | undefined;
-
-  /**
-   * Pixel Aspect Ratio denominator.
-   * @public
-   */
-  ParDenominator?: number | undefined;
-
-  /**
-   * Pixel Aspect Ratio numerator.
-   * @public
-   */
-  ParNumerator?: number | undefined;
-
-  /**
-   * H.265 Profile.
-   * @public
-   */
-  Profile?: H265Profile | undefined;
-
-  /**
-   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
-   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
-   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
-   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
-   * @public
-   */
-  QvbrQualityLevel?: number | undefined;
-
-  /**
-   * Rate control mode.
-   *
-   * QVBR: Quality will match the specified quality level except when it is constrained by the
-   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
-   *
-   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
-   * your assets to devices that cannot handle variable bitrates.
-   *
-   * Multiplex: This rate control mode is only supported (and is required) when the video is being
-   * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
-   * by the properties within the Multiplex Program.
-   * @public
-   */
-  RateControlMode?: H265RateControlMode | undefined;
-
-  /**
-   * Sets the scan type of the output to progressive or top-field-first interlaced.
-   * @public
-   */
-  ScanType?: H265ScanType | undefined;
-
-  /**
-   * Scene change detection.
-   * @public
-   */
-  SceneChangeDetect?: H265SceneChangeDetect | undefined;
-
-  /**
-   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
-   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
-   * @public
-   */
-  Slices?: number | undefined;
-
-  /**
-   * H.265 Tier.
-   * @public
-   */
-  Tier?: H265Tier | undefined;
-
-  /**
-   * Determines how timecodes should be inserted into the video elementary stream.
-   * - 'disabled': Do not include timecodes
-   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
-   * @public
-   */
-  TimecodeInsertion?: H265TimecodeInsertionBehavior | undefined;
-
-  /**
-   * Timecode burn-in settings
-   * @public
-   */
-  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
-
-  /**
-   * If you are setting up the picture as a tile, you must set this to "disabled". In all other configurations, you typically enter "enabled".
-   * @public
-   */
-  MvOverPictureBoundaries?: H265MvOverPictureBoundaries | undefined;
-
-  /**
-   * If you are setting up the picture as a tile, you must set this to "disabled". In other configurations, you typically enter "enabled".
-   * @public
-   */
-  MvTemporalPredictor?: H265MvTemporalPredictor | undefined;
-
-  /**
-   * Set this field to set up the picture as a tile. You must also set tileWidth.
-   * The tile height must result in 22 or fewer rows in the frame. The tile width
-   * must result in 20 or fewer columns in the frame. And finally, the product of the
-   * column count and row count must be 64 of less.
-   * If the tile width and height are specified, MediaLive will override the video
-   * codec slices field with a value that MediaLive calculates
-   * @public
-   */
-  TileHeight?: number | undefined;
-
-  /**
-   * Set to "padded" to force MediaLive to add padding to the frame, to obtain a frame that is a whole multiple of the tile size.
-   * If you are setting up the picture as a tile, you must enter "padded".
-   * In all other configurations, you typically enter "none".
-   * @public
-   */
-  TilePadding?: H265TilePadding | undefined;
-
-  /**
-   * Set this field to set up the picture as a tile. See tileHeight for more information.
-   * @public
-   */
-  TileWidth?: number | undefined;
-
-  /**
-   * Select the tree block size used for encoding. If you enter "auto", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter "auto".
-   * @public
-   */
-  TreeblockSize?: H265TreeblockSize | undefined;
-
-  /**
-   * Sets the minimum QP. If you aren't familiar with quantization adjustment, leave the field empty. MediaLive will
-   * apply an appropriate value.
-   * @public
-   */
-  MinQp?: number | undefined;
-
-  /**
-   * Enable or disable the deblocking filter for this codec. The filter reduces blocking artifacts at block boundaries,
-   * which improves overall video quality. If the filter is disabled, visible block edges might appear in the output,
-   * especially at lower bitrates.
-   * @public
-   */
-  Deblocking?: H265Deblocking | undefined;
-
-  /**
-   * Allows the encoder to use a B-Frame as a reference frame as well.
-   * ENABLED: B-frames will also serve as reference frames.
-   * DISABLED: B-frames won't be reference frames.
-   * Must be DISABLED if resolution is greater than 1080p or when using tiled hevc encoding.
-   * @public
-   */
-  GopBReference?: H265GopBReference | undefined;
-
-  /**
-   * Sets the number of B-frames between reference frames.
-   * Set to 2 if resolution is greater than 1080p or when using tiled hevc encoding.
-   * @public
-   */
-  GopNumBFrames?: number | undefined;
-
-  /**
-   * Used for QVBR rate control mode only.
-   * Optional.
-   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
-   * @public
-   */
-  MinBitrate?: number | undefined;
-
-  /**
-   * Sets the number of B-frames in each sub-GOP.
-   * FIXED: Use the value in Num B-frames.
-   * DYNAMIC: Optimizes the number of B-frames in each sub-GOP to improve visual quality.
-   * Must be FIXED if resolution is greater than 1080p or when using tiled hevc encoding.
-   * @public
-   */
-  SubgopLength?: H265SubGopLength | undefined;
+  SdiSourceMappings?: SdiSourceMappingUpdateRequest[] | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const Mpeg2AdaptiveQuantization = {
-  AUTO: "AUTO",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  OFF: "OFF",
-} as const;
-
-/**
+ * Placeholder documentation for UpdateNodeResponse
  * @public
  */
-export type Mpeg2AdaptiveQuantization = (typeof Mpeg2AdaptiveQuantization)[keyof typeof Mpeg2AdaptiveQuantization];
-
-/**
- * @public
- * @enum
- */
-export const Mpeg2ColorMetadata = {
-  IGNORE: "IGNORE",
-  INSERT: "INSERT",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2ColorMetadata = (typeof Mpeg2ColorMetadata)[keyof typeof Mpeg2ColorMetadata];
-
-/**
- * @public
- * @enum
- */
-export const Mpeg2ColorSpace = {
-  AUTO: "AUTO",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2ColorSpace = (typeof Mpeg2ColorSpace)[keyof typeof Mpeg2ColorSpace];
-
-/**
- * @public
- * @enum
- */
-export const Mpeg2DisplayRatio = {
-  DISPLAYRATIO16X9: "DISPLAYRATIO16X9",
-  DISPLAYRATIO4X3: "DISPLAYRATIO4X3",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2DisplayRatio = (typeof Mpeg2DisplayRatio)[keyof typeof Mpeg2DisplayRatio];
-
-/**
- * Mpeg2 Filter Settings
- * @public
- */
-export interface Mpeg2FilterSettings {
+export interface UpdateNodeResponse {
   /**
-   * Temporal Filter Settings
+   * The ARN of the Node. It is automatically assigned when the Node is created.
    * @public
    */
-  TemporalFilterSettings?: TemporalFilterSettings | undefined;
-}
+  Arn?: string | undefined;
 
-/**
- * @public
- * @enum
- */
-export const Mpeg2GopSizeUnits = {
-  FRAMES: "FRAMES",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2GopSizeUnits = (typeof Mpeg2GopSizeUnits)[keyof typeof Mpeg2GopSizeUnits];
-
-/**
- * @public
- * @enum
- */
-export const Mpeg2ScanType = {
-  INTERLACED: "INTERLACED",
-  PROGRESSIVE: "PROGRESSIVE",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2ScanType = (typeof Mpeg2ScanType)[keyof typeof Mpeg2ScanType];
-
-/**
- * @public
- * @enum
- */
-export const Mpeg2SubGopLength = {
-  DYNAMIC: "DYNAMIC",
-  FIXED: "FIXED",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2SubGopLength = (typeof Mpeg2SubGopLength)[keyof typeof Mpeg2SubGopLength];
-
-/**
- * @public
- * @enum
- */
-export const Mpeg2TimecodeInsertionBehavior = {
-  DISABLED: "DISABLED",
-  GOP_TIMECODE: "GOP_TIMECODE",
-} as const;
-
-/**
- * @public
- */
-export type Mpeg2TimecodeInsertionBehavior =
-  (typeof Mpeg2TimecodeInsertionBehavior)[keyof typeof Mpeg2TimecodeInsertionBehavior];
-
-/**
- * Mpeg2 Settings
- * @public
- */
-export interface Mpeg2Settings {
   /**
-   * Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
    * @public
    */
-  AdaptiveQuantization?: Mpeg2AdaptiveQuantization | undefined;
+  ChannelPlacementGroups?: string[] | undefined;
 
   /**
-   * Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
-   * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
-   * FIXED: MediaLive will use the value you specify in fixedAFD.
-   * @public
-   */
-  AfdSignaling?: AfdSignaling | undefined;
-
-  /**
-   * Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
-   * @public
-   */
-  ColorMetadata?: Mpeg2ColorMetadata | undefined;
-
-  /**
-   * Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
-   * PASSTHROUGH: Keep the color space of the input content - do not convert it.
-   * AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
-   * @public
-   */
-  ColorSpace?: Mpeg2ColorSpace | undefined;
-
-  /**
-   * Sets the pixel aspect ratio for the encode.
-   * @public
-   */
-  DisplayAspectRatio?: Mpeg2DisplayRatio | undefined;
-
-  /**
-   * Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
-   * TEMPORAL: This filter is useful for both source content that is noisy (when it has excessive digital artifacts) and source content that is clean.
-   * When the content is noisy, the filter cleans up the source content before the encoding phase, with these two effects: First, it improves the output video quality because the content has been cleaned up. Secondly, it decreases the bandwidth because MediaLive does not waste bits on encoding noise.
-   * When the content is reasonably clean, the filter tends to decrease the bitrate.
-   * @public
-   */
-  FilterSettings?: Mpeg2FilterSettings | undefined;
-
-  /**
-   * Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
-   * @public
-   */
-  FixedAfd?: FixedAfd | undefined;
-
-  /**
-   * description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
-   * @public
-   */
-  FramerateDenominator: number | undefined;
-
-  /**
-   * The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
-   * @public
-   */
-  FramerateNumerator: number | undefined;
-
-  /**
-   * MPEG2: default is open GOP.
-   * @public
-   */
-  GopClosedCadence?: number | undefined;
-
-  /**
-   * Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
-   * @public
-   */
-  GopNumBFrames?: number | undefined;
-
-  /**
-   * Relates to the GOP structure. The GOP size (keyframe interval) in the units specified in gopSizeUnits. If you do not know what GOP is, use the default.
-   * If gopSizeUnits is frames, then the gopSize must be an integer and must be greater than or equal to 1.
-   * If gopSizeUnits is seconds, the gopSize must be greater than 0, but does not need to be an integer.
-   * @public
-   */
-  GopSize?: number | undefined;
-
-  /**
-   * Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
-   * @public
-   */
-  GopSizeUnits?: Mpeg2GopSizeUnits | undefined;
-
-  /**
-   * Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
-   * @public
-   */
-  ScanType?: Mpeg2ScanType | undefined;
-
-  /**
-   * Relates to the GOP structure. If you do not know what GOP is, use the default.
-   * FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
-   * DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
-   * @public
-   */
-  SubgopLength?: Mpeg2SubGopLength | undefined;
-
-  /**
-   * Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
-   * DISABLED: do not include timecodes.
-   * GOP_TIMECODE: Include timecode metadata in the GOP header.
-   * @public
-   */
-  TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | undefined;
-
-  /**
-   * Timecode burn-in settings
-   * @public
-   */
-  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
-}
-
-/**
- * Video Codec Settings
- * @public
- */
-export interface VideoCodecSettings {
-  /**
-   * Frame Capture Settings
-   * @public
-   */
-  FrameCaptureSettings?: FrameCaptureSettings | undefined;
-
-  /**
-   * H264 Settings
-   * @public
-   */
-  H264Settings?: H264Settings | undefined;
-
-  /**
-   * H265 Settings
-   * @public
-   */
-  H265Settings?: H265Settings | undefined;
-
-  /**
-   * Mpeg2 Settings
-   * @public
-   */
-  Mpeg2Settings?: Mpeg2Settings | undefined;
-
-  /**
-   * Av1 Settings
-   * @public
-   */
-  Av1Settings?: Av1Settings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VideoDescriptionRespondToAfd = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-  RESPOND: "RESPOND",
-} as const;
-
-/**
- * @public
- */
-export type VideoDescriptionRespondToAfd =
-  (typeof VideoDescriptionRespondToAfd)[keyof typeof VideoDescriptionRespondToAfd];
-
-/**
- * @public
- * @enum
- */
-export const VideoDescriptionScalingBehavior = {
-  DEFAULT: "DEFAULT",
-  STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type VideoDescriptionScalingBehavior =
-  (typeof VideoDescriptionScalingBehavior)[keyof typeof VideoDescriptionScalingBehavior];
-
-/**
- * Video settings for this stream.
- * @public
- */
-export interface VideoDescription {
-  /**
-   * Video codec settings.
-   * @public
-   */
-  CodecSettings?: VideoCodecSettings | undefined;
-
-  /**
-   * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
-   * @public
-   */
-  Height?: number | undefined;
-
-  /**
-   * The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
-   * RESPOND: MediaLive clips the input video using a formula that uses the AFD values (configured in afdSignaling ), the input display aspect ratio, and the output display aspect ratio. MediaLive also includes the AFD values in the output, unless the codec for this encode is FRAME_CAPTURE.
-   * PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
-   * NONE: MediaLive does not clip the input video and does not include the AFD values in the output
-   * @public
-   */
-  RespondToAfd?: VideoDescriptionRespondToAfd | undefined;
-
-  /**
-   * STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
-   * @public
-   */
-  ScalingBehavior?: VideoDescriptionScalingBehavior | undefined;
-
-  /**
-   * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
-   * @public
-   */
-  Sharpness?: number | undefined;
-
-  /**
-   * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
-   * @public
-   */
-  Width?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AcceptHeader = {
-  image_jpeg: "image/jpeg",
-} as const;
-
-/**
- * @public
- */
-export type AcceptHeader = (typeof AcceptHeader)[keyof typeof AcceptHeader];
-
-/**
- * Placeholder documentation for AcceptInputDeviceTransferRequest
- * @public
- */
-export interface AcceptInputDeviceTransferRequest {
-  /**
-   * The unique ID of the input device to accept. For example, hd-123456789abcdef.
-   * @public
-   */
-  InputDeviceId: string | undefined;
-}
-
-/**
- * Placeholder documentation for AcceptInputDeviceTransferResponse
- * @public
- */
-export interface AcceptInputDeviceTransferResponse {}
-
-/**
- * Placeholder documentation for BadGatewayException
- * @public
- */
-export class BadGatewayException extends __BaseException {
-  readonly name: "BadGatewayException" = "BadGatewayException";
-  readonly $fault: "server" = "server";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadGatewayException, __BaseException>) {
-    super({
-      name: "BadGatewayException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadGatewayException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for BadRequestException
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for ConflictException
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for ForbiddenException
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for GatewayTimeoutException
- * @public
- */
-export class GatewayTimeoutException extends __BaseException {
-  readonly name: "GatewayTimeoutException" = "GatewayTimeoutException";
-  readonly $fault: "server" = "server";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GatewayTimeoutException, __BaseException>) {
-    super({
-      name: "GatewayTimeoutException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GatewayTimeoutException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for InternalServerErrorException
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for NotFoundException
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for TooManyRequestsException
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Placeholder documentation for UnprocessableEntityException
- * @public
- */
-export class UnprocessableEntityException extends __BaseException {
-  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * The error message.
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * A collection of validation error responses.
-   * @public
-   */
-  ValidationErrors?: ValidationError[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
-    super({
-      name: "UnprocessableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
-    this.Message = opts.Message;
-    this.ValidationErrors = opts.ValidationErrors;
-  }
-}
-
-/**
- * Placeholder documentation for AccountConfiguration
- * @public
- */
-export interface AccountConfiguration {
-  /**
-   * Specifies the KMS key to use for all features that use key encryption. Specify the ARN of a KMS key that you have created. Or leave blank to use the key that MediaLive creates and manages for you.
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * Elemental anywhere settings
- * @public
- */
-export interface AnywhereSettings {
-  /**
-   * The ID of the channel placement group for the channel.
-   * @public
-   */
-  ChannelPlacementGroupId?: string | undefined;
-
-  /**
-   * The ID of the cluster for the channel.
+   * The ID of the Cluster that the Node belongs to.
    * @public
    */
   ClusterId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AvailBlankingState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AvailBlankingState = (typeof AvailBlankingState)[keyof typeof AvailBlankingState];
-
-/**
- * Avail Blanking
- * @public
- */
-export interface AvailBlanking {
-  /**
-   * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
-   * @public
-   */
-  AvailBlankingImage?: InputLocation | undefined;
 
   /**
-   * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+   * The current connection state of the Node.
    * @public
    */
-  State?: AvailBlankingState | undefined;
-}
-
-/**
- * Esam
- * @public
- */
-export interface Esam {
-  /**
-   * Sent as acquisitionPointIdentity to identify the MediaLive channel to the POIS.
-   * @public
-   */
-  AcquisitionPointId: string | undefined;
+  ConnectionState?: NodeConnectionState | undefined;
 
   /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
    * @public
    */
-  AdAvailOffset?: number | undefined;
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string | undefined;
 
   /**
    * Documentation update needed
    * @public
    */
-  PasswordParam?: string | undefined;
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
 
   /**
-   * The URL of the signal conditioner endpoint on the Placement Opportunity Information System (POIS). MediaLive sends SignalProcessingEvents here when SCTE-35 messages are read.
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
    * @public
    */
-  PoisEndpoint: string | undefined;
+  Role?: NodeRole | undefined;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
+}
+
+/**
+ * A request to update the state of a node.
+ * @public
+ */
+export interface UpdateNodeStateRequest {
+  /**
+   * The ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The ID of the node.
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * The state to apply to the Node. Set to ACTIVE (COMMISSIONED) to indicate that the Node is deployable. MediaLive Anywhere will consider this node it needs a Node to run a Channel on, or when it needs a Node to promote from a backup node to an active node. Set to DRAINING to isolate the Node so that MediaLive Anywhere won't use it.
+   * @public
+   */
+  State?: UpdateNodeStateShape | undefined;
+}
+
+/**
+ * Placeholder documentation for UpdateNodeStateResponse
+ * @public
+ */
+export interface UpdateNodeStateResponse {
+  /**
+   * The ARN of the Node. It is automatically assigned when the Node is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
+   * @public
+   */
+  ChannelPlacementGroups?: string[] | undefined;
+
+  /**
+   * The ID of the Cluster that the Node belongs to.
+   * @public
+   */
+  ClusterId?: string | undefined;
+
+  /**
+   * The current connection state of the Node.
+   * @public
+   */
+  ConnectionState?: NodeConnectionState | undefined;
+
+  /**
+   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The ARN of the EC2 instance hosting the Node.
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * The name that you specified for the Node.
+   * @public
+   */
+  Name?: string | undefined;
 
   /**
    * Documentation update needed
    * @public
    */
-  Username?: string | undefined;
+  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
 
   /**
-   * Optional data sent as zoneIdentity to identify the MediaLive channel to the POIS.
+   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
    * @public
    */
-  ZoneIdentity?: string | undefined;
+  Role?: NodeRole | undefined;
+
+  /**
+   * The current state of the Node.
+   * @public
+   */
+  State?: NodeState | undefined;
+
+  /**
+   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
+   * @public
+   */
+  SdiSourceMappings?: SdiSourceMapping[] | undefined;
 }
 
 /**
+ * Request to update a reservation
  * @public
- * @enum
  */
-export const Scte35SpliceInsertNoRegionalBlackoutBehavior = {
-  FOLLOW: "FOLLOW",
-  IGNORE: "IGNORE",
-} as const;
+export interface UpdateReservationRequest {
+  /**
+   * Name of the reservation
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Renewal settings for the reservation
+   * @public
+   */
+  RenewalSettings?: RenewalSettings | undefined;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   * @public
+   */
+  ReservationId: string | undefined;
+}
 
 /**
+ * Placeholder documentation for UpdateReservationResponse
  * @public
  */
-export type Scte35SpliceInsertNoRegionalBlackoutBehavior =
-  (typeof Scte35SpliceInsertNoRegionalBlackoutBehavior)[keyof typeof Scte35SpliceInsertNoRegionalBlackoutBehavior];
+export interface UpdateReservationResponse {
+  /**
+   * Reserved resources available to use
+   * @public
+   */
+  Reservation?: Reservation | undefined;
+}
 
 /**
+ * A request to update the SdiSource.
  * @public
- * @enum
  */
-export const Scte35SpliceInsertWebDeliveryAllowedBehavior = {
-  FOLLOW: "FOLLOW",
-  IGNORE: "IGNORE",
-} as const;
+export interface UpdateSdiSourceRequest {
+  /**
+   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The ID of the SdiSource
+   * @public
+   */
+  SdiSourceId: string | undefined;
+
+  /**
+   * Include this parameter only if you want to change the mode. Specify the type of the SDI source: SINGLE: The source is a single-link source. QUAD: The source is one part of a quad-link source.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
 
 /**
+ * Placeholder documentation for UpdateSdiSourceResponse
  * @public
  */
-export type Scte35SpliceInsertWebDeliveryAllowedBehavior =
-  (typeof Scte35SpliceInsertWebDeliveryAllowedBehavior)[keyof typeof Scte35SpliceInsertWebDeliveryAllowedBehavior];
+export interface UpdateSdiSourceResponse {
+  /**
+   * Settings for the SDI source.
+   * @public
+   */
+  SdiSource?: SdiSource | undefined;
+}

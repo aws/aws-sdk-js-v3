@@ -242,7 +242,7 @@ import {
   RequestInProgressException as __RequestInProgressException,
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

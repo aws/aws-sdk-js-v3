@@ -1,30 +1,5 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
-
-import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
-
-/**
- * <p>You do not have sufficient permissions to perform this action. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
 /**
  * <p>This structure assigns a feature variation to one user session.</p>
@@ -229,74 +204,6 @@ export interface BatchEvaluateFeatureResponse {
 }
 
 /**
- * <p>The request references a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that caused the exception.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request was denied because of request throttling. Retry the request.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the service that is associated with the error.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The ID of the service quota that was exceeded.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * <p>A structure containing an error name and message.</p>
  * @public
  */
@@ -329,40 +236,6 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The value of a parameter in the request caused an error.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A reason for the error.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The parameter that caused the exception.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
 
 /**
  * @public
@@ -404,40 +277,6 @@ export interface CloudWatchLogsDestinationConfig {
    * @public
    */
   logGroup?: string | undefined;
-}
-
-/**
- * <p>A resource was in an inconsistent state during an update or a deletion.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that caused the exception.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -946,54 +785,6 @@ export interface CreateExperimentResponse {
    * @public
    */
   experiment: Experiment | undefined;
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that caused the exception.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * <p>The ID of the service that is associated with the error.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The ID of the service quota that was exceeded.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 /**
@@ -2160,46 +1951,6 @@ export interface DeleteExperimentRequest {
  * @public
  */
 export interface DeleteExperimentResponse {}
-
-/**
- * <p>Unexpected error while processing the request. Retry the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The service was unavailable. Retry the request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
 
 /**
  * @public

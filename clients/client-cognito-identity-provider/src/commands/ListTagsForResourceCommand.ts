@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
 import { ListTagsForResource } from "../schemas/schemas_0";
 
 /**

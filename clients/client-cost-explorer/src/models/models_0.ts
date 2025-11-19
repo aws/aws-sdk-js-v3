@@ -1,21 +1,46 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CostExplorerServiceException as __BaseException } from "./CostExplorerServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AccountScope = {
-  LINKED: "LINKED",
-  PAYER: "PAYER",
-} as const;
-
-/**
- * @public
- */
-export type AccountScope = (typeof AccountScope)[keyof typeof AccountScope];
+import {
+  AccountScope,
+  AnalysisStatus,
+  AnalysisType,
+  AnomalyFeedbackType,
+  AnomalySubscriptionFrequency,
+  ApproximationDimension,
+  Context,
+  CostAllocationTagBackfillStatus,
+  CostAllocationTagStatus,
+  CostAllocationTagType,
+  CostCategoryInheritedValueDimensionName,
+  CostCategoryRuleType,
+  CostCategoryRuleVersion,
+  CostCategorySplitChargeMethod,
+  CostCategorySplitChargeRuleParameterType,
+  CostCategoryStatus,
+  CostCategoryStatusComponent,
+  Dimension,
+  ErrorCode,
+  FindingReasonCode,
+  GenerationStatus,
+  Granularity,
+  GroupDefinitionType,
+  LookbackPeriodInDays,
+  MatchOption,
+  Metric,
+  MonitorDimension,
+  MonitorType,
+  NumericOperator,
+  OfferingClass,
+  PaymentOption,
+  PlatformDifference,
+  RecommendationTarget,
+  RightsizingType,
+  SavingsPlansDataType,
+  SortOrder,
+  SubscriberStatus,
+  SubscriberType,
+  SupportedSavingsPlansType,
+  TermInYears,
+} from "./enums";
 
 /**
  * <p>Contains the hourly metrics for the given recommendation over the lookback period.
@@ -213,57 +238,6 @@ export interface AnalysisDetails {
 }
 
 /**
- * <p>The requested analysis can't be found.</p>
- * @public
- */
-export class AnalysisNotFoundException extends __BaseException {
-  readonly name: "AnalysisNotFoundException" = "AnalysisNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AnalysisNotFoundException, __BaseException>) {
-    super({
-      name: "AnalysisNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AnalysisNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AnalysisStatus = {
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
-
-/**
- * @public
- * @enum
- */
-export const AnalysisType = {
-  CUSTOM_COMMITMENT: "CUSTOM_COMMITMENT",
-  MAX_SAVINGS: "MAX_SAVINGS",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
-
-/**
  * <p>The time period of the request. </p>
  * @public
  */
@@ -285,53 +259,6 @@ export interface DateInterval {
    */
   End: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PaymentOption = {
-  ALL_UPFRONT: "ALL_UPFRONT",
-  HEAVY_UTILIZATION: "HEAVY_UTILIZATION",
-  LIGHT_UTILIZATION: "LIGHT_UTILIZATION",
-  MEDIUM_UTILIZATION: "MEDIUM_UTILIZATION",
-  NO_UPFRONT: "NO_UPFRONT",
-  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
-} as const;
-
-/**
- * @public
- */
-export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
-
-/**
- * @public
- * @enum
- */
-export const SupportedSavingsPlansType = {
-  COMPUTE_SP: "COMPUTE_SP",
-  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
-  SAGEMAKER_SP: "SAGEMAKER_SP",
-} as const;
-
-/**
- * @public
- */
-export type SupportedSavingsPlansType = (typeof SupportedSavingsPlansType)[keyof typeof SupportedSavingsPlansType];
-
-/**
- * @public
- * @enum
- */
-export const TermInYears = {
-  ONE_YEAR: "ONE_YEAR",
-  THREE_YEARS: "THREE_YEARS",
-} as const;
-
-/**
- * @public
- */
-export type TermInYears = (typeof TermInYears)[keyof typeof TermInYears];
 
 /**
  * <p>The Savings Plans commitment details.</p>
@@ -437,23 +364,6 @@ export interface CommitmentPurchaseAnalysisConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  INVALID_ACCOUNT_ID: "INVALID_ACCOUNT_ID",
-  INVALID_SAVINGS_PLANS_TO_ADD: "INVALID_SAVINGS_PLANS_TO_ADD",
-  INVALID_SAVINGS_PLANS_TO_EXCLUDE: "INVALID_SAVINGS_PLANS_TO_EXCLUDE",
-  NO_USAGE_FOUND: "NO_USAGE_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
  * <p>A summary of the analysis.</p>
  * @public
  */
@@ -518,21 +428,6 @@ export interface AnomalyScore {
    */
   CurrentScore: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnomalyFeedbackType = {
-  NO: "NO",
-  PLANNED_ACTIVITY: "PLANNED_ACTIVITY",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type AnomalyFeedbackType = (typeof AnomalyFeedbackType)[keyof typeof AnomalyFeedbackType];
 
 /**
  * <p>The dollar value of the anomaly. </p>
@@ -716,39 +611,6 @@ export interface AnomalyDateInterval {
 }
 
 /**
- * @public
- * @enum
- */
-export const MonitorDimension = {
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type MonitorDimension = (typeof MonitorDimension)[keyof typeof MonitorDimension];
-
-/**
- * @public
- * @enum
- */
-export const MatchOption = {
-  ABSENT: "ABSENT",
-  CASE_INSENSITIVE: "CASE_INSENSITIVE",
-  CASE_SENSITIVE: "CASE_SENSITIVE",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
-
-/**
  * <p>The Cost Categories values used for filtering the costs.</p>
  *          <p>If <code>Values</code> and <code>Key</code> are not specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all Cost Categories. That is, it filters on
@@ -781,53 +643,6 @@ export interface CostCategoryValues {
    */
   MatchOptions?: MatchOption[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Dimension = {
-  AGREEMENT_END_DATE_TIME_AFTER: "AGREEMENT_END_DATE_TIME_AFTER",
-  AGREEMENT_END_DATE_TIME_BEFORE: "AGREEMENT_END_DATE_TIME_BEFORE",
-  ANOMALY_TOTAL_IMPACT_ABSOLUTE: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-  ANOMALY_TOTAL_IMPACT_PERCENTAGE: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-  AZ: "AZ",
-  BILLING_ENTITY: "BILLING_ENTITY",
-  CACHE_ENGINE: "CACHE_ENGINE",
-  DATABASE_ENGINE: "DATABASE_ENGINE",
-  DEPLOYMENT_OPTION: "DEPLOYMENT_OPTION",
-  INSTANCE_TYPE: "INSTANCE_TYPE",
-  INSTANCE_TYPE_FAMILY: "INSTANCE_TYPE_FAMILY",
-  INVOICING_ENTITY: "INVOICING_ENTITY",
-  LEGAL_ENTITY_NAME: "LEGAL_ENTITY_NAME",
-  LINKED_ACCOUNT: "LINKED_ACCOUNT",
-  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
-  OPERATING_SYSTEM: "OPERATING_SYSTEM",
-  OPERATION: "OPERATION",
-  PAYER_ACCOUNT: "PAYER_ACCOUNT",
-  PAYMENT_OPTION: "PAYMENT_OPTION",
-  PLATFORM: "PLATFORM",
-  PURCHASE_TYPE: "PURCHASE_TYPE",
-  RECORD_TYPE: "RECORD_TYPE",
-  REGION: "REGION",
-  RESERVATION_ID: "RESERVATION_ID",
-  RESOURCE_ID: "RESOURCE_ID",
-  RIGHTSIZING_TYPE: "RIGHTSIZING_TYPE",
-  SAVINGS_PLANS_TYPE: "SAVINGS_PLANS_TYPE",
-  SAVINGS_PLAN_ARN: "SAVINGS_PLAN_ARN",
-  SCOPE: "SCOPE",
-  SERVICE: "SERVICE",
-  SERVICE_CODE: "SERVICE_CODE",
-  SUBSCRIPTION_ID: "SUBSCRIPTION_ID",
-  TENANCY: "TENANCY",
-  USAGE_TYPE: "USAGE_TYPE",
-  USAGE_TYPE_GROUP: "USAGE_TYPE_GROUP",
-} as const;
-
-/**
- * @public
- */
-export type Dimension = (typeof Dimension)[keyof typeof Dimension];
 
 /**
  * <p>The metadata that you can use to filter and group your results. You can use
@@ -905,64 +720,6 @@ export interface TagValues {
 }
 
 /**
- * @public
- * @enum
- */
-export const MonitorType = {
-  CUSTOM: "CUSTOM",
-  DIMENSIONAL: "DIMENSIONAL",
-} as const;
-
-/**
- * @public
- */
-export type MonitorType = (typeof MonitorType)[keyof typeof MonitorType];
-
-/**
- * @public
- * @enum
- */
-export const AnomalySubscriptionFrequency = {
-  DAILY: "DAILY",
-  IMMEDIATE: "IMMEDIATE",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type AnomalySubscriptionFrequency =
-  (typeof AnomalySubscriptionFrequency)[keyof typeof AnomalySubscriptionFrequency];
-
-/**
- * @public
- * @enum
- */
-export const SubscriberStatus = {
-  CONFIRMED: "CONFIRMED",
-  DECLINED: "DECLINED",
-} as const;
-
-/**
- * @public
- */
-export type SubscriberStatus = (typeof SubscriberStatus)[keyof typeof SubscriberStatus];
-
-/**
- * @public
- * @enum
- */
-export const SubscriberType = {
-  EMAIL: "EMAIL",
-  SNS: "SNS",
-} as const;
-
-/**
- * @public
- */
-export type SubscriberType = (typeof SubscriberType)[keyof typeof SubscriberType];
-
-/**
  * <p>The recipient of <code>AnomalySubscription</code> notifications. </p>
  * @public
  */
@@ -986,20 +743,6 @@ export interface Subscriber {
    */
   Status?: SubscriberStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApproximationDimension = {
-  RESOURCE: "RESOURCE",
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type ApproximationDimension = (typeof ApproximationDimension)[keyof typeof ApproximationDimension];
 
 /**
  * <p>The tag structure that contains a tag key and value. </p>
@@ -1041,28 +784,6 @@ export interface CreateAnomalyMonitorResponse {
 }
 
 /**
- * <p>You made too many calls in a short period of time. Try again later.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateAnomalySubscriptionResponse {
@@ -1072,43 +793,6 @@ export interface CreateAnomalySubscriptionResponse {
    */
   SubscriptionArn: string | undefined;
 }
-
-/**
- * <p>The cost anomaly monitor does not exist for the account. </p>
- * @public
- */
-export class UnknownMonitorException extends __BaseException {
-  readonly name: "UnknownMonitorException" = "UnknownMonitorException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnknownMonitorException, __BaseException>) {
-    super({
-      name: "UnknownMonitorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnknownMonitorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CostCategoryInheritedValueDimensionName = {
-  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
-  TAG: "TAG",
-} as const;
-
-/**
- * @public
- */
-export type CostCategoryInheritedValueDimensionName =
-  (typeof CostCategoryInheritedValueDimensionName)[keyof typeof CostCategoryInheritedValueDimensionName];
 
 /**
  * <p>When you create or update a cost category, you can define the
@@ -1137,63 +821,6 @@ export interface CostCategoryInheritedValueDimension {
    */
   DimensionKey?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CostCategoryRuleType = {
-  INHERITED_VALUE: "INHERITED_VALUE",
-  REGULAR: "REGULAR",
-} as const;
-
-/**
- * @public
- */
-export type CostCategoryRuleType = (typeof CostCategoryRuleType)[keyof typeof CostCategoryRuleType];
-
-/**
- * @public
- * @enum
- */
-export const CostCategoryRuleVersion = {
-  CostCategoryExpressionV1: "CostCategoryExpression.v1",
-} as const;
-
-/**
- * @public
- */
-export type CostCategoryRuleVersion = (typeof CostCategoryRuleVersion)[keyof typeof CostCategoryRuleVersion];
-
-/**
- * @public
- * @enum
- */
-export const CostCategorySplitChargeMethod = {
-  EVEN: "EVEN",
-  FIXED: "FIXED",
-  PROPORTIONAL: "PROPORTIONAL",
-} as const;
-
-/**
- * @public
- */
-export type CostCategorySplitChargeMethod =
-  (typeof CostCategorySplitChargeMethod)[keyof typeof CostCategorySplitChargeMethod];
-
-/**
- * @public
- * @enum
- */
-export const CostCategorySplitChargeRuleParameterType = {
-  ALLOCATION_PERCENTAGES: "ALLOCATION_PERCENTAGES",
-} as const;
-
-/**
- * @public
- */
-export type CostCategorySplitChargeRuleParameterType =
-  (typeof CostCategorySplitChargeRuleParameterType)[keyof typeof CostCategorySplitChargeRuleParameterType];
 
 /**
  * <p>The parameters for a split charge method. </p>
@@ -1273,29 +900,6 @@ export interface CreateCostCategoryDefinitionResponse {
 }
 
 /**
- * <p> You've reached the limit on the number of resources you can create, or exceeded the
- *             size of an individual resource. </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteAnomalyMonitorRequest {
@@ -1328,28 +932,6 @@ export interface DeleteAnomalySubscriptionRequest {
 export interface DeleteAnomalySubscriptionResponse {}
 
 /**
- * <p>The cost anomaly subscription does not exist for the account. </p>
- * @public
- */
-export class UnknownSubscriptionException extends __BaseException {
-  readonly name: "UnknownSubscriptionException" = "UnknownSubscriptionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnknownSubscriptionException, __BaseException>) {
-    super({
-      name: "UnknownSubscriptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnknownSubscriptionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteCostCategoryDefinitionRequest {
@@ -1379,30 +961,6 @@ export interface DeleteCostCategoryDefinitionResponse {
 }
 
 /**
- * <p> The specified ARN in the request doesn't exist. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeCostCategoryDefinitionRequest {
@@ -1418,34 +976,6 @@ export interface DescribeCostCategoryDefinitionRequest {
    */
   EffectiveOn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CostCategoryStatusComponent = {
-  COST_EXPLORER: "COST_EXPLORER",
-} as const;
-
-/**
- * @public
- */
-export type CostCategoryStatusComponent =
-  (typeof CostCategoryStatusComponent)[keyof typeof CostCategoryStatusComponent];
-
-/**
- * @public
- * @enum
- */
-export const CostCategoryStatus = {
-  APPLIED: "APPLIED",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type CostCategoryStatus = (typeof CostCategoryStatus)[keyof typeof CostCategoryStatus];
 
 /**
  * <p>The list of processing statuses for Cost Management products for a specific cost
@@ -1465,24 +995,6 @@ export interface CostCategoryProcessingStatus {
    */
   Status?: CostCategoryStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NumericOperator = {
-  BETWEEN: "BETWEEN",
-  EQUAL: "EQUAL",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type NumericOperator = (typeof NumericOperator)[keyof typeof NumericOperator];
 
 /**
  * <p>Filters cost anomalies based on the total impact. </p>
@@ -1573,28 +1085,6 @@ export interface GetAnomaliesResponse {
 }
 
 /**
- * <p>The pagination token is invalid. Try again without a pagination token.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetAnomalyMonitorsRequest {
@@ -1647,43 +1137,6 @@ export interface GetAnomalySubscriptionsRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * <p>The requested data is unavailable.</p>
- * @public
- */
-export class DataUnavailableException extends __BaseException {
-  readonly name: "DataUnavailableException" = "DataUnavailableException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataUnavailableException, __BaseException>) {
-    super({
-      name: "DataUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Granularity = {
-  DAILY: "DAILY",
-  HOURLY: "HOURLY",
-  MONTHLY: "MONTHLY",
-} as const;
-
-/**
- * @public
- */
-export type Granularity = (typeof Granularity)[keyof typeof Granularity];
 
 /**
  * @public
@@ -1797,67 +1250,6 @@ export interface GetCommitmentPurchaseAnalysisResponse {
    */
   CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfiguration | undefined;
 }
-
-/**
- * <p>The requested report expired. Update the date interval and try again.</p>
- * @public
- */
-export class BillExpirationException extends __BaseException {
-  readonly name: "BillExpirationException" = "BillExpirationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BillExpirationException, __BaseException>) {
-    super({
-      name: "BillExpirationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BillExpirationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>
- *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
- *         </p>
- * @public
- */
-export class BillingViewHealthStatusException extends __BaseException {
-  readonly name: "BillingViewHealthStatusException" = "BillingViewHealthStatusException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
-    super({
-      name: "BillingViewHealthStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const GroupDefinitionType = {
-  COST_CATEGORY: "COST_CATEGORY",
-  DIMENSION: "DIMENSION",
-  TAG: "TAG",
-} as const;
-
-/**
- * @public
- */
-export type GroupDefinitionType = (typeof GroupDefinitionType)[keyof typeof GroupDefinitionType];
 
 /**
  * <p>Represents a group when you specify a group by criteria or in the response to a query
@@ -1996,29 +1388,6 @@ export interface GetCostAndUsageResponse {
 }
 
 /**
- * <p>Your request parameters changed between pages. Try again with the old parameters or
- *             without a pagination token.</p>
- * @public
- */
-export class RequestChangedException extends __BaseException {
-  readonly name: "RequestChangedException" = "RequestChangedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestChangedException, __BaseException>) {
-    super({
-      name: "RequestChangedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestChangedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Contains cost or usage metric values for comparing two time periods. Each value
  *             includes amounts for the baseline and comparison time periods, their difference, and the
  *             unit of measurement.</p>
@@ -2082,20 +1451,6 @@ export interface GetCostAndUsageWithResourcesResponse {
    */
   DimensionValueAttributes?: DimensionValuesWithAttributes[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * <p>The details for how to sort the data.</p>
@@ -2185,25 +1540,6 @@ export interface CostDriver {
 }
 
 /**
- * @public
- * @enum
- */
-export const Metric = {
-  AMORTIZED_COST: "AMORTIZED_COST",
-  BLENDED_COST: "BLENDED_COST",
-  NET_AMORTIZED_COST: "NET_AMORTIZED_COST",
-  NET_UNBLENDED_COST: "NET_UNBLENDED_COST",
-  NORMALIZED_USAGE_AMOUNT: "NORMALIZED_USAGE_AMOUNT",
-  UNBLENDED_COST: "UNBLENDED_COST",
-  USAGE_QUANTITY: "USAGE_QUANTITY",
-} as const;
-
-/**
- * @public
- */
-export type Metric = (typeof Metric)[keyof typeof Metric];
-
-/**
  * <p>The forecast that's created for your query.</p>
  * @public
  */
@@ -2250,21 +1586,6 @@ export interface GetCostForecastResponse {
    */
   ForecastResultsByTime?: ForecastResult[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Context = {
-  COST_AND_USAGE: "COST_AND_USAGE",
-  RESERVATIONS: "RESERVATIONS",
-  SAVINGS_PLANS: "SAVINGS_PLANS",
-} as const;
-
-/**
- * @public
- */
-export type Context = (typeof Context)[keyof typeof Context];
 
 /**
  * @public
@@ -2597,35 +1918,6 @@ export interface GetReservationCoverageResponse {
    */
   NextPageToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LookbackPeriodInDays = {
-  SEVEN_DAYS: "SEVEN_DAYS",
-  SIXTY_DAYS: "SIXTY_DAYS",
-  THIRTY_DAYS: "THIRTY_DAYS",
-} as const;
-
-/**
- * @public
- */
-export type LookbackPeriodInDays = (typeof LookbackPeriodInDays)[keyof typeof LookbackPeriodInDays];
-
-/**
- * @public
- * @enum
- */
-export const OfferingClass = {
-  CONVERTIBLE: "CONVERTIBLE",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type OfferingClass = (typeof OfferingClass)[keyof typeof OfferingClass];
 
 /**
  * <p>The Amazon EC2 hardware specifications that you want Amazon Web Services to provide
@@ -3521,20 +2813,6 @@ export interface GetReservationUtilizationResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecommendationTarget = {
-  CROSS_INSTANCE_FAMILY: "CROSS_INSTANCE_FAMILY",
-  SAME_INSTANCE_FAMILY: "SAME_INSTANCE_FAMILY",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationTarget = (typeof RecommendationTarget)[keyof typeof RecommendationTarget];
-
-/**
  * <p>You can use <code>RightsizingRecommendationConfiguration</code> to customize
  *             recommendations across two attributes. You can choose to view recommendations for
  *             instances within the same instance families or across different instance families. You
@@ -3893,51 +3171,6 @@ export interface CurrentInstance {
 }
 
 /**
- * @public
- * @enum
- */
-export const FindingReasonCode = {
-  CPU_OVER_PROVISIONED: "CPU_OVER_PROVISIONED",
-  CPU_UNDER_PROVISIONED: "CPU_UNDER_PROVISIONED",
-  DISK_IOPS_OVER_PROVISIONED: "DISK_IOPS_OVER_PROVISIONED",
-  DISK_IOPS_UNDER_PROVISIONED: "DISK_IOPS_UNDER_PROVISIONED",
-  DISK_THROUGHPUT_OVER_PROVISIONED: "DISK_THROUGHPUT_OVER_PROVISIONED",
-  DISK_THROUGHPUT_UNDER_PROVISIONED: "DISK_THROUGHPUT_UNDER_PROVISIONED",
-  EBS_IOPS_OVER_PROVISIONED: "EBS_IOPS_OVER_PROVISIONED",
-  EBS_IOPS_UNDER_PROVISIONED: "EBS_IOPS_UNDER_PROVISIONED",
-  EBS_THROUGHPUT_OVER_PROVISIONED: "EBS_THROUGHPUT_OVER_PROVISIONED",
-  EBS_THROUGHPUT_UNDER_PROVISIONED: "EBS_THROUGHPUT_UNDER_PROVISIONED",
-  MEMORY_OVER_PROVISIONED: "MEMORY_OVER_PROVISIONED",
-  MEMORY_UNDER_PROVISIONED: "MEMORY_UNDER_PROVISIONED",
-  NETWORK_BANDWIDTH_OVER_PROVISIONED: "NETWORK_BANDWIDTH_OVER_PROVISIONED",
-  NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NETWORK_BANDWIDTH_UNDER_PROVISIONED",
-  NETWORK_PPS_OVER_PROVISIONED: "NETWORK_PPS_OVER_PROVISIONED",
-  NETWORK_PPS_UNDER_PROVISIONED: "NETWORK_PPS_UNDER_PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type FindingReasonCode = (typeof FindingReasonCode)[keyof typeof FindingReasonCode];
-
-/**
- * @public
- * @enum
- */
-export const PlatformDifference = {
-  HYPERVISOR: "HYPERVISOR",
-  INSTANCE_STORE_AVAILABILITY: "INSTANCE_STORE_AVAILABILITY",
-  NETWORK_INTERFACE: "NETWORK_INTERFACE",
-  STORAGE_INTERFACE: "STORAGE_INTERFACE",
-  VIRTUALIZATION_TYPE: "VIRTUALIZATION_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type PlatformDifference = (typeof PlatformDifference)[keyof typeof PlatformDifference];
-
-/**
  * <p>Details on recommended instance.</p>
  * @public
  */
@@ -4000,20 +3233,6 @@ export interface ModifyRecommendationDetail {
    */
   TargetInstances?: TargetInstance[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RightsizingType = {
-  MODIFY: "MODIFY",
-  TERMINATE: "TERMINATE",
-} as const;
-
-/**
- * @public
- */
-export type RightsizingType = (typeof RightsizingType)[keyof typeof RightsizingType];
 
 /**
  * <p>Details on termination recommendation. </p>
@@ -4946,22 +4165,6 @@ export interface GetSavingsPlansUtilizationResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SavingsPlansDataType = {
-  AMORTIZED_COMMITMENT: "AMORTIZED_COMMITMENT",
-  ATTRIBUTES: "ATTRIBUTES",
-  SAVINGS: "SAVINGS",
-  UTILIZATION: "UTILIZATION",
-} as const;
-
-/**
- * @public
- */
-export type SavingsPlansDataType = (typeof SavingsPlansDataType)[keyof typeof SavingsPlansDataType];
-
-/**
  * <p>A single daily or monthly Savings Plans utilization rate and details for your account.
  *             A management account in an organization have access to member accounts. You can use
  *                 <code>GetDimensionValues</code> to determine the possible dimension values. </p>
@@ -5083,30 +4286,6 @@ export interface GetUsageForecastResponse {
 }
 
 /**
- * <p>Cost Explorer was unable to identify the usage unit. Provide
- *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
- *             for example: <code>hours</code>.</p>
- * @public
- */
-export class UnresolvableUsageUnitException extends __BaseException {
-  readonly name: "UnresolvableUsageUnitException" = "UnresolvableUsageUnitException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnresolvableUsageUnitException, __BaseException>) {
-    super({
-      name: "UnresolvableUsageUnitException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnresolvableUsageUnitException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ListCommitmentPurchaseAnalysesRequest {
@@ -5172,22 +4351,6 @@ export interface ListCostAllocationTagBackfillHistoryRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CostAllocationTagBackfillStatus = {
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type CostAllocationTagBackfillStatus =
-  (typeof CostAllocationTagBackfillStatus)[keyof typeof CostAllocationTagBackfillStatus];
 
 /**
  * <p>
@@ -5256,34 +4419,6 @@ export interface ListCostAllocationTagBackfillHistoryResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CostAllocationTagStatus = {
-  ACTIVE: "Active",
-  INACTIVE: "Inactive",
-} as const;
-
-/**
- * @public
- */
-export type CostAllocationTagStatus = (typeof CostAllocationTagStatus)[keyof typeof CostAllocationTagStatus];
-
-/**
- * @public
- * @enum
- */
-export const CostAllocationTagType = {
-  AWS_GENERATED: "AWSGenerated",
-  USER_DEFINED: "UserDefined",
-} as const;
-
-/**
- * @public
- */
-export type CostAllocationTagType = (typeof CostAllocationTagType)[keyof typeof CostAllocationTagType];
 
 /**
  * @public
@@ -5489,21 +4624,6 @@ export interface ListCostCategoryDefinitionsResponse {
 
 /**
  * @public
- * @enum
- */
-export const GenerationStatus = {
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type GenerationStatus = (typeof GenerationStatus)[keyof typeof GenerationStatus];
-
-/**
- * @public
  */
 export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
   /**
@@ -5639,28 +4759,6 @@ export interface ProvideAnomalyFeedbackResponse {
 }
 
 /**
- * <p>A request to generate a recommendation or analysis is already in progress.</p>
- * @public
- */
-export class GenerationExistsException extends __BaseException {
-  readonly name: "GenerationExistsException" = "GenerationExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GenerationExistsException, __BaseException>) {
-    super({
-      name: "GenerationExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GenerationExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface StartCommitmentPurchaseAnalysisRequest {
@@ -5692,30 +4790,6 @@ export interface StartCommitmentPurchaseAnalysisResponse {
    * @public
    */
   EstimatedCompletionTime: string | undefined;
-}
-
-/**
- * <p>
- *             A request to backfill is already in progress. Once the previous request is complete, you can create another request.
- *         </p>
- * @public
- */
-export class BackfillLimitExceededException extends __BaseException {
-  readonly name: "BackfillLimitExceededException" = "BackfillLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackfillLimitExceededException, __BaseException>) {
-    super({
-      name: "BackfillLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackfillLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -5823,31 +4897,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50
- *             user tags per resource.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 /**
  * @public

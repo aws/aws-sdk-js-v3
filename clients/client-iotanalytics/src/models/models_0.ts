@@ -1,7 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTAnalyticsServiceException as __BaseException } from "./IoTAnalyticsServiceException";
+import {
+  ChannelStatus,
+  ComputeType,
+  DatasetActionType,
+  DatasetContentState,
+  DatasetStatus,
+  DatastoreStatus,
+  FileFormatType,
+  LoggingLevel,
+  ReprocessingStatus,
+} from "./enums";
 
 /**
  * <p>An activity that adds other attributes based on existing attributes in the message.</p>
@@ -131,106 +139,6 @@ export interface BatchPutMessageResponse {
    * @public
    */
   batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[] | undefined;
-}
-
-/**
- * <p>There was an internal failure.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>The request was not valid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p>A resource with the specified name could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The service is temporarily unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }
 
 /**
@@ -407,74 +315,6 @@ export interface CreateChannelResponse {
    */
   retentionPeriod?: RetentionPeriod | undefined;
 }
-
-/**
- * <p>The command caused an internal limit to be exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>A resource with the same name already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The ARN of the resource.</p>
-   * @public
-   */
-  resourceArn?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceArn = opts.resourceArn;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ComputeType = {
-  ACU_1: "ACU_1",
-  ACU_2: "ACU_2",
-} as const;
-
-/**
- * @public
- */
-export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * <p>The configuration of the resource used to execute the <code>containerAction</code>.</p>
@@ -1841,21 +1681,6 @@ export interface DescribeChannelRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChannelStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
-
-/**
  * <p>A collection of data from an MQTT topic. Channels archive the raw, unprocessed messages
  *       before publishing the data to a pipeline.</p>
  * @public
@@ -1975,21 +1800,6 @@ export interface DescribeDatasetRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DatasetStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
-
-/**
  * <p>Information about a dataset.</p>
  * @public
  */
@@ -2098,21 +1908,6 @@ export interface DescribeDatastoreRequest {
    */
   includeStatistics?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatastoreStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type DatastoreStatus = (typeof DatastoreStatus)[keyof typeof DatastoreStatus];
 
 /**
  * <p>Information about a data store.</p>
@@ -2235,19 +2030,6 @@ export interface DescribeDatastoreResponse {
 export interface DescribeLoggingOptionsRequest {}
 
 /**
- * @public
- * @enum
- */
-export const LoggingLevel = {
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
-
-/**
  * <p>Information about logging options.</p>
  * @public
  */
@@ -2292,22 +2074,6 @@ export interface DescribePipelineRequest {
    */
   pipelineName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReprocessingStatus = {
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ReprocessingStatus = (typeof ReprocessingStatus)[keyof typeof ReprocessingStatus];
 
 /**
  * <p>Information about pipeline reprocessing.</p>
@@ -2422,21 +2188,6 @@ export interface DatasetEntry {
    */
   dataURI?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatasetContentState = {
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type DatasetContentState = (typeof DatasetContentState)[keyof typeof DatasetContentState];
 
 /**
  * <p>The state of the dataset contents and the reason they are in this state.</p>
@@ -2723,20 +2474,6 @@ export interface ListDatasetsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DatasetActionType = {
-  CONTAINER: "CONTAINER",
-  QUERY: "QUERY",
-} as const;
-
-/**
- * @public
- */
-export type DatasetActionType = (typeof DatasetActionType)[keyof typeof DatasetActionType];
-
-/**
  * <p>Information about the action that automatically creates the dataset's contents.</p>
  * @public
  */
@@ -2917,20 +2654,6 @@ export interface DatastoreStorageSummary {
    */
   iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorageSummary | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileFormatType = {
-  JSON: "JSON",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type FileFormatType = (typeof FileFormatType)[keyof typeof FileFormatType];
 
 /**
  * <p>A summary of information about a data store.</p>

@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_1";
+import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_0";
 import { UpdateSession } from "../schemas/schemas_0";
 
 /**

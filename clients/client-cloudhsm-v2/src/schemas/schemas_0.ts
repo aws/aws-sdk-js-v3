@@ -147,7 +147,7 @@ import {
   CloudHsmResourceNotFoundException as __CloudHsmResourceNotFoundException,
   CloudHsmServiceException as __CloudHsmServiceException,
   CloudHsmTagException as __CloudHsmTagException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

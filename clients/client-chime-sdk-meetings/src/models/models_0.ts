@@ -1,23 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
-
-/**
- * @public
- * @enum
- */
-export const MediaCapabilities = {
-  NONE: "None",
-  RECEIVE: "Receive",
-  SEND: "Send",
-  SEND_RECEIVE: "SendReceive",
-} as const;
-
-/**
- * @public
- */
-export type MediaCapabilities = (typeof MediaCapabilities)[keyof typeof MediaCapabilities];
+import {
+  ContentResolution,
+  MediaCapabilities,
+  MediaPlacementNetworkType,
+  MeetingFeatureStatus,
+  TranscribeContentIdentificationType,
+  TranscribeContentRedactionType,
+  TranscribeLanguageCode,
+  TranscribeMedicalContentIdentificationType,
+  TranscribeMedicalLanguageCode,
+  TranscribeMedicalRegion,
+  TranscribeMedicalSpecialty,
+  TranscribeMedicalType,
+  TranscribePartialResultsStability,
+  TranscribeRegion,
+  TranscribeVocabularyFilterMethod,
+  VideoResolution,
+} from "./enums";
 
 /**
  * <p>The media capabilities of an attendee: audio, video, or content.</p>
@@ -191,20 +190,6 @@ export interface AttendeeIdItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const MeetingFeatureStatus = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
-
-/**
  * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus. </p>
  * @public
  */
@@ -214,36 +199,6 @@ export interface AudioFeatures {
    * @public
    */
   EchoReduction?: MeetingFeatureStatus | undefined;
-}
-
-/**
- * <p>The input parameters don't match the service's restrictions.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -331,253 +286,6 @@ export interface BatchCreateAttendeeResponse {
 }
 
 /**
- * <p>The client is permanently forbidden from making the request.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The request exceeds the resource limit.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>One or more of the resources in the request does not exist in the system.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The service encountered an unexpected error.</p>
- * @public
- */
-export class ServiceFailureException extends __BaseException {
-  readonly name: "ServiceFailureException" = "ServiceFailureException";
-  readonly $fault: "server" = "server";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The ID of the failed request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
-    super({
-      name: "ServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
-   * @public
-   */
-  RetryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
- * <p>The number of customer requests exceeds the request rate limit.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The ID of the request that exceeded the throttling limit.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The user isn't authorized to request a resource.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
- * @public
- */
-export class UnprocessableEntityException extends __BaseException {
-  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
-    super({
-      name: "UnprocessableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * @public
  */
 export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
@@ -598,36 +306,6 @@ export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
    * @public
    */
   Capabilities: AttendeeCapabilities | undefined;
-}
-
-/**
- * <p>Multiple instances of the same request have been made simultaneously.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The ID of the request involved in the conflict.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -707,35 +385,6 @@ export interface CreateAttendeeResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MediaPlacementNetworkType = {
-  DUAL_STACK: "DualStack",
-  IPV4_ONLY: "Ipv4Only",
-} as const;
-
-/**
- * @public
- */
-export type MediaPlacementNetworkType = (typeof MediaPlacementNetworkType)[keyof typeof MediaPlacementNetworkType];
-
-/**
- * @public
- * @enum
- */
-export const ContentResolution = {
-  FHD: "FHD",
-  NONE: "None",
-  UHD: "UHD",
-} as const;
-
-/**
- * @public
- */
-export type ContentResolution = (typeof ContentResolution)[keyof typeof ContentResolution];
-
-/**
  * <p>Lists the content (screen share) features for the meeting. Applies to all attendees.</p>
  *          <note>
  *             <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
@@ -754,21 +403,6 @@ export interface ContentFeatures {
    */
   MaxResolution?: ContentResolution | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VideoResolution = {
-  FHD: "FHD",
-  HD: "HD",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type VideoResolution = (typeof VideoResolution)[keyof typeof VideoResolution];
 
 /**
  * <p>The video features set for the meeting. Applies to all attendees.</p>
@@ -1408,122 +1042,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>The resource that you want to tag couldn't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The ID of the resource that couldn't be found.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The name of the resource that couldn't be found.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TranscribeMedicalContentIdentificationType = {
-  PHI: "PHI",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeMedicalContentIdentificationType =
-  (typeof TranscribeMedicalContentIdentificationType)[keyof typeof TranscribeMedicalContentIdentificationType];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeMedicalLanguageCode = {
-  EN_US: "en-US",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeMedicalLanguageCode =
-  (typeof TranscribeMedicalLanguageCode)[keyof typeof TranscribeMedicalLanguageCode];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeMedicalRegion = {
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  AUTO: "auto",
-  CA_CENTRAL_1: "ca-central-1",
-  EU_WEST_1: "eu-west-1",
-  US_EAST_1: "us-east-1",
-  US_EAST_2: "us-east-2",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeMedicalRegion = (typeof TranscribeMedicalRegion)[keyof typeof TranscribeMedicalRegion];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeMedicalSpecialty = {
-  CARDIOLOGY: "CARDIOLOGY",
-  NEUROLOGY: "NEUROLOGY",
-  ONCOLOGY: "ONCOLOGY",
-  PRIMARYCARE: "PRIMARYCARE",
-  RADIOLOGY: "RADIOLOGY",
-  UROLOGY: "UROLOGY",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeMedicalSpecialty = (typeof TranscribeMedicalSpecialty)[keyof typeof TranscribeMedicalSpecialty];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeMedicalType = {
-  CONVERSATION: "CONVERSATION",
-  DICTATION: "DICTATION",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeMedicalType = (typeof TranscribeMedicalType)[keyof typeof TranscribeMedicalType];
-
-/**
  * <p>Settings specific to the Amazon Transcribe Medical engine.</p>
  * @public
  */
@@ -1564,117 +1082,6 @@ export interface EngineTranscribeMedicalSettings {
    */
   ContentIdentificationType?: TranscribeMedicalContentIdentificationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TranscribeContentIdentificationType = {
-  PII: "PII",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeContentIdentificationType =
-  (typeof TranscribeContentIdentificationType)[keyof typeof TranscribeContentIdentificationType];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeContentRedactionType = {
-  PII: "PII",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeContentRedactionType =
-  (typeof TranscribeContentRedactionType)[keyof typeof TranscribeContentRedactionType];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeLanguageCode = {
-  DE_DE: "de-DE",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_US: "en-US",
-  ES_US: "es-US",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  HI_IN: "hi-IN",
-  IT_IT: "it-IT",
-  JA_JP: "ja-JP",
-  KO_KR: "ko-KR",
-  PT_BR: "pt-BR",
-  TH_TH: "th-TH",
-  ZH_CN: "zh-CN",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeLanguageCode = (typeof TranscribeLanguageCode)[keyof typeof TranscribeLanguageCode];
-
-/**
- * @public
- * @enum
- */
-export const TranscribePartialResultsStability = {
-  HIGH: "high",
-  LOW: "low",
-  MEDIUM: "medium",
-} as const;
-
-/**
- * @public
- */
-export type TranscribePartialResultsStability =
-  (typeof TranscribePartialResultsStability)[keyof typeof TranscribePartialResultsStability];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeRegion = {
-  AP_NORTHEAST_1: "ap-northeast-1",
-  AP_NORTHEAST_2: "ap-northeast-2",
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  AUTO: "auto",
-  CA_CENTRAL_1: "ca-central-1",
-  EU_CENTRAL_1: "eu-central-1",
-  EU_WEST_1: "eu-west-1",
-  EU_WEST_2: "eu-west-2",
-  SA_EAST_1: "sa-east-1",
-  US_EAST_1: "us-east-1",
-  US_EAST_2: "us-east-2",
-  US_GOV_WEST_1: "us-gov-west-1",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeRegion = (typeof TranscribeRegion)[keyof typeof TranscribeRegion];
-
-/**
- * @public
- * @enum
- */
-export const TranscribeVocabularyFilterMethod = {
-  MASK: "mask",
-  REMOVE: "remove",
-  TAG: "tag",
-} as const;
-
-/**
- * @public
- */
-export type TranscribeVocabularyFilterMethod =
-  (typeof TranscribeVocabularyFilterMethod)[keyof typeof TranscribeVocabularyFilterMethod];
 
 /**
  * <p>Settings specific for Amazon Transcribe as the live transcription engine. </p>
@@ -1896,43 +1303,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>Too many tags were added to the specified resource.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The ID of the request that contains too many tags.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The name of the resource that received too many tags.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 /**
  * @public

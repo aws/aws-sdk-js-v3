@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeVpcEndpointConnectionNotificationsRequest,
   DescribeVpcEndpointConnectionNotificationsResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { DescribeVpcEndpointConnectionNotifications } from "../schemas/schemas_0";
 
 /**

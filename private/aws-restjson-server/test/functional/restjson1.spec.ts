@@ -14,7 +14,7 @@ import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { Readable } from "stream";
 import { expect, test as it } from "vitest";
 
-import { ComplexError, InvalidGreeting } from "../../src/models/models_0";
+import { ComplexError, InvalidGreeting } from "../../src/models/errors";
 import { serializeFrameworkException } from "../../src/protocols/Aws_restJson1";
 import { getRestJsonServiceHandler } from "../../src/server";
 import { AllQueryStringTypes } from "../../src/server/operations/AllQueryStringTypes";

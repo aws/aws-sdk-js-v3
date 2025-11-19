@@ -453,7 +453,7 @@ import {
   WAFSubscriptionNotFoundException as __WAFSubscriptionNotFoundException,
   WAFTagOperationException as __WAFTagOperationException,
   WAFTagOperationInternalErrorException as __WAFTagOperationInternalErrorException,
-} from "../models/index";
+} from "../models/errors";
 import { WAFServiceException as __WAFServiceException } from "../models/WAFServiceException";
 
 /* eslint no-var: 0 */

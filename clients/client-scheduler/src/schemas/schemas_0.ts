@@ -153,7 +153,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SchedulerServiceException as __SchedulerServiceException } from "../models/SchedulerServiceException";
 
 /* eslint no-var: 0 */

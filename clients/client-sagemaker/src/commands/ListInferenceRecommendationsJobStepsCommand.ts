@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListInferenceRecommendationsJobStepsRequest,
   ListInferenceRecommendationsJobStepsResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListInferenceRecommendationsJobSteps } from "../schemas/schemas_0";
 

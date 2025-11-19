@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetDeclarativePoliciesReportSummaryRequest,
   GetDeclarativePoliciesReportSummaryResult,
-} from "../models/models_7";
+} from "../models/models_5";
 import { GetDeclarativePoliciesReportSummary } from "../schemas/schemas_0";
 
 /**

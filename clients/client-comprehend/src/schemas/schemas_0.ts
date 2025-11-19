@@ -634,7 +634,7 @@ import {
   TooManyTagKeysException as __TooManyTagKeysException,
   TooManyTagsException as __TooManyTagsException,
   UnsupportedLanguageException as __UnsupportedLanguageException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

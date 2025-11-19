@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_3";
+import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
 import { DeleteNetworkInsightsPath } from "../schemas/schemas_0";
 
 /**

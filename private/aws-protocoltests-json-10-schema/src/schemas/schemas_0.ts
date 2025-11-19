@@ -149,7 +149,7 @@ import {
   ComplexError as __ComplexError,
   FooError as __FooError,
   InvalidGreeting as __InvalidGreeting,
-} from "../models/index";
+} from "../models/errors";
 import { JSONRPC10ServiceException as __JSONRPC10ServiceException } from "../models/JSONRPC10ServiceException";
 
 /* eslint no-var: 0 */

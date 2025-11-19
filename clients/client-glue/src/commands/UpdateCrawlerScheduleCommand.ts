@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateCrawlerScheduleRequest, UpdateCrawlerScheduleResponse } from "../models/models_3";
+import { UpdateCrawlerScheduleRequest, UpdateCrawlerScheduleResponse } from "../models/models_2";
 import { UpdateCrawlerSchedule } from "../schemas/schemas_0";
 
 /**

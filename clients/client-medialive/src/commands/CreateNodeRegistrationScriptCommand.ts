@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateNodeRegistrationScriptRequest, CreateNodeRegistrationScriptResponse } from "../models/models_2";
+import { CreateNodeRegistrationScriptRequest, CreateNodeRegistrationScriptResponse } from "../models/models_1";
 import { CreateNodeRegistrationScript } from "../schemas/schemas_0";
 
 /**

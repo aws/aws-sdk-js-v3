@@ -1,31 +1,13 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ChallengeType, LightChallengeType } from "./enums";
 
-import { RekognitionStreamingServiceException as __BaseException } from "./RekognitionStreamingServiceException";
-
-/**
- * <p>Occurs when the client isn't authorized to perform the action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
+import {
+  InternalServerException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  ThrottlingException,
+  ValidationException,
+} from "./errors";
 
 /**
  * <p>Identifies the bounding box around a given label, face, text, object of interest, or
@@ -131,20 +113,6 @@ export interface ChallengeConfig {
 
   OvalFitTimeout?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChallengeType = {
-  FACE_MOVEMENT_AND_LIGHT_CHALLENGE: "FaceMovementAndLightChallenge",
-  FACE_MOVEMENT_CHALLENGE: "FaceMovementChallenge",
-} as const;
-
-/**
- * @public
- */
-export type ChallengeType = (typeof ChallengeType)[keyof typeof ChallengeType];
 
 /**
  * @public
@@ -419,19 +387,6 @@ export interface DisconnectionEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const LightChallengeType = {
-  SEQUENTIAL: "SEQUENTIAL",
-} as const;
-
-/**
- * @public
- */
-export type LightChallengeType = (typeof LightChallengeType)[keyof typeof LightChallengeType];
-
-/**
  * <p>Oval parameters need for oval display to complete oval match challenge.</p>
  * @public
  */
@@ -507,30 +462,6 @@ export interface FaceMovementServerChallenge {
    * @public
    */
   ChallengeConfig: ChallengeConfig | undefined;
-}
-
-/**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**
@@ -675,107 +606,6 @@ export interface ServerSessionInformationEvent {
    * @public
    */
   SessionInformation: SessionInformation | undefined;
-}
-
-/**
- * <p>Occurs when a request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Service-wide throttling to recover from an operational event or service is not able to scale.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>A request was denied due to request throttling. Occurs when too many requests were made by a user
- *        (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service. Potential reasons
- *       inlcude: video quality or size is invalid, video container format not supported, video does
- *       not have enough information - no person detected in video, request couldn't be parsed or is
- *       invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS
- *       Key is invalid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**
@@ -950,30 +780,6 @@ export namespace LivenessResponseStream {
     ServiceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Occurs when the given <code>sessionId</code> is not found.</p>
- * @public
- */
-export class SessionNotFoundException extends __BaseException {
-  readonly name: "SessionNotFoundException" = "SessionNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SessionNotFoundException, __BaseException>) {
-    super({
-      name: "SessionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SessionNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
   }
 }
 

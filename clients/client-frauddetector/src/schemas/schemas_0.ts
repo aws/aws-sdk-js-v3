@@ -544,7 +544,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { FraudDetectorServiceException as __FraudDetectorServiceException } from "../models/FraudDetectorServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -553,7 +552,8 @@ import {
   ResourceUnavailableException as __ResourceUnavailableException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { FraudDetectorServiceException as __FraudDetectorServiceException } from "../models/FraudDetectorServiceException";
 
 /* eslint no-var: 0 */
 

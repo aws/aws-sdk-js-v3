@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchHoursOfOperationOverridesResponse } from "../models/models_2";
-import { SearchHoursOfOperationOverridesRequest } from "../models/models_3";
+import { SearchHoursOfOperationOverridesRequest, SearchHoursOfOperationOverridesResponse } from "../models/models_2";
 import { SearchHoursOfOperationOverrides } from "../schemas/schemas_0";
 
 /**

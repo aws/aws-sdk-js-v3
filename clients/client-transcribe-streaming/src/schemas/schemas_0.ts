@@ -219,7 +219,7 @@ import {
   LimitExceededException as __LimitExceededException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
-} from "../models/index";
+} from "../models/errors";
 import { TranscribeStreamingServiceException as __TranscribeStreamingServiceException } from "../models/TranscribeStreamingServiceException";
 
 /* eslint no-var: 0 */

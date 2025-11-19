@@ -230,7 +230,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { TimestreamQueryServiceException as __TimestreamQueryServiceException } from "../models/TimestreamQueryServiceException";
 
 /* eslint no-var: 0 */

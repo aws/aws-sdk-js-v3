@@ -1,21 +1,23 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WorkMailServiceException as __BaseException } from "./WorkMailServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AccessControlRuleEffect = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type AccessControlRuleEffect = (typeof AccessControlRuleEffect)[keyof typeof AccessControlRuleEffect];
+import {
+  AccessControlRuleEffect,
+  AccessEffect,
+  AvailabilityProviderType,
+  DnsRecordVerificationStatus,
+  EntityState,
+  EntityType,
+  FolderName,
+  IdentityProviderAuthenticationMode,
+  ImpersonationRoleType,
+  MailboxExportJobState,
+  MemberType,
+  MobileDeviceAccessRuleEffect,
+  PermissionType,
+  PersonalAccessTokenConfigurationStatus,
+  ResourceType,
+  RetentionAction,
+  UserRole,
+} from "./enums";
 
 /**
  * <p>A rule that controls access to an WorkMail organization.</p>
@@ -107,20 +109,6 @@ export interface AccessControlRule {
 
 /**
  * @public
- * @enum
- */
-export const AccessEffect = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type AccessEffect = (typeof AccessEffect)[keyof typeof AccessEffect];
-
-/**
- * @public
  */
 export interface AssociateDelegateToResourceRequest {
   /**
@@ -170,142 +158,6 @@ export interface AssociateDelegateToResourceRequest {
  * @public
  */
 export interface AssociateDelegateToResourceResponse {}
-
-/**
- * <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
- * @public
- */
-export class EntityNotFoundException extends __BaseException {
-  readonly name: "EntityNotFoundException" = "EntityNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityNotFoundException, __BaseException>) {
-    super({
-      name: "EntityNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
- * @public
- */
-export class EntityStateException extends __BaseException {
-  readonly name: "EntityStateException" = "EntityStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityStateException, __BaseException>) {
-    super({
-      name: "EntityStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more of the input parameters don't match the service's restrictions.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
- * @public
- */
-export class OrganizationNotFoundException extends __BaseException {
-  readonly name: "OrganizationNotFoundException" = "OrganizationNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationNotFoundException, __BaseException>) {
-    super({
-      name: "OrganizationNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
- * @public
- */
-export class OrganizationStateException extends __BaseException {
-  readonly name: "OrganizationStateException" = "OrganizationStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationStateException, __BaseException>) {
-    super({
-      name: "OrganizationStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You can't perform a write operation against a read-only directory.</p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -360,50 +212,6 @@ export interface AssociateMemberToGroupRequest {
 export interface AssociateMemberToGroupResponse {}
 
 /**
- * <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
- * @public
- */
-export class DirectoryServiceAuthenticationFailedException extends __BaseException {
-  readonly name: "DirectoryServiceAuthenticationFailedException" = "DirectoryServiceAuthenticationFailedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryServiceAuthenticationFailedException, __BaseException>) {
-    super({
-      name: "DirectoryServiceAuthenticationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryServiceAuthenticationFailedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The directory is unavailable. It might be located in another Region or deleted.</p>
- * @public
- */
-export class DirectoryUnavailableException extends __BaseException {
-  readonly name: "DirectoryUnavailableException" = "DirectoryUnavailableException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryUnavailableException, __BaseException>) {
-    super({
-      name: "DirectoryUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AssumeImpersonationRoleRequest {
@@ -438,28 +246,6 @@ export interface AssumeImpersonationRoleResponse {
 }
 
 /**
- * <p>The resource cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Describes an EWS based availability provider when returned from the service. It does not
  *          contain the password of the endpoint.</p>
  * @public
@@ -489,20 +275,6 @@ export interface LambdaAvailabilityProvider {
    */
   LambdaArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AvailabilityProviderType = {
-  EWS: "EWS",
-  LAMBDA: "LAMBDA",
-} as const;
-
-/**
- * @public
- */
-export type AvailabilityProviderType = (typeof AvailabilityProviderType)[keyof typeof AvailabilityProviderType];
 
 /**
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail
@@ -632,96 +404,6 @@ export interface CreateAliasRequest {
 export interface CreateAliasResponse {}
 
 /**
- * <p>The email address that you're trying to assign is already created for a different
- *          user, group, or resource.</p>
- * @public
- */
-export class EmailAddressInUseException extends __BaseException {
-  readonly name: "EmailAddressInUseException" = "EmailAddressInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EmailAddressInUseException, __BaseException>) {
-    super({
-      name: "EmailAddressInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EmailAddressInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request exceeds the limit of the resource.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The domain specified is not found in your organization.</p>
- * @public
- */
-export class MailDomainNotFoundException extends __BaseException {
-  readonly name: "MailDomainNotFoundException" = "MailDomainNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MailDomainNotFoundException, __BaseException>) {
-    super({
-      name: "MailDomainNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MailDomainNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>After a domain has been added to the organization, it must be verified. The domain is
- *          not yet verified.</p>
- * @public
- */
-export class MailDomainStateException extends __BaseException {
-  readonly name: "MailDomainStateException" = "MailDomainStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MailDomainStateException, __BaseException>) {
-    super({
-      name: "MailDomainStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MailDomainStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Describes an EWS based availability provider. This is only used as input to the service.</p>
  * @public
  */
@@ -786,28 +468,6 @@ export interface CreateAvailabilityConfigurationRequest {
 export interface CreateAvailabilityConfigurationResponse {}
 
 /**
- * <p>The user, group, or resource name isn't unique in WorkMail.</p>
- * @public
- */
-export class NameAvailabilityException extends __BaseException {
-  readonly name: "NameAvailabilityException" = "NameAvailabilityException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NameAvailabilityException, __BaseException>) {
-    super({
-      name: "NameAvailabilityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NameAvailabilityException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateGroupRequest {
@@ -839,28 +499,6 @@ export interface CreateGroupResponse {
    * @public
    */
   GroupId?: string | undefined;
-}
-
-/**
- * <p>This user, group, or resource name is not allowed in WorkMail.</p>
- * @public
- */
-export class ReservedNameException extends __BaseException {
-  readonly name: "ReservedNameException" = "ReservedNameException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedNameException, __BaseException>) {
-    super({
-      name: "ReservedNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedNameException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -954,20 +592,6 @@ export interface ImpersonationRule {
 
 /**
  * @public
- * @enum
- */
-export const ImpersonationRoleType = {
-  FULL_ACCESS: "FULL_ACCESS",
-  READ_ONLY: "READ_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type ImpersonationRoleType = (typeof ImpersonationRoleType)[keyof typeof ImpersonationRoleType];
-
-/**
- * @public
  */
 export interface CreateImpersonationRoleRequest {
   /**
@@ -1018,21 +642,6 @@ export interface CreateImpersonationRoleResponse {
    */
   ImpersonationRoleId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MobileDeviceAccessRuleEffect = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type MobileDeviceAccessRuleEffect =
-  (typeof MobileDeviceAccessRuleEffect)[keyof typeof MobileDeviceAccessRuleEffect];
 
 /**
  * @public
@@ -1202,42 +811,6 @@ export interface CreateOrganizationResponse {
 }
 
 /**
- * <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
- * @public
- */
-export class DirectoryInUseException extends __BaseException {
-  readonly name: "DirectoryInUseException" = "DirectoryInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryInUseException, __BaseException>) {
-    super({
-      name: "DirectoryInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  EQUIPMENT: "EQUIPMENT",
-  ROOM: "ROOM",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * @public
  */
 export interface CreateResourceRequest {
@@ -1284,22 +857,6 @@ export interface CreateResourceResponse {
    */
   ResourceId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserRole = {
-  REMOTE_USER: "REMOTE_USER",
-  RESOURCE: "RESOURCE",
-  SYSTEM_USER: "SYSTEM_USER",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
 /**
  * @public
@@ -1371,43 +928,6 @@ export interface CreateUserResponse {
    */
   UserId?: string | undefined;
 }
-
-/**
- * <p>The supplied password doesn't match the minimum security constraints, such as length
- *          or use of special characters.</p>
- * @public
- */
-export class InvalidPasswordException extends __BaseException {
-  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
-    super({
-      name: "InvalidPasswordException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const MemberType = {
-  GROUP: "GROUP",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type MemberType = (typeof MemberType)[keyof typeof MemberType];
 
 /**
  * <p>The name of the attribute, which is one of the values defined in the UserAttribute
@@ -1941,51 +1461,6 @@ export interface DeregisterMailDomainRequest {
 export interface DeregisterMailDomainResponse {}
 
 /**
- * <p>You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
- *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
- * @public
- */
-export class InvalidCustomSesConfigurationException extends __BaseException {
-  readonly name: "InvalidCustomSesConfigurationException" = "InvalidCustomSesConfigurationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCustomSesConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidCustomSesConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCustomSesConfigurationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
- * @public
- */
-export class MailDomainInUseException extends __BaseException {
-  readonly name: "MailDomainInUseException" = "MailDomainInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MailDomainInUseException, __BaseException>) {
-    super({
-      name: "MailDomainInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MailDomainInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeEmailMonitoringConfigurationRequest {
@@ -2029,21 +1504,6 @@ export interface DescribeEntityRequest {
    */
   Email: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  GROUP: "GROUP",
-  RESOURCE: "RESOURCE",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * @public
@@ -2096,21 +1556,6 @@ export interface DescribeGroupRequest {
    */
   GroupId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityState = {
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EntityState = (typeof EntityState)[keyof typeof EntityState];
 
 /**
  * @public
@@ -2175,21 +1620,6 @@ export interface DescribeIdentityProviderConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const IdentityProviderAuthenticationMode = {
-  IDENTITY_PROVIDER_AND_DIRECTORY: "IDENTITY_PROVIDER_AND_DIRECTORY",
-  IDENTITY_PROVIDER_ONLY: "IDENTITY_PROVIDER_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type IdentityProviderAuthenticationMode =
-  (typeof IdentityProviderAuthenticationMode)[keyof typeof IdentityProviderAuthenticationMode];
-
-/**
  * <p>
  *          The IAM Identity Center configuration.
  *       </p>
@@ -2210,21 +1640,6 @@ export interface IdentityCenterConfiguration {
    */
   ApplicationArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PersonalAccessTokenConfigurationStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type PersonalAccessTokenConfigurationStatus =
-  (typeof PersonalAccessTokenConfigurationStatus)[keyof typeof PersonalAccessTokenConfigurationStatus];
 
 /**
  * <p>
@@ -2328,22 +1743,6 @@ export interface DescribeMailboxExportJobRequest {
    */
   OrganizationId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MailboxExportJobState = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type MailboxExportJobState = (typeof MailboxExportJobState)[keyof typeof MailboxExportJobState];
 
 /**
  * @public
@@ -2930,77 +2329,6 @@ export interface DnsRecord {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DnsRecordVerificationStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  VERIFIED: "VERIFIED",
-} as const;
-
-/**
- * @public
- */
-export type DnsRecordVerificationStatus =
-  (typeof DnsRecordVerificationStatus)[keyof typeof DnsRecordVerificationStatus];
-
-/**
- * <p>The user, group, or resource that you're trying to register is already
- *          registered.</p>
- * @public
- */
-export class EntityAlreadyRegisteredException extends __BaseException {
-  readonly name: "EntityAlreadyRegisteredException" = "EntityAlreadyRegisteredException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityAlreadyRegisteredException, __BaseException>) {
-    super({
-      name: "EntityAlreadyRegisteredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityAlreadyRegisteredException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RetentionAction = {
-  DELETE: "DELETE",
-  NONE: "NONE",
-  PERMANENTLY_DELETE: "PERMANENTLY_DELETE",
-} as const;
-
-/**
- * @public
- */
-export type RetentionAction = (typeof RetentionAction)[keyof typeof RetentionAction];
-
-/**
- * @public
- * @enum
- */
-export const FolderName = {
-  DELETED_ITEMS: "DELETED_ITEMS",
-  DRAFTS: "DRAFTS",
-  INBOX: "INBOX",
-  JUNK_EMAIL: "JUNK_EMAIL",
-  SENT_ITEMS: "SENT_ITEMS",
-} as const;
-
-/**
- * @public
- */
-export type FolderName = (typeof FolderName)[keyof typeof FolderName];
 
 /**
  * <p>The configuration applied to an organization's folders by its retention
@@ -3692,30 +3020,6 @@ export interface ImpersonationRole {
 }
 
 /**
- * <p>The configuration for a resource isn't valid. A resource must either be able to
- *          auto-respond to requests or have at least one delegate associated that can do so on its
- *          behalf.</p>
- * @public
- */
-export class InvalidConfigurationException extends __BaseException {
-  readonly name: "InvalidConfigurationException" = "InvalidConfigurationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConfigurationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The details of a mailbox export job, including the user or resource ID associated
  *          with the mailbox and the S3 bucket that the mailbox contents are exported to.</p>
  * @public
@@ -4263,21 +3567,6 @@ export interface ListMailboxPermissionsRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PermissionType = {
-  FULL_ACCESS: "FULL_ACCESS",
-  SEND_AS: "SEND_AS",
-  SEND_ON_BEHALF: "SEND_ON_BEHALF",
-} as const;
-
-/**
- * @public
- */
-export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
  * <p>Permission granted to a user, group, or resource to access a certain aspect of
@@ -5709,28 +4998,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>The resource can have up to 50 user-applied tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

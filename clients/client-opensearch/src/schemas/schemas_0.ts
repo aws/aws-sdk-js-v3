@@ -801,7 +801,7 @@ import {
   SlotNotAvailableException as __SlotNotAvailableException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { OpenSearchServiceException as __OpenSearchServiceException } from "../models/OpenSearchServiceException";
 
 /* eslint no-var: 0 */

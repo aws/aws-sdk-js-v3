@@ -318,7 +318,7 @@ import {
   InternalFailureException as __InternalFailureException,
   LimitExceededException as __LimitExceededException,
   NotFoundException as __NotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { TranscribeServiceException as __TranscribeServiceException } from "../models/TranscribeServiceException";
 
 /* eslint no-var: 0 */

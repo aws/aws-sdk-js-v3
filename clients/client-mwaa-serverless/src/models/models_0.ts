@@ -1,60 +1,7 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { MWAAServerlessServiceException as __BaseException } from "./MWAAServerlessServiceException";
-
-/**
- * <p>You do not have sufficient permission to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An unexpected server-side error occurred during request processing.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
+import { EncryptionType, EngineVersion, RunType, TaskInstanceStatus, WorkflowRunStatus, WorkflowStatus } from "./enums";
 
 /**
  * @public
@@ -79,108 +26,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>The operation timed out.</p>
- * @public
- */
-export class OperationTimeoutException extends __BaseException {
-  readonly name: "OperationTimeoutException" = "OperationTimeoutException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationTimeoutException, __BaseException>) {
-    super({
-      name: "OperationTimeoutException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationTimeoutException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource was not found. You can only access or modify a resource that already exists.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The unique identifier of the resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request was denied because too many requests were made in a short period, exceeding the service rate limits. Amazon Managed Workflows for Apache Airflow Serverless implements throttling controls to ensure fair resource allocation across all customers in the multi-tenant environment. This helps maintain service stability and performance. If you encounter throttling, implement exponential backoff and retry logic in your applications, or consider distributing your API calls over a longer time period.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  Message: string | undefined;
-  /**
-   * <p>The code for the service.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-
-  /**
-   * <p>The code of the quota.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-
-  /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.ServiceCode = opts.ServiceCode;
-    this.QuotaCode = opts.QuotaCode;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
  * <p>Contains information about a field that failed validation, including the field name and a descriptive error message.</p>
  * @public
  */
@@ -196,57 +41,6 @@ export interface ValidationExceptionField {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The specified request parameters are invalid, missing, or inconsistent with Amazon Managed Workflows for Apache Airflow Serverless service requirements. This can occur when workflow definitions contain unsupported operators, when required IAM permissions are missing, when S3 locations are inaccessible, or when network configurations are invalid. The service validates workflow definitions, execution roles, and resource configurations to ensure compatibility with the managed Airflow environment and security requirements.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The reason the request failed validation.</p>
-   * @public
-   */
-  Reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that failed validation.</p>
-   * @public
-   */
-  FieldList?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.FieldList = opts.FieldList;
-  }
 }
 
 /**
@@ -293,32 +87,6 @@ export interface GetTaskInstanceRequest {
    */
   RunId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskInstanceStatus = {
-  CANCELLED: "CANCELLED",
-  DEFERRED: "DEFERRED",
-  FAILED: "FAILED",
-  NONE: "NONE",
-  QUEUED: "QUEUED",
-  REMOVED: "REMOVED",
-  RESTARTING: "RESTARTING",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  SUCCESS: "SUCCESS",
-  TIMEOUT: "TIMEOUT",
-  UPSTREAM_FAILED: "UPSTREAM_FAILED",
-  UP_FOR_RESCHEDULE: "UP_FOR_RESCHEDULE",
-  UP_FOR_RETRY: "UP_FOR_RETRY",
-} as const;
-
-/**
- * @public
- */
-export type TaskInstanceStatus = (typeof TaskInstanceStatus)[keyof typeof TaskInstanceStatus];
 
 /**
  * @public
@@ -532,41 +300,6 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>You cannot create a resource that already exists, or the resource is in a state that prevents the requested operation.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The unique identifier of the resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
  * <p>Specifies the Amazon S3 location of a workflow definition file. This structure contains the bucket name, object key, and optional version ID for the workflow definition. Amazon Managed Workflows for Apache Airflow Serverless takes a snapshot of the definition file at the time of workflow creation or update, ensuring that the workflow behavior remains consistent even if the source file is modified. The definition must be a valid YAML file that uses supported Amazon Web Services operators and Amazon Managed Workflows for Apache Airflow Serverless syntax.</p>
  * @public
  */
@@ -591,20 +324,6 @@ export interface DefinitionS3Location {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  AWS_MANAGED_KEY: "AWS_MANAGED_KEY",
-  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Configuration for encrypting workflow data at rest and in transit. Amazon Managed Workflows for Apache Airflow Serverless provides comprehensive encryption capabilities to protect sensitive workflow data, parameters, and execution logs. When using customer-managed keys, the service integrates with Amazon Web Services KMS to provide fine-grained access control and audit capabilities. Encryption is applied consistently across the distributed execution environment including task containers, metadata storage, and log streams.</p>
  * @public
  */
@@ -620,10 +339,6 @@ export interface EncryptionConfiguration {
    * @public
    */
   KmsKeyId?: string | undefined;
-}
-
-export enum EngineVersion {
-  ONE = 1,
 }
 
 /**
@@ -729,20 +444,6 @@ export interface CreateWorkflowRequest {
 
 /**
  * @public
- * @enum
- */
-export const WorkflowStatus = {
-  DELETING: "DELETING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
-
-/**
- * @public
  */
 export interface CreateWorkflowResponse {
   /**
@@ -786,55 +487,6 @@ export interface CreateWorkflowResponse {
    * @public
    */
   Warnings?: string[] | undefined;
-}
-
-/**
- * <p>The request exceeds the service quota for Amazon Managed Workflows for Apache Airflow Serverless resources. This can occur when you attempt to create more workflows than allowed, exceed concurrent workflow run limits, or surpass task execution limits. Amazon Managed Workflows for Apache Airflow Serverless implements admission control using DynamoDB-based counters to manage resource utilization across the multi-tenant environment. Contact Amazon Web Services Support to request quota increases if you need higher limits for your use case.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The unique identifier of the resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The type of resource affected.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>The code for the service.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-
-  /**
-   * <p>The code of the quota.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.ServiceCode = opts.ServiceCode;
-    this.QuotaCode = opts.QuotaCode;
-  }
 }
 
 /**
@@ -1187,40 +839,6 @@ export interface GetWorkflowRunRequest {
    */
   RunId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowRunStatus = {
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  SUCCESS: "SUCCESS",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const RunType = {
-  ON_DEMAND: "ON_DEMAND",
-  SCHEDULED: "SCHEDULED",
-} as const;
-
-/**
- * @public
- */
-export type RunType = (typeof RunType)[keyof typeof RunType];
 
 /**
  * <p>Detailed information about a workflow run execution, including timing, status, error information, and associated task instances. This structure provides comprehensive visibility into the workflow execution lifecycle within the Amazon Managed Workflows for Apache Airflow Serverless serverless environment. The service tracks execution across distributed ECS worker tasks and provides detailed timing information, error diagnostics, and task instance relationships to support effective monitoring and troubleshooting of complex workflow executions.</p>

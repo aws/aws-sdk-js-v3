@@ -353,7 +353,7 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BadRequestException as __BadRequestException } from "../models/index";
+import { BadRequestException as __BadRequestException } from "../models/errors";
 import { MediaTailorServiceException as __MediaTailorServiceException } from "../models/MediaTailorServiceException";
 
 /* eslint no-var: 0 */

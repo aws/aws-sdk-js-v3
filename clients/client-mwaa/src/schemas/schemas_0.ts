@@ -159,7 +159,7 @@ import {
   RestApiClientException as __RestApiClientException,
   RestApiServerException as __RestApiServerException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MWAAServiceException as __MWAAServiceException } from "../models/MWAAServiceException";
 
 /* eslint no-var: 0 */

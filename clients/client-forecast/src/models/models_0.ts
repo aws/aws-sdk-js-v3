@@ -1,23 +1,23 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ForecastServiceException as __BaseException } from "./ForecastServiceException";
-
-/**
- * @public
- * @enum
- */
-export const Operation = {
-  ADD: "ADD",
-  DIVIDE: "DIVIDE",
-  MULTIPLY: "MULTIPLY",
-  SUBTRACT: "SUBTRACT",
-} as const;
-
-/**
- * @public
- */
-export type Operation = (typeof Operation)[keyof typeof Operation];
+import {
+  AttributeType,
+  AutoMLOverrideStrategy,
+  Condition,
+  DatasetType,
+  DayOfWeek,
+  Domain,
+  EvaluationType,
+  FeaturizationMethodName,
+  FilterConditionString,
+  ImportMode,
+  Month,
+  Operation,
+  OptimizationMetric,
+  ScalingType,
+  State,
+  TimePointGranularity,
+  TimeSeriesGranularity,
+} from "./enums";
 
 /**
  * <p>Defines the modifications that you are making to an attribute for a what-if forecast. For example, you can use this operation to create a what-if forecast that investigates a 10% off sale on all shoes. To do this, you specify <code>"AttributeName": "shoes"</code>, <code>"Operation": "MULTIPLY"</code>, and <code>"Value": "0.90"</code>. Pair this operation with the <a>TimeSeriesCondition</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define a subset of attribute items that are modified.</p>
@@ -463,23 +463,6 @@ export interface MonitorConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const OptimizationMetric = {
-  AverageWeightedQuantileLoss: "AverageWeightedQuantileLoss",
-  MAPE: "MAPE",
-  MASE: "MASE",
-  RMSE: "RMSE",
-  WAPE: "WAPE",
-} as const;
-
-/**
- * @public
- */
-export type OptimizationMetric = (typeof OptimizationMetric)[keyof typeof OptimizationMetric];
-
-/**
  * <p>The optional metadata that you apply to a resource to help you categorize and organize
  *       them. Each tag consists of a key and an optional value, both of which you define.</p>
  *          <p>The following basic restrictions apply to tags:</p>
@@ -532,49 +515,6 @@ export interface Tag {
    */
   Value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
-/**
- * @public
- * @enum
- */
-export const Month = {
-  APRIL: "APRIL",
-  AUGUST: "AUGUST",
-  DECEMBER: "DECEMBER",
-  FEBRUARY: "FEBRUARY",
-  JANUARY: "JANUARY",
-  JULY: "JULY",
-  JUNE: "JUNE",
-  MARCH: "MARCH",
-  MAY: "MAY",
-  NOVEMBER: "NOVEMBER",
-  OCTOBER: "OCTOBER",
-  SEPTEMBER: "SEPTEMBER",
-} as const;
-
-/**
- * @public
- */
-export type Month = (typeof Month)[keyof typeof Month];
 
 /**
  * <p>The time boundary Forecast uses to align and aggregate your data to match your forecast frequency. Provide the unit of time and the time boundary as a key value pair. If you
@@ -791,169 +731,6 @@ export interface CreateAutoPredictorResponse {
    */
   PredictorArn?: string | undefined;
 }
-
-/**
- * <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The limit on the number of resources per account has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>There is already a resource with this name. Try again with a different name.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource is in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DatasetType = {
-  ITEM_METADATA: "ITEM_METADATA",
-  RELATED_TIME_SERIES: "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES: "TARGET_TIME_SERIES",
-} as const;
-
-/**
- * @public
- */
-export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
-
-/**
- * @public
- * @enum
- */
-export const Domain = {
-  CUSTOM: "CUSTOM",
-  EC2_CAPACITY: "EC2_CAPACITY",
-  INVENTORY_PLANNING: "INVENTORY_PLANNING",
-  METRICS: "METRICS",
-  RETAIL: "RETAIL",
-  WEB_TRAFFIC: "WEB_TRAFFIC",
-  WORK_FORCE: "WORK_FORCE",
-} as const;
-
-/**
- * @public
- */
-export type Domain = (typeof Domain)[keyof typeof Domain];
-
-/**
- * @public
- * @enum
- */
-export const AttributeType = {
-  FLOAT: "float",
-  GEOLOCATION: "geolocation",
-  INTEGER: "integer",
-  STRING: "string",
-  TIMESTAMP: "timestamp",
-} as const;
-
-/**
- * @public
- */
-export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
 
 /**
  * <p>An attribute of a schema, which defines a dataset field. A schema attribute is required
@@ -1246,20 +1023,6 @@ export interface DataSource {
 
 /**
  * @public
- * @enum
- */
-export const ImportMode = {
-  FULL: "FULL",
-  INCREMENTAL: "INCREMENTAL",
-} as const;
-
-/**
- * @public
- */
-export type ImportMode = (typeof ImportMode)[keyof typeof ImportMode];
-
-/**
- * @public
  */
 export interface CreateDatasetImportJobRequest {
   /**
@@ -1408,34 +1171,6 @@ export interface CreateDatasetImportJobResponse {
    */
   DatasetImportJobArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimePointGranularity = {
-  ALL: "ALL",
-  SPECIFIC: "SPECIFIC",
-} as const;
-
-/**
- * @public
- */
-export type TimePointGranularity = (typeof TimePointGranularity)[keyof typeof TimePointGranularity];
-
-/**
- * @public
- * @enum
- */
-export const TimeSeriesGranularity = {
-  ALL: "ALL",
-  SPECIFIC: "SPECIFIC",
-} as const;
-
-/**
- * @public
- */
-export type TimeSeriesGranularity = (typeof TimeSeriesGranularity)[keyof typeof TimeSeriesGranularity];
 
 /**
  * <p>The ExplainabilityConfig data type defines the number of time series and time points
@@ -1954,20 +1689,6 @@ export interface CreateMonitorResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutoMLOverrideStrategy = {
-  AccuracyOptimized: "AccuracyOptimized",
-  LatencyOptimized: "LatencyOptimized",
-} as const;
-
-/**
- * @public
- */
-export type AutoMLOverrideStrategy = (typeof AutoMLOverrideStrategy)[keyof typeof AutoMLOverrideStrategy];
-
-/**
  * <p>Parameters that define how to split a dataset into training data and testing data, and the
  *       number of iterations to perform. These parameters are specified in the predefined algorithms
  *       but you can override them in the <a>CreatePredictor</a> request.</p>
@@ -1994,19 +1715,6 @@ export interface EvaluationParameters {
    */
   BackTestWindowOffset?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeaturizationMethodName = {
-  filling: "filling",
-} as const;
-
-/**
- * @public
- */
-export type FeaturizationMethodName = (typeof FeaturizationMethodName)[keyof typeof FeaturizationMethodName];
 
 /**
  * <p>Provides information about the method that featurizes (transforms) a dataset field. The
@@ -2243,22 +1951,6 @@ export interface CategoricalParameterRange {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScalingType = {
-  Auto: "Auto",
-  Linear: "Linear",
-  Logarithmic: "Logarithmic",
-  ReverseLogarithmic: "ReverseLogarithmic",
-} as const;
-
-/**
- * @public
- */
-export type ScalingType = (typeof ScalingType)[keyof typeof ScalingType];
 
 /**
  * <p>Specifies a continuous hyperparameter and it's range of tunable values.
@@ -3098,22 +2790,6 @@ export interface TimeSeriesReplacementsDataSource {
 }
 
 /**
- * @public
- * @enum
- */
-export const Condition = {
-  EQUALS: "EQUALS",
-  GREATER_THAN: "GREATER_THAN",
-  LESS_THAN: "LESS_THAN",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type Condition = (typeof Condition)[keyof typeof Condition];
-
-/**
  * <p>Creates a subset of items within an attribute that are modified. For example, you can use this operation to create a subset of items that cost $5 or less. To do this, you specify <code>"AttributeName": "price"</code>, <code>"AttributeValue": "5"</code>, and <code>"Condition": "LESS_THAN"</code>. Pair this operation with the <a>Action</a> operation within the <a>CreateWhatIfForecastRequest$TimeSeriesTransformations</a> operation to define how the attribute is modified.</p>
  * @public
  */
@@ -3512,20 +3188,6 @@ export interface MonitorInfo {
    */
   Status?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  Active: "Active",
-  Deleted: "Deleted",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
 
 /**
  * <p>Provides a summary of the reference predictor used when retraining or upgrading a
@@ -5706,20 +5368,6 @@ export interface GetAccuracyMetricsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EvaluationType = {
-  COMPUTED: "COMPUTED",
-  SUMMARY: "SUMMARY",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
-
-/**
  * <p> Provides detailed error metrics to evaluate the performance of a predictor. This object
  *       is part of the <a>Metrics</a> object. </p>
  * @public
@@ -5919,28 +5567,6 @@ export interface GetAccuracyMetricsResponse {
 }
 
 /**
- * <p>The token is not valid. Tokens expire after 24 hours.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ListDatasetGroupsRequest {
@@ -6010,20 +5636,6 @@ export interface ListDatasetGroupsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterConditionString = {
-  IS: "IS",
-  IS_NOT: "IS_NOT",
-} as const;
-
-/**
- * @public
- */
-export type FilterConditionString = (typeof FilterConditionString)[keyof typeof FilterConditionString];
 
 /**
  * <p>Describes a filter for choosing a subset of objects. Each filter consists of a

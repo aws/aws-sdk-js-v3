@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_1";
+import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { PutJobTagging } from "../schemas/schemas_0";
 

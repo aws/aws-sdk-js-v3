@@ -54,7 +54,7 @@ import {
   BadRequestException as __BadRequestException,
   TooManyRequestsException as __TooManyRequestsException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

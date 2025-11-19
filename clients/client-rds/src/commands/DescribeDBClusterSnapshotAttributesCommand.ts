@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeDBClusterSnapshotAttributesMessage,
   DescribeDBClusterSnapshotAttributesResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeDBClusterSnapshotAttributes } from "../schemas/schemas_0";
 

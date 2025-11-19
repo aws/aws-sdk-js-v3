@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteMeteredProductRequest, DeleteMeteredProductResponse } from "../models/models_1";
+import { DeleteMeteredProductRequest, DeleteMeteredProductResponse } from "../models/models_0";
 import { DeleteMeteredProduct } from "../schemas/schemas_0";
 
 /**

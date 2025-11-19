@@ -1,22 +1,43 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
-
-/**
- * @public
- * @enum
- */
-export const PortfolioShareType = {
-  AWS_ORGANIZATIONS: "AWS_ORGANIZATIONS",
-  AWS_SERVICECATALOG: "AWS_SERVICECATALOG",
-  IMPORTED: "IMPORTED",
-} as const;
-
-/**
- * @public
- */
-export type PortfolioShareType = (typeof PortfolioShareType)[keyof typeof PortfolioShareType];
+import {
+  AccessLevelFilterKey,
+  AccessStatus,
+  ChangeAction,
+  CopyOption,
+  CopyProductStatus,
+  DescribePortfolioShareType,
+  EngineWorkflowStatus,
+  EvaluationType,
+  LastSyncStatus,
+  OrganizationNodeType,
+  PortfolioShareType,
+  PrincipalType,
+  ProductSource,
+  ProductType,
+  ProductViewFilterBy,
+  ProductViewSortBy,
+  PropertyKey,
+  ProvisionedProductPlanStatus,
+  ProvisionedProductPlanType,
+  ProvisionedProductStatus,
+  ProvisionedProductViewFilterBy,
+  ProvisioningArtifactGuidance,
+  ProvisioningArtifactPropertyName,
+  ProvisioningArtifactType,
+  RecordStatus,
+  Replacement,
+  RequiresRecreation,
+  ResourceAttribute,
+  ServiceActionAssociationErrorCode,
+  ServiceActionDefinitionKey,
+  ServiceActionDefinitionType,
+  ShareStatus,
+  SortOrder,
+  SourceType,
+  StackInstanceStatus,
+  StackSetOperationType,
+  Status,
+} from "./enums";
 
 /**
  * @public
@@ -74,88 +95,6 @@ export interface AcceptPortfolioShareInput {
 export interface AcceptPortfolioShareOutput {}
 
 /**
- * <p>One or more parameters provided to the operation are not valid.</p>
- * @public
- */
-export class InvalidParametersException extends __BaseException {
-  readonly name: "InvalidParametersException" = "InvalidParametersException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParametersException, __BaseException>) {
-    super({
-      name: "InvalidParametersException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParametersException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AccessLevelFilterKey = {
-  ACCOUNT: "Account",
-  ROLE: "Role",
-  USER: "User",
-} as const;
-
-/**
- * @public
- */
-export type AccessLevelFilterKey = (typeof AccessLevelFilterKey)[keyof typeof AccessLevelFilterKey];
-
-/**
  * <p>The access level to use to filter results.</p>
  * @public
  */
@@ -186,21 +125,6 @@ export interface AccessLevelFilter {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AccessStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  UNDER_CHANGE: "UNDER_CHANGE",
-} as const;
-
-/**
- * @public
- */
-export type AccessStatus = (typeof AccessStatus)[keyof typeof AccessStatus];
 
 /**
  * <p>Information about a tag. A tag is a key-value pair. Tags are propagated
@@ -242,42 +166,6 @@ export interface AssociateBudgetWithResourceInput {
  * @public
  */
 export interface AssociateBudgetWithResourceOutput {}
-
-/**
- * <p>The specified resource is a duplicate.</p>
- * @public
- */
-export class DuplicateResourceException extends __BaseException {
-  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
-    super({
-      name: "DuplicateResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const PrincipalType = {
-  IAM: "IAM",
-  IAM_PATTERN: "IAM_PATTERN",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * @public
@@ -495,53 +383,6 @@ export interface AssociateTagOptionWithResourceInput {
 export interface AssociateTagOptionWithResourceOutput {}
 
 /**
- * <p>An attempt was made to modify a resource that is in a state that is not valid.
- *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name: "InvalidStateException" = "InvalidStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
- * @public
- */
-export class TagOptionNotMigratedException extends __BaseException {
-  readonly name: "TagOptionNotMigratedException" = "TagOptionNotMigratedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagOptionNotMigratedException, __BaseException>) {
-    super({
-      name: "TagOptionNotMigratedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagOptionNotMigratedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
  * @public
  */
@@ -591,25 +432,6 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
    */
   AcceptLanguage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceActionAssociationErrorCode = {
-  DuplicateResourceException: "DUPLICATE_RESOURCE",
-  InternalFailure: "INTERNAL_FAILURE",
-  InvalidParameterException: "INVALID_PARAMETER",
-  LimitExceededException: "LIMIT_EXCEEDED",
-  ResourceNotFoundException: "RESOURCE_NOT_FOUND",
-  ThrottlingException: "THROTTLING",
-} as const;
-
-/**
- * @public
- */
-export type ServiceActionAssociationErrorCode =
-  (typeof ServiceActionAssociationErrorCode)[keyof typeof ServiceActionAssociationErrorCode];
 
 /**
  * <p>An object containing information about the error, along with identifying information about the self-service action and its associations.</p>
@@ -695,33 +517,6 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CopyOption = {
-  CopyTags: "CopyTags",
-} as const;
-
-/**
- * @public
- */
-export type CopyOption = (typeof CopyOption)[keyof typeof CopyOption];
-
-/**
- * @public
- * @enum
- */
-export const ProvisioningArtifactPropertyName = {
-  Id: "Id",
-} as const;
-
-/**
- * @public
- */
-export type ProvisioningArtifactPropertyName =
-  (typeof ProvisioningArtifactPropertyName)[keyof typeof ProvisioningArtifactPropertyName];
 
 /**
  * @public
@@ -994,21 +789,6 @@ export interface ConstraintDetail {
 
 /**
  * @public
- * @enum
- */
-export const Status = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * @public
  */
 export interface CreateConstraintOutput {
   /**
@@ -1142,21 +922,6 @@ export interface CreatePortfolioOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrganizationNodeType = {
-  ACCOUNT: "ACCOUNT",
-  ORGANIZATION: "ORGANIZATION",
-  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationNodeType = (typeof OrganizationNodeType)[keyof typeof OrganizationNodeType];
-
-/**
  * <p>Information about the organization node.</p>
  * @public
  */
@@ -1246,63 +1011,6 @@ export interface CreatePortfolioShareOutput {
    */
   PortfolioShareToken?: string | undefined;
 }
-
-/**
- * <p>The operation is not supported.</p>
- * @public
- */
-export class OperationNotSupportedException extends __BaseException {
-  readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
-    super({
-      name: "OperationNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ProductType = {
-  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
-  EXTERNAL: "EXTERNAL",
-  MARKETPLACE: "MARKETPLACE",
-  TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
-  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ProductType = (typeof ProductType)[keyof typeof ProductType];
-
-/**
- * @public
- * @enum
- */
-export const ProvisioningArtifactType = {
-  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
-  EXTERNAL: "EXTERNAL",
-  MARKETPLACE_AMI: "MARKETPLACE_AMI",
-  MARKETPLACE_CAR: "MARKETPLACE_CAR",
-  TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
-  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ProvisioningArtifactType = (typeof ProvisioningArtifactType)[keyof typeof ProvisioningArtifactType];
 
 /**
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
@@ -1413,19 +1121,6 @@ export interface SourceConnectionParameters {
    */
   CodeStar?: CodeStarParameters | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  CODESTAR: "CODESTAR",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
@@ -1639,20 +1334,6 @@ export interface ProductViewSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const LastSyncStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type LastSyncStatus = (typeof LastSyncStatus)[keyof typeof LastSyncStatus];
-
-/**
  * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
  *          <ul>
  *             <li>
@@ -1821,21 +1502,6 @@ export interface ProductViewDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProvisioningArtifactGuidance = {
-  DEFAULT: "DEFAULT",
-  DEPRECATED: "DEPRECATED",
-} as const;
-
-/**
- * @public
- */
-export type ProvisioningArtifactGuidance =
-  (typeof ProvisioningArtifactGuidance)[keyof typeof ProvisioningArtifactGuidance];
-
-/**
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  * @public
  */
@@ -1935,19 +1601,6 @@ export interface CreateProductOutput {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProvisionedProductPlanType = {
-  CLOUDFORMATION: "CLOUDFORMATION",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionedProductPlanType = (typeof ProvisionedProductPlanType)[keyof typeof ProvisionedProductPlanType];
 
 /**
  * <p>The parameter key-value pair used to update a provisioned product.</p>
@@ -2168,36 +1821,6 @@ export interface CreateProvisioningArtifactOutput {
    */
   Status?: Status | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceActionDefinitionKey = {
-  AssumeRole: "AssumeRole",
-  Name: "Name",
-  Parameters: "Parameters",
-  Version: "Version",
-} as const;
-
-/**
- * @public
- */
-export type ServiceActionDefinitionKey = (typeof ServiceActionDefinitionKey)[keyof typeof ServiceActionDefinitionKey];
-
-/**
- * @public
- * @enum
- */
-export const ServiceActionDefinitionType = {
-  SsmAutomation: "SSM_AUTOMATION",
-} as const;
-
-/**
- * @public
- */
-export type ServiceActionDefinitionType =
-  (typeof ServiceActionDefinitionType)[keyof typeof ServiceActionDefinitionType];
 
 /**
  * @public
@@ -2459,28 +2082,6 @@ export interface DeletePortfolioInput {
  * @public
  */
 export interface DeletePortfolioOutput {}
-
-/**
- * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -2774,21 +2375,6 @@ export interface DescribeCopyProductStatusInput {
 
 /**
  * @public
- * @enum
- */
-export const CopyProductStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type CopyProductStatus = (typeof CopyProductStatus)[keyof typeof CopyProductStatus];
-
-/**
- * @public
  */
 export interface DescribeCopyProductStatusOutput {
   /**
@@ -2877,22 +2463,6 @@ export interface DescribePortfolioOutput {
    */
   Budgets?: BudgetDetail[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DescribePortfolioShareType = {
-  ACCOUNT: "ACCOUNT",
-  ORGANIZATION: "ORGANIZATION",
-  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
-  ORGANIZATION_MEMBER_ACCOUNT: "ORGANIZATION_MEMBER_ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type DescribePortfolioShareType = (typeof DescribePortfolioShareType)[keyof typeof DescribePortfolioShareType];
 
 /**
  * @public
@@ -3037,23 +2607,6 @@ export interface ShareDetails {
    */
   ShareErrors?: ShareError[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShareStatus = {
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
-  ERROR: "ERROR",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 /**
  * @public
@@ -3423,23 +2976,6 @@ export interface CloudWatchDashboard {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProvisionedProductStatus = {
-  AVAILABLE: "AVAILABLE",
-  ERROR: "ERROR",
-  PLAN_IN_PROGRESS: "PLAN_IN_PROGRESS",
-  TAINTED: "TAINTED",
-  UNDER_CHANGE: "UNDER_CHANGE",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionedProductStatus = (typeof ProvisionedProductStatus)[keyof typeof ProvisionedProductStatus];
-
-/**
  * <p>Information about a provisioned product.</p>
  * @public
  */
@@ -3661,25 +3197,6 @@ export interface DescribeProvisionedProductPlanInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProvisionedProductPlanStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCESS: "CREATE_SUCCESS",
-  EXECUTE_FAILED: "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS: "EXECUTE_SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionedProductPlanStatus =
-  (typeof ProvisionedProductPlanStatus)[keyof typeof ProvisionedProductPlanStatus];
-
-/**
  * <p>Information about a plan.</p>
  * @public
  */
@@ -3780,68 +3297,6 @@ export interface ProvisionedProductPlanDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeAction = {
-  ADD: "ADD",
-  MODIFY: "MODIFY",
-  REMOVE: "REMOVE",
-} as const;
-
-/**
- * @public
- */
-export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationType = {
-  DYNAMIC: "DYNAMIC",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
-
-/**
- * @public
- * @enum
- */
-export const ResourceAttribute = {
-  CREATIONPOLICY: "CREATIONPOLICY",
-  DELETIONPOLICY: "DELETIONPOLICY",
-  METADATA: "METADATA",
-  PROPERTIES: "PROPERTIES",
-  TAGS: "TAGS",
-  UPDATEPOLICY: "UPDATEPOLICY",
-} as const;
-
-/**
- * @public
- */
-export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
-
-/**
- * @public
- * @enum
- */
-export const RequiresRecreation = {
-  ALWAYS: "ALWAYS",
-  CONDITIONALLY: "CONDITIONALLY",
-  NEVER: "NEVER",
-} as const;
-
-/**
- * @public
- */
-export type RequiresRecreation = (typeof RequiresRecreation)[keyof typeof RequiresRecreation];
-
-/**
  * <p>Information about a change to a resource attribute.</p>
  * @public
  */
@@ -3891,21 +3346,6 @@ export interface ResourceChangeDetail {
    */
   CausingEntity?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Replacement = {
-  CONDITIONAL: "CONDITIONAL",
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-} as const;
-
-/**
- * @public
- */
-export type Replacement = (typeof Replacement)[keyof typeof Replacement];
 
 /**
  * <p>Information about a resource change that will occur when a plan is executed.</p>
@@ -4460,23 +3900,6 @@ export interface RecordTag {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordStatus = {
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  IN_PROGRESS_IN_ERROR: "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type RecordStatus = (typeof RecordStatus)[keyof typeof RecordStatus];
 
 /**
  * <p>Information about a request operation.</p>
@@ -6393,21 +5816,6 @@ export interface ListStackInstancesForProvisionedProductInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const StackInstanceStatus = {
-  CURRENT: "CURRENT",
-  INOPERABLE: "INOPERABLE",
-  OUTDATED: "OUTDATED",
-} as const;
-
-/**
- * @public
- */
-export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof StackInstanceStatus];
-
-/**
  * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
  * @public
  */
@@ -6578,20 +5986,6 @@ export interface EngineWorkflowResourceIdentifier {
    */
   UniqueTag?: UniqueTagResourceIdentifier | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EngineWorkflowStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type EngineWorkflowStatus = (typeof EngineWorkflowStatus)[keyof typeof EngineWorkflowStatus];
 
 /**
  * @public
@@ -7103,51 +6497,6 @@ export interface ScanProvisionedProductsOutput {
 
 /**
  * @public
- * @enum
- */
-export const ProductViewFilterBy = {
-  FullTextSearch: "FullTextSearch",
-  Owner: "Owner",
-  ProductType: "ProductType",
-  SourceProductId: "SourceProductId",
-} as const;
-
-/**
- * @public
- */
-export type ProductViewFilterBy = (typeof ProductViewFilterBy)[keyof typeof ProductViewFilterBy];
-
-/**
- * @public
- * @enum
- */
-export const ProductViewSortBy = {
-  CreationDate: "CreationDate",
-  Title: "Title",
-  VersionCount: "VersionCount",
-} as const;
-
-/**
- * @public
- */
-export type ProductViewSortBy = (typeof ProductViewSortBy)[keyof typeof ProductViewSortBy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * @public
  */
 export interface SearchProductsInput {
   /**
@@ -7242,19 +6591,6 @@ export interface SearchProductsOutput {
 
 /**
  * @public
- * @enum
- */
-export const ProductSource = {
-  ACCOUNT: "ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type ProductSource = (typeof ProductSource)[keyof typeof ProductSource];
-
-/**
- * @public
  */
 export interface SearchProductsAsAdminInput {
   /**
@@ -7333,20 +6669,6 @@ export interface SearchProductsAsAdminOutput {
    */
   NextPageToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProvisionedProductViewFilterBy = {
-  SearchQuery: "SearchQuery",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionedProductViewFilterBy =
-  (typeof ProvisionedProductViewFilterBy)[keyof typeof ProvisionedProductViewFilterBy];
 
 /**
  * @public
@@ -8082,21 +7404,6 @@ export interface UpdateProductOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const StackSetOperationType = {
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type StackSetOperationType = (typeof StackSetOperationType)[keyof typeof StackSetOperationType];
-
-/**
  * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
  * @public
  */
@@ -8283,20 +7590,6 @@ export interface UpdateProvisionedProductOutput {
    */
   RecordDetail?: RecordDetail | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PropertyKey = {
-  LaunchRole: "LAUNCH_ROLE",
-  Owner: "OWNER",
-} as const;
-
-/**
- * @public
- */
-export type PropertyKey = (typeof PropertyKey)[keyof typeof PropertyKey];
 
 /**
  * @public

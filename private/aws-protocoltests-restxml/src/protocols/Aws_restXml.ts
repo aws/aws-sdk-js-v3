@@ -210,13 +210,11 @@ import {
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, InvalidGreeting } from "../models/errors";
 import {
-  ComplexError,
   ComplexNestedErrorData,
-  FooEnum,
   GreetingStruct,
-  IntegerEnum,
-  InvalidGreeting,
   NestedPayload,
   PayloadWithXmlName,
   PayloadWithXmlNamespace,

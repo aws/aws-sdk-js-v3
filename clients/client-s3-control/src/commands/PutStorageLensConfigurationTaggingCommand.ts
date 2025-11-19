@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutStorageLensConfigurationTaggingRequest,
   PutStorageLensConfigurationTaggingResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { PutStorageLensConfigurationTagging } from "../schemas/schemas_0";
 

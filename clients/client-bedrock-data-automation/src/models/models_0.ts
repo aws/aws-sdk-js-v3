@@ -1,61 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BedrockDataAutomationServiceException as __BaseException } from "./BedrockDataAutomationServiceException";
-
-/**
- * This exception is thrown when a request is denied per access permissions
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * This exception is thrown when there is a conflict performing an operation
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const BlueprintStage = {
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type BlueprintStage = (typeof BlueprintStage)[keyof typeof BlueprintStage];
+import {
+  AudioExtractionCategoryType,
+  AudioGenerativeOutputLanguage,
+  AudioStandardGenerativeFieldType,
+  BlueprintStage,
+  BlueprintStageFilter,
+  DataAutomationProjectStage,
+  DataAutomationProjectStageFilter,
+  DataAutomationProjectStatus,
+  DesiredModality,
+  DocumentExtractionGranularityType,
+  DocumentOutputTextFormatType,
+  ImageExtractionCategoryType,
+  ImageStandardGenerativeFieldType,
+  Language,
+  ResourceOwner,
+  State,
+  Type,
+  VideoExtractionCategoryType,
+  VideoStandardGenerativeFieldType,
+} from "./enums";
 
 /**
  * KMS Encryption Configuration
@@ -92,22 +56,6 @@ export interface Tag {
    */
   value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  AUDIO: "AUDIO",
-  DOCUMENT: "DOCUMENT",
-  IMAGE: "IMAGE",
-  VIDEO: "VIDEO",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * Create Blueprint Request
@@ -236,66 +184,6 @@ export interface CreateBlueprintResponse {
 }
 
 /**
- * This exception is thrown if there was an unexpected error during processing of request
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * This exception is thrown when a request is made beyond the service quota
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * This exception is thrown when the number of requests exceeds the limit
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * Stores information about a field passed inside a request that resulted in an exception
  * @public
  */
@@ -311,33 +199,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * This exception is thrown when the request's input validation fails
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * list of ValidationExceptionField
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -363,26 +224,6 @@ export interface DeleteBlueprintRequest {
  * @public
  */
 export interface DeleteBlueprintResponse {}
-
-/**
- * This exception is thrown when a resource referenced by the operation does not exist
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * Get Blueprint Request
@@ -421,35 +262,6 @@ export interface GetBlueprintResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const BlueprintStageFilter = {
-  ALL: "ALL",
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type BlueprintStageFilter = (typeof BlueprintStageFilter)[keyof typeof BlueprintStageFilter];
-
-/**
- * @public
- * @enum
- */
-export const DataAutomationProjectStage = {
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type DataAutomationProjectStage = (typeof DataAutomationProjectStage)[keyof typeof DataAutomationProjectStage];
-
-/**
  * Data Automation Project Filter
  * @public
  */
@@ -466,20 +278,6 @@ export interface DataAutomationProjectFilter {
    */
   projectStage?: DataAutomationProjectStage | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceOwner = {
-  ACCOUNT: "ACCOUNT",
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
  * List Blueprint Request
@@ -692,44 +490,6 @@ export interface CustomOutputConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioGenerativeOutputLanguage = {
-  DEFAULT: "DEFAULT",
-  EN: "EN",
-} as const;
-
-/**
- * @public
- */
-export type AudioGenerativeOutputLanguage =
-  (typeof AudioGenerativeOutputLanguage)[keyof typeof AudioGenerativeOutputLanguage];
-
-/**
- * @public
- * @enum
- */
-export const Language = {
-  CN: "CN",
-  DE: "DE",
-  EN: "EN",
-  ES: "ES",
-  FR: "FR",
-  HK: "HK",
-  IT: "IT",
-  JA: "JA",
-  KO: "KO",
-  PT: "PT",
-  TW: "TW",
-} as const;
-
-/**
- * @public
- */
-export type Language = (typeof Language)[keyof typeof Language];
-
-/**
  * Optional configuration for audio language settings
  * @public
  */
@@ -752,20 +512,6 @@ export interface AudioLanguageConfiguration {
    */
   identifyMultipleLanguages?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
 
 /**
  * Configuration to enable/disable processing of modality
@@ -838,22 +584,6 @@ export interface ImageOverrideConfiguration {
    */
   modalityProcessing?: ModalityProcessingConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DesiredModality = {
-  AUDIO: "AUDIO",
-  DOCUMENT: "DOCUMENT",
-  IMAGE: "IMAGE",
-  VIDEO: "VIDEO",
-} as const;
-
-/**
- * @public
- */
-export type DesiredModality = (typeof DesiredModality)[keyof typeof DesiredModality];
 
 /**
  * Configuration for routing file type to desired modality
@@ -988,22 +718,6 @@ export interface AudioExtractionCategoryTypeConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioExtractionCategoryType = {
-  AUDIO_CONTENT_MODERATION: "AUDIO_CONTENT_MODERATION",
-  TOPIC_CONTENT_MODERATION: "TOPIC_CONTENT_MODERATION",
-  TRANSCRIPT: "TRANSCRIPT",
-} as const;
-
-/**
- * @public
- */
-export type AudioExtractionCategoryType =
-  (typeof AudioExtractionCategoryType)[keyof typeof AudioExtractionCategoryType];
-
-/**
  * Category of Audio Extraction
  * @public
  */
@@ -1038,22 +752,6 @@ export interface AudioStandardExtraction {
    */
   category: AudioExtractionCategory | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AudioStandardGenerativeFieldType = {
-  AUDIO_SUMMARY: "AUDIO_SUMMARY",
-  IAB: "IAB",
-  TOPIC_SUMMARY: "TOPIC_SUMMARY",
-} as const;
-
-/**
- * @public
- */
-export type AudioStandardGenerativeFieldType =
-  (typeof AudioStandardGenerativeFieldType)[keyof typeof AudioStandardGenerativeFieldType];
 
 /**
  * Standard Generative Field Configuration of Audio
@@ -1102,24 +800,6 @@ export interface DocumentBoundingBox {
    */
   state: State | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DocumentExtractionGranularityType = {
-  DOCUMENT: "DOCUMENT",
-  ELEMENT: "ELEMENT",
-  LINE: "LINE",
-  PAGE: "PAGE",
-  WORD: "WORD",
-} as const;
-
-/**
- * @public
- */
-export type DocumentExtractionGranularityType =
-  (typeof DocumentExtractionGranularityType)[keyof typeof DocumentExtractionGranularityType];
 
 /**
  * Granularity of Document Extraction
@@ -1174,23 +854,6 @@ export interface DocumentOutputAdditionalFileFormat {
    */
   state: State | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DocumentOutputTextFormatType = {
-  CSV: "CSV",
-  HTML: "HTML",
-  MARKDOWN: "MARKDOWN",
-  PLAIN_TEXT: "PLAIN_TEXT",
-} as const;
-
-/**
- * @public
- */
-export type DocumentOutputTextFormatType =
-  (typeof DocumentOutputTextFormatType)[keyof typeof DocumentOutputTextFormatType];
 
 /**
  * Text Format of Document Output
@@ -1259,22 +922,6 @@ export interface ImageBoundingBox {
 }
 
 /**
- * @public
- * @enum
- */
-export const ImageExtractionCategoryType = {
-  CONTENT_MODERATION: "CONTENT_MODERATION",
-  LOGOS: "LOGOS",
-  TEXT_DETECTION: "TEXT_DETECTION",
-} as const;
-
-/**
- * @public
- */
-export type ImageExtractionCategoryType =
-  (typeof ImageExtractionCategoryType)[keyof typeof ImageExtractionCategoryType];
-
-/**
  * Category of Image Extraction
  * @public
  */
@@ -1309,21 +956,6 @@ export interface ImageStandardExtraction {
    */
   boundingBox: ImageBoundingBox | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageStandardGenerativeFieldType = {
-  IAB: "IAB",
-  IMAGE_SUMMARY: "IMAGE_SUMMARY",
-} as const;
-
-/**
- * @public
- */
-export type ImageStandardGenerativeFieldType =
-  (typeof ImageStandardGenerativeFieldType)[keyof typeof ImageStandardGenerativeFieldType];
 
 /**
  * Standard Generative Field Configuration of Image
@@ -1374,23 +1006,6 @@ export interface VideoBoundingBox {
 }
 
 /**
- * @public
- * @enum
- */
-export const VideoExtractionCategoryType = {
-  CONTENT_MODERATION: "CONTENT_MODERATION",
-  LOGOS: "LOGOS",
-  TEXT_DETECTION: "TEXT_DETECTION",
-  TRANSCRIPT: "TRANSCRIPT",
-} as const;
-
-/**
- * @public
- */
-export type VideoExtractionCategoryType =
-  (typeof VideoExtractionCategoryType)[keyof typeof VideoExtractionCategoryType];
-
-/**
  * Category of Video Extraction
  * @public
  */
@@ -1425,22 +1040,6 @@ export interface VideoStandardExtraction {
    */
   boundingBox: VideoBoundingBox | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VideoStandardGenerativeFieldType = {
-  CHAPTER_SUMMARY: "CHAPTER_SUMMARY",
-  IAB: "IAB",
-  VIDEO_SUMMARY: "VIDEO_SUMMARY",
-} as const;
-
-/**
- * @public
- */
-export type VideoStandardGenerativeFieldType =
-  (typeof VideoStandardGenerativeFieldType)[keyof typeof VideoStandardGenerativeFieldType];
 
 /**
  * Standard Generative Field Configuration of Video
@@ -1567,22 +1166,6 @@ export interface CreateDataAutomationProjectRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataAutomationProjectStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type DataAutomationProjectStatus =
-  (typeof DataAutomationProjectStatus)[keyof typeof DataAutomationProjectStatus];
 
 /**
  * Create DataAutomationProject Response
@@ -1769,22 +1352,6 @@ export interface BlueprintFilter {
    */
   blueprintStage?: BlueprintStage | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataAutomationProjectStageFilter = {
-  ALL: "ALL",
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type DataAutomationProjectStageFilter =
-  (typeof DataAutomationProjectStageFilter)[keyof typeof DataAutomationProjectStageFilter];
 
 /**
  * List DataAutomationProject Request

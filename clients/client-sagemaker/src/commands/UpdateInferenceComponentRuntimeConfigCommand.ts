@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateInferenceComponentRuntimeConfigInput,
   UpdateInferenceComponentRuntimeConfigOutput,
-} from "../models/models_5";
+} from "../models/models_4";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateInferenceComponentRuntimeConfig } from "../schemas/schemas_0";
 

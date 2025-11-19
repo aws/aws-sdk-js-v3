@@ -1,57 +1,28 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MediaPackageV2ServiceException as __BaseException } from "./MediaPackageV2ServiceException";
-
-/**
- * <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AdMarkerDash = {
-  BINARY: "BINARY",
-  XML: "XML",
-} as const;
-
-/**
- * @public
- */
-export type AdMarkerDash = (typeof AdMarkerDash)[keyof typeof AdMarkerDash];
-
-/**
- * @public
- * @enum
- */
-export const AdMarkerHls = {
-  DATERANGE: "DATERANGE",
-  SCTE35_ENHANCED: "SCTE35_ENHANCED",
-} as const;
-
-/**
- * @public
- */
-export type AdMarkerHls = (typeof AdMarkerHls)[keyof typeof AdMarkerHls];
+import {
+  AdMarkerDash,
+  AdMarkerHls,
+  CmafEncryptionMethod,
+  ContainerType,
+  DashCompactness,
+  DashDrmSignaling,
+  DashPeriodTrigger,
+  DashProfile,
+  DashSegmentTemplateFormat,
+  DashTtmlProfile,
+  DashUtcTimingMode,
+  DrmSystem,
+  EndpointErrorCondition,
+  HarvestJobStatus,
+  InputType,
+  IsmEncryptionMethod,
+  MssManifestLayout,
+  PresetSpeke20Audio,
+  PresetSpeke20Video,
+  ScteFilter,
+  ScteInSegments,
+  TsEncryptionMethod,
+} from "./enums";
 
 /**
  * @public
@@ -92,268 +63,6 @@ export interface CancelHarvestJobRequest {
  * @public
  */
 export interface CancelHarvestJobResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionType = {
-  CONFLICTING_OPERATION: "CONFLICTING_OPERATION",
-  IDEMPOTENT_PARAMETER_MISMATCH: "IDEMPOTENT_PARAMETER_MISMATCH",
-  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_IN_USE: "RESOURCE_IN_USE",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionType = (typeof ConflictExceptionType)[keyof typeof ConflictExceptionType];
-
-/**
- * <p>Updating or deleting this resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The type of ConflictException.</p>
-   * @public
-   */
-  ConflictExceptionType?: ConflictExceptionType | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ConflictExceptionType = opts.ConflictExceptionType;
-  }
-}
-
-/**
- * <p>Indicates that an error from the service occurred while trying to process a request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceTypeNotFound = {
-  CHANNEL: "CHANNEL",
-  CHANNEL_GROUP: "CHANNEL_GROUP",
-  HARVEST_JOB: "HARVEST_JOB",
-  ORIGIN_ENDPOINT: "ORIGIN_ENDPOINT",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTypeNotFound = (typeof ResourceTypeNotFound)[keyof typeof ResourceTypeNotFound];
-
-/**
- * <p>The specified resource doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The specified resource type wasn't found.</p>
-   * @public
-   */
-  ResourceTypeNotFound?: ResourceTypeNotFound | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceTypeNotFound = opts.ResourceTypeNotFound;
-  }
-}
-
-/**
- * <p>The request throughput limit was exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionType = {
-  BATCH_GET_SECRET_VALUE_DENIED: "BATCH_GET_SECRET_VALUE_DENIED",
-  CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
-  CLIP_START_TIME_WITH_START_OR_END: "CLIP_START_TIME_WITH_START_OR_END",
-  CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST: "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST",
-  CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE:
-    "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE",
-  CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
-  DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE: "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE",
-  DECRYPT_SECRET_FAILED: "DECRYPT_SECRET_FAILED",
-  DESCRIBE_SECRET_DENIED: "DESCRIBE_SECRET_DENIED",
-  DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
-  DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
-  DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE: "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE",
-  DUPLICATED_SECRET: "DUPLICATED_SECRET",
-  ENCRYPTION_CONTRACT_SHARED: "ENCRYPTION_CONTRACT_SHARED",
-  ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
-  ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
-  ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE",
-  ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
-  END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
-  GET_SECRET_VALUE_DENIED: "GET_SECRET_VALUE_DENIED",
-  HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION: "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION",
-  HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT: "HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT",
-  HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED: "HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED",
-  HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION: "HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION",
-  HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE: "HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE",
-  HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION: "HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION",
-  INCOMPATIBLE_DASH_COMPACTNESS_CONFIGURATION: "INCOMPATIBLE_DASH_COMPACTNESS_CONFIGURATION",
-  INCOMPATIBLE_DASH_PROFILE_DVB_DASH_CONFIGURATION: "INCOMPATIBLE_DASH_PROFILE_DVB_DASH_CONFIGURATION",
-  INCOMPATIBLE_XML_ENCODING: "INCOMPATIBLE_XML_ENCODING",
-  INVALID_HARVEST_JOB_DURATION: "INVALID_HARVEST_JOB_DURATION",
-  INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
-  INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
-  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
-  INVALID_POLICY: "INVALID_POLICY",
-  INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
-  INVALID_SECRET: "INVALID_SECRET",
-  INVALID_SECRET_FORMAT: "INVALID_SECRET_FORMAT",
-  INVALID_SECRET_KEY: "INVALID_SECRET_KEY",
-  INVALID_SECRET_VALUE: "INVALID_SECRET_VALUE",
-  INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
-  ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST: "ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST",
-  ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST: "ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST",
-  ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST: "ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST",
-  ISM_CONTAINER_TYPE_WITH_SCTE: "ISM_CONTAINER_TYPE_WITH_SCTE",
-  ISM_CONTAINER_WITH_KEY_ROTATION: "ISM_CONTAINER_WITH_KEY_ROTATION",
-  MALFORMED_SECRET_ARN: "MALFORMED_SECRET_ARN",
-  MANIFEST_DRM_SYSTEMS_INCOMPATIBLE: "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE",
-  MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
-  MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
-  MEMBER_INVALID: "MEMBER_INVALID",
-  MEMBER_INVALID_ENUM_VALUE: "MEMBER_INVALID_ENUM_VALUE",
-  MEMBER_MAX_LENGTH: "MEMBER_MAX_LENGTH",
-  MEMBER_MAX_VALUE: "MEMBER_MAX_VALUE",
-  MEMBER_MIN_LENGTH: "MEMBER_MIN_LENGTH",
-  MEMBER_MIN_VALUE: "MEMBER_MIN_VALUE",
-  MEMBER_MISSING: "MEMBER_MISSING",
-  NONE_MODE_WITH_TIMING_SOURCE: "NONE_MODE_WITH_TIMING_SOURCE",
-  NUM_MANIFESTS_HIGH: "NUM_MANIFESTS_HIGH",
-  NUM_MANIFESTS_LOW: "NUM_MANIFESTS_LOW",
-  ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION:
-    "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
-  ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING",
-  ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION",
-  ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION: "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION",
-  PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
-  ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
-  ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
-  ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
-  SECRET_ARN_RESOURCE_NOT_FOUND: "SECRET_ARN_RESOURCE_NOT_FOUND",
-  SECRET_FROM_DIFFERENT_ACCOUNT: "SECRET_FROM_DIFFERENT_ACCOUNT",
-  SECRET_FROM_DIFFERENT_REGION: "SECRET_FROM_DIFFERENT_REGION",
-  SECRET_IS_NOT_ONE_KEY_VALUE_PAIR: "SECRET_IS_NOT_ONE_KEY_VALUE_PAIR",
-  SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
-  START_TAG_TIME_OFFSET_INVALID: "START_TAG_TIME_OFFSET_INVALID",
-  TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
-  TOO_MANY_IN_PROGRESS_HARVEST_JOBS: "TOO_MANY_IN_PROGRESS_HARVEST_JOBS",
-  TOO_MANY_SECRETS: "TOO_MANY_SECRETS",
-  TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
-  TS_CONTAINER_TYPE_WITH_MSS_MANIFEST: "TS_CONTAINER_TYPE_WITH_MSS_MANIFEST",
-  UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
-  URL_INVALID: "URL_INVALID",
-  URL_LINK_LOCAL_ADDRESS: "URL_LINK_LOCAL_ADDRESS",
-  URL_LOCAL_ADDRESS: "URL_LOCAL_ADDRESS",
-  URL_LOOPBACK_ADDRESS: "URL_LOOPBACK_ADDRESS",
-  URL_MULTICAST_ADDRESS: "URL_MULTICAST_ADDRESS",
-  URL_PORT: "URL_PORT",
-  URL_SCHEME: "URL_SCHEME",
-  URL_UNKNOWN_HOST: "URL_UNKNOWN_HOST",
-  URL_USER_INFO: "URL_USER_INFO",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionType = (typeof ValidationExceptionType)[keyof typeof ValidationExceptionType];
-
-/**
- * <p>The input failed to meet the constraints specified by the AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The type of ValidationException.</p>
-   * @public
-   */
-  ValidationExceptionType?: ValidationExceptionType | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.ValidationExceptionType = opts.ValidationExceptionType;
-  }
-}
 
 /**
  * <p>The settings to enable CDN authorization headers in MediaPackage.</p>
@@ -518,20 +227,6 @@ export interface InputSwitchConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputType = {
-  CMAF: "CMAF",
-  HLS: "HLS",
-} as const;
-
-/**
- * @public
- */
-export type InputType = (typeof InputType)[keyof typeof InputType];
-
-/**
  * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
  * @public
  */
@@ -689,28 +384,6 @@ export interface CreateChannelResponse {
    * @public
    */
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -924,21 +597,6 @@ export interface ListChannelsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerType = {
-  CMAF: "CMAF",
-  ISM: "ISM",
-  TS: "TS",
-} as const;
-
-/**
- * @public
- */
-export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
-
-/**
  * <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
  * @public
  */
@@ -967,34 +625,6 @@ export interface DashBaseUrl {
    */
   DvbWeight?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DashCompactness = {
-  NONE: "NONE",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type DashCompactness = (typeof DashCompactness)[keyof typeof DashCompactness];
-
-/**
- * @public
- * @enum
- */
-export const DashDrmSignaling = {
-  INDIVIDUAL: "INDIVIDUAL",
-  REFERENCED: "REFERENCED",
-} as const;
-
-/**
- * @public
- */
-export type DashDrmSignaling = (typeof DashDrmSignaling)[keyof typeof DashDrmSignaling];
 
 /**
  * <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
@@ -1093,36 +723,6 @@ export interface FilterConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DashPeriodTrigger = {
-  AVAILS: "AVAILS",
-  DRM_KEY_ROTATION: "DRM_KEY_ROTATION",
-  NONE: "NONE",
-  SOURCE_CHANGES: "SOURCE_CHANGES",
-  SOURCE_DISRUPTIONS: "SOURCE_DISRUPTIONS",
-} as const;
-
-/**
- * @public
- */
-export type DashPeriodTrigger = (typeof DashPeriodTrigger)[keyof typeof DashPeriodTrigger];
-
-/**
- * @public
- * @enum
- */
-export const DashProfile = {
-  DVB_DASH: "DVB_DASH",
-} as const;
-
-/**
- * @public
- */
-export type DashProfile = (typeof DashProfile)[keyof typeof DashProfile];
-
-/**
  * <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
  * @public
  */
@@ -1171,33 +771,6 @@ export interface ScteDash {
 }
 
 /**
- * @public
- * @enum
- */
-export const DashSegmentTemplateFormat = {
-  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
-} as const;
-
-/**
- * @public
- */
-export type DashSegmentTemplateFormat = (typeof DashSegmentTemplateFormat)[keyof typeof DashSegmentTemplateFormat];
-
-/**
- * @public
- * @enum
- */
-export const DashTtmlProfile = {
-  EBU_TT_D_101: "EBU_TT_D_101",
-  IMSC_1: "IMSC_1",
-} as const;
-
-/**
- * @public
- */
-export type DashTtmlProfile = (typeof DashTtmlProfile)[keyof typeof DashTtmlProfile];
-
-/**
  * <p>The settings for TTML subtitles.</p>
  * @public
  */
@@ -1220,22 +793,6 @@ export interface DashSubtitleConfiguration {
    */
   TtmlConfiguration?: DashTtmlConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DashUtcTimingMode = {
-  HTTP_HEAD: "HTTP_HEAD",
-  HTTP_ISO: "HTTP_ISO",
-  HTTP_XSDATE: "HTTP_XSDATE",
-  UTC_DIRECT: "UTC_DIRECT",
-} as const;
-
-/**
- * @public
- */
-export type DashUtcTimingMode = (typeof DashUtcTimingMode)[keyof typeof DashUtcTimingMode];
 
 /**
  * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
@@ -1362,22 +919,6 @@ export interface CreateDashManifestConfiguration {
    */
   SubtitleConfiguration?: DashSubtitleConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointErrorCondition = {
-  INCOMPLETE_MANIFEST: "INCOMPLETE_MANIFEST",
-  MISSING_DRM_KEY: "MISSING_DRM_KEY",
-  SLATE_INPUT: "SLATE_INPUT",
-  STALE_MANIFEST: "STALE_MANIFEST",
-} as const;
-
-/**
- * @public
- */
-export type EndpointErrorCondition = (typeof EndpointErrorCondition)[keyof typeof EndpointErrorCondition];
 
 /**
  * <p>The failover settings for the endpoint.</p>
@@ -1530,20 +1071,6 @@ export interface CreateLowLatencyHlsManifestConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const MssManifestLayout = {
-  COMPACT: "COMPACT",
-  FULL: "FULL",
-} as const;
-
-/**
- * @public
- */
-export type MssManifestLayout = (typeof MssManifestLayout)[keyof typeof MssManifestLayout];
-
-/**
  * <p>Configuration parameters for creating a Microsoft Smooth Streaming (MSS) manifest. MSS is a streaming media format developed by Microsoft that delivers adaptive bitrate streaming content to compatible players and devices.</p>
  * @public
  */
@@ -1574,47 +1101,6 @@ export interface CreateMssManifestConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CmafEncryptionMethod = {
-  CBCS: "CBCS",
-  CENC: "CENC",
-} as const;
-
-/**
- * @public
- */
-export type CmafEncryptionMethod = (typeof CmafEncryptionMethod)[keyof typeof CmafEncryptionMethod];
-
-/**
- * @public
- * @enum
- */
-export const IsmEncryptionMethod = {
-  CENC: "CENC",
-} as const;
-
-/**
- * @public
- */
-export type IsmEncryptionMethod = (typeof IsmEncryptionMethod)[keyof typeof IsmEncryptionMethod];
-
-/**
- * @public
- * @enum
- */
-export const TsEncryptionMethod = {
-  AES_128: "AES_128",
-  SAMPLE_AES: "SAMPLE_AES",
-} as const;
-
-/**
- * @public
- */
-export type TsEncryptionMethod = (typeof TsEncryptionMethod)[keyof typeof TsEncryptionMethod];
-
-/**
  * <p>The encryption type.</p>
  * @public
  */
@@ -1637,62 +1123,6 @@ export interface EncryptionMethod {
    */
   IsmEncryptionMethod?: IsmEncryptionMethod | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DrmSystem = {
-  CLEAR_KEY_AES_128: "CLEAR_KEY_AES_128",
-  FAIRPLAY: "FAIRPLAY",
-  IRDETO: "IRDETO",
-  PLAYREADY: "PLAYREADY",
-  WIDEVINE: "WIDEVINE",
-} as const;
-
-/**
- * @public
- */
-export type DrmSystem = (typeof DrmSystem)[keyof typeof DrmSystem];
-
-/**
- * @public
- * @enum
- */
-export const PresetSpeke20Audio = {
-  PRESET_AUDIO_1: "PRESET_AUDIO_1",
-  PRESET_AUDIO_2: "PRESET_AUDIO_2",
-  PRESET_AUDIO_3: "PRESET_AUDIO_3",
-  SHARED: "SHARED",
-  UNENCRYPTED: "UNENCRYPTED",
-} as const;
-
-/**
- * @public
- */
-export type PresetSpeke20Audio = (typeof PresetSpeke20Audio)[keyof typeof PresetSpeke20Audio];
-
-/**
- * @public
- * @enum
- */
-export const PresetSpeke20Video = {
-  PRESET_VIDEO_1: "PRESET_VIDEO_1",
-  PRESET_VIDEO_2: "PRESET_VIDEO_2",
-  PRESET_VIDEO_3: "PRESET_VIDEO_3",
-  PRESET_VIDEO_4: "PRESET_VIDEO_4",
-  PRESET_VIDEO_5: "PRESET_VIDEO_5",
-  PRESET_VIDEO_6: "PRESET_VIDEO_6",
-  PRESET_VIDEO_7: "PRESET_VIDEO_7",
-  PRESET_VIDEO_8: "PRESET_VIDEO_8",
-  SHARED: "SHARED",
-  UNENCRYPTED: "UNENCRYPTED",
-} as const;
-
-/**
- * @public
- */
-export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
 
 /**
  * <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
@@ -1783,41 +1213,6 @@ export interface Encryption {
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScteFilter = {
-  BREAK: "BREAK",
-  DISTRIBUTOR_ADVERTISEMENT: "DISTRIBUTOR_ADVERTISEMENT",
-  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
-  DISTRIBUTOR_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
-  PROGRAM: "PROGRAM",
-  PROVIDER_ADVERTISEMENT: "PROVIDER_ADVERTISEMENT",
-  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY: "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
-  PROVIDER_PLACEMENT_OPPORTUNITY: "PROVIDER_PLACEMENT_OPPORTUNITY",
-  SPLICE_INSERT: "SPLICE_INSERT",
-} as const;
-
-/**
- * @public
- */
-export type ScteFilter = (typeof ScteFilter)[keyof typeof ScteFilter];
-
-/**
- * @public
- * @enum
- */
-export const ScteInSegments = {
-  ALL: "ALL",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ScteInSegments = (typeof ScteInSegments)[keyof typeof ScteInSegments];
 
 /**
  * <p>The SCTE configuration.</p>
@@ -3602,23 +2997,6 @@ export interface CreateHarvestJobRequest {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HarvestJobStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type HarvestJobStatus = (typeof HarvestJobStatus)[keyof typeof HarvestJobStatus];
 
 /**
  * <p>The response object returned after creating a harvest job.</p>

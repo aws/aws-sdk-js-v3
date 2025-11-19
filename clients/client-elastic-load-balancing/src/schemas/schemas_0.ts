@@ -240,7 +240,7 @@ import {
   TooManyPoliciesException as __TooManyPoliciesException,
   TooManyTagsException as __TooManyTagsException,
   UnsupportedProtocolException as __UnsupportedProtocolException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

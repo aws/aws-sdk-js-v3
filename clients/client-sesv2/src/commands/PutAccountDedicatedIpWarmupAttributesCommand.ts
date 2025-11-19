@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutAccountDedicatedIpWarmupAttributesRequest,
   PutAccountDedicatedIpWarmupAttributesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { PutAccountDedicatedIpWarmupAttributes } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

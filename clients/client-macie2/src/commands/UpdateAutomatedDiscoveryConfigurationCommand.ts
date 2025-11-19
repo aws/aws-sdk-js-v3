@@ -8,7 +8,7 @@ import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   UpdateAutomatedDiscoveryConfigurationRequest,
   UpdateAutomatedDiscoveryConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { UpdateAutomatedDiscoveryConfiguration } from "../schemas/schemas_0";
 
 /**

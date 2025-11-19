@@ -283,7 +283,7 @@ import {
   StreamUnavailable as __StreamUnavailable,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { IvsServiceException as __IvsServiceException } from "../models/IvsServiceException";
 
 /* eslint no-var: 0 */

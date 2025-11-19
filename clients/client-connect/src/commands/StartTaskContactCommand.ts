@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_3";
+import { StartTaskContactResponse } from "../models/models_2";
+import { StartTaskContactRequest } from "../models/models_3";
 import { StartTaskContact } from "../schemas/schemas_0";
 
 /**

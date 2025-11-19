@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse } from "../models/models_1";
+import { ListWebAuthnCredentialsRequest, ListWebAuthnCredentialsResponse } from "../models/models_0";
 import { ListWebAuthnCredentials } from "../schemas/schemas_0";
 
 /**

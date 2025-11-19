@@ -1,7 +1,19 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTThingsGraphServiceException as __BaseException } from "./IoTThingsGraphServiceException";
+import {
+  DefinitionLanguage,
+  DeploymentTarget,
+  EntityFilterName,
+  EntityType,
+  FlowExecutionEventType,
+  FlowExecutionStatus,
+  FlowTemplateFilterName,
+  NamespaceDeletionStatus,
+  NamespaceDeletionStatusErrorCodes,
+  SystemInstanceDeploymentStatus,
+  SystemInstanceFilterName,
+  SystemTemplateFilterName,
+  UploadStatus,
+} from "./enums";
 
 /**
  * @public
@@ -34,99 +46,6 @@ export interface AssociateEntityToThingRequest {
  * @public
  */
 export interface AssociateEntityToThingResponse {}
-
-/**
- * <p></p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DefinitionLanguage = {
-  GRAPHQL: "GRAPHQL",
-} as const;
-
-/**
- * @public
- */
-export type DefinitionLanguage = (typeof DefinitionLanguage)[keyof typeof DefinitionLanguage];
 
 /**
  * <p>A document that defines an entity. </p>
@@ -206,46 +125,6 @@ export interface CreateFlowTemplateResponse {
 }
 
 /**
- * <p></p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
  * @public
  */
@@ -280,20 +159,6 @@ export interface Tag {
    */
   value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentTarget = {
-  CLOUD: "CLOUD",
-  GREENGRASS: "GREENGRASS",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentTarget = (typeof DeploymentTarget)[keyof typeof DeploymentTarget];
 
 /**
  * @public
@@ -345,27 +210,6 @@ export interface CreateSystemInstanceRequest {
    */
   flowActionsRoleArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SystemInstanceDeploymentStatus = {
-  BOOTSTRAP: "BOOTSTRAP",
-  DELETED_IN_TARGET: "DELETED_IN_TARGET",
-  DEPLOYED_IN_TARGET: "DEPLOYED_IN_TARGET",
-  DEPLOY_IN_PROGRESS: "DEPLOY_IN_PROGRESS",
-  FAILED: "FAILED",
-  NOT_DEPLOYED: "NOT_DEPLOYED",
-  PENDING_DELETE: "PENDING_DELETE",
-  UNDEPLOY_IN_PROGRESS: "UNDEPLOY_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type SystemInstanceDeploymentStatus =
-  (typeof SystemInstanceDeploymentStatus)[keyof typeof SystemInstanceDeploymentStatus];
 
 /**
  * <p>An object that contains summary information about a system instance.</p>
@@ -518,26 +362,6 @@ export interface DeleteFlowTemplateRequest {
  * @public
  */
 export interface DeleteFlowTemplateResponse {}
-
-/**
- * <p></p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
 
 /**
  * @public
@@ -735,28 +559,6 @@ export interface DescribeNamespaceResponse {
 
 /**
  * @public
- * @enum
- */
-export const EntityType = {
-  ACTION: "ACTION",
-  CAPABILITY: "CAPABILITY",
-  DEVICE: "DEVICE",
-  DEVICE_MODEL: "DEVICE_MODEL",
-  ENUM: "ENUM",
-  EVENT: "EVENT",
-  MAPPING: "MAPPING",
-  PROPERTY: "PROPERTY",
-  SERVICE: "SERVICE",
-  STATE: "STATE",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
-
-/**
- * @public
  */
 export interface DissociateEntityFromThingRequest {
   /**
@@ -814,22 +616,6 @@ export interface EntityDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const EntityFilterName = {
-  NAME: "NAME",
-  NAMESPACE: "NAMESPACE",
-  REFERENCED_ENTITY_ID: "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH: "SEMANTIC_TYPE_PATH",
-} as const;
-
-/**
- * @public
- */
-export type EntityFilterName = (typeof EntityFilterName)[keyof typeof EntityFilterName];
-
-/**
  * <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
  *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
  *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
@@ -849,35 +635,6 @@ export interface EntityFilter {
    */
   value?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowExecutionEventType = {
-  ACKNOWLEDGE_TASK_MESSAGE: "ACKNOWLEDGE_TASK_MESSAGE",
-  ACTIVITY_FAILED: "ACTIVITY_FAILED",
-  ACTIVITY_SCHEDULED: "ACTIVITY_SCHEDULED",
-  ACTIVITY_STARTED: "ACTIVITY_STARTED",
-  ACTIVITY_SUCCEEDED: "ACTIVITY_SUCCEEDED",
-  EXECUTION_ABORTED: "EXECUTION_ABORTED",
-  EXECUTION_FAILED: "EXECUTION_FAILED",
-  EXECUTION_STARTED: "EXECUTION_STARTED",
-  EXECUTION_SUCCEEDED: "EXECUTION_SUCCEEDED",
-  SCHEDULE_NEXT_READY_STEPS_TASK: "SCHEDULE_NEXT_READY_STEPS_TASK",
-  START_FLOW_EXECUTION_TASK: "START_FLOW_EXECUTION_TASK",
-  STEP_FAILED: "STEP_FAILED",
-  STEP_STARTED: "STEP_STARTED",
-  STEP_SUCCEEDED: "STEP_SUCCEEDED",
-  THING_ACTION_TASK: "THING_ACTION_TASK",
-  THING_ACTION_TASK_FAILED: "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED: "THING_ACTION_TASK_SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type FlowExecutionEventType = (typeof FlowExecutionEventType)[keyof typeof FlowExecutionEventType];
 
 /**
  * <p>An object that contains information about a flow event.</p>
@@ -908,22 +665,6 @@ export interface FlowExecutionMessage {
    */
   payload?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowExecutionStatus = {
-  ABORTED: "ABORTED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type FlowExecutionStatus = (typeof FlowExecutionStatus)[keyof typeof FlowExecutionStatus];
 
 /**
  * <p>An object that contains summary information about a flow execution.</p>
@@ -990,19 +731,6 @@ export interface FlowTemplateDescription {
    */
   validatedNamespaceVersion?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowTemplateFilterName = {
-  DEVICE_MODEL_ID: "DEVICE_MODEL_ID",
-} as const;
-
-/**
- * @public
- */
-export type FlowTemplateFilterName = (typeof FlowTemplateFilterName)[keyof typeof FlowTemplateFilterName];
 
 /**
  * <p>An object that filters a workflow search.</p>
@@ -1134,35 +862,6 @@ export interface GetFlowTemplateRevisionsResponse {
  * @public
  */
 export interface GetNamespaceDeletionStatusRequest {}
-
-/**
- * @public
- * @enum
- */
-export const NamespaceDeletionStatusErrorCodes = {
-  VALIDATION_FAILED: "VALIDATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type NamespaceDeletionStatusErrorCodes =
-  (typeof NamespaceDeletionStatusErrorCodes)[keyof typeof NamespaceDeletionStatusErrorCodes];
-
-/**
- * @public
- * @enum
- */
-export const NamespaceDeletionStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type NamespaceDeletionStatus = (typeof NamespaceDeletionStatus)[keyof typeof NamespaceDeletionStatus];
 
 /**
  * @public
@@ -1385,21 +1084,6 @@ export interface GetUploadStatusRequest {
    */
   uploadId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UploadStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type UploadStatus = (typeof UploadStatus)[keyof typeof UploadStatus];
 
 /**
  * @public
@@ -1683,21 +1367,6 @@ export interface SearchFlowTemplatesResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SystemInstanceFilterName = {
-  GREENGRASS_GROUP_NAME: "GREENGRASS_GROUP_NAME",
-  STATUS: "STATUS",
-  SYSTEM_TEMPLATE_ID: "SYSTEM_TEMPLATE_ID",
-} as const;
-
-/**
- * @public
- */
-export type SystemInstanceFilterName = (typeof SystemInstanceFilterName)[keyof typeof SystemInstanceFilterName];
-
-/**
  * <p>An object that filters a system instance search.
  *          Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a
  *          STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>
@@ -1758,19 +1427,6 @@ export interface SearchSystemInstancesResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SystemTemplateFilterName = {
-  FLOW_TEMPLATE_ID: "FLOW_TEMPLATE_ID",
-} as const;
-
-/**
- * @public
- */
-export type SystemTemplateFilterName = (typeof SystemTemplateFilterName)[keyof typeof SystemTemplateFilterName];
 
 /**
  * <p>An object that filters a system search.</p>

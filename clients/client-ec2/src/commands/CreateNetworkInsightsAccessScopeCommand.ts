@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateNetworkInsightsAccessScopeRequest, CreateNetworkInsightsAccessScopeResult } from "../models/models_2";
+import { CreateNetworkInsightsAccessScopeRequest, CreateNetworkInsightsAccessScopeResult } from "../models/models_1";
 import { CreateNetworkInsightsAccessScope } from "../schemas/schemas_0";
 
 /**

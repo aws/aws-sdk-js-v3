@@ -1,73 +1,26 @@
 // smithy-typescript generated code
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
+
 import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
-
-import { LookoutEquipmentServiceException as __BaseException } from "./LookoutEquipmentServiceException";
-
-/**
- * <p>The request could not be completed because you do not have access to the resource.
- *       </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutoPromotionResult = {
-  MODEL_NOT_PROMOTED: "MODEL_NOT_PROMOTED",
-  MODEL_PROMOTED: "MODEL_PROMOTED",
-  RETRAINING_CANCELLED: "RETRAINING_CANCELLED",
-  RETRAINING_CUSTOMER_ERROR: "RETRAINING_CUSTOMER_ERROR",
-  RETRAINING_INTERNAL_ERROR: "RETRAINING_INTERNAL_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type AutoPromotionResult = (typeof AutoPromotionResult)[keyof typeof AutoPromotionResult];
-
-/**
- * <p> The request could not be completed due to a conflict with the current state of the
- *          target resource. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
+  AutoPromotionResult,
+  DatasetStatus,
+  DataUploadFrequency,
+  InferenceDataImportStrategy,
+  InferenceExecutionStatus,
+  InferenceSchedulerStatus,
+  IngestionJobStatus,
+  LabelRating,
+  LatestInferenceResult,
+  ModelPromoteMode,
+  ModelQuality,
+  ModelStatus,
+  ModelVersionSourceType,
+  ModelVersionStatus,
+  Monotonicity,
+  RetrainingSchedulerStatus,
+  StatisticalIssueStatus,
+  TargetSamplingRate,
+} from "./enums";
 
 /**
  * <p>Provides information about the data schema used with the given dataset. </p>
@@ -139,22 +92,6 @@ export interface CreateDatasetRequest {
 
 /**
  * @public
- * @enum
- */
-export const DatasetStatus = {
-  ACTIVE: "ACTIVE",
-  CREATED: "CREATED",
-  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-  INGESTION_IN_PROGRESS: "INGESTION_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
-
-/**
- * @public
  */
 export interface CreateDatasetResponse {
   /**
@@ -174,96 +111,6 @@ export interface CreateDatasetResponse {
    * @public
    */
   Status?: DatasetStatus | undefined;
-}
-
-/**
- * <p> Processing of the request has failed because of an unknown error, exception or failure.
- *       </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> Resource limitations have been exceeded. </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
- *          service that's being utilized. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -374,23 +221,6 @@ export interface InferenceOutputConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const DataUploadFrequency = {
-  PT10M: "PT10M",
-  PT15M: "PT15M",
-  PT1H: "PT1H",
-  PT30M: "PT30M",
-  PT5M: "PT5M",
-} as const;
-
-/**
- * @public
- */
-export type DataUploadFrequency = (typeof DataUploadFrequency)[keyof typeof DataUploadFrequency];
-
-/**
- * @public
  */
 export interface CreateInferenceSchedulerRequest {
   /**
@@ -475,37 +305,6 @@ export interface CreateInferenceSchedulerRequest {
 
 /**
  * @public
- * @enum
- */
-export const ModelQuality = {
-  CANNOT_DETERMINE_QUALITY: "CANNOT_DETERMINE_QUALITY",
-  POOR_QUALITY_DETECTED: "POOR_QUALITY_DETECTED",
-  QUALITY_THRESHOLD_MET: "QUALITY_THRESHOLD_MET",
-} as const;
-
-/**
- * @public
- */
-export type ModelQuality = (typeof ModelQuality)[keyof typeof ModelQuality];
-
-/**
- * @public
- * @enum
- */
-export const InferenceSchedulerStatus = {
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type InferenceSchedulerStatus = (typeof InferenceSchedulerStatus)[keyof typeof InferenceSchedulerStatus];
-
-/**
- * @public
  */
 export interface CreateInferenceSchedulerResponse {
   /**
@@ -543,44 +342,6 @@ export interface CreateInferenceSchedulerResponse {
    */
   ModelQuality?: ModelQuality | undefined;
 }
-
-/**
- * <p> The resource requested could not be found. Verify the resource ID and retry your
- *          request. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LabelRating = {
-  ANOMALY: "ANOMALY",
-  NEUTRAL: "NEUTRAL",
-  NO_ANOMALY: "NO_ANOMALY",
-} as const;
-
-/**
- * @public
- */
-export type LabelRating = (typeof LabelRating)[keyof typeof LabelRating];
 
 /**
  * @public
@@ -710,29 +471,6 @@ export interface CreateLabelGroupResponse {
    */
   LabelGroupArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetSamplingRate = {
-  PT10M: "PT10M",
-  PT10S: "PT10S",
-  PT15M: "PT15M",
-  PT15S: "PT15S",
-  PT1H: "PT1H",
-  PT1M: "PT1M",
-  PT1S: "PT1S",
-  PT30M: "PT30M",
-  PT30S: "PT30S",
-  PT5M: "PT5M",
-  PT5S: "PT5S",
-} as const;
-
-/**
- * @public
- */
-export type TargetSamplingRate = (typeof TargetSamplingRate)[keyof typeof TargetSamplingRate];
 
 /**
  * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
@@ -961,22 +699,6 @@ export interface CreateModelRequest {
 
 /**
  * @public
- * @enum
- */
-export const ModelStatus = {
-  FAILED: "FAILED",
-  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
-
-/**
- * @public
  */
 export interface CreateModelResponse {
   /**
@@ -991,20 +713,6 @@ export interface CreateModelResponse {
    */
   Status?: ModelStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelPromoteMode = {
-  MANAGED: "MANAGED",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type ModelPromoteMode = (typeof ModelPromoteMode)[keyof typeof ModelPromoteMode];
 
 /**
  * @public
@@ -1065,22 +773,6 @@ export interface CreateRetrainingSchedulerRequest {
    */
   ClientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetrainingSchedulerStatus = {
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type RetrainingSchedulerStatus = (typeof RetrainingSchedulerStatus)[keyof typeof RetrainingSchedulerStatus];
 
 /**
  * @public
@@ -1447,22 +1139,6 @@ export interface IngestionInputConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const IngestionJobStatus = {
-  FAILED: "FAILED",
-  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
-
-/**
- * @public
  */
 export interface DescribeDataIngestionJobResponse {
   /**
@@ -1681,20 +1357,6 @@ export interface DescribeInferenceSchedulerRequest {
    */
   InferenceSchedulerName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LatestInferenceResult = {
-  ANOMALOUS: "ANOMALOUS",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type LatestInferenceResult = (typeof LatestInferenceResult)[keyof typeof LatestInferenceResult];
 
 /**
  * @public
@@ -1945,23 +1607,6 @@ export interface DescribeModelRequest {
    */
   ModelName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelVersionStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ModelVersionStatus = (typeof ModelVersionStatus)[keyof typeof ModelVersionStatus];
 
 /**
  * @public
@@ -2283,21 +1928,6 @@ export interface DescribeModelVersionRequest {
    */
   ModelVersion: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelVersionSourceType = {
-  IMPORT: "IMPORT",
-  RETRAINING: "RETRAINING",
-  TRAINING: "TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type ModelVersionSourceType = (typeof ModelVersionSourceType)[keyof typeof ModelVersionSourceType];
 
 /**
  * @public
@@ -2745,22 +2375,6 @@ export interface ImportDatasetResponse {
 
 /**
  * @public
- * @enum
- */
-export const InferenceDataImportStrategy = {
-  ADD_WHEN_EMPTY: "ADD_WHEN_EMPTY",
-  NO_IMPORT: "NO_IMPORT",
-  OVERWRITE: "OVERWRITE",
-} as const;
-
-/**
- * @public
- */
-export type InferenceDataImportStrategy =
-  (typeof InferenceDataImportStrategy)[keyof typeof InferenceDataImportStrategy];
-
-/**
- * @public
  */
 export interface ImportModelVersionRequest {
   /**
@@ -3136,21 +2750,6 @@ export interface ListInferenceEventsResponse {
    */
   InferenceEventSummaries?: InferenceEventSummary[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InferenceExecutionStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type InferenceExecutionStatus = (typeof InferenceExecutionStatus)[keyof typeof InferenceExecutionStatus];
 
 /**
  * @public
@@ -4100,20 +3699,6 @@ export interface ListSensorStatisticsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const StatisticalIssueStatus = {
-  NO_ISSUE_DETECTED: "NO_ISSUE_DETECTED",
-  POTENTIAL_ISSUE_DETECTED: "POTENTIAL_ISSUE_DETECTED",
-} as const;
-
-/**
- * @public
- */
-export type StatisticalIssueStatus = (typeof StatisticalIssueStatus)[keyof typeof StatisticalIssueStatus];
-
-/**
  * <p> Entity that comprises information on categorical values in data. </p>
  * @public
  */
@@ -4175,21 +3760,6 @@ export interface LargeTimestampGaps {
    */
   MaxTimestampGapInDays?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Monotonicity = {
-  DECREASING: "DECREASING",
-  INCREASING: "INCREASING",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type Monotonicity = (typeof Monotonicity)[keyof typeof Monotonicity];
 
 /**
  * <p> Entity that comprises information on monotonic values in the data. </p>

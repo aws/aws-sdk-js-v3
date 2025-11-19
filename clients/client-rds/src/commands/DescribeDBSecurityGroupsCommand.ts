@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/models_1";
+import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/models_0";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeDBSecurityGroups } from "../schemas/schemas_0";
 

@@ -110,7 +110,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { PcaConnectorScepServiceException as __PcaConnectorScepServiceException } from "../models/PcaConnectorScepServiceException";
 
 /* eslint no-var: 0 */

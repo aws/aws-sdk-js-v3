@@ -1,8 +1,4 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
-
 /**
  * @public
  * @enum
@@ -1042,27 +1038,6 @@ export interface AutoScalingUpdate {
 }
 
 /**
- * <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
- *          retry it.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
  * <p>Details about a connector's provisioned capacity.</p>
  * @public
  */
@@ -1154,27 +1129,6 @@ export interface CloudWatchLogsLogDelivery {
    * @public
    */
   logGroup?: string | undefined;
-}
-
-/**
- * <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your
- *          request with another name.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -1427,131 +1381,6 @@ export interface CreateConnectorResponse {
    * @public
    */
   connectorState?: ConnectorState | undefined;
-}
-
-/**
- * <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
- *          request.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-  }
-}
-
-/**
- * <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might
- *          resolve the issue.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-  }
-}
-
-/**
- * <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request
- *          and then retry it.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
- *          resolve the issue.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-  }
-}
-
-/**
- * <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
- *          validated.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
 }
 
 /**

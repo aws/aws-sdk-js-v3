@@ -1,7 +1,26 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { LicenseManagerServiceException as __BaseException } from "./LicenseManagerServiceException";
+import {
+  ActivationOverrideBehavior,
+  AllowedOperation,
+  CheckoutType,
+  DigitalSignatureMethod,
+  EntitlementDataUnit,
+  EntitlementUnit,
+  GrantStatus,
+  InventoryFilterCondition,
+  LicenseConfigurationStatus,
+  LicenseConversionTaskStatus,
+  LicenseCountingType,
+  LicenseDeletionStatus,
+  LicenseStatus,
+  ProductCodeType,
+  ReceivedStatus,
+  RenewType,
+  ReportFrequencyType,
+  ReportType,
+  ResourceType,
+  TokenType,
+} from "./enums";
 
 /**
  * @public
@@ -13,27 +32,6 @@ export interface AcceptGrantRequest {
    */
   GrantArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GrantStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  FAILED_WORKFLOW: "FAILED_WORKFLOW",
-  PENDING_ACCEPT: "PENDING_ACCEPT",
-  PENDING_DELETE: "PENDING_DELETE",
-  PENDING_WORKFLOW: "PENDING_WORKFLOW",
-  REJECTED: "REJECTED",
-  WORKFLOW_COMPLETED: "WORKFLOW_COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type GrantStatus = (typeof GrantStatus)[keyof typeof GrantStatus];
 
 /**
  * @public
@@ -57,194 +55,6 @@ export interface AcceptGrantResponse {
    */
   Version?: string | undefined;
 }
-
-/**
- * <p>Access to resource denied.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
- * @public
- */
-export class AuthorizationException extends __BaseException {
-  readonly name: "AuthorizationException" = "AuthorizationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationException, __BaseException>) {
-    super({
-      name: "AuthorizationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more parameter values are not valid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Too many requests have been submitted. Try again after a brief wait.</p>
- * @public
- */
-export class RateLimitExceededException extends __BaseException {
-  readonly name: "RateLimitExceededException" = "RateLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RateLimitExceededException, __BaseException>) {
-    super({
-      name: "RateLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RateLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Your resource limits have been exceeded.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The server experienced an internal error. Try again.</p>
- * @public
- */
-export class ServerInternalException extends __BaseException {
-  readonly name: "ServerInternalException" = "ServerInternalException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerInternalException, __BaseException>) {
-    super({
-      name: "ServerInternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerInternalException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The provided input is not valid. Try your request again.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActivationOverrideBehavior = {
-  ALL_GRANTS_PERMITTED_BY_ISSUER: "ALL_GRANTS_PERMITTED_BY_ISSUER",
-  DISTRIBUTED_GRANTS_ONLY: "DISTRIBUTED_GRANTS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type ActivationOverrideBehavior = (typeof ActivationOverrideBehavior)[keyof typeof ActivationOverrideBehavior];
-
-/**
- * @public
- * @enum
- */
-export const AllowedOperation = {
-  CHECKOUT_BORROW_LICENSE: "CheckoutBorrowLicense",
-  CHECKOUT_LICENSE: "CheckoutLicense",
-  CHECK_IN_LICENSE: "CheckInLicense",
-  CREATE_GRANT: "CreateGrant",
-  CREATE_TOKEN: "CreateToken",
-  EXTEND_CONSUMPTION_LICENSE: "ExtendConsumptionLicense",
-  LIST_PURCHASED_LICENSES: "ListPurchasedLicenses",
-} as const;
-
-/**
- * @public
- */
-export type AllowedOperation = (typeof AllowedOperation)[keyof typeof AllowedOperation];
 
 /**
  * <p>Describes automated discovery.</p>
@@ -281,50 +91,6 @@ export interface CheckInLicenseRequest {
 export interface CheckInLicenseResponse {}
 
 /**
- * <p>There was a conflict processing the request. Try your request again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Describes key/value pairs.</p>
  * @public
  */
@@ -341,58 +107,6 @@ export interface Metadata {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DigitalSignatureMethod = {
-  JWT_PS384: "JWT_PS384",
-} as const;
-
-/**
- * @public
- */
-export type DigitalSignatureMethod = (typeof DigitalSignatureMethod)[keyof typeof DigitalSignatureMethod];
-
-/**
- * @public
- * @enum
- */
-export const EntitlementDataUnit = {
-  BITS: "Bits",
-  BITS_PER_SECOND: "Bits/Second",
-  BYTES: "Bytes",
-  BYTES_PER_SECOND: "Bytes/Second",
-  COUNT: "Count",
-  COUNT_PER_SECOND: "Count/Second",
-  GIGABITS: "Gigabits",
-  GIGABITS_PER_SECOND: "Gigabits/Second",
-  GIGABYTES: "Gigabytes",
-  GIGABYTES_PER_SECOND: "Gigabytes/Second",
-  KILOBITS: "Kilobits",
-  KILOBITS_PER_SECOND: "Kilobits/Second",
-  KILOBYTES: "Kilobytes",
-  KILOBYTES_PER_SECOND: "Kilobytes/Second",
-  MEGABITS: "Megabits",
-  MEGABITS_PER_SECOND: "Megabits/Second",
-  MEGABYTES: "Megabytes",
-  MEGABYTES_PER_SECOND: "Megabytes/Second",
-  MICROSECONDS: "Microseconds",
-  MILLISECONDS: "Milliseconds",
-  NONE: "None",
-  PERCENT: "Percent",
-  SECONDS: "Seconds",
-  TERABITS: "Terabits",
-  TERABITS_PER_SECOND: "Terabits/Second",
-  TERABYTES: "Terabytes",
-  TERABYTES_PER_SECOND: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type EntitlementDataUnit = (typeof EntitlementDataUnit)[keyof typeof EntitlementDataUnit];
 
 /**
  * <p>Data associated with an entitlement resource.</p>
@@ -512,110 +226,6 @@ export interface CheckoutBorrowLicenseResponse {
    */
   CheckoutMetadata?: Metadata[] | undefined;
 }
-
-/**
- * <p>The entitlement is not allowed.</p>
- * @public
- */
-export class EntitlementNotAllowedException extends __BaseException {
-  readonly name: "EntitlementNotAllowedException" = "EntitlementNotAllowedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntitlementNotAllowedException, __BaseException>) {
-    super({
-      name: "EntitlementNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntitlementNotAllowedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
- * @public
- */
-export class NoEntitlementsAllowedException extends __BaseException {
-  readonly name: "NoEntitlementsAllowedException" = "NoEntitlementsAllowedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoEntitlementsAllowedException, __BaseException>) {
-    super({
-      name: "NoEntitlementsAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoEntitlementsAllowedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This is not the correct Region for the resource. Try again.</p>
- * @public
- */
-export class RedirectException extends __BaseException {
-  readonly name: "RedirectException" = "RedirectException";
-  readonly $fault: "client" = "client";
-  Location?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RedirectException, __BaseException>) {
-    super({
-      name: "RedirectException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RedirectException.prototype);
-    this.Location = opts.Location;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The digital signature method is unsupported. Try your request again.</p>
- * @public
- */
-export class UnsupportedDigitalSignatureMethodException extends __BaseException {
-  readonly name: "UnsupportedDigitalSignatureMethodException" = "UnsupportedDigitalSignatureMethodException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedDigitalSignatureMethodException, __BaseException>) {
-    super({
-      name: "UnsupportedDigitalSignatureMethodException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedDigitalSignatureMethodException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CheckoutType = {
-  PERPETUAL: "PERPETUAL",
-  PROVISIONAL: "PROVISIONAL",
-} as const;
-
-/**
- * @public
- */
-export type CheckoutType = (typeof CheckoutType)[keyof typeof CheckoutType];
 
 /**
  * @public
@@ -974,21 +584,6 @@ export interface ProvisionalConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const RenewType = {
-  MONTHLY: "Monthly",
-  NONE: "None",
-  WEEKLY: "Weekly",
-} as const;
-
-/**
- * @public
- */
-export type RenewType = (typeof RenewType)[keyof typeof RenewType];
-
-/**
  * <p>Details about a consumption configuration.</p>
  * @public
  */
@@ -1011,45 +606,6 @@ export interface ConsumptionConfiguration {
    */
   BorrowConfiguration?: BorrowConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntitlementUnit = {
-  BITS: "Bits",
-  BITS_PER_SECOND: "Bits/Second",
-  BYTES: "Bytes",
-  BYTES_PER_SECOND: "Bytes/Second",
-  COUNT: "Count",
-  COUNT_PER_SECOND: "Count/Second",
-  GIGABITS: "Gigabits",
-  GIGABITS_PER_SECOND: "Gigabits/Second",
-  GIGABYTES: "Gigabytes",
-  GIGABYTES_PER_SECOND: "Gigabytes/Second",
-  KILOBITS: "Kilobits",
-  KILOBITS_PER_SECOND: "Kilobits/Second",
-  KILOBYTES: "Kilobytes",
-  KILOBYTES_PER_SECOND: "Kilobytes/Second",
-  MEGABITS: "Megabits",
-  MEGABITS_PER_SECOND: "Megabits/Second",
-  MEGABYTES: "Megabytes",
-  MEGABYTES_PER_SECOND: "Megabytes/Second",
-  MICROSECONDS: "Microseconds",
-  MILLISECONDS: "Milliseconds",
-  NONE: "None",
-  PERCENT: "Percent",
-  SECONDS: "Seconds",
-  TERABITS: "Terabits",
-  TERABITS_PER_SECOND: "Terabits/Second",
-  TERABYTES: "Terabytes",
-  TERABYTES_PER_SECOND: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type EntitlementUnit = (typeof EntitlementUnit)[keyof typeof EntitlementUnit];
 
 /**
  * <p>Describes a resource entitled for use with a license.</p>
@@ -1212,25 +768,6 @@ export interface CreateLicenseRequest {
 
 /**
  * @public
- * @enum
- */
-export const LicenseStatus = {
-  AVAILABLE: "AVAILABLE",
-  DEACTIVATED: "DEACTIVATED",
-  DELETED: "DELETED",
-  EXPIRED: "EXPIRED",
-  PENDING_AVAILABLE: "PENDING_AVAILABLE",
-  PENDING_DELETE: "PENDING_DELETE",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type LicenseStatus = (typeof LicenseStatus)[keyof typeof LicenseStatus];
-
-/**
- * @public
  */
 export interface CreateLicenseResponse {
   /**
@@ -1251,22 +788,6 @@ export interface CreateLicenseResponse {
    */
   Version?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LicenseCountingType = {
-  CORE: "Core",
-  INSTANCE: "Instance",
-  SOCKET: "Socket",
-  VCPU: "vCPU",
-} as const;
-
-/**
- * @public
- */
-export type LicenseCountingType = (typeof LicenseCountingType)[keyof typeof LicenseCountingType];
 
 /**
  * <p>Describes product information filters.</p>
@@ -1486,19 +1007,6 @@ export interface CreateLicenseConfigurationResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProductCodeType = {
-  MARKETPLACE: "marketplace",
-} as const;
-
-/**
- * @public
- */
-export type ProductCodeType = (typeof ProductCodeType)[keyof typeof ProductCodeType];
-
-/**
  * <p>A list item that contains a product code.</p>
  * @public
  */
@@ -1585,21 +1093,6 @@ export interface ReportContext {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReportFrequencyType = {
-  DAY: "DAY",
-  MONTH: "MONTH",
-  WEEK: "WEEK",
-} as const;
-
-/**
- * @public
- */
-export type ReportFrequencyType = (typeof ReportFrequencyType)[keyof typeof ReportFrequencyType];
-
-/**
  * <p>Details about how frequently reports are generated.</p>
  * @public
  */
@@ -1617,20 +1110,6 @@ export interface ReportFrequency {
    */
   period?: ReportFrequencyType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReportType = {
-  LICENSE_CONFIGURATION_SUMMARY_REPORT: "LicenseConfigurationSummaryReport",
-  LICENSE_CONFIGURATION_USAGE_REPORT: "LicenseConfigurationUsageReport",
-} as const;
-
-/**
- * @public
- */
-export type ReportType = (typeof ReportType)[keyof typeof ReportType];
 
 /**
  * @public
@@ -1840,19 +1319,6 @@ export interface CreateTokenRequest {
 
 /**
  * @public
- * @enum
- */
-export const TokenType = {
-  REFRESH_TOKEN: "REFRESH_TOKEN",
-} as const;
-
-/**
- * @public
- */
-export type TokenType = (typeof TokenType)[keyof typeof TokenType];
-
-/**
- * @public
  */
 export interface CreateTokenResponse {
   /**
@@ -1936,20 +1402,6 @@ export interface DeleteLicenseRequest {
    */
   SourceVersion: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LicenseDeletionStatus = {
-  DELETED: "DELETED",
-  PENDING_DELETE: "PENDING_DELETE",
-} as const;
-
-/**
- * @public
- */
-export type LicenseDeletionStatus = (typeof LicenseDeletionStatus)[keyof typeof LicenseDeletionStatus];
 
 /**
  * @public
@@ -2333,23 +1785,6 @@ export interface GetLicenseConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceType = {
-  EC2_AMI: "EC2_AMI",
-  EC2_HOST: "EC2_HOST",
-  EC2_INSTANCE: "EC2_INSTANCE",
-  RDS: "RDS",
-  SYSTEMS_MANAGER_MANAGED_INSTANCE: "SYSTEMS_MANAGER_MANAGED_INSTANCE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * <p>Details about license consumption.</p>
  * @public
  */
@@ -2502,22 +1937,6 @@ export interface GetLicenseConversionTaskRequest {
    */
   LicenseConversionTaskId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LicenseConversionTaskStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type LicenseConversionTaskStatus =
-  (typeof LicenseConversionTaskStatus)[keyof typeof LicenseConversionTaskStatus];
 
 /**
  * @public
@@ -2819,28 +2238,6 @@ export interface GetServiceSettingsResponse {
    * @public
    */
   LicenseManagerResourceShareArn?: string | undefined;
-}
-
-/**
- * <p>The request uses too many filters or too many filter values.</p>
- * @public
- */
-export class FilterLimitExceededException extends __BaseException {
-  readonly name: "FilterLimitExceededException" = "FilterLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FilterLimitExceededException, __BaseException>) {
-    super({
-      name: "FilterLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FilterLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3778,26 +3175,6 @@ export interface ListReceivedLicensesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReceivedStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  FAILED_WORKFLOW: "FAILED_WORKFLOW",
-  PENDING_ACCEPT: "PENDING_ACCEPT",
-  PENDING_WORKFLOW: "PENDING_WORKFLOW",
-  REJECTED: "REJECTED",
-  WORKFLOW_COMPLETED: "WORKFLOW_COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type ReceivedStatus = (typeof ReceivedStatus)[keyof typeof ReceivedStatus];
-
-/**
  * <p>Metadata associated with received licenses and grants.</p>
  * @public
  */
@@ -3985,46 +3362,6 @@ export interface ListReceivedLicensesForOrganizationResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * <p>A dependency required to run the API is missing.</p>
- * @public
- */
-export class FailedDependencyException extends __BaseException {
-  readonly name: "FailedDependencyException" = "FailedDependencyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ErrorCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FailedDependencyException, __BaseException>) {
-    super({
-      name: "FailedDependencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FailedDependencyException.prototype);
-    this.Message = opts.Message;
-    this.ErrorCode = opts.ErrorCode;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InventoryFilterCondition = {
-  BEGINS_WITH: "BEGINS_WITH",
-  CONTAINS: "CONTAINS",
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type InventoryFilterCondition = (typeof InventoryFilterCondition)[keyof typeof InventoryFilterCondition];
 
 /**
  * <p>An inventory filter.</p>
@@ -4500,20 +3837,6 @@ export interface UntagResourceResponse {}
 
 /**
  * @public
- * @enum
- */
-export const LicenseConfigurationStatus = {
-  AVAILABLE: "AVAILABLE",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type LicenseConfigurationStatus = (typeof LicenseConfigurationStatus)[keyof typeof LicenseConfigurationStatus];
-
-/**
- * @public
  */
 export interface UpdateLicenseConfigurationRequest {
   /**
@@ -4636,52 +3959,6 @@ export interface UpdateLicenseManagerReportGeneratorRequest {
  * @public
  */
 export interface UpdateLicenseManagerReportGeneratorResponse {}
-
-/**
- * <p>License Manager cannot allocate a license to a resource because of its state. </p>
- *          <p>For example, you cannot allocate a license to an instance in the process of shutting
- *          down.</p>
- * @public
- */
-export class InvalidResourceStateException extends __BaseException {
-  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
-    super({
-      name: "InvalidResourceStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You do not have enough licenses available to support a new resource launch.</p>
- * @public
- */
-export class LicenseUsageException extends __BaseException {
-  readonly name: "LicenseUsageException" = "LicenseUsageException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LicenseUsageException, __BaseException>) {
-    super({
-      name: "LicenseUsageException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LicenseUsageException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

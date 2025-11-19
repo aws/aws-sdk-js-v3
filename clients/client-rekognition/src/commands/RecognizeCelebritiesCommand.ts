@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RecognizeCelebritiesRequest, RecognizeCelebritiesResponse } from "../models/models_1";
+import { RecognizeCelebritiesRequest, RecognizeCelebritiesResponse } from "../models/models_0";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { RecognizeCelebrities } from "../schemas/schemas_0";
 

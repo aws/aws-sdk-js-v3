@@ -1,29 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SSMQuickSetupServiceException as __BaseException } from "./SSMQuickSetupServiceException";
-
-/**
- * <p>The requester has insufficient permissions to perform the operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import { Status, StatusType } from "./enums";
 
 /**
  * <p>The definition of a Quick Setup configuration.</p>
@@ -1520,42 +1496,6 @@ export interface ConfigurationDefinitionSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const Status = {
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  DEPLOYING: "DEPLOYING",
-  FAILED: "FAILED",
-  INITIALIZING: "INITIALIZING",
-  NONE: "NONE",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  STOP_FAILED: "STOP_FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * @public
- * @enum
- */
-export const StatusType = {
-  ASYNC_EXECUTIONS: "AsyncExecutions",
-  DEPLOYMENT: "Deployment",
-} as const;
-
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
-
-/**
  * <p>A summarized description of the status.</p>
  * @public
  */
@@ -1701,28 +1641,6 @@ export interface ConfigurationSummary {
 }
 
 /**
- * <p>Another request is being processed. Wait a few minutes and try again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateConfigurationManagerInput {
@@ -1764,75 +1682,6 @@ export interface CreateConfigurationManagerOutput {
 }
 
 /**
- * <p>An error occurred on the server side.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request is invalid. Verify the values provided for the request parameters are
- *                   accurate.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteConfigurationManagerInput {
@@ -1841,28 +1690,6 @@ export interface DeleteConfigurationManagerInput {
    * @public
    */
   ManagerArn: string | undefined;
-}
-
-/**
- * <p>The resource couldn't be found. Check the ID or name and try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

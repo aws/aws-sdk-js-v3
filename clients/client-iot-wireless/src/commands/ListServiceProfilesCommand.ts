@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListServiceProfilesRequest, ListServiceProfilesResponse } from "../models/models_1";
+import { ListServiceProfilesRequest, ListServiceProfilesResponse } from "../models/models_0";
 import { ListServiceProfiles } from "../schemas/schemas_0";
 
 /**

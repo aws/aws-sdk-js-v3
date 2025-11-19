@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { TransferInputDeviceRequest, TransferInputDeviceResponse } from "../models/models_2";
+import { TransferInputDeviceRequest, TransferInputDeviceResponse } from "../models/models_1";
 import { TransferInputDevice } from "../schemas/schemas_0";
 
 /**

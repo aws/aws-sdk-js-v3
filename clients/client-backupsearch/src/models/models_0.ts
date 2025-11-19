@@ -1,27 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BackupSearchServiceException as __BaseException } from "./BackupSearchServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  ExportJobStatus,
+  LongConditionOperator,
+  ResourceType,
+  SearchJobState,
+  StringConditionOperator,
+  TimeConditionOperator,
+} from "./enums";
 
 /**
  * <p>This filters by recovery points within the CreatedAfter and CreatedBefore timestamps.</p>
@@ -39,68 +24,6 @@ export interface BackupCreationTimeFilter {
    * @public
    */
   CreatedBefore?: Date | undefined;
-}
-
-/**
- * <p>This exception occurs when a conflict with a previous successful operation is detected. This generally occurs when the previous operation did not have time to propagate to the host serving the current request.</p> <p>A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the resource affected.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>Type of the resource affected.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Retry the call after number of seconds.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
 }
 
 /**
@@ -125,37 +48,6 @@ export interface ListSearchJobBackupsInput {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  EBS: "EBS",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const SearchJobState = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type SearchJobState = (typeof SearchJobState)[keyof typeof SearchJobState];
 
 /**
  * <p>This contains the information about recovery points returned in results of a search job.</p>
@@ -220,104 +112,6 @@ export interface ListSearchJobBackupsOutput {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Hypothetical identifier of the resource affected.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>Hypothetical type of the resource affected.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>This is the code unique to the originating service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>This is the code unique to the originating service with the quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>Retry the call after number of seconds.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by a service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -576,22 +370,6 @@ export interface GetSearchJobInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const TimeConditionOperator = {
-  EQUALS_TO: "EQUALS_TO",
-  GREATER_THAN_EQUAL_TO: "GREATER_THAN_EQUAL_TO",
-  LESS_THAN_EQUAL_TO: "LESS_THAN_EQUAL_TO",
-  NOT_EQUALS_TO: "NOT_EQUALS_TO",
-} as const;
-
-/**
- * @public
- */
-export type TimeConditionOperator = (typeof TimeConditionOperator)[keyof typeof TimeConditionOperator];
-
-/**
  * <p>A time condition denotes a creation time, last modification time, or other time.</p>
  * @public
  */
@@ -610,26 +388,6 @@ export interface TimeCondition {
 }
 
 /**
- * @public
- * @enum
- */
-export const StringConditionOperator = {
-  BEGINS_WITH: "BEGINS_WITH",
-  CONTAINS: "CONTAINS",
-  DOES_NOT_BEGIN_WITH: "DOES_NOT_BEGIN_WITH",
-  DOES_NOT_CONTAIN: "DOES_NOT_CONTAIN",
-  DOES_NOT_END_WITH: "DOES_NOT_END_WITH",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS_TO: "EQUALS_TO",
-  NOT_EQUALS_TO: "NOT_EQUALS_TO",
-} as const;
-
-/**
- * @public
- */
-export type StringConditionOperator = (typeof StringConditionOperator)[keyof typeof StringConditionOperator];
-
-/**
  * <p>This contains the value of the string and can contain one or more operators.</p>
  * @public
  */
@@ -646,22 +404,6 @@ export interface StringCondition {
    */
   Operator?: StringConditionOperator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LongConditionOperator = {
-  EQUALS_TO: "EQUALS_TO",
-  GREATER_THAN_EQUAL_TO: "GREATER_THAN_EQUAL_TO",
-  LESS_THAN_EQUAL_TO: "LESS_THAN_EQUAL_TO",
-  NOT_EQUALS_TO: "NOT_EQUALS_TO",
-} as const;
-
-/**
- * @public
- */
-export type LongConditionOperator = (typeof LongConditionOperator)[keyof typeof LongConditionOperator];
 
 /**
  * <p>The long condition contains a <code>Value</code> and can optionally contain an <code>Operator</code>.</p>
@@ -991,54 +733,6 @@ export interface ListSearchJobsOutput {
 }
 
 /**
- * <p>The request denied due to exceeding the quota limits permitted.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>Type of resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>This is the code unique to the originating service with the quota.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>This is the code specific to the quota type.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * @public
  */
 export interface StartSearchJobInput {
@@ -1117,21 +811,6 @@ export interface StopSearchJobInput {
  * @public
  */
 export interface StopSearchJobOutput {}
-
-/**
- * @public
- * @enum
- */
-export const ExportJobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type ExportJobStatus = (typeof ExportJobStatus)[keyof typeof ExportJobStatus];
 
 /**
  * <p>This specification contains a required string of the destination bucket; optionally, you can include the destination prefix.</p>

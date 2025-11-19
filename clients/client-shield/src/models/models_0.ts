@@ -1,47 +1,17 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ShieldServiceException as __BaseException } from "./ShieldServiceException";
-
-/**
- * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
- * @public
- */
-export class AccessDeniedForDependencyException extends __BaseException {
-  readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedForDependencyException, __BaseException>) {
-    super({
-      name: "AccessDeniedForDependencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedForDependencyException.prototype);
-  }
-}
+import {
+  ApplicationLayerAutomaticResponseStatus,
+  AttackLayer,
+  AttackPropertyIdentifier,
+  AutoRenew,
+  ProactiveEngagementStatus,
+  ProtectedResourceType,
+  ProtectionGroupAggregation,
+  ProtectionGroupPattern,
+  SubResourceType,
+  SubscriptionState,
+  Unit,
+} from "./enums";
 
 /**
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>
@@ -84,21 +54,6 @@ export interface ResponseAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const ApplicationLayerAutomaticResponseStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationLayerAutomaticResponseStatus =
-  (typeof ApplicationLayerAutomaticResponseStatus)[keyof typeof ApplicationLayerAutomaticResponseStatus];
-
-/**
  * <p>The automatic application layer DDoS mitigation settings for a <a>Protection</a>.
  *        This configuration determines whether Shield Advanced automatically
  *        manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>
@@ -137,46 +92,6 @@ export interface AssociateDRTLogBucketRequest {
 export interface AssociateDRTLogBucketResponse {}
 
 /**
- * <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
- * @public
- */
-export class InternalErrorException extends __BaseException {
-  readonly name: "InternalErrorException" = "InternalErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
-    super({
-      name: "InternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalErrorException.prototype);
-  }
-}
-
-/**
- * <p>Exception that indicates that the operation would not cause any change to occur.</p>
- * @public
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-  }
-}
-
-/**
  * <p>Provides information about a particular parameter passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -192,156 +107,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Additional information about the exception.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>Fields that caused the exception.</p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
-  }
-}
-
-/**
- * <p>Exception that indicates that the operation would exceed a limit.</p>
- * @public
- */
-export class LimitsExceededException extends __BaseException {
-  readonly name: "LimitsExceededException" = "LimitsExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The type of limit that would be exceeded.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The threshold that would be exceeded.</p>
-   * @public
-   */
-  Limit?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitsExceededException, __BaseException>) {
-    super({
-      name: "LimitsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitsExceededException.prototype);
-    this.Type = opts.Type;
-    this.Limit = opts.Limit;
-  }
-}
-
-/**
- * <p>The ARN of the role that you specified does not exist.</p>
- * @public
- */
-export class NoAssociatedRoleException extends __BaseException {
-  readonly name: "NoAssociatedRoleException" = "NoAssociatedRoleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoAssociatedRoleException, __BaseException>) {
-    super({
-      name: "NoAssociatedRoleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoAssociatedRoleException.prototype);
-  }
-}
-
-/**
- * <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
- * @public
- */
-export class OptimisticLockException extends __BaseException {
-  readonly name: "OptimisticLockException" = "OptimisticLockException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OptimisticLockException, __BaseException>) {
-    super({
-      name: "OptimisticLockException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OptimisticLockException.prototype);
-  }
-}
-
-/**
- * <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Type of resource.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -382,26 +147,6 @@ export interface AssociateHealthCheckRequest {
  * @public
  */
 export interface AssociateHealthCheckResponse {}
-
-/**
- * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
- * @public
- */
-export class InvalidResourceException extends __BaseException {
-  readonly name: "InvalidResourceException" = "InvalidResourceException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceException, __BaseException>) {
-    super({
-      name: "InvalidResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceException.prototype);
-  }
-}
 
 /**
  * <p>Contact information that the SRT can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
@@ -490,40 +235,6 @@ export interface SummarizedCounter {
 }
 
 /**
- * @public
- * @enum
- */
-export const AttackLayer = {
-  APPLICATION: "APPLICATION",
-  NETWORK: "NETWORK",
-} as const;
-
-/**
- * @public
- */
-export type AttackLayer = (typeof AttackLayer)[keyof typeof AttackLayer];
-
-/**
- * @public
- * @enum
- */
-export const AttackPropertyIdentifier = {
-  DESTINATION_URL: "DESTINATION_URL",
-  REFERRER: "REFERRER",
-  SOURCE_ASN: "SOURCE_ASN",
-  SOURCE_COUNTRY: "SOURCE_COUNTRY",
-  SOURCE_IP_ADDRESS: "SOURCE_IP_ADDRESS",
-  SOURCE_USER_AGENT: "SOURCE_USER_AGENT",
-  WORDPRESS_PINGBACK_REFLECTOR: "WORDPRESS_PINGBACK_REFLECTOR",
-  WORDPRESS_PINGBACK_SOURCE: "WORDPRESS_PINGBACK_SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type AttackPropertyIdentifier = (typeof AttackPropertyIdentifier)[keyof typeof AttackPropertyIdentifier];
-
-/**
  * <p>A contributor to the attack and their contribution. </p>
  * @public
  */
@@ -540,22 +251,6 @@ export interface Contributor {
    */
   Value?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Unit = {
-  BITS: "BITS",
-  BYTES: "BYTES",
-  PACKETS: "PACKETS",
-  REQUESTS: "REQUESTS",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * <p>Details of a Shield event. This is provided as part of an <a>AttackDetail</a>.</p>
@@ -630,20 +325,6 @@ export interface SummarizedAttackVector {
    */
   VectorCounters?: SummarizedCounter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SubResourceType = {
-  IP: "IP",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type SubResourceType = (typeof SubResourceType)[keyof typeof SubResourceType];
 
 /**
  * <p>The attack information for the specified SubResource.</p>
@@ -892,20 +573,6 @@ export interface AttackSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutoRenew = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutoRenew = (typeof AutoRenew)[keyof typeof AutoRenew];
-
-/**
  * <p>A tag associated with an Amazon Web Services resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
  * @public
  */
@@ -989,81 +656,6 @@ export interface CreateProtectionResponse {
    */
   ProtectionId?: string | undefined;
 }
-
-/**
- * <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The type of resource that already exists.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ProtectionGroupAggregation = {
-  MAX: "MAX",
-  MEAN: "MEAN",
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type ProtectionGroupAggregation = (typeof ProtectionGroupAggregation)[keyof typeof ProtectionGroupAggregation];
-
-/**
- * @public
- * @enum
- */
-export const ProtectionGroupPattern = {
-  ALL: "ALL",
-  ARBITRARY: "ARBITRARY",
-  BY_RESOURCE_TYPE: "BY_RESOURCE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ProtectionGroupPattern = (typeof ProtectionGroupPattern)[keyof typeof ProtectionGroupPattern];
-
-/**
- * @public
- * @enum
- */
-export const ProtectedResourceType = {
-  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
-  CLASSIC_LOAD_BALANCER: "CLASSIC_LOAD_BALANCER",
-  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
-  ELASTIC_IP_ALLOCATION: "ELASTIC_IP_ALLOCATION",
-  GLOBAL_ACCELERATOR: "GLOBAL_ACCELERATOR",
-  ROUTE_53_HOSTED_ZONE: "ROUTE_53_HOSTED_ZONE",
-} as const;
-
-/**
- * @public
- */
-export type ProtectedResourceType = (typeof ProtectedResourceType)[keyof typeof ProtectedResourceType];
 
 /**
  * @public
@@ -1175,26 +767,6 @@ export interface DeleteSubscriptionRequest {}
  * @public
  */
 export interface DeleteSubscriptionResponse {}
-
-/**
- * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
- * @public
- */
-export class LockedSubscriptionException extends __BaseException {
-  readonly name: "LockedSubscriptionException" = "LockedSubscriptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LockedSubscriptionException, __BaseException>) {
-    super({
-      name: "LockedSubscriptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LockedSubscriptionException.prototype);
-  }
-}
 
 /**
  * @public
@@ -1470,21 +1042,6 @@ export interface Limit {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProactiveEngagementStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ProactiveEngagementStatus = (typeof ProactiveEngagementStatus)[keyof typeof ProactiveEngagementStatus];
-
-/**
  * <p>Limits settings on protection groups with arbitrary pattern type. </p>
  * @public
  */
@@ -1739,20 +1296,6 @@ export interface GetSubscriptionStateRequest {}
 
 /**
  * @public
- * @enum
- */
-export const SubscriptionState = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionState = (typeof SubscriptionState)[keyof typeof SubscriptionState];
-
-/**
- * @public
  */
 export interface GetSubscriptionStateResponse {
   /**
@@ -1829,26 +1372,6 @@ export interface ListAttacksResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
- * @public
- */
-export class InvalidPaginationTokenException extends __BaseException {
-  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
-    super({
-      name: "InvalidPaginationTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
-  }
 }
 
 /**

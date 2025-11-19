@@ -8,7 +8,7 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   ListEventBridgeRuleTemplateGroupsRequest,
   ListEventBridgeRuleTemplateGroupsResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import { ListEventBridgeRuleTemplateGroups } from "../schemas/schemas_0";
 
 /**

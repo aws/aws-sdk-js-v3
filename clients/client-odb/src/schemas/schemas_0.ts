@@ -458,7 +458,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { OdbServiceException as __OdbServiceException } from "../models/OdbServiceException";
 
 /* eslint no-var: 0 */

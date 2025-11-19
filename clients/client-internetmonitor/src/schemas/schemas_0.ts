@@ -194,7 +194,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyRequestsException as __TooManyRequestsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { InternetMonitorServiceException as __InternetMonitorServiceException } from "../models/InternetMonitorServiceException";
 
 /* eslint no-var: 0 */

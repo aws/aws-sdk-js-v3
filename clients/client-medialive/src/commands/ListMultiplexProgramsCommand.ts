@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListMultiplexProgramsRequest, ListMultiplexProgramsResponse } from "../models/models_2";
+import { ListMultiplexProgramsRequest, ListMultiplexProgramsResponse } from "../models/models_1";
 import { ListMultiplexPrograms } from "../schemas/schemas_0";
 
 /**

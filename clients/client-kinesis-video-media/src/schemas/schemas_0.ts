@@ -38,7 +38,7 @@ import {
   InvalidEndpointException as __InvalidEndpointException,
   NotAuthorizedException as __NotAuthorizedException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisVideoMediaServiceException as __KinesisVideoMediaServiceException } from "../models/KinesisVideoMediaServiceException";
 
 /* eslint no-var: 0 */

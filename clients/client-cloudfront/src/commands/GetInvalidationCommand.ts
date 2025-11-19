@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_1";
+import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_0";
 import { GetInvalidation } from "../schemas/schemas_0";
 
 /**

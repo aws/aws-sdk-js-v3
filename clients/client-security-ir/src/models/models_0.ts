@@ -1,75 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SecurityIRServiceException as __BaseException } from "./SecurityIRServiceException";
-
-/**
- * <p/>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AwsRegion = {
-  AF_SOUTH_1: "af-south-1",
-  AP_EAST_1: "ap-east-1",
-  AP_EAST_2: "ap-east-2",
-  AP_NORTHEAST_1: "ap-northeast-1",
-  AP_NORTHEAST_2: "ap-northeast-2",
-  AP_NORTHEAST_3: "ap-northeast-3",
-  AP_SOUTHEAST_1: "ap-southeast-1",
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  AP_SOUTHEAST_3: "ap-southeast-3",
-  AP_SOUTHEAST_4: "ap-southeast-4",
-  AP_SOUTHEAST_5: "ap-southeast-5",
-  AP_SOUTHEAST_6: "ap-southeast-6",
-  AP_SOUTHEAST_7: "ap-southeast-7",
-  AP_SOUTH_1: "ap-south-1",
-  AP_SOUTH_2: "ap-south-2",
-  CA_CENTRAL_1: "ca-central-1",
-  CA_WEST_1: "ca-west-1",
-  CN_NORTHWEST_1: "cn-northwest-1",
-  CN_NORTH_1: "cn-north-1",
-  EU_CENTRAL_1: "eu-central-1",
-  EU_CENTRAL_2: "eu-central-2",
-  EU_NORTH_1: "eu-north-1",
-  EU_SOUTH_1: "eu-south-1",
-  EU_SOUTH_2: "eu-south-2",
-  EU_WEST_1: "eu-west-1",
-  EU_WEST_2: "eu-west-2",
-  EU_WEST_3: "eu-west-3",
-  IL_CENTRAL_1: "il-central-1",
-  ME_CENTRAL_1: "me-central-1",
-  ME_SOUTH_1: "me-south-1",
-  MX_CENTRAL_1: "mx-central-1",
-  SA_EAST_1: "sa-east-1",
-  US_EAST_1: "us-east-1",
-  US_EAST_2: "us-east-2",
-  US_WEST_1: "us-west-1",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type AwsRegion = (typeof AwsRegion)[keyof typeof AwsRegion];
+import {
+  AwsRegion,
+  CaseAttachmentStatus,
+  CaseStatus,
+  ClosureCode,
+  CommunicationType,
+  CustomerType,
+  EngagementType,
+  MembershipAccountRelationshipStatus,
+  MembershipAccountRelationshipType,
+  MembershipStatus,
+  OptInFeatureName,
+  PendingAction,
+  ResolverType,
+  SelfManagedCaseStatus,
+} from "./enums";
 
 /**
  * @public
@@ -111,37 +56,6 @@ export interface GetMembershipAccountDetailError {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MembershipAccountRelationshipStatus = {
-  ASSOCIATED: "Associated",
-  DISASSOCIATED: "Disassociated",
-  UNASSOCIATED: "Unassociated",
-} as const;
-
-/**
- * @public
- */
-export type MembershipAccountRelationshipStatus =
-  (typeof MembershipAccountRelationshipStatus)[keyof typeof MembershipAccountRelationshipStatus];
-
-/**
- * @public
- * @enum
- */
-export const MembershipAccountRelationshipType = {
-  ORGANIZATION: "Organization",
-  UNRELATED: "Unrelated",
-} as const;
-
-/**
- * @public
- */
-export type MembershipAccountRelationshipType =
-  (typeof MembershipAccountRelationshipType)[keyof typeof MembershipAccountRelationshipType];
 
 /**
  * <p/>
@@ -188,221 +102,6 @@ export interface BatchGetMemberAccountDetailsResponse {
  * <p/>
  * @public
  */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the conflicting resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the conflicting resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The number of seconds after which to retry the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class InvalidTokenException extends __BaseException {
-  readonly name: "InvalidTokenException" = "InvalidTokenException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
-    super({
-      name: "InvalidTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTokenException.prototype);
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class SecurityIncidentResponseNotActiveException extends __BaseException {
-  readonly name: "SecurityIncidentResponseNotActiveException" = "SecurityIncidentResponseNotActiveException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SecurityIncidentResponseNotActiveException, __BaseException>) {
-    super({
-      name: "SecurityIncidentResponseNotActiveException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SecurityIncidentResponseNotActiveException.prototype);
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the requested resource which lead to the service quota exception.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the requested resource which lead to the service quota exception.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The service code of the quota.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The code of the quota.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The service code of the exception.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The quota code of the exception.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The number of seconds after which to retry the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
 export interface ValidationExceptionField {
   /**
    * <p/>
@@ -415,56 +114,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p/>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields which lead to the exception.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -502,25 +151,6 @@ export interface CloseCaseRequest {
 
 /**
  * @public
- * @enum
- */
-export const CaseStatus = {
-  ACKNOWLEDGED: "Acknowledged",
-  CLOSED: "Closed",
-  CONTAINMENT_ERADICATION_AND_RECOVERY: "Containment, Eradication and Recovery",
-  DETECTION_AND_ANALYSIS: "Detection and Analysis",
-  POST_INCIDENT_ACTIVITIES: "Post-incident Activities",
-  READY_TO_CLOSE: "Ready to Close",
-  SUBMITTED: "Submitted",
-} as const;
-
-/**
- * @public
- */
-export type CaseStatus = (typeof CaseStatus)[keyof typeof CaseStatus];
-
-/**
- * @public
  */
 export interface CloseCaseResponse {
   /**
@@ -537,20 +167,6 @@ export interface CloseCaseResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const EngagementType = {
-  INVESTIGATION: "Investigation",
-  SECURITY_INCIDENT: "Security Incident",
-} as const;
-
-/**
- * @public
- */
-export type EngagementType = (typeof EngagementType)[keyof typeof EngagementType];
-
-/**
  * <p/>
  * @public
  */
@@ -561,20 +177,6 @@ export interface ImpactedAwsRegion {
    */
   region: AwsRegion | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolverType = {
-  AWS: "AWS",
-  SELF: "Self",
-} as const;
-
-/**
- * @public
- */
-export type ResolverType = (typeof ResolverType)[keyof typeof ResolverType];
 
 /**
  * <p/>
@@ -752,21 +354,6 @@ export interface GetCaseRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CaseAttachmentStatus = {
-  FAILED: "Failed",
-  PENDING: "Pending",
-  VERIFIED: "Verified",
-} as const;
-
-/**
- * @public
- */
-export type CaseAttachmentStatus = (typeof CaseAttachmentStatus)[keyof typeof CaseAttachmentStatus];
-
-/**
  * <p/>
  * @public
  */
@@ -801,36 +388,6 @@ export interface CaseAttachmentAttributes {
    */
   createdDate: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClosureCode = {
-  DUPLICATE: "Duplicate",
-  FALSE_POSITIVE: "False Positive",
-  INVESTIGATION_COMPLETED: "Investigation Completed",
-  NOT_RESOLVED: "Not Resolved",
-} as const;
-
-/**
- * @public
- */
-export type ClosureCode = (typeof ClosureCode)[keyof typeof ClosureCode];
-
-/**
- * @public
- * @enum
- */
-export const PendingAction = {
-  CUSTOMER: "Customer",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type PendingAction = (typeof PendingAction)[keyof typeof PendingAction];
 
 /**
  * @public
@@ -1437,22 +994,6 @@ export interface UpdateCaseCommentResponse {
 
 /**
  * @public
- * @enum
- */
-export const SelfManagedCaseStatus = {
-  CONTAINMENT_ERADICATION_AND_RECOVERY: "Containment, Eradication and Recovery",
-  DETECTION_AND_ANALYSIS: "Detection and Analysis",
-  POST_INCIDENT_ACTIVITIES: "Post-incident Activities",
-  SUBMITTED: "Submitted",
-} as const;
-
-/**
- * @public
- */
-export type SelfManagedCaseStatus = (typeof SelfManagedCaseStatus)[keyof typeof SelfManagedCaseStatus];
-
-/**
- * @public
  */
 export interface UpdateCaseStatusRequest {
   /**
@@ -1520,34 +1061,6 @@ export interface UpdateResolverTypeResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const CommunicationType = {
-  CASE_ACKNOWLEDGED: "Case Acknowledged",
-  CASE_ATTACHMENT_URL_UPLOADED: "Case Attachment Url Uploaded",
-  CASE_CLOSED: "Case Closed",
-  CASE_COMMENT_ADDED: "Case Comment Added",
-  CASE_COMMENT_UPDATED: "Case Comment Updated",
-  CASE_CREATED: "Case Created",
-  CASE_PENDING_CUSTOMER_ACTION_REMINDER: "Case Pending Customer Action Reminder",
-  CASE_UPDATED: "Case Updated",
-  CASE_UPDATED_TO_SERVICE_MANAGED: "Case Updated To Service Managed",
-  CASE_UPDATE_CASE_STATUS: "Case Status Updated",
-  DEREGISTER_DELEGATED_ADMINISTRATOR: "Deregister Delegated Administrator",
-  DISABLE_AWS_SERVICE_ACCESS: "Disable AWS Service Access",
-  MEMBERSHIP_CANCELLED: "Membership Cancelled",
-  MEMBERSHIP_CREATED: "Membership Created",
-  MEMBERSHIP_UPDATED: "Membership Updated",
-  REGISTER_DELEGATED_ADMINISTRATOR: "Register Delegated Administrator",
-} as const;
-
-/**
- * @public
- */
-export type CommunicationType = (typeof CommunicationType)[keyof typeof CommunicationType];
-
-/**
  * <p/>
  * @public
  */
@@ -1576,19 +1089,6 @@ export interface IncidentResponder {
    */
   communicationPreferences?: CommunicationType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OptInFeatureName = {
-  TRIAGE: "Triage",
-} as const;
-
-/**
- * @public
- */
-export type OptInFeatureName = (typeof OptInFeatureName)[keyof typeof OptInFeatureName];
 
 /**
  * <p/>
@@ -1662,20 +1162,6 @@ export interface CreateMembershipResponse {
 
 /**
  * @public
- * @enum
- */
-export const CustomerType = {
-  ORGANIZATION: "Organization",
-  STANDALONE: "Standalone",
-} as const;
-
-/**
- * @public
- */
-export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType];
-
-/**
- * @public
  */
 export interface GetMembershipRequest {
   /**
@@ -1702,21 +1188,6 @@ export interface MembershipAccountsConfigurations {
    */
   organizationalUnits?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MembershipStatus = {
-  ACTIVE: "Active",
-  CANCELLED: "Cancelled",
-  TERMINATED: "Terminated",
-} as const;
-
-/**
- * @public
- */
-export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
 
 /**
  * @public

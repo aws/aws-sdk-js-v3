@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_2";
+import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_1";
 import { CreateNetworkInterface } from "../schemas/schemas_0";
 
 /**

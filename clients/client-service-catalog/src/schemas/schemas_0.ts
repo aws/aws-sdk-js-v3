@@ -588,7 +588,7 @@ import {
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
   TagOptionNotMigratedException as __TagOptionNotMigratedException,
-} from "../models/index";
+} from "../models/errors";
 import { ServiceCatalogServiceException as __ServiceCatalogServiceException } from "../models/ServiceCatalogServiceException";
 
 /* eslint no-var: 0 */

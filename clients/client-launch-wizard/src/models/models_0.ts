@@ -1,7 +1,11 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardServiceException";
+import {
+  DeploymentFilterKey,
+  DeploymentStatus,
+  EventStatus,
+  WorkloadDeploymentPatternStatus,
+  WorkloadStatus,
+} from "./enums";
 
 /**
  * @public
@@ -71,88 +75,6 @@ export interface CreateDeploymentOutput {
 }
 
 /**
- * <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many
- *          deployments in progress.</p>
- * @public
- */
-export class ResourceLimitException extends __BaseException {
-  readonly name: "ResourceLimitException" = "ResourceLimitException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitException, __BaseException>) {
-    super({
-      name: "ResourceLimitException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitException.prototype);
-  }
-}
-
-/**
- * <p>The specified workload or deployment resource can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteDeploymentInput {
@@ -162,27 +84,6 @@ export interface DeleteDeploymentInput {
    */
   deploymentId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  COMPLETED: "COMPLETED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_INITIATING: "DELETE_INITIATING",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  VALIDATING: "VALIDATING",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * @public
@@ -225,26 +126,6 @@ export interface ListDeploymentEventsInput {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventStatus = {
-  CANCELED: "CANCELED",
-  CANCELING: "CANCELING",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type EventStatus = (typeof EventStatus)[keyof typeof EventStatus];
 
 /**
  * <p>A summary of the deployment event data.</p>
@@ -399,20 +280,6 @@ export interface GetDeploymentOutput {
    */
   deployment?: DeploymentData | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentFilterKey = {
-  DEPLOYMENT_STATUS: "DEPLOYMENT_STATUS",
-  WORKLOAD_NAME: "WORKLOAD_NAME",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentFilterKey = (typeof DeploymentFilterKey)[keyof typeof DeploymentFilterKey];
 
 /**
  * <p>A filter name and value pair that is used to return more specific results from a
@@ -609,22 +476,6 @@ export interface GetWorkloadInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const WorkloadStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadStatus = (typeof WorkloadStatus)[keyof typeof WorkloadStatus];
-
-/**
  * <p>Describes a workload.</p>
  * @public
  */
@@ -699,23 +550,6 @@ export interface GetWorkloadDeploymentPatternInput {
    */
   deploymentPatternName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadDeploymentPatternStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadDeploymentPatternStatus =
-  (typeof WorkloadDeploymentPatternStatus)[keyof typeof WorkloadDeploymentPatternStatus];
 
 /**
  * <p>The data that details a workload deployment pattern.</p>

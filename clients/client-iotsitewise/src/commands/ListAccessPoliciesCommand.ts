@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_1";
+import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_0";
 import { ListAccessPolicies } from "../schemas/schemas_0";
 
 /**

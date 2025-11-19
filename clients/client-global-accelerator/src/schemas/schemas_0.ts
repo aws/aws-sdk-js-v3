@@ -315,7 +315,6 @@ const n0 = "com.amazonaws.globalaccelerator";
 import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { GlobalAcceleratorServiceException as __GlobalAcceleratorServiceException } from "../models/GlobalAcceleratorServiceException";
 import {
   AcceleratorNotDisabledException as __AcceleratorNotDisabledException,
   AcceleratorNotFoundException as __AcceleratorNotFoundException,
@@ -337,7 +336,8 @@ import {
   LimitExceededException as __LimitExceededException,
   ListenerNotFoundException as __ListenerNotFoundException,
   TransactionInProgressException as __TransactionInProgressException,
-} from "../models/index";
+} from "../models/errors";
+import { GlobalAcceleratorServiceException as __GlobalAcceleratorServiceException } from "../models/GlobalAcceleratorServiceException";
 
 /* eslint no-var: 0 */
 

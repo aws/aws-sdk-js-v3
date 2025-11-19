@@ -13,6 +13,9 @@ export type { ACMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { ACMServiceException } from "./models/ACMServiceException";

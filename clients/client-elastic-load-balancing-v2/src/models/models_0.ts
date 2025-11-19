@@ -1,23 +1,34 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./ElasticLoadBalancingV2ServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AuthenticateCognitoActionConditionalBehaviorEnum = {
-  ALLOW: "allow",
-  AUTHENTICATE: "authenticate",
-  DENY: "deny",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticateCognitoActionConditionalBehaviorEnum =
-  (typeof AuthenticateCognitoActionConditionalBehaviorEnum)[keyof typeof AuthenticateCognitoActionConditionalBehaviorEnum];
+import {
+  ActionTypeEnum,
+  AdvertiseTrustStoreCaNamesEnum,
+  AnomalyResultEnum,
+  AuthenticateCognitoActionConditionalBehaviorEnum,
+  AuthenticateOidcActionConditionalBehaviorEnum,
+  CapacityReservationStateEnum,
+  DescribeTargetHealthInputIncludeEnum,
+  EnablePrefixForIpv6SourceNatEnum,
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum,
+  IpAddressType,
+  JwtValidationActionAdditionalClaimFormatEnum,
+  LoadBalancerSchemeEnum,
+  LoadBalancerStateEnum,
+  LoadBalancerTypeEnum,
+  MitigationInEffectEnum,
+  ProtocolEnum,
+  RedirectActionStatusCodeEnum,
+  RemoveIpamPoolEnum,
+  RevocationType,
+  TargetAdministrativeOverrideReasonEnum,
+  TargetAdministrativeOverrideStateEnum,
+  TargetGroupIpAddressTypeEnum,
+  TargetHealthReasonEnum,
+  TargetHealthStateEnum,
+  TargetTypeEnum,
+  TransformTypeEnum,
+  TrustStoreAssociationStatusEnum,
+  TrustStoreStatus,
+} from "./enums";
 
 /**
  * <p>Request parameters to use when integrating with Amazon Cognito to authenticate
@@ -91,22 +102,6 @@ export interface AuthenticateCognitoActionConfig {
    */
   OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthenticateOidcActionConditionalBehaviorEnum = {
-  ALLOW: "allow",
-  AUTHENTICATE: "authenticate",
-  DENY: "deny",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticateOidcActionConditionalBehaviorEnum =
-  (typeof AuthenticateOidcActionConditionalBehaviorEnum)[keyof typeof AuthenticateOidcActionConditionalBehaviorEnum];
 
 /**
  * <p>Request parameters when using an identity provider (IdP) that is compliant with OpenID
@@ -296,22 +291,6 @@ export interface ForwardActionConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const JwtValidationActionAdditionalClaimFormatEnum = {
-  SINGLE_STRING: "single-string",
-  SPACE_SEPARATED_VALUES: "space-separated-values",
-  STRING_ARRAY: "string-array",
-} as const;
-
-/**
- * @public
- */
-export type JwtValidationActionAdditionalClaimFormatEnum =
-  (typeof JwtValidationActionAdditionalClaimFormatEnum)[keyof typeof JwtValidationActionAdditionalClaimFormatEnum];
-
-/**
  * <p>Information about an additional claim to validate.</p>
  * @public
  */
@@ -367,21 +346,6 @@ export interface JwtValidationActionConfig {
    */
   AdditionalClaims?: JwtValidationActionAdditionalClaim[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RedirectActionStatusCodeEnum = {
-  HTTP_301: "HTTP_301",
-  HTTP_302: "HTTP_302",
-} as const;
-
-/**
- * @public
- */
-export type RedirectActionStatusCodeEnum =
-  (typeof RedirectActionStatusCodeEnum)[keyof typeof RedirectActionStatusCodeEnum];
 
 /**
  * <p>Information about a redirect action.</p>
@@ -453,24 +417,6 @@ export interface RedirectActionConfig {
    */
   StatusCode: RedirectActionStatusCodeEnum | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionTypeEnum = {
-  AUTHENTICATE_COGNITO: "authenticate-cognito",
-  AUTHENTICATE_OIDC: "authenticate-oidc",
-  FIXED_RESPONSE: "fixed-response",
-  FORWARD: "forward",
-  JWT_VALIDATION: "jwt-validation",
-  REDIRECT: "redirect",
-} as const;
-
-/**
- * @public
- */
-export type ActionTypeEnum = (typeof ActionTypeEnum)[keyof typeof ActionTypeEnum];
 
 /**
  * <p>Information about an action.</p>
@@ -601,72 +547,6 @@ export interface AddListenerCertificatesOutput {
 }
 
 /**
- * <p>The specified certificate does not exist.</p>
- * @public
- */
-export class CertificateNotFoundException extends __BaseException {
-  readonly name: "CertificateNotFoundException" = "CertificateNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateNotFoundException, __BaseException>) {
-    super({
-      name: "CertificateNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified listener does not exist.</p>
- * @public
- */
-export class ListenerNotFoundException extends __BaseException {
-  readonly name: "ListenerNotFoundException" = "ListenerNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ListenerNotFoundException, __BaseException>) {
-    super({
-      name: "ListenerNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ListenerNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of certificates per load balancer.</p>
- * @public
- */
-export class TooManyCertificatesException extends __BaseException {
-  readonly name: "TooManyCertificatesException" = "TooManyCertificatesException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyCertificatesException, __BaseException>) {
-    super({
-      name: "TooManyCertificatesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyCertificatesException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Information about a tag.</p>
  * @public
  */
@@ -705,151 +585,6 @@ export interface AddTagsInput {
  * @public
  */
 export interface AddTagsOutput {}
-
-/**
- * <p>A tag key was specified more than once.</p>
- * @public
- */
-export class DuplicateTagKeysException extends __BaseException {
-  readonly name: "DuplicateTagKeysException" = "DuplicateTagKeysException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateTagKeysException, __BaseException>) {
-    super({
-      name: "DuplicateTagKeysException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateTagKeysException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified load balancer does not exist.</p>
- * @public
- */
-export class LoadBalancerNotFoundException extends __BaseException {
-  readonly name: "LoadBalancerNotFoundException" = "LoadBalancerNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LoadBalancerNotFoundException, __BaseException>) {
-    super({
-      name: "LoadBalancerNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LoadBalancerNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified rule does not exist.</p>
- * @public
- */
-export class RuleNotFoundException extends __BaseException {
-  readonly name: "RuleNotFoundException" = "RuleNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RuleNotFoundException, __BaseException>) {
-    super({
-      name: "RuleNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RuleNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified target group does not exist.</p>
- * @public
- */
-export class TargetGroupNotFoundException extends __BaseException {
-  readonly name: "TargetGroupNotFoundException" = "TargetGroupNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TargetGroupNotFoundException, __BaseException>) {
-    super({
-      name: "TargetGroupNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TargetGroupNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of tags for this resource.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified trust store does not exist.</p>
- * @public
- */
-export class TrustStoreNotFoundException extends __BaseException {
-  readonly name: "TrustStoreNotFoundException" = "TrustStoreNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TrustStoreNotFoundException, __BaseException>) {
-    super({
-      name: "TrustStoreNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TrustStoreNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RevocationType = {
-  CRL: "CRL",
-} as const;
-
-/**
- * @public
- */
-export type RevocationType = (typeof RevocationType)[keyof typeof RevocationType];
 
 /**
  * <p>Information about a revocation file.</p>
@@ -940,106 +675,6 @@ export interface AddTrustStoreRevocationsOutput {
 }
 
 /**
- * <p>The provided revocation file is an invalid format, or uses an incorrect algorithm.</p>
- * @public
- */
-export class InvalidRevocationContentException extends __BaseException {
-  readonly name: "InvalidRevocationContentException" = "InvalidRevocationContentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRevocationContentException, __BaseException>) {
-    super({
-      name: "InvalidRevocationContentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRevocationContentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified revocation file does not exist.</p>
- * @public
- */
-export class RevocationContentNotFoundException extends __BaseException {
-  readonly name: "RevocationContentNotFoundException" = "RevocationContentNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RevocationContentNotFoundException, __BaseException>) {
-    super({
-      name: "RevocationContentNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RevocationContentNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified trust store has too many revocation entries.</p>
- * @public
- */
-export class TooManyTrustStoreRevocationEntriesException extends __BaseException {
-  readonly name: "TooManyTrustStoreRevocationEntriesException" = "TooManyTrustStoreRevocationEntriesException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTrustStoreRevocationEntriesException, __BaseException>) {
-    super({
-      name: "TooManyTrustStoreRevocationEntriesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTrustStoreRevocationEntriesException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TargetAdministrativeOverrideReasonEnum = {
-  INTERNAL_ERROR: "AdministrativeOverride.Unknown",
-  NO_OVERRIDE_ENGAGED: "AdministrativeOverride.NoOverride",
-  ZONAL_SHIFT_DELEGATED_TO_DNS: "AdministrativeOverride.ZonalShiftDelegatedToDns",
-  ZONAL_SHIFT_ENGAGED: "AdministrativeOverride.ZonalShiftActive",
-} as const;
-
-/**
- * @public
- */
-export type TargetAdministrativeOverrideReasonEnum =
-  (typeof TargetAdministrativeOverrideReasonEnum)[keyof typeof TargetAdministrativeOverrideReasonEnum];
-
-/**
- * @public
- * @enum
- */
-export const TargetAdministrativeOverrideStateEnum = {
-  NO_OVERRIDE: "no_override",
-  UNKNOWN: "unknown",
-  ZONAL_SHIFT_ACTIVE: "zonal_shift_active",
-  ZONAL_SHIFT_DELEGATED_TO_DNS: "zonal_shift_delegated_to_dns",
-} as const;
-
-/**
- * @public
- */
-export type TargetAdministrativeOverrideStateEnum =
-  (typeof TargetAdministrativeOverrideStateEnum)[keyof typeof TargetAdministrativeOverrideStateEnum];
-
-/**
  * <p>Information about the override status applied to a target.</p>
  * @public
  */
@@ -1062,93 +697,6 @@ export interface AdministrativeOverride {
    */
   Description?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AdvertiseTrustStoreCaNamesEnum = {
-  off: "off",
-  on: "on",
-} as const;
-
-/**
- * @public
- */
-export type AdvertiseTrustStoreCaNamesEnum =
-  (typeof AdvertiseTrustStoreCaNamesEnum)[keyof typeof AdvertiseTrustStoreCaNamesEnum];
-
-/**
- * <p>The specified allocation ID does not exist.</p>
- * @public
- */
-export class AllocationIdNotFoundException extends __BaseException {
-  readonly name: "AllocationIdNotFoundException" = "AllocationIdNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AllocationIdNotFoundException, __BaseException>) {
-    super({
-      name: "AllocationIdNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AllocationIdNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified ALPN policy is not supported.</p>
- * @public
- */
-export class ALPNPolicyNotSupportedException extends __BaseException {
-  readonly name: "ALPNPolicyNotSupportedException" = "ALPNPolicyNotSupportedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ALPNPolicyNotSupportedException, __BaseException>) {
-    super({
-      name: "ALPNPolicyNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ALPNPolicyNotSupportedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const MitigationInEffectEnum = {
-  NO: "no",
-  YES: "yes",
-} as const;
-
-/**
- * @public
- */
-export type MitigationInEffectEnum = (typeof MitigationInEffectEnum)[keyof typeof MitigationInEffectEnum];
-
-/**
- * @public
- * @enum
- */
-export const AnomalyResultEnum = {
-  ANOMALOUS: "anomalous",
-  NORMAL: "normal",
-} as const;
-
-/**
- * @public
- */
-export type AnomalyResultEnum = (typeof AnomalyResultEnum)[keyof typeof AnomalyResultEnum];
 
 /**
  * <p>Information about anomaly detection and mitigation.</p>
@@ -1242,111 +790,6 @@ export interface AvailabilityZone {
 }
 
 /**
- * <p>The specified Availability Zone is not supported.</p>
- * @public
- */
-export class AvailabilityZoneNotSupportedException extends __BaseException {
-  readonly name: "AvailabilityZoneNotSupportedException" = "AvailabilityZoneNotSupportedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AvailabilityZoneNotSupportedException, __BaseException>) {
-    super({
-      name: "AvailabilityZoneNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AvailabilityZoneNotSupportedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified ca certificate bundle does not exist.</p>
- * @public
- */
-export class CaCertificatesBundleNotFoundException extends __BaseException {
-  readonly name: "CaCertificatesBundleNotFoundException" = "CaCertificatesBundleNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CaCertificatesBundleNotFoundException, __BaseException>) {
-    super({
-      name: "CaCertificatesBundleNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CaCertificatesBundleNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've exceeded the daily capacity decrease limit for this reservation.</p>
- * @public
- */
-export class CapacityDecreaseRequestsLimitExceededException extends __BaseException {
-  readonly name: "CapacityDecreaseRequestsLimitExceededException" = "CapacityDecreaseRequestsLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CapacityDecreaseRequestsLimitExceededException, __BaseException>) {
-    super({
-      name: "CapacityDecreaseRequestsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CapacityDecreaseRequestsLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>There is a pending capacity reservation.</p>
- * @public
- */
-export class CapacityReservationPendingException extends __BaseException {
-  readonly name: "CapacityReservationPendingException" = "CapacityReservationPendingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CapacityReservationPendingException, __BaseException>) {
-    super({
-      name: "CapacityReservationPendingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CapacityReservationPendingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationStateEnum = {
-  FAILED: "failed",
-  PENDING: "pending",
-  PROVISIONED: "provisioned",
-  REBALANCING: "rebalancing",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationStateEnum =
-  (typeof CapacityReservationStateEnum)[keyof typeof CapacityReservationStateEnum];
-
-/**
  * <p>The status of a capacity reservation.</p>
  * @public
  */
@@ -1362,28 +805,6 @@ export interface CapacityReservationStatus {
    * @public
    */
   Reason?: string | undefined;
-}
-
-/**
- * <p>You've exceeded the capacity units limit.</p>
- * @public
- */
-export class CapacityUnitsLimitExceededException extends __BaseException {
-  readonly name: "CapacityUnitsLimitExceededException" = "CapacityUnitsLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CapacityUnitsLimitExceededException, __BaseException>) {
-    super({
-      name: "CapacityUnitsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CapacityUnitsLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1403,21 +824,6 @@ export interface Cipher {
    */
   Priority?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TrustStoreAssociationStatusEnum = {
-  ACTIVE: "active",
-  REMOVED: "removed",
-} as const;
-
-/**
- * @public
- */
-export type TrustStoreAssociationStatusEnum =
-  (typeof TrustStoreAssociationStatusEnum)[keyof typeof TrustStoreAssociationStatusEnum];
 
 /**
  * <p>Information about the mutual authentication attributes of a listener.</p>
@@ -1456,27 +862,6 @@ export interface MutualAuthenticationAttributes {
    */
   AdvertiseTrustStoreCaNames?: AdvertiseTrustStoreCaNamesEnum | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProtocolEnum = {
-  GENEVE: "GENEVE",
-  HTTP: "HTTP",
-  HTTPS: "HTTPS",
-  QUIC: "QUIC",
-  TCP: "TCP",
-  TCP_QUIC: "TCP_QUIC",
-  TCP_UDP: "TCP_UDP",
-  TLS: "TLS",
-  UDP: "UDP",
-} as const;
-
-/**
- * @public
- */
-export type ProtocolEnum = (typeof ProtocolEnum)[keyof typeof ProtocolEnum];
 
 /**
  * @public
@@ -1651,326 +1036,6 @@ export interface CreateListenerOutput {
 }
 
 /**
- * <p>A listener with the specified port already exists.</p>
- * @public
- */
-export class DuplicateListenerException extends __BaseException {
-  readonly name: "DuplicateListenerException" = "DuplicateListenerException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateListenerException, __BaseException>) {
-    super({
-      name: "DuplicateListenerException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateListenerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified configuration is not valid with this protocol.</p>
- * @public
- */
-export class IncompatibleProtocolsException extends __BaseException {
-  readonly name: "IncompatibleProtocolsException" = "IncompatibleProtocolsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IncompatibleProtocolsException, __BaseException>) {
-    super({
-      name: "IncompatibleProtocolsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IncompatibleProtocolsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested configuration is not valid.</p>
- * @public
- */
-export class InvalidConfigurationRequestException extends __BaseException {
-  readonly name: "InvalidConfigurationRequestException" = "InvalidConfigurationRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConfigurationRequestException, __BaseException>) {
-    super({
-      name: "InvalidConfigurationRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConfigurationRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested action is not valid.</p>
- * @public
- */
-export class InvalidLoadBalancerActionException extends __BaseException {
-  readonly name: "InvalidLoadBalancerActionException" = "InvalidLoadBalancerActionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLoadBalancerActionException, __BaseException>) {
-    super({
-      name: "InvalidLoadBalancerActionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLoadBalancerActionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified SSL policy does not exist.</p>
- * @public
- */
-export class SSLPolicyNotFoundException extends __BaseException {
-  readonly name: "SSLPolicyNotFoundException" = "SSLPolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SSLPolicyNotFoundException, __BaseException>) {
-    super({
-      name: "SSLPolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SSLPolicyNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of load balancers per target group.</p>
- * @public
- */
-export class TargetGroupAssociationLimitException extends __BaseException {
-  readonly name: "TargetGroupAssociationLimitException" = "TargetGroupAssociationLimitException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TargetGroupAssociationLimitException, __BaseException>) {
-    super({
-      name: "TargetGroupAssociationLimitException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TargetGroupAssociationLimitException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of actions per rule.</p>
- * @public
- */
-export class TooManyActionsException extends __BaseException {
-  readonly name: "TooManyActionsException" = "TooManyActionsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyActionsException, __BaseException>) {
-    super({
-      name: "TooManyActionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyActionsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of listeners per load balancer.</p>
- * @public
- */
-export class TooManyListenersException extends __BaseException {
-  readonly name: "TooManyListenersException" = "TooManyListenersException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyListenersException, __BaseException>) {
-    super({
-      name: "TooManyListenersException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyListenersException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of times a target can be registered with a load
- *       balancer.</p>
- * @public
- */
-export class TooManyRegistrationsForTargetIdException extends __BaseException {
-  readonly name: "TooManyRegistrationsForTargetIdException" = "TooManyRegistrationsForTargetIdException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRegistrationsForTargetIdException, __BaseException>) {
-    super({
-      name: "TooManyRegistrationsForTargetIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRegistrationsForTargetIdException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of targets.</p>
- * @public
- */
-export class TooManyTargetsException extends __BaseException {
-  readonly name: "TooManyTargetsException" = "TooManyTargetsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTargetsException, __BaseException>) {
-    super({
-      name: "TooManyTargetsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTargetsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of unique target groups per load balancer across
- *       all listeners. If a target group is used by multiple actions for a load balancer, it is
- *       counted as only one use.</p>
- * @public
- */
-export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseException {
-  readonly name: "TooManyUniqueTargetGroupsPerLoadBalancerException" =
-    "TooManyUniqueTargetGroupsPerLoadBalancerException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyUniqueTargetGroupsPerLoadBalancerException, __BaseException>) {
-    super({
-      name: "TooManyUniqueTargetGroupsPerLoadBalancerException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyUniqueTargetGroupsPerLoadBalancerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified trust store is not active.</p>
- * @public
- */
-export class TrustStoreNotReadyException extends __BaseException {
-  readonly name: "TrustStoreNotReadyException" = "TrustStoreNotReadyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TrustStoreNotReadyException, __BaseException>) {
-    super({
-      name: "TrustStoreNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TrustStoreNotReadyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified protocol is not supported.</p>
- * @public
- */
-export class UnsupportedProtocolException extends __BaseException {
-  readonly name: "UnsupportedProtocolException" = "UnsupportedProtocolException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedProtocolException, __BaseException>) {
-    super({
-      name: "UnsupportedProtocolException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedProtocolException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EnablePrefixForIpv6SourceNatEnum = {
-  OFF: "off",
-  ON: "on",
-} as const;
-
-/**
- * @public
- */
-export type EnablePrefixForIpv6SourceNatEnum =
-  (typeof EnablePrefixForIpv6SourceNatEnum)[keyof typeof EnablePrefixForIpv6SourceNatEnum];
-
-/**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  DUALSTACK: "dualstack",
-  DUALSTACK_WITHOUT_PUBLIC_IPV4: "dualstack-without-public-ipv4",
-  IPV4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
-
-/**
  * <p>An IPAM pool is a collection of IP address CIDRs.
  *       IPAM pools enable you to organize your IP addresses
  *       according to your routing and security needs.</p>
@@ -1983,20 +1048,6 @@ export interface IpamPools {
    */
   Ipv4IpamPoolId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LoadBalancerSchemeEnum = {
-  INTERNAL: "internal",
-  INTERNET_FACING: "internet-facing",
-} as const;
-
-/**
- * @public
- */
-export type LoadBalancerSchemeEnum = (typeof LoadBalancerSchemeEnum)[keyof typeof LoadBalancerSchemeEnum];
 
 /**
  * <p>Information about a subnet mapping.</p>
@@ -2036,21 +1087,6 @@ export interface SubnetMapping {
    */
   SourceNatIpv6Prefix?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LoadBalancerTypeEnum = {
-  APPLICATION: "application",
-  GATEWAY: "gateway",
-  NETWORK: "network",
-} as const;
-
-/**
- * @public
- */
-export type LoadBalancerTypeEnum = (typeof LoadBalancerTypeEnum)[keyof typeof LoadBalancerTypeEnum];
 
 /**
  * @public
@@ -2165,22 +1201,6 @@ export interface CreateLoadBalancerInput {
    */
   IpamPools?: IpamPools | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LoadBalancerStateEnum = {
-  ACTIVE: "active",
-  ACTIVE_IMPAIRED: "active_impaired",
-  FAILED: "failed",
-  PROVISIONING: "provisioning",
-} as const;
-
-/**
- * @public
- */
-export type LoadBalancerStateEnum = (typeof LoadBalancerStateEnum)[keyof typeof LoadBalancerStateEnum];
 
 /**
  * <p>Information about the state of the load balancer.</p>
@@ -2331,183 +1351,6 @@ export interface CreateLoadBalancerOutput {
    * @public
    */
   LoadBalancers?: LoadBalancer[] | undefined;
-}
-
-/**
- * <p>A load balancer with the specified name already exists.</p>
- * @public
- */
-export class DuplicateLoadBalancerNameException extends __BaseException {
-  readonly name: "DuplicateLoadBalancerNameException" = "DuplicateLoadBalancerNameException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateLoadBalancerNameException, __BaseException>) {
-    super({
-      name: "DuplicateLoadBalancerNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateLoadBalancerNameException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested scheme is not valid.</p>
- * @public
- */
-export class InvalidSchemeException extends __BaseException {
-  readonly name: "InvalidSchemeException" = "InvalidSchemeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSchemeException, __BaseException>) {
-    super({
-      name: "InvalidSchemeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSchemeException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified security group does not exist.</p>
- * @public
- */
-export class InvalidSecurityGroupException extends __BaseException {
-  readonly name: "InvalidSecurityGroupException" = "InvalidSecurityGroupException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSecurityGroupException, __BaseException>) {
-    super({
-      name: "InvalidSecurityGroupException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSecurityGroupException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified subnet is out of available addresses.</p>
- * @public
- */
-export class InvalidSubnetException extends __BaseException {
-  readonly name: "InvalidSubnetException" = "InvalidSubnetException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnetException, __BaseException>) {
-    super({
-      name: "InvalidSubnetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnetException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This operation is not allowed.</p>
- * @public
- */
-export class OperationNotPermittedException extends __BaseException {
-  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
-    super({
-      name: "OperationNotPermittedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A specified resource is in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified subnet does not exist.</p>
- * @public
- */
-export class SubnetNotFoundException extends __BaseException {
-  readonly name: "SubnetNotFoundException" = "SubnetNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubnetNotFoundException, __BaseException>) {
-    super({
-      name: "SubnetNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubnetNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
- *       account.</p>
- * @public
- */
-export class TooManyLoadBalancersException extends __BaseException {
-  readonly name: "TooManyLoadBalancersException" = "TooManyLoadBalancersException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyLoadBalancersException, __BaseException>) {
-    super({
-      name: "TooManyLoadBalancersException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyLoadBalancersException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2853,20 +1696,6 @@ export interface HostHeaderRewriteConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const TransformTypeEnum = {
-  HOST_HEADER_REWRITE: "host-header-rewrite",
-  URL_REWRITE: "url-rewrite",
-} as const;
-
-/**
- * @public
- */
-export type TransformTypeEnum = (typeof TransformTypeEnum)[keyof typeof TransformTypeEnum];
-
-/**
  * <p>Information about a URL rewrite transform. This transform matches a pattern in the request URL and replaces it with the specified string.</p>
  * @public
  */
@@ -3015,88 +1844,6 @@ export interface CreateRuleOutput {
 }
 
 /**
- * <p>The specified priority is in use.</p>
- * @public
- */
-export class PriorityInUseException extends __BaseException {
-  readonly name: "PriorityInUseException" = "PriorityInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PriorityInUseException, __BaseException>) {
-    super({
-      name: "PriorityInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PriorityInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of rules per load balancer.</p>
- * @public
- */
-export class TooManyRulesException extends __BaseException {
-  readonly name: "TooManyRulesException" = "TooManyRulesException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRulesException, __BaseException>) {
-    super({
-      name: "TooManyRulesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRulesException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of target groups for your Amazon Web Services
- *       account.</p>
- * @public
- */
-export class TooManyTargetGroupsException extends __BaseException {
-  readonly name: "TooManyTargetGroupsException" = "TooManyTargetGroupsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTargetGroupsException, __BaseException>) {
-    super({
-      name: "TooManyTargetGroupsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTargetGroupsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TargetGroupIpAddressTypeEnum = {
-  IPV4: "ipv4",
-  IPV6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type TargetGroupIpAddressTypeEnum =
-  (typeof TargetGroupIpAddressTypeEnum)[keyof typeof TargetGroupIpAddressTypeEnum];
-
-/**
  * <p>The codes to use when checking for a successful response from a target. If the protocol
  *       version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>
  * @public
@@ -3121,22 +1868,6 @@ export interface Matcher {
    */
   GrpcCode?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetTypeEnum = {
-  ALB: "alb",
-  INSTANCE: "instance",
-  IP: "ip",
-  LAMBDA: "lambda",
-} as const;
-
-/**
- * @public
- */
-export type TargetTypeEnum = (typeof TargetTypeEnum)[keyof typeof TargetTypeEnum];
 
 /**
  * @public
@@ -3448,28 +2179,6 @@ export interface CreateTargetGroupOutput {
 }
 
 /**
- * <p>A target group with the specified name already exists.</p>
- * @public
- */
-export class DuplicateTargetGroupNameException extends __BaseException {
-  readonly name: "DuplicateTargetGroupNameException" = "DuplicateTargetGroupNameException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateTargetGroupNameException, __BaseException>) {
-    super({
-      name: "DuplicateTargetGroupNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateTargetGroupNameException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateTrustStoreInput {
@@ -3504,20 +2213,6 @@ export interface CreateTrustStoreInput {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TrustStoreStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-} as const;
-
-/**
- * @public
- */
-export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];
 
 /**
  * <p>Information about a trust store.</p>
@@ -3564,94 +2259,6 @@ export interface CreateTrustStoreOutput {
    * @public
    */
   TrustStores?: TrustStore[] | undefined;
-}
-
-/**
- * <p>A trust store with the specified name already exists.</p>
- * @public
- */
-export class DuplicateTrustStoreNameException extends __BaseException {
-  readonly name: "DuplicateTrustStoreNameException" = "DuplicateTrustStoreNameException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateTrustStoreNameException, __BaseException>) {
-    super({
-      name: "DuplicateTrustStoreNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateTrustStoreNameException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
- * @public
- */
-export class InvalidCaCertificatesBundleException extends __BaseException {
-  readonly name: "InvalidCaCertificatesBundleException" = "InvalidCaCertificatesBundleException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCaCertificatesBundleException, __BaseException>) {
-    super({
-      name: "InvalidCaCertificatesBundleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCaCertificatesBundleException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of trust stores for your Amazon Web Services account.</p>
- * @public
- */
-export class TooManyTrustStoresException extends __BaseException {
-  readonly name: "TooManyTrustStoresException" = "TooManyTrustStoresException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTrustStoresException, __BaseException>) {
-    super({
-      name: "TooManyTrustStoresException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTrustStoresException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified association can't be within the same account.</p>
- * @public
- */
-export class DeleteAssociationSameAccountException extends __BaseException {
-  readonly name: "DeleteAssociationSameAccountException" = "DeleteAssociationSameAccountException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeleteAssociationSameAccountException, __BaseException>) {
-    super({
-      name: "DeleteAssociationSameAccountException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeleteAssociationSameAccountException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3725,28 +2332,6 @@ export interface DeleteSharedTrustStoreAssociationInput {
 export interface DeleteSharedTrustStoreAssociationOutput {}
 
 /**
- * <p>The specified association does not exist.</p>
- * @public
- */
-export class TrustStoreAssociationNotFoundException extends __BaseException {
-  readonly name: "TrustStoreAssociationNotFoundException" = "TrustStoreAssociationNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TrustStoreAssociationNotFoundException, __BaseException>) {
-    super({
-      name: "TrustStoreAssociationNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TrustStoreAssociationNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteTargetGroupInput {
@@ -3777,28 +2362,6 @@ export interface DeleteTrustStoreInput {
  * @public
  */
 export interface DeleteTrustStoreOutput {}
-
-/**
- * <p>The specified trust store is currently in use.</p>
- * @public
- */
-export class TrustStoreInUseException extends __BaseException {
-  readonly name: "TrustStoreInUseException" = "TrustStoreInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TrustStoreInUseException, __BaseException>) {
-    super({
-      name: "TrustStoreInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TrustStoreInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * <p>Information about a target.</p>
@@ -3878,29 +2441,6 @@ export interface DeregisterTargetsInput {
  * @public
  */
 export interface DeregisterTargetsOutput {}
-
-/**
- * <p>The specified target does not exist, is not in the same VPC as the target group, or has an
- *       unsupported instance type.</p>
- * @public
- */
-export class InvalidTargetException extends __BaseException {
-  readonly name: "InvalidTargetException" = "InvalidTargetException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
-    super({
-      name: "InvalidTargetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -5036,21 +3576,6 @@ export interface DescribeTargetGroupsOutput {
 
 /**
  * @public
- * @enum
- */
-export const DescribeTargetHealthInputIncludeEnum = {
-  ALL: "All",
-  ANOMALY: "AnomalyDetection",
-} as const;
-
-/**
- * @public
- */
-export type DescribeTargetHealthInputIncludeEnum =
-  (typeof DescribeTargetHealthInputIncludeEnum)[keyof typeof DescribeTargetHealthInputIncludeEnum];
-
-/**
- * @public
  */
 export interface DescribeTargetHealthInput {
   /**
@@ -5071,49 +3596,6 @@ export interface DescribeTargetHealthInput {
    */
   Include?: DescribeTargetHealthInputIncludeEnum[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetHealthReasonEnum = {
-  DEREGISTRATION_IN_PROGRESS: "Target.DeregistrationInProgress",
-  FAILED_HEALTH_CHECKS: "Target.FailedHealthChecks",
-  HEALTH_CHECK_DISABLED: "Target.HealthCheckDisabled",
-  INITIAL_HEALTH_CHECKING: "Elb.InitialHealthChecking",
-  INTERNAL_ERROR: "Elb.InternalError",
-  INVALID_STATE: "Target.InvalidState",
-  IP_UNUSABLE: "Target.IpUnusable",
-  NOT_IN_USE: "Target.NotInUse",
-  NOT_REGISTERED: "Target.NotRegistered",
-  REGISTRATION_IN_PROGRESS: "Elb.RegistrationInProgress",
-  RESPONSE_CODE_MISMATCH: "Target.ResponseCodeMismatch",
-  TIMEOUT: "Target.Timeout",
-} as const;
-
-/**
- * @public
- */
-export type TargetHealthReasonEnum = (typeof TargetHealthReasonEnum)[keyof typeof TargetHealthReasonEnum];
-
-/**
- * @public
- * @enum
- */
-export const TargetHealthStateEnum = {
-  DRAINING: "draining",
-  HEALTHY: "healthy",
-  INITIAL: "initial",
-  UNAVAILABLE: "unavailable",
-  UNHEALTHY: "unhealthy",
-  UNHEALTHY_DRAINING: "unhealthy.draining",
-  UNUSED: "unused",
-} as const;
-
-/**
- * @public
- */
-export type TargetHealthStateEnum = (typeof TargetHealthStateEnum)[keyof typeof TargetHealthStateEnum];
 
 /**
  * <p>Information about the current health of a target.</p>
@@ -5274,29 +3756,6 @@ export interface DescribeTargetHealthOutput {
 }
 
 /**
- * <p>The health of the specified targets could not be retrieved due to an internal
- *       error.</p>
- * @public
- */
-export class HealthUnavailableException extends __BaseException {
-  readonly name: "HealthUnavailableException" = "HealthUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HealthUnavailableException, __BaseException>) {
-    super({
-      name: "HealthUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HealthUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeTrustStoreAssociationsInput {
@@ -5427,28 +3886,6 @@ export interface DescribeTrustStoreRevocationsOutput {
 }
 
 /**
- * <p>The specified revocation ID does not exist.</p>
- * @public
- */
-export class RevocationIdNotFoundException extends __BaseException {
-  readonly name: "RevocationIdNotFoundException" = "RevocationIdNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RevocationIdNotFoundException, __BaseException>) {
-    super({
-      name: "RevocationIdNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RevocationIdNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeTrustStoresInput {
@@ -5518,28 +3955,6 @@ export interface GetResourcePolicyOutput {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetTrustStoreCaCertificatesBundleInput {
@@ -5587,28 +4002,6 @@ export interface GetTrustStoreRevocationContentOutput {
    * @public
    */
   Location?: string | undefined;
-}
-
-/**
- * <p>There is insufficient capacity to reserve.</p>
- * @public
- */
-export class InsufficientCapacityException extends __BaseException {
-  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
-    super({
-      name: "InsufficientCapacityException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -5662,41 +4055,6 @@ export interface ModifyCapacityReservationOutput {
    */
   CapacityReservationState?: ZonalCapacityReservationState[] | undefined;
 }
-
-/**
- * <p>This operation is not allowed while a prior request has not been completed.</p>
- * @public
- */
-export class PriorRequestNotCompleteException extends __BaseException {
-  readonly name: "PriorRequestNotCompleteException" = "PriorRequestNotCompleteException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PriorRequestNotCompleteException, __BaseException>) {
-    super({
-      name: "PriorRequestNotCompleteException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PriorRequestNotCompleteException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RemoveIpamPoolEnum = {
-  ipv4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type RemoveIpamPoolEnum = (typeof RemoveIpamPoolEnum)[keyof typeof RemoveIpamPoolEnum];
 
 /**
  * @public
@@ -6266,21 +4624,6 @@ export interface SetRulePrioritiesOutput {
    */
   Rules?: Rule[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum = {
-  off: "off",
-  on: "on",
-} as const;
-
-/**
- * @public
- */
-export type EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum =
-  (typeof EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum)[keyof typeof EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum];
 
 /**
  * @public

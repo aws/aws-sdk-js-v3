@@ -91,7 +91,7 @@ import {
   PlatformNotSupportedException as __PlatformNotSupportedException,
   ThrottlingException as __ThrottlingException,
   TimestampOutOfBoundsException as __TimestampOutOfBoundsException,
-} from "../models/index";
+} from "../models/errors";
 import { MarketplaceMeteringServiceException as __MarketplaceMeteringServiceException } from "../models/MarketplaceMeteringServiceException";
 
 /* eslint no-var: 0 */

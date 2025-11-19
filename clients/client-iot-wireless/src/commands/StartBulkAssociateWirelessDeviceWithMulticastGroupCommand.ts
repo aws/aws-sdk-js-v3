@@ -5,10 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
-  StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
-} from "../models/models_1";
+import { StartBulkAssociateWirelessDeviceWithMulticastGroupRequest } from "../models/models_0";
+import { StartBulkAssociateWirelessDeviceWithMulticastGroupResponse } from "../models/models_1";
 import { StartBulkAssociateWirelessDeviceWithMulticastGroup } from "../schemas/schemas_0";
 
 /**

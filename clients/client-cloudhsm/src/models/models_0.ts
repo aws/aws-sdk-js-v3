@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceException";
+import { ClientVersion, CloudHsmObjectState, HsmStatus, SubscriptionType } from "./enums";
 
 /**
  * <p>A key-value pair that identifies or specifies metadata about an AWS CloudHSM
@@ -51,101 +49,6 @@ export interface AddTagsToResourceResponse {
 }
 
 /**
- * <p>Indicates that an internal error occurred.</p>
- * @public
- */
-export class CloudHsmInternalException extends __BaseException {
-  readonly name: "CloudHsmInternalException" = "CloudHsmInternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>Indicates if the action can be retried.</p>
-   * @public
-   */
-  retryable?: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmInternalException, __BaseException>) {
-    super({
-      name: "CloudHsmInternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmInternalException.prototype);
-    this.retryable = opts.retryable;
-  }
-}
-
-/**
- * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
- * @public
- */
-export class CloudHsmServiceException extends __BaseException {
-  readonly name: "CloudHsmServiceException" = "CloudHsmServiceException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates if the action can be retried.</p>
-   * @public
-   */
-  retryable?: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmServiceException, __BaseException>) {
-    super({
-      name: "CloudHsmServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmServiceException.prototype);
-    this.retryable = opts.retryable;
-  }
-}
-
-/**
- * <p>Indicates that one or more of the request parameters are not valid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates if the action can be retried.</p>
-   * @public
-   */
-  retryable?: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.retryable = opts.retryable;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ClientVersion = {
-  FIVE_ONE: "5.1",
-  FIVE_THREE: "5.3",
-} as const;
-
-/**
- * @public
- */
-export type ClientVersion = (typeof ClientVersion)[keyof typeof ClientVersion];
-
-/**
  * <p>Contains the inputs for the <a>CreateHapgRequest</a> action.</p>
  * @public
  */
@@ -168,19 +71,6 @@ export interface CreateHapgResponse {
    */
   HapgArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionType = {
-  PRODUCTION: "PRODUCTION",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
  * <p>Contains the inputs for the <code>CreateHsm</code> operation.</p>
@@ -379,21 +269,6 @@ export interface DescribeHapgRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CloudHsmObjectState = {
-  DEGRADED: "DEGRADED",
-  READY: "READY",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type CloudHsmObjectState = (typeof CloudHsmObjectState)[keyof typeof CloudHsmObjectState];
-
-/**
  * <p>Contains the output of the <a>DescribeHapg</a> action.</p>
  * @public
  */
@@ -473,25 +348,6 @@ export interface DescribeHsmRequest {
    */
   HsmSerialNumber?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HsmStatus = {
-  DEGRADED: "DEGRADED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  SUSPENDED: "SUSPENDED",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type HsmStatus = (typeof HsmStatus)[keyof typeof HsmStatus];
 
 /**
  * <p>Contains the output of the <a>DescribeHsm</a> operation.</p>

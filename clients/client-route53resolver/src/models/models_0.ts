@@ -1,60 +1,37 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { Route53ResolverServiceException as __BaseException } from "./Route53ResolverServiceException";
-
-/**
- * <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Action = {
-  ALERT: "ALERT",
-  ALLOW: "ALLOW",
-  BLOCK: "BLOCK",
-} as const;
-
-/**
- * @public
- */
-export type Action = (typeof Action)[keyof typeof Action];
-
-/**
- * @public
- * @enum
- */
-export const MutationProtectionStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type MutationProtectionStatus = (typeof MutationProtectionStatus)[keyof typeof MutationProtectionStatus];
+import {
+  Action,
+  AutodefinedReverseFlag,
+  BlockOverrideDnsType,
+  BlockResponse,
+  ConfidenceThreshold,
+  DnsThreatProtection,
+  FirewallDomainImportOperation,
+  FirewallDomainListStatus,
+  FirewallDomainRedirectionAction,
+  FirewallDomainUpdateOperation,
+  FirewallFailOpenStatus,
+  FirewallRuleGroupAssociationStatus,
+  FirewallRuleGroupStatus,
+  IpAddressStatus,
+  MutationProtectionStatus,
+  OutpostResolverStatus,
+  Protocol,
+  ResolverAutodefinedReverseStatus,
+  ResolverDNSSECValidationStatus,
+  ResolverEndpointDirection,
+  ResolverEndpointStatus,
+  ResolverEndpointType,
+  ResolverQueryLogConfigAssociationError,
+  ResolverQueryLogConfigAssociationStatus,
+  ResolverQueryLogConfigStatus,
+  ResolverRuleAssociationStatus,
+  ResolverRuleStatus,
+  RuleTypeOption,
+  ShareStatus,
+  SortOrder,
+  Validation,
+} from "./enums";
 
 /**
  * <p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>
@@ -131,22 +108,6 @@ export interface AssociateFirewallRuleGroupRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FirewallRuleGroupAssociationStatus = {
-  COMPLETE: "COMPLETE",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FirewallRuleGroupAssociationStatus =
-  (typeof FirewallRuleGroupAssociationStatus)[keyof typeof FirewallRuleGroupAssociationStatus];
 
 /**
  * <p>An association between a firewall rule group and a VPC, which enables DNS filtering for
@@ -250,153 +211,6 @@ export interface AssociateFirewallRuleGroupResponse {
 }
 
 /**
- * <p>The requested state transition isn't valid. For example, you can't delete a firewall
- * 			domain list if it is in the process of being deleted, or you can't import domains into a
- * 			domain list that is in the process of being deleted.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>We encountered an unknown error. Try again in a few minutes.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request caused one or more limits to be exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The specified resource doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request was throttled. Try again in a few minutes.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
- * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>In an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>
  * 			request, information about an IP address to update.</p>
@@ -451,69 +265,6 @@ export interface AssociateResolverEndpointIpAddressRequest {
    */
   IpAddress: IpAddressUpdate | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolverEndpointDirection = {
-  Inbound: "INBOUND",
-  InboundDelegation: "INBOUND_DELEGATION",
-  Outbound: "OUTBOUND",
-} as const;
-
-/**
- * @public
- */
-export type ResolverEndpointDirection = (typeof ResolverEndpointDirection)[keyof typeof ResolverEndpointDirection];
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  DO53: "Do53",
-  DOH: "DoH",
-  DOHFIPS: "DoH-FIPS",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
-/**
- * @public
- * @enum
- */
-export const ResolverEndpointType = {
-  DUALSTACK: "DUALSTACK",
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-
-/**
- * @public
- */
-export type ResolverEndpointType = (typeof ResolverEndpointType)[keyof typeof ResolverEndpointType];
-
-/**
- * @public
- * @enum
- */
-export const ResolverEndpointStatus = {
-  ActionNeeded: "ACTION_NEEDED",
-  AutoRecovering: "AUTO_RECOVERING",
-  Creating: "CREATING",
-  Deleting: "DELETING",
-  Operational: "OPERATIONAL",
-  Updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ResolverEndpointStatus = (typeof ResolverEndpointStatus)[keyof typeof ResolverEndpointStatus];
 
 /**
  * <p>In the response to a
@@ -742,84 +493,6 @@ export interface AssociateResolverEndpointIpAddressResponse {
 }
 
 /**
- * <p>One or more parameters in this request are not valid.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-    this.FieldName = opts.FieldName;
-  }
-}
-
-/**
- * <p>The request is invalid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource that you tried to create already exists.</p>
- * @public
- */
-export class ResourceExistsException extends __BaseException {
-  readonly name: "ResourceExistsException" = "ResourceExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
-    super({
-      name: "ResourceExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceExistsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateResolverQueryLogConfigRequest {
@@ -838,41 +511,6 @@ export interface AssociateResolverQueryLogConfigRequest {
    */
   ResourceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolverQueryLogConfigAssociationError = {
-  AccessDenied: "ACCESS_DENIED",
-  DestinationNotFound: "DESTINATION_NOT_FOUND",
-  InternalServiceError: "INTERNAL_SERVICE_ERROR",
-  None: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ResolverQueryLogConfigAssociationError =
-  (typeof ResolverQueryLogConfigAssociationError)[keyof typeof ResolverQueryLogConfigAssociationError];
-
-/**
- * @public
- * @enum
- */
-export const ResolverQueryLogConfigAssociationStatus = {
-  ActionNeeded: "ACTION_NEEDED",
-  Active: "ACTIVE",
-  Creating: "CREATING",
-  Deleting: "DELETING",
-  Failed: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ResolverQueryLogConfigAssociationStatus =
-  (typeof ResolverQueryLogConfigAssociationStatus)[keyof typeof ResolverQueryLogConfigAssociationStatus];
 
 /**
  * <p>In the response to an
@@ -994,24 +632,6 @@ export interface AssociateResolverRuleRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResolverRuleAssociationStatus = {
-  Complete: "COMPLETE",
-  Creating: "CREATING",
-  Deleting: "DELETING",
-  Failed: "FAILED",
-  Overridden: "OVERRIDDEN",
-} as const;
-
-/**
- * @public
- */
-export type ResolverRuleAssociationStatus =
-  (typeof ResolverRuleAssociationStatus)[keyof typeof ResolverRuleAssociationStatus];
-
-/**
  * <p>In the response to an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>,
@@ -1073,92 +693,6 @@ export interface AssociateResolverRuleResponse {
 }
 
 /**
- * <p>The specified resource isn't available.</p>
- * @public
- */
-export class ResourceUnavailableException extends __BaseException {
-  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
-    super({
-      name: "ResourceUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutodefinedReverseFlag = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
-} as const;
-
-/**
- * @public
- */
-export type AutodefinedReverseFlag = (typeof AutodefinedReverseFlag)[keyof typeof AutodefinedReverseFlag];
-
-/**
- * @public
- * @enum
- */
-export const BlockOverrideDnsType = {
-  CNAME: "CNAME",
-} as const;
-
-/**
- * @public
- */
-export type BlockOverrideDnsType = (typeof BlockOverrideDnsType)[keyof typeof BlockOverrideDnsType];
-
-/**
- * @public
- * @enum
- */
-export const BlockResponse = {
-  NODATA: "NODATA",
-  NXDOMAIN: "NXDOMAIN",
-  OVERRIDE: "OVERRIDE",
-} as const;
-
-/**
- * @public
- */
-export type BlockResponse = (typeof BlockResponse)[keyof typeof BlockResponse];
-
-/**
- * @public
- * @enum
- */
-export const ConfidenceThreshold = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type ConfidenceThreshold = (typeof ConfidenceThreshold)[keyof typeof ConfidenceThreshold];
-
-/**
  * @public
  */
 export interface CreateFirewallDomainListRequest {
@@ -1182,23 +716,6 @@ export interface CreateFirewallDomainListRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FirewallDomainListStatus = {
-  COMPLETE: "COMPLETE",
-  COMPLETE_IMPORT_FAILED: "COMPLETE_IMPORT_FAILED",
-  DELETING: "DELETING",
-  IMPORTING: "IMPORTING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FirewallDomainListStatus = (typeof FirewallDomainListStatus)[keyof typeof FirewallDomainListStatus];
 
 /**
  * <p>High-level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
@@ -1279,36 +796,6 @@ export interface CreateFirewallDomainListResponse {
    */
   FirewallDomainList?: FirewallDomainList | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DnsThreatProtection = {
-  DGA: "DGA",
-  DICTIONARY_DGA: "DICTIONARY_DGA",
-  DNS_TUNNELING: "DNS_TUNNELING",
-} as const;
-
-/**
- * @public
- */
-export type DnsThreatProtection = (typeof DnsThreatProtection)[keyof typeof DnsThreatProtection];
-
-/**
- * @public
- * @enum
- */
-export const FirewallDomainRedirectionAction = {
-  INSPECT_REDIRECTION_DOMAIN: "INSPECT_REDIRECTION_DOMAIN",
-  TRUST_REDIRECTION_DOMAIN: "TRUST_REDIRECTION_DOMAIN",
-} as const;
-
-/**
- * @public
- */
-export type FirewallDomainRedirectionAction =
-  (typeof FirewallDomainRedirectionAction)[keyof typeof FirewallDomainRedirectionAction];
 
 /**
  * @public
@@ -1783,36 +1270,6 @@ export interface CreateFirewallRuleGroupRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ShareStatus = {
-  NotShared: "NOT_SHARED",
-  SharedByMe: "SHARED_BY_ME",
-  SharedWithMe: "SHARED_WITH_ME",
-} as const;
-
-/**
- * @public
- */
-export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
-
-/**
- * @public
- * @enum
- */
-export const FirewallRuleGroupStatus = {
-  COMPLETE: "COMPLETE",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FirewallRuleGroupStatus = (typeof FirewallRuleGroupStatus)[keyof typeof FirewallRuleGroupStatus];
-
-/**
  * <p>High-level information for a firewall rule group. A firewall rule group is a collection of rules that DNS Firewall uses to filter DNS network traffic for a VPC. To retrieve the rules for the rule group, call <a>ListFirewallRules</a>.</p>
  * @public
  */
@@ -1951,25 +1408,6 @@ export interface CreateOutpostResolverRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OutpostResolverStatus = {
-  ACTION_NEEDED: "ACTION_NEEDED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED_CREATION: "FAILED_CREATION",
-  FAILED_DELETION: "FAILED_DELETION",
-  OPERATIONAL: "OPERATIONAL",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type OutpostResolverStatus = (typeof OutpostResolverStatus)[keyof typeof OutpostResolverStatus];
-
-/**
  * <p>A complex type that contains settings for an existing Resolver on an Outpost.</p>
  * @public
  */
@@ -2054,28 +1492,6 @@ export interface CreateOutpostResolverResponse {
    * @public
    */
   OutpostResolver?: OutpostResolver | undefined;
-}
-
-/**
- * <p>Fulfilling the request would cause one or more quotas to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2314,23 +1730,6 @@ export interface CreateResolverQueryLogConfigRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResolverQueryLogConfigStatus = {
-  Created: "CREATED",
-  Creating: "CREATING",
-  Deleting: "DELETING",
-  Failed: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ResolverQueryLogConfigStatus =
-  (typeof ResolverQueryLogConfigStatus)[keyof typeof ResolverQueryLogConfigStatus];
-
-/**
  * <p>In the response to a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverQueryLogConfig.html">CreateResolverQueryLogConfig</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverQueryLogConfig.html">DeleteResolverQueryLogConfig</a>,
@@ -2446,22 +1845,6 @@ export interface CreateResolverQueryLogConfigResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleTypeOption = {
-  Delegate: "DELEGATE",
-  Forward: "FORWARD",
-  Recursive: "RECURSIVE",
-  System: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type RuleTypeOption = (typeof RuleTypeOption)[keyof typeof RuleTypeOption];
-
-/**
  * <p>In a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html">CreateResolverRule</a>
  * 			request, an array of the IPs that you want to forward DNS queries to.</p>
@@ -2573,22 +1956,6 @@ export interface CreateResolverRuleRequest {
    */
   DelegationRecord?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolverRuleStatus = {
-  Complete: "COMPLETE",
-  Deleting: "DELETING",
-  Failed: "FAILED",
-  Updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ResolverRuleStatus = (typeof ResolverRuleStatus)[keyof typeof ResolverRuleStatus];
 
 /**
  * <p>For queries that originate in your VPC, detailed information about a Resolver rule, which specifies how to route DNS queries
@@ -2944,34 +2311,6 @@ export interface DeleteResolverRuleResponse {
    * @public
    */
   ResolverRule?: ResolverRule | undefined;
-}
-
-/**
- * <p>The resource that you tried to update or delete is currently in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
 }
 
 /**
@@ -3344,21 +2683,6 @@ export interface Filter {
 }
 
 /**
- * @public
- * @enum
- */
-export const FirewallFailOpenStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
-} as const;
-
-/**
- * @public
- */
-export type FirewallFailOpenStatus = (typeof FirewallFailOpenStatus)[keyof typeof FirewallFailOpenStatus];
-
-/**
  * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC from
  * 			Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @public
@@ -3401,20 +2725,6 @@ export interface FirewallConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const FirewallDomainImportOperation = {
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type FirewallDomainImportOperation =
-  (typeof FirewallDomainImportOperation)[keyof typeof FirewallDomainImportOperation];
-
-/**
  * <p>Minimal high-level information for a firewall domain list. The action <a>ListFirewallDomainLists</a> returns an array of these objects. </p>
  *          <p>To retrieve full information for a firewall domain list, call  <a>GetFirewallDomainList</a> and <a>ListFirewallDomains</a>.</p>
  * @public
@@ -3452,22 +2762,6 @@ export interface FirewallDomainListMetadata {
    */
   ManagedOwnerName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FirewallDomainUpdateOperation = {
-  ADD: "ADD",
-  REMOVE: "REMOVE",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type FirewallDomainUpdateOperation =
-  (typeof FirewallDomainUpdateOperation)[keyof typeof FirewallDomainUpdateOperation];
 
 /**
  * <p>Minimal high-level information for a firewall rule group. The action <a>ListFirewallRuleGroups</a> returns an array of these objects. </p>
@@ -3664,25 +2958,6 @@ export interface GetResolverConfigRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResolverAutodefinedReverseStatus = {
-  Disabled: "DISABLED",
-  Disabling: "DISABLING",
-  Enabled: "ENABLED",
-  Enabling: "ENABLING",
-  UpdatingToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
-  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
-} as const;
-
-/**
- * @public
- */
-export type ResolverAutodefinedReverseStatus =
-  (typeof ResolverAutodefinedReverseStatus)[keyof typeof ResolverAutodefinedReverseStatus];
-
-/**
  * <p>A complex type that contains information about a Resolver configuration for a VPC.</p>
  * @public
  */
@@ -3757,25 +3032,6 @@ export interface GetResolverDnssecConfigRequest {
    */
   ResourceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolverDNSSECValidationStatus = {
-  Disabled: "DISABLED",
-  Disabling: "DISABLING",
-  Enabled: "ENABLED",
-  Enabling: "ENABLING",
-  UpdateToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
-  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
-} as const;
-
-/**
- * @public
- */
-export type ResolverDNSSECValidationStatus =
-  (typeof ResolverDNSSECValidationStatus)[keyof typeof ResolverDNSSECValidationStatus];
 
 /**
  * <p>A complex type that contains information about a configuration for DNSSEC validation.</p>
@@ -3926,28 +3182,6 @@ export interface GetResolverQueryLogConfigPolicyResponse {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
- * @public
- */
-export class UnknownResourceException extends __BaseException {
-  readonly name: "UnknownResourceException" = "UnknownResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnknownResourceException, __BaseException>) {
-    super({
-      name: "UnknownResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnknownResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetResolverRuleRequest {
@@ -4067,97 +3301,6 @@ export interface ImportFirewallDomainsResponse {
    */
   StatusMessage?: string | undefined;
 }
-
-/**
- * <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified Resolver rule policy is invalid.</p>
- * @public
- */
-export class InvalidPolicyDocument extends __BaseException {
-  readonly name: "InvalidPolicyDocument" = "InvalidPolicyDocument";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPolicyDocument, __BaseException>) {
-    super({
-      name: "InvalidPolicyDocument",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPolicyDocument.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified tag is invalid.</p>
- * @public
- */
-export class InvalidTagException extends __BaseException {
-  readonly name: "InvalidTagException" = "InvalidTagException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
-    super({
-      name: "InvalidTagException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const IpAddressStatus = {
-  Attached: "ATTACHED",
-  Attaching: "ATTACHING",
-  Creating: "CREATING",
-  DeleteFailedFasExpired: "DELETE_FAILED_FAS_EXPIRED",
-  Deleting: "DELETING",
-  Detaching: "DETACHING",
-  FailedCreation: "FAILED_CREATION",
-  FailedResourceGone: "FAILED_RESOURCE_GONE",
-  Isolated: "ISOLATED",
-  RemapAttaching: "REMAP_ATTACHING",
-  RemapDetaching: "REMAP_DETACHING",
-  UpdateFailed: "UPDATE_FAILED",
-  Updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressStatus = (typeof IpAddressStatus)[keyof typeof IpAddressStatus];
 
 /**
  * <p>In the response to a
@@ -4798,20 +3941,6 @@ export interface ListResolverEndpointsResponse {
    */
   ResolverEndpoints?: ResolverEndpoint[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  Ascending: "ASCENDING",
-  Descending: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -6032,21 +5161,6 @@ export interface UpdateResolverConfigResponse {
    */
   ResolverConfig?: ResolverConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Validation = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
-} as const;
-
-/**
- * @public
- */
-export type Validation = (typeof Validation)[keyof typeof Validation];
 
 /**
  * @public

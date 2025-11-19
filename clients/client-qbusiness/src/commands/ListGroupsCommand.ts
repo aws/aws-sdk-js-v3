@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGroupsRequest, ListGroupsResponse } from "../models/models_1";
+import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { ListGroups } from "../schemas/schemas_0";
 

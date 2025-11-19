@@ -85,22 +85,17 @@ import {
   SparseNullsOperationCommandInput,
   SparseNullsOperationCommandOutput,
 } from "../commands/SparseNullsOperationCommand";
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, ErrorWithMembers, ErrorWithoutMembers, FooError, InvalidGreeting } from "../models/errors";
 import { JsonProtocolServiceException as __BaseException } from "../models/JsonProtocolServiceException";
 import {
-  ComplexError,
   ComplexNestedErrorData,
   ContentTypeParametersInput,
   DatetimeOffsetsOutput,
   EmptyStruct,
-  ErrorWithMembers,
-  ErrorWithoutMembers,
-  FooEnum,
-  FooError,
   FractionalSecondsOutput,
   GreetingStruct,
   HostLabelInput,
-  IntegerEnum,
-  InvalidGreeting,
   JsonEnumsInputOutput,
   JsonIntEnumsInputOutput,
   KitchenSink,

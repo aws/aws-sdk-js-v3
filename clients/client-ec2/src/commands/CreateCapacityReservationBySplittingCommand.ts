@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationBySplittingResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { CreateCapacityReservationBySplitting } from "../schemas/schemas_0";
 
 /**

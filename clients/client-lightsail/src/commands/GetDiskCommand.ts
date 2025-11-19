@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetDiskRequest, GetDiskResult } from "../models/models_1";
+import { GetDiskRequest, GetDiskResult } from "../models/models_0";
 import { GetDisk } from "../schemas/schemas_0";
 
 /**

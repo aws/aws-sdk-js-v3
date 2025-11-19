@@ -143,7 +143,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { TrustedAdvisorServiceException as __TrustedAdvisorServiceException } from "../models/TrustedAdvisorServiceException";
 
 /* eslint no-var: 0 */

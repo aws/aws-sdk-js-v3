@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
-} from "../models/models_1";
+} from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { GetReservedNodeExchangeConfigurationOptions } from "../schemas/schemas_0";
 

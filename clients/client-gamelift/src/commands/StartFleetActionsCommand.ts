@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/models_1";
+import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/models_0";
 import { StartFleetActions } from "../schemas/schemas_0";
 
 /**

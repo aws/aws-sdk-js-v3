@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeQPersonalizationConfigurationRequest,
   DescribeQPersonalizationConfigurationResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeQPersonalizationConfiguration } from "../schemas/schemas_0";
 

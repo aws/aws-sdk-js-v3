@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse } from "../models/models_1";
+import { StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse } from "../models/models_0";
 import { StartWebAuthnRegistration } from "../schemas/schemas_0";
 
 /**

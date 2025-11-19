@@ -158,7 +158,7 @@ import {
   NotFoundException as __NotFoundException,
   RequestTimeoutException as __RequestTimeoutException,
   UnsupportedMediaTypeException as __UnsupportedMediaTypeException,
-} from "../models/index";
+} from "../models/errors";
 import { LexRuntimeServiceServiceException as __LexRuntimeServiceServiceException } from "../models/LexRuntimeServiceServiceException";
 
 /* eslint no-var: 0 */

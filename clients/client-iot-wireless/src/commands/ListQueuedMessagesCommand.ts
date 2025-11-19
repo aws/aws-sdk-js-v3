@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_1";
+import { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_0";
 import { ListQueuedMessages } from "../schemas/schemas_0";
 
 /**

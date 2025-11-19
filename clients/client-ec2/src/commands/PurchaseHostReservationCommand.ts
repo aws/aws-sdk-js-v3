@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/models_8";
+import { PurchaseHostReservationRequest } from "../models/models_6";
+import { PurchaseHostReservationResult } from "../models/models_7";
 import { PurchaseHostReservation } from "../schemas/schemas_0";
 
 /**

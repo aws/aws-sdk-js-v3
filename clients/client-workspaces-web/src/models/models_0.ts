@@ -1,27 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
-
-/**
- * <p>Access is denied.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import { Category, Event, FolderStructure, LogFileFormat, SessionSortBy, SessionStatus } from "./enums";
 
 /**
  * @public
@@ -58,142 +36,6 @@ export interface AssociateBrowserSettingsResponse {
 }
 
 /**
- * <p>There is a conflict.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the resource affected.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>Type of the resource affected.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>There is an internal server error.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The resource cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Hypothetical identifier of the resource affected.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>Hypothetical type of the resource affected.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>There is a throttling error.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The originating service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The originating quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>Information about a field passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -226,40 +68,6 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>There is a validation error.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Reason the request failed validation</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field that caused the error.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
 
 /**
  * @public
@@ -532,45 +340,6 @@ export interface Tag {
 }
 
 /**
- * @public
- * @enum
- */
-export const Category = {
-  CHAT: "Chat",
-  CRIMINAL_ACTIVITY: "CriminalActivity",
-  CULTS: "Cults",
-  DOWNLOAD_SITES: "DownloadSites",
-  GAMBLING: "Gambling",
-  GAMES: "Games",
-  GENERATIVE_AI: "GenerativeAI",
-  HACKING: "Hacking",
-  HATE_AND_INTOLERANCE: "HateAndIntolerance",
-  ILLEGAL_DRUG: "IllegalDrug",
-  ILLEGAL_SOFTWARE: "IllegalSoftware",
-  IMAGE_SHARING: "ImageSharing",
-  INSTANT_MESSAGING: "InstantMessaging",
-  NUDITY: "Nudity",
-  PARKED_DOMAINS: "ParkedDomains",
-  PEER_TO_PEER: "PeerToPeer",
-  PORNOGRAPHY: "Pornography",
-  PROFESSIONAL_NETWORK: "ProfessionalNetwork",
-  SCHOOL_CHEATING: "SchoolCheating",
-  SELF_HARM: "SelfHarm",
-  SEX_EDUCATION: "SexEducation",
-  SOCIAL_NETWORKING: "SocialNetworking",
-  STREAMING_MEDIA_AND_DOWNLOADS: "StreamingMediaAndDownloads",
-  TASTELESS: "Tasteless",
-  VIOLENCE: "Violence",
-  WEAPONS: "Weapons",
-  WEB_BASED_EMAIL: "WebBasedEmail",
-} as const;
-
-/**
- * @public
- */
-export type Category = (typeof Category)[keyof typeof Category];
-
-/**
  * <p>The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.</p>
  * @public
  */
@@ -650,54 +419,6 @@ export interface CreateBrowserSettingsResponse {
    * @public
    */
   browserSettingsArn: string | undefined;
-}
-
-/**
- * <p>The service quota has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the resource affected.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p> Type of the resource affected.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * <p>The originating service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The originating quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 /**
@@ -1336,20 +1057,6 @@ export interface GetSessionRequest {
    */
   sessionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SessionStatus = {
-  ACTIVE: "Active",
-  TERMINATED: "Terminated",
-} as const;
-
-/**
- * @public
- */
-export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
 
 /**
  * <p>Information about a secure browser session.</p>
@@ -2465,20 +2172,6 @@ export interface UpdateIpAccessSettingsResponse {
 
 /**
  * @public
- * @enum
- */
-export const SessionSortBy = {
-  START_TIME_ASCENDING: "StartTimeAscending",
-  START_TIME_DESCENDING: "StartTimeDescending",
-} as const;
-
-/**
- * @public
- */
-export type SessionSortBy = (typeof SessionSortBy)[keyof typeof SessionSortBy];
-
-/**
- * @public
  */
 export interface ListSessionsRequest {
   /**
@@ -3551,35 +3244,6 @@ export interface UpdatePortalResponse {
 export interface Unit {}
 
 /**
- * @public
- * @enum
- */
-export const Event = {
-  CONTENT_COPY_FROM_WEBSITE: "ContentCopyFromWebsite",
-  CONTENT_PASTE_TO_WEBSITE: "ContentPasteToWebsite",
-  CONTENT_TRANSFER_FROM_LOCAL_TO_REMOTE_CLIPBOARD: "ContentTransferFromLocalToRemoteClipboard",
-  FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK: "FileDownloadFromSecureBrowserToRemoteDisk",
-  FILE_TRANSFER_FROM_LOCAL_TO_REMOTE_DISK: "FileTransferFromLocalToRemoteDisk",
-  FILE_TRANSFER_FROM_REMOTE_TO_LOCAL_DISK: "FileTransferFromRemoteToLocalDisk",
-  FILE_UPLOAD_FROM_REMOTE_DISK_TO_SECURE_BROWSER: "FileUploadFromRemoteDiskToSecureBrowser",
-  PRINT_JOB_SUBMIT: "PrintJobSubmit",
-  SESSION_CONNECT: "SessionConnect",
-  SESSION_DISCONNECT: "SessionDisconnect",
-  SESSION_END: "SessionEnd",
-  SESSION_START: "SessionStart",
-  TAB_CLOSE: "TabClose",
-  TAB_OPEN: "TabOpen",
-  URL_BLOCK_BY_CONTENT_FILTER: "UrlBlockByContentFilter",
-  URL_LOAD: "UrlLoad",
-  WEBSITE_INTERACT: "WebsiteInteract",
-} as const;
-
-/**
- * @public
- */
-export type Event = (typeof Event)[keyof typeof Event];
-
-/**
  * <p>The filter that specifies the events to monitor.</p>
  * @public
  */
@@ -3628,34 +3292,6 @@ export namespace EventFilter {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const FolderStructure = {
-  FLAT: "Flat",
-  NESTED_BY_DATE: "NestedByDate",
-} as const;
-
-/**
- * @public
- */
-export type FolderStructure = (typeof FolderStructure)[keyof typeof FolderStructure];
-
-/**
- * @public
- * @enum
- */
-export const LogFileFormat = {
-  JSON: "Json",
-  JSON_LINES: "JSONLines",
-} as const;
-
-/**
- * @public
- */
-export type LogFileFormat = (typeof LogFileFormat)[keyof typeof LogFileFormat];
 
 /**
  * <p>The S3 log configuration.</p>
@@ -3991,33 +3627,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>There are too many tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Name of the resource affected.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
 
 /**
  * <p>The summary of the certificate.</p>

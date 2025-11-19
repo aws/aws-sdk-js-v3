@@ -301,7 +301,7 @@ import {
   ServiceLimitExceededException as __ServiceLimitExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

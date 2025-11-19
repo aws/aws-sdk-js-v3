@@ -1,29 +1,13 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  ArtifactStatus,
+  ChatItemType,
+  ConnectionType,
+  MeetingFeatureStatus,
+  ParticipantRole,
+  ScanDirection,
+  SortKey,
+} from "./enums";
 
 /**
  * @public
@@ -47,72 +31,6 @@ export interface CancelParticipantAuthenticationRequest {
  * @public
  */
 export interface CancelParticipantAuthenticationResponse {}
-
-/**
- * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -144,66 +62,6 @@ export interface CompleteAttachmentUploadRequest {
  * @public
  */
 export interface CompleteAttachmentUploadResponse {}
-
-/**
- * <p>The requested operation conflicts with the current state of a service resource
- *             associated with the request. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of attachments per contact exceeds the quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  CONNECTION_CREDENTIALS: "CONNECTION_CREDENTIALS",
-  WEBRTC_CONNECTION: "WEBRTC_CONNECTION",
-  WEBSOCKET: "WEBSOCKET",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 /**
  * @public
@@ -302,20 +160,6 @@ export interface WebRTCMediaPlacement {
    */
   EventIngestionUrl?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MeetingFeatureStatus = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
 
 /**
  * <p>Has audio-specific configurations as the operating parameter for Echo Reduction.</p>
@@ -525,61 +369,6 @@ export interface DescribeViewResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceType = {
-  CONTACT: "CONTACT",
-  CONTACT_FLOW: "CONTACT_FLOW",
-  HIERARCHY_GROUP: "HIERARCHY_GROUP",
-  HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
-  INSTANCE: "INSTANCE",
-  PARTICIPANT: "PARTICIPANT",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>The resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The identifier of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The type of Amazon Connect resource.</p>
-   * @public
-   */
-  ResourceType?: ResourceType | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * @public
  */
 export interface DisconnectParticipantRequest {
   /**
@@ -688,34 +477,6 @@ export interface GetAuthenticationUrlResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScanDirection = {
-  BACKWARD: "BACKWARD",
-  FORWARD: "FORWARD",
-} as const;
-
-/**
- * @public
- */
-export type ScanDirection = (typeof ScanDirection)[keyof typeof ScanDirection];
-
-/**
- * @public
- * @enum
- */
-export const SortKey = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortKey = (typeof SortKey)[keyof typeof SortKey];
-
-/**
  * <p>A filtering option for where to start. For example, if you sent 100 messages, start
  *             with message 50. </p>
  * @public
@@ -792,21 +553,6 @@ export interface GetTranscriptRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ArtifactStatus = {
-  APPROVED: "APPROVED",
-  IN_PROGRESS: "IN_PROGRESS",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus];
-
-/**
  * <p>The case-insensitive input to indicate standard MIME type that describes the format of the file
  *             that will be uploaded.</p>
  * @public
@@ -878,47 +624,6 @@ export interface MessageMetadata {
    */
   Receipts?: Receipt[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParticipantRole = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-  CUSTOM_BOT: "CUSTOM_BOT",
-  SUPERVISOR: "SUPERVISOR",
-  SYSTEM: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
-
-/**
- * @public
- * @enum
- */
-export const ChatItemType = {
-  ATTACHMENT: "ATTACHMENT",
-  CHAT_ENDED: "CHAT_ENDED",
-  CONNECTION_ACK: "CONNECTION_ACK",
-  EVENT: "EVENT",
-  MESSAGE: "MESSAGE",
-  MESSAGE_DELIVERED: "MESSAGE_DELIVERED",
-  MESSAGE_READ: "MESSAGE_READ",
-  PARTICIPANT_JOINED: "PARTICIPANT_JOINED",
-  PARTICIPANT_LEFT: "PARTICIPANT_LEFT",
-  TRANSFER_FAILED: "TRANSFER_FAILED",
-  TRANSFER_SUCCEEDED: "TRANSFER_SUCCEEDED",
-  TYPING: "TYPING",
-} as const;
-
-/**
- * @public
- */
-export type ChatItemType = (typeof ChatItemType)[keyof typeof ChatItemType];
 
 /**
  * <p>An item - message or event - that has been sent. </p>

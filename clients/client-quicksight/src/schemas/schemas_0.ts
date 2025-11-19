@@ -3442,7 +3442,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnsupportedPricingPlanException as __UnsupportedPricingPlanException,
   UnsupportedUserEditionException as __UnsupportedUserEditionException,
-} from "../models/index";
+} from "../models/errors";
 import { QuickSightServiceException as __QuickSightServiceException } from "../models/QuickSightServiceException";
 
 /* eslint no-var: 0 */

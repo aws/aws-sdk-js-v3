@@ -8,7 +8,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   BatchPutDataQualityStatisticAnnotationRequest,
   BatchPutDataQualityStatisticAnnotationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { BatchPutDataQualityStatisticAnnotation } from "../schemas/schemas_0";
 
 /**

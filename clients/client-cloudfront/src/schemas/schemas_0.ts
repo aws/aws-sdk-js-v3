@@ -1259,7 +1259,7 @@ import {
   TrustedKeyGroupDoesNotExist as __TrustedKeyGroupDoesNotExist,
   TrustedSignerDoesNotExist as __TrustedSignerDoesNotExist,
   UnsupportedOperation as __UnsupportedOperation,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

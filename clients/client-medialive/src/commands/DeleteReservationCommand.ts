@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteReservationRequest, DeleteReservationResponse } from "../models/models_2";
+import { DeleteReservationRequest, DeleteReservationResponse } from "../models/models_1";
 import { DeleteReservation } from "../schemas/schemas_0";
 
 /**

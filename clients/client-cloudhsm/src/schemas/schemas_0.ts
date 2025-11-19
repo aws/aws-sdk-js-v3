@@ -132,7 +132,7 @@ import {
   CloudHsmInternalException as __CloudHsmInternalException,
   CloudHsmServiceException as __CloudHsmServiceException,
   InvalidRequestException as __InvalidRequestException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

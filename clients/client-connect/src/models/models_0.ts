@@ -1,50 +1,76 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
-
-/**
- * <p>You do not have sufficient permissions to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionType = {
-  ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
-  ASSIGN_SLA: "ASSIGN_SLA",
-  CREATE_CASE: "CREATE_CASE",
-  CREATE_TASK: "CREATE_TASK",
-  END_ASSOCIATED_TASKS: "END_ASSOCIATED_TASKS",
-  GENERATE_EVENTBRIDGE_EVENT: "GENERATE_EVENTBRIDGE_EVENT",
-  SEND_NOTIFICATION: "SEND_NOTIFICATION",
-  SUBMIT_AUTO_EVALUATION: "SUBMIT_AUTO_EVALUATION",
-  UPDATE_CASE: "UPDATE_CASE",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+import {
+  ActionType,
+  AgentAvailabilityTimer,
+  AgentStatusState,
+  AgentStatusType,
+  AllowedUserAction,
+  AttachedFileInvalidRequestExceptionReason,
+  AttachedFileServiceQuotaExceededExceptionReason,
+  BehaviorType,
+  Channel,
+  ContactFlowStatus,
+  ContactFlowType,
+  ContactInitiationMethod,
+  ContactState,
+  DeviceType,
+  DirectoryType,
+  EncryptionType,
+  EndpointType,
+  EvaluationFormItemEnablementSourceType,
+  EvaluationFormItemEnablementSourceValueType,
+  EvaluationFormItemSourceValuesComparator,
+  EvaluationFormQuestionAutomationAnswerSourceType,
+  EvaluationFormScoringMode,
+  EvaluationFormScoringStatus,
+  EvaluationFormSingleSelectQuestionDisplayMode,
+  EvaluationQuestionAnswerAnalysisType,
+  EvaluationSuggestedAnswerStatus,
+  EvaluationTranscriptType,
+  EventSourceName,
+  FailureReasonCode,
+  FileStatusType,
+  FileUseCaseType,
+  FlowAssociationResourceType,
+  HoursOfOperationDays,
+  InstanceStorageResourceType,
+  IntegrationType,
+  ListFlowAssociationResourceType,
+  MediaStreamType,
+  NotificationContentType,
+  NotificationDeliveryType,
+  NumericQuestionPropertyAutomationLabel,
+  OutboundStrategyType,
+  OverrideDays,
+  ParticipantRole,
+  ParticipantState,
+  ParticipantType,
+  PhoneType,
+  PropertyValidationExceptionReason,
+  QuestionRuleCategoryAutomationCondition,
+  QuickConnectType,
+  RecordingStatus,
+  ReferenceStatus,
+  ReferenceType,
+  RehydrationType,
+  RulePublishStatus,
+  ScreenShareCapability,
+  SingleSelectQuestionRuleCategoryAutomationCondition,
+  SlaAssignmentType,
+  SlaType,
+  SourceType,
+  Status,
+  StorageType,
+  StringComparisonType,
+  TaskTemplateFieldType,
+  TaskTemplateStatus,
+  UseCaseType,
+  VideoCapability,
+  ViewStatus,
+  ViewType,
+  VocabularyLanguageCode,
+  VocabularyState,
+} from "./enums";
 
 /**
  * <p>Information about an action.</p>
@@ -106,128 +132,6 @@ export interface ActivateEvaluationFormResponse {
 }
 
 /**
- * <p>Request processing failed because of an error or failure with the service.</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more of the specified parameters are not valid.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the parameters.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A resource already has that name.</p>
- * @public
- */
-export class ResourceConflictException extends __BaseException {
-  readonly name: "ResourceConflictException" = "ResourceConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
-    super({
-      name: "ResourceConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the resource.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The throttling limit has been exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Information about the email recipient</p>
  * @public
  */
@@ -264,20 +168,6 @@ export interface AdditionalEmailRecipients {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentAvailabilityTimer = {
-  TIME_SINCE_LAST_ACTIVITY: "TIME_SINCE_LAST_ACTIVITY",
-  TIME_SINCE_LAST_INBOUND: "TIME_SINCE_LAST_INBOUND",
-} as const;
-
-/**
- * @public
- */
-export type AgentAvailabilityTimer = (typeof AgentAvailabilityTimer)[keyof typeof AgentAvailabilityTimer];
-
-/**
  * <p>Information about a traffic distribution.</p>
  * @public
  */
@@ -306,67 +196,6 @@ export interface AgentConfig {
    */
   Distributions: Distribution[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContactState = {
-  CONNECTED: "CONNECTED",
-  CONNECTED_ONHOLD: "CONNECTED_ONHOLD",
-  CONNECTING: "CONNECTING",
-  ENDED: "ENDED",
-  ERROR: "ERROR",
-  INCOMING: "INCOMING",
-  MISSED: "MISSED",
-  PENDING: "PENDING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type ContactState = (typeof ContactState)[keyof typeof ContactState];
-
-/**
- * @public
- * @enum
- */
-export const Channel = {
-  CHAT: "CHAT",
-  EMAIL: "EMAIL",
-  TASK: "TASK",
-  VOICE: "VOICE",
-} as const;
-
-/**
- * @public
- */
-export type Channel = (typeof Channel)[keyof typeof Channel];
-
-/**
- * @public
- * @enum
- */
-export const ContactInitiationMethod = {
-  AGENT_REPLY: "AGENT_REPLY",
-  API: "API",
-  CALLBACK: "CALLBACK",
-  DISCONNECT: "DISCONNECT",
-  EXTERNAL_OUTBOUND: "EXTERNAL_OUTBOUND",
-  FLOW: "FLOW",
-  INBOUND: "INBOUND",
-  MONITOR: "MONITOR",
-  OUTBOUND: "OUTBOUND",
-  QUEUE_TRANSFER: "QUEUE_TRANSFER",
-  TRANSFER: "TRANSFER",
-  WEBRTC_API: "WEBRTC_API",
-} as const;
-
-/**
- * @public
- */
-export type ContactInitiationMethod = (typeof ContactInitiationMethod)[keyof typeof ContactInitiationMethod];
 
 /**
  * <p>Contains information about a queue resource for which metrics are returned.</p>
@@ -439,20 +268,6 @@ export interface AgentContactReference {
    */
   Queue?: QueueReference | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AllowedUserAction = {
-  CALL: "CALL",
-  DISCARD: "DISCARD",
-} as const;
-
-/**
- * @public
- */
-export type AllowedUserAction = (typeof AllowedUserAction)[keyof typeof AllowedUserAction];
 
 /**
  * <p>Countdown timer configuration after the agent accepted the contact.</p>
@@ -547,32 +362,6 @@ export interface AgentHierarchyGroups {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScreenShareCapability = {
-  SEND: "SEND",
-} as const;
-
-/**
- * @public
- */
-export type ScreenShareCapability = (typeof ScreenShareCapability)[keyof typeof ScreenShareCapability];
-
-/**
- * @public
- * @enum
- */
-export const VideoCapability = {
-  SEND: "SEND",
-} as const;
-
-/**
- * @public
- */
-export type VideoCapability = (typeof VideoCapability)[keyof typeof VideoCapability];
-
-/**
  * <p>The configuration for the allowed video and screen sharing capabilities for participants
  *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
  *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -654,22 +443,6 @@ export interface HierarchyGroups {
    */
   Level5?: AgentHierarchyGroup | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParticipantState = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-  INITIAL: "INITIAL",
-  MISSED: "MISSED",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantState = (typeof ParticipantState)[keyof typeof ParticipantState];
 
 /**
  * <p>Information about the state transition of a supervisor.</p>
@@ -836,35 +609,6 @@ export interface AgentsCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentStatusState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AgentStatusState = (typeof AgentStatusState)[keyof typeof AgentStatusState];
-
-/**
- * @public
- * @enum
- */
-export const AgentStatusType = {
-  CUSTOM: "CUSTOM",
-  OFFLINE: "OFFLINE",
-  ROUTABLE: "ROUTABLE",
-} as const;
-
-/**
- * @public
- */
-export type AgentStatusType = (typeof AgentStatusType)[keyof typeof AgentStatusType];
-
-/**
  * <p>Contains information about an agent status.</p>
  * @public
  */
@@ -971,21 +715,6 @@ export interface AgentStatusReference {
    */
   StatusName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StringComparisonType = {
-  CONTAINS: "CONTAINS",
-  EXACT: "EXACT",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
 
 /**
  * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -1178,20 +907,6 @@ export interface AllowedCapabilities {
 
 /**
  * @public
- * @enum
- */
-export const MonitorCapability = {
-  BARGE: "BARGE",
-  SILENT_MONITOR: "SILENT_MONITOR",
-} as const;
-
-/**
- * @public
- */
-export type MonitorCapability = (typeof MonitorCapability)[keyof typeof MonitorCapability];
-
-/**
- * @public
  */
 export interface AssociateAnalyticsDataSetRequest {
   /**
@@ -1244,22 +959,6 @@ export interface AssociateAnalyticsDataSetResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AttachedFileInvalidRequestExceptionReason = {
-  INVALID_FILE_NAME: "INVALID_FILE_NAME",
-  INVALID_FILE_SIZE: "INVALID_FILE_SIZE",
-  INVALID_FILE_TYPE: "INVALID_FILE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type AttachedFileInvalidRequestExceptionReason =
-  (typeof AttachedFileInvalidRequestExceptionReason)[keyof typeof AttachedFileInvalidRequestExceptionReason];
-
-/**
  * <p>Reason why the request was invalid.</p>
  * @public
  */
@@ -1299,39 +998,6 @@ export namespace InvalidRequestExceptionReason {
 }
 
 /**
- * <p>The request is not valid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the request.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>Reason why the request was invalid.</p>
-   * @public
-   */
-  Reason?: InvalidRequestExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateApprovedOriginRequest {
@@ -1356,21 +1022,6 @@ export interface AssociateApprovedOriginRequest {
    */
   ClientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachedFileServiceQuotaExceededExceptionReason = {
-  TOTAL_FILE_COUNT_EXCEEDED: "TOTAL_FILE_COUNT_EXCEEDED",
-  TOTAL_FILE_SIZE_EXCEEDED: "TOTAL_FILE_SIZE_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type AttachedFileServiceQuotaExceededExceptionReason =
-  (typeof AttachedFileServiceQuotaExceededExceptionReason)[keyof typeof AttachedFileServiceQuotaExceededExceptionReason];
 
 /**
  * <p>The reason for the exception.</p>
@@ -1408,34 +1059,6 @@ export namespace ServiceQuotaExceededExceptionReason {
   export interface Visitor<T> {
     AttachedFileServiceQuotaExceededExceptionReason: (value: AttachedFileServiceQuotaExceededExceptionReason) => T;
     _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The service quota has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  Reason?: ServiceQuotaExceededExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
   }
 }
 
@@ -1502,32 +1125,6 @@ export interface AssociateBotRequest {
 }
 
 /**
- * <p>The allowed limit for the resource has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the limit.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateContactWithUserRequest {
@@ -1554,51 +1151,6 @@ export interface AssociateContactWithUserRequest {
  * @public
  */
 export interface AssociateContactWithUserResponse {}
-
-/**
- * @public
- * @enum
- */
-export const VocabularyLanguageCode = {
-  AR_AE: "ar-AE",
-  CA_ES: "ca-ES",
-  DA_DK: "da-DK",
-  DE_CH: "de-CH",
-  DE_DE: "de-DE",
-  EN_AB: "en-AB",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_IE: "en-IE",
-  EN_IN: "en-IN",
-  EN_NZ: "en-NZ",
-  EN_US: "en-US",
-  EN_WL: "en-WL",
-  EN_ZA: "en-ZA",
-  ES_ES: "es-ES",
-  ES_US: "es-US",
-  FI_FI: "fi-FI",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  HI_IN: "hi-IN",
-  ID_ID: "id-ID",
-  IT_IT: "it-IT",
-  JA_JP: "ja-JP",
-  KO_KR: "ko-KR",
-  MS_MY: "ms-MY",
-  NL_NL: "nl-NL",
-  NO_NO: "no-NO",
-  PL_PL: "pl-PL",
-  PT_BR: "pt-BR",
-  PT_PT: "pt-PT",
-  SV_SE: "sv-SE",
-  TL_PH: "tl-PH",
-  ZH_CN: "zh-CN",
-} as const;
-
-/**
- * @public
- */
-export type VocabularyLanguageCode = (typeof VocabularyLanguageCode)[keyof typeof VocabularyLanguageCode];
 
 /**
  * @public
@@ -1670,46 +1222,6 @@ export interface AssociateEmailAddressAliasRequest {
 export interface AssociateEmailAddressAliasResponse {}
 
 /**
- * <p>An entity with the same name already exists.</p>
- * @public
- */
-export class IdempotencyException extends __BaseException {
-  readonly name: "IdempotencyException" = "IdempotencyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
-    super({
-      name: "IdempotencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotencyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FlowAssociationResourceType = {
-  ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
-  INBOUND_EMAIL: "INBOUND_EMAIL",
-  OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
-  SMS_PHONE_NUMBER: "SMS_PHONE_NUMBER",
-  WHATSAPP_MESSAGING_PHONE_NUMBER: "WHATSAPP_MESSAGING_PHONE_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type FlowAssociationResourceType =
-  (typeof FlowAssociationResourceType)[keyof typeof FlowAssociationResourceType];
-
-/**
  * @public
  */
 export interface AssociateFlowRequest {
@@ -1756,32 +1268,6 @@ export interface AssociateFlowRequest {
 export interface AssociateFlowResponse {}
 
 /**
- * @public
- * @enum
- */
-export const InstanceStorageResourceType = {
-  AGENT_EVENTS: "AGENT_EVENTS",
-  ATTACHMENTS: "ATTACHMENTS",
-  CALL_RECORDINGS: "CALL_RECORDINGS",
-  CHAT_TRANSCRIPTS: "CHAT_TRANSCRIPTS",
-  CONTACT_EVALUATIONS: "CONTACT_EVALUATIONS",
-  CONTACT_TRACE_RECORDS: "CONTACT_TRACE_RECORDS",
-  EMAIL_MESSAGES: "EMAIL_MESSAGES",
-  MEDIA_STREAMS: "MEDIA_STREAMS",
-  REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS",
-  REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
-  REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS",
-  SCHEDULED_REPORTS: "SCHEDULED_REPORTS",
-  SCREEN_RECORDINGS: "SCREEN_RECORDINGS",
-} as const;
-
-/**
- * @public
- */
-export type InstanceStorageResourceType =
-  (typeof InstanceStorageResourceType)[keyof typeof InstanceStorageResourceType];
-
-/**
  * <p>Configuration information of a Kinesis Data Firehose delivery stream.</p>
  * @public
  */
@@ -1804,19 +1290,6 @@ export interface KinesisStreamConfig {
    */
   StreamArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * <p>The encryption configuration.</p>
@@ -1892,22 +1365,6 @@ export interface S3Config {
    */
   EncryptionConfig?: EncryptionConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageType = {
-  KINESIS_FIREHOSE: "KINESIS_FIREHOSE",
-  KINESIS_STREAM: "KINESIS_STREAM",
-  KINESIS_VIDEO_STREAM: "KINESIS_VIDEO_STREAM",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
  * <p>The storage configuration for the instance.</p>
@@ -2569,36 +2026,6 @@ export namespace CreatedByInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const FileStatusType = {
-  APPROVED: "APPROVED",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type FileStatusType = (typeof FileStatusType)[keyof typeof FileStatusType];
-
-/**
- * @public
- * @enum
- */
-export const FileUseCaseType = {
-  ATTACHMENT: "ATTACHMENT",
-  EMAIL_MESSAGE: "EMAIL_MESSAGE",
-} as const;
-
-/**
- * @public
- */
-export type FileUseCaseType = (typeof FileUseCaseType)[keyof typeof FileUseCaseType];
-
-/**
  * <p>Information about the attached file.</p>
  * @public
  */
@@ -2690,24 +2117,6 @@ export interface BatchGetAttachedFileMetadataResponse {
 
 /**
  * @public
- * @enum
- */
-export const ListFlowAssociationResourceType = {
-  ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
-  INBOUND_EMAIL: "INBOUND_EMAIL",
-  OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
-  VOICE_PHONE_NUMBER: "VOICE_PHONE_NUMBER",
-  WHATSAPP_MESSAGING_PHONE_NUMBER: "WHATSAPP_MESSAGING_PHONE_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type ListFlowAssociationResourceType =
-  (typeof ListFlowAssociationResourceType)[keyof typeof ListFlowAssociationResourceType];
-
-/**
- * @public
  */
 export interface BatchGetFlowAssociationRequest {
   /**
@@ -2789,23 +2198,6 @@ export interface Campaign {
 }
 
 /**
- * @public
- * @enum
- */
-export const EndpointType = {
-  CONNECT_PHONENUMBER_ARN: "CONNECT_PHONENUMBER_ARN",
-  CONTACT_FLOW: "CONTACT_FLOW",
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  TELEPHONE_NUMBER: "TELEPHONE_NUMBER",
-  VOIP: "VOIP",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-/**
  * <p>Information about the endpoint.</p>
  * @public
  */
@@ -2834,19 +2226,6 @@ export interface OutboundStrategyConfig {
    */
   AgentFirst?: AgentFirst | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OutboundStrategyType = {
-  AGENT_FIRST: "AGENT_FIRST",
-} as const;
-
-/**
- * @public
- */
-export type OutboundStrategyType = (typeof OutboundStrategyType)[keyof typeof OutboundStrategyType];
 
 /**
  * <p>Information about the outbound strategy.</p>
@@ -2941,29 +2320,6 @@ export interface BatchPutContactRequest {
    */
   ContactDataRequestList: ContactDataRequest[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FailureReasonCode = {
-  IDEMPOTENCY_EXCEPTION: "IDEMPOTENCY_EXCEPTION",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_ATTRIBUTE_KEY: "INVALID_ATTRIBUTE_KEY",
-  INVALID_CUSTOMER_ENDPOINT: "INVALID_CUSTOMER_ENDPOINT",
-  INVALID_OUTBOUND_STRATEGY: "INVALID_OUTBOUND_STRATEGY",
-  INVALID_QUEUE: "INVALID_QUEUE",
-  INVALID_SYSTEM_ENDPOINT: "INVALID_SYSTEM_ENDPOINT",
-  MISSING_CAMPAIGN: "MISSING_CAMPAIGN",
-  MISSING_CUSTOMER_ENDPOINT: "MISSING_CUSTOMER_ENDPOINT",
-  MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT: "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT",
-  REQUEST_THROTTLED: "REQUEST_THROTTLED",
-} as const;
-
-/**
- * @public
- */
-export type FailureReasonCode = (typeof FailureReasonCode)[keyof typeof FailureReasonCode];
 
 /**
  * <p>Request for which contact failed to be generated.</p>
@@ -3185,103 +2541,6 @@ export interface CreateAgentStatusResponse {
 }
 
 /**
- * <p>A resource with the specified name already exists.</p>
- * @public
- */
-export class DuplicateResourceException extends __BaseException {
-  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
-    super({
-      name: "DuplicateResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InitiateAs = {
-  COMPLETED: "COMPLETED",
-  CONNECTED_TO_USER: "CONNECTED_TO_USER",
-} as const;
-
-/**
- * @public
- */
-export type InitiateAs = (typeof InitiateAs)[keyof typeof InitiateAs];
-
-/**
- * @public
- * @enum
- */
-export const ReferenceStatus = {
-  APPROVED: "APPROVED",
-  AVAILABLE: "AVAILABLE",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceStatus];
-
-/**
- * @public
- * @enum
- */
-export const ReferenceType = {
-  ATTACHMENT: "ATTACHMENT",
-  CONTACT_ANALYSIS: "CONTACT_ANALYSIS",
-  DATE: "DATE",
-  EMAIL: "EMAIL",
-  EMAIL_MESSAGE: "EMAIL_MESSAGE",
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
-
-/**
  * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up
  *    to 4,096 UTF-8 bytes across all references for a contact.</p>
  * @public
@@ -3348,42 +2607,6 @@ export interface CreateContactResponse {
    */
   ContactArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContactFlowStatus = {
-  PUBLISHED: "PUBLISHED",
-  SAVED: "SAVED",
-} as const;
-
-/**
- * @public
- */
-export type ContactFlowStatus = (typeof ContactFlowStatus)[keyof typeof ContactFlowStatus];
-
-/**
- * @public
- * @enum
- */
-export const ContactFlowType = {
-  AGENT_HOLD: "AGENT_HOLD",
-  AGENT_TRANSFER: "AGENT_TRANSFER",
-  AGENT_WHISPER: "AGENT_WHISPER",
-  CAMPAIGN: "CAMPAIGN",
-  CONTACT_FLOW: "CONTACT_FLOW",
-  CUSTOMER_HOLD: "CUSTOMER_HOLD",
-  CUSTOMER_QUEUE: "CUSTOMER_QUEUE",
-  CUSTOMER_WHISPER: "CUSTOMER_WHISPER",
-  OUTBOUND_WHISPER: "OUTBOUND_WHISPER",
-  QUEUE_TRANSFER: "QUEUE_TRANSFER",
-} as const;
-
-/**
- * @public
- */
-export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowType];
 
 /**
  * @public
@@ -3474,32 +2697,6 @@ export interface ProblemDetail {
 }
 
 /**
- * <p>The flow is not valid.</p>
- * @public
- */
-export class InvalidContactFlowException extends __BaseException {
-  readonly name: "InvalidContactFlowException" = "InvalidContactFlowException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The problems with the flow. Please fix before trying again.</p>
-   * @public
-   */
-  problems?: ProblemDetail[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidContactFlowException, __BaseException>) {
-    super({
-      name: "InvalidContactFlowException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidContactFlowException.prototype);
-    this.problems = opts.problems;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateContactFlowModuleRequest {
@@ -3559,28 +2756,6 @@ export interface CreateContactFlowModuleResponse {
    * @public
    */
   Arn?: string | undefined;
-}
-
-/**
- * <p>The problems with the module. Please fix before trying again.</p>
- * @public
- */
-export class InvalidContactFlowModuleException extends __BaseException {
-  readonly name: "InvalidContactFlowModuleException" = "InvalidContactFlowModuleException";
-  readonly $fault: "client" = "client";
-  Problems?: ProblemDetail[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidContactFlowModuleException, __BaseException>) {
-    super({
-      name: "InvalidContactFlowModuleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidContactFlowModuleException.prototype);
-    this.Problems = opts.Problems;
-  }
 }
 
 /**
@@ -3721,50 +2896,6 @@ export interface EvaluationFormAutoEvaluationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const EvaluationFormItemEnablementAction = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormItemEnablementAction =
-  (typeof EvaluationFormItemEnablementAction)[keyof typeof EvaluationFormItemEnablementAction];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormItemSourceValuesComparator = {
-  IN: "IN",
-  NOT_IN: "NOT_IN",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormItemSourceValuesComparator =
-  (typeof EvaluationFormItemSourceValuesComparator)[keyof typeof EvaluationFormItemSourceValuesComparator];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormItemEnablementSourceType = {
-  QUESTION_REF_ID: "QUESTION_REF_ID",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormItemEnablementSourceType =
-  (typeof EvaluationFormItemEnablementSourceType)[keyof typeof EvaluationFormItemEnablementSourceType];
-
-/**
  * <p>An enablement expression source item.</p>
  * @public
  */
@@ -3781,20 +2912,6 @@ export interface EvaluationFormItemEnablementSource {
    */
   RefId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormItemEnablementSourceValueType = {
-  OPTION_REF_ID: "OPTION_REF_ID",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormItemEnablementSourceValueType =
-  (typeof EvaluationFormItemEnablementSourceValueType)[keyof typeof EvaluationFormItemEnablementSourceValueType];
 
 /**
  * <p>An enablement expression source value.</p>
@@ -3839,51 +2956,6 @@ export interface EvaluationFormItemEnablementExpression {
 }
 
 /**
- * @public
- * @enum
- */
-export const EvaluationFormItemEnablementOperator = {
-  AND: "AND",
-  OR: "OR",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormItemEnablementOperator =
-  (typeof EvaluationFormItemEnablementOperator)[keyof typeof EvaluationFormItemEnablementOperator];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormQuestionType = {
-  NUMERIC: "NUMERIC",
-  SINGLESELECT: "SINGLESELECT",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormQuestionType = (typeof EvaluationFormQuestionType)[keyof typeof EvaluationFormQuestionType];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormQuestionAutomationAnswerSourceType = {
-  CONTACT_LENS_DATA: "CONTACT_LENS_DATA",
-  GEN_AI: "GEN_AI",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormQuestionAutomationAnswerSourceType =
-  (typeof EvaluationFormQuestionAutomationAnswerSourceType)[keyof typeof EvaluationFormQuestionAutomationAnswerSourceType];
-
-/**
  * <p>A question automation answer.</p>
  * @public
  */
@@ -3894,30 +2966,6 @@ export interface EvaluationFormQuestionAutomationAnswerSource {
    */
   SourceType: EvaluationFormQuestionAutomationAnswerSourceType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NumericQuestionPropertyAutomationLabel = {
-  AGENT_INTERACTION_AND_HOLD_DURATION: "AGENT_INTERACTION_AND_HOLD_DURATION",
-  AGENT_INTERACTION_DURATION: "AGENT_INTERACTION_DURATION",
-  CONTACT_DURATION: "CONTACT_DURATION",
-  CUSTOMER_HOLD_TIME: "CUSTOMER_HOLD_TIME",
-  LONGEST_HOLD_DURATION: "LONGEST_HOLD_DURATION",
-  NON_TALK_TIME: "NON_TALK_TIME",
-  NON_TALK_TIME_PERCENTAGE: "NON_TALK_TIME_PERCENTAGE",
-  NUMBER_OF_HOLDS: "NUMBER_OF_HOLDS",
-  NUMBER_OF_INTERRUPTIONS: "NUMBER_OF_INTERRUPTIONS",
-  OVERALL_AGENT_SENTIMENT_SCORE: "OVERALL_AGENT_SENTIMENT_SCORE",
-  OVERALL_CUSTOMER_SENTIMENT_SCORE: "OVERALL_CUSTOMER_SENTIMENT_SCORE",
-} as const;
-
-/**
- * @public
- */
-export type NumericQuestionPropertyAutomationLabel =
-  (typeof NumericQuestionPropertyAutomationLabel)[keyof typeof NumericQuestionPropertyAutomationLabel];
 
 /**
  * <p>Information about the property value used in automation of a numeric questions. Label values
@@ -4083,21 +3131,6 @@ export interface EvaluationFormNumericQuestionProperties {
 }
 
 /**
- * @public
- * @enum
- */
-export const SingleSelectQuestionRuleCategoryAutomationCondition = {
-  NOT_PRESENT: "NOT_PRESENT",
-  PRESENT: "PRESENT",
-} as const;
-
-/**
- * @public
- */
-export type SingleSelectQuestionRuleCategoryAutomationCondition =
-  (typeof SingleSelectQuestionRuleCategoryAutomationCondition)[keyof typeof SingleSelectQuestionRuleCategoryAutomationCondition];
-
-/**
  * <p>Information about the automation option based on a rule category for a single select
  *    question.</p>
  * @public
@@ -4190,21 +3223,6 @@ export interface EvaluationFormSingleSelectQuestionAutomation {
    */
   AnswerSource?: EvaluationFormQuestionAutomationAnswerSource | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormSingleSelectQuestionDisplayMode = {
-  DROPDOWN: "DROPDOWN",
-  RADIO: "RADIO",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormSingleSelectQuestionDisplayMode =
-  (typeof EvaluationFormSingleSelectQuestionDisplayMode)[keyof typeof EvaluationFormSingleSelectQuestionDisplayMode];
 
 /**
  * <p>Information about the automation configuration in single select questions.</p>
@@ -4363,35 +3381,6 @@ export namespace EvaluationFormQuestionTypeProperties {
 }
 
 /**
- * @public
- * @enum
- */
-export const EvaluationFormScoringMode = {
-  QUESTION_ONLY: "QUESTION_ONLY",
-  SECTION_ONLY: "SECTION_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormScoringMode = (typeof EvaluationFormScoringMode)[keyof typeof EvaluationFormScoringMode];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormScoringStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormScoringStatus =
-  (typeof EvaluationFormScoringStatus)[keyof typeof EvaluationFormScoringStatus];
-
-/**
  * <p>Information about scoring strategy for an evaluation form.</p>
  * @public
  */
@@ -4425,25 +3414,6 @@ export interface CreateEvaluationFormResponse {
    */
   EvaluationFormArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HoursOfOperationDays = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type HoursOfOperationDays = (typeof HoursOfOperationDays)[keyof typeof HoursOfOperationDays];
 
 /**
  * <p>The start time or end time for an hours of operation.</p>
@@ -4544,25 +3514,6 @@ export interface CreateHoursOfOperationResponse {
    */
   HoursOfOperationArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OverrideDays = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type OverrideDays = (typeof OverrideDays)[keyof typeof OverrideDays];
 
 /**
  * <p>The start time or end time for an hours of operation override.</p>
@@ -4668,21 +3619,6 @@ export interface CreateHoursOfOperationOverrideResponse {
 
 /**
  * @public
- * @enum
- */
-export const DirectoryType = {
-  CONNECT_MANAGED: "CONNECT_MANAGED",
-  EXISTING_DIRECTORY: "EXISTING_DIRECTORY",
-  SAML: "SAML",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryType = (typeof DirectoryType)[keyof typeof DirectoryType];
-
-/**
- * @public
  */
 export interface CreateInstanceRequest {
   /**
@@ -4745,47 +3681,6 @@ export interface CreateInstanceResponse {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IntegrationType = {
-  ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
-  APPLICATION: "APPLICATION",
-  CALL_TRANSFER_CONNECTOR: "CALL_TRANSFER_CONNECTOR",
-  CASES_DOMAIN: "CASES_DOMAIN",
-  COGNITO_USER_POOL: "COGNITO_USER_POOL",
-  EVENT: "EVENT",
-  FILE_SCANNER: "FILE_SCANNER",
-  PINPOINT_APP: "PINPOINT_APP",
-  Q_MESSAGE_TEMPLATES: "Q_MESSAGE_TEMPLATES",
-  SES_IDENTITY: "SES_IDENTITY",
-  VOICE_ID: "VOICE_ID",
-  WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
-  WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
-  WISDOM_QUICK_RESPONSES: "WISDOM_QUICK_RESPONSES",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  CASES: "CASES",
-  SALESFORCE: "SALESFORCE",
-  ZENDESK: "ZENDESK",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -4854,23 +3749,6 @@ export interface CreateIntegrationAssociationResponse {
    */
   IntegrationAssociationArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParticipantRole = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-  CUSTOM_BOT: "CUSTOM_BOT",
-  SUPERVISOR: "SUPERVISOR",
-  SYSTEM: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
  * <p>The details to add for the participant.</p>
@@ -4974,20 +3852,6 @@ export interface CreateParticipantResponse {
    */
   ParticipantId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RehydrationType = {
-  ENTIRE_PAST_SESSION: "ENTIRE_PAST_SESSION",
-  FROM_SEGMENT: "FROM_SEGMENT",
-} as const;
-
-/**
- * @public
- */
-export type RehydrationType = (typeof RehydrationType)[keyof typeof RehydrationType];
 
 /**
  * @public
@@ -5309,21 +4173,6 @@ export interface ContactConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const DeviceType = {
-  APNS: "APNS",
-  APNS_SANDBOX: "APNS_SANDBOX",
-  GCM: "GCM",
-} as const;
-
-/**
- * @public
- */
-export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
-
-/**
- * @public
  */
 export interface CreatePushNotificationRegistrationRequest {
   /**
@@ -5522,21 +4371,6 @@ export interface QueueQuickConnectConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const QuickConnectType = {
-  PHONE_NUMBER: "PHONE_NUMBER",
-  QUEUE: "QUEUE",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];
-
-/**
  * <p>Contains information about the quick connect configuration settings for a user. The contact
  *    flow must be of type Transfer to Agent.</p>
  * @public
@@ -5637,20 +4471,6 @@ export interface CreateQuickConnectResponse {
    */
   QuickConnectId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BehaviorType = {
-  ROUTE_ANY_CHANNEL: "ROUTE_ANY_CHANNEL",
-  ROUTE_CURRENT_CHANNEL_ONLY: "ROUTE_CURRENT_CHANNEL_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type BehaviorType = (typeof BehaviorType)[keyof typeof BehaviorType];
 
 /**
  * <p>Defines the cross-channel routing behavior that allows an agent working on a contact in one
@@ -5834,19 +4654,6 @@ export interface FieldValueUnion {
 }
 
 /**
- * @public
- * @enum
- */
-export const SlaType = {
-  CASE_FIELD: "CaseField",
-} as const;
-
-/**
- * @public
- */
-export type SlaType = (typeof SlaType)[keyof typeof SlaType];
-
-/**
  * <p>The SLA configuration for Case SlaAssignmentType.</p>
  * @public
  */
@@ -5883,19 +4690,6 @@ export interface CaseSlaConfiguration {
    */
   TargetSlaMinutes: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SlaAssignmentType = {
-  CASES: "CASES",
-} as const;
-
-/**
- * @public
- */
-export type SlaAssignmentType = (typeof SlaAssignmentType)[keyof typeof SlaAssignmentType];
 
 /**
  * <p>The AssignSla action definition.</p>
@@ -5968,32 +4762,6 @@ export interface EventBridgeActionDefinition {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NotificationContentType = {
-  PLAIN_TEXT: "PLAIN_TEXT",
-} as const;
-
-/**
- * @public
- */
-export type NotificationContentType = (typeof NotificationContentType)[keyof typeof NotificationContentType];
-
-/**
- * @public
- * @enum
- */
-export const NotificationDeliveryType = {
-  EMAIL: "EMAIL",
-} as const;
-
-/**
- * @public
- */
-export type NotificationDeliveryType = (typeof NotificationDeliveryType)[keyof typeof NotificationDeliveryType];
 
 /**
  * <p>The type of notification recipient.</p>
@@ -6204,44 +4972,6 @@ export interface RuleAction {
    */
   SubmitAutoEvaluationAction?: SubmitAutoEvaluationActionDefinition | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RulePublishStatus = {
-  DRAFT: "DRAFT",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePublishStatus];
-
-/**
- * @public
- * @enum
- */
-export const EventSourceName = {
-  OnCaseCreate: "OnCaseCreate",
-  OnCaseUpdate: "OnCaseUpdate",
-  OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
-  OnMetricDataUpdate: "OnMetricDataUpdate",
-  OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
-  OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
-  OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
-  OnRealTimeChatAnalysisAvailable: "OnRealTimeChatAnalysisAvailable",
-  OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
-  OnSlaBreach: "OnSlaBreach",
-  OnZendeskTicketCreate: "OnZendeskTicketCreate",
-  OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
-} as const;
-
-/**
- * @public
- */
-export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceName];
 
 /**
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the
@@ -6541,32 +5271,6 @@ export interface TaskTemplateDefaults {
 }
 
 /**
- * @public
- * @enum
- */
-export const TaskTemplateFieldType = {
-  BOOLEAN: "BOOLEAN",
-  DATE_TIME: "DATE_TIME",
-  DESCRIPTION: "DESCRIPTION",
-  EMAIL: "EMAIL",
-  EXPIRY_DURATION: "EXPIRY_DURATION",
-  NAME: "NAME",
-  NUMBER: "NUMBER",
-  QUICK_CONNECT: "QUICK_CONNECT",
-  SCHEDULED_TIME: "SCHEDULED_TIME",
-  SELF_ASSIGN: "SELF_ASSIGN",
-  SINGLE_SELECT: "SINGLE_SELECT",
-  TEXT: "TEXT",
-  TEXT_AREA: "TEXT_AREA",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type TaskTemplateFieldType = (typeof TaskTemplateFieldType)[keyof typeof TaskTemplateFieldType];
-
-/**
  * <p>Describes a single task template field.</p>
  * @public
  */
@@ -6595,20 +5299,6 @@ export interface TaskTemplateField {
    */
   SingleSelectOptions?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskTemplateStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type TaskTemplateStatus = (typeof TaskTemplateStatus)[keyof typeof TaskTemplateStatus];
 
 /**
  * @public
@@ -6699,25 +5389,6 @@ export interface CreateTaskTemplateResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const PropertyValidationExceptionReason = {
-  INVALID_FORMAT: "INVALID_FORMAT",
-  NOT_SUPPORTED: "NOT_SUPPORTED",
-  REFERENCED_RESOURCE_NOT_FOUND: "REFERENCED_RESOURCE_NOT_FOUND",
-  REQUIRED_PROPERTY_MISSING: "REQUIRED_PROPERTY_MISSING",
-  RESOURCE_NAME_ALREADY_EXISTS: "RESOURCE_NAME_ALREADY_EXISTS",
-  UNIQUE_CONSTRAINT_VIOLATED: "UNIQUE_CONSTRAINT_VIOLATED",
-} as const;
-
-/**
- * @public
- */
-export type PropertyValidationExceptionReason =
-  (typeof PropertyValidationExceptionReason)[keyof typeof PropertyValidationExceptionReason];
-
-/**
  * <p>Contains information about why a property is not valid.</p>
  * @public
  */
@@ -6739,30 +5410,6 @@ export interface PropertyValidationExceptionProperty {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * <p>The property is not valid.</p>
- * @public
- */
-export class PropertyValidationException extends __BaseException {
-  readonly name: "PropertyValidationException" = "PropertyValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  PropertyList?: PropertyValidationExceptionProperty[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PropertyValidationException, __BaseException>) {
-    super({
-      name: "PropertyValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PropertyValidationException.prototype);
-    this.Message = opts.Message;
-    this.PropertyList = opts.PropertyList;
-  }
 }
 
 /**
@@ -6821,42 +5468,6 @@ export interface CreateTrafficDistributionGroupResponse {
    */
   Arn?: string | undefined;
 }
-
-/**
- * <p>The resource is not ready.</p>
- * @public
- */
-export class ResourceNotReadyException extends __BaseException {
-  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
-    super({
-      name: "ResourceNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const UseCaseType = {
-  CONNECT_CAMPAIGNS: "CONNECT_CAMPAIGNS",
-  RULES_EVALUATION: "RULES_EVALUATION",
-} as const;
-
-/**
- * @public
- */
-export type UseCaseType = (typeof UseCaseType)[keyof typeof UseCaseType];
 
 /**
  * @public
@@ -6961,20 +5572,6 @@ export interface UserIdentityInfo {
    */
   Mobile?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PhoneType = {
-  DESK_PHONE: "DESK_PHONE",
-  SOFT_PHONE: "SOFT_PHONE",
-} as const;
-
-/**
- * @public
- */
-export type PhoneType = (typeof PhoneType)[keyof typeof PhoneType];
 
 /**
  * <p>Contains information about the phone configuration settings for a user.</p>
@@ -7189,20 +5786,6 @@ export interface ViewInputContent {
 
 /**
  * @public
- * @enum
- */
-export const ViewStatus = {
-  PUBLISHED: "PUBLISHED",
-  SAVED: "SAVED",
-} as const;
-
-/**
- * @public
- */
-export type ViewStatus = (typeof ViewStatus)[keyof typeof ViewStatus];
-
-/**
- * @public
  */
 export interface CreateViewRequest {
   /**
@@ -7279,20 +5862,6 @@ export interface ViewContent {
    */
   Actions?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ViewType = {
-  AWS_MANAGED: "AWS_MANAGED",
-  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type ViewType = (typeof ViewType)[keyof typeof ViewType];
 
 /**
  * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
@@ -7379,4 +5948,1810 @@ export interface View {
    * @public
    */
   ViewContentSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateViewResponse {
+  /**
+   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+   * @public
+   */
+  View?: View | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateViewVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>The description for the version being published.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>Indicates the checksum value of the latest published view content.</p>
+   * @public
+   */
+  ViewContentSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateViewVersionResponse {
+  /**
+   * <p>All view data is contained within the View object.</p>
+   * @public
+   */
+  View?: View | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVocabularyRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. If a create request is received more than once with same client token,
+   *    subsequent requests return the previous response without creating a vocabulary again.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyName: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   * @public
+   */
+  LanguageCode: VocabularyLanguageCode | undefined;
+
+  /**
+   * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row
+   *    in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>,
+   *     <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB
+   *    characters. The size limit is 50KB. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom
+   *     vocabulary using a table</a>.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVocabularyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyArn: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   * @public
+   */
+  State: VocabularyState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form. If the version property is not provided, the latest version of the
+   *    evaluation form is deactivated.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateEvaluationFormResponse {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>The version of the deactivated evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+}
+
+/**
+ * Request to DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileRequest {
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   *    current supported resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * Response from DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow version.</p>
+   * @public
+   */
+  ContactFlowVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowVersionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteEmailAddressRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the email address.</p>
+   * @public
+   */
+  EmailAddressId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEmailAddressResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHoursOfOperationOverrideRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation override.</p>
+   * @public
+   */
+  HoursOfOperationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationAssociationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePredefinedAttributeRequest {
+  /**
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p> The name of the predefined attribute.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePromptRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   * @public
+   */
+  PromptId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePushNotificationRegistrationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the registration.</p>
+   * @public
+   */
+  RegistrationId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact within the Amazon Connect instance.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePushNotificationRegistrationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQueueRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuickConnectRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  QuickConnectId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoutingProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   * @public
+   */
+  SecurityProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  TaskTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTaskTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficDistributionGroupRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN of the traffic distribution group.</p>
+   * @public
+   */
+  TrafficDistributionGroupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficDistributionGroupResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteUseCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The identifier for the use case.</p>
+   * @public
+   */
+  UseCaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserHierarchyGroupRequest {
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   * @public
+   */
+  HierarchyGroupId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteViewRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteViewResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteViewVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   *    used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>The version number of the view.</p>
+   * @public
+   */
+  ViewVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteViewVersionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteVocabularyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVocabularyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyArn: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   * @public
+   */
+  State: VocabularyState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgentStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the agent status.</p>
+   * @public
+   */
+  AgentStatusId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgentStatusResponse {
+  /**
+   * <p>The agent status.</p>
+   * @public
+   */
+  AgentStatus?: AgentStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfileRequest {
+  /**
+   * <p>A unique identifier for the authentication profile. </p>
+   * @public
+   */
+  AuthenticationProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * request access to this API, contact Amazon Web Services Support.</p>
+ *          <p>Information about an authentication profile. An authentication profile is a resource that
+ *    stores the authentication settings for users in your contact center. You use authentication
+ *    profiles to set up IP address range restrictions and session timeouts. For more information, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html">Set IP
+ *     address restrictions or session timeouts</a>. </p>
+ * @public
+ */
+export interface AuthenticationProfile {
+  /**
+   * <p>A unique identifier for the authentication profile. </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the authentication profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name for the authentication profile.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description for the authentication profile.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of IP address range strings that are allowed to access the Amazon Connect
+   *    instance. For more information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure IP
+   *     address based access control</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  AllowedIps?: string[] | undefined;
+
+  /**
+   * <p>A list of IP address range strings that are blocked from accessing the Amazon Connect
+   *    instance. For more information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure IP
+   *     address based access control</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  BlockedIps?: string[] | undefined;
+
+  /**
+   * <p>Shows whether the authentication profile is the default authentication profile for the
+   *     Amazon Connect instance. The default authentication profile applies to all agents in an
+   *     Amazon Connect instance, unless overridden by another authentication profile.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The timestamp when the authentication profile was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the authentication profile was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the authentication profile was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The short lived session duration configuration for users logged in to Amazon Connect, in
+   *    minutes. This value determines the maximum possible time before an agent is authenticated. For
+   *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   *
+   * @deprecated PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.
+   * @public
+   */
+  PeriodicSessionDuration?: number | undefined;
+
+  /**
+   * <p>The long lived session duration for users logged in to Amazon Connect, in minutes. After
+   *    this time period, users must log in again. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  MaxSessionDuration?: number | undefined;
+
+  /**
+   * <p>The period, in minutes, before an agent is automatically signed out of the contact center when they go inactive.</p>
+   * @public
+   */
+  SessionInactivityDuration?: number | undefined;
+
+  /**
+   * <p>Determines if automatic logout on user inactivity is enabled.</p>
+   * @public
+   */
+  SessionInactivityHandlingEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfileResponse {
+  /**
+   * <p>The authentication profile object being described.</p>
+   * @public
+   */
+  AuthenticationProfile?: AuthenticationProfile | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * <p>Information about a participant's interactions in a contact.</p>
+ * @public
+ */
+export interface ParticipantMetrics {
+  /**
+   * <p>The Participant's ID.</p>
+   * @public
+   */
+  ParticipantId?: string | undefined;
+
+  /**
+   * <p>Information about the conversation participant. Following are the participant types: [Agent,
+   *    Customer, Supervisor].</p>
+   * @public
+   */
+  ParticipantType?: ParticipantType | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether the chat conversation was abandoned by a
+   *    Participant.</p>
+   * @public
+   */
+  ConversationAbandon?: boolean | undefined;
+
+  /**
+   * <p>Number of chat messages sent by Participant.</p>
+   * @public
+   */
+  MessagesSent?: number | undefined;
+
+  /**
+   * <p>Number of chat messages sent by Participant.</p>
+   * @public
+   */
+  NumResponses?: number | undefined;
+
+  /**
+   * <p>Number of chat characters sent by Participant.</p>
+   * @public
+   */
+  MessageLengthInChars?: number | undefined;
+
+  /**
+   * <p>Total chat response time by Participant.</p>
+   * @public
+   */
+  TotalResponseTimeInMillis?: number | undefined;
+
+  /**
+   * <p>Maximum chat response time by Participant.</p>
+   * @public
+   */
+  MaxResponseTimeInMillis?: number | undefined;
+
+  /**
+   * <p>Timestamp of last chat message by Participant.</p>
+   * @public
+   */
+  LastMessageTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information about the overall participant interactions at the contact level.</p>
+ * @public
+ */
+export interface ChatContactMetrics {
+  /**
+   * <p>A boolean flag indicating whether multiparty chat or supervisor barge were enabled on this
+   *    contact.</p>
+   * @public
+   */
+  MultiParty?: boolean | undefined;
+
+  /**
+   * <p>The number of chat messages on the contact.</p>
+   * @public
+   */
+  TotalMessages?: number | undefined;
+
+  /**
+   * <p>The total number of bot and automated messages on a chat contact.</p>
+   * @public
+   */
+  TotalBotMessages?: number | undefined;
+
+  /**
+   * <p>The total number of characters from bot and automated messages on a chat contact.</p>
+   * @public
+   */
+  TotalBotMessageLengthInChars?: number | undefined;
+
+  /**
+   * <p>The time it took for a contact to end after the last customer message.</p>
+   * @public
+   */
+  ConversationCloseTimeInMillis?: number | undefined;
+
+  /**
+   * <p>The number of conversation turns in a chat contact, which represents the back-and-forth
+   *    exchanges between customer and other participants.</p>
+   * @public
+   */
+  ConversationTurnCount?: number | undefined;
+
+  /**
+   * <p>The agent first response timestamp for a chat contact.</p>
+   * @public
+   */
+  AgentFirstResponseTimestamp?: Date | undefined;
+
+  /**
+   * <p>The time for an agent to respond after obtaining a chat contact.</p>
+   * @public
+   */
+  AgentFirstResponseTimeInMillis?: number | undefined;
+}
+
+/**
+ * <p>Information about how agent, bot, and customer interact in a chat contact.</p>
+ * @public
+ */
+export interface ChatMetrics {
+  /**
+   * <p>Information about the overall participant interactions at the contact level.</p>
+   * @public
+   */
+  ChatContactMetrics?: ChatContactMetrics | undefined;
+
+  /**
+   * <p>Information about agent interactions in a contact.</p>
+   * @public
+   */
+  AgentMetrics?: ParticipantMetrics | undefined;
+
+  /**
+   * <p>Information about customer interactions in a contact.</p>
+   * @public
+   */
+  CustomerMetrics?: ParticipantMetrics | undefined;
+}
+
+/**
+ * <p>A map of string key/value pairs that contain user-defined attributes which are lightly typed
+ *    within the contact. This object is used only for task contacts. </p>
+ * @public
+ */
+export interface ContactDetails {
+  /**
+   * <p>The name of the contact details.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Teh description of the contact details.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Information about the contact evaluations where the key is the FormId, which is a unique
+ *    identifier for the form.</p>
+ * @public
+ */
+export interface ContactEvaluation {
+  /**
+   * <p>The <code>FormId</code> of the contact evaluation.</p>
+   * @public
+   */
+  FormId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name for the evaluation form. It is always present.</p>
+   * @public
+   */
+  EvaluationArn?: string | undefined;
+
+  /**
+   * <p>The status of the evaluation.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was started, in UTC time.</p>
+   * @public
+   */
+  StartTimestamp?: Date | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was submitted, in UTC time.</p>
+   * @public
+   */
+  EndTimestamp?: Date | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was deleted, in UTC time.</p>
+   * @public
+   */
+  DeleteTimestamp?: Date | undefined;
+
+  /**
+   * <p>The path where evaluation was exported.</p>
+   * @public
+   */
+  ExportLocation?: string | undefined;
+}
+
+/**
+ * <p>Information about the Customer on the contact.</p>
+ * @public
+ */
+export interface Customer {
+  /**
+   * <p>Information regarding Customer’s device.</p>
+   * @public
+   */
+  DeviceInfo?: DeviceInfo | undefined;
+
+  /**
+   * <p>The configuration for the allowed video and screen sharing capabilities for participants
+   *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
+   *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * @public
+   */
+  Capabilities?: ParticipantCapabilities | undefined;
+}
+
+/**
+ * <p>Information about the endpoint.</p>
+ * @public
+ */
+export interface EndpointInfo {
+  /**
+   * <p>Type of endpoint.</p>
+   * @public
+   */
+  Type?: EndpointType | undefined;
+
+  /**
+   * <p>Address of the endpoint.</p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p>Display name of the endpoint.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+}
+
+/**
+ * <p>Information about customer’s voice activity.</p>
+ * @public
+ */
+export interface CustomerVoiceActivity {
+  /**
+   * <p>Timestamp that measures the beginning of the customer greeting from an outbound voice
+   *    call.</p>
+   * @public
+   */
+  GreetingStartTimestamp?: Date | undefined;
+
+  /**
+   * <p>Timestamp that measures the end of the customer greeting from an outbound voice call.</p>
+   * @public
+   */
+  GreetingEndTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information about the call disconnect experience.</p>
+ * @public
+ */
+export interface DisconnectDetails {
+  /**
+   * <p>Indicates the potential disconnection issues for a call. This field is not populated if the
+   *    service does not detect potential issues.</p>
+   * @public
+   */
+  PotentialDisconnectIssue?: string | undefined;
+}
+
+/**
+ * <p>Information about the quality of the Customer's media connection</p>
+ * @public
+ */
+export interface CustomerQualityMetrics {
+  /**
+   * <p>Information about the audio quality of the Customer</p>
+   * @public
+   */
+  Audio?: AudioQualityMetricsInfo | undefined;
+}
+
+/**
+ * <p>Information about the quality of the participant's media connection.</p>
+ * @public
+ */
+export interface QualityMetrics {
+  /**
+   * <p>Information about the quality of Agent media connection.</p>
+   * @public
+   */
+  Agent?: AgentQualityMetrics | undefined;
+
+  /**
+   * <p>Information about the quality of Customer media connection.</p>
+   * @public
+   */
+  Customer?: CustomerQualityMetrics | undefined;
+}
+
+/**
+ * <p>If this contact was queued, this contains information about the queue. </p>
+ * @public
+ */
+export interface QueueInfo {
+  /**
+   * <p>The unique identifier for the queue.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The timestamp when the contact was added to the queue.</p>
+   * @public
+   */
+  EnqueueTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information about a voice recording, chat transcript, or screen recording.</p>
+ * @public
+ */
+export interface RecordingInfo {
+  /**
+   * <p>Where the recording/transcript is stored.</p>
+   * @public
+   */
+  StorageType?: StorageType | undefined;
+
+  /**
+   * <p>The location, in Amazon S3, for the recording/transcript.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>Information about the media stream used during the conversation.</p>
+   * @public
+   */
+  MediaStreamType?: MediaStreamType | undefined;
+
+  /**
+   * <p>Information about the conversation participant, whether they are an agent or contact. The
+   *    participant types are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>All</p>
+   *             </li>
+   *             <li>
+   *                <p>Manager</p>
+   *             </li>
+   *             <li>
+   *                <p>Agent</p>
+   *             </li>
+   *             <li>
+   *                <p>Customer</p>
+   *             </li>
+   *             <li>
+   *                <p>Thirdparty</p>
+   *             </li>
+   *             <li>
+   *                <p>Supervisor</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ParticipantType?: ParticipantType | undefined;
+
+  /**
+   * <p>The number that identifies the Kinesis Video Streams fragment where the customer audio
+   *    stream started.</p>
+   * @public
+   */
+  FragmentStartNumber?: string | undefined;
+
+  /**
+   * <p>The number that identifies the Kinesis Video Streams fragment where the customer audio
+   *    stream stopped.</p>
+   * @public
+   */
+  FragmentStopNumber?: string | undefined;
+
+  /**
+   * <p>When the conversation of the last leg of the recording started in UTC time.</p>
+   * @public
+   */
+  StartTimestamp?: Date | undefined;
+
+  /**
+   * <p>When the conversation of the last leg of recording stopped in UTC time.</p>
+   * @public
+   */
+  StopTimestamp?: Date | undefined;
+
+  /**
+   * <p>The status of the recording/transcript.</p>
+   * @public
+   */
+  Status?: RecordingStatus | undefined;
+
+  /**
+   * <p>If the recording/transcript was deleted, this is the reason entered for the deletion.</p>
+   * @public
+   */
+  DeletionReason?: string | undefined;
+}
+
+/**
+ * <p>An object to specify the expiration of a routing step.</p>
+ * @public
+ */
+export interface Expiry {
+  /**
+   * <p>The number of seconds to wait before expiring the routing step.</p>
+   * @public
+   */
+  DurationInSeconds?: number | undefined;
+
+  /**
+   * <p>The timestamp indicating when the routing step expires.</p>
+   * @public
+   */
+  ExpiryTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>An object to define AgentsCriteria.</p>
+ * @public
+ */
+export interface MatchCriteria {
+  /**
+   * <p>An object to define agentIds.</p>
+   * @public
+   */
+  AgentsCriteria?: AgentsCriteria | undefined;
+}
+
+/**
+ * <p>An Object to define the minimum and maximum proficiency levels.</p>
+ * @public
+ */
+export interface Range {
+  /**
+   * <p>The minimum proficiency level of the range.</p>
+   * @public
+   */
+  MinProficiencyLevel?: number | undefined;
+
+  /**
+   * <p>The maximum proficiency level of the range.</p>
+   * @public
+   */
+  MaxProficiencyLevel?: number | undefined;
+}
+
+/**
+ * <p>An object to specify the predefined attribute condition.</p>
+ * @public
+ */
+export interface AttributeCondition {
+  /**
+   * <p>The name of predefined attribute.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The value of predefined attribute.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The proficiency level of the condition.</p>
+   * @public
+   */
+  ProficiencyLevel?: number | undefined;
+
+  /**
+   * <p>An Object to define the minimum and maximum proficiency levels.</p>
+   * @public
+   */
+  Range?: Range | undefined;
+
+  /**
+   * <p>An object to define <code>AgentsCriteria</code>.</p>
+   * @public
+   */
+  MatchCriteria?: MatchCriteria | undefined;
+
+  /**
+   * <p>The operator of the condition.</p>
+   * @public
+   */
+  ComparisonOperator?: string | undefined;
+}
+
+/**
+ * <p>Information about the task template used to create this contact.</p>
+ * @public
+ */
+export interface TaskTemplateInfoV2 {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task template used to create this contact.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the task template used to create this contact.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>Information about Amazon Connect Wisdom.</p>
+ * @public
+ */
+export interface WisdomInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Wisdom session.</p>
+   * @public
+   */
+  SessionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+}
+
+/**
+ * <p>The milliseconds offset for transcript reference in suggested answer.</p>
+ * @public
+ */
+export interface EvaluationSuggestedAnswerTranscriptMillisecondOffsets {
+  /**
+   * <p>Offset in milliseconds from the beginning of the transcript.</p>
+   * @public
+   */
+  BeginOffsetMillis: number | undefined;
+}
+
+/**
+ * <p>Information about the point of interest in transcript provided to evaluation.</p>
+ * @public
+ */
+export interface EvaluationTranscriptPointOfInterest {
+  /**
+   * <p>Offset in milliseconds from the beginning of transcript.</p>
+   * @public
+   */
+  MillisecondOffsets?: EvaluationSuggestedAnswerTranscriptMillisecondOffsets | undefined;
+
+  /**
+   * <p>Segment of transcript.</p>
+   * @public
+   */
+  TranscriptSegment?: string | undefined;
+}
+
+/**
+ * <p>The Contact Lens category used by evaluation automation.</p>
+ * @public
+ */
+export interface EvaluationAutomationRuleCategory {
+  /**
+   * <p>A category label.</p>
+   * @public
+   */
+  Category: string | undefined;
+
+  /**
+   * <p>An automation condition for a Contact Lens category.</p>
+   * @public
+   */
+  Condition: QuestionRuleCategoryAutomationCondition | undefined;
+
+  /**
+   * <p>A point of interest in a contact transcript that indicates match of condition.</p>
+   * @public
+   */
+  PointsOfInterest?: EvaluationTranscriptPointOfInterest[] | undefined;
+}
+
+/**
+ * <p>Analysis details providing explanation for Contact Lens automation decision.</p>
+ * @public
+ */
+export interface EvaluationContactLensAnswerAnalysisDetails {
+  /**
+   * <p>A list of match rule categories.</p>
+   * @public
+   */
+  MatchedRuleCategories?: EvaluationAutomationRuleCategory[] | undefined;
+}
+
+/**
+ * <p>An analysis for a generative AI answer to the question.</p>
+ * @public
+ */
+export interface EvaluationGenAIAnswerAnalysisDetails {
+  /**
+   * <p>Generative AI automation answer justification.</p>
+   * @public
+   */
+  Justification?: string | undefined;
+
+  /**
+   * <p>Generative AI automation answer analysis points of interest.</p>
+   * @public
+   */
+  PointsOfInterest?: EvaluationTranscriptPointOfInterest[] | undefined;
+}
+
+/**
+ * <p>Detailed analysis results of the automated answer to the evaluation question.</p>
+ * @public
+ */
+export type EvaluationQuestionAnswerAnalysisDetails =
+  | EvaluationQuestionAnswerAnalysisDetails.ContactLensMember
+  | EvaluationQuestionAnswerAnalysisDetails.GenAIMember
+  | EvaluationQuestionAnswerAnalysisDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationQuestionAnswerAnalysisDetails {
+  /**
+   * <p>Analysis results from the generative AI automation for the question.</p>
+   * @public
+   */
+  export interface GenAIMember {
+    GenAI: EvaluationGenAIAnswerAnalysisDetails;
+    ContactLens?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Analysis results from the Contact Lens automation for the question.</p>
+   * @public
+   */
+  export interface ContactLensMember {
+    GenAI?: never;
+    ContactLens: EvaluationContactLensAnswerAnalysisDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    GenAI?: never;
+    ContactLens?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    GenAI: (value: EvaluationGenAIAnswerAnalysisDetails) => T;
+    ContactLens: (value: EvaluationContactLensAnswerAnalysisDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details of the input data used for automated question processing.</p>
+ * @public
+ */
+export interface EvaluationQuestionInputDetails {
+  /**
+   * <p>Transcript type.</p>
+   * @public
+   */
+  TranscriptType?: EvaluationTranscriptType | undefined;
+}
+
+/**
+ * <p>Information about answer data for a contact evaluation. Answer data must be either string,
+ *    numeric, or not applicable.</p>
+ * @public
+ */
+export type EvaluationAnswerData =
+  | EvaluationAnswerData.NotApplicableMember
+  | EvaluationAnswerData.NumericValueMember
+  | EvaluationAnswerData.StringValueMember
+  | EvaluationAnswerData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationAnswerData {
+  /**
+   * <p>The string value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    NumericValue?: never;
+    NotApplicable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The numeric value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  export interface NumericValueMember {
+    StringValue?: never;
+    NumericValue: number;
+    NotApplicable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The flag to mark the question as not applicable.</p>
+   * @public
+   */
+  export interface NotApplicableMember {
+    StringValue?: never;
+    NumericValue?: never;
+    NotApplicable: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    NumericValue?: never;
+    NotApplicable?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    NumericValue: (value: number) => T;
+    NotApplicable: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The information about the suggested answer for the question.</p>
+ * @public
+ */
+export interface EvaluationSuggestedAnswer {
+  /**
+   * <p>Information about answer data for a contact evaluation. Answer data must be either string,
+   *    numeric, or not applicable.</p>
+   * @public
+   */
+  Value?: EvaluationAnswerData | undefined;
+
+  /**
+   * <p>The status of the suggested answer. D</p>
+   * @public
+   */
+  Status: EvaluationSuggestedAnswerStatus | undefined;
+
+  /**
+   * <p>Details about the input used to question automation.</p>
+   * @public
+   */
+  Input?: EvaluationQuestionInputDetails | undefined;
+
+  /**
+   * <p>Type of analysis used to provide suggested answer.</p>
+   * @public
+   */
+  AnalysisType: EvaluationQuestionAnswerAnalysisType | undefined;
+
+  /**
+   * <p>Detailed analysis results.</p>
+   * @public
+   */
+  AnalysisDetails?: EvaluationQuestionAnswerAnalysisDetails | undefined;
+}
+
+/**
+ * <p>Information about output answers for a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationAnswerOutput {
+  /**
+   * <p>The value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  Value?: EvaluationAnswerData | undefined;
+
+  /**
+   * <p>The system suggested value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  SystemSuggestedValue?: EvaluationAnswerData | undefined;
+
+  /**
+   * <p>Automation suggested answers for the questions.</p>
+   * @public
+   */
+  SuggestedAnswers?: EvaluationSuggestedAnswer[] | undefined;
+}
+
+/**
+ * <p>Information about the evaluation acknowledgement.</p>
+ * @public
+ */
+export interface EvaluationAcknowledgement {
+  /**
+   * <p>When the agent acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedTime: Date | undefined;
+
+  /**
+   * <p>The agent who acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedBy: string | undefined;
+
+  /**
+   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgerComment?: string | undefined;
 }

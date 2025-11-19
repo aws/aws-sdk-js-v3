@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ImportCertificateMessage, ImportCertificateResponse } from "../models/models_1";
+import { ImportCertificateMessage, ImportCertificateResponse } from "../models/models_0";
 import { ImportCertificate } from "../schemas/schemas_0";
 
 /**

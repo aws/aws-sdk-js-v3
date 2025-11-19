@@ -27,6 +27,11 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
+export type * from "./models/models_1";
+export type * from "./models/models_2";
 
 export { IoTServiceException } from "./models/IoTServiceException";

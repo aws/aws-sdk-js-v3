@@ -472,7 +472,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MailManagerServiceException as __MailManagerServiceException } from "../models/MailManagerServiceException";
 
 /* eslint no-var: 0 */

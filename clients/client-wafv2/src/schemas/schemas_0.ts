@@ -587,7 +587,7 @@ import {
   WAFTagOperationInternalErrorException as __WAFTagOperationInternalErrorException,
   WAFUnavailableEntityException as __WAFUnavailableEntityException,
   WAFUnsupportedAggregateKeyTypeException as __WAFUnsupportedAggregateKeyTypeException,
-} from "../models/index";
+} from "../models/errors";
 import { WAFV2ServiceException as __WAFV2ServiceException } from "../models/WAFV2ServiceException";
 
 /* eslint no-var: 0 */

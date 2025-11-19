@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/models_1";
+import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/models_0";
 import { GetDistributionConfig } from "../schemas/schemas_0";
 
 /**

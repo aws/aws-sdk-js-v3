@@ -875,7 +875,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { QBusinessServiceException as __QBusinessServiceException } from "../models/QBusinessServiceException";
 
 /* eslint no-var: 0 */

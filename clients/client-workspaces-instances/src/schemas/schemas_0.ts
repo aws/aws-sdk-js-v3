@@ -252,7 +252,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { WorkspacesInstancesServiceException as __WorkspacesInstancesServiceException } from "../models/WorkspacesInstancesServiceException";
 
 /* eslint no-var: 0 */

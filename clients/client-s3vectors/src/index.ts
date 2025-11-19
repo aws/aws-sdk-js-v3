@@ -12,6 +12,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { S3VectorsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { S3VectorsServiceException } from "./models/S3VectorsServiceException";

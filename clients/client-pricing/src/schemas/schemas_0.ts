@@ -78,7 +78,7 @@ import {
   NotFoundException as __NotFoundException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { PricingServiceException as __PricingServiceException } from "../models/PricingServiceException";
 
 /* eslint no-var: 0 */

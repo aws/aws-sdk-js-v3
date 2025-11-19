@@ -309,7 +309,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnauthorizedException as __UnauthorizedException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { QAppsServiceException as __QAppsServiceException } from "../models/QAppsServiceException";
 
 /* eslint no-var: 0 */

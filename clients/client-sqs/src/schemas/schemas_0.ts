@@ -234,7 +234,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyEntriesInBatchRequest as __TooManyEntriesInBatchRequest,
   UnsupportedOperation as __UnsupportedOperation,
-} from "../models/index";
+} from "../models/errors";
 import { SQSServiceException as __SQSServiceException } from "../models/SQSServiceException";
 
 /* eslint no-var: 0 */

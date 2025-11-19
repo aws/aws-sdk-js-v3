@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteLocalGatewayVirtualInterfaceGroupRequest,
   DeleteLocalGatewayVirtualInterfaceGroupResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteLocalGatewayVirtualInterfaceGroup } from "../schemas/schemas_0";
 
 /**

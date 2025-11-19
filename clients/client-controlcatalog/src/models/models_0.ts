@@ -1,29 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ControlCatalogServiceException as __BaseException } from "./ControlCatalogServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import { ControlBehavior, ControlRelationType, ControlScope, ControlSeverity, MappingType } from "./enums";
 
 /**
  * <p>A summary of the domain that a common control or an objective belongs to.</p>
@@ -95,29 +71,6 @@ export interface CommonControlMappingDetails {
    * @public
    */
   CommonControlArn: string | undefined;
-}
-
-/**
- * <p>An internal service error occurred during the processing of your request. Try again later.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -209,68 +162,6 @@ export interface ListCommonControlsResponse {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request has invalid or missing parameters.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ControlBehavior = {
-  DETECTIVE: "DETECTIVE",
-  PREVENTIVE: "PREVENTIVE",
-  PROACTIVE: "PROACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ControlBehavior = (typeof ControlBehavior)[keyof typeof ControlBehavior];
-
-/**
  * @public
  */
 export interface GetControlRequest {
@@ -312,20 +203,6 @@ export interface ControlParameter {
 }
 
 /**
- * @public
- * @enum
- */
-export const ControlScope = {
-  GLOBAL: "GLOBAL",
-  REGIONAL: "REGIONAL",
-} as const;
-
-/**
- * @public
- */
-export type ControlScope = (typeof ControlScope)[keyof typeof ControlScope];
-
-/**
  * <p>Returns information about the control, including the scope of the control, if enabled, and the Regions in which the control is available for deployment. For more information about scope, see <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/global-services.html">Global services</a>.</p> <p>If you are applying controls through an Amazon Web Services Control Tower landing zone environment, remember that the values returned in the <code>RegionConfiguration</code> API operation are not related to the governed Regions in your landing zone. For example, if you are governing Regions <code>A</code>,<code>B</code>,and <code>C</code> while the control is available in Regions <code>A</code>, <code>B</code>, C<code>,</code> and <code>D</code>, you'd see a response with <code>DeployableRegions</code> of <code>A</code>, <code>B</code>, <code>C</code>, and <code>D</code> for a control with <code>REGIONAL</code> scope, even though you may not intend to deploy the control in Region <code>D</code>, because you do not govern it through your landing zone.</p>
  * @public
  */
@@ -342,22 +219,6 @@ export interface RegionConfiguration {
    */
   DeployableRegions?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlSeverity = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type ControlSeverity = (typeof ControlSeverity)[keyof typeof ControlSeverity];
 
 /**
  * @public
@@ -428,28 +289,6 @@ export interface GetControlResponse {
    * @public
    */
   GovernedResources?: string[] | undefined;
-}
-
-/**
- * <p>The requested resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -671,21 +510,6 @@ export interface ListDomainsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MappingType = {
-  COMMON_CONTROL: "COMMON_CONTROL",
-  FRAMEWORK: "FRAMEWORK",
-  RELATED_CONTROL: "RELATED_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type MappingType = (typeof MappingType)[keyof typeof MappingType];
-
-/**
  * <p>A structure that defines filtering criteria for the ListControlMappings operation. You can use this filter to narrow down the list of control mappings based on control ARNs, common control ARNs, or mapping types.</p>
  * @public
  */
@@ -749,21 +573,6 @@ export interface FrameworkMappingDetails {
    */
   Item: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlRelationType = {
-  ALTERNATIVE: "ALTERNATIVE",
-  COMPLEMENTARY: "COMPLEMENTARY",
-  MUTUALLY_EXCLUSIVE: "MUTUALLY_EXCLUSIVE",
-} as const;
-
-/**
- * @public
- */
-export type ControlRelationType = (typeof ControlRelationType)[keyof typeof ControlRelationType];
 
 /**
  * <p>A structure that describes a control's relationship status with other controls.</p>

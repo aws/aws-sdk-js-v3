@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListEventBridgeRuleTemplatesRequest, ListEventBridgeRuleTemplatesResponse } from "../models/models_2";
+import { ListEventBridgeRuleTemplatesRequest, ListEventBridgeRuleTemplatesResponse } from "../models/models_1";
 import { ListEventBridgeRuleTemplates } from "../schemas/schemas_0";
 
 /**

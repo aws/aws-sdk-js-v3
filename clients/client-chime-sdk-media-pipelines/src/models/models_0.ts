@@ -1,23 +1,52 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./ChimeSDKMediaPipelinesServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ActiveSpeakerPosition = {
-  BottomLeft: "BottomLeft",
-  BottomRight: "BottomRight",
-  TopLeft: "TopLeft",
-  TopRight: "TopRight",
-} as const;
-
-/**
- * @public
- */
-export type ActiveSpeakerPosition = (typeof ActiveSpeakerPosition)[keyof typeof ActiveSpeakerPosition];
+import {
+  ActiveSpeakerPosition,
+  ArtifactsConcatenationState,
+  ArtifactsState,
+  AudioArtifactsConcatenationState,
+  AudioChannelsOption,
+  AudioMuxType,
+  BorderColor,
+  CallAnalyticsLanguageCode,
+  CanvasOrientation,
+  ConcatenationSinkType,
+  ConcatenationSourceType,
+  ContentMuxType,
+  ContentRedactionOutput,
+  ContentShareLayoutOption,
+  ContentType,
+  FragmentSelectorType,
+  HighlightColor,
+  HorizontalTilePosition,
+  KinesisVideoStreamPoolStatus,
+  LayoutOption,
+  LiveConnectorMuxType,
+  LiveConnectorSinkType,
+  LiveConnectorSourceType,
+  MediaEncoding,
+  MediaInsightsPipelineConfigurationElementType,
+  MediaPipelineElementStatus,
+  MediaPipelineSinkType,
+  MediaPipelineSourceType,
+  MediaPipelineStatus,
+  MediaPipelineStatusUpdate,
+  MediaPipelineTaskStatus,
+  MediaStreamPipelineSinkType,
+  MediaStreamType,
+  PartialResultsStability,
+  ParticipantRole,
+  PresenterPosition,
+  RealTimeAlertRuleType,
+  RecordingFileFormat,
+  ResolutionOption,
+  SentimentType,
+  TileOrder,
+  VerticalTilePosition,
+  VideoMuxType,
+  VocabularyFilterMethod,
+  VoiceAnalyticsConfigurationStatus,
+  VoiceAnalyticsLanguageCode,
+} from "./enums";
 
 /**
  * <p>Defines the configuration for an <code>ActiveSpeakerOnly</code> video tile.</p>
@@ -30,69 +59,6 @@ export interface ActiveSpeakerOnlyConfiguration {
    */
   ActiveSpeakerPosition?: ActiveSpeakerPosition | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentType = {
-  PII: "PII",
-} as const;
-
-/**
- * @public
- */
-export type ContentType = (typeof ContentType)[keyof typeof ContentType];
-
-/**
- * @public
- * @enum
- */
-export const CallAnalyticsLanguageCode = {
-  DE_DE: "de-DE",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_US: "en-US",
-  ES_US: "es-US",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  IT_IT: "it-IT",
-  PT_BR: "pt-BR",
-} as const;
-
-/**
- * @public
- */
-export type CallAnalyticsLanguageCode = (typeof CallAnalyticsLanguageCode)[keyof typeof CallAnalyticsLanguageCode];
-
-/**
- * @public
- * @enum
- */
-export const PartialResultsStability = {
-  HIGH: "high",
-  LOW: "low",
-  MEDIUM: "medium",
-} as const;
-
-/**
- * @public
- */
-export type PartialResultsStability = (typeof PartialResultsStability)[keyof typeof PartialResultsStability];
-
-/**
- * @public
- * @enum
- */
-export const ContentRedactionOutput = {
-  REDACTED: "redacted",
-  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
-} as const;
-
-/**
- * @public
- */
-export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
 
 /**
  * <p>Allows you to specify additional settings for your Call Analytics post-call request, including output locations for your redacted transcript, which IAM role to use, and which encryption key to use.</p>
@@ -129,21 +95,6 @@ export interface PostCallAnalyticsSettings {
    */
   OutputEncryptionKMSKeyId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VocabularyFilterMethod = {
-  MASK: "mask",
-  REMOVE: "remove",
-  TAG: "tag",
-} as const;
-
-/**
- * @public
- */
-export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
  * <p>A structure that contains the configuration settings for an Amazon Transcribe call
@@ -426,20 +377,6 @@ export interface AmazonTranscribeProcessorConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioArtifactsConcatenationState = {
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type AudioArtifactsConcatenationState =
-  (typeof AudioArtifactsConcatenationState)[keyof typeof AudioArtifactsConcatenationState];
-
-/**
  * <p>The audio artifact concatenation configuration object.</p>
  * @public
  */
@@ -450,21 +387,6 @@ export interface AudioConcatenationConfiguration {
    */
   State: AudioArtifactsConcatenationState | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ArtifactsConcatenationState = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactsConcatenationState =
-  (typeof ArtifactsConcatenationState)[keyof typeof ArtifactsConcatenationState];
 
 /**
  * <p>The composited video configuration object for a specified
@@ -590,21 +512,6 @@ export interface ArtifactsConcatenationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioMuxType = {
-  AudioOnly: "AudioOnly",
-  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
-  AudioWithCompositedVideo: "AudioWithCompositedVideo",
-} as const;
-
-/**
- * @public
- */
-export type AudioMuxType = (typeof AudioMuxType)[keyof typeof AudioMuxType];
-
-/**
  * <p>The audio artifact configuration object.</p>
  * @public
  */
@@ -615,64 +522,6 @@ export interface AudioArtifactsConfiguration {
    */
   MuxType: AudioMuxType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CanvasOrientation = {
-  Landscape: "Landscape",
-  Portrait: "Portrait",
-} as const;
-
-/**
- * @public
- */
-export type CanvasOrientation = (typeof CanvasOrientation)[keyof typeof CanvasOrientation];
-
-/**
- * @public
- * @enum
- */
-export const ContentShareLayoutOption = {
-  ActiveSpeakerOnly: "ActiveSpeakerOnly",
-  Horizontal: "Horizontal",
-  PresenterOnly: "PresenterOnly",
-  Vertical: "Vertical",
-} as const;
-
-/**
- * @public
- */
-export type ContentShareLayoutOption = (typeof ContentShareLayoutOption)[keyof typeof ContentShareLayoutOption];
-
-/**
- * @public
- * @enum
- */
-export const TileOrder = {
-  JoinSequence: "JoinSequence",
-  SpeakerSequence: "SpeakerSequence",
-} as const;
-
-/**
- * @public
- */
-export type TileOrder = (typeof TileOrder)[keyof typeof TileOrder];
-
-/**
- * @public
- * @enum
- */
-export const HorizontalTilePosition = {
-  Bottom: "Bottom",
-  Top: "Top",
-} as const;
-
-/**
- * @public
- */
-export type HorizontalTilePosition = (typeof HorizontalTilePosition)[keyof typeof HorizontalTilePosition];
 
 /**
  * <p>Defines the configuration settings for the horizontal layout.</p>
@@ -705,22 +554,6 @@ export interface HorizontalLayoutConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PresenterPosition = {
-  BottomLeft: "BottomLeft",
-  BottomRight: "BottomRight",
-  TopLeft: "TopLeft",
-  TopRight: "TopRight",
-} as const;
-
-/**
- * @public
- */
-export type PresenterPosition = (typeof PresenterPosition)[keyof typeof PresenterPosition];
-
-/**
  * <p>Defines the configuration for a presenter-only video tile.</p>
  * @public
  */
@@ -731,20 +564,6 @@ export interface PresenterOnlyConfiguration {
    */
   PresenterPosition?: PresenterPosition | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerticalTilePosition = {
-  Left: "Left",
-  Right: "Right",
-} as const;
-
-/**
- * @public
- */
-export type VerticalTilePosition = (typeof VerticalTilePosition)[keyof typeof VerticalTilePosition];
 
 /**
  * <p>Defines the configuration settings for a vertical layout.</p>
@@ -775,42 +594,6 @@ export interface VerticalLayoutConfiguration {
    */
   TileAspectRatio?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BorderColor = {
-  Black: "Black",
-  Blue: "Blue",
-  Green: "Green",
-  Red: "Red",
-  White: "White",
-  Yellow: "Yellow",
-} as const;
-
-/**
- * @public
- */
-export type BorderColor = (typeof BorderColor)[keyof typeof BorderColor];
-
-/**
- * @public
- * @enum
- */
-export const HighlightColor = {
-  Black: "Black",
-  Blue: "Blue",
-  Green: "Green",
-  Red: "Red",
-  White: "White",
-  Yellow: "Yellow",
-} as const;
-
-/**
- * @public
- */
-export type HighlightColor = (typeof HighlightColor)[keyof typeof HighlightColor];
 
 /**
  * <p>Defines the settings for a video tile.</p>
@@ -891,33 +674,6 @@ export interface GridViewConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const LayoutOption = {
-  GridView: "GridView",
-} as const;
-
-/**
- * @public
- */
-export type LayoutOption = (typeof LayoutOption)[keyof typeof LayoutOption];
-
-/**
- * @public
- * @enum
- */
-export const ResolutionOption = {
-  FHD: "FHD",
-  HD: "HD",
-} as const;
-
-/**
- * @public
- */
-export type ResolutionOption = (typeof ResolutionOption)[keyof typeof ResolutionOption];
-
-/**
  * <p>Specifies the configuration for compositing video artifacts.</p>
  * @public
  */
@@ -942,33 +698,6 @@ export interface CompositedVideoArtifactsConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContentMuxType = {
-  ContentOnly: "ContentOnly",
-} as const;
-
-/**
- * @public
- */
-export type ContentMuxType = (typeof ContentMuxType)[keyof typeof ContentMuxType];
-
-/**
- * @public
- * @enum
- */
-export const ArtifactsState = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactsState = (typeof ArtifactsState)[keyof typeof ArtifactsState];
-
-/**
  * <p>The content artifact object.</p>
  * @public
  */
@@ -985,19 +714,6 @@ export interface ContentArtifactsConfiguration {
    */
   MuxType?: ContentMuxType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VideoMuxType = {
-  VideoOnly: "VideoOnly",
-} as const;
-
-/**
- * @public
- */
-export type VideoMuxType = (typeof VideoMuxType)[keyof typeof VideoMuxType];
 
 /**
  * <p>The video artifact configuration object.</p>
@@ -1046,83 +762,6 @@ export interface ArtifactsConfiguration {
    */
   CompositedVideo?: CompositedVideoArtifactsConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AudioChannelsOption = {
-  Mono: "Mono",
-  Stereo: "Stereo",
-} as const;
-
-/**
- * @public
- */
-export type AudioChannelsOption = (typeof AudioChannelsOption)[keyof typeof AudioChannelsOption];
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  BadRequest: "BadRequest",
-  Forbidden: "Forbidden",
-  NotFound: "NotFound",
-  ResourceLimitExceeded: "ResourceLimitExceeded",
-  ServiceFailure: "ServiceFailure",
-  ServiceUnavailable: "ServiceUnavailable",
-  Throttling: "Throttling",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
- * <p>The input parameters don't match the service's restrictions.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ParticipantRole = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
  * <p>Defines an audio channel in a Kinesis video stream.</p>
@@ -1191,32 +830,6 @@ export interface ChimeSdkMeetingConfiguration {
    */
   ArtifactsConfiguration?: ArtifactsConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaPipelineSinkType = {
-  S3Bucket: "S3Bucket",
-} as const;
-
-/**
- * @public
- */
-export type MediaPipelineSinkType = (typeof MediaPipelineSinkType)[keyof typeof MediaPipelineSinkType];
-
-/**
- * @public
- * @enum
- */
-export const MediaPipelineSourceType = {
-  ChimeSdkMeeting: "ChimeSdkMeeting",
-} as const;
-
-/**
- * @public
- */
-export type MediaPipelineSourceType = (typeof MediaPipelineSourceType)[keyof typeof MediaPipelineSourceType];
 
 /**
  * <p>Contains server side encryption parameters to be used by media capture pipeline. The
@@ -1370,25 +983,6 @@ export interface CreateMediaCapturePipelineRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MediaPipelineStatus = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Initializing: "Initializing",
-  NotStarted: "NotStarted",
-  Paused: "Paused",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type MediaPipelineStatus = (typeof MediaPipelineStatus)[keyof typeof MediaPipelineStatus];
-
-/**
  * <p>A media pipeline object consisting of an ID, source type, source ARN, a sink
  *          type, a sink ARN, and a configuration object.</p>
  * @public
@@ -1486,186 +1080,6 @@ export interface CreateMediaCapturePipelineResponse {
 }
 
 /**
- * <p>The client is permanently forbidden from making the request.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request id associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The request exceeds the resource limit.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The service encountered an unexpected error.</p>
- * @public
- */
-export class ServiceFailureException extends __BaseException {
-  readonly name: "ServiceFailureException" = "ServiceFailureException";
-  readonly $fault: "server" = "server";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
-    super({
-      name: "ServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The client exceeded its request rate limit.</p>
- * @public
- */
-export class ThrottledClientException extends __BaseException {
-  readonly name: "ThrottledClientException" = "ThrottledClientException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledClientException, __BaseException>) {
-    super({
-      name: "ThrottledClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledClientException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The client is not currently authorized to make the request.</p>
- * @public
- */
-export class UnauthorizedClientException extends __BaseException {
-  readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedClientException, __BaseException>) {
-    super({
-      name: "UnauthorizedClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedClientException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>The configuration settings for the S3 bucket.</p>
  * @public
  */
@@ -1676,19 +1090,6 @@ export interface S3BucketSinkConfiguration {
    */
   Destination: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConcatenationSinkType = {
-  S3Bucket: "S3Bucket",
-} as const;
-
-/**
- * @public
- */
-export type ConcatenationSinkType = (typeof ConcatenationSinkType)[keyof typeof ConcatenationSinkType];
 
 /**
  * <p>The data sink of the configuration object.</p>
@@ -1738,19 +1139,6 @@ export interface MediaCapturePipelineSourceConfiguration {
    */
   ChimeSdkMeetingConfiguration: ChimeSdkMeetingConcatenationConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConcatenationSourceType = {
-  MediaCapturePipeline: "MediaCapturePipeline",
-} as const;
-
-/**
- * @public
- */
-export type ConcatenationSourceType = (typeof ConcatenationSourceType)[keyof typeof ConcatenationSourceType];
 
 /**
  * <p>The source type and media pipeline configuration settings in a configuration object.</p>
@@ -1861,20 +1249,6 @@ export interface CreateMediaConcatenationPipelineResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const FragmentSelectorType = {
-  ProducerTimestamp: "ProducerTimestamp",
-  ServerTimestamp: "ServerTimestamp",
-} as const;
-
-/**
- * @public
- */
-export type FragmentSelectorType = (typeof FragmentSelectorType)[keyof typeof FragmentSelectorType];
-
-/**
  * <p>The range of timestamps to return.</p>
  * @public
  */
@@ -1959,19 +1333,6 @@ export interface KinesisVideoStreamRecordingSourceRuntimeConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const MediaEncoding = {
-  PCM: "pcm",
-} as const;
-
-/**
- * @public
- */
-export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
-
-/**
  * <p>Defines a streaming channel.</p>
  * @public
  */
@@ -2042,20 +1403,6 @@ export interface KinesisVideoStreamSourceRuntimeConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecordingFileFormat = {
-  Opus: "Opus",
-  Wav: "Wav",
-} as const;
-
-/**
- * @public
- */
-export type RecordingFileFormat = (typeof RecordingFileFormat)[keyof typeof RecordingFileFormat];
-
-/**
  * <p>A structure that holds the settings for transmitting media files to the Amazon S3 bucket. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
  * @public
  */
@@ -2122,48 +1469,6 @@ export interface CreateMediaInsightsPipelineRequest {
    */
   ClientRequestToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaPipelineElementStatus = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Initializing: "Initializing",
-  NotStarted: "NotStarted",
-  NotSupported: "NotSupported",
-  Paused: "Paused",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type MediaPipelineElementStatus = (typeof MediaPipelineElementStatus)[keyof typeof MediaPipelineElementStatus];
-
-/**
- * @public
- * @enum
- */
-export const MediaInsightsPipelineConfigurationElementType = {
-  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR: "AmazonTranscribeCallAnalyticsProcessor",
-  AMAZON_TRANSCRIBE_PROCESSOR: "AmazonTranscribeProcessor",
-  KINESIS_DATA_STREAM_SINK: "KinesisDataStreamSink",
-  LAMBDA_FUNCTION_SINK: "LambdaFunctionSink",
-  S3_RECORDING_SINK: "S3RecordingSink",
-  SNS_TOPIC_SINK: "SnsTopicSink",
-  SQS_QUEUE_SINK: "SqsQueueSink",
-  VOICE_ANALYTICS_PROCESSOR: "VoiceAnalyticsProcessor",
-  VOICE_ENHANCEMENT_SINK: "VoiceEnhancementSink",
-} as const;
-
-/**
- * @public
- */
-export type MediaInsightsPipelineConfigurationElementType =
-  (typeof MediaInsightsPipelineConfigurationElementType)[keyof typeof MediaInsightsPipelineConfigurationElementType];
 
 /**
  * <p>The status of the pipeline element.</p>
@@ -2263,36 +1568,6 @@ export interface CreateMediaInsightsPipelineResponse {
 }
 
 /**
- * <p>One or more of the resources in the request does not exist in the system.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>A structure that contains the configuration settings for a Kinesis Data Stream sink.</p>
  * @public
  */
@@ -2357,21 +1632,6 @@ export interface SqsQueueSinkConfiguration {
    */
   InsightsTarget?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VoiceAnalyticsConfigurationStatus = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type VoiceAnalyticsConfigurationStatus =
-  (typeof VoiceAnalyticsConfigurationStatus)[keyof typeof VoiceAnalyticsConfigurationStatus];
 
 /**
  * <p>The configuration settings for a voice analytics processor.</p>
@@ -2508,19 +1768,6 @@ export interface KeywordMatchConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SentimentType = {
-  NEGATIVE: "NEGATIVE",
-} as const;
-
-/**
- * @public
- */
-export type SentimentType = (typeof SentimentType)[keyof typeof SentimentType];
-
-/**
  * <p>A structure that contains the configuration settings for a sentiment analysis task.</p>
  * @public
  */
@@ -2543,21 +1790,6 @@ export interface SentimentConfiguration {
    */
   TimePeriod: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RealTimeAlertRuleType = {
-  IssueDetection: "IssueDetection",
-  KeywordMatch: "KeywordMatch",
-  Sentiment: "Sentiment",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeAlertRuleType = (typeof RealTimeAlertRuleType)[keyof typeof RealTimeAlertRuleType];
 
 /**
  * <p>Specifies the words or phrases that trigger an alert.</p>
@@ -2740,19 +1972,6 @@ export interface LiveConnectorRTMPConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const LiveConnectorSinkType = {
-  RTMP: "RTMP",
-} as const;
-
-/**
- * @public
- */
-export type LiveConnectorSinkType = (typeof LiveConnectorSinkType)[keyof typeof LiveConnectorSinkType];
-
-/**
  * <p>The media pipeline's sink configuration settings.</p>
  * @public
  */
@@ -2769,20 +1988,6 @@ export interface LiveConnectorSinkConfiguration {
    */
   RTMPConfiguration: LiveConnectorRTMPConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LiveConnectorMuxType = {
-  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
-  AudioWithCompositedVideo: "AudioWithCompositedVideo",
-} as const;
-
-/**
- * @public
- */
-export type LiveConnectorMuxType = (typeof LiveConnectorMuxType)[keyof typeof LiveConnectorMuxType];
 
 /**
  * <p>The media pipeline's configuration object.</p>
@@ -2813,19 +2018,6 @@ export interface ChimeSdkMeetingLiveConnectorConfiguration {
    */
   SourceConfiguration?: SourceConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LiveConnectorSourceType = {
-  ChimeSdkMeeting: "ChimeSdkMeeting",
-} as const;
-
-/**
- * @public
- */
-export type LiveConnectorSourceType = (typeof LiveConnectorSourceType)[keyof typeof LiveConnectorSourceType];
 
 /**
  * <p>The data source configuration object of a streaming media pipeline.</p>
@@ -2934,37 +2126,6 @@ export interface CreateMediaLiveConnectorPipelineResponse {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * <p>The request ID associated with the call responsible for the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>The configuration of an Kinesis video stream.</p>
  *          <note>
  *             <p>If a meeting uses an opt-in Region as its
@@ -3024,24 +2185,6 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KinesisVideoStreamPoolStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type KinesisVideoStreamPoolStatus =
-  (typeof KinesisVideoStreamPoolStatus)[keyof typeof KinesisVideoStreamPoolStatus];
 
 /**
  * <p>The video stream pool configuration object.</p>
@@ -3110,34 +2253,6 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolResponse {
    */
   KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaStreamType = {
-  IndividualAudio: "IndividualAudio",
-  MixedAudio: "MixedAudio",
-} as const;
-
-/**
- * @public
- */
-export type MediaStreamType = (typeof MediaStreamType)[keyof typeof MediaStreamType];
-
-/**
- * @public
- * @enum
- */
-export const MediaStreamPipelineSinkType = {
-  KinesisVideoStreamPool: "KinesisVideoStreamPool",
-} as const;
-
-/**
- * @public
- */
-export type MediaStreamPipelineSinkType =
-  (typeof MediaStreamPipelineSinkType)[keyof typeof MediaStreamPipelineSinkType];
 
 /**
  * <p>Structure that contains the settings for a media stream sink.</p>
@@ -3459,24 +2574,6 @@ export interface GetSpeakerSearchTaskRequest {
    */
   SpeakerSearchTaskId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaPipelineTaskStatus = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Initializing: "Initializing",
-  NotStarted: "NotStarted",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type MediaPipelineTaskStatus = (typeof MediaPipelineTaskStatus)[keyof typeof MediaPipelineTaskStatus];
 
 /**
  * <p>A representation of an asynchronous request to perform speaker search analysis on a
@@ -3887,19 +2984,6 @@ export interface StartSpeakerSearchTaskResponse {
 
 /**
  * @public
- * @enum
- */
-export const VoiceAnalyticsLanguageCode = {
-  EN_US: "en-US",
-} as const;
-
-/**
- * @public
- */
-export type VoiceAnalyticsLanguageCode = (typeof VoiceAnalyticsLanguageCode)[keyof typeof VoiceAnalyticsLanguageCode];
-
-/**
- * @public
  */
 export interface StartVoiceToneAnalysisTaskRequest {
   /**
@@ -4056,20 +3140,6 @@ export interface UpdateMediaInsightsPipelineConfigurationResponse {
    */
   MediaInsightsPipelineConfiguration?: MediaInsightsPipelineConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaPipelineStatusUpdate = {
-  Pause: "Pause",
-  Resume: "Resume",
-} as const;
-
-/**
- * @public
- */
-export type MediaPipelineStatusUpdate = (typeof MediaPipelineStatusUpdate)[keyof typeof MediaPipelineStatusUpdate];
 
 /**
  * @public

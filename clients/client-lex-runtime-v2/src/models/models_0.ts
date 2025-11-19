@@ -1,29 +1,30 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2ServiceException";
+import {
+  ConfirmationState,
+  ConversationMode,
+  DialogActionType,
+  InputMode,
+  IntentState,
+  InterpretationSource,
+  MessageContentType,
+  PlaybackInterruptionReason,
+  SentimentType,
+  Shape,
+  StyleType,
+} from "./enums";
 
-/**
- * <p></p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  AccessDeniedException,
+  BadGatewayException,
+  ConflictException,
+  DependencyFailedException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
+} from "./errors";
 
 /**
  * <p>The time that a context is active. You can specify the time to live
@@ -156,26 +157,6 @@ export interface AudioResponseEvent {
 }
 
 /**
- * <p></p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteSessionRequest {
@@ -236,86 +217,6 @@ export interface DeleteSessionResponse {
 }
 
 /**
- * <p></p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetSessionRequest {
@@ -346,36 +247,6 @@ export interface GetSessionRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfirmationState = {
-  CONFIRMED: "Confirmed",
-  DENIED: "Denied",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type ConfirmationState = (typeof ConfirmationState)[keyof typeof ConfirmationState];
-
-/**
- * @public
- * @enum
- */
-export const Shape = {
-  COMPOSITE: "Composite",
-  LIST: "List",
-  SCALAR: "Scalar",
-} as const;
-
-/**
- * @public
- */
-export type Shape = (typeof Shape)[keyof typeof Shape];
-
-/**
  * <p>Information about the value provided for a slot and Amazon Lex V2's interpretation.</p>
  * @public
  */
@@ -400,38 +271,6 @@ export interface Value {
 }
 
 /**
- * @public
- * @enum
- */
-export const IntentState = {
-  FAILED: "Failed",
-  FULFILLED: "Fulfilled",
-  FULFILLMENT_IN_PROGRESS: "FulfillmentInProgress",
-  IN_PROGRESS: "InProgress",
-  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
-  WAITING: "Waiting",
-} as const;
-
-/**
- * @public
- */
-export type IntentState = (typeof IntentState)[keyof typeof IntentState];
-
-/**
- * @public
- * @enum
- */
-export const InterpretationSource = {
-  BEDROCK: "Bedrock",
-  LEX: "Lex",
-} as const;
-
-/**
- * @public
- */
-export type InterpretationSource = (typeof InterpretationSource)[keyof typeof InterpretationSource];
-
-/**
  * <p>Provides a score that indicates the confidence that Amazon Lex V2 has that
  *          an intent is the one that satisfies the user's intent.</p>
  * @public
@@ -445,22 +284,6 @@ export interface ConfidenceScore {
    */
   score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SentimentType = {
-  MIXED: "MIXED",
-  NEGATIVE: "NEGATIVE",
-  NEUTRAL: "NEUTRAL",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type SentimentType = (typeof SentimentType)[keyof typeof SentimentType];
 
 /**
  * <p>The individual sentiment responses for the utterance.</p>
@@ -521,22 +344,6 @@ export interface SentimentResponse {
    */
   sentimentScore?: SentimentScore | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MessageContentType = {
-  CUSTOM_PAYLOAD: "CustomPayload",
-  IMAGE_RESPONSE_CARD: "ImageResponseCard",
-  PLAIN_TEXT: "PlainText",
-  SSML: "SSML",
-} as const;
-
-/**
- * @public
- */
-export type MessageContentType = (typeof MessageContentType)[keyof typeof MessageContentType];
 
 /**
  * <p>A button that appears on a response card show to the user.</p>
@@ -624,39 +431,6 @@ export interface Message {
 }
 
 /**
- * @public
- * @enum
- */
-export const StyleType = {
-  DEFAULT: "Default",
-  SPELL_BY_LETTER: "SpellByLetter",
-  SPELL_BY_WORD: "SpellByWord",
-} as const;
-
-/**
- * @public
- */
-export type StyleType = (typeof StyleType)[keyof typeof StyleType];
-
-/**
- * @public
- * @enum
- */
-export const DialogActionType = {
-  CLOSE: "Close",
-  CONFIRM_INTENT: "ConfirmIntent",
-  DELEGATE: "Delegate",
-  ELICIT_INTENT: "ElicitIntent",
-  ELICIT_SLOT: "ElicitSlot",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type DialogActionType = (typeof DialogActionType)[keyof typeof DialogActionType];
-
-/**
  * <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
  *          to the bot.</p>
  * @public
@@ -668,46 +442,6 @@ export interface RuntimeHintValue {
    * @public
    */
   phrase: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export class BadGatewayException extends __BaseException {
-  readonly name: "BadGatewayException" = "BadGatewayException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadGatewayException, __BaseException>) {
-    super({
-      name: "BadGatewayException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadGatewayException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class DependencyFailedException extends __BaseException {
-  readonly name: "DependencyFailedException" = "DependencyFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyFailedException, __BaseException>) {
-    super({
-      name: "DependencyFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyFailedException.prototype);
-  }
 }
 
 /**
@@ -1036,20 +770,6 @@ export interface RecognizeUtteranceResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConversationMode = {
-  AUDIO: "AUDIO",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type ConversationMode = (typeof ConversationMode)[keyof typeof ConversationMode];
-
-/**
  * <p>A notification from the client that it is disconnecting from Amazon Lex V2.
  *          Sending a <code>DisconnectionEvent</code> event is optional, but can
  *          help identify a conversation in logs.</p>
@@ -1166,36 +886,6 @@ export interface HeartbeatEvent {
    */
   eventId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputMode = {
-  DTMF: "DTMF",
-  SPEECH: "Speech",
-  TEXT: "Text",
-} as const;
-
-/**
- * @public
- */
-export type InputMode = (typeof InputMode)[keyof typeof InputMode];
-
-/**
- * @public
- * @enum
- */
-export const PlaybackInterruptionReason = {
-  DTMF_START_DETECTED: "DTMF_START_DETECTED",
-  TEXT_DETECTED: "TEXT_DETECTED",
-  VOICE_START_DETECTED: "VOICE_START_DETECTED",
-} as const;
-
-/**
- * @public
- */
-export type PlaybackInterruptionReason = (typeof PlaybackInterruptionReason)[keyof typeof PlaybackInterruptionReason];
 
 /**
  * <p>Event sent from Amazon Lex V2 to indicate to the client application should

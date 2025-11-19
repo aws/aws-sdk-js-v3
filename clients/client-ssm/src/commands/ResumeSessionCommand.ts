@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_2";
+import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
 import { ResumeSession } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

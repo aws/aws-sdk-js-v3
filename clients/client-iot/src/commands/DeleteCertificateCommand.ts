@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCertificateRequest } from "../models/models_1";
+import { DeleteCertificateRequest } from "../models/models_0";
 import { DeleteCertificate } from "../schemas/schemas_0";
 
 /**

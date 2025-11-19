@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeDefaultQBusinessApplicationRequest,
   DescribeDefaultQBusinessApplicationResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeDefaultQBusinessApplication } from "../schemas/schemas_0";
 

@@ -357,7 +357,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { WisdomServiceException as __WisdomServiceException } from "../models/WisdomServiceException";
 
 /* eslint no-var: 0 */

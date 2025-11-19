@@ -103,7 +103,7 @@ import {
   NotAuthorizedException as __NotAuthorizedException,
   ResourceNotFoundException as __ResourceNotFoundException,
   UnsupportedStreamMediaTypeException as __UnsupportedStreamMediaTypeException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisVideoArchivedMediaServiceException as __KinesisVideoArchivedMediaServiceException } from "../models/KinesisVideoArchivedMediaServiceException";
 
 /* eslint no-var: 0 */

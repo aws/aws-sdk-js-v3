@@ -1,38 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MediaStoreServiceException as __BaseException } from "./MediaStoreServiceException";
-
-/**
- * @public
- * @enum
- */
-export const MethodName = {
-  DELETE: "DELETE",
-  GET: "GET",
-  HEAD: "HEAD",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type MethodName = (typeof MethodName)[keyof typeof MethodName];
-
-/**
- * @public
- * @enum
- */
-export const ContainerStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ContainerStatus = (typeof ContainerStatus)[keyof typeof ContainerStatus];
+import { ContainerLevelMetrics, ContainerStatus, MethodName } from "./enums";
 
 /**
  * <p>This section describes operations that you can perform on an AWS Elemental MediaStore
@@ -87,65 +54,6 @@ export interface Container {
 }
 
 /**
- * <p>The container that you specified in the request already exists or is being
- *          updated.</p>
- * @public
- */
-export class ContainerInUseException extends __BaseException {
-  readonly name: "ContainerInUseException" = "ContainerInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ContainerInUseException, __BaseException>) {
-    super({
-      name: "ContainerInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ContainerInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ContainerLevelMetrics = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ContainerLevelMetrics = (typeof ContainerLevelMetrics)[keyof typeof ContainerLevelMetrics];
-
-/**
- * <p>The container that you specified in the request does not exist.</p>
- * @public
- */
-export class ContainerNotFoundException extends __BaseException {
-  readonly name: "ContainerNotFoundException" = "ContainerNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ContainerNotFoundException, __BaseException>) {
-    super({
-      name: "ContainerNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ContainerNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than
  *          one rule applies, the service uses the first applicable rule listed.</p>
  * @public
@@ -197,28 +105,6 @@ export interface CorsRule {
    * @public
    */
   ExposeHeaders?: string[] | undefined;
-}
-
-/**
- * <p>The CORS policy that you specified in the request does not exist.</p>
- * @public
- */
-export class CorsPolicyNotFoundException extends __BaseException {
-  readonly name: "CorsPolicyNotFoundException" = "CorsPolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CorsPolicyNotFoundException, __BaseException>) {
-    super({
-      name: "CorsPolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CorsPolicyNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -289,50 +175,6 @@ export interface CreateContainerOutput {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A service limit has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteContainerInput {
@@ -363,28 +205,6 @@ export interface DeleteContainerPolicyInput {
  * @public
  */
 export interface DeleteContainerPolicyOutput {}
-
-/**
- * <p>The policy that you specified in the request does not exist.</p>
- * @public
- */
-export class PolicyNotFoundException extends __BaseException {
-  readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyNotFoundException, __BaseException>) {
-    super({
-      name: "PolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

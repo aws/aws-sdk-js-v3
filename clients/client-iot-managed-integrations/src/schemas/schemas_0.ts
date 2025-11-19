@@ -597,7 +597,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnauthorizedException as __UnauthorizedException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTManagedIntegrationsServiceException as __IoTManagedIntegrationsServiceException } from "../models/IoTManagedIntegrationsServiceException";
 
 /* eslint no-var: 0 */

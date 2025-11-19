@@ -626,7 +626,7 @@ import {
   OAuthProviderException as __OAuthProviderException,
   ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

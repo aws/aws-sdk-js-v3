@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/models_1";
+import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/models_0";
 import { RegisterContainerInstance } from "../schemas/schemas_0";
 
 /**

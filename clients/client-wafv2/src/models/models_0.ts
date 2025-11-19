@@ -1,25 +1,39 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WAFV2ServiceException as __BaseException } from "./WAFV2ServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ActionValue = {
-  ALLOW: "ALLOW",
-  BLOCK: "BLOCK",
-  CAPTCHA: "CAPTCHA",
-  CHALLENGE: "CHALLENGE",
-  COUNT: "COUNT",
-  EXCLUDED_AS_COUNT: "EXCLUDED_AS_COUNT",
-} as const;
-
-/**
- * @public
- */
-export type ActionValue = (typeof ActionValue)[keyof typeof ActionValue];
+import {
+  ActionValue,
+  AssociatedResourceType,
+  BodyParsingFallbackBehavior,
+  ComparisonOperator,
+  CountryCode,
+  DataProtectionAction,
+  FailureReason,
+  FallbackBehavior,
+  FieldToProtectType,
+  FilterBehavior,
+  FilterRequirement,
+  ForwardedIPPosition,
+  InspectionLevel,
+  IPAddressVersion,
+  JsonMatchScope,
+  LabelMatchScope,
+  LogScope,
+  LogType,
+  LowReputationMode,
+  MapMatchScope,
+  OversizeHandling,
+  PayloadType,
+  Platform,
+  PositionalConstraint,
+  RateBasedStatementAggregateKeyType,
+  ResourceType,
+  ResponseContentType,
+  Scope,
+  SensitivityLevel,
+  SensitivityToAct,
+  SizeInspectionLimit,
+  TextTransformationType,
+  UsageOfAction,
+} from "./enums";
 
 /**
  * <p>A single action condition for a <a>Condition</a> in a logging filter.</p>
@@ -144,20 +158,6 @@ export interface AllowAction {
 export interface AllQueryArguments {}
 
 /**
- * @public
- * @enum
- */
-export const FallbackBehavior = {
-  MATCH: "MATCH",
-  NO_MATCH: "NO_MATCH",
-} as const;
-
-/**
- * @public
- */
-export type FallbackBehavior = (typeof FallbackBehavior)[keyof typeof FallbackBehavior];
-
-/**
  * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
  *          <note>
  *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
@@ -221,21 +221,6 @@ export interface AsnMatchStatement {
    */
   ForwardedIPConfig?: ForwardedIPConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OversizeHandling = {
-  CONTINUE: "CONTINUE",
-  MATCH: "MATCH",
-  NO_MATCH: "NO_MATCH",
-} as const;
-
-/**
- * @public
- */
-export type OversizeHandling = (typeof OversizeHandling)[keyof typeof OversizeHandling];
 
 /**
  * <p>Inspect the body of the web request. The body immediately follows the request
@@ -315,21 +300,6 @@ export interface CookieMatchPattern {
    */
   ExcludedCookies?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MapMatchScope = {
-  ALL: "ALL",
-  KEY: "KEY",
-  VALUE: "VALUE",
-} as const;
-
-/**
- * @public
- */
-export type MapMatchScope = (typeof MapMatchScope)[keyof typeof MapMatchScope];
 
 /**
  * <p>Inspect the cookies in the web request. You can specify the parts of the cookies to
@@ -587,22 +557,6 @@ export interface JA4Fingerprint {
 }
 
 /**
- * @public
- * @enum
- */
-export const BodyParsingFallbackBehavior = {
-  EVALUATE_AS_STRING: "EVALUATE_AS_STRING",
-  MATCH: "MATCH",
-  NO_MATCH: "NO_MATCH",
-} as const;
-
-/**
- * @public
- */
-export type BodyParsingFallbackBehavior =
-  (typeof BodyParsingFallbackBehavior)[keyof typeof BodyParsingFallbackBehavior];
-
-/**
  * <p>The patterns to look for in the JSON body. WAF inspects the results of these
  *          pattern matches against the rule inspection criteria. This is used with the <a>FieldToMatch</a> option <code>JsonBody</code>. </p>
  * @public
@@ -636,21 +590,6 @@ export interface JsonMatchPattern {
    */
   IncludedPaths?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JsonMatchScope = {
-  ALL: "ALL",
-  KEY: "KEY",
-  VALUE: "VALUE",
-} as const;
-
-/**
- * @public
- */
-export type JsonMatchScope = (typeof JsonMatchScope)[keyof typeof JsonMatchScope];
 
 /**
  * <p>Inspect the body of the web request as JSON. The body immediately follows the request
@@ -1101,56 +1040,6 @@ export interface FieldToMatch {
 }
 
 /**
- * @public
- * @enum
- */
-export const PositionalConstraint = {
-  CONTAINS: "CONTAINS",
-  CONTAINS_WORD: "CONTAINS_WORD",
-  ENDS_WITH: "ENDS_WITH",
-  EXACTLY: "EXACTLY",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type PositionalConstraint = (typeof PositionalConstraint)[keyof typeof PositionalConstraint];
-
-/**
- * @public
- * @enum
- */
-export const TextTransformationType = {
-  BASE64_DECODE: "BASE64_DECODE",
-  BASE64_DECODE_EXT: "BASE64_DECODE_EXT",
-  CMD_LINE: "CMD_LINE",
-  COMPRESS_WHITE_SPACE: "COMPRESS_WHITE_SPACE",
-  CSS_DECODE: "CSS_DECODE",
-  ESCAPE_SEQ_DECODE: "ESCAPE_SEQ_DECODE",
-  HEX_DECODE: "HEX_DECODE",
-  HTML_ENTITY_DECODE: "HTML_ENTITY_DECODE",
-  JS_DECODE: "JS_DECODE",
-  LOWERCASE: "LOWERCASE",
-  MD5: "MD5",
-  NONE: "NONE",
-  NORMALIZE_PATH: "NORMALIZE_PATH",
-  NORMALIZE_PATH_WIN: "NORMALIZE_PATH_WIN",
-  REMOVE_NULLS: "REMOVE_NULLS",
-  REPLACE_COMMENTS: "REPLACE_COMMENTS",
-  REPLACE_NULLS: "REPLACE_NULLS",
-  SQL_HEX_DECODE: "SQL_HEX_DECODE",
-  URL_DECODE: "URL_DECODE",
-  URL_DECODE_UNI: "URL_DECODE_UNI",
-  UTF8_TO_UNICODE: "UTF8_TO_UNICODE",
-} as const;
-
-/**
- * @public
- */
-export type TextTransformationType = (typeof TextTransformationType)[keyof typeof TextTransformationType];
-
-/**
  * <p>Text transformations eliminate some of the unusual formatting that attackers use in web
  *          requests in an effort to bypass detection. </p>
  * @public
@@ -1294,268 +1183,6 @@ export interface ByteMatchStatement {
 }
 
 /**
- * @public
- * @enum
- */
-export const CountryCode = {
-  AD: "AD",
-  AE: "AE",
-  AF: "AF",
-  AG: "AG",
-  AI: "AI",
-  AL: "AL",
-  AM: "AM",
-  AO: "AO",
-  AQ: "AQ",
-  AR: "AR",
-  AS: "AS",
-  AT: "AT",
-  AU: "AU",
-  AW: "AW",
-  AX: "AX",
-  AZ: "AZ",
-  BA: "BA",
-  BB: "BB",
-  BD: "BD",
-  BE: "BE",
-  BF: "BF",
-  BG: "BG",
-  BH: "BH",
-  BI: "BI",
-  BJ: "BJ",
-  BL: "BL",
-  BM: "BM",
-  BN: "BN",
-  BO: "BO",
-  BQ: "BQ",
-  BR: "BR",
-  BS: "BS",
-  BT: "BT",
-  BV: "BV",
-  BW: "BW",
-  BY: "BY",
-  BZ: "BZ",
-  CA: "CA",
-  CC: "CC",
-  CD: "CD",
-  CF: "CF",
-  CG: "CG",
-  CH: "CH",
-  CI: "CI",
-  CK: "CK",
-  CL: "CL",
-  CM: "CM",
-  CN: "CN",
-  CO: "CO",
-  CR: "CR",
-  CU: "CU",
-  CV: "CV",
-  CW: "CW",
-  CX: "CX",
-  CY: "CY",
-  CZ: "CZ",
-  DE: "DE",
-  DJ: "DJ",
-  DK: "DK",
-  DM: "DM",
-  DO: "DO",
-  DZ: "DZ",
-  EC: "EC",
-  EE: "EE",
-  EG: "EG",
-  EH: "EH",
-  ER: "ER",
-  ES: "ES",
-  ET: "ET",
-  FI: "FI",
-  FJ: "FJ",
-  FK: "FK",
-  FM: "FM",
-  FO: "FO",
-  FR: "FR",
-  GA: "GA",
-  GB: "GB",
-  GD: "GD",
-  GE: "GE",
-  GF: "GF",
-  GG: "GG",
-  GH: "GH",
-  GI: "GI",
-  GL: "GL",
-  GM: "GM",
-  GN: "GN",
-  GP: "GP",
-  GQ: "GQ",
-  GR: "GR",
-  GS: "GS",
-  GT: "GT",
-  GU: "GU",
-  GW: "GW",
-  GY: "GY",
-  HK: "HK",
-  HM: "HM",
-  HN: "HN",
-  HR: "HR",
-  HT: "HT",
-  HU: "HU",
-  ID: "ID",
-  IE: "IE",
-  IL: "IL",
-  IM: "IM",
-  IN: "IN",
-  IO: "IO",
-  IQ: "IQ",
-  IR: "IR",
-  IS: "IS",
-  IT: "IT",
-  JE: "JE",
-  JM: "JM",
-  JO: "JO",
-  JP: "JP",
-  KE: "KE",
-  KG: "KG",
-  KH: "KH",
-  KI: "KI",
-  KM: "KM",
-  KN: "KN",
-  KP: "KP",
-  KR: "KR",
-  KW: "KW",
-  KY: "KY",
-  KZ: "KZ",
-  LA: "LA",
-  LB: "LB",
-  LC: "LC",
-  LI: "LI",
-  LK: "LK",
-  LR: "LR",
-  LS: "LS",
-  LT: "LT",
-  LU: "LU",
-  LV: "LV",
-  LY: "LY",
-  MA: "MA",
-  MC: "MC",
-  MD: "MD",
-  ME: "ME",
-  MF: "MF",
-  MG: "MG",
-  MH: "MH",
-  MK: "MK",
-  ML: "ML",
-  MM: "MM",
-  MN: "MN",
-  MO: "MO",
-  MP: "MP",
-  MQ: "MQ",
-  MR: "MR",
-  MS: "MS",
-  MT: "MT",
-  MU: "MU",
-  MV: "MV",
-  MW: "MW",
-  MX: "MX",
-  MY: "MY",
-  MZ: "MZ",
-  NA: "NA",
-  NC: "NC",
-  NE: "NE",
-  NF: "NF",
-  NG: "NG",
-  NI: "NI",
-  NL: "NL",
-  NO: "NO",
-  NP: "NP",
-  NR: "NR",
-  NU: "NU",
-  NZ: "NZ",
-  OM: "OM",
-  PA: "PA",
-  PE: "PE",
-  PF: "PF",
-  PG: "PG",
-  PH: "PH",
-  PK: "PK",
-  PL: "PL",
-  PM: "PM",
-  PN: "PN",
-  PR: "PR",
-  PS: "PS",
-  PT: "PT",
-  PW: "PW",
-  PY: "PY",
-  QA: "QA",
-  RE: "RE",
-  RO: "RO",
-  RS: "RS",
-  RU: "RU",
-  RW: "RW",
-  SA: "SA",
-  SB: "SB",
-  SC: "SC",
-  SD: "SD",
-  SE: "SE",
-  SG: "SG",
-  SH: "SH",
-  SI: "SI",
-  SJ: "SJ",
-  SK: "SK",
-  SL: "SL",
-  SM: "SM",
-  SN: "SN",
-  SO: "SO",
-  SR: "SR",
-  SS: "SS",
-  ST: "ST",
-  SV: "SV",
-  SX: "SX",
-  SY: "SY",
-  SZ: "SZ",
-  TC: "TC",
-  TD: "TD",
-  TF: "TF",
-  TG: "TG",
-  TH: "TH",
-  TJ: "TJ",
-  TK: "TK",
-  TL: "TL",
-  TM: "TM",
-  TN: "TN",
-  TO: "TO",
-  TR: "TR",
-  TT: "TT",
-  TV: "TV",
-  TW: "TW",
-  TZ: "TZ",
-  UA: "UA",
-  UG: "UG",
-  UM: "UM",
-  US: "US",
-  UY: "UY",
-  UZ: "UZ",
-  VA: "VA",
-  VC: "VC",
-  VE: "VE",
-  VG: "VG",
-  VI: "VI",
-  VN: "VN",
-  VU: "VU",
-  WF: "WF",
-  WS: "WS",
-  XK: "XK",
-  YE: "YE",
-  YT: "YT",
-  ZA: "ZA",
-  ZM: "ZM",
-  ZW: "ZW",
-} as const;
-
-/**
- * @public
- */
-export type CountryCode = (typeof CountryCode)[keyof typeof CountryCode];
-
-/**
  * <p>A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.</p>
  *          <ul>
  *             <li>
@@ -1589,21 +1216,6 @@ export interface GeoMatchStatement {
    */
   ForwardedIPConfig?: ForwardedIPConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ForwardedIPPosition = {
-  ANY: "ANY",
-  FIRST: "FIRST",
-  LAST: "LAST",
-} as const;
-
-/**
- * @public
- */
-export type ForwardedIPPosition = (typeof ForwardedIPPosition)[keyof typeof ForwardedIPPosition];
 
 /**
  * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
@@ -1690,20 +1302,6 @@ export interface IPSetReferenceStatement {
    */
   IPSetForwardedIPConfig?: IPSetForwardedIPConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LabelMatchScope = {
-  LABEL: "LABEL",
-  NAMESPACE: "NAMESPACE",
-} as const;
-
-/**
- * @public
- */
-export type LabelMatchScope = (typeof LabelMatchScope)[keyof typeof LabelMatchScope];
 
 /**
  * <p>A rule statement to match against labels that have been added to the web request by rules that have already run in the web ACL. </p>
@@ -1814,20 +1412,6 @@ export interface PasswordField {
    */
   Identifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PayloadType = {
-  FORM_ENCODED: "FORM_ENCODED",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
 
 /**
  * <p>The name of a field in the request payload that contains part or all of your customer's primary phone number. </p>
@@ -2263,35 +1847,6 @@ export interface Regex {
 }
 
 /**
- * @public
- * @enum
- */
-export const SensitivityToAct = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type SensitivityToAct = (typeof SensitivityToAct)[keyof typeof SensitivityToAct];
-
-/**
- * @public
- * @enum
- */
-export const UsageOfAction = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type UsageOfAction = (typeof UsageOfAction)[keyof typeof UsageOfAction];
-
-/**
  * <p>This is part of the <code>AWSManagedRulesAntiDDoSRuleSet</code>
  *             <code>ClientSideActionConfig</code> configuration in <code>ManagedRuleGroupConfig</code>.</p>
  * @public
@@ -2544,20 +2099,6 @@ export interface AWSManagedRulesATPRuleSet {
    */
   EnableRegexInPath?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InspectionLevel = {
-  COMMON: "COMMON",
-  TARGETED: "TARGETED",
-} as const;
-
-/**
- * @public
- */
-export type InspectionLevel = (typeof InspectionLevel)[keyof typeof InspectionLevel];
 
 /**
  * <p>Details for your use of the Bot Control managed rule group, <code>AWSManagedRulesBotControlRuleSet</code>. This configuration is used in <code>ManagedRuleGroupConfig</code>. </p>
@@ -2920,23 +2461,6 @@ export interface RuleActionOverride {
    */
   ActionToUse: RuleAction | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RateBasedStatementAggregateKeyType = {
-  CONSTANT: "CONSTANT",
-  CUSTOM_KEYS: "CUSTOM_KEYS",
-  FORWARDED_IP: "FORWARDED_IP",
-  IP: "IP",
-} as const;
-
-/**
- * @public
- */
-export type RateBasedStatementAggregateKeyType =
-  (typeof RateBasedStatementAggregateKeyType)[keyof typeof RateBasedStatementAggregateKeyType];
 
 /**
  * <p>Specifies an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key for a rate-based rule.
@@ -3312,24 +2836,6 @@ export interface RuleGroupReferenceStatement {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  EQ: "EQ",
-  GE: "GE",
-  GT: "GT",
-  LE: "LE",
-  LT: "LT",
-  NE: "NE",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
  * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
  *          <p>If you configure WAF to inspect the request body, WAF inspects only the number of bytes in the body up to the limit for the web ACL and protected resource type. If you know that the request body for your web requests should never exceed the inspection limit, you can use a size constraint statement to block requests that have a larger request body size. For more information about the inspection limits, see <code>Body</code> and <code>JsonBody</code> settings for the <code>FieldToMatch</code> data type. </p>
  *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
@@ -3360,20 +2866,6 @@ export interface SizeConstraintStatement {
    */
   TextTransformations: TextTransformation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SensitivityLevel = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-} as const;
-
-/**
- * @public
- */
-export type SensitivityLevel = (typeof SensitivityLevel)[keyof typeof SensitivityLevel];
 
 /**
  * <p>A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it. </p>
@@ -3494,23 +2986,6 @@ export interface ApplicationConfig {
 
 /**
  * @public
- * @enum
- */
-export const AssociatedResourceType = {
-  API_GATEWAY: "API_GATEWAY",
-  APP_RUNNER_SERVICE: "APP_RUNNER_SERVICE",
-  CLOUDFRONT: "CLOUDFRONT",
-  COGNITO_USER_POOL: "COGNITO_USER_POOL",
-  VERIFIED_ACCESS_INSTANCE: "VERIFIED_ACCESS_INSTANCE",
-} as const;
-
-/**
- * @public
- */
-export type AssociatedResourceType = (typeof AssociatedResourceType)[keyof typeof AssociatedResourceType];
-
-/**
- * @public
  */
 export interface AssociateWebACLRequest {
   /**
@@ -3587,320 +3062,6 @@ export interface DisallowedFeature {
    */
   RequiredPricingPlan?: string | undefined;
 }
-
-/**
- * <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
- * @public
- */
-export class WAFFeatureNotIncludedInPricingPlanException extends __BaseException {
-  readonly name: "WAFFeatureNotIncludedInPricingPlanException" = "WAFFeatureNotIncludedInPricingPlanException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The names of the disallowed WAF features.</p>
-   * @public
-   */
-  DisallowedFeatures?: DisallowedFeature[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFFeatureNotIncludedInPricingPlanException, __BaseException>) {
-    super({
-      name: "WAFFeatureNotIncludedInPricingPlanException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFFeatureNotIncludedInPricingPlanException.prototype);
-    this.Message = opts.Message;
-    this.DisallowedFeatures = opts.DisallowedFeatures;
-  }
-}
-
-/**
- * <p>Your request is valid, but WAF couldn’t perform the operation because of a system
- *          problem. Retry your request. </p>
- * @public
- */
-export class WAFInternalErrorException extends __BaseException {
-  readonly name: "WAFInternalErrorException" = "WAFInternalErrorException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInternalErrorException, __BaseException>) {
-    super({
-      name: "WAFInternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInternalErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation isn't valid. </p>
- * @public
- */
-export class WAFInvalidOperationException extends __BaseException {
-  readonly name: "WAFInvalidOperationException" = "WAFInvalidOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidOperationException, __BaseException>) {
-    super({
-      name: "WAFInvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ParameterExceptionField = {
-  ACP_RULE_SET_RESPONSE_INSPECTION: "ACP_RULE_SET_RESPONSE_INSPECTION",
-  AND_STATEMENT: "AND_STATEMENT",
-  ASSOCIABLE_RESOURCE: "ASSOCIABLE_RESOURCE",
-  ASSOCIATED_RESOURCE_TYPE: "ASSOCIATED_RESOURCE_TYPE",
-  ATP_RULE_SET_RESPONSE_INSPECTION: "ATP_RULE_SET_RESPONSE_INSPECTION",
-  BODY_PARSING_FALLBACK_BEHAVIOR: "BODY_PARSING_FALLBACK_BEHAVIOR",
-  BYTE_MATCH_STATEMENT: "BYTE_MATCH_STATEMENT",
-  CHALLENGE_CONFIG: "CHALLENGE_CONFIG",
-  CHANGE_PROPAGATION_STATUS: "CHANGE_PROPAGATION_STATUS",
-  COOKIE_MATCH_PATTERN: "COOKIE_MATCH_PATTERN",
-  CUSTOM_KEYS: "CUSTOM_KEYS",
-  CUSTOM_REQUEST_HANDLING: "CUSTOM_REQUEST_HANDLING",
-  CUSTOM_RESPONSE: "CUSTOM_RESPONSE",
-  CUSTOM_RESPONSE_BODY: "CUSTOM_RESPONSE_BODY",
-  DATA_PROTECTION_CONFIG: "DATA_PROTECTION_CONFIG",
-  DEFAULT_ACTION: "DEFAULT_ACTION",
-  ENTITY_LIMIT: "ENTITY_LIMIT",
-  EXCLUDED_RULE: "EXCLUDED_RULE",
-  EXPIRE_TIMESTAMP: "EXPIRE_TIMESTAMP",
-  FALLBACK_BEHAVIOR: "FALLBACK_BEHAVIOR",
-  FIELD_TO_MATCH: "FIELD_TO_MATCH",
-  FILTER_CONDITION: "FILTER_CONDITION",
-  FIREWALL_MANAGER_STATEMENT: "FIREWALL_MANAGER_STATEMENT",
-  FORWARDED_IP_CONFIG: "FORWARDED_IP_CONFIG",
-  GEO_MATCH_STATEMENT: "GEO_MATCH_STATEMENT",
-  HEADER_MATCH_PATTERN: "HEADER_MATCH_PATTERN",
-  HEADER_NAME: "HEADER_NAME",
-  IP_ADDRESS: "IP_ADDRESS",
-  IP_ADDRESS_VERSION: "IP_ADDRESS_VERSION",
-  IP_SET: "IP_SET",
-  IP_SET_FORWARDED_IP_CONFIG: "IP_SET_FORWARDED_IP_CONFIG",
-  IP_SET_REFERENCE_STATEMENT: "IP_SET_REFERENCE_STATEMENT",
-  JSON_MATCH_PATTERN: "JSON_MATCH_PATTERN",
-  JSON_MATCH_SCOPE: "JSON_MATCH_SCOPE",
-  LABEL_MATCH_STATEMENT: "LABEL_MATCH_STATEMENT",
-  LOGGING_FILTER: "LOGGING_FILTER",
-  LOG_DESTINATION: "LOG_DESTINATION",
-  LOW_REPUTATION_MODE: "LOW_REPUTATION_MODE",
-  MANAGED_RULE_GROUP_CONFIG: "MANAGED_RULE_GROUP_CONFIG",
-  MANAGED_RULE_SET: "MANAGED_RULE_SET",
-  MANAGED_RULE_SET_STATEMENT: "MANAGED_RULE_SET_STATEMENT",
-  MAP_MATCH_SCOPE: "MAP_MATCH_SCOPE",
-  METRIC_NAME: "METRIC_NAME",
-  NOT_STATEMENT: "NOT_STATEMENT",
-  OR_STATEMENT: "OR_STATEMENT",
-  OVERRIDE_ACTION: "OVERRIDE_ACTION",
-  OVERSIZE_HANDLING: "OVERSIZE_HANDLING",
-  PAYLOAD_TYPE: "PAYLOAD_TYPE",
-  POSITION: "POSITION",
-  RATE_BASED_STATEMENT: "RATE_BASED_STATEMENT",
-  REGEX_PATTERN_REFERENCE_STATEMENT: "REGEX_PATTERN_REFERENCE_STATEMENT",
-  REGEX_PATTERN_SET: "REGEX_PATTERN_SET",
-  RESOURCE_ARN: "RESOURCE_ARN",
-  RESOURCE_TYPE: "RESOURCE_TYPE",
-  RESPONSE_CONTENT_TYPE: "RESPONSE_CONTENT_TYPE",
-  RULE: "RULE",
-  RULE_ACTION: "RULE_ACTION",
-  RULE_GROUP: "RULE_GROUP",
-  RULE_GROUP_REFERENCE_STATEMENT: "RULE_GROUP_REFERENCE_STATEMENT",
-  SCOPE_DOWN: "SCOPE_DOWN",
-  SCOPE_VALUE: "SCOPE_VALUE",
-  SINGLE_HEADER: "SINGLE_HEADER",
-  SINGLE_QUERY_ARGUMENT: "SINGLE_QUERY_ARGUMENT",
-  SIZE_CONSTRAINT_STATEMENT: "SIZE_CONSTRAINT_STATEMENT",
-  SQLI_MATCH_STATEMENT: "SQLI_MATCH_STATEMENT",
-  STATEMENT: "STATEMENT",
-  TAGS: "TAGS",
-  TAG_KEYS: "TAG_KEYS",
-  TEXT_TRANSFORMATION: "TEXT_TRANSFORMATION",
-  TOKEN_DOMAIN: "TOKEN_DOMAIN",
-  WEB_ACL: "WEB_ACL",
-  XSS_MATCH_STATEMENT: "XSS_MATCH_STATEMENT",
-} as const;
-
-/**
- * @public
- */
-export type ParameterExceptionField = (typeof ParameterExceptionField)[keyof typeof ParameterExceptionField];
-
-/**
- * <p>The operation failed because WAF didn't recognize a parameter in the request. For
- *          example: </p>
- *          <ul>
- *             <li>
- *                <p>You specified a parameter name or value that isn't valid.</p>
- *             </li>
- *             <li>
- *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
- *                can’t be nested. </p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
- *                isn't among the types available at <a>DefaultAction</a>.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                with which a web ACL can't be associated.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFInvalidParameterException extends __BaseException {
-  readonly name: "WAFInvalidParameterException" = "WAFInvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The settings where the invalid parameter was found. </p>
-   * @public
-   */
-  Field?: ParameterExceptionField | undefined;
-
-  /**
-   * <p>The invalid parameter that resulted in the exception. </p>
-   * @public
-   */
-  Parameter?: string | undefined;
-
-  /**
-   * <p>Additional information about the exception.</p>
-   * @public
-   */
-  Reason?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidParameterException, __BaseException>) {
-    super({
-      name: "WAFInvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidParameterException.prototype);
-    this.Field = opts.Field;
-    this.Parameter = opts.Parameter;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
- *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
- *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
- *             <i>WAF Developer Guide</i>.</p>
- * @public
- */
-export class WAFLimitsExceededException extends __BaseException {
-  readonly name: "WAFLimitsExceededException" = "WAFLimitsExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>Source type for the exception. </p>
-   * @public
-   */
-  SourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFLimitsExceededException, __BaseException>) {
-    super({
-      name: "WAFLimitsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFLimitsExceededException.prototype);
-    this.Message = opts.Message;
-    this.SourceType = opts.SourceType;
-  }
-}
-
-/**
- * <p>WAF couldn’t perform the operation because your resource doesn't exist.
- *        If you've just created a resource that you're using in this operation, you might
- *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. </p>
- * @public
- */
-export class WAFNonexistentItemException extends __BaseException {
-  readonly name: "WAFNonexistentItemException" = "WAFNonexistentItemException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFNonexistentItemException, __BaseException>) {
-    super({
-      name: "WAFNonexistentItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFNonexistentItemException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>WAF couldn’t retrieve a resource that you specified for this operation.
- *        If you've just created a resource that you're using in this operation, you might
- *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. Verify the resource specifications in your request
- *        parameters and then retry the operation.</p>
- * @public
- */
-export class WAFUnavailableEntityException extends __BaseException {
-  readonly name: "WAFUnavailableEntityException" = "WAFUnavailableEntityException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFUnavailableEntityException, __BaseException>) {
-    super({
-      name: "WAFUnavailableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFUnavailableEntityException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SizeInspectionLimit = {
-  KB_16: "KB_16",
-  KB_32: "KB_32",
-  KB_48: "KB_48",
-  KB_64: "KB_64",
-} as const;
-
-/**
- * @public
- */
-export type SizeInspectionLimit = (typeof SizeInspectionLimit)[keyof typeof SizeInspectionLimit];
 
 /**
  * <p>Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types. </p>
@@ -4090,20 +3251,6 @@ export interface VisibilityConfig {
 
 /**
  * @public
- * @enum
- */
-export const Scope = {
-  CLOUDFRONT: "CLOUDFRONT",
-  REGIONAL: "REGIONAL",
-} as const;
-
-/**
- * @public
- */
-export type Scope = (typeof Scope)[keyof typeof Scope];
-
-/**
- * @public
  */
 export interface CheckCapacityResponse {
   /**
@@ -4111,76 +3258,6 @@ export interface CheckCapacityResponse {
    * @public
    */
   Capacity?: number | undefined;
-}
-
-/**
- * <p>The operation failed because the specified version for the managed rule group has
- *          expired. You can retrieve the available versions for the managed rule group by calling
- *             <a>ListAvailableManagedRuleGroupVersions</a>.</p>
- * @public
- */
-export class WAFExpiredManagedRuleGroupVersionException extends __BaseException {
-  readonly name: "WAFExpiredManagedRuleGroupVersionException" = "WAFExpiredManagedRuleGroupVersionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFExpiredManagedRuleGroupVersionException, __BaseException>) {
-    super({
-      name: "WAFExpiredManagedRuleGroupVersionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFExpiredManagedRuleGroupVersionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>WAF couldn’t perform the operation because the resource that you requested isn’t
- *          valid. Check the resource, and try again.</p>
- * @public
- */
-export class WAFInvalidResourceException extends __BaseException {
-  readonly name: "WAFInvalidResourceException" = "WAFInvalidResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidResourceException, __BaseException>) {
-    super({
-      name: "WAFInvalidResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You tried to use a managed rule group that's available by subscription, but you aren't
- *          subscribed to it yet. </p>
- * @public
- */
-export class WAFSubscriptionNotFoundException extends __BaseException {
-  readonly name: "WAFSubscriptionNotFoundException" = "WAFSubscriptionNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFSubscriptionNotFoundException, __BaseException>) {
-    super({
-      name: "WAFSubscriptionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFSubscriptionNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -4222,20 +3299,6 @@ export interface CreateAPIKeyResponse {
    */
   APIKey?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IPAddressVersion = {
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-
-/**
- * @public
- */
-export type IPAddressVersion = (typeof IPAddressVersion)[keyof typeof IPAddressVersion];
 
 /**
  * <p>A tag associated with an Amazon Web Services resource. Tags are key:value pairs that you can use to
@@ -4400,98 +3463,6 @@ export interface CreateIPSetResponse {
 }
 
 /**
- * <p>WAF couldn’t perform the operation because the resource that you tried to save is
- *          a duplicate of an existing one.</p>
- * @public
- */
-export class WAFDuplicateItemException extends __BaseException {
-  readonly name: "WAFDuplicateItemException" = "WAFDuplicateItemException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFDuplicateItemException, __BaseException>) {
-    super({
-      name: "WAFDuplicateItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFDuplicateItemException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>WAF couldn’t save your changes because you tried to update or delete a resource
- *          that has changed since you last retrieved it. Get the resource again, make any changes you
- *          need to make to the new copy, and retry your operation. </p>
- * @public
- */
-export class WAFOptimisticLockException extends __BaseException {
-  readonly name: "WAFOptimisticLockException" = "WAFOptimisticLockException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFOptimisticLockException, __BaseException>) {
-    super({
-      name: "WAFOptimisticLockException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFOptimisticLockException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An error occurred during the tagging operation. Retry your request.</p>
- * @public
- */
-export class WAFTagOperationException extends __BaseException {
-  readonly name: "WAFTagOperationException" = "WAFTagOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFTagOperationException, __BaseException>) {
-    super({
-      name: "WAFTagOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFTagOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
- *          your request.</p>
- * @public
- */
-export class WAFTagOperationInternalErrorException extends __BaseException {
-  readonly name: "WAFTagOperationInternalErrorException" = "WAFTagOperationInternalErrorException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFTagOperationInternalErrorException, __BaseException>) {
-    super({
-      name: "WAFTagOperationInternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFTagOperationInternalErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateRegexPatternSetRequest {
@@ -4583,21 +3554,6 @@ export interface CreateRegexPatternSetResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResponseContentType = {
-  APPLICATION_JSON: "APPLICATION_JSON",
-  TEXT_HTML: "TEXT_HTML",
-  TEXT_PLAIN: "TEXT_PLAIN",
-} as const;
-
-/**
- * @public
- */
-export type ResponseContentType = (typeof ResponseContentType)[keyof typeof ResponseContentType];
-
-/**
  * <p>The response body to use in a custom response to a web request. This is referenced by
  *          key from <a>CustomResponse</a>
  *             <code>CustomResponseBodyKey</code>.</p>
@@ -4668,37 +3624,6 @@ export interface CreateRuleGroupResponse {
    */
   Summary?: RuleGroupSummary | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataProtectionAction = {
-  HASH: "HASH",
-  SUBSTITUTION: "SUBSTITUTION",
-} as const;
-
-/**
- * @public
- */
-export type DataProtectionAction = (typeof DataProtectionAction)[keyof typeof DataProtectionAction];
-
-/**
- * @public
- * @enum
- */
-export const FieldToProtectType = {
-  BODY: "BODY",
-  QUERY_STRING: "QUERY_STRING",
-  SINGLE_COOKIE: "SINGLE_COOKIE",
-  SINGLE_HEADER: "SINGLE_HEADER",
-  SINGLE_QUERY_ARGUMENT: "SINGLE_QUERY_ARGUMENT",
-} as const;
-
-/**
- * @public
- */
-export type FieldToProtectType = (typeof FieldToProtectType)[keyof typeof FieldToProtectType];
 
 /**
  * <p>Specifies a field type and keys to protect in stored web request data. This is part of the data protection configuration for a web ACL. </p>
@@ -4805,20 +3730,6 @@ export interface DefaultAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const LowReputationMode = {
-  ACTIVE_UNDER_DDOS: "ACTIVE_UNDER_DDOS",
-  ALWAYS_ON: "ALWAYS_ON",
-} as const;
-
-/**
- * @public
- */
-export type LowReputationMode = (typeof LowReputationMode)[keyof typeof LowReputationMode];
-
-/**
  * <p>Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.</p>
  * @public
  */
@@ -4877,38 +3788,6 @@ export interface CreateWebACLResponse {
    * @public
    */
   Summary?: WebACLSummary | undefined;
-}
-
-/**
- * <p>The operation failed because you are inspecting the web request body, headers, or
- *          cookies without specifying how to handle oversize components. Rules that inspect the body
- *          must either provide an <code>OversizeHandling</code> configuration or they must be preceded
- *          by a <code>SizeConstraintStatement</code> that blocks the body content from being too
- *          large. Rules that inspect the headers or cookies must provide an
- *             <code>OversizeHandling</code> configuration. </p>
- *          <p>Provide the handling configuration and retry your operation.</p>
- *          <p>Alternately, you can suppress this warning by adding the following tag to the resource
- *          that you provide to this operation: <code>Tag</code>
- *             (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>,
- *          value:<code>true</code>).</p>
- * @public
- */
-export class WAFConfigurationWarningException extends __BaseException {
-  readonly name: "WAFConfigurationWarningException" = "WAFConfigurationWarningException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFConfigurationWarningException, __BaseException>) {
-    super({
-      name: "WAFConfigurationWarningException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFConfigurationWarningException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -5012,57 +3891,6 @@ export interface DeleteIPSetRequest {
  * @public
  */
 export interface DeleteIPSetResponse {}
-
-/**
- * <p>WAF couldn’t perform the operation because your resource is being used by another
- *          resource or it’s associated with another resource. </p>
- * @public
- */
-export class WAFAssociatedItemException extends __BaseException {
-  readonly name: "WAFAssociatedItemException" = "WAFAssociatedItemException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFAssociatedItemException, __BaseException>) {
-    super({
-      name: "WAFAssociatedItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFAssociatedItemException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LogScope = {
-  CLOUDWATCH_TELEMETRY_RULE_MANAGED: "CLOUDWATCH_TELEMETRY_RULE_MANAGED",
-  CUSTOMER: "CUSTOMER",
-  SECURITY_LAKE: "SECURITY_LAKE",
-} as const;
-
-/**
- * @public
- */
-export type LogScope = (typeof LogScope)[keyof typeof LogScope];
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  WAF_LOGS: "WAF_LOGS",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -5591,20 +4419,6 @@ export interface DisassociateWebACLResponse {}
 
 /**
  * @public
- * @enum
- */
-export const Platform = {
-  ANDROID: "ANDROID",
-  IOS: "IOS",
-} as const;
-
-/**
- * @public
- */
-export type Platform = (typeof Platform)[keyof typeof Platform];
-
-/**
- * @public
  */
 export interface GenerateMobileSdkReleaseUrlRequest {
   /**
@@ -5840,20 +4654,6 @@ export interface GetLoggingConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FilterBehavior = {
-  DROP: "DROP",
-  KEEP: "KEEP",
-} as const;
-
-/**
- * @public
- */
-export type FilterBehavior = (typeof FilterBehavior)[keyof typeof FilterBehavior];
-
-/**
  * <p>A single label name condition for a <a>Condition</a> in a logging
  *          filter.</p>
  * @public
@@ -5885,20 +4685,6 @@ export interface Condition {
    */
   LabelNameCondition?: LabelNameCondition | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterRequirement = {
-  MEETS_ALL: "MEETS_ALL",
-  MEETS_ANY: "MEETS_ANY",
-} as const;
-
-/**
- * @public
- */
-export type FilterRequirement = (typeof FilterRequirement)[keyof typeof FilterRequirement];
 
 /**
  * <p>A single logging filter, used in <a>LoggingFilter</a>. </p>
@@ -6420,29 +5206,6 @@ export interface GetRateBasedStatementManagedKeysResponse {
 }
 
 /**
- * <p>The rule that you've named doesn't aggregate solely on the IP address or solely on the forwarded IP address. This call
- *            is only available for rate-based rules with an <code>AggregateKeyType</code> setting of <code>IP</code> or <code>FORWARDED_IP</code>.</p>
- * @public
- */
-export class WAFUnsupportedAggregateKeyTypeException extends __BaseException {
-  readonly name: "WAFUnsupportedAggregateKeyTypeException" = "WAFUnsupportedAggregateKeyTypeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFUnsupportedAggregateKeyTypeException, __BaseException>) {
-    super({
-      name: "WAFUnsupportedAggregateKeyTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFUnsupportedAggregateKeyTypeException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetRegexPatternSetRequest {
@@ -6659,22 +5422,6 @@ export interface GetSampledRequestsRequest {
    */
   MaxItems: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FailureReason = {
-  TOKEN_DOMAIN_MISMATCH: "TOKEN_DOMAIN_MISMATCH",
-  TOKEN_EXPIRED: "TOKEN_EXPIRED",
-  TOKEN_INVALID: "TOKEN_INVALID",
-  TOKEN_MISSING: "TOKEN_MISSING",
-} as const;
-
-/**
- * @public
- */
-export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
 
 /**
  * <p>The result from the inspection of the web request for a valid <code>CAPTCHA</code> token. </p>
@@ -7617,25 +6364,6 @@ export interface ListRegexPatternSetsResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceType = {
-  AMPLIFY: "AMPLIFY",
-  API_GATEWAY: "API_GATEWAY",
-  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
-  APPSYNC: "APPSYNC",
-  APP_RUNNER_SERVICE: "APP_RUNNER_SERVICE",
-  COGNITIO_USER_POOL: "COGNITO_USER_POOL",
-  VERIFIED_ACCESS_INSTANCE: "VERIFIED_ACCESS_INSTANCE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
  */
 export interface ListResourcesForWebACLRequest {
   /**
@@ -7876,57 +6604,6 @@ export interface PutLoggingConfigurationResponse {
 }
 
 /**
- * <p>The operation failed because you don't have the permissions that your logging
- *          configuration requires. For information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
- *          in the <i>WAF Developer Guide</i>.</p>
- * @public
- */
-export class WAFLogDestinationPermissionIssueException extends __BaseException {
-  readonly name: "WAFLogDestinationPermissionIssueException" = "WAFLogDestinationPermissionIssueException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFLogDestinationPermissionIssueException, __BaseException>) {
-    super({
-      name: "WAFLogDestinationPermissionIssueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFLogDestinationPermissionIssueException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>WAF is not able to access the service linked role. This can be caused by a
- *          previous <code>PutLoggingConfiguration</code> request, which can lock the service linked
- *          role for about 20 seconds. Please try your request again. The service linked role can also
- *          be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the
- *          role for 15 minutes or more. If you recently made a call to
- *             <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request
- *          again. If you receive this same exception again, you will have to wait additional time
- *          until the role is unlocked.</p>
- * @public
- */
-export class WAFServiceLinkedRoleErrorException extends __BaseException {
-  readonly name: "WAFServiceLinkedRoleErrorException" = "WAFServiceLinkedRoleErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFServiceLinkedRoleErrorException, __BaseException>) {
-    super({
-      name: "WAFServiceLinkedRoleErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFServiceLinkedRoleErrorException.prototype);
-  }
-}
-
-/**
  * <p>A version of the named managed rule group, that the rule group's vendor publishes for
  *          use by customers. </p>
  *          <note>
@@ -8060,51 +6737,6 @@ export interface PutPermissionPolicyRequest {
  * @public
  */
 export interface PutPermissionPolicyResponse {}
-
-/**
- * <p>The operation failed because the specified policy isn't in the proper format. </p>
- *          <p>The policy specifications must conform to the following:</p>
- *          <ul>
- *             <li>
- *                <p>The policy must be composed using IAM Policy version 2012-10-17.</p>
- *             </li>
- *             <li>
- *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Effect</code> must specify <code>Allow</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and
- *              <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>.
- *                  WAF rejects any extra actions or wildcard actions in the policy.</p>
- *             </li>
- *             <li>
- *                <p>The policy must not include a <code>Resource</code> parameter.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a>.  </p>
- * @public
- */
-export class WAFInvalidPermissionPolicyException extends __BaseException {
-  readonly name: "WAFInvalidPermissionPolicyException" = "WAFInvalidPermissionPolicyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidPermissionPolicyException, __BaseException>) {
-    super({
-      name: "WAFInvalidPermissionPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidPermissionPolicyException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -9836,4 +8468,29 @@ export interface GetWebACLForResourceResponse {
    * @public
    */
   WebACL?: WebACL | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWebACLResponse {
+  /**
+   * <p>The web ACL specification. You can modify the settings in this web ACL and use it to
+   *          update this web ACL or create a new one.</p>
+   * @public
+   */
+  WebACL?: WebACL | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+   * @public
+   */
+  LockToken?: string | undefined;
+
+  /**
+   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code> and the account creation fraud prevention managed rule group <code>AWSManagedRulesACFPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a>
+   * in the <i>WAF Developer Guide</i>.</p>
+   * @public
+   */
+  ApplicationIntegrationURL?: string | undefined;
 }

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RollbackStackInput, RollbackStackOutput } from "../models/models_1";
+import { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
 import { RollbackStack } from "../schemas/schemas_0";
 
 /**

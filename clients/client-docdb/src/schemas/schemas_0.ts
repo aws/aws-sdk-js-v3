@@ -575,7 +575,7 @@ import {
   SubscriptionAlreadyExistFault as __SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault as __SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault as __SubscriptionNotFoundFault,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

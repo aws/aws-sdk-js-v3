@@ -1,45 +1,53 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { BedrockServiceException as __BaseException } from "./BedrockServiceException";
-
-/**
- * <p>The request is denied because of missing access permissions.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AgreementStatus = {
-  AVAILABLE: "AVAILABLE",
-  ERROR: "ERROR",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type AgreementStatus = (typeof AgreementStatus)[keyof typeof AgreementStatus];
+import {
+  AgreementStatus,
+  ApplicationType,
+  AttributeType,
+  AutomatedReasoningCheckLogicWarningType,
+  AutomatedReasoningCheckResult,
+  AutomatedReasoningPolicyAnnotationStatus,
+  AutomatedReasoningPolicyBuildDocumentContentType,
+  AutomatedReasoningPolicyBuildMessageType,
+  AutomatedReasoningPolicyBuildResultAssetType,
+  AutomatedReasoningPolicyBuildWorkflowStatus,
+  AutomatedReasoningPolicyBuildWorkflowType,
+  AutomatedReasoningPolicyTestRunResult,
+  AutomatedReasoningPolicyTestRunStatus,
+  CustomizationType,
+  CustomModelDeploymentStatus,
+  EvaluationJobStatus,
+  EvaluationJobType,
+  EvaluationTaskType,
+  ExternalSourceType,
+  GuardrailContentFilterAction,
+  GuardrailContentFiltersTierName,
+  GuardrailContentFilterType,
+  GuardrailContextualGroundingAction,
+  GuardrailContextualGroundingFilterType,
+  GuardrailFilterStrength,
+  GuardrailManagedWordsType,
+  GuardrailModality,
+  GuardrailPiiEntityType,
+  GuardrailSensitiveInformationAction,
+  GuardrailStatus,
+  GuardrailTopicAction,
+  GuardrailTopicsTierName,
+  GuardrailTopicType,
+  GuardrailWordAction,
+  InferenceProfileStatus,
+  InferenceProfileType,
+  ModelStatus,
+  PerformanceConfigLatency,
+  QueryTransformationType,
+  RerankingMetadataSelectionMode,
+  SortJobsBy,
+  SortModelsBy,
+  SortOrder,
+  Status,
+  VectorSearchRerankingConfigurationType,
+} from "./enums";
 
 /**
  * <p>Information about the agreement availability</p>
@@ -73,86 +81,6 @@ export interface GetUseCaseForModelAccessResponse {
    * @public
    */
   formData: Uint8Array | undefined;
-}
-
-/**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -192,26 +120,6 @@ export interface CancelAutomatedReasoningPolicyBuildWorkflowRequest {
  * @public
  */
 export interface CancelAutomatedReasoningPolicyBuildWorkflowResponse {}
-
-/**
- * <p>Error occurred because of a conflict while performing an operation.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
 
 /**
  * <p>Represents a formal logic rule in an Automated Reasoning policy. For example, rules can be expressed as if-then statements that define logical constraints.</p>
@@ -440,73 +348,6 @@ export interface CreateAutomatedReasoningPolicyResponse {
 }
 
 /**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the resource with too many tags.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningCheckResult = {
-  IMPOSSIBLE: "IMPOSSIBLE",
-  INVALID: "INVALID",
-  NO_TRANSLATION: "NO_TRANSLATION",
-  SATISFIABLE: "SATISFIABLE",
-  TOO_COMPLEX: "TOO_COMPLEX",
-  TRANSLATION_AMBIGUOUS: "TRANSLATION_AMBIGUOUS",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningCheckResult =
-  (typeof AutomatedReasoningCheckResult)[keyof typeof AutomatedReasoningCheckResult];
-
-/**
  * @public
  */
 export interface CreateAutomatedReasoningPolicyTestCaseRequest {
@@ -655,26 +496,6 @@ export interface DeleteAutomatedReasoningPolicyRequest {
  * @public
  */
 export interface DeleteAutomatedReasoningPolicyResponse {}
-
-/**
- * <p>Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
 
 /**
  * @public
@@ -1597,58 +1418,6 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowRequest {
 
 /**
  * @public
- * @enum
- */
-export const AutomatedReasoningPolicyBuildWorkflowType = {
-  IMPORT_POLICY: "IMPORT_POLICY",
-  INGEST_CONTENT: "INGEST_CONTENT",
-  REFINE_POLICY: "REFINE_POLICY",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyBuildWorkflowType =
-  (typeof AutomatedReasoningPolicyBuildWorkflowType)[keyof typeof AutomatedReasoningPolicyBuildWorkflowType];
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyBuildDocumentContentType = {
-  PDF: "pdf",
-  TEXT: "txt",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyBuildDocumentContentType =
-  (typeof AutomatedReasoningPolicyBuildDocumentContentType)[keyof typeof AutomatedReasoningPolicyBuildDocumentContentType];
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyBuildWorkflowStatus = {
-  BUILDING: "BUILDING",
-  CANCELLED: "CANCELLED",
-  CANCEL_REQUESTED: "CANCEL_REQUESTED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PREPROCESSING: "PREPROCESSING",
-  SCHEDULED: "SCHEDULED",
-  TESTING: "TESTING",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyBuildWorkflowStatus =
-  (typeof AutomatedReasoningPolicyBuildWorkflowStatus)[keyof typeof AutomatedReasoningPolicyBuildWorkflowStatus];
-
-/**
- * @public
  */
 export interface GetAutomatedReasoningPolicyBuildWorkflowResponse {
   /**
@@ -1705,23 +1474,6 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResponse {
    */
   updatedAt: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyBuildResultAssetType = {
-  BUILD_LOG: "BUILD_LOG",
-  GENERATED_TEST_CASES: "GENERATED_TEST_CASES",
-  POLICY_DEFINITION: "POLICY_DEFINITION",
-  QUALITY_REPORT: "QUALITY_REPORT",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyBuildResultAssetType =
-  (typeof AutomatedReasoningPolicyBuildResultAssetType)[keyof typeof AutomatedReasoningPolicyBuildResultAssetType];
 
 /**
  * @public
@@ -2121,22 +1873,6 @@ export namespace AutomatedReasoningPolicyBuildStepContext {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyBuildMessageType = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyBuildMessageType =
-  (typeof AutomatedReasoningPolicyBuildMessageType)[keyof typeof AutomatedReasoningPolicyBuildMessageType];
-
-/**
  * <p>Represents a message generated during a build step, providing information about what happened or any issues encountered.</p>
  * @public
  */
@@ -2246,21 +1982,6 @@ export interface AutomatedReasoningPolicyBuildStep {
    */
   messages: AutomatedReasoningPolicyBuildStepMessage[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyAnnotationStatus = {
-  APPLIED: "APPLIED",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyAnnotationStatus =
-  (typeof AutomatedReasoningPolicyAnnotationStatus)[keyof typeof AutomatedReasoningPolicyAnnotationStatus];
 
 /**
  * <p>Represents a single entry in the policy build log, containing information about a specific step or event in the build process.</p>
@@ -2740,21 +2461,6 @@ export interface AutomatedReasoningLogicStatement {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomatedReasoningCheckLogicWarningType = {
-  ALWAYS_FALSE: "ALWAYS_FALSE",
-  ALWAYS_TRUE: "ALWAYS_TRUE",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningCheckLogicWarningType =
-  (typeof AutomatedReasoningCheckLogicWarningType)[keyof typeof AutomatedReasoningCheckLogicWarningType];
-
-/**
  * <p>Identifies logical issues in the translated statements that exist independent of any policy rules, such as statements that are always true or always false.</p>
  * @public
  */
@@ -3140,39 +2846,6 @@ export namespace AutomatedReasoningCheckFinding {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyTestRunResult = {
-  FAILED: "FAILED",
-  PASSED: "PASSED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyTestRunResult =
-  (typeof AutomatedReasoningPolicyTestRunResult)[keyof typeof AutomatedReasoningPolicyTestRunResult];
-
-/**
- * @public
- * @enum
- */
-export const AutomatedReasoningPolicyTestRunStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-  SCHEDULED: "SCHEDULED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedReasoningPolicyTestRunStatus =
-  (typeof AutomatedReasoningPolicyTestRunStatus)[keyof typeof AutomatedReasoningPolicyTestRunStatus];
 
 /**
  * <p>Contains the results of testing an Automated Reasoning policy against various scenarios and validation checks.</p>
@@ -4007,20 +3680,6 @@ export interface CreateMarketplaceModelEndpointRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const Status = {
-  INCOMPATIBLE_ENDPOINT: "INCOMPATIBLE_ENDPOINT",
-  REGISTERED: "REGISTERED",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
  * <p>Contains details about an endpoint for a model from Amazon Bedrock Marketplace.</p>
  * @public
  */
@@ -4122,26 +3781,6 @@ export interface DeregisterMarketplaceModelEndpointRequest {
  * @public
  */
 export interface DeregisterMarketplaceModelEndpointResponse {}
-
-/**
- * <p>Returned if the service cannot complete the request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
 
 /**
  * @public
@@ -4384,22 +4023,6 @@ export interface GetCustomModelDeploymentRequest {
 
 /**
  * @public
- * @enum
- */
-export const CustomModelDeploymentStatus = {
-  ACTIVE: "Active",
-  CREATING: "Creating",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type CustomModelDeploymentStatus =
-  (typeof CustomModelDeploymentStatus)[keyof typeof CustomModelDeploymentStatus];
-
-/**
- * @public
  */
 export interface GetCustomModelDeploymentResponse {
   /**
@@ -4450,33 +4073,6 @@ export interface GetCustomModelDeploymentResponse {
    */
   lastUpdatedAt?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortModelsBy = {
-  CREATION_TIME: "CreationTime",
-} as const;
-
-/**
- * @public
- */
-export type SortModelsBy = (typeof SortModelsBy)[keyof typeof SortModelsBy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -4796,37 +4392,6 @@ export namespace CustomizationConfig {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomizationType = {
-  CONTINUED_PRE_TRAINING: "CONTINUED_PRE_TRAINING",
-  DISTILLATION: "DISTILLATION",
-  FINE_TUNING: "FINE_TUNING",
-  IMPORTED: "IMPORTED",
-} as const;
-
-/**
- * @public
- */
-export type CustomizationType = (typeof CustomizationType)[keyof typeof CustomizationType];
-
-/**
- * @public
- * @enum
- */
-export const ModelStatus = {
-  ACTIVE: "Active",
-  CREATING: "Creating",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
 
 /**
  * <p>S3 Location of the output data.</p>
@@ -5357,24 +4922,6 @@ export interface BatchDeleteEvaluationJobError {
 }
 
 /**
- * @public
- * @enum
- */
-export const EvaluationJobStatus = {
-  COMPLETED: "Completed",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationJobStatus = (typeof EvaluationJobStatus)[keyof typeof EvaluationJobStatus];
-
-/**
  * <p>An evaluation job for deletion, and it’s current status.</p>
  * @public
  */
@@ -5408,20 +4955,6 @@ export interface BatchDeleteEvaluationJobResponse {
    */
   evaluationJobs: BatchDeleteEvaluationJobItem[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationType = {
-  MODEL_EVALUATION: "ModelEvaluation",
-  RAG_EVALUATION: "RagEvaluation",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
 
 /**
  * <p>Defines the value for one rating in a custom metric rating scale.</p>
@@ -5657,23 +5190,6 @@ export interface EvaluationDataset {
 }
 
 /**
- * @public
- * @enum
- */
-export const EvaluationTaskType = {
-  CLASSIFICATION: "Classification",
-  CUSTOM: "Custom",
-  GENERATION: "Generation",
-  QUESTION_AND_ANSWER: "QuestionAndAnswer",
-  SUMMARIZATION: "Summarization",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationTaskType = (typeof EvaluationTaskType)[keyof typeof EvaluationTaskType];
-
-/**
  * <p>Defines the prompt datasets, built-in metric names and custom metric names, and the task type.</p>
  * @public
  */
@@ -5890,20 +5406,6 @@ export namespace EvaluationConfig {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const PerformanceConfigLatency = {
-  OPTIMIZED: "optimized",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
 
 /**
  * <p>Contains performance settings for a model.</p>
@@ -6145,20 +5647,6 @@ export interface S3ObjectDoc {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExternalSourceType = {
-  BYTE_CONTENT: "BYTE_CONTENT",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ExternalSourceType = (typeof ExternalSourceType)[keyof typeof ExternalSourceType];
-
-/**
  * <p>The unique external source of the content contained in the wrapper object.</p>
  * @public
  */
@@ -6237,19 +5725,6 @@ export interface GenerationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const QueryTransformationType = {
-  QUERY_DECOMPOSITION: "QUERY_DECOMPOSITION",
-} as const;
-
-/**
- * @public
- */
-export type QueryTransformationType = (typeof QueryTransformationType)[keyof typeof QueryTransformationType];
-
-/**
  * <p>The configuration details for transforming the prompt.</p>
  * @public
  */
@@ -6292,22 +5767,6 @@ export interface FilterAttribute {
 }
 
 /**
- * @public
- * @enum
- */
-export const AttributeType = {
-  BOOLEAN: "BOOLEAN",
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-  STRING_LIST: "STRING_LIST",
-} as const;
-
-/**
- * @public
- */
-export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
-
-/**
  * <p>Defines the schema for a metadata attribute used in Knowledge Base vector searches. Metadata attributes provide additional context for documents and can be used for filtering and reranking search results.</p>
  * @public
  */
@@ -6348,35 +5807,6 @@ export interface ImplicitFilterConfiguration {
    */
   modelArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SearchType = {
-  HYBRID: "HYBRID",
-  SEMANTIC: "SEMANTIC",
-} as const;
-
-/**
- * @public
- */
-export type SearchType = (typeof SearchType)[keyof typeof SearchType];
-
-/**
- * @public
- * @enum
- */
-export const RerankingMetadataSelectionMode = {
-  ALL: "ALL",
-  SELECTIVE: "SELECTIVE",
-} as const;
-
-/**
- * @public
- */
-export type RerankingMetadataSelectionMode =
-  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
 
 /**
  * <p>Specifies a field to be used during the reranking process in a Knowledge Base vector search. This structure identifies metadata fields that should be considered when reordering search results to improve relevance.</p>
@@ -6504,20 +5934,6 @@ export interface VectorSearchBedrockRerankingConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const VectorSearchRerankingConfigurationType = {
-  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type VectorSearchRerankingConfigurationType =
-  (typeof VectorSearchRerankingConfigurationType)[keyof typeof VectorSearchRerankingConfigurationType];
-
-/**
  * <p>Configuration for reranking vector search results to improve relevance. Reranking applies additional relevance models to reorder the initial vector search results based on more sophisticated criteria.</p>
  * @public
  */
@@ -6534,20 +5950,6 @@ export interface VectorSearchRerankingConfiguration {
    */
   bedrockRerankingConfiguration?: VectorSearchBedrockRerankingConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetrieveAndGenerateType = {
-  EXTERNAL_SOURCES: "EXTERNAL_SOURCES",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
 
 /**
  * <p>A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
@@ -6659,33 +6061,6 @@ export interface GetEvaluationJobRequest {
    */
   jobIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EvaluationJobType = {
-  AUTOMATED: "Automated",
-  HUMAN: "Human",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationJobType = (typeof EvaluationJobType)[keyof typeof EvaluationJobType];
-
-/**
- * @public
- * @enum
- */
-export const SortJobsBy = {
-  CREATION_TIME: "CreationTime",
-} as const;
-
-/**
- * @public
- */
-export type SortJobsBy = (typeof SortJobsBy)[keyof typeof SortJobsBy];
 
 /**
  * @public
@@ -6934,69 +6309,6 @@ export interface GuardrailAutomatedReasoningPolicyConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailContentFilterAction = {
-  BLOCK: "BLOCK",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterAction =
-  (typeof GuardrailContentFilterAction)[keyof typeof GuardrailContentFilterAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailModality = {
-  IMAGE: "IMAGE",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailModality = (typeof GuardrailModality)[keyof typeof GuardrailModality];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailFilterStrength = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailFilterStrength = (typeof GuardrailFilterStrength)[keyof typeof GuardrailFilterStrength];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterType = {
-  HATE: "HATE",
-  INSULTS: "INSULTS",
-  MISCONDUCT: "MISCONDUCT",
-  PROMPT_ATTACK: "PROMPT_ATTACK",
-  SEXUAL: "SEXUAL",
-  VIOLENCE: "VIOLENCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
-
-/**
  * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
  * @public
  */
@@ -7057,21 +6369,6 @@ export interface GuardrailContentFilterConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailContentFiltersTierName = {
-  CLASSIC: "CLASSIC",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFiltersTierName =
-  (typeof GuardrailContentFiltersTierName)[keyof typeof GuardrailContentFiltersTierName];
-
-/**
  * <p>The tier that your guardrail uses for content filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
  * @public
  */
@@ -7100,36 +6397,6 @@ export interface GuardrailContentPolicyConfig {
    */
   tierConfig?: GuardrailContentFiltersTierConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContextualGroundingAction = {
-  BLOCK: "BLOCK",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContextualGroundingAction =
-  (typeof GuardrailContextualGroundingAction)[keyof typeof GuardrailContextualGroundingAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContextualGroundingFilterType = {
-  GROUNDING: "GROUNDING",
-  RELEVANCE: "RELEVANCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContextualGroundingFilterType =
-  (typeof GuardrailContextualGroundingFilterType)[keyof typeof GuardrailContextualGroundingFilterType];
 
 /**
  * <p>The filter configuration details for the guardrails contextual grounding filter.</p>
@@ -7184,65 +6451,6 @@ export interface GuardrailCrossRegionConfig {
    */
   guardrailProfileIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailSensitiveInformationAction = {
-  ANONYMIZE: "ANONYMIZE",
-  BLOCK: "BLOCK",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailSensitiveInformationAction =
-  (typeof GuardrailSensitiveInformationAction)[keyof typeof GuardrailSensitiveInformationAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailPiiEntityType = {
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY: "AWS_SECRET_KEY",
-  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
-  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
-  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
-  DRIVER_ID: "DRIVER_ID",
-  EMAIL: "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IP_ADDRESS: "IP_ADDRESS",
-  LICENSE_PLATE: "LICENSE_PLATE",
-  MAC_ADDRESS: "MAC_ADDRESS",
-  NAME: "NAME",
-  PASSWORD: "PASSWORD",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SWIFT_CODE: "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL: "URL",
-  USERNAME: "USERNAME",
-  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
-  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
-  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
 
 /**
  * <p>The PII entity to configure for the guardrail.</p>
@@ -7359,20 +6567,6 @@ export interface GuardrailSensitiveInformationPolicyConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailTopicsTierName = {
-  CLASSIC: "CLASSIC",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicsTierName = (typeof GuardrailTopicsTierName)[keyof typeof GuardrailTopicsTierName];
-
-/**
  * <p>The tier that your guardrail uses for denied topic filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
  * @public
  */
@@ -7383,33 +6577,6 @@ export interface GuardrailTopicsTierConfig {
    */
   tierName: GuardrailTopicsTierName | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailTopicAction = {
-  BLOCK: "BLOCK",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicAction = (typeof GuardrailTopicAction)[keyof typeof GuardrailTopicAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailTopicType = {
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
 
 /**
  * <p>Details about topics for the guardrail to identify and deny.</p>
@@ -7463,4 +6630,1512 @@ export interface GuardrailTopicConfig {
    * @public
    */
   outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about topics that the guardrail should identify and deny.</p>
+ * @public
+ */
+export interface GuardrailTopicPolicyConfig {
+  /**
+   * <p>A list of policies related to topics that the guardrail should deny.</p>
+   * @public
+   */
+  topicsConfig: GuardrailTopicConfig[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters.</p>
+   * @public
+   */
+  tierConfig?: GuardrailTopicsTierConfig | undefined;
+}
+
+/**
+ * <p>The managed word list to configure for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWordsConfig {
+  /**
+   * <p>The managed word type to configure for the guardrail.</p>
+   * @public
+   */
+  type: GuardrailManagedWordsType | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>A word to configure for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWordConfig {
+  /**
+   * <p>Text of the word configured for the guardrail to block.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about the word policy to configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWordPolicyConfig {
+  /**
+   * <p>A list of words to configure for the guardrail.</p>
+   * @public
+   */
+  wordsConfig?: GuardrailWordConfig[] | undefined;
+
+  /**
+   * <p>A list of managed words to configure for the guardrail.</p>
+   * @public
+   */
+  managedWordListsConfig?: GuardrailManagedWordsConfig[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGuardrailRequest {
+  /**
+   * <p>The name to give the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The topic policies to configure for the guardrail.</p>
+   * @public
+   */
+  topicPolicyConfig?: GuardrailTopicPolicyConfig | undefined;
+
+  /**
+   * <p>The content filter policies to configure for the guardrail.</p>
+   * @public
+   */
+  contentPolicyConfig?: GuardrailContentPolicyConfig | undefined;
+
+  /**
+   * <p>The word policy you configure for the guardrail.</p>
+   * @public
+   */
+  wordPolicyConfig?: GuardrailWordPolicyConfig | undefined;
+
+  /**
+   * <p>The sensitive information policy to configure for the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig | undefined;
+
+  /**
+   * <p>The contextual grounding policy configuration used to create a guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
+
+  /**
+   * <p>Optional configuration for integrating Automated Reasoning policies with the new guardrail.</p>
+   * @public
+   */
+  automatedReasoningPolicyConfig?: GuardrailAutomatedReasoningPolicyConfig | undefined;
+
+  /**
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
+
+  /**
+   * <p>The message to return when the guardrail blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message to return when the guardrail blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key that you use to encrypt the guardrail.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The tags that you want to attach to the guardrail. </p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGuardrailResponse {
+  /**
+   * <p>The unique identifier of the guardrail that was created.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  guardrailArn: string | undefined;
+
+  /**
+   * <p>The version of the guardrail that was created. This value will always be <code>DRAFT</code>.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The time at which the guardrail was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGuardrailVersionRequest {
+  /**
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>A description of the guardrail version.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGuardrailVersionResponse {
+  /**
+   * <p>The unique identifier of the guardrail.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The number of the version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGuardrailRequest {
+  /**
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  guardrailVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGuardrailResponse {}
+
+/**
+ * @public
+ */
+export interface GetGuardrailRequest {
+  /**
+   * <p>The unique identifier of the guardrail for which to get details. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the guardrail for which to get details. If you don't specify a version, the response returns details for the <code>DRAFT</code> version.</p>
+   * @public
+   */
+  guardrailVersion?: string | undefined;
+}
+
+/**
+ * <p>Represents the configuration of Automated Reasoning policies within a Amazon Bedrock Guardrail, including the policies to apply and confidence thresholds.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningPolicy {
+  /**
+   * <p>The list of Automated Reasoning policy ARNs that should be applied as part of this guardrail configuration.</p>
+   * @public
+   */
+  policies: string[] | undefined;
+
+  /**
+   * <p>The minimum confidence level required for Automated Reasoning policy violations to trigger guardrail actions. Values range from 0.0 to 1.0.</p>
+   * @public
+   */
+  confidenceThreshold?: number | undefined;
+}
+
+/**
+ * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailContentFilter {
+  /**
+   * <p>The harmful category that the content filter is applied to.</p>
+   * @public
+   */
+  type: GuardrailContentFilterType | undefined;
+
+  /**
+   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * @public
+   */
+  inputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * @public
+   */
+  outputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The input modalities selected for the guardrail content filter.</p>
+   * @public
+   */
+  inputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>The output modalities selected for the guardrail content filter.</p>
+   * @public
+   */
+  outputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The tier that your guardrail uses for content filters.</p>
+ * @public
+ */
+export interface GuardrailContentFiltersTier {
+  /**
+   * <p>The tier that your guardrail uses for content filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailContentFiltersTierName | undefined;
+}
+
+/**
+ * <p>Contains details about how to handle harmful content.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailContentPolicy {
+  /**
+   * <p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>
+   * @public
+   */
+  filters?: GuardrailContentFilter[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for content filters.</p>
+   * @public
+   */
+  tier?: GuardrailContentFiltersTier | undefined;
+}
+
+/**
+ * <p>The details for the guardrails contextual grounding filter.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingFilter {
+  /**
+   * <p>The filter type details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  type: GuardrailContextualGroundingFilterType | undefined;
+
+  /**
+   * <p>The threshold details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  threshold: number | undefined;
+
+  /**
+   * <p>The action to take when content fails the contextual grounding evaluation. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  action?: GuardrailContextualGroundingAction | undefined;
+
+  /**
+   * <p>Indicates whether contextual grounding is enabled for evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
+ * <p>The details for the guardrails contextual grounding policy.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingPolicy {
+  /**
+   * <p>The filter details for the guardrails contextual grounding policy.</p>
+   * @public
+   */
+  filters: GuardrailContextualGroundingFilter[] | undefined;
+}
+
+/**
+ * <p>Contains details about the system-defined guardrail profile that you're using with your guardrail for cross-Region inference.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * @public
+ */
+export interface GuardrailCrossRegionDetails {
+  /**
+   * <p>The ID of the guardrail profile that your guardrail is using. Profile availability depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  guardrailProfileId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the guardrail profile that you're using with your guardrail.</p>
+   * @public
+   */
+  guardrailProfileArn?: string | undefined;
+}
+
+/**
+ * <p>The PII entity configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailPiiEntity {
+  /**
+   * <p>The type of PII entity. For example, Social Security Number.</p>
+   * @public
+   */
+  type: GuardrailPiiEntityType | undefined;
+
+  /**
+   * <p>The configured guardrail action when PII entity is detected.</p>
+   * @public
+   */
+  action: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>ANONYMIZE</code> – Mask the content and replace it with identifier tags.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>ANONYMIZE</code> – Mask the content and replace it with identifier tags.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The regular expression configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailRegex {
+  /**
+   * <p>The name of the regular expression for the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the regular expression for the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The pattern of the regular expression configured for the guardrail.</p>
+   * @public
+   */
+  pattern: string | undefined;
+
+  /**
+   * <p>The action taken when a match to the regular expression is detected.</p>
+   * @public
+   */
+  action: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailSensitiveInformationAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about PII entities and regular expressions configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailSensitiveInformationPolicy {
+  /**
+   * <p>The list of PII entities configured for the guardrail.</p>
+   * @public
+   */
+  piiEntities?: GuardrailPiiEntity[] | undefined;
+
+  /**
+   * <p>The list of regular expressions configured for the guardrail.</p>
+   * @public
+   */
+  regexes?: GuardrailRegex[] | undefined;
+}
+
+/**
+ * <p>The tier that your guardrail uses for denied topic filters.</p>
+ * @public
+ */
+export interface GuardrailTopicsTier {
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailTopicsTierName | undefined;
+}
+
+/**
+ * <p>Details about topics for the guardrail to identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailTopic {
+  /**
+   * <p>The name of the topic to deny.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A definition of the topic to deny.</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
+   * @public
+   */
+  examples?: string[] | undefined;
+
+  /**
+   * <p>Specifies to deny the topic.</p>
+   * @public
+   */
+  type?: GuardrailTopicType | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about topics that the guardrail should identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailTopicPolicy {
+  /**
+   * <p>A list of policies related to topics that the guardrail should deny.</p>
+   * @public
+   */
+  topics: GuardrailTopic[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters.</p>
+   * @public
+   */
+  tier?: GuardrailTopicsTier | undefined;
+}
+
+/**
+ * <p>The managed word list that was configured for the guardrail. (This is a list of words that are pre-defined and managed by guardrails only.)</p>
+ * @public
+ */
+export interface GuardrailManagedWords {
+  /**
+   * <p>ManagedWords$type The managed word type that was configured for the guardrail. (For now, we only offer profanity word list)</p>
+   * @public
+   */
+  type: GuardrailManagedWordsType | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>A word configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWord {
+  /**
+   * <p>Text of the word configured for the guardrail to block.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about the word policy configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWordPolicy {
+  /**
+   * <p>A list of words configured for the guardrail.</p>
+   * @public
+   */
+  words?: GuardrailWord[] | undefined;
+
+  /**
+   * <p>A list of managed words configured for the guardrail.</p>
+   * @public
+   */
+  managedWordLists?: GuardrailManagedWords[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGuardrailResponse {
+  /**
+   * <p>The name of the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the guardrail.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  guardrailArn: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The status of the guardrail.</p>
+   * @public
+   */
+  status: GuardrailStatus | undefined;
+
+  /**
+   * <p>The topic policy that was configured for the guardrail.</p>
+   * @public
+   */
+  topicPolicy?: GuardrailTopicPolicy | undefined;
+
+  /**
+   * <p>The content policy that was configured for the guardrail.</p>
+   * @public
+   */
+  contentPolicy?: GuardrailContentPolicy | undefined;
+
+  /**
+   * <p>The word policy that was configured for the guardrail.</p>
+   * @public
+   */
+  wordPolicy?: GuardrailWordPolicy | undefined;
+
+  /**
+   * <p>The sensitive information policy that was configured for the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy | undefined;
+
+  /**
+   * <p>The contextual grounding policy used in the guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicy?: GuardrailContextualGroundingPolicy | undefined;
+
+  /**
+   * <p>The current Automated Reasoning policy configuration for the guardrail, if any is configured.</p>
+   * @public
+   */
+  automatedReasoningPolicy?: GuardrailAutomatedReasoningPolicy | undefined;
+
+  /**
+   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Appears if the <code>status</code> is <code>FAILED</code>. A list of reasons for why the guardrail failed to be created, updated, versioned, or deleted.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+
+  /**
+   * <p>Appears if the <code>status</code> of the guardrail is <code>FAILED</code>. A list of recommendations to carry out before retrying the request.</p>
+   * @public
+   */
+  failureRecommendations?: string[] | undefined;
+
+  /**
+   * <p>The message that the guardrail returns when it blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message that the guardrail returns when it blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key that encrypts the guardrail.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGuardrailsRequest {
+  /**
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a guardrail.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListGuardrails.html#API_ListGuardrails_ResponseSyntax">ListGuardrails response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailSummary {
+  /**
+   * <p>The unique identifier of the guardrail.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the guardrail.</p>
+   * @public
+   */
+  status: GuardrailStatus | undefined;
+
+  /**
+   * <p>The name of the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGuardrailsResponse {
+  /**
+   * <p>A list of objects, each of which contains details about a guardrail.</p>
+   * @public
+   */
+  guardrails: GuardrailSummary[] | undefined;
+
+  /**
+   * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGuardrailRequest {
+  /**
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>A name for the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The topic policy to configure for the guardrail.</p>
+   * @public
+   */
+  topicPolicyConfig?: GuardrailTopicPolicyConfig | undefined;
+
+  /**
+   * <p>The content policy to configure for the guardrail.</p>
+   * @public
+   */
+  contentPolicyConfig?: GuardrailContentPolicyConfig | undefined;
+
+  /**
+   * <p>The word policy to configure for the guardrail.</p>
+   * @public
+   */
+  wordPolicyConfig?: GuardrailWordPolicyConfig | undefined;
+
+  /**
+   * <p>The sensitive information policy to configure for the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig | undefined;
+
+  /**
+   * <p>The contextual grounding policy configuration used to update a guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
+
+  /**
+   * <p>Updated configuration for Automated Reasoning policies associated with the guardrail.</p>
+   * @public
+   */
+  automatedReasoningPolicyConfig?: GuardrailAutomatedReasoningPolicyConfig | undefined;
+
+  /**
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
+
+  /**
+   * <p>The message to return when the guardrail blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message to return when the guardrail blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key with which to encrypt the guardrail.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGuardrailResponse {
+  /**
+   * <p>The unique identifier of the guardrail</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  guardrailArn: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Contains information about the model or system-defined inference profile that is the source for an inference profile..</p>
+ * @public
+ */
+export type InferenceProfileModelSource =
+  | InferenceProfileModelSource.CopyFromMember
+  | InferenceProfileModelSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InferenceProfileModelSource {
+  /**
+   * <p>The ARN of the model or system-defined inference profile that is the source for the inference profile.</p>
+   * @public
+   */
+  export interface CopyFromMember {
+    copyFrom: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    copyFrom?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    copyFrom: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceProfileRequest {
+  /**
+   * <p>A name for the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>A description for the inference profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The foundation model or system-defined inference profile that the inference profile will track metrics and costs for.</p>
+   * @public
+   */
+  modelSource: InferenceProfileModelSource | undefined;
+
+  /**
+   * <p>An array of objects, each of which contains a tag and its value. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceProfileResponse {
+  /**
+   * <p>The ARN of the inference profile that you created.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status?: InferenceProfileStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInferenceProfileRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID of the application inference profile to delete.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInferenceProfileResponse {}
+
+/**
+ * @public
+ */
+export interface GetInferenceProfileRequest {
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains information about a model.</p>
+ * @public
+ */
+export interface InferenceProfileModel {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   * @public
+   */
+  modelArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInferenceProfileResponse {
+  /**
+   * <p>The name of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>The description of the inference profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the inference profile was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the inference profile was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileId: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status: InferenceProfileStatus | undefined;
+
+  /**
+   * <p>The type of the inference profile. The following types are possible:</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
+   * @public
+   */
+  type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filters for inference profiles that match the type you specify.</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
+   * @public
+   */
+  typeEquals?: InferenceProfileType | undefined;
+}
+
+/**
+ * <p>Contains information about an inference profile.</p>
+ * @public
+ */
+export interface InferenceProfileSummary {
+  /**
+   * <p>The name of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>The description of the inference profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the inference profile was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the inference profile was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>A list of information about each model in the inference profile.</p>
+   * @public
+   */
+  models: InferenceProfileModel[] | undefined;
+
+  /**
+   * <p>The unique identifier of the inference profile.</p>
+   * @public
+   */
+  inferenceProfileId: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status: InferenceProfileStatus | undefined;
+
+  /**
+   * <p>The type of the inference profile. The following types are possible:</p> <ul> <li> <p> <code>SYSTEM_DEFINED</code> – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.</p> </li> <li> <p> <code>APPLICATION</code> – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.</p> </li> </ul>
+   * @public
+   */
+  type: InferenceProfileType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInferenceProfilesResponse {
+  /**
+   * <p>A list of information about each inference profile that you can use.</p>
+   * @public
+   */
+  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteModelInvocationLoggingConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DeleteModelInvocationLoggingConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface GetModelInvocationLoggingConfigurationRequest {}
+
+/**
+ * <p>S3 configuration for storing log data.</p>
+ * @public
+ */
+export interface S3Config {
+  /**
+   * <p>S3 bucket name.</p>
+   * @public
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>S3 prefix. </p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p>CloudWatch logging configuration.</p>
+ * @public
+ */
+export interface CloudWatchConfig {
+  /**
+   * <p>The log group name.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>The role Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>S3 configuration for delivering a large amount of data.</p>
+   * @public
+   */
+  largeDataDeliveryS3Config?: S3Config | undefined;
+}
+
+/**
+ * <p>Configuration fields for invocation logging.</p>
+ * @public
+ */
+export interface LoggingConfig {
+  /**
+   * <p>CloudWatch logging configuration.</p>
+   * @public
+   */
+  cloudWatchConfig?: CloudWatchConfig | undefined;
+
+  /**
+   * <p>S3 configuration for storing log data.</p>
+   * @public
+   */
+  s3Config?: S3Config | undefined;
+
+  /**
+   * <p>Set to include text data in the log delivery.</p>
+   * @public
+   */
+  textDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include image data in the log delivery.</p>
+   * @public
+   */
+  imageDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include embeddings data in the log delivery.</p>
+   * @public
+   */
+  embeddingDataDeliveryEnabled?: boolean | undefined;
+
+  /**
+   * <p>Set to include video data in the log delivery.</p>
+   * @public
+   */
+  videoDataDeliveryEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetModelInvocationLoggingConfigurationResponse {
+  /**
+   * <p>The current configuration values.</p>
+   * @public
+   */
+  loggingConfig?: LoggingConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutModelInvocationLoggingConfigurationRequest {
+  /**
+   * <p>The logging configuration values to set.</p>
+   * @public
+   */
+  loggingConfig: LoggingConfig | undefined;
 }

@@ -1,9 +1,70 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { KendraServiceException as __BaseException } from "./KendraServiceException";
+import {
+  AdditionalResultAttributeValueType,
+  AlfrescoEntity,
+  AttributeSuggestionsMode,
+  ConditionOperator,
+  ConfluenceAttachmentFieldName,
+  ConfluenceAuthenticationType,
+  ConfluenceBlogFieldName,
+  ConfluencePageFieldName,
+  ConfluenceSpaceFieldName,
+  ConfluenceVersion,
+  ContentType,
+  DatabaseEngineType,
+  DataSourceStatus,
+  DataSourceSyncJobStatus,
+  DataSourceType,
+  DocumentAttributeValueType,
+  DocumentStatus,
+  EndpointType,
+  EntityType,
+  ErrorCode,
+  ExperienceStatus,
+  FaqFileFormat,
+  FaqStatus,
+  FeaturedResultsSetStatus,
+  FsxFileSystemType,
+  HighlightType,
+  IndexEdition,
+  IndexStatus,
+  Interval,
+  IssueSubEntity,
+  KeyLocation,
+  MetricType,
+  MissingAttributeKeyStrategy,
+  Mode,
+  Order,
+  Persona,
+  PrincipalMappingStatus,
+  PrincipalType,
+  QueryIdentifiersEnclosingOption,
+  QueryResultFormat,
+  QueryResultType,
+  QuerySuggestionsBlockListStatus,
+  QuerySuggestionsStatus,
+  ReadAccessType,
+  RelevanceType,
+  SalesforceChatterFeedIncludeFilterType,
+  SalesforceKnowledgeArticleState,
+  SalesforceStandardObjectName,
+  ScoreConfidence,
+  ServiceNowAuthenticationType,
+  ServiceNowBuildVersionType,
+  SharePointOnlineAuthenticationType,
+  SharePointVersion,
+  SlackEntity,
+  SortOrder,
+  SuggestionType,
+  ThesaurusStatus,
+  Type,
+  UserContextPolicy,
+  UserGroupResolutionMode,
+  WarningCode,
+  WebCrawlerMode,
+} from "./enums";
 
 /**
  * <p>Summary information on an access control configuration that you created for your
@@ -33,29 +94,6 @@ export interface AccessControlListConfiguration {
 }
 
 /**
- * <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Provides information about the column that should be used for filtering the query
  *             response by groups.</p>
  * @public
@@ -69,20 +107,6 @@ export interface AclConfiguration {
    */
   AllowedGroupsColumnName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HighlightType = {
-  STANDARD: "STANDARD",
-  THESAURUS_SYNONYM: "THESAURUS_SYNONYM",
-} as const;
-
-/**
- * @public
- */
-export type HighlightType = (typeof HighlightType)[keyof typeof HighlightType];
 
 /**
  * <p>Provides information that you can use to highlight a search result so that your users
@@ -148,20 +172,6 @@ export interface AdditionalResultAttributeValue {
 }
 
 /**
- * @public
- * @enum
- */
-export const AdditionalResultAttributeValueType = {
-  TEXT_WITH_HIGHLIGHTS_VALUE: "TEXT_WITH_HIGHLIGHTS_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type AdditionalResultAttributeValueType =
-  (typeof AdditionalResultAttributeValueType)[keyof typeof AdditionalResultAttributeValueType];
-
-/**
  * <p>An attribute returned from an index query.</p>
  * @public
  */
@@ -217,21 +227,6 @@ export interface DataSourceToIndexFieldMapping {
    */
   IndexFieldName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AlfrescoEntity = {
-  blog: "blog",
-  documentLibrary: "documentLibrary",
-  wiki: "wiki",
-} as const;
-
-/**
- * @public
- */
-export type AlfrescoEntity = (typeof AlfrescoEntity)[keyof typeof AlfrescoEntity];
 
 /**
  * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
@@ -403,20 +398,6 @@ export interface AlfrescoConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const EntityType = {
-  GROUP: "GROUP",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
-
-/**
  * <p>Provides the configuration information for users or groups in
  *             your IAM Identity Center identity source to grant access your Amazon Kendra
  *             experience.</p>
@@ -493,135 +474,6 @@ export interface AssociateEntitiesToExperienceResponse {
    */
   FailedEntityList?: FailedEntity[] | undefined;
 }
-
-/**
- * <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource you want to use already exists. Please check you have provided the
- *             correct resource and try again.</p>
- * @public
- */
-export class ResourceAlreadyExistException extends __BaseException {
-  readonly name: "ResourceAlreadyExistException" = "ResourceAlreadyExistException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. Please reduce the number of requests
- *             and try again.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
- *             Please provide the correct input and try again.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Persona = {
-  OWNER: "OWNER",
-  VIEWER: "VIEWER",
-} as const;
-
-/**
- * @public
- */
-export type Persona = (typeof Persona)[keyof typeof Persona];
 
 /**
  * <p>Provides the configuration information for users or groups in your
@@ -741,20 +593,6 @@ export interface DocumentAttribute {
    */
   Value: DocumentAttributeValue | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttributeSuggestionsMode = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AttributeSuggestionsMode = (typeof AttributeSuggestionsMode)[keyof typeof AttributeSuggestionsMode];
 
 /**
  * <p>Provides the configuration information for a document field/attribute that you want to base query
@@ -1010,20 +848,6 @@ export interface BatchDeleteDocumentRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  INTERNAL_ERROR: "InternalError",
-  INVALID_REQUEST: "InvalidRequest",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
  * <p>Provides information about documents that could not be removed from an index by the
  *                 <code>BatchDeleteDocument</code> API.</p>
  * @public
@@ -1064,29 +888,6 @@ export interface BatchDeleteDocumentResponse {
    * @public
    */
   FailedDocuments?: BatchDeleteDocumentResponseFailedDocument[] | undefined;
-}
-
-/**
- * <p>A conflict occurred with the request. Please fix any inconsistences with your
- *             resources and try again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1215,24 +1016,6 @@ export interface BatchGetDocumentStatusRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DocumentStatus = {
-  FAILED: "FAILED",
-  INDEXED: "INDEXED",
-  NOT_FOUND: "NOT_FOUND",
-  PROCESSING: "PROCESSING",
-  UPDATED: "UPDATED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus];
-
-/**
  * <p>Provides information about the status of documents submitted for indexing.</p>
  * @public
  */
@@ -1316,29 +1099,6 @@ export interface BatchGetDocumentStatusResponse {
    */
   DocumentStatusList?: Status[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConditionOperator = {
-  BeginsWith: "BeginsWith",
-  Contains: "Contains",
-  Equals: "Equals",
-  Exists: "Exists",
-  GreaterThan: "GreaterThan",
-  GreaterThanOrEquals: "GreaterThanOrEquals",
-  LessThan: "LessThan",
-  LessThanOrEquals: "LessThanOrEquals",
-  NotContains: "NotContains",
-  NotEquals: "NotEquals",
-  NotExists: "NotExists",
-} as const;
-
-/**
- * @public
- */
-export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
 
 /**
  * <p>The condition used for the target document attribute or metadata field when ingesting
@@ -1536,34 +1296,6 @@ export interface CustomDocumentEnrichmentConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReadAccessType = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type ReadAccessType = (typeof ReadAccessType)[keyof typeof ReadAccessType];
-
-/**
- * @public
- * @enum
- */
-export const PrincipalType = {
-  GROUP: "GROUP",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
-
-/**
  * <p>Provides user and group information for <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">user context
  *             filtering</a>.</p>
  * @public
@@ -1593,30 +1325,6 @@ export interface Principal {
    */
   DataSourceId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentType = {
-  CSV: "CSV",
-  HTML: "HTML",
-  JSON: "JSON",
-  MD: "MD",
-  MS_EXCEL: "MS_EXCEL",
-  MS_WORD: "MS_WORD",
-  PDF: "PDF",
-  PLAIN_TEXT: "PLAIN_TEXT",
-  PPT: "PPT",
-  RTF: "RTF",
-  XML: "XML",
-  XSLT: "XSLT",
-} as const;
-
-/**
- * @public
- */
-export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 /**
  * <p> Information to define the hierarchy for which documents users should have access to.
@@ -1803,31 +1511,6 @@ export interface BatchPutDocumentResponse {
    * @public
    */
   FailedDocuments?: BatchPutDocumentResponseFailedDocument[] | undefined;
-}
-
-/**
- * <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
- *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
- *             an increase of limits.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2045,30 +1728,6 @@ export interface BoxConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfluenceAttachmentFieldName = {
-  AUTHOR: "AUTHOR",
-  CONTENT_TYPE: "CONTENT_TYPE",
-  CREATED_DATE: "CREATED_DATE",
-  DISPLAY_URL: "DISPLAY_URL",
-  FILE_SIZE: "FILE_SIZE",
-  ITEM_TYPE: "ITEM_TYPE",
-  PARENT_ID: "PARENT_ID",
-  SPACE_KEY: "SPACE_KEY",
-  SPACE_NAME: "SPACE_NAME",
-  URL: "URL",
-  VERSION: "VERSION",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceAttachmentFieldName =
-  (typeof ConfluenceAttachmentFieldName)[keyof typeof ConfluenceAttachmentFieldName];
-
-/**
  * <p>Maps attributes or field names of Confluence attachments to Amazon Kendra index
  *             field names. To create custom fields, use the <code>UpdateIndex</code> API before you
  *             map to Confluence fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>. The
@@ -2126,42 +1785,6 @@ export interface ConfluenceAttachmentConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfluenceAuthenticationType = {
-  HTTP_BASIC: "HTTP_BASIC",
-  PAT: "PAT",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceAuthenticationType =
-  (typeof ConfluenceAuthenticationType)[keyof typeof ConfluenceAuthenticationType];
-
-/**
- * @public
- * @enum
- */
-export const ConfluenceBlogFieldName = {
-  AUTHOR: "AUTHOR",
-  DISPLAY_URL: "DISPLAY_URL",
-  ITEM_TYPE: "ITEM_TYPE",
-  LABELS: "LABELS",
-  PUBLISH_DATE: "PUBLISH_DATE",
-  SPACE_KEY: "SPACE_KEY",
-  SPACE_NAME: "SPACE_NAME",
-  URL: "URL",
-  VERSION: "VERSION",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceBlogFieldName = (typeof ConfluenceBlogFieldName)[keyof typeof ConfluenceBlogFieldName];
-
-/**
  * <p>Maps attributes or field names of Confluence blog to Amazon Kendra index field
  *             names. To create custom fields, use the <code>UpdateIndex</code> API before you map to
  *             Confluence fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>. The
@@ -2210,30 +1833,6 @@ export interface ConfluenceBlogConfiguration {
    */
   BlogFieldMappings?: ConfluenceBlogToIndexFieldMapping[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfluencePageFieldName = {
-  AUTHOR: "AUTHOR",
-  CONTENT_STATUS: "CONTENT_STATUS",
-  CREATED_DATE: "CREATED_DATE",
-  DISPLAY_URL: "DISPLAY_URL",
-  ITEM_TYPE: "ITEM_TYPE",
-  LABELS: "LABELS",
-  MODIFIED_DATE: "MODIFIED_DATE",
-  PARENT_ID: "PARENT_ID",
-  SPACE_KEY: "SPACE_KEY",
-  SPACE_NAME: "SPACE_NAME",
-  URL: "URL",
-  VERSION: "VERSION",
-} as const;
-
-/**
- * @public
- */
-export type ConfluencePageFieldName = (typeof ConfluencePageFieldName)[keyof typeof ConfluencePageFieldName];
 
 /**
  * <p>Maps attributes or field names of Confluence pages to Amazon Kendra index field
@@ -2315,22 +1914,6 @@ export interface ProxyConfiguration {
    */
   Credentials?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfluenceSpaceFieldName = {
-  DISPLAY_URL: "DISPLAY_URL",
-  ITEM_TYPE: "ITEM_TYPE",
-  SPACE_KEY: "SPACE_KEY",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceSpaceFieldName = (typeof ConfluenceSpaceFieldName)[keyof typeof ConfluenceSpaceFieldName];
 
 /**
  * <p>Maps attributes or field names of Confluence spaces to Amazon Kendra index field
@@ -2416,20 +1999,6 @@ export interface ConfluenceSpaceConfiguration {
    */
   SpaceFieldMappings?: ConfluenceSpaceToIndexFieldMapping[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfluenceVersion = {
-  CLOUD: "CLOUD",
-  SERVER: "SERVER",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceVersion = (typeof ConfluenceVersion)[keyof typeof ConfluenceVersion];
 
 /**
  * <p>Provides the configuration information to connect to Confluence as your data
@@ -2625,37 +2194,6 @@ export interface ConnectionConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DatabaseEngineType = {
-  RDS_AURORA_MYSQL: "RDS_AURORA_MYSQL",
-  RDS_AURORA_POSTGRESQL: "RDS_AURORA_POSTGRESQL",
-  RDS_MYSQL: "RDS_MYSQL",
-  RDS_POSTGRESQL: "RDS_POSTGRESQL",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseEngineType = (typeof DatabaseEngineType)[keyof typeof DatabaseEngineType];
-
-/**
- * @public
- * @enum
- */
-export const QueryIdentifiersEnclosingOption = {
-  DOUBLE_QUOTES: "DOUBLE_QUOTES",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type QueryIdentifiersEnclosingOption =
-  (typeof QueryIdentifiersEnclosingOption)[keyof typeof QueryIdentifiersEnclosingOption];
-
-/**
  * <p>Provides the configuration information to use a SQL database.</p>
  * @public
  */
@@ -2721,19 +2259,6 @@ export interface DatabaseConfiguration {
    */
   SqlConfiguration?: SqlConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FsxFileSystemType = {
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type FsxFileSystemType = (typeof FsxFileSystemType)[keyof typeof FsxFileSystemType];
 
 /**
  * <p>Provides the configuration information to connect to Amazon FSx as your data
@@ -2935,20 +2460,6 @@ export interface SaaSConfiguration {
    */
   HostUrl: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  ON_PREMISE: "ON_PREMISE",
-  SAAS: "SAAS",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * <p>Provides the configuration information to connect to GitHub as your data
@@ -3242,21 +2753,6 @@ export interface GoogleDriveConfiguration {
    */
   ExcludeSharedDrives?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IssueSubEntity = {
-  ATTACHMENTS: "ATTACHMENTS",
-  COMMENTS: "COMMENTS",
-  WORKLOGS: "WORKLOGS",
-} as const;
-
-/**
- * @public
- */
-export type IssueSubEntity = (typeof IssueSubEntity)[keyof typeof IssueSubEntity];
 
 /**
  * <p>Provides the configuration information to connect to Jira as your data source.</p>
@@ -3777,21 +3273,6 @@ export interface S3DataSourceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SalesforceChatterFeedIncludeFilterType = {
-  ACTIVE_USER: "ACTIVE_USER",
-  STANDARD_USER: "STANDARD_USER",
-} as const;
-
-/**
- * @public
- */
-export type SalesforceChatterFeedIncludeFilterType =
-  (typeof SalesforceChatterFeedIncludeFilterType)[keyof typeof SalesforceChatterFeedIncludeFilterType];
-
-/**
  * <p>The configuration information for syncing a Salesforce chatter feed. The contents of
  *             the object comes from the Salesforce FeedItem table.</p>
  * @public
@@ -3862,22 +3343,6 @@ export interface SalesforceCustomKnowledgeArticleTypeConfiguration {
    */
   FieldMappings?: DataSourceToIndexFieldMapping[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SalesforceKnowledgeArticleState = {
-  ARCHIVED: "ARCHIVED",
-  DRAFT: "DRAFT",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type SalesforceKnowledgeArticleState =
-  (typeof SalesforceKnowledgeArticleState)[keyof typeof SalesforceKnowledgeArticleState];
 
 /**
  * <p>Provides the configuration information for standard Salesforce knowledge
@@ -3953,36 +3418,6 @@ export interface SalesforceStandardObjectAttachmentConfiguration {
    */
   FieldMappings?: DataSourceToIndexFieldMapping[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SalesforceStandardObjectName = {
-  ACCOUNT: "ACCOUNT",
-  CAMPAIGN: "CAMPAIGN",
-  CASE: "CASE",
-  CONTACT: "CONTACT",
-  CONTRACT: "CONTRACT",
-  DOCUMENT: "DOCUMENT",
-  GROUP: "GROUP",
-  IDEA: "IDEA",
-  LEAD: "LEAD",
-  OPPORTUNITY: "OPPORTUNITY",
-  PARTNER: "PARTNER",
-  PRICEBOOK: "PRICEBOOK",
-  PRODUCT: "PRODUCT",
-  PROFILE: "PROFILE",
-  SOLUTION: "SOLUTION",
-  TASK: "TASK",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type SalesforceStandardObjectName =
-  (typeof SalesforceStandardObjectName)[keyof typeof SalesforceStandardObjectName];
 
 /**
  * <p>Provides the configuration information for indexing a single standard object.</p>
@@ -4125,21 +3560,6 @@ export interface SalesforceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceNowAuthenticationType = {
-  HTTP_BASIC: "HTTP_BASIC",
-  OAUTH2: "OAUTH2",
-} as const;
-
-/**
- * @public
- */
-export type ServiceNowAuthenticationType =
-  (typeof ServiceNowAuthenticationType)[keyof typeof ServiceNowAuthenticationType];
-
-/**
  * <p>Provides the configuration information for crawling knowledge articles in the
  *             ServiceNow site.</p>
  * @public
@@ -4266,20 +3686,6 @@ export interface ServiceNowServiceCatalogConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceNowBuildVersionType = {
-  LONDON: "LONDON",
-  OTHERS: "OTHERS",
-} as const;
-
-/**
- * @public
- */
-export type ServiceNowBuildVersionType = (typeof ServiceNowBuildVersionType)[keyof typeof ServiceNowBuildVersionType];
-
-/**
  * <p>Provides the configuration information to connect to ServiceNow as your data
  *             source.</p>
  * @public
@@ -4336,37 +3742,6 @@ export interface ServiceNowConfiguration {
    */
   AuthenticationType?: ServiceNowAuthenticationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SharePointOnlineAuthenticationType = {
-  HTTP_BASIC: "HTTP_BASIC",
-  OAUTH2: "OAUTH2",
-} as const;
-
-/**
- * @public
- */
-export type SharePointOnlineAuthenticationType =
-  (typeof SharePointOnlineAuthenticationType)[keyof typeof SharePointOnlineAuthenticationType];
-
-/**
- * @public
- * @enum
- */
-export const SharePointVersion = {
-  SHAREPOINT_2013: "SHAREPOINT_2013",
-  SHAREPOINT_2016: "SHAREPOINT_2016",
-  SHAREPOINT_2019: "SHAREPOINT_2019",
-  SHAREPOINT_ONLINE: "SHAREPOINT_ONLINE",
-} as const;
-
-/**
- * @public
- */
-export type SharePointVersion = (typeof SharePointVersion)[keyof typeof SharePointVersion];
 
 /**
  * <p>Provides the configuration information to connect to Microsoft SharePoint as your data
@@ -4502,22 +3877,6 @@ export interface SharePointConfiguration {
    */
   ProxyConfiguration?: ProxyConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SlackEntity = {
-  DIRECT_MESSAGE: "DIRECT_MESSAGE",
-  GROUP_MESSAGE: "GROUP_MESSAGE",
-  PRIVATE_CHANNEL: "PRIVATE_CHANNEL",
-  PUBLIC_CHANNEL: "PUBLIC_CHANNEL",
-} as const;
-
-/**
- * @public
- */
-export type SlackEntity = (typeof SlackEntity)[keyof typeof SlackEntity];
 
 /**
  * <p>Provides the configuration information to connect to Slack as your data source.</p>
@@ -4678,21 +4037,6 @@ export interface TemplateConfiguration {
    */
   Template?: __DocumentType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebCrawlerMode = {
-  EVERYTHING: "EVERYTHING",
-  HOST_ONLY: "HOST_ONLY",
-  SUBDOMAINS: "SUBDOMAINS",
-} as const;
-
-/**
- * @public
- */
-export type WebCrawlerMode = (typeof WebCrawlerMode)[keyof typeof WebCrawlerMode];
 
 /**
  * <p>Provides the configuration information for the seed or starting point URLs to
@@ -5171,37 +4515,6 @@ export interface Tag {
 
 /**
  * @public
- * @enum
- */
-export const DataSourceType = {
-  ALFRESCO: "ALFRESCO",
-  BOX: "BOX",
-  CONFLUENCE: "CONFLUENCE",
-  CUSTOM: "CUSTOM",
-  DATABASE: "DATABASE",
-  FSX: "FSX",
-  GITHUB: "GITHUB",
-  GOOGLEDRIVE: "GOOGLEDRIVE",
-  JIRA: "JIRA",
-  ONEDRIVE: "ONEDRIVE",
-  QUIP: "QUIP",
-  S3: "S3",
-  SALESFORCE: "SALESFORCE",
-  SERVICENOW: "SERVICENOW",
-  SHAREPOINT: "SHAREPOINT",
-  SLACK: "SLACK",
-  TEMPLATE: "TEMPLATE",
-  WEBCRAWLER: "WEBCRAWLER",
-  WORKDOCS: "WORKDOCS",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
-
-/**
- * @public
  */
 export interface CreateDataSourceRequest {
   /**
@@ -5448,21 +4761,6 @@ export interface CreateExperienceResponse {
 
 /**
  * @public
- * @enum
- */
-export const FaqFileFormat = {
-  CSV: "CSV",
-  CSV_WITH_HEADER: "CSV_WITH_HEADER",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type FaqFileFormat = (typeof FaqFileFormat)[keyof typeof FaqFileFormat];
-
-/**
- * @public
  */
 export interface CreateFaqRequest {
   /**
@@ -5563,20 +4861,6 @@ export interface FeaturedDocument {
    */
   Id?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeaturedResultsSetStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type FeaturedResultsSetStatus = (typeof FeaturedResultsSetStatus)[keyof typeof FeaturedResultsSetStatus];
 
 /**
  * @public
@@ -5769,58 +5053,6 @@ export interface ConflictingItem {
 }
 
 /**
- * <p>An error message with a list of conflicting queries used across different sets
- *             of featured results. This occurred with the request for a new featured results set.
- *             Check that the queries you specified for featured results are unique per featured
- *             results set for each index.</p>
- * @public
- */
-export class FeaturedResultsConflictException extends __BaseException {
-  readonly name: "FeaturedResultsConflictException" = "FeaturedResultsConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An explanation for the conflicting queries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>A list of the conflicting queries, including the query text, the name for
-   *             the featured results set, and the identifier of the featured results set.</p>
-   * @public
-   */
-  ConflictingItems?: ConflictingItem[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FeaturedResultsConflictException, __BaseException>) {
-    super({
-      name: "FeaturedResultsConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FeaturedResultsConflictException.prototype);
-    this.Message = opts.Message;
-    this.ConflictingItems = opts.ConflictingItems;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const IndexEdition = {
-  DEVELOPER_EDITION: "DEVELOPER_EDITION",
-  ENTERPRISE_EDITION: "ENTERPRISE_EDITION",
-  GEN_AI_ENTERPRISE_EDITION: "GEN_AI_ENTERPRISE_EDITION",
-} as const;
-
-/**
- * @public
- */
-export type IndexEdition = (typeof IndexEdition)[keyof typeof IndexEdition];
-
-/**
  * <p>Provides the identifier of the KMS key used to encrypt data
  *             indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric
  *             keys.</p>
@@ -5834,34 +5066,6 @@ export interface ServerSideEncryptionConfiguration {
    */
   KmsKeyId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserContextPolicy = {
-  ATTRIBUTE_FILTER: "ATTRIBUTE_FILTER",
-  USER_TOKEN: "USER_TOKEN",
-} as const;
-
-/**
- * @public
- */
-export type UserContextPolicy = (typeof UserContextPolicy)[keyof typeof UserContextPolicy];
-
-/**
- * @public
- * @enum
- */
-export const UserGroupResolutionMode = {
-  AWS_SSO: "AWS_SSO",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type UserGroupResolutionMode = (typeof UserGroupResolutionMode)[keyof typeof UserGroupResolutionMode];
 
 /**
  * <p>Provides the configuration information to get users and groups from an IAM Identity Center identity source. This is useful for user context filtering, where search
@@ -5907,20 +5111,6 @@ export interface JsonTokenTypeConfiguration {
    */
   GroupAttributeField: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KeyLocation = {
-  SECRET_MANAGER: "SECRET_MANAGER",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type KeyLocation = (typeof KeyLocation)[keyof typeof KeyLocation];
 
 /**
  * <p>Provides the configuration information for the JWT token type.</p>
@@ -6505,23 +5695,6 @@ export interface DescribeDataSourceRequest {
 
 /**
  * @public
- * @enum
- */
-export const DataSourceStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
-
-/**
- * @public
  */
 export interface DescribeDataSourceResponse {
   /**
@@ -6648,19 +5821,6 @@ export interface DescribeExperienceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EndpointType = {
-  HOME: "HOME",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-/**
  * <p>Provides the configuration information for the endpoint for your Amazon Kendra
  *             experience.</p>
  * @public
@@ -6680,22 +5840,6 @@ export interface ExperienceEndpoint {
    */
   Endpoint?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperienceStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ExperienceStatus = (typeof ExperienceStatus)[keyof typeof ExperienceStatus];
 
 /**
  * @public
@@ -6794,23 +5938,6 @@ export interface DescribeFaqRequest {
    */
   IndexId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FaqStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FaqStatus = (typeof FaqStatus)[keyof typeof FaqStatus];
 
 /**
  * @public
@@ -7075,20 +6202,6 @@ export interface CapacityUnitsConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const Order = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type Order = (typeof Order)[keyof typeof Order];
-
-/**
  * <p>Provides information for tuning the relevance of a field in a search. When a query
  *             includes terms that match the field, the results are given a boost in the response based
  *             on these tuning parameters.</p>
@@ -7187,22 +6300,6 @@ export interface Search {
 }
 
 /**
- * @public
- * @enum
- */
-export const DocumentAttributeValueType = {
-  DATE_VALUE: "DATE_VALUE",
-  LONG_VALUE: "LONG_VALUE",
-  STRING_LIST_VALUE: "STRING_LIST_VALUE",
-  STRING_VALUE: "STRING_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type DocumentAttributeValueType = (typeof DocumentAttributeValueType)[keyof typeof DocumentAttributeValueType];
-
-/**
  * <p>Specifies the properties, such as relevance tuning and searchability, of an index
  *             field.</p>
  * @public
@@ -7283,24 +6380,6 @@ export interface IndexStatistics {
    */
   TextDocumentStatistics: TextDocumentStatistics | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  SYSTEM_UPDATING: "SYSTEM_UPDATING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * @public
@@ -7444,23 +6523,6 @@ export interface DescribePrincipalMappingRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PrincipalMappingStatus = {
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalMappingStatus = (typeof PrincipalMappingStatus)[keyof typeof PrincipalMappingStatus];
-
-/**
  * <p>Summary information on the processing of <code>PUT</code> and <code>DELETE</code>
  *             actions for mapping users to their groups.</p>
  * @public
@@ -7580,25 +6642,6 @@ export interface DescribeQuerySuggestionsBlockListRequest {
 
 /**
  * @public
- * @enum
- */
-export const QuerySuggestionsBlockListStatus = {
-  ACTIVE: "ACTIVE",
-  ACTIVE_BUT_UPDATE_FAILED: "ACTIVE_BUT_UPDATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type QuerySuggestionsBlockListStatus =
-  (typeof QuerySuggestionsBlockListStatus)[keyof typeof QuerySuggestionsBlockListStatus];
-
-/**
- * @public
  */
 export interface DescribeQuerySuggestionsBlockListResponse {
   /**
@@ -7696,34 +6739,6 @@ export interface DescribeQuerySuggestionsConfigRequest {
    */
   IndexId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Mode = {
-  ENABLED: "ENABLED",
-  LEARN_ONLY: "LEARN_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type Mode = (typeof Mode)[keyof typeof Mode];
-
-/**
- * @public
- * @enum
- */
-export const QuerySuggestionsStatus = {
-  ACTIVE: "ACTIVE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type QuerySuggestionsStatus = (typeof QuerySuggestionsStatus)[keyof typeof QuerySuggestionsStatus];
 
 /**
  * @public
@@ -7832,24 +6847,6 @@ export interface DescribeThesaurusRequest {
    */
   IndexId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ThesaurusStatus = {
-  ACTIVE: "ACTIVE",
-  ACTIVE_BUT_UPDATE_FAILED: "ACTIVE_BUT_UPDATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ThesaurusStatus = (typeof ThesaurusStatus)[keyof typeof ThesaurusStatus];
 
 /**
  * @public
@@ -8021,20 +7018,6 @@ export interface DisassociatePersonasFromEntitiesResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SuggestionType = {
-  DOCUMENT_ATTRIBUTES: "DOCUMENT_ATTRIBUTES",
-  QUERY: "QUERY",
-} as const;
-
-/**
- * @public
- */
-export type SuggestionType = (typeof SuggestionType)[keyof typeof SuggestionType];
-
-/**
  * <p>The document ID and its fields/attributes that are used for a query suggestion, if
  *             document fields set to use for query suggestions.</p>
  * @public
@@ -8157,42 +7140,6 @@ export interface GetQuerySuggestionsResponse {
 
 /**
  * @public
- * @enum
- */
-export const Interval = {
-  ONE_MONTH_AGO: "ONE_MONTH_AGO",
-  ONE_WEEK_AGO: "ONE_WEEK_AGO",
-  THIS_MONTH: "THIS_MONTH",
-  THIS_WEEK: "THIS_WEEK",
-  TWO_MONTHS_AGO: "TWO_MONTHS_AGO",
-  TWO_WEEKS_AGO: "TWO_WEEKS_AGO",
-} as const;
-
-/**
- * @public
- */
-export type Interval = (typeof Interval)[keyof typeof Interval];
-
-/**
- * @public
- * @enum
- */
-export const MetricType = {
-  AGG_QUERY_DOC_METRICS: "AGG_QUERY_DOC_METRICS",
-  DOCS_BY_CLICK_COUNT: "DOCS_BY_CLICK_COUNT",
-  QUERIES_BY_COUNT: "QUERIES_BY_COUNT",
-  QUERIES_BY_ZERO_CLICK_RATE: "QUERIES_BY_ZERO_CLICK_RATE",
-  QUERIES_BY_ZERO_RESULT_RATE: "QUERIES_BY_ZERO_RESULT_RATE",
-  TREND_QUERY_DOC_METRICS: "TREND_QUERY_DOC_METRICS",
-} as const;
-
-/**
- * @public
- */
-export type MetricType = (typeof MetricType)[keyof typeof MetricType];
-
-/**
- * @public
  */
 export interface GetSnapshotsRequest {
   /**
@@ -8311,29 +7258,6 @@ export interface GetSnapshotsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The input to the request is not valid. Please provide the correct input and try
- *             again.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -8474,25 +7398,6 @@ export interface ListDataSourcesResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataSourceSyncJobStatus = {
-  ABORTED: "ABORTED",
-  FAILED: "FAILED",
-  INCOMPLETE: "INCOMPLETE",
-  STOPPING: "STOPPING",
-  SUCCEEDED: "SUCCEEDED",
-  SYNCING: "SYNCING",
-  SYNCING_INDEXING: "SYNCING_INDEXING",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceSyncJobStatus = (typeof DataSourceSyncJobStatus)[keyof typeof DataSourceSyncJobStatus];
 
 /**
  * @public
@@ -9417,29 +8322,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>The resource you want to use isn't available. Please check you have provided the
- *             correct resource and try again.</p>
- * @public
- */
-export class ResourceUnavailableException extends __BaseException {
-  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
-    super({
-      name: "ResourceUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ListThesauriRequest {
@@ -9678,36 +8560,6 @@ export interface ExpandConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const MissingAttributeKeyStrategy = {
-  COLLAPSE: "COLLAPSE",
-  EXPAND: "EXPAND",
-  IGNORE: "IGNORE",
-} as const;
-
-/**
- * @public
- */
-export type MissingAttributeKeyStrategy =
-  (typeof MissingAttributeKeyStrategy)[keyof typeof MissingAttributeKeyStrategy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
  * <p>Specifies the document attribute to use to sort the response to a Amazon Kendra
  *             query. You can specify a single attribute for sorting. The attribute must have the
  *                 <code>Sortable</code> flag set to <code>true</code>, otherwise Amazon Kendra
@@ -9843,21 +8695,6 @@ export interface DocumentRelevanceConfiguration {
    */
   Relevance: Relevance | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryResultType = {
-  ANSWER: "ANSWER",
-  DOCUMENT: "DOCUMENT",
-  QUESTION_ANSWER: "QUESTION_ANSWER",
-} as const;
-
-/**
- * @public
- */
-export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
 
 /**
  * <p>Provides the configuration information for suggested query spell corrections.</p>
@@ -10014,15 +8851,1579 @@ export interface CollapsedResultDetail {
 }
 
 /**
+ * <p>Provides a relative ranking that indicates how confident Amazon Kendra is that the
+ *          response is relevant to the query.</p>
  * @public
- * @enum
  */
-export const QueryResultFormat = {
-  TABLE: "TABLE",
-  TEXT: "TEXT",
-} as const;
+export interface ScoreAttributes {
+  /**
+   * <p>A relative ranking for how relevant the response is to the query.</p>
+   * @public
+   */
+  ScoreConfidence?: ScoreConfidence | undefined;
+}
+
+/**
+ * <p>Provides information about a table cell in a table excerpt.</p>
+ * @public
+ */
+export interface TableCell {
+  /**
+   * <p>The actual value or content within a table cell. A table cell could contain a date
+   *             value of a year, or a string value of text, for example.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> if the response of the table cell is the top answer. This is the
+   *             cell value or content with the highest confidence score or is the most relevant to the
+   *             query.</p>
+   * @public
+   */
+  TopAnswer?: boolean | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> means that the table cell has a high enough confidence and is
+   *             relevant to the query, so the value or content should be highlighted.</p>
+   * @public
+   */
+  Highlighted?: boolean | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> means that the table cell should be treated as a header.</p>
+   * @public
+   */
+  Header?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a row in a table excerpt.</p>
+ * @public
+ */
+export interface TableRow {
+  /**
+   * <p>A list of table cells in a row.</p>
+   * @public
+   */
+  Cells?: TableCell[] | undefined;
+}
+
+/**
+ * <p>An excerpt from a table within a document. The table excerpt displays up to five
+ *             columns and three rows, depending on how many table cells are relevant to the query and
+ *             how many columns are available in the original table. The top most relevant cell is
+ *             displayed in the table excerpt, along with the next most relevant cells.</p>
+ * @public
+ */
+export interface TableExcerpt {
+  /**
+   * <p>A list of rows in the table excerpt.</p>
+   * @public
+   */
+  Rows?: TableRow[] | undefined;
+
+  /**
+   * <p>A count of the number of rows in the original table within the document.</p>
+   * @public
+   */
+  TotalNumberOfRows?: number | undefined;
+}
+
+/**
+ * <p>A single query result.</p>
+ *          <p>A query result contains information about a document returned by the query. This
+ *          includes the original location of the document, a list of attributes assigned to the
+ *          document, and relevant text from the document that satisfies the query.</p>
+ * @public
+ */
+export interface QueryResultItem {
+  /**
+   * <p>The unique identifier for the query result item id (<code>Id</code>) and the query
+   *          result item document id (<code>DocumentId</code>) combined. The value of this field changes
+   *          with every request, even when you have the same documents.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of document within the response. For example, a response could include a
+   *          question-answer that's relevant to the query.</p>
+   * @public
+   */
+  Type?: QueryResultType | undefined;
+
+  /**
+   * <p>If the <code>Type</code> of document within the response is <code>ANSWER</code>, then it
+   *          is either a <code>TABLE</code> answer or <code>TEXT</code> answer. If it's a table answer,
+   *          a table excerpt is returned in <code>TableExcerpt</code>. If it's a text answer, a text
+   *          excerpt is returned in <code>DocumentExcerpt</code>.</p>
+   * @public
+   */
+  Format?: QueryResultFormat | undefined;
+
+  /**
+   * <p>One or more additional fields/attributes associated with the query result.</p>
+   * @public
+   */
+  AdditionalAttributes?: AdditionalResultAttribute[] | undefined;
+
+  /**
+   * <p>The identifier for the document.</p>
+   * @public
+   */
+  DocumentId?: string | undefined;
+
+  /**
+   * <p>The title of the document. Contains the text of the title and information for
+   *          highlighting the relevant terms in the title.</p>
+   * @public
+   */
+  DocumentTitle?: TextWithHighlights | undefined;
+
+  /**
+   * <p>An extract of the text in the document. Contains information about highlighting the
+   *          relevant terms in the excerpt.</p>
+   * @public
+   */
+  DocumentExcerpt?: TextWithHighlights | undefined;
+
+  /**
+   * <p>The URI of the original location of the document.</p>
+   * @public
+   */
+  DocumentURI?: string | undefined;
+
+  /**
+   * <p>An array of document fields/attributes assigned to a document in the search results. For
+   *          example, the document author (<code>_author</code>) or the source URI
+   *             (<code>_source_uri</code>) of the document.</p>
+   * @public
+   */
+  DocumentAttributes?: DocumentAttribute[] | undefined;
+
+  /**
+   * <p>Indicates the confidence level of Amazon Kendra providing a relevant result for the
+   *          query. Each result is placed into a bin that indicates the confidence,
+   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>. You
+   *          can use the score to determine if a response meets the confidence needed for your
+   *          application.</p>
+   *          <p>The field is only set to <code>LOW</code> when the <code>Type</code> field is set to
+   *             <code>DOCUMENT</code> and Amazon Kendra is not confident that the result is
+   *          relevant to the query.</p>
+   * @public
+   */
+  ScoreAttributes?: ScoreAttributes | undefined;
+
+  /**
+   * <p>A token that identifies a particular result from a particular query. Use this token to
+   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting
+   *             feedback</a>.</p>
+   * @public
+   */
+  FeedbackToken?: string | undefined;
+
+  /**
+   * <p>An excerpt from a table within a document.</p>
+   * @public
+   */
+  TableExcerpt?: TableExcerpt | undefined;
+
+  /**
+   * <p>Provides details about a collapsed group of search results.</p>
+   * @public
+   */
+  CollapsedResultDetail?: CollapsedResultDetail | undefined;
+}
+
+/**
+ * <p>A corrected misspelled word in a query.</p>
+ * @public
+ */
+export interface Correction {
+  /**
+   * <p>The zero-based location in the response string or text where
+   *             the corrected word starts.</p>
+   * @public
+   */
+  BeginOffset?: number | undefined;
+
+  /**
+   * <p>The zero-based location in the response string or text where
+   *             the corrected word ends.</p>
+   * @public
+   */
+  EndOffset?: number | undefined;
+
+  /**
+   * <p>The string or text of a misspelled word in a query.</p>
+   * @public
+   */
+  Term?: string | undefined;
+
+  /**
+   * <p>The string or text of a corrected misspelled word in a query.</p>
+   * @public
+   */
+  CorrectedTerm?: string | undefined;
+}
+
+/**
+ * <p>A query with suggested spell corrections. </p>
+ * @public
+ */
+export interface SpellCorrectedQuery {
+  /**
+   * <p>The query with the suggested spell corrections.</p>
+   * @public
+   */
+  SuggestedQueryText?: string | undefined;
+
+  /**
+   * <p>The corrected misspelled word or words in a query.</p>
+   * @public
+   */
+  Corrections?: Correction[] | undefined;
+}
+
+/**
+ * <p>The warning code and message that explains a problem with a query.</p>
+ * @public
+ */
+export interface Warning {
+  /**
+   * <p>The message that explains the problem with the query.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The code used to show the type of warning for the query.</p>
+   * @public
+   */
+  Code?: WarningCode | undefined;
+}
+
+/**
+ * <p>A single retrieved relevant passage result.</p>
+ * @public
+ */
+export interface RetrieveResultItem {
+  /**
+   * <p>The identifier of the relevant passage result.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The identifier of the document.</p>
+   * @public
+   */
+  DocumentId?: string | undefined;
+
+  /**
+   * <p>The title of the document.</p>
+   * @public
+   */
+  DocumentTitle?: string | undefined;
+
+  /**
+   * <p>The contents of the relevant passage.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>The URI of the original location of the document.</p>
+   * @public
+   */
+  DocumentURI?: string | undefined;
+
+  /**
+   * <p>An array of document fields/attributes assigned to a document in the search results.
+   *             For example, the document author (<code>_author</code>) or the source URI
+   *                 (<code>_source_uri</code>) of the document.</p>
+   * @public
+   */
+  DocumentAttributes?: DocumentAttribute[] | undefined;
+
+  /**
+   * <p>The confidence score bucket for a retrieved passage result. The confidence bucket
+   *             provides a relative ranking that indicates how confident Amazon Kendra is that the
+   *             response is relevant to the query.</p>
+   * @public
+   */
+  ScoreAttributes?: ScoreAttributes | undefined;
+}
 
 /**
  * @public
  */
-export type QueryResultFormat = (typeof QueryResultFormat)[keyof typeof QueryResultFormat];
+export interface RetrieveResult {
+  /**
+   * <p>The identifier of query used for the search. You also use <code>QueryId</code> to
+   *             identify the search when using the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html">Submitfeedback</a>
+   *             API.</p>
+   * @public
+   */
+  QueryId?: string | undefined;
+
+  /**
+   * <p>The results of the retrieved relevant passages for the search.</p>
+   * @public
+   */
+  ResultItems?: RetrieveResultItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDataSourceSyncJobRequest {
+  /**
+   * <p>The identifier of the data source connector to synchronize.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDataSourceSyncJobResponse {
+  /**
+   * <p>Identifies a particular synchronization job.</p>
+   * @public
+   */
+  ExecutionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopDataSourceSyncJobRequest {
+  /**
+   * <p>The identifier of the data source connector for which to stop the synchronization
+   *       jobs.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+}
+
+/**
+ * <p>Gathers information about when a particular result was clicked by a user. Your
+ *             application uses the <code>SubmitFeedback</code> API to provide click
+ *             information.</p>
+ * @public
+ */
+export interface ClickFeedback {
+  /**
+   * <p>The identifier of the search result that was clicked.</p>
+   * @public
+   */
+  ResultId: string | undefined;
+
+  /**
+   * <p>The Unix timestamp when the result was clicked.</p>
+   * @public
+   */
+  ClickTime: Date | undefined;
+}
+
+/**
+ * <p>Provides feedback on how relevant a document is to a search. Your application uses the
+ *             <code>SubmitFeedback</code> API to provide relevance information.</p>
+ * @public
+ */
+export interface RelevanceFeedback {
+  /**
+   * <p>The identifier of the search result that the user provided relevance feedback
+   *             for.</p>
+   * @public
+   */
+  ResultId: string | undefined;
+
+  /**
+   * <p>Whether the document was relevant or not relevant to the search.</p>
+   * @public
+   */
+  RelevanceValue: RelevanceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitFeedbackRequest {
+  /**
+   * <p>The identifier of the index that was queried.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the specific query for which you are submitting
+   *             feedback. The query ID is returned in the response to the
+   *                 <code>Query</code> API.</p>
+   * @public
+   */
+  QueryId: string | undefined;
+
+  /**
+   * <p>Tells Amazon Kendra that a particular search result link was chosen
+   *             by the user. </p>
+   * @public
+   */
+  ClickFeedbackItems?: ClickFeedback[] | undefined;
+
+  /**
+   * <p>Provides Amazon Kendra with relevant or not relevant feedback for
+   *             whether a particular item was relevant to the search.</p>
+   * @public
+   */
+  RelevanceFeedbackItems?: RelevanceFeedback[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to add a tag.
+   *       For example, the ARN of an index is constructed as follows:
+   *       <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i>
+   *       For information on how to construct an ARN for all types of Amazon Kendra resources, see
+   *       <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies">Resource
+   *         types</a>.</p>
+   * @public
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of tag keys to add to the index, FAQ, data source, or other resource. If a tag already
+   *       exists, the existing value is replaced with the new value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to remove a tag.
+   *       For example, the ARN of an index is constructed as follows:
+   *       <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i>
+   *       For information on how to construct an ARN for all types of Amazon Kendra resources, see
+   *       <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies">Resource
+   *         types</a>.</p>
+   * @public
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of tag keys to remove from the index, FAQ, data source, or other resource. If a tag
+   *       key doesn't exist for the resource, it is ignored.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAccessControlConfigurationRequest {
+  /**
+   * <p>The identifier of the index for an access control configuration.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the access control configuration you want to update.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the access control configuration.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A new description for the access control configuration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Information you want to update on principals (users and/or groups) and which documents
+   *             they should have access to. This is useful for user context filtering, where search
+   *             results are filtered based on the user or their group access to documents.</p>
+   * @public
+   */
+  AccessControlList?: Principal[] | undefined;
+
+  /**
+   * <p>The updated list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that define the
+   *             hierarchy for which documents users should have access to.</p>
+   * @public
+   */
+  HierarchicalAccessControlList?: HierarchicalPrincipal[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccessControlConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDataSourceRequest {
+  /**
+   * <p>The identifier of the data source connector you want to update.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the data source connector.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Configuration information you want to update for the data source connector.</p>
+   * @public
+   */
+  Configuration?: DataSourceConfiguration | undefined;
+
+  /**
+   * <p>Configuration information for an Amazon Virtual Private Cloud to connect to your data source.
+   *       For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   * @public
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration | undefined;
+
+  /**
+   * <p>A new description for the data source connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The sync schedule you want to update for the data source connector.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
+   *       the data source and required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The code for a language you want to update for the data source connector.
+   *             This allows you to support a language for all
+   *             documents when updating the data source. English is supported
+   *             by default. For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   * @public
+   */
+  LanguageCode?: string | undefined;
+
+  /**
+   * <p>Configuration information you want to update for altering document metadata and
+   *             content during the document ingestion process.</p>
+   *          <p>For more information on how to create, modify and delete document metadata, or make
+   *             other content alterations when you ingest documents into Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata during the ingestion process</a>.</p>
+   * @public
+   */
+  CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperienceRequest {
+  /**
+   * <p>The identifier of your Amazon Kendra experience you want to update.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for your Amazon Kendra experience.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access
+   *             the <code>Query</code> API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code>
+   *             API, and IAM Identity Center that stores your users and groups information.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>Configuration information you want to update for your Amazon Kendra experience.</p>
+   * @public
+   */
+  Configuration?: ExperienceConfiguration | undefined;
+
+  /**
+   * <p>A new description for your Amazon Kendra experience.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeaturedResultsSetRequest {
+  /**
+   * <p>The identifier of the index used for featuring results.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the set of featured results that you want to update.</p>
+   * @public
+   */
+  FeaturedResultsSetId: string | undefined;
+
+  /**
+   * <p>A new name for the set of featured results.</p>
+   * @public
+   */
+  FeaturedResultsSetName?: string | undefined;
+
+  /**
+   * <p>A new description for the set of featured results.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code>.
+   *             When the value is <code>ACTIVE</code>, featured results are ready for
+   *             use. You can still configure your settings before setting the status
+   *             to <code>ACTIVE</code>. The queries you specify for featured results
+   *             must be unique per featured results set for each index, whether the
+   *             status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   * @public
+   */
+  Status?: FeaturedResultsSetStatus | undefined;
+
+  /**
+   * <p>A list of queries for featuring results. For more information on the
+   *             list of queries, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html">FeaturedResultsSet</a>.</p>
+   * @public
+   */
+  QueryTexts?: string[] | undefined;
+
+  /**
+   * <p>A list of document IDs for the documents you want to feature at the
+   *             top of the search results page. For more information on the list of
+   *             featured documents, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html">FeaturedResultsSet</a>.</p>
+   * @public
+   */
+  FeaturedDocuments?: FeaturedDocument[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeaturedResultsSetResponse {
+  /**
+   * <p>Information on the set of featured results. This includes the identifier
+   *             of the featured results set, whether the featured results set is active
+   *             or inactive, when the featured results set was last updated, and more.</p>
+   * @public
+   */
+  FeaturedResultsSet?: FeaturedResultsSet | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexRequest {
+  /**
+   * <p>The identifier of the index you want to update.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the index.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>An Identity and Access Management (IAM) role that gives Amazon Kendra
+   *       permission to access Amazon CloudWatch logs and metrics.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A new description for the index.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The document metadata configuration you want to update for the index. Document metadata
+   *       are fields or attributes associated with your documents. For example, the company department
+   *       name associated with each document.</p>
+   * @public
+   */
+  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[] | undefined;
+
+  /**
+   * <p>Sets the number of additional document storage and query capacity units that should be
+   *       used by the index. You can change the capacity of the index up to 5 times per day, or make 5
+   *       API calls.</p>
+   *          <p>If you are using extra storage units, you can't reduce the storage capacity below what is
+   *       required to meet the storage needs for your index.</p>
+   * @public
+   */
+  CapacityUnits?: CapacityUnitsConfiguration | undefined;
+
+  /**
+   * <p>The user token configuration.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+   *                <code>UserTokenConfigurations</code> to configure user context policy, Amazon Kendra returns
+   *             a <code>ValidationException</code> error.</p>
+   *          </important>
+   * @public
+   */
+  UserTokenConfigurations?: UserTokenConfiguration[] | undefined;
+
+  /**
+   * <p>The user context policy.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+   *                <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're
+   *             using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+   *                <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
+   *                <code>ValidationException</code> error.</p>
+   *          </important>
+   * @public
+   */
+  UserContextPolicy?: UserContextPolicy | undefined;
+
+  /**
+   * <p>Gets users and groups from IAM Identity Center identity source. To configure this,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering,
+   *          where search results are filtered based on the user or their group access to
+   *          documents.</p>
+   *          <important>
+   *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index,
+   *                <code>UserGroupResolutionConfiguration</code> isn't supported.</p>
+   *          </important>
+   * @public
+   */
+  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuerySuggestionsBlockListRequest {
+  /**
+   * <p>The identifier of the index for the block list.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the block list you want to update.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the block list.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A new description for the block list.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The S3 path where your block list text file sits in S3.</p>
+   *          <p>If you update your block list and provide the same path to the
+   *             block list text file in S3, then Amazon Kendra reloads the file to refresh
+   *             the block list. Amazon Kendra does not automatically refresh your block list.
+   *             You need to call the <code>UpdateQuerySuggestionsBlockList</code> API
+   *             to refresh you block list.</p>
+   *          <p>If you update your block list, then Amazon Kendra asynchronously refreshes
+   *             all query suggestions with the latest content in the S3 file. This
+   *             means changes might not take effect immediately.</p>
+   * @public
+   */
+  SourceS3Path?: S3Path | undefined;
+
+  /**
+   * <p>The IAM (Identity and Access Management) role used to access the
+   *             block list text file in S3.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuerySuggestionsConfigRequest {
+  /**
+   * <p> The identifier of the index with query suggestions you want to update.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Set the mode to <code>ENABLED</code> or <code>LEARN_ONLY</code>.</p>
+   *          <p>By default, Amazon Kendra enables query suggestions.
+   *             <code>LEARN_ONLY</code> mode allows you to turn off query suggestions.
+   *             You can to update this at any time.</p>
+   *          <p>In <code>LEARN_ONLY</code> mode, Amazon Kendra continues to learn from new
+   *             queries to keep suggestions up to date for when you are ready to
+   *             switch to ENABLED mode again.</p>
+   * @public
+   */
+  Mode?: Mode | undefined;
+
+  /**
+   * <p>How recent your queries are in your query log time window.</p>
+   *          <p>The time window is the number of days from current day to past days.</p>
+   *          <p>By default, Amazon Kendra sets this to 180.</p>
+   * @public
+   */
+  QueryLogLookBackWindowInDays?: number | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to include queries without user information (i.e. all queries,
+   *             irrespective of the user), otherwise <code>FALSE</code> to only include queries
+   *             with user information.</p>
+   *          <p>If you pass user information to Amazon Kendra along with the queries, you can set this
+   *             flag to <code>FALSE</code> and instruct Amazon Kendra to only consider queries with user
+   *             information.</p>
+   *          <p>If you set to <code>FALSE</code>, Amazon Kendra only considers queries searched at least
+   *             <code>MinimumQueryCount</code> times across <code>MinimumNumberOfQueryingUsers</code>
+   *             unique users for suggestions.</p>
+   *          <p>If you set to <code>TRUE</code>, Amazon Kendra ignores all user information and learns
+   *             from all queries.</p>
+   * @public
+   */
+  IncludeQueriesWithoutUserInformation?: boolean | undefined;
+
+  /**
+   * <p>The minimum number of unique users who must search a query in order for the query
+   *             to be eligible to suggest to your users.</p>
+   *          <p>Increasing this number might decrease the number of suggestions. However, this
+   *             ensures a query is searched by many users and is truly popular to suggest to users.</p>
+   *          <p>How you tune this setting depends on your specific needs.</p>
+   * @public
+   */
+  MinimumNumberOfQueryingUsers?: number | undefined;
+
+  /**
+   * <p>The the minimum number of times a query must be searched in order to be
+   *             eligible to suggest to your users.</p>
+   *          <p>Decreasing this number increases the number of suggestions. However, this
+   *             affects the quality of suggestions as it sets a low bar for a query to be
+   *             considered popular to suggest to users.</p>
+   *          <p>How you tune this setting depends on your specific needs.</p>
+   * @public
+   */
+  MinimumQueryCount?: number | undefined;
+
+  /**
+   * <p>Configuration information for the document fields/attributes that you want to base
+   *             query suggestions on.</p>
+   * @public
+   */
+  AttributeSuggestionsConfig?: AttributeSuggestionsUpdateConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThesaurusRequest {
+  /**
+   * <p>The identifier of the thesaurus you want to update.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the thesaurus.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The identifier of the index for the thesaurus.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>A new description for the thesaurus.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>An IAM role that gives Amazon Kendra permissions to
+   *          access thesaurus file specified in <code>SourceS3Path</code>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
+   * @public
+   */
+  SourceS3Path?: S3Path | undefined;
+}
+
+/**
+ * <p>Information about a document attribute or field. You can use document attributes as
+ *          facets.</p>
+ *          <p>For example, the document attribute or facet "Department" includes the values "HR",
+ *          "Engineering", and "Accounting". You can display these values in the search results so that
+ *          documents can be searched by department.</p>
+ *          <p>You can display up to 10 facet values per facet for a query. If you want to increase
+ *          this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+ * @public
+ */
+export interface Facet {
+  /**
+   * <p>The unique key for the document attribute.</p>
+   * @public
+   */
+  DocumentAttributeKey?: string | undefined;
+
+  /**
+   * <p>An array of document attributes that are nested facets within a facet.</p>
+   *          <p>For example, the document attribute or facet "Department" includes a value called
+   *          "Engineering". In addition, the document attribute or facet "SubDepartment" includes the
+   *          values "Frontend" and "Backend" for documents assigned to "Engineering". You can display
+   *          nested facets in the search results so that documents can be searched not only by
+   *          department but also by a sub department within a department. This helps your users further
+   *          narrow their search.</p>
+   *          <p>You can only have one nested facet within a facet. If you want to increase this limit,
+   *          contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   * @public
+   */
+  Facets?: Facet[] | undefined;
+
+  /**
+   * <p>Maximum number of facet values per facet. The default is 10. You can use this to limit
+   *          the number of facet values to less than 10. If you want to increase the default, contact
+   *             <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides the count of documents that match a particular document attribute or field when
+ *          doing a faceted search.</p>
+ * @public
+ */
+export interface DocumentAttributeValueCountPair {
+  /**
+   * <p>The value of the attribute/field. For example, "HR".</p>
+   * @public
+   */
+  DocumentAttributeValue?: DocumentAttributeValue | undefined;
+
+  /**
+   * <p>The number of documents in the response that have the attribute/field value for the
+   *          key.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>Contains the results of a document attribute/field that is a nested facet. A
+   *             <code>FacetResult</code> contains the counts for each facet nested within a
+   *          facet.</p>
+   *          <p>For example, the document attribute or facet "Department" includes a value called
+   *          "Engineering". In addition, the document attribute or facet "SubDepartment" includes the
+   *          values "Frontend" and "Backend" for documents assigned to "Engineering". You can display
+   *          nested facets in the search results so that documents can be searched not only by
+   *          department but also by a sub department within a department. The counts for documents that
+   *          belong to "Frontend" and "Backend" within "Engineering" are returned for a query.</p>
+   *          <p></p>
+   *          <p></p>
+   * @public
+   */
+  FacetResults?: FacetResult[] | undefined;
+}
+
+/**
+ * <p>The facet values for the documents in the response.</p>
+ * @public
+ */
+export interface FacetResult {
+  /**
+   * <p>The key for the facet values. This is the same as the <code>DocumentAttributeKey</code>
+   *          provided in the query.</p>
+   * @public
+   */
+  DocumentAttributeKey?: string | undefined;
+
+  /**
+   * <p>The data type of the facet value. This is the same as the type defined for the index
+   *          field when it was created.</p>
+   * @public
+   */
+  DocumentAttributeValueType?: DocumentAttributeValueType | undefined;
+
+  /**
+   * <p>An array of key/value pairs, where the key is the value of the attribute and the count
+   *          is the number of documents that share the key value.</p>
+   * @public
+   */
+  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[] | undefined;
+}
+
+/**
+ * <p>Filters the search results based on document attributes or fields.</p>
+ *          <p>You can filter results using attributes for your particular documents. The attributes
+ *          must exist in your index. For example, if your documents include the custom attribute
+ *          "Department", you can filter documents that belong to the "HR" department. You would use
+ *          the <code>EqualsTo</code> operation to filter results or documents with "Department" equals
+ *          to "HR".</p>
+ *          <p>You can use <code>AndAllFilters</code> and <code>OrAllFilters</code> in combination with
+ *          each other or with other operations such as <code>EqualsTo</code>. For example:</p>
+ *          <p>
+ *             <code>AndAllFilters</code>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>EqualsTo</code>: "Department", "HR"</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OrAllFilters</code>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>ContainsAny</code>: "Project Name", ["new hires", "new hiring"]</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>This example filters results or documents that belong to the HR department
+ *             <code>AND</code> belong to projects that contain "new hires"
+ *             <code>OR</code> "new hiring" in the project name (must use
+ *             <code>ContainAny</code> with <code>StringListValue</code>). This example is filtering
+ *          with a depth of 2.</p>
+ *          <p>You cannot filter more than a depth of 2, otherwise you receive a
+ *             <code>ValidationException</code> exception with the message "AttributeFilter cannot have
+ *          a depth of more than 2." Also, if you use more than 10 attribute filters in a given list
+ *          for <code>AndAllFilters</code> or <code>OrAllFilters</code>, you receive a
+ *             <code>ValidationException</code> with the message "AttributeFilter cannot have a length
+ *          of more than 10".</p>
+ *          <p>For examples of using <code>AttributeFilter</code>, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering">Using document attributes to
+ *             filter search results</a>.</p>
+ * @public
+ */
+export interface AttributeFilter {
+  /**
+   * <p>Performs a logical <code>AND</code> operation on all filters that you specify.</p>
+   * @public
+   */
+  AndAllFilters?: AttributeFilter[] | undefined;
+
+  /**
+   * <p>Performs a logical <code>OR</code> operation on all filters that you specify.</p>
+   * @public
+   */
+  OrAllFilters?: AttributeFilter[] | undefined;
+
+  /**
+   * <p>Performs a logical <code>NOT</code> operation on all filters that you specify.</p>
+   * @public
+   */
+  NotFilter?: AttributeFilter | undefined;
+
+  /**
+   * <p>Performs an equals operation on document attributes/fields and their values.</p>
+   * @public
+   */
+  EqualsTo?: DocumentAttribute | undefined;
+
+  /**
+   * <p>Returns true when a document contains all of the specified document attributes/fields.
+   *          This filter is only applicable to <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">StringListValue</a>.</p>
+   * @public
+   */
+  ContainsAll?: DocumentAttribute | undefined;
+
+  /**
+   * <p>Returns true when a document contains any of the specified document attributes/fields.
+   *          This filter is only applicable to <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">StringListValue</a>.</p>
+   * @public
+   */
+  ContainsAny?: DocumentAttribute | undefined;
+
+  /**
+   * <p>Performs a greater than operation on document attributes/fields and their values. Use
+   *          with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
+   * @public
+   */
+  GreaterThan?: DocumentAttribute | undefined;
+
+  /**
+   * <p>Performs a greater or equals than operation on document attributes/fields and their
+   *          values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
+   * @public
+   */
+  GreaterThanOrEquals?: DocumentAttribute | undefined;
+
+  /**
+   * <p>Performs a less than operation on document attributes/fields and their values. Use with
+   *          the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
+   * @public
+   */
+  LessThan?: DocumentAttribute | undefined;
+
+  /**
+   * <p>Performs a less than or equals operation on document attributes/fields and their values.
+   *          Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   *             type</a>
+   *             <code>Date</code> or <code>Long</code>.</p>
+   * @public
+   */
+  LessThanOrEquals?: DocumentAttribute | undefined;
+}
+
+/**
+ * @public
+ */
+export interface QueryResult {
+  /**
+   * <p>The identifier for the search. You also use <code>QueryId</code> to identify the search
+   *          when using the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html">SubmitFeedback</a>
+   *          API.</p>
+   * @public
+   */
+  QueryId?: string | undefined;
+
+  /**
+   * <p>The results of the search.</p>
+   * @public
+   */
+  ResultItems?: QueryResultItem[] | undefined;
+
+  /**
+   * <p>Contains the facet results. A <code>FacetResult</code> contains the counts for each
+   *          field/attribute key that was specified in the <code>Facets</code> input parameter.</p>
+   * @public
+   */
+  FacetResults?: FacetResult[] | undefined;
+
+  /**
+   * <p>The total number of items found by the search. However, you can only retrieve up to 100
+   *          items. For example, if the search found 192 items, you can only retrieve the first 100 of
+   *          the items.</p>
+   * @public
+   */
+  TotalNumberOfResults?: number | undefined;
+
+  /**
+   * <p>A list of warning codes and their messages on problems with your query.</p>
+   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning on
+   *          invalid syntax used in the query. For examples of invalid query syntax, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+   *             with advanced query syntax</a>.</p>
+   * @public
+   */
+  Warnings?: Warning[] | undefined;
+
+  /**
+   * <p>A list of information related to suggested spell corrections for a query.</p>
+   * @public
+   */
+  SpellCorrectedQueries?: SpellCorrectedQuery[] | undefined;
+
+  /**
+   * <p>The list of featured result items. Featured results are displayed at the top of the
+   *          search results page, placed above all other results for certain queries. If there's an
+   *          exact match of a query, then certain documents are featured in the search results.</p>
+   * @public
+   */
+  FeaturedResultsItems?: FeaturedResultsItem[] | undefined;
+}
+
+/**
+ * <p>Provides the configuration information for the document fields/attributes that you want
+ *             to base query suggestions on.</p>
+ * @public
+ */
+export interface AttributeSuggestionsGetConfig {
+  /**
+   * <p>The list of document field/attribute keys or field names to use for query suggestions.
+   *             If the content within any of the fields match what your user starts typing as their query,
+   *             then the field content is returned as a query suggestion.</p>
+   * @public
+   */
+  SuggestionAttributes?: string[] | undefined;
+
+  /**
+   * <p>The list of additional document field/attribute keys or field names to include in the
+   *             response. You can use additional fields to provide extra information in the response.
+   *             Additional fields are not used to based suggestions on.</p>
+   * @public
+   */
+  AdditionalResponseAttributes?: string[] | undefined;
+
+  /**
+   * <p>Filters the search results based on document fields/attributes.</p>
+   * @public
+   */
+  AttributeFilter?: AttributeFilter | undefined;
+
+  /**
+   * <p>Applies user context filtering so that only users who are given access to certain
+   *             documents see these document in their search results.</p>
+   * @public
+   */
+  UserContext?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveRequest {
+  /**
+   * <p>The identifier of the index to retrieve relevant passages for the search.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The input query text to retrieve relevant passages for the search. Amazon Kendra
+   *             truncates queries at 30 token words, which excludes punctuation and stop words.
+   *             Truncation still applies if you use Boolean or more advanced, complex queries. For
+   *             example, <code>Timeoff AND October AND Category:HR</code> is counted as 3 tokens:
+   *                 <code>timeoff</code>, <code>october</code>, <code>hr</code>. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>
+   * @public
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>Filters search results by document fields/attributes. You can only provide one
+   *             attribute filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and
+   *                 <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+   *          <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering
+   *             rules that a document must satisfy to be included in the query results.</p>
+   *          <note>
+   *             <p>For Amazon Kendra Gen AI Enterprise Edition indices use <code>AttributeFilter</code> to
+   *                 enable document filtering for end users using <code>_email_id</code> or include
+   *                 public documents (<code>_email_id=null</code>).</p>
+   *          </note>
+   * @public
+   */
+  AttributeFilter?: AttributeFilter | undefined;
+
+  /**
+   * <p>A list of document fields/attributes to include in the response. You can limit the
+   *             response to include certain document fields. By default, all document fields are
+   *             included in the response.</p>
+   * @public
+   */
+  RequestedDocumentAttributes?: string[] | undefined;
+
+  /**
+   * <p>Overrides relevance tuning configurations of fields/attributes set at the index
+   *             level.</p>
+   *          <p>If you use this API to override the relevance tuning configured at the index level,
+   *             but there is no relevance tuning configured at the index level, then Amazon Kendra
+   *             does not apply any relevance tuning.</p>
+   *          <p>If there is relevance tuning configured for fields at the index level, and you use
+   *             this API to override only some of these fields, then for the fields you did not
+   *             override, the importance is set to 1.</p>
+   * @public
+   */
+  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[] | undefined;
+
+  /**
+   * <p>Retrieved relevant passages are returned in pages the size of the
+   *                 <code>PageSize</code> parameter. By default, Amazon Kendra returns the first
+   *             page of results. Use this parameter to get result pages after the first one.</p>
+   * @public
+   */
+  PageNumber?: number | undefined;
+
+  /**
+   * <p>Sets the number of retrieved relevant passages that are returned in each page of
+   *             results. The default page size is 10. The maximum number of results returned is 100. If
+   *             you ask for more than 100 results, only 100 are returned.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+
+  /**
+   * <p>The user context token or user and group information.</p>
+   * @public
+   */
+  UserContext?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQuerySuggestionsRequest {
+  /**
+   * <p>The identifier of the index you want to get query suggestions from.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The text of a user's query to generate query suggestions.</p>
+   *          <p>A query is suggested if the query prefix matches
+   *             what a user starts to type as their query.</p>
+   *          <p>Amazon Kendra does not show any suggestions if a user
+   *             types fewer than two characters or more than 60 characters.
+   *             A query must also have at least one search result and contain
+   *             at least one word of more than four characters.</p>
+   * @public
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>The maximum number of query suggestions you want to show
+   *             to your users.</p>
+   * @public
+   */
+  MaxSuggestionsCount?: number | undefined;
+
+  /**
+   * <p>The suggestions type to base query suggestions on. The suggestion
+   *             types are query history or document fields/attributes. You can set
+   *             one type or the other.</p>
+   *          <p>If you set query history as your suggestions type, Amazon Kendra
+   *             suggests queries relevant to your users based on popular queries in
+   *             the query history.</p>
+   *          <p>If you set document fields/attributes as your suggestions type,
+   *             Amazon Kendra suggests queries relevant to your users based on the
+   *             contents of document fields.</p>
+   * @public
+   */
+  SuggestionTypes?: SuggestionType[] | undefined;
+
+  /**
+   * <p>Configuration information for the document fields/attributes that you
+   *             want to base query suggestions on.</p>
+   * @public
+   */
+  AttributeSuggestionsConfig?: AttributeSuggestionsGetConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface QueryRequest {
+  /**
+   * <p>The identifier of the index for the search.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The input query text for the search. Amazon Kendra truncates queries at 30 token
+   *          words, which excludes punctuation and stop words. Truncation still applies if you use
+   *          Boolean or more advanced, complex queries. For example, <code>Timeoff AND October AND
+   *             Category:HR</code> is counted as 3 tokens: <code>timeoff</code>, <code>october</code>,
+   *             <code>hr</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>
+   * @public
+   */
+  QueryText?: string | undefined;
+
+  /**
+   * <p>Filters search results by document fields/attributes. You can only provide one attribute
+   *          filter; however, the <code>AndAllFilters</code>, <code>NotFilter</code>, and
+   *             <code>OrAllFilters</code> parameters contain a list of other filters.</p>
+   *          <p>The <code>AttributeFilter</code> parameter means you can create a set of filtering rules
+   *          that a document must satisfy to be included in the query results.</p>
+   *          <note>
+   *             <p>For Amazon Kendra Gen AI Enterprise Edition indices use <code>AttributeFilter</code> to
+   *             enable document filtering for end users using <code>_email_id</code> or include public
+   *             documents (<code>_email_id=null</code>).</p>
+   *          </note>
+   * @public
+   */
+  AttributeFilter?: AttributeFilter | undefined;
+
+  /**
+   * <p>An array of documents fields/attributes for faceted search. Amazon Kendra returns a
+   *          count for each field key specified. This helps your users narrow their search.</p>
+   * @public
+   */
+  Facets?: Facet[] | undefined;
+
+  /**
+   * <p>An array of document fields/attributes to include in the response. You can limit the
+   *          response to include certain document fields. By default, all document attributes are
+   *          included in the response.</p>
+   * @public
+   */
+  RequestedDocumentAttributes?: string[] | undefined;
+
+  /**
+   * <p>Sets the type of query result or response. Only results for the specified type are
+   *          returned.</p>
+   * @public
+   */
+  QueryResultTypeFilter?: QueryResultType | undefined;
+
+  /**
+   * <p>Overrides relevance tuning configurations of fields/attributes set at the index
+   *          level.</p>
+   *          <p>If you use this API to override the relevance tuning configured at the index level, but
+   *          there is no relevance tuning configured at the index level, then Amazon Kendra does
+   *          not apply any relevance tuning.</p>
+   *          <p>If there is relevance tuning configured for fields at the index level, and you use this
+   *          API to override only some of these fields, then for the fields you did not override, the
+   *          importance is set to 1.</p>
+   * @public
+   */
+  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[] | undefined;
+
+  /**
+   * <p>Query results are returned in pages the size of the <code>PageSize</code> parameter. By
+   *          default, Amazon Kendra returns the first page of results. Use this parameter to get
+   *          result pages after the first one.</p>
+   * @public
+   */
+  PageNumber?: number | undefined;
+
+  /**
+   * <p>Sets the number of results that are returned in each page of results. The default page
+   *          size is 10. The maximum number of results returned is 100. If you ask for more than 100
+   *          results, only 100 are returned.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+
+  /**
+   * <p>Provides information that determines how the results of the query are sorted. You can
+   *          set the field that Amazon Kendra should sort the results on, and specify whether the
+   *          results should be sorted in ascending or descending order. In the case of ties in sorting
+   *          the results, the results are sorted by relevance.</p>
+   *          <p>If you don't provide sorting configuration, the results are sorted by the relevance that
+   *             Amazon Kendra determines for the result.</p>
+   * @public
+   */
+  SortingConfiguration?: SortingConfiguration | undefined;
+
+  /**
+   * <p>Provides configuration information to determine how the results of a query are
+   *          sorted.</p>
+   *          <p>You can set upto 3 fields that Amazon Kendra should sort the results on, and
+   *          specify whether the results should be sorted in ascending or descending order. The sort
+   *          field quota can be increased.</p>
+   *          <p>If you don't provide a sorting configuration, the results are sorted by the relevance
+   *          that Amazon Kendra determines for the result. In the case of ties in sorting the
+   *          results, the results are sorted by relevance. </p>
+   * @public
+   */
+  SortingConfigurations?: SortingConfiguration[] | undefined;
+
+  /**
+   * <p>The user context token or user and group information.</p>
+   * @public
+   */
+  UserContext?: UserContext | undefined;
+
+  /**
+   * <p>Provides an identifier for a specific user. The <code>VisitorId</code> should be a
+   *          unique identifier, such as a GUID. Don't use personally identifiable information, such as
+   *          the user's email address, as the <code>VisitorId</code>.</p>
+   * @public
+   */
+  VisitorId?: string | undefined;
+
+  /**
+   * <p>Enables suggested spell corrections for queries.</p>
+   * @public
+   */
+  SpellCorrectionConfiguration?: SpellCorrectionConfiguration | undefined;
+
+  /**
+   * <p>Provides configuration to determine how to group results by document attribute value,
+   *          and how to display them (collapsed or expanded) under a designated primary document for
+   *          each group.</p>
+   * @public
+   */
+  CollapseConfiguration?: CollapseConfiguration | undefined;
+}

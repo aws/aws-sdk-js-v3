@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteIpamExternalResourceVerificationTokenRequest,
   DeleteIpamExternalResourceVerificationTokenResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteIpamExternalResourceVerificationToken } from "../schemas/schemas_0";
 
 /**

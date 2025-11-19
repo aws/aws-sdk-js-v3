@@ -1,64 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ArtifactServiceException as __BaseException } from "./ArtifactServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AcceptanceType = {
-  /**
-   * Require explicit click-through acceptance of the
-   * Term associated with this Report.
-   */
-  EXPLICIT: "EXPLICIT",
-  /**
-   * Do not require explicit click-through acceptance
-   * of the Term associated with this Report
-   */
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type AcceptanceType = (typeof AcceptanceType)[keyof typeof AcceptanceType];
-
-/**
- * <p>User does not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const NotificationSubscriptionStatus = {
-  NOT_SUBSCRIBED: "NOT_SUBSCRIBED",
-  SUBSCRIBED: "SUBSCRIBED",
-} as const;
-
-/**
- * @public
- */
-export type NotificationSubscriptionStatus =
-  (typeof NotificationSubscriptionStatus)[keyof typeof NotificationSubscriptionStatus];
+import {
+  AcceptanceType,
+  AgreementType,
+  CustomerAgreementState,
+  NotificationSubscriptionStatus,
+  PublishedState,
+  UploadState,
+} from "./enums";
 
 /**
  * <p>Account settings for the customer.</p>
@@ -70,40 +18,6 @@ export interface AccountSettings {
    * @public
    */
   notificationSubscriptionStatus?: NotificationSubscriptionStatus | undefined;
-}
-
-/**
- * <p>Request to create/modify content would result in a conflict.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the affected resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>Type of the affected resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -120,160 +34,6 @@ export interface GetAccountSettingsResponse {
    * @public
    */
   accountSettings?: AccountSettings | undefined;
-}
-
-/**
- * <p>An unknown server exception has occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Number of seconds in which the caller can retry the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the affected resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>Type of the affected resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Identifier of the affected resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>Type of the affected resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>Code for the affected service.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>Code for the affected quota.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>Code for the affected service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>Code for the affected quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>Number of seconds in which the caller can retry the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
 }
 
 /**
@@ -312,40 +72,6 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * <p>Request fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Reason the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field that caused the error, if applicable.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
  * @public
  */
 export interface PutAccountSettingsRequest {
@@ -369,21 +95,6 @@ export interface PutAccountSettingsResponse {
 
 /**
  * @public
- * @enum
- */
-export const AgreementType = {
-  CUSTOM: "CUSTOM",
-  DEFAULT: "DEFAULT",
-  MODIFIED: "MODIFIED",
-} as const;
-
-/**
- * @public
- */
-export type AgreementType = (typeof AgreementType)[keyof typeof AgreementType];
-
-/**
- * @public
  */
 export interface ListCustomerAgreementsRequest {
   /**
@@ -398,21 +109,6 @@ export interface ListCustomerAgreementsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomerAgreementState = {
-  ACTIVE: "ACTIVE",
-  AWS_TERMINATED: "AWS_TERMINATED",
-  CUSTOMER_TERMINATED: "CUSTOMER_TERMINATED",
-} as const;
-
-/**
- * @public
- */
-export type CustomerAgreementState = (typeof CustomerAgreementState)[keyof typeof CustomerAgreementState];
 
 /**
  * <p>Summary for customer-agreement resource.</p>
@@ -565,36 +261,6 @@ export interface GetReportMetadataRequest {
    */
   reportVersion?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PublishedState = {
-  PUBLISHED: "PUBLISHED",
-  UNPUBLISHED: "UNPUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type PublishedState = (typeof PublishedState)[keyof typeof PublishedState];
-
-/**
- * @public
- * @enum
- */
-export const UploadState = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  FAULT: "FAULT",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type UploadState = (typeof UploadState)[keyof typeof UploadState];
 
 /**
  * <p>Full detail for report resource metadata.</p>

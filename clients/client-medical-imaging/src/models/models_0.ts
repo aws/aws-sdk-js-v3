@@ -1,49 +1,17 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { MedicalImagingServiceException as __BaseException } from "./MedicalImagingServiceException";
-
-/**
- * <p>The user does not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
+import {
+  DatastoreStatus,
+  ImageSetState,
+  ImageSetWorkflowStatus,
+  JobStatus,
+  LosslessStorageFormat,
+  Operator,
+  SortField,
+  SortOrder,
+  StorageTier,
+} from "./enums";
 
 /**
  * <p>Copy the destination image set.</p>
@@ -145,46 +113,6 @@ export interface CopyImageSetRequest {
    */
   promoteToPrimary?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageSetState = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  LOCKED: "LOCKED",
-} as const;
-
-/**
- * @public
- */
-export type ImageSetState = (typeof ImageSetState)[keyof typeof ImageSetState];
-
-/**
- * @public
- * @enum
- */
-export const ImageSetWorkflowStatus = {
-  COPIED: "COPIED",
-  COPYING: "COPYING",
-  COPYING_WITH_READ_ONLY_ACCESS: "COPYING_WITH_READ_ONLY_ACCESS",
-  COPY_FAILED: "COPY_FAILED",
-  CREATED: "CREATED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  IMPORTED: "IMPORTED",
-  IMPORTING: "IMPORTING",
-  IMPORT_FAILED: "IMPORT_FAILED",
-  UPDATED: "UPDATED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ImageSetWorkflowStatus = (typeof ImageSetWorkflowStatus)[keyof typeof ImageSetWorkflowStatus];
 
 /**
  * <p>Copy the image set properties of the destination image set.</p>
@@ -306,120 +234,6 @@ export interface CopyImageSetResponse {
 }
 
 /**
- * <p>An unexpected error occurred during processing of the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request caused a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints set by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LosslessStorageFormat = {
-  HTJ2K: "HTJ2K",
-  JPEG_2000_LOSSLESS: "JPEG_2000_LOSSLESS",
-} as const;
-
-/**
- * @public
- */
-export type LosslessStorageFormat = (typeof LosslessStorageFormat)[keyof typeof LosslessStorageFormat];
-
-/**
  * @public
  */
 export interface CreateDatastoreRequest {
@@ -459,23 +273,6 @@ export interface CreateDatastoreRequest {
    */
   losslessStorageFormat?: LosslessStorageFormat | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatastoreStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type DatastoreStatus = (typeof DatastoreStatus)[keyof typeof DatastoreStatus];
 
 /**
  * @public
@@ -750,22 +547,6 @@ export interface GetDICOMImportJobRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
  * <p>Properties of the import job.</p>
  * @public
  */
@@ -928,26 +709,6 @@ export interface Overrides {
    */
   forced?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageTier = {
-  /**
-   * Archive instant access storage tier for image sets that are accessed infrequently
-   */
-  ARCHIVE_INSTANT_ACCESS: "ARCHIVE_INSTANT_ACCESS",
-  /**
-   * Frequent access storage tier for image sets that are accessed regularly
-   */
-  FREQUENT_ACCESS: "FREQUENT_ACCESS",
-} as const;
-
-/**
- * @public
- */
-export type StorageTier = (typeof StorageTier)[keyof typeof StorageTier];
 
 /**
  * @public
@@ -1319,20 +1080,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const Operator = {
-  BETWEEN: "BETWEEN",
-  EQUAL: "EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
-
-/**
  * <p>The aggregated structure to store DICOM study date and study time for search capabilities.</p>
  * @public
  */
@@ -1574,35 +1321,6 @@ export interface SearchFilter {
    */
   operator: Operator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortField = {
-  DICOMStudyDateAndTime: "DICOMStudyDateAndTime",
-  createdAt: "createdAt",
-  updatedAt: "updatedAt",
-} as const;
-
-/**
- * @public
- */
-export type SortField = (typeof SortField)[keyof typeof SortField];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * <p>Sort search results.</p>

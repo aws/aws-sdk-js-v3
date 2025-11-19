@@ -9,8 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTokensFromRefreshTokenRequest } from "../models/models_0";
-import { GetTokensFromRefreshTokenResponse } from "../models/models_1";
+import { GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse } from "../models/models_0";
 import { GetTokensFromRefreshToken } from "../schemas/schemas_0";
 
 /**

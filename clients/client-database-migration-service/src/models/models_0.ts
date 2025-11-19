@@ -1,28 +1,46 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
-
-/**
- * <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
- * @public
- */
-export class AccessDeniedFault extends __BaseException {
-  readonly name: "AccessDeniedFault" = "AccessDeniedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedFault, __BaseException>) {
-    super({
-      name: "AccessDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedFault.prototype);
-  }
-}
+import {
+  AssessmentReportType,
+  AuthMechanismValue,
+  AuthTypeValue,
+  CannedAclForObjectsValue,
+  CharLengthSemantics,
+  CollectorStatus,
+  CompressionTypeValue,
+  DatabaseMode,
+  DataFormatValue,
+  DatePartitionDelimiterValue,
+  DatePartitionSequenceValue,
+  DmsSslModeValue,
+  EncodingTypeValue,
+  EncryptionModeValue,
+  EndpointSettingTypeValue,
+  KafkaSaslMechanism,
+  KafkaSecurityProtocol,
+  KafkaSslEndpointIdentificationAlgorithm,
+  LongVarcharMappingType,
+  MessageFormatValue,
+  MigrationTypeValue,
+  MySQLAuthenticationMethod,
+  NestingLevelValue,
+  OracleAuthenticationMethod,
+  OriginTypeValue,
+  ParquetVersionValue,
+  PluginNameValue,
+  PostgreSQLAuthenticationMethod,
+  RedisAuthTypeValue,
+  RefreshSchemasStatusTypeValue,
+  ReleaseStatusValues,
+  ReplicationEndpointTypeValue,
+  SafeguardPolicy,
+  SourceType,
+  SqlServerAuthenticationMethod,
+  SslSecurityProtocolValue,
+  TablePreparationMode,
+  TargetDbType,
+  TlogAccessMode,
+  VersionStatus,
+} from "./enums";
 
 /**
  * <p>Describes a quota for an Amazon Web Services account, for example the number of replication instances
@@ -124,46 +142,6 @@ export interface AddTagsToResourceMessage {
  * @public
  */
 export interface AddTagsToResourceResponse {}
-
-/**
- * <p>The resource is in a state that prevents it from being used for database migration.</p>
- * @public
- */
-export class InvalidResourceStateFault extends __BaseException {
-  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
-    super({
-      name: "InvalidResourceStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
-  }
-}
-
-/**
- * <p>The resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundFault extends __BaseException {
-  readonly name: "ResourceNotFoundFault" = "ResourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundFault, __BaseException>) {
-    super({
-      name: "ResourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundFault.prototype);
-  }
-}
 
 /**
  * <p></p>
@@ -885,21 +863,6 @@ export interface CancelReplicationTaskAssessmentRunResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MigrationTypeValue = {
-  CDC: "cdc",
-  FULL_LOAD: "full-load",
-  FULL_LOAD_AND_CDC: "full-load-and-cdc",
-} as const;
-
-/**
- * @public
- */
-export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
-
-/**
  * <p>Defines settings for a source data provider for a data migration.</p>
  * @public
  */
@@ -929,21 +892,6 @@ export interface SourceDataSetting {
    */
   SlotName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TablePreparationMode = {
-  DO_NOTHING: "do-nothing",
-  DROP_TABLES_ON_TARGET: "drop-tables-on-target",
-  TRUNCATE: "truncate",
-} as const;
-
-/**
- * @public
- */
-export type TablePreparationMode = (typeof TablePreparationMode)[keyof typeof TablePreparationMode];
 
 /**
  * <p>Defines settings for a target data provider for a data migration.</p>
@@ -1253,109 +1201,6 @@ export interface CreateDataMigrationResponse {
 }
 
 /**
- * <p>A dependency threw an exception.</p>
- * @public
- */
-export class FailedDependencyFault extends __BaseException {
-  readonly name: "FailedDependencyFault" = "FailedDependencyFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FailedDependencyFault, __BaseException>) {
-    super({
-      name: "FailedDependencyFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FailedDependencyFault.prototype);
-  }
-}
-
-/**
- * <p>The action or operation requested isn't valid.</p>
- * @public
- */
-export class InvalidOperationFault extends __BaseException {
-  readonly name: "InvalidOperationFault" = "InvalidOperationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationFault, __BaseException>) {
-    super({
-      name: "InvalidOperationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationFault.prototype);
-  }
-}
-
-/**
- * <p>The resource you are attempting to create already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsFault extends __BaseException {
-  readonly name: "ResourceAlreadyExistsFault" = "ResourceAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * <p></p>
-   * @public
-   */
-  resourceArn?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsFault.prototype);
-    this.resourceArn = opts.resourceArn;
-  }
-}
-
-/**
- * <p>The quota for this resource quota has been exceeded.</p>
- * @public
- */
-export class ResourceQuotaExceededFault extends __BaseException {
-  readonly name: "ResourceQuotaExceededFault" = "ResourceQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ResourceQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DmsSslModeValue = {
-  NONE: "none",
-  REQUIRE: "require",
-  VERIFY_CA: "verify-ca",
-  VERIFY_FULL: "verify-full",
-} as const;
-
-/**
- * @public
- */
-export type DmsSslModeValue = (typeof DmsSslModeValue)[keyof typeof DmsSslModeValue];
-
-/**
  * <p>Provides information that defines a DocumentDB data provider.</p>
  * @public
  */
@@ -1581,35 +1426,6 @@ export interface MicrosoftSqlServerDataProviderSettings {
    */
   S3AccessRoleArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthMechanismValue = {
-  DEFAULT: "default",
-  MONGODB_CR: "mongodb_cr",
-  SCRAM_SHA_1: "scram_sha_1",
-} as const;
-
-/**
- * @public
- */
-export type AuthMechanismValue = (typeof AuthMechanismValue)[keyof typeof AuthMechanismValue];
-
-/**
- * @public
- * @enum
- */
-export const AuthTypeValue = {
-  NO: "no",
-  PASSWORD: "password",
-} as const;
-
-/**
- * @public
- */
-export type AuthTypeValue = (typeof AuthTypeValue)[keyof typeof AuthTypeValue];
 
 /**
  * <p>Provides information that defines a MongoDB data provider.</p>
@@ -2321,20 +2137,6 @@ export interface DmsTransferSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const NestingLevelValue = {
-  NONE: "none",
-  ONE: "one",
-} as const;
-
-/**
- * @public
- */
-export type NestingLevelValue = (typeof NestingLevelValue)[keyof typeof NestingLevelValue];
-
-/**
  * <p>Provides information that defines a DocumentDB endpoint.</p>
  * @public
  */
@@ -2517,35 +2319,6 @@ export interface ElasticsearchSettings {
    */
   UseNewMappingType?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationEndpointTypeValue = {
-  SOURCE: "source",
-  TARGET: "target",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationEndpointTypeValue =
-  (typeof ReplicationEndpointTypeValue)[keyof typeof ReplicationEndpointTypeValue];
-
-/**
- * @public
- * @enum
- */
-export const TargetDbType = {
-  MULTIPLE_DATABASES: "multiple-databases",
-  SPECIFIC_DATABASE: "specific-database",
-} as const;
-
-/**
- * @public
- */
-export type TargetDbType = (typeof TargetDbType)[keyof typeof TargetDbType];
 
 /**
  * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
@@ -2794,65 +2567,6 @@ export interface IBMDb2Settings {
    */
   KeepCsvFiles?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MessageFormatValue = {
-  JSON: "json",
-  JSON_UNFORMATTED: "json-unformatted",
-} as const;
-
-/**
- * @public
- */
-export type MessageFormatValue = (typeof MessageFormatValue)[keyof typeof MessageFormatValue];
-
-/**
- * @public
- * @enum
- */
-export const KafkaSaslMechanism = {
-  PLAIN: "plain",
-  SCRAM_SHA_512: "scram-sha-512",
-} as const;
-
-/**
- * @public
- */
-export type KafkaSaslMechanism = (typeof KafkaSaslMechanism)[keyof typeof KafkaSaslMechanism];
-
-/**
- * @public
- * @enum
- */
-export const KafkaSecurityProtocol = {
-  PLAINTEXT: "plaintext",
-  SASL_SSL: "sasl-ssl",
-  SSL_AUTHENTICATION: "ssl-authentication",
-  SSL_ENCRYPTION: "ssl-encryption",
-} as const;
-
-/**
- * @public
- */
-export type KafkaSecurityProtocol = (typeof KafkaSecurityProtocol)[keyof typeof KafkaSecurityProtocol];
-
-/**
- * @public
- * @enum
- */
-export const KafkaSslEndpointIdentificationAlgorithm = {
-  HTTPS: "https",
-  NONE: "none",
-} as const;
-
-/**
- * @public
- */
-export type KafkaSslEndpointIdentificationAlgorithm =
-  (typeof KafkaSslEndpointIdentificationAlgorithm)[keyof typeof KafkaSslEndpointIdentificationAlgorithm];
 
 /**
  * <p>Provides information that describes an Apache Kafka endpoint. This information includes
@@ -3127,52 +2841,6 @@ export interface KinesisSettings {
    */
   UseLargeIntegerValue?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SqlServerAuthenticationMethod = {
-  Kerberos: "kerberos",
-  Password: "password",
-} as const;
-
-/**
- * @public
- */
-export type SqlServerAuthenticationMethod =
-  (typeof SqlServerAuthenticationMethod)[keyof typeof SqlServerAuthenticationMethod];
-
-/**
- * @public
- * @enum
- */
-export const SafeguardPolicy = {
-  EXCLUSIVE_AUTOMATIC_TRUNCATION: "exclusive-automatic-truncation",
-  RELY_ON_SQL_SERVER_REPLICATION_AGENT: "rely-on-sql-server-replication-agent",
-  SHARED_AUTOMATIC_TRUNCATION: "shared-automatic-truncation",
-} as const;
-
-/**
- * @public
- */
-export type SafeguardPolicy = (typeof SafeguardPolicy)[keyof typeof SafeguardPolicy];
-
-/**
- * @public
- * @enum
- */
-export const TlogAccessMode = {
-  BackupOnly: "BackupOnly",
-  PreferBackup: "PreferBackup",
-  PreferTlog: "PreferTlog",
-  TlogOnly: "TlogOnly",
-} as const;
-
-/**
- * @public
- */
-export type TlogAccessMode = (typeof TlogAccessMode)[keyof typeof TlogAccessMode];
 
 /**
  * <p>Provides information that defines a Microsoft SQL Server endpoint.</p>
@@ -3485,20 +3153,6 @@ export interface MongoDbSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const MySQLAuthenticationMethod = {
-  IAM: "iam",
-  Password: "password",
-} as const;
-
-/**
- * @public
- */
-export type MySQLAuthenticationMethod = (typeof MySQLAuthenticationMethod)[keyof typeof MySQLAuthenticationMethod];
-
-/**
  * <p>Provides information that defines a MySQL endpoint.</p>
  * @public
  */
@@ -3717,35 +3371,6 @@ export interface NeptuneSettings {
    */
   IamAuthEnabled?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OracleAuthenticationMethod = {
-  Kerberos: "kerberos",
-  Password: "password",
-} as const;
-
-/**
- * @public
- */
-export type OracleAuthenticationMethod = (typeof OracleAuthenticationMethod)[keyof typeof OracleAuthenticationMethod];
-
-/**
- * @public
- * @enum
- */
-export const CharLengthSemantics = {
-  BYTE: "byte",
-  CHAR: "char",
-  DEFAULT: "default",
-} as const;
-
-/**
- * @public
- */
-export type CharLengthSemantics = (typeof CharLengthSemantics)[keyof typeof CharLengthSemantics];
 
 /**
  * <p>Provides information that defines an Oracle endpoint.</p>
@@ -4179,65 +3804,6 @@ export interface OracleSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const PostgreSQLAuthenticationMethod = {
-  IAM: "iam",
-  Password: "password",
-} as const;
-
-/**
- * @public
- */
-export type PostgreSQLAuthenticationMethod =
-  (typeof PostgreSQLAuthenticationMethod)[keyof typeof PostgreSQLAuthenticationMethod];
-
-/**
- * @public
- * @enum
- */
-export const DatabaseMode = {
-  BABELFISH: "babelfish",
-  DEFAULT: "default",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseMode = (typeof DatabaseMode)[keyof typeof DatabaseMode];
-
-/**
- * @public
- * @enum
- */
-export const LongVarcharMappingType = {
-  CLOB: "clob",
-  NCLOB: "nclob",
-  WSTRING: "wstring",
-} as const;
-
-/**
- * @public
- */
-export type LongVarcharMappingType = (typeof LongVarcharMappingType)[keyof typeof LongVarcharMappingType];
-
-/**
- * @public
- * @enum
- */
-export const PluginNameValue = {
-  NO_PREFERENCE: "no-preference",
-  PGLOGICAL: "pglogical",
-  TEST_DECODING: "test-decoding",
-} as const;
-
-/**
- * @public
- */
-export type PluginNameValue = (typeof PluginNameValue)[keyof typeof PluginNameValue];
-
-/**
  * <p>Provides information that defines a PostgreSQL endpoint.</p>
  * @public
  */
@@ -4475,35 +4041,6 @@ export interface PostgreSQLSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const RedisAuthTypeValue = {
-  AUTH_ROLE: "auth-role",
-  AUTH_TOKEN: "auth-token",
-  NONE: "none",
-} as const;
-
-/**
- * @public
- */
-export type RedisAuthTypeValue = (typeof RedisAuthTypeValue)[keyof typeof RedisAuthTypeValue];
-
-/**
- * @public
- * @enum
- */
-export const SslSecurityProtocolValue = {
-  PLAINTEXT: "plaintext",
-  SSL_ENCRYPTION: "ssl-encryption",
-} as const;
-
-/**
- * @public
- */
-export type SslSecurityProtocolValue = (typeof SslSecurityProtocolValue)[keyof typeof SslSecurityProtocolValue];
-
-/**
  * <p>Provides information that defines a Redis target endpoint.</p>
  * @public
  */
@@ -4564,20 +4101,6 @@ export interface RedisSettings {
    */
   SslCaCertificateArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionModeValue = {
-  SSE_KMS: "sse-kms",
-  SSE_S3: "sse-s3",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionModeValue = (typeof EncryptionModeValue)[keyof typeof EncryptionModeValue];
 
 /**
  * <p>Provides information that defines an Amazon Redshift endpoint.</p>
@@ -4864,117 +4387,6 @@ export interface RedshiftSettings {
    */
   MapBooleanAsBoolean?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CannedAclForObjectsValue = {
-  AUTHENTICATED_READ: "authenticated-read",
-  AWS_EXEC_READ: "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL: "bucket-owner-full-control",
-  BUCKET_OWNER_READ: "bucket-owner-read",
-  NONE: "none",
-  PRIVATE: "private",
-  PUBLIC_READ: "public-read",
-  PUBLIC_READ_WRITE: "public-read-write",
-} as const;
-
-/**
- * @public
- */
-export type CannedAclForObjectsValue = (typeof CannedAclForObjectsValue)[keyof typeof CannedAclForObjectsValue];
-
-/**
- * @public
- * @enum
- */
-export const CompressionTypeValue = {
-  GZIP: "gzip",
-  NONE: "none",
-} as const;
-
-/**
- * @public
- */
-export type CompressionTypeValue = (typeof CompressionTypeValue)[keyof typeof CompressionTypeValue];
-
-/**
- * @public
- * @enum
- */
-export const DataFormatValue = {
-  CSV: "csv",
-  PARQUET: "parquet",
-} as const;
-
-/**
- * @public
- */
-export type DataFormatValue = (typeof DataFormatValue)[keyof typeof DataFormatValue];
-
-/**
- * @public
- * @enum
- */
-export const DatePartitionDelimiterValue = {
-  DASH: "DASH",
-  NONE: "NONE",
-  SLASH: "SLASH",
-  UNDERSCORE: "UNDERSCORE",
-} as const;
-
-/**
- * @public
- */
-export type DatePartitionDelimiterValue =
-  (typeof DatePartitionDelimiterValue)[keyof typeof DatePartitionDelimiterValue];
-
-/**
- * @public
- * @enum
- */
-export const DatePartitionSequenceValue = {
-  DDMMYYYY: "DDMMYYYY",
-  MMYYYYDD: "MMYYYYDD",
-  YYYYMM: "YYYYMM",
-  YYYYMMDD: "YYYYMMDD",
-  YYYYMMDDHH: "YYYYMMDDHH",
-} as const;
-
-/**
- * @public
- */
-export type DatePartitionSequenceValue = (typeof DatePartitionSequenceValue)[keyof typeof DatePartitionSequenceValue];
-
-/**
- * @public
- * @enum
- */
-export const EncodingTypeValue = {
-  PLAIN: "plain",
-  PLAIN_DICTIONARY: "plain-dictionary",
-  RLE_DICTIONARY: "rle-dictionary",
-} as const;
-
-/**
- * @public
- */
-export type EncodingTypeValue = (typeof EncodingTypeValue)[keyof typeof EncodingTypeValue];
-
-/**
- * @public
- * @enum
- */
-export const ParquetVersionValue = {
-  PARQUET_1_0: "parquet-1-0",
-  PARQUET_2_0: "parquet-2-0",
-} as const;
-
-/**
- * @public
- */
-export type ParquetVersionValue = (typeof ParquetVersionValue)[keyof typeof ParquetVersionValue];
 
 /**
  * <p>Settings for exporting data to Amazon S3. </p>
@@ -6304,46 +5716,6 @@ export interface CreateEndpointResponse {
 }
 
 /**
- * <p>DMS cannot access the KMS key.</p>
- * @public
- */
-export class KMSKeyNotAccessibleFault extends __BaseException {
-  readonly name: "KMSKeyNotAccessibleFault" = "KMSKeyNotAccessibleFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSKeyNotAccessibleFault, __BaseException>) {
-    super({
-      name: "KMSKeyNotAccessibleFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSKeyNotAccessibleFault.prototype);
-  }
-}
-
-/**
- * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
- * @public
- */
-export class S3AccessDeniedFault extends __BaseException {
-  readonly name: "S3AccessDeniedFault" = "S3AccessDeniedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<S3AccessDeniedFault, __BaseException>) {
-    super({
-      name: "S3AccessDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, S3AccessDeniedFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -6489,146 +5861,6 @@ export interface CreateEventSubscriptionResponse {
 }
 
 /**
- * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
- * @public
- */
-export class KMSAccessDeniedFault extends __BaseException {
-  readonly name: "KMSAccessDeniedFault" = "KMSAccessDeniedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSAccessDeniedFault, __BaseException>) {
-    super({
-      name: "KMSAccessDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSAccessDeniedFault.prototype);
-  }
-}
-
-/**
- * <p>The specified KMS key isn't enabled.</p>
- * @public
- */
-export class KMSDisabledFault extends __BaseException {
-  readonly name: "KMSDisabledFault" = "KMSDisabledFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSDisabledFault, __BaseException>) {
-    super({
-      name: "KMSDisabledFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSDisabledFault.prototype);
-  }
-}
-
-/**
- * <p>The state of the specified KMS resource isn't valid for this request.</p>
- * @public
- */
-export class KMSInvalidStateFault extends __BaseException {
-  readonly name: "KMSInvalidStateFault" = "KMSInvalidStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSInvalidStateFault, __BaseException>) {
-    super({
-      name: "KMSInvalidStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSInvalidStateFault.prototype);
-  }
-}
-
-/**
- * <p>The specified KMS entity or resource can't be found.</p>
- * @public
- */
-export class KMSNotFoundFault extends __BaseException {
-  readonly name: "KMSNotFoundFault" = "KMSNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSNotFoundFault, __BaseException>) {
-    super({
-      name: "KMSNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>This request triggered KMS request throttling.</p>
- * @public
- */
-export class KMSThrottlingFault extends __BaseException {
-  readonly name: "KMSThrottlingFault" = "KMSThrottlingFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSThrottlingFault, __BaseException>) {
-    super({
-      name: "KMSThrottlingFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSThrottlingFault.prototype);
-  }
-}
-
-/**
- * <p>The SNS topic is invalid.</p>
- * @public
- */
-export class SNSInvalidTopicFault extends __BaseException {
-  readonly name: "SNSInvalidTopicFault" = "SNSInvalidTopicFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSInvalidTopicFault, __BaseException>) {
-    super({
-      name: "SNSInvalidTopicFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSInvalidTopicFault.prototype);
-  }
-}
-
-/**
- * <p>You are not authorized for the SNS subscription.</p>
- * @public
- */
-export class SNSNoAuthorizationFault extends __BaseException {
-  readonly name: "SNSNoAuthorizationFault" = "SNSNoAuthorizationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSNoAuthorizationFault, __BaseException>) {
-    super({
-      name: "SNSNoAuthorizationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateFleetAdvisorCollectorRequest {
@@ -6692,27 +5924,6 @@ export interface CreateFleetAdvisorCollectorResponse {
    * @public
    */
   S3BucketName?: string | undefined;
-}
-
-/**
- * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
- * @public
- */
-export class S3ResourceNotFoundFault extends __BaseException {
-  readonly name: "S3ResourceNotFoundFault" = "S3ResourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<S3ResourceNotFoundFault, __BaseException>) {
-    super({
-      name: "S3ResourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, S3ResourceNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -7372,46 +6583,6 @@ export interface CreateReplicationConfigResponse {
 }
 
 /**
- * <p>The subnet provided isn't valid.</p>
- * @public
- */
-export class InvalidSubnet extends __BaseException {
-  readonly name: "InvalidSubnet" = "InvalidSubnet";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
-    super({
-      name: "InvalidSubnet",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnet.prototype);
-  }
-}
-
-/**
- * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
- * @public
- */
-export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
-  readonly name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs" = "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicationSubnetGroupDoesNotCoverEnoughAZs, __BaseException>) {
-    super({
-      name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicationSubnetGroupDoesNotCoverEnoughAZs.prototype);
-  }
-}
-
-/**
  * <p>Specifies the settings required for kerberos authentication when creating the
  *          replication instance.</p>
  * @public
@@ -8051,46 +7222,6 @@ export interface CreateReplicationInstanceResponse {
    * @public
    */
   ReplicationInstance?: ReplicationInstance | undefined;
-}
-
-/**
- * <p>There are not enough resources allocated to the database migration.</p>
- * @public
- */
-export class InsufficientResourceCapacityFault extends __BaseException {
-  readonly name: "InsufficientResourceCapacityFault" = "InsufficientResourceCapacityFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientResourceCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientResourceCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientResourceCapacityFault.prototype);
-  }
-}
-
-/**
- * <p>The storage quota has been exceeded.</p>
- * @public
- */
-export class StorageQuotaExceededFault extends __BaseException {
-  readonly name: "StorageQuotaExceededFault" = "StorageQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StorageQuotaExceededFault, __BaseException>) {
-    super({
-      name: "StorageQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StorageQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -8985,26 +8116,6 @@ export interface DeleteEventSubscriptionResponse {
 }
 
 /**
- * <p>The specified collector doesn't exist.</p>
- * @public
- */
-export class CollectorNotFoundFault extends __BaseException {
-  readonly name: "CollectorNotFoundFault" = "CollectorNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CollectorNotFoundFault, __BaseException>) {
-    super({
-      name: "CollectorNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CollectorNotFoundFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteCollectorRequest {
@@ -9665,22 +8776,6 @@ export interface DescribeEndpointSettingsMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const EndpointSettingTypeValue = {
-  BOOLEAN: "boolean",
-  ENUM: "enum",
-  INTEGER: "integer",
-  STRING: "string",
-} as const;
-
-/**
- * @public
- */
-export type EndpointSettingTypeValue = (typeof EndpointSettingTypeValue)[keyof typeof EndpointSettingTypeValue];
-
-/**
  * <p>Endpoint settings.</p>
  * @public
  */
@@ -9886,20 +8981,6 @@ export interface DescribeEngineVersionsMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReleaseStatusValues = {
-  BETA: "beta",
-  PROD: "prod",
-} as const;
-
-/**
- * @public
- */
-export type ReleaseStatusValues = (typeof ReleaseStatusValues)[keyof typeof ReleaseStatusValues];
-
-/**
  * <p>Provides information about a replication instance version.</p>
  * @public
  */
@@ -10029,19 +9110,6 @@ export interface DescribeEventCategoriesResponse {
    */
   EventCategoryGroupList?: EventCategoryGroup[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  replication_instance: "replication-instance",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * <p></p>
@@ -10328,20 +9396,6 @@ export interface DescribeFleetAdvisorCollectorsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CollectorStatus = {
-  ACTIVE: "ACTIVE",
-  UNREGISTERED: "UNREGISTERED",
-} as const;
-
-/**
- * @public
- */
-export type CollectorStatus = (typeof CollectorStatus)[keyof typeof CollectorStatus];
-
-/**
  * <p>Describes the last Fleet Advisor collector health check.</p>
  * @public
  */
@@ -10389,21 +9443,6 @@ export interface InventoryData {
    */
   NumberOfSchemas?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VersionStatus = {
-  OUTDATED: "OUTDATED",
-  UNSUPPORTED: "UNSUPPORTED",
-  UP_TO_DATE: "UP_TO_DATE",
-} as const;
-
-/**
- * @public
- */
-export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
 
 /**
  * <p>Describes a Fleet Advisor collector.</p>
@@ -11195,20 +10234,6 @@ export interface DescribeInstanceProfilesResponse {
    */
   InstanceProfiles?: InstanceProfile[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OriginTypeValue = {
-  SOURCE: "SOURCE",
-  TARGET: "TARGET",
-} as const;
-
-/**
- * @public
- */
-export type OriginTypeValue = (typeof OriginTypeValue)[keyof typeof OriginTypeValue];
 
 /**
  * @public
@@ -12303,22 +11328,6 @@ export interface DescribeRefreshSchemasStatusMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const RefreshSchemasStatusTypeValue = {
-  FAILED: "failed",
-  REFRESHING: "refreshing",
-  SUCCESSFUL: "successful",
-} as const;
-
-/**
- * @public
- */
-export type RefreshSchemasStatusTypeValue =
-  (typeof RefreshSchemasStatusTypeValue)[keyof typeof RefreshSchemasStatusTypeValue];
-
-/**
  * <p>Provides information that describes status of a schema at an endpoint specified by the
  *             <code>DescribeRefreshSchemaStatus</code> operation.</p>
  * @public
@@ -12519,4 +11528,2678 @@ export interface ReplicationInstanceTaskLog {
    * @public
    */
   ReplicationInstanceTaskLogSize?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplicationInstanceTaskLogsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
+   * @public
+   */
+  ReplicationInstanceArn?: string | undefined;
+
+  /**
+   * <p>An array of replication task log metadata. Each member of the array contains the
+   *          replication task name, ARN, and task log size (in bytes). </p>
+   * @public
+   */
+  ReplicationInstanceTaskLogs?: ReplicationInstanceTaskLog[] | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationsMessage {
+  /**
+   * <p>Filters applied to the replications.</p>
+   *          <p> Valid filter names: <code>replication-config-arn</code> | <code>replication-config-id</code>
+   *          </p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
+   *          the response so that the remaining results can be retrieved. </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>The results returned in <code>describe-replications</code> to display the results of the
+ *          premigration assessment from the replication configuration.</p>
+ * @public
+ */
+export interface PremigrationAssessmentStatus {
+  /**
+   * <p>The Amazon Resource Name (ARN) of this assessment run.</p>
+   * @public
+   */
+  PremigrationAssessmentRunArn?: string | undefined;
+
+  /**
+   * <p>A configurable setting you can set to <code>true</code> (the defualt setting) or
+   *             <code>false</code>. Use this setting to to stop the replication from starting
+   *          automatically if the assessment fails. This can help you evaluate the issue that is
+   *          preventing the replication from running successfully.</p>
+   * @public
+   */
+  FailOnAssessmentFailure?: boolean | undefined;
+
+  /**
+   * <p>This describes the assessment run status. The status can be one of the following
+   *          values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>cancelling</code>: The assessment run was canceled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleting</code>: The assessment run was deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code>: At least one individual assessment completed with a failed
+   *                status. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>error-provisioning</code>: An internal error occurred while resources were
+   *                provisioned (during the <code>provisioning</code> status).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>error-executing</code> An internal error occurred while individual
+   *                assessments ran (during the <code>running</code> status).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>invalid state</code>: The assessment run is in an unknown state. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>passed</code>: All individual assessments have completed and none have a
+   *                failed status.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioning</code>: The resources required to run individual assessments
+   *                are being provisioned. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>running</code>: Individual assessments are being run. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>starting</code>: The assessment run is starting, but resources are not yet
+   *                being provisioned for individual assessments. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>warning</code>: At least one individual assessment completed with a warning
+   *                status. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The date which the assessment run was created.</p>
+   * @public
+   */
+  PremigrationAssessmentRunCreationDate?: Date | undefined;
+
+  /**
+   * <p>The progress values reported by the <code>AssessmentProgress</code> response
+   *          element.</p>
+   * @public
+   */
+  AssessmentProgress?: ReplicationTaskAssessmentRunProgress | undefined;
+
+  /**
+   * <p>The last message generated by an individual assessment failure.</p>
+   * @public
+   */
+  LastFailureMessage?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket that Database Migration Service Serverless created to store the results of this
+   *          assessment run.</p>
+   * @public
+   */
+  ResultLocationBucket?: string | undefined;
+
+  /**
+   * <p>The folder within an Amazon S3 bucket where you want Database Migration Service to store the results of
+   *          this assessment run.</p>
+   * @public
+   */
+  ResultLocationFolder?: string | undefined;
+
+  /**
+   * <p>The supported values are <code>SSE_KMS</code> and <code>SSE_S3</code>. If these values
+   *          are not provided, then the files are not encrypted at rest. For more information, see
+   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.KMSKeys">Creating Amazon Web Services KMS
+   *             keys to encrypt Amazon S3 target objects</a>.</p>
+   * @public
+   */
+  ResultEncryptionMode?: string | undefined;
+
+  /**
+   * <p>The ARN of a custom KMS encryption key that you specify when you set
+   *             <code>ResultEncryptionMode</code> to <code>SSE_KMS</code>.</p>
+   * @public
+   */
+  ResultKmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The object containing the result statistics for a completed assessment run.</p>
+   * @public
+   */
+  ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic | undefined;
+}
+
+/**
+ * <p>Information about provisioning resources for an DMS serverless replication.</p>
+ * @public
+ */
+export interface ProvisionData {
+  /**
+   * <p>The current provisioning state </p>
+   * @public
+   */
+  ProvisionState?: string | undefined;
+
+  /**
+   * <p>The number of capacity units the replication is using.</p>
+   * @public
+   */
+  ProvisionedCapacityUnits?: number | undefined;
+
+  /**
+   * <p>The timestamp when DMS provisioned replication resources.</p>
+   * @public
+   */
+  DateProvisioned?: Date | undefined;
+
+  /**
+   * <p>Whether the new provisioning is available to the replication.</p>
+   * @public
+   */
+  IsNewProvisioningAvailable?: boolean | undefined;
+
+  /**
+   * <p>The timestamp when provisioning became available.</p>
+   * @public
+   */
+  DateNewProvisioningDataAvailable?: Date | undefined;
+
+  /**
+   * <p>A message describing the reason that DMS provisioned new resources for the serverless
+   *          replication.</p>
+   * @public
+   */
+  ReasonForNewProvisioningData?: string | undefined;
+}
+
+/**
+ * <p>This object provides a collection of statistics about a serverless replication.</p>
+ * @public
+ */
+export interface ReplicationStats {
+  /**
+   * <p>The percent complete for the full load serverless replication.</p>
+   * @public
+   */
+  FullLoadProgressPercent?: number | undefined;
+
+  /**
+   * <p>The elapsed time of the replication, in milliseconds.</p>
+   * @public
+   */
+  ElapsedTimeMillis?: number | undefined;
+
+  /**
+   * <p>The number of tables loaded for this replication.</p>
+   * @public
+   */
+  TablesLoaded?: number | undefined;
+
+  /**
+   * <p>The number of tables currently loading for this replication.</p>
+   * @public
+   */
+  TablesLoading?: number | undefined;
+
+  /**
+   * <p>The number of tables queued for this replication.</p>
+   * @public
+   */
+  TablesQueued?: number | undefined;
+
+  /**
+   * <p>The number of errors that have occured for this replication.</p>
+   * @public
+   */
+  TablesErrored?: number | undefined;
+
+  /**
+   * <p>The date the replication was started either with a fresh start or a target
+   *          reload.</p>
+   * @public
+   */
+  FreshStartDate?: Date | undefined;
+
+  /**
+   * <p>The date the replication is scheduled to start.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date the replication was stopped.</p>
+   * @public
+   */
+  StopDate?: Date | undefined;
+
+  /**
+   * <p>The date the replication full load was started.</p>
+   * @public
+   */
+  FullLoadStartDate?: Date | undefined;
+
+  /**
+   * <p>The date the replication full load was finished.</p>
+   * @public
+   */
+  FullLoadFinishDate?: Date | undefined;
+}
+
+/**
+ * <p>Provides information that describes a serverless replication created by the
+ *             <code>CreateReplication</code> operation.</p>
+ * @public
+ */
+export interface Replication {
+  /**
+   * <p>The identifier for the <code>ReplicationConfig</code> associated with the
+   *          replication.</p>
+   * @public
+   */
+  ReplicationConfigIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name for the <code>ReplicationConfig</code> associated with the
+   *          replication.</p>
+   * @public
+   */
+  ReplicationConfigArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless
+   *          replication uses for its data source.</p>
+   * @public
+   */
+  SourceEndpointArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless
+   *          replication uses for its data target.</p>
+   * @public
+   */
+  TargetEndpointArn?: string | undefined;
+
+  /**
+   * <p>The type of the serverless replication.</p>
+   * @public
+   */
+  ReplicationType?: MigrationTypeValue | undefined;
+
+  /**
+   * <p>The current status of the serverless replication.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Information about provisioning resources for an DMS serverless replication.</p>
+   * @public
+   */
+  ProvisionData?: ProvisionData | undefined;
+
+  /**
+   * <p>The status output of premigration assessment in describe-replications.</p>
+   * @public
+   */
+  PremigrationAssessmentStatuses?: PremigrationAssessmentStatus[] | undefined;
+
+  /**
+   * <p>The reason the replication task was stopped. This response parameter can return one of
+   *          the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason NORMAL"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECOVERABLE_ERROR"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason FATAL_ERROR"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason FULL_LOAD_ONLY_FINISHED"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_FULL_LOAD"</code> – Full load
+   *                completed, with cached changes not applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_CACHED_EVENTS"</code> – Full
+   *                load completed, with cached changes applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_DDL_APPLY"</code> – User-defined
+   *                stop task after DDL applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_MEMORY"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_DISK"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AT_SERVER_TIME"</code> – User-defined
+   *                server time for stopping task</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AT_COMMIT_TIME"</code> – User-defined
+   *                commit time for stopping task</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECONFIGURATION_RESTART"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECYCLE_TASK"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StopReason?: string | undefined;
+
+  /**
+   * <p>Error and other information about why a serverless replication failed.</p>
+   * @public
+   */
+  FailureMessages?: string[] | undefined;
+
+  /**
+   * <p>This object provides a collection of statistics about a serverless replication.</p>
+   * @public
+   */
+  ReplicationStats?: ReplicationStats | undefined;
+
+  /**
+   * <p>The type of replication to start.</p>
+   * @public
+   */
+  StartReplicationType?: string | undefined;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
+   *             <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a
+   *          CDC operation to start. Specifying both values results in an error.</p>
+   * @public
+   */
+  CdcStartTime?: Date | undefined;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
+   *             <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a
+   *          CDC operation to start. Specifying both values results in an error.</p>
+   * @public
+   */
+  CdcStartPosition?: string | undefined;
+
+  /**
+   * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
+   *          either server time or commit time.</p>
+   * @public
+   */
+  CdcStopPosition?: string | undefined;
+
+  /**
+   * <p>Indicates the last checkpoint that occurred during a change data capture (CDC)
+   *          operation. You can provide this value to the <code>CdcStartPosition</code> parameter to
+   *          start a CDC operation that begins at that checkpoint.</p>
+   * @public
+   */
+  RecoveryCheckpoint?: string | undefined;
+
+  /**
+   * <p>The time the serverless replication was created.</p>
+   * @public
+   */
+  ReplicationCreateTime?: Date | undefined;
+
+  /**
+   * <p>The time the serverless replication was updated.</p>
+   * @public
+   */
+  ReplicationUpdateTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when replication was last stopped.</p>
+   * @public
+   */
+  ReplicationLastStopTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when DMS will deprovision the replication.</p>
+   * @public
+   */
+  ReplicationDeprovisionTime?: Date | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationsResponse {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The replication descriptions.</p>
+   * @public
+   */
+  Replications?: Replication[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationSubnetGroupsMessage {
+  /**
+   * <p>Filters applied to replication subnet groups.</p>
+   *          <p>Valid filter names: replication-subnet-group-id</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationSubnetGroupsResponse {
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A description of the replication subnet groups.</p>
+   * @public
+   */
+  ReplicationSubnetGroups?: ReplicationSubnetGroup[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTableStatisticsMessage {
+  /**
+   * <p>The replication config to describe.</p>
+   * @public
+   */
+  ReplicationConfigArn: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
+   *          the response so that the remaining results can be retrieved. </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Filters applied to the replication table statistics.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Provides a collection of table statistics in response to a request by the
+ *             <code>DescribeTableStatistics</code> operation.</p>
+ * @public
+ */
+export interface TableStatistics {
+  /**
+   * <p>The schema name.</p>
+   * @public
+   */
+  SchemaName?: string | undefined;
+
+  /**
+   * <p>The name of the table.</p>
+   * @public
+   */
+  TableName?: string | undefined;
+
+  /**
+   * <p>The number of insert actions performed on a table.</p>
+   * @public
+   */
+  Inserts?: number | undefined;
+
+  /**
+   * <p>The number of delete actions performed on a table.</p>
+   * @public
+   */
+  Deletes?: number | undefined;
+
+  /**
+   * <p>The number of update actions performed on a table.</p>
+   * @public
+   */
+  Updates?: number | undefined;
+
+  /**
+   * <p>The data definition language (DDL) used to build and modify the structure of your
+   *          tables.</p>
+   * @public
+   */
+  Ddls?: number | undefined;
+
+  /**
+   * <p>The number of insert actions applied on a target table.</p>
+   * @public
+   */
+  AppliedInserts?: number | undefined;
+
+  /**
+   * <p>The number of delete actions applied on a target table.</p>
+   * @public
+   */
+  AppliedDeletes?: number | undefined;
+
+  /**
+   * <p>The number of update actions applied on a target table.</p>
+   * @public
+   */
+  AppliedUpdates?: number | undefined;
+
+  /**
+   * <p>The number of data definition language (DDL) statements used to build and modify the
+   *          structure of your tables applied on the target.</p>
+   * @public
+   */
+  AppliedDdls?: number | undefined;
+
+  /**
+   * <p>The number of rows added during the full load operation.</p>
+   * @public
+   */
+  FullLoadRows?: number | undefined;
+
+  /**
+   * <p>The number of rows that failed conditional checks during the full load operation (valid
+   *          only for migrations where DynamoDB is the target).</p>
+   * @public
+   */
+  FullLoadCondtnlChkFailedRows?: number | undefined;
+
+  /**
+   * <p>The number of rows that failed to load during the full load operation (valid only for
+   *          migrations where DynamoDB is the target).</p>
+   * @public
+   */
+  FullLoadErrorRows?: number | undefined;
+
+  /**
+   * <p>The time when the full load operation started.</p>
+   * @public
+   */
+  FullLoadStartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the full load operation completed.</p>
+   * @public
+   */
+  FullLoadEndTime?: Date | undefined;
+
+  /**
+   * <p>A value that indicates if the table was reloaded (<code>true</code>) or loaded as part
+   *          of a new full load operation (<code>false</code>).</p>
+   * @public
+   */
+  FullLoadReloaded?: boolean | undefined;
+
+  /**
+   * <p>The last time a table was updated.</p>
+   * @public
+   */
+  LastUpdateTime?: Date | undefined;
+
+  /**
+   * <p>The state of the tables described.</p>
+   *          <p>Valid states: Table does not exist | Before load | Full load | Table completed | Table
+   *          cancelled | Table error | Table is being reloaded</p>
+   * @public
+   */
+  TableState?: string | undefined;
+
+  /**
+   * <p>The number of records that have yet to be validated.</p>
+   * @public
+   */
+  ValidationPendingRecords?: number | undefined;
+
+  /**
+   * <p>The number of records that failed validation.</p>
+   * @public
+   */
+  ValidationFailedRecords?: number | undefined;
+
+  /**
+   * <p>The number of records that couldn't be validated.</p>
+   * @public
+   */
+  ValidationSuspendedRecords?: number | undefined;
+
+  /**
+   * <p>The validation state of the table.</p>
+   *          <p>This parameter can have the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Not enabled – Validation isn't enabled for the table in the migration
+   *                task.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending records – Some records in the table are waiting for
+   *                validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Mismatched records – Some records in the table don't match between the
+   *                source and target.</p>
+   *             </li>
+   *             <li>
+   *                <p>Suspended records – Some records in the table couldn't be
+   *                validated.</p>
+   *             </li>
+   *             <li>
+   *                <p>No primary key –The table couldn't be validated because it has no
+   *                primary key.</p>
+   *             </li>
+   *             <li>
+   *                <p>Table error – The table wasn't validated because it's in an error
+   *                state and some data wasn't migrated.</p>
+   *             </li>
+   *             <li>
+   *                <p>Validated – All rows in the table are validated. If the table is updated,
+   *                the status can change from Validated.</p>
+   *             </li>
+   *             <li>
+   *                <p>Error – The table couldn't be validated because of an unexpected
+   *                error.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending validation – The table is waiting validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Preparing table – Preparing the table enabled in the migration task for
+   *                validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending revalidation – All rows in the table are pending validation after
+   *                the table was updated.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ValidationState?: string | undefined;
+
+  /**
+   * <p>Additional details about the state of validation.</p>
+   * @public
+   */
+  ValidationStateDetails?: string | undefined;
+
+  /**
+   * <p>Records the current state of table resynchronization in the migration task.</p>
+   *          <p>This parameter can have the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Not enabled – Resync is not enabled for the table in the migration task.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending – The tables are waiting for resync.</p>
+   *             </li>
+   *             <li>
+   *                <p>In progress – Resync in progress for some records in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>No primary key – The table could not be resynced because it has no primary key.</p>
+   *             </li>
+   *             <li>
+   *                <p>Last resync at: <code>date/time</code> – Resync session is finished at time. Time provided in UTC format.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResyncState?: string | undefined;
+
+  /**
+   * <p>Records the total number of mismatched data rows where the system attempted to apply
+   *          fixes in the target database.</p>
+   * @public
+   */
+  ResyncRowsAttempted?: number | undefined;
+
+  /**
+   * <p>Records the total number of mismatched data rows where fixes were successfully applied in the target database.</p>
+   * @public
+   */
+  ResyncRowsSucceeded?: number | undefined;
+
+  /**
+   * <p>Records the total number of mismatched data rows where fix attempts failed in the target
+   *          database.</p>
+   * @public
+   */
+  ResyncRowsFailed?: number | undefined;
+
+  /**
+   * <p>Calculates the percentage of failed validations that were successfully resynced to the system.</p>
+   * @public
+   */
+  ResyncProgress?: number | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTableStatisticsResponse {
+  /**
+   * <p>The Amazon Resource Name of the replication config.</p>
+   * @public
+   */
+  ReplicationConfigArn?: string | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Returns table statistics on the replication, including table name, rows inserted, rows
+   *          updated, and rows deleted.</p>
+   * @public
+   */
+  ReplicationTableStatistics?: TableStatistics[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskAssessmentResultsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input
+   *          parameter is specified, the API returns only one result and ignore the values of the
+   *             <code>MaxRecords</code> and <code>Marker</code> parameters. </p>
+   * @public
+   */
+  ReplicationTaskArn?: string | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p> The task assessment report in JSON format. </p>
+ * @public
+ */
+export interface ReplicationTaskAssessmentResult {
+  /**
+   * <p> The replication task identifier of the task on which the task assessment was run.
+   *       </p>
+   * @public
+   */
+  ReplicationTaskIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication task. </p>
+   * @public
+   */
+  ReplicationTaskArn?: string | undefined;
+
+  /**
+   * <p>The date the task assessment was completed. </p>
+   * @public
+   */
+  ReplicationTaskLastAssessmentDate?: Date | undefined;
+
+  /**
+   * <p> The status of the task assessment. </p>
+   * @public
+   */
+  AssessmentStatus?: string | undefined;
+
+  /**
+   * <p> The file containing the results of the task assessment. </p>
+   * @public
+   */
+  AssessmentResultsFile?: string | undefined;
+
+  /**
+   * <p> The task assessment results in JSON format. </p>
+   *          <p>The response object only contains this field if you provide <a>DescribeReplicationTaskAssessmentResultsMessage$ReplicationTaskArn</a> in the
+   *          request.</p>
+   * @public
+   */
+  AssessmentResults?: string | undefined;
+
+  /**
+   * <p> The URL of the S3 object containing the task assessment results. </p>
+   *          <p>The response object only contains this field if you provide <a>DescribeReplicationTaskAssessmentResultsMessage$ReplicationTaskArn</a> in the
+   *          request.</p>
+   * @public
+   */
+  S3ObjectUrl?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskAssessmentResultsResponse {
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>- The Amazon S3 bucket where the task assessment report is located. </p>
+   * @public
+   */
+  BucketName?: string | undefined;
+
+  /**
+   * <p> The task assessment report. </p>
+   * @public
+   */
+  ReplicationTaskAssessmentResults?: ReplicationTaskAssessmentResult[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskAssessmentRunsMessage {
+  /**
+   * <p>Filters applied to the premigration assessment runs described in the form of key-value
+   *          pairs.</p>
+   *          <p>Valid filter names: <code>replication-task-assessment-run-arn</code>,
+   *             <code>replication-task-arn</code>, <code>replication-instance-arn</code>,
+   *             <code>status</code>
+   *          </p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
+   *          the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskAssessmentRunsResponse {
+  /**
+   * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
+   *          token as the <code>Marker</code> value in a subsequent request, the response includes only
+   *          records beyond the marker, up to the value specified in the request by
+   *             <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>One or more premigration assessment runs as specified by <code>Filters</code>.</p>
+   * @public
+   */
+  ReplicationTaskAssessmentRuns?: ReplicationTaskAssessmentRun[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskIndividualAssessmentsMessage {
+  /**
+   * <p>Filters applied to the individual assessments described in the form of key-value
+   *          pairs.</p>
+   *          <p>Valid filter names: <code>replication-task-assessment-run-arn</code>,
+   *             <code>replication-task-arn</code>, <code>status</code>
+   *          </p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
+   *          the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Provides information that describes an individual assessment from a premigration
+ *          assessment run.</p>
+ * @public
+ */
+export interface ReplicationTaskIndividualAssessment {
+  /**
+   * <p>Amazon Resource Name (ARN) of this individual assessment.</p>
+   * @public
+   */
+  ReplicationTaskIndividualAssessmentArn?: string | undefined;
+
+  /**
+   * <p>ARN of the premigration assessment run that is created to run this individual
+   *          assessment.</p>
+   * @public
+   */
+  ReplicationTaskAssessmentRunArn?: string | undefined;
+
+  /**
+   * <p>Name of this individual assessment.</p>
+   * @public
+   */
+  IndividualAssessmentName?: string | undefined;
+
+  /**
+   * <p>Individual assessment status.</p>
+   *          <p>This status can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"cancelled"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"error"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"failed"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"passed"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"pending"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"skipped"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"running"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Date when this individual assessment was started as part of running the
+   *             <code>StartReplicationTaskAssessmentRun</code> operation.</p>
+   * @public
+   */
+  ReplicationTaskIndividualAssessmentStartDate?: Date | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTaskIndividualAssessmentsResponse {
+  /**
+   * <p>A pagination token returned for you to pass to a subsequent request. If you pass this
+   *          token as the <code>Marker</code> value in a subsequent request, the response includes only
+   *          records beyond the marker, up to the value specified in the request by
+   *             <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>One or more individual assessments as specified by <code>Filters</code>.</p>
+   * @public
+   */
+  ReplicationTaskIndividualAssessments?: ReplicationTaskIndividualAssessment[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTasksMessage {
+  /**
+   * <p>Filters applied to replication tasks.</p>
+   *          <p>Valid filter names: replication-task-arn | replication-task-id | migration-type |
+   *          endpoint-arn | replication-instance-arn</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>An option to set to avoid returning information about settings. Use this to reduce
+   *          overhead when setting information is too large. To use this option, choose
+   *             <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
+   * @public
+   */
+  WithoutSettings?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReplicationTasksResponse {
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A description of the replication tasks.</p>
+   * @public
+   */
+  ReplicationTasks?: ReplicationTask[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeSchemasMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeSchemasResponse {
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The described schema.</p>
+   * @public
+   */
+  Schemas?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeTableStatisticsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
+   * @public
+   */
+  ReplicationTaskArn: string | undefined;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
+   *          in the response so that the remaining results can be retrieved. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 500.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Filters applied to table statistics.</p>
+   *          <p>Valid filter names: schema-name | table-name | table-state</p>
+   *          <p>A combination of filters creates an AND condition where each record matches all
+   *          specified filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeTableStatisticsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
+   * @public
+   */
+  ReplicationTaskArn?: string | undefined;
+
+  /**
+   * <p>The table statistics.</p>
+   * @public
+   */
+  TableStatistics?: TableStatistics[] | undefined;
+
+  /**
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *          specified, the response includes only records beyond the marker, up to the value specified
+   *          by <code>MaxRecords</code>. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportMetadataModelAssessmentMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>A value that specifies the database objects to assess.</p>
+   * @public
+   */
+  SelectionRules: string | undefined;
+
+  /**
+   * <p>The name of the assessment file to create in your Amazon S3 bucket.</p>
+   * @public
+   */
+  FileName?: string | undefined;
+
+  /**
+   * <p>The file format of the assessment file.</p>
+   * @public
+   */
+  AssessmentReportTypes?: AssessmentReportType[] | undefined;
+}
+
+/**
+ * <p>Provides information about an exported metadata model assessment.</p>
+ * @public
+ */
+export interface ExportMetadataModelAssessmentResultEntry {
+  /**
+   * <p>The object key for the object containing the exported metadata model assessment.</p>
+   * @public
+   */
+  S3ObjectKey?: string | undefined;
+
+  /**
+   * <p>The URL for the object containing the exported metadata model assessment.</p>
+   * @public
+   */
+  ObjectURL?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportMetadataModelAssessmentResponse {
+  /**
+   * <p>The Amazon S3 details for an assessment exported in PDF format.</p>
+   * @public
+   */
+  PdfReport?: ExportMetadataModelAssessmentResultEntry | undefined;
+
+  /**
+   * <p>The Amazon S3 details for an assessment exported in CSV format.</p>
+   * @public
+   */
+  CsvReport?: ExportMetadataModelAssessmentResultEntry | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTargetSelectionRulesMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The JSON string representing the source selection rules for conversion. Selection rules must contain only supported metadata model types. For more information, see Selection Rules in the DMS User Guide.</p>
+   * @public
+   */
+  SelectionRules: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTargetSelectionRulesResponse {
+  /**
+   * <p>The JSON string representing the counterpart selection rules in the target.</p>
+   * @public
+   */
+  TargetSelectionRules?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportCertificateMessage {
+  /**
+   * <p>A customer-assigned name for the certificate. Identifiers must begin with a letter and
+   *          must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or
+   *          contain two consecutive hyphens.</p>
+   * @public
+   */
+  CertificateIdentifier: string | undefined;
+
+  /**
+   * <p>The contents of a <code>.pem</code> file, which contains an X.509 certificate.</p>
+   * @public
+   */
+  CertificatePem?: string | undefined;
+
+  /**
+   * <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name
+   *          of a <code>.sso</code> file using the <code>fileb://</code> prefix. You can't provide the
+   *          certificate inline.</p>
+   *          <p>Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
+   *          </p>
+   * @public
+   */
+  CertificateWallet?: Uint8Array | undefined;
+
+  /**
+   * <p>The tags associated with the certificate.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportCertificateResponse {
+  /**
+   * <p>The certificate to be uploaded.</p>
+   * @public
+   */
+  Certificate?: Certificate | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListTagsForResourceMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to
+   *          list tags for. This returns a list of keys (names of tags) created for the resource and
+   *          their associated tag values.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>List of ARNs that identify multiple DMS resources that you want to list tags for. This
+   *          returns a list of keys (tag names) and their associated tag values. It also returns each
+   *          tag's associated <code>ResourceArn</code> value, which is the ARN of the resource for which
+   *          each listed tag is created. </p>
+   * @public
+   */
+  ResourceArnList?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tags for the resource.</p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyConversionConfigurationMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The new conversion configuration.</p>
+   * @public
+   */
+  ConversionConfiguration: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyConversionConfigurationResponse {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of  the modified configuration.</p>
+   * @public
+   */
+  MigrationProjectIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataMigrationMessage {
+  /**
+   * <p>The identifier (name or ARN) of the data migration to modify.</p>
+   * @public
+   */
+  DataMigrationIdentifier: string | undefined;
+
+  /**
+   * <p>The new name for the data migration.</p>
+   * @public
+   */
+  DataMigrationName?: string | undefined;
+
+  /**
+   * <p>Whether to enable Cloudwatch logs for the data migration.</p>
+   * @public
+   */
+  EnableCloudwatchLogs?: boolean | undefined;
+
+  /**
+   * <p>The new service access role ARN for the data migration.</p>
+   * @public
+   */
+  ServiceAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>The new migration type for the data migration.</p>
+   * @public
+   */
+  DataMigrationType?: MigrationTypeValue | undefined;
+
+  /**
+   * <p>The new information about the source data provider for the data migration.</p>
+   * @public
+   */
+  SourceDataSettings?: SourceDataSetting[] | undefined;
+
+  /**
+   * <p>The new information about the target data provider for the data migration.</p>
+   * @public
+   */
+  TargetDataSettings?: TargetDataSetting[] | undefined;
+
+  /**
+   * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the
+   *          source, and then load them to the target.</p>
+   * @public
+   */
+  NumberOfJobs?: number | undefined;
+
+  /**
+   * <p>A JSON-formatted string that defines what objects to include and exclude from the
+   *          migration.</p>
+   * @public
+   */
+  SelectionRules?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataMigrationResponse {
+  /**
+   * <p>Information about the modified data migration.</p>
+   * @public
+   */
+  DataMigration?: DataMigration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataProviderMessage {
+  /**
+   * <p>The identifier of the data provider. Identifiers must begin with a letter
+   *          and must contain only ASCII letters, digits, and hyphens. They can't end with
+   *          a hyphen, or contain two consecutive hyphens.</p>
+   * @public
+   */
+  DataProviderIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the data provider.</p>
+   * @public
+   */
+  DataProviderName?: string | undefined;
+
+  /**
+   * <p>A user-friendly description of the data provider.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
+   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>Indicates whether the data provider is virtual.</p>
+   * @public
+   */
+  Virtual?: boolean | undefined;
+
+  /**
+   * <p>If this attribute is Y, the current call to <code>ModifyDataProvider</code> replaces all
+   *          existing data provider settings with the exact settings that you specify in this call. If this
+   *          attribute is N, the current call to <code>ModifyDataProvider</code> does two things: </p>
+   *          <ul>
+   *             <li>
+   *                <p>It replaces any data provider settings that already exist with new values,
+   *             for settings with the same names.</p>
+   *             </li>
+   *             <li>
+   *                <p>It creates new data provider settings that you specify in the call,
+   *             for settings with different names. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ExactSettings?: boolean | undefined;
+
+  /**
+   * <p>The settings in JSON format for a data provider.</p>
+   * @public
+   */
+  Settings?: DataProviderSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataProviderResponse {
+  /**
+   * <p>The data provider that was modified.</p>
+   * @public
+   */
+  DataProvider?: DataProvider | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyEndpointMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The database endpoint identifier. Identifiers must begin with a letter and must contain
+   *          only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two
+   *          consecutive hyphens.</p>
+   * @public
+   */
+  EndpointIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of endpoint. Valid values are <code>source</code> and
+   *          <code>target</code>.</p>
+   * @public
+   */
+  EndpointType?: ReplicationEndpointTypeValue | undefined;
+
+  /**
+   * <p>The database engine name. Valid values, depending on the EndpointType, include
+   *             <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *             <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *             <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *             <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
+   *             <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+   *             <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+   *             <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
+   * @public
+   */
+  EngineName?: string | undefined;
+
+  /**
+   * <p>The user name to be used to login to the endpoint database.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>The password to be used to login to the endpoint database.</p>
+   * @public
+   */
+  Password?: string | undefined;
+
+  /**
+   * <p>The name of the server where the endpoint database resides.</p>
+   * @public
+   */
+  ServerName?: string | undefined;
+
+  /**
+   * <p>The port used by the endpoint database.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify
+   *          DatabaseName.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>Additional attributes associated with the connection. To reset this parameter, pass the
+   *          empty string ("") as an argument.</p>
+   * @public
+   */
+  ExtraConnectionAttributes?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>The SSL mode used to connect to the endpoint. The default value is
+   *          <code>none</code>.</p>
+   * @public
+   */
+  SslMode?: DmsSslModeValue | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify the endpoint.
+   *          The role must allow the <code>iam:PassRole</code> action.</p>
+   * @public
+   */
+  ServiceAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>The external table definition.</p>
+   * @public
+   */
+  ExternalTableDefinition?: string | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate Data to DynamoDB</a> in the <i>Database Migration Service
+   *             User Guide.</i>
+   *          </p>
+   * @public
+   */
+  DynamoDbSettings?: DynamoDbSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+   *             Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  S3Settings?: S3Settings | undefined;
+
+  /**
+   * <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
+   *          <p>Attributes include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access
+   *                IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
+   *             </li>
+   *             <li>
+   *                <p>BucketName - The name of the S3 bucket to use.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string
+   *             ,BucketName=string</code>
+   *          </p>
+   *          <p>JSON syntax for these settings is as follows: <code>\{ "ServiceAccessRoleArn": "string",
+   *             "BucketName": "string"\} </code>
+   *          </p>
+   * @public
+   */
+  DmsTransferSettings?: DmsTransferSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
+   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings when using MongoDB as a source for Database Migration Service</a> in
+   *          the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  MongoDbSettings?: MongoDbSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
+   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to migrate data to a Kinesis data stream</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  KinesisSettings?: KinesisSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using
+   *             object mapping to migrate data to a Kafka topic</a> in the <i>Database Migration Service User
+   *             Guide.</i>
+   *          </p>
+   * @public
+   */
+  KafkaSettings?: KafkaSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target OpenSearch endpoint. For more
+   *          information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for
+   *             DMS</a> in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  ElasticsearchSettings?: ElasticsearchSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target Amazon Neptune endpoint. For more information
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon
+   *             Neptune as a target</a> in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  NeptuneSettings?: NeptuneSettings | undefined;
+
+  /**
+   * <p>Provides information that defines an Amazon Redshift endpoint.</p>
+   * @public
+   */
+  RedshiftSettings?: RedshiftSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection attributes when using PostgreSQL as a source for DMS</a> and
+   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib"> Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  PostgreSQLSettings?: PostgreSQLSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection attributes when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra connection attributes when using a MySQL-compatible database as a target for
+   *             DMS</a> in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  MySQLSettings?: MySQLSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection attributes when using Oracle as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
+   *             Extra connection attributes when using Oracle as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  OracleSettings?: OracleSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra
+   *             connection attributes when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra
+   *             connection attributes when using SAP ASE as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  SybaseSettings?: SybaseSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
+   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection attributes when using SQL Server as a source for DMS</a> and
+   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib"> Extra connection attributes when using SQL Server as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
+   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra
+   *             connection attributes when using Db2 LUW as a source for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  IBMDb2Settings?: IBMDb2Settings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source DocumentDB endpoint. For more information about
+   *          the available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using
+   *             DocumentDB as a Target for Database Migration Service </a> in the <i>Database Migration Service User
+   *             Guide.</i>
+   *          </p>
+   * @public
+   */
+  DocDbSettings?: DocDbSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the Redis target endpoint.</p>
+   * @public
+   */
+  RedisSettings?: RedisSettings | undefined;
+
+  /**
+   * <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all
+   *          existing endpoint settings with the exact settings that you specify in this call. If this
+   *          attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
+   *          <ul>
+   *             <li>
+   *                <p>It replaces any endpoint settings that already exist with new values, for settings
+   *                with the same names.</p>
+   *             </li>
+   *             <li>
+   *                <p>It creates new endpoint settings that you specify in the call, for settings with
+   *                different names. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '\{"a":1\}'
+   *             ...</code>, the endpoint has the following endpoint settings: <code>'\{"a":1\}'</code>. If
+   *          you then call <code>modify-endpoint ... --endpoint-settings '\{"b":2\}' ...</code> for the
+   *          same endpoint, the endpoint has the following settings: <code>'\{"a":1,"b":2\}'</code>. </p>
+   *          <p>However, suppose that you follow this with a call to <code>modify-endpoint ...
+   *             --endpoint-settings '\{"b":2\}' --exact-settings ...</code> for that same endpoint again.
+   *          Then the endpoint has the following settings: <code>'\{"b":2\}'</code>. All existing settings
+   *          are replaced with the exact settings that you specify. </p>
+   * @public
+   */
+  ExactSettings?: boolean | undefined;
+
+  /**
+   * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
+   * @public
+   */
+  GcpMySQLSettings?: GcpMySQLSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
+   * @public
+   */
+  TimestreamSettings?: TimestreamSettings | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyEndpointResponse {
+  /**
+   * <p>The modified endpoint.</p>
+   * @public
+   */
+  Endpoint?: Endpoint | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyEventSubscriptionMessage {
+  /**
+   * <p>The name of the DMS event notification subscription to be modified.</p>
+   * @public
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification.
+   *          The ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
+   * @public
+   */
+  SnsTopicArn?: string | undefined;
+
+  /**
+   * <p> The type of DMS resource that generates the events you want to subscribe to. </p>
+   *          <p>Valid values: replication-instance | replication-task</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p> A list of event categories for a source type that you want to subscribe to. Use the
+   *             <code>DescribeEventCategories</code> action to see a list of event categories. </p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+
+  /**
+   * <p> A Boolean value; set to <b>true</b> to activate the
+   *          subscription. </p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyEventSubscriptionResponse {
+  /**
+   * <p>The modified event subscription.</p>
+   * @public
+   */
+  EventSubscription?: EventSubscription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceProfileMessage {
+  /**
+   * <p>The identifier of the instance profile. Identifiers must begin with a letter and must contain
+   *          only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive
+   *          hyphens.</p>
+   * @public
+   */
+  InstanceProfileIdentifier: string | undefined;
+
+  /**
+   * <p>The Availability Zone where the instance profile runs.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key that is used to encrypt
+   *          the connection parameters for the instance profile.</p>
+   *          <p>If you don't specify a value for the <code>KmsKeyArn</code> parameter, then
+   *          DMS uses an Amazon Web Services owned encryption key to encrypt your resources.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
+   * <p>Specifies the accessibility options for the instance profile. A value of
+   *          <code>true</code> represents an instance profile with a public IP address. A value of
+   *          <code>false</code> represents an instance profile with a private IP address. The default value
+   *          is <code>true</code>.</p>
+   * @public
+   */
+  PubliclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>Specifies the network type for the instance profile. A value of <code>IPV4</code>
+   *          represents an instance profile with IPv4 network type and only supports IPv4 addressing.
+   *          A value of <code>IPV6</code> represents an instance profile with IPv6 network type
+   *          and only supports IPv6 addressing. A value of <code>DUAL</code> represents an instance
+   *          profile with dual network type that supports IPv4 and IPv6 addressing.</p>
+   * @public
+   */
+  NetworkType?: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the instance profile.</p>
+   * @public
+   */
+  InstanceProfileName?: string | undefined;
+
+  /**
+   * <p>A user-friendly description for the instance profile.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A subnet group to associate with the instance profile.</p>
+   * @public
+   */
+  SubnetGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies the VPC security groups to be used with the instance profile.
+   *          The VPC security group must work with the VPC containing the instance profile.</p>
+   * @public
+   */
+  VpcSecurityGroups?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceProfileResponse {
+  /**
+   * <p>The instance profile that was modified.</p>
+   * @public
+   */
+  InstanceProfile?: InstanceProfile | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyMigrationProjectMessage {
+  /**
+   * <p>The identifier of the migration project. Identifiers must begin with a letter
+   *          and must contain only ASCII letters, digits, and hyphens. They can't end with
+   *          a hyphen, or contain two consecutive hyphens.</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the migration project.</p>
+   * @public
+   */
+  MigrationProjectName?: string | undefined;
+
+  /**
+   * <p>Information about the source data provider, including the name, ARN, and Amazon Web Services Secrets Manager parameters.</p>
+   * @public
+   */
+  SourceDataProviderDescriptors?: DataProviderDescriptorDefinition[] | undefined;
+
+  /**
+   * <p>Information about the target data provider, including the name, ARN, and Amazon Web Services Secrets Manager parameters.</p>
+   * @public
+   */
+  TargetDataProviderDescriptors?: DataProviderDescriptorDefinition[] | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) for the instance profile.</p>
+   * @public
+   */
+  InstanceProfileIdentifier?: string | undefined;
+
+  /**
+   * <p>The settings in JSON format for migration rules. Migration rules make it possible for you to change
+   *          the object names according to the rules that you specify. For example, you can change an object name
+   *          to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
+   * @public
+   */
+  TransformationRules?: string | undefined;
+
+  /**
+   * <p>A user-friendly description of the migration project.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.</p>
+   * @public
+   */
+  SchemaConversionApplicationAttributes?: SCApplicationAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyMigrationProjectResponse {
+  /**
+   * <p>The migration project that was modified.</p>
+   * @public
+   */
+  MigrationProject?: MigrationProject | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationConfigMessage {
+  /**
+   * <p>The Amazon Resource Name of the replication to modify.</p>
+   * @public
+   */
+  ReplicationConfigArn: string | undefined;
+
+  /**
+   * <p>The new replication config to apply to the replication.</p>
+   * @public
+   */
+  ReplicationConfigIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of replication.</p>
+   * @public
+   */
+  ReplicationType?: MigrationTypeValue | undefined;
+
+  /**
+   * <p>Table mappings specified in the replication.</p>
+   * @public
+   */
+  TableMappings?: string | undefined;
+
+  /**
+   * <p>The settings for the replication.</p>
+   * @public
+   */
+  ReplicationSettings?: string | undefined;
+
+  /**
+   * <p>Additional settings for the replication.</p>
+   * @public
+   */
+  SupplementalSettings?: string | undefined;
+
+  /**
+   * <p>Configuration parameters for provisioning an DMS Serverless replication.</p>
+   * @public
+   */
+  ComputeConfig?: ComputeConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint for this DMS serverless
+   *          replication configuration.</p>
+   * @public
+   */
+  SourceEndpointArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target endpoint for this DMS serverless
+   *          replication configuration.</p>
+   * @public
+   */
+  TargetEndpointArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyReplicationConfigResponse {
+  /**
+   * <p>Information about the serverless replication config that was modified.</p>
+   * @public
+   */
+  ReplicationConfig?: ReplicationConfig | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationInstanceMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
+   * @public
+   */
+  ReplicationInstanceArn: string | undefined;
+
+  /**
+   * <p>The amount of storage (in gigabytes) to be allocated for the replication
+   *          instance.</p>
+   * @public
+   */
+  AllocatedStorage?: number | undefined;
+
+  /**
+   * <p>Indicates whether the changes should be applied immediately or during the next
+   *          maintenance window.</p>
+   * @public
+   */
+  ApplyImmediately?: boolean | undefined;
+
+  /**
+   * <p>The compute and memory capacity of the replication instance as defined for the specified
+   *          replication instance class. For example to specify the instance class dms.c4.large, set
+   *          this parameter to <code>"dms.c4.large"</code>.</p>
+   *          <p>For more information on the settings and capacities for the available replication
+   *          instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth"> Selecting the right DMS replication instance for your
+   *             migration</a>. </p>
+   * @public
+   */
+  ReplicationInstanceClass?: string | undefined;
+
+  /**
+   * <p> Specifies the VPC security group to be used with the replication instance. The VPC
+   *          security group must work with the VPC containing the replication instance. </p>
+   * @public
+   */
+  VpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The weekly time range (in UTC) during which system maintenance can occur, which might
+   *          result in an outage. Changing this parameter does not result in an outage, except in the
+   *          following situation, and the change is asynchronously applied as soon as possible. If
+   *          moving this window to the current time, there must be at least 30 minutes between the
+   *          current time and end of the window to ensure pending changes are applied.</p>
+   *          <p>Default: Uses existing setting</p>
+   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
+   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *          <p>Constraints: Must be at least 30 minutes</p>
+   * @public
+   */
+  PreferredMaintenanceWindow?: string | undefined;
+
+  /**
+   * <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set
+   *          the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to
+   *             <code>true</code>. </p>
+   * @public
+   */
+  MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>The engine version number of the replication instance.</p>
+   *          <p>When modifying a major engine version of an instance, also set
+   *             <code>AllowMajorVersionUpgrade</code> to <code>true</code>.</p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>Indicates that major version upgrades are allowed. Changing this parameter does not
+   *          result in an outage, and the change is asynchronously applied as soon as possible.</p>
+   *          <p>This parameter must be set to <code>true</code> when specifying a value for the
+   *             <code>EngineVersion</code> parameter that is a different major version than the
+   *          replication instance's current version.</p>
+   * @public
+   */
+  AllowMajorVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>A value that indicates that minor version upgrades are applied automatically to the
+   *          replication instance during the maintenance window. Changing this parameter doesn't result
+   *          in an outage, except in the case described following. The change is asynchronously applied
+   *          as soon as possible. </p>
+   *          <p>An outage does result if these factors apply: </p>
+   *          <ul>
+   *             <li>
+   *                <p>This parameter is set to <code>true</code> during the maintenance window.</p>
+   *             </li>
+   *             <li>
+   *                <p>A newer minor version is available. </p>
+   *             </li>
+   *             <li>
+   *                <p>DMS has enabled automatic patching for the given engine version. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AutoMinorVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>The replication instance identifier. This parameter is stored as a lowercase
+   *          string.</p>
+   * @public
+   */
+  ReplicationInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of IP address protocol used by a replication instance, such as IPv4 only or
+   *          Dual-stack that supports both IPv4 and IPv6 addressing. IPv6 only is not yet
+   *          supported.</p>
+   * @public
+   */
+  NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies the settings required for kerberos authentication when modifying a replication
+   *          instance.</p>
+   * @public
+   */
+  KerberosAuthenticationSettings?: KerberosAuthenticationSettings | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationInstanceResponse {
+  /**
+   * <p>The modified replication instance.</p>
+   * @public
+   */
+  ReplicationInstance?: ReplicationInstance | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationSubnetGroupMessage {
+  /**
+   * <p>The name of the replication instance subnet group.</p>
+   * @public
+   */
+  ReplicationSubnetGroupIdentifier: string | undefined;
+
+  /**
+   * <p>A description for the replication instance subnet group.</p>
+   * @public
+   */
+  ReplicationSubnetGroupDescription?: string | undefined;
+
+  /**
+   * <p>A list of subnet IDs.</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationSubnetGroupResponse {
+  /**
+   * <p>The modified replication subnet group.</p>
+   * @public
+   */
+  ReplicationSubnetGroup?: ReplicationSubnetGroup | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationTaskMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication task.</p>
+   * @public
+   */
+  ReplicationTaskArn: string | undefined;
+
+  /**
+   * <p>The replication task identifier.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1-255 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ReplicationTaskIdentifier?: string | undefined;
+
+  /**
+   * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> |
+   *             <code>full-load-and-cdc</code>
+   *          </p>
+   * @public
+   */
+  MigrationType?: MigrationTypeValue | undefined;
+
+  /**
+   * <p>When using the CLI or boto3, provide the path of the JSON file that contains the table
+   *          mappings. Precede the path with <code>file://</code>. For example, <code>--table-mappings
+   *             file://mappingfile.json</code>. When working with the DMS API, provide the JSON as the
+   *          parameter value. </p>
+   * @public
+   */
+  TableMappings?: string | undefined;
+
+  /**
+   * <p>JSON file that contains settings for the task, such as task metadata settings.</p>
+   * @public
+   */
+  ReplicationTaskSettings?: string | undefined;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
+   *          CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start.
+   *          Specifying both values results in an error.</p>
+   *          <p>Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”</p>
+   * @public
+   */
+  CdcStartTime?: Date | undefined;
+
+  /**
+   * <p>Indicates when you want a change data capture (CDC) operation to start. Use either
+   *          CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start.
+   *          Specifying both values results in an error.</p>
+   *          <p> The value can be in date, checkpoint, or LSN/SCN format.</p>
+   *          <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p>
+   *          <p>Checkpoint Example: --cdc-start-position
+   *          "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</p>
+   *          <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p>
+   *          <note>
+   *             <p>When you use this task setting with a source PostgreSQL database, a logical
+   *             replication slot should already be created and associated with the source endpoint. You
+   *             can verify this by setting the <code>slotName</code> extra connection attribute to the
+   *             name of this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra Connection Attributes When Using PostgreSQL as a Source
+   *                for DMS</a>.</p>
+   *          </note>
+   * @public
+   */
+  CdcStartPosition?: string | undefined;
+
+  /**
+   * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
+   *          either server time or commit time.</p>
+   *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
+   * @public
+   */
+  CdcStopPosition?: string | undefined;
+
+  /**
+   * <p>Supplemental information that the task requires to migrate the data for certain source
+   *          and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying Supplemental Data for
+   *             Task Settings</a> in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   * @public
+   */
+  TaskData?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyReplicationTaskResponse {
+  /**
+   * <p>The replication task that was modified.</p>
+   * @public
+   */
+  ReplicationTask?: ReplicationTask | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface MoveReplicationTaskMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task that you want to move.</p>
+   * @public
+   */
+  ReplicationTaskArn: string | undefined;
+
+  /**
+   * <p>The ARN of the replication instance where you want to move the task to.</p>
+   * @public
+   */
+  TargetReplicationInstanceArn: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface MoveReplicationTaskResponse {
+  /**
+   * <p>The replication task that was moved.</p>
+   * @public
+   */
+  ReplicationTask?: ReplicationTask | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootReplicationInstanceMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
+   * @public
+   */
+  ReplicationInstanceArn: string | undefined;
+
+  /**
+   * <p>If this parameter is <code>true</code>, the reboot is conducted through a Multi-AZ
+   *          failover. If the instance isn't configured for Multi-AZ, then you can't specify
+   *             <code>true</code>. ( <code>--force-planned-failover</code> and
+   *             <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
+   * @public
+   */
+  ForceFailover?: boolean | undefined;
+
+  /**
+   * <p>If this parameter is <code>true</code>, the reboot is conducted through a planned
+   *          Multi-AZ failover where resources are released and cleaned up prior to conducting the
+   *          failover. If the instance isn''t configured for Multi-AZ, then you can't specify
+   *             <code>true</code>. ( <code>--force-planned-failover</code> and
+   *             <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
+   * @public
+   */
+  ForcePlannedFailover?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootReplicationInstanceResponse {
+  /**
+   * <p>The replication instance that is being rebooted. </p>
+   * @public
+   */
+  ReplicationInstance?: ReplicationInstance | undefined;
 }

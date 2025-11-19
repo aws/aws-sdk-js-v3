@@ -1,7 +1,38 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ElasticsearchServiceServiceException as __BaseException } from "./ElasticsearchServiceServiceException";
+import {
+  AutoTuneDesiredState,
+  AutoTuneState,
+  AutoTuneType,
+  ConfigChangeStatus,
+  DeploymentStatus,
+  DescribePackagesFilterName,
+  DomainPackageStatus,
+  DomainProcessingStatusType,
+  EngineType,
+  ESPartitionInstanceType,
+  ESWarmPartitionInstanceType,
+  InboundCrossClusterSearchConnectionStatusCode,
+  InitiatedBy,
+  LogType,
+  OptionState,
+  OutboundCrossClusterSearchConnectionStatusCode,
+  OverallChangeStatus,
+  PackageStatus,
+  PackageType,
+  PrincipalType,
+  PropertyValueType,
+  ReservedElasticsearchInstancePaymentOption,
+  RollbackOnDisable,
+  ScheduledAutoTuneActionType,
+  ScheduledAutoTuneSeverityType,
+  TimeUnit,
+  TLSSecurityPolicy,
+  UpgradeStatus,
+  UpgradeStep,
+  VolumeType,
+  VpcEndpointErrorCode,
+  VpcEndpointStatus,
+} from "./enums";
 
 /**
  * <p>Container for the parameters to the <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation.</p>
@@ -14,25 +45,6 @@ export interface AcceptInboundCrossClusterSearchConnectionRequest {
    */
   CrossClusterSearchConnectionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InboundCrossClusterSearchConnectionStatusCode = {
-  APPROVED: "APPROVED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
-  REJECTED: "REJECTED",
-  REJECTING: "REJECTING",
-} as const;
-
-/**
- * @public
- */
-export type InboundCrossClusterSearchConnectionStatusCode =
-  (typeof InboundCrossClusterSearchConnectionStatusCode)[keyof typeof InboundCrossClusterSearchConnectionStatusCode];
 
 /**
  * <p>Specifies the coonection status of an inbound cross-cluster search connection.</p>
@@ -115,101 +127,6 @@ export interface AcceptInboundCrossClusterSearchConnectionResponse {
    */
   CrossClusterSearchConnection?: InboundCrossClusterSearchConnection | undefined;
 }
-
-/**
- * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
- * @public
- */
-export class DisabledOperationException extends __BaseException {
-  readonly name: "DisabledOperationException" = "DisabledOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DisabledOperationException, __BaseException>) {
-    super({
-      name: "DisabledOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DisabledOperationException.prototype);
-  }
-}
-
-/**
- * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const OptionState = {
-  Active: "Active",
-  Processing: "Processing",
-  RequiresIndexDocuments: "RequiresIndexDocuments",
-} as const;
-
-/**
- * @public
- */
-export type OptionState = (typeof OptionState)[keyof typeof OptionState];
 
 /**
  * <p>Provides the current status of the entity.</p>
@@ -356,66 +273,6 @@ export interface AddTagsRequest {
    * @public
    */
   TagList: Tag[] | undefined;
-}
-
-/**
- * <p>An error occurred while processing the request.</p>
- * @public
- */
-export class BaseException extends __BaseException {
-  readonly name: "BaseException" = "BaseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
-    super({
-      name: "BaseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BaseException.prototype);
-  }
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-  }
-}
-
-/**
- * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -684,41 +541,11 @@ export interface AssociatePackageRequest {
 
 /**
  * @public
- * @enum
- */
-export const DomainPackageStatus = {
-  ACTIVE: "ACTIVE",
-  ASSOCIATING: "ASSOCIATING",
-  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
-  DISSOCIATING: "DISSOCIATING",
-  DISSOCIATION_FAILED: "DISSOCIATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DomainPackageStatus = (typeof DomainPackageStatus)[keyof typeof DomainPackageStatus];
-
-/**
- * @public
  */
 export interface ErrorDetails {
   ErrorType?: string | undefined;
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PackageType = {
-  TXT_DICTIONARY: "TXT-DICTIONARY",
-} as const;
-
-/**
- * @public
- */
-export type PackageType = (typeof PackageType)[keyof typeof PackageType];
 
 /**
  * <p>Information on a package that is associated with a domain.</p>
@@ -794,26 +621,6 @@ export interface AssociatePackageResponse {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * <p>Container for request parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.
  *           Specifies the account to be permitted to manage VPC endpoints against the domain.</p>
  * @public
@@ -831,20 +638,6 @@ export interface AuthorizeVpcEndpointAccessRequest {
    */
   Account: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PrincipalType = {
-  AWS_ACCOUNT: "AWS_ACCOUNT",
-  AWS_SERVICE: "AWS_SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * <p>Information about an  account or service that has access to an Amazon
@@ -958,23 +751,6 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  COMPLETED: "COMPLETED",
-  ELIGIBLE: "ELIGIBLE",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_ELIGIBLE: "NOT_ELIGIBLE",
-  PENDING_UPDATE: "PENDING_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
-
-/**
  * <p>The current options of an Elasticsearch domain service software options.</p>
  * @public
  */
@@ -1039,33 +815,6 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoTuneDesiredState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutoTuneDesiredState = (typeof AutoTuneDesiredState)[keyof typeof AutoTuneDesiredState];
-
-/**
- * @public
- * @enum
- */
-export const TimeUnit = {
-  HOURS: "HOURS",
-} as const;
-
-/**
- * @public
- */
-export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 
 /**
  * <p>Specifies maintenance schedule duration: duration value and duration unit. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
@@ -1158,21 +907,6 @@ export interface CognitoOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const TLSSecurityPolicy = {
-  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
-  POLICY_MIN_TLS_1_2_PFS_2023_10: "Policy-Min-TLS-1-2-PFS-2023-10",
-} as const;
-
-/**
- * @public
- */
-export type TLSSecurityPolicy = (typeof TLSSecurityPolicy)[keyof typeof TLSSecurityPolicy];
-
-/**
  * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  * @public
  */
@@ -1214,22 +948,6 @@ export interface DomainEndpointOptions {
    */
   CustomEndpointCertificateArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VolumeType = {
-  gp2: "gp2",
-  gp3: "gp3",
-  io1: "io1",
-  standard: "standard",
-} as const;
-
-/**
- * @public
- */
-export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
 
 /**
  * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
@@ -1278,91 +996,6 @@ export interface ColdStorageOptions {
    */
   Enabled: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ESPartitionInstanceType = {
-  c4_2xlarge_elasticsearch: "c4.2xlarge.elasticsearch",
-  c4_4xlarge_elasticsearch: "c4.4xlarge.elasticsearch",
-  c4_8xlarge_elasticsearch: "c4.8xlarge.elasticsearch",
-  c4_large_elasticsearch: "c4.large.elasticsearch",
-  c4_xlarge_elasticsearch: "c4.xlarge.elasticsearch",
-  c5_18xlarge_elasticsearch: "c5.18xlarge.elasticsearch",
-  c5_2xlarge_elasticsearch: "c5.2xlarge.elasticsearch",
-  c5_4xlarge_elasticsearch: "c5.4xlarge.elasticsearch",
-  c5_9xlarge_elasticsearch: "c5.9xlarge.elasticsearch",
-  c5_large_elasticsearch: "c5.large.elasticsearch",
-  c5_xlarge_elasticsearch: "c5.xlarge.elasticsearch",
-  d2_2xlarge_elasticsearch: "d2.2xlarge.elasticsearch",
-  d2_4xlarge_elasticsearch: "d2.4xlarge.elasticsearch",
-  d2_8xlarge_elasticsearch: "d2.8xlarge.elasticsearch",
-  d2_xlarge_elasticsearch: "d2.xlarge.elasticsearch",
-  i2_2xlarge_elasticsearch: "i2.2xlarge.elasticsearch",
-  i2_xlarge_elasticsearch: "i2.xlarge.elasticsearch",
-  i3_16xlarge_elasticsearch: "i3.16xlarge.elasticsearch",
-  i3_2xlarge_elasticsearch: "i3.2xlarge.elasticsearch",
-  i3_4xlarge_elasticsearch: "i3.4xlarge.elasticsearch",
-  i3_8xlarge_elasticsearch: "i3.8xlarge.elasticsearch",
-  i3_large_elasticsearch: "i3.large.elasticsearch",
-  i3_xlarge_elasticsearch: "i3.xlarge.elasticsearch",
-  m3_2xlarge_elasticsearch: "m3.2xlarge.elasticsearch",
-  m3_large_elasticsearch: "m3.large.elasticsearch",
-  m3_medium_elasticsearch: "m3.medium.elasticsearch",
-  m3_xlarge_elasticsearch: "m3.xlarge.elasticsearch",
-  m4_10xlarge_elasticsearch: "m4.10xlarge.elasticsearch",
-  m4_2xlarge_elasticsearch: "m4.2xlarge.elasticsearch",
-  m4_4xlarge_elasticsearch: "m4.4xlarge.elasticsearch",
-  m4_large_elasticsearch: "m4.large.elasticsearch",
-  m4_xlarge_elasticsearch: "m4.xlarge.elasticsearch",
-  m5_12xlarge_elasticsearch: "m5.12xlarge.elasticsearch",
-  m5_2xlarge_elasticsearch: "m5.2xlarge.elasticsearch",
-  m5_4xlarge_elasticsearch: "m5.4xlarge.elasticsearch",
-  m5_large_elasticsearch: "m5.large.elasticsearch",
-  m5_xlarge_elasticsearch: "m5.xlarge.elasticsearch",
-  r3_2xlarge_elasticsearch: "r3.2xlarge.elasticsearch",
-  r3_4xlarge_elasticsearch: "r3.4xlarge.elasticsearch",
-  r3_8xlarge_elasticsearch: "r3.8xlarge.elasticsearch",
-  r3_large_elasticsearch: "r3.large.elasticsearch",
-  r3_xlarge_elasticsearch: "r3.xlarge.elasticsearch",
-  r4_16xlarge_elasticsearch: "r4.16xlarge.elasticsearch",
-  r4_2xlarge_elasticsearch: "r4.2xlarge.elasticsearch",
-  r4_4xlarge_elasticsearch: "r4.4xlarge.elasticsearch",
-  r4_8xlarge_elasticsearch: "r4.8xlarge.elasticsearch",
-  r4_large_elasticsearch: "r4.large.elasticsearch",
-  r4_xlarge_elasticsearch: "r4.xlarge.elasticsearch",
-  r5_12xlarge_elasticsearch: "r5.12xlarge.elasticsearch",
-  r5_2xlarge_elasticsearch: "r5.2xlarge.elasticsearch",
-  r5_4xlarge_elasticsearch: "r5.4xlarge.elasticsearch",
-  r5_large_elasticsearch: "r5.large.elasticsearch",
-  r5_xlarge_elasticsearch: "r5.xlarge.elasticsearch",
-  t2_medium_elasticsearch: "t2.medium.elasticsearch",
-  t2_micro_elasticsearch: "t2.micro.elasticsearch",
-  t2_small_elasticsearch: "t2.small.elasticsearch",
-  ultrawarm1_large_elasticsearch: "ultrawarm1.large.elasticsearch",
-  ultrawarm1_medium_elasticsearch: "ultrawarm1.medium.elasticsearch",
-} as const;
-
-/**
- * @public
- */
-export type ESPartitionInstanceType = (typeof ESPartitionInstanceType)[keyof typeof ESPartitionInstanceType];
-
-/**
- * @public
- * @enum
- */
-export const ESWarmPartitionInstanceType = {
-  ultrawarm1_large_elasticsearch: "ultrawarm1.large.elasticsearch",
-  ultrawarm1_medium_elasticsearch: "ultrawarm1.medium.elasticsearch",
-} as const;
-
-/**
- * @public
- */
-export type ESWarmPartitionInstanceType =
-  (typeof ESWarmPartitionInstanceType)[keyof typeof ESWarmPartitionInstanceType];
 
 /**
  * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
@@ -1465,22 +1098,6 @@ export interface EncryptionAtRestOptions {
    */
   KmsKeyId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  AUDIT_LOGS: "AUDIT_LOGS",
-  ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
-  INDEX_SLOW_LOGS: "INDEX_SLOW_LOGS",
-  SEARCH_SLOW_LOGS: "SEARCH_SLOW_LOGS",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * <p>Log Publishing option that is set for given domain.
@@ -1652,27 +1269,6 @@ export interface CreateElasticsearchDomainRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutoTuneState = {
-  DISABLED: "DISABLED",
-  DISABLED_AND_ROLLBACK_COMPLETE: "DISABLED_AND_ROLLBACK_COMPLETE",
-  DISABLED_AND_ROLLBACK_ERROR: "DISABLED_AND_ROLLBACK_ERROR",
-  DISABLED_AND_ROLLBACK_IN_PROGRESS: "DISABLED_AND_ROLLBACK_IN_PROGRESS",
-  DISABLED_AND_ROLLBACK_SCHEDULED: "DISABLED_AND_ROLLBACK_SCHEDULED",
-  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
-  ENABLED: "ENABLED",
-  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type AutoTuneState = (typeof AutoTuneState)[keyof typeof AutoTuneState];
-
-/**
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain and list of maintenance schedules.</p>
  * @public
  */
@@ -1689,40 +1285,6 @@ export interface AutoTuneOptionsOutput {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigChangeStatus = {
-  APPLYING_CHANGES: "ApplyingChanges",
-  CANCELLED: "Cancelled",
-  COMPLETED: "Completed",
-  INITIALIZING: "Initializing",
-  PENDING: "Pending",
-  PENDING_USER_INPUT: "PendingUserInput",
-  VALIDATING: "Validating",
-  VALIDATION_FAILED: "ValidationFailed",
-} as const;
-
-/**
- * @public
- */
-export type ConfigChangeStatus = (typeof ConfigChangeStatus)[keyof typeof ConfigChangeStatus];
-
-/**
- * @public
- * @enum
- */
-export const InitiatedBy = {
-  CUSTOMER: "CUSTOMER",
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
 
 /**
  * <p>Specifies change details of the domain configuration change.</p>
@@ -1765,39 +1327,6 @@ export interface ChangeProgressDetails {
    */
   InitiatedBy?: InitiatedBy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DomainProcessingStatusType = {
-  ACTIVE: "Active",
-  CREATING: "Creating",
-  DELETING: "Deleting",
-  ISOLATED: "Isolated",
-  MODIFYING: "Modifying",
-  UPDATING: "UpdatingServiceSoftware",
-  UPGRADING: "UpgradingEngineVersion",
-} as const;
-
-/**
- * @public
- */
-export type DomainProcessingStatusType = (typeof DomainProcessingStatusType)[keyof typeof DomainProcessingStatusType];
-
-/**
- * @public
- * @enum
- */
-export const PropertyValueType = {
-  PLAIN_TEXT: "PLAIN_TEXT",
-  STRINGIFIED_JSON: "STRINGIFIED_JSON",
-} as const;
-
-/**
- * @public
- */
-export type PropertyValueType = (typeof PropertyValueType)[keyof typeof PropertyValueType];
 
 /**
  * <p>Information about the domain properties that are currently being modified.</p>
@@ -2039,46 +1568,6 @@ export interface CreateElasticsearchDomainResponse {
 }
 
 /**
- * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
- * @public
- */
-export class InvalidTypeException extends __BaseException {
-  readonly name: "InvalidTypeException" = "InvalidTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTypeException, __BaseException>) {
-    super({
-      name: "InvalidTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTypeException.prototype);
-  }
-}
-
-/**
- * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * <p>Container for the parameters to the <code><a>CreateOutboundCrossClusterSearchConnection</a></code> operation.</p>
  * @public
  */
@@ -2101,27 +1590,6 @@ export interface CreateOutboundCrossClusterSearchConnectionRequest {
    */
   ConnectionAlias: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OutboundCrossClusterSearchConnectionStatusCode = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
-  PROVISIONING: "PROVISIONING",
-  REJECTED: "REJECTED",
-  VALIDATING: "VALIDATING",
-  VALIDATION_FAILED: "VALIDATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type OutboundCrossClusterSearchConnectionStatusCode =
-  (typeof OutboundCrossClusterSearchConnectionStatusCode)[keyof typeof OutboundCrossClusterSearchConnectionStatusCode];
 
 /**
  * <p>Specifies the connection status of an outbound cross-cluster search connection.</p>
@@ -2242,26 +1710,6 @@ export interface CreatePackageRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PackageStatus = {
-  AVAILABLE: "AVAILABLE",
-  COPYING: "COPYING",
-  COPY_FAILED: "COPY_FAILED",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  VALIDATING: "VALIDATING",
-  VALIDATION_FAILED: "VALIDATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type PackageStatus = (typeof PackageStatus)[keyof typeof PackageStatus];
-
-/**
  * <p>Basic information about a package.</p>
  * @public
  */
@@ -2352,25 +1800,6 @@ export interface CreateVpcEndpointRequest {
    */
   ClientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VpcEndpointStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpointStatus];
 
 /**
  * <p>The connection endpoint for connecting to an Amazon OpenSearch Service domain through a
@@ -2652,37 +2081,6 @@ export interface DescribeDomainAutoTunesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScheduledAutoTuneActionType = {
-  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
-  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
-} as const;
-
-/**
- * @public
- */
-export type ScheduledAutoTuneActionType =
-  (typeof ScheduledAutoTuneActionType)[keyof typeof ScheduledAutoTuneActionType];
-
-/**
- * @public
- * @enum
- */
-export const ScheduledAutoTuneSeverityType = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type ScheduledAutoTuneSeverityType =
-  (typeof ScheduledAutoTuneSeverityType)[keyof typeof ScheduledAutoTuneSeverityType];
-
-/**
  * <p>Specifies details of the scheduled Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
  * @public
  */
@@ -2723,19 +2121,6 @@ export interface AutoTuneDetails {
    */
   ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoTuneType = {
-  SCHEDULED_ACTION: "SCHEDULED_ACTION",
-} as const;
-
-/**
- * @public
- */
-export type AutoTuneType = (typeof AutoTuneType)[keyof typeof AutoTuneType];
 
 /**
  * <p>Specifies Auto-Tune type and Auto-Tune action details. </p>
@@ -2824,22 +2209,6 @@ export interface ChangeProgressStage {
    */
   LastUpdated?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OverallChangeStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type OverallChangeStatus = (typeof OverallChangeStatus)[keyof typeof OverallChangeStatus];
 
 /**
  * <p>The progress details of a specific domain configuration change.</p>
@@ -2957,20 +2326,6 @@ export interface DescribeElasticsearchDomainConfigRequest {
    */
   DomainName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RollbackOnDisable = {
-  DEFAULT_ROLLBACK: "DEFAULT_ROLLBACK",
-  NO_ROLLBACK: "NO_ROLLBACK",
-} as const;
-
-/**
- * @public
- */
-export type RollbackOnDisable = (typeof RollbackOnDisable)[keyof typeof RollbackOnDisable];
 
 /**
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain, rollback state when disabling Auto-Tune options and list of maintenance schedules.</p>
@@ -3712,26 +3067,6 @@ export interface DescribeInboundCrossClusterSearchConnectionsResponse {
 }
 
 /**
- * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
- * @public
- */
-export class InvalidPaginationTokenException extends __BaseException {
-  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
-    super({
-      name: "InvalidPaginationTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
-  }
-}
-
-/**
  * <p>Container for the parameters to the <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> operation.</p>
  * @public
  */
@@ -3783,21 +3118,6 @@ export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DescribePackagesFilterName = {
-  PackageID: "PackageID",
-  PackageName: "PackageName",
-  PackageStatus: "PackageStatus",
-} as const;
-
-/**
- * @public
- */
-export type DescribePackagesFilterName = (typeof DescribePackagesFilterName)[keyof typeof DescribePackagesFilterName];
 
 /**
  * <p>Filter to apply in <code>DescribePackage</code> response.</p>
@@ -3891,22 +3211,6 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReservedElasticsearchInstancePaymentOption = {
-  ALL_UPFRONT: "ALL_UPFRONT",
-  NO_UPFRONT: "NO_UPFRONT",
-  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
-} as const;
-
-/**
- * @public
- */
-export type ReservedElasticsearchInstancePaymentOption =
-  (typeof ReservedElasticsearchInstancePaymentOption)[keyof typeof ReservedElasticsearchInstancePaymentOption];
 
 /**
  * <p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
@@ -4136,20 +3440,6 @@ export interface DescribeVpcEndpointsRequest {
    */
   VpcEndpointIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VpcEndpointErrorCode = {
-  ENDPOINT_NOT_FOUND: "ENDPOINT_NOT_FOUND",
-  SERVER_ERROR: "SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type VpcEndpointErrorCode = (typeof VpcEndpointErrorCode)[keyof typeof VpcEndpointErrorCode];
 
 /**
  * <p>Error information when attempting to describe an Amazon OpenSearch Service-managed VPC
@@ -4419,37 +3709,6 @@ export interface GetUpgradeHistoryRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const UpgradeStep = {
-  PRE_UPGRADE_CHECK: "PRE_UPGRADE_CHECK",
-  SNAPSHOT: "SNAPSHOT",
-  UPGRADE: "UPGRADE",
-} as const;
-
-/**
- * @public
- */
-export type UpgradeStep = (typeof UpgradeStep)[keyof typeof UpgradeStep];
-
-/**
- * @public
- * @enum
- */
-export const UpgradeStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-  SUCCEEDED_WITH_ISSUES: "SUCCEEDED_WITH_ISSUES",
-} as const;
-
-/**
- * @public
- */
-export type UpgradeStatus = (typeof UpgradeStatus)[keyof typeof UpgradeStatus];
-
-/**
  * <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
  * @public
  */
@@ -4638,20 +3897,6 @@ export interface GetUpgradeStatusResponse {
    */
   UpgradeName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EngineType = {
-  Elasticsearch: "Elasticsearch",
-  OpenSearch: "OpenSearch",
-} as const;
-
-/**
- * @public
- */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * <p> Container for the parameters to the <code><a>ListDomainNames</a></code> operation.</p>

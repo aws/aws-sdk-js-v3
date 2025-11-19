@@ -109,7 +109,7 @@ import {
   InvalidParameterException as __InvalidParameterException,
   PaginationTokenExpiredException as __PaginationTokenExpiredException,
   ThrottledException as __ThrottledException,
-} from "../models/index";
+} from "../models/errors";
 import { ResourceGroupsTaggingAPIServiceException as __ResourceGroupsTaggingAPIServiceException } from "../models/ResourceGroupsTaggingAPIServiceException";
 
 /* eslint no-var: 0 */

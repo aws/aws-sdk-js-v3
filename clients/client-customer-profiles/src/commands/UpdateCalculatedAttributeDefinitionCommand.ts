@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateCalculatedAttributeDefinitionRequest,
   UpdateCalculatedAttributeDefinitionResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { UpdateCalculatedAttributeDefinition } from "../schemas/schemas_0";
 
 /**

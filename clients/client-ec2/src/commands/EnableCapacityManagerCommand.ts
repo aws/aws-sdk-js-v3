@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableCapacityManagerRequest, EnableCapacityManagerResult } from "../models/models_6";
+import { EnableCapacityManagerRequest, EnableCapacityManagerResult } from "../models/models_5";
 import { EnableCapacityManager } from "../schemas/schemas_0";
 
 /**

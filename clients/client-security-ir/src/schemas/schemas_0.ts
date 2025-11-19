@@ -233,7 +233,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SecurityIRServiceException as __SecurityIRServiceException } from "../models/SecurityIRServiceException";
 
 /* eslint no-var: 0 */

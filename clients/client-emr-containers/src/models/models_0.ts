@@ -1,34 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { EMRContainersServiceException as __BaseException } from "./EMRContainersServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AllowAWSToRetainLogs = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AllowAWSToRetainLogs = (typeof AllowAWSToRetainLogs)[keyof typeof AllowAWSToRetainLogs];
-
-/**
- * @public
- * @enum
- */
-export const CertificateProviderType = {
-  PEM: "PEM",
-} as const;
-
-/**
- * @public
- */
-export type CertificateProviderType = (typeof CertificateProviderType)[keyof typeof CertificateProviderType];
+import {
+  AllowAWSToRetainLogs,
+  CertificateProviderType,
+  ContainerProviderType,
+  EndpointState,
+  FailureReason,
+  JobRunState,
+  PersistentAppUI,
+  TemplateParameterDataType,
+  VirtualClusterState,
+} from "./enums";
 
 /**
  * <p>Configurations related to the TLS certificate for the security configuration.</p>
@@ -180,46 +161,6 @@ export interface CancelJobRunResponse {
 }
 
 /**
- * <p>This is an internal server exception.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>There are invalid parameters in the client request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p> A configuration for CloudWatch monitoring. You can configure your jobs to send log
  *          information to CloudWatch Logs. This data type allows job template parameters to be
  *          specified within.</p>
@@ -340,20 +281,6 @@ export interface JobDriver {
 }
 
 /**
- * @public
- * @enum
- */
-export const TemplateParameterDataType = {
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type TemplateParameterDataType = (typeof TemplateParameterDataType)[keyof typeof TemplateParameterDataType];
-
-/**
  * <p>The configuration of a job template parameter.</p>
  * @public
  */
@@ -398,26 +325,6 @@ export interface CreateJobTemplateResponse {
    * @public
    */
   createdAt?: Date | undefined;
-}
-
-/**
- * <p>The specified resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -474,20 +381,6 @@ export interface ManagedLogs {
    */
   encryptionKeyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PersistentAppUI = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PersistentAppUI = (typeof PersistentAppUI)[keyof typeof PersistentAppUI];
 
 /**
  * <p> Amazon S3 configuration for monitoring log publishing. You can configure your jobs to
@@ -621,19 +514,6 @@ export namespace ContainerInfo {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ContainerProviderType = {
-  EKS: "EKS",
-} as const;
-
-/**
- * @public
- */
-export type ContainerProviderType = (typeof ContainerProviderType)[keyof typeof ContainerProviderType];
 
 /**
  * <p>The information about the container provider.</p>
@@ -789,26 +669,6 @@ export interface CreateVirtualClusterResponse {
 }
 
 /**
- * <p>The request exceeded the Amazon EKS API operation limits.</p>
- * @public
- */
-export class EKSRequestThrottledException extends __BaseException {
-  readonly name: "EKSRequestThrottledException" = "EKSRequestThrottledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EKSRequestThrottledException, __BaseException>) {
-    super({
-      name: "EKSRequestThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EKSRequestThrottledException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteJobTemplateRequest {
@@ -904,22 +764,6 @@ export interface DescribeJobRunRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FailureReason = {
-  CLUSTER_UNAVAILABLE: "CLUSTER_UNAVAILABLE",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  USER_ERROR: "USER_ERROR",
-  VALIDATION_ERROR: "VALIDATION_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
-
-/**
  * <p>The configuration of the retry policy that the job runs on.</p>
  * @public
  */
@@ -942,25 +786,6 @@ export interface RetryPolicyExecution {
    */
   currentAttemptCount: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobRunState = {
-  CANCELLED: "CANCELLED",
-  CANCEL_PENDING: "CANCEL_PENDING",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
 
 /**
  * @public
@@ -1007,23 +832,6 @@ export interface Certificate {
    */
   certificateData?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointState = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  TERMINATED: "TERMINATED",
-  TERMINATED_WITH_ERRORS: "TERMINATED_WITH_ERRORS",
-  TERMINATING: "TERMINATING",
-} as const;
-
-/**
- * @public
- */
-export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
 
 /**
  * @public
@@ -1108,22 +916,6 @@ export interface DescribeVirtualClusterRequest {
    */
   id: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VirtualClusterState = {
-  ARRESTED: "ARRESTED",
-  RUNNING: "RUNNING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-} as const;
-
-/**
- * @public
- */
-export type VirtualClusterState = (typeof VirtualClusterState)[keyof typeof VirtualClusterState];
 
 /**
  * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
@@ -1302,26 +1094,6 @@ export interface GetManagedEndpointSessionCredentialsResponse {
    * @public
    */
   expiresAt?: Date | undefined;
-}
-
-/**
- * <p>The request throttled.</p>
- * @public
- */
-export class RequestThrottledException extends __BaseException {
-  readonly name: "RequestThrottledException" = "RequestThrottledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestThrottledException, __BaseException>) {
-    super({
-      name: "RequestThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestThrottledException.prototype);
-  }
 }
 
 /**

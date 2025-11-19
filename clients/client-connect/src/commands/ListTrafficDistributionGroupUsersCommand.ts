@@ -5,10 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListTrafficDistributionGroupUsersRequest,
-  ListTrafficDistributionGroupUsersResponse,
-} from "../models/models_2";
+import { ListTrafficDistributionGroupUsersRequest } from "../models/models_1";
+import { ListTrafficDistributionGroupUsersResponse } from "../models/models_2";
 import { ListTrafficDistributionGroupUsers } from "../schemas/schemas_0";
 
 /**

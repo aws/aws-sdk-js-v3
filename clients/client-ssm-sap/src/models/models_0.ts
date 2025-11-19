@@ -1,74 +1,29 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SsmSapServiceException as __BaseException } from "./SsmSapServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AllocationType = {
-  ELASTIC_IP: "ELASTIC_IP",
-  OVERLAY: "OVERLAY",
-  UNKNOWN: "UNKNOWN",
-  VPC_SUBNET: "VPC_SUBNET",
-} as const;
-
-/**
- * @public
- */
-export type AllocationType = (typeof AllocationType)[keyof typeof AllocationType];
-
-/**
- * @public
- * @enum
- */
-export const ApplicationDiscoveryStatus = {
-  DELETING: "DELETING",
-  REFRESH_FAILED: "REFRESH_FAILED",
-  REGISTERING: "REGISTERING",
-  REGISTRATION_FAILED: "REGISTRATION_FAILED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationDiscoveryStatus = (typeof ApplicationDiscoveryStatus)[keyof typeof ApplicationDiscoveryStatus];
-
-/**
- * @public
- * @enum
- */
-export const ApplicationStatus = {
-  ACTIVATED: "ACTIVATED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  REGISTERING: "REGISTERING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
-
-/**
- * @public
- * @enum
- */
-export const ApplicationType = {
-  HANA: "HANA",
-  SAP_ABAP: "SAP_ABAP",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+import {
+  AllocationType,
+  ApplicationDiscoveryStatus,
+  ApplicationStatus,
+  ApplicationType,
+  BackintMode,
+  ClusterStatus,
+  ComponentStatus,
+  ComponentType,
+  ConfigurationCheckOperationListingMode,
+  ConfigurationCheckType,
+  ConnectedEntityType,
+  CredentialType,
+  DatabaseConnectionMethod,
+  DatabaseStatus,
+  DatabaseType,
+  FilterOperator,
+  HostRole,
+  OperationEventStatus,
+  OperationMode,
+  OperationStatus,
+  PermissionActionType,
+  ReplicationMode,
+  RuleResultStatus,
+} from "./enums";
 
 /**
  * <p>An SAP application registered with AWS Systems Manager for SAP.</p>
@@ -135,19 +90,6 @@ export interface Application {
    */
   AssociatedApplicationArns?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CredentialType = {
-  ADMIN: "ADMIN",
-} as const;
-
-/**
- * @public
- */
-export type CredentialType = (typeof CredentialType)[keyof typeof CredentialType];
 
 /**
  * <p>The credentials of your SAP application.</p>
@@ -264,19 +206,6 @@ export interface AssociatedHost {
 }
 
 /**
- * @public
- * @enum
- */
-export const BackintMode = {
-  AWSBackup: "AWSBackup",
-} as const;
-
-/**
- * @public
- */
-export type BackintMode = (typeof BackintMode)[keyof typeof BackintMode];
-
-/**
  * <p>Configuration parameters for AWS Backint Agent for SAP HANA. You can backup your SAP HANA database with AWS Backup or Amazon S3.</p>
  * @public
  */
@@ -293,57 +222,6 @@ export interface BackintConfig {
    */
   EnsureNoBackupInProcess: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterStatus = {
-  MAINTENANCE: "MAINTENANCE",
-  NONE: "NONE",
-  OFFLINE: "OFFLINE",
-  ONLINE: "ONLINE",
-  STANDBY: "STANDBY",
-} as const;
-
-/**
- * @public
- */
-export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
-
-/**
- * @public
- * @enum
- */
-export const ComponentType = {
-  ABAP: "ABAP",
-  ASCS: "ASCS",
-  DIALOG: "DIALOG",
-  ERS: "ERS",
-  HANA: "HANA",
-  HANA_NODE: "HANA_NODE",
-  WD: "WD",
-  WEBDISP: "WEBDISP",
-} as const;
-
-/**
- * @public
- */
-export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
-
-/**
- * @public
- * @enum
- */
-export const DatabaseConnectionMethod = {
-  DIRECT: "DIRECT",
-  OVERLAY: "OVERLAY",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseConnectionMethod = (typeof DatabaseConnectionMethod)[keyof typeof DatabaseConnectionMethod];
 
 /**
  * <p>The connection specifications for the database.</p>
@@ -368,22 +246,6 @@ export interface DatabaseConnection {
    */
   ConnectionIp?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HostRole = {
-  LEADER: "LEADER",
-  STANDBY: "STANDBY",
-  UNKNOWN: "UNKNOWN",
-  WORKER: "WORKER",
-} as const;
-
-/**
- * @public
- */
-export type HostRole = (typeof HostRole)[keyof typeof HostRole];
 
 /**
  * <p>Describes the properties of the Dedicated Host. </p>
@@ -428,40 +290,6 @@ export interface Host {
 }
 
 /**
- * @public
- * @enum
- */
-export const OperationMode = {
-  DELTA_DATASHIPPING: "DELTA_DATASHIPPING",
-  LOGREPLAY: "LOGREPLAY",
-  LOGREPLAY_READACCESS: "LOGREPLAY_READACCESS",
-  NONE: "NONE",
-  PRIMARY: "PRIMARY",
-} as const;
-
-/**
- * @public
- */
-export type OperationMode = (typeof OperationMode)[keyof typeof OperationMode];
-
-/**
- * @public
- * @enum
- */
-export const ReplicationMode = {
-  ASYNC: "ASYNC",
-  NONE: "NONE",
-  PRIMARY: "PRIMARY",
-  SYNC: "SYNC",
-  SYNCMEM: "SYNCMEM",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
-
-/**
  * <p>Details of the SAP HANA system replication for the instance.</p>
  * @public
  */
@@ -496,25 +324,6 @@ export interface Resilience {
    */
   EnqueueReplication?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComponentStatus = {
-  ACTIVATED: "ACTIVATED",
-  RUNNING: "RUNNING",
-  RUNNING_WITH_ERROR: "RUNNING_WITH_ERROR",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UNDEFINED: "UNDEFINED",
-} as const;
-
-/**
- * @public
- */
-export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentStatus];
 
 /**
  * <p>The SAP component of your application.</p>
@@ -707,21 +516,6 @@ export interface ComponentSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigurationCheckType = {
-  SAP_CHECK_01: "SAP_CHECK_01",
-  SAP_CHECK_02: "SAP_CHECK_02",
-  SAP_CHECK_03: "SAP_CHECK_03",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationCheckType = (typeof ConfigurationCheckType)[keyof typeof ConfigurationCheckType];
-
-/**
  * <p>Represents a configuration check definition supported by AWS Systems Manager for SAP.</p>
  * @public
  */
@@ -788,21 +582,6 @@ export interface RuleStatusCounts {
 }
 
 /**
- * @public
- * @enum
- */
-export const OperationStatus = {
-  ERROR: "ERROR",
-  INPROGRESS: "INPROGRESS",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
-
-/**
  * <p>Represents a configuration check operation that has been executed against an application.</p>
  * @public
  */
@@ -867,88 +646,6 @@ export interface ConfigurationCheckOperation {
    */
   RuleStatusCounts?: RuleStatusCounts | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationCheckOperationListingMode = {
-  ALL_OPERATIONS: "ALL_OPERATIONS",
-  LATEST_PER_CHECK: "LATEST_PER_CHECK",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationCheckOperationListingMode =
-  (typeof ConfigurationCheckOperationListingMode)[keyof typeof ConfigurationCheckOperationListingMode];
-
-/**
- * <p>A conflict has occurred.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConnectedEntityType = {
-  DBMS: "DBMS",
-} as const;
-
-/**
- * @public
- */
-export type ConnectedEntityType = (typeof ConnectedEntityType)[keyof typeof ConnectedEntityType];
-
-/**
- * @public
- * @enum
- */
-export const DatabaseType = {
-  SYSTEM: "SYSTEM",
-  TENANT: "TENANT",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
-
-/**
- * @public
- * @enum
- */
-export const DatabaseStatus = {
-  ERROR: "ERROR",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  UNKNOWN: "UNKNOWN",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseStatus = (typeof DatabaseStatus)[keyof typeof DatabaseStatus];
 
 /**
  * <p>The SAP HANA database of the application registered with AWS Systems Manager for SAP.</p>
@@ -1072,19 +769,6 @@ export interface DatabaseSummary {
 
 /**
  * @public
- * @enum
- */
-export const PermissionActionType = {
-  RESTORE: "RESTORE",
-} as const;
-
-/**
- * @public
- */
-export type PermissionActionType = (typeof PermissionActionType)[keyof typeof PermissionActionType];
-
-/**
- * @public
  */
 export interface DeleteResourcePermissionInput {
   /**
@@ -1118,72 +802,6 @@ export interface DeleteResourcePermissionOutput {
 }
 
 /**
- * <p>An internal error has occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource is not available.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeregisterApplicationInput {
@@ -1198,43 +816,6 @@ export interface DeregisterApplicationInput {
  * @public
  */
 export interface DeregisterApplicationOutput {}
-
-/**
- * <p>The request is not authorized.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FilterOperator = {
-  EQUALS: "Equals",
-  GREATER_THAN_OR_EQUALS: "GreaterThanOrEquals",
-  LESS_THAN_OR_EQUALS: "LessThanOrEquals",
-} as const;
-
-/**
- * @public
- */
-export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * <p>A specific result obtained by specifying the name, value, and operator. </p>
@@ -1784,21 +1365,6 @@ export interface Resource {
 }
 
 /**
- * @public
- * @enum
- */
-export const OperationEventStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type OperationEventStatus = (typeof OperationEventStatus)[keyof typeof OperationEventStatus];
-
-/**
  * <p>An operation event returns details for an operation, including key milestones which can be used to monitor and track operations in progress.</p> <p>Operation events contain:</p> <ul> <li> <p>Description string</p> </li> <li> <p>Resource, including its ARN and type</p> </li> <li> <p>Status</p> </li> <li> <p>StatusMessage string</p> </li> <li> <p>TimeStamp</p> </li> </ul> <p>Operation event examples include StartApplication or StopApplication.</p>
  * @public
  */
@@ -1989,23 +1555,6 @@ export interface ListSubCheckRuleResultsInput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleResultStatus = {
-  FAILED: "FAILED",
-  INFO: "INFO",
-  PASSED: "PASSED",
-  UNKNOWN: "UNKNOWN",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type RuleResultStatus = (typeof RuleResultStatus)[keyof typeof RuleResultStatus];
 
 /**
  * <p>Represents the result of a single rule within a configuration check.</p>

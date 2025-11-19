@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetFieldLevelEncryptionProfileConfigRequest,
   GetFieldLevelEncryptionProfileConfigResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetFieldLevelEncryptionProfileConfig } from "../schemas/schemas_0";
 
 /**

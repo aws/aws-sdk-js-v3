@@ -196,7 +196,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   TooManyRequestsException as __TooManyRequestsException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { SchemasServiceException as __SchemasServiceException } from "../models/SchemasServiceException";
 
 /* eslint no-var: 0 */

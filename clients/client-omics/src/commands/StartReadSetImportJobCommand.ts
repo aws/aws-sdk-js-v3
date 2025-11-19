@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartReadSetImportJobRequest, StartReadSetImportJobResponse } from "../models/models_1";
+import { StartReadSetImportJobRequest, StartReadSetImportJobResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { StartReadSetImportJob } from "../schemas/schemas_0";
 

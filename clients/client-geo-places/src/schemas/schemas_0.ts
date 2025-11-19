@@ -265,13 +265,13 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GeoPlacesServiceException as __GeoPlacesServiceException } from "../models/GeoPlacesServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   InternalServerException as __InternalServerException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { GeoPlacesServiceException as __GeoPlacesServiceException } from "../models/GeoPlacesServiceException";
 
 /* eslint no-var: 0 */
 

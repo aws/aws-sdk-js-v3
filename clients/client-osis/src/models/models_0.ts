@@ -1,27 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { OSISServiceException as __BaseException } from "./OSISServiceException";
-
-/**
- * <p>You don't have permissions to access the resource.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  ChangeProgressStageStatuses,
+  ChangeProgressStatuses,
+  PipelineEndpointStatus,
+  PipelineStatus,
+  VpcEndpointManagement,
+  VpcEndpointServiceName,
+} from "./enums";
 
 /**
  * <p>Options that specify the configuration of a persistent buffer.
@@ -122,20 +107,6 @@ export interface VpcAttachmentOptions {
    */
   CidrBlock?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VpcEndpointManagement = {
-  CUSTOMER: "CUSTOMER",
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type VpcEndpointManagement = (typeof VpcEndpointManagement)[keyof typeof VpcEndpointManagement];
 
 /**
  * <p>Options that specify the subnets and security groups for an OpenSearch Ingestion
@@ -258,19 +229,6 @@ export interface PipelineDestination {
 }
 
 /**
- * @public
- * @enum
- */
-export const VpcEndpointServiceName = {
-  OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
-} as const;
-
-/**
- * @public
- */
-export type VpcEndpointServiceName = (typeof VpcEndpointServiceName)[keyof typeof VpcEndpointServiceName];
-
-/**
  * <p>A container for information about VPC endpoints that were created to other services</p>
  * @public
  */
@@ -287,28 +245,6 @@ export interface ServiceVpcEndpoint {
    */
   VpcEndpointId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PipelineStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  STARTING: "STARTING",
-  START_FAILED: "START_FAILED",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
 
 /**
  * <p>Information about a pipeline's current status.</p>
@@ -482,127 +418,6 @@ export interface CreatePipelineResponse {
 }
 
 /**
- * <p>Exception is thrown when an operation has been disabled.</p>
- * @public
- */
-export class DisabledOperationException extends __BaseException {
-  readonly name: "DisabledOperationException" = "DisabledOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DisabledOperationException, __BaseException>) {
-    super({
-      name: "DisabledOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DisabledOperationException.prototype);
-  }
-}
-
-/**
- * <p>The request failed because of an unknown error, exception, or failure (the failure is
- *    internal to the service).</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-  }
-}
-
-/**
- * <p>You attempted to create more than the allowed number of tags.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>You attempted to create a resource that already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>You attempted to access or delete a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>An exception for missing or invalid input fields.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>Configuration settings for the VPC endpoint, specifying network access controls.</p>
  * @public
  */
@@ -640,24 +455,6 @@ export interface CreatePipelineEndpointRequest {
 
 /**
  * @public
- * @enum
- */
-export const PipelineEndpointStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  REVOKED: "REVOKED",
-  REVOKING: "REVOKING",
-} as const;
-
-/**
- * @public
- */
-export type PipelineEndpointStatus = (typeof PipelineEndpointStatus)[keyof typeof PipelineEndpointStatus];
-
-/**
- * @public
  */
 export interface CreatePipelineEndpointResponse {
   /**
@@ -683,26 +480,6 @@ export interface CreatePipelineEndpointResponse {
    * @public
    */
   VpcId?: string | undefined;
-}
-
-/**
- * <p>The client attempted to remove a resource that is currently in use.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -863,23 +640,6 @@ export interface GetPipelineChangeProgressRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeProgressStageStatuses = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ChangeProgressStageStatuses =
-  (typeof ChangeProgressStageStatuses)[keyof typeof ChangeProgressStageStatuses];
-
-/**
  * <p>Progress details for a specific stage of a pipeline configuration change.</p>
  * @public
  */
@@ -908,22 +668,6 @@ export interface ChangeProgressStage {
    */
   LastUpdatedAt?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChangeProgressStatuses = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ChangeProgressStatuses = (typeof ChangeProgressStatuses)[keyof typeof ChangeProgressStatuses];
 
 /**
  * <p>The progress details of a pipeline configuration change.</p>
@@ -992,26 +736,6 @@ export interface GetResourcePolicyResponse {
    * @public
    */
   Policy?: string | undefined;
-}
-
-/**
- * <p>An invalid pagination token provided in the request.</p>
- * @public
- */
-export class InvalidPaginationTokenException extends __BaseException {
-  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
-    super({
-      name: "InvalidPaginationTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
-  }
 }
 
 /**

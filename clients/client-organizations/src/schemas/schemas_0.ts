@@ -371,7 +371,7 @@ import {
   TargetNotFoundException as __TargetNotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
   UnsupportedAPIEndpointException as __UnsupportedAPIEndpointException,
-} from "../models/index";
+} from "../models/errors";
 import { OrganizationsServiceException as __OrganizationsServiceException } from "../models/OrganizationsServiceException";
 
 /* eslint no-var: 0 */

@@ -275,7 +275,7 @@ import {
   InvalidStateException as __InvalidStateException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/models_1";
+import { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/models_0";
 import { GetFieldLevelEncryption } from "../schemas/schemas_0";
 
 /**

@@ -1,17 +1,462 @@
 // smithy-typescript generated code
-/**
- * @public
- * @enum
- */
-export const RequiredFlag = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RequiredFlag = (typeof RequiredFlag)[keyof typeof RequiredFlag];
+import {
+  AacAudioDescriptionBroadcasterMix,
+  AacCodecProfile,
+  AacCodingMode,
+  AacLoudnessMeasurementMode,
+  AacRateControlMode,
+  AacRawFormat,
+  AacSpecification,
+  AacVbrQuality,
+  Ac3BitstreamMode,
+  Ac3CodingMode,
+  Ac3DynamicRangeCompressionLine,
+  Ac3DynamicRangeCompressionProfile,
+  Ac3DynamicRangeCompressionRf,
+  Ac3LfeFilter,
+  Ac3MetadataControl,
+  AccelerationMode,
+  AccelerationStatus,
+  AdvancedInputFilter,
+  AdvancedInputFilterAddTexture,
+  AdvancedInputFilterSharpen,
+  AfdSignaling,
+  AlphaBehavior,
+  AncillaryConvert608To708,
+  AncillaryTerminateCaptions,
+  AntiAlias,
+  AudioChannelTag,
+  AudioCodec,
+  AudioDefaultSelection,
+  AudioDurationCorrection,
+  AudioLanguageCodeControl,
+  AudioNormalizationAlgorithm,
+  AudioNormalizationAlgorithmControl,
+  AudioNormalizationLoudnessLogging,
+  AudioNormalizationPeakCalculation,
+  AudioSelectorType,
+  AudioTypeControl,
+  Av1AdaptiveQuantization,
+  Av1BitDepth,
+  Av1FilmGrainSynthesis,
+  Av1FramerateControl,
+  Av1FramerateConversionAlgorithm,
+  Av1RateControlMode,
+  Av1SpatialAdaptiveQuantization,
+  AvcIntraClass,
+  AvcIntraFramerateControl,
+  AvcIntraFramerateConversionAlgorithm,
+  AvcIntraInterlaceMode,
+  AvcIntraScanTypeConversionMode,
+  AvcIntraSlowPal,
+  AvcIntraTelecine,
+  AvcIntraUhdQualityTuningLevel,
+  BandwidthReductionFilterSharpening,
+  BandwidthReductionFilterStrength,
+  BillingTagsSource,
+  BurninSubtitleAlignment,
+  BurninSubtitleApplyFontColor,
+  BurninSubtitleBackgroundColor,
+  BurninSubtitleFallbackFont,
+  BurninSubtitleFontColor,
+  BurninSubtitleOutlineColor,
+  BurninSubtitleShadowColor,
+  BurnInSubtitleStylePassthrough,
+  BurninSubtitleTeletextSpacing,
+  CaptionDestinationType,
+  CaptionSourceByteRateLimit,
+  CaptionSourceConvertPaintOnToPopOn,
+  CaptionSourceType,
+  CaptionSourceUpconvertSTLToTeletext,
+  ChromaPositionMode,
+  CmafClientCache,
+  CmafCodecSpecification,
+  CmafEncryptionType,
+  CmafImageBasedTrickPlay,
+  CmafInitializationVectorInManifest,
+  CmafIntervalCadence,
+  CmafKeyProviderType,
+  CmafManifestCompression,
+  CmafManifestDurationFormat,
+  CmafMpdManifestBandwidthType,
+  CmafMpdProfile,
+  CmafPtsOffsetHandlingForBFrames,
+  CmafSegmentControl,
+  CmafSegmentLengthControl,
+  CmafStreamInfResolution,
+  CmafTargetDurationCompatibilityMode,
+  CmafVideoCompositionOffsets,
+  CmafWriteDASHManifest,
+  CmafWriteHLSManifest,
+  CmafWriteSegmentTimelineInRepresentation,
+  CmfcAudioDuration,
+  CmfcAudioTrackType,
+  CmfcC2paManifest,
+  CmfcDescriptiveVideoServiceFlag,
+  CmfcIFrameOnlyManifest,
+  CmfcKlvMetadata,
+  CmfcManifestMetadataSignaling,
+  CmfcScte35Esam,
+  CmfcScte35Source,
+  CmfcTimedMetadata,
+  CmfcTimedMetadataBoxVersion,
+  Codec,
+  ColorMetadata,
+  ColorPrimaries,
+  ColorSpace,
+  ColorSpaceConversion,
+  ColorSpaceUsage,
+  Commitment,
+  ContainerType,
+  CopyProtectionAction,
+  DashIsoGroupAudioChannelConfigSchemeIdUri,
+  DashIsoHbbtvCompliance,
+  DashIsoImageBasedTrickPlay,
+  DashIsoIntervalCadence,
+  DashIsoMpdManifestBandwidthType,
+  DashIsoMpdProfile,
+  DashIsoPlaybackDeviceCompatibility,
+  DashIsoPtsOffsetHandlingForBFrames,
+  DashIsoSegmentControl,
+  DashIsoSegmentLengthControl,
+  DashIsoVideoCompositionOffsets,
+  DashIsoWriteSegmentTimelineInRepresentation,
+  DashManifestStyle,
+  DecryptionMode,
+  DeinterlaceAlgorithm,
+  DeinterlacerControl,
+  DeinterlacerMode,
+  DescribeEndpointsMode,
+  DolbyVisionLevel6Mode,
+  DolbyVisionMapping,
+  DolbyVisionProfile,
+  DropFrameTimecode,
+  DvbddsHandling,
+  DvbSubSubtitleFallbackFont,
+  DvbSubtitleAlignment,
+  DvbSubtitleApplyFontColor,
+  DvbSubtitleBackgroundColor,
+  DvbSubtitleFontColor,
+  DvbSubtitleOutlineColor,
+  DvbSubtitleShadowColor,
+  DvbSubtitleStylePassthrough,
+  DvbSubtitleTeletextSpacing,
+  DvbSubtitlingType,
+  DynamicAudioSelectorType,
+  Eac3AtmosBitstreamMode,
+  Eac3AtmosCodingMode,
+  Eac3AtmosDialogueIntelligence,
+  Eac3AtmosDownmixControl,
+  Eac3AtmosDynamicRangeCompressionLine,
+  Eac3AtmosDynamicRangeCompressionRf,
+  Eac3AtmosDynamicRangeControl,
+  Eac3AtmosMeteringMode,
+  Eac3AtmosStereoDownmix,
+  Eac3AtmosSurroundExMode,
+  Eac3AttenuationControl,
+  Eac3BitstreamMode,
+  Eac3CodingMode,
+  Eac3DcFilter,
+  Eac3DynamicRangeCompressionLine,
+  Eac3DynamicRangeCompressionRf,
+  Eac3LfeControl,
+  Eac3LfeFilter,
+  Eac3MetadataControl,
+  Eac3PassthroughControl,
+  Eac3PhaseControl,
+  Eac3StereoDownmix,
+  Eac3SurroundExMode,
+  Eac3SurroundMode,
+  EmbeddedConvert608To708,
+  EmbeddedTerminateCaptions,
+  EmbeddedTimecodeOverride,
+  F4vMoovPlacement,
+  FileSourceConvert608To708,
+  FileSourceTimeDeltaUnits,
+  FontScript,
+  Format,
+  FrameControl,
+  FrameMetricType,
+  GifFramerateControl,
+  GifFramerateConversionAlgorithm,
+  H264AdaptiveQuantization,
+  H264CodecLevel,
+  H264CodecProfile,
+  H264DynamicSubGop,
+  H264EndOfStreamMarkers,
+  H264EntropyEncoding,
+  H264FieldEncoding,
+  H264FlickerAdaptiveQuantization,
+  H264FramerateControl,
+  H264FramerateConversionAlgorithm,
+  H264GopBReference,
+  H264GopSizeUnits,
+  H264InterlaceMode,
+  H264ParControl,
+  H264QualityTuningLevel,
+  H264RateControlMode,
+  H264RepeatPps,
+  H264SaliencyAwareEncoding,
+  H264ScanTypeConversionMode,
+  H264SceneChangeDetect,
+  H264SlowPal,
+  H264SpatialAdaptiveQuantization,
+  H264Syntax,
+  H264Telecine,
+  H264TemporalAdaptiveQuantization,
+  H264UnregisteredSeiTimecode,
+  H264WriteMp4PackagingType,
+  H265AdaptiveQuantization,
+  H265AlternateTransferFunctionSei,
+  H265CodecLevel,
+  H265CodecProfile,
+  H265Deblocking,
+  H265DynamicSubGop,
+  H265EndOfStreamMarkers,
+  H265FlickerAdaptiveQuantization,
+  H265FramerateControl,
+  H265FramerateConversionAlgorithm,
+  H265GopBReference,
+  H265GopSizeUnits,
+  H265InterlaceMode,
+  H265ParControl,
+  H265QualityTuningLevel,
+  H265RateControlMode,
+  H265SampleAdaptiveOffsetFilterMode,
+  H265ScanTypeConversionMode,
+  H265SceneChangeDetect,
+  H265SlowPal,
+  H265SpatialAdaptiveQuantization,
+  H265Telecine,
+  H265TemporalAdaptiveQuantization,
+  H265TemporalIds,
+  H265Tiles,
+  H265UnregisteredSeiTimecode,
+  H265WriteMp4PackagingType,
+  HDRToSDRToneMapper,
+  HlsAdMarkers,
+  HlsAudioOnlyContainer,
+  HlsAudioOnlyHeader,
+  HlsAudioTrackType,
+  HlsCaptionLanguageSetting,
+  HlsCaptionSegmentLengthControl,
+  HlsClientCache,
+  HlsCodecSpecification,
+  HlsDescriptiveVideoServiceFlag,
+  HlsDirectoryStructure,
+  HlsEncryptionType,
+  HlsIFrameOnlyManifest,
+  HlsImageBasedTrickPlay,
+  HlsInitializationVectorInManifest,
+  HlsIntervalCadence,
+  HlsKeyProviderType,
+  HlsManifestCompression,
+  HlsManifestDurationFormat,
+  HlsOfflineEncrypted,
+  HlsOutputSelection,
+  HlsProgramDateTime,
+  HlsProgressiveWriteHlsManifest,
+  HlsSegmentControl,
+  HlsSegmentLengthControl,
+  HlsStreamInfResolution,
+  HlsTargetDurationCompatibilityMode,
+  HlsTimedMetadataId3Frame,
+  ImscAccessibilitySubs,
+  ImscStylePassthrough,
+  InputDeblockFilter,
+  InputDenoiseFilter,
+  InputFilterEnable,
+  InputPolicy,
+  InputPsiControl,
+  InputRotate,
+  InputSampleRange,
+  InputScanType,
+  InputTimecodeSource,
+  JobPhase,
+  JobsQueryFilterKey,
+  JobsQueryStatus,
+  JobStatus,
+  JobTemplateListBy,
+  LanguageCode,
+  M2tsAudioBufferModel,
+  M2tsAudioDuration,
+  M2tsBufferModel,
+  M2tsDataPtsControl,
+  M2tsEbpAudioInterval,
+  M2tsEbpPlacement,
+  M2tsEsRateInPes,
+  M2tsForceTsVideoEbpOrder,
+  M2tsKlvMetadata,
+  M2tsNielsenId3,
+  M2tsPcrControl,
+  M2tsPreventBufferUnderflow,
+  M2tsRateMode,
+  M2tsScte35Source,
+  M2tsSegmentationMarkers,
+  M2tsSegmentationStyle,
+  M3u8AudioDuration,
+  M3u8DataPtsControl,
+  M3u8NielsenId3,
+  M3u8PcrControl,
+  M3u8Scte35Source,
+  MatrixCoefficients,
+  MotionImageInsertionMode,
+  MotionImagePlayback,
+  MovClapAtom,
+  MovCslgAtom,
+  MovMpeg2FourCCControl,
+  MovPaddingControl,
+  MovReference,
+  Mp2AudioDescriptionMix,
+  Mp3RateControlMode,
+  Mp4C2paManifest,
+  Mp4CslgAtom,
+  Mp4FreeSpaceBox,
+  Mp4MoovPlacement,
+  MpdAccessibilityCaptionHints,
+  MpdAudioDuration,
+  MpdC2paManifest,
+  MpdCaptionContainerType,
+  MpdKlvMetadata,
+  MpdManifestMetadataSignaling,
+  MpdScte35Esam,
+  MpdScte35Source,
+  MpdTimedMetadata,
+  MpdTimedMetadataBoxVersion,
+  Mpeg2AdaptiveQuantization,
+  Mpeg2CodecLevel,
+  Mpeg2CodecProfile,
+  Mpeg2DynamicSubGop,
+  Mpeg2FramerateControl,
+  Mpeg2FramerateConversionAlgorithm,
+  Mpeg2GopSizeUnits,
+  Mpeg2InterlaceMode,
+  Mpeg2IntraDcPrecision,
+  Mpeg2ParControl,
+  Mpeg2QualityTuningLevel,
+  Mpeg2RateControlMode,
+  Mpeg2ScanTypeConversionMode,
+  Mpeg2SceneChangeDetect,
+  Mpeg2SlowPal,
+  Mpeg2SpatialAdaptiveQuantization,
+  Mpeg2Syntax,
+  Mpeg2Telecine,
+  Mpeg2TemporalAdaptiveQuantization,
+  MsSmoothAudioDeduplication,
+  MsSmoothFragmentLengthControl,
+  MsSmoothManifestEncoding,
+  MxfAfdSignaling,
+  MxfProfile,
+  MxfXavcDurationMode,
+  NielsenActiveWatermarkProcessType,
+  NielsenSourceWatermarkStatusType,
+  NielsenUniqueTicPerAudioTrackType,
+  NoiseFilterPostTemporalSharpening,
+  NoiseFilterPostTemporalSharpeningStrength,
+  NoiseReducerFilter,
+  Order,
+  OutputGroupType,
+  OutputSdt,
+  PadVideo,
+  PresetListBy,
+  PresetSpeke20Audio,
+  PresetSpeke20Video,
+  PricingPlan,
+  ProresChromaSampling,
+  ProresCodecProfile,
+  ProresFramerateControl,
+  ProresFramerateConversionAlgorithm,
+  ProresInterlaceMode,
+  ProresParControl,
+  ProresScanTypeConversionMode,
+  ProresSlowPal,
+  ProresTelecine,
+  QueueListBy,
+  QueueStatus,
+  RemoveRubyReserveAttributes,
+  RenewalType,
+  RequiredFlag,
+  ReservationPlanStatus,
+  RespondToAfd,
+  RuleType,
+  S3ObjectCannedAcl,
+  S3ServerSideEncryptionType,
+  S3StorageClass,
+  SampleRangeConversion,
+  ScalingBehavior,
+  SccDestinationFramerate,
+  ShareStatus,
+  SimulateReservedQueue,
+  SlowPalPitchCorrection,
+  SrtStylePassthrough,
+  StatusUpdateInterval,
+  TamsGapHandling,
+  TeletextPageType,
+  TimecodeBurninPosition,
+  TimecodeSource,
+  TimecodeTrack,
+  TimedMetadata,
+  TrackType,
+  TransferCharacteristics,
+  TsPtsOffset,
+  TtmlStylePassthrough,
+  Type,
+  UncompressedFourcc,
+  UncompressedFramerateControl,
+  UncompressedFramerateConversionAlgorithm,
+  UncompressedInterlaceMode,
+  UncompressedScanTypeConversionMode,
+  UncompressedSlowPal,
+  UncompressedTelecine,
+  Vc3Class,
+  Vc3FramerateControl,
+  Vc3FramerateConversionAlgorithm,
+  Vc3InterlaceMode,
+  Vc3ScanTypeConversionMode,
+  Vc3SlowPal,
+  Vc3Telecine,
+  VchipAction,
+  VideoCodec,
+  VideoOverlayPlayBackMode,
+  VideoOverlayUnit,
+  VideoSelectorMode,
+  VideoSelectorType,
+  VideoTimecodeInsertion,
+  Vp8FramerateControl,
+  Vp8FramerateConversionAlgorithm,
+  Vp8ParControl,
+  Vp8QualityTuningLevel,
+  Vp8RateControlMode,
+  Vp9FramerateControl,
+  Vp9FramerateConversionAlgorithm,
+  Vp9ParControl,
+  Vp9QualityTuningLevel,
+  Vp9RateControlMode,
+  WatermarkingStrength,
+  WavFormat,
+  WebvttAccessibilitySubs,
+  WebvttStylePassthrough,
+  Xavc4kIntraCbgProfileClass,
+  Xavc4kIntraVbrProfileClass,
+  Xavc4kProfileBitrateClass,
+  Xavc4kProfileCodecProfile,
+  Xavc4kProfileQualityTuningLevel,
+  XavcAdaptiveQuantization,
+  XavcEntropyEncoding,
+  XavcFlickerAdaptiveQuantization,
+  XavcFramerateControl,
+  XavcFramerateConversionAlgorithm,
+  XavcGopBReference,
+  XavcHdIntraCbgProfileClass,
+  XavcHdProfileBitrateClass,
+  XavcHdProfileQualityTuningLevel,
+  XavcHdProfileTelecine,
+  XavcInterlaceMode,
+  XavcProfile,
+  XavcSlowPal,
+  XavcSpatialAdaptiveQuantization,
+  XavcTemporalAdaptiveQuantization,
+} from "./enums";
 
 /**
  * Use Allowed renditions to specify a list of possible resolutions in your ABR stack. * MediaConvert will create an ABR stack exclusively from the list of resolutions that you specify. * Some resolutions in the Allowed renditions list may not be included, however you can force a resolution to be included by setting Required to ENABLED. * You must specify at least one resolution that is greater than or equal to any resolutions that you specify in Min top rendition size or Min bottom rendition size. * If you specify Allowed renditions, you must not specify a separate rule for Force include renditions.
@@ -38,46 +483,6 @@ export interface AllowedRenditionSize {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioChannelTag = {
-  C: "C",
-  CS: "CS",
-  HI: "HI",
-  L: "L",
-  LC: "LC",
-  LFE: "LFE",
-  LFE2: "LFE2",
-  LS: "LS",
-  LSD: "LSD",
-  LT: "LT",
-  LW: "LW",
-  M: "M",
-  NAR: "NAR",
-  R: "R",
-  RC: "RC",
-  RS: "RS",
-  RSD: "RSD",
-  RSL: "RSL",
-  RSR: "RSR",
-  RT: "RT",
-  RW: "RW",
-  TBC: "TBC",
-  TBL: "TBL",
-  TBR: "TBR",
-  TCS: "TCS",
-  VHC: "VHC",
-  VHL: "VHL",
-  VHR: "VHR",
-} as const;
-
-/**
- * @public
- */
-export type AudioChannelTag = (typeof AudioChannelTag)[keyof typeof AudioChannelTag];
-
-/**
  * Specify the QuickTime audio channel layout tags for the audio channels in this audio track. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use Audio layout tagging, your output must be in a QuickTime (MOV) container and your audio codec must be AAC, WAV, or AIFF.
  * @public
  */
@@ -94,68 +499,6 @@ export interface AudioChannelTaggingSettings {
    */
   ChannelTags?: AudioChannelTag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AudioNormalizationAlgorithm = {
-  ITU_BS_1770_1: "ITU_BS_1770_1",
-  ITU_BS_1770_2: "ITU_BS_1770_2",
-  ITU_BS_1770_3: "ITU_BS_1770_3",
-  ITU_BS_1770_4: "ITU_BS_1770_4",
-} as const;
-
-/**
- * @public
- */
-export type AudioNormalizationAlgorithm =
-  (typeof AudioNormalizationAlgorithm)[keyof typeof AudioNormalizationAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const AudioNormalizationAlgorithmControl = {
-  CORRECT_AUDIO: "CORRECT_AUDIO",
-  MEASURE_ONLY: "MEASURE_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type AudioNormalizationAlgorithmControl =
-  (typeof AudioNormalizationAlgorithmControl)[keyof typeof AudioNormalizationAlgorithmControl];
-
-/**
- * @public
- * @enum
- */
-export const AudioNormalizationLoudnessLogging = {
-  DONT_LOG: "DONT_LOG",
-  LOG: "LOG",
-} as const;
-
-/**
- * @public
- */
-export type AudioNormalizationLoudnessLogging =
-  (typeof AudioNormalizationLoudnessLogging)[keyof typeof AudioNormalizationLoudnessLogging];
-
-/**
- * @public
- * @enum
- */
-export const AudioNormalizationPeakCalculation = {
-  NONE: "NONE",
-  TRUE_PEAK: "TRUE_PEAK",
-} as const;
-
-/**
- * @public
- */
-export type AudioNormalizationPeakCalculation =
-  (typeof AudioNormalizationPeakCalculation)[keyof typeof AudioNormalizationPeakCalculation];
 
 /**
  * Advanced audio normalization settings. Ignore these settings unless you need to comply with a loudness standard.
@@ -206,20 +549,6 @@ export interface AudioNormalizationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const SlowPalPitchCorrection = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type SlowPalPitchCorrection = (typeof SlowPalPitchCorrection)[keyof typeof SlowPalPitchCorrection];
-
-/**
  * Settings for audio pitch correction during framerate conversion.
  * @public
  */
@@ -230,140 +559,6 @@ export interface AudioPitchCorrectionSettings {
    */
   SlowPalPitchCorrection?: SlowPalPitchCorrection | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AudioTypeControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type AudioTypeControl = (typeof AudioTypeControl)[keyof typeof AudioTypeControl];
-
-/**
- * @public
- * @enum
- */
-export const AacAudioDescriptionBroadcasterMix = {
-  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type AacAudioDescriptionBroadcasterMix =
-  (typeof AacAudioDescriptionBroadcasterMix)[keyof typeof AacAudioDescriptionBroadcasterMix];
-
-/**
- * @public
- * @enum
- */
-export const AacCodecProfile = {
-  HEV1: "HEV1",
-  HEV2: "HEV2",
-  LC: "LC",
-  XHE: "XHE",
-} as const;
-
-/**
- * @public
- */
-export type AacCodecProfile = (typeof AacCodecProfile)[keyof typeof AacCodecProfile];
-
-/**
- * @public
- * @enum
- */
-export const AacCodingMode = {
-  AD_RECEIVER_MIX: "AD_RECEIVER_MIX",
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_1_1: "CODING_MODE_1_1",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_5_1: "CODING_MODE_5_1",
-} as const;
-
-/**
- * @public
- */
-export type AacCodingMode = (typeof AacCodingMode)[keyof typeof AacCodingMode];
-
-/**
- * @public
- * @enum
- */
-export const AacLoudnessMeasurementMode = {
-  ANCHOR: "ANCHOR",
-  PROGRAM: "PROGRAM",
-} as const;
-
-/**
- * @public
- */
-export type AacLoudnessMeasurementMode = (typeof AacLoudnessMeasurementMode)[keyof typeof AacLoudnessMeasurementMode];
-
-/**
- * @public
- * @enum
- */
-export const AacRateControlMode = {
-  CBR: "CBR",
-  VBR: "VBR",
-} as const;
-
-/**
- * @public
- */
-export type AacRateControlMode = (typeof AacRateControlMode)[keyof typeof AacRateControlMode];
-
-/**
- * @public
- * @enum
- */
-export const AacRawFormat = {
-  LATM_LOAS: "LATM_LOAS",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AacRawFormat = (typeof AacRawFormat)[keyof typeof AacRawFormat];
-
-/**
- * @public
- * @enum
- */
-export const AacSpecification = {
-  MPEG2: "MPEG2",
-  MPEG4: "MPEG4",
-} as const;
-
-/**
- * @public
- */
-export type AacSpecification = (typeof AacSpecification)[keyof typeof AacSpecification];
-
-/**
- * @public
- * @enum
- */
-export const AacVbrQuality = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM_HIGH: "MEDIUM_HIGH",
-  MEDIUM_LOW: "MEDIUM_LOW",
-} as const;
-
-/**
- * @public
- */
-export type AacVbrQuality = (typeof AacVbrQuality)[keyof typeof AacVbrQuality];
 
 /**
  * Required when you set Codec to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode to "VBR" or "CBR". In VBR mode, you control the audio quality with the setting VBR quality. In CBR mode, you use the setting Bitrate. Defaults and valid values depend on the rate control mode.
@@ -442,123 +637,6 @@ export interface AacSettings {
    */
   VbrQuality?: AacVbrQuality | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Ac3BitstreamMode = {
-  COMMENTARY: "COMMENTARY",
-  COMPLETE_MAIN: "COMPLETE_MAIN",
-  DIALOGUE: "DIALOGUE",
-  EMERGENCY: "EMERGENCY",
-  HEARING_IMPAIRED: "HEARING_IMPAIRED",
-  MUSIC_AND_EFFECTS: "MUSIC_AND_EFFECTS",
-  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
-  VOICE_OVER: "VOICE_OVER",
-} as const;
-
-/**
- * @public
- */
-export type Ac3BitstreamMode = (typeof Ac3BitstreamMode)[keyof typeof Ac3BitstreamMode];
-
-/**
- * @public
- * @enum
- */
-export const Ac3CodingMode = {
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_1_1: "CODING_MODE_1_1",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
-} as const;
-
-/**
- * @public
- */
-export type Ac3CodingMode = (typeof Ac3CodingMode)[keyof typeof Ac3CodingMode];
-
-/**
- * @public
- * @enum
- */
-export const Ac3DynamicRangeCompressionLine = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Ac3DynamicRangeCompressionLine =
-  (typeof Ac3DynamicRangeCompressionLine)[keyof typeof Ac3DynamicRangeCompressionLine];
-
-/**
- * @public
- * @enum
- */
-export const Ac3DynamicRangeCompressionProfile = {
-  FILM_STANDARD: "FILM_STANDARD",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Ac3DynamicRangeCompressionProfile =
-  (typeof Ac3DynamicRangeCompressionProfile)[keyof typeof Ac3DynamicRangeCompressionProfile];
-
-/**
- * @public
- * @enum
- */
-export const Ac3DynamicRangeCompressionRf = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Ac3DynamicRangeCompressionRf =
-  (typeof Ac3DynamicRangeCompressionRf)[keyof typeof Ac3DynamicRangeCompressionRf];
-
-/**
- * @public
- * @enum
- */
-export const Ac3LfeFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Ac3LfeFilter = (typeof Ac3LfeFilter)[keyof typeof Ac3LfeFilter];
-
-/**
- * @public
- * @enum
- */
-export const Ac3MetadataControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type Ac3MetadataControl = (typeof Ac3MetadataControl)[keyof typeof Ac3MetadataControl];
 
 /**
  * Required when you set Codec to the value AC3.
@@ -649,189 +727,6 @@ export interface AiffSettings {
    */
   SampleRate?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AudioCodec = {
-  AAC: "AAC",
-  AC3: "AC3",
-  AIFF: "AIFF",
-  EAC3: "EAC3",
-  EAC3_ATMOS: "EAC3_ATMOS",
-  FLAC: "FLAC",
-  MP2: "MP2",
-  MP3: "MP3",
-  OPUS: "OPUS",
-  PASSTHROUGH: "PASSTHROUGH",
-  VORBIS: "VORBIS",
-  WAV: "WAV",
-} as const;
-
-/**
- * @public
- */
-export type AudioCodec = (typeof AudioCodec)[keyof typeof AudioCodec];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosBitstreamMode = {
-  COMPLETE_MAIN: "COMPLETE_MAIN",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosBitstreamMode = (typeof Eac3AtmosBitstreamMode)[keyof typeof Eac3AtmosBitstreamMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosCodingMode = {
-  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
-  CODING_MODE_7_1_4: "CODING_MODE_7_1_4",
-  CODING_MODE_9_1_6: "CODING_MODE_9_1_6",
-  CODING_MODE_AUTO: "CODING_MODE_AUTO",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosCodingMode = (typeof Eac3AtmosCodingMode)[keyof typeof Eac3AtmosCodingMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDialogueIntelligence = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDialogueIntelligence =
-  (typeof Eac3AtmosDialogueIntelligence)[keyof typeof Eac3AtmosDialogueIntelligence];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDownmixControl = {
-  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
-  SPECIFIED: "SPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDownmixControl = (typeof Eac3AtmosDownmixControl)[keyof typeof Eac3AtmosDownmixControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDynamicRangeCompressionLine = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDynamicRangeCompressionLine =
-  (typeof Eac3AtmosDynamicRangeCompressionLine)[keyof typeof Eac3AtmosDynamicRangeCompressionLine];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDynamicRangeCompressionRf = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDynamicRangeCompressionRf =
-  (typeof Eac3AtmosDynamicRangeCompressionRf)[keyof typeof Eac3AtmosDynamicRangeCompressionRf];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDynamicRangeControl = {
-  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
-  SPECIFIED: "SPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDynamicRangeControl =
-  (typeof Eac3AtmosDynamicRangeControl)[keyof typeof Eac3AtmosDynamicRangeControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosMeteringMode = {
-  ITU_BS_1770_1: "ITU_BS_1770_1",
-  ITU_BS_1770_2: "ITU_BS_1770_2",
-  ITU_BS_1770_3: "ITU_BS_1770_3",
-  ITU_BS_1770_4: "ITU_BS_1770_4",
-  LEQ_A: "LEQ_A",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosMeteringMode = (typeof Eac3AtmosMeteringMode)[keyof typeof Eac3AtmosMeteringMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosStereoDownmix = {
-  DPL2: "DPL2",
-  NOT_INDICATED: "NOT_INDICATED",
-  STEREO: "STEREO",
-  SURROUND: "SURROUND",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosStereoDownmix = (typeof Eac3AtmosStereoDownmix)[keyof typeof Eac3AtmosStereoDownmix];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosSurroundExMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosSurroundExMode = (typeof Eac3AtmosSurroundExMode)[keyof typeof Eac3AtmosSurroundExMode];
 
 /**
  * Required when you set Codec to the value EAC3_ATMOS.
@@ -940,220 +835,6 @@ export interface Eac3AtmosSettings {
    */
   SurroundExMode?: Eac3AtmosSurroundExMode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Eac3AttenuationControl = {
-  ATTENUATE_3_DB: "ATTENUATE_3_DB",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AttenuationControl = (typeof Eac3AttenuationControl)[keyof typeof Eac3AttenuationControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3BitstreamMode = {
-  COMMENTARY: "COMMENTARY",
-  COMPLETE_MAIN: "COMPLETE_MAIN",
-  EMERGENCY: "EMERGENCY",
-  HEARING_IMPAIRED: "HEARING_IMPAIRED",
-  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3BitstreamMode = (typeof Eac3BitstreamMode)[keyof typeof Eac3BitstreamMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3CodingMode = {
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_3_2: "CODING_MODE_3_2",
-} as const;
-
-/**
- * @public
- */
-export type Eac3CodingMode = (typeof Eac3CodingMode)[keyof typeof Eac3CodingMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3DcFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3DcFilter = (typeof Eac3DcFilter)[keyof typeof Eac3DcFilter];
-
-/**
- * @public
- * @enum
- */
-export const Eac3DynamicRangeCompressionLine = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3DynamicRangeCompressionLine =
-  (typeof Eac3DynamicRangeCompressionLine)[keyof typeof Eac3DynamicRangeCompressionLine];
-
-/**
- * @public
- * @enum
- */
-export const Eac3DynamicRangeCompressionRf = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3DynamicRangeCompressionRf =
-  (typeof Eac3DynamicRangeCompressionRf)[keyof typeof Eac3DynamicRangeCompressionRf];
-
-/**
- * @public
- * @enum
- */
-export const Eac3LfeControl = {
-  LFE: "LFE",
-  NO_LFE: "NO_LFE",
-} as const;
-
-/**
- * @public
- */
-export type Eac3LfeControl = (typeof Eac3LfeControl)[keyof typeof Eac3LfeControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3LfeFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3LfeFilter = (typeof Eac3LfeFilter)[keyof typeof Eac3LfeFilter];
-
-/**
- * @public
- * @enum
- */
-export const Eac3MetadataControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3MetadataControl = (typeof Eac3MetadataControl)[keyof typeof Eac3MetadataControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3PassthroughControl = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  WHEN_POSSIBLE: "WHEN_POSSIBLE",
-} as const;
-
-/**
- * @public
- */
-export type Eac3PassthroughControl = (typeof Eac3PassthroughControl)[keyof typeof Eac3PassthroughControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3PhaseControl = {
-  NO_SHIFT: "NO_SHIFT",
-  SHIFT_90_DEGREES: "SHIFT_90_DEGREES",
-} as const;
-
-/**
- * @public
- */
-export type Eac3PhaseControl = (typeof Eac3PhaseControl)[keyof typeof Eac3PhaseControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3StereoDownmix = {
-  DPL2: "DPL2",
-  LO_RO: "LO_RO",
-  LT_RT: "LT_RT",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3StereoDownmix = (typeof Eac3StereoDownmix)[keyof typeof Eac3StereoDownmix];
-
-/**
- * @public
- * @enum
- */
-export const Eac3SurroundExMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3SurroundExMode = (typeof Eac3SurroundExMode)[keyof typeof Eac3SurroundExMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3SurroundMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3SurroundMode = (typeof Eac3SurroundMode)[keyof typeof Eac3SurroundMode];
 
 /**
  * Required when you set Codec to the value EAC3.
@@ -1312,20 +993,6 @@ export interface FlacSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const Mp2AudioDescriptionMix = {
-  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Mp2AudioDescriptionMix = (typeof Mp2AudioDescriptionMix)[keyof typeof Mp2AudioDescriptionMix];
-
-/**
  * Required when you set Codec to the value MP2.
  * @public
  */
@@ -1354,20 +1021,6 @@ export interface Mp2Settings {
    */
   SampleRate?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Mp3RateControlMode = {
-  CBR: "CBR",
-  VBR: "VBR",
-} as const;
-
-/**
- * @public
- */
-export type Mp3RateControlMode = (typeof Mp3RateControlMode)[keyof typeof Mp3RateControlMode];
 
 /**
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
@@ -1452,21 +1105,6 @@ export interface VorbisSettings {
    */
   VbrQuality?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WavFormat = {
-  EXTENSIBLE: "EXTENSIBLE",
-  RF64: "RF64",
-  RIFF: "RIFF",
-} as const;
-
-/**
- * @public
- */
-export type WavFormat = (typeof WavFormat)[keyof typeof WavFormat];
 
 /**
  * Required when you set Codec to the value WAV.
@@ -1575,224 +1213,6 @@ export interface AudioCodecSettings {
    */
   WavSettings?: WavSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  AAR: "AAR",
-  ABK: "ABK",
-  AFR: "AFR",
-  AKA: "AKA",
-  AMH: "AMH",
-  ARA: "ARA",
-  ARG: "ARG",
-  ASM: "ASM",
-  AVA: "AVA",
-  AVE: "AVE",
-  AYM: "AYM",
-  AZE: "AZE",
-  BAK: "BAK",
-  BAM: "BAM",
-  BEL: "BEL",
-  BEN: "BEN",
-  BIH: "BIH",
-  BIS: "BIS",
-  BOD: "BOD",
-  BOS: "BOS",
-  BRE: "BRE",
-  BUL: "BUL",
-  CAT: "CAT",
-  CES: "CES",
-  CHA: "CHA",
-  CHE: "CHE",
-  CHU: "CHU",
-  CHV: "CHV",
-  COR: "COR",
-  COS: "COS",
-  CRE: "CRE",
-  CYM: "CYM",
-  DAN: "DAN",
-  DEU: "DEU",
-  DIV: "DIV",
-  DZO: "DZO",
-  ELL: "ELL",
-  ENG: "ENG",
-  ENM: "ENM",
-  EPO: "EPO",
-  EST: "EST",
-  EUS: "EUS",
-  EWE: "EWE",
-  FAO: "FAO",
-  FAS: "FAS",
-  FIJ: "FIJ",
-  FIN: "FIN",
-  FRA: "FRA",
-  FRM: "FRM",
-  FRY: "FRY",
-  FUL: "FUL",
-  GER: "GER",
-  GLA: "GLA",
-  GLE: "GLE",
-  GLG: "GLG",
-  GLV: "GLV",
-  GRN: "GRN",
-  GUJ: "GUJ",
-  HAT: "HAT",
-  HAU: "HAU",
-  HEB: "HEB",
-  HER: "HER",
-  HIN: "HIN",
-  HMO: "HMO",
-  HRV: "HRV",
-  HUN: "HUN",
-  HYE: "HYE",
-  IBO: "IBO",
-  IDO: "IDO",
-  III: "III",
-  IKU: "IKU",
-  ILE: "ILE",
-  INA: "INA",
-  IND: "IND",
-  IPK: "IPK",
-  ISL: "ISL",
-  ITA: "ITA",
-  JAV: "JAV",
-  JPN: "JPN",
-  KAL: "KAL",
-  KAN: "KAN",
-  KAS: "KAS",
-  KAT: "KAT",
-  KAU: "KAU",
-  KAZ: "KAZ",
-  KHM: "KHM",
-  KIK: "KIK",
-  KIN: "KIN",
-  KIR: "KIR",
-  KOM: "KOM",
-  KON: "KON",
-  KOR: "KOR",
-  KUA: "KUA",
-  KUR: "KUR",
-  LAO: "LAO",
-  LAT: "LAT",
-  LAV: "LAV",
-  LIM: "LIM",
-  LIN: "LIN",
-  LIT: "LIT",
-  LTZ: "LTZ",
-  LUB: "LUB",
-  LUG: "LUG",
-  MAH: "MAH",
-  MAL: "MAL",
-  MAR: "MAR",
-  MKD: "MKD",
-  MLG: "MLG",
-  MLT: "MLT",
-  MON: "MON",
-  MRI: "MRI",
-  MSA: "MSA",
-  MYA: "MYA",
-  NAU: "NAU",
-  NAV: "NAV",
-  NBL: "NBL",
-  NDE: "NDE",
-  NDO: "NDO",
-  NEP: "NEP",
-  NLD: "NLD",
-  NNO: "NNO",
-  NOB: "NOB",
-  NOR: "NOR",
-  NYA: "NYA",
-  OCI: "OCI",
-  OJI: "OJI",
-  ORI: "ORI",
-  ORJ: "ORJ",
-  ORM: "ORM",
-  OSS: "OSS",
-  PAN: "PAN",
-  PLI: "PLI",
-  POL: "POL",
-  POR: "POR",
-  PUS: "PUS",
-  QAA: "QAA",
-  QPC: "QPC",
-  QUE: "QUE",
-  ROH: "ROH",
-  RON: "RON",
-  RUN: "RUN",
-  RUS: "RUS",
-  SAG: "SAG",
-  SAN: "SAN",
-  SIN: "SIN",
-  SLK: "SLK",
-  SLV: "SLV",
-  SME: "SME",
-  SMO: "SMO",
-  SNA: "SNA",
-  SND: "SND",
-  SOM: "SOM",
-  SOT: "SOT",
-  SPA: "SPA",
-  SQI: "SQI",
-  SRB: "SRB",
-  SRD: "SRD",
-  SRP: "SRP",
-  SSW: "SSW",
-  SUN: "SUN",
-  SWA: "SWA",
-  SWE: "SWE",
-  TAH: "TAH",
-  TAM: "TAM",
-  TAT: "TAT",
-  TEL: "TEL",
-  TGK: "TGK",
-  TGL: "TGL",
-  THA: "THA",
-  TIR: "TIR",
-  TNG: "TNG",
-  TON: "TON",
-  TSN: "TSN",
-  TSO: "TSO",
-  TUK: "TUK",
-  TUR: "TUR",
-  TWI: "TWI",
-  UIG: "UIG",
-  UKR: "UKR",
-  URD: "URD",
-  UZB: "UZB",
-  VEN: "VEN",
-  VIE: "VIE",
-  VOL: "VOL",
-  WLN: "WLN",
-  WOL: "WOL",
-  XHO: "XHO",
-  YID: "YID",
-  YOR: "YOR",
-  ZHA: "ZHA",
-  ZHO: "ZHO",
-  ZUL: "ZUL",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
-
-/**
- * @public
- * @enum
- */
-export const AudioLanguageCodeControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type AudioLanguageCodeControl = (typeof AudioLanguageCodeControl)[keyof typeof AudioLanguageCodeControl];
 
 /**
  * OutputChannel mapping settings.
@@ -1993,22 +1413,6 @@ export interface MinTopRenditionSize {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleType = {
-  ALLOWED_RENDITIONS: "ALLOWED_RENDITIONS",
-  FORCE_INCLUDE_RENDITIONS: "FORCE_INCLUDE_RENDITIONS",
-  MIN_BOTTOM_RENDITION_SIZE: "MIN_BOTTOM_RENDITION_SIZE",
-  MIN_TOP_RENDITION_SIZE: "MIN_TOP_RENDITION_SIZE",
-} as const;
-
-/**
- * @public
- */
-export type RuleType = (typeof RuleType)[keyof typeof RuleType];
-
-/**
  * Specify one or more Automated ABR rule types. Note: Force include and Allowed renditions are mutually exclusive.
  * @public
  */
@@ -2043,186 +1447,6 @@ export interface AutomatedAbrRule {
    */
   Type?: RuleType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleAlignment = {
-  AUTO: "AUTO",
-  CENTERED: "CENTERED",
-  LEFT: "LEFT",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleAlignment = (typeof BurninSubtitleAlignment)[keyof typeof BurninSubtitleAlignment];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleApplyFontColor = {
-  ALL_TEXT: "ALL_TEXT",
-  WHITE_TEXT_ONLY: "WHITE_TEXT_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleApplyFontColor =
-  (typeof BurninSubtitleApplyFontColor)[keyof typeof BurninSubtitleApplyFontColor];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleBackgroundColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleBackgroundColor =
-  (typeof BurninSubtitleBackgroundColor)[keyof typeof BurninSubtitleBackgroundColor];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleFallbackFont = {
-  BEST_MATCH: "BEST_MATCH",
-  MONOSPACED_SANSSERIF: "MONOSPACED_SANSSERIF",
-  MONOSPACED_SERIF: "MONOSPACED_SERIF",
-  PROPORTIONAL_SANSSERIF: "PROPORTIONAL_SANSSERIF",
-  PROPORTIONAL_SERIF: "PROPORTIONAL_SERIF",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleFallbackFont = (typeof BurninSubtitleFallbackFont)[keyof typeof BurninSubtitleFallbackFont];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleFontColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  HEX: "HEX",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleFontColor = (typeof BurninSubtitleFontColor)[keyof typeof BurninSubtitleFontColor];
-
-/**
- * @public
- * @enum
- */
-export const FontScript = {
-  AUTOMATIC: "AUTOMATIC",
-  HANS: "HANS",
-  HANT: "HANT",
-} as const;
-
-/**
- * @public
- */
-export type FontScript = (typeof FontScript)[keyof typeof FontScript];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleOutlineColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleOutlineColor = (typeof BurninSubtitleOutlineColor)[keyof typeof BurninSubtitleOutlineColor];
-
-/**
- * @public
- * @enum
- */
-export const RemoveRubyReserveAttributes = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RemoveRubyReserveAttributes =
-  (typeof RemoveRubyReserveAttributes)[keyof typeof RemoveRubyReserveAttributes];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleShadowColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleShadowColor = (typeof BurninSubtitleShadowColor)[keyof typeof BurninSubtitleShadowColor];
-
-/**
- * @public
- * @enum
- */
-export const BurnInSubtitleStylePassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type BurnInSubtitleStylePassthrough =
-  (typeof BurnInSubtitleStylePassthrough)[keyof typeof BurnInSubtitleStylePassthrough];
-
-/**
- * @public
- * @enum
- */
-export const BurninSubtitleTeletextSpacing = {
-  AUTO: "AUTO",
-  FIXED_GRID: "FIXED_GRID",
-  PROPORTIONAL: "PROPORTIONAL",
-} as const;
-
-/**
- * @public
- */
-export type BurninSubtitleTeletextSpacing =
-  (typeof BurninSubtitleTeletextSpacing)[keyof typeof BurninSubtitleTeletextSpacing];
 
 /**
  * Burn-in is a captions delivery method, rather than a captions format. Burn-in writes the captions directly on your video frames, replacing pixels of video content with the captions. Set up burn-in captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/burn-in-output-captions.html.
@@ -2387,207 +1611,6 @@ export interface BurninDestinationSettings {
    */
   YPosition?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CaptionDestinationType = {
-  BURN_IN: "BURN_IN",
-  DVB_SUB: "DVB_SUB",
-  EMBEDDED: "EMBEDDED",
-  EMBEDDED_PLUS_SCTE20: "EMBEDDED_PLUS_SCTE20",
-  IMSC: "IMSC",
-  SCC: "SCC",
-  SCTE20_PLUS_EMBEDDED: "SCTE20_PLUS_EMBEDDED",
-  SMI: "SMI",
-  SRT: "SRT",
-  TELETEXT: "TELETEXT",
-  TTML: "TTML",
-  WEBVTT: "WEBVTT",
-} as const;
-
-/**
- * @public
- */
-export type CaptionDestinationType = (typeof CaptionDestinationType)[keyof typeof CaptionDestinationType];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleAlignment = {
-  AUTO: "AUTO",
-  CENTERED: "CENTERED",
-  LEFT: "LEFT",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleAlignment = (typeof DvbSubtitleAlignment)[keyof typeof DvbSubtitleAlignment];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleApplyFontColor = {
-  ALL_TEXT: "ALL_TEXT",
-  WHITE_TEXT_ONLY: "WHITE_TEXT_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleApplyFontColor = (typeof DvbSubtitleApplyFontColor)[keyof typeof DvbSubtitleApplyFontColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleBackgroundColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleBackgroundColor = (typeof DvbSubtitleBackgroundColor)[keyof typeof DvbSubtitleBackgroundColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbddsHandling = {
-  NONE: "NONE",
-  NO_DISPLAY_WINDOW: "NO_DISPLAY_WINDOW",
-  SPECIFIED: "SPECIFIED",
-  SPECIFIED_OPTIMAL: "SPECIFIED_OPTIMAL",
-} as const;
-
-/**
- * @public
- */
-export type DvbddsHandling = (typeof DvbddsHandling)[keyof typeof DvbddsHandling];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubSubtitleFallbackFont = {
-  BEST_MATCH: "BEST_MATCH",
-  MONOSPACED_SANSSERIF: "MONOSPACED_SANSSERIF",
-  MONOSPACED_SERIF: "MONOSPACED_SERIF",
-  PROPORTIONAL_SANSSERIF: "PROPORTIONAL_SANSSERIF",
-  PROPORTIONAL_SERIF: "PROPORTIONAL_SERIF",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubSubtitleFallbackFont = (typeof DvbSubSubtitleFallbackFont)[keyof typeof DvbSubSubtitleFallbackFont];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleFontColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  HEX: "HEX",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleFontColor = (typeof DvbSubtitleFontColor)[keyof typeof DvbSubtitleFontColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleOutlineColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleOutlineColor = (typeof DvbSubtitleOutlineColor)[keyof typeof DvbSubtitleOutlineColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleShadowColor = {
-  AUTO: "AUTO",
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleShadowColor = (typeof DvbSubtitleShadowColor)[keyof typeof DvbSubtitleShadowColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleStylePassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleStylePassthrough =
-  (typeof DvbSubtitleStylePassthrough)[keyof typeof DvbSubtitleStylePassthrough];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitlingType = {
-  HEARING_IMPAIRED: "HEARING_IMPAIRED",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitlingType = (typeof DvbSubtitlingType)[keyof typeof DvbSubtitlingType];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubtitleTeletextSpacing = {
-  AUTO: "AUTO",
-  FIXED_GRID: "FIXED_GRID",
-  PROPORTIONAL: "PROPORTIONAL",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubtitleTeletextSpacing = (typeof DvbSubtitleTeletextSpacing)[keyof typeof DvbSubtitleTeletextSpacing];
 
 /**
  * Settings related to DVB-Sub captions. Set up DVB-Sub captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/dvb-sub-output-captions.html.
@@ -2804,34 +1827,6 @@ export interface EmbeddedDestinationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const ImscAccessibilitySubs = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ImscAccessibilitySubs = (typeof ImscAccessibilitySubs)[keyof typeof ImscAccessibilitySubs];
-
-/**
- * @public
- * @enum
- */
-export const ImscStylePassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ImscStylePassthrough = (typeof ImscStylePassthrough)[keyof typeof ImscStylePassthrough];
-
-/**
  * Settings related to IMSC captions. IMSC is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html.
  * @public
  */
@@ -2850,23 +1845,6 @@ export interface ImscDestinationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const SccDestinationFramerate = {
-  FRAMERATE_23_97: "FRAMERATE_23_97",
-  FRAMERATE_24: "FRAMERATE_24",
-  FRAMERATE_25: "FRAMERATE_25",
-  FRAMERATE_29_97_DROPFRAME: "FRAMERATE_29_97_DROPFRAME",
-  FRAMERATE_29_97_NON_DROPFRAME: "FRAMERATE_29_97_NON_DROPFRAME",
-} as const;
-
-/**
- * @public
- */
-export type SccDestinationFramerate = (typeof SccDestinationFramerate)[keyof typeof SccDestinationFramerate];
-
-/**
  * Settings related to SCC captions. SCC is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/scc-srt-output-captions.html.
  * @public
  */
@@ -2879,20 +1857,6 @@ export interface SccDestinationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const SrtStylePassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type SrtStylePassthrough = (typeof SrtStylePassthrough)[keyof typeof SrtStylePassthrough];
-
-/**
  * Settings related to SRT captions. SRT is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video.
  * @public
  */
@@ -2903,23 +1867,6 @@ export interface SrtDestinationSettings {
    */
   StylePassthrough?: SrtStylePassthrough | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TeletextPageType = {
-  PAGE_TYPE_ADDL_INFO: "PAGE_TYPE_ADDL_INFO",
-  PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE: "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
-  PAGE_TYPE_INITIAL: "PAGE_TYPE_INITIAL",
-  PAGE_TYPE_PROGRAM_SCHEDULE: "PAGE_TYPE_PROGRAM_SCHEDULE",
-  PAGE_TYPE_SUBTITLE: "PAGE_TYPE_SUBTITLE",
-} as const;
-
-/**
- * @public
- */
-export type TeletextPageType = (typeof TeletextPageType)[keyof typeof TeletextPageType];
 
 /**
  * Settings related to teletext captions. Set up teletext captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/teletext-output-captions.html.
@@ -2940,20 +1887,6 @@ export interface TeletextDestinationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const TtmlStylePassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type TtmlStylePassthrough = (typeof TtmlStylePassthrough)[keyof typeof TtmlStylePassthrough];
-
-/**
  * Settings related to TTML captions. TTML is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html.
  * @public
  */
@@ -2964,36 +1897,6 @@ export interface TtmlDestinationSettings {
    */
   StylePassthrough?: TtmlStylePassthrough | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebvttAccessibilitySubs = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type WebvttAccessibilitySubs = (typeof WebvttAccessibilitySubs)[keyof typeof WebvttAccessibilitySubs];
-
-/**
- * @public
- * @enum
- */
-export const WebvttStylePassthrough = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  MERGE: "MERGE",
-  STRICT: "STRICT",
-} as const;
-
-/**
- * @public
- */
-export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeof WebvttStylePassthrough];
 
 /**
  * Settings related to WebVTT captions. WebVTT is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html.
@@ -3164,26 +2067,6 @@ export interface CmafAdditionalManifest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ColorSpace = {
-  FOLLOW: "FOLLOW",
-  HDR10: "HDR10",
-  HLG_2020: "HLG_2020",
-  P3D65_HDR: "P3D65_HDR",
-  P3D65_SDR: "P3D65_SDR",
-  P3DCI: "P3DCI",
-  REC_601: "REC_601",
-  REC_709: "REC_709",
-} as const;
-
-/**
- * @public
- */
-export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
-
-/**
  * Custom 3D lut settings
  * @public
  */
@@ -3250,25 +2133,6 @@ export interface Endpoint {
 }
 
 /**
- * @public
- * @enum
- */
-export const FrameMetricType = {
-  MS_SSIM: "MS_SSIM",
-  PSNR: "PSNR",
-  PSNR_HVS: "PSNR_HVS",
-  QVBR: "QVBR",
-  SHOT_CHANGE: "SHOT_CHANGE",
-  SSIM: "SSIM",
-  VMAF: "VMAF",
-} as const;
-
-/**
- * @public
- */
-export type FrameMetricType = (typeof FrameMetricType)[keyof typeof FrameMetricType];
-
-/**
  * Specify the details for each additional HLS manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  * @public
  */
@@ -3285,20 +2149,6 @@ export interface HlsAdditionalManifest {
    */
   SelectedOutputs?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HlsAdMarkers = {
-  ELEMENTAL: "ELEMENTAL",
-  ELEMENTAL_SCTE35: "ELEMENTAL_SCTE35",
-} as const;
-
-/**
- * @public
- */
-export type HlsAdMarkers = (typeof HlsAdMarkers)[keyof typeof HlsAdMarkers];
 
 /**
  * Caption Language Mapping
@@ -3373,50 +2223,6 @@ export interface Id3Insertion {
 }
 
 /**
- * @public
- * @enum
- */
-export const AdvancedInputFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AdvancedInputFilter = (typeof AdvancedInputFilter)[keyof typeof AdvancedInputFilter];
-
-/**
- * @public
- * @enum
- */
-export const AdvancedInputFilterAddTexture = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AdvancedInputFilterAddTexture =
-  (typeof AdvancedInputFilterAddTexture)[keyof typeof AdvancedInputFilterAddTexture];
-
-/**
- * @public
- * @enum
- */
-export const AdvancedInputFilterSharpen = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type AdvancedInputFilterSharpen = (typeof AdvancedInputFilterSharpen)[keyof typeof AdvancedInputFilterSharpen];
-
-/**
  * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
  * @public
  */
@@ -3447,37 +2253,6 @@ export interface AudioSelectorGroup {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioDurationCorrection = {
-  AUTO: "AUTO",
-  DISABLED: "DISABLED",
-  FORCE: "FORCE",
-  FRAME: "FRAME",
-  TRACK: "TRACK",
-} as const;
-
-/**
- * @public
- */
-export type AudioDurationCorrection = (typeof AudioDurationCorrection)[keyof typeof AudioDurationCorrection];
-
-/**
- * @public
- * @enum
- */
-export const AudioDefaultSelection = {
-  DEFAULT: "DEFAULT",
-  NOT_DEFAULT: "NOT_DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type AudioDefaultSelection = (typeof AudioDefaultSelection)[keyof typeof AudioDefaultSelection];
-
-/**
  * Settings specific to audio sources in an HLS alternate rendition group. Specify the properties (renditionGroupId, renditionName or renditionLanguageCode) to identify the unique audio track among the alternative rendition groups present in the HLS manifest. If no unique track is found, or multiple tracks match the properties provided, the job fails. If no properties in hlsRenditionGroupSettings are specified, the default audio track within the video segment is chosen. If there is no audio within video segment, the alternative audio with DEFAULT=YES is chosen instead.
  * @public
  */
@@ -3500,24 +2275,6 @@ export interface HlsRenditionGroupSettings {
    */
   RenditionName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AudioSelectorType = {
-  ALL_PCM: "ALL_PCM",
-  HLS_RENDITION_GROUP: "HLS_RENDITION_GROUP",
-  LANGUAGE_CODE: "LANGUAGE_CODE",
-  PID: "PID",
-  STREAM: "STREAM",
-  TRACK: "TRACK",
-} as const;
-
-/**
- * @public
- */
-export type AudioSelectorType = (typeof AudioSelectorType)[keyof typeof AudioSelectorType];
 
 /**
  * Use Audio selectors to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
@@ -3606,34 +2363,6 @@ export interface AudioSelector {
 }
 
 /**
- * @public
- * @enum
- */
-export const AncillaryConvert608To708 = {
-  DISABLED: "DISABLED",
-  UPCONVERT: "UPCONVERT",
-} as const;
-
-/**
- * @public
- */
-export type AncillaryConvert608To708 = (typeof AncillaryConvert608To708)[keyof typeof AncillaryConvert608To708];
-
-/**
- * @public
- * @enum
- */
-export const AncillaryTerminateCaptions = {
-  DISABLED: "DISABLED",
-  END_OF_INPUT: "END_OF_INPUT",
-} as const;
-
-/**
- * @public
- */
-export type AncillaryTerminateCaptions = (typeof AncillaryTerminateCaptions)[keyof typeof AncillaryTerminateCaptions];
-
-/**
  * Settings for ancillary captions source.
  * @public
  */
@@ -3670,34 +2399,6 @@ export interface DvbSubSourceSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const EmbeddedConvert608To708 = {
-  DISABLED: "DISABLED",
-  UPCONVERT: "UPCONVERT",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddedConvert608To708 = (typeof EmbeddedConvert608To708)[keyof typeof EmbeddedConvert608To708];
-
-/**
- * @public
- * @enum
- */
-export const EmbeddedTerminateCaptions = {
-  DISABLED: "DISABLED",
-  END_OF_INPUT: "END_OF_INPUT",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddedTerminateCaptions = (typeof EmbeddedTerminateCaptions)[keyof typeof EmbeddedTerminateCaptions];
-
-/**
  * Settings for embedded captions Source
  * @public
  */
@@ -3728,49 +2429,6 @@ export interface EmbeddedSourceSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const CaptionSourceByteRateLimit = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CaptionSourceByteRateLimit = (typeof CaptionSourceByteRateLimit)[keyof typeof CaptionSourceByteRateLimit];
-
-/**
- * @public
- * @enum
- */
-export const FileSourceConvert608To708 = {
-  DISABLED: "DISABLED",
-  UPCONVERT: "UPCONVERT",
-} as const;
-
-/**
- * @public
- */
-export type FileSourceConvert608To708 = (typeof FileSourceConvert608To708)[keyof typeof FileSourceConvert608To708];
-
-/**
- * @public
- * @enum
- */
-export const CaptionSourceConvertPaintOnToPopOn = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CaptionSourceConvertPaintOnToPopOn =
-  (typeof CaptionSourceConvertPaintOnToPopOn)[keyof typeof CaptionSourceConvertPaintOnToPopOn];
-
-/**
  * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction. For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
  * @public
  */
@@ -3787,35 +2445,6 @@ export interface CaptionSourceFramerate {
    */
   FramerateNumerator?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileSourceTimeDeltaUnits = {
-  MILLISECONDS: "MILLISECONDS",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type FileSourceTimeDeltaUnits = (typeof FileSourceTimeDeltaUnits)[keyof typeof FileSourceTimeDeltaUnits];
-
-/**
- * @public
- * @enum
- */
-export const CaptionSourceUpconvertSTLToTeletext = {
-  DISABLED: "DISABLED",
-  UPCONVERT: "UPCONVERT",
-} as const;
-
-/**
- * @public
- */
-export type CaptionSourceUpconvertSTLToTeletext =
-  (typeof CaptionSourceUpconvertSTLToTeletext)[keyof typeof CaptionSourceUpconvertSTLToTeletext];
 
 /**
  * If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
@@ -3870,32 +2499,6 @@ export interface FileSourceSettings {
    */
   UpconvertSTLToTeletext?: CaptionSourceUpconvertSTLToTeletext | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CaptionSourceType = {
-  ANCILLARY: "ANCILLARY",
-  DVB_SUB: "DVB_SUB",
-  EMBEDDED: "EMBEDDED",
-  IMSC: "IMSC",
-  NULL_SOURCE: "NULL_SOURCE",
-  SCC: "SCC",
-  SCTE20: "SCTE20",
-  SMI: "SMI",
-  SMPTE_TT: "SMPTE_TT",
-  SRT: "SRT",
-  STL: "STL",
-  TELETEXT: "TELETEXT",
-  TTML: "TTML",
-  WEBVTT: "WEBVTT",
-} as const;
-
-/**
- * @public
- */
-export type CaptionSourceType = (typeof CaptionSourceType)[keyof typeof CaptionSourceType];
 
 /**
  * Settings specific to Teletext caption sources, including Page number.
@@ -4060,35 +2663,6 @@ export interface Rectangle {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputDeblockFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type InputDeblockFilter = (typeof InputDeblockFilter)[keyof typeof InputDeblockFilter];
-
-/**
- * @public
- * @enum
- */
-export const DecryptionMode = {
-  AES_CBC: "AES_CBC",
-  AES_CTR: "AES_CTR",
-  AES_GCM: "AES_GCM",
-} as const;
-
-/**
- * @public
- */
-export type DecryptionMode = (typeof DecryptionMode)[keyof typeof DecryptionMode];
-
-/**
  * Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
  * @public
  */
@@ -4117,34 +2691,6 @@ export interface InputDecryptionSettings {
    */
   KmsKeyRegion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputDenoiseFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type InputDenoiseFilter = (typeof InputDenoiseFilter)[keyof typeof InputDenoiseFilter];
-
-/**
- * @public
- * @enum
- */
-export const DynamicAudioSelectorType = {
-  ALL_TRACKS: "ALL_TRACKS",
-  LANGUAGE_CODE: "LANGUAGE_CODE",
-} as const;
-
-/**
- * @public
- */
-export type DynamicAudioSelectorType = (typeof DynamicAudioSelectorType)[keyof typeof DynamicAudioSelectorType];
 
 /**
  * Use Dynamic audio selectors when you do not know the track layout of your source when you submit your job, but want to select multiple audio tracks. When you include an audio track in your output and specify this Dynamic audio selector as the Audio source, MediaConvert creates an audio track within that output for each dynamically selected track. Note that when you include a Dynamic audio selector for two or more inputs, each input must have the same number of audio tracks and audio channels.
@@ -4183,21 +2729,6 @@ export interface DynamicAudioSelector {
    */
   SelectorType?: DynamicAudioSelectorType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputFilterEnable = {
-  AUTO: "AUTO",
-  DISABLE: "DISABLE",
-  FORCE: "FORCE",
-} as const;
-
-/**
- * @public
- */
-export type InputFilterEnable = (typeof InputFilterEnable)[keyof typeof InputFilterEnable];
 
 /**
  * These settings apply to a specific graphic overlay. You can include multiple overlays in your job.
@@ -4308,49 +2839,6 @@ export interface InputClipping {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputScanType = {
-  AUTO: "AUTO",
-  PSF: "PSF",
-} as const;
-
-/**
- * @public
- */
-export type InputScanType = (typeof InputScanType)[keyof typeof InputScanType];
-
-/**
- * @public
- * @enum
- */
-export const InputPsiControl = {
-  IGNORE_PSI: "IGNORE_PSI",
-  USE_PSI: "USE_PSI",
-} as const;
-
-/**
- * @public
- */
-export type InputPsiControl = (typeof InputPsiControl)[keyof typeof InputPsiControl];
-
-/**
- * @public
- * @enum
- */
-export const TamsGapHandling = {
-  FILL_WITH_BLACK: "FILL_WITH_BLACK",
-  HOLD_LAST_FRAME: "HOLD_LAST_FRAME",
-  SKIP_GAPS: "SKIP_GAPS",
-} as const;
-
-/**
- * @public
- */
-export type TamsGapHandling = (typeof TamsGapHandling)[keyof typeof TamsGapHandling];
-
-/**
  * Specify a Time Addressable Media Store (TAMS) server as an input source. TAMS is an open-source API specification that provides access to time-segmented media content. Use TAMS to retrieve specific time ranges from live or archived media streams. When you specify TAMS settings, MediaConvert connects to your TAMS server, retrieves the media segments for your specified time range, and processes them as a single input. This enables workflows like extracting clips from live streams or processing specific portions of archived content. To use TAMS, you must: 1. Have access to a TAMS-compliant server 2. Specify the server URL in the Input file URL field 3. Provide the required SourceId and Timerange parameters 4. Configure authentication, if your TAMS server requires it
  * @public
  */
@@ -4379,21 +2867,6 @@ export interface InputTamsSettings {
    */
   Timerange?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputTimecodeSource = {
-  EMBEDDED: "EMBEDDED",
-  SPECIFIEDSTART: "SPECIFIEDSTART",
-  ZEROBASED: "ZEROBASED",
-} as const;
-
-/**
- * @public
- */
-export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof InputTimecodeSource];
 
 /**
  * When you include Video generator, MediaConvert creates a video input with black frames. Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. You can specify Video generator, or you can specify an Input file, but you cannot specify both. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-generator.html
@@ -4444,20 +2917,6 @@ export interface InputVideoGenerator {
    */
   Width?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VideoOverlayUnit = {
-  PERCENTAGE: "PERCENTAGE",
-  PIXELS: "PIXELS",
-} as const;
-
-/**
- * @public
- */
-export type VideoOverlayUnit = (typeof VideoOverlayUnit)[keyof typeof VideoOverlayUnit];
 
 /**
  * Specify a rectangle of content to crop and use from your video overlay's input video. When you do, MediaConvert uses the cropped dimensions that you specify under X offset, Y offset, Width, and Height.
@@ -4587,20 +3046,6 @@ export interface VideoOverlayInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const VideoOverlayPlayBackMode = {
-  ONCE: "ONCE",
-  REPEAT: "REPEAT",
-} as const;
-
-/**
- * @public
- */
-export type VideoOverlayPlayBackMode = (typeof VideoOverlayPlayBackMode)[keyof typeof VideoOverlayPlayBackMode];
-
-/**
  * Specify one or more Transitions for your video overlay. Use Transitions to reposition or resize your overlay over time. To use the same position and size for the duration of your video overlay: Leave blank. To specify a Transition: Enter a value for Start timecode, End Timecode, X Position, Y Position, Width, Height, or Opacity
  * @public
  */
@@ -4671,48 +3116,6 @@ export interface VideoOverlay {
    */
   Transitions?: VideoOverlayTransition[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AlphaBehavior = {
-  DISCARD: "DISCARD",
-  REMAP_TO_LUMA: "REMAP_TO_LUMA",
-} as const;
-
-/**
- * @public
- */
-export type AlphaBehavior = (typeof AlphaBehavior)[keyof typeof AlphaBehavior];
-
-/**
- * @public
- * @enum
- */
-export const ColorSpaceUsage = {
-  FALLBACK: "FALLBACK",
-  FORCE: "FORCE",
-} as const;
-
-/**
- * @public
- */
-export type ColorSpaceUsage = (typeof ColorSpaceUsage)[keyof typeof ColorSpaceUsage];
-
-/**
- * @public
- * @enum
- */
-export const EmbeddedTimecodeOverride = {
-  NONE: "NONE",
-  USE_MDPM: "USE_MDPM",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddedTimecodeOverride = (typeof EmbeddedTimecodeOverride)[keyof typeof EmbeddedTimecodeOverride];
 
 /**
  * Use these settings to specify static color calibration metadata, as defined by SMPTE ST 2086. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator.
@@ -4791,66 +3194,6 @@ export interface Hdr10Metadata {
    */
   WhitePointY?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PadVideo = {
-  BLACK: "BLACK",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type PadVideo = (typeof PadVideo)[keyof typeof PadVideo];
-
-/**
- * @public
- * @enum
- */
-export const InputRotate = {
-  AUTO: "AUTO",
-  DEGREES_180: "DEGREES_180",
-  DEGREES_270: "DEGREES_270",
-  DEGREES_90: "DEGREES_90",
-  DEGREE_0: "DEGREE_0",
-} as const;
-
-/**
- * @public
- */
-export type InputRotate = (typeof InputRotate)[keyof typeof InputRotate];
-
-/**
- * @public
- * @enum
- */
-export const InputSampleRange = {
-  FOLLOW: "FOLLOW",
-  FULL_RANGE: "FULL_RANGE",
-  LIMITED_RANGE: "LIMITED_RANGE",
-} as const;
-
-/**
- * @public
- */
-export type InputSampleRange = (typeof InputSampleRange)[keyof typeof InputSampleRange];
-
-/**
- * @public
- * @enum
- */
-export const VideoSelectorType = {
-  AUTO: "AUTO",
-  STREAM: "STREAM",
-} as const;
-
-/**
- * @public
- */
-export type VideoSelectorType = (typeof VideoSelectorType)[keyof typeof VideoSelectorType];
 
 /**
  * Input video selectors contain the video settings for the input. Each of your inputs can have up to one video selector.
@@ -5252,21 +3595,6 @@ export interface InputTemplate {
 }
 
 /**
- * @public
- * @enum
- */
-export const AccelerationMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  PREFERRED: "PREFERRED",
-} as const;
-
-/**
- * @public
- */
-export type AccelerationMode = (typeof AccelerationMode)[keyof typeof AccelerationMode];
-
-/**
  * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
  * @public
  */
@@ -5277,53 +3605,6 @@ export interface AccelerationSettings {
    */
   Mode: AccelerationMode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AccelerationStatus = {
-  ACCELERATED: "ACCELERATED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_ACCELERATED: "NOT_ACCELERATED",
-  NOT_APPLICABLE: "NOT_APPLICABLE",
-} as const;
-
-/**
- * @public
- */
-export type AccelerationStatus = (typeof AccelerationStatus)[keyof typeof AccelerationStatus];
-
-/**
- * @public
- * @enum
- */
-export const BillingTagsSource = {
-  JOB: "JOB",
-  JOB_TEMPLATE: "JOB_TEMPLATE",
-  PRESET: "PRESET",
-  QUEUE: "QUEUE",
-} as const;
-
-/**
- * @public
- */
-export type BillingTagsSource = (typeof BillingTagsSource)[keyof typeof BillingTagsSource];
-
-/**
- * @public
- * @enum
- */
-export const JobPhase = {
-  PROBING: "PROBING",
-  TRANSCODING: "TRANSCODING",
-  UPLOADING: "UPLOADING",
-} as const;
-
-/**
- * @public
- */
-export type JobPhase = (typeof JobPhase)[keyof typeof JobPhase];
 
 /**
  * Provides messages from the service about jobs that you have already successfully submitted.
@@ -5476,34 +3757,6 @@ export interface EsamSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const CopyProtectionAction = {
-  PASSTHROUGH: "PASSTHROUGH",
-  STRIP: "STRIP",
-} as const;
-
-/**
- * @public
- */
-export type CopyProtectionAction = (typeof CopyProtectionAction)[keyof typeof CopyProtectionAction];
-
-/**
- * @public
- * @enum
- */
-export const VchipAction = {
-  PASSTHROUGH: "PASSTHROUGH",
-  STRIP: "STRIP",
-} as const;
-
-/**
- * @public
- */
-export type VchipAction = (typeof VchipAction)[keyof typeof VchipAction];
-
-/**
  * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
  * @public
  */
@@ -5624,20 +3877,6 @@ export interface MotionImageInsertionFramerate {
 }
 
 /**
- * @public
- * @enum
- */
-export const MotionImageInsertionMode = {
-  MOV: "MOV",
-  PNG: "PNG",
-} as const;
-
-/**
- * @public
- */
-export type MotionImageInsertionMode = (typeof MotionImageInsertionMode)[keyof typeof MotionImageInsertionMode];
-
-/**
  * Specify the offset between the upper-left corner of the video frame and the top left corner of the overlay.
  * @public
  */
@@ -5654,20 +3893,6 @@ export interface MotionImageInsertionOffset {
    */
   ImageY?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MotionImagePlayback = {
-  ONCE: "ONCE",
-  REPEAT: "REPEAT",
-} as const;
-
-/**
- * @public
- */
-export type MotionImagePlayback = (typeof MotionImagePlayback)[keyof typeof MotionImagePlayback];
 
 /**
  * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
@@ -5728,52 +3953,6 @@ export interface NielsenConfiguration {
    */
   DistributorId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NielsenActiveWatermarkProcessType = {
-  CBET: "CBET",
-  NAES2_AND_NW: "NAES2_AND_NW",
-  NAES2_AND_NW_AND_CBET: "NAES2_AND_NW_AND_CBET",
-} as const;
-
-/**
- * @public
- */
-export type NielsenActiveWatermarkProcessType =
-  (typeof NielsenActiveWatermarkProcessType)[keyof typeof NielsenActiveWatermarkProcessType];
-
-/**
- * @public
- * @enum
- */
-export const NielsenSourceWatermarkStatusType = {
-  CLEAN: "CLEAN",
-  WATERMARKED: "WATERMARKED",
-} as const;
-
-/**
- * @public
- */
-export type NielsenSourceWatermarkStatusType =
-  (typeof NielsenSourceWatermarkStatusType)[keyof typeof NielsenSourceWatermarkStatusType];
-
-/**
- * @public
- * @enum
- */
-export const NielsenUniqueTicPerAudioTrackType = {
-  RESERVE_UNIQUE_TICS_PER_TRACK: "RESERVE_UNIQUE_TICS_PER_TRACK",
-  SAME_TICS_PER_TRACK: "SAME_TICS_PER_TRACK",
-} as const;
-
-/**
- * @public
- */
-export type NielsenUniqueTicPerAudioTrackType =
-  (typeof NielsenUniqueTicPerAudioTrackType)[keyof typeof NielsenUniqueTicPerAudioTrackType];
 
 /**
  * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 6.0.13 Nielsen NLM Watermark Engine Version 1.3.3 Nielsen Watermark Authenticator [SID_TIC] Version [7.0.0]
@@ -5896,66 +4075,6 @@ export interface AutomatedEncodingSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const CmafClientCache = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmafClientCache = (typeof CmafClientCache)[keyof typeof CmafClientCache];
-
-/**
- * @public
- * @enum
- */
-export const CmafCodecSpecification = {
-  RFC_4281: "RFC_4281",
-  RFC_6381: "RFC_6381",
-} as const;
-
-/**
- * @public
- */
-export type CmafCodecSpecification = (typeof CmafCodecSpecification)[keyof typeof CmafCodecSpecification];
-
-/**
- * @public
- * @enum
- */
-export const DashManifestStyle = {
-  BASIC: "BASIC",
-  COMPACT: "COMPACT",
-  DISTINCT: "DISTINCT",
-  FULL: "FULL",
-} as const;
-
-/**
- * @public
- */
-export type DashManifestStyle = (typeof DashManifestStyle)[keyof typeof DashManifestStyle];
-
-/**
- * @public
- * @enum
- */
-export const S3ObjectCannedAcl = {
-  AUTHENTICATED_READ: "AUTHENTICATED_READ",
-  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
-  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
-  PUBLIC_READ: "PUBLIC_READ",
-} as const;
-
-/**
- * @public
- */
-export type S3ObjectCannedAcl = (typeof S3ObjectCannedAcl)[keyof typeof S3ObjectCannedAcl];
-
-/**
  * Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
  * @public
  */
@@ -5966,20 +4085,6 @@ export interface S3DestinationAccessControl {
    */
   CannedAcl?: S3ObjectCannedAcl | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const S3ServerSideEncryptionType = {
-  SERVER_SIDE_ENCRYPTION_KMS: "SERVER_SIDE_ENCRYPTION_KMS",
-  SERVER_SIDE_ENCRYPTION_S3: "SERVER_SIDE_ENCRYPTION_S3",
-} as const;
-
-/**
- * @public
- */
-export type S3ServerSideEncryptionType = (typeof S3ServerSideEncryptionType)[keyof typeof S3ServerSideEncryptionType];
 
 /**
  * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
@@ -6004,25 +4109,6 @@ export interface S3EncryptionSettings {
    */
   KmsKeyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const S3StorageClass = {
-  DEEP_ARCHIVE: "DEEP_ARCHIVE",
-  GLACIER: "GLACIER",
-  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
-  ONEZONE_IA: "ONEZONE_IA",
-  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
-  STANDARD: "STANDARD",
-  STANDARD_IA: "STANDARD_IA",
-} as const;
-
-/**
- * @public
- */
-export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
 
 /**
  * Settings associated with S3 destination
@@ -6059,74 +4145,6 @@ export interface DestinationSettings {
    */
   S3Settings?: S3DestinationSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CmafEncryptionType = {
-  AES_CTR: "AES_CTR",
-  SAMPLE_AES: "SAMPLE_AES",
-} as const;
-
-/**
- * @public
- */
-export type CmafEncryptionType = (typeof CmafEncryptionType)[keyof typeof CmafEncryptionType];
-
-/**
- * @public
- * @enum
- */
-export const CmafInitializationVectorInManifest = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type CmafInitializationVectorInManifest =
-  (typeof CmafInitializationVectorInManifest)[keyof typeof CmafInitializationVectorInManifest];
-
-/**
- * @public
- * @enum
- */
-export const PresetSpeke20Audio = {
-  PRESET_AUDIO_1: "PRESET_AUDIO_1",
-  PRESET_AUDIO_2: "PRESET_AUDIO_2",
-  PRESET_AUDIO_3: "PRESET_AUDIO_3",
-  SHARED: "SHARED",
-  UNENCRYPTED: "UNENCRYPTED",
-} as const;
-
-/**
- * @public
- */
-export type PresetSpeke20Audio = (typeof PresetSpeke20Audio)[keyof typeof PresetSpeke20Audio];
-
-/**
- * @public
- * @enum
- */
-export const PresetSpeke20Video = {
-  PRESET_VIDEO_1: "PRESET_VIDEO_1",
-  PRESET_VIDEO_2: "PRESET_VIDEO_2",
-  PRESET_VIDEO_3: "PRESET_VIDEO_3",
-  PRESET_VIDEO_4: "PRESET_VIDEO_4",
-  PRESET_VIDEO_5: "PRESET_VIDEO_5",
-  PRESET_VIDEO_6: "PRESET_VIDEO_6",
-  PRESET_VIDEO_7: "PRESET_VIDEO_7",
-  PRESET_VIDEO_8: "PRESET_VIDEO_8",
-  SHARED: "SHARED",
-  UNENCRYPTED: "UNENCRYPTED",
-} as const;
-
-/**
- * @public
- */
-export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
 
 /**
  * Specify the SPEKE version, either v1.0 or v2.0, that MediaConvert uses when encrypting your output. For more information, see: https://docs.aws.amazon.com/speke/latest/documentation/speke-api-specification.html To use SPEKE v1.0: Leave blank. To use SPEKE v2.0: Specify a SPEKE v2.0 video preset and a SPEKE v2.0 audio preset.
@@ -6219,20 +4237,6 @@ export interface StaticKeyProvider {
 }
 
 /**
- * @public
- * @enum
- */
-export const CmafKeyProviderType = {
-  SPEKE: "SPEKE",
-  STATIC_KEY: "STATIC_KEY",
-} as const;
-
-/**
- * @public
- */
-export type CmafKeyProviderType = (typeof CmafKeyProviderType)[keyof typeof CmafKeyProviderType];
-
-/**
  * Settings for CMAF encryption
  * @public
  */
@@ -6275,36 +4279,6 @@ export interface CmafEncryptionSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const CmafImageBasedTrickPlay = {
-  ADVANCED: "ADVANCED",
-  NONE: "NONE",
-  THUMBNAIL: "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
-} as const;
-
-/**
- * @public
- */
-export type CmafImageBasedTrickPlay = (typeof CmafImageBasedTrickPlay)[keyof typeof CmafImageBasedTrickPlay];
-
-/**
- * @public
- * @enum
- */
-export const CmafIntervalCadence = {
-  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME: "FOLLOW_IFRAME",
-} as const;
-
-/**
- * @public
- */
-export type CmafIntervalCadence = (typeof CmafIntervalCadence)[keyof typeof CmafIntervalCadence];
-
-/**
  * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
  * @public
  */
@@ -6345,194 +4319,6 @@ export interface CmafImageBasedTrickPlaySettings {
    */
   TileWidth?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CmafManifestCompression = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type CmafManifestCompression = (typeof CmafManifestCompression)[keyof typeof CmafManifestCompression];
-
-/**
- * @public
- * @enum
- */
-export const CmafManifestDurationFormat = {
-  FLOATING_POINT: "FLOATING_POINT",
-  INTEGER: "INTEGER",
-} as const;
-
-/**
- * @public
- */
-export type CmafManifestDurationFormat = (typeof CmafManifestDurationFormat)[keyof typeof CmafManifestDurationFormat];
-
-/**
- * @public
- * @enum
- */
-export const CmafMpdManifestBandwidthType = {
-  AVERAGE: "AVERAGE",
-  MAX: "MAX",
-} as const;
-
-/**
- * @public
- */
-export type CmafMpdManifestBandwidthType =
-  (typeof CmafMpdManifestBandwidthType)[keyof typeof CmafMpdManifestBandwidthType];
-
-/**
- * @public
- * @enum
- */
-export const CmafMpdProfile = {
-  MAIN_PROFILE: "MAIN_PROFILE",
-  ON_DEMAND_PROFILE: "ON_DEMAND_PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type CmafMpdProfile = (typeof CmafMpdProfile)[keyof typeof CmafMpdProfile];
-
-/**
- * @public
- * @enum
- */
-export const CmafPtsOffsetHandlingForBFrames = {
-  MATCH_INITIAL_PTS: "MATCH_INITIAL_PTS",
-  ZERO_BASED: "ZERO_BASED",
-} as const;
-
-/**
- * @public
- */
-export type CmafPtsOffsetHandlingForBFrames =
-  (typeof CmafPtsOffsetHandlingForBFrames)[keyof typeof CmafPtsOffsetHandlingForBFrames];
-
-/**
- * @public
- * @enum
- */
-export const CmafSegmentControl = {
-  SEGMENTED_FILES: "SEGMENTED_FILES",
-  SINGLE_FILE: "SINGLE_FILE",
-} as const;
-
-/**
- * @public
- */
-export type CmafSegmentControl = (typeof CmafSegmentControl)[keyof typeof CmafSegmentControl];
-
-/**
- * @public
- * @enum
- */
-export const CmafSegmentLengthControl = {
-  EXACT: "EXACT",
-  GOP_MULTIPLE: "GOP_MULTIPLE",
-  MATCH: "MATCH",
-} as const;
-
-/**
- * @public
- */
-export type CmafSegmentLengthControl = (typeof CmafSegmentLengthControl)[keyof typeof CmafSegmentLengthControl];
-
-/**
- * @public
- * @enum
- */
-export const CmafStreamInfResolution = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type CmafStreamInfResolution = (typeof CmafStreamInfResolution)[keyof typeof CmafStreamInfResolution];
-
-/**
- * @public
- * @enum
- */
-export const CmafTargetDurationCompatibilityMode = {
-  LEGACY: "LEGACY",
-  SPEC_COMPLIANT: "SPEC_COMPLIANT",
-} as const;
-
-/**
- * @public
- */
-export type CmafTargetDurationCompatibilityMode =
-  (typeof CmafTargetDurationCompatibilityMode)[keyof typeof CmafTargetDurationCompatibilityMode];
-
-/**
- * @public
- * @enum
- */
-export const CmafVideoCompositionOffsets = {
-  SIGNED: "SIGNED",
-  UNSIGNED: "UNSIGNED",
-} as const;
-
-/**
- * @public
- */
-export type CmafVideoCompositionOffsets =
-  (typeof CmafVideoCompositionOffsets)[keyof typeof CmafVideoCompositionOffsets];
-
-/**
- * @public
- * @enum
- */
-export const CmafWriteDASHManifest = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmafWriteDASHManifest = (typeof CmafWriteDASHManifest)[keyof typeof CmafWriteDASHManifest];
-
-/**
- * @public
- * @enum
- */
-export const CmafWriteHLSManifest = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmafWriteHLSManifest = (typeof CmafWriteHLSManifest)[keyof typeof CmafWriteHLSManifest];
-
-/**
- * @public
- * @enum
- */
-export const CmafWriteSegmentTimelineInRepresentation = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CmafWriteSegmentTimelineInRepresentation =
-  (typeof CmafWriteSegmentTimelineInRepresentation)[keyof typeof CmafWriteSegmentTimelineInRepresentation];
 
 /**
  * Settings related to your CMAF output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
@@ -6709,36 +4495,6 @@ export interface CmafGroupSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const DashIsoGroupAudioChannelConfigSchemeIdUri = {
-  DOLBY_CHANNEL_CONFIGURATION: "DOLBY_CHANNEL_CONFIGURATION",
-  MPEG_CHANNEL_CONFIGURATION: "MPEG_CHANNEL_CONFIGURATION",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoGroupAudioChannelConfigSchemeIdUri =
-  (typeof DashIsoGroupAudioChannelConfigSchemeIdUri)[keyof typeof DashIsoGroupAudioChannelConfigSchemeIdUri];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoPlaybackDeviceCompatibility = {
-  CENC_V1: "CENC_V1",
-  UNENCRYPTED_SEI: "UNENCRYPTED_SEI",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoPlaybackDeviceCompatibility =
-  (typeof DashIsoPlaybackDeviceCompatibility)[keyof typeof DashIsoPlaybackDeviceCompatibility];
-
-/**
  * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
  * @public
  */
@@ -6793,50 +4549,6 @@ export interface DashIsoEncryptionSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const DashIsoHbbtvCompliance = {
-  HBBTV_1_5: "HBBTV_1_5",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoHbbtvCompliance = (typeof DashIsoHbbtvCompliance)[keyof typeof DashIsoHbbtvCompliance];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoImageBasedTrickPlay = {
-  ADVANCED: "ADVANCED",
-  NONE: "NONE",
-  THUMBNAIL: "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoImageBasedTrickPlay = (typeof DashIsoImageBasedTrickPlay)[keyof typeof DashIsoImageBasedTrickPlay];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoIntervalCadence = {
-  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME: "FOLLOW_IFRAME",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoIntervalCadence = (typeof DashIsoIntervalCadence)[keyof typeof DashIsoIntervalCadence];
-
-/**
  * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
  * @public
  */
@@ -6877,110 +4589,6 @@ export interface DashIsoImageBasedTrickPlaySettings {
    */
   TileWidth?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DashIsoMpdManifestBandwidthType = {
-  AVERAGE: "AVERAGE",
-  MAX: "MAX",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoMpdManifestBandwidthType =
-  (typeof DashIsoMpdManifestBandwidthType)[keyof typeof DashIsoMpdManifestBandwidthType];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoMpdProfile = {
-  MAIN_PROFILE: "MAIN_PROFILE",
-  ON_DEMAND_PROFILE: "ON_DEMAND_PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoMpdProfile = (typeof DashIsoMpdProfile)[keyof typeof DashIsoMpdProfile];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoPtsOffsetHandlingForBFrames = {
-  MATCH_INITIAL_PTS: "MATCH_INITIAL_PTS",
-  ZERO_BASED: "ZERO_BASED",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoPtsOffsetHandlingForBFrames =
-  (typeof DashIsoPtsOffsetHandlingForBFrames)[keyof typeof DashIsoPtsOffsetHandlingForBFrames];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoSegmentControl = {
-  SEGMENTED_FILES: "SEGMENTED_FILES",
-  SINGLE_FILE: "SINGLE_FILE",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoSegmentControl = (typeof DashIsoSegmentControl)[keyof typeof DashIsoSegmentControl];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoSegmentLengthControl = {
-  EXACT: "EXACT",
-  GOP_MULTIPLE: "GOP_MULTIPLE",
-  MATCH: "MATCH",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoSegmentLengthControl =
-  (typeof DashIsoSegmentLengthControl)[keyof typeof DashIsoSegmentLengthControl];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoVideoCompositionOffsets = {
-  SIGNED: "SIGNED",
-  UNSIGNED: "UNSIGNED",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoVideoCompositionOffsets =
-  (typeof DashIsoVideoCompositionOffsets)[keyof typeof DashIsoVideoCompositionOffsets];
-
-/**
- * @public
- * @enum
- */
-export const DashIsoWriteSegmentTimelineInRepresentation = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DashIsoWriteSegmentTimelineInRepresentation =
-  (typeof DashIsoWriteSegmentTimelineInRepresentation)[keyof typeof DashIsoWriteSegmentTimelineInRepresentation];
 
 /**
  * Settings related to your DASH output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
@@ -7139,149 +4747,6 @@ export interface FileGroupSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const HlsAudioOnlyHeader = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsAudioOnlyHeader = (typeof HlsAudioOnlyHeader)[keyof typeof HlsAudioOnlyHeader];
-
-/**
- * @public
- * @enum
- */
-export const HlsCaptionLanguageSetting = {
-  INSERT: "INSERT",
-  NONE: "NONE",
-  OMIT: "OMIT",
-} as const;
-
-/**
- * @public
- */
-export type HlsCaptionLanguageSetting = (typeof HlsCaptionLanguageSetting)[keyof typeof HlsCaptionLanguageSetting];
-
-/**
- * @public
- * @enum
- */
-export const HlsCaptionSegmentLengthControl = {
-  LARGE_SEGMENTS: "LARGE_SEGMENTS",
-  MATCH_VIDEO: "MATCH_VIDEO",
-} as const;
-
-/**
- * @public
- */
-export type HlsCaptionSegmentLengthControl =
-  (typeof HlsCaptionSegmentLengthControl)[keyof typeof HlsCaptionSegmentLengthControl];
-
-/**
- * @public
- * @enum
- */
-export const HlsClientCache = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsClientCache = (typeof HlsClientCache)[keyof typeof HlsClientCache];
-
-/**
- * @public
- * @enum
- */
-export const HlsCodecSpecification = {
-  RFC_4281: "RFC_4281",
-  RFC_6381: "RFC_6381",
-} as const;
-
-/**
- * @public
- */
-export type HlsCodecSpecification = (typeof HlsCodecSpecification)[keyof typeof HlsCodecSpecification];
-
-/**
- * @public
- * @enum
- */
-export const HlsDirectoryStructure = {
-  SINGLE_DIRECTORY: "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM: "SUBDIRECTORY_PER_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type HlsDirectoryStructure = (typeof HlsDirectoryStructure)[keyof typeof HlsDirectoryStructure];
-
-/**
- * @public
- * @enum
- */
-export const HlsEncryptionType = {
-  AES128: "AES128",
-  SAMPLE_AES: "SAMPLE_AES",
-} as const;
-
-/**
- * @public
- */
-export type HlsEncryptionType = (typeof HlsEncryptionType)[keyof typeof HlsEncryptionType];
-
-/**
- * @public
- * @enum
- */
-export const HlsInitializationVectorInManifest = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type HlsInitializationVectorInManifest =
-  (typeof HlsInitializationVectorInManifest)[keyof typeof HlsInitializationVectorInManifest];
-
-/**
- * @public
- * @enum
- */
-export const HlsOfflineEncrypted = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsOfflineEncrypted = (typeof HlsOfflineEncrypted)[keyof typeof HlsOfflineEncrypted];
-
-/**
- * @public
- * @enum
- */
-export const HlsKeyProviderType = {
-  SPEKE: "SPEKE",
-  STATIC_KEY: "STATIC_KEY",
-} as const;
-
-/**
- * @public
- */
-export type HlsKeyProviderType = (typeof HlsKeyProviderType)[keyof typeof HlsKeyProviderType];
-
-/**
  * Settings for HLS encryption
  * @public
  */
@@ -7330,36 +4795,6 @@ export interface HlsEncryptionSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const HlsImageBasedTrickPlay = {
-  ADVANCED: "ADVANCED",
-  NONE: "NONE",
-  THUMBNAIL: "THUMBNAIL",
-  THUMBNAIL_AND_FULLFRAME: "THUMBNAIL_AND_FULLFRAME",
-} as const;
-
-/**
- * @public
- */
-export type HlsImageBasedTrickPlay = (typeof HlsImageBasedTrickPlay)[keyof typeof HlsImageBasedTrickPlay];
-
-/**
- * @public
- * @enum
- */
-export const HlsIntervalCadence = {
-  FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
-  FOLLOW_IFRAME: "FOLLOW_IFRAME",
-} as const;
-
-/**
- * @public
- */
-export type HlsIntervalCadence = (typeof HlsIntervalCadence)[keyof typeof HlsIntervalCadence];
-
-/**
  * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
  * @public
  */
@@ -7402,72 +4837,6195 @@ export interface HlsImageBasedTrickPlaySettings {
 }
 
 /**
+ * Settings related to your HLS output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
  * @public
- * @enum
  */
-export const HlsManifestCompression = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-} as const;
+export interface HlsGroupSettings {
+  /**
+   * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
+   * @public
+   */
+  AdMarkers?: HlsAdMarkers[] | undefined;
+
+  /**
+   * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
+   * @public
+   */
+  AdditionalManifests?: HlsAdditionalManifest[] | undefined;
+
+  /**
+   * Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include, to output audio-only headers. Choose Exclude to remove the audio-only headers from your audio segments.
+   * @public
+   */
+  AudioOnlyHeader?: HlsAudioOnlyHeader | undefined;
+
+  /**
+   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+   * @public
+   */
+  BaseUrl?: string | undefined;
+
+  /**
+   * Language to be used on Caption outputs
+   * @public
+   */
+  CaptionLanguageMappings?: HlsCaptionLanguageMapping[] | undefined;
+
+  /**
+   * Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
+   * @public
+   */
+  CaptionLanguageSetting?: HlsCaptionLanguageSetting | undefined;
+
+  /**
+   * Set Caption segment length control to Match video to create caption segments that align with the video segments from the first video output in this output group. For example, if the video segments are 2 seconds long, your WebVTT segments will also be 2 seconds long. Keep the default setting, Large segments to create caption segments that are 300 seconds long.
+   * @public
+   */
+  CaptionSegmentLengthControl?: HlsCaptionSegmentLengthControl | undefined;
+
+  /**
+   * Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled and control caching in your video distribution set up. For example, use the Cache-Control http header.
+   * @public
+   */
+  ClientCache?: HlsClientCache | undefined;
+
+  /**
+   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+   * @public
+   */
+  CodecSpecification?: HlsCodecSpecification | undefined;
+
+  /**
+   * Use Destination to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * Settings associated with the destination. Will vary based on the type of destination
+   * @public
+   */
+  DestinationSettings?: DestinationSettings | undefined;
+
+  /**
+   * Indicates whether segments should be placed in subdirectories.
+   * @public
+   */
+  DirectoryStructure?: HlsDirectoryStructure | undefined;
+
+  /**
+   * DRM settings.
+   * @public
+   */
+  Encryption?: HlsEncryptionSettings | undefined;
+
+  /**
+   * Specify whether MediaConvert generates images for trick play. Keep the default value, None, to not generate any images. Choose Thumbnail to generate tiled thumbnails. Choose Thumbnail and full frame to generate tiled thumbnails and full-resolution images of single frames. MediaConvert creates a child manifest for each set of images that you generate and adds corresponding entries to the parent manifest. A common application for these images is Roku trick mode. The thumbnails and full-frame images that MediaConvert creates with this feature are compatible with this Roku specification: https://developer.roku.com/docs/developer-program/media-playback/trick-mode/hls-and-dash.md
+   * @public
+   */
+  ImageBasedTrickPlay?: HlsImageBasedTrickPlay | undefined;
+
+  /**
+   * Tile and thumbnail settings applicable when imageBasedTrickPlay is ADVANCED
+   * @public
+   */
+  ImageBasedTrickPlaySettings?: HlsImageBasedTrickPlaySettings | undefined;
+
+  /**
+   * When set to GZIP, compresses HLS playlist.
+   * @public
+   */
+  ManifestCompression?: HlsManifestCompression | undefined;
+
+  /**
+   * Indicates whether the output manifest should use floating point values for segment duration.
+   * @public
+   */
+  ManifestDurationFormat?: HlsManifestDurationFormat | undefined;
+
+  /**
+   * Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+   * @public
+   */
+  MinFinalSegmentLength?: number | undefined;
+
+  /**
+   * When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
+   * @public
+   */
+  MinSegmentLength?: number | undefined;
+
+  /**
+   * Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
+   * @public
+   */
+  OutputSelection?: HlsOutputSelection | undefined;
+
+  /**
+   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
+   * @public
+   */
+  ProgramDateTime?: HlsProgramDateTime | undefined;
+
+  /**
+   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+   * @public
+   */
+  ProgramDateTimePeriod?: number | undefined;
+
+  /**
+   * Specify whether MediaConvert generates HLS manifests while your job is running or when your job is complete. To generate HLS manifests while your job is running: Choose Enabled. Use if you want to play back your content as soon as it's available. MediaConvert writes the parent and child manifests after the first three media segments are written to your destination S3 bucket. It then writes new updated manifests after each additional segment is written. The parent manifest includes the latest BANDWIDTH and AVERAGE-BANDWIDTH attributes, and child manifests include the latest available media segment. When your job completes, the final child playlists include an EXT-X-ENDLIST tag. To generate HLS manifests only when your job completes: Choose Disabled.
+   * @public
+   */
+  ProgressiveWriteHlsManifest?: HlsProgressiveWriteHlsManifest | undefined;
+
+  /**
+   * When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+   * @public
+   */
+  SegmentControl?: HlsSegmentControl | undefined;
+
+  /**
+   * Specify the length, in whole seconds, of each segment. When you don't specify a value, MediaConvert defaults to 10. Related settings: Use Segment length control to specify whether the encoder enforces this value strictly. Use Segment control to specify whether MediaConvert creates separate segment files or one content file that has metadata to mark the segment boundaries.
+   * @public
+   */
+  SegmentLength?: number | undefined;
+
+  /**
+   * Specify how you want MediaConvert to determine segment lengths in this output group. To use the exact value that you specify under Segment length: Choose Exact. Note that this might result in additional I-frames in the output GOP. To create segment lengths that are a multiple of the GOP: Choose Multiple of GOP. MediaConvert will round up the segment lengths to match the next GOP boundary. To have MediaConvert automatically determine a segment duration that is a multiple of both the audio packets and the frame rates: Choose Match. When you do, also specify a target segment duration under Segment length. This is useful for some ad-insertion or segment replacement workflows. Note that Match has the following requirements: - Output containers: Include at least one video output and at least one audio output. Audio-only outputs are not supported. - Output frame rate: Follow source is not supported. - Multiple output frame rates: When you specify multiple outputs, we recommend they share a similar frame rate (as in X/3, X/2, X, or 2X). For example: 5, 15, 30 and 60. Or: 25 and 50. (Outputs must share an integer multiple.) - Output audio codec: Specify Advanced Audio Coding (AAC). - Output sample rate: Choose 48kHz.
+   * @public
+   */
+  SegmentLengthControl?: HlsSegmentLengthControl | undefined;
+
+  /**
+   * Specify the number of segments to write to a subdirectory before starting a new one. You must also set Directory structure to Subdirectory per stream for this setting to have an effect.
+   * @public
+   */
+  SegmentsPerSubdirectory?: number | undefined;
+
+  /**
+   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+   * @public
+   */
+  StreamInfResolution?: HlsStreamInfResolution | undefined;
+
+  /**
+   * When set to LEGACY, the segment target duration is always rounded up to the nearest integer value above its current value in seconds. When set to SPEC\\_COMPLIANT, the segment target duration is rounded up to the nearest integer value if fraction seconds are greater than or equal to 0.5 (>= 0.5) and rounded down if less than 0.5 (< 0.5). You may need to use LEGACY if your client needs to ensure that the target duration is always longer than the actual duration of the segment. Some older players may experience interrupted playback when the actual duration of a track in a segment is longer than the target duration.
+   * @public
+   */
+  TargetDurationCompatibilityMode?: HlsTargetDurationCompatibilityMode | undefined;
+
+  /**
+   * Specify the type of the ID3 frame to use for ID3 timestamps in your output. To include ID3 timestamps: Specify PRIV or TDRL and set ID3 metadata to Passthrough. To exclude ID3 timestamps: Set ID3 timestamp frame type to None.
+   * @public
+   */
+  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | undefined;
+
+  /**
+   * Specify the interval in seconds to write ID3 timestamps in your output. The first timestamp starts at the output timecode and date, and increases incrementally with each ID3 timestamp. To use the default interval of 10 seconds: Leave blank. To include this metadata in your output: Set ID3 timestamp frame type to PRIV or TDRL, and set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+
+  /**
+   * Provides an extra millisecond delta offset to fine tune the timestamps.
+   * @public
+   */
+  TimestampDeltaMilliseconds?: number | undefined;
+}
+
+/**
+ * Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
+ * @public
+ */
+export interface MsSmoothAdditionalManifest {
+  /**
+   * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
+   * @public
+   */
+  ManifestNameModifier?: string | undefined;
+
+  /**
+   * Specify the outputs that you want this additional top-level manifest to reference.
+   * @public
+   */
+  SelectedOutputs?: string[] | undefined;
+}
+
+/**
+ * If you are using DRM, set DRM System to specify the value SpekeKeyProvider.
+ * @public
+ */
+export interface MsSmoothEncryptionSettings {
+  /**
+   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+   * @public
+   */
+  SpekeKeyProvider?: SpekeKeyProvider | undefined;
+}
+
+/**
+ * Settings related to your Microsoft Smooth Streaming output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+ * @public
+ */
+export interface MsSmoothGroupSettings {
+  /**
+   * By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
+   * @public
+   */
+  AdditionalManifests?: MsSmoothAdditionalManifest[] | undefined;
+
+  /**
+   * COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
+   * @public
+   */
+  AudioDeduplication?: MsSmoothAudioDeduplication | undefined;
+
+  /**
+   * Use Destination to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * Settings associated with the destination. Will vary based on the type of destination
+   * @public
+   */
+  DestinationSettings?: DestinationSettings | undefined;
+
+  /**
+   * If you are using DRM, set DRM System to specify the value SpekeKeyProvider.
+   * @public
+   */
+  Encryption?: MsSmoothEncryptionSettings | undefined;
+
+  /**
+   * Specify how you want MediaConvert to determine the fragment length. Choose Exact to have the encoder use the exact length that you specify with the setting Fragment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * @public
+   */
+  FragmentLength?: number | undefined;
+
+  /**
+   * Specify how you want MediaConvert to determine the fragment length. Choose Exact to have the encoder use the exact length that you specify with the setting Fragment length. This might result in extra I-frames. Choose Multiple of GOP to have the encoder round up the segment lengths to match the next GOP boundary.
+   * @public
+   */
+  FragmentLengthControl?: MsSmoothFragmentLengthControl | undefined;
+
+  /**
+   * Use Manifest encoding to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+   * @public
+   */
+  ManifestEncoding?: MsSmoothManifestEncoding | undefined;
+}
+
+/**
+ * Output Group settings, including type
+ * @public
+ */
+export interface OutputGroupSettings {
+  /**
+   * Settings related to your CMAF output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+   * @public
+   */
+  CmafGroupSettings?: CmafGroupSettings | undefined;
+
+  /**
+   * Settings related to your DASH output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+   * @public
+   */
+  DashIsoGroupSettings?: DashIsoGroupSettings | undefined;
+
+  /**
+   * Settings related to your File output group. MediaConvert uses this group of settings to generate a single standalone file, rather than a streaming package.
+   * @public
+   */
+  FileGroupSettings?: FileGroupSettings | undefined;
+
+  /**
+   * Settings related to your HLS output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+   * @public
+   */
+  HlsGroupSettings?: HlsGroupSettings | undefined;
+
+  /**
+   * Settings related to your Microsoft Smooth Streaming output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+   * @public
+   */
+  MsSmoothGroupSettings?: MsSmoothGroupSettings | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
+   * @public
+   */
+  Type?: OutputGroupType | undefined;
+}
+
+/**
+ * These settings relate to the fragmented MP4 container for the segments in your CMAF outputs.
+ * @public
+ */
+export interface CmfcSettings {
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   * @public
+   */
+  AudioDuration?: CmfcAudioDuration | undefined;
+
+  /**
+   * Specify the audio rendition group for this audio rendition. Specify up to one value for each audio output in your output group. This value appears in your HLS parent manifest in the EXT-X-MEDIA tag of TYPE=AUDIO, as the value for the GROUP-ID attribute. For example, if you specify "audio_aac_1" for Audio group ID, it appears in your manifest like this: #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio_aac_1". Related setting: To associate the rendition group that this audio track belongs to with a video rendition, include the same value that you provide here for that video output's setting Audio rendition sets.
+   * @public
+   */
+  AudioGroupId?: string | undefined;
+
+  /**
+   * List the audio rendition groups that you want included with this video rendition. Use a comma-separated list. For example, say you want to include the audio rendition groups that have the audio group IDs "audio_aac_1" and "audio_dolby". Then you would specify this value: "audio_aac_1,audio_dolby". Related setting: The rendition groups that you include in your comma-separated list should all match values that you specify in the setting Audio group ID for audio renditions in the same output group as this video rendition. Default behavior: If you don't specify anything here and for Audio group ID, MediaConvert puts each audio variant in its own audio rendition group and associates it with every video variant. Each value in your list appears in your HLS parent manifest in the EXT-X-STREAM-INF tag as the value for the AUDIO attribute. To continue the previous example, say that the file name for the child manifest for your video rendition is "amazing_video_1.m3u8". Then, in your parent manifest, each value will appear on separate lines, like this: #EXT-X-STREAM-INF:AUDIO="audio_aac_1"... amazing_video_1.m3u8 #EXT-X-STREAM-INF:AUDIO="audio_dolby"... amazing_video_1.m3u8
+   * @public
+   */
+  AudioRenditionSets?: string | undefined;
+
+  /**
+   * Use this setting to control the values that MediaConvert puts in your HLS parent playlist to control how the client player selects which audio track to play. Choose Audio-only variant stream (AUDIO_ONLY_VARIANT_STREAM) for any variant that you want to prohibit the client from playing with video. This causes MediaConvert to represent the variant as an EXT-X-STREAM-INF in the HLS manifest. The other options for this setting determine the values that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of the EXT-X-MEDIA entry for the audio variant. For more information about these attributes, see the Apple documentation article https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming/adding_alternate_media_to_a_playlist. Choose Alternate audio, auto select, default to set DEFAULT=YES and AUTOSELECT=YES. Choose this value for only one variant in your output group. Choose Alternate audio, auto select, not default to set DEFAULT=NO and AUTOSELECT=YES. Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and AUTOSELECT=NO. When you don't specify a value for this setting, MediaConvert defaults to Alternate audio, auto select, default. When there is more than one variant in your output group, you must explicitly choose a value for this setting.
+   * @public
+   */
+  AudioTrackType?: CmfcAudioTrackType | undefined;
+
+  /**
+   * When enabled, a C2PA compliant manifest will be generated, signed and embeded in the output. For more information on C2PA, see https://c2pa.org/specifications/specifications/2.1/index.html
+   * @public
+   */
+  C2paManifest?: CmfcC2paManifest | undefined;
+
+  /**
+   * Specify the name or ARN of the AWS Secrets Manager secret that contains your C2PA public certificate chain in PEM format. Provide a valid secret name or ARN. Note that your MediaConvert service role must allow access to this secret. The public certificate chain is added to the COSE header (x5chain) for signature validation. Include the signer's certificate and all intermediate certificates. Do not include the root certificate. For details on COSE, see: https://opensource.contentauthenticity.org/docs/manifest/signing-manifests
+   * @public
+   */
+  CertificateSecret?: string | undefined;
+
+  /**
+   * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag, MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag, MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
+   * @public
+   */
+  DescriptiveVideoServiceFlag?: CmfcDescriptiveVideoServiceFlag | undefined;
+
+  /**
+   * Choose Include to have MediaConvert generate an HLS child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude.
+   * @public
+   */
+  IFrameOnlyManifest?: CmfcIFrameOnlyManifest | undefined;
+
+  /**
+   * To include key-length-value metadata in this output: Set KLV metadata insertion to Passthrough. MediaConvert reads KLV metadata present in your input and writes each instance to a separate event message box in the output, according to MISB ST1910.1. To exclude this KLV metadata: Set KLV metadata insertion to None or leave blank.
+   * @public
+   */
+  KlvMetadata?: CmfcKlvMetadata | undefined;
+
+  /**
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata to Passthrough.
+   * @public
+   */
+  ManifestMetadataSignaling?: CmfcManifestMetadataSignaling | undefined;
+
+  /**
+   * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML.
+   * @public
+   */
+  Scte35Esam?: CmfcScte35Esam | undefined;
+
+  /**
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None if you don't want those SCTE-35 markers in this output.
+   * @public
+   */
+  Scte35Source?: CmfcScte35Source | undefined;
+
+  /**
+   * Specify the ID or ARN of the AWS KMS key used to sign the C2PA manifest in your MP4 output. Provide a valid KMS key ARN. Note that your MediaConvert service role must allow access to this key.
+   * @public
+   */
+  SigningKmsKey?: string | undefined;
+
+  /**
+   * To include ID3 metadata in this output: Set ID3 metadata to Passthrough. Specify this ID3 metadata in Custom ID3 metadata inserter. MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None or leave blank.
+   * @public
+   */
+  TimedMetadata?: CmfcTimedMetadata | undefined;
+
+  /**
+   * Specify the event message box (eMSG) version for ID3 timed metadata in your output.
+   * For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.3 Syntax.
+   * Leave blank to use the default value Version 0.
+   * When you specify Version 1, you must also set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataBoxVersion?: CmfcTimedMetadataBoxVersion | undefined;
+
+  /**
+   * Specify the event message box (eMSG) scheme ID URI for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataSchemeIdUri?: string | undefined;
+
+  /**
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataValue?: string | undefined;
+}
+
+/**
+ * Settings for F4v container
+ * @public
+ */
+export interface F4vSettings {
+  /**
+   * To place the MOOV atom at the beginning of your output, which is useful for progressive downloading: Leave blank or choose Progressive download. To place the MOOV at the end of your output: Choose Normal.
+   * @public
+   */
+  MoovPlacement?: F4vMoovPlacement | undefined;
+}
+
+/**
+ * Use these settings to insert a DVB Network Information Table (NIT) in the transport stream of this output.
+ * @public
+ */
+export interface DvbNitSettings {
+  /**
+   * The numeric value placed in the Network Information Table (NIT).
+   * @public
+   */
+  NetworkId?: number | undefined;
+
+  /**
+   * The network name text placed in the network_name_descriptor inside the Network Information Table. Maximum length is 256 characters.
+   * @public
+   */
+  NetworkName?: string | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   * @public
+   */
+  NitInterval?: number | undefined;
+}
+
+/**
+ * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output.
+ * @public
+ */
+export interface DvbSdtSettings {
+  /**
+   * Selects method of inserting SDT information into output stream. "Follow input SDT" copies SDT information from input stream to output stream. "Follow input SDT if present" copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT Manually" means user will enter the SDT information. "No SDT" means output stream will not contain SDT information.
+   * @public
+   */
+  OutputSdt?: OutputSdt | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   * @public
+   */
+  SdtInterval?: number | undefined;
+
+  /**
+   * The service name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
+   * @public
+   */
+  ServiceName?: string | undefined;
+
+  /**
+   * The service provider name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
+   * @public
+   */
+  ServiceProviderName?: string | undefined;
+}
+
+/**
+ * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output.
+ * @public
+ */
+export interface DvbTdtSettings {
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   * @public
+   */
+  TdtInterval?: number | undefined;
+}
+
+/**
+ * Settings for SCTE-35 signals from ESAM. Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML.
+ * @public
+ */
+export interface M2tsScte35Esam {
+  /**
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream generated by ESAM.
+   * @public
+   */
+  Scte35EsamPid?: number | undefined;
+}
+
+/**
+ * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
+ * @public
+ */
+export interface M2tsSettings {
+  /**
+   * Selects between the DVB and ATSC buffer models for Dolby Digital audio.
+   * @public
+   */
+  AudioBufferModel?: M2tsAudioBufferModel | undefined;
+
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   * @public
+   */
+  AudioDuration?: M2tsAudioDuration | undefined;
+
+  /**
+   * The number of audio frames to insert for each PES packet.
+   * @public
+   */
+  AudioFramesPerPes?: number | undefined;
+
+  /**
+   * Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
+   * @public
+   */
+  AudioPids?: number[] | undefined;
+
+  /**
+   * Manually specify the difference in PTS offset that will be applied to the audio track, in seconds or milliseconds, when you set PTS offset to Seconds or Milliseconds. Enter an integer from -10000 to 10000. Leave blank to keep the default value 0.
+   * @public
+   */
+  AudioPtsOffsetDelta?: number | undefined;
+
+  /**
+   * Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+   * @public
+   */
+  BufferModel?: M2tsBufferModel | undefined;
+
+  /**
+   * If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data packets with Presentation Timestamp (PTS) values greater than or equal to the first video packet PTS (MediaConvert drops captions and data packets with lesser PTS values). Keep the default value to allow all PTS values.
+   * @public
+   */
+  DataPTSControl?: M2tsDataPtsControl | undefined;
+
+  /**
+   * Use these settings to insert a DVB Network Information Table (NIT) in the transport stream of this output.
+   * @public
+   */
+  DvbNitSettings?: DvbNitSettings | undefined;
+
+  /**
+   * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output.
+   * @public
+   */
+  DvbSdtSettings?: DvbSdtSettings | undefined;
+
+  /**
+   * Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
+   * @public
+   */
+  DvbSubPids?: number[] | undefined;
+
+  /**
+   * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output.
+   * @public
+   */
+  DvbTdtSettings?: DvbTdtSettings | undefined;
+
+  /**
+   * Specify the packet identifier (PID) for DVB teletext data you include in this output. Default is 499.
+   * @public
+   */
+  DvbTeletextPid?: number | undefined;
+
+  /**
+   * When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
+   * @public
+   */
+  EbpAudioInterval?: M2tsEbpAudioInterval | undefined;
+
+  /**
+   * Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
+   * @public
+   */
+  EbpPlacement?: M2tsEbpPlacement | undefined;
+
+  /**
+   * Controls whether to include the ES Rate field in the PES header.
+   * @public
+   */
+  EsRateInPes?: M2tsEsRateInPes | undefined;
+
+  /**
+   * Keep the default value unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force.
+   * @public
+   */
+  ForceTsVideoEbpOrder?: M2tsForceTsVideoEbpOrder | undefined;
+
+  /**
+   * The length, in seconds, of each fragment. Only used with EBP markers.
+   * @public
+   */
+  FragmentTime?: number | undefined;
+
+  /**
+   * To include key-length-value metadata in this output: Set KLV metadata insertion to Passthrough. MediaConvert reads KLV metadata present in your input and passes it through to the output transport stream. To exclude this KLV metadata: Set KLV metadata insertion to None or leave blank.
+   * @public
+   */
+  KlvMetadata?: M2tsKlvMetadata | undefined;
+
+  /**
+   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
+   * @public
+   */
+  MaxPcrInterval?: number | undefined;
+
+  /**
+   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+   * @public
+   */
+  MinEbpInterval?: number | undefined;
+
+  /**
+   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3?: M2tsNielsenId3 | undefined;
+
+  /**
+   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
+   * @public
+   */
+  NullPacketBitrate?: number | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   * @public
+   */
+  PatInterval?: number | undefined;
+
+  /**
+   * When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
+   * @public
+   */
+  PcrControl?: M2tsPcrControl | undefined;
+
+  /**
+   * Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID.
+   * @public
+   */
+  PcrPid?: number | undefined;
+
+  /**
+   * Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
+   * @public
+   */
+  PmtInterval?: number | undefined;
+
+  /**
+   * Specify the packet identifier (PID) for the program map table (PMT) itself. Default is 480.
+   * @public
+   */
+  PmtPid?: number | undefined;
+
+  /**
+   * Specify whether MediaConvert automatically attempts to prevent decoder buffer underflows in your transport stream output. Use if you are seeing decoder buffer underflows in your output and are unable to increase your transport stream's bitrate. For most workflows: We recommend that you keep the default value, Disabled. To prevent decoder buffer underflows in your output, when possible: Choose Enabled. Note that if MediaConvert prevents a decoder buffer underflow in your output, output video quality is reduced and your job will take longer to complete.
+   * @public
+   */
+  PreventBufferUnderflow?: M2tsPreventBufferUnderflow | undefined;
+
+  /**
+   * Specify the packet identifier (PID) of the private metadata stream. Default is 503.
+   * @public
+   */
+  PrivateMetadataPid?: number | undefined;
+
+  /**
+   * Use Program number to specify the program number used in the program map table (PMT) for this output. Default is 1. Program numbers and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
+   * @public
+   */
+  ProgramNumber?: number | undefined;
+
+  /**
+   * Manually specify the initial PTS offset, in seconds, when you set PTS offset to Seconds. Enter an integer from 0 to 3600. Leave blank to keep the default value 2.
+   * @public
+   */
+  PtsOffset?: number | undefined;
+
+  /**
+   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds or Milliseconds. Then specify the number of seconds or milliseconds with PTS offset.
+   * @public
+   */
+  PtsOffsetMode?: TsPtsOffset | undefined;
+
+  /**
+   * When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
+   * @public
+   */
+  RateMode?: M2tsRateMode | undefined;
+
+  /**
+   * Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML.
+   * @public
+   */
+  Scte35Esam?: M2tsScte35Esam | undefined;
+
+  /**
+   * Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
+   * @public
+   */
+  Scte35Pid?: number | undefined;
+
+  /**
+   * For SCTE-35 markers from your input-- Choose Passthrough if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None. Also provide the ESAM XML as a string in the setting Signal processing notification XML. Also enable ESAM SCTE-35 (include the property scte35Esam).
+   * @public
+   */
+  Scte35Source?: M2tsScte35Source | undefined;
+
+  /**
+   * Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
+   * @public
+   */
+  SegmentationMarkers?: M2tsSegmentationMarkers | undefined;
+
+  /**
+   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
+   * @public
+   */
+  SegmentationStyle?: M2tsSegmentationStyle | undefined;
+
+  /**
+   * Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
+   * @public
+   */
+  SegmentationTime?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the ID3 metadata stream in the transport stream.
+   * @public
+   */
+  TimedMetadataPid?: number | undefined;
+
+  /**
+   * Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
+   * @public
+   */
+  TransportStreamId?: number | undefined;
+
+  /**
+   * Specify the packet identifier (PID) of the elementary video stream in the transport stream.
+   * @public
+   */
+  VideoPid?: number | undefined;
+}
+
+/**
+ * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
+ * @public
+ */
+export interface M3u8Settings {
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   * @public
+   */
+  AudioDuration?: M3u8AudioDuration | undefined;
+
+  /**
+   * The number of audio frames to insert for each PES packet.
+   * @public
+   */
+  AudioFramesPerPes?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
+   * @public
+   */
+  AudioPids?: number[] | undefined;
+
+  /**
+   * Manually specify the difference in PTS offset that will be applied to the audio track, in seconds or milliseconds, when you set PTS offset to Seconds or Milliseconds. Enter an integer from -10000 to 10000. Leave blank to keep the default value 0.
+   * @public
+   */
+  AudioPtsOffsetDelta?: number | undefined;
+
+  /**
+   * If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data packets with Presentation Timestamp (PTS) values greater than or equal to the first video packet PTS (MediaConvert drops captions and data packets with lesser PTS values). Keep the default value AUTO to allow all PTS values.
+   * @public
+   */
+  DataPTSControl?: M3u8DataPtsControl | undefined;
+
+  /**
+   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
+   * @public
+   */
+  MaxPcrInterval?: number | undefined;
+
+  /**
+   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3?: M3u8NielsenId3 | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   * @public
+   */
+  PatInterval?: number | undefined;
+
+  /**
+   * When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   * @public
+   */
+  PcrControl?: M3u8PcrControl | undefined;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
+   * @public
+   */
+  PcrPid?: number | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   * @public
+   */
+  PmtInterval?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream.
+   * @public
+   */
+  PmtPid?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the private metadata stream in the transport stream.
+   * @public
+   */
+  PrivateMetadataPid?: number | undefined;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   * @public
+   */
+  ProgramNumber?: number | undefined;
+
+  /**
+   * Manually specify the initial PTS offset, in seconds, when you set PTS offset to Seconds. Enter an integer from 0 to 3600. Leave blank to keep the default value 2.
+   * @public
+   */
+  PtsOffset?: number | undefined;
+
+  /**
+   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds or Milliseconds. Then specify the number of seconds or milliseconds with PTS offset.
+   * @public
+   */
+  PtsOffsetMode?: TsPtsOffset | undefined;
+
+  /**
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
+   * @public
+   */
+  Scte35Pid?: number | undefined;
+
+  /**
+   * For SCTE-35 markers from your input-- Choose Passthrough if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None if you don't want manifest conditioning. Choose Passthrough and choose Ad markers if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML.
+   * @public
+   */
+  Scte35Source?: M3u8Scte35Source | undefined;
+
+  /**
+   * Set ID3 metadata to Passthrough to include ID3 metadata in this output. This includes ID3 metadata from the following features: ID3 timestamp period, and Custom ID3 metadata inserter. To exclude this ID3 metadata in this output: set ID3 metadata to None or leave blank.
+   * @public
+   */
+  TimedMetadata?: TimedMetadata | undefined;
+
+  /**
+   * Packet Identifier (PID) of the ID3 metadata stream in the transport stream.
+   * @public
+   */
+  TimedMetadataPid?: number | undefined;
+
+  /**
+   * The value of the transport stream ID field in the Program Map Table.
+   * @public
+   */
+  TransportStreamId?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream.
+   * @public
+   */
+  VideoPid?: number | undefined;
+}
+
+/**
+ * These settings relate to your QuickTime MOV output container.
+ * @public
+ */
+export interface MovSettings {
+  /**
+   * When enabled, include 'clap' atom if appropriate for the video output settings.
+   * @public
+   */
+  ClapAtom?: MovClapAtom | undefined;
+
+  /**
+   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   * @public
+   */
+  CslgAtom?: MovCslgAtom | undefined;
+
+  /**
+   * When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
+   * @public
+   */
+  Mpeg2FourCCControl?: MovMpeg2FourCCControl | undefined;
+
+  /**
+   * Unless you need Omneon compatibility: Keep the default value, None. To make this output compatible with Omneon: Choose Omneon. When you do, MediaConvert increases the length of the 'elst' edit list atom. Note that this might cause file rejections when a recipient of the output file doesn't expect this extra padding.
+   * @public
+   */
+  PaddingControl?: MovPaddingControl | undefined;
+
+  /**
+   * Always keep the default value (SELF_CONTAINED) for this setting.
+   * @public
+   */
+  Reference?: MovReference | undefined;
+}
+
+/**
+ * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
+ * @public
+ */
+export interface Mp4Settings {
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   * @public
+   */
+  AudioDuration?: CmfcAudioDuration | undefined;
+
+  /**
+   * When enabled, a C2PA compliant manifest will be generated, signed and embeded in the output. For more information on C2PA, see https://c2pa.org/specifications/specifications/2.1/index.html
+   * @public
+   */
+  C2paManifest?: Mp4C2paManifest | undefined;
+
+  /**
+   * Specify the name or ARN of the AWS Secrets Manager secret that contains your C2PA public certificate chain in PEM format. Provide a valid secret name or ARN. Note that your MediaConvert service role must allow access to this secret. The public certificate chain is added to the COSE header (x5chain) for signature validation. Include the signer's certificate and all intermediate certificates. Do not include the root certificate. For details on COSE, see: https://opensource.contentauthenticity.org/docs/manifest/signing-manifests
+   * @public
+   */
+  CertificateSecret?: string | undefined;
+
+  /**
+   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   * @public
+   */
+  CslgAtom?: Mp4CslgAtom | undefined;
+
+  /**
+   * Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
+   * @public
+   */
+  CttsVersion?: number | undefined;
+
+  /**
+   * Inserts a free-space box immediately after the moov box.
+   * @public
+   */
+  FreeSpaceBox?: Mp4FreeSpaceBox | undefined;
+
+  /**
+   * To place the MOOV atom at the beginning of your output, which is useful for progressive downloading: Leave blank or choose Progressive download. To place the MOOV at the end of your output: Choose Normal.
+   * @public
+   */
+  MoovPlacement?: Mp4MoovPlacement | undefined;
+
+  /**
+   * Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
+   * @public
+   */
+  Mp4MajorBrand?: string | undefined;
+
+  /**
+   * Specify the ID or ARN of the AWS KMS key used to sign the C2PA manifest in your MP4 output. Provide a valid KMS key ARN. Note that your MediaConvert service role must allow access to this key.
+   * @public
+   */
+  SigningKmsKey?: string | undefined;
+}
+
+/**
+ * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
+ * @public
+ */
+export interface MpdSettings {
+  /**
+   * Optional. Choose Include to have MediaConvert mark up your DASH manifest with <Accessibility> elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude, to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility schemeIdUri="urn:scte:dash:cc:cea-608:2015" value="CC1=eng"/>
+   * @public
+   */
+  AccessibilityCaptionHints?: MpdAccessibilityCaptionHints | undefined;
+
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   * @public
+   */
+  AudioDuration?: MpdAudioDuration | undefined;
+
+  /**
+   * When enabled, a C2PA compliant manifest will be generated, signed and embeded in the output. For more information on C2PA, see https://c2pa.org/specifications/specifications/2.1/index.html
+   * @public
+   */
+  C2paManifest?: MpdC2paManifest | undefined;
+
+  /**
+   * Use this setting only in DASH output groups that include sidecar TTML, IMSC or WEBVTT captions. You specify sidecar captions in a separate output from your audio and video. Choose Raw for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
+   * @public
+   */
+  CaptionContainerType?: MpdCaptionContainerType | undefined;
+
+  /**
+   * Specify the name or ARN of the AWS Secrets Manager secret that contains your C2PA public certificate chain in PEM format. Provide a valid secret name or ARN. Note that your MediaConvert service role must allow access to this secret. The public certificate chain is added to the COSE header (x5chain) for signature validation. Include the signer's certificate and all intermediate certificates. Do not include the root certificate. For details on COSE, see: https://opensource.contentauthenticity.org/docs/manifest/signing-manifests
+   * @public
+   */
+  CertificateSecret?: string | undefined;
+
+  /**
+   * To include key-length-value metadata in this output: Set KLV metadata insertion to Passthrough. MediaConvert reads KLV metadata present in your input and writes each instance to a separate event message box in the output, according to MISB ST1910.1. To exclude this KLV metadata: Set KLV metadata insertion to None or leave blank.
+   * @public
+   */
+  KlvMetadata?: MpdKlvMetadata | undefined;
+
+  /**
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled. To enable Manifest metadata signaling, you must also set SCTE-35 source to Passthrough, ESAM SCTE-35 to insert, or ID3 metadata to Passthrough.
+   * @public
+   */
+  ManifestMetadataSignaling?: MpdManifestMetadataSignaling | undefined;
+
+  /**
+   * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML.
+   * @public
+   */
+  Scte35Esam?: MpdScte35Esam | undefined;
+
+  /**
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None if you don't want those SCTE-35 markers in this output.
+   * @public
+   */
+  Scte35Source?: MpdScte35Source | undefined;
+
+  /**
+   * Specify the ID or ARN of the AWS KMS key used to sign the C2PA manifest in your MP4 output. Provide a valid KMS key ARN. Note that your MediaConvert service role must allow access to this key.
+   * @public
+   */
+  SigningKmsKey?: string | undefined;
+
+  /**
+   * To include ID3 metadata in this output: Set ID3 metadata to Passthrough. Specify this ID3 metadata in Custom ID3 metadata inserter. MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None or leave blank.
+   * @public
+   */
+  TimedMetadata?: MpdTimedMetadata | undefined;
+
+  /**
+   * Specify the event message box (eMSG) version for ID3 timed metadata in your output.
+   * For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.3 Syntax.
+   * Leave blank to use the default value Version 0.
+   * When you specify Version 1, you must also set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataBoxVersion?: MpdTimedMetadataBoxVersion | undefined;
+
+  /**
+   * Specify the event message box (eMSG) scheme ID URI for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataSchemeIdUri?: string | undefined;
+
+  /**
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataValue?: string | undefined;
+}
+
+/**
+ * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
+ * @public
+ */
+export interface MxfXavcProfileSettings {
+  /**
+   * To create an output that complies with the XAVC file format guidelines for interoperability, keep the default value, Drop frames for compliance. To include all frames from your input in this output, keep the default setting, Allow any duration. The number of frames that MediaConvert excludes when you set this to Drop frames for compliance depends on the output frame rate and duration.
+   * @public
+   */
+  DurationMode?: MxfXavcDurationMode | undefined;
+
+  /**
+   * Specify a value for this setting only for outputs that you set up with one of these two XAVC profiles: XAVC HD Intra CBG or XAVC 4K Intra CBG. Specify the amount of space in each frame that the service reserves for ancillary data, such as teletext captions. The default value for this setting is 1492 bytes per frame. This should be sufficient to prevent overflow unless you have multiple pages of teletext captions data. If you have a large amount of teletext data, specify a larger number.
+   * @public
+   */
+  MaxAncDataSize?: number | undefined;
+}
+
+/**
+ * These settings relate to your MXF output container.
+ * @public
+ */
+export interface MxfSettings {
+  /**
+   * Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
+   * @public
+   */
+  AfdSignaling?: MxfAfdSignaling | undefined;
+
+  /**
+   * Specify the MXF profile, also called shim, for this output. To automatically select a profile according to your output video codec and resolution, leave blank. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
+   * @public
+   */
+  Profile?: MxfProfile | undefined;
+
+  /**
+   * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
+   * @public
+   */
+  XavcProfileSettings?: MxfXavcProfileSettings | undefined;
+}
+
+/**
+ * Container specific settings.
+ * @public
+ */
+export interface ContainerSettings {
+  /**
+   * These settings relate to the fragmented MP4 container for the segments in your CMAF outputs.
+   * @public
+   */
+  CmfcSettings?: CmfcSettings | undefined;
+
+  /**
+   * Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
+   * @public
+   */
+  Container?: ContainerType | undefined;
+
+  /**
+   * Settings for F4v container
+   * @public
+   */
+  F4vSettings?: F4vSettings | undefined;
+
+  /**
+   * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
+   * @public
+   */
+  M2tsSettings?: M2tsSettings | undefined;
+
+  /**
+   * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
+   * @public
+   */
+  M3u8Settings?: M3u8Settings | undefined;
+
+  /**
+   * These settings relate to your QuickTime MOV output container.
+   * @public
+   */
+  MovSettings?: MovSettings | undefined;
+
+  /**
+   * These settings relate to your MP4 output container. You can create audio only outputs with this container. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
+   * @public
+   */
+  Mp4Settings?: Mp4Settings | undefined;
+
+  /**
+   * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
+   * @public
+   */
+  MpdSettings?: MpdSettings | undefined;
+
+  /**
+   * These settings relate to your MXF output container.
+   * @public
+   */
+  MxfSettings?: MxfSettings | undefined;
+}
+
+/**
+ * Settings for HLS output groups
+ * @public
+ */
+export interface HlsSettings {
+  /**
+   * Specifies the group to which the audio rendition belongs.
+   * @public
+   */
+  AudioGroupId?: string | undefined;
+
+  /**
+   * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
+   * @public
+   */
+  AudioOnlyContainer?: HlsAudioOnlyContainer | undefined;
+
+  /**
+   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   * @public
+   */
+  AudioRenditionSets?: string | undefined;
+
+  /**
+   * Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
+   * @public
+   */
+  AudioTrackType?: HlsAudioTrackType | undefined;
+
+  /**
+   * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag, MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag, MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
+   * @public
+   */
+  DescriptiveVideoServiceFlag?: HlsDescriptiveVideoServiceFlag | undefined;
+
+  /**
+   * Generate a variant manifest that lists only the I-frames for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only variant manifest and the regular variant manifest to the multivariant manifest. To have MediaConvert write a variant manifest that references I-frames from your output content using EXT-X-BYTERANGE tags: Choose Include. To have MediaConvert output I-frames as single frame TS files and a corresponding variant manifest that references them: Choose Include as TS. When you don't need the I-frame only variant manifest: Keep the default value, Exclude.
+   * @public
+   */
+  IFrameOnlyManifest?: HlsIFrameOnlyManifest | undefined;
+
+  /**
+   * Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
+   * @public
+   */
+  SegmentModifier?: string | undefined;
+}
+
+/**
+ * Specific settings for this type of output.
+ * @public
+ */
+export interface OutputSettings {
+  /**
+   * Settings for HLS output groups
+   * @public
+   */
+  HlsSettings?: HlsSettings | undefined;
+}
+
+/**
+ * Settings for quality-defined variable bitrate encoding with the AV1 codec. Use these settings only when you set QVBR for Rate control mode.
+ * @public
+ */
+export interface Av1QvbrSettings {
+  /**
+   * Use this setting only when you set Rate control mode to QVBR. Specify the target quality level for this output. MediaConvert determines the right number of bits to use for each part of the video to maintain the video quality that you specify. When you keep the default value, AUTO, MediaConvert picks a quality level for you, based on characteristics of your input video. If you prefer to specify a quality level, specify a number from 1 through 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
+   * @public
+   */
+  QvbrQualityLevel?: number | undefined;
+
+  /**
+   * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
+   * @public
+   */
+  QvbrQualityLevelFineTune?: number | undefined;
+}
+
+/**
+ * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
+ * @public
+ */
+export interface Av1Settings {
+  /**
+   * Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to Spatial adaptive quantization.
+   * @public
+   */
+  AdaptiveQuantization?: Av1AdaptiveQuantization | undefined;
+
+  /**
+   * Specify the Bit depth. You can choose 8-bit or 10-bit.
+   * @public
+   */
+  BitDepth?: Av1BitDepth | undefined;
+
+  /**
+   * Film grain synthesis replaces film grain present in your content with similar quality synthesized AV1 film grain. We recommend that you choose Enabled to reduce the bandwidth of your QVBR quality level 5, 6, 7, or 8 outputs. For QVBR quality level 9 or 10 outputs we recommend that you keep the default value, Disabled. When you include Film grain synthesis, you cannot include the Noise reducer preprocessor.
+   * @public
+   */
+  FilmGrainSynthesis?: Av1FilmGrainSynthesis | undefined;
+
+  /**
+   * Use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: Av1FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: Av1FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Specify the GOP length (keyframe interval) in frames. With AV1, MediaConvert doesn't support GOP length in seconds. This value must be greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x), where x is an integer value.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Specify from the number of B-frames, in the range of 0-15. For AV1 encoding, we recommend using 7 or 15. Choose a larger number for a lower bitrate and smaller file size; choose a smaller number for better video quality.
+   * @public
+   */
+  NumberBFramesBetweenReferenceFrames?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode.
+   * @public
+   */
+  QvbrSettings?: Av1QvbrSettings | undefined;
+
+  /**
+   * 'With AV1 outputs, for rate control mode, MediaConvert supports only quality-defined variable bitrate (QVBR). You can''t use CBR or VBR.'
+   * @public
+   */
+  RateControlMode?: Av1RateControlMode | undefined;
+
+  /**
+   * Specify the number of slices per picture. This value must be 1, 2, 4, 8, 16, or 32. For progressive pictures, this value must be less than or equal to the number of macroblock rows. For interlaced pictures, this value must be less than or equal to half the number of macroblock rows.
+   * @public
+   */
+  Slices?: number | undefined;
+
+  /**
+   * Keep the default value, Enabled, to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
+   * @public
+   */
+  SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | undefined;
+}
+
+/**
+ * Optional when you set AVC-Intra class to Class 4K/2K. When you set AVC-Intra class to a different value, this object isn't allowed.
+ * @public
+ */
+export interface AvcIntraUhdSettings {
+  /**
+   * Optional. Use Quality tuning level to choose how many transcoding passes MediaConvert does with your video. When you choose Multi-pass, your video quality is better and your output bitrate is more accurate. That is, the actual bitrate of your output is closer to the target bitrate defined in the specification. When you choose Single-pass, your encoding time is faster. The default behavior is Single-pass.
+   * @public
+   */
+  QualityTuningLevel?: AvcIntraUhdQualityTuningLevel | undefined;
+}
+
+/**
+ * Required when you choose AVC-Intra for your output video codec. For more information about the AVC-Intra settings, see the relevant specification. For detailed information about SD and HD in AVC-Intra, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-Intra, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
+ * @public
+ */
+export interface AvcIntraSettings {
+  /**
+   * Specify the AVC-Intra class of your output. The AVC-Intra class selection determines the output video bit rate depending on the frame rate of the output. Outputs with higher class values have higher bitrates and improved image quality. Note that for Class 4K/2K, MediaConvert supports only 4:2:2 chroma subsampling.
+   * @public
+   */
+  AvcIntraClass?: AvcIntraClass | undefined;
+
+  /**
+   * Optional when you set AVC-Intra class to Class 4K/2K. When you set AVC-Intra class to a different value, this object isn't allowed.
+   * @public
+   */
+  AvcIntraUhdSettings?: AvcIntraUhdSettings | undefined;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: AvcIntraFramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: AvcIntraFramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive to create a progressive output, regardless of the scan type of your input. Use Top field first or Bottom field first to create an output that's interlaced with the same field polarity throughout. Use Follow, default top or Follow, default bottom to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   * @public
+   */
+  InterlaceMode?: AvcIntraInterlaceMode | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: AvcIntraScanTypeConversionMode | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: AvcIntraSlowPal | undefined;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine to create a smoother picture. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   * @public
+   */
+  Telecine?: AvcIntraTelecine | undefined;
+}
+
+/**
+ * Required when you set Codec to the value FRAME_CAPTURE.
+ * @public
+ */
+export interface FrameCaptureSettings {
+  /**
+   * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Maximum number of captures (encoded jpg output files).
+   * @public
+   */
+  MaxCaptures?: number | undefined;
+
+  /**
+   * JPEG Quality - a higher value equals higher quality.
+   * @public
+   */
+  Quality?: number | undefined;
+}
+
+/**
+ * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value GIF
+ * @public
+ */
+export interface GifSettings {
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
+   * @public
+   */
+  FramerateControl?: GifFramerateControl | undefined;
+
+  /**
+   * Optional. Specify how the transcoder performs framerate conversion. The default behavior is to use Drop duplicate (DUPLICATE_DROP) conversion. When you choose Interpolate (INTERPOLATE) instead, the conversion produces smoother motion.
+   * @public
+   */
+  FramerateConversionAlgorithm?: GifFramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+}
+
+/**
+ * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+ * @public
+ */
+export interface BandwidthReductionFilter {
+  /**
+   * Optionally specify the level of sharpening to apply when you use the Bandwidth reduction filter. Sharpening adds contrast to the edges of your video content and can reduce softness. Keep the default value Off to apply no sharpening. Set Sharpening strength to Low to apply a minimal amount of sharpening, or High to apply a maximum amount of sharpening.
+   * @public
+   */
+  Sharpening?: BandwidthReductionFilterSharpening | undefined;
+
+  /**
+   * Specify the strength of the Bandwidth reduction filter. For most workflows, we recommend that you choose Auto to reduce the bandwidth of your output with little to no perceptual decrease in video quality. For high quality and high bitrate outputs, choose Low. For the most bandwidth reduction, choose High. We recommend that you choose High for low bitrate outputs. Note that High may incur a slight increase in the softness of your output.
+   * @public
+   */
+  Strength?: BandwidthReductionFilterStrength | undefined;
+}
+
+/**
+ * Settings for quality-defined variable bitrate encoding with the H.264 codec. Use these settings only when you set QVBR for Rate control mode.
+ * @public
+ */
+export interface H264QvbrSettings {
+  /**
+   * Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value that you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
+   * @public
+   */
+  MaxAverageBitrate?: number | undefined;
+
+  /**
+   * Use this setting only when you set Rate control mode to QVBR. Specify the target quality level for this output. MediaConvert determines the right number of bits to use for each part of the video to maintain the video quality that you specify. When you keep the default value, AUTO, MediaConvert picks a quality level for you, based on characteristics of your input video. If you prefer to specify a quality level, specify a number from 1 through 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
+   * @public
+   */
+  QvbrQualityLevel?: number | undefined;
+
+  /**
+   * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
+   * @public
+   */
+  QvbrQualityLevelFineTune?: number | undefined;
+}
+
+/**
+ * Required when you set Codec to the value H_264.
+ * @public
+ */
+export interface H264Settings {
+  /**
+   * Keep the default value, Auto, for this setting to have MediaConvert automatically apply the best types of quantization for your video content. When you want to apply your quantization settings manually, you must set H264AdaptiveQuantization to a value other than Auto. Use this setting to specify the strength of any adaptive quantization filters that you enable. If you don't want MediaConvert to do any adaptive quantization in this transcode, set Adaptive quantization to Off. Related settings: The value that you choose here applies to the following settings: H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and H264TemporalAdaptiveQuantization.
+   * @public
+   */
+  AdaptiveQuantization?: H264AdaptiveQuantization | undefined;
+
+  /**
+   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+   * @public
+   */
+  BandwidthReductionFilter?: BandwidthReductionFilter | undefined;
+
+  /**
+   * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Specify an H.264 level that is consistent with your output video settings. If you aren't sure what level to specify, choose Auto.
+   * @public
+   */
+  CodecLevel?: H264CodecLevel | undefined;
+
+  /**
+   * H.264 Profile. High 4:2:2 and 10-bit profiles are only available with the AVC-I License.
+   * @public
+   */
+  CodecProfile?: H264CodecProfile | undefined;
+
+  /**
+   * Specify whether to allow the number of B-frames in your output GOP structure to vary or not depending on your input video content. To improve the subjective video quality of your output that has high-motion content: Leave blank or keep the default value Adaptive. MediaConvert will use fewer B-frames for high-motion video content than low-motion content. The maximum number of B- frames is limited by the value that you choose for B-frames between reference frames. To use the same number B-frames for all types of content: Choose Static.
+   * @public
+   */
+  DynamicSubGop?: H264DynamicSubGop | undefined;
+
+  /**
+   * Optionally include or suppress markers at the end of your output that signal the end of the video stream. To include end of stream markers: Leave blank or keep the default value, Include. To not include end of stream markers: Choose Suppress. This is useful when your output will be inserted into another stream.
+   * @public
+   */
+  EndOfStreamMarkers?: H264EndOfStreamMarkers | undefined;
+
+  /**
+   * Entropy encoding mode. Use CABAC (must be in Main or High profile) or CAVLC.
+   * @public
+   */
+  EntropyEncoding?: H264EntropyEncoding | undefined;
+
+  /**
+   * The video encoding method for your MPEG-4 AVC output. Keep the default value, PAFF, to have MediaConvert use PAFF encoding for interlaced outputs. Choose Force field to disable PAFF encoding and create separate interlaced fields. Choose MBAFF to disable PAFF and have MediaConvert use MBAFF encoding for interlaced outputs.
+   * @public
+   */
+  FieldEncoding?: H264FieldEncoding | undefined;
+
+  /**
+   * Only use this setting when you change the default value, AUTO, for the setting H264AdaptiveQuantization. When you keep all defaults, excluding H264AdaptiveQuantization and all other adaptive quantization from your JSON job specification, MediaConvert automatically applies the best types of quantization for your video content. When you set H264AdaptiveQuantization to a value other than AUTO, the default value for H264FlickerAdaptiveQuantization is Disabled. Change this value to Enabled to reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. To manually enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive quantization to a value other than AUTO.
+   * @public
+   */
+  FlickerAdaptiveQuantization?: H264FlickerAdaptiveQuantization | undefined;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: H264FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: H264FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Specify whether to allow B-frames to be referenced by other frame types. To use reference B-frames when your GOP structure has 1 or more B-frames: Leave blank or keep the default value Enabled. We recommend that you choose Enabled to help improve the video quality of your output relative to its bitrate. To not use reference B-frames: Choose Disabled.
+   * @public
+   */
+  GopBReference?: H264GopBReference | undefined;
+
+  /**
+   * Specify the relative frequency of open to closed GOPs in this output. For example, if you want to allow four open GOPs and then require a closed GOP, set this value to 5. We recommend that you have the transcoder automatically choose this value for you based on characteristics of your input video. In the console, do this by keeping the default empty value. If you do explicitly specify a value, for segmented outputs, don't set this value to 0.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Use this setting only when you set GOP mode control to Specified, frames or Specified, seconds. Specify the GOP length using a whole number of frames or a decimal value of seconds. MediaConvert will interpret this value as frames or seconds depending on the value you choose for GOP mode control. If you want to allow MediaConvert to automatically determine GOP size, leave GOP size blank and set GOP mode control to Auto. If your output group specifies HLS, DASH, or CMAF, leave GOP size blank and set GOP mode control to Auto in each output in your output group.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Specify how the transcoder determines GOP size for this output. We recommend that you have the transcoder automatically choose this value for you based on characteristics of your input video. To enable this automatic behavior, choose Auto and and leave GOP size blank. By default, if you don't specify GOP mode control, MediaConvert will use automatic behavior. If your output group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and leave GOP size blank in each output in your output group. To explicitly specify the GOP length, choose Specified, frames or Specified, seconds and then provide the GOP length in the related setting GOP size.
+   * @public
+   */
+  GopSizeUnits?: H264GopSizeUnits | undefined;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   * @public
+   */
+  HrdBufferFinalFillPercentage?: number | undefined;
+
+  /**
+   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   * @public
+   */
+  HrdBufferInitialFillPercentage?: number | undefined;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive to create a progressive output, regardless of the scan type of your input. Use Top field first or Bottom field first to create an output that's interlaced with the same field polarity throughout. Use Follow, default top or Follow, default bottom to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   * @public
+   */
+  InterlaceMode?: H264InterlaceMode | undefined;
+
+  /**
+   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Specify the minimum number of frames allowed between two IDR-frames in your output. This includes frames created at the start of a GOP or a scene change. Use Min I-Interval to improve video compression by varying GOP size when two IDR-frames would be created near each other. For example, if a regular cadence-driven IDR-frame would fall within 5 frames of a scene-change IDR-frame, and you set Min I-interval to 5, then the encoder would only write an IDR-frame for the scene-change. In this way, one GOP is shortened or extended. If a cadence-driven IDR-frame would be further than 5 frames from a scene-change IDR-frame, then the encoder leaves all IDR-frames in place. To use an automatically determined interval: We recommend that you keep this value blank. This allows for MediaConvert to use an optimal setting according to the characteristics of your input video, and results in better video compression. To manually specify an interval: Enter a value from 1 to 30. Use when your downstream systems have specific GOP size requirements. To disable GOP size variance: Enter 0. MediaConvert will only create IDR-frames at the start of your output's cadence-driven GOP. Use when your downstream systems require a regular GOP size.
+   * @public
+   */
+  MinIInterval?: number | undefined;
+
+  /**
+   * Specify the number of B-frames between reference frames in this output. For the best video quality: Leave blank. MediaConvert automatically determines the number of B-frames to use based on the characteristics of your input video. To manually specify the number of B-frames between reference frames: Enter an integer from 0 to 7.
+   * @public
+   */
+  NumberBFramesBetweenReferenceFrames?: number | undefined;
+
+  /**
+   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
+   * @public
+   */
+  NumberReferenceFrames?: number | undefined;
+
+  /**
+   * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source, uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
+   * @public
+   */
+  ParControl?: H264ParControl | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * The Quality tuning level you choose represents a trade-off between the encoding speed of your job and the output video quality. For the fastest encoding speed at the cost of video quality: Choose Single pass. For a good balance between encoding speed and video quality: Leave blank or keep the default value Single pass HQ. For the best video quality, at the cost of encoding speed: Choose Multi pass HQ. MediaConvert performs an analysis pass on your input followed by an encoding pass. Outputs that use this feature incur pro-tier pricing.
+   * @public
+   */
+  QualityTuningLevel?: H264QualityTuningLevel | undefined;
+
+  /**
+   * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode.
+   * @public
+   */
+  QvbrSettings?: H264QvbrSettings | undefined;
+
+  /**
+   * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
+   * @public
+   */
+  RateControlMode?: H264RateControlMode | undefined;
+
+  /**
+   * Places a PPS header on each encoded picture, even if repeated.
+   * @public
+   */
+  RepeatPps?: H264RepeatPps | undefined;
+
+  /**
+   * Specify whether to apply Saliency aware encoding to your output. Use to improve the perceptual video quality of your output by allocating more encoding bits to the prominent or noticeable parts of your content. To apply saliency aware encoding, when possible: We recommend that you choose Preferred. The effects of Saliency aware encoding are best seen in lower bitrate outputs. When you choose Preferred, note that Saliency aware encoding will only apply to outputs that are 720p or higher in resolution. To not apply saliency aware encoding, prioritizing encoding speed over perceptual video quality: Choose Disabled.
+   * @public
+   */
+  SaliencyAwareEncoding?: H264SaliencyAwareEncoding | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: H264ScanTypeConversionMode | undefined;
+
+  /**
+   * Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default. If this output uses QVBR, choose Transition detection for further video quality improvement. For more information about QVBR, see https://docs.aws.amazon.com/console/mediaconvert/cbr-vbr-qvbr.
+   * @public
+   */
+  SceneChangeDetect?: H264SceneChangeDetect | undefined;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * @public
+   */
+  Slices?: number | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: H264SlowPal | undefined;
+
+  /**
+   * Ignore this setting unless you need to comply with a specification that requires a specific value. If you don't have a specification requirement, we recommend that you adjust the softness of your output by using a lower value for the setting Sharpness or by enabling a noise reducer filter. The Softness setting specifies the quantization matrices that the encoder uses. Keep the default value, 0, for flat quantization. Choose the value 1 or 16 to use the default JVT softening quantization matricies from the H.264 specification. Choose a value from 17 to 128 to use planar interpolation. Increasing values from 17 to 128 result in increasing reduction of high-frequency data. The value 128 results in the softest video.
+   * @public
+   */
+  Softness?: number | undefined;
+
+  /**
+   * Only use this setting when you change the default value, Auto, for the setting H264AdaptiveQuantization. When you keep all defaults, excluding H264AdaptiveQuantization and all other adaptive quantization from your JSON job specification, MediaConvert automatically applies the best types of quantization for your video content. When you set H264AdaptiveQuantization to a value other than AUTO, the default value for H264SpatialAdaptiveQuantization is Enabled. Keep this default value to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to set H264SpatialAdaptiveQuantization to Disabled. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher. To manually enable or disable H264SpatialAdaptiveQuantization, you must set Adaptive quantization to a value other than AUTO.
+   * @public
+   */
+  SpatialAdaptiveQuantization?: H264SpatialAdaptiveQuantization | undefined;
+
+  /**
+   * Produces a bitstream compliant with SMPTE RP-2027.
+   * @public
+   */
+  Syntax?: H264Syntax | undefined;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard or soft telecine to create a smoother picture. Hard telecine produces a 29.97i output. Soft telecine produces an output with a 23.976 output that signals to the video player device to do the conversion during play back. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   * @public
+   */
+  Telecine?: H264Telecine | undefined;
+
+  /**
+   * Only use this setting when you change the default value, AUTO, for the setting H264AdaptiveQuantization. When you keep all defaults, excluding H264AdaptiveQuantization and all other adaptive quantization from your JSON job specification, MediaConvert automatically applies the best types of quantization for your video content. When you set H264AdaptiveQuantization to a value other than AUTO, the default value for H264TemporalAdaptiveQuantization is Enabled. Keep this default value to adjust quantization within each frame based on temporal variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas of the frame that aren't moving and uses more bits on complex objects with sharp edges that move a lot. For example, this feature improves the readability of text tickers on newscasts and scoreboards on sports matches. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen that doesn't have moving objects with sharp edges, such as sports athletes' faces, you might choose to set H264TemporalAdaptiveQuantization to Disabled. Related setting: When you enable temporal quantization, adjust the strength of the filter with the setting Adaptive quantization. To manually enable or disable H264TemporalAdaptiveQuantization, you must set Adaptive quantization to a value other than AUTO.
+   * @public
+   */
+  TemporalAdaptiveQuantization?: H264TemporalAdaptiveQuantization | undefined;
+
+  /**
+   * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
+   * @public
+   */
+  UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | undefined;
+
+  /**
+   * Specify how SPS and PPS NAL units are written in your output MP4 container, according to ISO/IEC 14496-15. If the location of these parameters doesn't matter in your workflow: Keep the default value, AVC1. MediaConvert writes SPS and PPS NAL units in the sample description ('stsd') box (but not into samples directly). To write SPS and PPS NAL units directly into samples (but not in the 'stsd' box): Choose AVC3. When you do, note that your output might not play properly with some downstream systems or players.
+   * @public
+   */
+  WriteMp4PackagingType?: H264WriteMp4PackagingType | undefined;
+}
+
+/**
+ * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode.
+ * @public
+ */
+export interface H265QvbrSettings {
+  /**
+   * Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value that you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
+   * @public
+   */
+  MaxAverageBitrate?: number | undefined;
+
+  /**
+   * Use this setting only when you set Rate control mode to QVBR. Specify the target quality level for this output. MediaConvert determines the right number of bits to use for each part of the video to maintain the video quality that you specify. When you keep the default value, AUTO, MediaConvert picks a quality level for you, based on characteristics of your input video. If you prefer to specify a quality level, specify a number from 1 through 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
+   * @public
+   */
+  QvbrQualityLevel?: number | undefined;
+
+  /**
+   * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
+   * @public
+   */
+  QvbrQualityLevelFineTune?: number | undefined;
+}
+
+/**
+ * Settings for H265 codec
+ * @public
+ */
+export interface H265Settings {
+  /**
+   * When you set Adaptive Quantization to Auto, or leave blank, MediaConvert automatically applies quantization to improve the video quality of your output. Set Adaptive Quantization to Low, Medium, High, Higher, or Max to manually control the strength of the quantization filter. When you do, you can specify a value for Spatial Adaptive Quantization, Temporal Adaptive Quantization, and Flicker Adaptive Quantization, to further control the quantization filter. Set Adaptive Quantization to Off to apply no quantization to your output.
+   * @public
+   */
+  AdaptiveQuantization?: H265AdaptiveQuantization | undefined;
+
+  /**
+   * Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer Function (EOTF).
+   * @public
+   */
+  AlternateTransferFunctionSei?: H265AlternateTransferFunctionSei | undefined;
+
+  /**
+   * The Bandwidth reduction filter increases the video quality of your output relative to its bitrate. Use to lower the bitrate of your constant quality QVBR output, with little or no perceptual decrease in quality. Or, use to increase the video quality of outputs with other rate control modes relative to the bitrate that you specify. Bandwidth reduction increases further when your input is low quality or noisy. Outputs that use this feature incur pro-tier pricing. When you include Bandwidth reduction filter, you cannot include the Noise reducer preprocessor.
+   * @public
+   */
+  BandwidthReductionFilter?: BandwidthReductionFilter | undefined;
+
+  /**
+   * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * H.265 Level.
+   * @public
+   */
+  CodecLevel?: H265CodecLevel | undefined;
+
+  /**
+   * Represents the Profile and Tier, per the HEVC (H.265) specification. Selections are grouped as [Profile] / [Tier], so "Main/High" represents Main Profile with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
+   * @public
+   */
+  CodecProfile?: H265CodecProfile | undefined;
+
+  /**
+   * Use Deblocking to improve the video quality of your output by smoothing the edges of macroblock artifacts created during video compression. To reduce blocking artifacts at block boundaries, and improve overall video quality: Keep the default value, Enabled. To not apply any deblocking: Choose Disabled. Visible block edge artifacts might appear in the output, especially at lower bitrates.
+   * @public
+   */
+  Deblocking?: H265Deblocking | undefined;
+
+  /**
+   * Specify whether to allow the number of B-frames in your output GOP structure to vary or not depending on your input video content. To improve the subjective video quality of your output that has high-motion content: Leave blank or keep the default value Adaptive. MediaConvert will use fewer B-frames for high-motion video content than low-motion content. The maximum number of B- frames is limited by the value that you choose for B-frames between reference frames. To use the same number B-frames for all types of content: Choose Static.
+   * @public
+   */
+  DynamicSubGop?: H265DynamicSubGop | undefined;
+
+  /**
+   * Optionally include or suppress markers at the end of your output that signal the end of the video stream. To include end of stream markers: Leave blank or keep the default value, Include. To not include end of stream markers: Choose Suppress. This is useful when your output will be inserted into another stream.
+   * @public
+   */
+  EndOfStreamMarkers?: H265EndOfStreamMarkers | undefined;
+
+  /**
+   * Enable this setting to have the encoder reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. This setting is disabled by default. Related setting: In addition to enabling this setting, you must also set adaptiveQuantization to a value other than Off.
+   * @public
+   */
+  FlickerAdaptiveQuantization?: H265FlickerAdaptiveQuantization | undefined;
+
+  /**
+   * Use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: H265FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: H265FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Specify whether to allow B-frames to be referenced by other frame types. To use reference B-frames when your GOP structure has 1 or more B-frames: Leave blank or keep the default value Enabled. We recommend that you choose Enabled to help improve the video quality of your output relative to its bitrate. To not use reference B-frames: Choose Disabled.
+   * @public
+   */
+  GopBReference?: H265GopBReference | undefined;
+
+  /**
+   * Specify the relative frequency of open to closed GOPs in this output. For example, if you want to allow four open GOPs and then require a closed GOP, set this value to 5. We recommend that you have the transcoder automatically choose this value for you based on characteristics of your input video. To enable this automatic behavior, do this by keeping the default empty value. If you do explicitly specify a value, for segmented outputs, don't set this value to 0.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Use this setting only when you set GOP mode control to Specified, frames or Specified, seconds. Specify the GOP length using a whole number of frames or a decimal value of seconds. MediaConvert will interpret this value as frames or seconds depending on the value you choose for GOP mode control. If you want to allow MediaConvert to automatically determine GOP size, leave GOP size blank and set GOP mode control to Auto. If your output group specifies HLS, DASH, or CMAF, leave GOP size blank and set GOP mode control to Auto in each output in your output group.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Specify how the transcoder determines GOP size for this output. We recommend that you have the transcoder automatically choose this value for you based on characteristics of your input video. To enable this automatic behavior, choose Auto and and leave GOP size blank. By default, if you don't specify GOP mode control, MediaConvert will use automatic behavior. If your output group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and leave GOP size blank in each output in your output group. To explicitly specify the GOP length, choose Specified, frames or Specified, seconds and then provide the GOP length in the related setting GOP size.
+   * @public
+   */
+  GopSizeUnits?: H265GopSizeUnits | undefined;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   * @public
+   */
+  HrdBufferFinalFillPercentage?: number | undefined;
+
+  /**
+   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   * @public
+   */
+  HrdBufferInitialFillPercentage?: number | undefined;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive to create a progressive output, regardless of the scan type of your input. Use Top field first or Bottom field first to create an output that's interlaced with the same field polarity throughout. Use Follow, default top or Follow, default bottom to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   * @public
+   */
+  InterlaceMode?: H265InterlaceMode | undefined;
+
+  /**
+   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Specify the minimum number of frames allowed between two IDR-frames in your output. This includes frames created at the start of a GOP or a scene change. Use Min I-Interval to improve video compression by varying GOP size when two IDR-frames would be created near each other. For example, if a regular cadence-driven IDR-frame would fall within 5 frames of a scene-change IDR-frame, and you set Min I-interval to 5, then the encoder would only write an IDR-frame for the scene-change. In this way, one GOP is shortened or extended. If a cadence-driven IDR-frame would be further than 5 frames from a scene-change IDR-frame, then the encoder leaves all IDR-frames in place. To use an automatically determined interval: We recommend that you keep this value blank. This allows for MediaConvert to use an optimal setting according to the characteristics of your input video, and results in better video compression. To manually specify an interval: Enter a value from 1 to 30. Use when your downstream systems have specific GOP size requirements. To disable GOP size variance: Enter 0. MediaConvert will only create IDR-frames at the start of your output's cadence-driven GOP. Use when your downstream systems require a regular GOP size.
+   * @public
+   */
+  MinIInterval?: number | undefined;
+
+  /**
+   * Specify the number of B-frames between reference frames in this output. For the best video quality: Leave blank. MediaConvert automatically determines the number of B-frames to use based on the characteristics of your input video. To manually specify the number of B-frames between reference frames: Enter an integer from 0 to 7.
+   * @public
+   */
+  NumberBFramesBetweenReferenceFrames?: number | undefined;
+
+  /**
+   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
+   * @public
+   */
+  NumberReferenceFrames?: number | undefined;
+
+  /**
+   * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source, uses the PAR from your input video for your output. To specify a different PAR, choose any value other than Follow source. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
+   * @public
+   */
+  ParControl?: H265ParControl | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   * @public
+   */
+  QualityTuningLevel?: H265QualityTuningLevel | undefined;
+
+  /**
+   * Settings for quality-defined variable bitrate encoding with the H.265 codec. Use these settings only when you set QVBR for Rate control mode.
+   * @public
+   */
+  QvbrSettings?: H265QvbrSettings | undefined;
+
+  /**
+   * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
+   * @public
+   */
+  RateControlMode?: H265RateControlMode | undefined;
+
+  /**
+   * Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically selects best strength based on content
+   * @public
+   */
+  SampleAdaptiveOffsetFilterMode?: H265SampleAdaptiveOffsetFilterMode | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: H265ScanTypeConversionMode | undefined;
+
+  /**
+   * Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default. If this output uses QVBR, choose Transition detection for further video quality improvement. For more information about QVBR, see https://docs.aws.amazon.com/console/mediaconvert/cbr-vbr-qvbr.
+   * @public
+   */
+  SceneChangeDetect?: H265SceneChangeDetect | undefined;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * @public
+   */
+  Slices?: number | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: H265SlowPal | undefined;
+
+  /**
+   * Keep the default value, Enabled, to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
+   * @public
+   */
+  SpatialAdaptiveQuantization?: H265SpatialAdaptiveQuantization | undefined;
+
+  /**
+   * This field applies only if the Streams > Advanced > Framerate field is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer field and the Streams > Advanced > Interlaced Mode field to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.
+   * @public
+   */
+  Telecine?: H265Telecine | undefined;
+
+  /**
+   * Keep the default value, Enabled, to adjust quantization within each frame based on temporal variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas of the frame that aren't moving and uses more bits on complex objects with sharp edges that move a lot. For example, this feature improves the readability of text tickers on newscasts and scoreboards on sports matches. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen that doesn't have moving objects with sharp edges, such as sports athletes' faces, you might choose to disable this feature. Related setting: When you enable temporal quantization, adjust the strength of the filter with the setting Adaptive quantization.
+   * @public
+   */
+  TemporalAdaptiveQuantization?: H265TemporalAdaptiveQuantization | undefined;
+
+  /**
+   * Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer) for a half frame rate output.
+   * @public
+   */
+  TemporalIds?: H265TemporalIds | undefined;
+
+  /**
+   * Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
+   * @public
+   */
+  Tiles?: H265Tiles | undefined;
+
+  /**
+   * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
+   * @public
+   */
+  UnregisteredSeiTimecode?: H265UnregisteredSeiTimecode | undefined;
+
+  /**
+   * If the location of parameter set NAL units doesn't matter in your workflow, ignore this setting. Use this setting only with CMAF or DASH outputs, or with standalone file outputs in an MPEG-4 container (MP4 outputs). Choose HVC1 to mark your output as HVC1. This makes your output compliant with the following specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the samples directly. For MP4 outputs, when you choose HVC1, your output video might not work properly with some downstream systems and video players. The service defaults to marking your output as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
+   * @public
+   */
+  WriteMp4PackagingType?: H265WriteMp4PackagingType | undefined;
+}
+
+/**
+ * Required when you set Codec to the value MPEG2.
+ * @public
+ */
+export interface Mpeg2Settings {
+  /**
+   * Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to the following settings: Spatial adaptive quantization, and Temporal adaptive quantization.
+   * @public
+   */
+  AdaptiveQuantization?: Mpeg2AdaptiveQuantization | undefined;
+
+  /**
+   * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Use Level to set the MPEG-2 level for the video output.
+   * @public
+   */
+  CodecLevel?: Mpeg2CodecLevel | undefined;
+
+  /**
+   * Use Profile to set the MPEG-2 profile for the video output.
+   * @public
+   */
+  CodecProfile?: Mpeg2CodecProfile | undefined;
+
+  /**
+   * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames.
+   * @public
+   */
+  DynamicSubGop?: Mpeg2DynamicSubGop | undefined;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: Mpeg2FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: Mpeg2FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Specify the relative frequency of open to closed GOPs in this output. For example, if you want to allow four open GOPs and then require a closed GOP, set this value to 5. When you create a streaming output, we recommend that you keep the default value, 1, so that players starting mid-stream receive an IDR frame as quickly as possible. Don't set this value to 0; that would break output segmenting.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Specify the interval between keyframes, in seconds or frames, for this output. Default: 12 Related settings: When you specify the GOP size in seconds, set GOP mode control to Specified, seconds. The default value for GOP mode control is Frames.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Specify the units for GOP size. If you don't specify a value here, by default the encoder measures GOP size in frames.
+   * @public
+   */
+  GopSizeUnits?: Mpeg2GopSizeUnits | undefined;
+
+  /**
+   * If your downstream systems have strict buffer requirements: Specify the minimum percentage of the HRD buffer that's available at the end of each encoded video segment. For the best video quality: Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+   * @public
+   */
+  HrdBufferFinalFillPercentage?: number | undefined;
+
+  /**
+   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   * @public
+   */
+  HrdBufferInitialFillPercentage?: number | undefined;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive to create a progressive output, regardless of the scan type of your input. Use Top field first or Bottom field first to create an output that's interlaced with the same field polarity throughout. Use Follow, default top or Follow, default bottom to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   * @public
+   */
+  InterlaceMode?: Mpeg2InterlaceMode | undefined;
+
+  /**
+   * Use Intra DC precision to set quantization precision for intra-block DC coefficients. If you choose the value auto, the service will automatically select the precision based on the per-frame compression ratio.
+   * @public
+   */
+  IntraDcPrecision?: Mpeg2IntraDcPrecision | undefined;
+
+  /**
+   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Specify the minimum number of frames allowed between two IDR-frames in your output. This includes frames created at the start of a GOP or a scene change. Use Min I-Interval to improve video compression by varying GOP size when two IDR-frames would be created near each other. For example, if a regular cadence-driven IDR-frame would fall within 5 frames of a scene-change IDR-frame, and you set Min I-interval to 5, then the encoder would only write an IDR-frame for the scene-change. In this way, one GOP is shortened or extended. If a cadence-driven IDR-frame would be further than 5 frames from a scene-change IDR-frame, then the encoder leaves all IDR-frames in place. To manually specify an interval: Enter a value from 1 to 30. Use when your downstream systems have specific GOP size requirements. To disable GOP size variance: Enter 0. MediaConvert will only create IDR-frames at the start of your output's cadence-driven GOP. Use when your downstream systems require a regular GOP size.
+   * @public
+   */
+  MinIInterval?: number | undefined;
+
+  /**
+   * Specify the number of B-frames that MediaConvert puts between reference frames in this output. Valid values are whole numbers from 0 through 7. When you don't specify a value, MediaConvert defaults to 2.
+   * @public
+   */
+  NumberBFramesBetweenReferenceFrames?: number | undefined;
+
+  /**
+   * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source, uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
+   * @public
+   */
+  ParControl?: Mpeg2ParControl | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   * @public
+   */
+  QualityTuningLevel?: Mpeg2QualityTuningLevel | undefined;
+
+  /**
+   * Use Rate control mode to specify whether the bitrate is variable (vbr) or constant (cbr).
+   * @public
+   */
+  RateControlMode?: Mpeg2RateControlMode | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: Mpeg2ScanTypeConversionMode | undefined;
+
+  /**
+   * Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default.
+   * @public
+   */
+  SceneChangeDetect?: Mpeg2SceneChangeDetect | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: Mpeg2SlowPal | undefined;
+
+  /**
+   * Ignore this setting unless you need to comply with a specification that requires a specific value. If you don't have a specification requirement, we recommend that you adjust the softness of your output by using a lower value for the setting Sharpness or by enabling a noise reducer filter. The Softness setting specifies the quantization matrices that the encoder uses. Keep the default value, 0, to use the AWS Elemental default matrices. Choose a value from 17 to 128 to use planar interpolation. Increasing values from 17 to 128 result in increasing reduction of high-frequency data. The value 128 results in the softest video.
+   * @public
+   */
+  Softness?: number | undefined;
+
+  /**
+   * Keep the default value, Enabled, to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
+   * @public
+   */
+  SpatialAdaptiveQuantization?: Mpeg2SpatialAdaptiveQuantization | undefined;
+
+  /**
+   * Specify whether this output's video uses the D10 syntax. Keep the default value to not use the syntax. Related settings: When you choose D10 for your MXF profile, you must also set this value to D10.
+   * @public
+   */
+  Syntax?: Mpeg2Syntax | undefined;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard or soft telecine to create a smoother picture. Hard telecine produces a 29.97i output. Soft telecine produces an output with a 23.976 output that signals to the video player device to do the conversion during play back. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   * @public
+   */
+  Telecine?: Mpeg2Telecine | undefined;
+
+  /**
+   * Keep the default value, Enabled, to adjust quantization within each frame based on temporal variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas of the frame that aren't moving and uses more bits on complex objects with sharp edges that move a lot. For example, this feature improves the readability of text tickers on newscasts and scoreboards on sports matches. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen that doesn't have moving objects with sharp edges, such as sports athletes' faces, you might choose to disable this feature. Related setting: When you enable temporal quantization, adjust the strength of the filter with the setting Adaptive quantization.
+   * @public
+   */
+  TemporalAdaptiveQuantization?: Mpeg2TemporalAdaptiveQuantization | undefined;
+}
+
+/**
+ * Optional settings when you set Codec to the value Passthrough.
+ * @public
+ */
+export interface PassthroughSettings {
+  /**
+   * Choose how MediaConvert handles start and end times for input clipping with video passthrough. Your input video codec must be H.264 or H.265 to use IFRAME. To clip at the nearest IDR-frame: Choose Nearest IDR. If an IDR-frame is not found at the frame that you specify, MediaConvert uses the next compatible IDR-frame. Note that your output may be shorter than your input clip duration. To clip at the nearest I-frame: Choose Nearest I-frame. If an I-frame is not found at the frame that you specify, MediaConvert uses the next compatible I-frame. Note that your output may be shorter than your input clip duration. We only recommend this setting for special workflows, and when you choose this setting your output may not be compatible with most players.
+   * @public
+   */
+  FrameControl?: FrameControl | undefined;
+
+  /**
+   * AUTO will select the highest bitrate input in the video selector source. REMUX_ALL will passthrough all the selected streams in the video selector source. When selecting streams from multiple renditions (i.e. using Stream video selector type): REMUX_ALL will only remux all streams selected, and AUTO will use the highest bitrate video stream among the selected streams as source.
+   * @public
+   */
+  VideoSelectorMode?: VideoSelectorMode | undefined;
+}
+
+/**
+ * Required when you set Codec to the value PRORES.
+ * @public
+ */
+export interface ProresSettings {
+  /**
+   * This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that you create from inputs that use 4:4:4 chroma sampling. Set Preserve 4:4:4 sampling to allow outputs to also use 4:4:4 chroma sampling. You must specify a value for this setting when your output codec profile supports 4:4:4 chroma sampling. Related Settings: For Apple ProRes outputs with 4:4:4 chroma sampling: Choose Preserve 4:4:4 sampling. Use when your input has 4:4:4 chroma sampling and your output codec Profile is Apple ProRes 4444 or 4444 XQ. Note that when you choose Preserve 4:4:4 sampling, you cannot include any of the following Preprocessors: Dolby Vision, HDR10+, or Noise reducer.
+   * @public
+   */
+  ChromaSampling?: ProresChromaSampling | undefined;
+
+  /**
+   * Use Profile to specify the type of Apple ProRes codec to use for this output.
+   * @public
+   */
+  CodecProfile?: ProresCodecProfile | undefined;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: ProresFramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: ProresFramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive to create a progressive output, regardless of the scan type of your input. Use Top field first or Bottom field first to create an output that's interlaced with the same field polarity throughout. Use Follow, default top or Follow, default bottom to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   * @public
+   */
+  InterlaceMode?: ProresInterlaceMode | undefined;
+
+  /**
+   * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source, uses the PAR from your input video for your output. To specify a different PAR, choose any value other than Follow source. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
+   * @public
+   */
+  ParControl?: ProresParControl | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: ProresScanTypeConversionMode | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: ProresSlowPal | undefined;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine to create a smoother picture. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   * @public
+   */
+  Telecine?: ProresTelecine | undefined;
+}
+
+/**
+ * Required when you set Codec, under VideoDescription>CodecSettings to the value UNCOMPRESSED.
+ * @public
+ */
+export interface UncompressedSettings {
+  /**
+   * The four character code for the uncompressed video.
+   * @public
+   */
+  Fourcc?: UncompressedFourcc | undefined;
+
+  /**
+   * Use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: UncompressedFramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: UncompressedFramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Optional. Choose the scan line type for this output. If you don't specify a value, MediaConvert will create a progressive output.
+   * @public
+   */
+  InterlaceMode?: UncompressedInterlaceMode | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: UncompressedScanTypeConversionMode | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: UncompressedSlowPal | undefined;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine to create a smoother picture. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   * @public
+   */
+  Telecine?: UncompressedTelecine | undefined;
+}
+
+/**
+ * Required when you set Codec to the value VC3
+ * @public
+ */
+export interface Vc3Settings {
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: Vc3FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: Vc3FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Optional. Choose the scan line type for this output. If you don't specify a value, MediaConvert will create a progressive output.
+   * @public
+   */
+  InterlaceMode?: Vc3InterlaceMode | undefined;
+
+  /**
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   * @public
+   */
+  ScanTypeConversionMode?: Vc3ScanTypeConversionMode | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Framerate to 25.
+   * @public
+   */
+  SlowPal?: Vc3SlowPal | undefined;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine to create a smoother picture. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   * @public
+   */
+  Telecine?: Vc3Telecine | undefined;
+
+  /**
+   * Specify the VC3 class to choose the quality characteristics for this output. VC3 class, together with the settings Framerate (framerateNumerator and framerateDenominator) and Resolution (height and width), determine your output bitrate. For example, say that your video resolution is 1920x1080 and your framerate is 29.97. Then Class 145 gives you an output with a bitrate of approximately 145 Mbps and Class 220 gives you and output with a bitrate of approximately 220 Mbps. VC3 class also specifies the color bit depth of your output.
+   * @public
+   */
+  Vc3Class?: Vc3Class | undefined;
+}
+
+/**
+ * Required when you set Codec to the value VP8.
+ * @public
+ */
+export interface Vp8Settings {
+  /**
+   * Target bitrate in bits/second. For example, enter five megabits per second as 5000000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: Vp8FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: Vp8FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * GOP Length (keyframe interval) in frames. Must be greater than zero.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Optional. Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Ignore this setting unless you set qualityTuningLevel to MULTI_PASS. Optional. Specify the maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. The default behavior uses twice the target bitrate as the maximum bitrate.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source, uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
+   * @public
+   */
+  ParControl?: Vp8ParControl | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, multi-pass encoding.
+   * @public
+   */
+  QualityTuningLevel?: Vp8QualityTuningLevel | undefined;
+
+  /**
+   * With the VP8 codec, you can use only the variable bitrate (VBR) rate control mode.
+   * @public
+   */
+  RateControlMode?: Vp8RateControlMode | undefined;
+}
+
+/**
+ * Required when you set Codec to the value VP9.
+ * @public
+ */
+export interface Vp9Settings {
+  /**
+   * Target bitrate in bits/second. For example, enter five megabits per second as 5000000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   * @public
+   */
+  FramerateControl?: Vp9FramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: Vp9FramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * GOP Length (keyframe interval) in frames. Must be greater than zero.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Ignore this setting unless you set qualityTuningLevel to MULTI_PASS. Optional. Specify the maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. The default behavior uses twice the target bitrate as the maximum bitrate.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Optional. Specify how the service determines the pixel aspect ratio for this output. The default behavior is to use the same pixel aspect ratio as your input video.
+   * @public
+   */
+  ParControl?: Vp9ParControl | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Required when you set Pixel aspect ratio to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, multi-pass encoding.
+   * @public
+   */
+  QualityTuningLevel?: Vp9QualityTuningLevel | undefined;
+
+  /**
+   * With the VP9 codec, you can use only the variable bitrate (VBR) rate control mode.
+   * @public
+   */
+  RateControlMode?: Vp9RateControlMode | undefined;
+}
+
+/**
+ * Required when you set Profile to the value XAVC_4K_INTRA_CBG.
+ * @public
+ */
+export interface Xavc4kIntraCbgProfileSettings {
+  /**
+   * Specify the XAVC Intra 4k (CBG) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   * @public
+   */
+  XavcClass?: Xavc4kIntraCbgProfileClass | undefined;
+}
+
+/**
+ * Required when you set Profile to the value XAVC_4K_INTRA_VBR.
+ * @public
+ */
+export interface Xavc4kIntraVbrProfileSettings {
+  /**
+   * Specify the XAVC Intra 4k (VBR) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   * @public
+   */
+  XavcClass?: Xavc4kIntraVbrProfileClass | undefined;
+}
+
+/**
+ * Required when you set Profile to the value XAVC_4K.
+ * @public
+ */
+export interface Xavc4kProfileSettings {
+  /**
+   * Specify the XAVC 4k (Long GOP) Bitrate Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   * @public
+   */
+  BitrateClass?: Xavc4kProfileBitrateClass | undefined;
+
+  /**
+   * Specify the codec profile for this output. Choose High, 8-bit, 4:2:0 (HIGH) or High, 10-bit, 4:2:2 (HIGH_422). These profiles are specified in ITU-T H.264.
+   * @public
+   */
+  CodecProfile?: Xavc4kProfileCodecProfile | undefined;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto, for the setting Adaptive quantization. When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. Enable this setting to have the encoder reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. This setting is disabled by default. Related setting: In addition to enabling this setting, you must also set Adaptive quantization to a value other than Off or Auto. Use Adaptive quantization to adjust the degree of smoothing that Flicker adaptive quantization provides.
+   * @public
+   */
+  FlickerAdaptiveQuantization?: XavcFlickerAdaptiveQuantization | undefined;
+
+  /**
+   * Specify whether the encoder uses B-frames as reference frames for other pictures in the same GOP. Choose Allow to allow the encoder to use B-frames as reference frames. Choose Don't allow to prevent the encoder from using B-frames as reference frames.
+   * @public
+   */
+  GopBReference?: XavcGopBReference | undefined;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Specify the size of the buffer that MediaConvert uses in the HRD buffer model for this output. Specify this value in bits; for example, enter five megabits as 5000000. When you don't set this value, or you set it to zero, MediaConvert calculates the default by doubling the bitrate of this output point.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   * @public
+   */
+  QualityTuningLevel?: Xavc4kProfileQualityTuningLevel | undefined;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * @public
+   */
+  Slices?: number | undefined;
+}
+
+/**
+ * Required when you set Profile to the value XAVC_HD_INTRA_CBG.
+ * @public
+ */
+export interface XavcHdIntraCbgProfileSettings {
+  /**
+   * Specify the XAVC Intra HD (CBG) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   * @public
+   */
+  XavcClass?: XavcHdIntraCbgProfileClass | undefined;
+}
+
+/**
+ * Required when you set Profile to the value XAVC_HD.
+ * @public
+ */
+export interface XavcHdProfileSettings {
+  /**
+   * Specify the XAVC HD (Long GOP) Bitrate Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
+   * @public
+   */
+  BitrateClass?: XavcHdProfileBitrateClass | undefined;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto, for the setting Adaptive quantization. When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. Enable this setting to have the encoder reduce I-frame pop. I-frame pop appears as a visual flicker that can arise when the encoder saves bits by copying some macroblocks many times from frame to frame, and then refreshes them at the I-frame. When you enable this setting, the encoder updates these macroblocks slightly more often to smooth out the flicker. This setting is disabled by default. Related setting: In addition to enabling this setting, you must also set Adaptive quantization to a value other than Off or Auto. Use Adaptive quantization to adjust the degree of smoothing that Flicker adaptive quantization provides.
+   * @public
+   */
+  FlickerAdaptiveQuantization?: XavcFlickerAdaptiveQuantization | undefined;
+
+  /**
+   * Specify whether the encoder uses B-frames as reference frames for other pictures in the same GOP. Choose Allow to allow the encoder to use B-frames as reference frames. Choose Don't allow to prevent the encoder from using B-frames as reference frames.
+   * @public
+   */
+  GopBReference?: XavcGopBReference | undefined;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Specify the size of the buffer that MediaConvert uses in the HRD buffer model for this output. Specify this value in bits; for example, enter five megabits as 5000000. When you don't set this value, or you set it to zero, MediaConvert calculates the default by doubling the bitrate of this output point.
+   * @public
+   */
+  HrdBufferSize?: number | undefined;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive to create a progressive output, regardless of the scan type of your input. Use Top field first or Bottom field first to create an output that's interlaced with the same field polarity throughout. Use Follow, default top or Follow, default bottom to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   * @public
+   */
+  InterlaceMode?: XavcInterlaceMode | undefined;
+
+  /**
+   * Optional. Use Quality tuning level to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   * @public
+   */
+  QualityTuningLevel?: XavcHdProfileQualityTuningLevel | undefined;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * @public
+   */
+  Slices?: number | undefined;
+
+  /**
+   * Ignore this setting unless you set Frame rate (framerateNumerator divided by framerateDenominator) to 29.970. If your input framerate is 23.976, choose Hard. Otherwise, keep the default value None. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-telecine-and-inverse-telecine.html.
+   * @public
+   */
+  Telecine?: XavcHdProfileTelecine | undefined;
+}
+
+/**
+ * Required when you set Codec to the value XAVC.
+ * @public
+ */
+export interface XavcSettings {
+  /**
+   * Keep the default value, Auto, for this setting to have MediaConvert automatically apply the best types of quantization for your video content. When you want to apply your quantization settings manually, you must set Adaptive quantization to a value other than Auto. Use this setting to specify the strength of any adaptive quantization filters that you enable. If you don't want MediaConvert to do any adaptive quantization in this transcode, set Adaptive quantization to Off. Related settings: The value that you choose here applies to the following settings: Flicker adaptive quantization (flickerAdaptiveQuantization), Spatial adaptive quantization, and Temporal adaptive quantization.
+   * @public
+   */
+  AdaptiveQuantization?: XavcAdaptiveQuantization | undefined;
+
+  /**
+   * Optional. Choose a specific entropy encoding mode only when you want to override XAVC recommendations. If you choose the value auto, MediaConvert uses the mode that the XAVC file format specifies given this output's operating point.
+   * @public
+   */
+  EntropyEncoding?: XavcEntropyEncoding | undefined;
+
+  /**
+   * If you are using the console, use the Frame rate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list. The framerates shown in the dropdown list are decimal approximations of fractions.
+   * @public
+   */
+  FramerateControl?: XavcFramerateControl | undefined;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing your video's frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96. To create an output with the same number of frames as your input: Choose Maintain frame count. When you do, MediaConvert will not drop, interpolate, add, or otherwise change the frame count from your input to your output. Note that since the frame count is maintained, the duration of your output will become shorter at higher frame rates and longer at lower frame rates.
+   * @public
+   */
+  FramerateConversionAlgorithm?: XavcFramerateConversionAlgorithm | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Frame rate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Optionally choose one or more per frame metric reports to generate along with your output. You can use these metrics to analyze your video output according to one or more commonly used image quality metrics. You can specify per frame metrics for output groups or for individual outputs. When you do, MediaConvert writes a CSV (Comma-Separated Values) file to your S3 output destination, named after the output name and metric type. For example: videofile_PSNR.csv Jobs that generate per frame metrics will take longer to complete, depending on the resolution and complexity of your output. For example, some 4K jobs might take up to twice as long to complete. Note that when analyzing the video quality of your output, or when comparing the video quality of multiple different outputs, we generally also recommend a detailed visual review in a controlled environment. You can choose from the following per frame metrics: * PSNR: Peak Signal-to-Noise Ratio * SSIM: Structural Similarity Index Measure * MS_SSIM: Multi-Scale Similarity Index Measure * PSNR_HVS: Peak Signal-to-Noise Ratio, Human Visual System * VMAF: Video Multi-Method Assessment Fusion * QVBR: Quality-Defined Variable Bitrate. This option is only available when your output uses the QVBR rate control mode. * SHOT_CHANGE: Shot Changes
+   * @public
+   */
+  PerFrameMetrics?: FrameMetricType[] | undefined;
+
+  /**
+   * Specify the XAVC profile for this output. For more information, see the Sony documentation at https://www.xavc-info.org/. Note that MediaConvert doesn't support the interlaced video XAVC operating points for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the profile XAVC_HD.
+   * @public
+   */
+  Profile?: XavcProfile | undefined;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Frame rate to 25.
+   * @public
+   */
+  SlowPal?: XavcSlowPal | undefined;
+
+  /**
+   * Ignore this setting unless your downstream workflow requires that you specify it explicitly. Otherwise, we recommend that you adjust the softness of your output by using a lower value for the setting Sharpness or by enabling a noise reducer filter. The Softness setting specifies the quantization matrices that the encoder uses. Keep the default value, 0, for flat quantization. Choose the value 1 or 16 to use the default JVT softening quantization matricies from the H.264 specification. Choose a value from 17 to 128 to use planar interpolation. Increasing values from 17 to 128 result in increasing reduction of high-frequency data. The value 128 results in the softest video.
+   * @public
+   */
+  Softness?: number | undefined;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto, for the setting Adaptive quantization. When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. For this setting, keep the default value, Enabled, to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
+   * @public
+   */
+  SpatialAdaptiveQuantization?: XavcSpatialAdaptiveQuantization | undefined;
+
+  /**
+   * The best way to set up adaptive quantization is to keep the default value, Auto, for the setting Adaptive quantization. When you do so, MediaConvert automatically applies the best types of quantization for your video content. Include this setting in your JSON job specification only when you choose to change the default value for Adaptive quantization. For this setting, keep the default value, Enabled, to adjust quantization within each frame based on temporal variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas of the frame that aren't moving and uses more bits on complex objects with sharp edges that move a lot. For example, this feature improves the readability of text tickers on newscasts and scoreboards on sports matches. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen that doesn't have moving objects with sharp edges, such as sports athletes' faces, you might choose to disable this feature. Related setting: When you enable temporal adaptive quantization, adjust the strength of the filter with the setting Adaptive quantization.
+   * @public
+   */
+  TemporalAdaptiveQuantization?: XavcTemporalAdaptiveQuantization | undefined;
+
+  /**
+   * Required when you set Profile to the value XAVC_4K_INTRA_CBG.
+   * @public
+   */
+  Xavc4kIntraCbgProfileSettings?: Xavc4kIntraCbgProfileSettings | undefined;
+
+  /**
+   * Required when you set Profile to the value XAVC_4K_INTRA_VBR.
+   * @public
+   */
+  Xavc4kIntraVbrProfileSettings?: Xavc4kIntraVbrProfileSettings | undefined;
+
+  /**
+   * Required when you set Profile to the value XAVC_4K.
+   * @public
+   */
+  Xavc4kProfileSettings?: Xavc4kProfileSettings | undefined;
+
+  /**
+   * Required when you set Profile to the value XAVC_HD_INTRA_CBG.
+   * @public
+   */
+  XavcHdIntraCbgProfileSettings?: XavcHdIntraCbgProfileSettings | undefined;
+
+  /**
+   * Required when you set Profile to the value XAVC_HD.
+   * @public
+   */
+  XavcHdProfileSettings?: XavcHdProfileSettings | undefined;
+}
+
+/**
+ * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * GIF, GifSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * UNCOMPRESSED, UncompressedSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
+ * @public
+ */
+export interface VideoCodecSettings {
+  /**
+   * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
+   * @public
+   */
+  Av1Settings?: Av1Settings | undefined;
+
+  /**
+   * Required when you choose AVC-Intra for your output video codec. For more information about the AVC-Intra settings, see the relevant specification. For detailed information about SD and HD in AVC-Intra, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-Intra, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
+   * @public
+   */
+  AvcIntraSettings?: AvcIntraSettings | undefined;
+
+  /**
+   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. To passthrough the video stream of your input without any video encoding: Choose Passthrough. More information about passthrough codec support and job settings requirements, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/video-passthrough-feature-restrictions.html
+   * @public
+   */
+  Codec?: VideoCodec | undefined;
+
+  /**
+   * Required when you set Codec to the value FRAME_CAPTURE.
+   * @public
+   */
+  FrameCaptureSettings?: FrameCaptureSettings | undefined;
+
+  /**
+   * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value GIF
+   * @public
+   */
+  GifSettings?: GifSettings | undefined;
+
+  /**
+   * Required when you set Codec to the value H_264.
+   * @public
+   */
+  H264Settings?: H264Settings | undefined;
+
+  /**
+   * Settings for H265 codec
+   * @public
+   */
+  H265Settings?: H265Settings | undefined;
+
+  /**
+   * Required when you set Codec to the value MPEG2.
+   * @public
+   */
+  Mpeg2Settings?: Mpeg2Settings | undefined;
+
+  /**
+   * Optional settings when you set Codec to the value Passthrough.
+   * @public
+   */
+  PassthroughSettings?: PassthroughSettings | undefined;
+
+  /**
+   * Required when you set Codec to the value PRORES.
+   * @public
+   */
+  ProresSettings?: ProresSettings | undefined;
+
+  /**
+   * Required when you set Codec, under VideoDescription>CodecSettings to the value UNCOMPRESSED.
+   * @public
+   */
+  UncompressedSettings?: UncompressedSettings | undefined;
+
+  /**
+   * Required when you set Codec to the value VC3
+   * @public
+   */
+  Vc3Settings?: Vc3Settings | undefined;
+
+  /**
+   * Required when you set Codec to the value VP8.
+   * @public
+   */
+  Vp8Settings?: Vp8Settings | undefined;
+
+  /**
+   * Required when you set Codec to the value VP9.
+   * @public
+   */
+  Vp9Settings?: Vp9Settings | undefined;
+
+  /**
+   * Required when you set Codec to the value XAVC.
+   * @public
+   */
+  XavcSettings?: XavcSettings | undefined;
+}
+
+/**
+ * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
+ * @public
+ */
+export interface ClipLimits {
+  /**
+   * Specify the Maximum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the upper tolerance that you specify. Enter an integer from 90 to 105 as an offset percentage to the maximum possible value. Leave blank to use the default value 100. When you specify a value for Maximum RGB tolerance, you must set Sample range conversion to Limited range clip.
+   * @public
+   */
+  MaximumRGBTolerance?: number | undefined;
+
+  /**
+   * Specify the Maximum YUV color sample limit. MediaConvert conforms any pixels in your input above the value that you specify to typical limited range bounds. Enter an integer from 920 to 1023. Leave blank to use the default value 940. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Maximum YUV, you must set Sample range conversion to Limited range clip.
+   * @public
+   */
+  MaximumYUV?: number | undefined;
+
+  /**
+   * Specify the Minimum RGB color sample range tolerance for your output. MediaConvert corrects any YUV values that, when converted to RGB, would be outside the lower tolerance that you specify. Enter an integer from -5 to 10 as an offset percentage to the minimum possible value. Leave blank to use the default value 0. When you specify a value for Minimum RGB tolerance, you must set Sample range conversion to Limited range clip.
+   * @public
+   */
+  MinimumRGBTolerance?: number | undefined;
+
+  /**
+   * Specify the Minimum YUV color sample limit. MediaConvert conforms any pixels in your input below the value that you specify to typical limited range bounds. Enter an integer from 0 to 128. Leave blank to use the default value 64. The value that you enter applies to 10-bit ranges. For 8-bit ranges, MediaConvert automatically scales this value down. When you specify a value for Minumum YUV, you must set Sample range conversion to Limited range clip.
+   * @public
+   */
+  MinimumYUV?: number | undefined;
+}
+
+/**
+ * Settings for color correction.
+ * @public
+ */
+export interface ColorCorrector {
+  /**
+   * Brightness level.
+   * @public
+   */
+  Brightness?: number | undefined;
+
+  /**
+   * Specify YUV limits and RGB tolerances when you set Sample range conversion to Limited range clip.
+   * @public
+   */
+  ClipLimits?: ClipLimits | undefined;
+
+  /**
+   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses tone mapping to approximate the outcome of manually regrading from HDR to SDR. When you specify an output color space, MediaConvert uses the following color space metadata, which includes color primaries, transfer characteristics, and matrix coefficients:
+   *   * HDR 10: BT.2020, PQ, BT.2020 non-constant
+   *   * HLG 2020: BT.2020, HLG, BT.2020 non-constant
+   *   * P3DCI (Theater): DCIP3, SMPTE 428M, BT.709
+   *   * P3D65 (SDR): Display P3, sRGB, BT.709
+   *   * P3D65 (HDR): Display P3, PQ, BT.709
+   * @public
+   */
+  ColorSpaceConversion?: ColorSpaceConversion | undefined;
+
+  /**
+   * Contrast level.
+   * @public
+   */
+  Contrast?: number | undefined;
+
+  /**
+   * Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion to HDR 10, these settings are required. You must set values for Max frame average light level and Max content light level; these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
+   * @public
+   */
+  Hdr10Metadata?: Hdr10Metadata | undefined;
+
+  /**
+   * Specify how MediaConvert maps brightness and colors from your HDR input to your SDR output. The mode that you select represents a creative choice, with different tradeoffs in the details and tones of your output. To maintain details in bright or saturated areas of your output: Choose Preserve details. For some sources, your SDR output may look less bright and less saturated when compared to your HDR source. MediaConvert automatically applies this mode for HLG sources, regardless of your choice. For a bright and saturated output: Choose Vibrant. We recommend that you choose this mode when any of your source content is HDR10, and for the best results when it is mastered for 1000 nits. You may notice loss of details in bright or saturated areas of your output. HDR to SDR tone mapping has no effect when your input is SDR.
+   * @public
+   */
+  HdrToSdrToneMapper?: HDRToSDRToneMapper | undefined;
+
+  /**
+   * Hue in degrees.
+   * @public
+   */
+  Hue?: number | undefined;
+
+  /**
+   * Specify the maximum mastering display luminance. Enter an integer from 0 to 2147483647, in units of 0.0001 nits. For example, enter 10000000 for 1000 nits.
+   * @public
+   */
+  MaxLuminance?: number | undefined;
+
+  /**
+   * Specify how MediaConvert limits the color sample range for this output. To create a limited range output from a full range input: Choose Limited range squeeze. For full range inputs, MediaConvert performs a linear offset to color samples equally across all pixels and frames. Color samples in 10-bit outputs are limited to 64 through 940, and 8-bit outputs are limited to 16 through 235. Note: For limited range inputs, values for color samples are passed through to your output unchanged. MediaConvert does not limit the sample range. To correct pixels in your input that are out of range or out of gamut: Choose Limited range clip. Use for broadcast applications. MediaConvert conforms any pixels outside of the values that you specify under Minimum YUV and Maximum YUV to limited range bounds. MediaConvert also corrects any YUV values that, when converted to RGB, would be outside the bounds you specify under Minimum RGB tolerance and Maximum RGB tolerance. With either limited range conversion, MediaConvert writes the sample range metadata in the output.
+   * @public
+   */
+  SampleRangeConversion?: SampleRangeConversion | undefined;
+
+  /**
+   * Saturation level.
+   * @public
+   */
+  Saturation?: number | undefined;
+
+  /**
+   * Specify the reference white level, in nits, for all of your SDR inputs. Use to correct brightness levels within HDR10 outputs. The following color metadata must be present in your SDR input: color primaries, transfer characteristics, and matrix coefficients. If your SDR input has missing color metadata, or if you want to correct input color metadata, manually specify a color space in the input video selector. For 1,000 nit peak brightness displays, we recommend that you set SDR reference white level to 203 (according to ITU-R BT.2408). Leave blank to use the default value of 100, or specify an integer from 100 to 1000.
+   * @public
+   */
+  SdrReferenceWhiteLevel?: number | undefined;
+}
+
+/**
+ * Settings for deinterlacer
+ * @public
+ */
+export interface Deinterlacer {
+  /**
+   * Only applies when you set Deinterlace mode to Deinterlace or Adaptive. Interpolate produces sharper pictures, while blend produces smoother motion. If your source file includes a ticker, such as a scrolling headline at the bottom of the frame: Choose Interpolate ticker or Blend ticker. To apply field doubling: Choose Linear interpolation. Note that Linear interpolation may introduce video artifacts into your output.
+   * @public
+   */
+  Algorithm?: DeinterlaceAlgorithm | undefined;
+
+  /**
+   * - When set to NORMAL (default), the deinterlacer does not convert frames that are tagged in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is a good chance that the metadata has tagged frames as progressive when they are not progressive. Do not turn on otherwise; processing frames that are already progressive into progressive will probably result in lower quality video.
+   * @public
+   */
+  Control?: DeinterlacerControl | undefined;
+
+  /**
+   * Use Deinterlacer to choose how the service will do deinterlacing. Default is Deinterlace.
+   * - Deinterlace converts interlaced to progressive.
+   * - Inverse telecine converts Hard Telecine 29.97i to progressive 23.976p.
+   * - Adaptive auto-detects and converts to progressive.
+   * @public
+   */
+  Mode?: DeinterlacerMode | undefined;
+}
+
+/**
+ * Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
+ * @public
+ */
+export interface DolbyVisionLevel6Metadata {
+  /**
+   * Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
+   * @public
+   */
+  MaxCll?: number | undefined;
+
+  /**
+   * Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
+   * @public
+   */
+  MaxFall?: number | undefined;
+}
+
+/**
+ * Create Dolby Vision Profile 5 or Profile 8.1 compatible video output.
+ * @public
+ */
+export interface DolbyVision {
+  /**
+   * Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
+   * @public
+   */
+  L6Metadata?: DolbyVisionLevel6Metadata | undefined;
+
+  /**
+   * Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
+   * @public
+   */
+  L6Mode?: DolbyVisionLevel6Mode | undefined;
+
+  /**
+   * Required when you set Dolby Vision Profile to Profile 8.1. When you set Content mapping to None, content mapping is not applied to the HDR10-compatible signal. Depending on the source peak nit level, clipping might occur on HDR devices without Dolby Vision. When you set Content mapping to HDR10 1000, the transcoder creates a 1,000 nits peak HDR10-compatible signal by applying static content mapping to the source. This mode is speed-optimized for PQ10 sources with metadata that is created from analysis. For graded Dolby Vision content, be aware that creative intent might not be guaranteed with extreme 1,000 nits trims.
+   * @public
+   */
+  Mapping?: DolbyVisionMapping | undefined;
+
+  /**
+   * Required when you enable Dolby Vision. Use Profile 5 to include frame-interleaved Dolby Vision metadata in your output. Your input must include Dolby Vision metadata or an HDR10 YUV color space. Use Profile 8.1 to include frame-interleaved Dolby Vision metadata and HDR10 metadata in your output. Your input must include Dolby Vision metadata.
+   * @public
+   */
+  Profile?: DolbyVisionProfile | undefined;
+}
+
+/**
+ * Setting for HDR10+ metadata insertion
+ * @public
+ */
+export interface Hdr10Plus {
+  /**
+   * Specify the HDR10+ mastering display normalized peak luminance, in nits. This is the normalized actual peak luminance of the mastering display, as defined by ST 2094-40.
+   * @public
+   */
+  MasteringMonitorNits?: number | undefined;
+
+  /**
+   * Specify the HDR10+ target display nominal peak luminance, in nits. This is the nominal maximum luminance of the target display as defined by ST 2094-40.
+   * @public
+   */
+  TargetMonitorNits?: number | undefined;
+}
+
+/**
+ * Settings for a noise reducer filter
+ * @public
+ */
+export interface NoiseReducerFilterSettings {
+  /**
+   * Relative strength of noise reducing filter. Higher values produce stronger filtering.
+   * @public
+   */
+  Strength?: number | undefined;
+}
+
+/**
+ * Noise reducer filter settings for spatial filter.
+ * @public
+ */
+export interface NoiseReducerSpatialFilterSettings {
+  /**
+   * Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
+   * @public
+   */
+  PostFilterSharpenStrength?: number | undefined;
+
+  /**
+   * The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value.
+   * @public
+   */
+  Speed?: number | undefined;
+
+  /**
+   * Relative strength of noise reducing filter. Higher values produce stronger filtering.
+   * @public
+   */
+  Strength?: number | undefined;
+}
+
+/**
+ * Noise reducer filter settings for temporal filter.
+ * @public
+ */
+export interface NoiseReducerTemporalFilterSettings {
+  /**
+   * Use Aggressive mode for content that has complex motion. Higher values produce stronger temporal filtering. This filters highly complex scenes more aggressively and creates better VQ for low bitrate outputs.
+   * @public
+   */
+  AggressiveMode?: number | undefined;
+
+  /**
+   * When you set Noise reducer to Temporal, the bandwidth and sharpness of your output is reduced. You can optionally use Post temporal sharpening to apply sharpening to the edges of your output. Note that Post temporal sharpening will also make the bandwidth reduction from the Noise reducer smaller. The default behavior, Auto, allows the transcoder to determine whether to apply sharpening, depending on your input type and quality. When you set Post temporal sharpening to Enabled, specify how much sharpening is applied using Post temporal sharpening strength. Set Post temporal sharpening to Disabled to not apply sharpening.
+   * @public
+   */
+  PostTemporalSharpening?: NoiseFilterPostTemporalSharpening | undefined;
+
+  /**
+   * Use Post temporal sharpening strength to define the amount of sharpening the transcoder applies to your output. Set Post temporal sharpening strength to Low, Medium, or High to indicate the amount of sharpening.
+   * @public
+   */
+  PostTemporalSharpeningStrength?: NoiseFilterPostTemporalSharpeningStrength | undefined;
+
+  /**
+   * The speed of the filter (higher number is faster). Low setting reduces bit rate at the cost of transcode time, high setting improves transcode time at the cost of bit rate.
+   * @public
+   */
+  Speed?: number | undefined;
+
+  /**
+   * Specify the strength of the noise reducing filter on this output. Higher values produce stronger filtering. We recommend the following value ranges, depending on the result that you want: * 0-2 for complexity reduction with minimal sharpness loss * 2-8 for complexity reduction with image preservation * 8-16 for a high level of complexity reduction
+   * @public
+   */
+  Strength?: number | undefined;
+}
+
+/**
+ * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
+ * @public
+ */
+export interface NoiseReducer {
+  /**
+   * Use Noise reducer filter to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer. * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
+   * @public
+   */
+  Filter?: NoiseReducerFilter | undefined;
+
+  /**
+   * Settings for a noise reducer filter
+   * @public
+   */
+  FilterSettings?: NoiseReducerFilterSettings | undefined;
+
+  /**
+   * Noise reducer filter settings for spatial filter.
+   * @public
+   */
+  SpatialFilterSettings?: NoiseReducerSpatialFilterSettings | undefined;
+
+  /**
+   * Noise reducer filter settings for temporal filter.
+   * @public
+   */
+  TemporalFilterSettings?: NoiseReducerTemporalFilterSettings | undefined;
+}
+
+/**
+ * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
+ * @public
+ */
+export interface NexGuardFileMarkerSettings {
+  /**
+   * Use the base64 license string that Nagra provides you. Enter it directly in your JSON job specification or in the console. Required when you include Nagra NexGuard File Marker watermarking in your job.
+   * @public
+   */
+  License?: string | undefined;
+
+  /**
+   * Specify the payload ID that you want associated with this output. Valid values vary depending on your Nagra NexGuard forensic watermarking workflow. Required when you include Nagra NexGuard File Marker watermarking in your job. For PreRelease Content (NGPR/G2), specify an integer from 1 through 4,194,303. You must generate a unique ID for each asset you watermark, and keep a record of which ID you have assigned to each asset. Neither Nagra nor MediaConvert keep track of the relationship between output files and your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks for each asset. Do this by setting up two output groups. For one output group, set the value of Payload ID to 0 in every output. For the other output group, set Payload ID to 1 in every output.
+   * @public
+   */
+  Payload?: number | undefined;
+
+  /**
+   * Enter one of the watermarking preset strings that Nagra provides you. Required when you include Nagra NexGuard File Marker watermarking in your job.
+   * @public
+   */
+  Preset?: string | undefined;
+
+  /**
+   * Optional. Ignore this setting unless Nagra support directs you to specify a value. When you don't specify a value here, the Nagra NexGuard library uses its default value.
+   * @public
+   */
+  Strength?: WatermarkingStrength | undefined;
+}
+
+/**
+ * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
+ * @public
+ */
+export interface PartnerWatermarking {
+  /**
+   * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
+   * @public
+   */
+  NexguardFileMarkerSettings?: NexGuardFileMarkerSettings | undefined;
+}
+
+/**
+ * Settings for burning the output timecode and specified prefix into the output.
+ * @public
+ */
+export interface TimecodeBurnin {
+  /**
+   * Use Font size to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
+   * @public
+   */
+  FontSize?: number | undefined;
+
+  /**
+   * Use Position under Timecode burn-in to specify the location the burned-in timecode on output video.
+   * @public
+   */
+  Position?: TimecodeBurninPosition | undefined;
+
+  /**
+   * Use Prefix to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+   * @public
+   */
+  Prefix?: string | undefined;
+}
+
+/**
+ * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
+ * @public
+ */
+export interface VideoPreprocessor {
+  /**
+   * Use these settings to convert the color space or to modify properties such as hue and contrast for this output. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/converting-the-color-space.html.
+   * @public
+   */
+  ColorCorrector?: ColorCorrector | undefined;
+
+  /**
+   * Use the deinterlacer to produce smoother motion and a clearer picture. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-scan-type.html.
+   * @public
+   */
+  Deinterlacer?: Deinterlacer | undefined;
+
+  /**
+   * Enable Dolby Vision feature to produce Dolby Vision compatible video output.
+   * @public
+   */
+  DolbyVision?: DolbyVision | undefined;
+
+  /**
+   * Enable HDR10+ analysis and metadata injection. Compatible with HEVC only.
+   * @public
+   */
+  Hdr10Plus?: Hdr10Plus | undefined;
+
+  /**
+   * Enable the Image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
+   * @public
+   */
+  ImageInserter?: ImageInserter | undefined;
+
+  /**
+   * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
+   * @public
+   */
+  NoiseReducer?: NoiseReducer | undefined;
+
+  /**
+   * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
+   * @public
+   */
+  PartnerWatermarking?: PartnerWatermarking | undefined;
+
+  /**
+   * Settings for burning the output timecode and specified prefix into the output.
+   * @public
+   */
+  TimecodeBurnin?: TimecodeBurnin | undefined;
+}
+
+/**
+ * Settings related to video encoding of your output. The specific video settings depend on the video codec that you choose.
+ * @public
+ */
+export interface VideoDescription {
+  /**
+   * This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
+   * @public
+   */
+  AfdSignaling?: AfdSignaling | undefined;
+
+  /**
+   * The anti-alias filter is automatically applied to all outputs. The service no longer accepts the value DISABLED for AntiAlias. If you specify that in your job, the service will ignore the setting.
+   * @public
+   */
+  AntiAlias?: AntiAlias | undefined;
+
+  /**
+   * Specify the chroma sample positioning metadata for your H.264 or H.265 output. To have MediaConvert automatically determine chroma positioning: We recommend that you keep the default value, Auto. To specify center positioning: Choose Force center. To specify top left positioning: Choose Force top left.
+   * @public
+   */
+  ChromaPositionMode?: ChromaPositionMode | undefined;
+
+  /**
+   * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * GIF, GifSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * UNCOMPRESSED, UncompressedSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
+   * @public
+   */
+  CodecSettings?: VideoCodecSettings | undefined;
+
+  /**
+   * Choose Insert for this setting to include color metadata in this output. Choose Ignore to exclude color metadata from this output. If you don't specify a value, the service sets this to Insert by default.
+   * @public
+   */
+  ColorMetadata?: ColorMetadata | undefined;
+
+  /**
+   * Use Cropping selection to specify the video area that the service will include in the output video frame.
+   * @public
+   */
+  Crop?: Rectangle | undefined;
+
+  /**
+   * Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion or Timecode track is enabled.
+   * @public
+   */
+  DropFrameTimecode?: DropFrameTimecode | undefined;
+
+  /**
+   * Applies only if you set AFD Signaling to Fixed. Use Fixed to specify a four-bit AFD value which the service will write on all frames of this video output.
+   * @public
+   */
+  FixedAfd?: number | undefined;
+
+  /**
+   * Use Height to define the video resolution height, in pixels, for this output. To use the same resolution as your input: Leave both Width and Height blank. To evenly scale from your input resolution: Leave Height blank and enter a value for Width. For example, if your input is 1920x1080 and you set Width to 1280, your output will be 1280x720.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * Use Selection placement to define the video area in your output frame. The area outside of the rectangle that you specify here is black.
+   * @public
+   */
+  Position?: Rectangle | undefined;
+
+  /**
+   * Use Respond to AFD to specify how the service changes the video itself in response to AFD values in the input. * Choose Respond to clip the input video frame according to the AFD value, input display aspect ratio, and output display aspect ratio. * Choose Passthrough to include the input AFD values. Do not choose this when AfdSignaling is set to NONE. A preferred implementation of this workflow is to set RespondToAfd to and set AfdSignaling to AUTO. * Choose None to remove all input AFD values from this output.
+   * @public
+   */
+  RespondToAfd?: RespondToAfd | undefined;
+
+  /**
+   * Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html
+   * @public
+   */
+  ScalingBehavior?: ScalingBehavior | undefined;
+
+  /**
+   * Use Sharpness setting to specify the strength of anti-aliasing. This setting changes the width of the anti-alias filter kernel used for scaling. Sharpness only applies if your output resolution is different from your input resolution. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content.
+   * @public
+   */
+  Sharpness?: number | undefined;
+
+  /**
+   * Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode insertion when the input frame rate is identical to the output frame rate. To include timecodes in this output, set Timecode insertion to PIC_TIMING_SEI. To leave them out, set it to DISABLED. Default is DISABLED. When the service inserts timecodes in an output, by default, it uses any embedded timecodes from the input. If none are present, the service will set the timecode for the first output frame to zero. To change this default behavior, adjust the settings under Timecode configuration. In the console, these settings are located under Job > Job settings > Timecode configuration. Note - Timecode source under input settings does not affect the timecodes that are inserted in the output. Source under Job settings > Timecode configuration does.
+   * @public
+   */
+  TimecodeInsertion?: VideoTimecodeInsertion | undefined;
+
+  /**
+   * To include a timecode track in your MP4 output: Choose Enabled. MediaConvert writes the timecode track in the Null Media Header box (NMHD), without any timecode text formatting information. You can also specify dropframe or non-dropframe timecode under the Drop Frame Timecode setting. To not include a timecode track: Keep the default value, Disabled.
+   * @public
+   */
+  TimecodeTrack?: TimecodeTrack | undefined;
+
+  /**
+   * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
+   * @public
+   */
+  VideoPreprocessors?: VideoPreprocessor | undefined;
+
+  /**
+   * Use Width to define the video resolution width, in pixels, for this output. To use the same resolution as your input: Leave both Width and Height blank. To evenly scale from your input resolution: Leave Width blank and enter a value for Height. For example, if your input is 1920x1080 and you set Height to 720, your output will be 1280x720.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Each output in your job is a collection of settings that describes how you want MediaConvert to encode a single output file or stream. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/create-outputs.html.
+ * @public
+ */
+export interface Output {
+  /**
+   * Contains groups of audio encoding settings organized by audio codec. Include one instance of per output. Can contain multiple groups of encoding settings.
+   * @public
+   */
+  AudioDescriptions?: AudioDescription[] | undefined;
+
+  /**
+   * Contains groups of captions settings. For each output that has captions, include one instance of CaptionDescriptions. Can contain multiple groups of captions settings.
+   * @public
+   */
+  CaptionDescriptions?: CaptionDescription[] | undefined;
+
+  /**
+   * Container specific settings.
+   * @public
+   */
+  ContainerSettings?: ContainerSettings | undefined;
+
+  /**
+   * Use Extension to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * Animated GIF container, gif * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
+   * @public
+   */
+  Extension?: string | undefined;
+
+  /**
+   * Use Name modifier to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group.
+   * @public
+   */
+  NameModifier?: string | undefined;
+
+  /**
+   * Specific settings for this type of output.
+   * @public
+   */
+  OutputSettings?: OutputSettings | undefined;
+
+  /**
+   * Use Preset to specify a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset or Container settings, but not both.
+   * @public
+   */
+  Preset?: string | undefined;
+
+  /**
+   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of VideoDescription per output.
+   * @public
+   */
+  VideoDescription?: VideoDescription | undefined;
+}
+
+/**
+ * Group of outputs
+ * @public
+ */
+export interface OutputGroup {
+  /**
+   * Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
+   * @public
+   */
+  AutomatedEncodingSettings?: AutomatedEncodingSettings | undefined;
+
+  /**
+   * Use Custom Group Name to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
+   * @public
+   */
+  CustomName?: string | undefined;
+
+  /**
+   * Name of the output group
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Output Group settings, including type
+   * @public
+   */
+  OutputGroupSettings?: OutputGroupSettings | undefined;
+
+  /**
+   * This object holds groups of encoding settings, one group of settings per output.
+   * @public
+   */
+  Outputs?: Output[] | undefined;
+}
+
+/**
+ * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
+ * @public
+ */
+export interface TimecodeConfig {
+  /**
+   * If you use an editing platform that relies on an anchor timecode, use Anchor Timecode to specify a timecode that will match the input video frame to the output video frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate conversion. System behavior for Anchor Timecode varies depending on your setting for Source. * If Source is set to Specified Start, the first input frame is the specified value in Start Timecode. Anchor Timecode and Start Timecode are used calculate output timecode. * If Source is set to Start at 0 the first frame is 00:00:00:00. * If Source is set to Embedded, the first frame is the timecode value on the first input frame of the input.
+   * @public
+   */
+  Anchor?: string | undefined;
+
+  /**
+   * Use Source to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 instead. * Start at 0 - Set the timecode of the initial frame to 00:00:00:00. * Specified Start - Set the timecode of the initial frame to a value other than zero. You use Start timecode to provide this value.
+   * @public
+   */
+  Source?: TimecodeSource | undefined;
+
+  /**
+   * Only use when you set Source to Specified start. Use Start timecode to specify the timecode for the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).
+   * @public
+   */
+  Start?: string | undefined;
+
+  /**
+   * Only applies to outputs that support program-date-time stamp. Use Timestamp offset to overwrite the timecode date without affecting the time and frame number. Provide the new date as a string in the format "yyyy-mm-dd". To use Timestamp offset, you must also enable Insert program-date-time in the output settings. For example, if the date part of your timecodes is 2002-1-25 and you want to change it to one year later, set Timestamp offset to 2003-1-25.
+   * @public
+   */
+  TimestampOffset?: string | undefined;
+}
+
+/**
+ * Insert user-defined custom ID3 metadata at timecodes that you specify. In each output that you want to include this metadata, you must set ID3 metadata to Passthrough.
+ * @public
+ */
+export interface TimedMetadataInsertion {
+  /**
+   * Id3Insertions contains the array of Id3Insertion instances.
+   * @public
+   */
+  Id3Insertions?: Id3Insertion[] | undefined;
+}
+
+/**
+ * JobSettings contains all the transcode settings for a job.
+ * @public
+ */
+export interface JobSettings {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * @public
+   */
+  AvailBlanking?: AvailBlanking | undefined;
+
+  /**
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/3d-luts.html
+   * @public
+   */
+  ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[] | undefined;
+
+  /**
+   * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
+   * @public
+   */
+  Esam?: EsamSettings | undefined;
+
+  /**
+   * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
+   * @public
+   */
+  ExtendedDataServices?: ExtendedDataServices | undefined;
+
+  /**
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * @public
+   */
+  FollowSource?: number | undefined;
+
+  /**
+   * Use Inputs to define source file used in the transcode job. There can be multiple inputs add in a job. These inputs will be concantenated together to create the output.
+   * @public
+   */
+  Inputs?: Input[] | undefined;
+
+  /**
+   * Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
+   * @public
+   */
+  KantarWatermark?: KantarWatermarkSettings | undefined;
+
+  /**
+   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
+   * @public
+   */
+  MotionImageInserter?: MotionImageInserter | undefined;
+
+  /**
+   * Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration, MediaConvert enables PCM to ID3 tagging for all outputs in the job.
+   * @public
+   */
+  NielsenConfiguration?: NielsenConfiguration | undefined;
+
+  /**
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 6.0.13 Nielsen NLM Watermark Engine Version 1.3.3 Nielsen Watermark Authenticator [SID_TIC] Version [7.0.0]
+   * @public
+   */
+  NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings | undefined;
+
+  /**
+   * Contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in is a group of settings that apply to the whole group. This required object depends on the value you set for Type. Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+   * @public
+   */
+  OutputGroups?: OutputGroup[] | undefined;
+
+  /**
+   * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
+   * @public
+   */
+  TimecodeConfig?: TimecodeConfig | undefined;
+
+  /**
+   * Insert user-defined custom ID3 metadata at timecodes that you specify. In each output that you want to include this metadata, you must set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataInsertion?: TimedMetadataInsertion | undefined;
+}
+
+/**
+ * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
+ * @public
+ */
+export interface Timing {
+  /**
+   * The time, in Unix epoch format, that the transcoding job finished
+   * @public
+   */
+  FinishTime?: Date | undefined;
+
+  /**
+   * The time, in Unix epoch format, that transcoding for the job began.
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * The time, in Unix epoch format, that you submitted the job.
+   * @public
+   */
+  SubmitTime?: Date | undefined;
+}
+
+/**
+ * Contains any warning codes and their count for the job.
+ * @public
+ */
+export interface WarningGroup {
+  /**
+   * Warning code that identifies a specific warning in the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   * @public
+   */
+  Code: number | undefined;
+
+  /**
+   * The number of times this warning occurred in the job.
+   * @public
+   */
+  Count: number | undefined;
+}
+
+/**
+ * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ * @public
+ */
+export interface Job {
+  /**
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
+   * @public
+   */
+  AccelerationSettings?: AccelerationSettings | undefined;
+
+  /**
+   * Describes whether the current job is running with accelerated transcoding. For jobs that have Acceleration (AccelerationMode) set to DISABLED, AccelerationStatus is always NOT_APPLICABLE. For jobs that have Acceleration (AccelerationMode) set to ENABLED or PREFERRED, AccelerationStatus is one of the other states. AccelerationStatus is IN_PROGRESS initially, while the service determines whether the input files and job settings are compatible with accelerated transcoding. If they are, AcclerationStatus is ACCELERATED. If your input files and job settings aren't compatible with accelerated transcoding, the service either fails your job or runs it without accelerated transcoding, depending on how you set Acceleration (AccelerationMode). When the service runs your job without accelerated transcoding, AccelerationStatus is NOT_ACCELERATED.
+   * @public
+   */
+  AccelerationStatus?: AccelerationStatus | undefined;
+
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
+   * @public
+   */
+  BillingTagsSource?: BillingTagsSource | undefined;
+
+  /**
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * The time, in Unix epoch format in seconds, when the job got created.
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * A job's phase can be PROBING, TRANSCODING OR UPLOADING
+   * @public
+   */
+  CurrentPhase?: JobPhase | undefined;
+
+  /**
+   * Error code for the job
+   * @public
+   */
+  ErrorCode?: number | undefined;
+
+  /**
+   * Error message of Job
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * Optional list of hop destinations.
+   * @public
+   */
+  HopDestinations?: HopDestination[] | undefined;
+
+  /**
+   * A portion of the job's ARN, unique within your AWS Elemental MediaConvert resources
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The Job engine version that you requested for your job. Valid versions are in a YYYY-MM-DD format.
+   * @public
+   */
+  JobEngineVersionRequested?: string | undefined;
+
+  /**
+   * The Job engine version that your job used. Job engine versions are in a YYYY-MM-DD format. When you request an expired version, the response for this property will be empty. Requests to create jobs with an expired version result in a regular job, as if no specific Job engine version was requested. When you request an invalid version, the response for this property will be empty. Requests to create jobs with an invalid version result in a 400 error message, and no job is created.
+   * @public
+   */
+  JobEngineVersionUsed?: string | undefined;
+
+  /**
+   * An estimate of how far your job has progressed. This estimate is shown as a percentage of the total time from when your job leaves its queue to when your output files appear in your output Amazon S3 bucket. AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE events and in the response to GetJob and ListJobs requests. The jobPercentComplete estimate is reliable for the following input containers: Quicktime, Transport Stream, MP4, and MXF. For some jobs, the service can't provide information about job progress. In those cases, jobPercentComplete returns a null value.
+   * @public
+   */
+  JobPercentComplete?: number | undefined;
+
+  /**
+   * The job template that the job is created from, if it is created from a job template.
+   * @public
+   */
+  JobTemplate?: string | undefined;
+
+  /**
+   * Contains information about the most recent share attempt for the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/creating-resource-share.html
+   * @public
+   */
+  LastShareDetails?: string | undefined;
+
+  /**
+   * Provides messages from the service about jobs that you have already successfully submitted.
+   * @public
+   */
+  Messages?: JobMessages | undefined;
+
+  /**
+   * List of output group details
+   * @public
+   */
+  OutputGroupDetails?: OutputGroupDetail[] | undefined;
+
+  /**
+   * Relative priority on the job.
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * The job's queue hopping history.
+   * @public
+   */
+  QueueTransitions?: QueueTransition[] | undefined;
+
+  /**
+   * The number of times that the service automatically attempted to process your job after encountering an error.
+   * @public
+   */
+  RetryCount?: number | undefined;
+
+  /**
+   * The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * JobSettings contains all the transcode settings for a job.
+   * @public
+   */
+  Settings: JobSettings | undefined;
+
+  /**
+   * A job's share status can be NOT_SHARED, INITIATED, or SHARED
+   * @public
+   */
+  ShareStatus?: ShareStatus | undefined;
+
+  /**
+   * Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
+   * @public
+   */
+  SimulateReservedQueue?: SimulateReservedQueue | undefined;
+
+  /**
+   * A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+   * @public
+   */
+  Status?: JobStatus | undefined;
+
+  /**
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   * @public
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
+
+  /**
+   * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
+   * @public
+   */
+  Timing?: Timing | undefined;
+
+  /**
+   * User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
+   * @public
+   */
+  UserMetadata?: Record<string, string> | undefined;
+
+  /**
+   * Contains any warning messages for the job. Use to help identify potential issues with your input, output, or job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   * @public
+   */
+  Warnings?: WarningGroup[] | undefined;
+}
+
+/**
+ * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions are in a YYYY-MM-DD format.
+ * @public
+ */
+export interface JobEngineVersion {
+  /**
+   * The date that this Job engine version expires. Requests to create jobs with an expired version result in a regular job, as if no specific Job engine version was requested.
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+
+  /**
+   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions represent periodically grouped MediaConvert releases with new features, updates, improvements, and fixes. Job engine versions are in a YYYY-MM-DD format. Note that the Job engine version feature is not publicly available at this time. To request access, contact AWS support.
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * Provide one or more JobsQueryFilter objects, each containing a Key with an associated Values array. Note that MediaConvert queries jobs using OR logic.
+ * @public
+ */
+export interface JobsQueryFilter {
+  /**
+   * Specify job details to filter for while performing a jobs query. You specify these filters as part of a key-value pair within the JobsQueryFilter array. The following list describes which keys are available and their possible values: * queue - Your Queue's name or ARN. * status - Your job's status. (SUBMITTED | PROGRESSING | COMPLETE | CANCELED | ERROR) * fileInput - Your input file URL, or partial input file name. * jobEngineVersionRequested - The Job engine version that you requested for your job. Valid versions are in a YYYY-MM-DD format. * jobEngineVersionUsed - The Job engine version that your job used. This may differ from the version that you requested. Valid versions are in a YYYY-MM-DD format. * audioCodec - Your output's audio codec. (AAC | MP2 | MP3 | WAV | AIFF | AC3| EAC3 | EAC3_ATMOS | VORBIS | OPUS | PASSTHROUGH | FLAC) * videoCodec - Your output's video codec. (AV1 | AVC_INTRA | FRAME_CAPTURE | H_264 | H_265 | MPEG2 | PASSTHROUGH | PRORES | UNCOMPRESSED | VC3 | VP8 | VP9 | XAVC)
+   * @public
+   */
+  Key?: JobsQueryFilterKey | undefined;
+
+  /**
+   * A list of values associated with a JobsQueryFilterKey.
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+ * @public
+ */
+export interface JobTemplateSettings {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
+   * @public
+   */
+  AvailBlanking?: AvailBlanking | undefined;
+
+  /**
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/3d-luts.html
+   * @public
+   */
+  ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[] | undefined;
+
+  /**
+   * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
+   * @public
+   */
+  Esam?: EsamSettings | undefined;
+
+  /**
+   * If your source content has EIA-608 Line 21 Data Services, enable this feature to specify what MediaConvert does with the Extended Data Services (XDS) packets. You can choose to pass through XDS packets, or remove them from the output. For more information about XDS, see EIA-608 Line Data Services, section 9.5.1.5 05h Content Advisory.
+   * @public
+   */
+  ExtendedDataServices?: ExtendedDataServices | undefined;
+
+  /**
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * @public
+   */
+  FollowSource?: number | undefined;
+
+  /**
+   * Use Inputs to define the source file used in the transcode job. There can only be one input in a job template. Using the API, you can include multiple inputs when referencing a job template.
+   * @public
+   */
+  Inputs?: InputTemplate[] | undefined;
+
+  /**
+   * Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
+   * @public
+   */
+  KantarWatermark?: KantarWatermarkSettings | undefined;
+
+  /**
+   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
+   * @public
+   */
+  MotionImageInserter?: MotionImageInserter | undefined;
+
+  /**
+   * Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration, MediaConvert enables PCM to ID3 tagging for all outputs in the job.
+   * @public
+   */
+  NielsenConfiguration?: NielsenConfiguration | undefined;
+
+  /**
+   * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to specifying these values, you also need to set up your cloud TIC server. These settings apply to every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 6.0.13 Nielsen NLM Watermark Engine Version 1.3.3 Nielsen Watermark Authenticator [SID_TIC] Version [7.0.0]
+   * @public
+   */
+  NielsenNonLinearWatermark?: NielsenNonLinearWatermarkSettings | undefined;
+
+  /**
+   * Contains one group of settings for each set of outputs that share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime, MXF, and no container) are grouped in a single output group as well. Required in is a group of settings that apply to the whole group. This required object depends on the value you set for Type. Type, settings object pairs are as follows. * FILE_GROUP_SETTINGS, FileGroupSettings * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS, CmafGroupSettings
+   * @public
+   */
+  OutputGroups?: OutputGroup[] | undefined;
+
+  /**
+   * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
+   * @public
+   */
+  TimecodeConfig?: TimecodeConfig | undefined;
+
+  /**
+   * Insert user-defined custom ID3 metadata at timecodes that you specify. In each output that you want to include this metadata, you must set ID3 metadata to Passthrough.
+   * @public
+   */
+  TimedMetadataInsertion?: TimedMetadataInsertion | undefined;
+}
+
+/**
+ * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+ * @public
+ */
+export interface JobTemplate {
+  /**
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
+   * @public
+   */
+  AccelerationSettings?: AccelerationSettings | undefined;
+
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An optional category you create to organize your job templates.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds for Job template creation.
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * An optional description you create for each job template.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Optional list of hop destinations.
+   * @public
+   */
+  HopDestinations?: HopDestination[] | undefined;
+
+  /**
+   * The timestamp in epoch seconds when the Job template was last updated.
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * A name you create for each job template. Each name must be unique within your account.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Relative priority on the job.
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+   * @public
+   */
+  Settings: JobTemplateSettings | undefined;
+
+  /**
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   * @public
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
+
+  /**
+   * A job template can be of two types: system or custom. System or built-in job templates can't be modified or deleted by the user.
+   * @public
+   */
+  Type?: Type | undefined;
+}
+
+/**
+ * Settings for preset
+ * @public
+ */
+export interface PresetSettings {
+  /**
+   * Contains groups of audio encoding settings organized by audio codec. Include one instance of per output. Can contain multiple groups of encoding settings.
+   * @public
+   */
+  AudioDescriptions?: AudioDescription[] | undefined;
+
+  /**
+   * This object holds groups of settings related to captions for one output. For each output that has captions, include one instance of CaptionDescriptions.
+   * @public
+   */
+  CaptionDescriptions?: CaptionDescriptionPreset[] | undefined;
+
+  /**
+   * Container specific settings.
+   * @public
+   */
+  ContainerSettings?: ContainerSettings | undefined;
+
+  /**
+   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of VideoDescription per output.
+   * @public
+   */
+  VideoDescription?: VideoDescription | undefined;
+}
+
+/**
+ * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+ * @public
+ */
+export interface Preset {
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * An optional category you create to organize your presets.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds for preset creation.
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * An optional description you create for each preset.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds when the preset was last updated.
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * A name you create for each preset. Each name must be unique within your account.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Settings for preset
+   * @public
+   */
+  Settings: PresetSettings | undefined;
+
+  /**
+   * A preset can be of two types: system or custom. System or built-in preset can't be modified or deleted by the user.
+   * @public
+   */
+  Type?: Type | undefined;
+}
+
+/**
+ * The input file that needs to be analyzed.
+ * @public
+ */
+export interface ProbeInputFile {
+  /**
+   * Specify the S3, HTTP, or HTTPS URL for your media file.
+   * @public
+   */
+  FileUrl?: string | undefined;
+}
+
+/**
+ * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
+ * @public
+ */
+export interface FrameRate {
+  /**
+   * The denominator, or bottom number, in the fractional frame rate. For example, if your frame rate is 24000 / 1001 (23.976 frames per second), then the denominator would be 1001.
+   * @public
+   */
+  Denominator?: number | undefined;
+
+  /**
+   * The numerator, or top number, in the fractional frame rate. For example, if your frame rate is 24000 / 1001 (23.976 frames per second), then the numerator would be 24000.
+   * @public
+   */
+  Numerator?: number | undefined;
+}
+
+/**
+ * Details about the media file's audio track.
+ * @public
+ */
+export interface AudioProperties {
+  /**
+   * The bit depth of the audio track.
+   * @public
+   */
+  BitDepth?: number | undefined;
+
+  /**
+   * The bit rate of the audio track, in bits per second.
+   * @public
+   */
+  BitRate?: number | undefined;
+
+  /**
+   * The number of audio channels in the audio track.
+   * @public
+   */
+  Channels?: number | undefined;
+
+  /**
+   * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
+   * @public
+   */
+  FrameRate?: FrameRate | undefined;
+
+  /**
+   * The language code of the audio track, in three character ISO 639-3 format.
+   * @public
+   */
+  LanguageCode?: string | undefined;
+
+  /**
+   * The sample rate of the audio track.
+   * @public
+   */
+  SampleRate?: number | undefined;
+}
+
+/**
+ * Details about the media file's data track.
+ * @public
+ */
+export interface DataProperties {
+  /**
+   * The language code of the data track, in three character ISO 639-3 format.
+   * @public
+   */
+  LanguageCode?: string | undefined;
+}
+
+/**
+ * Codec-specific parameters parsed from the video essence headers. This information provides detailed technical specifications about how the video was encoded, including profile settings, resolution details, and color space information that can help you understand the source video characteristics and make informed encoding decisions.
+ * @public
+ */
+export interface CodecMetadata {
+  /**
+   * The number of bits used per color component in the video essence such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR).
+   * @public
+   */
+  BitDepth?: number | undefined;
+
+  /**
+   * The chroma subsampling format used in the video encoding, such as "4:2:0" or "4:4:4". This describes how color information is sampled relative to brightness information. Different subsampling ratios affect video quality and file size, with "4:4:4" providing the highest color fidelity and "4:2:0" being most common for standard video.
+   * @public
+   */
+  ChromaSubsampling?: string | undefined;
+
+  /**
+   * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
+   * @public
+   */
+  CodedFrameRate?: FrameRate | undefined;
+
+  /**
+   * The color space primaries of the video track, defining the red, green, and blue color coordinates used for the video. This information helps ensure accurate color reproduction during playback and transcoding.
+   * @public
+   */
+  ColorPrimaries?: ColorPrimaries | undefined;
+
+  /**
+   * The height in pixels as coded by the codec. This represents the actual encoded video height as specified in the video stream headers.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The codec level or tier that specifies the maximum processing requirements and capabilities. Levels define constraints such as maximum bit rate, frame rate, and resolution.
+   * @public
+   */
+  Level?: string | undefined;
+
+  /**
+   * The color space matrix coefficients of the video track, defining how RGB color values are converted to and from YUV color space. This affects color accuracy during encoding and decoding processes.
+   * @public
+   */
+  MatrixCoefficients?: MatrixCoefficients | undefined;
+
+  /**
+   * The codec profile used to encode the video. Profiles define specific feature sets and capabilities within a codec standard. For example, H.264 profiles include Baseline, Main, and High, each supporting different encoding features and complexity levels.
+   * @public
+   */
+  Profile?: string | undefined;
+
+  /**
+   * The scanning method specified in the video essence, indicating whether the video uses progressive or interlaced scanning.
+   * @public
+   */
+  ScanType?: string | undefined;
+
+  /**
+   * The color space transfer characteristics of the video track, defining the relationship between linear light values and the encoded signal values. This affects brightness and contrast reproduction.
+   * @public
+   */
+  TransferCharacteristics?: TransferCharacteristics | undefined;
+
+  /**
+   * The width in pixels as coded by the codec. This represents the actual encoded video width as specified in the video stream headers.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Details about the media file's video track.
+ * @public
+ */
+export interface VideoProperties {
+  /**
+   * The number of bits used per color component such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR).
+   * @public
+   */
+  BitDepth?: number | undefined;
+
+  /**
+   * The bit rate of the video track, in bits per second.
+   * @public
+   */
+  BitRate?: number | undefined;
+
+  /**
+   * Codec-specific parameters parsed from the video essence headers. This information provides detailed technical specifications about how the video was encoded, including profile settings, resolution details, and color space information that can help you understand the source video characteristics and make informed encoding decisions.
+   * @public
+   */
+  CodecMetadata?: CodecMetadata | undefined;
+
+  /**
+   * The color space primaries of the video track, defining the red, green, and blue color coordinates used for the video. This information helps ensure accurate color reproduction during playback and transcoding.
+   * @public
+   */
+  ColorPrimaries?: ColorPrimaries | undefined;
+
+  /**
+   * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
+   * @public
+   */
+  FrameRate?: FrameRate | undefined;
+
+  /**
+   * The height of the video track, in pixels.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The color space matrix coefficients of the video track, defining how RGB color values are converted to and from YUV color space. This affects color accuracy during encoding and decoding processes.
+   * @public
+   */
+  MatrixCoefficients?: MatrixCoefficients | undefined;
+
+  /**
+   * The color space transfer characteristics of the video track, defining the relationship between linear light values and the encoded signal values. This affects brightness and contrast reproduction.
+   * @public
+   */
+  TransferCharacteristics?: TransferCharacteristics | undefined;
+
+  /**
+   * The width of the video track, in pixels.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Details about each track (video, audio, or data) in the media file.
+ * @public
+ */
+export interface Track {
+  /**
+   * Details about the media file's audio track.
+   * @public
+   */
+  AudioProperties?: AudioProperties | undefined;
+
+  /**
+   * The codec of the audio or video track, or caption format of the data track.
+   * @public
+   */
+  Codec?: Codec | undefined;
+
+  /**
+   * Details about the media file's data track.
+   * @public
+   */
+  DataProperties?: DataProperties | undefined;
+
+  /**
+   * The duration of the track, in seconds.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The unique index number of the track, starting at 1.
+   * @public
+   */
+  Index?: number | undefined;
+
+  /**
+   * The type of track: video, audio, or data.
+   * @public
+   */
+  TrackType?: TrackType | undefined;
+
+  /**
+   * Details about the media file's video track.
+   * @public
+   */
+  VideoProperties?: VideoProperties | undefined;
+}
+
+/**
+ * The container of your media file. This information helps you understand the overall structure and details of your media, including format, duration, and track layout.
+ * @public
+ */
+export interface Container {
+  /**
+   * The total duration of your media file, in seconds.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM or MXF. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
+   * @public
+   */
+  Format?: Format | undefined;
+
+  /**
+   * Details about each track (video, audio, or data) in the media file.
+   * @public
+   */
+  Tracks?: Track[] | undefined;
+}
+
+/**
+ * Metadata and other file information.
+ * @public
+ */
+export interface Metadata {
+  /**
+   * The entity tag (ETag) of the file.
+   * @public
+   */
+  ETag?: string | undefined;
+
+  /**
+   * The size of the media file, in bytes.
+   * @public
+   */
+  FileSize?: number | undefined;
+
+  /**
+   * The last modification timestamp of the media file, in Unix time.
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * The MIME type of the media file.
+   * @public
+   */
+  MimeType?: string | undefined;
+}
+
+/**
+ * An array containing track mapping information.
+ * @public
+ */
+export interface TrackMapping {
+  /**
+   * The index numbers of the audio tracks in your media file.
+   * @public
+   */
+  AudioTrackIndexes?: number[] | undefined;
+
+  /**
+   * The index numbers of the data tracks in your media file.
+   * @public
+   */
+  DataTrackIndexes?: number[] | undefined;
+
+  /**
+   * The index numbers of the video tracks in your media file.
+   * @public
+   */
+  VideoTrackIndexes?: number[] | undefined;
+}
+
+/**
+ * Probe results for your media file.
+ * @public
+ */
+export interface ProbeResult {
+  /**
+   * The container of your media file. This information helps you understand the overall structure and details of your media, including format, duration, and track layout.
+   * @public
+   */
+  Container?: Container | undefined;
+
+  /**
+   * Metadata and other file information.
+   * @public
+   */
+  Metadata?: Metadata | undefined;
+
+  /**
+   * An array containing track mapping information.
+   * @public
+   */
+  TrackMappings?: TrackMapping[] | undefined;
+}
+
+/**
+ * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+ * @public
+ */
+export interface ReservationPlan {
+  /**
+   * The length of the term of your reserved queue pricing plan commitment.
+   * @public
+   */
+  Commitment?: Commitment | undefined;
+
+  /**
+   * The timestamp in epoch seconds for when the current pricing plan term for this reserved queue expires.
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * The timestamp in epoch seconds for when you set up the current pricing plan for this reserved queue.
+   * @public
+   */
+  PurchasedAt?: Date | undefined;
+
+  /**
+   * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
+   * @public
+   */
+  RenewalType?: RenewalType | undefined;
+
+  /**
+   * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. When you increase this number, you extend your existing commitment with a new 12-month commitment for a larger number of RTS. The new commitment begins when you purchase the additional capacity. You can't decrease the number of RTS in your reserved queue.
+   * @public
+   */
+  ReservedSlots?: number | undefined;
+
+  /**
+   * Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
+   * @public
+   */
+  Status?: ReservationPlanStatus | undefined;
+}
+
+/**
+ * A service override applied by MediaConvert to the settings that you have configured. If you see any overrides, we recommend that you contact AWS Support.
+ * @public
+ */
+export interface ServiceOverride {
+  /**
+   * Details about the service override that MediaConvert has applied.
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * The name of the setting that MediaConvert has applied an override to.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The current value of the service override that MediaConvert has applied.
+   * @public
+   */
+  OverrideValue?: string | undefined;
+
+  /**
+   * The value of the setting that you configured, prior to any overrides that MediaConvert has applied.
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+ * @public
+ */
+export interface Queue {
+  /**
+   * An identifier for this resource that is unique within all of AWS.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The maximum number of jobs your queue can process concurrently.
+   * @public
+   */
+  ConcurrentJobs?: number | undefined;
+
+  /**
+   * The timestamp in epoch seconds for when you created the queue.
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * An optional description that you create for each queue.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The timestamp in epoch seconds for when you most recently updated the queue.
+   * @public
+   */
+  LastUpdated?: Date | undefined;
+
+  /**
+   * A name that you create for each queue. Each name must be unique within your account.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
+   * @public
+   */
+  PricingPlan?: PricingPlan | undefined;
+
+  /**
+   * The estimated number of jobs with a PROGRESSING status.
+   * @public
+   */
+  ProgressingJobsCount?: number | undefined;
+
+  /**
+   * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+   * @public
+   */
+  ReservationPlan?: ReservationPlan | undefined;
+
+  /**
+   * A list of any service overrides applied by MediaConvert to the settings that you have configured. If you see any overrides, we recommend that you contact AWS Support.
+   * @public
+   */
+  ServiceOverrides?: ServiceOverride[] | undefined;
+
+  /**
+   * Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+   * @public
+   */
+  Status?: QueueStatus | undefined;
+
+  /**
+   * The estimated number of jobs with a SUBMITTED status.
+   * @public
+   */
+  SubmittedJobsCount?: number | undefined;
+
+  /**
+   * Specifies whether this on-demand queue is system or custom. System queues are built in. You can't modify or delete system queues. You can create and modify custom queues.
+   * @public
+   */
+  Type?: Type | undefined;
+}
 
 /**
  * @public
  */
-export type HlsManifestCompression = (typeof HlsManifestCompression)[keyof typeof HlsManifestCompression];
-
-/**
- * @public
- * @enum
- */
-export const HlsManifestDurationFormat = {
-  FLOATING_POINT: "FLOATING_POINT",
-  INTEGER: "INTEGER",
-} as const;
-
-/**
- * @public
- */
-export type HlsManifestDurationFormat = (typeof HlsManifestDurationFormat)[keyof typeof HlsManifestDurationFormat];
-
-/**
- * @public
- * @enum
- */
-export const HlsOutputSelection = {
-  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY: "SEGMENTS_ONLY",
-} as const;
+export interface AssociateCertificateRequest {
+  /**
+   * The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
+   * @public
+   */
+  Arn: string | undefined;
+}
 
 /**
  * @public
  */
-export type HlsOutputSelection = (typeof HlsOutputSelection)[keyof typeof HlsOutputSelection];
-
-/**
- * @public
- * @enum
- */
-export const HlsProgramDateTime = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
+export interface AssociateCertificateResponse {}
 
 /**
  * @public
  */
-export type HlsProgramDateTime = (typeof HlsProgramDateTime)[keyof typeof HlsProgramDateTime];
-
-/**
- * @public
- * @enum
- */
-export const HlsProgressiveWriteHlsManifest = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
+export interface CancelJobRequest {
+  /**
+   * The Job ID of the job to be cancelled.
+   * @public
+   */
+  Id: string | undefined;
+}
 
 /**
  * @public
  */
-export type HlsProgressiveWriteHlsManifest =
-  (typeof HlsProgressiveWriteHlsManifest)[keyof typeof HlsProgressiveWriteHlsManifest];
+export interface CancelJobResponse {}
+
+/**
+ * @public
+ */
+export interface CreateJobRequest {
+  /**
+   * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+   * @public
+   */
+  AccelerationSettings?: AccelerationSettings | undefined;
+
+  /**
+   * Optionally choose a Billing tags source that AWS Billing and Cost Management will use to display tags for individual output costs on any billing report that you set up. Leave blank to use the default value, Job.
+   * @public
+   */
+  BillingTagsSource?: BillingTagsSource | undefined;
+
+  /**
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+   * @public
+   */
+  HopDestinations?: HopDestination[] | undefined;
+
+  /**
+   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions represent periodically grouped MediaConvert releases with new features, updates, improvements, and fixes. Job engine versions are in a YYYY-MM-DD format. Note that the Job engine version feature is not publicly available at this time. To request access, contact AWS support.
+   * @public
+   */
+  JobEngineVersion?: string | undefined;
+
+  /**
+   * Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
+   * @public
+   */
+  JobTemplate?: string | undefined;
+
+  /**
+   * Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * JobSettings contains all the transcode settings for a job.
+   * @public
+   */
+  Settings: JobSettings | undefined;
+
+  /**
+   * Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
+   * @public
+   */
+  SimulateReservedQueue?: SimulateReservedQueue | undefined;
+
+  /**
+   * Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   * @public
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
+
+  /**
+   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
+   * @public
+   */
+  UserMetadata?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobResponse {
+  /**
+   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * @public
+   */
+  Job?: Job | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobTemplateRequest {
+  /**
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+   * @public
+   */
+  AccelerationSettings?: AccelerationSettings | undefined;
+
+  /**
+   * Optional. A category for the job template you are creating
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * Optional. A description of the job template you are creating.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+   * @public
+   */
+  HopDestinations?: HopDestination[] | undefined;
+
+  /**
+   * The name of the job template you are creating.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+   * @public
+   */
+  Settings: JobTemplateSettings | undefined;
+
+  /**
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   * @public
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
+
+  /**
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobTemplateResponse {
+  /**
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   * @public
+   */
+  JobTemplate?: JobTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresetRequest {
+  /**
+   * Optional. A category for the preset you are creating.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * Optional. A description of the preset you are creating.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The name of the preset you are creating.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Settings for preset
+   * @public
+   */
+  Settings: PresetSettings | undefined;
+
+  /**
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresetResponse {
+  /**
+   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+   * @public
+   */
+  Preset?: Preset | undefined;
+}
+
+/**
+ * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+ * @public
+ */
+export interface ReservationPlanSettings {
+  /**
+   * The length of the term of your reserved queue pricing plan commitment.
+   * @public
+   */
+  Commitment: Commitment | undefined;
+
+  /**
+   * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term. When your term is auto renewed, you extend your commitment by 12 months from the auto renew date. You can cancel this commitment.
+   * @public
+   */
+  RenewalType: RenewalType | undefined;
+
+  /**
+   * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. You can't decrease the number of RTS in your reserved queue. You can increase the number of RTS by extending your existing commitment with a new 12-month commitment for the larger number. The new commitment begins when you purchase the additional capacity. You can't cancel your commitment or revert to your original commitment after you increase the capacity.
+   * @public
+   */
+  ReservedSlots: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQueueRequest {
+  /**
+   * Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+   * @public
+   */
+  ConcurrentJobs?: number | undefined;
+
+  /**
+   * Optional. A description of the queue that you are creating.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The name of the queue that you are creating.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
+   * @public
+   */
+  PricingPlan?: PricingPlan | undefined;
+
+  /**
+   * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+   * @public
+   */
+  ReservationPlanSettings?: ReservationPlanSettings | undefined;
+
+  /**
+   * Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
+   * @public
+   */
+  Status?: QueueStatus | undefined;
+
+  /**
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQueueResponse {
+  /**
+   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+   * @public
+   */
+  Queue?: Queue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResourceShareRequest {
+  /**
+   * Specify MediaConvert Job ID or ARN to share
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * AWS Support case identifier
+   * @public
+   */
+  SupportCaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResourceShareResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteJobTemplateRequest {
+  /**
+   * The name of the job template to be deleted.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePolicyRequest {}
+
+/**
+ * @public
+ */
+export interface DeletePolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePresetRequest {
+  /**
+   * The name of the preset to be deleted.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePresetResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteQueueRequest {
+  /**
+   * The name of the queue that you want to delete.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQueueResponse {}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointsRequest {
+  /**
+   * Optional. Max number of endpoints, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
+   *
+   * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
+   * @public
+   */
+  Mode?: DescribeEndpointsMode | undefined;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of endpoints.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointsResponse {
+  /**
+   * List of endpoints
+   * @public
+   */
+  Endpoints?: Endpoint[] | undefined;
+
+  /**
+   * Use this string to request the next batch of endpoints.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCertificateRequest {
+  /**
+   * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCertificateResponse {}
+
+/**
+ * @public
+ */
+export interface GetJobRequest {
+  /**
+   * the job ID of the job.
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobResponse {
+  /**
+   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * @public
+   */
+  Job?: Job | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobsQueryResultsRequest {
+  /**
+   * The ID of the jobs query.
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobsQueryResultsResponse {
+  /**
+   * List of jobs.
+   * @public
+   */
+  Jobs?: Job[] | undefined;
+
+  /**
+   * Use this string to request the next batch of jobs via the StartJobsQuery API.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The status of the jobs query.
+   * @public
+   */
+  Status?: JobsQueryStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobTemplateRequest {
+  /**
+   * The name of the job template.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobTemplateResponse {
+  /**
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   * @public
+   */
+  JobTemplate?: JobTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyRequest {}
+
+/**
+ * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ * @public
+ */
+export interface Policy {
+  /**
+   * Allow or disallow jobs that specify HTTP inputs.
+   * @public
+   */
+  HttpInputs?: InputPolicy | undefined;
+
+  /**
+   * Allow or disallow jobs that specify HTTPS inputs.
+   * @public
+   */
+  HttpsInputs?: InputPolicy | undefined;
+
+  /**
+   * Allow or disallow jobs that specify Amazon S3 inputs.
+   * @public
+   */
+  S3Inputs?: InputPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * @public
+   */
+  Policy?: Policy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPresetRequest {
+  /**
+   * The name of the preset.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPresetResponse {
+  /**
+   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+   * @public
+   */
+  Preset?: Preset | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQueueRequest {
+  /**
+   * The name of the queue that you want information about.
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQueueResponse {
+  /**
+   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+   * @public
+   */
+  Queue?: Queue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsRequest {
+  /**
+   * Optional. Number of jobs, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+
+  /**
+   * Optional. Provide a queue name to get back only jobs from that queue.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+   * @public
+   */
+  Status?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsResponse {
+  /**
+   * List of jobs
+   * @public
+   */
+  Jobs?: Job[] | undefined;
+
+  /**
+   * Use this string to request the next batch of jobs.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobTemplatesRequest {
+  /**
+   * Optionally, specify a job template category to limit responses to only job templates from that category.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+   * @public
+   */
+  ListBy?: JobTemplateListBy | undefined;
+
+  /**
+   * Optional. Number of job templates, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of job templates.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobTemplatesResponse {
+  /**
+   * List of Job templates.
+   * @public
+   */
+  JobTemplates?: JobTemplate[] | undefined;
+
+  /**
+   * Use this string to request the next batch of job templates.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPresetsRequest {
+  /**
+   * Optionally, specify a preset category to limit responses to only presets from that category.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+   * @public
+   */
+  ListBy?: PresetListBy | undefined;
+
+  /**
+   * Optional. Number of presets, up to twenty, that will be returned at one time
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of presets.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPresetsResponse {
+  /**
+   * Use this string to request the next batch of presets.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * List of presets
+   * @public
+   */
+  Presets?: Preset[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesRequest {
+  /**
+   * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
+   * @public
+   */
+  ListBy?: QueueListBy | undefined;
+
+  /**
+   * Optional. Number of queues, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of queues.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesResponse {
+  /**
+   * Use this string to request the next batch of queues.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * List of queues.
+   * @public
+   */
+  Queues?: Queue[] | undefined;
+
+  /**
+   * The maximum number of jobs that MediaConvert can process at one time, across all of your on-demand queues in the current AWS Region.
+   * @public
+   */
+  TotalConcurrentJobs?: number | undefined;
+
+  /**
+   * The remaining number of concurrent jobs that are not associated with a queue and are available to allocate to a queue. You can allocate these jobs when you create or update a queue.
+   * @public
+   */
+  UnallocatedConcurrentJobs?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+ * @public
+ */
+export interface ResourceTags {
+  /**
+   * The Amazon Resource Name (ARN) of the resource.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The tags for the resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+   * @public
+   */
+  ResourceTags?: ResourceTags | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVersionsRequest {
+  /**
+   * Optional. Number of valid Job engine versions, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVersionsResponse {
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Retrieve a JSON array of all available Job engine versions and the date they expire.
+   * @public
+   */
+  Versions?: JobEngineVersion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProbeRequest {
+  /**
+   * Specify a media file to probe.
+   * @public
+   */
+  InputFiles?: ProbeInputFile[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProbeResponse {
+  /**
+   * Probe results for your media file.
+   * @public
+   */
+  ProbeResults?: ProbeResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutPolicyRequest {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * @public
+   */
+  Policy: Policy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * @public
+   */
+  Policy?: Policy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchJobsRequest {
+  /**
+   * Optional. Provide your input file URL or your partial input file name. The maximum length for an input file is 300 characters.
+   * @public
+   */
+  InputFile?: string | undefined;
+
+  /**
+   * Optional. Number of jobs, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+
+  /**
+   * Optional. Provide a queue name, or a queue ARN, to return only jobs from that queue.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+   * @public
+   */
+  Status?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchJobsResponse {
+  /**
+   * List of jobs.
+   * @public
+   */
+  Jobs?: Job[] | undefined;
+
+  /**
+   * Use this string to request the next batch of jobs.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobsQueryRequest {
+  /**
+   * Optional. Provide an array of JobsQueryFilters for your StartJobsQuery request.
+   * @public
+   */
+  FilterList?: JobsQueryFilter[] | undefined;
+
+  /**
+   * Optional. Number of jobs, up to twenty, that will be included in the jobs query.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Use this string to request the next batch of jobs matched by a jobs query.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobsQueryResponse {
+  /**
+   * The ID of the jobs query.
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The keys of the tags that you want to remove from the resource.
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateJobTemplateRequest {
+  /**
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+   * @public
+   */
+  AccelerationSettings?: AccelerationSettings | undefined;
+
+  /**
+   * The new category for the job template, if you are changing it.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * The new description for the job template, if you are changing it.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * Optional list of hop destinations.
+   * @public
+   */
+  HopDestinations?: HopDestination[] | undefined;
+
+  /**
+   * The name of the job template you are modifying
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * The new queue for the job template, if you are changing it.
+   * @public
+   */
+  Queue?: string | undefined;
+
+  /**
+   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+   * @public
+   */
+  Settings?: JobTemplateSettings | undefined;
+
+  /**
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   * @public
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobTemplateResponse {
+  /**
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   * @public
+   */
+  JobTemplate?: JobTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePresetRequest {
+  /**
+   * The new category for the preset, if you are changing it.
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * The new description for the preset, if you are changing it.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The name of the preset you are modifying.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Settings for preset
+   * @public
+   */
+  Settings?: PresetSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePresetResponse {
+  /**
+   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+   * @public
+   */
+  Preset?: Preset | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueRequest {
+  /**
+   * Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, update your reservation plan instead in order to increase your yearly commitment.
+   * @public
+   */
+  ConcurrentJobs?: number | undefined;
+
+  /**
+   * The new description for the queue, if you are changing it.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * The name of the queue that you are modifying.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
+   * @public
+   */
+  ReservationPlanSettings?: ReservationPlanSettings | undefined;
+
+  /**
+   * Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+   * @public
+   */
+  Status?: QueueStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueResponse {
+  /**
+   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+   * @public
+   */
+  Queue?: Queue | undefined;
+}

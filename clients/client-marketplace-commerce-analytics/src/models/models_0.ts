@@ -1,44 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MarketplaceCommerceAnalyticsServiceException as __BaseException } from "./MarketplaceCommerceAnalyticsServiceException";
-
-/**
- * @public
- * @enum
- */
-export const DataSetType = {
-  CUSTOMER_PROFILE_BY_GEOGRAPHY: "customer_profile_by_geography",
-  CUSTOMER_PROFILE_BY_INDUSTRY: "customer_profile_by_industry",
-  CUSTOMER_PROFILE_BY_REVENUE: "customer_profile_by_revenue",
-  CUSTOMER_SUBSCRIBER_ANNUAL_SUBSCRIPTIONS: "customer_subscriber_annual_subscriptions",
-  CUSTOMER_SUBSCRIBER_HOURLY_MONTHLY_SUBSCRIPTIONS: "customer_subscriber_hourly_monthly_subscriptions",
-  DAILY_BUSINESS_CANCELED_PRODUCT_SUBSCRIBERS: "daily_business_canceled_product_subscribers",
-  DAILY_BUSINESS_FEES: "daily_business_fees",
-  DAILY_BUSINESS_FREE_TRIAL_CONVERSIONS: "daily_business_free_trial_conversions",
-  DAILY_BUSINESS_NEW_INSTANCES: "daily_business_new_instances",
-  DAILY_BUSINESS_NEW_PRODUCT_SUBSCRIBERS: "daily_business_new_product_subscribers",
-  DAILY_BUSINESS_USAGE_BY_INSTANCE_TYPE: "daily_business_usage_by_instance_type",
-  DISBURSED_AMOUNT_BY_AGE_OF_DISBURSED_FUNDS: "disbursed_amount_by_age_of_disbursed_funds",
-  DISBURSED_AMOUNT_BY_AGE_OF_PAST_DUE_FUNDS: "disbursed_amount_by_age_of_past_due_funds",
-  DISBURSED_AMOUNT_BY_AGE_OF_UNCOLLECTED_FUNDS: "disbursed_amount_by_age_of_uncollected_funds",
-  DISBURSED_AMOUNT_BY_CUSTOMER_GEO: "disbursed_amount_by_customer_geo",
-  DISBURSED_AMOUNT_BY_INSTANCE_HOURS: "disbursed_amount_by_instance_hours",
-  DISBURSED_AMOUNT_BY_PRODUCT: "disbursed_amount_by_product",
-  DISBURSED_AMOUNT_BY_PRODUCT_WITH_UNCOLLECTED_FUNDS: "disbursed_amount_by_product_with_uncollected_funds",
-  DISBURSED_AMOUNT_BY_UNCOLLECTED_FUNDS_BREAKDOWN: "disbursed_amount_by_uncollected_funds_breakdown",
-  MONTHLY_REVENUE_ANNUAL_SUBSCRIPTIONS: "monthly_revenue_annual_subscriptions",
-  MONTHLY_REVENUE_BILLING_AND_REVENUE_DATA: "monthly_revenue_billing_and_revenue_data",
-  MONTHLY_REVENUE_FIELD_DEMONSTRATION_USAGE: "monthly_revenue_field_demonstration_usage",
-  MONTHLY_REVENUE_FLEXIBLE_PAYMENT_SCHEDULE: "monthly_revenue_flexible_payment_schedule",
-  SALES_COMPENSATION_BILLED_REVENUE: "sales_compensation_billed_revenue",
-  US_SALES_AND_USE_TAX_RECORDS: "us_sales_and_use_tax_records",
-} as const;
-
-/**
- * @public
- */
-export type DataSetType = (typeof DataSetType)[keyof typeof DataSetType];
+import { DataSetType, SupportDataSetType } from "./enums";
 
 /**
  * Container for the parameters to the GenerateDataSet operation.
@@ -216,40 +177,6 @@ export interface GenerateDataSetResult {
    */
   dataSetRequestId?: string | undefined;
 }
-
-/**
- * This exception is thrown when an internal service error occurs.
- * @public
- */
-export class MarketplaceCommerceAnalyticsException extends __BaseException {
-  readonly name: "MarketplaceCommerceAnalyticsException" = "MarketplaceCommerceAnalyticsException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MarketplaceCommerceAnalyticsException, __BaseException>) {
-    super({
-      name: "MarketplaceCommerceAnalyticsException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MarketplaceCommerceAnalyticsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SupportDataSetType = {
-  customer_support_contacts_data: "customer_support_contacts_data",
-  test_customer_support_contacts_data: "test_customer_support_contacts_data",
-} as const;
-
-/**
- * @public
- */
-export type SupportDataSetType = (typeof SupportDataSetType)[keyof typeof SupportDataSetType];
 
 /**
  * <i>This target has been deprecated.</i> Container for the parameters to the StartSupportDataExport operation.

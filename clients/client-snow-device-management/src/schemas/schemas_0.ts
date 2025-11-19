@@ -171,7 +171,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SnowDeviceManagementServiceException as __SnowDeviceManagementServiceException } from "../models/SnowDeviceManagementServiceException";
 
 /* eslint no-var: 0 */

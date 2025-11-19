@@ -989,7 +989,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnauthorizedException as __UnauthorizedException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTSiteWiseServiceException as __IoTSiteWiseServiceException } from "../models/IoTSiteWiseServiceException";
 
 /* eslint no-var: 0 */

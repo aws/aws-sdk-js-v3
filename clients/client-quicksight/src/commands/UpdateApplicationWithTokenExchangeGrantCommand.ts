@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateApplicationWithTokenExchangeGrantRequest,
   UpdateApplicationWithTokenExchangeGrantResponse,
-} from "../models/models_5";
+} from "../models/models_4";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateApplicationWithTokenExchangeGrant } from "../schemas/schemas_0";
 

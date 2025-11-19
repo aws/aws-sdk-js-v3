@@ -174,7 +174,7 @@ import {
   ResourceConflictException as __ResourceConflictException,
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

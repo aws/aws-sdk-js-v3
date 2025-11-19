@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetCloudFrontOriginAccessIdentityConfigRequest,
   GetCloudFrontOriginAccessIdentityConfigResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetCloudFrontOriginAccessIdentityConfig } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,34 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
+import {
+  AuthenticationType,
+  AuthTokenUpdateStatus,
+  AuthTokenUpdateStrategyType,
+  AutomaticFailoverStatus,
+  AZMode,
+  ChangeType,
+  ClusterMode,
+  DataStorageUnit,
+  DataTieringStatus,
+  DestinationType,
+  InputAuthenticationType,
+  IpDiscovery,
+  LogDeliveryConfigurationStatus,
+  LogFormat,
+  LogType,
+  MultiAZStatus,
+  NetworkType,
+  NodeUpdateInitiatedBy,
+  NodeUpdateStatus,
+  OutpostMode,
+  PendingAutomaticFailoverStatus,
+  ServiceUpdateSeverity,
+  ServiceUpdateStatus,
+  ServiceUpdateType,
+  SlaMet,
+  SourceType,
+  TransitEncryptionMode,
+  UpdateActionStatus,
+} from "./enums";
 
 /**
  * <p>A tag that can be added to an ElastiCache cluster or replication group. Tags are
@@ -51,270 +78,6 @@ export interface AddTagsToResourceMessage {
 }
 
 /**
- * <p>The requested cluster ID does not refer to an existing cluster.</p>
- * @public
- */
-export class CacheClusterNotFoundFault extends __BaseException {
-  readonly name: "CacheClusterNotFoundFault" = "CacheClusterNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheClusterNotFoundFault, __BaseException>) {
-    super({
-      name: "CacheClusterNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheClusterNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
- * @public
- */
-export class CacheParameterGroupNotFoundFault extends __BaseException {
-  readonly name: "CacheParameterGroupNotFoundFault" = "CacheParameterGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheParameterGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "CacheParameterGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheParameterGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
- * @public
- */
-export class CacheSecurityGroupNotFoundFault extends __BaseException {
-  readonly name: "CacheSecurityGroupNotFoundFault" = "CacheSecurityGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSecurityGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "CacheSecurityGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSecurityGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
- * @public
- */
-export class CacheSubnetGroupNotFoundFault extends __BaseException {
-  readonly name: "CacheSubnetGroupNotFoundFault" = "CacheSubnetGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSubnetGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "CacheSubnetGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSubnetGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- *             resource.</p>
- * @public
- */
-export class InvalidARNFault extends __BaseException {
-  readonly name: "InvalidARNFault" = "InvalidARNFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidARNFault, __BaseException>) {
-    super({
-      name: "InvalidARNFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidARNFault.prototype);
-  }
-}
-
-/**
- * <p>The requested replication group is not in the <code>available</code> state.</p>
- * @public
- */
-export class InvalidReplicationGroupStateFault extends __BaseException {
-  readonly name: "InvalidReplicationGroupStateFault" = "InvalidReplicationGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReplicationGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidReplicationGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReplicationGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
- * @public
- */
-export class InvalidServerlessCacheSnapshotStateFault extends __BaseException {
-  readonly name: "InvalidServerlessCacheSnapshotStateFault" = "InvalidServerlessCacheSnapshotStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidServerlessCacheSnapshotStateFault, __BaseException>) {
-    super({
-      name: "InvalidServerlessCacheSnapshotStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidServerlessCacheSnapshotStateFault.prototype);
-  }
-}
-
-/**
- * <p>The account for these credentials is not currently active.</p>
- * @public
- */
-export class InvalidServerlessCacheStateFault extends __BaseException {
-  readonly name: "InvalidServerlessCacheStateFault" = "InvalidServerlessCacheStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidServerlessCacheStateFault, __BaseException>) {
-    super({
-      name: "InvalidServerlessCacheStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidServerlessCacheStateFault.prototype);
-  }
-}
-
-/**
- * <p>The specified replication group does not exist.</p>
- * @public
- */
-export class ReplicationGroupNotFoundFault extends __BaseException {
-  readonly name: "ReplicationGroupNotFoundFault" = "ReplicationGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicationGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "ReplicationGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicationGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested reserved cache node was not found.</p>
- * @public
- */
-export class ReservedCacheNodeNotFoundFault extends __BaseException {
-  readonly name: "ReservedCacheNodeNotFoundFault" = "ReservedCacheNodeNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedCacheNodeNotFoundFault, __BaseException>) {
-    super({
-      name: "ReservedCacheNodeNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedCacheNodeNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The serverless cache was not found or does not exist.</p>
- * @public
- */
-export class ServerlessCacheNotFoundFault extends __BaseException {
-  readonly name: "ServerlessCacheNotFoundFault" = "ServerlessCacheNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerlessCacheNotFoundFault, __BaseException>) {
-    super({
-      name: "ServerlessCacheNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerlessCacheNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
- * @public
- */
-export class ServerlessCacheSnapshotNotFoundFault extends __BaseException {
-  readonly name: "ServerlessCacheSnapshotNotFoundFault" = "ServerlessCacheSnapshotNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerlessCacheSnapshotNotFoundFault, __BaseException>) {
-    super({
-      name: "ServerlessCacheSnapshotNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerlessCacheSnapshotNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested snapshot name does not refer to an existing snapshot.</p>
- * @public
- */
-export class SnapshotNotFoundFault extends __BaseException {
-  readonly name: "SnapshotNotFoundFault" = "SnapshotNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotNotFoundFault, __BaseException>) {
-    super({
-      name: "SnapshotNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotNotFoundFault.prototype);
-  }
-}
-
-/**
  * <p>Represents the output from the <code>AddTagsToResource</code>,
  *                 <code>ListTagsForResource</code>, and <code>RemoveTagsFromResource</code>
  *             operations.</p>
@@ -326,68 +89,6 @@ export interface TagListMessage {
    * @public
    */
   TagList?: Tag[] | undefined;
-}
-
-/**
- * <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
- * @public
- */
-export class TagQuotaPerResourceExceeded extends __BaseException {
-  readonly name: "TagQuotaPerResourceExceeded" = "TagQuotaPerResourceExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagQuotaPerResourceExceeded, __BaseException>) {
-    super({
-      name: "TagQuotaPerResourceExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagQuotaPerResourceExceeded.prototype);
-  }
-}
-
-/**
- * <p>The user group was not found or does not exist</p>
- * @public
- */
-export class UserGroupNotFoundFault extends __BaseException {
-  readonly name: "UserGroupNotFoundFault" = "UserGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "UserGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The user does not exist or could not be found.</p>
- * @public
- */
-export class UserNotFoundFault extends __BaseException {
-  readonly name: "UserNotFoundFault" = "UserNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserNotFoundFault, __BaseException>) {
-    super({
-      name: "UserNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -414,27 +115,6 @@ export interface AllowedNodeTypeModificationsMessage {
    * @public
    */
   ScaleDownModifications?: string[] | undefined;
-}
-
-/**
- * <p>The specified Amazon EC2 security group is already authorized for the specified cache
- *             security group.</p>
- * @public
- */
-export class AuthorizationAlreadyExistsFault extends __BaseException {
-  readonly name: "AuthorizationAlreadyExistsFault" = "AuthorizationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "AuthorizationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationAlreadyExistsFault.prototype);
-  }
 }
 
 /**
@@ -571,66 +251,6 @@ export interface AuthorizeCacheSecurityGroupIngressResult {
 }
 
 /**
- * <p>The current state of the cache security group does not allow deletion.</p>
- * @public
- */
-export class InvalidCacheSecurityGroupStateFault extends __BaseException {
-  readonly name: "InvalidCacheSecurityGroupStateFault" = "InvalidCacheSecurityGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCacheSecurityGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidCacheSecurityGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCacheSecurityGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>Two or more incompatible parameters were specified.</p>
- * @public
- */
-export class InvalidParameterCombinationException extends __BaseException {
-  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
-    super({
-      name: "InvalidParameterCombinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
-  }
-}
-
-/**
- * <p>The value for a parameter is invalid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchApplyUpdateActionMessage {
@@ -652,47 +272,6 @@ export interface BatchApplyUpdateActionMessage {
    */
   ServiceUpdateName: string | undefined;
 }
-
-/**
- * <p>The service update doesn't exist</p>
- * @public
- */
-export class ServiceUpdateNotFoundFault extends __BaseException {
-  readonly name: "ServiceUpdateNotFoundFault" = "ServiceUpdateNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUpdateNotFoundFault, __BaseException>) {
-    super({
-      name: "ServiceUpdateNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUpdateNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const UpdateActionStatus = {
-  COMPLETE: "complete",
-  IN_PROGRESS: "in-progress",
-  NOT_APPLICABLE: "not-applicable",
-  NOT_APPLIED: "not-applied",
-  SCHEDULED: "scheduled",
-  SCHEDULING: "scheduling",
-  STOPPED: "stopped",
-  STOPPING: "stopping",
-  WAITING_TO_START: "waiting-to-start",
-} as const;
-
-/**
- * @public
- */
-export type UpdateActionStatus = (typeof UpdateActionStatus)[keyof typeof UpdateActionStatus];
 
 /**
  * <p>Update action that has been processed for the corresponding apply/stop request</p>
@@ -821,37 +400,6 @@ export interface CompleteMigrationMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomaticFailoverStatus = {
-  DISABLED: "disabled",
-  DISABLING: "disabling",
-  ENABLED: "enabled",
-  ENABLING: "enabling",
-} as const;
-
-/**
- * @public
- */
-export type AutomaticFailoverStatus = (typeof AutomaticFailoverStatus)[keyof typeof AutomaticFailoverStatus];
-
-/**
- * @public
- * @enum
- */
-export const ClusterMode = {
-  COMPATIBLE: "compatible",
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type ClusterMode = (typeof ClusterMode)[keyof typeof ClusterMode];
-
-/**
  * <p>Represents the information required for client programs to connect to a cache
  *             node. This value is read-only.</p>
  * @public
@@ -869,20 +417,6 @@ export interface Endpoint {
    */
   Port?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataTieringStatus = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type DataTieringStatus = (typeof DataTieringStatus)[keyof typeof DataTieringStatus];
 
 /**
  * <p>The name of the Global datastore and role of this replication group in the Global
@@ -903,20 +437,6 @@ export interface GlobalReplicationGroupInfo {
    */
   GlobalReplicationGroupMemberRole?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IpDiscovery = {
-  IPV4: "ipv4",
-  IPV6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type IpDiscovery = (typeof IpDiscovery)[keyof typeof IpDiscovery];
 
 /**
  * <p>The configuration details of the CloudWatch Logs destination.</p>
@@ -960,66 +480,6 @@ export interface DestinationDetails {
    */
   KinesisFirehoseDetails?: KinesisFirehoseDestinationDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DestinationType = {
-  CloudWatchLogs: "cloudwatch-logs",
-  KinesisFirehose: "kinesis-firehose",
-} as const;
-
-/**
- * @public
- */
-export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
-
-/**
- * @public
- * @enum
- */
-export const LogFormat = {
-  JSON: "json",
-  TEXT: "text",
-} as const;
-
-/**
- * @public
- */
-export type LogFormat = (typeof LogFormat)[keyof typeof LogFormat];
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  ENGINE_LOG: "engine-log",
-  SLOW_LOG: "slow-log",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
-
-/**
- * @public
- * @enum
- */
-export const LogDeliveryConfigurationStatus = {
-  ACTIVE: "active",
-  DISABLING: "disabling",
-  ENABLING: "enabling",
-  ERROR: "error",
-  MODIFYING: "modifying",
-} as const;
-
-/**
- * @public
- */
-export type LogDeliveryConfigurationStatus =
-  (typeof LogDeliveryConfigurationStatus)[keyof typeof LogDeliveryConfigurationStatus];
 
 /**
  * <p>Returns the destination, format and type of the logs. </p>
@@ -1068,35 +528,6 @@ export interface LogDeliveryConfiguration {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MultiAZStatus = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type MultiAZStatus = (typeof MultiAZStatus)[keyof typeof MultiAZStatus];
-
-/**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL_STACK: "dual_stack",
-  IPV4: "ipv4",
-  IPV6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
 
 /**
  * <p>Represents a single node within a node group (shard).</p>
@@ -1193,35 +624,6 @@ export interface NodeGroup {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthTokenUpdateStatus = {
-  ROTATING: "ROTATING",
-  SETTING: "SETTING",
-} as const;
-
-/**
- * @public
- */
-export type AuthTokenUpdateStatus = (typeof AuthTokenUpdateStatus)[keyof typeof AuthTokenUpdateStatus];
-
-/**
- * @public
- * @enum
- */
-export const PendingAutomaticFailoverStatus = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type PendingAutomaticFailoverStatus =
-  (typeof PendingAutomaticFailoverStatus)[keyof typeof PendingAutomaticFailoverStatus];
-
-/**
  * <p>The log delivery configurations being modified </p>
  * @public
  */
@@ -1276,20 +678,6 @@ export interface ReshardingStatus {
    */
   SlotMigration?: SlotMigration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TransitEncryptionMode = {
-  PREFERRED: "preferred",
-  REQUIRED: "required",
-} as const;
-
-/**
- * @public
- */
-export type TransitEncryptionMode = (typeof TransitEncryptionMode)[keyof typeof TransitEncryptionMode];
 
 /**
  * <p>The status of the user group update.</p>
@@ -1649,26 +1037,6 @@ export interface CompleteMigrationResponse {
 }
 
 /**
- * <p>The designated replication group is not available for data migration.</p>
- * @public
- */
-export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
-  readonly name: "ReplicationGroupNotUnderMigrationFault" = "ReplicationGroupNotUnderMigrationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicationGroupNotUnderMigrationFault, __BaseException>) {
-    super({
-      name: "ReplicationGroupNotUnderMigrationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicationGroupNotUnderMigrationFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CopyServerlessCacheSnapshotRequest {
@@ -1791,66 +1159,6 @@ export interface CopyServerlessCacheSnapshotResponse {
    * @public
    */
   ServerlessCacheSnapshot?: ServerlessCacheSnapshot | undefined;
-}
-
-/**
- * <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
- * @public
- */
-export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
-  readonly name: "ServerlessCacheSnapshotAlreadyExistsFault" = "ServerlessCacheSnapshotAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerlessCacheSnapshotAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ServerlessCacheSnapshotAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerlessCacheSnapshotAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
- * @public
- */
-export class ServerlessCacheSnapshotQuotaExceededFault extends __BaseException {
-  readonly name: "ServerlessCacheSnapshotQuotaExceededFault" = "ServerlessCacheSnapshotQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerlessCacheSnapshotQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ServerlessCacheSnapshotQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerlessCacheSnapshotQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The specified service linked role (SLR) was not found.</p>
- * @public
- */
-export class ServiceLinkedRoleNotFoundFault extends __BaseException {
-  readonly name: "ServiceLinkedRoleNotFoundFault" = "ServiceLinkedRoleNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceLinkedRoleNotFoundFault, __BaseException>) {
-    super({
-      name: "ServiceLinkedRoleNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceLinkedRoleNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -2453,123 +1761,6 @@ export interface CopySnapshotResult {
 }
 
 /**
- * <p>The current state of the snapshot does not allow the requested operation to
- *             occur.</p>
- * @public
- */
-export class InvalidSnapshotStateFault extends __BaseException {
-  readonly name: "InvalidSnapshotStateFault" = "InvalidSnapshotStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSnapshotStateFault, __BaseException>) {
-    super({
-      name: "InvalidSnapshotStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSnapshotStateFault.prototype);
-  }
-}
-
-/**
- * <p>You already have a snapshot with the given name.</p>
- * @public
- */
-export class SnapshotAlreadyExistsFault extends __BaseException {
-  readonly name: "SnapshotAlreadyExistsFault" = "SnapshotAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "SnapshotAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the maximum number of
- *             snapshots.</p>
- * @public
- */
-export class SnapshotQuotaExceededFault extends __BaseException {
-  readonly name: "SnapshotQuotaExceededFault" = "SnapshotQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotQuotaExceededFault, __BaseException>) {
-    super({
-      name: "SnapshotQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>You already have a cluster with the given identifier.</p>
- * @public
- */
-export class CacheClusterAlreadyExistsFault extends __BaseException {
-  readonly name: "CacheClusterAlreadyExistsFault" = "CacheClusterAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheClusterAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "CacheClusterAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheClusterAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of clusters
- *             per customer.</p>
- * @public
- */
-export class ClusterQuotaForCustomerExceededFault extends __BaseException {
-  readonly name: "ClusterQuotaForCustomerExceededFault" = "ClusterQuotaForCustomerExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterQuotaForCustomerExceededFault, __BaseException>) {
-    super({
-      name: "ClusterQuotaForCustomerExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterQuotaForCustomerExceededFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AZMode = {
-  CROSS_AZ: "cross-az",
-  SINGLE_AZ: "single-az",
-} as const;
-
-/**
- * @public
- */
-export type AZMode = (typeof AZMode)[keyof typeof AZMode];
-
-/**
  * <p>Specifies the destination, format and type of the logs. </p>
  * @public
  */
@@ -2607,20 +1798,6 @@ export interface LogDeliveryConfigurationRequest {
    */
   Enabled?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OutpostMode = {
-  CROSS_OUTPOST: "cross-outpost",
-  SINGLE_OUTPOST: "single-outpost",
-} as const;
-
-/**
- * @public
- */
-export type OutpostMode = (typeof OutpostMode)[keyof typeof OutpostMode];
 
 /**
  * <p>Represents the input of a CreateCacheCluster operation.</p>
@@ -4068,130 +3245,6 @@ export interface CreateCacheClusterResult {
 }
 
 /**
- * <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
- * @public
- */
-export class InsufficientCacheClusterCapacityFault extends __BaseException {
-  readonly name: "InsufficientCacheClusterCapacityFault" = "InsufficientCacheClusterCapacityFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientCacheClusterCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientCacheClusterCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientCacheClusterCapacityFault.prototype);
-  }
-}
-
-/**
- * <p>The VPC network is in an invalid state.</p>
- * @public
- */
-export class InvalidVPCNetworkStateFault extends __BaseException {
-  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
-    super({
-      name: "InvalidVPCNetworkStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes in a single cluster.</p>
- * @public
- */
-export class NodeQuotaForClusterExceededFault extends __BaseException {
-  readonly name: "NodeQuotaForClusterExceededFault" = "NodeQuotaForClusterExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NodeQuotaForClusterExceededFault, __BaseException>) {
-    super({
-      name: "NodeQuotaForClusterExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NodeQuotaForClusterExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes per customer.</p>
- * @public
- */
-export class NodeQuotaForCustomerExceededFault extends __BaseException {
-  readonly name: "NodeQuotaForCustomerExceededFault" = "NodeQuotaForCustomerExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NodeQuotaForCustomerExceededFault, __BaseException>) {
-    super({
-      name: "NodeQuotaForCustomerExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NodeQuotaForCustomerExceededFault.prototype);
-  }
-}
-
-/**
- * <p>A cache parameter group with the requested name already exists.</p>
- * @public
- */
-export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "CacheParameterGroupAlreadyExistsFault" = "CacheParameterGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheParameterGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "CacheParameterGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheParameterGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the maximum number of cache
- *             security groups.</p>
- * @public
- */
-export class CacheParameterGroupQuotaExceededFault extends __BaseException {
-  readonly name: "CacheParameterGroupQuotaExceededFault" = "CacheParameterGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheParameterGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "CacheParameterGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheParameterGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>CreateCacheParameterGroup</code> operation.</p>
  * @public
  */
@@ -4280,68 +3333,6 @@ export interface CreateCacheParameterGroupResult {
 }
 
 /**
- * <p>The current state of the cache parameter group does not allow the requested operation
- *             to occur.</p>
- * @public
- */
-export class InvalidCacheParameterGroupStateFault extends __BaseException {
-  readonly name: "InvalidCacheParameterGroupStateFault" = "InvalidCacheParameterGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCacheParameterGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidCacheParameterGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCacheParameterGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>A cache security group with the specified name already exists.</p>
- * @public
- */
-export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "CacheSecurityGroupAlreadyExistsFault" = "CacheSecurityGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSecurityGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "CacheSecurityGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSecurityGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             security groups.</p>
- * @public
- */
-export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
-  readonly name: "CacheSecurityGroupQuotaExceededFault" = "CacheSecurityGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSecurityGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "CacheSecurityGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSecurityGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>CreateCacheSecurityGroup</code> operation.</p>
  * @public
  */
@@ -4397,69 +3388,6 @@ export interface CreateCacheSecurityGroupResult {
    * @public
    */
   CacheSecurityGroup?: CacheSecurityGroup | undefined;
-}
-
-/**
- * <p>The requested cache subnet group name is already in use by an existing cache subnet
- *             group.</p>
- * @public
- */
-export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "CacheSubnetGroupAlreadyExistsFault" = "CacheSubnetGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSubnetGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "CacheSubnetGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSubnetGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             subnet groups.</p>
- * @public
- */
-export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
-  readonly name: "CacheSubnetGroupQuotaExceededFault" = "CacheSubnetGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSubnetGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "CacheSubnetGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSubnetGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the allowed number of subnets
- *             in a cache subnet group.</p>
- * @public
- */
-export class CacheSubnetQuotaExceededFault extends __BaseException {
-  readonly name: "CacheSubnetQuotaExceededFault" = "CacheSubnetQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSubnetQuotaExceededFault, __BaseException>) {
-    super({
-      name: "CacheSubnetQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSubnetQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -4630,49 +3558,6 @@ export interface CreateCacheSubnetGroupResult {
    * @public
    */
   CacheSubnetGroup?: CacheSubnetGroup | undefined;
-}
-
-/**
- * <p>An invalid subnet identifier was specified.</p>
- * @public
- */
-export class InvalidSubnet extends __BaseException {
-  readonly name: "InvalidSubnet" = "InvalidSubnet";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
-    super({
-      name: "InvalidSubnet",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnet.prototype);
-  }
-}
-
-/**
- * <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically
- *             occurs when a user sets one subnet ID to a regional Availability Zone and a different
- *             one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed
- *             on this service.</p>
- * @public
- */
-export class SubnetNotAllowedFault extends __BaseException {
-  readonly name: "SubnetNotAllowedFault" = "SubnetNotAllowedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubnetNotAllowedFault, __BaseException>) {
-    super({
-      name: "SubnetNotAllowedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubnetNotAllowedFault.prototype);
-  }
 }
 
 /**
@@ -4887,26 +3772,6 @@ export interface CreateGlobalReplicationGroupResult {
    * @public
    */
   GlobalReplicationGroup?: GlobalReplicationGroup | undefined;
-}
-
-/**
- * <p>The Global datastore name already exists.</p>
- * @public
- */
-export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "GlobalReplicationGroupAlreadyExistsFault" = "GlobalReplicationGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalReplicationGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "GlobalReplicationGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalReplicationGroupAlreadyExistsFault.prototype);
-  }
 }
 
 /**
@@ -5585,140 +4450,6 @@ export interface CreateReplicationGroupResult {
 }
 
 /**
- * <p>The Global datastore does not exist</p>
- * @public
- */
-export class GlobalReplicationGroupNotFoundFault extends __BaseException {
-  readonly name: "GlobalReplicationGroupNotFoundFault" = "GlobalReplicationGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalReplicationGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "GlobalReplicationGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalReplicationGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested cluster is not in the <code>available</code> state.</p>
- * @public
- */
-export class InvalidCacheClusterStateFault extends __BaseException {
-  readonly name: "InvalidCacheClusterStateFault" = "InvalidCacheClusterStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCacheClusterStateFault, __BaseException>) {
-    super({
-      name: "InvalidCacheClusterStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCacheClusterStateFault.prototype);
-  }
-}
-
-/**
- * <p>The Global datastore is not available or in primary-only state.</p>
- * @public
- */
-export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
-  readonly name: "InvalidGlobalReplicationGroupStateFault" = "InvalidGlobalReplicationGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGlobalReplicationGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidGlobalReplicationGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGlobalReplicationGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>The user group is not in an active state.</p>
- * @public
- */
-export class InvalidUserGroupStateFault extends __BaseException {
-  readonly name: "InvalidUserGroupStateFault" = "InvalidUserGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidUserGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidUserGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidUserGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the maximum allowed number of
- *             node groups (shards) in a single replication group. The default maximum is 90</p>
- * @public
- */
-export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseException {
-  readonly name: "NodeGroupsPerReplicationGroupQuotaExceededFault" = "NodeGroupsPerReplicationGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NodeGroupsPerReplicationGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "NodeGroupsPerReplicationGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NodeGroupsPerReplicationGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The specified replication group already exists.</p>
- * @public
- */
-export class ReplicationGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "ReplicationGroupAlreadyExistsFault" = "ReplicationGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicationGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ReplicationGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicationGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DataStorageUnit = {
-  GB: "GB",
-} as const;
-
-/**
- * @public
- */
-export type DataStorageUnit = (typeof DataStorageUnit)[keyof typeof DataStorageUnit];
-
-/**
  * <p>The data storage limit.</p>
  * @public
  */
@@ -5996,66 +4727,6 @@ export interface CreateServerlessCacheResponse {
 }
 
 /**
- * <p>You must enter valid credentials.</p>
- * @public
- */
-export class InvalidCredentialsException extends __BaseException {
-  readonly name: "InvalidCredentialsException" = "InvalidCredentialsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCredentialsException, __BaseException>) {
-    super({
-      name: "InvalidCredentialsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCredentialsException.prototype);
-  }
-}
-
-/**
- * <p>A serverless cache with this name already exists.</p>
- * @public
- */
-export class ServerlessCacheAlreadyExistsFault extends __BaseException {
-  readonly name: "ServerlessCacheAlreadyExistsFault" = "ServerlessCacheAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerlessCacheAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ServerlessCacheAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerlessCacheAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The number of serverless caches exceeds the customer quota.</p>
- * @public
- */
-export class ServerlessCacheQuotaForCustomerExceededFault extends __BaseException {
-  readonly name: "ServerlessCacheQuotaForCustomerExceededFault" = "ServerlessCacheQuotaForCustomerExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerlessCacheQuotaForCustomerExceededFault, __BaseException>) {
-    super({
-      name: "ServerlessCacheQuotaForCustomerExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerlessCacheQuotaForCustomerExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateServerlessCacheSnapshotRequest {
@@ -6148,52 +4819,6 @@ export interface CreateSnapshotResult {
 }
 
 /**
- * <p>You attempted one of the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
- *                         <code>cache.t1.micro</code> cache node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Valkey or Redis OSS.</p>
- *             </li>
- *          </ul>
- *          <p>Neither of these are supported by ElastiCache.</p>
- * @public
- */
-export class SnapshotFeatureNotSupportedFault extends __BaseException {
-  readonly name: "SnapshotFeatureNotSupportedFault" = "SnapshotFeatureNotSupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotFeatureNotSupportedFault, __BaseException>) {
-    super({
-      name: "SnapshotFeatureNotSupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotFeatureNotSupportedFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InputAuthenticationType = {
-  IAM: "iam",
-  NO_PASSWORD: "no-password-required",
-  PASSWORD: "password",
-} as const;
-
-/**
- * @public
- */
-export type InputAuthenticationType = (typeof InputAuthenticationType)[keyof typeof InputAuthenticationType];
-
-/**
  * <p>Specifies the authentication mode to use.</p>
  * @public
  */
@@ -6266,41 +4891,6 @@ export interface CreateUserMessage {
    */
   AuthenticationMode?: AuthenticationMode | undefined;
 }
-
-/**
- * <p>A user with this username already exists.</p>
- * @public
- */
-export class DuplicateUserNameFault extends __BaseException {
-  readonly name: "DuplicateUserNameFault" = "DuplicateUserNameFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateUserNameFault, __BaseException>) {
-    super({
-      name: "DuplicateUserNameFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateUserNameFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationType = {
-  IAM: "iam",
-  NO_PASSWORD: "no-password",
-  PASSWORD: "password",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * <p>Indicates whether the user requires a password to authenticate.</p>
@@ -6380,46 +4970,6 @@ export interface User {
 }
 
 /**
- * <p>A user with this ID already exists.</p>
- * @public
- */
-export class UserAlreadyExistsFault extends __BaseException {
-  readonly name: "UserAlreadyExistsFault" = "UserAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "UserAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The quota of users has been exceeded.</p>
- * @public
- */
-export class UserQuotaExceededFault extends __BaseException {
-  readonly name: "UserQuotaExceededFault" = "UserQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserQuotaExceededFault, __BaseException>) {
-    super({
-      name: "UserQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateUserGroupMessage {
@@ -6447,26 +4997,6 @@ export interface CreateUserGroupMessage {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>You must add default user to a user group.</p>
- * @public
- */
-export class DefaultUserRequired extends __BaseException {
-  readonly name: "DefaultUserRequired" = "DefaultUserRequired";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DefaultUserRequired, __BaseException>) {
-    super({
-      name: "DefaultUserRequired",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DefaultUserRequired.prototype);
-  }
 }
 
 /**
@@ -6545,46 +5075,6 @@ export interface UserGroup {
    * @public
    */
   ARN?: string | undefined;
-}
-
-/**
- * <p>The user group with this ID already exists.</p>
- * @public
- */
-export class UserGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "UserGroupAlreadyExistsFault" = "UserGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "UserGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The number of users exceeds the user group limit.</p>
- * @public
- */
-export class UserGroupQuotaExceededFault extends __BaseException {
-  readonly name: "UserGroupQuotaExceededFault" = "UserGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "UserGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserGroupQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -6784,26 +5274,6 @@ export interface DecreaseReplicaCountResult {
 }
 
 /**
- * <p>The operation was not performed because no changes were required.</p>
- * @public
- */
-export class NoOperationFault extends __BaseException {
-  readonly name: "NoOperationFault" = "NoOperationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoOperationFault, __BaseException>) {
-    super({
-      name: "NoOperationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoOperationFault.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>DeleteCacheCluster</code> operation.</p>
  * @public
  */
@@ -6864,26 +5334,6 @@ export interface DeleteCacheSecurityGroupMessage {
    * @public
    */
   CacheSecurityGroupName: string | undefined;
-}
-
-/**
- * <p>The requested cache subnet group is currently in use.</p>
- * @public
- */
-export class CacheSubnetGroupInUse extends __BaseException {
-  readonly name: "CacheSubnetGroupInUse" = "CacheSubnetGroupInUse";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CacheSubnetGroupInUse, __BaseException>) {
-    super({
-      name: "CacheSubnetGroupInUse",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CacheSubnetGroupInUse.prototype);
-  }
 }
 
 /**
@@ -7052,26 +5502,6 @@ export interface DeleteSnapshotResult {
 }
 
 /**
- * <p>The default user assigned to the user group.</p>
- * @public
- */
-export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
-  readonly name: "DefaultUserAssociatedToUserGroupFault" = "DefaultUserAssociatedToUserGroupFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DefaultUserAssociatedToUserGroupFault, __BaseException>) {
-    super({
-      name: "DefaultUserAssociatedToUserGroupFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DefaultUserAssociatedToUserGroupFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteUserMessage {
@@ -7080,26 +5510,6 @@ export interface DeleteUserMessage {
    * @public
    */
   UserId: string | undefined;
-}
-
-/**
- * <p>The user is not in active state.</p>
- * @public
- */
-export class InvalidUserStateFault extends __BaseException {
-  readonly name: "InvalidUserStateFault" = "InvalidUserStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidUserStateFault, __BaseException>) {
-    super({
-      name: "InvalidUserStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidUserStateFault.prototype);
-  }
 }
 
 /**
@@ -7375,20 +5785,6 @@ export interface CacheNodeTypeSpecificValue {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChangeType = {
-  immediate: "immediate",
-  requires_reboot: "requires-reboot",
-} as const;
-
-/**
- * @public
- */
-export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
 
 /**
  * <p>A parameter that has a different value for each cache node type it is applied to. For
@@ -7770,27 +6166,6 @@ export interface DescribeEngineDefaultParametersResult {
    */
   EngineDefaults?: EngineDefaults | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  cache_cluster: "cache-cluster",
-  cache_parameter_group: "cache-parameter-group",
-  cache_security_group: "cache-security-group",
-  cache_subnet_group: "cache-subnet-group",
-  replication_group: "replication-group",
-  serverless_cache: "serverless-cache",
-  serverless_cache_snapshot: "serverless-cache-snapshot",
-  user: "user",
-  user_group: "user-group",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * <p>Represents the input of a <code>DescribeEvents</code> operation.</p>
@@ -9126,26 +7501,6 @@ export interface ReservedCacheNodesOfferingMessage {
 }
 
 /**
- * <p>The requested cache node offering does not exist.</p>
- * @public
- */
-export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
-  readonly name: "ReservedCacheNodesOfferingNotFoundFault" = "ReservedCacheNodesOfferingNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedCacheNodesOfferingNotFoundFault, __BaseException>) {
-    super({
-      name: "ReservedCacheNodesOfferingNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedCacheNodesOfferingNotFoundFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeServerlessCachesRequest {
@@ -9254,21 +7609,6 @@ export interface DescribeServerlessCacheSnapshotsResponse {
 
 /**
  * @public
- * @enum
- */
-export const ServiceUpdateStatus = {
-  AVAILABLE: "available",
-  CANCELLED: "cancelled",
-  EXPIRED: "expired",
-} as const;
-
-/**
- * @public
- */
-export type ServiceUpdateStatus = (typeof ServiceUpdateStatus)[keyof typeof ServiceUpdateStatus];
-
-/**
- * @public
  */
 export interface DescribeServiceUpdatesMessage {
   /**
@@ -9297,35 +7637,6 @@ export interface DescribeServiceUpdatesMessage {
    */
   Marker?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceUpdateSeverity = {
-  CRITICAL: "critical",
-  IMPORTANT: "important",
-  LOW: "low",
-  MEDIUM: "medium",
-} as const;
-
-/**
- * @public
- */
-export type ServiceUpdateSeverity = (typeof ServiceUpdateSeverity)[keyof typeof ServiceUpdateSeverity];
-
-/**
- * @public
- * @enum
- */
-export const ServiceUpdateType = {
-  SECURITY_UPDATE: "security-update",
-} as const;
-
-/**
- * @public
- */
-export type ServiceUpdateType = (typeof ServiceUpdateType)[keyof typeof ServiceUpdateType];
 
 /**
  * <p>An update that you can apply to your Valkey or Redis OSS clusters.</p>
@@ -9597,38 +7908,6 @@ export interface DescribeUpdateActionsMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const NodeUpdateInitiatedBy = {
-  CUSTOMER: "customer",
-  SYSTEM: "system",
-} as const;
-
-/**
- * @public
- */
-export type NodeUpdateInitiatedBy = (typeof NodeUpdateInitiatedBy)[keyof typeof NodeUpdateInitiatedBy];
-
-/**
- * @public
- * @enum
- */
-export const NodeUpdateStatus = {
-  COMPLETE: "complete",
-  IN_PROGRESS: "in-progress",
-  NOT_APPLIED: "not-applied",
-  STOPPED: "stopped",
-  STOPPING: "stopping",
-  WAITING_TO_START: "waiting-to-start",
-} as const;
-
-/**
- * @public
- */
-export type NodeUpdateStatus = (typeof NodeUpdateStatus)[keyof typeof NodeUpdateStatus];
-
-/**
  * <p>The status of the service update on the cache node</p>
  * @public
  */
@@ -9761,21 +8040,6 @@ export interface NodeGroupUpdateStatus {
    */
   NodeGroupMemberUpdateStatus?: NodeGroupMemberUpdateStatus[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SlaMet = {
-  NA: "n/a",
-  NO: "no",
-  YES: "yes",
-} as const;
-
-/**
- * @public
- */
-export type SlaMet = (typeof SlaMet)[keyof typeof SlaMet];
 
 /**
  * <p>The status of the service update for a specific replication group</p>
@@ -10289,26 +8553,6 @@ export interface IncreaseReplicaCountResult {
 }
 
 /**
- * <p>The KMS key supplied is not valid.</p>
- * @public
- */
-export class InvalidKMSKeyFault extends __BaseException {
-  readonly name: "InvalidKMSKeyFault" = "InvalidKMSKeyFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidKMSKeyFault, __BaseException>) {
-    super({
-      name: "InvalidKMSKeyFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidKMSKeyFault.prototype);
-  }
-}
-
-/**
  * <p>The input parameters for the <code>ListAllowedNodeTypeModifications</code>
  *             operation.</p>
  * @public
@@ -10356,22 +8600,6 @@ export interface ListTagsForResourceMessage {
    */
   ResourceName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthTokenUpdateStrategyType = {
-  DELETE: "DELETE",
-  ROTATE: "ROTATE",
-  SET: "SET",
-} as const;
-
-/**
- * @public
- */
-export type AuthTokenUpdateStrategyType =
-  (typeof AuthTokenUpdateStrategyType)[keyof typeof AuthTokenUpdateStrategyType];
 
 /**
  * <p>Represents the input of a <code>ModifyCacheCluster</code> operation.</p>
@@ -10911,26 +9139,6 @@ export interface ModifyCacheSubnetGroupResult {
    * @public
    */
   CacheSubnetGroup?: CacheSubnetGroup | undefined;
-}
-
-/**
- * <p>The requested subnet is being used by another cache subnet group.</p>
- * @public
- */
-export class SubnetInUse extends __BaseException {
-  readonly name: "SubnetInUse" = "SubnetInUse";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubnetInUse, __BaseException>) {
-    super({
-      name: "SubnetInUse",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubnetInUse.prototype);
-  }
 }
 
 /**
@@ -11645,47 +9853,6 @@ export interface PurchaseReservedCacheNodesOfferingResult {
 }
 
 /**
- * <p>You already have a reservation with the given identifier.</p>
- * @public
- */
-export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
-  readonly name: "ReservedCacheNodeAlreadyExistsFault" = "ReservedCacheNodeAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedCacheNodeAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ReservedCacheNodeAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedCacheNodeAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be processed because it would exceed the user's cache node
- *             quota.</p>
- * @public
- */
-export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
-  readonly name: "ReservedCacheNodeQuotaExceededFault" = "ReservedCacheNodeQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedCacheNodeQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ReservedCacheNodeQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedCacheNodeQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
@@ -11776,26 +9943,6 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 /**
- * <p>The requested tag was not found on this resource.</p>
- * @public
- */
-export class TagNotFoundFault extends __BaseException {
-  readonly name: "TagNotFoundFault" = "TagNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagNotFoundFault, __BaseException>) {
-    super({
-      name: "TagNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagNotFoundFault.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>ResetCacheParameterGroup</code> operation.</p>
  * @public
  */
@@ -11828,27 +9975,6 @@ export interface ResetCacheParameterGroupMessage {
 }
 
 /**
- * <p>The specified Amazon EC2 security group is not authorized for the specified cache
- *             security group.</p>
- * @public
- */
-export class AuthorizationNotFoundFault extends __BaseException {
-  readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationNotFoundFault, __BaseException>) {
-    super({
-      name: "AuthorizationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationNotFoundFault.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>RevokeCacheSecurityGroupIngress</code>
  *             operation.</p>
  * @public
@@ -11873,4 +9999,139 @@ export interface RevokeCacheSecurityGroupIngressMessage {
    * @public
    */
   EC2SecurityGroupOwnerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeCacheSecurityGroupIngressResult {
+  /**
+   * <p>Represents the output of one of the following operations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AuthorizeCacheSecurityGroupIngress</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateCacheSecurityGroup</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RevokeCacheSecurityGroupIngress</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CacheSecurityGroup?: CacheSecurityGroup | undefined;
+}
+
+/**
+ * <p>The endpoint from which data should be migrated.</p>
+ * @public
+ */
+export interface CustomerNodeEndpoint {
+  /**
+   * <p>The address of the node endpoint</p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p>The port of the node endpoint</p>
+   * @public
+   */
+  Port?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMigrationMessage {
+  /**
+   * <p>The ID of the replication group to which data should be migrated.</p>
+   * @public
+   */
+  ReplicationGroupId: string | undefined;
+
+  /**
+   * <p>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster mode
+   *             disabled), the list should have only one element.</p>
+   * @public
+   */
+  CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMigrationResponse {
+  /**
+   * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
+   * @public
+   */
+  ReplicationGroup?: ReplicationGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestFailoverMessage {
+  /**
+   * <p>The name of the replication group (console: cluster) whose automatic failover is being
+   *             tested by this operation.</p>
+   * @public
+   */
+  ReplicationGroupId: string | undefined;
+
+  /**
+   * <p>The name of the node group (called shard in the console) in this replication group on
+   *             which automatic failover is to be tested. You may test automatic failover on up to 15
+   *             node groups in any rolling 24-hour period.</p>
+   * @public
+   */
+  NodeGroupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestFailoverResult {
+  /**
+   * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
+   * @public
+   */
+  ReplicationGroup?: ReplicationGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestMigrationMessage {
+  /**
+   * <p> The ID of the replication group to which data is to be migrated. </p>
+   * @public
+   */
+  ReplicationGroupId: string | undefined;
+
+  /**
+   * <p> List of endpoints from which data should be migrated. List should have only one
+   *             element. </p>
+   * @public
+   */
+  CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestMigrationResponse {
+  /**
+   * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
+   * @public
+   */
+  ReplicationGroup?: ReplicationGroup | undefined;
 }

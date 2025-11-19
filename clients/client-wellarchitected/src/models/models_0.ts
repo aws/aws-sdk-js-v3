@@ -1,75 +1,45 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WellArchitectedServiceException as __BaseException } from "./WellArchitectedServiceException";
-
-/**
- * <p>User does not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const IntegrationStatusInput = {
-  NOT_CONFIGURED: "NOT_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationStatusInput = (typeof IntegrationStatusInput)[keyof typeof IntegrationStatusInput];
-
-/**
- * @public
- * @enum
- */
-export const AccountJiraIssueManagementStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AccountJiraIssueManagementStatus =
-  (typeof AccountJiraIssueManagementStatus)[keyof typeof AccountJiraIssueManagementStatus];
-
-/**
- * @public
- * @enum
- */
-export const IssueManagementType = {
-  AUTO: "AUTO",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type IssueManagementType = (typeof IssueManagementType)[keyof typeof IssueManagementType];
+import {
+  AccountJiraIssueManagementStatus,
+  AdditionalResourceType,
+  AnswerReason,
+  CheckFailureReason,
+  CheckProvider,
+  CheckStatus,
+  ChoiceReason,
+  ChoiceStatus,
+  DefinitionType,
+  DifferenceStatus,
+  DiscoveryIntegrationStatus,
+  ImportLensStatus,
+  IntegratingService,
+  IntegrationStatus,
+  IntegrationStatusInput,
+  IssueManagementType,
+  LensStatus,
+  LensStatusType,
+  LensType,
+  MetricType,
+  NotificationType,
+  OrganizationSharingStatus,
+  PermissionType,
+  ProfileNotificationType,
+  ProfileOwnerType,
+  Question,
+  QuestionPriority,
+  QuestionType,
+  ReportFormat,
+  ReviewTemplateAnswerStatus,
+  ReviewTemplateUpdateStatus,
+  Risk,
+  ShareInvitationAction,
+  ShareResourceType,
+  ShareStatus,
+  TrustedAdvisorIntegrationStatus,
+  WorkloadEnvironment,
+  WorkloadImprovementStatus,
+  WorkloadIssueManagementStatus,
+} from "./enums";
 
 /**
  * <p>Account-level: Input for the Jira configuration.</p>
@@ -100,20 +70,6 @@ export interface AccountJiraConfigurationInput {
    */
   IntegrationStatus?: IntegrationStatusInput | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IntegrationStatus = {
-  CONFIGURED: "CONFIGURED",
-  NOT_CONFIGURED: "NOT_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
 
 /**
  * <p>Account-level: Output configuration of the Jira integration.</p>
@@ -158,23 +114,6 @@ export interface AccountJiraConfigurationOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const CheckStatus = {
-  ERROR: "ERROR",
-  FETCH_FAILED: "FETCH_FAILED",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-  OKAY: "OKAY",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type CheckStatus = (typeof CheckStatus)[keyof typeof CheckStatus];
-
-/**
  * <p>The choice content.</p>
  * @public
  */
@@ -191,20 +130,6 @@ export interface ChoiceContent {
    */
   Url?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AdditionalResourceType = {
-  HELPFUL_RESOURCE: "HELPFUL_RESOURCE",
-  IMPROVEMENT_PLAN: "IMPROVEMENT_PLAN",
-} as const;
-
-/**
- * @public
- */
-export type AdditionalResourceType = (typeof AdditionalResourceType)[keyof typeof AdditionalResourceType];
 
 /**
  * <p>The choice level additional resources for a custom lens.</p>
@@ -224,38 +149,6 @@ export interface AdditionalResources {
    */
   Content?: ChoiceContent[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChoiceReason = {
-  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
-  NONE: "NONE",
-  OTHER: "OTHER",
-  OUT_OF_SCOPE: "OUT_OF_SCOPE",
-} as const;
-
-/**
- * @public
- */
-export type ChoiceReason = (typeof ChoiceReason)[keyof typeof ChoiceReason];
-
-/**
- * @public
- * @enum
- */
-export const ChoiceStatus = {
-  NOT_APPLICABLE: "NOT_APPLICABLE",
-  SELECTED: "SELECTED",
-  UNSELECTED: "UNSELECTED",
-} as const;
-
-/**
- * @public
- */
-export type ChoiceStatus = (typeof ChoiceStatus)[keyof typeof ChoiceStatus];
 
 /**
  * <p>A choice that has been answered on a question in your workload.</p>
@@ -350,40 +243,6 @@ export interface JiraConfiguration {
    */
   LastSyncedTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnswerReason = {
-  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
-  NONE: "NONE",
-  OTHER: "OTHER",
-  OUT_OF_SCOPE: "OUT_OF_SCOPE",
-} as const;
-
-/**
- * @public
- */
-export type AnswerReason = (typeof AnswerReason)[keyof typeof AnswerReason];
-
-/**
- * @public
- * @enum
- */
-export const Risk = {
-  HIGH: "HIGH",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-  NOT_APPLICABLE: "NOT_APPLICABLE",
-  UNANSWERED: "UNANSWERED",
-} as const;
-
-/**
- * @public
- */
-export type Risk = (typeof Risk)[keyof typeof Risk];
 
 /**
  * <p>An answer of the question.</p>
@@ -515,20 +374,6 @@ export interface ChoiceAnswerSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const QuestionType = {
-  NON_PRIORITIZED: "NON_PRIORITIZED",
-  PRIORITIZED: "PRIORITIZED",
-} as const;
-
-/**
- * @public
- */
-export type QuestionType = (typeof QuestionType)[keyof typeof QuestionType];
-
-/**
  * <p>An answer summary of a lens review in a workload.</p>
  * @public
  */
@@ -622,152 +467,6 @@ export interface AssociateLensesInput {
 }
 
 /**
- * <p>The resource has already been processed, was deleted, or is too large.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Identifier of the resource affected.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Type of the resource affected.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>There is a problem with the Well-Architected Tool API service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Identifier of the resource affected.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Type of the resource affected.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Service Quotas requirement to identify originating quota.</p>
-   * @public
-   */
-  QuotaCode?: string | undefined;
-
-  /**
-   * <p>Service Quotas requirement to identify originating service.</p>
-   * @public
-   */
-  ServiceCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
-  }
-}
-
-/**
  * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -783,62 +482,6 @@ export interface ValidationExceptionField {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The user input is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The reason why the request failed validation.</p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that caused the error, if applicable.</p>
-   * @public
-   */
-  Fields?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Fields = opts.Fields;
-  }
 }
 
 /**
@@ -875,35 +518,6 @@ export interface BestPractice {
    */
   ChoiceTitle?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CheckProvider = {
-  TRUSTED_ADVISOR: "TRUSTED_ADVISOR",
-} as const;
-
-/**
- * @public
- */
-export type CheckProvider = (typeof CheckProvider)[keyof typeof CheckProvider];
-
-/**
- * @public
- * @enum
- */
-export const CheckFailureReason = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  ASSUME_ROLE_ERROR: "ASSUME_ROLE_ERROR",
-  PREMIUM_SUPPORT_REQUIRED: "PREMIUM_SUPPORT_REQUIRED",
-  UNKNOWN_ERROR: "UNKNOWN_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type CheckFailureReason = (typeof CheckFailureReason)[keyof typeof CheckFailureReason];
 
 /**
  * <p>Account details for a Well-Architected best practice in relation to Trusted Advisor checks.</p>
@@ -1187,19 +801,6 @@ export interface LensMetric {
 }
 
 /**
- * @public
- * @enum
- */
-export const MetricType = {
-  WORKLOAD: "WORKLOAD",
-} as const;
-
-/**
- * @public
- */
-export type MetricType = (typeof MetricType)[keyof typeof MetricType];
-
-/**
  * <p>A metric that contributes to the consolidated report.</p>
  * @public
  */
@@ -1304,60 +905,6 @@ export interface CreateLensShareOutput {
    * @public
    */
   ShareId?: string | undefined;
-}
-
-/**
- * <p>The user has reached their resource quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Identifier of the resource affected.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>Type of the resource affected.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>Service Quotas requirement to identify originating quota.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-
-  /**
-   * <p>Service Quotas requirement to identify originating service.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
-  }
 }
 
 /**
@@ -1717,35 +1264,6 @@ export interface CreateTemplateShareOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const TrustedAdvisorIntegrationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type TrustedAdvisorIntegrationStatus =
-  (typeof TrustedAdvisorIntegrationStatus)[keyof typeof TrustedAdvisorIntegrationStatus];
-
-/**
- * @public
- * @enum
- */
-export const DefinitionType = {
-  APP_REGISTRY: "APP_REGISTRY",
-  WORKLOAD_METADATA: "WORKLOAD_METADATA",
-} as const;
-
-/**
- * @public
- */
-export type DefinitionType = (typeof DefinitionType)[keyof typeof DefinitionType];
-
-/**
  * <p>Discovery configuration associated to the workload.</p>
  * @public
  */
@@ -1763,36 +1281,6 @@ export interface WorkloadDiscoveryConfig {
    */
   WorkloadResourceDefinition?: DefinitionType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadEnvironment = {
-  PREPRODUCTION: "PREPRODUCTION",
-  PRODUCTION: "PRODUCTION",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadEnvironment = (typeof WorkloadEnvironment)[keyof typeof WorkloadEnvironment];
-
-/**
- * @public
- * @enum
- */
-export const WorkloadIssueManagementStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  INHERIT: "INHERIT",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadIssueManagementStatus =
-  (typeof WorkloadIssueManagementStatus)[keyof typeof WorkloadIssueManagementStatus];
 
 /**
  * <p>Workload-level: Input for the Jira configuration.</p>
@@ -2118,20 +1606,6 @@ export interface CreateWorkloadOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const PermissionType = {
-  CONTRIBUTOR: "CONTRIBUTOR",
-  READONLY: "READONLY",
-} as const;
-
-/**
- * @public
- */
-export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
-
-/**
  * <p>Input for Create Workload Share</p>
  * @public
  */
@@ -2188,21 +1662,6 @@ export interface CreateWorkloadShareOutput {
    */
   ShareId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LensStatusType = {
-  ALL: "ALL",
-  DRAFT: "DRAFT",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type LensStatusType = (typeof LensStatusType)[keyof typeof LensStatusType];
 
 /**
  * @public
@@ -2459,21 +1918,6 @@ export interface DeleteWorkloadShareInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DifferenceStatus = {
-  DELETED: "DELETED",
-  NEW: "NEW",
-  UPDATED: "UPDATED",
-} as const;
-
-/**
- * @public
- */
-export type DifferenceStatus = (typeof DifferenceStatus)[keyof typeof DifferenceStatus];
-
-/**
  * <p>Input to disassociate lens reviews.</p>
  * @public
  */
@@ -2508,20 +1952,6 @@ export interface DisassociateProfilesInput {
    */
   ProfileArns: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DiscoveryIntegrationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DiscoveryIntegrationStatus = (typeof DiscoveryIntegrationStatus)[keyof typeof DiscoveryIntegrationStatus];
 
 /**
  * @public
@@ -2642,20 +2072,6 @@ export interface GetAnswerOutput {
 
 /**
  * @public
- * @enum
- */
-export const ReportFormat = {
-  JSON: "JSON",
-  PDF: "PDF",
-} as const;
-
-/**
- * @public
- */
-export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
-
-/**
- * @public
  */
 export interface GetConsolidatedReportInput {
   /**
@@ -2711,20 +2127,6 @@ export interface GetConsolidatedReportOutput {
    */
   Base64String?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OrganizationSharingStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationSharingStatus = (typeof OrganizationSharingStatus)[keyof typeof OrganizationSharingStatus];
 
 /**
  * @public
@@ -2894,23 +2296,6 @@ export interface JiraSelectedQuestionConfiguration {
    */
   SelectedPillars?: SelectedPillar[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LensStatus = {
-  CURRENT: "CURRENT",
-  DELETED: "DELETED",
-  DEPRECATED: "DEPRECATED",
-  NOT_CURRENT: "NOT_CURRENT",
-  UNSHARED: "UNSHARED",
-} as const;
-
-/**
- * @public
- */
-export type LensStatus = (typeof LensStatus)[keyof typeof LensStatus];
 
 /**
  * <p>A pillar review summary of a lens review.</p>
@@ -3339,23 +2724,6 @@ export interface GetMilestoneInput {
    */
   MilestoneNumber: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadImprovementStatus = {
-  COMPLETE: "COMPLETE",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_APPLICABLE: "NOT_APPLICABLE",
-  NOT_STARTED: "NOT_STARTED",
-  RISK_ACKNOWLEDGED: "RISK_ACKNOWLEDGED",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadImprovementStatus = (typeof WorkloadImprovementStatus)[keyof typeof WorkloadImprovementStatus];
 
 /**
  * <p>Workload-level: Output configuration of the Jira integration.</p>
@@ -4051,34 +3419,6 @@ export interface GetReviewTemplateInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const Question = {
-  ANSWERED: "ANSWERED",
-  UNANSWERED: "UNANSWERED",
-} as const;
-
-/**
- * @public
- */
-export type Question = (typeof Question)[keyof typeof Question];
-
-/**
- * @public
- * @enum
- */
-export const ReviewTemplateUpdateStatus = {
-  CURRENT: "CURRENT",
-  LENS_NOT_CURRENT: "LENS_NOT_CURRENT",
-} as const;
-
-/**
- * @public
- */
-export type ReviewTemplateUpdateStatus = (typeof ReviewTemplateUpdateStatus)[keyof typeof ReviewTemplateUpdateStatus];
-
-/**
  * <p>A review template.</p>
  * @public
  */
@@ -4191,20 +3531,6 @@ export interface GetReviewTemplateAnswerInput {
    */
   QuestionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReviewTemplateAnswerStatus = {
-  ANSWERED: "ANSWERED",
-  UNANSWERED: "UNANSWERED",
-} as const;
-
-/**
- * @public
- */
-export type ReviewTemplateAnswerStatus = (typeof ReviewTemplateAnswerStatus)[keyof typeof ReviewTemplateAnswerStatus];
 
 /**
  * <p>An answer of the question.</p>
@@ -4555,21 +3881,6 @@ export interface ImportLensInput {
 
 /**
  * @public
- * @enum
- */
-export const ImportLensStatus = {
-  COMPLETE: "COMPLETE",
-  ERROR: "ERROR",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ImportLensStatus = (typeof ImportLensStatus)[keyof typeof ImportLensStatus];
-
-/**
- * @public
  */
 export interface ImportLensOutput {
   /**
@@ -4635,19 +3946,6 @@ export interface ImprovementSummary {
    */
   JiraConfiguration?: JiraConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IntegratingService = {
-  JIRA: "JIRA",
-} as const;
-
-/**
- * @public
- */
-export type IntegratingService = (typeof IntegratingService)[keyof typeof IntegratingService];
 
 /**
  * <p>A lens review summary of a workload.</p>
@@ -4717,26 +4015,6 @@ export interface LensReviewSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ShareStatus = {
-  ACCEPTED: "ACCEPTED",
-  ASSOCIATED: "ASSOCIATED",
-  ASSOCIATING: "ASSOCIATING",
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  REJECTED: "REJECTED",
-  REVOKED: "REVOKED",
-} as const;
-
-/**
- * @public
- */
-export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
-
-/**
  * <p>A lens share summary return object.</p>
  * @public
  */
@@ -4766,21 +4044,6 @@ export interface LensShareSummary {
    */
   StatusMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LensType = {
-  AWS_OFFICIAL: "AWS_OFFICIAL",
-  CUSTOM_SELF: "CUSTOM_SELF",
-  CUSTOM_SHARED: "CUSTOM_SHARED",
-} as const;
-
-/**
- * @public
- */
-export type LensType = (typeof LensType)[keyof typeof LensType];
 
 /**
  * <p>A lens summary of a lens.</p>
@@ -4920,20 +4183,6 @@ export interface LensUpgradeSummary {
    */
   ResourceName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QuestionPriority = {
-  NONE: "NONE",
-  PRIORITIZED: "PRIORITIZED",
-} as const;
-
-/**
- * @public
- */
-export type QuestionPriority = (typeof QuestionPriority)[keyof typeof QuestionPriority];
 
 /**
  * <p>Input to list answers.</p>
@@ -5637,20 +4886,6 @@ export interface ListNotificationsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const NotificationType = {
-  LENS_VERSION_DEPRECATED: "LENS_VERSION_DEPRECATED",
-  LENS_VERSION_UPGRADED: "LENS_VERSION_UPGRADED",
-} as const;
-
-/**
- * @public
- */
-export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
-
-/**
  * <p>A notification summary return object.</p>
  * @public
  */
@@ -5707,20 +4942,6 @@ export interface ListProfileNotificationsInput {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProfileNotificationType = {
-  PROFILE_ANSWERS_UPDATED: "PROFILE_ANSWERS_UPDATED",
-  PROFILE_DELETED: "PROFILE_DELETED",
-} as const;
-
-/**
- * @public
- */
-export type ProfileNotificationType = (typeof ProfileNotificationType)[keyof typeof ProfileNotificationType];
 
 /**
  * <p>The profile notification summary.</p>
@@ -5788,20 +5009,6 @@ export interface ListProfileNotificationsOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProfileOwnerType = {
-  SELF: "SELF",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type ProfileOwnerType = (typeof ProfileOwnerType)[keyof typeof ProfileOwnerType];
 
 /**
  * @public
@@ -6209,22 +5416,6 @@ export interface ListReviewTemplatesOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShareResourceType = {
-  LENS: "LENS",
-  PROFILE: "PROFILE",
-  TEMPLATE: "TEMPLATE",
-  WORKLOAD: "WORKLOAD",
-} as const;
-
-/**
- * @public
- */
-export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
 
 /**
  * <p>Input for List Share Invitations</p>
@@ -6688,20 +5879,6 @@ export interface ShareInvitation {
    */
   TemplateArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShareInvitationAction = {
-  ACCEPT: "ACCEPT",
-  REJECT: "REJECT",
-} as const;
-
-/**
- * @public
- */
-export type ShareInvitationAction = (typeof ShareInvitationAction)[keyof typeof ShareInvitationAction];
 
 /**
  * @public

@@ -568,7 +568,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { FSxServiceException as __FSxServiceException } from "../models/FSxServiceException";
 import {
   AccessPointAlreadyOwnedByYou as __AccessPointAlreadyOwnedByYou,
   ActiveDirectoryError as __ActiveDirectoryError,
@@ -610,7 +609,8 @@ import {
   TooManyAccessPoints as __TooManyAccessPoints,
   UnsupportedOperation as __UnsupportedOperation,
   VolumeNotFound as __VolumeNotFound,
-} from "../models/index";
+} from "../models/errors";
+import { FSxServiceException as __FSxServiceException } from "../models/FSxServiceException";
 
 /* eslint no-var: 0 */
 

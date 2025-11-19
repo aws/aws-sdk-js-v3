@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutUserPolicyRequest } from "../models/models_1";
+import { PutUserPolicyRequest } from "../models/models_0";
 import { PutUserPolicy } from "../schemas/schemas_0";
 
 /**

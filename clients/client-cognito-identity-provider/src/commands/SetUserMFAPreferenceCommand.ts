@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse } from "../models/models_1";
+import { SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse } from "../models/models_0";
 import { SetUserMFAPreference } from "../schemas/schemas_0";
 
 /**

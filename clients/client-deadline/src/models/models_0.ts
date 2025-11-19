@@ -1,9 +1,56 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { DeadlineServiceException as __BaseException } from "./DeadlineServiceException";
+import {
+  AcceleratorName,
+  AcceleratorType,
+  AutoScalingMode,
+  AutoScalingStatus,
+  BudgetActionType,
+  BudgetStatus,
+  ComparisonOperator,
+  CompletedStatus,
+  CpuArchitectureType,
+  CreateJobTargetTaskRunStatus,
+  CustomerManagedFleetOperatingSystemFamily,
+  DeadlinePrincipalType,
+  DefaultQueueBudgetAction,
+  DependencyConsumerResolutionStatus,
+  DesiredWorkerStatus,
+  Ec2MarketType,
+  EnvironmentTemplateType,
+  FileSystemLocationType,
+  FleetStatus,
+  JobAttachmentsFileSystem,
+  JobEntityErrorCode,
+  JobLifecycleStatus,
+  JobTargetTaskRunStatus,
+  JobTemplateType,
+  LicenseEndpointStatus,
+  MembershipLevel,
+  PathFormat,
+  QueueBlockedReason,
+  QueueFleetAssociationStatus,
+  QueueLimitAssociationStatus,
+  QueueStatus,
+  RunAs,
+  ServiceManagedFleetOperatingSystemFamily,
+  SessionActionStatus,
+  SessionLifecycleStatus,
+  SessionLifecycleTargetStatus,
+  SessionsStatisticsAggregationStatus,
+  StepLifecycleStatus,
+  StepParameterType,
+  StepTargetTaskRunStatus,
+  StorageProfileOperatingSystemFamily,
+  TagPropagationMode,
+  TaskRunStatus,
+  TaskTargetRunStatus,
+  UpdatedWorkerStatus,
+  UpdateJobLifecycleStatus,
+  UsageType,
+  WorkerStatus,
+} from "./enums";
 
 /**
  * <p>Defines the maximum and minimum number of GPU accelerators required for a worker
@@ -23,22 +70,6 @@ export interface AcceleratorCountRange {
    */
   max?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AcceleratorName = {
-  A10G: "a10g",
-  L4: "l4",
-  L40S: "l40s",
-  T4: "t4",
-} as const;
-
-/**
- * @public
- */
-export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
 
 /**
  * <p>Describes a specific GPU accelerator required for an Amazon Elastic Compute Cloud worker host.</p>
@@ -141,49 +172,6 @@ export interface AcceleratorTotalMemoryMiBRange {
    * @public
    */
   max?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AcceleratorType = {
-  /**
-   * GPU accelerator type.
-   */
-  GPU: "gpu",
-} as const;
-
-/**
- * @public
- */
-export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorType];
-
-/**
- * <p>You don't have permission to perform the action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
-   * @public
-   */
-  context?: Record<string, string> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.context = opts.context;
-  }
 }
 
 /**
@@ -538,36 +526,6 @@ export interface AssignedSession {
 
 /**
  * @public
- * @enum
- */
-export const MembershipLevel = {
-  CONTRIBUTOR: "CONTRIBUTOR",
-  MANAGER: "MANAGER",
-  OWNER: "OWNER",
-  VIEWER: "VIEWER",
-} as const;
-
-/**
- * @public
- */
-export type MembershipLevel = (typeof MembershipLevel)[keyof typeof MembershipLevel];
-
-/**
- * @public
- * @enum
- */
-export const DeadlinePrincipalType = {
-  GROUP: "GROUP",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type DeadlinePrincipalType = (typeof DeadlinePrincipalType)[keyof typeof DeadlinePrincipalType];
-
-/**
- * @public
  */
 export interface AssociateMemberToFarmRequest {
   /**
@@ -607,205 +565,6 @@ export interface AssociateMemberToFarmRequest {
 export interface AssociateMemberToFarmResponse {}
 
 /**
- * <p>Deadline Cloud can't process your request right now. Try again later.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The number of seconds a client should wait before retrying the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The requested resource can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that couldn't be found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that couldn't be found.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
-   * @public
-   */
-  context?: Record<string, string> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.context = opts.context;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceQuotaExceededExceptionReason = {
-  DEPENDENCY_LIMIT_EXCEEDED: "DEPENDENCY_LIMIT_EXCEEDED",
-  KMS_KEY_LIMIT_EXCEEDED: "KMS_KEY_LIMIT_EXCEEDED",
-  SERVICE_QUOTA_EXCEEDED_EXCEPTION: "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-} as const;
-
-/**
- * @public
- */
-export type ServiceQuotaExceededExceptionReason =
-  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
-
-/**
- * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A string that describes the reason the quota was exceeded.</p>
-   * @public
-   */
-  reason: ServiceQuotaExceededExceptionReason | undefined;
-
-  /**
-   * <p>The type of the affected resource</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>Identifies the service that exceeded the quota.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>Identifies the quota that has been exceeded.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * <p>The identifier of the affected resource.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
-   * @public
-   */
-  context?: Record<string, string> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.reason = opts.reason;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.resourceId = opts.resourceId;
-    this.context = opts.context;
-  }
-}
-
-/**
- * <p>Your request exceeded a request rate quota.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>Identifies the service that is being throttled.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>Identifies the quota that is being throttled.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The number of seconds a client should wait before retrying the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
-   * @public
-   */
-  context?: Record<string, string> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-    this.context = opts.context;
-  }
-}
-
-/**
  * <p>The details of a validation exception.</p>
  * @public
  */
@@ -821,64 +580,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason that the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>A list of fields that failed validation.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
-   * @public
-   */
-  context?: Record<string, string> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-    this.context = opts.context;
-  }
 }
 
 /**
@@ -1119,72 +820,6 @@ export interface AssumeFleetRoleForWorkerResponse {
 
 /**
  * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  CONCURRENT_MODIFICATION: "CONCURRENT_MODIFICATION",
-  CONFLICT_EXCEPTION: "CONFLICT_EXCEPTION",
-  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_IN_USE: "RESOURCE_IN_USE",
-  STATUS_CONFLICT: "STATUS_CONFLICT",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A description of the error.</p>
-   * @public
-   */
-  reason: ConflictExceptionReason | undefined;
-
-  /**
-   * <p>The identifier of the resource in use.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource in use.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>Information about the resources in use when the exception was thrown.</p>
-   * @public
-   */
-  context?: Record<string, string> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.reason = opts.reason;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.context = opts.context;
-  }
-}
-
-/**
- * @public
  */
 export interface AssumeQueueRoleForReadRequest {
   /**
@@ -1280,34 +915,6 @@ export interface AssumeQueueRoleForWorkerResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobAttachmentsFileSystem = {
-  COPIED: "COPIED",
-  VIRTUAL: "VIRTUAL",
-} as const;
-
-/**
- * @public
- */
-export type JobAttachmentsFileSystem = (typeof JobAttachmentsFileSystem)[keyof typeof JobAttachmentsFileSystem];
-
-/**
- * @public
- * @enum
- */
-export const PathFormat = {
-  POSIX: "posix",
-  WINDOWS: "windows",
-} as const;
-
-/**
- * @public
- */
-export type PathFormat = (typeof PathFormat)[keyof typeof PathFormat];
-
-/**
  * <p>The details of the manifest that links a job's source information.</p>
  * @public
  */
@@ -1366,35 +973,6 @@ export interface Attachments {
    */
   fileSystem?: JobAttachmentsFileSystem | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoScalingMode = {
-  EVENT_BASED_AUTO_SCALING: "EVENT_BASED_AUTO_SCALING",
-  NO_SCALING: "NO_SCALING",
-} as const;
-
-/**
- * @public
- */
-export type AutoScalingMode = (typeof AutoScalingMode)[keyof typeof AutoScalingMode];
-
-/**
- * @public
- * @enum
- */
-export const AutoScalingStatus = {
-  GROWING: "GROWING",
-  SHRINKING: "SHRINKING",
-  STEADY: "STEADY",
-} as const;
-
-/**
- * @public
- */
-export type AutoScalingStatus = (typeof AutoScalingStatus)[keyof typeof AutoScalingStatus];
 
 /**
  * <p>The IDs of the job and environment.</p>
@@ -1657,20 +1235,6 @@ export interface PosixUser {
    */
   group: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RunAs = {
-  QUEUE_CONFIGURED_USER: "QUEUE_CONFIGURED_USER",
-  WORKER_AGENT_USER: "WORKER_AGENT_USER",
-} as const;
-
-/**
- * @public
- */
-export type RunAs = (typeof RunAs)[keyof typeof RunAs];
 
 /**
  * <p>The Windows user details.</p>
@@ -2004,24 +1568,6 @@ export namespace JobEntity {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobEntityErrorCode = {
-  AccessDeniedException: "AccessDeniedException",
-  ConflictException: "ConflictException",
-  InternalServerException: "InternalServerException",
-  MaxPayloadSizeExceeded: "MaxPayloadSizeExceeded",
-  ResourceNotFoundException: "ResourceNotFoundException",
-  ValidationException: "ValidationException",
-} as const;
-
-/**
- * @public
- */
-export type JobEntityErrorCode = (typeof JobEntityErrorCode)[keyof typeof JobEntityErrorCode];
-
-/**
  * <p>The error details for the environment.</p>
  * @public
  */
@@ -2232,20 +1778,6 @@ export interface BatchGetJobEntityResponse {
    */
   errors: GetJobEntityError[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BudgetActionType = {
-  STOP_SCHEDULING_AND_CANCEL_TASKS: "STOP_SCHEDULING_AND_CANCEL_TASKS",
-  STOP_SCHEDULING_AND_COMPLETE_TASKS: "STOP_SCHEDULING_AND_COMPLETE_TASKS",
-} as const;
-
-/**
- * @public
- */
-export type BudgetActionType = (typeof BudgetActionType)[keyof typeof BudgetActionType];
 
 /**
  * <p>The budget action to add.</p>
@@ -2519,20 +2051,6 @@ export interface ResponseBudgetAction {
    */
   description?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BudgetStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type BudgetStatus = (typeof BudgetStatus)[keyof typeof BudgetStatus];
 
 /**
  * <p>The consumed usage for the resource.</p>
@@ -2878,41 +2396,6 @@ export interface UpdateBudgetRequest {
 export interface UpdateBudgetResponse {}
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  EQUAL: "EQUAL",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_EQUAL_TO: "GREATER_THAN_EQUAL_TO",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_EQUAL_TO: "LESS_THAN_EQUAL_TO",
-  NOT_EQUAL: "NOT_EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const CompletedStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  INTERRUPTED: "INTERRUPTED",
-  NEVER_ATTEMPTED: "NEVER_ATTEMPTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type CompletedStatus = (typeof CompletedStatus)[keyof typeof CompletedStatus];
-
-/**
  * <p>The Amazon S3 location information.</p>
  * @public
  */
@@ -2962,20 +2445,6 @@ export interface CopyJobTemplateRequest {
 
 /**
  * @public
- * @enum
- */
-export const JobTemplateType = {
-  JSON: "JSON",
-  YAML: "YAML",
-} as const;
-
-/**
- * @public
- */
-export type JobTemplateType = (typeof JobTemplateType)[keyof typeof JobTemplateType];
-
-/**
- * @public
  */
 export interface CopyJobTemplateResponse {
   /**
@@ -2984,20 +2453,6 @@ export interface CopyJobTemplateResponse {
    */
   templateType: JobTemplateType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CpuArchitectureType = {
-  ARM64: "arm64",
-  X86_64: "x86_64",
-} as const;
-
-/**
- * @public
- */
-export type CpuArchitectureType = (typeof CpuArchitectureType)[keyof typeof CpuArchitectureType];
 
 /**
  * @public
@@ -3050,20 +2505,6 @@ export interface CreateFarmResponse {
    */
   farmId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TagPropagationMode = {
-  NO_PROPAGATION: "NO_PROPAGATION",
-  PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH: "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
-} as const;
-
-/**
- * @public
- */
-export type TagPropagationMode = (typeof TagPropagationMode)[keyof typeof TagPropagationMode];
 
 /**
  * <p>The fleet amount and attribute capabilities.</p>
@@ -3124,22 +2565,6 @@ export interface MemoryMiBRange {
    */
   max?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomerManagedFleetOperatingSystemFamily = {
-  LINUX: "LINUX",
-  MACOS: "MACOS",
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type CustomerManagedFleetOperatingSystemFamily =
-  (typeof CustomerManagedFleetOperatingSystemFamily)[keyof typeof CustomerManagedFleetOperatingSystemFamily];
 
 /**
  * <p>The allowable range of vCPU processing power for the fleet.</p>
@@ -3257,21 +2682,6 @@ export interface CustomerManagedFleetConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceManagedFleetOperatingSystemFamily = {
-  LINUX: "LINUX",
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type ServiceManagedFleetOperatingSystemFamily =
-  (typeof ServiceManagedFleetOperatingSystemFamily)[keyof typeof ServiceManagedFleetOperatingSystemFamily];
-
-/**
  * <p>Specifies the EBS volume.</p>
  * @public
  */
@@ -3361,21 +2771,6 @@ export interface ServiceManagedEc2InstanceCapabilities {
    */
   customAttributes?: FleetAttributeCapability[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Ec2MarketType = {
-  ON_DEMAND: "on-demand",
-  SPOT: "spot",
-  WAIT_AND_SAVE: "wait-and-save",
-} as const;
-
-/**
- * @public
- */
-export type Ec2MarketType = (typeof Ec2MarketType)[keyof typeof Ec2MarketType];
 
 /**
  * <p>The details of the Amazon EC2 instance market options for a service managed fleet.</p>
@@ -3612,21 +3007,6 @@ export interface CreateFleetResponse {
    */
   fleetId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CreateJobTargetTaskRunStatus = {
-  READY: "READY",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type CreateJobTargetTaskRunStatus =
-  (typeof CreateJobTargetTaskRunStatus)[keyof typeof CreateJobTargetTaskRunStatus];
 
 /**
  * @public
@@ -3915,21 +3295,6 @@ export interface CreateMonitorResponse {
 
 /**
  * @public
- * @enum
- */
-export const DefaultQueueBudgetAction = {
-  NONE: "NONE",
-  STOP_SCHEDULING_AND_CANCEL_TASKS: "STOP_SCHEDULING_AND_CANCEL_TASKS",
-  STOP_SCHEDULING_AND_COMPLETE_TASKS: "STOP_SCHEDULING_AND_COMPLETE_TASKS",
-} as const;
-
-/**
- * @public
- */
-export type DefaultQueueBudgetAction = (typeof DefaultQueueBudgetAction)[keyof typeof DefaultQueueBudgetAction];
-
-/**
- * @public
  */
 export interface CreateQueueRequest {
   /**
@@ -4016,20 +3381,6 @@ export interface CreateQueueResponse {
    */
   queueId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentTemplateType = {
-  JSON: "JSON",
-  YAML: "YAML",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentTemplateType = (typeof EnvironmentTemplateType)[keyof typeof EnvironmentTemplateType];
 
 /**
  * @public
@@ -4142,20 +3493,6 @@ export interface CreateQueueLimitAssociationRequest {
 export interface CreateQueueLimitAssociationResponse {}
 
 /**
- * @public
- * @enum
- */
-export const FileSystemLocationType = {
-  LOCAL: "LOCAL",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type FileSystemLocationType = (typeof FileSystemLocationType)[keyof typeof FileSystemLocationType];
-
-/**
  * <p>The details of the file system location for the resource.</p>
  * @public
  */
@@ -4178,22 +3515,6 @@ export interface FileSystemLocation {
    */
   type: FileSystemLocationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageProfileOperatingSystemFamily = {
-  LINUX: "LINUX",
-  MACOS: "MACOS",
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type StorageProfileOperatingSystemFamily =
-  (typeof StorageProfileOperatingSystemFamily)[keyof typeof StorageProfileOperatingSystemFamily];
 
 /**
  * @public
@@ -4579,24 +3900,6 @@ export interface FleetCapabilities {
    */
   attributes?: FleetAttributeCapability[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FleetStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  SUSPENDED: "SUSPENDED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
 
 /**
  * @public
@@ -5141,26 +4444,6 @@ export interface HostPropertiesResponse {
 
 /**
  * @public
- * @enum
- */
-export const WorkerStatus = {
-  CREATED: "CREATED",
-  IDLE: "IDLE",
-  NOT_COMPATIBLE: "NOT_COMPATIBLE",
-  NOT_RESPONDING: "NOT_RESPONDING",
-  RUNNING: "RUNNING",
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type WorkerStatus = (typeof WorkerStatus)[keyof typeof WorkerStatus];
-
-/**
- * @public
  */
 export interface GetWorkerResponse {
   /**
@@ -5258,37 +4541,6 @@ export interface ListSessionsForWorkerRequest {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SessionLifecycleStatus = {
-  ENDED: "ENDED",
-  STARTED: "STARTED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type SessionLifecycleStatus = (typeof SessionLifecycleStatus)[keyof typeof SessionLifecycleStatus];
-
-/**
- * @public
- * @enum
- */
-export const SessionLifecycleTargetStatus = {
-  ENDED: "ENDED",
-} as const;
-
-/**
- * @public
- */
-export type SessionLifecycleTargetStatus =
-  (typeof SessionLifecycleTargetStatus)[keyof typeof SessionLifecycleTargetStatus];
 
 /**
  * <p>Summarizes the session for a particular worker.</p>
@@ -5523,21 +4775,6 @@ export interface WorkerCapabilities {
 
 /**
  * @public
- * @enum
- */
-export const UpdatedWorkerStatus = {
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type UpdatedWorkerStatus = (typeof UpdatedWorkerStatus)[keyof typeof UpdatedWorkerStatus];
-
-/**
- * @public
  */
 export interface UpdateWorkerRequest {
   /**
@@ -5698,19 +4935,6 @@ export interface UpdateWorkerScheduleRequest {
    */
   updatedSessionActions?: Record<string, UpdatedSessionActionInfo> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DesiredWorkerStatus = {
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type DesiredWorkerStatus = (typeof DesiredWorkerStatus)[keyof typeof DesiredWorkerStatus];
 
 /**
  * @public
@@ -6432,35 +5656,6 @@ export interface GetQueueRequest {
 
 /**
  * @public
- * @enum
- */
-export const QueueBlockedReason = {
-  BUDGET_THRESHOLD_REACHED: "BUDGET_THRESHOLD_REACHED",
-  NO_BUDGET_CONFIGURED: "NO_BUDGET_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type QueueBlockedReason = (typeof QueueBlockedReason)[keyof typeof QueueBlockedReason];
-
-/**
- * @public
- * @enum
- */
-export const QueueStatus = {
-  IDLE: "IDLE",
-  SCHEDULING: "SCHEDULING",
-  SCHEDULING_BLOCKED: "SCHEDULING_BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
-
-/**
- * @public
  */
 export interface GetQueueResponse {
   /**
@@ -6774,69 +5969,6 @@ export interface GetJobRequest {
    */
   jobId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobLifecycleStatus = {
-  ARCHIVED: "ARCHIVED",
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
-  UPLOAD_FAILED: "UPLOAD_FAILED",
-  UPLOAD_IN_PROGRESS: "UPLOAD_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type JobLifecycleStatus = (typeof JobLifecycleStatus)[keyof typeof JobLifecycleStatus];
-
-/**
- * @public
- * @enum
- */
-export const JobTargetTaskRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type JobTargetTaskRunStatus = (typeof JobTargetTaskRunStatus)[keyof typeof JobTargetTaskRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const TaskRunStatus = {
-  ASSIGNED: "ASSIGNED",
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  INTERRUPTING: "INTERRUPTING",
-  NOT_COMPATIBLE: "NOT_COMPATIBLE",
-  PENDING: "PENDING",
-  READY: "READY",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  STARTING: "STARTING",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type TaskRunStatus = (typeof TaskRunStatus)[keyof typeof TaskRunStatus];
 
 /**
  * @public
@@ -7290,29 +6422,6 @@ export interface TaskRunManifestPropertiesResponse {
 
 /**
  * @public
- * @enum
- */
-export const SessionActionStatus = {
-  ASSIGNED: "ASSIGNED",
-  CANCELED: "CANCELED",
-  CANCELING: "CANCELING",
-  FAILED: "FAILED",
-  INTERRUPTED: "INTERRUPTED",
-  NEVER_ATTEMPTED: "NEVER_ATTEMPTED",
-  RECLAIMED: "RECLAIMED",
-  RECLAIMING: "RECLAIMING",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type SessionActionStatus = (typeof SessionActionStatus)[keyof typeof SessionActionStatus];
-
-/**
- * @public
  */
 export interface GetSessionActionResponse {
   /**
@@ -7450,39 +6559,6 @@ export interface DependencyCounts {
 }
 
 /**
- * @public
- * @enum
- */
-export const StepLifecycleStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCEEDED: "UPDATE_SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type StepLifecycleStatus = (typeof StepLifecycleStatus)[keyof typeof StepLifecycleStatus];
-
-/**
- * @public
- * @enum
- */
-export const StepParameterType = {
-  CHUNK_INT: "CHUNK_INT",
-  FLOAT: "FLOAT",
-  INT: "INT",
-  PATH: "PATH",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type StepParameterType = (typeof StepParameterType)[keyof typeof StepParameterType];
-
-/**
  * <p>The details of a step parameter.</p>
  * @public
  */
@@ -7589,24 +6665,6 @@ export interface StepRequiredCapabilities {
    */
   amounts: StepAmountCapability[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StepTargetTaskRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type StepTargetTaskRunStatus = (typeof StepTargetTaskRunStatus)[keyof typeof StepTargetTaskRunStatus];
 
 /**
  * @public
@@ -7758,24 +6816,6 @@ export interface GetTaskRequest {
    */
   taskId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskTargetRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-  SUCCEEDED: "SUCCEEDED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type TaskTargetRunStatus = (typeof TaskTargetRunStatus)[keyof typeof TaskTargetRunStatus];
 
 /**
  * @public
@@ -8645,21 +7685,6 @@ export interface ListStepConsumersRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DependencyConsumerResolutionStatus = {
-  RESOLVED: "RESOLVED",
-  UNRESOLVED: "UNRESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type DependencyConsumerResolutionStatus =
-  (typeof DependencyConsumerResolutionStatus)[keyof typeof DependencyConsumerResolutionStatus];
-
-/**
  * <p>The details of a step consumer.</p>
  * @public
  */
@@ -8791,6 +7816,1657 @@ export interface ListStepsRequest {
    * @public
    */
   jobId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The details for a step.</p>
+ * @public
+ */
+export interface StepSummary {
+  /**
+   * <p>The step ID.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The name of the step.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The life cycle status.</p>
+   * @public
+   */
+  lifecycleStatus: StepLifecycleStatus | undefined;
+
+  /**
+   * <p>A message that describes the lifecycle of the step.</p>
+   * @public
+   */
+  lifecycleStatusMessage?: string | undefined;
+
+  /**
+   * <p>The task run status for the job.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>–pending and waiting for resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code>–ready to process.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASSIGNED</code>–assigned and will run next on a worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCHEDULED</code>–scheduled to run on a worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERRUPTING</code>–being interrupted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>–running on a worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUSPENDED</code>–the task is suspended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELED</code>–the task has been canceled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>–the task has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>–the task has succeeded.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  taskRunStatus: TaskRunStatus | undefined;
+
+  /**
+   * <p>The number of tasks running on the job.</p>
+   * @public
+   */
+  taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
+
+  /**
+   * <p>The total number of times tasks from the step failed and were retried.</p>
+   * @public
+   */
+  taskFailureRetryCount?: number | undefined;
+
+  /**
+   * <p>The task status to start with on the job.</p>
+   * @public
+   */
+  targetTaskRunStatus?: StepTargetTaskRunStatus | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The date and time the resource started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource ended running.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The number of dependencies for the step.</p>
+   * @public
+   */
+  dependencyCounts?: DependencyCounts | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStepsResponse {
+  /**
+   * <p>The steps on the list.</p>
+   * @public
+   */
+  steps: StepSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTasksRequest {
+  /**
+   * <p>The farm ID connected to the tasks.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID connected to the tasks.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID for the tasks.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The step ID for the tasks.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The details of a task.</p>
+ * @public
+ */
+export interface TaskSummary {
+  /**
+   * <p>The task ID.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The run status of the task.</p>
+   * @public
+   */
+  runStatus: TaskRunStatus | undefined;
+
+  /**
+   * <p>The run status on which the started.</p>
+   * @public
+   */
+  targetRunStatus?: TaskTargetRunStatus | undefined;
+
+  /**
+   * <p>The number of times that the task failed and was retried.</p>
+   * @public
+   */
+  failureRetryCount?: number | undefined;
+
+  /**
+   * <p>The task parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, TaskParameterValue> | undefined;
+
+  /**
+   * <p>The date and time the resource started running.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource ended running.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The latest session action for the task.</p>
+   * @public
+   */
+  latestSessionActionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTasksResponse {
+  /**
+   * <p>Tasks for the job.</p>
+   * @public
+   */
+  tasks: TaskSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobRequest {
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The task status to update the job's tasks to.</p>
+   * @public
+   */
+  targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
+
+  /**
+   * <p>The job priority to update.</p>
+   * @public
+   */
+  priority?: number | undefined;
+
+  /**
+   * <p>The number of task failures before the job stops running and is marked as <code>FAILED</code>.</p>
+   * @public
+   */
+  maxFailedTasksCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of retries for a job.</p>
+   * @public
+   */
+  maxRetriesPerTask?: number | undefined;
+
+  /**
+   * <p>The status of a job in its lifecycle. When you change the status of the job to
+   *             <code>ARCHIVED</code>, the job can't be scheduled or archived.</p>
+   *          <important>
+   *             <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be
+   *             recovered.</p>
+   *          </important>
+   * @public
+   */
+  lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
+
+  /**
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the
+   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
+   *          job, even if the fleets assigned to the job's queue has available workers.</p>
+   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
+   *          maximum number of workers.</p>
+   *          <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
+   *          <p>The maximum number of workers that can process tasks in the job.</p>
+   * @public
+   */
+  maxWorkerCount?: number | undefined;
+
+  /**
+   * <p>The farm ID of the job to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID of the job to update.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID to update.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateSessionRequest {
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The life cycle status to update in the session.</p>
+   * @public
+   */
+  targetLifecycleStatus: SessionLifecycleTargetStatus | undefined;
+
+  /**
+   * <p>The farm ID to update in the session.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID to update in the session.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID to update in the session.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The session ID to update.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateStepRequest {
+  /**
+   * <p>The task status to update the step's tasks to.</p>
+   * @public
+   */
+  targetTaskRunStatus: StepTargetTaskRunStatus | undefined;
+
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The farm ID to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID to update.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID to update.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The step ID to update.</p>
+   * @public
+   */
+  stepId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStepResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateTaskRequest {
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The run status with which to start the task.</p>
+   * @public
+   */
+  targetRunStatus: TaskTargetRunStatus | undefined;
+
+  /**
+   * <p>The farm ID to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID to update.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID to update.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The step ID to update.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The task ID to update.</p>
+   * @public
+   */
+  taskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTaskResponse {}
+
+/**
+ * @public
+ */
+export interface ListQueueEnvironmentsRequest {
+  /**
+   * <p>The farm ID for the queue environment list.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID for the queue environment list.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of a queue environment.</p>
+ * @public
+ */
+export interface QueueEnvironmentSummary {
+  /**
+   * <p>The queue environment ID.</p>
+   * @public
+   */
+  queueEnvironmentId: string | undefined;
+
+  /**
+   * <p>The name of the queue environment.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The queue environment's priority.</p>
+   * @public
+   */
+  priority: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueueEnvironmentsResponse {
+  /**
+   * <p>The environments to include in the queue environments list.</p>
+   * @public
+   */
+  environments: QueueEnvironmentSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueueMembersRequest {
+  /**
+   * <p>The farm ID for the queue.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID to include on the list.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The details of a queue member.</p>
+ * @public
+ */
+export interface QueueMember {
+  /**
+   * <p>The farm ID.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The principal ID of the queue member.</p>
+   * @public
+   */
+  principalId: string | undefined;
+
+  /**
+   * <p>The principal type of the queue member.</p>
+   * @public
+   */
+  principalType: DeadlinePrincipalType | undefined;
+
+  /**
+   * <p>The identity store ID.</p>
+   * @public
+   */
+  identityStoreId: string | undefined;
+
+  /**
+   * <p>The queue member's membership level.</p>
+   * @public
+   */
+  membershipLevel: MembershipLevel | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueueMembersResponse {
+  /**
+   * <p>The members on the list.</p>
+   * @public
+   */
+  members: QueueMember[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesRequest {
+  /**
+   * <p>The farm ID of the queue.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The principal IDs to include in the list of queues.</p>
+   * @public
+   */
+  principalId?: string | undefined;
+
+  /**
+   * <p>The status of the queues listed.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>–The queues are active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCHEDULING</code>–The queues are scheduling.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these
+   *                queues.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: QueueStatus | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The details of a queue summary.</p>
+ * @public
+ */
+export interface QueueSummary {
+  /**
+   * <p>The farm ID.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The display name of the queue summary to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>That status of the queue.</p>
+   * @public
+   */
+  status: QueueStatus | undefined;
+
+  /**
+   * <p>The default action taken on a queue summary if a budget wasn't configured.</p>
+   * @public
+   */
+  defaultBudgetAction: DefaultQueueBudgetAction | undefined;
+
+  /**
+   * <p>The reason the queue is blocked, if applicable.</p>
+   * @public
+   */
+  blockedReason?: QueueBlockedReason | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuesResponse {
+  /**
+   * <p>The queues on the list.</p>
+   * @public
+   */
+  queues: QueueSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageProfilesForQueueRequest {
+  /**
+   * <p>The farm ID of the queue's storage profile.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID for the storage profile.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageProfilesForQueueResponse {
+  /**
+   * <p>The storage profiles in the queue.</p>
+   * @public
+   */
+  storageProfiles: StorageProfileSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueRequest {
+  /**
+   * <p>The idempotency token to update in the queue.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The farm ID to update in the queue.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID to update.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The display name of the queue to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the queue to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The default action to take for a queue update if a budget isn't configured.</p>
+   * @public
+   */
+  defaultBudgetAction?: DefaultQueueBudgetAction | undefined;
+
+  /**
+   * <p>The job attachment settings to update for the
+   *          queue.</p>
+   * @public
+   */
+  jobAttachmentSettings?: JobAttachmentSettings | undefined;
+
+  /**
+   * <p>The IAM role ARN that's used to run jobs from this queue.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Update the jobs in the queue to run as a specified POSIX user.</p>
+   * @public
+   */
+  jobRunAsUser?: JobRunAsUser | undefined;
+
+  /**
+   * <p>The required file system location names to add to the queue.</p>
+   * @public
+   */
+  requiredFileSystemLocationNamesToAdd?: string[] | undefined;
+
+  /**
+   * <p>The required file system location names to remove from the queue.</p>
+   * @public
+   */
+  requiredFileSystemLocationNamesToRemove?: string[] | undefined;
+
+  /**
+   * <p>The storage profile IDs to add.</p>
+   * @public
+   */
+  allowedStorageProfileIdsToAdd?: string[] | undefined;
+
+  /**
+   * <p>The storage profile ID to remove.</p>
+   * @public
+   */
+  allowedStorageProfileIdsToRemove?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateQueueEnvironmentRequest {
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The farm ID of the queue environment to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID of the queue environment to update.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The queue environment ID to update.</p>
+   * @public
+   */
+  queueEnvironmentId: string | undefined;
+
+  /**
+   * <p>The priority to update.</p>
+   * @public
+   */
+  priority?: number | undefined;
+
+  /**
+   * <p>The template type to update.</p>
+   * @public
+   */
+  templateType?: EnvironmentTemplateType | undefined;
+
+  /**
+   * <p>The template to update.</p>
+   * @public
+   */
+  template?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueEnvironmentResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateFarmRequest {
+  /**
+   * <p>The farm ID to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The display name of the farm to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the farm to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFarmResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLimitRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit to update.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The new display name of the limit.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The new description of the limit.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are
+   *          in use, steps that require the limit won't be scheduled until the resource is
+   *          available.</p>
+   *          <p>If more than the new maximum number is currently in use, running jobs finish but no new
+   *          jobs are started until the number of resources in use is below the new maximum
+   *          number.</p>
+   *          <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on
+   *          the number of resources that can be acquired for this limit.</p>
+   * @public
+   */
+  maxCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLimitResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateStorageProfileRequest {
+  /**
+   * <p>The unique token which the server uses to recognize retries of the same request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The farm ID to update.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The storage profile ID to update.</p>
+   * @public
+   */
+  storageProfileId: string | undefined;
+
+  /**
+   * <p>The display name of the storage profile to update.</p>
+   *          <important>
+   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
+   *          </important>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The OS system to update.</p>
+   * @public
+   */
+  osFamily?: StorageProfileOperatingSystemFamily | undefined;
+
+  /**
+   * <p>The file system location names to add.</p>
+   * @public
+   */
+  fileSystemLocationsToAdd?: FileSystemLocation[] | undefined;
+
+  /**
+   * <p>The file system location names to remove.</p>
+   * @public
+   */
+  fileSystemLocationsToRemove?: FileSystemLocation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStorageProfileResponse {}
+
+/**
+ * @public
+ */
+export interface GetQueueFleetAssociationRequest {
+  /**
+   * <p>The farm ID of the farm that contains the queue-fleet association.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID for the queue-fleet association.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The fleet ID for the queue-fleet association.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQueueFleetAssociationResponse {
+  /**
+   * <p>The queue ID for the queue-fleet association.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The fleet ID for the queue-fleet association.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+
+  /**
+   * <p>The status of the queue-fleet association.</p>
+   * @public
+   */
+  status: QueueFleetAssociationStatus | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user or system that created this resource.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time the resource was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user or system that updated this resource.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQueueLimitAssociationRequest {
+  /**
+   * <p>The unique identifier of the farm that contains the associated queue and limit.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the queue associated with the limit.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit associated with the queue.</p>
+   * @public
+   */
+  limitId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQueueLimitAssociationResponse {
+  /**
+   * <p>The Unix timestamp of the date and time that the association was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user identifier of the person that created the association.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Unix timestamp of the date and time that the association was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user identifier of the person that last updated the association.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the queue associated with the limit.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the limit associated with the queue.</p>
+   * @public
+   */
+  limitId: string | undefined;
+
+  /**
+   * <p>The current status of the limit.</p>
+   * @public
+   */
+  status: QueueLimitAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionsStatisticsAggregationRequest {
+  /**
+   * <p>The identifier of the farm to include in the statistics. This should be the same as the
+   *          farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code>
+   *          operation.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation
+   *          that identifies the aggregated statistics.</p>
+   * @public
+   */
+  aggregationId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The minimum, maximum, average, and sum.</p>
+ * @public
+ */
+export interface Stats {
+  /**
+   * <p>The minimum of the usage statistics.</p>
+   * @public
+   */
+  min?: number | undefined;
+
+  /**
+   * <p>The maximum among the usage statistics.</p>
+   * @public
+   */
+  max?: number | undefined;
+
+  /**
+   * <p>The average of the usage statistics.</p>
+   * @public
+   */
+  avg?: number | undefined;
+
+  /**
+   * <p>The sum of the usage statistics.</p>
+   * @public
+   */
+  sum?: number | undefined;
+}
+
+/**
+ * <p>A list of statistics for a session.</p>
+ * @public
+ */
+export interface Statistics {
+  /**
+   * <p>The queue ID.</p>
+   * @public
+   */
+  queueId?: string | undefined;
+
+  /**
+   * <p>The fleet ID.</p>
+   * @public
+   */
+  fleetId?: string | undefined;
+
+  /**
+   * <p>The job ID.</p>
+   * @public
+   */
+  jobId?: string | undefined;
+
+  /**
+   * <p>The job name.</p>
+   * @public
+   */
+  jobName?: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>The type of usage for the statistics.</p>
+   * @public
+   */
+  usageType?: UsageType | undefined;
+
+  /**
+   * <p>The licensed product.</p>
+   * @public
+   */
+  licenseProduct?: string | undefined;
+
+  /**
+   * <p>The type of instance.</p>
+   * @public
+   */
+  instanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances in a list of statistics.</p>
+   * @public
+   */
+  count: number | undefined;
+
+  /**
+   * <p>How the statistics should appear in USD. Options include: minimum, maximum, average or
+   *          sum.</p>
+   * @public
+   */
+  costInUsd: Stats | undefined;
+
+  /**
+   * <p>The total aggregated runtime.</p>
+   * @public
+   */
+  runtimeInSeconds: Stats | undefined;
+
+  /**
+   * <p>The start time for the aggregation.</p>
+   * @public
+   */
+  aggregationStartTime?: Date | undefined;
+
+  /**
+   * <p>The end time for the aggregation.</p>
+   * @public
+   */
+  aggregationEndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionsStatisticsAggregationResponse {
+  /**
+   * <p>The statistics for the specified fleets or queues.</p>
+   * @public
+   */
+  statistics?: Statistics[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The status of the aggregated results. An aggregation may fail or time out if the results
+   *          are too large. If this happens, you can call the
+   *             <code>StartSessionsStatisticsAggregation</code> operation after you reduce the
+   *          aggregation time frame, reduce the number of queues or fleets in the aggregation, or
+   *          increase the period length.</p>
+   *          <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the
+   *          status is <code>IN_PROGRESS</code>, you will receive a
+   *          <code>ThrottlingException</code>.</p>
+   * @public
+   */
+  status: SessionsStatisticsAggregationStatus | undefined;
+
+  /**
+   * <p>A message that describes the status.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseEndpointRequest {
+  /**
+   * <p>The license endpoint ID of the license endpoint to delete.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface GetLicenseEndpointRequest {
+  /**
+   * <p>The license endpoint ID.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseEndpointResponse {
+  /**
+   * <p>The license endpoint ID.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+
+  /**
+   * <p>The status of the license endpoint.</p>
+   * @public
+   */
+  status: LicenseEndpointStatus | undefined;
+
+  /**
+   * <p>The status message of the license endpoint.</p>
+   * @public
+   */
+  statusMessage: string | undefined;
+
+  /**
+   * <p>The VCP(virtual private cloud) ID associated with the license endpoint.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The DNS name.</p>
+   * @public
+   */
+  dnsName?: string | undefined;
+
+  /**
+   * <p>The subnet IDs.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security group IDs for the license endpoint.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseEndpointsRequest {
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The details for a license endpoint.</p>
+ * @public
+ */
+export interface LicenseEndpointSummary {
+  /**
+   * <p>The license endpoint ID.</p>
+   * @public
+   */
+  licenseEndpointId?: string | undefined;
+
+  /**
+   * <p>The status of the license endpoint.</p>
+   * @public
+   */
+  status?: LicenseEndpointStatus | undefined;
+
+  /**
+   * <p>The status message of the license endpoint.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The VCP(virtual private cloud) ID associated with the license endpoint.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseEndpointsResponse {
+  /**
+   * <p>The license endpoints.</p>
+   * @public
+   */
+  licenseEndpoints: LicenseEndpointSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMeteredProductRequest {
+  /**
+   * <p>The ID of the license endpoint from which to remove the metered product.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+
+  /**
+   * <p>The product ID to remove from the license endpoint.</p>
+   * @public
+   */
+  productId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMeteredProductResponse {}
+
+/**
+ * @public
+ */
+export interface ListMeteredProductsRequest {
+  /**
+   * <p>The license endpoint ID to include on the list of metered products.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>

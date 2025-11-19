@@ -1,29 +1,13 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SignerServiceException as __BaseException } from "./SignerServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.code = opts.code;
-  }
-}
+import {
+  Category,
+  EncryptionAlgorithm,
+  HashAlgorithm,
+  ImageFormat,
+  SigningProfileStatus,
+  SigningStatus,
+  ValidityType,
+} from "./enums";
 
 /**
  * @public
@@ -99,162 +83,6 @@ export interface AddProfilePermissionResponse {
 }
 
 /**
- * <p>The resource encountered a conflicting state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>An internal error occurred.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "server" = "server";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>A specified resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>The client is making a request that exceeds service limits.</p>
- * @public
- */
-export class ServiceLimitExceededException extends __BaseException {
-  readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceLimitExceededException, __BaseException>) {
-    super({
-      name: "ServiceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceLimitExceededException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>The allowed number of job-signing requests has been exceeded.</p>
- * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>You signing certificate could not be validated.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>The request contains invalid parameters for the ARN or tags. This exception also
- * 			occurs when you call a tagging API on a cancelled signing profile.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
  * @public
  */
 export interface CancelSigningProfileRequest {
@@ -267,19 +95,6 @@ export interface CancelSigningProfileRequest {
 
 /**
  * @public
- * @enum
- */
-export const Category = {
-  AWSIoT: "AWSIoT",
-} as const;
-
-/**
- * @public
- */
-export type Category = (typeof Category)[keyof typeof Category];
-
-/**
- * @public
  */
 export interface DescribeSigningJobRequest {
   /**
@@ -288,34 +103,6 @@ export interface DescribeSigningJobRequest {
    */
   jobId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionAlgorithm = {
-  ECDSA: "ECDSA",
-  RSA: "RSA",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const HashAlgorithm = {
-  SHA1: "SHA1",
-  SHA256: "SHA256",
-} as const;
-
-/**
- * @public
- */
-export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
 
 /**
  * <p>A signing configuration that overrides the default encryption or hash algorithm of a
@@ -337,21 +124,6 @@ export interface SigningConfigurationOverrides {
    */
   hashAlgorithm?: HashAlgorithm | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageFormat = {
-  JSON: "JSON",
-  JSONDetached: "JSONDetached",
-  JSONEmbedded: "JSONEmbedded",
-} as const;
-
-/**
- * @public
- */
-export type ImageFormat = (typeof ImageFormat)[keyof typeof ImageFormat];
 
 /**
  * <p>Any overrides that are applied to the signing configuration of a signing platform.</p>
@@ -481,21 +253,6 @@ export interface Source {
    */
   s3?: S3Source | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SigningStatus = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type SigningStatus = (typeof SigningStatus)[keyof typeof SigningStatus];
 
 /**
  * @public
@@ -907,21 +664,6 @@ export interface SigningProfileRevocationRecord {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValidityType = {
-  DAYS: "DAYS",
-  MONTHS: "MONTHS",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type ValidityType = (typeof ValidityType)[keyof typeof ValidityType];
-
-/**
  * <p>The validity period for a signing job.</p>
  * @public
  */
@@ -938,21 +680,6 @@ export interface SignatureValidityPeriod {
    */
   type?: ValidityType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SigningProfileStatus = {
-  Active: "Active",
-  Canceled: "Canceled",
-  Revoked: "Revoked",
-} as const;
-
-/**
- * @public
- */
-export type SigningProfileStatus = (typeof SigningProfileStatus)[keyof typeof SigningProfileStatus];
 
 /**
  * @public
@@ -1572,28 +1299,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>The signing profile was not found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
  * @public
  */
 export interface PutSigningProfileRequest {
@@ -1868,31 +1573,6 @@ export interface StartSigningJobResponse {
    * @public
    */
   jobOwner?: string | undefined;
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
- *
- * @deprecated Instead of this error, TooManyRequestsException should be used.
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.code = opts.code;
-  }
 }
 
 /**

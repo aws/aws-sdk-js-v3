@@ -385,7 +385,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { PartnerCentralSellingServiceException as __PartnerCentralSellingServiceException } from "../models/PartnerCentralSellingServiceException";
 
 /* eslint no-var: 0 */

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StopTargetedSentimentDetectionJobRequest,
   StopTargetedSentimentDetectionJobResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { StopTargetedSentimentDetectionJob } from "../schemas/schemas_0";
 
 /**

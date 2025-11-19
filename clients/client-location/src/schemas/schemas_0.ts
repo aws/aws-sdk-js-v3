@@ -528,7 +528,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LocationServiceException as __LocationServiceException } from "../models/LocationServiceException";
 
 /* eslint no-var: 0 */

@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateMessageTemplateVersionRequest, CreateMessageTemplateVersionResponse } from "../models/models_1";
+import { CreateMessageTemplateVersionRequest, CreateMessageTemplateVersionResponse } from "../models/models_0";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateMessageTemplateVersion } from "../schemas/schemas_0";
 

@@ -1,29 +1,53 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { BedrockRuntimeServiceException as __BaseException } from "./BedrockRuntimeServiceException";
+import {
+  AsyncInvokeStatus,
+  CachePointType,
+  ConversationRole,
+  DocumentFormat,
+  GuardrailAction,
+  GuardrailAutomatedReasoningLogicWarningType,
+  GuardrailContentFilterConfidence,
+  GuardrailContentFilterStrength,
+  GuardrailContentFilterType,
+  GuardrailContentPolicyAction,
+  GuardrailContentQualifier,
+  GuardrailContentSource,
+  GuardrailContextualGroundingFilterType,
+  GuardrailContextualGroundingPolicyAction,
+  GuardrailConverseContentQualifier,
+  GuardrailConverseImageFormat,
+  GuardrailImageFormat,
+  GuardrailManagedWordType,
+  GuardrailOutputScope,
+  GuardrailPiiEntityType,
+  GuardrailSensitiveInformationPolicyAction,
+  GuardrailStreamProcessingMode,
+  GuardrailTopicPolicyAction,
+  GuardrailTopicType,
+  GuardrailTrace,
+  GuardrailWordPolicyAction,
+  ImageFormat,
+  PerformanceConfigLatency,
+  ServiceTierType,
+  SortAsyncInvocationBy,
+  SortOrder,
+  StopReason,
+  ToolResultStatus,
+  ToolUseType,
+  Trace,
+  VideoFormat,
+} from "./enums";
 
-/**
- * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  InternalServerException,
+  ModelStreamErrorException,
+  ModelTimeoutException,
+  ServiceUnavailableException,
+  ThrottlingException,
+  ValidationException,
+} from "./errors";
 
 /**
  * @public
@@ -101,21 +125,6 @@ export namespace AsyncInvokeOutputDataConfig {
 
 /**
  * @public
- * @enum
- */
-export const AsyncInvokeStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-} as const;
-
-/**
- * @public
- */
-export type AsyncInvokeStatus = (typeof AsyncInvokeStatus)[keyof typeof AsyncInvokeStatus];
-
-/**
- * @public
  */
 export interface GetAsyncInvokeResponse {
   /**
@@ -172,93 +181,6 @@ export interface GetAsyncInvokeResponse {
    */
   outputDataConfig: AsyncInvokeOutputDataConfig | undefined;
 }
-
-/**
- * <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SortAsyncInvocationBy = {
-  SUBMISSION_TIME: "SubmissionTime",
-} as const;
-
-/**
- * @public
- */
-export type SortAsyncInvocationBy = (typeof SortAsyncInvocationBy)[keyof typeof SortAsyncInvocationBy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -385,86 +307,6 @@ export interface ListAsyncInvokesResponse {
 }
 
 /**
- * <p>Error occurred because of a conflict while performing an operation.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
  * <p>A tag.</p>
  * @public
  */
@@ -529,20 +371,6 @@ export interface StartAsyncInvokeResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailImageFormat = {
-  JPEG: "jpeg",
-  PNG: "png",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailImageFormat = (typeof GuardrailImageFormat)[keyof typeof GuardrailImageFormat];
-
-/**
  * <p>The image source (image bytes) of the guardrail image source. Object used in independent api.</p>
  * @public
  */
@@ -596,21 +424,6 @@ export interface GuardrailImageBlock {
    */
   source: GuardrailImageSource | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentQualifier = {
-  GROUNDING_SOURCE: "grounding_source",
-  GUARD_CONTENT: "guard_content",
-  QUERY: "query",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentQualifier = (typeof GuardrailContentQualifier)[keyof typeof GuardrailContentQualifier];
 
 /**
  * <p>The text block to be evaluated by the guardrail.</p>
@@ -685,34 +498,6 @@ export namespace GuardrailContentBlock {
 
 /**
  * @public
- * @enum
- */
-export const GuardrailOutputScope = {
-  FULL: "FULL",
-  INTERVENTIONS: "INTERVENTIONS",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailOutputScope = (typeof GuardrailOutputScope)[keyof typeof GuardrailOutputScope];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentSource = {
-  INPUT: "INPUT",
-  OUTPUT: "OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentSource = (typeof GuardrailContentSource)[keyof typeof GuardrailContentSource];
-
-/**
- * @public
  */
 export interface ApplyGuardrailRequest {
   /**
@@ -745,20 +530,6 @@ export interface ApplyGuardrailRequest {
    */
   outputScope?: GuardrailOutputScope | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailAction = {
-  GUARDRAIL_INTERVENED: "GUARDRAIL_INTERVENED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
 
 /**
  * <p>References a specific automated reasoning policy rule that was applied during evaluation.</p>
@@ -795,21 +566,6 @@ export interface GuardrailAutomatedReasoningStatement {
    */
   naturalLanguage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailAutomatedReasoningLogicWarningType = {
-  ALWAYS_FALSE: "ALWAYS_FALSE",
-  ALWAYS_TRUE: "ALWAYS_TRUE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailAutomatedReasoningLogicWarningType =
-  (typeof GuardrailAutomatedReasoningLogicWarningType)[keyof typeof GuardrailAutomatedReasoningLogicWarningType];
 
 /**
  * <p>Identifies logical issues in the translated statements that exist independent of any policy rules, such as statements that are always true or always false.</p>
@@ -1211,73 +967,6 @@ export interface GuardrailAutomatedReasoningPolicyAssessment {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailContentPolicyAction = {
-  BLOCKED: "BLOCKED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentPolicyAction =
-  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterConfidence = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterConfidence =
-  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterStrength = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterStrength =
-  (typeof GuardrailContentFilterStrength)[keyof typeof GuardrailContentFilterStrength];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterType = {
-  HATE: "HATE",
-  INSULTS: "INSULTS",
-  MISCONDUCT: "MISCONDUCT",
-  PROMPT_ATTACK: "PROMPT_ATTACK",
-  SEXUAL: "SEXUAL",
-  VIOLENCE: "VIOLENCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
-
-/**
  * <p>The content filter for a guardrail.</p>
  * @public
  */
@@ -1324,36 +1013,6 @@ export interface GuardrailContentPolicyAssessment {
    */
   filters: GuardrailContentFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContextualGroundingPolicyAction = {
-  BLOCKED: "BLOCKED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContextualGroundingPolicyAction =
-  (typeof GuardrailContextualGroundingPolicyAction)[keyof typeof GuardrailContextualGroundingPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContextualGroundingFilterType = {
-  GROUNDING: "GROUNDING",
-  RELEVANCE: "RELEVANCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContextualGroundingFilterType =
-  (typeof GuardrailContextualGroundingFilterType)[keyof typeof GuardrailContextualGroundingFilterType];
 
 /**
  * <p>The details for the guardrails contextual grounding filter.</p>
@@ -1542,65 +1201,6 @@ export interface GuardrailInvocationMetrics {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailSensitiveInformationPolicyAction = {
-  ANONYMIZED: "ANONYMIZED",
-  BLOCKED: "BLOCKED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailSensitiveInformationPolicyAction =
-  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailPiiEntityType = {
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY: "AWS_SECRET_KEY",
-  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
-  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
-  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
-  DRIVER_ID: "DRIVER_ID",
-  EMAIL: "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IP_ADDRESS: "IP_ADDRESS",
-  LICENSE_PLATE: "LICENSE_PLATE",
-  MAC_ADDRESS: "MAC_ADDRESS",
-  NAME: "NAME",
-  PASSWORD: "PASSWORD",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SWIFT_CODE: "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL: "URL",
-  USERNAME: "USERNAME",
-  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
-  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
-  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
-
-/**
  * <p>A Personally Identifiable Information (PII) entity configured in a guardrail.</p>
  * @public
  */
@@ -1685,33 +1285,6 @@ export interface GuardrailSensitiveInformationPolicyAssessment {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailTopicPolicyAction = {
-  BLOCKED: "BLOCKED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailTopicType = {
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
-
-/**
  * <p>Information about a topic guardrail.</p>
  * @public
  */
@@ -1754,20 +1327,6 @@ export interface GuardrailTopicPolicyAssessment {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailWordPolicyAction = {
-  BLOCKED: "BLOCKED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
-
-/**
  * <p>A custom word configured in a guardrail.</p>
  * @public
  */
@@ -1790,19 +1349,6 @@ export interface GuardrailCustomWord {
    */
   detected?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailManagedWordType = {
-  PROFANITY: "PROFANITY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
 
 /**
  * <p>A managed word configured in a guardrail.</p>
@@ -1954,21 +1500,6 @@ export interface ApplyGuardrailResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailTrace = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-  ENABLED_FULL: "enabled_full",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTrace = (typeof GuardrailTrace)[keyof typeof GuardrailTrace];
-
-/**
  * <p>Configuration information for a guardrail that you use with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> operation.</p>
  * @public
  */
@@ -2021,19 +1552,6 @@ export interface InferenceConfiguration {
    */
   stopSequences?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CachePointType = {
-  DEFAULT: "default",
-} as const;
-
-/**
- * @public
- */
-export type CachePointType = (typeof CachePointType)[keyof typeof CachePointType];
 
 /**
  * <p>Defines a section of content to be cached for reuse in subsequent API calls.</p>
@@ -2353,27 +1871,6 @@ export interface CitationsConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const DocumentFormat = {
-  CSV: "csv",
-  DOC: "doc",
-  DOCX: "docx",
-  HTML: "html",
-  MD: "md",
-  PDF: "pdf",
-  TXT: "txt",
-  XLS: "xls",
-  XLSX: "xlsx",
-} as const;
-
-/**
- * @public
- */
-export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat];
-
-/**
  * <p>Contains the actual content of a document that can be processed by the model and potentially cited in the response.</p>
  * @public
  */
@@ -2552,21 +2049,6 @@ export interface DocumentBlock {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailConverseImageFormat = {
-  JPEG: "jpeg",
-  PNG: "png",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailConverseImageFormat =
-  (typeof GuardrailConverseImageFormat)[keyof typeof GuardrailConverseImageFormat];
-
-/**
  * <p>The image source (image bytes) of the guardrail converse image source.</p>
  * @public
  */
@@ -2622,22 +2104,6 @@ export interface GuardrailConverseImageBlock {
    */
   source: GuardrailConverseImageSource | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailConverseContentQualifier = {
-  GROUNDING_SOURCE: "grounding_source",
-  GUARD_CONTENT: "guard_content",
-  QUERY: "query",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailConverseContentQualifier =
-  (typeof GuardrailConverseContentQualifier)[keyof typeof GuardrailConverseContentQualifier];
 
 /**
  * <p>A text block that contains text that you want to assess with a guardrail. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html">GuardrailConverseContentBlock</a>.</p>
@@ -2709,22 +2175,6 @@ export namespace GuardrailConverseContentBlock {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageFormat = {
-  GIF: "gif",
-  JPEG: "jpeg",
-  PNG: "png",
-  WEBP: "webp",
-} as const;
-
-/**
- * @public
- */
-export type ImageFormat = (typeof ImageFormat)[keyof typeof ImageFormat];
 
 /**
  * <p>The source for an image.</p>
@@ -2864,27 +2314,6 @@ export namespace ReasoningContentBlock {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const VideoFormat = {
-  FLV: "flv",
-  MKV: "mkv",
-  MOV: "mov",
-  MP4: "mp4",
-  MPEG: "mpeg",
-  MPG: "mpg",
-  THREE_GP: "three_gp",
-  WEBM: "webm",
-  WMV: "wmv",
-} as const;
-
-/**
- * @public
- */
-export type VideoFormat = (typeof VideoFormat)[keyof typeof VideoFormat];
 
 /**
  * <p>A video source. You can upload a smaller video as a base64-encoded string as long as the encoded file is less than 25MB. You can also transfer videos up to 1GB in size from an S3 bucket.</p>
@@ -3062,20 +2491,6 @@ export namespace ToolResultContentBlock {
 }
 
 /**
- * @public
- * @enum
- */
-export const ToolResultStatus = {
-  ERROR: "error",
-  SUCCESS: "success",
-} as const;
-
-/**
- * @public
- */
-export type ToolResultStatus = (typeof ToolResultStatus)[keyof typeof ToolResultStatus];
-
-/**
  * <p>A tool result block that contains the results for a tool request that the model previously made. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
@@ -3104,19 +2519,6 @@ export interface ToolResultBlock {
    */
   type?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ToolUseType = {
-  SERVER_TOOL_USE: "server_tool_use",
-} as const;
-
-/**
- * @public
- */
-export type ToolUseType = (typeof ToolUseType)[keyof typeof ToolUseType];
 
 /**
  * <p>A tool use content block. Contains information about a tool that the model is requesting be run., The model uses the result from the tool to generate a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
@@ -3386,20 +2788,6 @@ export namespace ContentBlock {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConversationRole = {
-  ASSISTANT: "assistant",
-  USER: "user",
-} as const;
-
-/**
- * @public
- */
-export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
-
-/**
  * <p>A message input, or returned from, a call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>.</p>
  * @public
  */
@@ -3416,20 +2804,6 @@ export interface Message {
    */
   content: ContentBlock[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PerformanceConfigLatency = {
-  OPTIMIZED: "optimized",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
 
 /**
  * <p>Performance settings for a model.</p>
@@ -3479,21 +2853,6 @@ export namespace PromptVariableValues {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceTierType = {
-  DEFAULT: "default",
-  FLEX: "flex",
-  PRIORITY: "priority",
-} as const;
-
-/**
- * @public
- */
-export type ServiceTierType = (typeof ServiceTierType)[keyof typeof ServiceTierType];
 
 /**
  * <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -3952,25 +3311,6 @@ export namespace ConverseOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const StopReason = {
-  CONTENT_FILTERED: "content_filtered",
-  END_TURN: "end_turn",
-  GUARDRAIL_INTERVENED: "guardrail_intervened",
-  MAX_TOKENS: "max_tokens",
-  MODEL_CONTEXT_WINDOW_EXCEEDED: "model_context_window_exceeded",
-  STOP_SEQUENCE: "stop_sequence",
-  TOOL_USE: "tool_use",
-} as const;
-
-/**
- * @public
- */
-export type StopReason = (typeof StopReason)[keyof typeof StopReason];
-
-/**
  * <p>A Top level guardrail trace object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseTrace.html">ConverseTrace</a>.</p>
  * @public
  */
@@ -4118,96 +3458,6 @@ export interface ConverseResponse {
    */
   serviceTier?: ServiceTier | undefined;
 }
-
-/**
- * <p>The request failed due to an error while processing the model.</p>
- * @public
- */
-export class ModelErrorException extends __BaseException {
-  readonly name: "ModelErrorException" = "ModelErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The original status code.</p>
-   * @public
-   */
-  originalStatusCode?: number | undefined;
-
-  /**
-   * <p>The resource name.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ModelErrorException, __BaseException>) {
-    super({
-      name: "ModelErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ModelErrorException.prototype);
-    this.originalStatusCode = opts.originalStatusCode;
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * <p>The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide.</p>
- * @public
- */
-export class ModelNotReadyException extends __BaseException {
-  readonly name: "ModelNotReadyException" = "ModelNotReadyException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ModelNotReadyException, __BaseException>) {
-    super({
-      name: "ModelNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ModelNotReadyException.prototype);
-  }
-}
-
-/**
- * <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
- * @public
- */
-export class ModelTimeoutException extends __BaseException {
-  readonly name: "ModelTimeoutException" = "ModelTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ModelTimeoutException, __BaseException>) {
-    super({
-      name: "ModelTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ModelTimeoutException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const GuardrailStreamProcessingMode = {
-  ASYNC: "async",
-  SYNC: "sync",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailStreamProcessingMode =
-  (typeof GuardrailStreamProcessingMode)[keyof typeof GuardrailStreamProcessingMode];
 
 /**
  * <p>Configuration information for a guardrail that you use with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> action. </p>
@@ -4823,40 +4073,6 @@ export interface ConverseStreamMetadataEvent {
 }
 
 /**
- * <p>An error occurred while streaming the response. Retry your request.</p>
- * @public
- */
-export class ModelStreamErrorException extends __BaseException {
-  readonly name: "ModelStreamErrorException" = "ModelStreamErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The original status code.</p>
-   * @public
-   */
-  originalStatusCode?: number | undefined;
-
-  /**
-   * <p>The original message.</p>
-   * @public
-   */
-  originalMessage?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ModelStreamErrorException, __BaseException>) {
-    super({
-      name: "ModelStreamErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ModelStreamErrorException.prototype);
-    this.originalStatusCode = opts.originalStatusCode;
-    this.originalMessage = opts.originalMessage;
-  }
-}
-
-/**
  * <p>The messages output stream</p>
  * @public
  */
@@ -5135,21 +4351,6 @@ export interface ConverseStreamResponse {
    */
   stream?: AsyncIterable<ConverseStreamOutput> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Trace = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  ENABLED_FULL: "ENABLED_FULL",
-} as const;
-
-/**
- * @public
- */
-export type Trace = (typeof Trace)[keyof typeof Trace];
 
 /**
  * @public

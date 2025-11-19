@@ -258,7 +258,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
 import {
   InsufficientCapacityException as __InsufficientCapacityException,
   InvalidParameterValueException as __InvalidParameterValueException,
@@ -268,7 +267,8 @@ import {
   RequestTimeoutException as __RequestTimeoutException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
-} from "../models/index";
+} from "../models/errors";
+import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
 

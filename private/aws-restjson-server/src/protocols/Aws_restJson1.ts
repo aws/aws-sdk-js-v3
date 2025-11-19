@@ -58,18 +58,15 @@ import {
 } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import {
   ClientOptionalDefaults,
-  ComplexError,
   ComplexNestedErrorData,
   Defaults,
   Dialog,
   Farewell,
-  FooEnum,
-  FooError,
   GreetingStruct,
-  IntegerEnum,
-  InvalidGreeting,
   MyUnion,
   NestedPayload,
   PayloadConfig,

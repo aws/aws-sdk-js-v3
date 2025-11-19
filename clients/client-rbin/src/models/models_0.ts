@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { RbinServiceException as __BaseException } from "./RbinServiceException";
+import { LockState, ResourceType, RetentionPeriodUnit, RuleStatus, UnlockDelayUnit } from "./enums";
 
 /**
  * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
@@ -21,19 +19,6 @@ export interface ResourceTag {
    */
   ResourceTagValue?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UnlockDelayUnit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type UnlockDelayUnit = (typeof UnlockDelayUnit)[keyof typeof UnlockDelayUnit];
 
 /**
  * <p>Information about the retention rule unlock delay. The unlock delay is the period after which
@@ -68,33 +53,6 @@ export interface LockConfiguration {
    */
   UnlockDelay: UnlockDelay | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  EBS_SNAPSHOT: "EBS_SNAPSHOT",
-  EC2_IMAGE: "EC2_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const RetentionPeriodUnit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type RetentionPeriodUnit = (typeof RetentionPeriodUnit)[keyof typeof RetentionPeriodUnit];
 
 /**
  * <p>Information about the retention period for which the retention rule is to retain resources.</p>
@@ -195,35 +153,6 @@ export interface CreateRuleRequest {
 
 /**
  * @public
- * @enum
- */
-export const LockState = {
-  LOCKED: "locked",
-  PENDING_UNLOCK: "pending_unlock",
-  UNLOCKED: "unlocked",
-} as const;
-
-/**
- * @public
- */
-export type LockState = (typeof LockState)[keyof typeof LockState];
-
-/**
- * @public
- * @enum
- */
-export const RuleStatus = {
-  AVAILABLE: "available",
-  PENDING: "pending",
-} as const;
-
-/**
- * @public
- */
-export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
-
-/**
- * @public
  */
 export interface CreateRuleResponse {
   /**
@@ -320,153 +249,6 @@ export interface CreateRuleResponse {
 }
 
 /**
- * <p>The service could not respond to the request due to an internal problem.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceQuotaExceededExceptionReason = {
-  SERVICE_QUOTA_EXCEEDED: "SERVICE_QUOTA_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ServiceQuotaExceededExceptionReason =
-  (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
-
-/**
- * <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  Reason?: ServiceQuotaExceededExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  INVALID_PAGE_TOKEN: "INVALID_PAGE_TOKEN",
-  INVALID_PARAMETER_VALUE: "INVALID_PARAMETER_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>One or more of the parameters in the request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  INVALID_RULE_STATE: "INVALID_RULE_STATE",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * <p>The specified retention rule lock request can't be completed.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  Reason?: ConflictExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteRuleRequest {
@@ -481,48 +263,6 @@ export interface DeleteRuleRequest {
  * @public
  */
 export interface DeleteRuleResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ResourceNotFoundExceptionReason = {
-  RULE_NOT_FOUND: "RULE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type ResourceNotFoundExceptionReason =
-  (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
-
-/**
- * <p>The specified resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  Reason?: ResourceNotFoundExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
 
 /**
  * @public

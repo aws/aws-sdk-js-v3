@@ -282,7 +282,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnprocessableException as __UnprocessableException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { NeptuneGraphServiceException as __NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 
 /* eslint no-var: 0 */

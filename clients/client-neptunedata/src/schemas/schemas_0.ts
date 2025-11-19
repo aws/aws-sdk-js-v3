@@ -437,7 +437,7 @@ import {
   TimeLimitExceededException as __TimeLimitExceededException,
   TooManyRequestsException as __TooManyRequestsException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 import { NeptunedataServiceException as __NeptunedataServiceException } from "../models/NeptunedataServiceException";
 
 /* eslint no-var: 0 */

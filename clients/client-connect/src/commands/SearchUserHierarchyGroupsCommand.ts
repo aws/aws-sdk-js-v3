@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchUserHierarchyGroupsResponse } from "../models/models_2";
-import { SearchUserHierarchyGroupsRequest } from "../models/models_3";
+import { SearchUserHierarchyGroupsRequest, SearchUserHierarchyGroupsResponse } from "../models/models_2";
 import { SearchUserHierarchyGroups } from "../schemas/schemas_0";
 
 /**

@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeTokenRequest, RevokeTokenResponse } from "../models/models_1";
+import { RevokeTokenRequest, RevokeTokenResponse } from "../models/models_0";
 import { RevokeToken } from "../schemas/schemas_0";
 
 /**

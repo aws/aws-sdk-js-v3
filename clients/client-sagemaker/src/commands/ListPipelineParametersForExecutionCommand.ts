@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListPipelineParametersForExecutionRequest,
   ListPipelineParametersForExecutionResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListPipelineParametersForExecution } from "../schemas/schemas_0";
 

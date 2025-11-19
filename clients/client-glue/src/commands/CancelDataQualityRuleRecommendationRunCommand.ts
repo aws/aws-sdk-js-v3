@@ -8,7 +8,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   CancelDataQualityRuleRecommendationRunRequest,
   CancelDataQualityRuleRecommendationRunResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { CancelDataQualityRuleRecommendationRun } from "../schemas/schemas_0";
 
 /**

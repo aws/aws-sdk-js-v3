@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_1";
+import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_0";
 import { MergePullRequestBySquash } from "../schemas/schemas_0";
 
 /**

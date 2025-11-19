@@ -146,7 +146,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MarketplaceAgreementServiceException as __MarketplaceAgreementServiceException } from "../models/MarketplaceAgreementServiceException";
 
 /* eslint no-var: 0 */

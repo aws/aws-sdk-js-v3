@@ -31,6 +31,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ConnectContactLensExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { ConnectContactLensServiceException } from "./models/ConnectContactLensServiceException";

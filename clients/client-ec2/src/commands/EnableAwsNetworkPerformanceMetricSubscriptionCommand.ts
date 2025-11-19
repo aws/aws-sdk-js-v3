@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { EnableAwsNetworkPerformanceMetricSubscription } from "../schemas/schemas_0";
 
 /**

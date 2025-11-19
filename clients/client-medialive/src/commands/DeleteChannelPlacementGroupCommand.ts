@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteChannelPlacementGroupRequest, DeleteChannelPlacementGroupResponse } from "../models/models_2";
+import { DeleteChannelPlacementGroupRequest, DeleteChannelPlacementGroupResponse } from "../models/models_1";
 import { DeleteChannelPlacementGroup } from "../schemas/schemas_0";
 
 /**

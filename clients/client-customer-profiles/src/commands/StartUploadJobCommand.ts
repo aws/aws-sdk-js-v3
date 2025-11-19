@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartUploadJobRequest, StartUploadJobResponse } from "../models/models_1";
+import { StartUploadJobRequest, StartUploadJobResponse } from "../models/models_0";
 import { StartUploadJob } from "../schemas/schemas_0";
 
 /**

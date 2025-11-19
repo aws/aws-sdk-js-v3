@@ -182,7 +182,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnauthorizedException as __UnauthorizedException,
   UnprocessableEntityException as __UnprocessableEntityException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

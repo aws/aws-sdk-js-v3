@@ -1,7 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ServiceCatalogAppRegistryServiceException as __BaseException } from "./ServiceCatalogAppRegistryServiceException";
+import {
+  ApplicationTagStatus,
+  AssociationOption,
+  ResourceGroupState,
+  ResourceItemStatus,
+  ResourceType,
+  SyncAction,
+} from "./enums";
 
 /**
  * <p>Represents a Amazon Web Services Service Catalog AppRegistry application that is the top-level node in a hierarchy of related
@@ -101,21 +106,6 @@ export interface ApplicationSummary {
    */
   lastUpdateTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationTagStatus = {
-  FAILURE: "FAILURE",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationTagStatus = (typeof ApplicationTagStatus)[keyof typeof ApplicationTagStatus];
 
 /**
  * <p>
@@ -281,138 +271,6 @@ export interface AssociateAttributeGroupResponse {
 }
 
 /**
- * <p>There was a conflict when processing the request (for example, a resource with the given
- *       name already exists within the account).</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The service is experiencing internal problems.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>
- *       The maximum number
- *       of resources per account
- *       has been reached.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request has invalid or missing parameters.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AssociationOption = {
-  APPLY_APPLICATION_TAG: "APPLY_APPLICATION_TAG",
-  SKIP_APPLICATION_TAG: "SKIP_APPLICATION_TAG",
-} as const;
-
-/**
- * @public
- */
-export type AssociationOption = (typeof AssociationOption)[keyof typeof AssociationOption];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  CFN_STACK: "CFN_STACK",
-  RESOURCE_TAG_VALUE: "RESOURCE_TAG_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * @public
  */
 export interface AssociateResourceRequest {
@@ -469,37 +327,6 @@ export interface AssociateResourceResponse {
    * @public
    */
   options?: AssociationOption[] | undefined;
-}
-
-/**
- * <p>
- *       The maximum number
- *       of API requests
- *       has been exceeded.
- *     </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The originating service code.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-  }
 }
 
 /**
@@ -880,24 +707,6 @@ export interface GetApplicationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceGroupState = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  UPDATE_COMPLETE: "UPDATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ResourceGroupState = (typeof ResourceGroupState)[keyof typeof ResourceGroupState];
-
-/**
  * <p>The information about the resource group integration.</p>
  * @public
  */
@@ -1024,22 +833,6 @@ export interface GetApplicationResponse {
    */
   applicationTag?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceItemStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SKIPPED: "SKIPPED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ResourceItemStatus = (typeof ResourceItemStatus)[keyof typeof ResourceItemStatus];
 
 /**
  * @public
@@ -1556,20 +1349,6 @@ export interface SyncResourceRequest {
    */
   resource: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SyncAction = {
-  NO_ACTION: "NO_ACTION",
-  START_SYNC: "START_SYNC",
-} as const;
-
-/**
- * @public
- */
-export type SyncAction = (typeof SyncAction)[keyof typeof SyncAction];
 
 /**
  * @public

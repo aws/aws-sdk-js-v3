@@ -1,7 +1,40 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodeDeployServiceException as __BaseException } from "./CodeDeployServiceException";
+import {
+  _InstanceType,
+  ApplicationRevisionSortBy,
+  AutoRollbackEvent,
+  BundleType,
+  ComputePlatform,
+  DeploymentCreator,
+  DeploymentOption,
+  DeploymentReadyAction,
+  DeploymentStatus,
+  DeploymentTargetType,
+  DeploymentType,
+  DeploymentWaitType,
+  EC2TagFilterType,
+  ErrorCode,
+  FileExistsBehavior,
+  GreenFleetProvisioningAction,
+  InstanceAction,
+  InstanceStatus,
+  LifecycleErrorCode,
+  LifecycleEventStatus,
+  ListStateFilterAction,
+  MinimumHealthyHostsPerZoneType,
+  MinimumHealthyHostsType,
+  OutdatedInstancesStrategy,
+  RegistrationStatus,
+  RevisionLocationType,
+  SortOrder,
+  StopStatus,
+  TagFilterType,
+  TargetFilterName,
+  TargetLabel,
+  TargetStatus,
+  TrafficRoutingType,
+  TriggerEventType,
+} from "./enums";
 
 /**
  * <p>Information about a tag.</p>
@@ -39,147 +72,6 @@ export interface AddTagsToOnPremisesInstancesInput {
    * @public
    */
   instanceNames: string[] | undefined;
-}
-
-/**
- * <p>The maximum number of allowed on-premises instances in a single call was
- *             exceeded.</p>
- * @public
- */
-export class InstanceLimitExceededException extends __BaseException {
-  readonly name: "InstanceLimitExceededException" = "InstanceLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceLimitExceededException, __BaseException>) {
-    super({
-      name: "InstanceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>An on-premises instance name was not specified.</p>
- * @public
- */
-export class InstanceNameRequiredException extends __BaseException {
-  readonly name: "InstanceNameRequiredException" = "InstanceNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceNameRequiredException, __BaseException>) {
-    super({
-      name: "InstanceNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified on-premises instance is not registered.</p>
- * @public
- */
-export class InstanceNotRegisteredException extends __BaseException {
-  readonly name: "InstanceNotRegisteredException" = "InstanceNotRegisteredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceNotRegisteredException, __BaseException>) {
-    super({
-      name: "InstanceNotRegisteredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceNotRegisteredException.prototype);
-  }
-}
-
-/**
- * <p>The on-premises instance name was specified in an invalid format.</p>
- * @public
- */
-export class InvalidInstanceNameException extends __BaseException {
-  readonly name: "InvalidInstanceNameException" = "InvalidInstanceNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInstanceNameException, __BaseException>) {
-    super({
-      name: "InvalidInstanceNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInstanceNameException.prototype);
-  }
-}
-
-/**
- * <p>The tag was specified in an invalid format.</p>
- * @public
- */
-export class InvalidTagException extends __BaseException {
-  readonly name: "InvalidTagException" = "InvalidTagException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
-    super({
-      name: "InvalidTagException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagException.prototype);
-  }
-}
-
-/**
- * <p>The maximum allowed number of tags was exceeded.</p>
- * @public
- */
-export class TagLimitExceededException extends __BaseException {
-  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
-    super({
-      name: "TagLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>A tag was not specified.</p>
- * @public
- */
-export class TagRequiredException extends __BaseException {
-  readonly name: "TagRequiredException" = "TagRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagRequiredException, __BaseException>) {
-    super({
-      name: "TagRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagRequiredException.prototype);
-  }
 }
 
 /**
@@ -234,82 +126,6 @@ export interface AlarmConfiguration {
 }
 
 /**
- * <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
- * @public
- */
-export class AlarmsLimitExceededException extends __BaseException {
-  readonly name: "AlarmsLimitExceededException" = "AlarmsLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlarmsLimitExceededException, __BaseException>) {
-    super({
-      name: "AlarmsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlarmsLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>An application with the specified name with the user or Amazon Web Services account
- *             already exists.</p>
- * @public
- */
-export class ApplicationAlreadyExistsException extends __BaseException {
-  readonly name: "ApplicationAlreadyExistsException" = "ApplicationAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApplicationAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ApplicationAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApplicationAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The application does not exist with the user or Amazon Web Services account.</p>
- * @public
- */
-export class ApplicationDoesNotExistException extends __BaseException {
-  readonly name: "ApplicationDoesNotExistException" = "ApplicationDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApplicationDoesNotExistException, __BaseException>) {
-    super({
-      name: "ApplicationDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApplicationDoesNotExistException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ComputePlatform = {
-  ECS: "ECS",
-  LAMBDA: "Lambda",
-  SERVER: "Server",
-} as const;
-
-/**
- * @public
- */
-export type ComputePlatform = (typeof ComputePlatform)[keyof typeof ComputePlatform];
-
-/**
  * <p>Information about an application.</p>
  * @public
  */
@@ -353,61 +169,6 @@ export interface ApplicationInfo {
 }
 
 /**
- * <p>More applications were attempted to be created than are allowed.</p>
- * @public
- */
-export class ApplicationLimitExceededException extends __BaseException {
-  readonly name: "ApplicationLimitExceededException" = "ApplicationLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApplicationLimitExceededException, __BaseException>) {
-    super({
-      name: "ApplicationLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApplicationLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The minimum number of required application names was not specified.</p>
- * @public
- */
-export class ApplicationNameRequiredException extends __BaseException {
-  readonly name: "ApplicationNameRequiredException" = "ApplicationNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApplicationNameRequiredException, __BaseException>) {
-    super({
-      name: "ApplicationNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApplicationNameRequiredException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApplicationRevisionSortBy = {
-  FirstUsedTime: "firstUsedTime",
-  LastUsedTime: "lastUsedTime",
-  RegisterTime: "registerTime",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationRevisionSortBy = (typeof ApplicationRevisionSortBy)[keyof typeof ApplicationRevisionSortBy];
-
-/**
  * <p> A revision for an Lambda or Amazon ECS deployment that is a
  *             YAML-formatted or JSON-formatted string. For Lambda and Amazon ECS deployments, the revision is the same as the AppSpec file. This method replaces the
  *             deprecated <code>RawString</code> data type. </p>
@@ -434,42 +195,6 @@ export interface AppSpecContent {
    */
   sha256?: string | undefined;
 }
-
-/**
- * <p> The specified ARN is not supported. For example, it might be an ARN for a resource
- *             that is not expected. </p>
- * @public
- */
-export class ArnNotSupportedException extends __BaseException {
-  readonly name: "ArnNotSupportedException" = "ArnNotSupportedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ArnNotSupportedException, __BaseException>) {
-    super({
-      name: "ArnNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ArnNotSupportedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutoRollbackEvent = {
-  DEPLOYMENT_FAILURE: "DEPLOYMENT_FAILURE",
-  DEPLOYMENT_STOP_ON_ALARM: "DEPLOYMENT_STOP_ON_ALARM",
-  DEPLOYMENT_STOP_ON_REQUEST: "DEPLOYMENT_STOP_ON_REQUEST",
-} as const;
-
-/**
- * @public
- */
-export type AutoRollbackEvent = (typeof AutoRollbackEvent)[keyof typeof AutoRollbackEvent];
 
 /**
  * <p>Information about a configuration for automatically rolling back to a previous version
@@ -539,39 +264,6 @@ export interface GitHubLocation {
    */
   commitId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RevisionLocationType = {
-  AppSpecContent: "AppSpecContent",
-  GitHub: "GitHub",
-  S3: "S3",
-  String: "String",
-} as const;
-
-/**
- * @public
- */
-export type RevisionLocationType = (typeof RevisionLocationType)[keyof typeof RevisionLocationType];
-
-/**
- * @public
- * @enum
- */
-export const BundleType = {
-  JSON: "JSON",
-  Tar: "tar",
-  TarGZip: "tgz",
-  YAML: "YAML",
-  Zip: "zip",
-} as const;
-
-/**
- * @public
- */
-export type BundleType = (typeof BundleType)[keyof typeof BundleType];
 
 /**
  * <p>Information about the location of application artifacts stored in Amazon S3.</p>
@@ -823,86 +515,6 @@ export interface BatchGetApplicationRevisionsOutput {
 }
 
 /**
- * <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
- * @public
- */
-export class BatchLimitExceededException extends __BaseException {
-  readonly name: "BatchLimitExceededException" = "BatchLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BatchLimitExceededException, __BaseException>) {
-    super({
-      name: "BatchLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BatchLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The application name was specified in an invalid format.</p>
- * @public
- */
-export class InvalidApplicationNameException extends __BaseException {
-  readonly name: "InvalidApplicationNameException" = "InvalidApplicationNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApplicationNameException, __BaseException>) {
-    super({
-      name: "InvalidApplicationNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApplicationNameException.prototype);
-  }
-}
-
-/**
- * <p>The revision was specified in an invalid format.</p>
- * @public
- */
-export class InvalidRevisionException extends __BaseException {
-  readonly name: "InvalidRevisionException" = "InvalidRevisionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRevisionException, __BaseException>) {
-    super({
-      name: "InvalidRevisionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRevisionException.prototype);
-  }
-}
-
-/**
- * <p>The revision ID was not specified.</p>
- * @public
- */
-export class RevisionRequiredException extends __BaseException {
-  readonly name: "RevisionRequiredException" = "RevisionRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RevisionRequiredException, __BaseException>) {
-    super({
-      name: "RevisionRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RevisionRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>BatchGetApplications</code> operation.</p>
  * @public
  */
@@ -947,20 +559,6 @@ export interface BatchGetDeploymentGroupsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentReadyAction = {
-  CONTINUE_DEPLOYMENT: "CONTINUE_DEPLOYMENT",
-  STOP_DEPLOYMENT: "STOP_DEPLOYMENT",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentReadyAction = (typeof DeploymentReadyAction)[keyof typeof DeploymentReadyAction];
-
-/**
  * <p>Information about how traffic is rerouted to instances in a replacement environment in
  *             a blue/green deployment.</p>
  * @public
@@ -996,21 +594,6 @@ export interface DeploymentReadyOption {
 }
 
 /**
- * @public
- * @enum
- */
-export const GreenFleetProvisioningAction = {
-  COPY_AUTO_SCALING_GROUP: "COPY_AUTO_SCALING_GROUP",
-  DISCOVER_EXISTING: "DISCOVER_EXISTING",
-} as const;
-
-/**
- * @public
- */
-export type GreenFleetProvisioningAction =
-  (typeof GreenFleetProvisioningAction)[keyof typeof GreenFleetProvisioningAction];
-
-/**
  * <p>Information about the instances that belong to the replacement environment in a
  *             blue/green deployment.</p>
  * @public
@@ -1034,20 +617,6 @@ export interface GreenFleetProvisioningOption {
    */
   action?: GreenFleetProvisioningAction | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceAction = {
-  KEEP_ALIVE: "KEEP_ALIVE",
-  TERMINATE: "TERMINATE",
-} as const;
-
-/**
- * @public
- */
-export type InstanceAction = (typeof InstanceAction)[keyof typeof InstanceAction];
 
 /**
  * <p>Information about whether instances in the original environment are terminated when a
@@ -1116,34 +685,6 @@ export interface BlueGreenDeploymentConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentOption = {
-  WITHOUT_TRAFFIC_CONTROL: "WITHOUT_TRAFFIC_CONTROL",
-  WITH_TRAFFIC_CONTROL: "WITH_TRAFFIC_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentOption = (typeof DeploymentOption)[keyof typeof DeploymentOption];
-
-/**
- * @public
- * @enum
- */
-export const DeploymentType = {
-  BLUE_GREEN: "BLUE_GREEN",
-  IN_PLACE: "IN_PLACE",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
-
-/**
  * <p>Information about the type of deployment, either in-place or blue/green, you want to
  *             run and whether to route deployment traffic behind a load balancer.</p>
  * @public
@@ -1161,21 +702,6 @@ export interface DeploymentStyle {
    */
   deploymentOption?: DeploymentOption | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EC2TagFilterType = {
-  KEY_AND_VALUE: "KEY_AND_VALUE",
-  KEY_ONLY: "KEY_ONLY",
-  VALUE_ONLY: "VALUE_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type EC2TagFilterType = (typeof EC2TagFilterType)[keyof typeof EC2TagFilterType];
 
 /**
  * <p>Information about an EC2 tag filter.</p>
@@ -1248,26 +774,6 @@ export interface ECSService {
    */
   clusterName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  BAKING: "Baking",
-  CREATED: "Created",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  QUEUED: "Queued",
-  READY: "Ready",
-  STOPPED: "Stopped",
-  SUCCEEDED: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * <p>Information about the most recent attempted or successful deployment to a deployment
@@ -1429,21 +935,6 @@ export interface LoadBalancerInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const TagFilterType = {
-  KEY_AND_VALUE: "KEY_AND_VALUE",
-  KEY_ONLY: "KEY_ONLY",
-  VALUE_ONLY: "VALUE_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type TagFilterType = (typeof TagFilterType)[keyof typeof TagFilterType];
-
-/**
  * <p>Information about an on-premises instance tag filter.</p>
  * @public
  */
@@ -1491,42 +982,6 @@ export interface OnPremisesTagSet {
    */
   onPremisesTagSetList?: TagFilter[][] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OutdatedInstancesStrategy = {
-  Ignore: "IGNORE",
-  Update: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type OutdatedInstancesStrategy = (typeof OutdatedInstancesStrategy)[keyof typeof OutdatedInstancesStrategy];
-
-/**
- * @public
- * @enum
- */
-export const TriggerEventType = {
-  DEPLOYMENT_FAILURE: "DeploymentFailure",
-  DEPLOYMENT_READY: "DeploymentReady",
-  DEPLOYMENT_ROLLBACK: "DeploymentRollback",
-  DEPLOYMENT_START: "DeploymentStart",
-  DEPLOYMENT_STOP: "DeploymentStop",
-  DEPLOYMENT_SUCCESS: "DeploymentSuccess",
-  INSTANCE_FAILURE: "InstanceFailure",
-  INSTANCE_READY: "InstanceReady",
-  INSTANCE_START: "InstanceStart",
-  INSTANCE_SUCCESS: "InstanceSuccess",
-} as const;
-
-/**
- * @public
- */
-export type TriggerEventType = (typeof TriggerEventType)[keyof typeof TriggerEventType];
 
 /**
  * <p>Information about notification triggers for the deployment group.</p>
@@ -1741,66 +1196,6 @@ export interface BatchGetDeploymentGroupsOutput {
 }
 
 /**
- * <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
- * @public
- */
-export class DeploymentConfigDoesNotExistException extends __BaseException {
-  readonly name: "DeploymentConfigDoesNotExistException" = "DeploymentConfigDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentConfigDoesNotExistException, __BaseException>) {
-    super({
-      name: "DeploymentConfigDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentConfigDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The deployment group name was not specified.</p>
- * @public
- */
-export class DeploymentGroupNameRequiredException extends __BaseException {
-  readonly name: "DeploymentGroupNameRequiredException" = "DeploymentGroupNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentGroupNameRequiredException, __BaseException>) {
-    super({
-      name: "DeploymentGroupNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentGroupNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The deployment group name was specified in an invalid format.</p>
- * @public
- */
-export class InvalidDeploymentGroupNameException extends __BaseException {
-  readonly name: "InvalidDeploymentGroupNameException" = "InvalidDeploymentGroupNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentGroupNameException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentGroupNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentGroupNameException.prototype);
-  }
-}
-
-/**
  * <p> Represents the input of a <code>BatchGetDeploymentInstances</code> operation. </p>
  * @public
  */
@@ -1818,38 +1213,6 @@ export interface BatchGetDeploymentInstancesInput {
    */
   instanceIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const _InstanceType = {
-  BLUE: "Blue",
-  GREEN: "Green",
-} as const;
-
-/**
- * @public
- */
-export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
-
-/**
- * @public
- * @enum
- */
-export const LifecycleErrorCode = {
-  SCRIPT_FAILED: "ScriptFailed",
-  SCRIPT_MISSING: "ScriptMissing",
-  SCRIPT_NOT_EXECUTABLE: "ScriptNotExecutable",
-  SCRIPT_TIMED_OUT: "ScriptTimedOut",
-  SUCCESS: "Success",
-  UNKNOWN_ERROR: "UnknownError",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleErrorCode = (typeof LifecycleErrorCode)[keyof typeof LifecycleErrorCode];
 
 /**
  * <p>Diagnostic information about executable scripts that are part of a deployment.</p>
@@ -1905,24 +1268,6 @@ export interface Diagnostics {
    */
   logTail?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LifecycleEventStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  SKIPPED: "Skipped",
-  SUCCEEDED: "Succeeded",
-  UNKNOWN: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleEventStatus = (typeof LifecycleEventStatus)[keyof typeof LifecycleEventStatus];
 
 /**
  * <p>Information about a deployment lifecycle event.</p>
@@ -1981,25 +1326,6 @@ export interface LifecycleEvent {
    */
   status?: LifecycleEventStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  READY: "Ready",
-  SKIPPED: "Skipped",
-  SUCCEEDED: "Succeeded",
-  UNKNOWN: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
 
 /**
  * <p>Information about an instance in a deployment.</p>
@@ -2104,108 +1430,6 @@ export interface BatchGetDeploymentInstancesOutput {
 }
 
 /**
- * <p>The deployment with the user or Amazon Web Services account does not exist.</p>
- * @public
- */
-export class DeploymentDoesNotExistException extends __BaseException {
-  readonly name: "DeploymentDoesNotExistException" = "DeploymentDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentDoesNotExistException, __BaseException>) {
-    super({
-      name: "DeploymentDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>At least one deployment ID must be specified.</p>
- * @public
- */
-export class DeploymentIdRequiredException extends __BaseException {
-  readonly name: "DeploymentIdRequiredException" = "DeploymentIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentIdRequiredException, __BaseException>) {
-    super({
-      name: "DeploymentIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentIdRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The instance ID was not specified.</p>
- *
- * @deprecated This exception is deprecated, use DeploymentTargetIdRequiredException instead.
- * @public
- */
-export class InstanceIdRequiredException extends __BaseException {
-  readonly name: "InstanceIdRequiredException" = "InstanceIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceIdRequiredException, __BaseException>) {
-    super({
-      name: "InstanceIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceIdRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
- * @public
- */
-export class InvalidComputePlatformException extends __BaseException {
-  readonly name: "InvalidComputePlatformException" = "InvalidComputePlatformException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidComputePlatformException, __BaseException>) {
-    super({
-      name: "InvalidComputePlatformException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidComputePlatformException.prototype);
-  }
-}
-
-/**
- * <p>At least one of the deployment IDs was specified in an invalid format.</p>
- * @public
- */
-export class InvalidDeploymentIdException extends __BaseException {
-  readonly name: "InvalidDeploymentIdException" = "InvalidDeploymentIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentIdException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentIdException.prototype);
-  }
-}
-
-/**
  * <p> Represents the input of a <code>BatchGetDeployments</code> operation. </p>
  * @public
  */
@@ -2217,26 +1441,6 @@ export interface BatchGetDeploymentsInput {
    */
   deploymentIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentCreator = {
-  Autoscaling: "autoscaling",
-  AutoscalingTermination: "autoscalingTermination",
-  CloudFormation: "CloudFormation",
-  CloudFormationRollback: "CloudFormationRollback",
-  CodeDeploy: "CodeDeploy",
-  CodeDeployAutoUpdate: "CodeDeployAutoUpdate",
-  CodeDeployRollback: "codeDeployRollback",
-  User: "user",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentCreator = (typeof DeploymentCreator)[keyof typeof DeploymentCreator];
 
 /**
  * <p>Information about the deployment status of the instances in the deployment.</p>
@@ -2281,52 +1485,6 @@ export interface DeploymentOverview {
    */
   Ready?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  AGENT_ISSUE: "AGENT_ISSUE",
-  ALARM_ACTIVE: "ALARM_ACTIVE",
-  APPLICATION_MISSING: "APPLICATION_MISSING",
-  AUTOSCALING_VALIDATION_ERROR: "AUTOSCALING_VALIDATION_ERROR",
-  AUTO_SCALING_CONFIGURATION: "AUTO_SCALING_CONFIGURATION",
-  AUTO_SCALING_IAM_ROLE_PERMISSIONS: "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
-  CLOUDFORMATION_STACK_FAILURE: "CLOUDFORMATION_STACK_FAILURE",
-  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND: "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
-  CUSTOMER_APPLICATION_UNHEALTHY: "CUSTOMER_APPLICATION_UNHEALTHY",
-  DEPLOYMENT_GROUP_MISSING: "DEPLOYMENT_GROUP_MISSING",
-  ECS_UPDATE_ERROR: "ECS_UPDATE_ERROR",
-  ELASTIC_LOAD_BALANCING_INVALID: "ELASTIC_LOAD_BALANCING_INVALID",
-  ELB_INVALID_INSTANCE: "ELB_INVALID_INSTANCE",
-  HEALTH_CONSTRAINTS: "HEALTH_CONSTRAINTS",
-  HEALTH_CONSTRAINTS_INVALID: "HEALTH_CONSTRAINTS_INVALID",
-  HOOK_EXECUTION_FAILURE: "HOOK_EXECUTION_FAILURE",
-  IAM_ROLE_MISSING: "IAM_ROLE_MISSING",
-  IAM_ROLE_PERMISSIONS: "IAM_ROLE_PERMISSIONS",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_ECS_SERVICE: "INVALID_ECS_SERVICE",
-  INVALID_LAMBDA_CONFIGURATION: "INVALID_LAMBDA_CONFIGURATION",
-  INVALID_LAMBDA_FUNCTION: "INVALID_LAMBDA_FUNCTION",
-  INVALID_REVISION: "INVALID_REVISION",
-  MANUAL_STOP: "MANUAL_STOP",
-  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION: "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
-  MISSING_ELB_INFORMATION: "MISSING_ELB_INFORMATION",
-  MISSING_GITHUB_TOKEN: "MISSING_GITHUB_TOKEN",
-  NO_EC2_SUBSCRIPTION: "NO_EC2_SUBSCRIPTION",
-  NO_INSTANCES: "NO_INSTANCES",
-  OVER_MAX_INSTANCES: "OVER_MAX_INSTANCES",
-  RESOURCE_LIMIT_EXCEEDED: "RESOURCE_LIMIT_EXCEEDED",
-  REVISION_MISSING: "REVISION_MISSING",
-  THROTTLED: "THROTTLED",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * <p>Information about a deployment error.</p>
@@ -2398,21 +1556,6 @@ export interface ErrorInformation {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileExistsBehavior = {
-  DISALLOW: "DISALLOW",
-  OVERWRITE: "OVERWRITE",
-  RETAIN: "RETAIN",
-} as const;
-
-/**
- * @public
- */
-export type FileExistsBehavior = (typeof FileExistsBehavior)[keyof typeof FileExistsBehavior];
 
 /**
  * <p>Information about deployments related to the specified deployment.</p>
@@ -2808,25 +1951,6 @@ export interface BatchGetDeploymentTargetsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const TargetStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  READY: "Ready",
-  SKIPPED: "Skipped",
-  SUCCEEDED: "Succeeded",
-  UNKNOWN: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
-
-/**
  * <p> Information about the target to be updated by an CloudFormation blue/green
  *             deployment. This target type is used for all deployments initiated by a CloudFormation stack update.</p>
  * @public
@@ -2879,36 +2003,6 @@ export interface CloudFormationTarget {
    */
   targetVersionWeight?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentTargetType = {
-  CLOUDFORMATION_TARGET: "CloudFormationTarget",
-  ECS_TARGET: "ECSTarget",
-  INSTANCE_TARGET: "InstanceTarget",
-  LAMBDA_TARGET: "LambdaTarget",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentTargetType = (typeof DeploymentTargetType)[keyof typeof DeploymentTargetType];
-
-/**
- * @public
- * @enum
- */
-export const TargetLabel = {
-  BLUE: "Blue",
-  GREEN: "Green",
-} as const;
-
-/**
- * @public
- */
-export type TargetLabel = (typeof TargetLabel)[keyof typeof TargetLabel];
 
 /**
  * <p> Information about a set of Amazon ECS tasks in an CodeDeploy
@@ -3268,131 +2362,6 @@ export interface BatchGetDeploymentTargetsOutput {
 }
 
 /**
- * <p>The specified deployment has not started.</p>
- * @public
- */
-export class DeploymentNotStartedException extends __BaseException {
-  readonly name: "DeploymentNotStartedException" = "DeploymentNotStartedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentNotStartedException, __BaseException>) {
-    super({
-      name: "DeploymentNotStartedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentNotStartedException.prototype);
-  }
-}
-
-/**
- * <p> The provided target ID does not belong to the attempted deployment. </p>
- * @public
- */
-export class DeploymentTargetDoesNotExistException extends __BaseException {
-  readonly name: "DeploymentTargetDoesNotExistException" = "DeploymentTargetDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentTargetDoesNotExistException, __BaseException>) {
-    super({
-      name: "DeploymentTargetDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentTargetDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p> A deployment target ID was not provided. </p>
- * @public
- */
-export class DeploymentTargetIdRequiredException extends __BaseException {
-  readonly name: "DeploymentTargetIdRequiredException" = "DeploymentTargetIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentTargetIdRequiredException, __BaseException>) {
-    super({
-      name: "DeploymentTargetIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentTargetIdRequiredException.prototype);
-  }
-}
-
-/**
- * <p> The maximum number of targets that can be associated with an Amazon ECS or
- *                 Lambda deployment was exceeded. The target list of both types of
- *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
- *             deployments. </p>
- * @public
- */
-export class DeploymentTargetListSizeExceededException extends __BaseException {
-  readonly name: "DeploymentTargetListSizeExceededException" = "DeploymentTargetListSizeExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentTargetListSizeExceededException, __BaseException>) {
-    super({
-      name: "DeploymentTargetListSizeExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentTargetListSizeExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified instance does not exist in the deployment group.</p>
- *
- * @deprecated This exception is deprecated, use DeploymentTargetDoesNotExistException instead.
- * @public
- */
-export class InstanceDoesNotExistException extends __BaseException {
-  readonly name: "InstanceDoesNotExistException" = "InstanceDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceDoesNotExistException, __BaseException>) {
-    super({
-      name: "InstanceDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p> The target ID provided was not valid. </p>
- * @public
- */
-export class InvalidDeploymentTargetIdException extends __BaseException {
-  readonly name: "InvalidDeploymentTargetIdException" = "InvalidDeploymentTargetIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentTargetIdException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentTargetIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentTargetIdException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  * @public
  */
@@ -3468,40 +2437,6 @@ export interface BatchGetOnPremisesInstancesOutput {
 }
 
 /**
- * <p>A bucket name is required, but was not provided.</p>
- * @public
- */
-export class BucketNameFilterRequiredException extends __BaseException {
-  readonly name: "BucketNameFilterRequiredException" = "BucketNameFilterRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BucketNameFilterRequiredException, __BaseException>) {
-    super({
-      name: "BucketNameFilterRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BucketNameFilterRequiredException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DeploymentWaitType = {
-  READY_WAIT: "READY_WAIT",
-  TERMINATION_WAIT: "TERMINATION_WAIT",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentWaitType = (typeof DeploymentWaitType)[keyof typeof DeploymentWaitType];
-
-/**
  * @public
  */
 export interface ContinueDeploymentInput {
@@ -3520,106 +2455,6 @@ export interface ContinueDeploymentInput {
    * @public
    */
   deploymentWaitType?: DeploymentWaitType | undefined;
-}
-
-/**
- * <p>The deployment is already complete.</p>
- * @public
- */
-export class DeploymentAlreadyCompletedException extends __BaseException {
-  readonly name: "DeploymentAlreadyCompletedException" = "DeploymentAlreadyCompletedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentAlreadyCompletedException, __BaseException>) {
-    super({
-      name: "DeploymentAlreadyCompletedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentAlreadyCompletedException.prototype);
-  }
-}
-
-/**
- * <p>The deployment does not have a status of Ready and can't continue yet.</p>
- * @public
- */
-export class DeploymentIsNotInReadyStateException extends __BaseException {
-  readonly name: "DeploymentIsNotInReadyStateException" = "DeploymentIsNotInReadyStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentIsNotInReadyStateException, __BaseException>) {
-    super({
-      name: "DeploymentIsNotInReadyStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentIsNotInReadyStateException.prototype);
-  }
-}
-
-/**
- * <p>The specified deployment status doesn't exist or cannot be determined.</p>
- * @public
- */
-export class InvalidDeploymentStatusException extends __BaseException {
-  readonly name: "InvalidDeploymentStatusException" = "InvalidDeploymentStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentStatusException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentStatusException.prototype);
-  }
-}
-
-/**
- * <p> The wait type is invalid. </p>
- * @public
- */
-export class InvalidDeploymentWaitTypeException extends __BaseException {
-  readonly name: "InvalidDeploymentWaitTypeException" = "InvalidDeploymentWaitTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentWaitTypeException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentWaitTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentWaitTypeException.prototype);
-  }
-}
-
-/**
- * <p>A call was submitted that is not supported for the specified deployment type.</p>
- * @public
- */
-export class UnsupportedActionForDeploymentTypeException extends __BaseException {
-  readonly name: "UnsupportedActionForDeploymentTypeException" = "UnsupportedActionForDeploymentTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedActionForDeploymentTypeException, __BaseException>) {
-    super({
-      name: "UnsupportedActionForDeploymentTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedActionForDeploymentTypeException.prototype);
-  }
 }
 
 /**
@@ -3660,26 +2495,6 @@ export interface CreateApplicationOutput {
    * @public
    */
   applicationId?: string | undefined;
-}
-
-/**
- * <p> The specified tags are not valid. </p>
- * @public
- */
-export class InvalidTagsToAddException extends __BaseException {
-  readonly name: "InvalidTagsToAddException" = "InvalidTagsToAddException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagsToAddException, __BaseException>) {
-    super({
-      name: "InvalidTagsToAddException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagsToAddException.prototype);
-  }
 }
 
 /**
@@ -3825,407 +2640,6 @@ export interface CreateDeploymentOutput {
 }
 
 /**
- * <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
- * @public
- */
-export class DeploymentGroupDoesNotExistException extends __BaseException {
-  readonly name: "DeploymentGroupDoesNotExistException" = "DeploymentGroupDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentGroupDoesNotExistException, __BaseException>) {
-    super({
-      name: "DeploymentGroupDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentGroupDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The number of allowed deployments was exceeded.</p>
- * @public
- */
-export class DeploymentLimitExceededException extends __BaseException {
-  readonly name: "DeploymentLimitExceededException" = "DeploymentLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentLimitExceededException, __BaseException>) {
-    super({
-      name: "DeploymentLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The description is too long.</p>
- * @public
- */
-export class DescriptionTooLongException extends __BaseException {
-  readonly name: "DescriptionTooLongException" = "DescriptionTooLongException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DescriptionTooLongException, __BaseException>) {
-    super({
-      name: "DescriptionTooLongException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DescriptionTooLongException.prototype);
-  }
-}
-
-/**
- * <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>The alarm list is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm object is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
- *             </li>
- *             <li>
- *                <p>Two alarms with the same name have been specified.</p>
- *             </li>
- *             <li>
- *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidAlarmConfigException extends __BaseException {
-  readonly name: "InvalidAlarmConfigException" = "InvalidAlarmConfigException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAlarmConfigException, __BaseException>) {
-    super({
-      name: "InvalidAlarmConfigException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAlarmConfigException.prototype);
-  }
-}
-
-/**
- * <p>The automatic rollback configuration was specified in an invalid format. For example,
- *             automatic rollback is enabled, but an invalid triggering event type or no event types
- *             were listed.</p>
- * @public
- */
-export class InvalidAutoRollbackConfigException extends __BaseException {
-  readonly name: "InvalidAutoRollbackConfigException" = "InvalidAutoRollbackConfigException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAutoRollbackConfigException, __BaseException>) {
-    super({
-      name: "InvalidAutoRollbackConfigException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAutoRollbackConfigException.prototype);
-  }
-}
-
-/**
- * <p>The Auto Scaling group was specified in an invalid format or does not
- *             exist.</p>
- * @public
- */
-export class InvalidAutoScalingGroupException extends __BaseException {
-  readonly name: "InvalidAutoScalingGroupException" = "InvalidAutoScalingGroupException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAutoScalingGroupException, __BaseException>) {
-    super({
-      name: "InvalidAutoScalingGroupException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAutoScalingGroupException.prototype);
-  }
-}
-
-/**
- * <p>The deployment configuration name was specified in an invalid format.</p>
- * @public
- */
-export class InvalidDeploymentConfigNameException extends __BaseException {
-  readonly name: "InvalidDeploymentConfigNameException" = "InvalidDeploymentConfigNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentConfigNameException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentConfigNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentConfigNameException.prototype);
-  }
-}
-
-/**
- * <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
- *             target location, but weren't part of the previous successful deployment. Valid values
- *             include "DISALLOW," "OVERWRITE," and "RETAIN."</p>
- * @public
- */
-export class InvalidFileExistsBehaviorException extends __BaseException {
-  readonly name: "InvalidFileExistsBehaviorException" = "InvalidFileExistsBehaviorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFileExistsBehaviorException, __BaseException>) {
-    super({
-      name: "InvalidFileExistsBehaviorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFileExistsBehaviorException.prototype);
-  }
-}
-
-/**
- * <p>The GitHub token is not valid.</p>
- * @public
- */
-export class InvalidGitHubAccountTokenException extends __BaseException {
-  readonly name: "InvalidGitHubAccountTokenException" = "InvalidGitHubAccountTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGitHubAccountTokenException, __BaseException>) {
-    super({
-      name: "InvalidGitHubAccountTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGitHubAccountTokenException.prototype);
-  }
-}
-
-/**
- * <p>The IgnoreApplicationStopFailures value is invalid. For Lambda
- *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
- *                 <code>true</code> or <code>false</code> is expected.</p>
- * @public
- */
-export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseException {
-  readonly name: "InvalidIgnoreApplicationStopFailuresValueException" =
-    "InvalidIgnoreApplicationStopFailuresValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIgnoreApplicationStopFailuresValueException, __BaseException>) {
-    super({
-      name: "InvalidIgnoreApplicationStopFailuresValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIgnoreApplicationStopFailuresValueException.prototype);
-  }
-}
-
-/**
- * <p>An invalid load balancer name, or no load balancer name, was specified.</p>
- * @public
- */
-export class InvalidLoadBalancerInfoException extends __BaseException {
-  readonly name: "InvalidLoadBalancerInfoException" = "InvalidLoadBalancerInfoException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLoadBalancerInfoException, __BaseException>) {
-    super({
-      name: "InvalidLoadBalancerInfoException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLoadBalancerInfoException.prototype);
-  }
-}
-
-/**
- * <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
- *             group was specified, the specified service role does not grant the appropriate
- *             permissions to Amazon EC2 Auto Scaling.</p>
- * @public
- */
-export class InvalidRoleException extends __BaseException {
-  readonly name: "InvalidRoleException" = "InvalidRoleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRoleException, __BaseException>) {
-    super({
-      name: "InvalidRoleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRoleException.prototype);
-  }
-}
-
-/**
- * <p>The target instance configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>Configuration data for target instances was entered for an in-place
- *                     deployment.</p>
- *             </li>
- *             <li>
- *                <p>The limit of 10 tags for a tag type was exceeded.</p>
- *             </li>
- *             <li>
- *                <p>The combined length of the tag names exceeded the limit. </p>
- *             </li>
- *             <li>
- *                <p>A specified tag is not currently applied to any instances.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidTargetInstancesException extends __BaseException {
-  readonly name: "InvalidTargetInstancesException" = "InvalidTargetInstancesException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetInstancesException, __BaseException>) {
-    super({
-      name: "InvalidTargetInstancesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetInstancesException.prototype);
-  }
-}
-
-/**
- * <p> The configuration that specifies how traffic is routed during a deployment is
- *             invalid.</p>
- * @public
- */
-export class InvalidTrafficRoutingConfigurationException extends __BaseException {
-  readonly name: "InvalidTrafficRoutingConfigurationException" = "InvalidTrafficRoutingConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTrafficRoutingConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidTrafficRoutingConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTrafficRoutingConfigurationException.prototype);
-  }
-}
-
-/**
- * <p>The UpdateOutdatedInstancesOnly value is invalid. For Lambda
- *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
- *                 <code>true</code> or <code>false</code> is expected.</p>
- * @public
- */
-export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseException {
-  readonly name: "InvalidUpdateOutdatedInstancesOnlyValueException" =
-    "InvalidUpdateOutdatedInstancesOnlyValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidUpdateOutdatedInstancesOnlyValueException, __BaseException>) {
-    super({
-      name: "InvalidUpdateOutdatedInstancesOnlyValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidUpdateOutdatedInstancesOnlyValueException.prototype);
-  }
-}
-
-/**
- * <p>The named revision does not exist with the user or Amazon Web Services account.</p>
- * @public
- */
-export class RevisionDoesNotExistException extends __BaseException {
-  readonly name: "RevisionDoesNotExistException" = "RevisionDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RevisionDoesNotExistException, __BaseException>) {
-    super({
-      name: "RevisionDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RevisionDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>An API function was called too frequently.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const MinimumHealthyHostsType = {
-  FLEET_PERCENT: "FLEET_PERCENT",
-  HOST_COUNT: "HOST_COUNT",
-} as const;
-
-/**
- * @public
- */
-export type MinimumHealthyHostsType = (typeof MinimumHealthyHostsType)[keyof typeof MinimumHealthyHostsType];
-
-/**
  * <p>Information about the minimum number of healthy instances.</p>
  * @public
  */
@@ -4322,21 +2736,6 @@ export interface TimeBasedLinear {
 }
 
 /**
- * @public
- * @enum
- */
-export const TrafficRoutingType = {
-  AllAtOnce: "AllAtOnce",
-  TimeBasedCanary: "TimeBasedCanary",
-  TimeBasedLinear: "TimeBasedLinear",
-} as const;
-
-/**
- * @public
- */
-export type TrafficRoutingType = (typeof TrafficRoutingType)[keyof typeof TrafficRoutingType];
-
-/**
  * <p>The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an Lambda deployment,
  *             or from one Amazon ECS task set to another during an Amazon ECS
  *             deployment.</p>
@@ -4369,21 +2768,6 @@ export interface TrafficRoutingConfig {
    */
   timeBasedLinear?: TimeBasedLinear | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MinimumHealthyHostsPerZoneType = {
-  FLEET_PERCENT: "FLEET_PERCENT",
-  HOST_COUNT: "HOST_COUNT",
-} as const;
-
-/**
- * @public
- */
-export type MinimumHealthyHostsPerZoneType =
-  (typeof MinimumHealthyHostsPerZoneType)[keyof typeof MinimumHealthyHostsPerZoneType];
 
 /**
  * <p>Information about the minimum number of healthy instances per Availability
@@ -4526,106 +2910,6 @@ export interface CreateDeploymentConfigOutput {
    * @public
    */
   deploymentConfigId?: string | undefined;
-}
-
-/**
- * <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
- * @public
- */
-export class DeploymentConfigAlreadyExistsException extends __BaseException {
-  readonly name: "DeploymentConfigAlreadyExistsException" = "DeploymentConfigAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentConfigAlreadyExistsException, __BaseException>) {
-    super({
-      name: "DeploymentConfigAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentConfigAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The deployment configurations limit was exceeded.</p>
- * @public
- */
-export class DeploymentConfigLimitExceededException extends __BaseException {
-  readonly name: "DeploymentConfigLimitExceededException" = "DeploymentConfigLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentConfigLimitExceededException, __BaseException>) {
-    super({
-      name: "DeploymentConfigLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentConfigLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The deployment configuration name was not specified.</p>
- * @public
- */
-export class DeploymentConfigNameRequiredException extends __BaseException {
-  readonly name: "DeploymentConfigNameRequiredException" = "DeploymentConfigNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentConfigNameRequiredException, __BaseException>) {
-    super({
-      name: "DeploymentConfigNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentConfigNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The minimum healthy instance value was specified in an invalid format.</p>
- * @public
- */
-export class InvalidMinimumHealthyHostValueException extends __BaseException {
-  readonly name: "InvalidMinimumHealthyHostValueException" = "InvalidMinimumHealthyHostValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidMinimumHealthyHostValueException, __BaseException>) {
-    super({
-      name: "InvalidMinimumHealthyHostValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidMinimumHealthyHostValueException.prototype);
-  }
-}
-
-/**
- * <p>The <code>ZonalConfig</code> object is not valid.</p>
- * @public
- */
-export class InvalidZonalDeploymentConfigurationException extends __BaseException {
-  readonly name: "InvalidZonalDeploymentConfigurationException" = "InvalidZonalDeploymentConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidZonalDeploymentConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidZonalDeploymentConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidZonalDeploymentConfigurationException.prototype);
-  }
 }
 
 /**
@@ -4802,335 +3086,6 @@ export interface CreateDeploymentGroupOutput {
 }
 
 /**
- * <p>A deployment group with the specified name with the user or Amazon Web Services account
- *             already exists.</p>
- * @public
- */
-export class DeploymentGroupAlreadyExistsException extends __BaseException {
-  readonly name: "DeploymentGroupAlreadyExistsException" = "DeploymentGroupAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentGroupAlreadyExistsException, __BaseException>) {
-    super({
-      name: "DeploymentGroupAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentGroupAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p> The deployment groups limit was exceeded.</p>
- * @public
- */
-export class DeploymentGroupLimitExceededException extends __BaseException {
-  readonly name: "DeploymentGroupLimitExceededException" = "DeploymentGroupLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentGroupLimitExceededException, __BaseException>) {
-    super({
-      name: "DeploymentGroupLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentGroupLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p> The Amazon ECS service is associated with more than one deployment groups. An
- *             Amazon ECS service can be associated with only one deployment group. </p>
- * @public
- */
-export class ECSServiceMappingLimitExceededException extends __BaseException {
-  readonly name: "ECSServiceMappingLimitExceededException" = "ECSServiceMappingLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ECSServiceMappingLimitExceededException, __BaseException>) {
-    super({
-      name: "ECSServiceMappingLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ECSServiceMappingLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The configuration for the blue/green deployment group was provided in an invalid
- *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
- * @public
- */
-export class InvalidBlueGreenDeploymentConfigurationException extends __BaseException {
-  readonly name: "InvalidBlueGreenDeploymentConfigurationException" =
-    "InvalidBlueGreenDeploymentConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidBlueGreenDeploymentConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidBlueGreenDeploymentConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidBlueGreenDeploymentConfigurationException.prototype);
-  }
-}
-
-/**
- * <p>An invalid deployment style was specified. Valid deployment types include "IN_PLACE"
- *             and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and
- *             "WITHOUT_TRAFFIC_CONTROL."</p>
- * @public
- */
-export class InvalidDeploymentStyleException extends __BaseException {
-  readonly name: "InvalidDeploymentStyleException" = "InvalidDeploymentStyleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentStyleException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentStyleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentStyleException.prototype);
-  }
-}
-
-/**
- * <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of
- *             these data types can be used in a single call.</p>
- * @public
- */
-export class InvalidEC2TagCombinationException extends __BaseException {
-  readonly name: "InvalidEC2TagCombinationException" = "InvalidEC2TagCombinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEC2TagCombinationException, __BaseException>) {
-    super({
-      name: "InvalidEC2TagCombinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEC2TagCombinationException.prototype);
-  }
-}
-
-/**
- * <p>The tag was specified in an invalid format.</p>
- * @public
- */
-export class InvalidEC2TagException extends __BaseException {
-  readonly name: "InvalidEC2TagException" = "InvalidEC2TagException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEC2TagException, __BaseException>) {
-    super({
-      name: "InvalidEC2TagException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEC2TagException.prototype);
-  }
-}
-
-/**
- * <p> The Amazon ECS service identifier is not valid. </p>
- * @public
- */
-export class InvalidECSServiceException extends __BaseException {
-  readonly name: "InvalidECSServiceException" = "InvalidECSServiceException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidECSServiceException, __BaseException>) {
-    super({
-      name: "InvalidECSServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidECSServiceException.prototype);
-  }
-}
-
-/**
- * <p>The input was specified in an invalid format.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
- * <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet,
- *             but only one of these data types can be used in a single call.</p>
- * @public
- */
-export class InvalidOnPremisesTagCombinationException extends __BaseException {
-  readonly name: "InvalidOnPremisesTagCombinationException" = "InvalidOnPremisesTagCombinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOnPremisesTagCombinationException, __BaseException>) {
-    super({
-      name: "InvalidOnPremisesTagCombinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOnPremisesTagCombinationException.prototype);
-  }
-}
-
-/**
- * <p> A target group pair associated with this deployment is not valid. </p>
- * @public
- */
-export class InvalidTargetGroupPairException extends __BaseException {
-  readonly name: "InvalidTargetGroupPairException" = "InvalidTargetGroupPairException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetGroupPairException, __BaseException>) {
-    super({
-      name: "InvalidTargetGroupPairException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetGroupPairException.prototype);
-  }
-}
-
-/**
- * <p>The trigger was specified in an invalid format.</p>
- * @public
- */
-export class InvalidTriggerConfigException extends __BaseException {
-  readonly name: "InvalidTriggerConfigException" = "InvalidTriggerConfigException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTriggerConfigException, __BaseException>) {
-    super({
-      name: "InvalidTriggerConfigException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTriggerConfigException.prototype);
-  }
-}
-
-/**
- * <p>The limit for lifecycle hooks was exceeded.</p>
- * @public
- */
-export class LifecycleHookLimitExceededException extends __BaseException {
-  readonly name: "LifecycleHookLimitExceededException" = "LifecycleHookLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LifecycleHookLimitExceededException, __BaseException>) {
-    super({
-      name: "LifecycleHookLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LifecycleHookLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The role ID was not specified.</p>
- * @public
- */
-export class RoleRequiredException extends __BaseException {
-  readonly name: "RoleRequiredException" = "RoleRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RoleRequiredException, __BaseException>) {
-    super({
-      name: "RoleRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RoleRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The number of tag groups included in the tag set list exceeded the maximum allowed
- *             limit of 3.</p>
- * @public
- */
-export class TagSetListLimitExceededException extends __BaseException {
-  readonly name: "TagSetListLimitExceededException" = "TagSetListLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagSetListLimitExceededException, __BaseException>) {
-    super({
-      name: "TagSetListLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagSetListLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The maximum allowed number of triggers was exceeded.</p>
- * @public
- */
-export class TriggerTargetsLimitExceededException extends __BaseException {
-  readonly name: "TriggerTargetsLimitExceededException" = "TriggerTargetsLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TriggerTargetsLimitExceededException, __BaseException>) {
-    super({
-      name: "TriggerTargetsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TriggerTargetsLimitExceededException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>DeleteApplication</code> operation.</p>
  * @public
  */
@@ -5152,46 +3107,6 @@ export interface DeleteDeploymentConfigInput {
    * @public
    */
   deploymentConfigName: string | undefined;
-}
-
-/**
- * <p>The deployment configuration is still in use.</p>
- * @public
- */
-export class DeploymentConfigInUseException extends __BaseException {
-  readonly name: "DeploymentConfigInUseException" = "DeploymentConfigInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeploymentConfigInUseException, __BaseException>) {
-    super({
-      name: "DeploymentConfigInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeploymentConfigInUseException.prototype);
-  }
-}
-
-/**
- * <p>An invalid operation was detected.</p>
- * @public
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-  }
 }
 
 /**
@@ -5250,106 +3165,6 @@ export interface DeleteGitHubAccountTokenOutput {
    * @public
    */
   tokenName?: string | undefined;
-}
-
-/**
- * <p>No GitHub account connection exists with the named specified in the call.</p>
- * @public
- */
-export class GitHubAccountTokenDoesNotExistException extends __BaseException {
-  readonly name: "GitHubAccountTokenDoesNotExistException" = "GitHubAccountTokenDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GitHubAccountTokenDoesNotExistException, __BaseException>) {
-    super({
-      name: "GitHubAccountTokenDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GitHubAccountTokenDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The call is missing a required GitHub account connection name.</p>
- * @public
- */
-export class GitHubAccountTokenNameRequiredException extends __BaseException {
-  readonly name: "GitHubAccountTokenNameRequiredException" = "GitHubAccountTokenNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GitHubAccountTokenNameRequiredException, __BaseException>) {
-    super({
-      name: "GitHubAccountTokenNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GitHubAccountTokenNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The format of the specified GitHub account connection name is invalid.</p>
- * @public
- */
-export class InvalidGitHubAccountTokenNameException extends __BaseException {
-  readonly name: "InvalidGitHubAccountTokenNameException" = "InvalidGitHubAccountTokenNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGitHubAccountTokenNameException, __BaseException>) {
-    super({
-      name: "InvalidGitHubAccountTokenNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGitHubAccountTokenNameException.prototype);
-  }
-}
-
-/**
- * <p>The API used does not support the deployment.</p>
- * @public
- */
-export class OperationNotSupportedException extends __BaseException {
-  readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
-    super({
-      name: "OperationNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource could not be validated.</p>
- * @public
- */
-export class ResourceValidationException extends __BaseException {
-  readonly name: "ResourceValidationException" = "ResourceValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceValidationException, __BaseException>) {
-    super({
-      name: "ResourceValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceValidationException.prototype);
-  }
 }
 
 /**
@@ -5666,156 +3481,6 @@ export interface GetOnPremisesInstanceOutput {
 }
 
 /**
- * <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
- * @public
- */
-export class InvalidBucketNameFilterException extends __BaseException {
-  readonly name: "InvalidBucketNameFilterException" = "InvalidBucketNameFilterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidBucketNameFilterException, __BaseException>) {
-    super({
-      name: "InvalidBucketNameFilterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidBucketNameFilterException.prototype);
-  }
-}
-
-/**
- * <p>The deployed state filter was specified in an invalid format.</p>
- * @public
- */
-export class InvalidDeployedStateFilterException extends __BaseException {
-  readonly name: "InvalidDeployedStateFilterException" = "InvalidDeployedStateFilterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeployedStateFilterException, __BaseException>) {
-    super({
-      name: "InvalidDeployedStateFilterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeployedStateFilterException.prototype);
-  }
-}
-
-/**
- * <p>The specified key prefix filter was specified in an invalid format.</p>
- * @public
- */
-export class InvalidKeyPrefixFilterException extends __BaseException {
-  readonly name: "InvalidKeyPrefixFilterException" = "InvalidKeyPrefixFilterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidKeyPrefixFilterException, __BaseException>) {
-    super({
-      name: "InvalidKeyPrefixFilterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidKeyPrefixFilterException.prototype);
-  }
-}
-
-/**
- * <p>The next token was specified in an invalid format.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-  }
-}
-
-/**
- * <p>The column name to sort by is either not present or was specified in an invalid
- *             format.</p>
- * @public
- */
-export class InvalidSortByException extends __BaseException {
-  readonly name: "InvalidSortByException" = "InvalidSortByException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSortByException, __BaseException>) {
-    super({
-      name: "InvalidSortByException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSortByException.prototype);
-  }
-}
-
-/**
- * <p>The sort order was specified in an invalid format.</p>
- * @public
- */
-export class InvalidSortOrderException extends __BaseException {
-  readonly name: "InvalidSortOrderException" = "InvalidSortOrderException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSortOrderException, __BaseException>) {
-    super({
-      name: "InvalidSortOrderException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSortOrderException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ListStateFilterAction = {
-  Exclude: "exclude",
-  Ignore: "ignore",
-  Include: "include",
-} as const;
-
-/**
- * @public
- */
-export type ListStateFilterAction = (typeof ListStateFilterAction)[keyof typeof ListStateFilterAction];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  Ascending: "ascending",
-  Descending: "descending",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
  * <p> Represents the input of a <code>ListApplicationRevisions</code> operation. </p>
  * @public
  */
@@ -6047,89 +3712,6 @@ export interface ListDeploymentGroupsOutput {
 }
 
 /**
- * <p>An instance type was specified for an in-place deployment. Instance types are
- *             supported for blue/green deployments only.</p>
- * @public
- */
-export class InvalidDeploymentInstanceTypeException extends __BaseException {
-  readonly name: "InvalidDeploymentInstanceTypeException" = "InvalidDeploymentInstanceTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeploymentInstanceTypeException, __BaseException>) {
-    super({
-      name: "InvalidDeploymentInstanceTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeploymentInstanceTypeException.prototype);
-  }
-}
-
-/**
- * <p>The specified instance status does not exist.</p>
- * @public
- */
-export class InvalidInstanceStatusException extends __BaseException {
-  readonly name: "InvalidInstanceStatusException" = "InvalidInstanceStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInstanceStatusException, __BaseException>) {
-    super({
-      name: "InvalidInstanceStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInstanceStatusException.prototype);
-  }
-}
-
-/**
- * <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
- *             values include "Blue" for an original environment and "Green" for a replacement
- *             environment.</p>
- * @public
- */
-export class InvalidInstanceTypeException extends __BaseException {
-  readonly name: "InvalidInstanceTypeException" = "InvalidInstanceTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInstanceTypeException, __BaseException>) {
-    super({
-      name: "InvalidInstanceTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInstanceTypeException.prototype);
-  }
-}
-
-/**
- * <p> The target filter name is invalid. </p>
- * @public
- */
-export class InvalidTargetFilterNameException extends __BaseException {
-  readonly name: "InvalidTargetFilterNameException" = "InvalidTargetFilterNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetFilterNameException, __BaseException>) {
-    super({
-      name: "InvalidTargetFilterNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetFilterNameException.prototype);
-  }
-}
-
-/**
  * <p> Represents the input of a <code>ListDeploymentInstances</code> operation. </p>
  * @public
  */
@@ -6209,46 +3791,6 @@ export interface ListDeploymentInstancesOutput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>The external ID was specified in an invalid format.</p>
- * @public
- */
-export class InvalidExternalIdException extends __BaseException {
-  readonly name: "InvalidExternalIdException" = "InvalidExternalIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidExternalIdException, __BaseException>) {
-    super({
-      name: "InvalidExternalIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidExternalIdException.prototype);
-  }
-}
-
-/**
- * <p>The specified time range was specified in an invalid format.</p>
- * @public
- */
-export class InvalidTimeRangeException extends __BaseException {
-  readonly name: "InvalidTimeRangeException" = "InvalidTimeRangeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTimeRangeException, __BaseException>) {
-    super({
-      name: "InvalidTimeRangeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTimeRangeException.prototype);
-  }
 }
 
 /**
@@ -6381,20 +3923,6 @@ export interface ListDeploymentsOutput {
 
 /**
  * @public
- * @enum
- */
-export const TargetFilterName = {
-  SERVER_INSTANCE_LABEL: "ServerInstanceLabel",
-  TARGET_STATUS: "TargetStatus",
-} as const;
-
-/**
- * @public
- */
-export type TargetFilterName = (typeof TargetFilterName)[keyof typeof TargetFilterName];
-
-/**
- * @public
  */
 export interface ListDeploymentTargetsInput {
   /**
@@ -6484,60 +4012,6 @@ export interface ListGitHubAccountTokenNamesOutput {
 }
 
 /**
- * <p>The registration status was specified in an invalid format.</p>
- * @public
- */
-export class InvalidRegistrationStatusException extends __BaseException {
-  readonly name: "InvalidRegistrationStatusException" = "InvalidRegistrationStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRegistrationStatusException, __BaseException>) {
-    super({
-      name: "InvalidRegistrationStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRegistrationStatusException.prototype);
-  }
-}
-
-/**
- * <p>The tag filter was specified in an invalid format.</p>
- * @public
- */
-export class InvalidTagFilterException extends __BaseException {
-  readonly name: "InvalidTagFilterException" = "InvalidTagFilterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagFilterException, __BaseException>) {
-    super({
-      name: "InvalidTagFilterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagFilterException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RegistrationStatus = {
-  Deregistered: "Deregistered",
-  Registered: "Registered",
-} as const;
-
-/**
- * @public
- */
-export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
-
-/**
  * <p>Represents the input of a <code>ListOnPremisesInstances</code> operation.</p>
  * @public
  */
@@ -6596,26 +4070,6 @@ export interface ListOnPremisesInstancesOutput {
 }
 
 /**
- * <p> The specified ARN is not in a valid format. </p>
- * @public
- */
-export class InvalidArnException extends __BaseException {
-  readonly name: "InvalidArnException" = "InvalidArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
-    super({
-      name: "InvalidArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArnException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListTagsForResourceInput {
@@ -6653,91 +4107,6 @@ export interface ListTagsForResourceOutput {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p> The ARN of a resource is required, but was not found. </p>
- * @public
- */
-export class ResourceArnRequiredException extends __BaseException {
-  readonly name: "ResourceArnRequiredException" = "ResourceArnRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceArnRequiredException, __BaseException>) {
-    super({
-      name: "ResourceArnRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceArnRequiredException.prototype);
-  }
-}
-
-/**
- * <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your
- *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
- *             valid.</p>
- * @public
- */
-export class InvalidLifecycleEventHookExecutionIdException extends __BaseException {
-  readonly name: "InvalidLifecycleEventHookExecutionIdException" = "InvalidLifecycleEventHookExecutionIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLifecycleEventHookExecutionIdException, __BaseException>) {
-    super({
-      name: "InvalidLifecycleEventHookExecutionIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLifecycleEventHookExecutionIdException.prototype);
-  }
-}
-
-/**
- * <p>The result of a Lambda validation function that verifies a lifecycle event
- *             is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
- * @public
- */
-export class InvalidLifecycleEventHookExecutionStatusException extends __BaseException {
-  readonly name: "InvalidLifecycleEventHookExecutionStatusException" =
-    "InvalidLifecycleEventHookExecutionStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLifecycleEventHookExecutionStatusException, __BaseException>) {
-    super({
-      name: "InvalidLifecycleEventHookExecutionStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLifecycleEventHookExecutionStatusException.prototype);
-  }
-}
-
-/**
- * <p>An attempt to return the status of an already completed lifecycle event
- *             occurred.</p>
- * @public
- */
-export class LifecycleEventAlreadyCompletedException extends __BaseException {
-  readonly name: "LifecycleEventAlreadyCompletedException" = "LifecycleEventAlreadyCompletedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LifecycleEventAlreadyCompletedException, __BaseException>) {
-    super({
-      name: "LifecycleEventAlreadyCompletedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LifecycleEventAlreadyCompletedException.prototype);
-  }
 }
 
 /**
@@ -6803,168 +4172,6 @@ export interface RegisterApplicationRevisionInput {
    * @public
    */
   revision: RevisionLocation | undefined;
-}
-
-/**
- * <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
- * @public
- */
-export class IamArnRequiredException extends __BaseException {
-  readonly name: "IamArnRequiredException" = "IamArnRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IamArnRequiredException, __BaseException>) {
-    super({
-      name: "IamArnRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IamArnRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The request included an IAM session ARN that has already been used to
- *             register a different instance.</p>
- * @public
- */
-export class IamSessionArnAlreadyRegisteredException extends __BaseException {
-  readonly name: "IamSessionArnAlreadyRegisteredException" = "IamSessionArnAlreadyRegisteredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IamSessionArnAlreadyRegisteredException, __BaseException>) {
-    super({
-      name: "IamSessionArnAlreadyRegisteredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IamSessionArnAlreadyRegisteredException.prototype);
-  }
-}
-
-/**
- * <p>The specified user ARN is already registered with an on-premises instance.</p>
- * @public
- */
-export class IamUserArnAlreadyRegisteredException extends __BaseException {
-  readonly name: "IamUserArnAlreadyRegisteredException" = "IamUserArnAlreadyRegisteredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IamUserArnAlreadyRegisteredException, __BaseException>) {
-    super({
-      name: "IamUserArnAlreadyRegisteredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IamUserArnAlreadyRegisteredException.prototype);
-  }
-}
-
-/**
- * <p>An user ARN was not specified.</p>
- * @public
- */
-export class IamUserArnRequiredException extends __BaseException {
-  readonly name: "IamUserArnRequiredException" = "IamUserArnRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IamUserArnRequiredException, __BaseException>) {
-    super({
-      name: "IamUserArnRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IamUserArnRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified on-premises instance name is already registered.</p>
- * @public
- */
-export class InstanceNameAlreadyRegisteredException extends __BaseException {
-  readonly name: "InstanceNameAlreadyRegisteredException" = "InstanceNameAlreadyRegisteredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceNameAlreadyRegisteredException, __BaseException>) {
-    super({
-      name: "InstanceNameAlreadyRegisteredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceNameAlreadyRegisteredException.prototype);
-  }
-}
-
-/**
- * <p>The IAM session ARN was specified in an invalid format.</p>
- * @public
- */
-export class InvalidIamSessionArnException extends __BaseException {
-  readonly name: "InvalidIamSessionArnException" = "InvalidIamSessionArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIamSessionArnException, __BaseException>) {
-    super({
-      name: "InvalidIamSessionArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIamSessionArnException.prototype);
-  }
-}
-
-/**
- * <p>The user ARN was specified in an invalid format.</p>
- * @public
- */
-export class InvalidIamUserArnException extends __BaseException {
-  readonly name: "InvalidIamUserArnException" = "InvalidIamUserArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIamUserArnException, __BaseException>) {
-    super({
-      name: "InvalidIamUserArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIamUserArnException.prototype);
-  }
-}
-
-/**
- * <p>Both an user ARN and an IAM session ARN were included in the request.
- *             Use only one ARN type.</p>
- * @public
- */
-export class MultipleIamArnsProvidedException extends __BaseException {
-  readonly name: "MultipleIamArnsProvidedException" = "MultipleIamArnsProvidedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MultipleIamArnsProvidedException, __BaseException>) {
-    super({
-      name: "MultipleIamArnsProvidedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MultipleIamArnsProvidedException.prototype);
-  }
 }
 
 /**
@@ -7041,20 +4248,6 @@ export interface StopDeploymentInput {
    */
   autoRollbackEnabled?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StopStatus = {
-  PENDING: "Pending",
-  SUCCEEDED: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type StopStatus = (typeof StopStatus)[keyof typeof StopStatus];
 
 /**
  * <p> Represents the output of a <code>StopDeployment</code> operation. </p>

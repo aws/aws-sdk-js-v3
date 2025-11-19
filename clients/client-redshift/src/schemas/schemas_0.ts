@@ -1291,7 +1291,7 @@ import {
   UnsupportedOptionFault as __UnsupportedOptionFault,
   UsageLimitAlreadyExistsFault as __UsageLimitAlreadyExistsFault,
   UsageLimitNotFoundFault as __UsageLimitNotFoundFault,
-} from "../models/index";
+} from "../models/errors";
 import { RedshiftServiceException as __RedshiftServiceException } from "../models/RedshiftServiceException";
 
 /* eslint no-var: 0 */

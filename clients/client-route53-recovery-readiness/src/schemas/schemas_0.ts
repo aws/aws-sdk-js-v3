@@ -238,7 +238,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { Route53RecoveryReadinessServiceException as __Route53RecoveryReadinessServiceException } from "../models/Route53RecoveryReadinessServiceException";
 
 /* eslint no-var: 0 */

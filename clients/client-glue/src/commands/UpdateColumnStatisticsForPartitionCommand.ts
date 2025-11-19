@@ -8,7 +8,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   UpdateColumnStatisticsForPartitionRequest,
   UpdateColumnStatisticsForPartitionResponse,
-} from "../models/models_3";
+} from "../models/models_2";
 import { UpdateColumnStatisticsForPartition } from "../schemas/schemas_0";
 
 /**

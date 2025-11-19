@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClusterSchedulerConfigRequest, DescribeClusterSchedulerConfigResponse } from "../models/models_3";
+import { DescribeClusterSchedulerConfigRequest, DescribeClusterSchedulerConfigResponse } from "../models/models_2";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeClusterSchedulerConfig } from "../schemas/schemas_0";
 

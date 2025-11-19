@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteDefaultQBusinessApplicationRequest,
   DeleteDefaultQBusinessApplicationResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteDefaultQBusinessApplication } from "../schemas/schemas_0";
 

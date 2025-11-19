@@ -112,7 +112,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LicenseManagerLinuxSubscriptionsServiceException as __LicenseManagerLinuxSubscriptionsServiceException } from "../models/LicenseManagerLinuxSubscriptionsServiceException";
 
 /* eslint no-var: 0 */

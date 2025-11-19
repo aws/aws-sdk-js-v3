@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeletePushNotificationRegistrationRequest,
   DeletePushNotificationRegistrationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { DeletePushNotificationRegistration } from "../schemas/schemas_0";
 
 /**

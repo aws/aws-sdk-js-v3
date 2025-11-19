@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateSecurityGroupVpcRequest, DisassociateSecurityGroupVpcResult } from "../models/models_6";
+import { DisassociateSecurityGroupVpcRequest, DisassociateSecurityGroupVpcResult } from "../models/models_5";
 import { DisassociateSecurityGroupVpc } from "../schemas/schemas_0";
 
 /**

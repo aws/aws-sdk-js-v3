@@ -1,81 +1,26 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ComprehendMedicalServiceException as __BaseException } from "./ComprehendMedicalServiceException";
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  ANATOMY: "ANATOMY",
-  BEHAVIORAL_ENVIRONMENTAL_SOCIAL: "BEHAVIORAL_ENVIRONMENTAL_SOCIAL",
-  MEDICAL_CONDITION: "MEDICAL_CONDITION",
-  MEDICATION: "MEDICATION",
-  PROTECTED_HEALTH_INFORMATION: "PROTECTED_HEALTH_INFORMATION",
-  TEST_TREATMENT_PROCEDURE: "TEST_TREATMENT_PROCEDURE",
-  TIME_EXPRESSION: "TIME_EXPRESSION",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
-
-/**
- * @public
- * @enum
- */
-export const RelationshipType = {
-  ACUITY: "ACUITY",
-  ADMINISTERED_VIA: "ADMINISTERED_VIA",
-  AMOUNT: "AMOUNT",
-  DIRECTION: "DIRECTION",
-  DOSAGE: "DOSAGE",
-  DURATION: "DURATION",
-  EVERY: "EVERY",
-  FOR: "FOR",
-  FORM: "FORM",
-  FREQUENCY: "FREQUENCY",
-  NEGATIVE: "NEGATIVE",
-  OVERLAP: "OVERLAP",
-  QUALITY: "QUALITY",
-  RATE: "RATE",
-  ROUTE_OR_MODE: "ROUTE_OR_MODE",
-  STRENGTH: "STRENGTH",
-  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
-  TEST_UNIT: "TEST_UNIT",
-  TEST_UNITS: "TEST_UNITS",
-  TEST_VALUE: "TEST_VALUE",
-  USAGE: "USAGE",
-  WITH_DOSAGE: "WITH_DOSAGE",
-} as const;
-
-/**
- * @public
- */
-export type RelationshipType = (typeof RelationshipType)[keyof typeof RelationshipType];
-
-/**
- * @public
- * @enum
- */
-export const AttributeName = {
-  DIAGNOSIS: "DIAGNOSIS",
-  FUTURE: "FUTURE",
-  HYPOTHETICAL: "HYPOTHETICAL",
-  LOW_CONFIDENCE: "LOW_CONFIDENCE",
-  NEGATION: "NEGATION",
-  PAST_HISTORY: "PAST_HISTORY",
-  PERTAINS_TO_FAMILY: "PERTAINS_TO_FAMILY",
-  SIGN: "SIGN",
-  SYMPTOM: "SYMPTOM",
-} as const;
-
-/**
- * @public
- */
-export type AttributeName = (typeof AttributeName)[keyof typeof AttributeName];
+import {
+  AttributeName,
+  EntitySubType,
+  EntityType,
+  ICD10CMAttributeType,
+  ICD10CMEntityCategory,
+  ICD10CMEntityType,
+  ICD10CMRelationshipType,
+  ICD10CMTraitName,
+  JobStatus,
+  LanguageCode,
+  RelationshipType,
+  RxNormAttributeType,
+  RxNormEntityCategory,
+  RxNormEntityType,
+  RxNormTraitName,
+  SNOMEDCTAttributeType,
+  SNOMEDCTEntityCategory,
+  SNOMEDCTEntityType,
+  SNOMEDCTRelationshipType,
+  SNOMEDCTTraitName,
+} from "./enums";
 
 /**
  * <p> Provides contextual information about the extracted entity. </p>
@@ -94,63 +39,6 @@ export interface Trait {
    */
   Score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntitySubType = {
-  ACUITY: "ACUITY",
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  ALCOHOL_CONSUMPTION: "ALCOHOL_CONSUMPTION",
-  ALLERGIES: "ALLERGIES",
-  AMOUNT: "AMOUNT",
-  BRAND_NAME: "BRAND_NAME",
-  CONTACT_POINT: "CONTACT_POINT",
-  DATE: "DATE",
-  DIRECTION: "DIRECTION",
-  DOSAGE: "DOSAGE",
-  DURATION: "DURATION",
-  DX_NAME: "DX_NAME",
-  EMAIL: "EMAIL",
-  FORM: "FORM",
-  FREQUENCY: "FREQUENCY",
-  GENDER: "GENDER",
-  GENERIC_NAME: "GENERIC_NAME",
-  ID: "ID",
-  IDENTIFIER: "IDENTIFIER",
-  NAME: "NAME",
-  PHONE_OR_FAX: "PHONE_OR_FAX",
-  PROCEDURE_NAME: "PROCEDURE_NAME",
-  PROFESSION: "PROFESSION",
-  QUALITY: "QUALITY",
-  QUANTITY: "QUANTITY",
-  RACE_ETHNICITY: "RACE_ETHNICITY",
-  RATE: "RATE",
-  REC_DRUG_USE: "REC_DRUG_USE",
-  ROUTE_OR_MODE: "ROUTE_OR_MODE",
-  STRENGTH: "STRENGTH",
-  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
-  TEST_NAME: "TEST_NAME",
-  TEST_UNIT: "TEST_UNIT",
-  TEST_UNITS: "TEST_UNITS",
-  TEST_VALUE: "TEST_VALUE",
-  TIME_EXPRESSION: "TIME_EXPRESSION",
-  TIME_TO_DX_NAME: "TIME_TO_DX_NAME",
-  TIME_TO_MEDICATION_NAME: "TIME_TO_MEDICATION_NAME",
-  TIME_TO_PROCEDURE_NAME: "TIME_TO_PROCEDURE_NAME",
-  TIME_TO_TEST_NAME: "TIME_TO_TEST_NAME",
-  TIME_TO_TREATMENT_NAME: "TIME_TO_TREATMENT_NAME",
-  TOBACCO_USE: "TOBACCO_USE",
-  TREATMENT_NAME: "TREATMENT_NAME",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type EntitySubType = (typeof EntitySubType)[keyof typeof EntitySubType];
 
 /**
  * <p> An extracted segment of the text that is an attribute of an entity, or otherwise related
@@ -276,38 +164,6 @@ export interface InputDataConfig {
    */
   S3Key?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
-  STOPPED: "STOPPED",
-  STOP_REQUESTED: "STOP_REQUESTED",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  EN: "en",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * <p>The output properties for a detection job.</p>
@@ -437,98 +293,6 @@ export interface DescribeEntitiesDetectionV2JobResponse {
    * @public
    */
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties | undefined;
-}
-
-/**
- * <p> An internal server error occurred. Retry your request. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
- *       the ARN and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again. Contact customer support for more information about a service
- *       limit increase. </p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -755,75 +519,6 @@ export interface DetectEntitiesResponse {
 }
 
 /**
- * <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
- *       request.</p>
- * @public
- */
-export class InvalidEncodingException extends __BaseException {
-  readonly name: "InvalidEncodingException" = "InvalidEncodingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEncodingException, __BaseException>) {
-    super({
-      name: "InvalidEncodingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEncodingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
- *     </p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
- *       use a smaller document and then retry your request. </p>
- * @public
- */
-export class TextSizeLimitExceededException extends __BaseException {
-  readonly name: "TextSizeLimitExceededException" = "TextSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TextSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "TextSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TextSizeLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DetectEntitiesV2Request {
@@ -921,54 +616,6 @@ export interface InferICD10CMRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ICD10CMEntityType = {
-  DX_NAME: "DX_NAME",
-  TIME_EXPRESSION: "TIME_EXPRESSION",
-} as const;
-
-/**
- * @public
- */
-export type ICD10CMEntityType = (typeof ICD10CMEntityType)[keyof typeof ICD10CMEntityType];
-
-/**
- * @public
- * @enum
- */
-export const ICD10CMRelationshipType = {
-  OVERLAP: "OVERLAP",
-  QUALITY: "QUALITY",
-  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
-} as const;
-
-/**
- * @public
- */
-export type ICD10CMRelationshipType = (typeof ICD10CMRelationshipType)[keyof typeof ICD10CMRelationshipType];
-
-/**
- * @public
- * @enum
- */
-export const ICD10CMTraitName = {
-  DIAGNOSIS: "DIAGNOSIS",
-  HYPOTHETICAL: "HYPOTHETICAL",
-  LOW_CONFIDENCE: "LOW_CONFIDENCE",
-  NEGATION: "NEGATION",
-  PERTAINS_TO_FAMILY: "PERTAINS_TO_FAMILY",
-  SIGN: "SIGN",
-  SYMPTOM: "SYMPTOM",
-} as const;
-
-/**
- * @public
- */
-export type ICD10CMTraitName = (typeof ICD10CMTraitName)[keyof typeof ICD10CMTraitName];
-
-/**
  * <p>Contextual information for the entity. The traits recognized by InferICD10CM are
  *         <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and
  *       <code>NEGATION</code>.</p>
@@ -988,25 +635,6 @@ export interface ICD10CMTrait {
    */
   Score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ICD10CMAttributeType = {
-  ACUITY: "ACUITY",
-  DIRECTION: "DIRECTION",
-  QUALITY: "QUALITY",
-  QUANTITY: "QUANTITY",
-  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
-  TIME_EXPRESSION: "TIME_EXPRESSION",
-  TIME_TO_DX_NAME: "TIME_TO_DX_NAME",
-} as const;
-
-/**
- * @public
- */
-export type ICD10CMAttributeType = (typeof ICD10CMAttributeType)[keyof typeof ICD10CMAttributeType];
 
 /**
  * <p>The detected attributes that relate to an entity. This includes an extracted segment of
@@ -1085,19 +713,6 @@ export interface ICD10CMAttribute {
    */
   RelationshipType?: ICD10CMRelationshipType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ICD10CMEntityCategory = {
-  MEDICAL_CONDITION: "MEDICAL_CONDITION",
-} as const;
-
-/**
- * @public
- */
-export type ICD10CMEntityCategory = (typeof ICD10CMEntityCategory)[keyof typeof ICD10CMEntityCategory];
 
 /**
  * <p> The ICD-10-CM concepts that the entity could refer to, along with a score indicating the
@@ -1248,20 +863,6 @@ export interface InferRxNormRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const RxNormTraitName = {
-  NEGATION: "NEGATION",
-  PAST_HISTORY: "PAST_HISTORY",
-} as const;
-
-/**
- * @public
- */
-export type RxNormTraitName = (typeof RxNormTraitName)[keyof typeof RxNormTraitName];
-
-/**
  * <p>The contextual information for the entity. InferRxNorm recognizes the trait
  *         <code>NEGATION</code>, which is any indication that the patient is not taking a medication.
  *     </p>
@@ -1281,25 +882,6 @@ export interface RxNormTrait {
    */
   Score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RxNormAttributeType = {
-  DOSAGE: "DOSAGE",
-  DURATION: "DURATION",
-  FORM: "FORM",
-  FREQUENCY: "FREQUENCY",
-  RATE: "RATE",
-  ROUTE_OR_MODE: "ROUTE_OR_MODE",
-  STRENGTH: "STRENGTH",
-} as const;
-
-/**
- * @public
- */
-export type RxNormAttributeType = (typeof RxNormAttributeType)[keyof typeof RxNormAttributeType];
 
 /**
  * <p>The extracted attributes that relate to this entity. The attributes recognized by
@@ -1366,19 +948,6 @@ export interface RxNormAttribute {
 }
 
 /**
- * @public
- * @enum
- */
-export const RxNormEntityCategory = {
-  MEDICATION: "MEDICATION",
-} as const;
-
-/**
- * @public
- */
-export type RxNormEntityCategory = (typeof RxNormEntityCategory)[keyof typeof RxNormEntityCategory];
-
-/**
  * <p>The RxNorm concept that the entity could refer to, along with a score indicating the
  *       likelihood of the match.</p>
  * @public
@@ -1403,20 +972,6 @@ export interface RxNormConcept {
    */
   Score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RxNormEntityType = {
-  BRAND_NAME: "BRAND_NAME",
-  GENERIC_NAME: "GENERIC_NAME",
-} as const;
-
-/**
- * @public
- */
-export type RxNormEntityType = (typeof RxNormEntityType)[keyof typeof RxNormEntityType];
 
 /**
  * <p>The collection of medical entities extracted from the input text and their associated
@@ -1538,40 +1093,6 @@ export interface InferSNOMEDCTRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SNOMEDCTEntityCategory = {
-  ANATOMY: "ANATOMY",
-  MEDICAL_CONDITION: "MEDICAL_CONDITION",
-  TEST_TREATMENT_PROCEDURE: "TEST_TREATMENT_PROCEDURE",
-} as const;
-
-/**
- * @public
- */
-export type SNOMEDCTEntityCategory = (typeof SNOMEDCTEntityCategory)[keyof typeof SNOMEDCTEntityCategory];
-
-/**
- * @public
- * @enum
- */
-export const SNOMEDCTRelationshipType = {
-  ACUITY: "ACUITY",
-  DIRECTION: "DIRECTION",
-  QUALITY: "QUALITY",
-  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
-  TEST_UNIT: "TEST_UNIT",
-  TEST_UNITS: "TEST_UNITS",
-  TEST_VALUE: "TEST_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type SNOMEDCTRelationshipType = (typeof SNOMEDCTRelationshipType)[keyof typeof SNOMEDCTRelationshipType];
-
-/**
  * <p>
  *       The SNOMED-CT concepts that the entity could refer to, along with a score indicating the likelihood of the match.
  *     </p>
@@ -1604,27 +1125,6 @@ export interface SNOMEDCTConcept {
 }
 
 /**
- * @public
- * @enum
- */
-export const SNOMEDCTTraitName = {
-  DIAGNOSIS: "DIAGNOSIS",
-  FUTURE: "FUTURE",
-  HYPOTHETICAL: "HYPOTHETICAL",
-  LOW_CONFIDENCE: "LOW_CONFIDENCE",
-  NEGATION: "NEGATION",
-  PAST_HISTORY: "PAST_HISTORY",
-  PERTAINS_TO_FAMILY: "PERTAINS_TO_FAMILY",
-  SIGN: "SIGN",
-  SYMPTOM: "SYMPTOM",
-} as const;
-
-/**
- * @public
- */
-export type SNOMEDCTTraitName = (typeof SNOMEDCTTraitName)[keyof typeof SNOMEDCTTraitName];
-
-/**
  * <p>
  *       Contextual information for an entity.
  *     </p>
@@ -1647,24 +1147,6 @@ export interface SNOMEDCTTrait {
    */
   Score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SNOMEDCTAttributeType = {
-  ACUITY: "ACUITY",
-  DIRECTION: "DIRECTION",
-  QUALITY: "QUALITY",
-  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
-  TEST_UNIT: "TEST_UNIT",
-  TEST_VALUE: "TEST_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type SNOMEDCTAttributeType = (typeof SNOMEDCTAttributeType)[keyof typeof SNOMEDCTAttributeType];
 
 /**
  * <p>
@@ -1761,22 +1243,6 @@ export interface SNOMEDCTAttribute {
    */
   SNOMEDCTConcepts?: SNOMEDCTConcept[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SNOMEDCTEntityType = {
-  DX_NAME: "DX_NAME",
-  PROCEDURE_NAME: "PROCEDURE_NAME",
-  TEST_NAME: "TEST_NAME",
-  TREATMENT_NAME: "TREATMENT_NAME",
-} as const;
-
-/**
- * @public
- */
-export type SNOMEDCTEntityType = (typeof SNOMEDCTEntityType)[keyof typeof SNOMEDCTEntityType];
 
 /**
  * <p>
@@ -2017,29 +1483,6 @@ export interface ListEntitiesDetectionV2JobsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The filter that you specified for the operation is invalid. Check the filter values that
- *       you entered and try your request again.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

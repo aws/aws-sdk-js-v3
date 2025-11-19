@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainNamesRequest, ListDomainNamesResponse } from "../models/models_1";
+import { ListDomainNamesRequest, ListDomainNamesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { ListDomainNames } from "../schemas/schemas_0";
 

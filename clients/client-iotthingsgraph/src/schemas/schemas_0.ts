@@ -228,7 +228,7 @@ import {
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTThingsGraphServiceException as __IoTThingsGraphServiceException } from "../models/IoTThingsGraphServiceException";
 
 /* eslint no-var: 0 */

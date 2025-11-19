@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "./ResourceGroupsTaggingAPIServiceException";
+import { ErrorCode, GroupByAttribute, TargetIdType } from "./enums";
 
 /**
  * <p>Information that shows whether a resource is compliant with the effective tag policy,
@@ -27,68 +25,6 @@ export interface ComplianceDetails {
    * @public
    */
   ComplianceStatus?: boolean | undefined;
-}
-
-/**
- * <p>The request failed because the target of the operation is currently being modified by
- *             a different request. Try again later.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request failed because performing the operation would violate a constraint.</p>
- *          <p>Some of the reasons in the following list might not apply to this specific
- *             operation.</p>
- *          <ul>
- *             <li>
- *                <p>You must meet the prerequisites for using tag policies. For information, see
- *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs">Prerequisites and permissions</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
- *             </li>
- *             <li>
- *                <p>You must enable the tag policies service principal
- *                         (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with Organizations For
- *                     information, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html">EnableAWSServiceAccess</a>.</p>
- *             </li>
- *             <li>
- *                <p>You must have a tag policy attached to the organization root, an OU, or an
- *                     account.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class ConstraintViolationException extends __BaseException {
-  readonly name: "ConstraintViolationException" = "ConstraintViolationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConstraintViolationException, __BaseException>) {
-    super({
-      name: "ConstraintViolationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConstraintViolationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -148,111 +84,6 @@ export interface DescribeReportCreationOutput {
 }
 
 /**
- * <p>The request processing failed because of an unknown error, exception, or failure. You
- *             can retry the request.</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request failed because of one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>A required parameter is missing.</p>
- *             </li>
- *             <li>
- *                <p>A provided string parameter is malformed.</p>
- *             </li>
- *             <li>
- *                <p>An provided parameter value is out of range.</p>
- *             </li>
- *             <li>
- *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
- *             </li>
- *             <li>
- *                <p>The partition specified in an ARN parameter in the request doesn't match the
- *                     partition where you invoked the operation. The partition is specified by the
- *                     second field of the ARN.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request failed because it exceeded the allowed frequency of submitted
- *             requests.</p>
- * @public
- */
-export class ThrottledException extends __BaseException {
-  readonly name: "ThrottledException" = "ThrottledException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
-    super({
-      name: "ThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  INTERNAL_SERVICE_EXCEPTION: "InternalServiceException",
-  INVALID_PARAMETER_EXCEPTION: "InvalidParameterException",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
  * <p>Information about the errors that are returned for each failed resource. This
  *             information can include <code>InternalServiceException</code> and
  *                 <code>InvalidParameterException</code> errors. It can also include any valid error
@@ -308,21 +139,6 @@ export interface FailureInfo {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupByAttribute = {
-  REGION: "REGION",
-  RESOURCE_TYPE: "RESOURCE_TYPE",
-  TARGET_ID: "TARGET_ID",
-} as const;
-
-/**
- * @public
- */
-export type GroupByAttribute = (typeof GroupByAttribute)[keyof typeof GroupByAttribute];
 
 /**
  * @public
@@ -416,21 +232,6 @@ export interface GetComplianceSummaryInput {
    */
   PaginationToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetIdType = {
-  ACCOUNT: "ACCOUNT",
-  OU: "OU",
-  ROOT: "ROOT",
-} as const;
-
-/**
- * @public
- */
-export type TargetIdType = (typeof TargetIdType)[keyof typeof TargetIdType];
 
 /**
  * <p>A count of noncompliant resources.</p>
@@ -757,29 +558,6 @@ export interface GetResourcesOutput {
    * @public
    */
   ResourceTagMappingList?: ResourceTagMapping[] | undefined;
-}
-
-/**
- * <p>The request failed because the specified <code>PaginationToken</code> has expired. A
- *                 <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
- * @public
- */
-export class PaginationTokenExpiredException extends __BaseException {
-  readonly name: "PaginationTokenExpiredException" = "PaginationTokenExpiredException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PaginationTokenExpiredException, __BaseException>) {
-    super({
-      name: "PaginationTokenExpiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PaginationTokenExpiredException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

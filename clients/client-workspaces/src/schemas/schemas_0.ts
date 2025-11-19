@@ -719,7 +719,7 @@ import {
   UnsupportedWorkspaceConfigurationException as __UnsupportedWorkspaceConfigurationException,
   ValidationException as __ValidationException,
   WorkspacesDefaultRoleNotFoundException as __WorkspacesDefaultRoleNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { WorkSpacesServiceException as __WorkSpacesServiceException } from "../models/WorkSpacesServiceException";
 
 /* eslint no-var: 0 */

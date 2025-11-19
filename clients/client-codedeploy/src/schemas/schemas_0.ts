@@ -668,7 +668,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TriggerTargetsLimitExceededException as __TriggerTargetsLimitExceededException,
   UnsupportedActionForDeploymentTypeException as __UnsupportedActionForDeploymentTypeException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

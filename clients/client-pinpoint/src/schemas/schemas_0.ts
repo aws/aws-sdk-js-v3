@@ -1019,7 +1019,7 @@ import {
   NotFoundException as __NotFoundException,
   PayloadTooLargeException as __PayloadTooLargeException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { PinpointServiceException as __PinpointServiceException } from "../models/PinpointServiceException";
 
 /* eslint no-var: 0 */

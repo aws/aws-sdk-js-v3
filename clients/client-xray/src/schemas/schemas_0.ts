@@ -437,7 +437,7 @@ import {
   RuleLimitExceededException as __RuleLimitExceededException,
   ThrottledException as __ThrottledException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 import { XRayServiceException as __XRayServiceException } from "../models/XRayServiceException";
 
 /* eslint no-var: 0 */

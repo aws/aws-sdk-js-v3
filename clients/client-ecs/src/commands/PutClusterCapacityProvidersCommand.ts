@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_1";
+import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
 import { PutClusterCapacityProviders } from "../schemas/schemas_0";
 
 /**

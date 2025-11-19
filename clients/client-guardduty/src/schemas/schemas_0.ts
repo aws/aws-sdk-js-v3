@@ -1518,14 +1518,14 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GuardDutyServiceException as __GuardDutyServiceException } from "../models/GuardDutyServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   BadRequestException as __BadRequestException,
   ConflictException as __ConflictException,
   InternalServerErrorException as __InternalServerErrorException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
+import { GuardDutyServiceException as __GuardDutyServiceException } from "../models/GuardDutyServiceException";
 
 /* eslint no-var: 0 */
 

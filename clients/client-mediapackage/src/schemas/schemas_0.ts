@@ -269,7 +269,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   TooManyRequestsException as __TooManyRequestsException,
   UnprocessableEntityException as __UnprocessableEntityException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaPackageServiceException as __MediaPackageServiceException } from "../models/MediaPackageServiceException";
 
 /* eslint no-var: 0 */

@@ -483,7 +483,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { WellArchitectedServiceException as __WellArchitectedServiceException } from "../models/WellArchitectedServiceException";
 
 /* eslint no-var: 0 */

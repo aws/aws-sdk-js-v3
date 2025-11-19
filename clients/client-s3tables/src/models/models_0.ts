@@ -1,67 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { S3TablesServiceException as __BaseException } from "./S3TablesServiceException";
-
-/**
- * <p>The action cannot be performed because you do not have the required permission.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The request is invalid or malformed.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
+import {
+  IcebergCompactionStrategy,
+  JobStatus,
+  MaintenanceStatus,
+  OpenTableFormat,
+  SSEAlgorithm,
+  TableBucketMaintenanceType,
+  TableBucketType,
+  TableMaintenanceJobType,
+  TableMaintenanceType,
+  TableType,
+} from "./enums";
 
 /**
  * @public
@@ -98,100 +47,6 @@ export interface CreateNamespaceResponse {
 }
 
 /**
- * <p>The caller isn't authorized to make the request.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-  }
-}
-
-/**
- * <p>The request failed due to an internal server error.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the specified resource could not be found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The limit on the number of requests per second was exceeded.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SSEAlgorithm = {
-  AES256: "AES256",
-  AWS_KMS: "aws:kms",
-} as const;
-
-/**
- * @public
- */
-export type SSEAlgorithm = (typeof SSEAlgorithm)[keyof typeof SSEAlgorithm];
-
-/**
  * <p>Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.</p>
  * @public
  */
@@ -208,19 +63,6 @@ export interface EncryptionConfiguration {
    */
   kmsKeyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OpenTableFormat = {
-  ICEBERG: "ICEBERG",
-} as const;
-
-/**
- * @public
- */
-export type OpenTableFormat = (typeof OpenTableFormat)[keyof typeof OpenTableFormat];
 
 /**
  * <p>Contains details about a schema field.</p>
@@ -607,20 +449,6 @@ export interface GetTableRequest {
 
 /**
  * @public
- * @enum
- */
-export const TableType = {
-  AWS: "aws",
-  CUSTOMER: "customer",
-} as const;
-
-/**
- * @public
- */
-export type TableType = (typeof TableType)[keyof typeof TableType];
-
-/**
- * @public
  */
 export interface GetTableResponse {
   /**
@@ -733,20 +561,6 @@ export interface GetTableBucketRequest {
 
 /**
  * @public
- * @enum
- */
-export const TableBucketType = {
-  AWS: "aws",
-  CUSTOMER: "customer",
-} as const;
-
-/**
- * @public
- */
-export type TableBucketType = (typeof TableBucketType)[keyof typeof TableBucketType];
-
-/**
- * @public
  */
 export interface GetTableBucketResponse {
   /**
@@ -820,19 +634,6 @@ export interface GetTableBucketMaintenanceConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const TableBucketMaintenanceType = {
-  ICEBERG_UNREFERENCED_FILE_REMOVAL: "icebergUnreferencedFileRemoval",
-} as const;
-
-/**
- * @public
- */
-export type TableBucketMaintenanceType = (typeof TableBucketMaintenanceType)[keyof typeof TableBucketMaintenanceType];
-
-/**
  * <p>Contains details about the unreferenced file removal settings for an Iceberg table bucket.</p>
  * @public
  */
@@ -888,20 +689,6 @@ export namespace TableBucketMaintenanceSettings {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const MaintenanceStatus = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
 
 /**
  * <p>Details about the values that define the maintenance configuration for a table bucket.</p>
@@ -1044,36 +831,6 @@ export interface GetTableMaintenanceConfigurationRequest {
    */
   name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TableMaintenanceType = {
-  ICEBERG_COMPACTION: "icebergCompaction",
-  ICEBERG_SNAPSHOT_MANAGEMENT: "icebergSnapshotManagement",
-} as const;
-
-/**
- * @public
- */
-export type TableMaintenanceType = (typeof TableMaintenanceType)[keyof typeof TableMaintenanceType];
-
-/**
- * @public
- * @enum
- */
-export const IcebergCompactionStrategy = {
-  AUTO: "auto",
-  BINPACK: "binpack",
-  SORT: "sort",
-  ZORDER: "z-order",
-} as const;
-
-/**
- * @public
- */
-export type IcebergCompactionStrategy = (typeof IcebergCompactionStrategy)[keyof typeof IcebergCompactionStrategy];
 
 /**
  * <p>Contains details about the compaction settings for an Iceberg table.</p>
@@ -1221,37 +978,6 @@ export interface GetTableMaintenanceJobStatusRequest {
    */
   name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TableMaintenanceJobType = {
-  ICEBERG_COMPACTION: "icebergCompaction",
-  ICEBERG_SNAPSHOT_MANAGEMENT: "icebergSnapshotManagement",
-  ICEBERG_UNREFERENCED_FILE_REMOVAL: "icebergUnreferencedFileRemoval",
-} as const;
-
-/**
- * @public
- */
-export type TableMaintenanceJobType = (typeof TableMaintenanceJobType)[keyof typeof TableMaintenanceJobType];
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  DISABLED: "Disabled",
-  FAILED: "Failed",
-  NOT_YET_RUN: "Not_Yet_Run",
-  SUCCESSFUL: "Successful",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * <p>Details about the status of a maintenance job.</p>

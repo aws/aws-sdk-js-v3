@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MediaPackageVodServiceException as __BaseException } from "./MediaPackageVodServiceException";
-
-/**
- * @public
- * @enum
- */
-export const __PeriodTriggersElement = {
-  ADS: "ADS",
-} as const;
-
-/**
- * @public
- */
-export type __PeriodTriggersElement = (typeof __PeriodTriggersElement)[keyof typeof __PeriodTriggersElement];
+import {
+  __PeriodTriggersElement,
+  AdMarkers,
+  EncryptionMethod,
+  ManifestLayout,
+  PresetSpeke20Audio,
+  PresetSpeke20Video,
+  Profile,
+  ScteMarkersSource,
+  SegmentTemplateFormat,
+  StreamOrder,
+} from "./enums";
 
 /**
  * A MediaPackage VOD Asset resource.
@@ -69,63 +65,6 @@ export interface AssetShallow {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManifestLayout = {
-  COMPACT: "COMPACT",
-  FULL: "FULL",
-} as const;
-
-/**
- * @public
- */
-export type ManifestLayout = (typeof ManifestLayout)[keyof typeof ManifestLayout];
-
-/**
- * @public
- * @enum
- */
-export const Profile = {
-  HBBTV_1_5: "HBBTV_1_5",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Profile = (typeof Profile)[keyof typeof Profile];
-
-/**
- * @public
- * @enum
- */
-export const ScteMarkersSource = {
-  MANIFEST: "MANIFEST",
-  SEGMENTS: "SEGMENTS",
-} as const;
-
-/**
- * @public
- */
-export type ScteMarkersSource = (typeof ScteMarkersSource)[keyof typeof ScteMarkersSource];
-
-/**
- * @public
- * @enum
- */
-export const StreamOrder = {
-  ORIGINAL: "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING: "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING: "VIDEO_BITRATE_DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type StreamOrder = (typeof StreamOrder)[keyof typeof StreamOrder];
 
 /**
  * A StreamSelection configuration.
@@ -218,21 +157,6 @@ export interface EgressEndpoint {
 }
 
 /**
- * @public
- * @enum
- */
-export const AdMarkers = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-  SCTE35_ENHANCED: "SCTE35_ENHANCED",
-} as const;
-
-/**
- * @public
- */
-export type AdMarkers = (typeof AdMarkers)[keyof typeof AdMarkers];
-
-/**
  * An HTTP Live Streaming (HLS) manifest configuration.
  * @public
  */
@@ -304,45 +228,6 @@ export interface MssManifest {
    */
   StreamSelection?: StreamSelection | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PresetSpeke20Audio = {
-  PRESET_AUDIO_1: "PRESET-AUDIO-1",
-  PRESET_AUDIO_2: "PRESET-AUDIO-2",
-  PRESET_AUDIO_3: "PRESET-AUDIO-3",
-  SHARED: "SHARED",
-  UNENCRYPTED: "UNENCRYPTED",
-} as const;
-
-/**
- * @public
- */
-export type PresetSpeke20Audio = (typeof PresetSpeke20Audio)[keyof typeof PresetSpeke20Audio];
-
-/**
- * @public
- * @enum
- */
-export const PresetSpeke20Video = {
-  PRESET_VIDEO_1: "PRESET-VIDEO-1",
-  PRESET_VIDEO_2: "PRESET-VIDEO-2",
-  PRESET_VIDEO_3: "PRESET-VIDEO-3",
-  PRESET_VIDEO_4: "PRESET-VIDEO-4",
-  PRESET_VIDEO_5: "PRESET-VIDEO-5",
-  PRESET_VIDEO_6: "PRESET-VIDEO-6",
-  PRESET_VIDEO_7: "PRESET-VIDEO-7",
-  PRESET_VIDEO_8: "PRESET-VIDEO-8",
-  SHARED: "SHARED",
-  UNENCRYPTED: "UNENCRYPTED",
-} as const;
-
-/**
- * @public
- */
-export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
 
 /**
  * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
@@ -465,21 +350,6 @@ export interface DashEncryption {
 }
 
 /**
- * @public
- * @enum
- */
-export const SegmentTemplateFormat = {
-  NUMBER_WITH_DURATION: "NUMBER_WITH_DURATION",
-  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE: "TIME_WITH_TIMELINE",
-} as const;
-
-/**
- * @public
- */
-export type SegmentTemplateFormat = (typeof SegmentTemplateFormat)[keyof typeof SegmentTemplateFormat];
-
-/**
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  * @public
  */
@@ -530,20 +400,6 @@ export interface DashPackage {
    */
   SegmentTemplateFormat?: SegmentTemplateFormat | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionMethod = {
-  AES_128: "AES_128",
-  SAMPLE_AES: "SAMPLE_AES",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionMethod = (typeof EncryptionMethod)[keyof typeof EncryptionMethod];
 
 /**
  * An HTTP Live Streaming (HLS) encryption configuration.
@@ -850,138 +706,6 @@ export interface ConfigureLogsResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * The client is not authorized to access the requested resource.
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * An unexpected error occurred.
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * The requested resource does not exist.
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * An unexpected error occurred.
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * The client has exceeded their resource or throttling limits.
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * The parameters sent in the request are not valid.
- * @public
- */
-export class UnprocessableEntityException extends __BaseException {
-  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
-    super({
-      name: "UnprocessableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

@@ -1801,7 +1801,7 @@ import {
   NotFoundException as __NotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaConvertServiceException as __MediaConvertServiceException } from "../models/MediaConvertServiceException";
 
 /* eslint no-var: 0 */

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisassociateEnclaveCertificateIamRoleRequest,
   DisassociateEnclaveCertificateIamRoleResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { DisassociateEnclaveCertificateIamRole } from "../schemas/schemas_0";
 
 /**

@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRelevantContentRequest, SearchRelevantContentResponse } from "../models/models_1";
+import { SearchRelevantContentResponse } from "../models/models_0";
+import { SearchRelevantContentRequest } from "../models/models_1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { SearchRelevantContent } from "../schemas/schemas_0";
 

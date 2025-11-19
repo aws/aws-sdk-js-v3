@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_2";
+import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
 import { UpdateStreamingDistribution } from "../schemas/schemas_0";
 
 /**

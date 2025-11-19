@@ -97,7 +97,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { KendraRankingServiceException as __KendraRankingServiceException } from "../models/KendraRankingServiceException";
 
 /* eslint no-var: 0 */

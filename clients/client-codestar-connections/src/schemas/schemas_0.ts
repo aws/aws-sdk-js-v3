@@ -215,7 +215,7 @@ import {
   UnsupportedOperationException as __UnsupportedOperationException,
   UnsupportedProviderTypeException as __UnsupportedProviderTypeException,
   UpdateOutOfSyncException as __UpdateOutOfSyncException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopEventsDetectionJobRequest, StopEventsDetectionJobResponse } from "../models/models_1";
+import { StopEventsDetectionJobRequest, StopEventsDetectionJobResponse } from "../models/models_0";
 import { StopEventsDetectionJob } from "../schemas/schemas_0";
 
 /**

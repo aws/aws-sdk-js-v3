@@ -2338,7 +2338,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GlueServiceException as __GlueServiceException } from "../models/GlueServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   AlreadyExistsException as __AlreadyExistsException,
@@ -2385,7 +2384,8 @@ import {
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
   VersionMismatchException as __VersionMismatchException,
-} from "../models/index";
+} from "../models/errors";
+import { GlueServiceException as __GlueServiceException } from "../models/GlueServiceException";
 
 /* eslint no-var: 0 */
 

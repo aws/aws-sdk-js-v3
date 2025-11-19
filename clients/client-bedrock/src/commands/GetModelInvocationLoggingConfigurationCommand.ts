@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetModelInvocationLoggingConfigurationRequest,
   GetModelInvocationLoggingConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetModelInvocationLoggingConfiguration } from "../schemas/schemas_0";
 
 /**

@@ -242,7 +242,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { FinspaceDataServiceException as __FinspaceDataServiceException } from "../models/FinspaceDataServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -251,7 +250,8 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { FinspaceDataServiceException as __FinspaceDataServiceException } from "../models/FinspaceDataServiceException";
 
 /* eslint no-var: 0 */
 

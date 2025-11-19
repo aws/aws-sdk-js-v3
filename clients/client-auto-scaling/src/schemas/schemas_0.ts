@@ -600,7 +600,7 @@ import {
   ResourceInUseFault as __ResourceInUseFault,
   ScalingActivityInProgressFault as __ScalingActivityInProgressFault,
   ServiceLinkedRoleFailure as __ServiceLinkedRoleFailure,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

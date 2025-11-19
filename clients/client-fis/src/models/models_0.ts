@@ -1,21 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FisServiceException as __BaseException } from "./FisServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AccountTargeting = {
-  MULTI_ACCOUNT: "multi-account",
-  SINGLE_ACCOUNT: "single-account",
-} as const;
-
-/**
- * @public
- */
-export type AccountTargeting = (typeof AccountTargeting)[keyof typeof AccountTargeting];
+import {
+  AccountTargeting,
+  ActionsMode,
+  EmptyTargetResolutionMode,
+  ExperimentActionStatus,
+  ExperimentReportStatus,
+  ExperimentStatus,
+  SafetyLeverStatus,
+  SafetyLeverStatusInput,
+} from "./enums";
 
 /**
  * <p>Describes a parameter for an action.</p>
@@ -91,20 +84,6 @@ export interface Action {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActionsMode = {
-  RUN_ALL: "run-all",
-  SKIP_ALL: "skip-all",
-} as const;
-
-/**
- * @public
- */
-export type ActionsMode = (typeof ActionsMode)[keyof typeof ActionsMode];
-
-/**
  * <p>Provides a summary of an action.</p>
  * @public
  */
@@ -138,26 +117,6 @@ export interface ActionSummary {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The request could not be processed because of a conflict.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -197,20 +156,6 @@ export interface CreateExperimentTemplateActionInput {
    */
   startAfter?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EmptyTargetResolutionMode = {
-  FAIL: "fail",
-  SKIP: "skip",
-} as const;
-
-/**
- * @public
- */
-export type EmptyTargetResolutionMode = (typeof EmptyTargetResolutionMode)[keyof typeof EmptyTargetResolutionMode];
 
 /**
  * <p>Specifies experiment options for an experiment template.</p>
@@ -904,66 +849,6 @@ export interface CreateExperimentTemplateResponse {
 }
 
 /**
- * <p>The specified resource cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded your service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateTargetAccountConfigurationRequest {
@@ -1082,27 +967,6 @@ export interface DeleteTargetAccountConfigurationResponse {
    */
   targetAccountConfiguration?: TargetAccountConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentActionStatus = {
-  cancelled: "cancelled",
-  completed: "completed",
-  failed: "failed",
-  initiating: "initiating",
-  pending: "pending",
-  running: "running",
-  skipped: "skipped",
-  stopped: "stopped",
-  stopping: "stopping",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentActionStatus = (typeof ExperimentActionStatus)[keyof typeof ExperimentActionStatus];
 
 /**
  * <p>Describes the state of an action.</p>
@@ -1229,23 +1093,6 @@ export interface ExperimentReportError {
    */
   code?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentReportStatus = {
-  cancelled: "cancelled",
-  completed: "completed",
-  failed: "failed",
-  pending: "pending",
-  running: "running",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentReportStatus = (typeof ExperimentReportStatus)[keyof typeof ExperimentReportStatus];
 
 /**
  * <p>Describes the state of the experiment report generation.</p>
@@ -1450,26 +1297,6 @@ export interface ExperimentError {
    */
   location?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExperimentStatus = {
-  cancelled: "cancelled",
-  completed: "completed",
-  failed: "failed",
-  initiating: "initiating",
-  pending: "pending",
-  running: "running",
-  stopped: "stopped",
-  stopping: "stopping",
-} as const;
-
-/**
- * @public
- */
-export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
 
 /**
  * <p>Describes the state of an experiment.</p>
@@ -1925,21 +1752,6 @@ export interface GetSafetyLeverRequest {
    */
   id: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SafetyLeverStatus = {
-  DISENGAGED: "disengaged",
-  ENGAGED: "engaged",
-  ENGAGING: "engaging",
-} as const;
-
-/**
- * @public
- */
-export type SafetyLeverStatus = (typeof SafetyLeverStatus)[keyof typeof SafetyLeverStatus];
 
 /**
  * <p>
@@ -2810,20 +2622,6 @@ export interface UpdateExperimentTemplateResponse {
    */
   experimentTemplate?: ExperimentTemplate | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SafetyLeverStatusInput = {
-  DISENGAGED: "disengaged",
-  ENGAGED: "engaged",
-} as const;
-
-/**
- * @public
- */
-export type SafetyLeverStatusInput = (typeof SafetyLeverStatusInput)[keyof typeof SafetyLeverStatusInput];
 
 /**
  * <p>

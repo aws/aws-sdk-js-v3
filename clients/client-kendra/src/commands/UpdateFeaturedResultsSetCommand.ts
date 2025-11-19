@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse } from "../models/models_1";
+import { UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse } from "../models/models_0";
 import { UpdateFeaturedResultsSet } from "../schemas/schemas_0";
 
 /**

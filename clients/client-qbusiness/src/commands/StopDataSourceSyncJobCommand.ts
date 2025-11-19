@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse } from "../models/models_1";
+import { StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse } from "../models/models_0";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { StopDataSourceSyncJob } from "../schemas/schemas_0";
 

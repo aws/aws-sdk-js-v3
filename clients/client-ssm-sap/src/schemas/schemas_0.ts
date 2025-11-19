@@ -259,7 +259,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   UnauthorizedException as __UnauthorizedException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SsmSapServiceException as __SsmSapServiceException } from "../models/SsmSapServiceException";
 
 /* eslint no-var: 0 */

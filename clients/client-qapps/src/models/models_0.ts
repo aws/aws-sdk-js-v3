@@ -1,60 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { QAppsServiceException as __BaseException } from "./QAppsServiceException";
-
-/**
- * <p>The client is not authorized to perform the requested operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Action = {
-  READ: "read",
-  WRITE: "write",
-} as const;
-
-/**
- * @public
- */
-export type Action = (typeof Action)[keyof typeof Action];
-
-/**
- * @public
- * @enum
- */
-export const CardType = {
-  FILE_UPLOAD: "file-upload",
-  FORM_INPUT: "form-input",
-  Q_PLUGIN: "q-plugin",
-  Q_QUERY: "q-query",
-  TEXT_INPUT: "text-input",
-} as const;
-
-/**
- * @public
- */
-export type CardType = (typeof CardType)[keyof typeof CardType];
+import {
+  Action,
+  AppRequiredCapability,
+  AppStatus,
+  CardOutputSource,
+  CardType,
+  DocumentScope,
+  ExecutionStatus,
+  InputCardComputeMode,
+  LibraryItemStatus,
+  PluginType,
+  Sender,
+  SubmissionMutationKind,
+  UserType,
+} from "./enums";
 
 /**
  * <p>A card in an Amazon Q App that allows the user to upload a file.</p>
@@ -103,20 +64,6 @@ export interface FileUploadCard {
    */
   allowOverride?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputCardComputeMode = {
-  APPEND: "append",
-  REPLACE: "replace",
-} as const;
-
-/**
- * @public
- */
-export type InputCardComputeMode = (typeof InputCardComputeMode)[keyof typeof InputCardComputeMode];
 
 /**
  * <p>The metadata of the form input card.</p>
@@ -171,34 +118,6 @@ export interface FormInputCard {
    */
   computeMode?: InputCardComputeMode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PluginType = {
-  ASANA: "ASANA",
-  ATLASSIAN_CONFLUENCE: "ATLASSIAN_CONFLUENCE",
-  CUSTOM: "CUSTOM",
-  GOOGLE_CALENDAR: "GOOGLE_CALENDAR",
-  JIRA: "JIRA",
-  JIRA_CLOUD: "JIRA_CLOUD",
-  MICROSOFT_EXCHANGE: "MICROSOFT_EXCHANGE",
-  MICROSOFT_TEAMS: "MICROSOFT_TEAMS",
-  PAGERDUTY_ADVANCE: "PAGERDUTY_ADVANCE",
-  SALESFORCE: "SALESFORCE",
-  SALESFORCE_CRM: "SALESFORCE_CRM",
-  SERVICENOW_NOW_PLATFORM: "SERVICENOW_NOW_PLATFORM",
-  SERVICE_NOW: "SERVICE_NOW",
-  SMARTSHEET: "SMARTSHEET",
-  ZENDESK: "ZENDESK",
-  ZENDESK_SUITE: "ZENDESK_SUITE",
-} as const;
-
-/**
- * @public
- */
-export type PluginType = (typeof PluginType)[keyof typeof PluginType];
 
 /**
  * <p>A card in an Q App that integrates with a third-party plugin or service.</p>
@@ -358,20 +277,6 @@ export interface DocumentAttribute {
    */
   value: DocumentAttributeValue | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CardOutputSource = {
-  APPROVED_SOURCES: "approved-sources",
-  LLM: "llm",
-} as const;
-
-/**
- * @public
- */
-export type CardOutputSource = (typeof CardOutputSource)[keyof typeof CardOutputSource];
 
 /**
  * <p>A card in an Amazon Q App that allows the user to input text.</p>
@@ -573,37 +478,6 @@ export interface TextInputCardInput {
 
 /**
  * @public
- * @enum
- */
-export const AppRequiredCapability = {
-  CREATOR_MODE: "CreatorMode",
-  FILE_UPLOAD: "FileUpload",
-  PLUGIN_MODE: "PluginMode",
-  RETRIEVAL_MODE: "RetrievalMode",
-} as const;
-
-/**
- * @public
- */
-export type AppRequiredCapability = (typeof AppRequiredCapability)[keyof typeof AppRequiredCapability];
-
-/**
- * @public
- * @enum
- */
-export const AppStatus = {
-  DELETED: "DELETED",
-  DRAFT: "DRAFT",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
-
-/**
- * @public
  */
 export interface AssociateLibraryItemReviewInput {
   /**
@@ -617,234 +491,6 @@ export interface AssociateLibraryItemReviewInput {
    * @public
    */
   libraryItemId: string | undefined;
-}
-
-/**
- * <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier of the resource</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>An internal service error occurred while processing the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The number of seconds to wait before retrying the operation</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The requested resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier of the resource</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier of the resource</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The code for the service where the quota was exceeded</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The code of the quota that was exceeded</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The code for the service where the quota was exceeded</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The code of the quota that was exceeded</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * <p>The number of seconds to wait before retrying the operation</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The client is not authenticated or authorized to perform the requested operation.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
-}
-
-/**
- * <p>The input failed to satisfy the constraints specified by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -964,22 +610,6 @@ export interface BatchUpdateCategoryInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  COMPLETED: "COMPLETED",
-  ERROR: "ERROR",
-  IN_PROGRESS: "IN_PROGRESS",
-  WAITING: "WAITING",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
-
-/**
  * <p>A record created when a user submits a form card.</p>
  * @public
  */
@@ -1026,21 +656,6 @@ export interface CardStatus {
    */
   submissions?: Submission[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SubmissionMutationKind = {
-  add: "add",
-  delete: "delete",
-  edit: "edit",
-} as const;
-
-/**
- * @public
- */
-export type SubmissionMutationKind = (typeof SubmissionMutationKind)[keyof typeof SubmissionMutationKind];
 
 /**
  * <p>Represents an action performed on a submission.</p>
@@ -1113,54 +728,6 @@ export interface Category {
    */
   appCount?: number | undefined;
 }
-
-/**
- * <p>The requested operation could not be completed because the content exceeds the maximum allowed size.</p>
- * @public
- */
-export class ContentTooLargeException extends __BaseException {
-  readonly name: "ContentTooLargeException" = "ContentTooLargeException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier of the resource</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ContentTooLargeException, __BaseException>) {
-    super({
-      name: "ContentTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ContentTooLargeException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Sender = {
-  SYSTEM: "SYSTEM",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type Sender = (typeof Sender)[keyof typeof Sender];
 
 /**
  * <p>A message in a conversation, used as input for generating an Amazon Q App definition.</p>
@@ -1261,20 +828,6 @@ export interface CreateLibraryItemOutput {
    */
   isVerified?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DocumentScope = {
-  APPLICATION: "APPLICATION",
-  SESSION: "SESSION",
-} as const;
-
-/**
- * @public
- */
-export type DocumentScope = (typeof DocumentScope)[keyof typeof DocumentScope];
 
 /**
  * @public
@@ -1479,20 +1032,6 @@ export interface DescribeQAppPermissionsInput {
    */
   appId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserType = {
-  OWNER: "owner",
-  USER: "user",
-} as const;
-
-/**
- * @public
- */
-export type UserType = (typeof UserType)[keyof typeof UserType];
 
 /**
  * <p>The principal for which the permission applies.</p>
@@ -2049,20 +1588,6 @@ export interface LibraryItemMember {
    */
   isVerified?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LibraryItemStatus = {
-  DISABLED: "DISABLED",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type LibraryItemStatus = (typeof LibraryItemStatus)[keyof typeof LibraryItemStatus];
 
 /**
  * @public

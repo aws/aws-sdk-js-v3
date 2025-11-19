@@ -250,7 +250,7 @@ import {
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { SecurityLakeServiceException as __SecurityLakeServiceException } from "../models/SecurityLakeServiceException";
 
 /* eslint no-var: 0 */

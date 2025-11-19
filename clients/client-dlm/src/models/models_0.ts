@@ -1,7 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DLMServiceException as __BaseException } from "./DLMServiceException";
+import {
+  DefaultPoliciesTypeValues,
+  DefaultPolicyTypeValues,
+  EventSourceValues,
+  EventTypeValues,
+  ExecutionHandlerServiceValues,
+  GettablePolicyStateValues,
+  IntervalUnitValues,
+  LocationValues,
+  PolicyLanguageValues,
+  PolicyTypeValues,
+  ResourceLocationValues,
+  ResourceTypeValues,
+  RetentionIntervalUnitValues,
+  SettablePolicyStateValues,
+  StageValues,
+} from "./enums";
 
 /**
  * <p>
@@ -25,23 +39,6 @@ export interface EncryptionConfiguration {
    */
   CmkArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetentionIntervalUnitValues = {
-  DAYS: "DAYS",
-  MONTHS: "MONTHS",
-  WEEKS: "WEEKS",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type RetentionIntervalUnitValues =
-  (typeof RetentionIntervalUnitValues)[keyof typeof RetentionIntervalUnitValues];
 
 /**
  * <p>Specifies a retention rule for cross-Region snapshot copies created by snapshot or
@@ -198,20 +195,6 @@ export interface CrossRegionCopyTarget {
 }
 
 /**
- * @public
- * @enum
- */
-export const DefaultPolicyTypeValues = {
-  INSTANCE: "INSTANCE",
-  VOLUME: "VOLUME",
-} as const;
-
-/**
- * @public
- */
-export type DefaultPolicyTypeValues = (typeof DefaultPolicyTypeValues)[keyof typeof DefaultPolicyTypeValues];
-
-/**
  * <p>Specifies a tag for a resource.</p>
  * @public
  */
@@ -264,19 +247,6 @@ export interface Exclusions {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventTypeValues = {
-  SHARE_SNAPSHOT: "shareSnapshot",
-} as const;
-
-/**
- * @public
- */
-export type EventTypeValues = (typeof EventTypeValues)[keyof typeof EventTypeValues];
-
-/**
  * <p>
  *             <b>[Event-based policies only]</b> Specifies an event that activates an event-based policy.</p>
  * @public
@@ -306,19 +276,6 @@ export interface EventParameters {
    */
   DescriptionRegex: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventSourceValues = {
-  MANAGED_CWE: "MANAGED_CWE",
-} as const;
-
-/**
- * @public
- */
-export type EventSourceValues = (typeof EventSourceValues)[keyof typeof EventSourceValues];
 
 /**
  * <p>
@@ -383,120 +340,6 @@ export interface _Parameters {
    */
   ExcludeDataVolumeTags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PolicyLanguageValues = {
-  SIMPLIFIED: "SIMPLIFIED",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type PolicyLanguageValues = (typeof PolicyLanguageValues)[keyof typeof PolicyLanguageValues];
-
-/**
- * @public
- * @enum
- */
-export const PolicyTypeValues = {
-  EBS_SNAPSHOT_MANAGEMENT: "EBS_SNAPSHOT_MANAGEMENT",
-  EVENT_BASED_POLICY: "EVENT_BASED_POLICY",
-  IMAGE_MANAGEMENT: "IMAGE_MANAGEMENT",
-} as const;
-
-/**
- * @public
- */
-export type PolicyTypeValues = (typeof PolicyTypeValues)[keyof typeof PolicyTypeValues];
-
-/**
- * @public
- * @enum
- */
-export const ResourceLocationValues = {
-  CLOUD: "CLOUD",
-  LOCAL_ZONE: "LOCAL_ZONE",
-  OUTPOST: "OUTPOST",
-} as const;
-
-/**
- * @public
- */
-export type ResourceLocationValues = (typeof ResourceLocationValues)[keyof typeof ResourceLocationValues];
-
-/**
- * @public
- * @enum
- */
-export const ResourceTypeValues = {
-  INSTANCE: "INSTANCE",
-  VOLUME: "VOLUME",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTypeValues = (typeof ResourceTypeValues)[keyof typeof ResourceTypeValues];
-
-/**
- * @public
- * @enum
- */
-export const IntervalUnitValues = {
-  HOURS: "HOURS",
-} as const;
-
-/**
- * @public
- */
-export type IntervalUnitValues = (typeof IntervalUnitValues)[keyof typeof IntervalUnitValues];
-
-/**
- * @public
- * @enum
- */
-export const LocationValues = {
-  CLOUD: "CLOUD",
-  LOCAL_ZONE: "LOCAL_ZONE",
-  OUTPOST_LOCAL: "OUTPOST_LOCAL",
-} as const;
-
-/**
- * @public
- */
-export type LocationValues = (typeof LocationValues)[keyof typeof LocationValues];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionHandlerServiceValues = {
-  AWS_SYSTEMS_MANAGER: "AWS_SYSTEMS_MANAGER",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionHandlerServiceValues =
-  (typeof ExecutionHandlerServiceValues)[keyof typeof ExecutionHandlerServiceValues];
-
-/**
- * @public
- * @enum
- */
-export const StageValues = {
-  POST: "POST",
-  PRE: "PRE",
-} as const;
-
-/**
- * @public
- */
-export type StageValues = (typeof StageValues)[keyof typeof StageValues];
 
 /**
  * <p>
@@ -1281,20 +1124,6 @@ export interface PolicyDetails {
 
 /**
  * @public
- * @enum
- */
-export const SettablePolicyStateValues = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type SettablePolicyStateValues = (typeof SettablePolicyStateValues)[keyof typeof SettablePolicyStateValues];
-
-/**
- * @public
  */
 export interface CreateLifecyclePolicyRequest {
   /**
@@ -1440,113 +1269,6 @@ export interface CreateLifecyclePolicyResponse {
 }
 
 /**
- * <p>The service failed in an unexpected way.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Bad request. The request is missing required parameters or has invalid
- * 			parameters.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * <p>The request omitted one or more required parameters.</p>
-   * @public
-   */
-  RequiredParameters?: string[] | undefined;
-
-  /**
-   * <p>The request included parameters that cannot be provided together.</p>
-   * @public
-   */
-  MutuallyExclusiveParameters?: string[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.RequiredParameters = opts.RequiredParameters;
-    this.MutuallyExclusiveParameters = opts.MutuallyExclusiveParameters;
-  }
-}
-
-/**
- * <p>The request failed because a limit was exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * <p>Value is the type of resource for which a limit was exceeded.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DefaultPoliciesTypeValues = {
-  ALL: "ALL",
-  INSTANCE: "INSTANCE",
-  VOLUME: "VOLUME",
-} as const;
-
-/**
- * @public
- */
-export type DefaultPoliciesTypeValues = (typeof DefaultPoliciesTypeValues)[keyof typeof DefaultPoliciesTypeValues];
-
-/**
  * @public
  */
 export interface DeleteLifecyclePolicyRequest {
@@ -1561,58 +1283,6 @@ export interface DeleteLifecyclePolicyRequest {
  * @public
  */
 export interface DeleteLifecyclePolicyResponse {}
-
-/**
- * <p>A requested resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * <p>Value is the type of resource that was not found.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>Value is a list of resource IDs that were not found.</p>
-   * @public
-   */
-  ResourceIds?: string[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-    this.ResourceType = opts.ResourceType;
-    this.ResourceIds = opts.ResourceIds;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const GettablePolicyStateValues = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type GettablePolicyStateValues = (typeof GettablePolicyStateValues)[keyof typeof GettablePolicyStateValues];
 
 /**
  * @public

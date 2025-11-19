@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { DescribeVpcEndpointServicePermissions } from "../schemas/schemas_0";
 
 /**

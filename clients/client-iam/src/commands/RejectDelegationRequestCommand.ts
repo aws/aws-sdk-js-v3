@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RejectDelegationRequestRequest } from "../models/models_1";
+import { RejectDelegationRequestRequest } from "../models/models_0";
 import { RejectDelegationRequest } from "../schemas/schemas_0";
 
 /**

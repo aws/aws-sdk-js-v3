@@ -1,7 +1,49 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ResiliencehubServiceException as __BaseException } from "./ResiliencehubServiceException";
+import {
+  AlarmType,
+  AppAssessmentScheduleType,
+  AppComplianceStatusType,
+  AppDriftStatusType,
+  AppStatusType,
+  AssessmentInvoker,
+  AssessmentStatus,
+  ComplianceStatus,
+  ConditionOperatorType,
+  ConfigRecommendationOptimizationType,
+  CostFrequency,
+  DataLocationConstraint,
+  DifferenceType,
+  DisruptionType,
+  DriftStatus,
+  DriftType,
+  EstimatedCostTier,
+  EventType,
+  ExcludeRecommendationReason,
+  FieldAggregationType,
+  GroupingRecommendationConfidenceLevel,
+  GroupingRecommendationRejectionReason,
+  GroupingRecommendationStatusType,
+  HaArchitecture,
+  MetricsExportStatusType,
+  PermissionModelType,
+  PhysicalIdentifierType,
+  RecommendationComplianceStatus,
+  RecommendationStatus,
+  RecommendationTemplateStatus,
+  RenderRecommendationType,
+  ResiliencyPolicyTier,
+  ResiliencyScoreType,
+  ResourceImportStatusType,
+  ResourceImportStrategyType,
+  ResourceMappingType,
+  ResourceResolutionStatusType,
+  ResourcesGroupingRecGenStatusType,
+  ResourceSourceType,
+  SopServiceType,
+  TemplateFormat,
+  TestRisk,
+  TestType,
+} from "./enums";
 
 /**
  * <p>Indicates the grouping recommendation you have accepted to include in your application.</p>
@@ -74,162 +116,6 @@ export interface AcceptResourceGroupingRecommendationsResponse {
    */
   failedEntries: FailedGroupingRecommendationEntry[] | undefined;
 }
-
-/**
- * <p>You don't have permissions to perform the requested operation. The user or role that is
- *       making the request must have at least one IAM permissions policy attached that grants the
- *       required permissions.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>This exception occurs when the specified resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that the exception applies to.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that the exception applies to.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>This exception occurs when a request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceMappingType = {
-  APP_REGISTRY_APP: "AppRegistryApp",
-  CFN_STACK: "CfnStack",
-  EKS: "EKS",
-  RESOURCE: "Resource",
-  RESOURCE_GROUP: "ResourceGroup",
-  TERRAFORM: "Terraform",
-} as const;
-
-/**
- * @public
- */
-export type ResourceMappingType = (typeof ResourceMappingType)[keyof typeof ResourceMappingType];
-
-/**
- * @public
- * @enum
- */
-export const PhysicalIdentifierType = {
-  ARN: "Arn",
-  NATIVE: "Native",
-} as const;
-
-/**
- * @public
- */
-export type PhysicalIdentifierType = (typeof PhysicalIdentifierType)[keyof typeof PhysicalIdentifierType];
 
 /**
  * <p>Defines a physical resource identifier.</p>
@@ -510,64 +396,6 @@ export interface AddDraftAppVersionResourceMappingsResponse {
 }
 
 /**
- * <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that the exception applies to.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that the exception applies to.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use Service Quotas to request a service quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
  * <p>Indicates the Amazon CloudWatch alarm detected while running an assessment.</p>
  * @public
  */
@@ -586,22 +414,6 @@ export interface Alarm {
    */
   source?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExcludeRecommendationReason = {
-  ALREADY_IMPLEMENTED: "AlreadyImplemented",
-  COMPLEXITY_OF_IMPLEMENTATION: "ComplexityOfImplementation",
-  NOT_RELEVANT: "NotRelevant",
-} as const;
-
-/**
- * @public
- */
-export type ExcludeRecommendationReason =
-  (typeof ExcludeRecommendationReason)[keyof typeof ExcludeRecommendationReason];
 
 /**
  * <p>Indicates the FIS experiment detected while running an assessment.</p>
@@ -676,39 +488,6 @@ export interface RecommendationItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecommendationStatus = {
-  EXCLUDED: "Excluded",
-  IMPLEMENTED: "Implemented",
-  INACTIVE: "Inactive",
-  NOT_IMPLEMENTED: "NotImplemented",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
-
-/**
- * @public
- * @enum
- */
-export const AlarmType = {
-  CANARY: "Canary",
-  COMPOSITE: "Composite",
-  EVENT: "Event",
-  LOGS: "Logs",
-  METRIC: "Metric",
-} as const;
-
-/**
- * @public
- */
-export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
-
-/**
  * <p>Defines a recommendation for a CloudWatch alarm.</p>
  * @public
  */
@@ -778,67 +557,6 @@ export interface AlarmRecommendation {
 }
 
 /**
- * @public
- * @enum
- */
-export const AppAssessmentScheduleType = {
-  DAILY: "Daily",
-  DISABLED: "Disabled",
-} as const;
-
-/**
- * @public
- */
-export type AppAssessmentScheduleType = (typeof AppAssessmentScheduleType)[keyof typeof AppAssessmentScheduleType];
-
-/**
- * @public
- * @enum
- */
-export const AppComplianceStatusType = {
-  CHANGES_DETECTED: "ChangesDetected",
-  MISSING_POLICY: "MissingPolicy",
-  NOT_APPLICABLE: "NotApplicable",
-  NOT_ASSESSED: "NotAssessed",
-  POLICY_BREACHED: "PolicyBreached",
-  POLICY_MET: "PolicyMet",
-} as const;
-
-/**
- * @public
- */
-export type AppComplianceStatusType = (typeof AppComplianceStatusType)[keyof typeof AppComplianceStatusType];
-
-/**
- * @public
- * @enum
- */
-export const AppDriftStatusType = {
-  DETECTED: "Detected",
-  NOT_CHECKED: "NotChecked",
-  NOT_DETECTED: "NotDetected",
-} as const;
-
-/**
- * @public
- */
-export type AppDriftStatusType = (typeof AppDriftStatusType)[keyof typeof AppDriftStatusType];
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  DRIFT_DETECTED: "DriftDetected",
-  SCHEDULED_ASSESSMENT_FAILURE: "ScheduledAssessmentFailure",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
-
-/**
  * <p>Indicates an event you would like to subscribe and get notification for. Currently,
  *         Resilience Hub supports notifications only for <b>Drift
  *         detected</b> and <b>Scheduled assessment failure</b>
@@ -870,20 +588,6 @@ export interface EventSubscription {
    */
   snsTopicArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PermissionModelType = {
-  LEGACY_IAM_USER: "LegacyIAMUser",
-  ROLE_BASED: "RoleBased",
-} as const;
-
-/**
- * @public
- */
-export type PermissionModelType = (typeof PermissionModelType)[keyof typeof PermissionModelType];
 
 /**
  * <p>Defines the roles and credentials that Resilience Hub would use while creating the
@@ -944,20 +648,6 @@ export interface PermissionModel {
    */
   crossAccountRoleArns?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AppStatusType = {
-  ACTIVE: "Active",
-  DELETING: "Deleting",
-} as const;
-
-/**
- * @public
- */
-export type AppStatusType = (typeof AppStatusType)[keyof typeof AppStatusType];
 
 /**
  * <p>Defines an Resilience Hub application.</p>
@@ -1097,54 +787,6 @@ export interface App {
 }
 
 /**
- * @public
- * @enum
- */
-export const AssessmentStatus = {
-  FAILED: "Failed",
-  INPROGRESS: "InProgress",
-  PENDING: "Pending",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];
-
-/**
- * @public
- * @enum
- */
-export const DisruptionType = {
-  AZ: "AZ",
-  HARDWARE: "Hardware",
-  REGION: "Region",
-  SOFTWARE: "Software",
-} as const;
-
-/**
- * @public
- */
-export type DisruptionType = (typeof DisruptionType)[keyof typeof DisruptionType];
-
-/**
- * @public
- * @enum
- */
-export const ComplianceStatus = {
-  MISSING_POLICY: "MissingPolicy",
-  NOT_APPLICABLE: "NotApplicable",
-  POLICY_BREACHED: "PolicyBreached",
-  POLICY_MET: "PolicyMet",
-} as const;
-
-/**
- * @public
- */
-export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
-
-/**
  * <p>Defines the compliance against the resiliency policy for a disruption.</p>
  * @public
  */
@@ -1211,22 +853,6 @@ export interface DisruptionCompliance {
 }
 
 /**
- * @public
- * @enum
- */
-export const CostFrequency = {
-  DAILY: "Daily",
-  HOURLY: "Hourly",
-  MONTHLY: "Monthly",
-  YEARLY: "Yearly",
-} as const;
-
-/**
- * @public
- */
-export type CostFrequency = (typeof CostFrequency)[keyof typeof CostFrequency];
-
-/**
  * <p>Defines a cost object.</p>
  * @public
  */
@@ -1251,66 +877,6 @@ export interface Cost {
 }
 
 /**
- * @public
- * @enum
- */
-export const DriftStatus = {
-  DETECTED: "Detected",
-  NOT_CHECKED: "NotChecked",
-  NOT_DETECTED: "NotDetected",
-} as const;
-
-/**
- * @public
- */
-export type DriftStatus = (typeof DriftStatus)[keyof typeof DriftStatus];
-
-/**
- * @public
- * @enum
- */
-export const AssessmentInvoker = {
-  SYSTEM: "System",
-  USER: "User",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentInvoker = (typeof AssessmentInvoker)[keyof typeof AssessmentInvoker];
-
-/**
- * @public
- * @enum
- */
-export const DataLocationConstraint = {
-  ANY_LOCATION: "AnyLocation",
-  SAME_CONTINENT: "SameContinent",
-  SAME_COUNTRY: "SameCountry",
-} as const;
-
-/**
- * @public
- */
-export type DataLocationConstraint = (typeof DataLocationConstraint)[keyof typeof DataLocationConstraint];
-
-/**
- * @public
- * @enum
- */
-export const EstimatedCostTier = {
-  L1: "L1",
-  L2: "L2",
-  L3: "L3",
-  L4: "L4",
-} as const;
-
-/**
- * @public
- */
-export type EstimatedCostTier = (typeof EstimatedCostTier)[keyof typeof EstimatedCostTier];
-
-/**
  * <p>Defines a failure policy.</p>
  * @public
  */
@@ -1327,24 +893,6 @@ export interface FailurePolicy {
    */
   rpoInSecs: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResiliencyPolicyTier = {
-  CORE_SERVICES: "CoreServices",
-  CRITICAL: "Critical",
-  IMPORTANT: "Important",
-  MISSION_CRITICAL: "MissionCritical",
-  NON_CRITICAL: "NonCritical",
-  NOT_APPLICABLE: "NotApplicable",
-} as const;
-
-/**
- * @public
- */
-export type ResiliencyPolicyTier = (typeof ResiliencyPolicyTier)[keyof typeof ResiliencyPolicyTier];
 
 /**
  * <p>Defines a resiliency policy.</p>
@@ -1421,22 +969,6 @@ export interface ResiliencyPolicy {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResiliencyScoreType = {
-  ALARM: "Alarm",
-  COMPLIANCE: "Compliance",
-  SOP: "Sop",
-  TEST: "Test",
-} as const;
-
-/**
- * @public
- */
-export type ResiliencyScoreType = (typeof ResiliencyScoreType)[keyof typeof ResiliencyScoreType];
 
 /**
  * <p>Resiliency score of each scoring component. For more information about scoring component,
@@ -2590,20 +2122,6 @@ export interface CreateAppVersionResourceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceSourceType = {
-  APP_TEMPLATE: "AppTemplate",
-  DISCOVERED: "Discovered",
-} as const;
-
-/**
- * @public
- */
-export type ResourceSourceType = (typeof ResourceSourceType)[keyof typeof ResourceSourceType];
-
-/**
  * <p>Defines a physical resource. A physical resource is a resource that exists in your
  *       account. It can be identified using an Amazon Resource Name (ARN) or an Resilience Hub-native identifier. </p>
  * @public
@@ -2700,35 +2218,6 @@ export interface CreateAppVersionResourceResponse {
 
 /**
  * @public
- * @enum
- */
-export const TemplateFormat = {
-  CFN_JSON: "CfnJson",
-  CFN_YAML: "CfnYaml",
-} as const;
-
-/**
- * @public
- */
-export type TemplateFormat = (typeof TemplateFormat)[keyof typeof TemplateFormat];
-
-/**
- * @public
- * @enum
- */
-export const RenderRecommendationType = {
-  ALARM: "Alarm",
-  SOP: "Sop",
-  TEST: "Test",
-} as const;
-
-/**
- * @public
- */
-export type RenderRecommendationType = (typeof RenderRecommendationType)[keyof typeof RenderRecommendationType];
-
-/**
- * @public
  */
 export interface CreateRecommendationTemplateRequest {
   /**
@@ -2809,23 +2298,6 @@ export interface CreateRecommendationTemplateRequest {
    */
   bucketName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationTemplateStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationTemplateStatus =
-  (typeof RecommendationTemplateStatus)[keyof typeof RecommendationTemplateStatus];
 
 /**
  * <p>The location of the Amazon S3 bucket.</p>
@@ -3670,23 +3142,6 @@ export interface DescribeAppVersionResourcesResolutionStatusRequest {
 
 /**
  * @public
- * @enum
- */
-export const ResourceResolutionStatusType = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type ResourceResolutionStatusType =
-  (typeof ResourceResolutionStatusType)[keyof typeof ResourceResolutionStatusType];
-
-/**
- * @public
  */
 export interface DescribeAppVersionResourcesResolutionStatusResponse {
   /**
@@ -4060,22 +3515,6 @@ export interface ErrorDetail {
 
 /**
  * @public
- * @enum
- */
-export const ResourceImportStatusType = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type ResourceImportStatusType = (typeof ResourceImportStatusType)[keyof typeof ResourceImportStatusType];
-
-/**
- * @public
  */
 export interface DescribeDraftAppVersionResourcesImportStatusResponse {
   /**
@@ -4129,22 +3568,6 @@ export interface DescribeMetricsExportRequest {
    */
   metricsExportId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricsExportStatusType = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type MetricsExportStatusType = (typeof MetricsExportStatusType)[keyof typeof MetricsExportStatusType];
 
 /**
  * @public
@@ -4226,23 +3649,6 @@ export interface DescribeResourceGroupingRecommendationTaskRequest {
 
 /**
  * @public
- * @enum
- */
-export const ResourcesGroupingRecGenStatusType = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type ResourcesGroupingRecGenStatusType =
-  (typeof ResourcesGroupingRecGenStatusType)[keyof typeof ResourcesGroupingRecGenStatusType];
-
-/**
- * @public
  */
 export interface DescribeResourceGroupingRecommendationTaskResponse {
   /**
@@ -4285,20 +3691,6 @@ export interface EksSource {
    */
   namespaces: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceImportStrategyType = {
-  ADD_ONLY: "AddOnly",
-  REPLACE_ALL: "ReplaceAll",
-} as const;
-
-/**
- * @public
- */
-export type ResourceImportStrategyType = (typeof ResourceImportStrategyType)[keyof typeof ResourceImportStrategyType];
 
 /**
  * @public
@@ -4458,35 +3850,6 @@ export interface ListAppAssessmentComplianceDriftsRequest {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DifferenceType = {
-  ADDED: "Added",
-  NOT_EQUAL: "NotEqual",
-  REMOVED: "Removed",
-} as const;
-
-/**
- * @public
- */
-export type DifferenceType = (typeof DifferenceType)[keyof typeof DifferenceType];
-
-/**
- * @public
- * @enum
- */
-export const DriftType = {
-  APPLICATION_COMPLIANCE: "ApplicationCompliance",
-  APP_COMPONENT_RESILIENCY_COMPLIANCE_STATUS: "AppComponentResiliencyComplianceStatus",
-} as const;
-
-/**
- * @public
- */
-export type DriftType = (typeof DriftType)[keyof typeof DriftType];
 
 /**
  * <p>Indicates the compliance drifts (recovery time objective (RTO) and recovery point
@@ -4837,42 +4200,6 @@ export interface ListAppComponentRecommendationsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const HaArchitecture = {
-  BACKUP_AND_RESTORE: "BackupAndRestore",
-  MULTI_SITE: "MultiSite",
-  NO_RECOVERY_PLAN: "NoRecoveryPlan",
-  PILOT_LIGHT: "PilotLight",
-  WARM_STANDBY: "WarmStandby",
-} as const;
-
-/**
- * @public
- */
-export type HaArchitecture = (typeof HaArchitecture)[keyof typeof HaArchitecture];
-
-/**
- * @public
- * @enum
- */
-export const ConfigRecommendationOptimizationType = {
-  BEST_ATTAINABLE: "BestAttainable",
-  BEST_AZ_RECOVERY: "BestAZRecovery",
-  BEST_REGION_RECOVERY: "BestRegionRecovery",
-  LEAST_CHANGE: "LeastChange",
-  LEAST_COST: "LeastCost",
-  LEAST_ERRORS: "LeastErrors",
-} as const;
-
-/**
- * @public
- */
-export type ConfigRecommendationOptimizationType =
-  (typeof ConfigRecommendationOptimizationType)[keyof typeof ConfigRecommendationOptimizationType];
-
-/**
  * <p>Defines a disruption compliance recommendation.</p>
  * @public
  */
@@ -4977,23 +4304,6 @@ export interface ConfigRecommendation {
    */
   referenceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationComplianceStatus = {
-  BREACHED_CAN_MEET: "BreachedCanMeet",
-  BREACHED_UNATTAINABLE: "BreachedUnattainable",
-  MET_CAN_IMPROVE: "MetCanImprove",
-  MISSING_POLICY: "MissingPolicy",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationComplianceStatus =
-  (typeof RecommendationComplianceStatus)[keyof typeof RecommendationComplianceStatus];
 
 /**
  * <p>Defines recommendations for an Resilience Hub Application Component, returned as an
@@ -5415,24 +4725,6 @@ export interface ListAppVersionsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConditionOperatorType = {
-  EQUALS: "Equals",
-  GREATER_OR_EQUALS: "GreaterOrEquals",
-  GREATER_THEN: "GreaterThen",
-  LESS_OR_EQUALS: "LessOrEquals",
-  LESS_THEN: "LessThen",
-  NOT_EQUALS: "NotEquals",
-} as const;
-
-/**
- * @public
- */
-export type ConditionOperatorType = (typeof ConditionOperatorType)[keyof typeof ConditionOperatorType];
-
-/**
  * <p>Indicates the condition based on which you want to filter the metrics.</p>
  * @public
  */
@@ -5455,23 +4747,6 @@ export interface Condition {
    */
   value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FieldAggregationType = {
-  AVG: "Avg",
-  COUNT: "Count",
-  MAX: "Max",
-  MIN: "Min",
-  SUM: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type FieldAggregationType = (typeof FieldAggregationType)[keyof typeof FieldAggregationType];
 
 /**
  * <p>Indicates the field or attribute of a resource or data structure on which a condition is being applied or evaluated.</p>
@@ -5707,21 +4982,6 @@ export interface ListResourceGroupingRecommendationsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const GroupingRecommendationConfidenceLevel = {
-  HIGH: "High",
-  MEDIUM: "Medium",
-} as const;
-
-/**
- * @public
- */
-export type GroupingRecommendationConfidenceLevel =
-  (typeof GroupingRecommendationConfidenceLevel)[keyof typeof GroupingRecommendationConfidenceLevel];
-
-/**
  * <p>Creates a new recommended Application Component (AppComponent).</p>
  * @public
  */
@@ -5744,23 +5004,6 @@ export interface GroupingAppComponent {
    */
   appComponentName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupingRecommendationRejectionReason = {
-  DISTINCT_BUSINESS_PURPOSE: "DistinctBusinessPurpose",
-  DISTINCT_USER_GROUP_HANDLING: "DistinctUserGroupHandling",
-  OTHER: "Other",
-  SEPARATE_DATA_CONCERN: "SeparateDataConcern",
-} as const;
-
-/**
- * @public
- */
-export type GroupingRecommendationRejectionReason =
-  (typeof GroupingRecommendationRejectionReason)[keyof typeof GroupingRecommendationRejectionReason];
 
 /**
  * <p>Indicates the resource that will be grouped in the recommended Application Component (AppComponent).</p>
@@ -5797,22 +5040,6 @@ export interface GroupingResource {
    */
   sourceAppComponentIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupingRecommendationStatusType = {
-  ACCEPTED: "Accepted",
-  PENDING_DECISION: "PendingDecision",
-  REJECTED: "Rejected",
-} as const;
-
-/**
- * @public
- */
-export type GroupingRecommendationStatusType =
-  (typeof GroupingRecommendationStatusType)[keyof typeof GroupingRecommendationStatusType];
 
 /**
  * <p>Creates a new grouping recommendation.</p>
@@ -5918,19 +5145,6 @@ export interface ListSopRecommendationsRequest {
    */
   assessmentArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SopServiceType = {
-  SSM: "SSM",
-} as const;
-
-/**
- * @public
- */
-export type SopServiceType = (typeof SopServiceType)[keyof typeof SopServiceType];
 
 /**
  * <p>Defines a standard operating procedure (SOP) recommendation.</p>
@@ -6096,37 +5310,6 @@ export interface ListTestRecommendationsRequest {
    */
   assessmentArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TestRisk = {
-  HIGH: "High",
-  MEDIUM: "Medium",
-  SMALL: "Small",
-} as const;
-
-/**
- * @public
- */
-export type TestRisk = (typeof TestRisk)[keyof typeof TestRisk];
-
-/**
- * @public
- * @enum
- */
-export const TestType = {
-  AZ: "AZ",
-  HARDWARE: "Hardware",
-  REGION: "Region",
-  SOFTWARE: "Software",
-} as const;
-
-/**
- * @public
- */
-export type TestType = (typeof TestType)[keyof typeof TestType];
 
 /**
  * <p>Defines a test recommendation.</p>

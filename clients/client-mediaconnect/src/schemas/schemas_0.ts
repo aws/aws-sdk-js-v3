@@ -747,7 +747,7 @@ import {
   NotFoundException as __NotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaConnectServiceException as __MediaConnectServiceException } from "../models/MediaConnectServiceException";
 
 /* eslint no-var: 0 */

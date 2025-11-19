@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotResourceGenerationRequest, DescribeBotResourceGenerationResponse } from "../models/models_1";
+import { DescribeBotResourceGenerationRequest, DescribeBotResourceGenerationResponse } from "../models/models_0";
 import { DescribeBotResourceGeneration } from "../schemas/schemas_0";
 
 /**

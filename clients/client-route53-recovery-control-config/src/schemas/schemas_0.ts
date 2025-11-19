@@ -164,7 +164,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { Route53RecoveryControlConfigServiceException as __Route53RecoveryControlConfigServiceException } from "../models/Route53RecoveryControlConfigServiceException";
 
 /* eslint no-var: 0 */

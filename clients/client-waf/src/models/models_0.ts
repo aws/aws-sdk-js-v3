@@ -1,22 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WAFServiceException as __BaseException } from "./WAFServiceException";
-
-/**
- * @public
- * @enum
- */
-export const WafActionType = {
-  ALLOW: "ALLOW",
-  BLOCK: "BLOCK",
-  COUNT: "COUNT",
-} as const;
-
-/**
- * @public
- */
-export type WafActionType = (typeof WafActionType)[keyof typeof WafActionType];
+import {
+  ChangeAction,
+  ChangeTokenStatus,
+  ComparisonOperator,
+  GeoMatchConstraintType,
+  GeoMatchConstraintValue,
+  IPSetDescriptorType,
+  MatchFieldType,
+  PositionalConstraint,
+  PredicateType,
+  RateKey,
+  TextTransformation,
+  WafActionType,
+  WafOverrideActionType,
+  WafRuleType,
+} from "./enums";
 
 /**
  * <note>
@@ -79,20 +77,6 @@ export interface ExcludedRule {
 }
 
 /**
- * @public
- * @enum
- */
-export const WafOverrideActionType = {
-  COUNT: "COUNT",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type WafOverrideActionType = (typeof WafOverrideActionType)[keyof typeof WafOverrideActionType];
-
-/**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -112,21 +96,6 @@ export interface WafOverrideAction {
    */
   Type: WafOverrideActionType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WafRuleType = {
-  GROUP: "GROUP",
-  RATE_BASED: "RATE_BASED",
-  REGULAR: "REGULAR",
-} as const;
-
-/**
- * @public
- */
-export type WafRuleType = (typeof WafRuleType)[keyof typeof WafRuleType];
 
 /**
  * <note>
@@ -273,25 +242,6 @@ export interface CreateByteMatchSetRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MatchFieldType = {
-  ALL_QUERY_ARGS: "ALL_QUERY_ARGS",
-  BODY: "BODY",
-  HEADER: "HEADER",
-  METHOD: "METHOD",
-  QUERY_STRING: "QUERY_STRING",
-  SINGLE_QUERY_ARG: "SINGLE_QUERY_ARG",
-  URI: "URI",
-} as const;
-
-/**
- * @public
- */
-export type MatchFieldType = (typeof MatchFieldType)[keyof typeof MatchFieldType];
-
-/**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -358,41 +308,6 @@ export interface FieldToMatch {
    */
   Data?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PositionalConstraint = {
-  CONTAINS: "CONTAINS",
-  CONTAINS_WORD: "CONTAINS_WORD",
-  ENDS_WITH: "ENDS_WITH",
-  EXACTLY: "EXACTLY",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type PositionalConstraint = (typeof PositionalConstraint)[keyof typeof PositionalConstraint];
-
-/**
- * @public
- * @enum
- */
-export const TextTransformation = {
-  CMD_LINE: "CMD_LINE",
-  COMPRESS_WHITE_SPACE: "COMPRESS_WHITE_SPACE",
-  HTML_ENTITY_DECODE: "HTML_ENTITY_DECODE",
-  LOWERCASE: "LOWERCASE",
-  NONE: "NONE",
-  URL_DECODE: "URL_DECODE",
-} as const;
-
-/**
- * @public
- */
-export type TextTransformation = (typeof TextTransformation)[keyof typeof TextTransformation];
 
 /**
  * <note>
@@ -692,217 +607,6 @@ export interface CreateByteMatchSetResponse {
 }
 
 /**
- * <p>The name specified is invalid.</p>
- * @public
- */
-export class WAFDisallowedNameException extends __BaseException {
-  readonly name: "WAFDisallowedNameException" = "WAFDisallowedNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFDisallowedNameException, __BaseException>) {
-    super({
-      name: "WAFDisallowedNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFDisallowedNameException.prototype);
-  }
-}
-
-/**
- * <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
- * @public
- */
-export class WAFInternalErrorException extends __BaseException {
-  readonly name: "WAFInternalErrorException" = "WAFInternalErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInternalErrorException, __BaseException>) {
-    super({
-      name: "WAFInternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInternalErrorException.prototype);
-  }
-}
-
-/**
- * <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
- * @public
- */
-export class WAFInvalidAccountException extends __BaseException {
-  readonly name: "WAFInvalidAccountException" = "WAFInvalidAccountException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidAccountException, __BaseException>) {
-    super({
-      name: "WAFInvalidAccountException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidAccountException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ParameterExceptionField = {
-  BYTE_MATCH_FIELD_TYPE: "BYTE_MATCH_FIELD_TYPE",
-  BYTE_MATCH_POSITIONAL_CONSTRAINT: "BYTE_MATCH_POSITIONAL_CONSTRAINT",
-  BYTE_MATCH_TEXT_TRANSFORMATION: "BYTE_MATCH_TEXT_TRANSFORMATION",
-  CHANGE_ACTION: "CHANGE_ACTION",
-  GEO_MATCH_LOCATION_TYPE: "GEO_MATCH_LOCATION_TYPE",
-  GEO_MATCH_LOCATION_VALUE: "GEO_MATCH_LOCATION_VALUE",
-  IPSET_TYPE: "IPSET_TYPE",
-  NEXT_MARKER: "NEXT_MARKER",
-  PREDICATE_TYPE: "PREDICATE_TYPE",
-  RATE_KEY: "RATE_KEY",
-  RESOURCE_ARN: "RESOURCE_ARN",
-  RULE_TYPE: "RULE_TYPE",
-  SIZE_CONSTRAINT_COMPARISON_OPERATOR: "SIZE_CONSTRAINT_COMPARISON_OPERATOR",
-  SQL_INJECTION_MATCH_FIELD_TYPE: "SQL_INJECTION_MATCH_FIELD_TYPE",
-  TAGS: "TAGS",
-  TAG_KEYS: "TAG_KEYS",
-  WAF_ACTION: "WAF_ACTION",
-  WAF_OVERRIDE_ACTION: "WAF_OVERRIDE_ACTION",
-} as const;
-
-/**
- * @public
- */
-export type ParameterExceptionField = (typeof ParameterExceptionField)[keyof typeof ParameterExceptionField];
-
-/**
- * @public
- * @enum
- */
-export const ParameterExceptionReason = {
-  ILLEGAL_ARGUMENT: "ILLEGAL_ARGUMENT",
-  ILLEGAL_COMBINATION: "ILLEGAL_COMBINATION",
-  INVALID_OPTION: "INVALID_OPTION",
-  INVALID_TAG_KEY: "INVALID_TAG_KEY",
-} as const;
-
-/**
- * @public
- */
-export type ParameterExceptionReason = (typeof ParameterExceptionReason)[keyof typeof ParameterExceptionReason];
-
-/**
- * <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p>
- * 			      <ul>
- *             <li>
- *                <p>You specified an invalid parameter name.</p>
- *             </li>
- *             <li>
- *                <p>You specified an invalid value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>)
- * 					using an action other than <code>INSERT</code> or <code>DELETE</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code>
- *                   <code>Type</code> other than
- * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
- *             </li>
- *             <li>
- * 		 	           <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p>
- * 		          </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code>
- *                   <code>Type</code> other than
- * 					<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code>
- *                   <code>Type</code> other than
- * 					HEADER, METHOD, QUERY_STRING, URI, or BODY.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
- * 					but no value for <code>Data</code>.</p>
- *             </li>
- *             <li>
- * 			   		       <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p>
- * 			   	     </li>
- *          </ul>
- * @public
- */
-export class WAFInvalidParameterException extends __BaseException {
-  readonly name: "WAFInvalidParameterException" = "WAFInvalidParameterException";
-  readonly $fault: "client" = "client";
-  field?: ParameterExceptionField | undefined;
-  parameter?: string | undefined;
-  reason?: ParameterExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidParameterException, __BaseException>) {
-    super({
-      name: "WAFInvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidParameterException.prototype);
-    this.field = opts.field;
-    this.parameter = opts.parameter;
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
- * 			for an AWS account. For more information, see
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
- * @public
- */
-export class WAFLimitsExceededException extends __BaseException {
-  readonly name: "WAFLimitsExceededException" = "WAFLimitsExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFLimitsExceededException, __BaseException>) {
-    super({
-      name: "WAFLimitsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFLimitsExceededException.prototype);
-  }
-}
-
-/**
- * <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
- * @public
- */
-export class WAFStaleDataException extends __BaseException {
-  readonly name: "WAFStaleDataException" = "WAFStaleDataException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFStaleDataException, __BaseException>) {
-    super({
-      name: "WAFStaleDataException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFStaleDataException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateGeoMatchSetRequest {
@@ -918,280 +622,6 @@ export interface CreateGeoMatchSetRequest {
    */
   ChangeToken: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GeoMatchConstraintType = {
-  Country: "Country",
-} as const;
-
-/**
- * @public
- */
-export type GeoMatchConstraintType = (typeof GeoMatchConstraintType)[keyof typeof GeoMatchConstraintType];
-
-/**
- * @public
- * @enum
- */
-export const GeoMatchConstraintValue = {
-  AD: "AD",
-  AE: "AE",
-  AF: "AF",
-  AG: "AG",
-  AI: "AI",
-  AL: "AL",
-  AM: "AM",
-  AO: "AO",
-  AQ: "AQ",
-  AR: "AR",
-  AS: "AS",
-  AT: "AT",
-  AU: "AU",
-  AW: "AW",
-  AX: "AX",
-  AZ: "AZ",
-  BA: "BA",
-  BB: "BB",
-  BD: "BD",
-  BE: "BE",
-  BF: "BF",
-  BG: "BG",
-  BH: "BH",
-  BI: "BI",
-  BJ: "BJ",
-  BL: "BL",
-  BM: "BM",
-  BN: "BN",
-  BO: "BO",
-  BQ: "BQ",
-  BR: "BR",
-  BS: "BS",
-  BT: "BT",
-  BV: "BV",
-  BW: "BW",
-  BY: "BY",
-  BZ: "BZ",
-  CA: "CA",
-  CC: "CC",
-  CD: "CD",
-  CF: "CF",
-  CG: "CG",
-  CH: "CH",
-  CI: "CI",
-  CK: "CK",
-  CL: "CL",
-  CM: "CM",
-  CN: "CN",
-  CO: "CO",
-  CR: "CR",
-  CU: "CU",
-  CV: "CV",
-  CW: "CW",
-  CX: "CX",
-  CY: "CY",
-  CZ: "CZ",
-  DE: "DE",
-  DJ: "DJ",
-  DK: "DK",
-  DM: "DM",
-  DO: "DO",
-  DZ: "DZ",
-  EC: "EC",
-  EE: "EE",
-  EG: "EG",
-  EH: "EH",
-  ER: "ER",
-  ES: "ES",
-  ET: "ET",
-  FI: "FI",
-  FJ: "FJ",
-  FK: "FK",
-  FM: "FM",
-  FO: "FO",
-  FR: "FR",
-  GA: "GA",
-  GB: "GB",
-  GD: "GD",
-  GE: "GE",
-  GF: "GF",
-  GG: "GG",
-  GH: "GH",
-  GI: "GI",
-  GL: "GL",
-  GM: "GM",
-  GN: "GN",
-  GP: "GP",
-  GQ: "GQ",
-  GR: "GR",
-  GS: "GS",
-  GT: "GT",
-  GU: "GU",
-  GW: "GW",
-  GY: "GY",
-  HK: "HK",
-  HM: "HM",
-  HN: "HN",
-  HR: "HR",
-  HT: "HT",
-  HU: "HU",
-  ID: "ID",
-  IE: "IE",
-  IL: "IL",
-  IM: "IM",
-  IN: "IN",
-  IO: "IO",
-  IQ: "IQ",
-  IR: "IR",
-  IS: "IS",
-  IT: "IT",
-  JE: "JE",
-  JM: "JM",
-  JO: "JO",
-  JP: "JP",
-  KE: "KE",
-  KG: "KG",
-  KH: "KH",
-  KI: "KI",
-  KM: "KM",
-  KN: "KN",
-  KP: "KP",
-  KR: "KR",
-  KW: "KW",
-  KY: "KY",
-  KZ: "KZ",
-  LA: "LA",
-  LB: "LB",
-  LC: "LC",
-  LI: "LI",
-  LK: "LK",
-  LR: "LR",
-  LS: "LS",
-  LT: "LT",
-  LU: "LU",
-  LV: "LV",
-  LY: "LY",
-  MA: "MA",
-  MC: "MC",
-  MD: "MD",
-  ME: "ME",
-  MF: "MF",
-  MG: "MG",
-  MH: "MH",
-  MK: "MK",
-  ML: "ML",
-  MM: "MM",
-  MN: "MN",
-  MO: "MO",
-  MP: "MP",
-  MQ: "MQ",
-  MR: "MR",
-  MS: "MS",
-  MT: "MT",
-  MU: "MU",
-  MV: "MV",
-  MW: "MW",
-  MX: "MX",
-  MY: "MY",
-  MZ: "MZ",
-  NA: "NA",
-  NC: "NC",
-  NE: "NE",
-  NF: "NF",
-  NG: "NG",
-  NI: "NI",
-  NL: "NL",
-  NO: "NO",
-  NP: "NP",
-  NR: "NR",
-  NU: "NU",
-  NZ: "NZ",
-  OM: "OM",
-  PA: "PA",
-  PE: "PE",
-  PF: "PF",
-  PG: "PG",
-  PH: "PH",
-  PK: "PK",
-  PL: "PL",
-  PM: "PM",
-  PN: "PN",
-  PR: "PR",
-  PS: "PS",
-  PT: "PT",
-  PW: "PW",
-  PY: "PY",
-  QA: "QA",
-  RE: "RE",
-  RO: "RO",
-  RS: "RS",
-  RU: "RU",
-  RW: "RW",
-  SA: "SA",
-  SB: "SB",
-  SC: "SC",
-  SD: "SD",
-  SE: "SE",
-  SG: "SG",
-  SH: "SH",
-  SI: "SI",
-  SJ: "SJ",
-  SK: "SK",
-  SL: "SL",
-  SM: "SM",
-  SN: "SN",
-  SO: "SO",
-  SR: "SR",
-  SS: "SS",
-  ST: "ST",
-  SV: "SV",
-  SX: "SX",
-  SY: "SY",
-  SZ: "SZ",
-  TC: "TC",
-  TD: "TD",
-  TF: "TF",
-  TG: "TG",
-  TH: "TH",
-  TJ: "TJ",
-  TK: "TK",
-  TL: "TL",
-  TM: "TM",
-  TN: "TN",
-  TO: "TO",
-  TR: "TR",
-  TT: "TT",
-  TV: "TV",
-  TW: "TW",
-  TZ: "TZ",
-  UA: "UA",
-  UG: "UG",
-  UM: "UM",
-  US: "US",
-  UY: "UY",
-  UZ: "UZ",
-  VA: "VA",
-  VC: "VC",
-  VE: "VE",
-  VG: "VG",
-  VI: "VI",
-  VN: "VN",
-  VU: "VU",
-  WF: "WF",
-  WS: "WS",
-  YE: "YE",
-  YT: "YT",
-  ZA: "ZA",
-  ZM: "ZM",
-  ZW: "ZW",
-} as const;
-
-/**
- * @public
- */
-export type GeoMatchConstraintValue = (typeof GeoMatchConstraintValue)[keyof typeof GeoMatchConstraintValue];
 
 /**
  * <note>
@@ -1288,20 +718,6 @@ export interface CreateIPSetRequest {
    */
   ChangeToken: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IPSetDescriptorType = {
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-
-/**
- * @public
- */
-export type IPSetDescriptorType = (typeof IPSetDescriptorType)[keyof typeof IPSetDescriptorType];
 
 /**
  * <note>
@@ -1412,19 +828,6 @@ export interface CreateIPSetResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const RateKey = {
-  IP: "IP",
-} as const;
-
-/**
- * @public
- */
-export type RateKey = (typeof RateKey)[keyof typeof RateKey];
-
-/**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -1504,25 +907,6 @@ export interface CreateRateBasedRuleRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PredicateType = {
-  BYTE_MATCH: "ByteMatch",
-  GEO_MATCH: "GeoMatch",
-  IP_MATCH: "IPMatch",
-  REGEX_MATCH: "RegexMatch",
-  SIZE_CONSTRAINT: "SizeConstraint",
-  SQL_INJECTION_MATCH: "SqlInjectionMatch",
-  XSS_MATCH: "XssMatch",
-} as const;
-
-/**
- * @public
- */
-export type PredicateType = (typeof PredicateType)[keyof typeof PredicateType];
 
 /**
  * <note>
@@ -1665,66 +1049,6 @@ export interface CreateRateBasedRuleResponse {
    * @public
    */
   ChangeToken?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export class WAFBadRequestException extends __BaseException {
-  readonly name: "WAFBadRequestException" = "WAFBadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFBadRequestException, __BaseException>) {
-    super({
-      name: "WAFBadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFBadRequestException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class WAFTagOperationException extends __BaseException {
-  readonly name: "WAFTagOperationException" = "WAFTagOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFTagOperationException, __BaseException>) {
-    super({
-      name: "WAFTagOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFTagOperationException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class WAFTagOperationInternalErrorException extends __BaseException {
-  readonly name: "WAFTagOperationInternalErrorException" = "WAFTagOperationInternalErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFTagOperationInternalErrorException, __BaseException>) {
-    super({
-      name: "WAFTagOperationInternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFTagOperationInternalErrorException.prototype);
-  }
 }
 
 /**
@@ -2248,24 +1572,6 @@ export interface CreateSizeConstraintSetRequest {
    */
   ChangeToken: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  EQ: "EQ",
-  GE: "GE",
-  GT: "GT",
-  LE: "LE",
-  LT: "LT",
-  NE: "NE",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
  * <note>
@@ -2850,139 +2156,6 @@ export interface CreateWebACLMigrationStackResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MigrationErrorType = {
-  ENTITY_NOT_FOUND: "ENTITY_NOT_FOUND",
-  ENTITY_NOT_SUPPORTED: "ENTITY_NOT_SUPPORTED",
-  S3_BUCKET_INVALID_REGION: "S3_BUCKET_INVALID_REGION",
-  S3_BUCKET_NOT_ACCESSIBLE: "S3_BUCKET_NOT_ACCESSIBLE",
-  S3_BUCKET_NOT_FOUND: "S3_BUCKET_NOT_FOUND",
-  S3_BUCKET_NO_PERMISSION: "S3_BUCKET_NO_PERMISSION",
-  S3_INTERNAL_ERROR: "S3_INTERNAL_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type MigrationErrorType = (typeof MigrationErrorType)[keyof typeof MigrationErrorType];
-
-/**
- * <p>The operation failed due to a problem with the migration. The failure cause is provided in the exception, in the <code>MigrationErrorType</code>: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ENTITY_NOT_SUPPORTED</code> - The web ACL has an unsupported entity but the <code>IgnoreUnsupportedType</code> is not set to true.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ENTITY_NOT_FOUND</code> - The web ACL doesn't exist.  </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>S3_BUCKET_NO_PERMISSION</code> - You don't have permission to perform the <code>PutObject</code> action to the specified Amazon S3 bucket.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>S3_BUCKET_NOT_ACCESSIBLE</code> - The bucket policy doesn't allow AWS WAF to perform the <code>PutObject</code> action in the bucket.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>S3_BUCKET_NOT_FOUND</code> - The S3 bucket doesn't exist. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>S3_BUCKET_INVALID_REGION</code> - The S3 bucket is not in the same Region as the web ACL.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>S3_INTERNAL_ERROR</code> - AWS WAF failed to create the template in the S3 bucket for another reason.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFEntityMigrationException extends __BaseException {
-  readonly name: "WAFEntityMigrationException" = "WAFEntityMigrationException";
-  readonly $fault: "client" = "client";
-  MigrationErrorType?: MigrationErrorType | undefined;
-  MigrationErrorReason?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFEntityMigrationException, __BaseException>) {
-    super({
-      name: "WAFEntityMigrationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFEntityMigrationException.prototype);
-    this.MigrationErrorType = opts.MigrationErrorType;
-    this.MigrationErrorReason = opts.MigrationErrorReason;
-  }
-}
-
-/**
- * <p>The operation failed because there was nothing to do. For example:</p>
- * 			      <ul>
- *             <li>
- *                <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code>
- * 					isn't in the specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the
- * 					specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code>
- *                already exists in the specified <code>WebACL</code>.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFInvalidOperationException extends __BaseException {
-  readonly name: "WAFInvalidOperationException" = "WAFInvalidOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidOperationException, __BaseException>) {
-    super({
-      name: "WAFInvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidOperationException.prototype);
-  }
-}
-
-/**
- * <p>The operation failed because the referenced object doesn't exist.</p>
- * @public
- */
-export class WAFNonexistentItemException extends __BaseException {
-  readonly name: "WAFNonexistentItemException" = "WAFNonexistentItemException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFNonexistentItemException, __BaseException>) {
-    super({
-      name: "WAFNonexistentItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFNonexistentItemException.prototype);
-  }
-}
-
-/**
  * <p>A request to create an <a>XssMatchSet</a>.</p>
  * @public
  */
@@ -3207,69 +2380,6 @@ export interface DeleteByteMatchSetResponse {
    * @public
    */
   ChangeToken?: string | undefined;
-}
-
-/**
- * <p>The operation failed because you tried to delete an object that isn't empty. For example:</p>
- * 		       <ul>
- *             <li>
- *                <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects
- * 				or other predicates.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFNonEmptyEntityException extends __BaseException {
-  readonly name: "WAFNonEmptyEntityException" = "WAFNonEmptyEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFNonEmptyEntityException, __BaseException>) {
-    super({
-      name: "WAFNonEmptyEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFNonEmptyEntityException.prototype);
-  }
-}
-
-/**
- * <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
- * 		       <ul>
- *             <li>
- *                <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFReferencedItemException extends __BaseException {
-  readonly name: "WAFReferencedItemException" = "WAFReferencedItemException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFReferencedItemException, __BaseException>) {
-    super({
-      name: "WAFReferencedItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFReferencedItemException.prototype);
-  }
 }
 
 /**
@@ -3711,21 +2821,6 @@ export interface GetChangeTokenStatusRequest {
    */
   ChangeToken: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChangeTokenStatus = {
-  INSYNC: "INSYNC",
-  PENDING: "PENDING",
-  PROVISIONED: "PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type ChangeTokenStatus = (typeof ChangeTokenStatus)[keyof typeof ChangeTokenStatus];
 
 /**
  * @public
@@ -5561,26 +4656,6 @@ export interface PutLoggingConfigurationResponse {
 }
 
 /**
- * <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
- * @public
- */
-export class WAFServiceLinkedRoleErrorException extends __BaseException {
-  readonly name: "WAFServiceLinkedRoleErrorException" = "WAFServiceLinkedRoleErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFServiceLinkedRoleErrorException, __BaseException>) {
-    super({
-      name: "WAFServiceLinkedRoleErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFServiceLinkedRoleErrorException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PutPermissionPolicyRequest {
@@ -5601,55 +4676,6 @@ export interface PutPermissionPolicyRequest {
  * @public
  */
 export interface PutPermissionPolicyResponse {}
-
-/**
- * <p>The operation failed because the specified policy is not in the proper format. </p>
- *          <p>The policy is subject to the following restrictions:</p>
- *          <ul>
- *             <li>
- *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
- *             </li>
- *             <li>
- *                <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p>
- *             </li>
- *             <li>
- *
- *                <p>
- *                   <code>Effect</code> must specify <code>Allow</code>.</p>
- *             </li>
- *             <li>
- *                <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>, <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code> . Any extra or wildcard actions in the policy will be rejected.</p>
- *             </li>
- *             <li>
- *                <p>The policy cannot include a <code>Resource</code> parameter.</p>
- *             </li>
- *             <li>
- *                <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p>
- *             </li>
- *             <li>
- *                <p>The user making the request must be the owner of the RuleGroup.</p>
- *             </li>
- *             <li>
- *                <p>Your policy must be composed using IAM Policy version 2012-10-17.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFInvalidPermissionPolicyException extends __BaseException {
-  readonly name: "WAFInvalidPermissionPolicyException" = "WAFInvalidPermissionPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidPermissionPolicyException, __BaseException>) {
-    super({
-      name: "WAFInvalidPermissionPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidPermissionPolicyException.prototype);
-  }
-}
 
 /**
  * @public
@@ -5694,20 +4720,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ChangeAction = {
-  DELETE: "DELETE",
-  INSERT: "INSERT",
-} as const;
-
-/**
- * @public
- */
-export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
 
 /**
  * <note>
@@ -5791,41 +4803,6 @@ export interface UpdateByteMatchSetResponse {
    * @public
    */
   ChangeToken?: string | undefined;
-}
-
-/**
- * <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p>
- * 		       <ul>
- *             <li>
- *                <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>
- * 				that doesn't exist.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class WAFNonexistentContainerException extends __BaseException {
-  readonly name: "WAFNonexistentContainerException" = "WAFNonexistentContainerException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFNonexistentContainerException, __BaseException>) {
-    super({
-      name: "WAFNonexistentContainerException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFNonexistentContainerException.prototype);
-  }
 }
 
 /**
@@ -6182,26 +5159,6 @@ export interface UpdateRegexPatternSetResponse {
    * @public
    */
   ChangeToken?: string | undefined;
-}
-
-/**
- * <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
- * @public
- */
-export class WAFInvalidRegexPatternException extends __BaseException {
-  readonly name: "WAFInvalidRegexPatternException" = "WAFInvalidRegexPatternException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFInvalidRegexPatternException, __BaseException>) {
-    super({
-      name: "WAFInvalidRegexPatternException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFInvalidRegexPatternException.prototype);
-  }
 }
 
 /**
@@ -6592,26 +5549,6 @@ export interface UpdateWebACLResponse {
    * @public
    */
   ChangeToken?: string | undefined;
-}
-
-/**
- * <p>The specified subscription does not exist.</p>
- * @public
- */
-export class WAFSubscriptionNotFoundException extends __BaseException {
-  readonly name: "WAFSubscriptionNotFoundException" = "WAFSubscriptionNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WAFSubscriptionNotFoundException, __BaseException>) {
-    super({
-      name: "WAFSubscriptionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WAFSubscriptionNotFoundException.prototype);
-  }
 }
 
 /**

@@ -1,7 +1,31 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BackupServiceException as __BaseException } from "./BackupServiceException";
+import {
+  AggregationPeriod,
+  BackupJobState,
+  BackupJobStatus,
+  BackupVaultEvent,
+  ConditionType,
+  CopyJobState,
+  CopyJobStatus,
+  EncryptionKeyType,
+  Index,
+  IndexStatus,
+  LegalHoldStatus,
+  LifecycleDeleteAfterEvent,
+  MpaRevokeSessionStatus,
+  MpaSessionStatus,
+  RecoveryPointStatus,
+  RestoreDeletionStatus,
+  RestoreJobState,
+  RestoreJobStatus,
+  RestoreTestingRecoveryPointSelectionAlgorithm,
+  RestoreTestingRecoveryPointType,
+  RestoreValidationStatus,
+  RuleExecutionType,
+  StorageClass,
+  VaultState,
+  VaultType,
+} from "./enums";
 
 /**
  * <p>The backup options for each resource type.</p>
@@ -40,72 +64,6 @@ export interface AdvancedBackupSetting {
 
 /**
  * @public
- * @enum
- */
-export const AggregationPeriod = {
-  FOURTEEN_DAYS: "FOURTEEN_DAYS",
-  ONE_DAY: "ONE_DAY",
-  SEVEN_DAYS: "SEVEN_DAYS",
-} as const;
-
-/**
- * @public
- */
-export type AggregationPeriod = (typeof AggregationPeriod)[keyof typeof AggregationPeriod];
-
-/**
- * <p>The required resource already exists.</p>
- * @public
- */
-export class AlreadyExistsException extends __BaseException {
-  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  CreatorRequestId?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
-    super({
-      name: "AlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.CreatorRequestId = opts.CreatorRequestId;
-    this.Arn = opts.Arn;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * @public
  */
 export interface AssociateBackupVaultMpaApprovalTeamInput {
   /**
@@ -125,193 +83,6 @@ export interface AssociateBackupVaultMpaApprovalTeamInput {
    * @public
    */
   RequesterComment?: string | undefined;
-}
-
-/**
- * <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>Indicates that a required parameter is missing.</p>
- * @public
- */
-export class MissingParameterValueException extends __BaseException {
-  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
-    super({
-      name: "MissingParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>A resource that is required for the action doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>The request failed due to a temporary failure of the server.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
 }
 
 /**
@@ -373,19 +144,6 @@ export interface RecoveryPointCreator {
 }
 
 /**
- * @public
- * @enum
- */
-export const LifecycleDeleteAfterEvent = {
-  DELETE_AFTER_COPY: "DELETE_AFTER_COPY",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleDeleteAfterEvent = (typeof LifecycleDeleteAfterEvent)[keyof typeof LifecycleDeleteAfterEvent];
-
-/**
  * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
  *          or is deleted.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
@@ -429,27 +187,6 @@ export interface Lifecycle {
    */
   DeleteAfterEvent?: LifecycleDeleteAfterEvent | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BackupJobState = {
-  ABORTED: "ABORTED",
-  ABORTING: "ABORTING",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  PARTIAL: "PARTIAL",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type BackupJobState = (typeof BackupJobState)[keyof typeof BackupJobState];
 
 /**
  * <p>Contains detailed information about a backup job.</p>
@@ -730,29 +467,6 @@ export interface BackupJob {
    */
   MessageCategory?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BackupJobStatus = {
-  ABORTED: "ABORTED",
-  ABORTING: "ABORTING",
-  AGGREGATE_ALL: "AGGREGATE_ALL",
-  ANY: "ANY",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  PARTIAL: "PARTIAL",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type BackupJobStatus = (typeof BackupJobStatus)[keyof typeof BackupJobStatus];
 
 /**
  * <p>This is a summary of jobs created
@@ -1344,19 +1058,6 @@ export interface Conditions {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConditionType = {
-  STRINGEQUALS: "STRINGEQUALS",
-} as const;
-
-/**
- * @public
- */
-export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
-
-/**
  * <p>Contains an array of triplets made up of a condition type (such as
  *             <code>StringEquals</code>), a key, and a value. Used to filter resources using their
  *          tags and assign them to a backup plan. Case sensitive.</p>
@@ -1503,83 +1204,6 @@ export interface BackupSelectionsListMember {
    */
   IamRoleArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BackupVaultEvent = {
-  BACKUP_JOB_COMPLETED: "BACKUP_JOB_COMPLETED",
-  BACKUP_JOB_EXPIRED: "BACKUP_JOB_EXPIRED",
-  BACKUP_JOB_FAILED: "BACKUP_JOB_FAILED",
-  BACKUP_JOB_STARTED: "BACKUP_JOB_STARTED",
-  BACKUP_JOB_SUCCESSFUL: "BACKUP_JOB_SUCCESSFUL",
-  BACKUP_PLAN_CREATED: "BACKUP_PLAN_CREATED",
-  BACKUP_PLAN_MODIFIED: "BACKUP_PLAN_MODIFIED",
-  CONTINUOUS_BACKUP_INTERRUPTED: "CONTINUOUS_BACKUP_INTERRUPTED",
-  COPY_JOB_FAILED: "COPY_JOB_FAILED",
-  COPY_JOB_STARTED: "COPY_JOB_STARTED",
-  COPY_JOB_SUCCESSFUL: "COPY_JOB_SUCCESSFUL",
-  RECOVERY_POINT_INDEXING_FAILED: "RECOVERY_POINT_INDEXING_FAILED",
-  RECOVERY_POINT_INDEX_COMPLETED: "RECOVERY_POINT_INDEX_COMPLETED",
-  RECOVERY_POINT_INDEX_DELETED: "RECOVERY_POINT_INDEX_DELETED",
-  RECOVERY_POINT_MODIFIED: "RECOVERY_POINT_MODIFIED",
-  RESTORE_JOB_COMPLETED: "RESTORE_JOB_COMPLETED",
-  RESTORE_JOB_FAILED: "RESTORE_JOB_FAILED",
-  RESTORE_JOB_STARTED: "RESTORE_JOB_STARTED",
-  RESTORE_JOB_SUCCESSFUL: "RESTORE_JOB_SUCCESSFUL",
-  S3_BACKUP_OBJECT_FAILED: "S3_BACKUP_OBJECT_FAILED",
-  S3_RESTORE_OBJECT_FAILED: "S3_RESTORE_OBJECT_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type BackupVaultEvent = (typeof BackupVaultEvent)[keyof typeof BackupVaultEvent];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionKeyType = {
-  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
-
-/**
- * @public
- * @enum
- */
-export const VaultState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type VaultState = (typeof VaultState)[keyof typeof VaultState];
-
-/**
- * @public
- * @enum
- */
-export const VaultType = {
-  BACKUP_VAULT: "BACKUP_VAULT",
-  LOGICALLY_AIR_GAPPED_BACKUP_VAULT: "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
-  RESTORE_ACCESS_BACKUP_VAULT: "RESTORE_ACCESS_BACKUP_VAULT",
-} as const;
-
-/**
- * @public
- */
-export type VaultType = (typeof VaultType)[keyof typeof VaultType];
 
 /**
  * <p>Contains metadata about a backup vault.</p>
@@ -1764,82 +1388,6 @@ export interface CancelLegalHoldInput {
 export interface CancelLegalHoldOutput {}
 
 /**
- * <p>Backup is already performing an action on this recovery point. It can't
- *          perform the action you requested until the first action finishes. Try again later.</p>
- * @public
- */
-export class InvalidResourceStateException extends __BaseException {
-  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
-    super({
-      name: "InvalidResourceStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>Backup can't perform the action that you requested until it finishes
- *          performing a previous action. Try again later.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
  * <p>The parameters for a control. A control can have zero, one, or more than one
  *          parameter. An example of a control with two parameters is: "backup plan frequency is at
  *          least <code>daily</code> and the retention period is at least <code>1 year</code>". The
@@ -1900,23 +1448,6 @@ export interface ControlScope {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CopyJobState = {
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  PARTIAL: "PARTIAL",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type CopyJobState = (typeof CopyJobState)[keyof typeof CopyJobState];
 
 /**
  * <p>Contains detailed information about a copy job.</p>
@@ -2129,29 +1660,6 @@ export interface CopyJob {
 }
 
 /**
- * @public
- * @enum
- */
-export const CopyJobStatus = {
-  ABORTED: "ABORTED",
-  ABORTING: "ABORTING",
-  AGGREGATE_ALL: "AGGREGATE_ALL",
-  ANY: "ANY",
-  COMPLETED: "COMPLETED",
-  COMPLETING: "COMPLETING",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  FAILING: "FAILING",
-  PARTIAL: "PARTIAL",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type CopyJobStatus = (typeof CopyJobStatus)[keyof typeof CopyJobStatus];
-
-/**
  * <p>This is a summary of copy jobs created
  *          or running within the most recent 30 days.</p>
  *          <p>The returned summary may contain the following:
@@ -2293,44 +1801,6 @@ export interface CreateBackupPlanOutput {
    * @public
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
-}
-
-/**
- * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
 }
 
 /**
@@ -2641,22 +2111,6 @@ export interface CreateLegalHoldInput {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LegalHoldStatus = {
-  ACTIVE: "ACTIVE",
-  CANCELED: "CANCELED",
-  CANCELING: "CANCELING",
-  CREATING: "CREATING",
-} as const;
-
-/**
- * @public
- */
-export type LegalHoldStatus = (typeof LegalHoldStatus)[keyof typeof LegalHoldStatus];
 
 /**
  * @public
@@ -3009,36 +2463,6 @@ export interface CreateRestoreAccessBackupVaultOutput {
    */
   CreationDate?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RestoreTestingRecoveryPointSelectionAlgorithm = {
-  LATEST_WITHIN_WINDOW: "LATEST_WITHIN_WINDOW",
-  RANDOM_WITHIN_WINDOW: "RANDOM_WITHIN_WINDOW",
-} as const;
-
-/**
- * @public
- */
-export type RestoreTestingRecoveryPointSelectionAlgorithm =
-  (typeof RestoreTestingRecoveryPointSelectionAlgorithm)[keyof typeof RestoreTestingRecoveryPointSelectionAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const RestoreTestingRecoveryPointType = {
-  CONTINUOUS: "CONTINUOUS",
-  SNAPSHOT: "SNAPSHOT",
-} as const;
-
-/**
- * @public
- */
-export type RestoreTestingRecoveryPointType =
-  (typeof RestoreTestingRecoveryPointType)[keyof typeof RestoreTestingRecoveryPointType];
 
 /**
  * <p>
@@ -3838,43 +3262,6 @@ export interface DeleteTieringConfigurationInput {
 export interface DeleteTieringConfigurationOutput {}
 
 /**
- * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
- * @public
- */
-export class DependencyFailureException extends __BaseException {
-  readonly name: "DependencyFailureException" = "DependencyFailureException";
-  readonly $fault: "server" = "server";
-  Code?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Context?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
-    super({
-      name: "DependencyFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyFailureException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeBackupJobInput {
@@ -4179,21 +3566,6 @@ export interface DescribeBackupVaultInput {
    */
   BackupVaultAccountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MpaSessionStatus = {
-  APPROVED: "APPROVED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type MpaSessionStatus = (typeof MpaSessionStatus)[keyof typeof MpaSessionStatus];
 
 /**
  * <p>Contains information about the latest update to an MPA approval team association.</p>
@@ -4626,56 +3998,6 @@ export interface DescribeRecoveryPointInput {
    */
   BackupVaultAccountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexStatus = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
-
-/**
- * @public
- * @enum
- */
-export const RecoveryPointStatus = {
-  AVAILABLE: "AVAILABLE",
-  COMPLETED: "COMPLETED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  EXPIRED: "EXPIRED",
-  PARTIAL: "PARTIAL",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type RecoveryPointStatus = (typeof RecoveryPointStatus)[keyof typeof RecoveryPointStatus];
-
-/**
- * @public
- * @enum
- */
-export const StorageClass = {
-  COLD: "COLD",
-  DELETED: "DELETED",
-  WARM: "WARM",
-} as const;
-
-/**
- * @public
- */
-export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
 /**
  * @public
@@ -5229,54 +4551,6 @@ export interface RestoreJobCreator {
 
 /**
  * @public
- * @enum
- */
-export const RestoreDeletionStatus = {
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type RestoreDeletionStatus = (typeof RestoreDeletionStatus)[keyof typeof RestoreDeletionStatus];
-
-/**
- * @public
- * @enum
- */
-export const RestoreJobStatus = {
-  ABORTED: "ABORTED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type RestoreJobStatus = (typeof RestoreJobStatus)[keyof typeof RestoreJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const RestoreValidationStatus = {
-  FAILED: "FAILED",
-  SUCCESSFUL: "SUCCESSFUL",
-  TIMED_OUT: "TIMED_OUT",
-  VALIDATING: "VALIDATING",
-} as const;
-
-/**
- * @public
- */
-export type RestoreValidationStatus = (typeof RestoreValidationStatus)[keyof typeof RestoreValidationStatus];
-
-/**
- * @public
  */
 export interface DescribeRestoreJobOutput {
   /**
@@ -5540,21 +4814,6 @@ export interface GetBackupPlanInput {
    */
   MaxScheduledRunsPreview?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleExecutionType = {
-  CONTINUOUS: "CONTINUOUS",
-  CONTINUOUS_AND_SNAPSHOTS: "CONTINUOUS_AND_SNAPSHOTS",
-  SNAPSHOTS: "SNAPSHOTS",
-} as const;
-
-/**
- * @public
- */
-export type RuleExecutionType = (typeof RuleExecutionType)[keyof typeof RuleExecutionType];
 
 /**
  * <p>Contains information about a scheduled backup plan execution, including the execution time, rule type, and associated rule identifier.</p>
@@ -8759,20 +8018,6 @@ export interface ListRestoreAccessBackupVaultsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MpaRevokeSessionStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type MpaRevokeSessionStatus = (typeof MpaRevokeSessionStatus)[keyof typeof MpaRevokeSessionStatus];
-
-/**
  * <p>Contains information about the latest request to revoke access to a backup vault.</p>
  * @public
  */
@@ -9256,26 +8501,6 @@ export interface ListRestoreJobsByProtectedResourceOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RestoreJobState = {
-  ABORTED: "ABORTED",
-  AGGREGATE_ALL: "AGGREGATE_ALL",
-  ANY: "ANY",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type RestoreJobState = (typeof RestoreJobState)[keyof typeof RestoreJobState];
 
 /**
  * @public
@@ -9980,20 +9205,6 @@ export interface RevokeRestoreAccessBackupVaultInput {
    */
   RequesterComment?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Index = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Index = (typeof Index)[keyof typeof Index];
 
 /**
  * @public

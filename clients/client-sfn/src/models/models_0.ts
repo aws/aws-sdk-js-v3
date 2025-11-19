@@ -1,47 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SFNServiceException as __BaseException } from "./SFNServiceException";
-
-/**
- * <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
- * @public
- */
-export class ActivityAlreadyExists extends __BaseException {
-  readonly name: "ActivityAlreadyExists" = "ActivityAlreadyExists";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActivityAlreadyExists, __BaseException>) {
-    super({
-      name: "ActivityAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActivityAlreadyExists.prototype);
-  }
-}
-
-/**
- * <p>The specified activity does not exist.</p>
- * @public
- */
-export class ActivityDoesNotExist extends __BaseException {
-  readonly name: "ActivityDoesNotExist" = "ActivityDoesNotExist";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActivityDoesNotExist, __BaseException>) {
-    super({
-      name: "ActivityDoesNotExist",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActivityDoesNotExist.prototype);
-  }
-}
+import {
+  EncryptionType,
+  ExecutionRedriveFilter,
+  ExecutionRedriveStatus,
+  ExecutionStatus,
+  HistoryEventType,
+  IncludedData,
+  InspectionLevel,
+  LogLevel,
+  MapRunStatus,
+  StateMachineStatus,
+  StateMachineType,
+  SyncExecutionStatus,
+  TestExecutionStatus,
+  ValidateStateMachineDefinitionResultCode,
+  ValidateStateMachineDefinitionSeverity,
+} from "./enums";
 
 /**
  * <p>Contains details about an activity that failed during an execution.</p>
@@ -59,27 +33,6 @@ export interface ActivityFailedEventDetails {
    * @public
    */
   cause?: string | undefined;
-}
-
-/**
- * <p>The maximum number of activities has been reached. Existing activities must be deleted
- *       before a new activity can be created.</p>
- * @public
- */
-export class ActivityLimitExceeded extends __BaseException {
-  readonly name: "ActivityLimitExceeded" = "ActivityLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActivityLimitExceeded, __BaseException>) {
-    super({
-      name: "ActivityLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActivityLimitExceeded.prototype);
-  }
 }
 
 /**
@@ -253,27 +206,6 @@ export interface ActivityTimedOutEventDetails {
 }
 
 /**
- * <p>The maximum number of workers concurrently polling for activity tasks has been
- *       reached.</p>
- * @public
- */
-export class ActivityWorkerLimitExceeded extends __BaseException {
-  readonly name: "ActivityWorkerLimitExceeded" = "ActivityWorkerLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActivityWorkerLimitExceeded, __BaseException>) {
-    super({
-      name: "ActivityWorkerLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActivityWorkerLimitExceeded.prototype);
-  }
-}
-
-/**
  * <p>Provides details about assigned variables in an execution history event.</p>
  * @public
  */
@@ -285,20 +217,6 @@ export interface AssignedVariablesDetails {
    */
   truncated?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  AWS_OWNED_KEY: "AWS_OWNED_KEY",
-  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * <p>Settings to configure server-side encryption. </p>
@@ -432,130 +350,6 @@ export interface CreateActivityOutput {
 }
 
 /**
- * <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
- * @public
- */
-export class InvalidEncryptionConfiguration extends __BaseException {
-  readonly name: "InvalidEncryptionConfiguration" = "InvalidEncryptionConfiguration";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEncryptionConfiguration, __BaseException>) {
-    super({
-      name: "InvalidEncryptionConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEncryptionConfiguration.prototype);
-  }
-}
-
-/**
- * <p>The provided name is not valid.</p>
- * @public
- */
-export class InvalidName extends __BaseException {
-  readonly name: "InvalidName" = "InvalidName";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidName, __BaseException>) {
-    super({
-      name: "InvalidName",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidName.prototype);
-  }
-}
-
-/**
- * <p>Either your KMS key policy or API caller does not have the required permissions.</p>
- * @public
- */
-export class KmsAccessDeniedException extends __BaseException {
-  readonly name: "KmsAccessDeniedException" = "KmsAccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsAccessDeniedException, __BaseException>) {
-    super({
-      name: "KmsAccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsAccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
- * @public
- */
-export class KmsThrottlingException extends __BaseException {
-  readonly name: "KmsThrottlingException" = "KmsThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsThrottlingException, __BaseException>) {
-    super({
-      name: "KmsThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       Step Functions Developer Guide.</p>
- * @public
- */
-export class TooManyTags extends __BaseException {
-  readonly name: "TooManyTags" = "TooManyTags";
-  readonly $fault: "client" = "client";
-  resourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTags, __BaseException>) {
-    super({
-      name: "TooManyTags",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTags.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
- *          <p>HTTP Status Code: 409</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -580,22 +374,6 @@ export interface LogDestination {
    */
   cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogLevel = {
-  ALL: "ALL",
-  ERROR: "ERROR",
-  FATAL: "FATAL",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 /**
  * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
@@ -637,20 +415,6 @@ export interface TracingConfiguration {
    */
   enabled?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StateMachineType = {
-  EXPRESS: "EXPRESS",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type StateMachineType = (typeof StateMachineType)[keyof typeof StateMachineType];
 
 /**
  * @public
@@ -781,212 +545,6 @@ export interface CreateStateMachineOutput {
 }
 
 /**
- * <p>The provided Amazon Resource Name (ARN) is not valid.</p>
- * @public
- */
-export class InvalidArn extends __BaseException {
-  readonly name: "InvalidArn" = "InvalidArn";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArn, __BaseException>) {
-    super({
-      name: "InvalidArn",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArn.prototype);
-  }
-}
-
-/**
- * <p>The provided Amazon States Language definition is not valid.</p>
- * @public
- */
-export class InvalidDefinition extends __BaseException {
-  readonly name: "InvalidDefinition" = "InvalidDefinition";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDefinition, __BaseException>) {
-    super({
-      name: "InvalidDefinition",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDefinition.prototype);
-  }
-}
-
-/**
- * <p>Configuration is not valid.</p>
- * @public
- */
-export class InvalidLoggingConfiguration extends __BaseException {
-  readonly name: "InvalidLoggingConfiguration" = "InvalidLoggingConfiguration";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLoggingConfiguration, __BaseException>) {
-    super({
-      name: "InvalidLoggingConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLoggingConfiguration.prototype);
-  }
-}
-
-/**
- * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
- *       been set to <code>true</code> or <code>false</code>.</p>
- * @public
- */
-export class InvalidTracingConfiguration extends __BaseException {
-  readonly name: "InvalidTracingConfiguration" = "InvalidTracingConfiguration";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTracingConfiguration, __BaseException>) {
-    super({
-      name: "InvalidTracingConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTracingConfiguration.prototype);
-  }
-}
-
-/**
- * <p>A state machine with the same name but a different definition or role ARN already
- *       exists.</p>
- * @public
- */
-export class StateMachineAlreadyExists extends __BaseException {
-  readonly name: "StateMachineAlreadyExists" = "StateMachineAlreadyExists";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StateMachineAlreadyExists, __BaseException>) {
-    super({
-      name: "StateMachineAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StateMachineAlreadyExists.prototype);
-  }
-}
-
-/**
- * <p>The specified state machine is being deleted.</p>
- * @public
- */
-export class StateMachineDeleting extends __BaseException {
-  readonly name: "StateMachineDeleting" = "StateMachineDeleting";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StateMachineDeleting, __BaseException>) {
-    super({
-      name: "StateMachineDeleting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StateMachineDeleting.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of state machines has been reached. Existing state machines must be
- *       deleted before a new state machine can be created.</p>
- * @public
- */
-export class StateMachineLimitExceeded extends __BaseException {
-  readonly name: "StateMachineLimitExceeded" = "StateMachineLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StateMachineLimitExceeded, __BaseException>) {
-    super({
-      name: "StateMachineLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StateMachineLimitExceeded.prototype);
-  }
-}
-
-/**
- * <p>State machine type is not supported.</p>
- * @public
- */
-export class StateMachineTypeNotSupported extends __BaseException {
-  readonly name: "StateMachineTypeNotSupported" = "StateMachineTypeNotSupported";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StateMachineTypeNotSupported, __BaseException>) {
-    super({
-      name: "StateMachineTypeNotSupported",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StateMachineTypeNotSupported.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  API_DOES_NOT_SUPPORT_LABELED_ARNS: "API_DOES_NOT_SUPPORT_LABELED_ARNS",
-  CANNOT_UPDATE_COMPLETED_MAP_RUN: "CANNOT_UPDATE_COMPLETED_MAP_RUN",
-  INVALID_ROUTING_CONFIGURATION: "INVALID_ROUTING_CONFIGURATION",
-  MISSING_REQUIRED_PARAMETER: "MISSING_REQUIRED_PARAMETER",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
  * <p>Contains details about the routing configuration of a state machine alias. In a routing
  *       configuration, you define an array of objects that specify up to two state machine versions.
  *       You also specify the percentage of traffic to be routed to each version.</p>
@@ -1051,49 +609,6 @@ export interface CreateStateMachineAliasOutput {
    * @public
    */
   creationDate: Date | undefined;
-}
-
-/**
- * <p>Could not find the referenced resource.</p>
- * @public
- */
-export class ResourceNotFound extends __BaseException {
-  readonly name: "ResourceNotFound" = "ResourceNotFound";
-  readonly $fault: "client" = "client";
-  resourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
-    super({
-      name: "ResourceNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFound.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded.</p>
- *          <p>HTTP Status Code: 402</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -1230,20 +745,6 @@ export interface DescribeActivityOutput {
 
 /**
  * @public
- * @enum
- */
-export const IncludedData = {
-  ALL_DATA: "ALL_DATA",
-  METADATA_ONLY: "METADATA_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
-
-/**
- * @public
  */
 export interface DescribeExecutionInput {
   /**
@@ -1271,39 +772,6 @@ export interface CloudWatchEventsExecutionDataDetails {
    */
   included?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionRedriveStatus = {
-  NOT_REDRIVABLE: "NOT_REDRIVABLE",
-  REDRIVABLE: "REDRIVABLE",
-  REDRIVABLE_BY_MAP_RUN: "REDRIVABLE_BY_MAP_RUN",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionRedriveStatus = (typeof ExecutionRedriveStatus)[keyof typeof ExecutionRedriveStatus];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  ABORTED: "ABORTED",
-  FAILED: "FAILED",
-  PENDING_REDRIVE: "PENDING_REDRIVE",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public
@@ -1523,70 +991,6 @@ export interface DescribeExecutionOutput {
 }
 
 /**
- * <p>The specified execution does not exist.</p>
- * @public
- */
-export class ExecutionDoesNotExist extends __BaseException {
-  readonly name: "ExecutionDoesNotExist" = "ExecutionDoesNotExist";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExecutionDoesNotExist, __BaseException>) {
-    super({
-      name: "ExecutionDoesNotExist",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExecutionDoesNotExist.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const KmsKeyState = {
-  CREATING: "CREATING",
-  DISABLED: "DISABLED",
-  PENDING_DELETION: "PENDING_DELETION",
-  PENDING_IMPORT: "PENDING_IMPORT",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type KmsKeyState = (typeof KmsKeyState)[keyof typeof KmsKeyState];
-
-/**
- * <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
- * @public
- */
-export class KmsInvalidStateException extends __BaseException {
-  readonly name: "KmsInvalidStateException" = "KmsInvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Current status of the KMS; key. For example: <code>DISABLED</code>, <code>PENDING_DELETION</code>, <code>PENDING_IMPORT</code>, <code>UNAVAILABLE</code>, <code>CREATING</code>.</p>
-   * @public
-   */
-  kmsKeyState?: KmsKeyState | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsInvalidStateException, __BaseException>) {
-    super({
-      name: "KmsInvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsInvalidStateException.prototype);
-    this.kmsKeyState = opts.kmsKeyState;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeMapRunInput {
@@ -1731,22 +1135,6 @@ export interface MapRunItemCounts {
 
 /**
  * @public
- * @enum
- */
-export const MapRunStatus = {
-  ABORTED: "ABORTED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type MapRunStatus = (typeof MapRunStatus)[keyof typeof MapRunStatus];
-
-/**
- * @public
  */
 export interface DescribeMapRunOutput {
   /**
@@ -1844,20 +1232,6 @@ export interface DescribeStateMachineInput {
    */
   includedData?: IncludedData | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StateMachineStatus = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type StateMachineStatus = (typeof StateMachineStatus)[keyof typeof StateMachineStatus];
 
 /**
  * @public
@@ -1983,26 +1357,6 @@ export interface DescribeStateMachineOutput {
    * @public
    */
   variableReferences?: Record<string, string[]> | undefined;
-}
-
-/**
- * <p>The specified state machine does not exist.</p>
- * @public
- */
-export class StateMachineDoesNotExist extends __BaseException {
-  readonly name: "StateMachineDoesNotExist" = "StateMachineDoesNotExist";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StateMachineDoesNotExist, __BaseException>) {
-    super({
-      name: "StateMachineDoesNotExist",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StateMachineDoesNotExist.prototype);
-  }
 }
 
 /**
@@ -2938,80 +2292,6 @@ export interface TaskTimedOutEventDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const HistoryEventType = {
-  ActivityFailed: "ActivityFailed",
-  ActivityScheduleFailed: "ActivityScheduleFailed",
-  ActivityScheduled: "ActivityScheduled",
-  ActivityStarted: "ActivityStarted",
-  ActivitySucceeded: "ActivitySucceeded",
-  ActivityTimedOut: "ActivityTimedOut",
-  ChoiceStateEntered: "ChoiceStateEntered",
-  ChoiceStateExited: "ChoiceStateExited",
-  EvaluationFailed: "EvaluationFailed",
-  ExecutionAborted: "ExecutionAborted",
-  ExecutionFailed: "ExecutionFailed",
-  ExecutionRedriven: "ExecutionRedriven",
-  ExecutionStarted: "ExecutionStarted",
-  ExecutionSucceeded: "ExecutionSucceeded",
-  ExecutionTimedOut: "ExecutionTimedOut",
-  FailStateEntered: "FailStateEntered",
-  LambdaFunctionFailed: "LambdaFunctionFailed",
-  LambdaFunctionScheduleFailed: "LambdaFunctionScheduleFailed",
-  LambdaFunctionScheduled: "LambdaFunctionScheduled",
-  LambdaFunctionStartFailed: "LambdaFunctionStartFailed",
-  LambdaFunctionStarted: "LambdaFunctionStarted",
-  LambdaFunctionSucceeded: "LambdaFunctionSucceeded",
-  LambdaFunctionTimedOut: "LambdaFunctionTimedOut",
-  MapIterationAborted: "MapIterationAborted",
-  MapIterationFailed: "MapIterationFailed",
-  MapIterationStarted: "MapIterationStarted",
-  MapIterationSucceeded: "MapIterationSucceeded",
-  MapRunAborted: "MapRunAborted",
-  MapRunFailed: "MapRunFailed",
-  MapRunRedriven: "MapRunRedriven",
-  MapRunStarted: "MapRunStarted",
-  MapRunSucceeded: "MapRunSucceeded",
-  MapStateAborted: "MapStateAborted",
-  MapStateEntered: "MapStateEntered",
-  MapStateExited: "MapStateExited",
-  MapStateFailed: "MapStateFailed",
-  MapStateStarted: "MapStateStarted",
-  MapStateSucceeded: "MapStateSucceeded",
-  ParallelStateAborted: "ParallelStateAborted",
-  ParallelStateEntered: "ParallelStateEntered",
-  ParallelStateExited: "ParallelStateExited",
-  ParallelStateFailed: "ParallelStateFailed",
-  ParallelStateStarted: "ParallelStateStarted",
-  ParallelStateSucceeded: "ParallelStateSucceeded",
-  PassStateEntered: "PassStateEntered",
-  PassStateExited: "PassStateExited",
-  SucceedStateEntered: "SucceedStateEntered",
-  SucceedStateExited: "SucceedStateExited",
-  TaskFailed: "TaskFailed",
-  TaskScheduled: "TaskScheduled",
-  TaskStartFailed: "TaskStartFailed",
-  TaskStarted: "TaskStarted",
-  TaskStateAborted: "TaskStateAborted",
-  TaskStateEntered: "TaskStateEntered",
-  TaskStateExited: "TaskStateExited",
-  TaskSubmitFailed: "TaskSubmitFailed",
-  TaskSubmitted: "TaskSubmitted",
-  TaskSucceeded: "TaskSucceeded",
-  TaskTimedOut: "TaskTimedOut",
-  WaitStateAborted: "WaitStateAborted",
-  WaitStateEntered: "WaitStateEntered",
-  WaitStateExited: "WaitStateExited",
-} as const;
-
-/**
- * @public
- */
-export type HistoryEventType = (typeof HistoryEventType)[keyof typeof HistoryEventType];
-
-/**
  * <p>Contains details about the events of an execution.</p>
  * @public
  */
@@ -3285,26 +2565,6 @@ export interface GetExecutionHistoryOutput {
 }
 
 /**
- * <p>The provided token is not valid.</p>
- * @public
- */
-export class InvalidToken extends __BaseException {
-  readonly name: "InvalidToken" = "InvalidToken";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidToken, __BaseException>) {
-    super({
-      name: "InvalidToken",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidToken.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListActivitiesInput {
@@ -3341,20 +2601,6 @@ export interface ListActivitiesOutput {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionRedriveFilter = {
-  NOT_REDRIVEN: "NOT_REDRIVEN",
-  REDRIVEN: "REDRIVEN",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionRedriveFilter = (typeof ExecutionRedriveFilter)[keyof typeof ExecutionRedriveFilter];
 
 /**
  * @public
@@ -3907,47 +3153,6 @@ export interface PublishStateMachineVersionOutput {
 }
 
 /**
- * <p>The maximum number of running executions has been reached. Running executions must end or
- *       be stopped before a new execution can be started.</p>
- * @public
- */
-export class ExecutionLimitExceeded extends __BaseException {
-  readonly name: "ExecutionLimitExceeded" = "ExecutionLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExecutionLimitExceeded, __BaseException>) {
-    super({
-      name: "ExecutionLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExecutionLimitExceeded.prototype);
-  }
-}
-
-/**
- * <p>The execution Amazon Resource Name (ARN) that you specified for <code>executionArn</code> cannot be redriven.</p>
- * @public
- */
-export class ExecutionNotRedrivable extends __BaseException {
-  readonly name: "ExecutionNotRedrivable" = "ExecutionNotRedrivable";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExecutionNotRedrivable, __BaseException>) {
-    super({
-      name: "ExecutionNotRedrivable",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExecutionNotRedrivable.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface RedriveExecutionInput {
@@ -4006,46 +3211,6 @@ export interface SendTaskFailureInput {
 export interface SendTaskFailureOutput {}
 
 /**
- * <p>The activity does not exist.</p>
- * @public
- */
-export class TaskDoesNotExist extends __BaseException {
-  readonly name: "TaskDoesNotExist" = "TaskDoesNotExist";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TaskDoesNotExist, __BaseException>) {
-    super({
-      name: "TaskDoesNotExist",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TaskDoesNotExist.prototype);
-  }
-}
-
-/**
- * <p>The task token has either expired or the task associated with the token has already been closed.</p>
- * @public
- */
-export class TaskTimedOut extends __BaseException {
-  readonly name: "TaskTimedOut" = "TaskTimedOut";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TaskTimedOut, __BaseException>) {
-    super({
-      name: "TaskTimedOut",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TaskTimedOut.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface SendTaskHeartbeatInput {
@@ -4062,26 +3227,6 @@ export interface SendTaskHeartbeatInput {
  * @public
  */
 export interface SendTaskHeartbeatOutput {}
-
-/**
- * <p>The provided JSON output data is not valid.</p>
- * @public
- */
-export class InvalidOutput extends __BaseException {
-  readonly name: "InvalidOutput" = "InvalidOutput";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOutput, __BaseException>) {
-    super({
-      name: "InvalidOutput",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOutput.prototype);
-  }
-}
 
 /**
  * @public
@@ -4106,51 +3251,6 @@ export interface SendTaskSuccessInput {
  * @public
  */
 export interface SendTaskSuccessOutput {}
-
-/**
- * <p>The execution has the same <code>name</code> as another execution (but a different
- *         <code>input</code>).</p>
- *          <note>
- *             <p>Executions with the same <code>name</code> and <code>input</code> are considered
- *         idempotent.</p>
- *          </note>
- * @public
- */
-export class ExecutionAlreadyExists extends __BaseException {
-  readonly name: "ExecutionAlreadyExists" = "ExecutionAlreadyExists";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExecutionAlreadyExists, __BaseException>) {
-    super({
-      name: "ExecutionAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExecutionAlreadyExists.prototype);
-  }
-}
-
-/**
- * <p>The provided JSON input data is not valid.</p>
- * @public
- */
-export class InvalidExecutionInput extends __BaseException {
-  readonly name: "InvalidExecutionInput" = "InvalidExecutionInput";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidExecutionInput, __BaseException>) {
-    super({
-      name: "InvalidExecutionInput",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidExecutionInput.prototype);
-  }
-}
 
 /**
  * @public
@@ -4343,21 +3443,6 @@ export interface BillingDetails {
 
 /**
  * @public
- * @enum
- */
-export const SyncExecutionStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type SyncExecutionStatus = (typeof SyncExecutionStatus)[keyof typeof SyncExecutionStatus];
-
-/**
- * @public
  */
 export interface StartSyncExecutionOutput {
   /**
@@ -4511,21 +3596,6 @@ export interface TagResourceInput {
  * @public
  */
 export interface TagResourceOutput {}
-
-/**
- * @public
- * @enum
- */
-export const InspectionLevel = {
-  DEBUG: "DEBUG",
-  INFO: "INFO",
-  TRACE: "TRACE",
-} as const;
-
-/**
- * @public
- */
-export type InspectionLevel = (typeof InspectionLevel)[keyof typeof InspectionLevel];
 
 /**
  * @public
@@ -4725,22 +3795,6 @@ export interface InspectionData {
 
 /**
  * @public
- * @enum
- */
-export const TestExecutionStatus = {
-  CAUGHT_ERROR: "CAUGHT_ERROR",
-  FAILED: "FAILED",
-  RETRIABLE: "RETRIABLE",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type TestExecutionStatus = (typeof TestExecutionStatus)[keyof typeof TestExecutionStatus];
-
-/**
- * @public
  */
 export interface TestStateOutput {
   /**
@@ -4835,27 +3889,6 @@ export interface UpdateMapRunInput {
  * @public
  */
 export interface UpdateMapRunOutput {}
-
-/**
- * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
- *       and <code>roleArn</code> are not specified.</p>
- * @public
- */
-export class MissingRequiredParameter extends __BaseException {
-  readonly name: "MissingRequiredParameter" = "MissingRequiredParameter";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingRequiredParameter, __BaseException>) {
-    super({
-      name: "MissingRequiredParameter",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingRequiredParameter.prototype);
-  }
-}
 
 /**
  * @public
@@ -4972,21 +4005,6 @@ export interface UpdateStateMachineAliasOutput {
    */
   updateDate: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidateStateMachineDefinitionSeverity = {
-  ERROR: "ERROR",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type ValidateStateMachineDefinitionSeverity =
-  (typeof ValidateStateMachineDefinitionSeverity)[keyof typeof ValidateStateMachineDefinitionSeverity];
 
 /**
  * @public
@@ -5141,21 +4159,6 @@ export interface ValidateStateMachineDefinitionDiagnostic {
    */
   location?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidateStateMachineDefinitionResultCode = {
-  FAIL: "FAIL",
-  OK: "OK",
-} as const;
-
-/**
- * @public
- */
-export type ValidateStateMachineDefinitionResultCode =
-  (typeof ValidateStateMachineDefinitionResultCode)[keyof typeof ValidateStateMachineDefinitionResultCode];
 
 /**
  * @public

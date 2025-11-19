@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartProjectVersionRequest, StartProjectVersionResponse } from "../models/models_1";
+import { StartProjectVersionRequest, StartProjectVersionResponse } from "../models/models_0";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { StartProjectVersion } from "../schemas/schemas_0";
 

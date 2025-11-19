@@ -1,33 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IvsServiceException as __BaseException } from "./IvsServiceException";
-
-/**
- * <p/>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>User does not have sufficient access to perform this action.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
+import {
+  ChannelType,
+  MultitrackMaximumResolution,
+  MultitrackPolicy,
+  RenditionConfigurationRendition,
+  ThumbnailConfigurationResolution,
+  TranscodePreset,
+} from "./enums";
 
 /**
  * @public
@@ -69,36 +48,6 @@ export const ChannelLatencyMode = {
 export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
 
 /**
- * @public
- * @enum
- */
-export const MultitrackMaximumResolution = {
-  FULL_HD: "FULL_HD",
-  HD: "HD",
-  SD: "SD",
-} as const;
-
-/**
- * @public
- */
-export type MultitrackMaximumResolution =
-  (typeof MultitrackMaximumResolution)[keyof typeof MultitrackMaximumResolution];
-
-/**
- * @public
- * @enum
- */
-export const MultitrackPolicy = {
-  ALLOW: "ALLOW",
-  REQUIRE: "REQUIRE",
-} as const;
-
-/**
- * @public
- */
-export type MultitrackPolicy = (typeof MultitrackPolicy)[keyof typeof MultitrackPolicy];
-
-/**
  * <p>A complex type that specifies multitrack input configuration.</p>
  * @public
  */
@@ -123,20 +72,6 @@ export interface MultitrackInputConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const TranscodePreset = {
-  ConstrainedBandwidthTranscodePreset: "CONSTRAINED_BANDWIDTH_DELIVERY",
-  HigherBandwidthTranscodePreset: "HIGHER_BANDWIDTH_DELIVERY",
-} as const;
-
-/**
- * @public
- */
-export type TranscodePreset = (typeof TranscodePreset)[keyof typeof TranscodePreset];
-
-/**
  * <p>Specifies information needed to stream using the SRT protocol.</p>
  * @public
  */
@@ -155,22 +90,6 @@ export interface Srt {
    */
   passphrase?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelType = {
-  AdvancedHDChannelType: "ADVANCED_HD",
-  AdvancedSDChannelType: "ADVANCED_SD",
-  BasicChannelType: "BASIC",
-  StandardChannelType: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * <p>Object specifying a channel.</p>
@@ -466,84 +385,6 @@ export interface BatchStartViewerSessionRevocationResponse {
 }
 
 /**
- * <p/>
- * @public
- */
-export class PendingVerification extends __BaseException {
-  readonly name: "PendingVerification" = "PendingVerification";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> Your account is pending verification. </p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PendingVerification, __BaseException>) {
-    super({
-      name: "PendingVerification",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PendingVerification.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Request was denied due to request throttling.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateChannelRequest {
@@ -641,58 +482,6 @@ export interface CreateChannelResponse {
    * @public
    */
   streamKey?: StreamKey | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Request references a resource which does not exist.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
- * <p/>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Request would cause a service quota to be exceeded.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
 }
 
 /**
@@ -798,32 +587,6 @@ export interface CreatePlaybackRestrictionPolicyResponse {
 }
 
 /**
- * <p/>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Updating or deleting a resource can cause an inconsistent state.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
  * <p>A complex type that describes an S3 location where recorded videos will be stored.</p>
  * @public
  */
@@ -848,23 +611,6 @@ export interface DestinationConfiguration {
    */
   s3?: S3DestinationConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RenditionConfigurationRendition = {
-  FULL_HD: "FULL_HD",
-  HD: "HD",
-  LOWEST_RESOLUTION: "LOWEST_RESOLUTION",
-  SD: "SD",
-} as const;
-
-/**
- * @public
- */
-export type RenditionConfigurationRendition =
-  (typeof RenditionConfigurationRendition)[keyof typeof RenditionConfigurationRendition];
 
 /**
  * @public
@@ -920,23 +666,6 @@ export const RecordingMode = {
  * @public
  */
 export type RecordingMode = (typeof RecordingMode)[keyof typeof RecordingMode];
-
-/**
- * @public
- * @enum
- */
-export const ThumbnailConfigurationResolution = {
-  FULL_HD: "FULL_HD",
-  HD: "HD",
-  LOWEST_RESOLUTION: "LOWEST_RESOLUTION",
-  SD: "SD",
-} as const;
-
-/**
- * @public
- */
-export type ThumbnailConfigurationResolution =
-  (typeof ThumbnailConfigurationResolution)[keyof typeof ThumbnailConfigurationResolution];
 
 /**
  * @public
@@ -1130,32 +859,6 @@ export interface CreateRecordingConfigurationResponse {
    * @public
    */
   recordingConfiguration?: RecordingConfiguration | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>Unexpected error during processing of request.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
 }
 
 /**
@@ -1365,32 +1068,6 @@ export interface GetRecordingConfigurationResponse {
    * @public
    */
   recordingConfiguration?: RecordingConfiguration | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export class ChannelNotBroadcasting extends __BaseException {
-  readonly name: "ChannelNotBroadcasting" = "ChannelNotBroadcasting";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The stream is offline for the given channel ARN.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ChannelNotBroadcasting, __BaseException>) {
-    super({
-      name: "ChannelNotBroadcasting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ChannelNotBroadcasting.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
 }
 
 /**
@@ -2559,32 +2236,6 @@ export interface StopStreamRequest {
  * @public
  */
 export interface StopStreamResponse {}
-
-/**
- * <p/>
- * @public
- */
-export class StreamUnavailable extends __BaseException {
-  readonly name: "StreamUnavailable" = "StreamUnavailable";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The stream is temporarily unavailable.</p>
-   * @public
-   */
-  exceptionMessage?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StreamUnavailable, __BaseException>) {
-    super({
-      name: "StreamUnavailable",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StreamUnavailable.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
 
 /**
  * @public

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { TestCustomDataIdentifierRequest, TestCustomDataIdentifierResponse } from "../models/models_1";
+import { TestCustomDataIdentifierRequest, TestCustomDataIdentifierResponse } from "../models/models_0";
 import { TestCustomDataIdentifier } from "../schemas/schemas_0";
 
 /**

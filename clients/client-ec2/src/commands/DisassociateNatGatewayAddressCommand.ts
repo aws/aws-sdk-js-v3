@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_6";
+import { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_5";
 import { DisassociateNatGatewayAddress } from "../schemas/schemas_0";
 
 /**

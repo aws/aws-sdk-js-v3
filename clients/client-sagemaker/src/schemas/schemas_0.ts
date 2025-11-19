@@ -3333,7 +3333,7 @@ import {
   ResourceInUse as __ResourceInUse,
   ResourceLimitExceeded as __ResourceLimitExceeded,
   ResourceNotFound as __ResourceNotFound,
-} from "../models/index";
+} from "../models/errors";
 import { SageMakerServiceException as __SageMakerServiceException } from "../models/SageMakerServiceException";
 
 /* eslint no-var: 0 */

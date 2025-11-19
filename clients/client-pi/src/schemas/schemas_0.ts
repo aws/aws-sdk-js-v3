@@ -160,7 +160,7 @@ import {
   InternalServiceError as __InternalServiceError,
   InvalidArgumentException as __InvalidArgumentException,
   NotAuthorizedException as __NotAuthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { PIServiceException as __PIServiceException } from "../models/PIServiceException";
 
 /* eslint no-var: 0 */

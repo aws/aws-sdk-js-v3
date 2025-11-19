@@ -549,7 +549,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyTagsException as __TooManyTagsException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 import { WorkMailServiceException as __WorkMailServiceException } from "../models/WorkMailServiceException";
 
 /* eslint no-var: 0 */

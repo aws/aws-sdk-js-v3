@@ -649,13 +649,13 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GeoRoutesServiceException as __GeoRoutesServiceException } from "../models/GeoRoutesServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   InternalServerException as __InternalServerException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { GeoRoutesServiceException as __GeoRoutesServiceException } from "../models/GeoRoutesServiceException";
 
 /* eslint no-var: 0 */
 

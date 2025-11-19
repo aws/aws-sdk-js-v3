@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteTagsRequest } from "../models/models_2";
+import { DeleteTagsRequest } from "../models/models_1";
 import { DeleteTags } from "../schemas/schemas_0";
 
 /**

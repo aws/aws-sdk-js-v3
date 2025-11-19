@@ -1,7 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MqServiceException as __BaseException } from "./MqServiceException";
+import {
+  AuthenticationStrategy,
+  BrokerState,
+  BrokerStorageType,
+  ChangeType,
+  DataReplicationMode,
+  DayOfWeek,
+  DeploymentMode,
+  EngineType,
+  PromoteMode,
+  SanitizationWarningReason,
+} from "./enums";
 
 /**
  * <p>Action required for a broker.</p>
@@ -32,20 +41,6 @@ export interface AvailabilityZone {
    */
   Name?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EngineType = {
-  ACTIVEMQ: "ACTIVEMQ",
-  RABBITMQ: "RABBITMQ",
-} as const;
-
-/**
- * @public
- */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * <p>Id of the engine version.</p>
@@ -102,35 +97,6 @@ export interface BrokerInstance {
 }
 
 /**
- * @public
- * @enum
- */
-export const BrokerStorageType = {
-  EBS: "EBS",
-  EFS: "EFS",
-} as const;
-
-/**
- * @public
- */
-export type BrokerStorageType = (typeof BrokerStorageType)[keyof typeof BrokerStorageType];
-
-/**
- * @public
- * @enum
- */
-export const DeploymentMode = {
-  ACTIVE_STANDBY_MULTI_AZ: "ACTIVE_STANDBY_MULTI_AZ",
-  CLUSTER_MULTI_AZ: "CLUSTER_MULTI_AZ",
-  SINGLE_INSTANCE: "SINGLE_INSTANCE",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
-
-/**
  * <p>Option for host instance type.</p>
  * @public
  */
@@ -171,25 +137,6 @@ export interface BrokerInstanceOption {
    */
   SupportedEngineVersions?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BrokerState = {
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
-  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
-  REBOOT_IN_PROGRESS: "REBOOT_IN_PROGRESS",
-  REPLICA: "REPLICA",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type BrokerState = (typeof BrokerState)[keyof typeof BrokerState];
 
 /**
  * <p>Returns information about all brokers.</p>
@@ -244,21 +191,6 @@ export interface BrokerSummary {
    */
   HostInstanceType?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationStrategy = {
-  CONFIG_MANAGED: "CONFIG_MANAGED",
-  LDAP: "LDAP",
-  SIMPLE: "SIMPLE",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationStrategy = (typeof AuthenticationStrategy)[keyof typeof AuthenticationStrategy];
 
 /**
  * <p>Returns information about the specified configuration revision.</p>
@@ -369,21 +301,6 @@ export interface ConfigurationId {
 }
 
 /**
- * @public
- * @enum
- */
-export const SanitizationWarningReason = {
-  DISALLOWED_ATTRIBUTE_REMOVED: "DISALLOWED_ATTRIBUTE_REMOVED",
-  DISALLOWED_ELEMENT_REMOVED: "DISALLOWED_ELEMENT_REMOVED",
-  INVALID_ATTRIBUTE_VALUE_REMOVED: "INVALID_ATTRIBUTE_VALUE_REMOVED",
-} as const;
-
-/**
- * @public
- */
-export type SanitizationWarningReason = (typeof SanitizationWarningReason)[keyof typeof SanitizationWarningReason];
-
-/**
  * <p>Returns information about the configuration element or attribute that was sanitized in the configuration.</p>
  * @public
  */
@@ -444,21 +361,6 @@ export interface User {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeType = {
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
-
-/**
  * <p>Returns a list of all broker users. Does not apply to RabbitMQ brokers.</p>
  * @public
  */
@@ -474,39 +376,6 @@ export interface UserSummary {
    * @public
    */
   Username: string | undefined;
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The attribute which caused the error.</p>
-   * @public
-   */
-  ErrorAttribute?: string | undefined;
-
-  /**
-   * <p>The explanation of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.ErrorAttribute = opts.ErrorAttribute;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -532,53 +401,6 @@ export interface Configurations {
    */
   Pending?: ConfigurationId | undefined;
 }
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The attribute which caused the error.</p>
-   * @public
-   */
-  ErrorAttribute?: string | undefined;
-
-  /**
-   * <p>The explanation of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.ErrorAttribute = opts.ErrorAttribute;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DataReplicationMode = {
-  CRDR: "CRDR",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type DataReplicationMode = (typeof DataReplicationMode)[keyof typeof DataReplicationMode];
 
 /**
  * <p>Encryption options for the broker.</p>
@@ -692,25 +514,6 @@ export interface Logs {
    */
   General?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * <p>The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.</p>
@@ -886,105 +689,6 @@ export interface CreateBrokerResponse {
 }
 
 /**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The attribute which caused the error.</p>
-   * @public
-   */
-  ErrorAttribute?: string | undefined;
-
-  /**
-   * <p>The explanation of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.ErrorAttribute = opts.ErrorAttribute;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The attribute which caused the error.</p>
-   * @public
-   */
-  ErrorAttribute?: string | undefined;
-
-  /**
-   * <p>The explanation of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.ErrorAttribute = opts.ErrorAttribute;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The attribute which caused the error.</p>
-   * @public
-   */
-  ErrorAttribute?: string | undefined;
-
-  /**
-   * <p>The explanation of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.ErrorAttribute = opts.ErrorAttribute;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
  * @public
  */
@@ -1077,39 +781,6 @@ export interface CreateTagsRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The attribute which caused the error.</p>
-   * @public
-   */
-  ErrorAttribute?: string | undefined;
-
-  /**
-   * <p>The explanation of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.ErrorAttribute = opts.ErrorAttribute;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2123,20 +1794,6 @@ export interface ListUsersResponse {
    */
   Users?: UserSummary[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PromoteMode = {
-  FAILOVER: "FAILOVER",
-  SWITCHOVER: "SWITCHOVER",
-} as const;
-
-/**
- * @public
- */
-export type PromoteMode = (typeof PromoteMode)[keyof typeof PromoteMode];
 
 /**
  * <p>Promotes a data replication replica broker to the primary broker role.</p>

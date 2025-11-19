@@ -474,7 +474,7 @@ import {
   ResourceOwnerCheckException as __ResourceOwnerCheckException,
   ThrottlingException as __ThrottlingException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 import { NetworkFirewallServiceException as __NetworkFirewallServiceException } from "../models/NetworkFirewallServiceException";
 
 /* eslint no-var: 0 */

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput } from "../models/models_1";
+import { TagResourceInput } from "../models/models_0";
 import { TagResource } from "../schemas/schemas_0";
 
 /**

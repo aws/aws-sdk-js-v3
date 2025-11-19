@@ -8,7 +8,7 @@ import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   PutClassificationExportConfigurationRequest,
   PutClassificationExportConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { PutClassificationExportConfiguration } from "../schemas/schemas_0";
 
 /**

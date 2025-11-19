@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeCapacityBlockExtensionOfferingsRequest,
   DescribeCapacityBlockExtensionOfferingsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeCapacityBlockExtensionOfferings } from "../schemas/schemas_0";
 
 /**

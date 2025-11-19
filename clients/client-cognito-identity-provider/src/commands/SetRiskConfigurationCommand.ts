@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/models_1";
+import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/models_0";
 import { SetRiskConfiguration } from "../schemas/schemas_0";
 
 /**

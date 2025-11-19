@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeMacModificationTasksRequest, DescribeMacModificationTasksResult } from "../models/models_5";
+import { DescribeMacModificationTasksRequest, DescribeMacModificationTasksResult } from "../models/models_4";
 import { DescribeMacModificationTasks } from "../schemas/schemas_0";
 
 /**

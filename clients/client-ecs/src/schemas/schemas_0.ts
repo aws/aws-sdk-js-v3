@@ -938,7 +938,7 @@ import {
   TaskSetNotFoundException as __TaskSetNotFoundException,
   UnsupportedFeatureException as __UnsupportedFeatureException,
   UpdateInProgressException as __UpdateInProgressException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

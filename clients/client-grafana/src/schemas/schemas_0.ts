@@ -244,7 +244,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GrafanaServiceException as __GrafanaServiceException } from "../models/GrafanaServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -253,7 +252,8 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { GrafanaServiceException as __GrafanaServiceException } from "../models/GrafanaServiceException";
 
 /* eslint no-var: 0 */
 

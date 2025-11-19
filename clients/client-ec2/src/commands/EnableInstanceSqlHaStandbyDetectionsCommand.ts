@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableInstanceSqlHaStandbyDetectionsRequest,
   EnableInstanceSqlHaStandbyDetectionsResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { EnableInstanceSqlHaStandbyDetections } from "../schemas/schemas_0";
 
 /**

@@ -1,35 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { OAMServiceException as __BaseException } from "./OAMServiceException";
-
-/**
- * <p>A resource was in an inconsistent state during an update or a deletion.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the exception.</p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
+import { ResourceType } from "./enums";
 
 /**
  * <p>This structure contains the <code>Filter</code> parameter which you can use to specify which log groups are to share log events from this source account to the monitoring account.</p>
@@ -72,25 +42,6 @@ export interface LinkConfiguration {
    */
   MetricConfiguration?: MetricConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  AWS_APPLICATIONINSIGHTS_APPLICATION: "AWS::ApplicationInsights::Application",
-  AWS_APPLICATION_SIGNALS_SERVICE: "AWS::ApplicationSignals::Service",
-  AWS_APPLICATION_SIGNALS_SLO: "AWS::ApplicationSignals::ServiceLevelObjective",
-  AWS_CLOUDWATCH_METRIC: "AWS::CloudWatch::Metric",
-  AWS_INTERNETMONITOR_MONITOR: "AWS::InternetMonitor::Monitor",
-  AWS_LOGS_LOGGROUP: "AWS::Logs::LogGroup",
-  AWS_XRAY_TRACE: "AWS::XRay::Trace",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -181,116 +132,6 @@ export interface CreateLinkOutput {
 }
 
 /**
- * <p>Unexpected error while processing the request. Retry the request.</p>
- * @public
- */
-export class InternalServiceFault extends __BaseException {
-  readonly name: "InternalServiceFault" = "InternalServiceFault";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the exception.</p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceFault, __BaseException>) {
-    super({
-      name: "InternalServiceFault",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceFault.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p>A parameter is specified incorrectly.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the exception.</p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p>A required parameter is missing from the request.</p>
- * @public
- */
-export class MissingRequiredParameterException extends __BaseException {
-  readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the exception.</p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingRequiredParameterException, __BaseException>) {
-    super({
-      name: "MissingRequiredParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingRequiredParameterException.prototype);
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the exception.</p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateSinkInput {
@@ -351,34 +192,6 @@ export interface DeleteLinkInput {
  * @public
  */
 export interface DeleteLinkOutput {}
-
-/**
- * <p>The request references a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the exception.</p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
 
 /**
  * @public
@@ -761,28 +574,6 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
- * <p>The value of a parameter in the request caused an error.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface PutSinkPolicyInput {
@@ -843,28 +634,6 @@ export interface TagResourceInput {
  * @public
  */
 export interface TagResourceOutput {}
-
-/**
- * <p>A resource can have no more than 50 tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

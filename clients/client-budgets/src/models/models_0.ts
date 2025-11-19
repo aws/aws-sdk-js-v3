@@ -1,47 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BudgetsServiceException as __BaseException } from "./BudgetsServiceException";
-
-/**
- * <p>You are not authorized to use this operation with the given parameters.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ThresholdType = {
-  ABSOLUTE_VALUE: "ABSOLUTE_VALUE",
-  PERCENTAGE: "PERCENTAGE",
-} as const;
-
-/**
- * @public
- */
-export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
+import {
+  ActionStatus,
+  ActionSubType,
+  ActionType,
+  ApprovalModel,
+  AutoAdjustType,
+  BudgetType,
+  ComparisonOperator,
+  Dimension,
+  EventType,
+  ExecutionType,
+  HealthStatusReason,
+  HealthStatusValue,
+  MatchOption,
+  Metric,
+  NotificationState,
+  NotificationType,
+  SubscriptionType,
+  ThresholdType,
+  TimeUnit,
+} from "./enums";
 
 /**
  * <p>The trigger threshold of the action. </p>
@@ -60,35 +38,6 @@ export interface ActionThreshold {
    */
   ActionThresholdType: ThresholdType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionType = {
-  IAM: "APPLY_IAM_POLICY",
-  SCP: "APPLY_SCP_POLICY",
-  SSM: "RUN_SSM_DOCUMENTS",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
-
-/**
- * @public
- * @enum
- */
-export const ApprovalModel = {
-  AUTO: "AUTOMATIC",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type ApprovalModel = (typeof ApprovalModel)[keyof typeof ApprovalModel];
 
 /**
  * <p>The Identity and Access Management (IAM) action definition details. </p>
@@ -139,20 +88,6 @@ export interface ScpActionDefinition {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActionSubType = {
-  STOP_EC2: "STOP_EC2_INSTANCES",
-  STOP_RDS: "STOP_RDS_INSTANCES",
-} as const;
-
-/**
- * @public
- */
-export type ActionSubType = (typeof ActionSubType)[keyof typeof ActionSubType];
-
-/**
  * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
  * @public
  */
@@ -199,56 +134,6 @@ export interface Definition {
    */
   SsmActionDefinition?: SsmActionDefinition | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NotificationType = {
-  ACTUAL: "ACTUAL",
-  FORECASTED: "FORECASTED",
-} as const;
-
-/**
- * @public
- */
-export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
-
-/**
- * @public
- * @enum
- */
-export const ActionStatus = {
-  Execution_Failure: "EXECUTION_FAILURE",
-  Execution_In_Progress: "EXECUTION_IN_PROGRESS",
-  Execution_Success: "EXECUTION_SUCCESS",
-  Pending: "PENDING",
-  Reset_Failure: "RESET_FAILURE",
-  Reset_In_Progress: "RESET_IN_PROGRESS",
-  Reverse_Failure: "REVERSE_FAILURE",
-  Reverse_In_Progress: "REVERSE_IN_PROGRESS",
-  Reverse_Success: "REVERSE_SUCCESS",
-  Standby: "STANDBY",
-} as const;
-
-/**
- * @public
- */
-export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionType = {
-  EMAIL: "EMAIL",
-  SNS: "SNS",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
  * <p>The subscriber to a budget notification. The subscriber consists of a subscription
@@ -371,23 +256,6 @@ export interface ActionHistoryDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventType = {
-  CreateAction: "CREATE_ACTION",
-  DeleteAction: "DELETE_ACTION",
-  ExecuteAction: "EXECUTE_ACTION",
-  System: "SYSTEM",
-  UpdateAction: "UPDATE_ACTION",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
-
-/**
  * <p>The historical records for a budget action. </p>
  * @public
  */
@@ -417,20 +285,6 @@ export interface ActionHistory {
    */
   ActionHistoryDetails: ActionHistoryDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoAdjustType = {
-  FORECAST: "FORECAST",
-  HISTORICAL: "HISTORICAL",
-} as const;
-
-/**
- * @public
- */
-export type AutoAdjustType = (typeof AutoAdjustType)[keyof typeof AutoAdjustType];
 
 /**
  * <p>The parameters that define or describe the historical data that your auto-adjusting
@@ -509,34 +363,6 @@ export interface AutoAdjustData {
 }
 
 /**
- * <p>
- *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
- *     </p>
- * @public
- */
-export class BillingViewHealthStatusException extends __BaseException {
-  readonly name: "BillingViewHealthStatusException" = "BillingViewHealthStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BillingViewHealthStatusException, __BaseException>) {
-    super({
-      name: "BillingViewHealthStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BillingViewHealthStatusException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The amount of cost or usage that's measured for a budget.</p>
  *          <p>
  *             <i>Cost example:</i> A <code>Spend</code> for <code>3 USD</code> of
@@ -581,24 +407,6 @@ export interface Spend {
    */
   Unit: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BudgetType = {
-  Cost: "COST",
-  RICoverage: "RI_COVERAGE",
-  RIUtilization: "RI_UTILIZATION",
-  SPCoverage: "SAVINGS_PLANS_COVERAGE",
-  SPUtilization: "SAVINGS_PLANS_UTILIZATION",
-  Usage: "USAGE",
-} as const;
-
-/**
- * @public
- */
-export type BudgetType = (typeof BudgetType)[keyof typeof BudgetType];
 
 /**
  * <p>The spend objects that are associated with this budget. The <code>actualSpend</code>
@@ -714,26 +522,6 @@ export interface CostTypes {
 }
 
 /**
- * @public
- * @enum
- */
-export const MatchOption = {
-  ABSENT: "ABSENT",
-  CASE_INSENSITIVE: "CASE_INSENSITIVE",
-  CASE_SENSITIVE: "CASE_SENSITIVE",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
-
-/**
  * <p>The cost category values used for filtering the costs.</p>
  * @public
  */
@@ -756,51 +544,6 @@ export interface CostCategoryValues {
    */
   MatchOptions?: MatchOption[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Dimension = {
-  AZ: "AZ",
-  BILLING_ENTITY: "BILLING_ENTITY",
-  CACHE_ENGINE: "CACHE_ENGINE",
-  COST_CATEGORY_NAME: "COST_CATEGORY_NAME",
-  DATABASE_ENGINE: "DATABASE_ENGINE",
-  DEPLOYMENT_OPTION: "DEPLOYMENT_OPTION",
-  INSTANCE_TYPE: "INSTANCE_TYPE",
-  INSTANCE_TYPE_FAMILY: "INSTANCE_TYPE_FAMILY",
-  INVOICING_ENTITY: "INVOICING_ENTITY",
-  LEGAL_ENTITY_NAME: "LEGAL_ENTITY_NAME",
-  LINKED_ACCOUNT: "LINKED_ACCOUNT",
-  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
-  OPERATING_SYSTEM: "OPERATING_SYSTEM",
-  OPERATION: "OPERATION",
-  PAYMENT_OPTION: "PAYMENT_OPTION",
-  PLATFORM: "PLATFORM",
-  PURCHASE_TYPE: "PURCHASE_TYPE",
-  RECORD_TYPE: "RECORD_TYPE",
-  REGION: "REGION",
-  RESERVATION_ID: "RESERVATION_ID",
-  RESERVATION_MODIFIED: "RESERVATION_MODIFIED",
-  RESOURCE_ID: "RESOURCE_ID",
-  RIGHTSIZING_TYPE: "RIGHTSIZING_TYPE",
-  SAVINGS_PLANS_TYPE: "SAVINGS_PLANS_TYPE",
-  SAVINGS_PLAN_ARN: "SAVINGS_PLAN_ARN",
-  SCOPE: "SCOPE",
-  SERVICE: "SERVICE",
-  SERVICE_CODE: "SERVICE_CODE",
-  SUBSCRIPTION_ID: "SUBSCRIPTION_ID",
-  TAG_KEY: "TAG_KEY",
-  TENANCY: "TENANCY",
-  USAGE_TYPE: "USAGE_TYPE",
-  USAGE_TYPE_GROUP: "USAGE_TYPE_GROUP",
-} as const;
-
-/**
- * @public
- */
-export type Dimension = (typeof Dimension)[keyof typeof Dimension];
 
 /**
  * <p>Contains the specifications for the filters to use for your request.</p>
@@ -853,36 +596,6 @@ export interface TagValues {
 }
 
 /**
- * @public
- * @enum
- */
-export const HealthStatusValue = {
-  HEALTHY: "HEALTHY",
-  UNHEALTHY: "UNHEALTHY",
-} as const;
-
-/**
- * @public
- */
-export type HealthStatusValue = (typeof HealthStatusValue)[keyof typeof HealthStatusValue];
-
-/**
- * @public
- * @enum
- */
-export const HealthStatusReason = {
-  BILLING_VIEW_NO_ACCESS: "BILLING_VIEW_NO_ACCESS",
-  BILLING_VIEW_UNHEALTHY: "BILLING_VIEW_UNHEALTHY",
-  FILTER_INVALID: "FILTER_INVALID",
-  MULTI_YEAR_HISTORICAL_DATA_DISABLED: "MULTI_YEAR_HISTORICAL_DATA_DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type HealthStatusReason = (typeof HealthStatusReason)[keyof typeof HealthStatusReason];
-
-/**
  * <p>Provides information about the current operational state of a billing view resource,
  * 			including its ability to access and update based on its associated billing view.</p>
  * @public
@@ -929,26 +642,6 @@ export interface HealthStatus {
 }
 
 /**
- * @public
- * @enum
- */
-export const Metric = {
-  AMORTIZED_COST: "AmortizedCost",
-  BLENDED_COST: "BlendedCost",
-  HOURS: "Hours",
-  NET_AMORTIZED_COST: "NetAmortizedCost",
-  NET_UNBLENDED_COST: "NetUnblendedCost",
-  NORMALIZED_USAGE_AMOUNT: "NormalizedUsageAmount",
-  UNBLENDED_COST: "UnblendedCost",
-  USAGE_QUANTITY: "UsageQuantity",
-} as const;
-
-/**
- * @public
- */
-export type Metric = (typeof Metric)[keyof typeof Metric];
-
-/**
  * <p>The period of time that's covered by a budget. The period has a start date and an end
  * 			date. The start date must come before the end date. There are no restrictions on the end
  * 			date. </p>
@@ -979,52 +672,6 @@ export interface TimePeriod {
    */
   End?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeUnit = {
-  ANNUALLY: "ANNUALLY",
-  CUSTOM: "CUSTOM",
-  DAILY: "DAILY",
-  MONTHLY: "MONTHLY",
-  QUARTERLY: "QUARTERLY",
-} as const;
-
-/**
- * @public
- */
-export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
-
-/**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  EQUAL_TO: "EQUAL_TO",
-  GREATER_THAN: "GREATER_THAN",
-  LESS_THAN: "LESS_THAN",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const NotificationState = {
-  ALARM: "ALARM",
-  OK: "OK",
-} as const;
-
-/**
- * @public
- */
-export type NotificationState = (typeof NotificationState)[keyof typeof NotificationState];
 
 /**
  * <p>A notification that's associated with a budget. A budget can have up to ten
@@ -1139,189 +786,6 @@ export interface ResourceTag {
  * @public
  */
 export interface CreateBudgetResponse {}
-
-/**
- * <p>You've exceeded the notification or subscriber limit.</p>
- * @public
- */
-export class CreationLimitExceededException extends __BaseException {
-  readonly name: "CreationLimitExceededException" = "CreationLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CreationLimitExceededException, __BaseException>) {
-    super({
-      name: "CreationLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreationLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The budget name already exists. Budget names must be unique within an account.</p>
- * @public
- */
-export class DuplicateRecordException extends __BaseException {
-  readonly name: "DuplicateRecordException" = "DuplicateRecordException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateRecordException, __BaseException>) {
-    super({
-      name: "DuplicateRecordException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateRecordException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
- * @public
- */
-export class InternalErrorException extends __BaseException {
-  readonly name: "InternalErrorException" = "InternalErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
-    super({
-      name: "InternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>We can’t locate the resource that you specified.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of tags you can associate with a resource.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of API requests has exceeded the maximum allowed API request throttling limit
- *       for the account.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -1569,33 +1033,6 @@ export interface DeleteBudgetActionResponse {
 }
 
 /**
- * <p>The request was received and recognized by the server, but the server rejected that
- *       particular method for the requested resource.</p>
- * @public
- */
-export class ResourceLockedException extends __BaseException {
-  readonly name: "ResourceLockedException" = "ResourceLockedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLockedException, __BaseException>) {
-    super({
-      name: "ResourceLockedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLockedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p> Request of DeleteNotification </p>
  * @public
  */
@@ -1806,32 +1243,6 @@ export interface DescribeBudgetActionHistoriesResponse {
 }
 
 /**
- * <p>The pagination token is invalid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeBudgetActionsForAccountRequest {
@@ -1984,32 +1395,6 @@ export interface DescribeBudgetNotificationsForAccountResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The pagination token expired.</p>
- * @public
- */
-export class ExpiredNextTokenException extends __BaseException {
-  readonly name: "ExpiredNextTokenException" = "ExpiredNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExpiredNextTokenException, __BaseException>) {
-    super({
-      name: "ExpiredNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2287,22 +1672,6 @@ export interface DescribeSubscribersForNotificationResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionType = {
-  ApproveBudgetAction: "APPROVE_BUDGET_ACTION",
-  ResetBudgetAction: "RESET_BUDGET_ACTION",
-  RetryBudgetAction: "RETRY_BUDGET_ACTION",
-  ReverseBudgetAction: "REVERSE_BUDGET_ACTION",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
 
 /**
  * @public

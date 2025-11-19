@@ -1,28 +1,28 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import {
+  ConsumerStatus,
+  EncryptionType,
+  MetricsName,
+  MinimumThroughputBillingCommitmentInputStatus,
+  MinimumThroughputBillingCommitmentOutputStatus,
+  ScalingType,
+  ShardFilterType,
+  ShardIteratorType,
+  StreamMode,
+  StreamStatus,
+} from "./enums";
 
-import { KinesisServiceException as __BaseException } from "./KinesisServiceException";
-
-/**
- * <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  InternalFailureException,
+  KMSAccessDeniedException,
+  KMSDisabledException,
+  KMSInvalidStateException,
+  KMSNotFoundException,
+  KMSOptInRequired,
+  KMSThrottlingException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+} from "./errors";
 
 /**
  * <p>Represents the input for <code>AddTagsToStream</code>.</p>
@@ -46,90 +46,6 @@ export interface AddTagsToStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
-}
-
-/**
- * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
- * @public
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-  }
-}
-
-/**
- * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -176,21 +92,6 @@ export interface ChildShard {
    */
   HashKeyRange: HashKeyRange | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConsumerStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ConsumerStatus = (typeof ConsumerStatus)[keyof typeof ConsumerStatus];
 
 /**
  * <p>An object that represents the details of the consumer you registered. This type of
@@ -273,20 +174,6 @@ export interface ConsumerDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const StreamMode = {
-  ON_DEMAND: "ON_DEMAND",
-  PROVISIONED: "PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type StreamMode = (typeof StreamMode)[keyof typeof StreamMode];
-
-/**
  * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
  *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
  * @public
@@ -348,28 +235,6 @@ export interface CreateStreamInput {
    * @public
    */
   MaxRecordSizeInKiB?: number | undefined;
-}
-
-/**
- * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -467,22 +332,6 @@ export interface DeregisterStreamConsumerInput {
  * @public
  */
 export interface DescribeAccountSettingsInput {}
-
-/**
- * @public
- * @enum
- */
-export const MinimumThroughputBillingCommitmentOutputStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  ENABLED_UNTIL_EARLIEST_ALLOWED_END: "ENABLED_UNTIL_EARLIEST_ALLOWED_END",
-} as const;
-
-/**
- * @public
- */
-export type MinimumThroughputBillingCommitmentOutputStatus =
-  (typeof MinimumThroughputBillingCommitmentOutputStatus)[keyof typeof MinimumThroughputBillingCommitmentOutputStatus];
 
 /**
  * <p>Represents the current status of minimum throughput billing commitment for an account.</p>
@@ -594,40 +443,6 @@ export interface DescribeStreamInput {
    */
   StreamARN?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  KMS: "KMS",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
- * @public
- * @enum
- */
-export const MetricsName = {
-  ALL: "ALL",
-  INCOMING_BYTES: "IncomingBytes",
-  INCOMING_RECORDS: "IncomingRecords",
-  ITERATOR_AGE_MILLISECONDS: "IteratorAgeMilliseconds",
-  OUTGOING_BYTES: "OutgoingBytes",
-  OUTGOING_RECORDS: "OutgoingRecords",
-  READ_PROVISIONED_THROUGHPUT_EXCEEDED: "ReadProvisionedThroughputExceeded",
-  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED: "WriteProvisionedThroughputExceeded",
-} as const;
-
-/**
- * @public
- */
-export type MetricsName = (typeof MetricsName)[keyof typeof MetricsName];
 
 /**
  * <p>Represents enhanced metrics types.</p>
@@ -743,22 +558,6 @@ export interface Shard {
    */
   SequenceNumberRange: SequenceNumberRange | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StreamStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
 
 /**
  * <p>Represents the output for <a>DescribeStream</a>.</p>
@@ -1329,46 +1128,6 @@ export interface EnableEnhancedMonitoringInput {
 }
 
 /**
- * <p>The provided iterator exceeds the maximum age allowed.</p>
- * @public
- */
-export class ExpiredIteratorException extends __BaseException {
-  readonly name: "ExpiredIteratorException" = "ExpiredIteratorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExpiredIteratorException, __BaseException>) {
-    super({
-      name: "ExpiredIteratorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExpiredIteratorException.prototype);
-  }
-}
-
-/**
- * <p>The pagination token passed to the operation is expired.</p>
- * @public
- */
-export class ExpiredNextTokenException extends __BaseException {
-  readonly name: "ExpiredNextTokenException" = "ExpiredNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExpiredNextTokenException, __BaseException>) {
-    super({
-      name: "ExpiredNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input for <a>GetRecords</a>.</p>
  * @public
  */
@@ -1485,180 +1244,6 @@ export interface GetRecordsOutput {
 }
 
 /**
- * <p>The processing of the request failed because of an unknown error, exception, or
- *             failure.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>The ciphertext references a key that doesn't exist or that you don't have access
- *             to.</p>
- * @public
- */
-export class KMSAccessDeniedException extends __BaseException {
-  readonly name: "KMSAccessDeniedException" = "KMSAccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
-    super({
-      name: "KMSAccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the specified customer master key (CMK) isn't
- *             enabled.</p>
- * @public
- */
-export class KMSDisabledException extends __BaseException {
-  readonly name: "KMSDisabledException" = "KMSDisabledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
-    super({
-      name: "KMSDisabledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSDisabledException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
- *                 Service Developer Guide</i>.</p>
- * @public
- */
-export class KMSInvalidStateException extends __BaseException {
-  readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
-    super({
-      name: "KMSInvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the specified entity or resource can't be
- *             found.</p>
- * @public
- */
-export class KMSNotFoundException extends __BaseException {
-  readonly name: "KMSNotFoundException" = "KMSNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
-    super({
-      name: "KMSNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
- * @public
- */
-export class KMSOptInRequired extends __BaseException {
-  readonly name: "KMSOptInRequired" = "KMSOptInRequired";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSOptInRequired, __BaseException>) {
-    super({
-      name: "KMSOptInRequired",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSOptInRequired.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. For more information about
- *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
- *             the <i>Amazon Web Services Key Management Service Developer
- *             Guide</i>.</p>
- * @public
- */
-export class KMSThrottlingException extends __BaseException {
-  readonly name: "KMSThrottlingException" = "KMSThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSThrottlingException, __BaseException>) {
-    super({
-      name: "KMSThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The request rate for the stream is too high, or the requested data is too large for
- *             the available throughput. Reduce the frequency or size of your requests. For more
- *             information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams Limits</a> in the
- *                 <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="https://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and
- *                 Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
- * @public
- */
-export class ProvisionedThroughputExceededException extends __BaseException {
-  readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProvisionedThroughputExceededException, __BaseException>) {
-    super({
-      name: "ProvisionedThroughputExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetResourcePolicyInput {
@@ -1679,23 +1264,6 @@ export interface GetResourcePolicyOutput {
    */
   Policy: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShardIteratorType = {
-  AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
-  AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
-  AT_TIMESTAMP: "AT_TIMESTAMP",
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type ShardIteratorType = (typeof ShardIteratorType)[keyof typeof ShardIteratorType];
 
 /**
  * <p>Represents the input for <code>GetShardIterator</code>.</p>
@@ -1810,24 +1378,6 @@ export interface IncreaseStreamRetentionPeriodInput {
    */
   StreamARN?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShardFilterType = {
-  AFTER_SHARD_ID: "AFTER_SHARD_ID",
-  AT_LATEST: "AT_LATEST",
-  AT_TIMESTAMP: "AT_TIMESTAMP",
-  AT_TRIM_HORIZON: "AT_TRIM_HORIZON",
-  FROM_TIMESTAMP: "FROM_TIMESTAMP",
-  FROM_TRIM_HORIZON: "FROM_TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type ShardFilterType = (typeof ShardFilterType)[keyof typeof ShardFilterType];
 
 /**
  * <p>The request parameter used to filter out the response of the <code>ListShards</code>
@@ -3217,21 +2767,6 @@ export interface UntagResourceInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MinimumThroughputBillingCommitmentInputStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type MinimumThroughputBillingCommitmentInputStatus =
-  (typeof MinimumThroughputBillingCommitmentInputStatus)[keyof typeof MinimumThroughputBillingCommitmentInputStatus];
-
-/**
  * <p>Represents the request parameters for configuring minimum throughput billing commitment.</p>
  *          <note>
  *             <ul>
@@ -3297,19 +2832,6 @@ export interface UpdateMaxRecordSizeInput {
    */
   MaxRecordSizeInKiB: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScalingType = {
-  UNIFORM_SCALING: "UNIFORM_SCALING",
-} as const;
-
-/**
- * @public
- */
-export type ScalingType = (typeof ScalingType)[keyof typeof ScalingType];
 
 /**
  * @public

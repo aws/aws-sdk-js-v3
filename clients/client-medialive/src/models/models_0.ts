@@ -1,4 +1,326 @@
 // smithy-typescript generated code
+import {
+  AacCodingMode,
+  AacInputType,
+  AacProfile,
+  AacRateControlMode,
+  AacRawFormat,
+  AacSpec,
+  AacVbrQuality,
+  Ac3AttenuationControl,
+  Ac3BitstreamMode,
+  Ac3CodingMode,
+  Ac3DrcProfile,
+  Ac3LfeFilter,
+  Ac3MetadataControl,
+  AccessibilityType,
+  AfdSignaling,
+  Algorithm,
+  AudioDescriptionAudioTypeControl,
+  AudioDescriptionLanguageCodeControl,
+  AudioLanguageSelectionPolicy,
+  AudioNormalizationAlgorithm,
+  AudioNormalizationAlgorithmControl,
+  AudioOnlyHlsSegmentType,
+  AudioOnlyHlsTrackType,
+  AudioType,
+  AuthenticationScheme,
+  Av1GopSizeUnits,
+  Av1Level,
+  Av1LookAheadRateControl,
+  Av1RateControlMode,
+  Av1SceneChangeDetect,
+  Av1SpatialAq,
+  Av1TemporalAq,
+  AvailBlankingState,
+  BandwidthReductionFilterStrength,
+  BandwidthReductionPostFilterSharpening,
+  BlackoutSlateNetworkEndBlackout,
+  BlackoutSlateState,
+  BurnInAlignment,
+  BurnInBackgroundColor,
+  BurnInDestinationSubtitleRows,
+  BurnInFontColor,
+  BurnInOutlineColor,
+  BurnInShadowColor,
+  BurnInTeletextGridControl,
+  CdiInputResolution,
+  ChannelAlertState,
+  ChannelClass,
+  ChannelPlacementGroupState,
+  ChannelState,
+  CloudWatchAlarmTemplateComparisonOperator,
+  CloudWatchAlarmTemplateStatistic,
+  CloudWatchAlarmTemplateTargetResourceType,
+  CloudWatchAlarmTemplateTreatMissingData,
+  ClusterAlertState,
+  ClusterState,
+  ClusterType,
+  CmafId3Behavior,
+  CmafIngestSegmentLengthUnits,
+  CmafKLVBehavior,
+  CmafNielsenId3Behavior,
+  CmafTimedMetadataId3Frame,
+  CmafTimedMetadataPassthrough,
+  ColorSpace,
+  DashRoleAudio,
+  DashRoleCaption,
+  DeviceSettingsSyncState,
+  DeviceUpdateStatus,
+  DolbyEProgramSelection,
+  DvbDashAccessibility,
+  DvbSdtOutputSdt,
+  DvbSubDestinationAlignment,
+  DvbSubDestinationBackgroundColor,
+  DvbSubDestinationFontColor,
+  DvbSubDestinationOutlineColor,
+  DvbSubDestinationShadowColor,
+  DvbSubDestinationSubtitleRows,
+  DvbSubDestinationTeletextGridControl,
+  DvbSubOcrLanguage,
+  Eac3AtmosCodingMode,
+  Eac3AtmosDrcLine,
+  Eac3AtmosDrcRf,
+  Eac3AttenuationControl,
+  Eac3BitstreamMode,
+  Eac3CodingMode,
+  Eac3DcFilter,
+  Eac3DrcLine,
+  Eac3DrcRf,
+  Eac3LfeControl,
+  Eac3LfeFilter,
+  Eac3MetadataControl,
+  Eac3PassthroughControl,
+  Eac3PhaseControl,
+  Eac3StereoDownmix,
+  Eac3SurroundExMode,
+  Eac3SurroundMode,
+  EbuTtDDestinationStyleControl,
+  EbuTtDFillLineGapControl,
+  EmbeddedConvert608To708,
+  EmbeddedScte20Detection,
+  EventBridgeRuleTemplateEventType,
+  FeatureActivationsInputPrepareScheduleActions,
+  FeatureActivationsOutputStaticImageOverlayScheduleActions,
+  FecOutputIncludeFec,
+  FixedAfd,
+  Fmp4NielsenId3Behavior,
+  Fmp4TimedMetadataBehavior,
+  FollowPoint,
+  FrameCaptureIntervalUnit,
+  H264AdaptiveQuantization,
+  H264ColorMetadata,
+  H264EntropyEncoding,
+  H264FlickerAq,
+  H264ForceFieldPictures,
+  H264FramerateControl,
+  H264GopBReference,
+  H264GopSizeUnits,
+  H264Level,
+  H264LookAheadRateControl,
+  H264ParControl,
+  H264Profile,
+  H264QualityLevel,
+  H264RateControlMode,
+  H264ScanType,
+  H264SceneChangeDetect,
+  H264SpatialAq,
+  H264SubGopLength,
+  H264Syntax,
+  H264TemporalAq,
+  H264TimecodeInsertionBehavior,
+  H265AdaptiveQuantization,
+  H265AlternativeTransferFunction,
+  H265ColorMetadata,
+  H265Deblocking,
+  H265FlickerAq,
+  H265GopBReference,
+  H265GopSizeUnits,
+  H265Level,
+  H265LookAheadRateControl,
+  H265MvOverPictureBoundaries,
+  H265MvTemporalPredictor,
+  H265Profile,
+  H265RateControlMode,
+  H265ScanType,
+  H265SceneChangeDetect,
+  H265SubGopLength,
+  H265Tier,
+  H265TilePadding,
+  H265TimecodeInsertionBehavior,
+  H265TreeblockSize,
+  HlsAdMarkers,
+  HlsAkamaiHttpTransferMode,
+  HlsAutoSelect,
+  HlsCaptionLanguageSetting,
+  HlsClientCache,
+  HlsCodecSpecification,
+  HlsDefault,
+  HlsDirectoryStructure,
+  HlsDiscontinuityTags,
+  HlsEncryptionType,
+  HlsH265PackagingType,
+  HlsId3SegmentTaggingState,
+  HlsIncompleteSegmentBehavior,
+  HlsIvInManifest,
+  HlsIvSource,
+  HlsManifestCompression,
+  HlsManifestDurationFormat,
+  HlsMediaStoreStorageClass,
+  HlsMode,
+  HlsOutputSelection,
+  HlsProgramDateTime,
+  HlsProgramDateTimeClock,
+  HlsRedundantManifest,
+  HlsScte35SourceType,
+  HlsSegmentationMode,
+  HlsStreamInfResolution,
+  HlsTimedMetadataId3Frame,
+  HlsTsFileMode,
+  HlsWebdavHttpTransferMode,
+  IFrameOnlyPlaylistType,
+  IncludeFillerNalUnits,
+  InputClass,
+  InputCodec,
+  InputDeblockFilter,
+  InputDenoiseFilter,
+  InputDeviceActiveInput,
+  InputDeviceCodec,
+  InputDeviceConfigurableAudioChannelPairProfile,
+  InputDeviceConfiguredInput,
+  InputDeviceConnectionState,
+  InputDeviceIpScheme,
+  InputDeviceOutputType,
+  InputDeviceScanType,
+  InputDeviceState,
+  InputDeviceTransferType,
+  InputDeviceType,
+  InputDeviceUhdAudioChannelPairProfile,
+  InputFilter,
+  InputLossActionForHlsOut,
+  InputLossActionForMsSmoothOut,
+  InputLossActionForRtmpOut,
+  InputLossActionForUdpOut,
+  InputLossImageType,
+  InputMaximumBitrate,
+  InputNetworkLocation,
+  InputPreference,
+  InputResolution,
+  InputSecurityGroupState,
+  InputSourceEndBehavior,
+  InputSourceType,
+  InputState,
+  InputTimecodeSource,
+  InputType,
+  LastFrameClippingBehavior,
+  LogLevel,
+  M2tsAbsentInputAudioBehavior,
+  M2tsArib,
+  M2tsAribCaptionsPidControl,
+  M2tsAudioBufferModel,
+  M2tsAudioInterval,
+  M2tsAudioStreamType,
+  M2tsBufferModel,
+  M2tsCcDescriptor,
+  M2tsEbifControl,
+  M2tsEbpPlacement,
+  M2tsEsRateInPes,
+  M2tsKlv,
+  M2tsNielsenId3Behavior,
+  M2tsPcrControl,
+  M2tsRateMode,
+  M2tsScte35Control,
+  M2tsSegmentationMarkers,
+  M2tsSegmentationStyle,
+  M2tsTimedMetadataBehavior,
+  M3u8KlvBehavior,
+  M3u8NielsenId3Behavior,
+  M3u8PcrControl,
+  M3u8Scte35Behavior,
+  M3u8TimedMetadataBehavior,
+  MaintenanceDay,
+  Mp2CodingMode,
+  Mpeg2AdaptiveQuantization,
+  Mpeg2ColorMetadata,
+  Mpeg2ColorSpace,
+  Mpeg2DisplayRatio,
+  Mpeg2GopSizeUnits,
+  Mpeg2ScanType,
+  Mpeg2SubGopLength,
+  Mpeg2TimecodeInsertionBehavior,
+  MsSmoothH265PackagingType,
+  MultiplexAlertState,
+  MultiplexState,
+  NetworkInputServerValidation,
+  NetworkInterfaceMode,
+  NetworkState,
+  NielsenWatermarksCbetStepaside,
+  NielsenWatermarksDistributionTypes,
+  NielsenWatermarkTimezones,
+  NodeConnectionState,
+  NodeRole,
+  NodeState,
+  OfferingDurationUnits,
+  OfferingType,
+  PipelineId,
+  ReservationAutomaticRenewal,
+  ReservationCodec,
+  ReservationMaximumBitrate,
+  ReservationMaximumFramerate,
+  ReservationResolution,
+  ReservationResourceType,
+  ReservationSpecialFeature,
+  ReservationState,
+  ReservationVideoQuality,
+  RtmpAdMarkers,
+  RtmpCacheFullBehavior,
+  RtmpCaptionData,
+  RtmpOutputCertificateMode,
+  S3CannedAcl,
+  Scte20Convert608To708,
+  Scte27OcrLanguage,
+  Scte35AposNoRegionalBlackoutBehavior,
+  Scte35AposWebDeliveryAllowedBehavior,
+  Scte35ArchiveAllowedFlag,
+  Scte35DeviceRestrictions,
+  Scte35InputMode,
+  Scte35NoRegionalBlackoutFlag,
+  Scte35SegmentationCancelIndicator,
+  Scte35SegmentationScope,
+  Scte35SpliceInsertNoRegionalBlackoutBehavior,
+  Scte35SpliceInsertWebDeliveryAllowedBehavior,
+  Scte35Type,
+  Scte35WebDeliveryAllowedFlag,
+  SdiSourceMode,
+  SdiSourceState,
+  SdiSourceType,
+  SignalMapMonitorDeploymentStatus,
+  SignalMapStatus,
+  SmoothGroupAudioOnlyTimecodeControl,
+  SmoothGroupCertificateMode,
+  SmoothGroupEventIdMode,
+  SmoothGroupEventStopBehavior,
+  SmoothGroupSegmentationMode,
+  SmoothGroupSparseTrackType,
+  SmoothGroupStreamManifestBehavior,
+  SmoothGroupTimestampOffsetMode,
+  Smpte2038DataPreference,
+  SrtEncryptionType,
+  TemporalFilterPostFilterSharpening,
+  TemporalFilterStrength,
+  ThumbnailType,
+  TimecodeBurninFontSize,
+  TimecodeBurninPosition,
+  TtmlDestinationStyleControl,
+  UdpTimedMetadataId3Frame,
+  VideoDescriptionRespondToAfd,
+  VideoDescriptionScalingBehavior,
+  VideoSelectorColorSpace,
+  VideoSelectorColorSpaceUsage,
+  WavCodingMode,
+  WebvttDestinationStyleControl,
+} from "./enums";
+
 /**
  * Reference to an OutputDestination ID defined in the channel
  * @public
@@ -60,56 +382,6 @@ export interface AudioChannelMapping {
 }
 
 /**
- * @public
- * @enum
- */
-export const DashRoleAudio = {
-  ALTERNATE: "ALTERNATE",
-  COMMENTARY: "COMMENTARY",
-  DESCRIPTION: "DESCRIPTION",
-  DUB: "DUB",
-  EMERGENCY: "EMERGENCY",
-  ENHANCED_AUDIO_INTELLIGIBILITY: "ENHANCED-AUDIO-INTELLIGIBILITY",
-  KARAOKE: "KARAOKE",
-  MAIN: "MAIN",
-  SUPPLEMENTARY: "SUPPLEMENTARY",
-} as const;
-
-/**
- * @public
- */
-export type DashRoleAudio = (typeof DashRoleAudio)[keyof typeof DashRoleAudio];
-
-/**
- * @public
- * @enum
- */
-export const AudioNormalizationAlgorithm = {
-  ITU_1770_1: "ITU_1770_1",
-  ITU_1770_2: "ITU_1770_2",
-} as const;
-
-/**
- * @public
- */
-export type AudioNormalizationAlgorithm =
-  (typeof AudioNormalizationAlgorithm)[keyof typeof AudioNormalizationAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const AudioNormalizationAlgorithmControl = {
-  CORRECT_AUDIO: "CORRECT_AUDIO",
-} as const;
-
-/**
- * @public
- */
-export type AudioNormalizationAlgorithmControl =
-  (typeof AudioNormalizationAlgorithmControl)[keyof typeof AudioNormalizationAlgorithmControl];
-
-/**
  * Audio Normalization Settings
  * @public
  */
@@ -134,52 +406,6 @@ export interface AudioNormalizationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioType = {
-  CLEAN_EFFECTS: "CLEAN_EFFECTS",
-  HEARING_IMPAIRED: "HEARING_IMPAIRED",
-  UNDEFINED: "UNDEFINED",
-  VISUAL_IMPAIRED_COMMENTARY: "VISUAL_IMPAIRED_COMMENTARY",
-} as const;
-
-/**
- * @public
- */
-export type AudioType = (typeof AudioType)[keyof typeof AudioType];
-
-/**
- * @public
- * @enum
- */
-export const AudioDescriptionAudioTypeControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type AudioDescriptionAudioTypeControl =
-  (typeof AudioDescriptionAudioTypeControl)[keyof typeof AudioDescriptionAudioTypeControl];
-
-/**
- * @public
- * @enum
- */
-export const NielsenWatermarksCbetStepaside = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NielsenWatermarksCbetStepaside =
-  (typeof NielsenWatermarksCbetStepaside)[keyof typeof NielsenWatermarksCbetStepaside];
-
-/**
  * Nielsen CBET
  * @public
  */
@@ -202,43 +428,6 @@ export interface NielsenCBET {
    */
   Csid: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NielsenWatermarksDistributionTypes = {
-  FINAL_DISTRIBUTOR: "FINAL_DISTRIBUTOR",
-  PROGRAM_CONTENT: "PROGRAM_CONTENT",
-} as const;
-
-/**
- * @public
- */
-export type NielsenWatermarksDistributionTypes =
-  (typeof NielsenWatermarksDistributionTypes)[keyof typeof NielsenWatermarksDistributionTypes];
-
-/**
- * @public
- * @enum
- */
-export const NielsenWatermarkTimezones = {
-  AMERICA_PUERTO_RICO: "AMERICA_PUERTO_RICO",
-  US_ALASKA: "US_ALASKA",
-  US_ARIZONA: "US_ARIZONA",
-  US_CENTRAL: "US_CENTRAL",
-  US_EASTERN: "US_EASTERN",
-  US_HAWAII: "US_HAWAII",
-  US_MOUNTAIN: "US_MOUNTAIN",
-  US_PACIFIC: "US_PACIFIC",
-  US_SAMOA: "US_SAMOA",
-  UTC: "UTC",
-} as const;
-
-/**
- * @public
- */
-export type NielsenWatermarkTimezones = (typeof NielsenWatermarkTimezones)[keyof typeof NielsenWatermarkTimezones];
 
 /**
  * Nielsen Naes Ii Nw
@@ -304,110 +493,6 @@ export interface AudioWatermarkSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const AacCodingMode = {
-  AD_RECEIVER_MIX: "AD_RECEIVER_MIX",
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_1_1: "CODING_MODE_1_1",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_5_1: "CODING_MODE_5_1",
-} as const;
-
-/**
- * @public
- */
-export type AacCodingMode = (typeof AacCodingMode)[keyof typeof AacCodingMode];
-
-/**
- * @public
- * @enum
- */
-export const AacInputType = {
-  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type AacInputType = (typeof AacInputType)[keyof typeof AacInputType];
-
-/**
- * @public
- * @enum
- */
-export const AacProfile = {
-  HEV1: "HEV1",
-  HEV2: "HEV2",
-  LC: "LC",
-} as const;
-
-/**
- * @public
- */
-export type AacProfile = (typeof AacProfile)[keyof typeof AacProfile];
-
-/**
- * @public
- * @enum
- */
-export const AacRateControlMode = {
-  CBR: "CBR",
-  VBR: "VBR",
-} as const;
-
-/**
- * @public
- */
-export type AacRateControlMode = (typeof AacRateControlMode)[keyof typeof AacRateControlMode];
-
-/**
- * @public
- * @enum
- */
-export const AacRawFormat = {
-  LATM_LOAS: "LATM_LOAS",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AacRawFormat = (typeof AacRawFormat)[keyof typeof AacRawFormat];
-
-/**
- * @public
- * @enum
- */
-export const AacSpec = {
-  MPEG2: "MPEG2",
-  MPEG4: "MPEG4",
-} as const;
-
-/**
- * @public
- */
-export type AacSpec = (typeof AacSpec)[keyof typeof AacSpec];
-
-/**
- * @public
- * @enum
- */
-export const AacVbrQuality = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM_HIGH: "MEDIUM_HIGH",
-  MEDIUM_LOW: "MEDIUM_LOW",
-} as const;
-
-/**
- * @public
- */
-export type AacVbrQuality = (typeof AacVbrQuality)[keyof typeof AacVbrQuality];
-
-/**
  * Aac Settings
  * @public
  */
@@ -470,98 +555,6 @@ export interface AacSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const Ac3AttenuationControl = {
-  ATTENUATE_3_DB: "ATTENUATE_3_DB",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Ac3AttenuationControl = (typeof Ac3AttenuationControl)[keyof typeof Ac3AttenuationControl];
-
-/**
- * @public
- * @enum
- */
-export const Ac3BitstreamMode = {
-  COMMENTARY: "COMMENTARY",
-  COMPLETE_MAIN: "COMPLETE_MAIN",
-  DIALOGUE: "DIALOGUE",
-  EMERGENCY: "EMERGENCY",
-  HEARING_IMPAIRED: "HEARING_IMPAIRED",
-  MUSIC_AND_EFFECTS: "MUSIC_AND_EFFECTS",
-  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
-  VOICE_OVER: "VOICE_OVER",
-} as const;
-
-/**
- * @public
- */
-export type Ac3BitstreamMode = (typeof Ac3BitstreamMode)[keyof typeof Ac3BitstreamMode];
-
-/**
- * @public
- * @enum
- */
-export const Ac3CodingMode = {
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_1_1: "CODING_MODE_1_1",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
-} as const;
-
-/**
- * @public
- */
-export type Ac3CodingMode = (typeof Ac3CodingMode)[keyof typeof Ac3CodingMode];
-
-/**
- * @public
- * @enum
- */
-export const Ac3DrcProfile = {
-  FILM_STANDARD: "FILM_STANDARD",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Ac3DrcProfile = (typeof Ac3DrcProfile)[keyof typeof Ac3DrcProfile];
-
-/**
- * @public
- * @enum
- */
-export const Ac3LfeFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Ac3LfeFilter = (typeof Ac3LfeFilter)[keyof typeof Ac3LfeFilter];
-
-/**
- * @public
- * @enum
- */
-export const Ac3MetadataControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type Ac3MetadataControl = (typeof Ac3MetadataControl)[keyof typeof Ac3MetadataControl];
-
-/**
  * Ac3 Settings
  * @public
  */
@@ -616,57 +609,6 @@ export interface Ac3Settings {
 }
 
 /**
- * @public
- * @enum
- */
-export const Eac3AtmosCodingMode = {
-  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
-  CODING_MODE_7_1_4: "CODING_MODE_7_1_4",
-  CODING_MODE_9_1_6: "CODING_MODE_9_1_6",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosCodingMode = (typeof Eac3AtmosCodingMode)[keyof typeof Eac3AtmosCodingMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDrcLine = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDrcLine = (typeof Eac3AtmosDrcLine)[keyof typeof Eac3AtmosDrcLine];
-
-/**
- * @public
- * @enum
- */
-export const Eac3AtmosDrcRf = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AtmosDrcRf = (typeof Eac3AtmosDrcRf)[keyof typeof Eac3AtmosDrcRf];
-
-/**
  * Eac3 Atmos Settings
  * @public
  */
@@ -713,218 +655,6 @@ export interface Eac3AtmosSettings {
    */
   SurroundTrim?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Eac3AttenuationControl = {
-  ATTENUATE_3_DB: "ATTENUATE_3_DB",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Eac3AttenuationControl = (typeof Eac3AttenuationControl)[keyof typeof Eac3AttenuationControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3BitstreamMode = {
-  COMMENTARY: "COMMENTARY",
-  COMPLETE_MAIN: "COMPLETE_MAIN",
-  EMERGENCY: "EMERGENCY",
-  HEARING_IMPAIRED: "HEARING_IMPAIRED",
-  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3BitstreamMode = (typeof Eac3BitstreamMode)[keyof typeof Eac3BitstreamMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3CodingMode = {
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_3_2: "CODING_MODE_3_2",
-} as const;
-
-/**
- * @public
- */
-export type Eac3CodingMode = (typeof Eac3CodingMode)[keyof typeof Eac3CodingMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3DcFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3DcFilter = (typeof Eac3DcFilter)[keyof typeof Eac3DcFilter];
-
-/**
- * @public
- * @enum
- */
-export const Eac3DrcLine = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3DrcLine = (typeof Eac3DrcLine)[keyof typeof Eac3DrcLine];
-
-/**
- * @public
- * @enum
- */
-export const Eac3DrcRf = {
-  FILM_LIGHT: "FILM_LIGHT",
-  FILM_STANDARD: "FILM_STANDARD",
-  MUSIC_LIGHT: "MUSIC_LIGHT",
-  MUSIC_STANDARD: "MUSIC_STANDARD",
-  NONE: "NONE",
-  SPEECH: "SPEECH",
-} as const;
-
-/**
- * @public
- */
-export type Eac3DrcRf = (typeof Eac3DrcRf)[keyof typeof Eac3DrcRf];
-
-/**
- * @public
- * @enum
- */
-export const Eac3LfeControl = {
-  LFE: "LFE",
-  NO_LFE: "NO_LFE",
-} as const;
-
-/**
- * @public
- */
-export type Eac3LfeControl = (typeof Eac3LfeControl)[keyof typeof Eac3LfeControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3LfeFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3LfeFilter = (typeof Eac3LfeFilter)[keyof typeof Eac3LfeFilter];
-
-/**
- * @public
- * @enum
- */
-export const Eac3MetadataControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3MetadataControl = (typeof Eac3MetadataControl)[keyof typeof Eac3MetadataControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3PassthroughControl = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  WHEN_POSSIBLE: "WHEN_POSSIBLE",
-} as const;
-
-/**
- * @public
- */
-export type Eac3PassthroughControl = (typeof Eac3PassthroughControl)[keyof typeof Eac3PassthroughControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3PhaseControl = {
-  NO_SHIFT: "NO_SHIFT",
-  SHIFT_90_DEGREES: "SHIFT_90_DEGREES",
-} as const;
-
-/**
- * @public
- */
-export type Eac3PhaseControl = (typeof Eac3PhaseControl)[keyof typeof Eac3PhaseControl];
-
-/**
- * @public
- * @enum
- */
-export const Eac3StereoDownmix = {
-  DPL2: "DPL2",
-  LO_RO: "LO_RO",
-  LT_RT: "LT_RT",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3StereoDownmix = (typeof Eac3StereoDownmix)[keyof typeof Eac3StereoDownmix];
-
-/**
- * @public
- * @enum
- */
-export const Eac3SurroundExMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3SurroundExMode = (typeof Eac3SurroundExMode)[keyof typeof Eac3SurroundExMode];
-
-/**
- * @public
- * @enum
- */
-export const Eac3SurroundMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  NOT_INDICATED: "NOT_INDICATED",
-} as const;
-
-/**
- * @public
- */
-export type Eac3SurroundMode = (typeof Eac3SurroundMode)[keyof typeof Eac3SurroundMode];
 
 /**
  * Eac3 Settings
@@ -1053,20 +783,6 @@ export interface Eac3Settings {
 }
 
 /**
- * @public
- * @enum
- */
-export const Mp2CodingMode = {
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-} as const;
-
-/**
- * @public
- */
-export type Mp2CodingMode = (typeof Mp2CodingMode)[keyof typeof Mp2CodingMode];
-
-/**
  * Mp2 Settings
  * @public
  */
@@ -1095,22 +811,6 @@ export interface Mp2Settings {
  * @public
  */
 export interface PassThroughSettings {}
-
-/**
- * @public
- * @enum
- */
-export const WavCodingMode = {
-  CODING_MODE_1_0: "CODING_MODE_1_0",
-  CODING_MODE_2_0: "CODING_MODE_2_0",
-  CODING_MODE_4_0: "CODING_MODE_4_0",
-  CODING_MODE_8_0: "CODING_MODE_8_0",
-} as const;
-
-/**
- * @public
- */
-export type WavCodingMode = (typeof WavCodingMode)[keyof typeof WavCodingMode];
 
 /**
  * Wav Settings
@@ -1183,40 +883,6 @@ export interface AudioCodecSettings {
    */
   WavSettings?: WavSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DvbDashAccessibility = {
-  DVBDASH_1_VISUALLY_IMPAIRED: "DVBDASH_1_VISUALLY_IMPAIRED",
-  DVBDASH_2_HARD_OF_HEARING: "DVBDASH_2_HARD_OF_HEARING",
-  DVBDASH_3_SUPPLEMENTAL_COMMENTARY: "DVBDASH_3_SUPPLEMENTAL_COMMENTARY",
-  DVBDASH_4_DIRECTORS_COMMENTARY: "DVBDASH_4_DIRECTORS_COMMENTARY",
-  DVBDASH_5_EDUCATIONAL_NOTES: "DVBDASH_5_EDUCATIONAL_NOTES",
-  DVBDASH_6_MAIN_PROGRAM: "DVBDASH_6_MAIN_PROGRAM",
-  DVBDASH_7_CLEAN_FEED: "DVBDASH_7_CLEAN_FEED",
-} as const;
-
-/**
- * @public
- */
-export type DvbDashAccessibility = (typeof DvbDashAccessibility)[keyof typeof DvbDashAccessibility];
-
-/**
- * @public
- * @enum
- */
-export const AudioDescriptionLanguageCodeControl = {
-  FOLLOW_INPUT: "FOLLOW_INPUT",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type AudioDescriptionLanguageCodeControl =
-  (typeof AudioDescriptionLanguageCodeControl)[keyof typeof AudioDescriptionLanguageCodeControl];
 
 /**
  * Remix Settings
@@ -1349,21 +1015,6 @@ export interface AudioHlsRenditionSelection {
 }
 
 /**
- * @public
- * @enum
- */
-export const AudioLanguageSelectionPolicy = {
-  LOOSE: "LOOSE",
-  STRICT: "STRICT",
-} as const;
-
-/**
- * @public
- */
-export type AudioLanguageSelectionPolicy =
-  (typeof AudioLanguageSelectionPolicy)[keyof typeof AudioLanguageSelectionPolicy];
-
-/**
  * Audio Language Selection
  * @public
  */
@@ -1392,27 +1043,6 @@ export interface AudioPidSelection {
    */
   Pid: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DolbyEProgramSelection = {
-  ALL_CHANNELS: "ALL_CHANNELS",
-  PROGRAM_1: "PROGRAM_1",
-  PROGRAM_2: "PROGRAM_2",
-  PROGRAM_3: "PROGRAM_3",
-  PROGRAM_4: "PROGRAM_4",
-  PROGRAM_5: "PROGRAM_5",
-  PROGRAM_6: "PROGRAM_6",
-  PROGRAM_7: "PROGRAM_7",
-  PROGRAM_8: "PROGRAM_8",
-} as const;
-
-/**
- * @public
- */
-export type DolbyEProgramSelection = (typeof DolbyEProgramSelection)[keyof typeof DolbyEProgramSelection];
 
 /**
  * Audio Dolby EDecode
@@ -1559,79 +1189,10 @@ export interface BatchSuccessfulResultModel {
 }
 
 /**
- * @public
- * @enum
- */
-export const AccessibilityType = {
-  DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES: "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES",
-  IMPLEMENTS_ACCESSIBILITY_FEATURES: "IMPLEMENTS_ACCESSIBILITY_FEATURES",
-} as const;
-
-/**
- * @public
- */
-export type AccessibilityType = (typeof AccessibilityType)[keyof typeof AccessibilityType];
-
-/**
- * @public
- * @enum
- */
-export const DashRoleCaption = {
-  ALTERNATE: "ALTERNATE",
-  CAPTION: "CAPTION",
-  COMMENTARY: "COMMENTARY",
-  DESCRIPTION: "DESCRIPTION",
-  DUB: "DUB",
-  EASYREADER: "EASYREADER",
-  EMERGENCY: "EMERGENCY",
-  FORCED_SUBTITLE: "FORCED-SUBTITLE",
-  KARAOKE: "KARAOKE",
-  MAIN: "MAIN",
-  METADATA: "METADATA",
-  SUBTITLE: "SUBTITLE",
-  SUPPLEMENTARY: "SUPPLEMENTARY",
-} as const;
-
-/**
- * @public
- */
-export type DashRoleCaption = (typeof DashRoleCaption)[keyof typeof DashRoleCaption];
-
-/**
  * Arib Destination Settings
  * @public
  */
 export interface AribDestinationSettings {}
-
-/**
- * @public
- * @enum
- */
-export const BurnInAlignment = {
-  CENTERED: "CENTERED",
-  LEFT: "LEFT",
-  SMART: "SMART",
-} as const;
-
-/**
- * @public
- */
-export type BurnInAlignment = (typeof BurnInAlignment)[keyof typeof BurnInAlignment];
-
-/**
- * @public
- * @enum
- */
-export const BurnInBackgroundColor = {
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type BurnInBackgroundColor = (typeof BurnInBackgroundColor)[keyof typeof BurnInBackgroundColor];
 
 /**
  * Input Location
@@ -1656,87 +1217,6 @@ export interface InputLocation {
    */
   Username?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BurnInFontColor = {
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type BurnInFontColor = (typeof BurnInFontColor)[keyof typeof BurnInFontColor];
-
-/**
- * @public
- * @enum
- */
-export const BurnInOutlineColor = {
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type BurnInOutlineColor = (typeof BurnInOutlineColor)[keyof typeof BurnInOutlineColor];
-
-/**
- * @public
- * @enum
- */
-export const BurnInShadowColor = {
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type BurnInShadowColor = (typeof BurnInShadowColor)[keyof typeof BurnInShadowColor];
-
-/**
- * @public
- * @enum
- */
-export const BurnInDestinationSubtitleRows = {
-  ROWS_16: "ROWS_16",
-  ROWS_20: "ROWS_20",
-  ROWS_24: "ROWS_24",
-} as const;
-
-/**
- * @public
- */
-export type BurnInDestinationSubtitleRows =
-  (typeof BurnInDestinationSubtitleRows)[keyof typeof BurnInDestinationSubtitleRows];
-
-/**
- * @public
- * @enum
- */
-export const BurnInTeletextGridControl = {
-  FIXED: "FIXED",
-  SCALED: "SCALED",
-} as const;
-
-/**
- * @public
- */
-export type BurnInTeletextGridControl = (typeof BurnInTeletextGridControl)[keyof typeof BurnInTeletextGridControl];
 
 /**
  * Burn In Destination Settings
@@ -1853,121 +1333,6 @@ export interface BurnInDestinationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const DvbSubDestinationAlignment = {
-  CENTERED: "CENTERED",
-  LEFT: "LEFT",
-  SMART: "SMART",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationAlignment = (typeof DvbSubDestinationAlignment)[keyof typeof DvbSubDestinationAlignment];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubDestinationBackgroundColor = {
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationBackgroundColor =
-  (typeof DvbSubDestinationBackgroundColor)[keyof typeof DvbSubDestinationBackgroundColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubDestinationFontColor = {
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationFontColor = (typeof DvbSubDestinationFontColor)[keyof typeof DvbSubDestinationFontColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubDestinationOutlineColor = {
-  BLACK: "BLACK",
-  BLUE: "BLUE",
-  GREEN: "GREEN",
-  RED: "RED",
-  WHITE: "WHITE",
-  YELLOW: "YELLOW",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationOutlineColor =
-  (typeof DvbSubDestinationOutlineColor)[keyof typeof DvbSubDestinationOutlineColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubDestinationShadowColor = {
-  BLACK: "BLACK",
-  NONE: "NONE",
-  WHITE: "WHITE",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationShadowColor =
-  (typeof DvbSubDestinationShadowColor)[keyof typeof DvbSubDestinationShadowColor];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubDestinationSubtitleRows = {
-  ROWS_16: "ROWS_16",
-  ROWS_20: "ROWS_20",
-  ROWS_24: "ROWS_24",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationSubtitleRows =
-  (typeof DvbSubDestinationSubtitleRows)[keyof typeof DvbSubDestinationSubtitleRows];
-
-/**
- * @public
- * @enum
- */
-export const DvbSubDestinationTeletextGridControl = {
-  FIXED: "FIXED",
-  SCALED: "SCALED",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubDestinationTeletextGridControl =
-  (typeof DvbSubDestinationTeletextGridControl)[keyof typeof DvbSubDestinationTeletextGridControl];
-
-/**
  * Dvb Sub Destination Settings
  * @public
  */
@@ -2082,35 +1447,6 @@ export interface DvbSubDestinationSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const EbuTtDFillLineGapControl = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EbuTtDFillLineGapControl = (typeof EbuTtDFillLineGapControl)[keyof typeof EbuTtDFillLineGapControl];
-
-/**
- * @public
- * @enum
- */
-export const EbuTtDDestinationStyleControl = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type EbuTtDDestinationStyleControl =
-  (typeof EbuTtDDestinationStyleControl)[keyof typeof EbuTtDDestinationStyleControl];
-
-/**
  * Ebu Tt DDestination Settings
  * @public
  */
@@ -2195,21 +1531,6 @@ export interface SmpteTtDestinationSettings {}
 export interface TeletextDestinationSettings {}
 
 /**
- * @public
- * @enum
- */
-export const TtmlDestinationStyleControl = {
-  PASSTHROUGH: "PASSTHROUGH",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type TtmlDestinationStyleControl =
-  (typeof TtmlDestinationStyleControl)[keyof typeof TtmlDestinationStyleControl];
-
-/**
  * Ttml Destination Settings
  * @public
  */
@@ -2220,21 +1541,6 @@ export interface TtmlDestinationSettings {
    */
   StyleControl?: TtmlDestinationStyleControl | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebvttDestinationStyleControl = {
-  NO_STYLE_DATA: "NO_STYLE_DATA",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type WebvttDestinationStyleControl =
-  (typeof WebvttDestinationStyleControl)[keyof typeof WebvttDestinationStyleControl];
 
 /**
  * Webvtt Destination Settings
@@ -2429,24 +1735,6 @@ export interface AncillarySourceSettings {
 export interface AribSourceSettings {}
 
 /**
- * @public
- * @enum
- */
-export const DvbSubOcrLanguage = {
-  DEU: "DEU",
-  ENG: "ENG",
-  FRA: "FRA",
-  NLD: "NLD",
-  POR: "POR",
-  SPA: "SPA",
-} as const;
-
-/**
- * @public
- */
-export type DvbSubOcrLanguage = (typeof DvbSubOcrLanguage)[keyof typeof DvbSubOcrLanguage];
-
-/**
  * Dvb Sub Source Settings
  * @public
  */
@@ -2464,34 +1752,6 @@ export interface DvbSubSourceSettings {
    */
   Pid?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EmbeddedConvert608To708 = {
-  DISABLED: "DISABLED",
-  UPCONVERT: "UPCONVERT",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddedConvert608To708 = (typeof EmbeddedConvert608To708)[keyof typeof EmbeddedConvert608To708];
-
-/**
- * @public
- * @enum
- */
-export const EmbeddedScte20Detection = {
-  AUTO: "AUTO",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type EmbeddedScte20Detection = (typeof EmbeddedScte20Detection)[keyof typeof EmbeddedScte20Detection];
 
 /**
  * Embedded Source Settings
@@ -2524,20 +1784,6 @@ export interface EmbeddedSourceSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const Scte20Convert608To708 = {
-  DISABLED: "DISABLED",
-  UPCONVERT: "UPCONVERT",
-} as const;
-
-/**
- * @public
- */
-export type Scte20Convert608To708 = (typeof Scte20Convert608To708)[keyof typeof Scte20Convert608To708];
-
-/**
  * Scte20 Source Settings
  * @public
  */
@@ -2554,24 +1800,6 @@ export interface Scte20SourceSettings {
    */
   Source608ChannelNumber?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Scte27OcrLanguage = {
-  DEU: "DEU",
-  ENG: "ENG",
-  FRA: "FRA",
-  NLD: "NLD",
-  POR: "POR",
-  SPA: "SPA",
-} as const;
-
-/**
- * @public
- */
-export type Scte27OcrLanguage = (typeof Scte27OcrLanguage)[keyof typeof Scte27OcrLanguage];
 
 /**
  * Scte27 Source Settings
@@ -2726,20 +1954,6 @@ export interface CaptionSelector {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChannelAlertState = {
-  CLEARED: "CLEARED",
-  SET: "SET",
-} as const;
-
-/**
- * @public
- */
-export type ChannelAlertState = (typeof ChannelAlertState)[keyof typeof ChannelAlertState];
-
-/**
  * An alert on a channel
  * @public
  */
@@ -2818,20 +2032,6 @@ export interface ChannelEngineVersionResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChannelPipelineIdToRestart = {
-  PIPELINE_0: "PIPELINE_0",
-  PIPELINE_1: "PIPELINE_1",
-} as const;
-
-/**
- * @public
- */
-export type ChannelPipelineIdToRestart = (typeof ChannelPipelineIdToRestart)[keyof typeof ChannelPipelineIdToRestart];
-
-/**
  * Elemental anywhere settings
  * @public
  */
@@ -2850,22 +2050,6 @@ export interface DescribeAnywhereSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const CdiInputResolution = {
-  FHD: "FHD",
-  HD: "HD",
-  SD: "SD",
-  UHD: "UHD",
-} as const;
-
-/**
- * @public
- */
-export type CdiInputResolution = (typeof CdiInputResolution)[keyof typeof CdiInputResolution];
-
-/**
  * Placeholder documentation for CdiInputSpecification
  * @public
  */
@@ -2876,20 +2060,6 @@ export interface CdiInputSpecification {
    */
   Resolution?: CdiInputResolution | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelClass = {
-  SINGLE_PIPELINE: "SINGLE_PIPELINE",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ChannelClass = (typeof ChannelClass)[keyof typeof ChannelClass];
 
 /**
  * MediaPackage Output Destination Settings
@@ -3115,20 +2285,6 @@ export interface FailoverCondition {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputPreference = {
-  EQUAL_INPUT_PREFERENCE: "EQUAL_INPUT_PREFERENCE",
-  PRIMARY_INPUT_PREFERRED: "PRIMARY_INPUT_PREFERRED",
-} as const;
-
-/**
- * @public
- */
-export type InputPreference = (typeof InputPreference)[keyof typeof InputPreference];
-
-/**
  * The settings for Automatic Input Failover.
  * @public
  */
@@ -3157,63 +2313,6 @@ export interface AutomaticInputFailoverSettings {
    */
   SecondaryInputId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputDeblockFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type InputDeblockFilter = (typeof InputDeblockFilter)[keyof typeof InputDeblockFilter];
-
-/**
- * @public
- * @enum
- */
-export const InputDenoiseFilter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type InputDenoiseFilter = (typeof InputDenoiseFilter)[keyof typeof InputDenoiseFilter];
-
-/**
- * @public
- * @enum
- */
-export const InputFilter = {
-  AUTO: "AUTO",
-  DISABLED: "DISABLED",
-  FORCED: "FORCED",
-} as const;
-
-/**
- * @public
- */
-export type InputFilter = (typeof InputFilter)[keyof typeof InputFilter];
-
-/**
- * @public
- * @enum
- */
-export const HlsScte35SourceType = {
-  MANIFEST: "MANIFEST",
-  SEGMENTS: "SEGMENTS",
-} as const;
-
-/**
- * @public
- */
-export type HlsScte35SourceType = (typeof HlsScte35SourceType)[keyof typeof HlsScte35SourceType];
 
 /**
  * Hls Input Settings
@@ -3264,21 +2363,6 @@ export interface MulticastInputSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkInputServerValidation = {
-  CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME: "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME",
-  CHECK_CRYPTOGRAPHY_ONLY: "CHECK_CRYPTOGRAPHY_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInputServerValidation =
-  (typeof NetworkInputServerValidation)[keyof typeof NetworkInputServerValidation];
-
-/**
  * Network source to transcode. Must be accessible to the Elemental Live node that is running the live event through a network connection.
  * @public
  */
@@ -3301,51 +2385,6 @@ export interface NetworkInputSettings {
    */
   MulticastInputSettings?: MulticastInputSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Smpte2038DataPreference = {
-  IGNORE: "IGNORE",
-  PREFER: "PREFER",
-} as const;
-
-/**
- * @public
- */
-export type Smpte2038DataPreference = (typeof Smpte2038DataPreference)[keyof typeof Smpte2038DataPreference];
-
-/**
- * @public
- * @enum
- */
-export const InputSourceEndBehavior = {
-  CONTINUE: "CONTINUE",
-  LOOP: "LOOP",
-} as const;
-
-/**
- * @public
- */
-export type InputSourceEndBehavior = (typeof InputSourceEndBehavior)[keyof typeof InputSourceEndBehavior];
-
-/**
- * @public
- * @enum
- */
-export const VideoSelectorColorSpace = {
-  FOLLOW: "FOLLOW",
-  HDR10: "HDR10",
-  HLG_2020: "HLG_2020",
-  REC_601: "REC_601",
-  REC_709: "REC_709",
-} as const;
-
-/**
- * @public
- */
-export type VideoSelectorColorSpace = (typeof VideoSelectorColorSpace)[keyof typeof VideoSelectorColorSpace];
 
 /**
  * Hdr10 Settings
@@ -3380,21 +2419,6 @@ export interface VideoSelectorColorSpaceSettings {
    */
   Hdr10Settings?: Hdr10Settings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VideoSelectorColorSpaceUsage = {
-  FALLBACK: "FALLBACK",
-  FORCE: "FORCE",
-} as const;
-
-/**
- * @public
- */
-export type VideoSelectorColorSpaceUsage =
-  (typeof VideoSelectorColorSpaceUsage)[keyof typeof VideoSelectorColorSpaceUsage];
 
 /**
  * Video Selector Pid
@@ -3582,51 +2606,6 @@ export interface InputAttachment {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputCodec = {
-  AVC: "AVC",
-  HEVC: "HEVC",
-  MPEG2: "MPEG2",
-} as const;
-
-/**
- * @public
- */
-export type InputCodec = (typeof InputCodec)[keyof typeof InputCodec];
-
-/**
- * @public
- * @enum
- */
-export const InputMaximumBitrate = {
-  MAX_10_MBPS: "MAX_10_MBPS",
-  MAX_20_MBPS: "MAX_20_MBPS",
-  MAX_50_MBPS: "MAX_50_MBPS",
-} as const;
-
-/**
- * @public
- */
-export type InputMaximumBitrate = (typeof InputMaximumBitrate)[keyof typeof InputMaximumBitrate];
-
-/**
- * @public
- * @enum
- */
-export const InputResolution = {
-  HD: "HD",
-  SD: "SD",
-  UHD: "UHD",
-} as const;
-
-/**
- * @public
- */
-export type InputResolution = (typeof InputResolution)[keyof typeof InputResolution];
-
-/**
  * Placeholder documentation for InputSpecification
  * @public
  */
@@ -3649,42 +2628,6 @@ export interface InputSpecification {
    */
   Resolution?: InputResolution | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogLevel = {
-  DEBUG: "DEBUG",
-  DISABLED: "DISABLED",
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-/**
- * @public
- * @enum
- */
-export const MaintenanceDay = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type MaintenanceDay = (typeof MaintenanceDay)[keyof typeof MaintenanceDay];
 
 /**
  * Placeholder documentation for MaintenanceStatus
@@ -3715,29 +2658,6 @@ export interface MaintenanceStatus {
    */
   MaintenanceStartTime?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelState = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  IDLE: "IDLE",
-  RECOVERING: "RECOVERING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ChannelState = (typeof ChannelState)[keyof typeof ChannelState];
 
 /**
  * The properties for a private VPC Output
@@ -3949,80 +2869,6 @@ export interface CloudWatchAlarmTemplateGroupSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const CloudWatchAlarmTemplateComparisonOperator = {
-  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold: "GreaterThanThreshold",
-  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
-  LessThanThreshold: "LessThanThreshold",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchAlarmTemplateComparisonOperator =
-  (typeof CloudWatchAlarmTemplateComparisonOperator)[keyof typeof CloudWatchAlarmTemplateComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const CloudWatchAlarmTemplateStatistic = {
-  Average: "Average",
-  Maximum: "Maximum",
-  Minimum: "Minimum",
-  SampleCount: "SampleCount",
-  Sum: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchAlarmTemplateStatistic =
-  (typeof CloudWatchAlarmTemplateStatistic)[keyof typeof CloudWatchAlarmTemplateStatistic];
-
-/**
- * @public
- * @enum
- */
-export const CloudWatchAlarmTemplateTargetResourceType = {
-  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
-  MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
-  MEDIALIVE_CHANNEL: "MEDIALIVE_CHANNEL",
-  MEDIALIVE_INPUT_DEVICE: "MEDIALIVE_INPUT_DEVICE",
-  MEDIALIVE_MULTIPLEX: "MEDIALIVE_MULTIPLEX",
-  MEDIAPACKAGE_CHANNEL: "MEDIAPACKAGE_CHANNEL",
-  MEDIAPACKAGE_ORIGIN_ENDPOINT: "MEDIAPACKAGE_ORIGIN_ENDPOINT",
-  MEDIATAILOR_PLAYBACK_CONFIGURATION: "MEDIATAILOR_PLAYBACK_CONFIGURATION",
-  S3_BUCKET: "S3_BUCKET",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchAlarmTemplateTargetResourceType =
-  (typeof CloudWatchAlarmTemplateTargetResourceType)[keyof typeof CloudWatchAlarmTemplateTargetResourceType];
-
-/**
- * @public
- * @enum
- */
-export const CloudWatchAlarmTemplateTreatMissingData = {
-  breaching: "breaching",
-  ignore: "ignore",
-  missing: "missing",
-  notBreaching: "notBreaching",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchAlarmTemplateTreatMissingData =
-  (typeof CloudWatchAlarmTemplateTreatMissingData)[keyof typeof CloudWatchAlarmTemplateTreatMissingData];
-
-/**
  * Placeholder documentation for CloudWatchAlarmTemplateSummary
  * @public
  */
@@ -4131,20 +2977,6 @@ export interface CloudWatchAlarmTemplateSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ClusterAlertState = {
-  CLEARED: "CLEARED",
-  SET: "SET",
-} as const;
-
-/**
- * @public
- */
-export type ClusterAlertState = (typeof ClusterAlertState)[keyof typeof ClusterAlertState];
-
-/**
  * An alert on a cluster
  * @public
  */
@@ -4217,22 +3049,6 @@ export interface CmafIngestCaptionLanguageMapping {
 }
 
 /**
- * @public
- * @enum
- */
-export const ColorSpace = {
-  HDR10: "HDR10",
-  HLG_2020: "HLG_2020",
-  REC_601: "REC_601",
-  REC_709: "REC_709",
-} as const;
-
-/**
- * @public
- */
-export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
-
-/**
  * Property of ColorCorrectionSettings. Used for custom color space conversion. The object identifies one 3D LUT file and specifies the input/output color space combination that the file will be used for.
  * @public
  */
@@ -4255,25 +3071,6 @@ export interface ColorCorrection {
    */
   Uri: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelPlacementGroupState = {
-  ASSIGNED: "ASSIGNED",
-  ASSIGNING: "ASSIGNING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  UNASSIGNED: "UNASSIGNED",
-  UNASSIGNING: "UNASSIGNING",
-} as const;
-
-/**
- * @public
- */
-export type ChannelPlacementGroupState = (typeof ChannelPlacementGroupState)[keyof typeof ChannelPlacementGroupState];
 
 /**
  * Contains the response for ListChannelPlacementGroups
@@ -4324,19 +3121,6 @@ export interface DescribeChannelPlacementGroupSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ClusterType = {
-  ON_PREMISES: "ON_PREMISES",
-} as const;
-
-/**
- * @public
- */
-export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
-
-/**
  * Used in ClusterNetworkSettings
  * @public
  */
@@ -4371,24 +3155,6 @@ export interface ClusterNetworkSettings {
    */
   InterfaceMappings?: InterfaceMapping[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterState = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * Used in ListClustersResult.
@@ -4475,27 +3241,6 @@ export interface Route {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkState = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  IDLE: "IDLE",
-  IN_USE: "IN_USE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type NetworkState = (typeof NetworkState)[keyof typeof NetworkState];
-
-/**
  * Used in ListNetworksResult.
  * @public
  */
@@ -4544,34 +3289,6 @@ export interface DescribeNetworkSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const NodeConnectionState = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-} as const;
-
-/**
- * @public
- */
-export type NodeConnectionState = (typeof NodeConnectionState)[keyof typeof NodeConnectionState];
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfaceMode = {
-  BRIDGE: "BRIDGE",
-  NAT: "NAT",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceMode = (typeof NetworkInterfaceMode)[keyof typeof NetworkInterfaceMode];
-
-/**
  * A mapping that's used to pair a logical network interface name on a Node with the physical interface name exposed in the operating system.
  * @public
  */
@@ -4596,20 +3313,6 @@ export interface NodeInterfaceMapping {
 }
 
 /**
- * @public
- * @enum
- */
-export const NodeRole = {
-  ACTIVE: "ACTIVE",
-  BACKUP: "BACKUP",
-} as const;
-
-/**
- * @public
- */
-export type NodeRole = (typeof NodeRole)[keyof typeof NodeRole];
-
-/**
  * Used in DescribeNodeSummary, DescribeNodeResult.
  * @public
  */
@@ -4632,30 +3335,6 @@ export interface SdiSourceMapping {
    */
   SdiSource?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NodeState = {
-  ACTIVATION_FAILED: "ACTIVATION_FAILED",
-  ACTIVE: "ACTIVE",
-  CREATED: "CREATED",
-  DEREGISTERED: "DEREGISTERED",
-  DEREGISTERING: "DEREGISTERING",
-  DEREGISTRATION_FAILED: "DEREGISTRATION_FAILED",
-  DRAINING: "DRAINING",
-  IN_USE: "IN_USE",
-  READY: "READY",
-  READY_TO_ACTIVATE: "READY_TO_ACTIVATE",
-  REGISTERING: "REGISTERING",
-  REGISTRATION_FAILED: "REGISTRATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type NodeState = (typeof NodeState)[keyof typeof NodeState];
 
 /**
  * Placeholder documentation for DescribeNodeSummary
@@ -4790,32 +3469,6 @@ export interface EventBridgeRuleTemplateGroupSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventBridgeRuleTemplateEventType = {
-  MEDIACONNECT_ALERT: "MEDIACONNECT_ALERT",
-  MEDIACONNECT_FLOW_STATUS_CHANGE: "MEDIACONNECT_FLOW_STATUS_CHANGE",
-  MEDIACONNECT_OUTPUT_HEALTH: "MEDIACONNECT_OUTPUT_HEALTH",
-  MEDIACONNECT_SOURCE_HEALTH: "MEDIACONNECT_SOURCE_HEALTH",
-  MEDIALIVE_CHANNEL_ALERT: "MEDIALIVE_CHANNEL_ALERT",
-  MEDIALIVE_CHANNEL_INPUT_CHANGE: "MEDIALIVE_CHANNEL_INPUT_CHANGE",
-  MEDIALIVE_CHANNEL_STATE_CHANGE: "MEDIALIVE_CHANNEL_STATE_CHANGE",
-  MEDIALIVE_MULTIPLEX_ALERT: "MEDIALIVE_MULTIPLEX_ALERT",
-  MEDIALIVE_MULTIPLEX_STATE_CHANGE: "MEDIALIVE_MULTIPLEX_STATE_CHANGE",
-  MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION: "MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION",
-  MEDIAPACKAGE_INPUT_NOTIFICATION: "MEDIAPACKAGE_INPUT_NOTIFICATION",
-  MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION: "MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION",
-  SIGNAL_MAP_ACTIVE_ALARM: "SIGNAL_MAP_ACTIVE_ALARM",
-} as const;
-
-/**
- * @public
- */
-export type EventBridgeRuleTemplateEventType =
-  (typeof EventBridgeRuleTemplateEventType)[keyof typeof EventBridgeRuleTemplateEventType];
-
-/**
  * Placeholder documentation for EventBridgeRuleTemplateSummary
  * @public
  */
@@ -4892,21 +3545,6 @@ export interface EventBridgeRuleTemplateTarget {
    */
   Arn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HlsAdMarkers = {
-  ADOBE: "ADOBE",
-  ELEMENTAL: "ELEMENTAL",
-  ELEMENTAL_SCTE35: "ELEMENTAL_SCTE35",
-} as const;
-
-/**
- * @public
- */
-export type HlsAdMarkers = (typeof HlsAdMarkers)[keyof typeof HlsAdMarkers];
 
 /**
  * A network route configuration.
@@ -4990,20 +3628,6 @@ export interface InputDestination {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputClass = {
-  SINGLE_PIPELINE: "SINGLE_PIPELINE",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type InputClass = (typeof InputClass)[keyof typeof InputClass];
-
-/**
  * Settings for an input device.
  * @public
  */
@@ -5014,34 +3638,6 @@ export interface InputDeviceSettings {
    */
   Id?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputNetworkLocation = {
-  AWS: "AWS",
-  ON_PREMISES: "ON_PREMISES",
-} as const;
-
-/**
- * @public
- */
-export type InputNetworkLocation = (typeof InputNetworkLocation)[keyof typeof InputNetworkLocation];
-
-/**
- * @public
- * @enum
- */
-export const InputSourceType = {
-  DYNAMIC: "DYNAMIC",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type InputSourceType = (typeof InputSourceType)[keyof typeof InputSourceType];
 
 /**
  * The settings for a MediaConnect Flow.
@@ -5178,21 +3774,6 @@ export interface InputSource {
 }
 
 /**
- * @public
- * @enum
- */
-export const Algorithm = {
-  AES128: "AES128",
-  AES192: "AES192",
-  AES256: "AES256",
-} as const;
-
-/**
- * @public
- */
-export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
-
-/**
  * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
  * @public
  */
@@ -5257,49 +3838,6 @@ export interface SrtSettings {
    */
   SrtCallerSources?: SrtCallerSource[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputState = {
-  ATTACHED: "ATTACHED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  DETACHED: "DETACHED",
-} as const;
-
-/**
- * @public
- */
-export type InputState = (typeof InputState)[keyof typeof InputState];
-
-/**
- * @public
- * @enum
- */
-export const InputType = {
-  AWS_CDI: "AWS_CDI",
-  INPUT_DEVICE: "INPUT_DEVICE",
-  MEDIACONNECT: "MEDIACONNECT",
-  MP4_FILE: "MP4_FILE",
-  MULTICAST: "MULTICAST",
-  RTMP_PULL: "RTMP_PULL",
-  RTMP_PUSH: "RTMP_PUSH",
-  RTP_PUSH: "RTP_PUSH",
-  SDI: "SDI",
-  SMPTE_2110_RECEIVER_GROUP: "SMPTE_2110_RECEIVER_GROUP",
-  SRT_CALLER: "SRT_CALLER",
-  TS_FILE: "TS_FILE",
-  UDP_PUSH: "UDP_PUSH",
-  URL_PULL: "URL_PULL",
-} as const;
-
-/**
- * @public
- */
-export type InputType = (typeof InputType)[keyof typeof InputType];
 
 /**
  * Placeholder documentation for Input
@@ -5488,27 +4026,6 @@ export interface InputDestinationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputDeviceConfigurableAudioChannelPairProfile = {
-  CBR_AAC_HQ_192000: "CBR-AAC_HQ-192000",
-  CBR_AAC_HQ_256000: "CBR-AAC_HQ-256000",
-  CBR_AAC_HQ_384000: "CBR-AAC_HQ-384000",
-  CBR_AAC_HQ_512000: "CBR-AAC_HQ-512000",
-  DISABLED: "DISABLED",
-  VBR_AAC_HE_64000: "VBR-AAC_HE-64000",
-  VBR_AAC_HHE_16000: "VBR-AAC_HHE-16000",
-  VBR_AAC_LC_128000: "VBR-AAC_LC-128000",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceConfigurableAudioChannelPairProfile =
-  (typeof InputDeviceConfigurableAudioChannelPairProfile)[keyof typeof InputDeviceConfigurableAudioChannelPairProfile];
-
-/**
  * One audio configuration that specifies the format for one audio pair that the device produces as output.
  * @public
  */
@@ -5537,106 +4054,6 @@ export interface InputDeviceRequest {
    */
   Id?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceConnectionState = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceConnectionState = (typeof InputDeviceConnectionState)[keyof typeof InputDeviceConnectionState];
-
-/**
- * @public
- * @enum
- */
-export const DeviceSettingsSyncState = {
-  SYNCED: "SYNCED",
-  SYNCING: "SYNCING",
-} as const;
-
-/**
- * @public
- */
-export type DeviceSettingsSyncState = (typeof DeviceSettingsSyncState)[keyof typeof DeviceSettingsSyncState];
-
-/**
- * @public
- * @enum
- */
-export const DeviceUpdateStatus = {
-  NOT_UP_TO_DATE: "NOT_UP_TO_DATE",
-  UPDATING: "UPDATING",
-  UP_TO_DATE: "UP_TO_DATE",
-} as const;
-
-/**
- * @public
- */
-export type DeviceUpdateStatus = (typeof DeviceUpdateStatus)[keyof typeof DeviceUpdateStatus];
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceActiveInput = {
-  HDMI: "HDMI",
-  SDI: "SDI",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceActiveInput = (typeof InputDeviceActiveInput)[keyof typeof InputDeviceActiveInput];
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceConfiguredInput = {
-  AUTO: "AUTO",
-  HDMI: "HDMI",
-  SDI: "SDI",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceConfiguredInput = (typeof InputDeviceConfiguredInput)[keyof typeof InputDeviceConfiguredInput];
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceState = {
-  IDLE: "IDLE",
-  STREAMING: "STREAMING",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceState = (typeof InputDeviceState)[keyof typeof InputDeviceState];
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceScanType = {
-  INTERLACED: "INTERLACED",
-  PROGRESSIVE: "PROGRESSIVE",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceScanType = (typeof InputDeviceScanType)[keyof typeof InputDeviceScanType];
 
 /**
  * Settings that describe the active source from the input device, and the video characteristics of that source.
@@ -5699,20 +4116,6 @@ export interface InputDeviceHdSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputDeviceIpScheme = {
-  DHCP: "DHCP",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceIpScheme = (typeof InputDeviceIpScheme)[keyof typeof InputDeviceIpScheme];
-
-/**
  * The network settings for the input device.
  * @public
  */
@@ -5749,56 +4152,6 @@ export interface InputDeviceNetworkSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputDeviceOutputType = {
-  MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
-  MEDIALIVE_INPUT: "MEDIALIVE_INPUT",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceOutputType = (typeof InputDeviceOutputType)[keyof typeof InputDeviceOutputType];
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceType = {
-  HD: "HD",
-  UHD: "UHD",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceType = (typeof InputDeviceType)[keyof typeof InputDeviceType];
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceUhdAudioChannelPairProfile = {
-  CBR_AAC_HQ_192000: "CBR-AAC_HQ-192000",
-  CBR_AAC_HQ_256000: "CBR-AAC_HQ-256000",
-  CBR_AAC_HQ_384000: "CBR-AAC_HQ-384000",
-  CBR_AAC_HQ_512000: "CBR-AAC_HQ-512000",
-  DISABLED: "DISABLED",
-  VBR_AAC_HE_64000: "VBR-AAC_HE-64000",
-  VBR_AAC_HHE_16000: "VBR-AAC_HHE-16000",
-  VBR_AAC_LC_128000: "VBR-AAC_LC-128000",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceUhdAudioChannelPairProfile =
-  (typeof InputDeviceUhdAudioChannelPairProfile)[keyof typeof InputDeviceUhdAudioChannelPairProfile];
-
-/**
  * One audio configuration that specifies the format for one audio pair that the device produces as output.
  * @public
  */
@@ -5815,20 +4168,6 @@ export interface InputDeviceUhdAudioChannelPairConfig {
    */
   Profile?: InputDeviceUhdAudioChannelPairProfile | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputDeviceCodec = {
-  AVC: "AVC",
-  HEVC: "HEVC",
-} as const;
-
-/**
- * @public
- */
-export type InputDeviceCodec = (typeof InputDeviceCodec)[keyof typeof InputDeviceCodec];
 
 /**
  * Information about the MediaConnect flow attached to the device.
@@ -6045,22 +4384,6 @@ export interface InputDeviceSummary {
    */
   OutputType?: InputDeviceOutputType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputSecurityGroupState = {
-  DELETED: "DELETED",
-  IDLE: "IDLE",
-  IN_USE: "IN_USE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type InputSecurityGroupState = (typeof InputSecurityGroupState)[keyof typeof InputSecurityGroupState];
 
 /**
  * Whitelist rule
@@ -6280,20 +4603,6 @@ export interface MulticastSourceUpdateRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MultiplexAlertState = {
-  CLEARED: "CLEARED",
-  SET: "SET",
-} as const;
-
-/**
- * @public
- */
-export type MultiplexAlertState = (typeof MultiplexAlertState)[keyof typeof MultiplexAlertState];
-
-/**
  * An alert on a multiplex
  * @public
  */
@@ -6414,27 +4723,6 @@ export interface MultiplexSettingsSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const MultiplexState = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  IDLE: "IDLE",
-  RECOVERING: "RECOVERING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type MultiplexState = (typeof MultiplexState)[keyof typeof MultiplexState];
-
-/**
  * Placeholder documentation for MultiplexSummary
  * @public
  */
@@ -6517,143 +4805,6 @@ export interface NodeInterfaceMappingCreateRequest {
    */
   PhysicalInterfaceName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OfferingDurationUnits = {
-  MONTHS: "MONTHS",
-} as const;
-
-/**
- * @public
- */
-export type OfferingDurationUnits = (typeof OfferingDurationUnits)[keyof typeof OfferingDurationUnits];
-
-/**
- * @public
- * @enum
- */
-export const OfferingType = {
-  NO_UPFRONT: "NO_UPFRONT",
-} as const;
-
-/**
- * @public
- */
-export type OfferingType = (typeof OfferingType)[keyof typeof OfferingType];
-
-/**
- * @public
- * @enum
- */
-export const ReservationCodec = {
-  AUDIO: "AUDIO",
-  AV1: "AV1",
-  AVC: "AVC",
-  HEVC: "HEVC",
-  LINK: "LINK",
-  MPEG2: "MPEG2",
-} as const;
-
-/**
- * @public
- */
-export type ReservationCodec = (typeof ReservationCodec)[keyof typeof ReservationCodec];
-
-/**
- * @public
- * @enum
- */
-export const ReservationMaximumBitrate = {
-  MAX_10_MBPS: "MAX_10_MBPS",
-  MAX_20_MBPS: "MAX_20_MBPS",
-  MAX_50_MBPS: "MAX_50_MBPS",
-} as const;
-
-/**
- * @public
- */
-export type ReservationMaximumBitrate = (typeof ReservationMaximumBitrate)[keyof typeof ReservationMaximumBitrate];
-
-/**
- * @public
- * @enum
- */
-export const ReservationMaximumFramerate = {
-  MAX_30_FPS: "MAX_30_FPS",
-  MAX_60_FPS: "MAX_60_FPS",
-} as const;
-
-/**
- * @public
- */
-export type ReservationMaximumFramerate =
-  (typeof ReservationMaximumFramerate)[keyof typeof ReservationMaximumFramerate];
-
-/**
- * @public
- * @enum
- */
-export const ReservationResolution = {
-  FHD: "FHD",
-  HD: "HD",
-  SD: "SD",
-  UHD: "UHD",
-} as const;
-
-/**
- * @public
- */
-export type ReservationResolution = (typeof ReservationResolution)[keyof typeof ReservationResolution];
-
-/**
- * @public
- * @enum
- */
-export const ReservationResourceType = {
-  CHANNEL: "CHANNEL",
-  INPUT: "INPUT",
-  MULTIPLEX: "MULTIPLEX",
-  OUTPUT: "OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type ReservationResourceType = (typeof ReservationResourceType)[keyof typeof ReservationResourceType];
-
-/**
- * @public
- * @enum
- */
-export const ReservationSpecialFeature = {
-  ADVANCED_AUDIO: "ADVANCED_AUDIO",
-  AUDIO_NORMALIZATION: "AUDIO_NORMALIZATION",
-  MGHD: "MGHD",
-  MGUHD: "MGUHD",
-} as const;
-
-/**
- * @public
- */
-export type ReservationSpecialFeature = (typeof ReservationSpecialFeature)[keyof typeof ReservationSpecialFeature];
-
-/**
- * @public
- * @enum
- */
-export const ReservationVideoQuality = {
-  ENHANCED: "ENHANCED",
-  PREMIUM: "PREMIUM",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ReservationVideoQuality = (typeof ReservationVideoQuality)[keyof typeof ReservationVideoQuality];
 
 /**
  * Resource configuration (codec, resolution, bitrate, ...)
@@ -6782,105 +4933,6 @@ export interface Offering {
 }
 
 /**
- * @public
- * @enum
- */
-export const M2tsAbsentInputAudioBehavior = {
-  DROP: "DROP",
-  ENCODE_SILENCE: "ENCODE_SILENCE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAbsentInputAudioBehavior =
-  (typeof M2tsAbsentInputAudioBehavior)[keyof typeof M2tsAbsentInputAudioBehavior];
-
-/**
- * @public
- * @enum
- */
-export const M2tsArib = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type M2tsArib = (typeof M2tsArib)[keyof typeof M2tsArib];
-
-/**
- * @public
- * @enum
- */
-export const M2tsAribCaptionsPidControl = {
-  AUTO: "AUTO",
-  USE_CONFIGURED: "USE_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAribCaptionsPidControl = (typeof M2tsAribCaptionsPidControl)[keyof typeof M2tsAribCaptionsPidControl];
-
-/**
- * @public
- * @enum
- */
-export const M2tsAudioBufferModel = {
-  ATSC: "ATSC",
-  DVB: "DVB",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAudioBufferModel = (typeof M2tsAudioBufferModel)[keyof typeof M2tsAudioBufferModel];
-
-/**
- * @public
- * @enum
- */
-export const M2tsAudioStreamType = {
-  ATSC: "ATSC",
-  DVB: "DVB",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAudioStreamType = (typeof M2tsAudioStreamType)[keyof typeof M2tsAudioStreamType];
-
-/**
- * @public
- * @enum
- */
-export const M2tsBufferModel = {
-  MULTIPLEX: "MULTIPLEX",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsBufferModel = (typeof M2tsBufferModel)[keyof typeof M2tsBufferModel];
-
-/**
- * @public
- * @enum
- */
-export const M2tsCcDescriptor = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type M2tsCcDescriptor = (typeof M2tsCcDescriptor)[keyof typeof M2tsCcDescriptor];
-
-/**
  * DVB Network Information Table (NIT)
  * @public
  */
@@ -6903,22 +4955,6 @@ export interface DvbNitSettings {
    */
   RepInterval?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DvbSdtOutputSdt = {
-  SDT_FOLLOW: "SDT_FOLLOW",
-  SDT_FOLLOW_IF_PRESENT: "SDT_FOLLOW_IF_PRESENT",
-  SDT_MANUAL: "SDT_MANUAL",
-  SDT_NONE: "SDT_NONE",
-} as const;
-
-/**
- * @public
- */
-export type DvbSdtOutputSdt = (typeof DvbSdtOutputSdt)[keyof typeof DvbSdtOutputSdt];
 
 /**
  * DVB Service Description Table (SDT)
@@ -6960,4 +4996,5229 @@ export interface DvbTdtSettings {
    * @public
    */
   RepInterval?: number | undefined;
+}
+
+/**
+ * M2ts Settings
+ * @public
+ */
+export interface M2tsSettings {
+  /**
+   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
+   * @public
+   */
+  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | undefined;
+
+  /**
+   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
+   * @public
+   */
+  Arib?: M2tsArib | undefined;
+
+  /**
+   * Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  AribCaptionsPid?: string | undefined;
+
+  /**
+   * If set to auto, pid number used for ARIB Captions will be auto-selected from unused pids.  If set to useConfigured, ARIB Captions will be on the configured pid number.
+   * @public
+   */
+  AribCaptionsPidControl?: M2tsAribCaptionsPidControl | undefined;
+
+  /**
+   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
+   * @public
+   */
+  AudioBufferModel?: M2tsAudioBufferModel | undefined;
+
+  /**
+   * The number of audio frames to insert for each PES packet.
+   * @public
+   */
+  AudioFramesPerPes?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values. Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  AudioPids?: string | undefined;
+
+  /**
+   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
+   * @public
+   */
+  AudioStreamType?: M2tsAudioStreamType | undefined;
+
+  /**
+   * The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Controls the timing accuracy for output network traffic. Leave as MULTIPLEX to ensure accurate network packet timing. Or set to NONE, which might result in lower latency but will result in more variability in output network packet timing. This variability might cause interruptions, jitter, or bursty behavior in your playback or receiving devices.
+   * @public
+   */
+  BufferModel?: M2tsBufferModel | undefined;
+
+  /**
+   * When set to enabled, generates captionServiceDescriptor in PMT.
+   * @public
+   */
+  CcDescriptor?: M2tsCcDescriptor | undefined;
+
+  /**
+   * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
+   * @public
+   */
+  DvbNitSettings?: DvbNitSettings | undefined;
+
+  /**
+   * Inserts DVB Service Description Table (SDT) at the specified table repetition interval.
+   * @public
+   */
+  DvbSdtSettings?: DvbSdtSettings | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source DVB Subtitle data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  DvbSubPids?: string | undefined;
+
+  /**
+   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
+   * @public
+   */
+  DvbTdtSettings?: DvbTdtSettings | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source DVB Teletext data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  DvbTeletextPid?: string | undefined;
+
+  /**
+   * If set to passthrough, passes any EBIF data from the input source to this output.
+   * @public
+   */
+  Ebif?: M2tsEbifControl | undefined;
+
+  /**
+   * When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval.
+   * @public
+   */
+  EbpAudioInterval?: M2tsAudioInterval | undefined;
+
+  /**
+   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+   * @public
+   */
+  EbpLookaheadMs?: number | undefined;
+
+  /**
+   * Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP markers will be placed on the video PID and all audio PIDs.  If set to videoPid, EBP markers will be placed on only the video PID.
+   * @public
+   */
+  EbpPlacement?: M2tsEbpPlacement | undefined;
+
+  /**
+   * This field is unused and deprecated.
+   * @public
+   */
+  EcmPid?: string | undefined;
+
+  /**
+   * Include or exclude the ES Rate field in the PES header.
+   * @public
+   */
+  EsRateInPes?: M2tsEsRateInPes | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source ETV Platform data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  EtvPlatformPid?: string | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source ETV Signal data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  EtvSignalPid?: string | undefined;
+
+  /**
+   * The length in seconds of each fragment. Only used with EBP markers.
+   * @public
+   */
+  FragmentTime?: number | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  Klv?: M2tsKlv | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  KlvDataPids?: string | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: M2tsNielsenId3Behavior | undefined;
+
+  /**
+   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
+   * @public
+   */
+  NullPacketBitrate?: number | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.  Valid values are 0, 10..1000.
+   * @public
+   */
+  PatInterval?: number | undefined;
+
+  /**
+   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   * @public
+   */
+  PcrControl?: M2tsPcrControl | undefined;
+
+  /**
+   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
+   * @public
+   */
+  PcrPeriod?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  PcrPid?: string | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. Valid values are 0, 10..1000.
+   * @public
+   */
+  PmtInterval?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  PmtPid?: string | undefined;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   * @public
+   */
+  ProgramNum?: number | undefined;
+
+  /**
+   * When vbr, does not insert null packets into transport stream to fill specified bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
+   * @public
+   */
+  RateMode?: M2tsRateMode | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  Scte27Pids?: string | undefined;
+
+  /**
+   * Optionally pass SCTE-35 signals from the input source to this output.
+   * @public
+   */
+  Scte35Control?: M2tsScte35Control | undefined;
+
+  /**
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  Scte35Pid?: string | undefined;
+
+  /**
+   * Inserts segmentation markers at each segmentationTime period. raiSegstart sets the Random Access Indicator bit in the adaptation field. raiAdapt sets the RAI bit and adds the current timecode in the private data bytes. psiSegstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
+   * @public
+   */
+  SegmentationMarkers?: M2tsSegmentationMarkers | undefined;
+
+  /**
+   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.
+   *
+   * When a segmentation style of "resetCadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of $segmentationTime seconds.
+   *
+   * When a segmentation style of "maintainCadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule.
+   * @public
+   */
+  SegmentationStyle?: M2tsSegmentationStyle | undefined;
+
+  /**
+   * The length in seconds of each segment. Required unless markers is set to _none_.
+   * @public
+   */
+  SegmentationTime?: number | undefined;
+
+  /**
+   * When set to passthrough, timed metadata will be passed through from input to output.
+   * @public
+   */
+  TimedMetadataBehavior?: M2tsTimedMetadataBehavior | undefined;
+
+  /**
+   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  TimedMetadataPid?: string | undefined;
+
+  /**
+   * The value of the transport stream ID field in the Program Map Table.
+   * @public
+   */
+  TransportStreamId?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  VideoPid?: string | undefined;
+
+  /**
+   * Defines the amount SCTE-35 preroll will be increased (in milliseconds) on the output. Preroll is the amount of time between the presence of a SCTE-35 indication in a transport stream and the PTS of the video frame it references. Zero means don't add pullup (it doesn't mean set the preroll to zero). Negative pullup is not supported, which means that you can't make the preroll shorter. Be aware that latency in the output will increase by the pullup amount.
+   * @public
+   */
+  Scte35PrerollPullupMilliseconds?: number | undefined;
+}
+
+/**
+ * Raw Settings
+ * @public
+ */
+export interface RawSettings {}
+
+/**
+ * Archive Container Settings
+ * @public
+ */
+export interface ArchiveContainerSettings {
+  /**
+   * M2ts Settings
+   * @public
+   */
+  M2tsSettings?: M2tsSettings | undefined;
+
+  /**
+   * Raw Settings
+   * @public
+   */
+  RawSettings?: RawSettings | undefined;
+}
+
+/**
+ * Archive Output Settings
+ * @public
+ */
+export interface ArchiveOutputSettings {
+  /**
+   * Container for this output. Can be auto-detected from extension field.
+   * @public
+   */
+  ContainerSettings: ArchiveContainerSettings | undefined;
+
+  /**
+   * Output file extension. If excluded, this will be auto-selected from the container type.
+   * @public
+   */
+  Extension?: string | undefined;
+
+  /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * @public
+   */
+  NameModifier?: string | undefined;
+}
+
+/**
+ * Cmaf Ingest Output Settings
+ * @public
+ */
+export interface CmafIngestOutputSettings {
+  /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * @public
+   */
+  NameModifier?: string | undefined;
+}
+
+/**
+ * Frame Capture Output Settings
+ * @public
+ */
+export interface FrameCaptureOutputSettings {
+  /**
+   * Required if the output group contains more than one output. This modifier forms part of the output file name.
+   * @public
+   */
+  NameModifier?: string | undefined;
+}
+
+/**
+ * Audio Only Hls Settings
+ * @public
+ */
+export interface AudioOnlyHlsSettings {
+  /**
+   * Specifies the group to which the audio Rendition belongs.
+   * @public
+   */
+  AudioGroupId?: string | undefined;
+
+  /**
+   * Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
+   *
+   * The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
+   * @public
+   */
+  AudioOnlyImage?: InputLocation | undefined;
+
+  /**
+   * Four types of audio-only tracks are supported:
+   *
+   * Audio-Only Variant Stream
+   * The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.
+   *
+   * Alternate Audio, Auto Select, Default
+   * Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES
+   *
+   * Alternate Audio, Auto Select, Not Default
+   * Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES
+   *
+   * Alternate Audio, not Auto Select
+   * Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
+   * @public
+   */
+  AudioTrackType?: AudioOnlyHlsTrackType | undefined;
+
+  /**
+   * Specifies the segment type.
+   * @public
+   */
+  SegmentType?: AudioOnlyHlsSegmentType | undefined;
+}
+
+/**
+ * Fmp4 Hls Settings
+ * @public
+ */
+export interface Fmp4HlsSettings {
+  /**
+   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   * @public
+   */
+  AudioRenditionSets?: string | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: Fmp4NielsenId3Behavior | undefined;
+
+  /**
+   * Set to PASSTHROUGH to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group or individual outputs, or you add an ID3 action to the channel schedule.
+   * @public
+   */
+  TimedMetadataBehavior?: Fmp4TimedMetadataBehavior | undefined;
+}
+
+/**
+ * Frame Capture Hls Settings
+ * @public
+ */
+export interface FrameCaptureHlsSettings {}
+
+/**
+ * Settings information for the .m3u8 container
+ * @public
+ */
+export interface M3u8Settings {
+  /**
+   * The number of audio frames to insert for each PES packet.
+   * @public
+   */
+  AudioFramesPerPes?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
+   * @public
+   */
+  AudioPids?: string | undefined;
+
+  /**
+   * This parameter is unused and deprecated.
+   * @public
+   */
+  EcmPid?: string | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: M3u8NielsenId3Behavior | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+   * @public
+   */
+  PatInterval?: number | undefined;
+
+  /**
+   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   * @public
+   */
+  PcrControl?: M3u8PcrControl | undefined;
+
+  /**
+   * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
+   * @public
+   */
+  PcrPeriod?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  PcrPid?: string | undefined;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+   * @public
+   */
+  PmtInterval?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  PmtPid?: string | undefined;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   * @public
+   */
+  ProgramNum?: number | undefined;
+
+  /**
+   * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
+   * @public
+   */
+  Scte35Behavior?: M3u8Scte35Behavior | undefined;
+
+  /**
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  Scte35Pid?: string | undefined;
+
+  /**
+   * Set to PASSTHROUGH to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group or individual outputs, or you add an ID3 action to the channel schedule.
+   * @public
+   */
+  TimedMetadataBehavior?: M3u8TimedMetadataBehavior | undefined;
+
+  /**
+   * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  TimedMetadataPid?: string | undefined;
+
+  /**
+   * The value of the transport stream ID field in the Program Map Table.
+   * @public
+   */
+  TransportStreamId?: number | undefined;
+
+  /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+   * @public
+   */
+  VideoPid?: string | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  KlvBehavior?: M3u8KlvBehavior | undefined;
+
+  /**
+   * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
+   * @public
+   */
+  KlvDataPids?: string | undefined;
+}
+
+/**
+ * Standard Hls Settings
+ * @public
+ */
+export interface StandardHlsSettings {
+  /**
+   * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+   * @public
+   */
+  AudioRenditionSets?: string | undefined;
+
+  /**
+   * Settings information for the .m3u8 container
+   * @public
+   */
+  M3u8Settings: M3u8Settings | undefined;
+}
+
+/**
+ * Hls Settings
+ * @public
+ */
+export interface HlsSettings {
+  /**
+   * Audio Only Hls Settings
+   * @public
+   */
+  AudioOnlyHlsSettings?: AudioOnlyHlsSettings | undefined;
+
+  /**
+   * Fmp4 Hls Settings
+   * @public
+   */
+  Fmp4HlsSettings?: Fmp4HlsSettings | undefined;
+
+  /**
+   * Frame Capture Hls Settings
+   * @public
+   */
+  FrameCaptureHlsSettings?: FrameCaptureHlsSettings | undefined;
+
+  /**
+   * Standard Hls Settings
+   * @public
+   */
+  StandardHlsSettings?: StandardHlsSettings | undefined;
+}
+
+/**
+ * Hls Output Settings
+ * @public
+ */
+export interface HlsOutputSettings {
+  /**
+   * Only applicable when this output is referencing an H.265 video description.
+   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+   * @public
+   */
+  H265PackagingType?: HlsH265PackagingType | undefined;
+
+  /**
+   * Settings regarding the underlying stream. These settings are different for audio-only outputs.
+   * @public
+   */
+  HlsSettings: HlsSettings | undefined;
+
+  /**
+   * String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
+   * @public
+   */
+  NameModifier?: string | undefined;
+
+  /**
+   * String concatenated to end of segment filenames.
+   * @public
+   */
+  SegmentModifier?: string | undefined;
+}
+
+/**
+ * Media Package V2 Destination Settings
+ * @public
+ */
+export interface MediaPackageV2DestinationSettings {
+  /**
+   * Applies only to an output that contains audio. If you want to put several audio encodes into one audio rendition group, decide on a name (ID) for the group. Then in every audio output that you want to belong to that group, enter that ID in this field. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
+   * @public
+   */
+  AudioGroupId?: string | undefined;
+
+  /**
+   * Applies only to an output that contains video, and only if you want to associate one or more audio groups to this video. In this field you assign the groups that you create (in the Group ID fields in the various audio outputs). Enter one group ID, or enter a comma-separated list of group IDs. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player.
+   * @public
+   */
+  AudioRenditionSets?: string | undefined;
+
+  /**
+   * Specifies whether MediaPackage should set this output as the auto-select rendition in the HLS manifest. YES means this must be the auto-select. NO means this should never be the auto-select. OMIT means MediaPackage decides what to set on this rendition.
+   * When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
+   * @public
+   */
+  HlsAutoSelect?: HlsAutoSelect | undefined;
+
+  /**
+   * Specifies whether MediaPackage should set this output as the default rendition in the HLS manifest. YES means this must be the default. NO means this should never be the default. OMIT means MediaPackage decides what to set on this rendition.
+   * When you consider all the renditions, follow these guidelines. You can set zero or one renditions to YES. You can set zero or more renditions to NO, but you can't set all renditions to NO. You can set zero, some, or all to OMIT.
+   * @public
+   */
+  HlsDefault?: HlsDefault | undefined;
+}
+
+/**
+ * Media Package Output Settings
+ * @public
+ */
+export interface MediaPackageOutputSettings {
+  /**
+   * Optional settings for MediaPackage V2 destinations
+   * @public
+   */
+  MediaPackageV2DestinationSettings?: MediaPackageV2DestinationSettings | undefined;
+}
+
+/**
+ * Ms Smooth Output Settings
+ * @public
+ */
+export interface MsSmoothOutputSettings {
+  /**
+   * Only applicable when this output is referencing an H.265 video description.
+   * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+   * @public
+   */
+  H265PackagingType?: MsSmoothH265PackagingType | undefined;
+
+  /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * @public
+   */
+  NameModifier?: string | undefined;
+}
+
+/**
+ * Multiplex M2ts Settings
+ * @public
+ */
+export interface MultiplexM2tsSettings {
+  /**
+   * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
+   * @public
+   */
+  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | undefined;
+
+  /**
+   * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
+   * @public
+   */
+  Arib?: M2tsArib | undefined;
+
+  /**
+   * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
+   * @public
+   */
+  AudioBufferModel?: M2tsAudioBufferModel | undefined;
+
+  /**
+   * The number of audio frames to insert for each PES packet.
+   * @public
+   */
+  AudioFramesPerPes?: number | undefined;
+
+  /**
+   * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
+   * @public
+   */
+  AudioStreamType?: M2tsAudioStreamType | undefined;
+
+  /**
+   * When set to enabled, generates captionServiceDescriptor in PMT.
+   * @public
+   */
+  CcDescriptor?: M2tsCcDescriptor | undefined;
+
+  /**
+   * If set to passthrough, passes any EBIF data from the input source to this output.
+   * @public
+   */
+  Ebif?: M2tsEbifControl | undefined;
+
+  /**
+   * Include or exclude the ES Rate field in the PES header.
+   * @public
+   */
+  EsRateInPes?: M2tsEsRateInPes | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  Klv?: M2tsKlv | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: M2tsNielsenId3Behavior | undefined;
+
+  /**
+   * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   * @public
+   */
+  PcrControl?: M2tsPcrControl | undefined;
+
+  /**
+   * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
+   * @public
+   */
+  PcrPeriod?: number | undefined;
+
+  /**
+   * Optionally pass SCTE-35 signals from the input source to this output.
+   * @public
+   */
+  Scte35Control?: M2tsScte35Control | undefined;
+
+  /**
+   * Defines the amount SCTE-35 preroll will be increased (in milliseconds) on the output. Preroll is the amount of time between the presence of a SCTE-35 indication in a transport stream and the PTS of the video frame it references. Zero means don't add pullup (it doesn't mean set the preroll to zero). Negative pullup is not supported, which means that you can't make the preroll shorter. Be aware that latency in the output will increase by the pullup amount.
+   * @public
+   */
+  Scte35PrerollPullupMilliseconds?: number | undefined;
+}
+
+/**
+ * Multiplex Container Settings
+ * @public
+ */
+export interface MultiplexContainerSettings {
+  /**
+   * Multiplex M2ts Settings
+   * @public
+   */
+  MultiplexM2tsSettings?: MultiplexM2tsSettings | undefined;
+}
+
+/**
+ * Multiplex Output Settings
+ * @public
+ */
+export interface MultiplexOutputSettings {
+  /**
+   * Destination is a Multiplex.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Multiplex Container Settings
+   * @public
+   */
+  ContainerSettings?: MultiplexContainerSettings | undefined;
+}
+
+/**
+ * Rtmp Output Settings
+ * @public
+ */
+export interface RtmpOutputSettings {
+  /**
+   * If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
+   * @public
+   */
+  CertificateMode?: RtmpOutputCertificateMode | undefined;
+
+  /**
+   * Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number | undefined;
+
+  /**
+   * The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Number of retry attempts.
+   * @public
+   */
+  NumRetries?: number | undefined;
+}
+
+/**
+ * Udp Container Settings
+ * @public
+ */
+export interface UdpContainerSettings {
+  /**
+   * M2ts Settings
+   * @public
+   */
+  M2tsSettings?: M2tsSettings | undefined;
+}
+
+/**
+ * Srt Output Settings
+ * @public
+ */
+export interface SrtOutputSettings {
+  /**
+   * SRT output buffering in milliseconds. A higher value increases latency through the encoder. But the benefits are that it helps to maintain a constant, low-jitter SRT output, and it accommodates clock recovery, input switching, input disruptions, picture reordering, and so on. Range: 0-10000 milliseconds.
+   * @public
+   */
+  BufferMsec?: number | undefined;
+
+  /**
+   * Udp Container Settings
+   * @public
+   */
+  ContainerSettings: UdpContainerSettings | undefined;
+
+  /**
+   * Reference to an OutputDestination ID defined in the channel
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * The encryption level for the content. Valid values are AES128, AES192, AES256. You and the downstream system should plan how to set this field because the values must not conflict with each other.
+   * @public
+   */
+  EncryptionType?: SrtEncryptionType | undefined;
+
+  /**
+   * The latency value, in milliseconds, that is proposed during the SRT connection handshake. SRT will choose the maximum of the values proposed by the sender and receiver. On the sender side, latency is the amount of time a packet is held to give it a chance to be delivered successfully. On the receiver side, latency is the amount of time the packet is held before delivering to the application, aiding in packet recovery and matching as closely as possible the packet timing of the sender. Range: 40-16000 milliseconds.
+   * @public
+   */
+  Latency?: number | undefined;
+}
+
+/**
+ * Fec Output Settings
+ * @public
+ */
+export interface FecOutputSettings {
+  /**
+   * Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
+   * @public
+   */
+  ColumnDepth?: number | undefined;
+
+  /**
+   * Enables column only or column and row based FEC
+   * @public
+   */
+  IncludeFec?: FecOutputIncludeFec | undefined;
+
+  /**
+   * Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
+   * @public
+   */
+  RowLength?: number | undefined;
+}
+
+/**
+ * Udp Output Settings
+ * @public
+ */
+export interface UdpOutputSettings {
+  /**
+   * UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+   * @public
+   */
+  BufferMsec?: number | undefined;
+
+  /**
+   * Udp Container Settings
+   * @public
+   */
+  ContainerSettings: UdpContainerSettings | undefined;
+
+  /**
+   * Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+   * @public
+   */
+  FecOutputSettings?: FecOutputSettings | undefined;
+}
+
+/**
+ * Output Settings
+ * @public
+ */
+export interface OutputSettings {
+  /**
+   * Archive Output Settings
+   * @public
+   */
+  ArchiveOutputSettings?: ArchiveOutputSettings | undefined;
+
+  /**
+   * Frame Capture Output Settings
+   * @public
+   */
+  FrameCaptureOutputSettings?: FrameCaptureOutputSettings | undefined;
+
+  /**
+   * Hls Output Settings
+   * @public
+   */
+  HlsOutputSettings?: HlsOutputSettings | undefined;
+
+  /**
+   * Media Package Output Settings
+   * @public
+   */
+  MediaPackageOutputSettings?: MediaPackageOutputSettings | undefined;
+
+  /**
+   * Ms Smooth Output Settings
+   * @public
+   */
+  MsSmoothOutputSettings?: MsSmoothOutputSettings | undefined;
+
+  /**
+   * Multiplex Output Settings
+   * @public
+   */
+  MultiplexOutputSettings?: MultiplexOutputSettings | undefined;
+
+  /**
+   * Rtmp Output Settings
+   * @public
+   */
+  RtmpOutputSettings?: RtmpOutputSettings | undefined;
+
+  /**
+   * Udp Output Settings
+   * @public
+   */
+  UdpOutputSettings?: UdpOutputSettings | undefined;
+
+  /**
+   * Cmaf Ingest Output Settings
+   * @public
+   */
+  CmafIngestOutputSettings?: CmafIngestOutputSettings | undefined;
+
+  /**
+   * Srt Output Settings
+   * @public
+   */
+  SrtOutputSettings?: SrtOutputSettings | undefined;
+}
+
+/**
+ * Output settings. There can be multiple outputs within a group.
+ * @public
+ */
+export interface Output {
+  /**
+   * The names of the AudioDescriptions used as audio sources for this output.
+   * @public
+   */
+  AudioDescriptionNames?: string[] | undefined;
+
+  /**
+   * The names of the CaptionDescriptions used as caption sources for this output.
+   * @public
+   */
+  CaptionDescriptionNames?: string[] | undefined;
+
+  /**
+   * The name used to identify an output.
+   * @public
+   */
+  OutputName?: string | undefined;
+
+  /**
+   * Output type-specific settings.
+   * @public
+   */
+  OutputSettings: OutputSettings | undefined;
+
+  /**
+   * The name of the VideoDescription used as the source for this output.
+   * @public
+   */
+  VideoDescriptionName?: string | undefined;
+}
+
+/**
+ * Archive S3 Settings
+ * @public
+ */
+export interface ArchiveS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   * @public
+   */
+  CannedAcl?: S3CannedAcl | undefined;
+}
+
+/**
+ * Archive Cdn Settings
+ * @public
+ */
+export interface ArchiveCdnSettings {
+  /**
+   * Archive S3 Settings
+   * @public
+   */
+  ArchiveS3Settings?: ArchiveS3Settings | undefined;
+}
+
+/**
+ * Archive Group Settings
+ * @public
+ */
+export interface ArchiveGroupSettings {
+  /**
+   * Parameters that control interactions with the CDN.
+   * @public
+   */
+  ArchiveCdnSettings?: ArchiveCdnSettings | undefined;
+
+  /**
+   * A directory and base filename where archive files should be written.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Number of seconds to write to archive file before closing and starting a new one.
+   * @public
+   */
+  RolloverInterval?: number | undefined;
+}
+
+/**
+ * Cmaf Ingest Group Settings
+ * @public
+ */
+export interface CmafIngestGroupSettings {
+  /**
+   * A HTTP destination for the tracks
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
+
+  /**
+   * Type of scte35 track to add. none or scte35WithoutSegmentation
+   * @public
+   */
+  Scte35Type?: Scte35Type | undefined;
+
+  /**
+   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
+   * @public
+   */
+  SegmentLength?: number | undefined;
+
+  /**
+   * Time unit for segment length parameter.
+   * @public
+   */
+  SegmentLengthUnits?: CmafIngestSegmentLengthUnits | undefined;
+
+  /**
+   * Number of milliseconds to delay the output from the second pipeline.
+   * @public
+   */
+  SendDelayMs?: number | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  KlvBehavior?: CmafKLVBehavior | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies a KLV track. The default is "klv", which means the default name will be Streams(klv.cmfm). Any string you enter here will replace the "klv" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  KlvNameModifier?: string | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies a Nielsen ID3 track. The default is "nid3", which means the default name will be Streams(nid3.cmfm). Any string you enter here will replace the "nid3" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  NielsenId3NameModifier?: string | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name for a SCTE 35 track. The default is "scte", which means the default name will be Streams(scte.cmfm). Any string you enter here will replace the "scte" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  Scte35NameModifier?: string | undefined;
+
+  /**
+   * Set to ENABLED to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group, or you add an ID3 action to the channel schedule.
+   * @public
+   */
+  Id3Behavior?: CmafId3Behavior | undefined;
+
+  /**
+   * Change the modifier that MediaLive automatically adds to the Streams() name that identifies an ID3 track. The default is "id3", which means the default name will be Streams(id3.cmfm). Any string you enter here will replace the "id3" string.\nThe modifier can only contain: numbers, letters, plus (+), minus (-), underscore (_) and period (.) and has a maximum length of 100 characters.
+   * @public
+   */
+  Id3NameModifier?: string | undefined;
+
+  /**
+   * An array that identifies the languages in the four caption channels in the embedded captions.
+   * @public
+   */
+  CaptionLanguageMappings?: CmafIngestCaptionLanguageMapping[] | undefined;
+
+  /**
+   * Set to none if you don't want to insert a timecode in the output. Otherwise choose the frame type for the timecode.
+   * @public
+   */
+  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame | undefined;
+
+  /**
+   * If you set up to insert a timecode in the output, specify the frequency for the frame, in seconds.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+
+  /**
+   * Set to enabled to pass through ID3 metadata from the input sources.
+   * @public
+   */
+  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
+
+  /**
+   * Optional an array of additional destinational HTTP destinations for the OutputGroup outputs
+   * @public
+   */
+  AdditionalDestinations?: AdditionalDestinations[] | undefined;
+}
+
+/**
+ * Frame Capture S3 Settings
+ * @public
+ */
+export interface FrameCaptureS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   * @public
+   */
+  CannedAcl?: S3CannedAcl | undefined;
+}
+
+/**
+ * Frame Capture Cdn Settings
+ * @public
+ */
+export interface FrameCaptureCdnSettings {
+  /**
+   * Frame Capture S3 Settings
+   * @public
+   */
+  FrameCaptureS3Settings?: FrameCaptureS3Settings | undefined;
+}
+
+/**
+ * Frame Capture Group Settings
+ * @public
+ */
+export interface FrameCaptureGroupSettings {
+  /**
+   * The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Parameters that control interactions with the CDN.
+   * @public
+   */
+  FrameCaptureCdnSettings?: FrameCaptureCdnSettings | undefined;
+}
+
+/**
+ * Hls Akamai Settings
+ * @public
+ */
+export interface HlsAkamaiSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number | undefined;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number | undefined;
+
+  /**
+   * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
+   * @public
+   */
+  HttpTransferMode?: HlsAkamaiHttpTransferMode | undefined;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number | undefined;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number | undefined;
+
+  /**
+   * Salt for authenticated Akamai.
+   * @public
+   */
+  Salt?: string | undefined;
+
+  /**
+   * Token parameter for authenticated akamai. If not specified, _gda_ is used.
+   * @public
+   */
+  Token?: string | undefined;
+}
+
+/**
+ * Hls Basic Put Settings
+ * @public
+ */
+export interface HlsBasicPutSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number | undefined;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number | undefined;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number | undefined;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number | undefined;
+}
+
+/**
+ * Hls Media Store Settings
+ * @public
+ */
+export interface HlsMediaStoreSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number | undefined;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number | undefined;
+
+  /**
+   * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
+   * @public
+   */
+  MediaStoreStorageClass?: HlsMediaStoreStorageClass | undefined;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number | undefined;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number | undefined;
+}
+
+/**
+ * Hls S3 Settings
+ * @public
+ */
+export interface HlsS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   * @public
+   */
+  CannedAcl?: S3CannedAcl | undefined;
+}
+
+/**
+ * Hls Webdav Settings
+ * @public
+ */
+export interface HlsWebdavSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number | undefined;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number | undefined;
+
+  /**
+   * Specify whether or not to use chunked transfer encoding to WebDAV.
+   * @public
+   */
+  HttpTransferMode?: HlsWebdavHttpTransferMode | undefined;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number | undefined;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number | undefined;
+}
+
+/**
+ * Hls Cdn Settings
+ * @public
+ */
+export interface HlsCdnSettings {
+  /**
+   * Hls Akamai Settings
+   * @public
+   */
+  HlsAkamaiSettings?: HlsAkamaiSettings | undefined;
+
+  /**
+   * Hls Basic Put Settings
+   * @public
+   */
+  HlsBasicPutSettings?: HlsBasicPutSettings | undefined;
+
+  /**
+   * Hls Media Store Settings
+   * @public
+   */
+  HlsMediaStoreSettings?: HlsMediaStoreSettings | undefined;
+
+  /**
+   * Hls S3 Settings
+   * @public
+   */
+  HlsS3Settings?: HlsS3Settings | undefined;
+
+  /**
+   * Hls Webdav Settings
+   * @public
+   */
+  HlsWebdavSettings?: HlsWebdavSettings | undefined;
+}
+
+/**
+ * Static Key Settings
+ * @public
+ */
+export interface StaticKeySettings {
+  /**
+   * The URL of the license server used for protecting content.
+   * @public
+   */
+  KeyProviderServer?: InputLocation | undefined;
+
+  /**
+   * Static key value as a 32 character hexadecimal string.
+   * @public
+   */
+  StaticKeyValue: string | undefined;
+}
+
+/**
+ * Key Provider Settings
+ * @public
+ */
+export interface KeyProviderSettings {
+  /**
+   * Static Key Settings
+   * @public
+   */
+  StaticKeySettings?: StaticKeySettings | undefined;
+}
+
+/**
+ * Hls Group Settings
+ * @public
+ */
+export interface HlsGroupSettings {
+  /**
+   * Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
+   * @public
+   */
+  AdMarkers?: HlsAdMarkers[] | undefined;
+
+  /**
+   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+   * @public
+   */
+  BaseUrlContent?: string | undefined;
+
+  /**
+   * Optional. One value per output group.
+   *
+   * This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
+   * @public
+   */
+  BaseUrlContent1?: string | undefined;
+
+  /**
+   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+   * @public
+   */
+  BaseUrlManifest?: string | undefined;
+
+  /**
+   * Optional. One value per output group.
+   *
+   * Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
+   * @public
+   */
+  BaseUrlManifest1?: string | undefined;
+
+  /**
+   * Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
+   * @public
+   */
+  CaptionLanguageMappings?: CaptionLanguageMapping[] | undefined;
+
+  /**
+   * Applies only to 608 Embedded output captions.
+   * insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions.
+   * none: Include CLOSED-CAPTIONS=NONE line in the manifest.
+   * omit: Omit any CLOSED-CAPTIONS line from the manifest.
+   * @public
+   */
+  CaptionLanguageSetting?: HlsCaptionLanguageSetting | undefined;
+
+  /**
+   * When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
+   * @public
+   */
+  ClientCache?: HlsClientCache | undefined;
+
+  /**
+   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+   * @public
+   */
+  CodecSpecification?: HlsCodecSpecification | undefined;
+
+  /**
+   * For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
+   * @public
+   */
+  ConstantIv?: string | undefined;
+
+  /**
+   * A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Place segments in subdirectories.
+   * @public
+   */
+  DirectoryStructure?: HlsDirectoryStructure | undefined;
+
+  /**
+   * Specifies whether to insert EXT-X-DISCONTINUITY tags in the HLS child manifests for this output group.
+   * Typically, choose Insert because these tags are required in the manifest (according to the HLS specification) and serve an important purpose.
+   * Choose Never Insert only if the downstream system is doing real-time failover (without using the MediaLive automatic failover feature) and only if that downstream system has advised you to exclude the tags.
+   * @public
+   */
+  DiscontinuityTags?: HlsDiscontinuityTags | undefined;
+
+  /**
+   * Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
+   * @public
+   */
+  EncryptionType?: HlsEncryptionType | undefined;
+
+  /**
+   * Parameters that control interactions with the CDN.
+   * @public
+   */
+  HlsCdnSettings?: HlsCdnSettings | undefined;
+
+  /**
+   * State of HLS ID3 Segment Tagging
+   * @public
+   */
+  HlsId3SegmentTagging?: HlsId3SegmentTaggingState | undefined;
+
+  /**
+   * DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
+   *
+   * STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
+   * @public
+   */
+  IFrameOnlyPlaylists?: IFrameOnlyPlaylistType | undefined;
+
+  /**
+   * Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
+   * Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
+   * Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
+   * @public
+   */
+  IncompleteSegmentBehavior?: HlsIncompleteSegmentBehavior | undefined;
+
+  /**
+   * Applies only if Mode field is LIVE.
+   *
+   * Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be smaller than the number in the Keep Segments field.
+   * @public
+   */
+  IndexNSegments?: number | undefined;
+
+  /**
+   * Parameter that control output group behavior on input loss.
+   * @public
+   */
+  InputLossAction?: InputLossActionForHlsOut | undefined;
+
+  /**
+   * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
+   * @public
+   */
+  IvInManifest?: HlsIvInManifest | undefined;
+
+  /**
+   * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
+   * @public
+   */
+  IvSource?: HlsIvSource | undefined;
+
+  /**
+   * Applies only if Mode field is LIVE.
+   *
+   * Specifies the number of media segments to retain in the destination directory. This number should be bigger than indexNSegments (Num segments). We recommend (value = (2 x indexNsegments) + 1).
+   *
+   * If this "keep segments" number is too low, the following might happen: the player is still reading a media manifest file that lists this segment, but that segment has been removed from the destination directory (as directed by indexNSegments). This situation would result in a 404 HTTP error on the player.
+   * @public
+   */
+  KeepSegments?: number | undefined;
+
+  /**
+   * The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
+   * @public
+   */
+  KeyFormat?: string | undefined;
+
+  /**
+   * Either a single positive integer version value or a slash delimited list of version values (1/2/3).
+   * @public
+   */
+  KeyFormatVersions?: string | undefined;
+
+  /**
+   * The key provider settings.
+   * @public
+   */
+  KeyProviderSettings?: KeyProviderSettings | undefined;
+
+  /**
+   * When set to gzip, compresses HLS playlist.
+   * @public
+   */
+  ManifestCompression?: HlsManifestCompression | undefined;
+
+  /**
+   * Indicates whether the output manifest should use floating point or integer values for segment duration.
+   * @public
+   */
+  ManifestDurationFormat?: HlsManifestDurationFormat | undefined;
+
+  /**
+   * Minimum length of MPEG-2 Transport Stream segments in seconds. When set, minimum segment length is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
+   * @public
+   */
+  MinSegmentLength?: number | undefined;
+
+  /**
+   * If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.
+   *
+   * VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
+   * @public
+   */
+  Mode?: HlsMode | undefined;
+
+  /**
+   * MANIFESTS_AND_SEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
+   *
+   * VARIANT_MANIFESTS_AND_SEGMENTS: Generates media manifests for this output group, but not a master manifest.
+   *
+   * SEGMENTS_ONLY: Does not generate any manifests for this output group.
+   * @public
+   */
+  OutputSelection?: HlsOutputSelection | undefined;
+
+  /**
+   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated using the program date time clock.
+   * @public
+   */
+  ProgramDateTime?: HlsProgramDateTime | undefined;
+
+  /**
+   * Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME clock. Options include:
+   *
+   * INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock is initialized as a function of the first output timecode, then incremented by the EXTINF duration of each encoded segment.
+   *
+   * SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall clock, then incremented by the EXTINF duration of each encoded segment. If the PDT clock diverges from the wall clock by more than 500ms, it is resynchronized to the wall clock.
+   * @public
+   */
+  ProgramDateTimeClock?: HlsProgramDateTimeClock | undefined;
+
+  /**
+   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+   * @public
+   */
+  ProgramDateTimePeriod?: number | undefined;
+
+  /**
+   * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines.
+   *
+   * DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only.
+   *
+   * For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
+   * @public
+   */
+  RedundantManifest?: HlsRedundantManifest | undefined;
+
+  /**
+   * Length of MPEG-2 Transport Stream segments to create in seconds. Note that segments will end on the next keyframe after this duration, so actual segment length may be longer.
+   * @public
+   */
+  SegmentLength?: number | undefined;
+
+  /**
+   * useInputSegmentation has been deprecated. The configured segment size is always used.
+   * @public
+   */
+  SegmentationMode?: HlsSegmentationMode | undefined;
+
+  /**
+   * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
+   * @public
+   */
+  SegmentsPerSubdirectory?: number | undefined;
+
+  /**
+   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+   * @public
+   */
+  StreamInfResolution?: HlsStreamInfResolution | undefined;
+
+  /**
+   * Indicates ID3 frame that has the timecode.
+   * @public
+   */
+  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | undefined;
+
+  /**
+   * Timed Metadata interval in seconds.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+
+  /**
+   * Provides an extra millisecond delta offset to fine tune the timestamps.
+   * @public
+   */
+  TimestampDeltaMilliseconds?: number | undefined;
+
+  /**
+   * SEGMENTED_FILES: Emit the program as segments - multiple .ts media files.
+   *
+   * SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+   * @public
+   */
+  TsFileMode?: HlsTsFileMode | undefined;
+}
+
+/**
+ * Media Package V2 Group Settings
+ * @public
+ */
+export interface MediaPackageV2GroupSettings {
+  /**
+   * Mapping of up to 4 caption channels to caption languages.
+   * @public
+   */
+  CaptionLanguageMappings?: CaptionLanguageMapping[] | undefined;
+
+  /**
+   * Set to ENABLED to enable ID3 metadata insertion. To include metadata, you configure other parameters in the output group, or you add an ID3 action to the channel schedule.
+   * @public
+   */
+  Id3Behavior?: CmafId3Behavior | undefined;
+
+  /**
+   * If set to passthrough, passes any KLV data from the input source to this output.
+   * @public
+   */
+  KlvBehavior?: CmafKLVBehavior | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
+
+  /**
+   * Type of scte35 track to add. none or scte35WithoutSegmentation
+   * @public
+   */
+  Scte35Type?: Scte35Type | undefined;
+
+  /**
+   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
+   * @public
+   */
+  SegmentLength?: number | undefined;
+
+  /**
+   * Time unit for segment length parameter.
+   * @public
+   */
+  SegmentLengthUnits?: CmafIngestSegmentLengthUnits | undefined;
+
+  /**
+   * Set to none if you don't want to insert a timecode in the output. Otherwise choose the frame type for the timecode.
+   * @public
+   */
+  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame | undefined;
+
+  /**
+   * If you set up to insert a timecode in the output, specify the frequency for the frame, in seconds.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+
+  /**
+   * Set to enabled to pass through ID3 metadata from the input sources.
+   * @public
+   */
+  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough | undefined;
+}
+
+/**
+ * Media Package Group Settings
+ * @public
+ */
+export interface MediaPackageGroupSettings {
+  /**
+   * MediaPackage channel destination.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Parameters that apply only if the destination parameter (for the output group) specifies a channelGroup and channelName. Use of these two paramters indicates that the output group is for MediaPackage V2 (CMAF Ingest).
+   * @public
+   */
+  MediapackageV2GroupSettings?: MediaPackageV2GroupSettings | undefined;
+}
+
+/**
+ * Ms Smooth Group Settings
+ * @public
+ */
+export interface MsSmoothGroupSettings {
+  /**
+   * The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
+   * @public
+   */
+  AcquisitionPointId?: string | undefined;
+
+  /**
+   * If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
+   * @public
+   */
+  AudioOnlyTimecodeControl?: SmoothGroupAudioOnlyTimecodeControl | undefined;
+
+  /**
+   * If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
+   * @public
+   */
+  CertificateMode?: SmoothGroupCertificateMode | undefined;
+
+  /**
+   * Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
+   * @public
+   */
+  ConnectionRetryInterval?: number | undefined;
+
+  /**
+   * Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * MS Smooth event ID to be sent to the IIS server.
+   *
+   * Should only be specified if eventIdMode is set to useConfigured.
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
+   *
+   * Options:
+   * - "useConfigured" - use the value provided in eventId
+   * - "useTimestamp" - generate and send an event ID based on the current timestamp
+   * - "noEventId" - do not send an event ID to the IIS server.
+   * @public
+   */
+  EventIdMode?: SmoothGroupEventIdMode | undefined;
+
+  /**
+   * When set to sendEos, send EOS signal to IIS server when stopping the event
+   * @public
+   */
+  EventStopBehavior?: SmoothGroupEventStopBehavior | undefined;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number | undefined;
+
+  /**
+   * Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+   * @public
+   */
+  FragmentLength?: number | undefined;
+
+  /**
+   * Parameter that control output group behavior on input loss.
+   * @public
+   */
+  InputLossAction?: InputLossActionForMsSmoothOut | undefined;
+
+  /**
+   * Number of retry attempts.
+   * @public
+   */
+  NumRetries?: number | undefined;
+
+  /**
+   * Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
+   * @public
+   */
+  RestartDelay?: number | undefined;
+
+  /**
+   * useInputSegmentation has been deprecated. The configured segment size is always used.
+   * @public
+   */
+  SegmentationMode?: SmoothGroupSegmentationMode | undefined;
+
+  /**
+   * Number of milliseconds to delay the output from the second pipeline.
+   * @public
+   */
+  SendDelayMs?: number | undefined;
+
+  /**
+   * Identifies the type of data to place in the sparse track:
+   * - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+   * - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+   * - NONE: Don't generate a sparse track for any outputs in this output group.
+   * @public
+   */
+  SparseTrackType?: SmoothGroupSparseTrackType | undefined;
+
+  /**
+   * When set to send, send stream manifest so publishing point doesn't start until all streams start.
+   * @public
+   */
+  StreamManifestBehavior?: SmoothGroupStreamManifestBehavior | undefined;
+
+  /**
+   * Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
+   * @public
+   */
+  TimestampOffset?: string | undefined;
+
+  /**
+   * Type of timestamp date offset to use.
+   * - useEventStartDate: Use the date the event was started as the offset
+   * - useConfiguredOffset: Use an explicitly configured date as the offset
+   * @public
+   */
+  TimestampOffsetMode?: SmoothGroupTimestampOffsetMode | undefined;
+}
+
+/**
+ * Multiplex Group Settings
+ * @public
+ */
+export interface MultiplexGroupSettings {}
+
+/**
+ * Rtmp Group Settings
+ * @public
+ */
+export interface RtmpGroupSettings {
+  /**
+   * Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
+   * @public
+   */
+  AdMarkers?: RtmpAdMarkers[] | undefined;
+
+  /**
+   * Authentication scheme to use when connecting with CDN
+   * @public
+   */
+  AuthenticationScheme?: AuthenticationScheme | undefined;
+
+  /**
+   * Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
+   * @public
+   */
+  CacheFullBehavior?: RtmpCacheFullBehavior | undefined;
+
+  /**
+   * Cache length, in seconds, is used to calculate buffer size.
+   * @public
+   */
+  CacheLength?: number | undefined;
+
+  /**
+   * Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
+   * @public
+   */
+  CaptionData?: RtmpCaptionData | undefined;
+
+  /**
+   * Controls the behavior of this RTMP group if input becomes unavailable.
+   *
+   * - emitOutput: Emit a slate until input returns.
+   * - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
+   * @public
+   */
+  InputLossAction?: InputLossActionForRtmpOut | undefined;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number | undefined;
+
+  /**
+   * Applies only when the rate control mode (in the codec settings) is CBR (constant bit rate). Controls whether the RTMP output stream is padded (with FILL NAL units) in order to achieve a constant bit rate that is truly constant. When there is no padding, the bandwidth varies (up to the bitrate value in the codec settings). We recommend that you choose Auto.
+   * @public
+   */
+  IncludeFillerNalUnits?: IncludeFillerNalUnits | undefined;
+}
+
+/**
+ * Srt Group Settings
+ * @public
+ */
+export interface SrtGroupSettings {
+  /**
+   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
+   * @public
+   */
+  InputLossAction?: InputLossActionForUdpOut | undefined;
+}
+
+/**
+ * Udp Group Settings
+ * @public
+ */
+export interface UdpGroupSettings {
+  /**
+   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
+   * @public
+   */
+  InputLossAction?: InputLossActionForUdpOut | undefined;
+
+  /**
+   * Indicates ID3 frame that has the timecode.
+   * @public
+   */
+  TimedMetadataId3Frame?: UdpTimedMetadataId3Frame | undefined;
+
+  /**
+   * Timed Metadata interval in seconds.
+   * @public
+   */
+  TimedMetadataId3Period?: number | undefined;
+}
+
+/**
+ * Output Group Settings
+ * @public
+ */
+export interface OutputGroupSettings {
+  /**
+   * Archive Group Settings
+   * @public
+   */
+  ArchiveGroupSettings?: ArchiveGroupSettings | undefined;
+
+  /**
+   * Frame Capture Group Settings
+   * @public
+   */
+  FrameCaptureGroupSettings?: FrameCaptureGroupSettings | undefined;
+
+  /**
+   * Hls Group Settings
+   * @public
+   */
+  HlsGroupSettings?: HlsGroupSettings | undefined;
+
+  /**
+   * Media Package Group Settings
+   * @public
+   */
+  MediaPackageGroupSettings?: MediaPackageGroupSettings | undefined;
+
+  /**
+   * Ms Smooth Group Settings
+   * @public
+   */
+  MsSmoothGroupSettings?: MsSmoothGroupSettings | undefined;
+
+  /**
+   * Multiplex Group Settings
+   * @public
+   */
+  MultiplexGroupSettings?: MultiplexGroupSettings | undefined;
+
+  /**
+   * Rtmp Group Settings
+   * @public
+   */
+  RtmpGroupSettings?: RtmpGroupSettings | undefined;
+
+  /**
+   * Udp Group Settings
+   * @public
+   */
+  UdpGroupSettings?: UdpGroupSettings | undefined;
+
+  /**
+   * Cmaf Ingest Group Settings
+   * @public
+   */
+  CmafIngestGroupSettings?: CmafIngestGroupSettings | undefined;
+
+  /**
+   * Srt Group Settings
+   * @public
+   */
+  SrtGroupSettings?: SrtGroupSettings | undefined;
+}
+
+/**
+ * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
+ * @public
+ */
+export interface OutputGroup {
+  /**
+   * Custom output group name optionally defined by the user.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Settings associated with the output group.
+   * @public
+   */
+  OutputGroupSettings: OutputGroupSettings | undefined;
+
+  /**
+   * Placeholder documentation for __listOfOutput
+   * @public
+   */
+  Outputs: Output[] | undefined;
+}
+
+/**
+ * Runtime details of a pipeline when a channel is running.
+ * @public
+ */
+export interface PipelineDetail {
+  /**
+   * The name of the active input attachment currently being ingested by this pipeline.
+   * @public
+   */
+  ActiveInputAttachmentName?: string | undefined;
+
+  /**
+   * The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
+   * @public
+   */
+  ActiveInputSwitchActionName?: string | undefined;
+
+  /**
+   * The name of the motion graphics activate action that occurred most recently and that resulted in the current graphics URI for this pipeline.
+   * @public
+   */
+  ActiveMotionGraphicsActionName?: string | undefined;
+
+  /**
+   * The current URI being used for HTML5 motion graphics for this pipeline.
+   * @public
+   */
+  ActiveMotionGraphicsUri?: string | undefined;
+
+  /**
+   * Pipeline ID
+   * @public
+   */
+  PipelineId?: string | undefined;
+
+  /**
+   * Current engine version of the encoder for this pipeline.
+   * @public
+   */
+  ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+}
+
+/**
+ * Settings for pausing a pipeline.
+ * @public
+ */
+export interface PipelinePauseStateSettings {
+  /**
+   * Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+   * @public
+   */
+  PipelineId: PipelineId | undefined;
+}
+
+/**
+ * The Renewal settings for Reservations
+ * @public
+ */
+export interface RenewalSettings {
+  /**
+   * Automatic renewal status for the reservation
+   * @public
+   */
+  AutomaticRenewal?: ReservationAutomaticRenewal | undefined;
+
+  /**
+   * Count for the reservation renewal
+   * @public
+   */
+  RenewalCount?: number | undefined;
+}
+
+/**
+ * Reserved resources available to use
+ * @public
+ */
+export interface Reservation {
+  /**
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Number of reserved resources
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * Lease duration, e.g. '12'
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   * @public
+   */
+  DurationUnits?: OfferingDurationUnits | undefined;
+
+  /**
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   * @public
+   */
+  End?: string | undefined;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * User specified reservation name
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   * @public
+   */
+  OfferingDescription?: string | undefined;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   * @public
+   */
+  OfferingId?: string | undefined;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   * @public
+   */
+  OfferingType?: OfferingType | undefined;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * Renewal settings for the reservation
+   * @public
+   */
+  RenewalSettings?: RenewalSettings | undefined;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   * @public
+   */
+  ReservationId?: string | undefined;
+
+  /**
+   * Resource configuration details
+   * @public
+   */
+  ResourceSpecification?: ReservationResourceSpecification | undefined;
+
+  /**
+   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+   * @public
+   */
+  Start?: string | undefined;
+
+  /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   * @public
+   */
+  State?: ReservationState | undefined;
+
+  /**
+   * A collection of key-value pairs
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * Recurring usage charge for each reserved resource, e.g. '157.0'
+   * @public
+   */
+  UsagePrice?: number | undefined;
+}
+
+/**
+ * Used in CreateNetworkRequest.
+ * @public
+ */
+export interface RouteCreateRequest {
+  /**
+   * A CIDR block for one Route.
+   * @public
+   */
+  Cidr?: string | undefined;
+
+  /**
+   * The IP address of the Gateway for this route, if applicable.
+   * @public
+   */
+  Gateway?: string | undefined;
+}
+
+/**
+ * Used in UpdateNetworkRequest.
+ * @public
+ */
+export interface RouteUpdateRequest {
+  /**
+   * A CIDR block for one Route.
+   * @public
+   */
+  Cidr?: string | undefined;
+
+  /**
+   * The IP address of the Gateway for this route, if applicable.
+   * @public
+   */
+  Gateway?: string | undefined;
+}
+
+/**
+ * Settings for the action to insert ID3 metadata in every segment, in HLS output groups.
+ * @public
+ */
+export interface HlsId3SegmentTaggingScheduleActionSettings {
+  /**
+   * Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number.
+   * @public
+   */
+  Tag?: string | undefined;
+
+  /**
+   * Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * @public
+   */
+  Id3?: string | undefined;
+}
+
+/**
+ * Settings for the action to insert ID3 metadata (as a one-time action) in HLS output groups.
+ * @public
+ */
+export interface HlsTimedMetadataScheduleActionSettings {
+  /**
+   * Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * @public
+   */
+  Id3: string | undefined;
+}
+
+/**
+ * Settings for the action to insert ID3 metadata in every segment, in applicable output groups.
+ * @public
+ */
+export interface Id3SegmentTaggingScheduleActionSettings {
+  /**
+   * Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * @public
+   */
+  Id3?: string | undefined;
+
+  /**
+   * Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number.
+   * @public
+   */
+  Tag?: string | undefined;
+}
+
+/**
+ * Settings to identify the start of the clip.
+ * @public
+ */
+export interface StartTimecode {
+  /**
+   * The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+   * @public
+   */
+  Timecode?: string | undefined;
+}
+
+/**
+ * Settings to identify the end of the clip.
+ * @public
+ */
+export interface StopTimecode {
+  /**
+   * If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
+   * @public
+   */
+  LastFrameClippingBehavior?: LastFrameClippingBehavior | undefined;
+
+  /**
+   * The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+   * @public
+   */
+  Timecode?: string | undefined;
+}
+
+/**
+ * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+ * @public
+ */
+export interface InputClippingSettings {
+  /**
+   * The source of the timecodes in the source being clipped.
+   * @public
+   */
+  InputTimecodeSource: InputTimecodeSource | undefined;
+
+  /**
+   * Settings to identify the start of the clip.
+   * @public
+   */
+  StartTimecode?: StartTimecode | undefined;
+
+  /**
+   * Settings to identify the end of the clip.
+   * @public
+   */
+  StopTimecode?: StopTimecode | undefined;
+}
+
+/**
+ * Action to prepare an input for a future immediate input switch.
+ * @public
+ */
+export interface InputPrepareScheduleActionSettings {
+  /**
+   * The name of the input attachment that should be prepared by this action. If no name is provided, the action will stop the most recent prepare (if any) when activated.
+   * @public
+   */
+  InputAttachmentNameReference?: string | undefined;
+
+  /**
+   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+   * @public
+   */
+  InputClippingSettings?: InputClippingSettings | undefined;
+
+  /**
+   * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
+   * @public
+   */
+  UrlPath?: string[] | undefined;
+}
+
+/**
+ * Settings for the "switch input" action: to switch from ingesting one input to ingesting another input.
+ * @public
+ */
+export interface InputSwitchScheduleActionSettings {
+  /**
+   * The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
+   * @public
+   */
+  InputAttachmentNameReference: string | undefined;
+
+  /**
+   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+   * @public
+   */
+  InputClippingSettings?: InputClippingSettings | undefined;
+
+  /**
+   * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
+   * @public
+   */
+  UrlPath?: string[] | undefined;
+}
+
+/**
+ * Settings to specify the rendering of motion graphics into the video stream.
+ * @public
+ */
+export interface MotionGraphicsActivateScheduleActionSettings {
+  /**
+   * Duration (in milliseconds) that motion graphics should render on to the video stream. Leaving out this property or setting to 0 will result in rendering continuing until a deactivate action is processed.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * Key used to extract the password from EC2 Parameter store
+   * @public
+   */
+  PasswordParam?: string | undefined;
+
+  /**
+   * URI of the HTML5 content to be rendered into the live stream.
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  Username?: string | undefined;
+}
+
+/**
+ * Settings to specify the ending of rendering motion graphics into the video stream.
+ * @public
+ */
+export interface MotionGraphicsDeactivateScheduleActionSettings {}
+
+/**
+ * Settings for the action to set pause state of a channel.
+ * @public
+ */
+export interface PauseStateScheduleActionSettings {
+  /**
+   * Placeholder documentation for __listOfPipelinePauseStateSettings
+   * @public
+   */
+  Pipelines?: PipelinePauseStateSettings[] | undefined;
+}
+
+/**
+ * Scte35Input Schedule Action Settings
+ * @public
+ */
+export interface Scte35InputScheduleActionSettings {
+  /**
+   * In fixed mode, enter the name of the input attachment that you want to use as a SCTE-35 input. (Don't enter the ID of the input.)"
+   * @public
+   */
+  InputAttachmentNameReference?: string | undefined;
+
+  /**
+   * Whether the SCTE-35 input should be the active input or a fixed input.
+   * @public
+   */
+  Mode: Scte35InputMode | undefined;
+}
+
+/**
+ * Settings for a SCTE-35 return_to_network message.
+ * @public
+ */
+export interface Scte35ReturnToNetworkScheduleActionSettings {
+  /**
+   * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+   * @public
+   */
+  SpliceEventId: number | undefined;
+}
+
+/**
+ * Settings for a SCTE-35 splice_insert message.
+ * @public
+ */
+export interface Scte35SpliceInsertScheduleActionSettings {
+  /**
+   * Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+   * @public
+   */
+  SpliceEventId: number | undefined;
+}
+
+/**
+ * Corresponds to SCTE-35 delivery_not_restricted_flag parameter. To declare delivery restrictions, include this element and its four "restriction" flags. To declare that there are no restrictions, omit this element.
+ * @public
+ */
+export interface Scte35DeliveryRestrictions {
+  /**
+   * Corresponds to SCTE-35 archive_allowed_flag.
+   * @public
+   */
+  ArchiveAllowedFlag: Scte35ArchiveAllowedFlag | undefined;
+
+  /**
+   * Corresponds to SCTE-35 device_restrictions parameter.
+   * @public
+   */
+  DeviceRestrictions: Scte35DeviceRestrictions | undefined;
+
+  /**
+   * Corresponds to SCTE-35 no_regional_blackout_flag parameter.
+   * @public
+   */
+  NoRegionalBlackoutFlag: Scte35NoRegionalBlackoutFlag | undefined;
+
+  /**
+   * Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
+   * @public
+   */
+  WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | undefined;
+}
+
+/**
+ * Corresponds to SCTE-35 segmentation_descriptor.
+ * @public
+ */
+export interface Scte35SegmentationDescriptor {
+  /**
+   * Holds the four SCTE-35 delivery restriction parameters.
+   * @public
+   */
+  DeliveryRestrictions?: Scte35DeliveryRestrictions | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
+   * @public
+   */
+  SegmentNum?: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
+   * @public
+   */
+  SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
+   * @public
+   */
+  SegmentationDuration?: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_event_id.
+   * @public
+   */
+  SegmentationEventId: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
+   * @public
+   */
+  SegmentationTypeId?: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
+   * @public
+   */
+  SegmentationUpid?: string | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
+   * @public
+   */
+  SegmentationUpidType?: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
+   * @public
+   */
+  SegmentsExpected?: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
+   * @public
+   */
+  SubSegmentNum?: number | undefined;
+
+  /**
+   * Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
+   * @public
+   */
+  SubSegmentsExpected?: number | undefined;
+}
+
+/**
+ * SCTE-35 Descriptor settings.
+ * @public
+ */
+export interface Scte35DescriptorSettings {
+  /**
+   * SCTE-35 Segmentation Descriptor.
+   * @public
+   */
+  SegmentationDescriptorScte35DescriptorSettings: Scte35SegmentationDescriptor | undefined;
+}
+
+/**
+ * Holds one set of SCTE-35 Descriptor Settings.
+ * @public
+ */
+export interface Scte35Descriptor {
+  /**
+   * SCTE-35 Descriptor Settings.
+   * @public
+   */
+  Scte35DescriptorSettings: Scte35DescriptorSettings | undefined;
+}
+
+/**
+ * Settings for a SCTE-35 time_signal.
+ * @public
+ */
+export interface Scte35TimeSignalScheduleActionSettings {
+  /**
+   * The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
+   * @public
+   */
+  Scte35Descriptors: Scte35Descriptor[] | undefined;
+}
+
+/**
+ * Settings for the action to activate a static image.
+ * @public
+ */
+export interface StaticImageActivateScheduleActionSettings {
+  /**
+   * The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
+   * @public
+   */
+  FadeIn?: number | undefined;
+
+  /**
+   * Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
+   * @public
+   */
+  FadeOut?: number | undefined;
+
+  /**
+   * The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+   * @public
+   */
+  Image: InputLocation | undefined;
+
+  /**
+   * Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
+   * @public
+   */
+  ImageX?: number | undefined;
+
+  /**
+   * Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
+   * @public
+   */
+  ImageY?: number | undefined;
+
+  /**
+   * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+   * @public
+   */
+  Layer?: number | undefined;
+
+  /**
+   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+   * @public
+   */
+  Opacity?: number | undefined;
+
+  /**
+   * The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Settings for the action to deactivate the image in a specific layer.
+ * @public
+ */
+export interface StaticImageDeactivateScheduleActionSettings {
+  /**
+   * The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
+   * @public
+   */
+  FadeOut?: number | undefined;
+
+  /**
+   * The image overlay layer to deactivate, 0 to 7. Default is 0.
+   * @public
+   */
+  Layer?: number | undefined;
+}
+
+/**
+ * Settings for the action to activate a static image.
+ * @public
+ */
+export interface StaticImageOutputActivateScheduleActionSettings {
+  /**
+   * The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
+   * @public
+   */
+  FadeIn?: number | undefined;
+
+  /**
+   * Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
+   * @public
+   */
+  FadeOut?: number | undefined;
+
+  /**
+   * The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+   * @public
+   */
+  Image: InputLocation | undefined;
+
+  /**
+   * Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
+   * @public
+   */
+  ImageX?: number | undefined;
+
+  /**
+   * Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
+   * @public
+   */
+  ImageY?: number | undefined;
+
+  /**
+   * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+   * @public
+   */
+  Layer?: number | undefined;
+
+  /**
+   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+   * @public
+   */
+  Opacity?: number | undefined;
+
+  /**
+   * The name(s) of the output(s) the activation should apply to.
+   * @public
+   */
+  OutputNames: string[] | undefined;
+
+  /**
+   * The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Settings for the action to deactivate the image in a specific layer.
+ * @public
+ */
+export interface StaticImageOutputDeactivateScheduleActionSettings {
+  /**
+   * The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
+   * @public
+   */
+  FadeOut?: number | undefined;
+
+  /**
+   * The image overlay layer to deactivate, 0 to 7. Default is 0.
+   * @public
+   */
+  Layer?: number | undefined;
+
+  /**
+   * The name(s) of the output(s) the deactivation should apply to.
+   * @public
+   */
+  OutputNames: string[] | undefined;
+}
+
+/**
+ * Settings for the action to insert ID3 metadata (as a one-time action) in applicable output groups.
+ * @public
+ */
+export interface TimedMetadataScheduleActionSettings {
+  /**
+   * Enter a base64 string that contains one or more fully formed ID3 tags.See the ID3 specification: http://id3.org/id3v2.4.0-structure
+   * @public
+   */
+  Id3: string | undefined;
+}
+
+/**
+ * Holds the settings for a single schedule action.
+ * @public
+ */
+export interface ScheduleActionSettings {
+  /**
+   * Action to insert ID3 metadata in every segment, in HLS output groups
+   * @public
+   */
+  HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert ID3 metadata once, in HLS output groups
+   * @public
+   */
+  HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings | undefined;
+
+  /**
+   * Action to prepare an input for a future immediate input switch
+   * @public
+   */
+  InputPrepareSettings?: InputPrepareScheduleActionSettings | undefined;
+
+  /**
+   * Action to switch the input
+   * @public
+   */
+  InputSwitchSettings?: InputSwitchScheduleActionSettings | undefined;
+
+  /**
+   * Action to activate a motion graphics image overlay
+   * @public
+   */
+  MotionGraphicsImageActivateSettings?: MotionGraphicsActivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to deactivate a motion graphics image overlay
+   * @public
+   */
+  MotionGraphicsImageDeactivateSettings?: MotionGraphicsDeactivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to pause or unpause one or both channel pipelines
+   * @public
+   */
+  PauseStateSettings?: PauseStateScheduleActionSettings | undefined;
+
+  /**
+   * Action to specify scte35 input
+   * @public
+   */
+  Scte35InputSettings?: Scte35InputScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert SCTE-35 return_to_network message
+   * @public
+   */
+  Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert SCTE-35 splice_insert message
+   * @public
+   */
+  Scte35SpliceInsertSettings?: Scte35SpliceInsertScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert SCTE-35 time_signal message
+   * @public
+   */
+  Scte35TimeSignalSettings?: Scte35TimeSignalScheduleActionSettings | undefined;
+
+  /**
+   * Action to activate a static image overlay
+   * @public
+   */
+  StaticImageActivateSettings?: StaticImageActivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to deactivate a static image overlay
+   * @public
+   */
+  StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to activate a static image overlay in one or more specified outputs
+   * @public
+   */
+  StaticImageOutputActivateSettings?: StaticImageOutputActivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to deactivate a static image overlay in one or more specified outputs
+   * @public
+   */
+  StaticImageOutputDeactivateSettings?: StaticImageOutputDeactivateScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert ID3 metadata in every segment, in applicable output groups
+   * @public
+   */
+  Id3SegmentTaggingSettings?: Id3SegmentTaggingScheduleActionSettings | undefined;
+
+  /**
+   * Action to insert ID3 metadata once, in applicable output groups
+   * @public
+   */
+  TimedMetadataSettings?: TimedMetadataScheduleActionSettings | undefined;
+}
+
+/**
+ * Start time for the action.
+ * @public
+ */
+export interface FixedModeScheduleActionStartSettings {
+  /**
+   * Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants "T" for time and "Z" for "UTC format".
+   * @public
+   */
+  Time: string | undefined;
+}
+
+/**
+ * Settings to specify if an action follows another.
+ * @public
+ */
+export interface FollowModeScheduleActionStartSettings {
+  /**
+   * Identifies whether this action starts relative to the start or relative to the end of the reference action.
+   * @public
+   */
+  FollowPoint: FollowPoint | undefined;
+
+  /**
+   * The action name of another action that this one refers to.
+   * @public
+   */
+  ReferenceActionName: string | undefined;
+}
+
+/**
+ * Settings to configure an action so that it occurs as soon as possible.
+ * @public
+ */
+export interface ImmediateModeScheduleActionStartSettings {}
+
+/**
+ * Settings to specify when an action should occur. Only one of the options must be selected.
+ * @public
+ */
+export interface ScheduleActionStartSettings {
+  /**
+   * Option for specifying the start time for an action.
+   * @public
+   */
+  FixedModeScheduleActionStartSettings?: FixedModeScheduleActionStartSettings | undefined;
+
+  /**
+   * Option for specifying an action as relative to another action.
+   * @public
+   */
+  FollowModeScheduleActionStartSettings?: FollowModeScheduleActionStartSettings | undefined;
+
+  /**
+   * Option for specifying an action that should be applied immediately.
+   * @public
+   */
+  ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings | undefined;
+}
+
+/**
+ * Contains information on a single schedule action.
+ * @public
+ */
+export interface ScheduleAction {
+  /**
+   * The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
+   * @public
+   */
+  ActionName: string | undefined;
+
+  /**
+   * Settings for this schedule action.
+   * @public
+   */
+  ScheduleActionSettings: ScheduleActionSettings | undefined;
+
+  /**
+   * The time for the action to start in the channel.
+   * @public
+   */
+  ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
+}
+
+/**
+ * Used in CreateSdiSourceResponse, DeleteSdiSourceResponse, DescribeSdiSourceResponse, ListSdiSourcesResponse, UpdateSdiSourceResponse
+ * @public
+ */
+export interface SdiSourceSummary {
+  /**
+   * The ARN of this SdiSource. It is automatically assigned when the SdiSource is created.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * The ID of the SdiSource. Unique in the AWS account.The ID is the resource-id portion of the ARN.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The list of inputs that are currently using this SDI source. This list will be empty if the SdiSource has just been deleted.
+   * @public
+   */
+  Inputs?: string[] | undefined;
+
+  /**
+   * Applies only if the type is QUAD. The mode for handling the quad-link signal QUADRANT or INTERLEAVE.
+   * @public
+   */
+  Mode?: SdiSourceMode | undefined;
+
+  /**
+   * The name of the SdiSource.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Specifies whether the SDI source is attached to an SDI input (IN_USE) or not (IDLE).
+   * @public
+   */
+  State?: SdiSourceState | undefined;
+
+  /**
+   * Used in SdiSource, CreateSdiSourceRequest, UpdateSdiSourceRequest.
+   * @public
+   */
+  Type?: SdiSourceType | undefined;
+}
+
+/**
+ * Placeholder documentation for SignalMapSummary
+ * @public
+ */
+export interface SignalMapSummary {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * A signal map's monitor deployment status.
+   * @public
+   */
+  MonitorDeploymentStatus: SignalMapMonitorDeploymentStatus | undefined;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status: SignalMapStatus | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * Complete these parameters only if the content is encrypted.
+ * @public
+ */
+export interface SrtCallerDecryptionRequest {
+  /**
+   * The algorithm used to encrypt content.
+   * @public
+   */
+  Algorithm?: Algorithm | undefined;
+
+  /**
+   * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. This secret holds the passphrase that MediaLive will use to decrypt the source content.
+   * @public
+   */
+  PassphraseSecretArn?: string | undefined;
+}
+
+/**
+ * Configures the connection for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always the caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+ * @public
+ */
+export interface SrtCallerSourceRequest {
+  /**
+   * Complete these parameters only if the content is encrypted.
+   * @public
+   */
+  Decryption?: SrtCallerDecryptionRequest | undefined;
+
+  /**
+   * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT. Obtain this value from the operator at the upstream system.
+   * @public
+   */
+  MinimumLatency?: number | undefined;
+
+  /**
+   * The IP address at the upstream system (the listener) that MediaLive (the caller) will connect to.
+   * @public
+   */
+  SrtListenerAddress?: string | undefined;
+
+  /**
+   * The port at the upstream system (the listener) that MediaLive (the caller) will connect to.
+   * @public
+   */
+  SrtListenerPort?: string | undefined;
+
+  /**
+   * This value is required if the upstream system uses this identifier because without it, the SRT handshake between MediaLive (the caller) and the upstream system (the listener) might fail.
+   * @public
+   */
+  StreamId?: string | undefined;
+}
+
+/**
+ * Details of a single thumbnail
+ * @public
+ */
+export interface Thumbnail {
+  /**
+   * The binary data for the latest thumbnail.
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * The content type for the latest thumbnail.
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * Thumbnail Type
+   * @public
+   */
+  ThumbnailType?: ThumbnailType | undefined;
+
+  /**
+   * Time stamp for the latest thumbnail.
+   * @public
+   */
+  TimeStamp?: Date | undefined;
+}
+
+/**
+ * Thumbnail details for one pipeline of a running channel.
+ * @public
+ */
+export interface ThumbnailDetail {
+  /**
+   * Pipeline ID
+   * @public
+   */
+  PipelineId?: string | undefined;
+
+  /**
+   * thumbnails of a single pipeline
+   * @public
+   */
+  Thumbnails?: Thumbnail[] | undefined;
+}
+
+/**
+ * Details about the input device that is being transferred.
+ * @public
+ */
+export interface TransferringInputDeviceSummary {
+  /**
+   * The unique ID of the input device.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The optional message that the sender has attached to the transfer.
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * The AWS account ID for the recipient of the input device transfer.
+   * @public
+   */
+  TargetCustomerId?: string | undefined;
+
+  /**
+   * The type (direction) of the input device transfer.
+   * @public
+   */
+  TransferType?: InputDeviceTransferType | undefined;
+}
+
+/**
+ * Placeholder documentation for ValidationError
+ * @public
+ */
+export interface ValidationError {
+  /**
+   * Path to the source of the error.
+   * @public
+   */
+  ElementPath?: string | undefined;
+
+  /**
+   * The error message.
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * Passthrough applies no color space conversion to the output
+ * @public
+ */
+export interface ColorSpacePassthroughSettings {}
+
+/**
+ * Rec601 Settings
+ * @public
+ */
+export interface Rec601Settings {}
+
+/**
+ * Rec709 Settings
+ * @public
+ */
+export interface Rec709Settings {}
+
+/**
+ * Av1 Color Space Settings
+ * @public
+ */
+export interface Av1ColorSpaceSettings {
+  /**
+   * Passthrough applies no color space conversion to the output
+   * @public
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings | undefined;
+
+  /**
+   * Hdr10 Settings
+   * @public
+   */
+  Hdr10Settings?: Hdr10Settings | undefined;
+
+  /**
+   * Rec601 Settings
+   * @public
+   */
+  Rec601Settings?: Rec601Settings | undefined;
+
+  /**
+   * Rec709 Settings
+   * @public
+   */
+  Rec709Settings?: Rec709Settings | undefined;
+}
+
+/**
+ * Timecode Burnin Settings
+ * @public
+ */
+export interface TimecodeBurninSettings {
+  /**
+   * Choose a timecode burn-in font size
+   * @public
+   */
+  FontSize: TimecodeBurninFontSize | undefined;
+
+  /**
+   * Choose a timecode burn-in output position
+   * @public
+   */
+  Position: TimecodeBurninPosition | undefined;
+
+  /**
+   * Create a timecode burn-in prefix (optional)
+   * @public
+   */
+  Prefix?: string | undefined;
+}
+
+/**
+ * Av1 Settings
+ * @public
+ */
+export interface Av1Settings {
+  /**
+   * Configures whether MediaLive will write AFD values into the video.
+   * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
+   * FIXED: the AFD value will be the value configured in the fixedAfd parameter.
+   * NONE: MediaLive won't write AFD into the video
+   * @public
+   */
+  AfdSignaling?: AfdSignaling | undefined;
+
+  /**
+   * The size of the buffer (HRD buffer model) in bits.
+   * @public
+   */
+  BufSize?: number | undefined;
+
+  /**
+   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
+   * @public
+   */
+  ColorSpaceSettings?: Av1ColorSpaceSettings | undefined;
+
+  /**
+   * Complete this property only if you set the afdSignaling property to FIXED. Choose the AFD value (4 bits) to write on all frames of the video encode.
+   * @public
+   */
+  FixedAfd?: FixedAfd | undefined;
+
+  /**
+   * The denominator for the framerate. Framerate is a fraction, for example, 24000 / 1001.
+   * @public
+   */
+  FramerateDenominator: number | undefined;
+
+  /**
+   * The numerator for the framerate. Framerate is a fraction, for example, 24000 / 1001.
+   * @public
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * The GOP size (keyframe interval).
+   * If GopSizeUnits is frames, GopSize must be a whole number and must be greater than or equal to 1.
+   * If GopSizeUnits is seconds, GopSize must be greater than 0, but it can be a decimal.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Choose the units for the GOP size: FRAMES or SECONDS. For SECONDS, MediaLive converts the size into a frame count at run time.
+   * @public
+   */
+  GopSizeUnits?: Av1GopSizeUnits | undefined;
+
+  /**
+   * Sets the level. This parameter is one of the properties of the encoding scheme for AV1.
+   * @public
+   */
+  Level?: Av1Level | undefined;
+
+  /**
+   * Sets the amount of lookahead. A value of LOW can decrease latency and memory usage. A value of HIGH can produce better quality for certain content.
+   * @public
+   */
+  LookAheadRateControl?: Av1LookAheadRateControl | undefined;
+
+  /**
+   * The maximum bitrate to assign.
+   * For recommendations, see the description for qvbrQualityLevel.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Applies only if you enable SceneChangeDetect. Sets the interval between frames. This property ensures a minimum separation between repeated (cadence) I-frames and any I-frames inserted by scene change detection (SCD frames).
+   * Enter a number for the interval, measured in number of frames.
+   * If an SCD frame and a cadence frame are closer than the specified number of frames, MediaLive shrinks or stretches the GOP to include the SCD frame. Then normal cadence resumes in the next GOP. For GOP stretch to succeed, you must enable LookAheadRateControl.
+   * Note that the maximum GOP stretch = (GOP size) + (Minimum I-interval) - 1
+   * @public
+   */
+  MinIInterval?: number | undefined;
+
+  /**
+   * The denominator for the output pixel aspect ratio (PAR).
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * The numerator for the output pixel aspect ratio (PAR).
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * Controls the target quality for the video encode. With QVBR rate control mode, the final quality is the target quality, constrained by the maxBitrate.
+   * Set values for the qvbrQualityLevel property and maxBitrate property that suit your most important viewing devices.
+   * To let MediaLive set the quality level (AUTO mode), leave the qvbrQualityLevel field empty. In this case, MediaLive uses the maximum bitrate, and the quality follows from that: more complex content might have a lower quality.
+   * Or set a target quality level and a maximum bitrate. With more complex content, MediaLive will try to achieve the target quality, but it won't exceed the maximum bitrate. With less complex content, This option will use only the bitrate needed to reach the target quality.
+   * Recommended values are:
+   * Primary screen: qvbrQualityLevel: Leave empty. maxBitrate: 4,000,000
+   * PC or tablet: qvbrQualityLevel: Leave empty. maxBitrate: 1,500,000 to 3,000,000
+   * Smartphone: qvbrQualityLevel: Leave empty. maxBitrate: 1,000,000 to 1,500,000
+   * @public
+   */
+  QvbrQualityLevel?: number | undefined;
+
+  /**
+   * Controls whether MediaLive inserts I-frames when it detects a scene change. ENABLED or DISABLED.
+   * @public
+   */
+  SceneChangeDetect?: Av1SceneChangeDetect | undefined;
+
+  /**
+   * Configures the timecode burn-in feature. If you enable this feature, the timecode will become part of the video.
+   * @public
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is CBR. Not used for QVBR.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Rate control mode.
+   *
+   * QVBR: Quality will match the specified quality level except when it is constrained by the
+   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
+   *
+   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
+   * your assets to devices that cannot handle variable bitrates.
+   * @public
+   */
+  RateControlMode?: Av1RateControlMode | undefined;
+
+  /**
+   * Used for QVBR rate control mode only.
+   * Optional.
+   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * @public
+   */
+  MinBitrate?: number | undefined;
+
+  /**
+   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. Enabled: MediaLive will determine the appropriate level of spatial AQ to apply. Disabled: No spatial AQ. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  SpatialAq?: Av1SpatialAq | undefined;
+
+  /**
+   * Temporal AQ makes adjustments within each frame based on variations in content complexity over time. Enabled: MediaLive will determine the appropriate level of temporal AQ to apply. Disabled: No temporal AQ. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  TemporalAq?: Av1TemporalAq | undefined;
+}
+
+/**
+ * Frame Capture Settings
+ * @public
+ */
+export interface FrameCaptureSettings {
+  /**
+   * The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
+   * @public
+   */
+  CaptureInterval?: number | undefined;
+
+  /**
+   * Unit for the frame capture interval.
+   * @public
+   */
+  CaptureIntervalUnits?: FrameCaptureIntervalUnit | undefined;
+
+  /**
+   * Timecode burn-in settings
+   * @public
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+}
+
+/**
+ * H264 Color Space Settings
+ * @public
+ */
+export interface H264ColorSpaceSettings {
+  /**
+   * Passthrough applies no color space conversion to the output
+   * @public
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings | undefined;
+
+  /**
+   * Rec601 Settings
+   * @public
+   */
+  Rec601Settings?: Rec601Settings | undefined;
+
+  /**
+   * Rec709 Settings
+   * @public
+   */
+  Rec709Settings?: Rec709Settings | undefined;
+}
+
+/**
+ * Bandwidth Reduction Filter Settings
+ * @public
+ */
+export interface BandwidthReductionFilterSettings {
+  /**
+   * Configures the sharpening control, which is available when the bandwidth reduction filter is enabled. This
+   * control sharpens edges and contours, which produces a specific artistic effect that you might want.
+   *
+   * We recommend that you test each of the values (including DISABLED) to observe the sharpening effect on the
+   * content.
+   * @public
+   */
+  PostFilterSharpening?: BandwidthReductionPostFilterSharpening | undefined;
+
+  /**
+   * Enables the bandwidth reduction filter. The filter strengths range from 1 to 4. We recommend that you always
+   * enable this filter and use AUTO, to let MediaLive apply the optimum filtering for the context.
+   * @public
+   */
+  Strength?: BandwidthReductionFilterStrength | undefined;
+}
+
+/**
+ * Temporal Filter Settings
+ * @public
+ */
+export interface TemporalFilterSettings {
+  /**
+   * If you enable this filter, the results are the following:
+   * - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
+   * - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+   * @public
+   */
+  PostFilterSharpening?: TemporalFilterPostFilterSharpening | undefined;
+
+  /**
+   * Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+   * @public
+   */
+  Strength?: TemporalFilterStrength | undefined;
+}
+
+/**
+ * H264 Filter Settings
+ * @public
+ */
+export interface H264FilterSettings {
+  /**
+   * Temporal Filter Settings
+   * @public
+   */
+  TemporalFilterSettings?: TemporalFilterSettings | undefined;
+
+  /**
+   * Bandwidth Reduction Filter Settings
+   * @public
+   */
+  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+}
+
+/**
+ * H264 Settings
+ * @public
+ */
+export interface H264Settings {
+  /**
+   * Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  AdaptiveQuantization?: H264AdaptiveQuantization | undefined;
+
+  /**
+   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   * @public
+   */
+  AfdSignaling?: AfdSignaling | undefined;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   * @public
+   */
+  BufFillPct?: number | undefined;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits.
+   * @public
+   */
+  BufSize?: number | undefined;
+
+  /**
+   * Includes colorspace metadata in the output.
+   * @public
+   */
+  ColorMetadata?: H264ColorMetadata | undefined;
+
+  /**
+   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
+   * @public
+   */
+  ColorSpaceSettings?: H264ColorSpaceSettings | undefined;
+
+  /**
+   * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
+   * @public
+   */
+  EntropyEncoding?: H264EntropyEncoding | undefined;
+
+  /**
+   * Optional. Both filters reduce bandwidth by removing imperceptible details. You can enable one of the filters. We
+   * recommend that you try both filters and observe the results to decide which one to use.
+   *
+   * The Temporal Filter reduces bandwidth by removing imperceptible details in the content. It combines perceptual
+   * filtering and motion compensated temporal filtering (MCTF). It operates independently of the compression level.
+   *
+   * The Bandwidth Reduction filter is a perceptual filter located within the encoding loop. It adapts to the current
+   * compression level to filter imperceptible signals. This filter works only when the resolution is 1080p or lower.
+   * @public
+   */
+  FilterSettings?: H264FilterSettings | undefined;
+
+  /**
+   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+   * @public
+   */
+  FixedAfd?: FixedAfd | undefined;
+
+  /**
+   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  FlickerAq?: H264FlickerAq | undefined;
+
+  /**
+   * This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
+   * enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
+   * disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
+   * @public
+   */
+  ForceFieldPictures?: H264ForceFieldPictures | undefined;
+
+  /**
+   * This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
+   * @public
+   */
+  FramerateControl?: H264FramerateControl | undefined;
+
+  /**
+   * Framerate denominator.
+   * @public
+   */
+  FramerateDenominator?: number | undefined;
+
+  /**
+   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+   * @public
+   */
+  FramerateNumerator?: number | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  GopBReference?: H264GopBReference | undefined;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Number of B-frames between reference frames.
+   * @public
+   */
+  GopNumBFrames?: number | undefined;
+
+  /**
+   * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
+   * If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
+   * If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
+   * @public
+   */
+  GopSizeUnits?: H264GopSizeUnits | undefined;
+
+  /**
+   * H.264 Level.
+   * @public
+   */
+  Level?: H264Level | undefined;
+
+  /**
+   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+   * @public
+   */
+  LookAheadRateControl?: H264LookAheadRateControl | undefined;
+
+  /**
+   * For QVBR: See the tooltip for Quality level
+   *
+   * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+   * @public
+   */
+  MinIInterval?: number | undefined;
+
+  /**
+   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
+   * @public
+   */
+  NumRefFrames?: number | undefined;
+
+  /**
+   * This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
+   * @public
+   */
+  ParControl?: H264ParControl | undefined;
+
+  /**
+   * Pixel Aspect Ratio denominator.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Pixel Aspect Ratio numerator.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * H.264 Profile.
+   * @public
+   */
+  Profile?: H264Profile | undefined;
+
+  /**
+   * Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
+   * - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
+   * - STANDARD_QUALITY: Valid for any Rate control mode.
+   * @public
+   */
+  QualityLevel?: H264QualityLevel | undefined;
+
+  /**
+   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. You can set a target quality or you can let MediaLive determine the best quality. To set a target quality, enter values in the QVBR quality level field and the Max bitrate field. Enter values that suit your most important viewing devices. Recommended values are:
+   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   * To let MediaLive decide, leave the QVBR quality level field empty, and in Max bitrate enter the maximum rate you want in the video. For more information, see the section called "Video - rate control mode" in the MediaLive user guide
+   * @public
+   */
+  QvbrQualityLevel?: number | undefined;
+
+  /**
+   * Rate control mode.
+   *
+   * QVBR: Quality will match the specified quality level except when it is constrained by the
+   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
+   *
+   * VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR
+   * if you want to maintain a specific average bitrate over the duration of the channel.
+   *
+   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
+   * your assets to devices that cannot handle variable bitrates.
+   *
+   * Multiplex: This rate control mode is only supported (and is required) when the video is being
+   * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
+   * by the properties within the Multiplex Program.
+   * @public
+   */
+  RateControlMode?: H264RateControlMode | undefined;
+
+  /**
+   * Sets the scan type of the output to progressive or top-field-first interlaced.
+   * @public
+   */
+  ScanType?: H264ScanType | undefined;
+
+  /**
+   * Scene change detection.
+   *
+   * - On: inserts I-frames when scene change is detected.
+   * - Off: does not force an I-frame when scene change is detected.
+   * @public
+   */
+  SceneChangeDetect?: H264SceneChangeDetect | undefined;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+   * @public
+   */
+  Slices?: number | undefined;
+
+  /**
+   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.  If not set to zero, must be greater than 15.
+   * @public
+   */
+  Softness?: number | undefined;
+
+  /**
+   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  SpatialAq?: H264SpatialAq | undefined;
+
+  /**
+   * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
+   * @public
+   */
+  SubgopLength?: H264SubGopLength | undefined;
+
+  /**
+   * Produces a bitstream compliant with SMPTE RP-2027.
+   * @public
+   */
+  Syntax?: H264Syntax | undefined;
+
+  /**
+   * Temporal makes adjustments within each frame based on variations in content complexity over time. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  TemporalAq?: H264TemporalAq | undefined;
+
+  /**
+   * Determines how timecodes should be inserted into the video elementary stream.
+   * - 'disabled': Do not include timecodes
+   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+   * @public
+   */
+  TimecodeInsertion?: H264TimecodeInsertionBehavior | undefined;
+
+  /**
+   * Timecode burn-in settings
+   * @public
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+
+  /**
+   * Sets the minimum QP. If you aren't familiar with quantization adjustment, leave the field empty. MediaLive will
+   * apply an appropriate value.
+   * @public
+   */
+  MinQp?: number | undefined;
+
+  /**
+   * Used for QVBR rate control mode only.
+   * Optional.
+   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * @public
+   */
+  MinBitrate?: number | undefined;
+}
+
+/**
+ * Dolby Vision81 Settings
+ * @public
+ */
+export interface DolbyVision81Settings {}
+
+/**
+ * Hlg2020 Settings
+ * @public
+ */
+export interface Hlg2020Settings {}
+
+/**
+ * H265 Color Space Settings
+ * @public
+ */
+export interface H265ColorSpaceSettings {
+  /**
+   * Passthrough applies no color space conversion to the output
+   * @public
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings | undefined;
+
+  /**
+   * Dolby Vision81 Settings
+   * @public
+   */
+  DolbyVision81Settings?: DolbyVision81Settings | undefined;
+
+  /**
+   * Hdr10 Settings
+   * @public
+   */
+  Hdr10Settings?: Hdr10Settings | undefined;
+
+  /**
+   * Rec601 Settings
+   * @public
+   */
+  Rec601Settings?: Rec601Settings | undefined;
+
+  /**
+   * Rec709 Settings
+   * @public
+   */
+  Rec709Settings?: Rec709Settings | undefined;
+
+  /**
+   * Hlg2020 Settings
+   * @public
+   */
+  Hlg2020Settings?: Hlg2020Settings | undefined;
+}
+
+/**
+ * H265 Filter Settings
+ * @public
+ */
+export interface H265FilterSettings {
+  /**
+   * Temporal Filter Settings
+   * @public
+   */
+  TemporalFilterSettings?: TemporalFilterSettings | undefined;
+
+  /**
+   * Bandwidth Reduction Filter Settings
+   * @public
+   */
+  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings | undefined;
+}
+
+/**
+ * H265 Settings
+ * @public
+ */
+export interface H265Settings {
+  /**
+   * Enables or disables adaptive quantization (AQ), which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: spatial, temporal, and flicker. Flicker is the only type that you can customize. We recommend that you set the field to Auto. For more information about all the options, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  AdaptiveQuantization?: H265AdaptiveQuantization | undefined;
+
+  /**
+   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   * @public
+   */
+  AfdSignaling?: AfdSignaling | undefined;
+
+  /**
+   * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
+   * @public
+   */
+  AlternativeTransferFunction?: H265AlternativeTransferFunction | undefined;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits.
+   * @public
+   */
+  BufSize?: number | undefined;
+
+  /**
+   * Includes colorspace metadata in the output.
+   * @public
+   */
+  ColorMetadata?: H265ColorMetadata | undefined;
+
+  /**
+   * Specify the type of color space to apply or choose to pass through. The default is to pass through the color space that is in the source.
+   * @public
+   */
+  ColorSpaceSettings?: H265ColorSpaceSettings | undefined;
+
+  /**
+   * Optional. Both filters reduce bandwidth by removing imperceptible details. You can enable one of the filters. We
+   * recommend that you try both filters and observe the results to decide which one to use.
+   *
+   * The Temporal Filter reduces bandwidth by removing imperceptible details in the content. It combines perceptual
+   * filtering and motion compensated temporal filtering (MCTF). It operates independently of the compression level.
+   *
+   * The Bandwidth Reduction filter is a perceptual filter located within the encoding loop. It adapts to the current
+   * compression level to filter imperceptible signals. This filter works only when the resolution is 1080p or lower.
+   * @public
+   */
+  FilterSettings?: H265FilterSettings | undefined;
+
+  /**
+   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+   * @public
+   */
+  FixedAfd?: FixedAfd | undefined;
+
+  /**
+   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  FlickerAq?: H265FlickerAq | undefined;
+
+  /**
+   * Framerate denominator.
+   * @public
+   */
+  FramerateDenominator: number | undefined;
+
+  /**
+   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+   * @public
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
+   * If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
+   * If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
+   * @public
+   */
+  GopSizeUnits?: H265GopSizeUnits | undefined;
+
+  /**
+   * H.265 Level.
+   * @public
+   */
+  Level?: H265Level | undefined;
+
+  /**
+   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+   * @public
+   */
+  LookAheadRateControl?: H265LookAheadRateControl | undefined;
+
+  /**
+   * For QVBR: See the tooltip for Quality level
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+   * @public
+   */
+  MinIInterval?: number | undefined;
+
+  /**
+   * Pixel Aspect Ratio denominator.
+   * @public
+   */
+  ParDenominator?: number | undefined;
+
+  /**
+   * Pixel Aspect Ratio numerator.
+   * @public
+   */
+  ParNumerator?: number | undefined;
+
+  /**
+   * H.265 Profile.
+   * @public
+   */
+  Profile?: H265Profile | undefined;
+
+  /**
+   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   * @public
+   */
+  QvbrQualityLevel?: number | undefined;
+
+  /**
+   * Rate control mode.
+   *
+   * QVBR: Quality will match the specified quality level except when it is constrained by the
+   * maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
+   *
+   * CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
+   * your assets to devices that cannot handle variable bitrates.
+   *
+   * Multiplex: This rate control mode is only supported (and is required) when the video is being
+   * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
+   * by the properties within the Multiplex Program.
+   * @public
+   */
+  RateControlMode?: H265RateControlMode | undefined;
+
+  /**
+   * Sets the scan type of the output to progressive or top-field-first interlaced.
+   * @public
+   */
+  ScanType?: H265ScanType | undefined;
+
+  /**
+   * Scene change detection.
+   * @public
+   */
+  SceneChangeDetect?: H265SceneChangeDetect | undefined;
+
+  /**
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+   * @public
+   */
+  Slices?: number | undefined;
+
+  /**
+   * H.265 Tier.
+   * @public
+   */
+  Tier?: H265Tier | undefined;
+
+  /**
+   * Determines how timecodes should be inserted into the video elementary stream.
+   * - 'disabled': Do not include timecodes
+   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+   * @public
+   */
+  TimecodeInsertion?: H265TimecodeInsertionBehavior | undefined;
+
+  /**
+   * Timecode burn-in settings
+   * @public
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+
+  /**
+   * If you are setting up the picture as a tile, you must set this to "disabled". In all other configurations, you typically enter "enabled".
+   * @public
+   */
+  MvOverPictureBoundaries?: H265MvOverPictureBoundaries | undefined;
+
+  /**
+   * If you are setting up the picture as a tile, you must set this to "disabled". In other configurations, you typically enter "enabled".
+   * @public
+   */
+  MvTemporalPredictor?: H265MvTemporalPredictor | undefined;
+
+  /**
+   * Set this field to set up the picture as a tile. You must also set tileWidth.
+   * The tile height must result in 22 or fewer rows in the frame. The tile width
+   * must result in 20 or fewer columns in the frame. And finally, the product of the
+   * column count and row count must be 64 of less.
+   * If the tile width and height are specified, MediaLive will override the video
+   * codec slices field with a value that MediaLive calculates
+   * @public
+   */
+  TileHeight?: number | undefined;
+
+  /**
+   * Set to "padded" to force MediaLive to add padding to the frame, to obtain a frame that is a whole multiple of the tile size.
+   * If you are setting up the picture as a tile, you must enter "padded".
+   * In all other configurations, you typically enter "none".
+   * @public
+   */
+  TilePadding?: H265TilePadding | undefined;
+
+  /**
+   * Set this field to set up the picture as a tile. See tileHeight for more information.
+   * @public
+   */
+  TileWidth?: number | undefined;
+
+  /**
+   * Select the tree block size used for encoding. If you enter "auto", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter "auto".
+   * @public
+   */
+  TreeblockSize?: H265TreeblockSize | undefined;
+
+  /**
+   * Sets the minimum QP. If you aren't familiar with quantization adjustment, leave the field empty. MediaLive will
+   * apply an appropriate value.
+   * @public
+   */
+  MinQp?: number | undefined;
+
+  /**
+   * Enable or disable the deblocking filter for this codec. The filter reduces blocking artifacts at block boundaries,
+   * which improves overall video quality. If the filter is disabled, visible block edges might appear in the output,
+   * especially at lower bitrates.
+   * @public
+   */
+  Deblocking?: H265Deblocking | undefined;
+
+  /**
+   * Allows the encoder to use a B-Frame as a reference frame as well.
+   * ENABLED: B-frames will also serve as reference frames.
+   * DISABLED: B-frames won't be reference frames.
+   * Must be DISABLED if resolution is greater than 1080p or when using tiled hevc encoding.
+   * @public
+   */
+  GopBReference?: H265GopBReference | undefined;
+
+  /**
+   * Sets the number of B-frames between reference frames.
+   * Set to 2 if resolution is greater than 1080p or when using tiled hevc encoding.
+   * @public
+   */
+  GopNumBFrames?: number | undefined;
+
+  /**
+   * Used for QVBR rate control mode only.
+   * Optional.
+   * Enter a minimum bitrate if you want to keep the output bitrate about a threshold, in order to prevent the downstream system from de-allocating network bandwidth for this output.
+   * @public
+   */
+  MinBitrate?: number | undefined;
+
+  /**
+   * Sets the number of B-frames in each sub-GOP.
+   * FIXED: Use the value in Num B-frames.
+   * DYNAMIC: Optimizes the number of B-frames in each sub-GOP to improve visual quality.
+   * Must be FIXED if resolution is greater than 1080p or when using tiled hevc encoding.
+   * @public
+   */
+  SubgopLength?: H265SubGopLength | undefined;
+}
+
+/**
+ * Mpeg2 Filter Settings
+ * @public
+ */
+export interface Mpeg2FilterSettings {
+  /**
+   * Temporal Filter Settings
+   * @public
+   */
+  TemporalFilterSettings?: TemporalFilterSettings | undefined;
+}
+
+/**
+ * Mpeg2 Settings
+ * @public
+ */
+export interface Mpeg2Settings {
+  /**
+   * Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
+   * @public
+   */
+  AdaptiveQuantization?: Mpeg2AdaptiveQuantization | undefined;
+
+  /**
+   * Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
+   * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
+   * FIXED: MediaLive will use the value you specify in fixedAFD.
+   * @public
+   */
+  AfdSignaling?: AfdSignaling | undefined;
+
+  /**
+   * Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
+   * @public
+   */
+  ColorMetadata?: Mpeg2ColorMetadata | undefined;
+
+  /**
+   * Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
+   * PASSTHROUGH: Keep the color space of the input content - do not convert it.
+   * AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
+   * @public
+   */
+  ColorSpace?: Mpeg2ColorSpace | undefined;
+
+  /**
+   * Sets the pixel aspect ratio for the encode.
+   * @public
+   */
+  DisplayAspectRatio?: Mpeg2DisplayRatio | undefined;
+
+  /**
+   * Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
+   * TEMPORAL: This filter is useful for both source content that is noisy (when it has excessive digital artifacts) and source content that is clean.
+   * When the content is noisy, the filter cleans up the source content before the encoding phase, with these two effects: First, it improves the output video quality because the content has been cleaned up. Secondly, it decreases the bandwidth because MediaLive does not waste bits on encoding noise.
+   * When the content is reasonably clean, the filter tends to decrease the bitrate.
+   * @public
+   */
+  FilterSettings?: Mpeg2FilterSettings | undefined;
+
+  /**
+   * Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
+   * @public
+   */
+  FixedAfd?: FixedAfd | undefined;
+
+  /**
+   * description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+   * @public
+   */
+  FramerateDenominator: number | undefined;
+
+  /**
+   * The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+   * @public
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * MPEG2: default is open GOP.
+   * @public
+   */
+  GopClosedCadence?: number | undefined;
+
+  /**
+   * Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
+   * @public
+   */
+  GopNumBFrames?: number | undefined;
+
+  /**
+   * Relates to the GOP structure. The GOP size (keyframe interval) in the units specified in gopSizeUnits. If you do not know what GOP is, use the default.
+   * If gopSizeUnits is frames, then the gopSize must be an integer and must be greater than or equal to 1.
+   * If gopSizeUnits is seconds, the gopSize must be greater than 0, but does not need to be an integer.
+   * @public
+   */
+  GopSize?: number | undefined;
+
+  /**
+   * Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
+   * @public
+   */
+  GopSizeUnits?: Mpeg2GopSizeUnits | undefined;
+
+  /**
+   * Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
+   * @public
+   */
+  ScanType?: Mpeg2ScanType | undefined;
+
+  /**
+   * Relates to the GOP structure. If you do not know what GOP is, use the default.
+   * FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
+   * DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
+   * @public
+   */
+  SubgopLength?: Mpeg2SubGopLength | undefined;
+
+  /**
+   * Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
+   * DISABLED: do not include timecodes.
+   * GOP_TIMECODE: Include timecode metadata in the GOP header.
+   * @public
+   */
+  TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | undefined;
+
+  /**
+   * Timecode burn-in settings
+   * @public
+   */
+  TimecodeBurninSettings?: TimecodeBurninSettings | undefined;
+}
+
+/**
+ * Video Codec Settings
+ * @public
+ */
+export interface VideoCodecSettings {
+  /**
+   * Frame Capture Settings
+   * @public
+   */
+  FrameCaptureSettings?: FrameCaptureSettings | undefined;
+
+  /**
+   * H264 Settings
+   * @public
+   */
+  H264Settings?: H264Settings | undefined;
+
+  /**
+   * H265 Settings
+   * @public
+   */
+  H265Settings?: H265Settings | undefined;
+
+  /**
+   * Mpeg2 Settings
+   * @public
+   */
+  Mpeg2Settings?: Mpeg2Settings | undefined;
+
+  /**
+   * Av1 Settings
+   * @public
+   */
+  Av1Settings?: Av1Settings | undefined;
+}
+
+/**
+ * Video settings for this stream.
+ * @public
+ */
+export interface VideoDescription {
+  /**
+   * Video codec settings.
+   * @public
+   */
+  CodecSettings?: VideoCodecSettings | undefined;
+
+  /**
+   * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
+   * RESPOND: MediaLive clips the input video using a formula that uses the AFD values (configured in afdSignaling ), the input display aspect ratio, and the output display aspect ratio. MediaLive also includes the AFD values in the output, unless the codec for this encode is FRAME_CAPTURE.
+   * PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
+   * NONE: MediaLive does not clip the input video and does not include the AFD values in the output
+   * @public
+   */
+  RespondToAfd?: VideoDescriptionRespondToAfd | undefined;
+
+  /**
+   * STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
+   * @public
+   */
+  ScalingBehavior?: VideoDescriptionScalingBehavior | undefined;
+
+  /**
+   * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
+   * @public
+   */
+  Sharpness?: number | undefined;
+
+  /**
+   * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Placeholder documentation for AcceptInputDeviceTransferRequest
+ * @public
+ */
+export interface AcceptInputDeviceTransferRequest {
+  /**
+   * The unique ID of the input device to accept. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for AcceptInputDeviceTransferResponse
+ * @public
+ */
+export interface AcceptInputDeviceTransferResponse {}
+
+/**
+ * Placeholder documentation for AccountConfiguration
+ * @public
+ */
+export interface AccountConfiguration {
+  /**
+   * Specifies the KMS key to use for all features that use key encryption. Specify the ARN of a KMS key that you have created. Or leave blank to use the key that MediaLive creates and manages for you.
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
+ * Elemental anywhere settings
+ * @public
+ */
+export interface AnywhereSettings {
+  /**
+   * The ID of the channel placement group for the channel.
+   * @public
+   */
+  ChannelPlacementGroupId?: string | undefined;
+
+  /**
+   * The ID of the cluster for the channel.
+   * @public
+   */
+  ClusterId?: string | undefined;
+}
+
+/**
+ * Avail Blanking
+ * @public
+ */
+export interface AvailBlanking {
+  /**
+   * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * @public
+   */
+  AvailBlankingImage?: InputLocation | undefined;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+   * @public
+   */
+  State?: AvailBlankingState | undefined;
+}
+
+/**
+ * Esam
+ * @public
+ */
+export interface Esam {
+  /**
+   * Sent as acquisitionPointIdentity to identify the MediaLive channel to the POIS.
+   * @public
+   */
+  AcquisitionPointId: string | undefined;
+
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  PasswordParam?: string | undefined;
+
+  /**
+   * The URL of the signal conditioner endpoint on the Placement Opportunity Information System (POIS). MediaLive sends SignalProcessingEvents here when SCTE-35 messages are read.
+   * @public
+   */
+  PoisEndpoint: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * Optional data sent as zoneIdentity to identify the MediaLive channel to the POIS.
+   * @public
+   */
+  ZoneIdentity?: string | undefined;
+}
+
+/**
+ * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
+ * @public
+ */
+export interface Scte35SpliceInsert {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | undefined;
+}
+
+/**
+ * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
+ * @public
+ */
+export interface Scte35TimeSignalApos {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | undefined;
+}
+
+/**
+ * Avail Settings
+ * @public
+ */
+export interface AvailSettings {
+  /**
+   * Esam
+   * @public
+   */
+  Esam?: Esam | undefined;
+
+  /**
+   * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
+   * @public
+   */
+  Scte35SpliceInsert?: Scte35SpliceInsert | undefined;
+
+  /**
+   * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
+   * @public
+   */
+  Scte35TimeSignalApos?: Scte35TimeSignalApos | undefined;
+}
+
+/**
+ * Avail Configuration
+ * @public
+ */
+export interface AvailConfiguration {
+  /**
+   * Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update.
+   * @public
+   */
+  AvailSettings?: AvailSettings | undefined;
+
+  /**
+   * Configures whether SCTE 35 passthrough triggers segment breaks in all output groups that use segmented outputs. Insertion of a SCTE 35 message typically results in a segment break, in addition to the regular cadence of breaks. The segment breaks appear in video outputs, audio outputs, and captions outputs (if any).
+   *
+   * ALL_OUTPUT_GROUPS: Default. Insert the segment break in in all output groups that have segmented outputs. This is the legacy behavior.
+   * SCTE35_ENABLED_OUTPUT_GROUPS: Insert the segment break only in output groups that have SCTE 35 passthrough enabled. This is the recommended value, because it reduces unnecessary segment breaks.
+   * @public
+   */
+  Scte35SegmentationScope?: Scte35SegmentationScope | undefined;
+}
+
+/**
+ * A request to delete resources
+ * @public
+ */
+export interface BatchDeleteRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of input IDs
+   * @public
+   */
+  InputIds?: string[] | undefined;
+
+  /**
+   * List of input security group IDs
+   * @public
+   */
+  InputSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchDeleteResponse
+ * @public
+ */
+export interface BatchDeleteResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
+
+/**
+ * A list of schedule actions to create (in a request) or that have been created (in a response).
+ * @public
+ */
+export interface BatchScheduleActionCreateRequest {
+  /**
+   * A list of schedule actions to create.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
+
+/**
+ * List of actions that have been created in the schedule.
+ * @public
+ */
+export interface BatchScheduleActionCreateResult {
+  /**
+   * List of actions that have been created in the schedule.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
+
+/**
+ * A list of schedule actions to delete.
+ * @public
+ */
+export interface BatchScheduleActionDeleteRequest {
+  /**
+   * A list of schedule actions to delete.
+   * @public
+   */
+  ActionNames: string[] | undefined;
+}
+
+/**
+ * List of actions that have been deleted from the schedule.
+ * @public
+ */
+export interface BatchScheduleActionDeleteResult {
+  /**
+   * List of actions that have been deleted from the schedule.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
+
+/**
+ * A request to start resources
+ * @public
+ */
+export interface BatchStartRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchStartResponse
+ * @public
+ */
+export interface BatchStartResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
+
+/**
+ * A request to stop resources
+ * @public
+ */
+export interface BatchStopRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchStopResponse
+ * @public
+ */
+export interface BatchStopResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
+
+/**
+ * List of actions to create and list of actions to delete.
+ * @public
+ */
+export interface BatchUpdateScheduleRequest {
+  /**
+   * Id of the channel whose schedule is being updated.
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Schedule actions to create in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateRequest | undefined;
+
+  /**
+   * Schedule actions to delete from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteRequest | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchUpdateScheduleResponse
+ * @public
+ */
+export interface BatchUpdateScheduleResponse {
+  /**
+   * Schedule actions created in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateResult | undefined;
+
+  /**
+   * Schedule actions deleted from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteResult | undefined;
+}
+
+/**
+ * Blackout Slate
+ * @public
+ */
+export interface BlackoutSlate {
+  /**
+   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * @public
+   */
+  BlackoutSlateImage?: InputLocation | undefined;
+
+  /**
+   * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+   * @public
+   */
+  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | undefined;
+
+  /**
+   * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
+   * @public
+   */
+  NetworkEndBlackoutImage?: InputLocation | undefined;
+
+  /**
+   * Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
+   * @public
+   */
+  NetworkId?: string | undefined;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+   * @public
+   */
+  State?: BlackoutSlateState | undefined;
+}
+
+/**
+ * Placeholder documentation for CancelInputDeviceTransferRequest
+ * @public
+ */
+export interface CancelInputDeviceTransferRequest {
+  /**
+   * The unique ID of the input device to cancel. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for CancelInputDeviceTransferResponse
+ * @public
+ */
+export interface CancelInputDeviceTransferResponse {}
+
+/**
+ * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
+ * @public
+ */
+export interface ColorCorrectionSettings {
+  /**
+   * An array of colorCorrections that applies when you are using 3D LUT files to perform color conversion on video. Each colorCorrection contains one 3D LUT file (that defines the color mapping for converting an input color space to an output color space), and the input/output combination that this 3D LUT file applies to. MediaLive reads the color space in the input metadata, determines the color space that you have specified for the output, and finds and uses the LUT file that applies to this combination.
+   * @public
+   */
+  GlobalColorCorrections: ColorCorrection[] | undefined;
+}
+
+/**
+ * Feature Activations
+ * @public
+ */
+export interface FeatureActivations {
+  /**
+   * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
+   * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+   * @public
+   */
+  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | undefined;
+
+  /**
+   * Enables the output static image overlay feature. Enabling this feature allows you to send channel schedule updates
+   * to display/clear/modify image overlays on an output-by-output bases.
+   * @public
+   */
+  OutputStaticImageOverlayScheduleActions?: FeatureActivationsOutputStaticImageOverlayScheduleActions | undefined;
+}
+
+/**
+ * Input Loss Behavior
+ * @public
+ */
+export interface InputLossBehavior {
+  /**
+   * Documentation update needed
+   * @public
+   */
+  BlackFrameMsec?: number | undefined;
+
+  /**
+   * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
+   * @public
+   */
+  InputLossImageColor?: string | undefined;
+
+  /**
+   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
+   * @public
+   */
+  InputLossImageSlate?: InputLocation | undefined;
+
+  /**
+   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+   * @public
+   */
+  InputLossImageType?: InputLossImageType | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  RepeatFrameMsec?: number | undefined;
 }

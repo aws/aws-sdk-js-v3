@@ -61,7 +61,7 @@ const n0 = "com.amazonaws.sagemakeredge";
 import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { InternalServiceException as __InternalServiceException } from "../models/index";
+import { InternalServiceException as __InternalServiceException } from "../models/errors";
 import { SagemakerEdgeServiceException as __SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";
 
 /* eslint no-var: 0 */

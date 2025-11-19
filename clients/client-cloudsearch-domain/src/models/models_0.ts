@@ -1,45 +1,7 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { CloudSearchDomainServiceException as __BaseException } from "./CloudSearchDomainServiceException";
-
-/**
- * <p>Information about any problems encountered while processing a search request.</p>
- * @public
- */
-export class SearchException extends __BaseException {
-  readonly name: "SearchException" = "SearchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SearchException, __BaseException>) {
-    super({
-      name: "SearchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SearchException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const QueryParser = {
-  dismax: "dismax",
-  lucene: "lucene",
-  simple: "simple",
-  structured: "structured",
-} as const;
-
-/**
- * @public
- */
-export type QueryParser = (typeof QueryParser)[keyof typeof QueryParser];
+import { ContentType, QueryParser } from "./enums";
 
 /**
  * <p>Container for the parameters to the <code>Search</code> request.</p>
@@ -644,47 +606,6 @@ export interface SuggestResponse {
    */
   suggest?: SuggestModel | undefined;
 }
-
-/**
- * <p>Information about any problems encountered while processing an upload request.</p>
- * @public
- */
-export class DocumentServiceException extends __BaseException {
-  readonly name: "DocumentServiceException" = "DocumentServiceException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>
-   * @public
-   */
-  status?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DocumentServiceException, __BaseException>) {
-    super({
-      name: "DocumentServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DocumentServiceException.prototype);
-    this.status = opts.status;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ContentType = {
-  application_json: "application/json",
-  application_xml: "application/xml",
-} as const;
-
-/**
- * @public
- */
-export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 /**
  * <p>Container for the parameters to the <code>UploadDocuments</code> request.</p>

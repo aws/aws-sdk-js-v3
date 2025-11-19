@@ -1,7 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { StorageGatewayServiceException as __BaseException } from "./StorageGatewayServiceException";
+import {
+  ActiveDirectoryStatus,
+  AutomaticUpdatePolicy,
+  AvailabilityMonitorTestStatus,
+  CacheReportFilterName,
+  CacheReportStatus,
+  CaseSensitivity,
+  EncryptionType,
+  ErrorCode,
+  FileShareType,
+  GatewayCapacity,
+  HostEnvironment,
+  ObjectACL,
+  PoolStatus,
+  RetentionLockType,
+  SMBSecurityStrategy,
+  TapeStorageClass,
+} from "./enums";
 
 /**
  * <p>A key-value pair that helps you manage, filter, and search for your resource. Allowed
@@ -182,80 +197,6 @@ export interface ActivateGatewayOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  ActivationKeyExpired: "ActivationKeyExpired",
-  ActivationKeyInvalid: "ActivationKeyInvalid",
-  ActivationKeyNotFound: "ActivationKeyNotFound",
-  AuthenticationFailure: "AuthenticationFailure",
-  BandwidthThrottleScheduleNotFound: "BandwidthThrottleScheduleNotFound",
-  Blocked: "Blocked",
-  CannotExportSnapshot: "CannotExportSnapshot",
-  ChapCredentialNotFound: "ChapCredentialNotFound",
-  DiskAlreadyAllocated: "DiskAlreadyAllocated",
-  DiskDoesNotExist: "DiskDoesNotExist",
-  DiskSizeGreaterThanVolumeMaxSize: "DiskSizeGreaterThanVolumeMaxSize",
-  DiskSizeLessThanVolumeSize: "DiskSizeLessThanVolumeSize",
-  DiskSizeNotGigAligned: "DiskSizeNotGigAligned",
-  DuplicateCertificateInfo: "DuplicateCertificateInfo",
-  DuplicateSchedule: "DuplicateSchedule",
-  EndpointNotFound: "EndpointNotFound",
-  GatewayInternalError: "GatewayInternalError",
-  GatewayNotConnected: "GatewayNotConnected",
-  GatewayNotFound: "GatewayNotFound",
-  GatewayProxyNetworkConnectionBusy: "GatewayProxyNetworkConnectionBusy",
-  IAMNotSupported: "IAMNotSupported",
-  InitiatorInvalid: "InitiatorInvalid",
-  InitiatorNotFound: "InitiatorNotFound",
-  InternalError: "InternalError",
-  InvalidEndpoint: "InvalidEndpoint",
-  InvalidGateway: "InvalidGateway",
-  InvalidParameters: "InvalidParameters",
-  InvalidSchedule: "InvalidSchedule",
-  JoinDomainInProgress: "JoinDomainInProgress",
-  LocalStorageLimitExceeded: "LocalStorageLimitExceeded",
-  LunAlreadyAllocated_: "LunAlreadyAllocated ",
-  LunInvalid: "LunInvalid",
-  MaximumContentLengthExceeded: "MaximumContentLengthExceeded",
-  MaximumTapeCartridgeCountExceeded: "MaximumTapeCartridgeCountExceeded",
-  MaximumVolumeCountExceeded: "MaximumVolumeCountExceeded",
-  NetworkConfigurationChanged: "NetworkConfigurationChanged",
-  NoDisksAvailable: "NoDisksAvailable",
-  NotImplemented: "NotImplemented",
-  NotSupported: "NotSupported",
-  OperationAborted: "OperationAborted",
-  OutdatedGateway: "OutdatedGateway",
-  ParametersNotImplemented: "ParametersNotImplemented",
-  RegionInvalid: "RegionInvalid",
-  RequestTimeout: "RequestTimeout",
-  ServiceUnavailable: "ServiceUnavailable",
-  SnapshotDeleted: "SnapshotDeleted",
-  SnapshotIdInvalid: "SnapshotIdInvalid",
-  SnapshotInProgress: "SnapshotInProgress",
-  SnapshotNotFound: "SnapshotNotFound",
-  SnapshotScheduleNotFound: "SnapshotScheduleNotFound",
-  StagingAreaFull: "StagingAreaFull",
-  StorageFailure: "StorageFailure",
-  TapeCartridgeNotFound: "TapeCartridgeNotFound",
-  TargetAlreadyExists: "TargetAlreadyExists",
-  TargetInvalid: "TargetInvalid",
-  TargetNotFound: "TargetNotFound",
-  UnauthorizedOperation: "UnauthorizedOperation",
-  VolumeAlreadyExists: "VolumeAlreadyExists",
-  VolumeIdInvalid: "VolumeIdInvalid",
-  VolumeInUse: "VolumeInUse",
-  VolumeNotFound: "VolumeNotFound",
-  VolumeNotReady: "VolumeNotReady",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
  * <p>Provides additional information about an error that was returned by the service. See the
  *             <code>errorCode</code> and <code>errorDetails</code> members for more information about
  *          the error.</p>
@@ -274,84 +215,6 @@ export interface StorageGatewayError {
    */
   errorDetails?: Record<string, string> | undefined;
 }
-
-/**
- * <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>A <a>StorageGatewayError</a> that provides more information about the cause
-   *          of the error.</p>
-   * @public
-   */
-  error?: StorageGatewayError | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-    this.error = opts.error;
-  }
-}
-
-/**
- * <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
- * @public
- */
-export class InvalidGatewayRequestException extends __BaseException {
-  readonly name: "InvalidGatewayRequestException" = "InvalidGatewayRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A <a>StorageGatewayError</a> that provides more detail about the cause of the
-   *          error.</p>
-   * @public
-   */
-  error?: StorageGatewayError | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGatewayRequestException, __BaseException>) {
-    super({
-      name: "InvalidGatewayRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGatewayRequestException.prototype);
-    this.error = opts.error;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActiveDirectoryStatus = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  DETACHED: "DETACHED",
-  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
-  JOINED: "JOINED",
-  JOINING: "JOINING",
-  NETWORK_ERROR: "NETWORK_ERROR",
-  TIMEOUT: "TIMEOUT",
-  UNKNOWN_ERROR: "UNKNOWN_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ActiveDirectoryStatus = (typeof ActiveDirectoryStatus)[keyof typeof ActiveDirectoryStatus];
 
 /**
  * @public
@@ -798,36 +661,6 @@ export interface AutomaticTapeCreationPolicyInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomaticUpdatePolicy = {
-  ALL_VERSIONS: "ALL_VERSIONS",
-  EMERGENCY_VERSIONS_ONLY: "EMERGENCY_VERSIONS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type AutomaticUpdatePolicy = (typeof AutomaticUpdatePolicy)[keyof typeof AutomaticUpdatePolicy];
-
-/**
- * @public
- * @enum
- */
-export const AvailabilityMonitorTestStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type AvailabilityMonitorTestStatus =
-  (typeof AvailabilityMonitorTestStatus)[keyof typeof AvailabilityMonitorTestStatus];
-
-/**
  * <p>Describes a bandwidth rate limit interval for a gateway. A bandwidth rate limit schedule
  *          consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval
  *          defines a period of time on one or more days of the week, during which bandwidth rate
@@ -1049,20 +882,6 @@ export interface CachediSCSIVolume {
 }
 
 /**
- * @public
- * @enum
- */
-export const CacheReportFilterName = {
-  UploadFailureReason: "UploadFailureReason",
-  UploadState: "UploadState",
-} as const;
-
-/**
- * @public
- */
-export type CacheReportFilterName = (typeof CacheReportFilterName)[keyof typeof CacheReportFilterName];
-
-/**
  * <p>A list of filter parameters and associated values that determine which files are
  *          included or excluded from a cache report created by a <code>StartCacheReport</code>
  *          request. Multiple instances of the same filter parameter are combined with an OR operation,
@@ -1101,23 +920,6 @@ export interface CacheReportFilter {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CacheReportStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  ERROR: "ERROR",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type CacheReportStatus = (typeof CacheReportStatus)[keyof typeof CacheReportStatus];
 
 /**
  * <p>Contains all informational fields associated with a cache report. Includes name, ARN,
@@ -1291,20 +1093,6 @@ export interface CancelRetrievalOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const CaseSensitivity = {
-  CaseSensitive: "CaseSensitive",
-  ClientSpecified: "ClientSpecified",
-} as const;
-
-/**
- * @public
- */
-export type CaseSensitivity = (typeof CaseSensitivity)[keyof typeof CaseSensitivity];
-
-/**
  * <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports
  *          authentication between your gateway and iSCSI initiators.</p>
  * @public
@@ -1451,21 +1239,6 @@ export interface CreateCachediSCSIVolumeOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  DsseKms: "DsseKms",
-  SseKms: "SseKms",
-  SseS3: "SseS3",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Describes Network File System (NFS) file share default values. Files and folders stored
  *          as Amazon S3 objects in S3 buckets don't, by default, have Unix file
  *          permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3
@@ -1503,25 +1276,6 @@ export interface NFSFileShareDefaults {
    */
   OwnerId?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ObjectACL = {
-  authenticated_read: "authenticated-read",
-  aws_exec_read: "aws-exec-read",
-  bucket_owner_full_control: "bucket-owner-full-control",
-  bucket_owner_read: "bucket-owner-read",
-  private: "private",
-  public_read: "public-read",
-  public_read_write: "public-read-write",
-} as const;
-
-/**
- * @public
- */
-export type ObjectACL = (typeof ObjectACL)[keyof typeof ObjectACL];
 
 /**
  * <p>CreateNFSFileShareInput</p>
@@ -2220,35 +1974,6 @@ export interface CreateSnapshotOutput {
 }
 
 /**
- * <p>An internal server error has occurred because the service is unavailable. For more
- *          information, see the error and message fields.</p>
- * @public
- */
-export class ServiceUnavailableError extends __BaseException {
-  readonly name: "ServiceUnavailableError" = "ServiceUnavailableError";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>A <a>StorageGatewayError</a> that provides more information about the cause
-   *          of the error.</p>
-   * @public
-   */
-  error?: StorageGatewayError | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableError, __BaseException>) {
-    super({
-      name: "ServiceUnavailableError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableError.prototype);
-    this.error = opts.error;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateSnapshotFromVolumeRecoveryPointInput {
@@ -2447,35 +2172,6 @@ export interface CreateStorediSCSIVolumeOutput {
    */
   TargetARN?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetentionLockType = {
-  COMPLIANCE: "COMPLIANCE",
-  GOVERNANCE: "GOVERNANCE",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type RetentionLockType = (typeof RetentionLockType)[keyof typeof RetentionLockType];
-
-/**
- * @public
- * @enum
- */
-export const TapeStorageClass = {
-  DEEP_ARCHIVE: "DEEP_ARCHIVE",
-  GLACIER: "GLACIER",
-} as const;
-
-/**
- * @public
- */
-export type TapeStorageClass = (typeof TapeStorageClass)[keyof typeof TapeStorageClass];
 
 /**
  * @public
@@ -3486,21 +3182,6 @@ export interface DescribeGatewayInformationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const GatewayCapacity = {
-  Large: "Large",
-  Medium: "Medium",
-  Small: "Small",
-} as const;
-
-/**
- * @public
- */
-export type GatewayCapacity = (typeof GatewayCapacity)[keyof typeof GatewayCapacity];
-
-/**
  * <p>Describes a gateway's network interface.</p>
  * @public
  */
@@ -3529,24 +3210,6 @@ export interface NetworkInterface {
    */
   Ipv6Address?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HostEnvironment = {
-  EC2: "EC2",
-  HYPER_V: "HYPER-V",
-  KVM: "KVM",
-  OTHER: "OTHER",
-  SNOWBALL: "SNOWBALL",
-  VMWARE: "VMWARE",
-} as const;
-
-/**
- * @public
- */
-export type HostEnvironment = (typeof HostEnvironment)[keyof typeof HostEnvironment];
 
 /**
  * <p>A JSON object containing the following fields:</p>
@@ -4556,22 +4219,6 @@ export interface SMBLocalGroups {
    */
   GatewayAdmins?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SMBSecurityStrategy = {
-  ClientSpecified: "ClientSpecified",
-  MandatoryEncryption: "MandatoryEncryption",
-  MandatoryEncryptionNoAes128: "MandatoryEncryptionNoAes128",
-  MandatorySigning: "MandatorySigning",
-} as const;
-
-/**
- * @public
- */
-export type SMBSecurityStrategy = (typeof SMBSecurityStrategy)[keyof typeof SMBSecurityStrategy];
 
 /**
  * @public
@@ -5814,20 +5461,6 @@ export interface EvictFilesFailingUploadOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const FileShareType = {
-  NFS: "NFS",
-  SMB: "SMB",
-} as const;
-
-/**
- * @public
- */
-export type FileShareType = (typeof FileShareType)[keyof typeof FileShareType];
-
-/**
  * <p>Describes a file share. Only supported S3 File Gateway.</p>
  * @public
  */
@@ -6448,20 +6081,6 @@ export interface ListTapePoolsInput {
    */
   Limit?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PoolStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-} as const;
-
-/**
- * @public
- */
-export type PoolStatus = (typeof PoolStatus)[keyof typeof PoolStatus];
 
 /**
  * <p>Describes a custom tape pool.</p>

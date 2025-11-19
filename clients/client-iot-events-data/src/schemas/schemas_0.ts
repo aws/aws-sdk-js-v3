@@ -170,7 +170,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTEventsDataServiceException as __IoTEventsDataServiceException } from "../models/IoTEventsDataServiceException";
 
 /* eslint no-var: 0 */

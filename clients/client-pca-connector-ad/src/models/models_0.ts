@@ -1,21 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { PcaConnectorAdServiceException as __BaseException } from "./PcaConnectorAdServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AccessRight = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type AccessRight = (typeof AccessRight)[keyof typeof AccessRight];
+import {
+  AccessRight,
+  ApplicationPolicyType,
+  ClientCompatibilityV2,
+  ClientCompatibilityV3,
+  ClientCompatibilityV4,
+  ConnectorStatus,
+  ConnectorStatusReason,
+  DirectoryRegistrationStatus,
+  DirectoryRegistrationStatusReason,
+  HashAlgorithm,
+  IpAddressType,
+  KeySpec,
+  KeyUsagePropertyType,
+  PrivateKeyAlgorithm,
+  ServicePrincipalNameStatus,
+  ServicePrincipalNameStatusReason,
+  TemplateStatus,
+  ValidityPeriodType,
+} from "./enums";
 
 /**
  * <p> Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a
@@ -129,111 +132,6 @@ export interface AccessControlEntrySummary {
 }
 
 /**
- * <p>You can receive this error if you attempt to create a resource share when you don't have
- *          the required permissions. This can be caused by insufficient permissions in policies
- *          attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen
- *          because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP)
- *          that affects your Amazon Web Services account. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApplicationPolicyType = {
-  ALL_APPLICATION_POLICIES: "ALL_APPLICATION_POLICIES",
-  ANY_PURPOSE: "ANY_PURPOSE",
-  ATTESTATION_IDENTITY_KEY_CERTIFICATE: "ATTESTATION_IDENTITY_KEY_CERTIFICATE",
-  CERTIFICATE_REQUEST_AGENT: "CERTIFICATE_REQUEST_AGENT",
-  CLIENT_AUTHENTICATION: "CLIENT_AUTHENTICATION",
-  CODE_SIGNING: "CODE_SIGNING",
-  CTL_USAGE: "CTL_USAGE",
-  DIGITAL_RIGHTS: "DIGITAL_RIGHTS",
-  DIRECTORY_SERVICE_EMAIL_REPLICATION: "DIRECTORY_SERVICE_EMAIL_REPLICATION",
-  DISALLOWED_LIST: "DISALLOWED_LIST",
-  DNS_SERVER_TRUST: "DNS_SERVER_TRUST",
-  DOCUMENT_ENCRYPTION: "DOCUMENT_ENCRYPTION",
-  DOCUMENT_SIGNING: "DOCUMENT_SIGNING",
-  DYNAMIC_CODE_GENERATOR: "DYNAMIC_CODE_GENERATOR",
-  EARLY_LAUNCH_ANTIMALWARE_DRIVER: "EARLY_LAUNCH_ANTIMALWARE_DRIVER",
-  EMBEDDED_WINDOWS_SYSTEM_COMPONENT_VERIFICATION: "EMBEDDED_WINDOWS_SYSTEM_COMPONENT_VERIFICATION",
-  ENCLAVE: "ENCLAVE",
-  ENCRYPTING_FILE_SYSTEM: "ENCRYPTING_FILE_SYSTEM",
-  ENDORSEMENT_KEY_CERTIFICATE: "ENDORSEMENT_KEY_CERTIFICATE",
-  FILE_RECOVERY: "FILE_RECOVERY",
-  HAL_EXTENSION: "HAL_EXTENSION",
-  IP_SECURITY_END_SYSTEM: "IP_SECURITY_END_SYSTEM",
-  IP_SECURITY_IKE_INTERMEDIATE: "IP_SECURITY_IKE_INTERMEDIATE",
-  IP_SECURITY_TUNNEL_TERMINATION: "IP_SECURITY_TUNNEL_TERMINATION",
-  IP_SECURITY_USER: "IP_SECURITY_USER",
-  ISOLATED_USER_MODE: "ISOLATED_USER_MODE",
-  KDC_AUTHENTICATION: "KDC_AUTHENTICATION",
-  KERNEL_MODE_CODE_SIGNING: "KERNEL_MODE_CODE_SIGNING",
-  KEY_PACK_LICENSES: "KEY_PACK_LICENSES",
-  KEY_RECOVERY: "KEY_RECOVERY",
-  KEY_RECOVERY_AGENT: "KEY_RECOVERY_AGENT",
-  LICENSE_SERVER_VERIFICATION: "LICENSE_SERVER_VERIFICATION",
-  LIFETIME_SIGNING: "LIFETIME_SIGNING",
-  MICROSOFT_PUBLISHER: "MICROSOFT_PUBLISHER",
-  MICROSOFT_TIME_STAMPING: "MICROSOFT_TIME_STAMPING",
-  MICROSOFT_TRUST_LIST_SIGNING: "MICROSOFT_TRUST_LIST_SIGNING",
-  OCSP_SIGNING: "OCSP_SIGNING",
-  OEM_WINDOWS_SYSTEM_COMPONENT_VERIFICATION: "OEM_WINDOWS_SYSTEM_COMPONENT_VERIFICATION",
-  PLATFORM_CERTIFICATE: "PLATFORM_CERTIFICATE",
-  PREVIEW_BUILD_SIGNING: "PREVIEW_BUILD_SIGNING",
-  PRIVATE_KEY_ARCHIVAL: "PRIVATE_KEY_ARCHIVAL",
-  PROTECTED_PROCESS_LIGHT_VERIFICATION: "PROTECTED_PROCESS_LIGHT_VERIFICATION",
-  PROTECTED_PROCESS_VERIFICATION: "PROTECTED_PROCESS_VERIFICATION",
-  QUALIFIED_SUBORDINATION: "QUALIFIED_SUBORDINATION",
-  REVOKED_LIST_SIGNER: "REVOKED_LIST_SIGNER",
-  ROOT_LIST_SIGNER: "ROOT_LIST_SIGNER",
-  ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION: "ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION",
-  ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION: "ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION",
-  ROOT_PROGRAM_NO_OSCP_FAILOVER_TO_CRL: "ROOT_PROGRAM_NO_OSCP_FAILOVER_TO_CRL",
-  SECURE_EMAIL: "SECURE_EMAIL",
-  SERVER_AUTHENTICATION: "SERVER_AUTHENTICATION",
-  SMART_CARD_LOGIN: "SMART_CARD_LOGIN",
-  SPC_ENCRYPTED_DIGEST_RETRY_COUNT: "SPC_ENCRYPTED_DIGEST_RETRY_COUNT",
-  SPC_RELAXED_PE_MARKER_CHECK: "SPC_RELAXED_PE_MARKER_CHECK",
-  TIME_STAMPING: "TIME_STAMPING",
-  WINDOWS_HARDWARE_DRIVER_ATTESTED_VERIFICATION: "WINDOWS_HARDWARE_DRIVER_ATTESTED_VERIFICATION",
-  WINDOWS_HARDWARE_DRIVER_EXTENDED_VERIFICATION: "WINDOWS_HARDWARE_DRIVER_EXTENDED_VERIFICATION",
-  WINDOWS_HARDWARE_DRIVER_VERIFICATION: "WINDOWS_HARDWARE_DRIVER_VERIFICATION",
-  WINDOWS_HELLO_RECOVERY_KEY_ENCRYPTION: "WINDOWS_HELLO_RECOVERY_KEY_ENCRYPTION",
-  WINDOWS_KITS_COMPONENT: "WINDOWS_KITS_COMPONENT",
-  WINDOWS_RT_VERIFICATION: "WINDOWS_RT_VERIFICATION",
-  WINDOWS_SOFTWARE_EXTENSION_VERIFICATION: "WINDOWS_SOFTWARE_EXTENSION_VERIFICATION",
-  WINDOWS_STORE: "WINDOWS_STORE",
-  WINDOWS_SYSTEM_COMPONENT_VERIFICATION: "WINDOWS_SYSTEM_COMPONENT_VERIFICATION",
-  WINDOWS_TCB_COMPONENT: "WINDOWS_TCB_COMPONENT",
-  WINDOWS_THIRD_PARTY_APPLICATION_COMPONENT: "WINDOWS_THIRD_PARTY_APPLICATION_COMPONENT",
-  WINDOWS_UPDATE: "WINDOWS_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationPolicyType = (typeof ApplicationPolicyType)[keyof typeof ApplicationPolicyType];
-
-/**
  * <p>Application policies describe what the certificate can be used for.</p>
  * @public
  */
@@ -305,23 +203,6 @@ export interface ApplicationPolicies {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValidityPeriodType = {
-  DAYS: "DAYS",
-  HOURS: "HOURS",
-  MONTHS: "MONTHS",
-  WEEKS: "WEEKS",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof ValidityPeriodType];
-
-/**
  * <p>Information describing the end of the validity period of the certificate. This parameter
  *          sets the “Not After” date for the certificate. Certificate validity is the period of time
  *          during which a certificate is valid. Validity can be expressed as an explicit date and time
@@ -378,145 +259,6 @@ export interface CertificateValidity {
    */
   RenewalPeriod: ValidityPeriod | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClientCompatibilityV2 = {
-  WINDOWS_SERVER_2003: "WINDOWS_SERVER_2003",
-  WINDOWS_SERVER_2008: "WINDOWS_SERVER_2008",
-  WINDOWS_SERVER_2008_R2: "WINDOWS_SERVER_2008_R2",
-  WINDOWS_SERVER_2012: "WINDOWS_SERVER_2012",
-  WINDOWS_SERVER_2012_R2: "WINDOWS_SERVER_2012_R2",
-  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
-} as const;
-
-/**
- * @public
- */
-export type ClientCompatibilityV2 = (typeof ClientCompatibilityV2)[keyof typeof ClientCompatibilityV2];
-
-/**
- * @public
- * @enum
- */
-export const ClientCompatibilityV3 = {
-  WINDOWS_SERVER_2008: "WINDOWS_SERVER_2008",
-  WINDOWS_SERVER_2008_R2: "WINDOWS_SERVER_2008_R2",
-  WINDOWS_SERVER_2012: "WINDOWS_SERVER_2012",
-  WINDOWS_SERVER_2012_R2: "WINDOWS_SERVER_2012_R2",
-  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
-} as const;
-
-/**
- * @public
- */
-export type ClientCompatibilityV3 = (typeof ClientCompatibilityV3)[keyof typeof ClientCompatibilityV3];
-
-/**
- * @public
- * @enum
- */
-export const ClientCompatibilityV4 = {
-  WINDOWS_SERVER_2012: "WINDOWS_SERVER_2012",
-  WINDOWS_SERVER_2012_R2: "WINDOWS_SERVER_2012_R2",
-  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
-} as const;
-
-/**
- * @public
- */
-export type ClientCompatibilityV4 = (typeof ClientCompatibilityV4)[keyof typeof ClientCompatibilityV4];
-
-/**
- * <p>This request cannot be completed for one of the following reasons because the requested
- *          resource was being concurrently modified by another request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The identifier of the Amazon Web Services resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConnectorStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
-
-/**
- * @public
- * @enum
- */
-export const ConnectorStatusReason = {
-  CA_CERTIFICATE_REGISTRATION_FAILED: "CA_CERTIFICATE_REGISTRATION_FAILED",
-  DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
-  INSUFFICIENT_FREE_ADDRESSES: "INSUFFICIENT_FREE_ADDRESSES",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  INVALID_SUBNET_IP_PROTOCOL: "INVALID_SUBNET_IP_PROTOCOL",
-  PRIVATECA_ACCESS_DENIED: "PRIVATECA_ACCESS_DENIED",
-  PRIVATECA_RESOURCE_NOT_FOUND: "PRIVATECA_RESOURCE_NOT_FOUND",
-  SECURITY_GROUP_NOT_IN_VPC: "SECURITY_GROUP_NOT_IN_VPC",
-  VPC_ACCESS_DENIED: "VPC_ACCESS_DENIED",
-  VPC_ENDPOINT_LIMIT_EXCEEDED: "VPC_ENDPOINT_LIMIT_EXCEEDED",
-  VPC_RESOURCE_NOT_FOUND: "VPC_RESOURCE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorStatusReason = (typeof ConnectorStatusReason)[keyof typeof ConnectorStatusReason];
-
-/**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  DUALSTACK: "DUALSTACK",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
 
 /**
  * <p>Information about your VPC and security groups used with the connector.</p>
@@ -706,204 +448,6 @@ export interface CreateConnectorResponse {
    * @public
    */
   ConnectorArn?: string | undefined;
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure with
- *          an internal server. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The identifier of the Amazon Web Services resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>Request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The identifier of the Amazon Web Services resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>Identifies the originating service.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-
-  /**
-   * <p>The code associated with the service quota.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.ServiceCode = opts.ServiceCode;
-    this.QuotaCode = opts.QuotaCode;
-  }
-}
-
-/**
- * <p>The limit on the number of requests per second was exceeded. </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  Message: string | undefined;
-  /**
-   * <p>Identifies the originating service.</p>
-   * @public
-   */
-  ServiceCode?: string | undefined;
-
-  /**
-   * <p>The code associated with the quota.</p>
-   * @public
-   */
-  QuotaCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.ServiceCode = opts.ServiceCode;
-    this.QuotaCode = opts.QuotaCode;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  INVALID_CA_SUBJECT: "INVALID_CA_SUBJECT",
-  INVALID_PERMISSION: "INVALID_PERMISSION",
-  INVALID_STATE: "INVALID_STATE",
-  MISMATCHED_CONNECTOR: "MISMATCHED_CONNECTOR",
-  MISMATCHED_VPC: "MISMATCHED_VPC",
-  NO_CLIENT_TOKEN: "NO_CLIENT_TOKEN",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>An input validation error occurred. For example, invalid characters in a template name,
- *          or if a pagination token is invalid. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The reason for the validation error. This won't be return for every
-   *          validation exception.</p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
 }
 
 /**
@@ -1180,20 +724,6 @@ export interface GeneralFlagsV2 {
 }
 
 /**
- * @public
- * @enum
- */
-export const KeySpec = {
-  KEY_EXCHANGE: "KEY_EXCHANGE",
-  SIGNATURE: "SIGNATURE",
-} as const;
-
-/**
- * @public
- */
-export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
-
-/**
  * <p>Defines the attributes of the private key.</p>
  * @public
  */
@@ -1457,37 +987,6 @@ export interface GeneralFlagsV3 {
 }
 
 /**
- * @public
- * @enum
- */
-export const HashAlgorithm = {
-  SHA256: "SHA256",
-  SHA384: "SHA384",
-  SHA512: "SHA512",
-} as const;
-
-/**
- * @public
- */
-export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const PrivateKeyAlgorithm = {
-  ECDH_P256: "ECDH_P256",
-  ECDH_P384: "ECDH_P384",
-  ECDH_P521: "ECDH_P521",
-  RSA: "RSA",
-} as const;
-
-/**
- * @public
- */
-export type PrivateKeyAlgorithm = (typeof PrivateKeyAlgorithm)[keyof typeof PrivateKeyAlgorithm];
-
-/**
  * <p>Specifies key usage.</p>
  * @public
  */
@@ -1510,19 +1009,6 @@ export interface KeyUsagePropertyFlags {
    */
   Sign?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KeyUsagePropertyType = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type KeyUsagePropertyType = (typeof KeyUsagePropertyType)[keyof typeof KeyUsagePropertyType];
 
 /**
  * <p>The key usage property defines the purpose of the private key contained in the
@@ -2324,42 +1810,6 @@ export interface DeleteTemplateGroupAccessControlEntryRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DirectoryRegistrationStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryRegistrationStatus =
-  (typeof DirectoryRegistrationStatus)[keyof typeof DirectoryRegistrationStatus];
-
-/**
- * @public
- * @enum
- */
-export const DirectoryRegistrationStatusReason = {
-  DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
-  DIRECTORY_NOT_ACTIVE: "DIRECTORY_NOT_ACTIVE",
-  DIRECTORY_NOT_REACHABLE: "DIRECTORY_NOT_REACHABLE",
-  DIRECTORY_RESOURCE_NOT_FOUND: "DIRECTORY_RESOURCE_NOT_FOUND",
-  DIRECTORY_TYPE_NOT_SUPPORTED: "DIRECTORY_TYPE_NOT_SUPPORTED",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryRegistrationStatusReason =
-  (typeof DirectoryRegistrationStatusReason)[keyof typeof DirectoryRegistrationStatusReason];
-
-/**
  * <p>The directory registration represents the authorization of the connector service with a
  *          directory.</p>
  * @public
@@ -2531,41 +1981,6 @@ export interface GetServicePrincipalNameRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServicePrincipalNameStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ServicePrincipalNameStatus = (typeof ServicePrincipalNameStatus)[keyof typeof ServicePrincipalNameStatus];
-
-/**
- * @public
- * @enum
- */
-export const ServicePrincipalNameStatusReason = {
-  DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
-  DIRECTORY_NOT_REACHABLE: "DIRECTORY_NOT_REACHABLE",
-  DIRECTORY_RESOURCE_NOT_FOUND: "DIRECTORY_RESOURCE_NOT_FOUND",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  SPN_EXISTS_ON_DIFFERENT_AD_OBJECT: "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT",
-  SPN_LIMIT_EXCEEDED: "SPN_LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ServicePrincipalNameStatusReason =
-  (typeof ServicePrincipalNameStatusReason)[keyof typeof ServicePrincipalNameStatusReason];
-
-/**
  * <p>The service principal name that the connector uses to authenticate with Active Directory.</p>
  * @public
  */
@@ -2650,20 +2065,6 @@ export interface TemplateRevision {
    */
   MinorRevision: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TemplateStatus = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
 
 /**
  * <p>An Active Directory compatible certificate template. Connectors issue certificates against these

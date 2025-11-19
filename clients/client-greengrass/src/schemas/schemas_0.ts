@@ -495,11 +495,11 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GreengrassServiceException as __GreengrassServiceException } from "../models/GreengrassServiceException";
 import {
   BadRequestException as __BadRequestException,
   InternalServerErrorException as __InternalServerErrorException,
-} from "../models/index";
+} from "../models/errors";
+import { GreengrassServiceException as __GreengrassServiceException } from "../models/GreengrassServiceException";
 
 /* eslint no-var: 0 */
 

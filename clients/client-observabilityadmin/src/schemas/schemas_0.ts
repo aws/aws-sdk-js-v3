@@ -172,7 +172,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   TooManyRequestsException as __TooManyRequestsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { ObservabilityAdminServiceException as __ObservabilityAdminServiceException } from "../models/ObservabilityAdminServiceException";
 
 /* eslint no-var: 0 */

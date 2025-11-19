@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIdentityCenterAuthTokenRequest, GetIdentityCenterAuthTokenResponse } from "../models/models_1";
+import { GetIdentityCenterAuthTokenRequest, GetIdentityCenterAuthTokenResponse } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { GetIdentityCenterAuthToken } from "../schemas/schemas_0";
 

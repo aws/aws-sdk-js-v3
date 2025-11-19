@@ -26,7 +26,8 @@ import {
 
 import { GetRestApisCommandInput, GetRestApisCommandOutput } from "../commands/GetRestApisCommand";
 import { APIGatewayServiceException as __BaseException } from "../models/APIGatewayServiceException";
-import { BadRequestException, RestApi, TooManyRequestsException, UnauthorizedException } from "../models/models_0";
+import { BadRequestException, TooManyRequestsException, UnauthorizedException } from "../models/errors";
+import { RestApi } from "../models/models_0";
 
 /**
  * serializeAws_restJson1GetRestApisCommand

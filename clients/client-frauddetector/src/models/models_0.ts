@@ -1,27 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FraudDetectorServiceException as __BaseException } from "./FraudDetectorServiceException";
-
-/**
- * <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  AsyncJobStatus,
+  DataSource,
+  DataType,
+  DetectorVersionStatus,
+  EventIngestion,
+  Language,
+  ListUpdateMode,
+  ModelEndpointStatus,
+  ModelInputDataFormat,
+  ModelOutputDataFormat,
+  ModelSource,
+  ModelTypeEnum,
+  ModelVersionStatus,
+  RuleExecutionMode,
+  TrainingDataSourceEnum,
+  UnlabeledEventsTreatment,
+} from "./enums";
 
 /**
  * <p>The log odds metric details.</p>
@@ -161,24 +156,6 @@ export interface AllowDenyList {
    */
   arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AsyncJobStatus = {
-  CANCELED: "CANCELED",
-  CANCEL_IN_PROGRESS: "CANCEL_IN_PROGRESS",
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  IN_PROGRESS_INITIALIZING: "IN_PROGRESS_INITIALIZING",
-} as const;
-
-/**
- * @public
- */
-export type AsyncJobStatus = (typeof AsyncJobStatus)[keyof typeof AsyncJobStatus];
 
 /**
  * <p>
@@ -382,66 +359,6 @@ export interface BatchCreateVariableResult {
 }
 
 /**
- * <p>An exception indicating an internal server error.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>An exception indicating a throttling error.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>An exception indicating a specified value is not allowed.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchGetVariableRequest {
@@ -475,38 +392,6 @@ export interface BatchGetVariableError {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataSource = {
-  EVENT: "EVENT",
-  EXTERNAL_MODEL_SCORE: "EXTERNAL_MODEL_SCORE",
-  MODEL_SCORE: "MODEL_SCORE",
-} as const;
-
-/**
- * @public
- */
-export type DataSource = (typeof DataSource)[keyof typeof DataSource];
-
-/**
- * @public
- * @enum
- */
-export const DataType = {
-  BOOLEAN: "BOOLEAN",
-  DATETIME: "DATETIME",
-  FLOAT: "FLOAT",
-  INTEGER: "INTEGER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type DataType = (typeof DataType)[keyof typeof DataType];
 
 /**
  * <p>The variable.</p>
@@ -603,26 +488,6 @@ export interface CancelBatchImportJobRequest {
  * @public
  */
 export interface CancelBatchImportJobResult {}
-
-/**
- * <p>An exception indicating the specified resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * @public
@@ -751,21 +616,6 @@ export interface CreateBatchPredictionJobRequest {
 export interface CreateBatchPredictionJobResult {}
 
 /**
- * @public
- * @enum
- */
-export const ModelTypeEnum = {
-  ACCOUNT_TAKEOVER_INSIGHTS: "ACCOUNT_TAKEOVER_INSIGHTS",
-  ONLINE_FRAUD_INSIGHTS: "ONLINE_FRAUD_INSIGHTS",
-  TRANSACTION_FRAUD_INSIGHTS: "TRANSACTION_FRAUD_INSIGHTS",
-} as const;
-
-/**
- * @public
- */
-export type ModelTypeEnum = (typeof ModelTypeEnum)[keyof typeof ModelTypeEnum];
-
-/**
  * <p>The model version.</p>
  * @public
  */
@@ -794,20 +644,6 @@ export interface ModelVersion {
    */
   arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleExecutionMode = {
-  ALL_MATCHED: "ALL_MATCHED",
-  FIRST_MATCHED: "FIRST_MATCHED",
-} as const;
-
-/**
- * @public
- */
-export type RuleExecutionMode = (typeof RuleExecutionMode)[keyof typeof RuleExecutionMode];
 
 /**
  * <p>A rule.</p>
@@ -883,21 +719,6 @@ export interface CreateDetectorVersionRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DetectorVersionStatus = {
-  ACTIVE: "ACTIVE",
-  DRAFT: "DRAFT",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type DetectorVersionStatus = (typeof DetectorVersionStatus)[keyof typeof DetectorVersionStatus];
 
 /**
  * @public
@@ -1062,22 +883,6 @@ export interface IngestedEventsDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const UnlabeledEventsTreatment = {
-  AUTO: "AUTO",
-  FRAUD: "FRAUD",
-  IGNORE: "IGNORE",
-  LEGIT: "LEGIT",
-} as const;
-
-/**
- * @public
- */
-export type UnlabeledEventsTreatment = (typeof UnlabeledEventsTreatment)[keyof typeof UnlabeledEventsTreatment];
-
-/**
  * <p>The label schema.</p>
  * @public
  */
@@ -1128,20 +933,6 @@ export interface TrainingDataSchema {
    */
   labelSchema?: LabelSchema | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TrainingDataSourceEnum = {
-  EXTERNAL_EVENTS: "EXTERNAL_EVENTS",
-  INGESTED_EVENTS: "INGESTED_EVENTS",
-} as const;
-
-/**
- * @public
- */
-export type TrainingDataSourceEnum = (typeof TrainingDataSourceEnum)[keyof typeof TrainingDataSourceEnum];
 
 /**
  * @public
@@ -1218,19 +1009,6 @@ export interface CreateModelVersionResult {
    */
   status?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Language = {
-  DETECTORPL: "DETECTORPL",
-} as const;
-
-/**
- * @public
- */
-export type Language = (typeof Language)[keyof typeof Language];
 
 /**
  * @public
@@ -1376,26 +1154,6 @@ export interface DeleteBatchPredictionJobRequest {
  * @public
  */
 export interface DeleteBatchPredictionJobResult {}
-
-/**
- * <p>An exception indicating there was a conflict during a delete operation.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
 
 /**
  * @public
@@ -3070,19 +2828,6 @@ export interface GetEventPredictionRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ModelSource = {
-  SAGEMAKER: "SAGEMAKER",
-} as const;
-
-/**
- * @public
- */
-export type ModelSource = (typeof ModelSource)[keyof typeof ModelSource];
-
-/**
  * <p>The Amazon SageMaker model.</p>
  * @public
  */
@@ -3175,26 +2920,6 @@ export interface GetEventPredictionResult {
    * @public
    */
   externalModelOutputs?: ExternalModelOutputs[] | undefined;
-}
-
-/**
- * <p>An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.</p>
- * @public
- */
-export class ResourceUnavailableException extends __BaseException {
-  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
-    super({
-      name: "ResourceUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
-  }
 }
 
 /**
@@ -3665,20 +3390,6 @@ export interface GetEventTypesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventIngestion = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EventIngestion = (typeof EventIngestion)[keyof typeof EventIngestion];
-
-/**
  * <p>
  *          The event orchestration status.
  *       </p>
@@ -3842,20 +3553,6 @@ export interface GetExternalModelsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ModelInputDataFormat = {
-  CSV: "TEXT_CSV",
-  JSON: "APPLICATION_JSON",
-} as const;
-
-/**
- * @public
- */
-export type ModelInputDataFormat = (typeof ModelInputDataFormat)[keyof typeof ModelInputDataFormat];
-
-/**
  * <p>The Amazon SageMaker model input configuration.</p>
  * @public
  */
@@ -3895,34 +3592,6 @@ export interface ModelInputConfiguration {
    */
   csvInputTemplate?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelEndpointStatus = {
-  ASSOCIATED: "ASSOCIATED",
-  DISSOCIATED: "DISSOCIATED",
-} as const;
-
-/**
- * @public
- */
-export type ModelEndpointStatus = (typeof ModelEndpointStatus)[keyof typeof ModelEndpointStatus];
-
-/**
- * @public
- * @enum
- */
-export const ModelOutputDataFormat = {
-  CSV: "TEXT_CSV",
-  JSONLINES: "APPLICATION_JSONLINES",
-} as const;
-
-/**
- * @public
- */
-export type ModelOutputDataFormat = (typeof ModelOutputDataFormat)[keyof typeof ModelOutputDataFormat];
 
 /**
  * <p>Provides the Amazon Sagemaker model output configuration.</p>
@@ -5393,21 +5062,6 @@ export interface UpdateEventLabelResult {}
 
 /**
  * @public
- * @enum
- */
-export const ListUpdateMode = {
-  APPEND: "APPEND",
-  REMOVE: "REMOVE",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type ListUpdateMode = (typeof ListUpdateMode)[keyof typeof ListUpdateMode];
-
-/**
- * @public
  */
 export interface UpdateListRequest {
   /**
@@ -5568,21 +5222,6 @@ export interface UpdateModelVersionResult {
    */
   status?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelVersionStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-  TRAINING_CANCELLED: "TRAINING_CANCELLED",
-} as const;
-
-/**
- * @public
- */
-export type ModelVersionStatus = (typeof ModelVersionStatus)[keyof typeof ModelVersionStatus];
 
 /**
  * @public

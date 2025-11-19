@@ -1,27 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BedrockDataAutomationRuntimeServiceException as __BaseException } from "./BedrockDataAutomationRuntimeServiceException";
-
-/**
- * This exception will be thrown when customer does not have access to API.
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import { AutomationJobStatus, BlueprintStage, DataAutomationStage } from "./enums";
 
 /**
  * Structure for request of GetDataAutomationStatus API.
@@ -46,23 +24,6 @@ export interface OutputConfiguration {
    */
   s3Uri: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutomationJobStatus = {
-  CLIENT_ERROR: "ClientError",
-  CREATED: "Created",
-  IN_PROGRESS: "InProgress",
-  SERVICE_ERROR: "ServiceError",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type AutomationJobStatus = (typeof AutomationJobStatus)[keyof typeof AutomationJobStatus];
 
 /**
  * Response of GetDataAutomationStatus API.
@@ -95,100 +56,6 @@ export interface GetDataAutomationStatusResponse {
 }
 
 /**
- * This exception is for any internal un-expected service errors.
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * This exception will be thrown when resource provided from customer not found.
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * This exception will be thrown when customer reached API TPS limit.
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * This exception will be thrown when customer provided invalid parameters.
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const BlueprintStage = {
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type BlueprintStage = (typeof BlueprintStage)[keyof typeof BlueprintStage];
-
-/**
  * Structure for single blueprint entity.
  * @public
  */
@@ -211,20 +78,6 @@ export interface Blueprint {
    */
   stage?: BlueprintStage | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataAutomationStage = {
-  DEVELOPMENT: "DEVELOPMENT",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type DataAutomationStage = (typeof DataAutomationStage)[keyof typeof DataAutomationStage];
 
 /**
  * Data automation configuration.
@@ -473,26 +326,6 @@ export interface InvokeDataAutomationAsyncResponse {
    * @public
    */
   invocationArn: string | undefined;
-}
-
-/**
- * This exception will be thrown when service quota is exceeded.
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**

@@ -278,7 +278,7 @@ import {
   KMSRequestFailedException as __KMSRequestFailedException,
   ReturnShippingLabelAlreadyExistsException as __ReturnShippingLabelAlreadyExistsException,
   UnsupportedAddressException as __UnsupportedAddressException,
-} from "../models/index";
+} from "../models/errors";
 import { SnowballServiceException as __SnowballServiceException } from "../models/SnowballServiceException";
 
 /* eslint no-var: 0 */

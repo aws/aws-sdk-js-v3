@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateConnectionGroupRequest, UpdateConnectionGroupResult } from "../models/models_2";
+import { UpdateConnectionGroupRequest, UpdateConnectionGroupResult } from "../models/models_1";
 import { UpdateConnectionGroup } from "../schemas/schemas_0";
 
 /**

@@ -185,7 +185,7 @@ import {
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { ResourceGroupsServiceException as __ResourceGroupsServiceException } from "../models/ResourceGroupsServiceException";
 
 /* eslint no-var: 0 */

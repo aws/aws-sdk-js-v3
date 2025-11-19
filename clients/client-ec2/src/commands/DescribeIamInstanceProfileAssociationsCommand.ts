@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeIamInstanceProfileAssociations } from "../schemas/schemas_0";
 
 /**

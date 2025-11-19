@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateResponseHeadersPolicyRequest, CreateResponseHeadersPolicyResult } from "../models/models_1";
+import { CreateResponseHeadersPolicyRequest, CreateResponseHeadersPolicyResult } from "../models/models_0";
 import { CreateResponseHeadersPolicy } from "../schemas/schemas_0";
 
 /**

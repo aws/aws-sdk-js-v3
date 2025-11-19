@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { ReleaseFileSystemNfsV3LocksRequest } from "../models/models_0";
-import { ReleaseFileSystemNfsV3LocksResponse } from "../models/models_1";
+import { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
 import { ReleaseFileSystemNfsV3Locks } from "../schemas/schemas_0";
 
 /**

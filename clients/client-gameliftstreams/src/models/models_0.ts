@@ -1,33 +1,18 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { GameLiftStreamsServiceException as __BaseException } from "./GameLiftStreamsServiceException";
-
-/**
- * <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  ApplicationStatus,
+  ApplicationStatusReason,
+  ExportFilesStatus,
+  Protocol,
+  ReplicationStatusType,
+  RuntimeEnvironmentType,
+  StreamClass,
+  StreamGroupLocationStatus,
+  StreamGroupStatus,
+  StreamGroupStatusReason,
+  StreamSessionStatus,
+  StreamSessionStatusReason,
+} from "./enums";
 
 /**
  * <p>Configuration settings that define a stream group's stream capacity for a location. When configuring a location for the first time, you must specify a numeric value for at least one of the two capacity types. To update the capacity for an existing stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>. To add a new location and specify its capacity, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AddStreamGroupLocations.html">AddStreamGroupLocations</a>.</p>
@@ -69,22 +54,6 @@ export interface AddStreamGroupLocationsInput {
    */
   LocationConfigurations: LocationConfiguration[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StreamGroupLocationStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-  REMOVING: "REMOVING",
-} as const;
-
-/**
- * @public
- */
-export type StreamGroupLocationStatus = (typeof StreamGroupLocationStatus)[keyof typeof StreamGroupLocationStatus];
 
 /**
  * <p>Represents a location and its corresponding stream capacity and status.</p>
@@ -150,212 +119,6 @@ export interface AddStreamGroupLocationsOutput {
    */
   Locations: LocationState[] | undefined;
 }
-
-/**
- * <p>The service encountered an internal error and is unable to complete the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource specified in the request was not found. Correct the request before you try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApplicationStatus = {
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  INITIALIZED: "INITIALIZED",
-  PROCESSING: "PROCESSING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
-
-/**
- * @public
- * @enum
- */
-export const ApplicationStatusReason = {
-  ACCESS_DENIED: "accessDenied",
-  INTERNAL_ERROR: "internalError",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatusReason = (typeof ApplicationStatusReason)[keyof typeof ApplicationStatusReason];
-
-/**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RuntimeEnvironmentType = {
-  PROTON: "PROTON",
-  UBUNTU: "UBUNTU",
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type RuntimeEnvironmentType = (typeof RuntimeEnvironmentType)[keyof typeof RuntimeEnvironmentType];
 
 /**
  * <p>Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and other drivers.</p> <p>A runtime environment can be one of the following:</p> <ul> <li> <p> For Linux applications </p> <ul> <li> <p> Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>) </p> </li> </ul> </li> <li> <p> For Windows applications </p> <ul> <li> <p>Microsoft Windows Server 2022 Base (<code>Type=WINDOWS, Version=2022</code>)</p> </li> <li> <p>Proton 9.0-2 (<code>Type=PROTON, Version=20250516</code>)</p> </li> <li> <p>Proton 8.0-5 (<code>Type=PROTON, Version=20241007</code>)</p> </li> <li> <p>Proton 8.0-2c (<code>Type=PROTON, Version=20230704</code>)</p> </li> </ul> </li> </ul>
@@ -427,20 +190,6 @@ export interface CreateApplicationInput {
    */
   ClientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationStatusType = {
-  COMPLETED: "COMPLETED",
-  REPLICATING: "REPLICATING",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationStatusType = (typeof ReplicationStatusType)[keyof typeof ReplicationStatusType];
 
 /**
  * <p>Represents the status of the replication of an application to a location. An application cannot be streamed from a location until it has finished replicating there.</p>
@@ -896,24 +645,6 @@ export interface AssociateApplicationsOutput {
 
 /**
  * @public
- * @enum
- */
-export const StreamClass = {
-  gen4n_high: "gen4n_high",
-  gen4n_ultra: "gen4n_ultra",
-  gen4n_win2022: "gen4n_win2022",
-  gen5n_high: "gen5n_high",
-  gen5n_ultra: "gen5n_ultra",
-  gen5n_win2022: "gen5n_win2022",
-} as const;
-
-/**
- * @public
- */
-export type StreamClass = (typeof StreamClass)[keyof typeof StreamClass];
-
-/**
- * @public
  */
 export interface CreateStreamGroupInput {
   /**
@@ -970,39 +701,6 @@ export interface DefaultApplication {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StreamGroupStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  ACTIVE_WITH_ERRORS: "ACTIVE_WITH_ERRORS",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  EXPIRED: "EXPIRED",
-  UPDATING_LOCATIONS: "UPDATING_LOCATIONS",
-} as const;
-
-/**
- * @public
- */
-export type StreamGroupStatus = (typeof StreamGroupStatus)[keyof typeof StreamGroupStatus];
-
-/**
- * @public
- * @enum
- */
-export const StreamGroupStatusReason = {
-  INTERNAL_ERROR: "internalError",
-  NO_AVAILABLE_INSTANCES: "noAvailableInstances",
-} as const;
-
-/**
- * @public
- */
-export type StreamGroupStatusReason = (typeof StreamGroupStatusReason)[keyof typeof StreamGroupStatusReason];
 
 /**
  * @public
@@ -1167,21 +865,6 @@ export interface DisassociateApplicationsOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExportFilesStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ExportFilesStatus = (typeof ExportFilesStatus)[keyof typeof ExportFilesStatus];
-
-/**
  * <p>Provides details about the stream session's exported files. </p>
  * @public
  */
@@ -1249,61 +932,6 @@ export interface GetStreamSessionInput {
    */
   StreamSessionIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  WEBRTC: "WebRTC",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
-/**
- * @public
- * @enum
- */
-export const StreamSessionStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  CONNECTED: "CONNECTED",
-  ERROR: "ERROR",
-  PENDING_CLIENT_RECONNECTION: "PENDING_CLIENT_RECONNECTION",
-  RECONNECTING: "RECONNECTING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-} as const;
-
-/**
- * @public
- */
-export type StreamSessionStatus = (typeof StreamSessionStatus)[keyof typeof StreamSessionStatus];
-
-/**
- * @public
- * @enum
- */
-export const StreamSessionStatusReason = {
-  API_TERMINATED: "apiTerminated",
-  APPLICATION_EXIT: "applicationExit",
-  APP_LOG_S3_DESTINATION_ERROR: "applicationLogS3DestinationError",
-  CONNECTION_TIMEOUT: "connectionTimeout",
-  IDLE_TIMEOUT: "idleTimeout",
-  INTERNAL_ERROR: "internalError",
-  INVALID_SIGNAL_REQUEST: "invalidSignalRequest",
-  MAX_SESSION_LENGTH_TIMEOUT: "maxSessionLengthTimeout",
-  PLACEMENT_TIMEOUT: "placementTimeout",
-  RECONNECTION_TIMEOUT: "reconnectionTimeout",
-} as const;
-
-/**
- * @public
- */
-export type StreamSessionStatusReason = (typeof StreamSessionStatusReason)[keyof typeof StreamSessionStatusReason];
 
 /**
  * @public

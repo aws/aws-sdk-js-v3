@@ -121,14 +121,14 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GeoMapsServiceException as __GeoMapsServiceException } from "../models/GeoMapsServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { GeoMapsServiceException as __GeoMapsServiceException } from "../models/GeoMapsServiceException";
 
 /* eslint no-var: 0 */
 

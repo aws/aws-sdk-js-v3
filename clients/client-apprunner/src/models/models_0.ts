@@ -1,7 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AppRunnerServiceException as __BaseException } from "./AppRunnerServiceException";
+import {
+  AutoScalingConfigurationStatus,
+  CertificateValidationRecordStatus,
+  ConfigurationSource,
+  ConnectionStatus,
+  CustomDomainAssociationStatus,
+  EgressType,
+  HealthCheckProtocol,
+  ImageRepositoryType,
+  IpAddressType,
+  ObservabilityConfigurationStatus,
+  OperationStatus,
+  OperationType,
+  ProviderType,
+  Runtime,
+  ServiceStatus,
+  SourceCodeVersionType,
+  TracingVendor,
+  VpcConnectorStatus,
+  VpcIngressConnectionStatus,
+} from "./enums";
 
 /**
  * @public
@@ -30,22 +48,6 @@ export interface AssociateCustomDomainRequest {
    */
   EnableWWWSubdomain?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CertificateValidationRecordStatus = {
-  FAILED: "FAILED",
-  PENDING_VALIDATION: "PENDING_VALIDATION",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type CertificateValidationRecordStatus =
-  (typeof CertificateValidationRecordStatus)[keyof typeof CertificateValidationRecordStatus];
 
 /**
  * <p>Describes a certificate CNAME record to add to your DNS. For more information, see <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_AssociateCustomDomain.html">AssociateCustomDomain</a>.</p>
@@ -77,26 +79,6 @@ export interface CertificateValidationRecord {
    */
   Status?: CertificateValidationRecordStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomDomainAssociationStatus = {
-  ACTIVE: "ACTIVE",
-  BINDING_CERTIFICATE: "BINDING_CERTIFICATE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  PENDING_CERTIFICATE_DNS_VALIDATION: "PENDING_CERTIFICATE_DNS_VALIDATION",
-} as const;
-
-/**
- * @public
- */
-export type CustomDomainAssociationStatus =
-  (typeof CustomDomainAssociationStatus)[keyof typeof CustomDomainAssociationStatus];
 
 /**
  * <p>Describes a custom domain that's associated with an App Runner service.</p>
@@ -186,72 +168,6 @@ export interface AssociateCustomDomainResponse {
 }
 
 /**
- * <p>An unexpected service exception occurred.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You can't perform this action when the resource is in its current state.</p>
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name: "InvalidStateException" = "InvalidStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Describes a tag that is applied to an App Runner resource. A tag is a metadata item consisting of a key-value pair.</p>
  * @public
  */
@@ -336,21 +252,6 @@ export interface CreateAutoScalingConfigurationRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoScalingConfigurationStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AutoScalingConfigurationStatus =
-  (typeof AutoScalingConfigurationStatus)[keyof typeof AutoScalingConfigurationStatus];
 
 /**
  * <p>Describes an App Runner automatic scaling configuration resource.</p>
@@ -458,44 +359,6 @@ export interface CreateAutoScalingConfigurationResponse {
 }
 
 /**
- * <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
- *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
- *         <i>Amazon Web Services General Reference</i>.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ProviderType = {
-  BITBUCKET: "BITBUCKET",
-  GITHUB: "GITHUB",
-} as const;
-
-/**
- * @public
- */
-export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
-
-/**
  * @public
  */
 export interface CreateConnectionRequest {
@@ -517,22 +380,6 @@ export interface CreateConnectionRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETED: "DELETED",
-  ERROR: "ERROR",
-  PENDING_HANDSHAKE: "PENDING_HANDSHAKE",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
  * <p>Describes an App Runner connection resource.</p>
@@ -582,19 +429,6 @@ export interface CreateConnectionResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const TracingVendor = {
-  AWSXRAY: "AWSXRAY",
-} as const;
-
-/**
- * @public
- */
-export type TracingVendor = (typeof TracingVendor)[keyof typeof TracingVendor];
-
-/**
  * <p>Describes the configuration of the tracing feature within an App Runner observability configuration.</p>
  * @public
  */
@@ -635,21 +469,6 @@ export interface CreateObservabilityConfigurationRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ObservabilityConfigurationStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ObservabilityConfigurationStatus =
-  (typeof ObservabilityConfigurationStatus)[keyof typeof ObservabilityConfigurationStatus];
 
 /**
  * <p>Describes an App Runner observability configuration resource. Multiple revisions of a configuration have the same
@@ -734,20 +553,6 @@ export interface EncryptionConfiguration {
    */
   KmsKey: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HealthCheckProtocol = {
-  HTTP: "HTTP",
-  TCP: "TCP",
-} as const;
-
-/**
- * @public
- */
-export type HealthCheckProtocol = (typeof HealthCheckProtocol)[keyof typeof HealthCheckProtocol];
 
 /**
  * <p>Describes the settings for the health check that App Runner performs to monitor the health of a service.</p>
@@ -836,20 +641,6 @@ export interface InstanceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const EgressType = {
-  DEFAULT: "DEFAULT",
-  VPC: "VPC",
-} as const;
-
-/**
- * @public
- */
-export type EgressType = (typeof EgressType)[keyof typeof EgressType];
-
-/**
  * <p>Describes configuration settings related to outbound network traffic of an App Runner service.</p>
  * @public
  */
@@ -882,20 +673,6 @@ export interface IngressConfiguration {
    */
   IsPubliclyAccessible?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  DUAL_STACK: "DUAL_STACK",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
 
 /**
  * <p>Describes configuration settings related to network traffic of an App Runner service. Consists of embedded objects for each configurable network
@@ -971,31 +748,6 @@ export interface AuthenticationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const Runtime = {
-  CORRETTO_11: "CORRETTO_11",
-  CORRETTO_8: "CORRETTO_8",
-  DOTNET_6: "DOTNET_6",
-  GO_1: "GO_1",
-  NODEJS_12: "NODEJS_12",
-  NODEJS_14: "NODEJS_14",
-  NODEJS_16: "NODEJS_16",
-  NODEJS_18: "NODEJS_18",
-  NODEJS_22: "NODEJS_22",
-  PHP_81: "PHP_81",
-  PYTHON_3: "PYTHON_3",
-  PYTHON_311: "PYTHON_311",
-  RUBY_31: "RUBY_31",
-} as const;
-
-/**
- * @public
- */
-export type Runtime = (typeof Runtime)[keyof typeof Runtime];
-
-/**
  * <p>Describes the basic configuration needed for building and running an App Runner service. This type doesn't support the full set of possible
  *       configuration options. Fur full configuration capabilities, use a <code>apprunner.yaml</code> file in the source code repository.</p>
  * @public
@@ -1058,20 +810,6 @@ export interface CodeConfigurationValues {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigurationSource = {
-  API: "API",
-  REPOSITORY: "REPOSITORY",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationSource = (typeof ConfigurationSource)[keyof typeof ConfigurationSource];
-
-/**
  * <p>Describes the configuration that App Runner uses to build and run an App Runner service from a source code repository.</p>
  * @public
  */
@@ -1101,19 +839,6 @@ export interface CodeConfiguration {
    */
   CodeConfigurationValues?: CodeConfigurationValues | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceCodeVersionType = {
-  BRANCH: "BRANCH",
-} as const;
-
-/**
- * @public
- */
-export type SourceCodeVersionType = (typeof SourceCodeVersionType)[keyof typeof SourceCodeVersionType];
 
 /**
  * <p>Identifies a version of code that App Runner refers to within a source code repository.</p>
@@ -1215,20 +940,6 @@ export interface ImageConfiguration {
    */
   RuntimeEnvironmentSecrets?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageRepositoryType = {
-  ECR: "ECR",
-  ECR_PUBLIC: "ECR_PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type ImageRepositoryType = (typeof ImageRepositoryType)[keyof typeof ImageRepositoryType];
 
 /**
  * <p>Describes a source image repository.</p>
@@ -1417,24 +1128,6 @@ export interface AutoScalingConfigurationSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  OPERATION_IN_PROGRESS: "OPERATION_IN_PROGRESS",
-  PAUSED: "PAUSED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
-
-/**
  * <p>Describes an App Runner service. It can describe a service in any state, including deleted services.</p>
  *          <p>This type contains the full information about a service, including configuration details. It's returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html">CreateService</a>, <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html">DescribeService</a>, and <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html">DeleteService</a> actions. A subset of this
  *       information is returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html">ListServices</a> action using the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ServiceSummary.html">ServiceSummary</a> type.</p>
@@ -1599,20 +1292,6 @@ export interface CreateVpcConnectorRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const VpcConnectorStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type VpcConnectorStatus = (typeof VpcConnectorStatus)[keyof typeof VpcConnectorStatus];
-
-/**
  * <p>Describes an App Runner VPC connector resource. A VPC connector describes the Amazon Virtual Private Cloud (Amazon VPC) that an App Runner service is
  *       associated with, and the subnets and security group that are used.</p>
  *          <p>Multiple revisions of a connector might have the same <code>Name</code> and different <code>Revision</code> values.</p>
@@ -1738,26 +1417,6 @@ export interface CreateVpcIngressConnectionRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VpcIngressConnectionStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETED: "DELETED",
-  FAILED_CREATION: "FAILED_CREATION",
-  FAILED_DELETION: "FAILED_DELETION",
-  FAILED_UPDATE: "FAILED_UPDATE",
-  PENDING_CREATION: "PENDING_CREATION",
-  PENDING_DELETION: "PENDING_DELETION",
-  PENDING_UPDATE: "PENDING_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type VpcIngressConnectionStatus = (typeof VpcIngressConnectionStatus)[keyof typeof VpcIngressConnectionStatus];
 
 /**
  * <p>The App Runner resource that specifies an App Runner endpoint for incoming traffic. It establishes a connection between a VPC interface endpoint and a App Runner
@@ -1891,28 +1550,6 @@ export interface DeleteAutoScalingConfigurationResponse {
    * @public
    */
   AutoScalingConfiguration: AutoScalingConfiguration | undefined;
-}
-
-/**
- * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2509,43 +2146,6 @@ export interface ListOperationsRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  ROLLBACK_FAILED: "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-  ROLLBACK_SUCCEEDED: "ROLLBACK_SUCCEEDED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
-
-/**
- * @public
- * @enum
- */
-export const OperationType = {
-  CREATE_SERVICE: "CREATE_SERVICE",
-  DELETE_SERVICE: "DELETE_SERVICE",
-  PAUSE_SERVICE: "PAUSE_SERVICE",
-  RESUME_SERVICE: "RESUME_SERVICE",
-  START_DEPLOYMENT: "START_DEPLOYMENT",
-  UPDATE_SERVICE: "UPDATE_SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
  * <p>Provides summary information for an operation that occurred on an App Runner service.</p>

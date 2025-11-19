@@ -400,7 +400,7 @@ import {
   TooManySubscriptionsException as __TooManySubscriptionsException,
   UnauthorizedOperationException as __UnauthorizedOperationException,
   UnauthorizedResourceAccessException as __UnauthorizedResourceAccessException,
-} from "../models/index";
+} from "../models/errors";
 import { WorkDocsServiceException as __WorkDocsServiceException } from "../models/WorkDocsServiceException";
 
 /* eslint no-var: 0 */

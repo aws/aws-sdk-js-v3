@@ -452,7 +452,7 @@ import {
   TransactionCommitInProgressException as __TransactionCommitInProgressException,
   TransactionCommittedException as __TransactionCommittedException,
   WorkUnitsNotReadyYetException as __WorkUnitsNotReadyYetException,
-} from "../models/index";
+} from "../models/errors";
 import { LakeFormationServiceException as __LakeFormationServiceException } from "../models/LakeFormationServiceException";
 
 /* eslint no-var: 0 */

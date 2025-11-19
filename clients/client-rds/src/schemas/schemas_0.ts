@@ -1659,7 +1659,7 @@ import {
   TenantDatabaseNotFoundFault as __TenantDatabaseNotFoundFault,
   TenantDatabaseQuotaExceededFault as __TenantDatabaseQuotaExceededFault,
   UnsupportedDBEngineVersionFault as __UnsupportedDBEngineVersionFault,
-} from "../models/index";
+} from "../models/errors";
 import { RDSServiceException as __RDSServiceException } from "../models/RDSServiceException";
 
 /* eslint no-var: 0 */

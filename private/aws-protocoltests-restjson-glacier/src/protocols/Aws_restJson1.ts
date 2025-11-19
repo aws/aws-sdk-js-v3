@@ -24,14 +24,14 @@ import {
   UploadMultipartPartCommandInput,
   UploadMultipartPartCommandOutput,
 } from "../commands/UploadMultipartPartCommand";
-import { GlacierServiceException as __BaseException } from "../models/GlacierServiceException";
 import {
   InvalidParameterValueException,
   MissingParameterValueException,
   RequestTimeoutException,
   ResourceNotFoundException,
   ServiceUnavailableException,
-} from "../models/models_0";
+} from "../models/errors";
+import { GlacierServiceException as __BaseException } from "../models/GlacierServiceException";
 
 /**
  * serializeAws_restJson1UploadArchiveCommand

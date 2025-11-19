@@ -834,7 +834,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GameLiftServiceException as __GameLiftServiceException } from "../models/GameLiftServiceException";
 import {
   ConflictException as __ConflictException,
   FleetCapacityExceededException as __FleetCapacityExceededException,
@@ -852,7 +851,8 @@ import {
   TerminalRoutingStrategyException as __TerminalRoutingStrategyException,
   UnauthorizedException as __UnauthorizedException,
   UnsupportedRegionException as __UnsupportedRegionException,
-} from "../models/index";
+} from "../models/errors";
+import { GameLiftServiceException as __GameLiftServiceException } from "../models/GameLiftServiceException";
 
 /* eslint no-var: 0 */
 

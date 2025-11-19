@@ -1,108 +1,18 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WorkSpacesThinClientServiceException as __BaseException } from "./WorkSpacesThinClientServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApplyTimeOf = {
-  DEVICE: "DEVICE",
-  UTC: "UTC",
-} as const;
-
-/**
- * @public
- */
-export type ApplyTimeOf = (typeof ApplyTimeOf)[keyof typeof ApplyTimeOf];
-
-/**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource associated with the request.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource associated with the request.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
-/**
- * @public
- * @enum
- */
-export const MaintenanceWindowType = {
-  CUSTOM: "CUSTOM",
-  SYSTEM: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type MaintenanceWindowType = (typeof MaintenanceWindowType)[keyof typeof MaintenanceWindowType];
+import {
+  ApplyTimeOf,
+  DayOfWeek,
+  DesktopType,
+  DeviceSoftwareSetComplianceStatus,
+  DeviceStatus,
+  EnvironmentSoftwareSetComplianceStatus,
+  MaintenanceWindowType,
+  SoftwareSetUpdateMode,
+  SoftwareSetUpdateSchedule,
+  SoftwareSetUpdateStatus,
+  SoftwareSetValidationStatus,
+  TargetDeviceStatus,
+} from "./enums";
 
 /**
  * <p>Describes the maintenance window for a thin client device.</p>
@@ -151,34 +61,6 @@ export interface MaintenanceWindow {
    */
   applyTimeOf?: ApplyTimeOf | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SoftwareSetUpdateMode = {
-  USE_DESIRED: "USE_DESIRED",
-  USE_LATEST: "USE_LATEST",
-} as const;
-
-/**
- * @public
- */
-export type SoftwareSetUpdateMode = (typeof SoftwareSetUpdateMode)[keyof typeof SoftwareSetUpdateMode];
-
-/**
- * @public
- * @enum
- */
-export const SoftwareSetUpdateSchedule = {
-  APPLY_IMMEDIATELY: "APPLY_IMMEDIATELY",
-  USE_MAINTENANCE_WINDOW: "USE_MAINTENANCE_WINDOW",
-} as const;
-
-/**
- * @public
- */
-export type SoftwareSetUpdateSchedule = (typeof SoftwareSetUpdateSchedule)[keyof typeof SoftwareSetUpdateSchedule];
 
 /**
  * @public
@@ -250,21 +132,6 @@ export interface CreateEnvironmentRequest {
    */
   deviceCreationTags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DesktopType = {
-  APPSTREAM: "appstream",
-  WORKSPACES: "workspaces",
-  WORKSPACES_WEB: "workspaces-web",
-} as const;
-
-/**
- * @public
- */
-export type DesktopType = (typeof DesktopType)[keyof typeof DesktopType];
 
 /**
  * <p>Describes an environment.</p>
@@ -368,156 +235,6 @@ export interface CreateEnvironmentResponse {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The number of seconds to wait before retrying the next request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The resource specified in the request was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource associated with the request.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource associated with the request.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Your request exceeds a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that exceeds the service quota.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that exceeds the service quota.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The number of seconds to wait before retrying the next request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>Describes a validation exception.</p>
  * @public
  */
@@ -533,56 +250,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the specified constraints.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>A list of fields that didn't validate.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -631,20 +298,6 @@ export interface DeleteEnvironmentResponse {}
 
 /**
  * @public
- * @enum
- */
-export const TargetDeviceStatus = {
-  ARCHIVED: "ARCHIVED",
-  DEREGISTERED: "DEREGISTERED",
-} as const;
-
-/**
- * @public
- */
-export type TargetDeviceStatus = (typeof TargetDeviceStatus)[keyof typeof TargetDeviceStatus];
-
-/**
- * @public
  */
 export interface DeregisterDeviceRequest {
   /**
@@ -670,53 +323,6 @@ export interface DeregisterDeviceRequest {
  * @public
  */
 export interface DeregisterDeviceResponse {}
-
-/**
- * @public
- * @enum
- */
-export const DeviceSoftwareSetComplianceStatus = {
-  COMPLIANT: "COMPLIANT",
-  NONE: "NONE",
-  NOT_COMPLIANT: "NOT_COMPLIANT",
-} as const;
-
-/**
- * @public
- */
-export type DeviceSoftwareSetComplianceStatus =
-  (typeof DeviceSoftwareSetComplianceStatus)[keyof typeof DeviceSoftwareSetComplianceStatus];
-
-/**
- * @public
- * @enum
- */
-export const SoftwareSetUpdateStatus = {
-  AVAILABLE: "AVAILABLE",
-  IN_PROGRESS: "IN_PROGRESS",
-  UP_TO_DATE: "UP_TO_DATE",
-} as const;
-
-/**
- * @public
- */
-export type SoftwareSetUpdateStatus = (typeof SoftwareSetUpdateStatus)[keyof typeof SoftwareSetUpdateStatus];
-
-/**
- * @public
- * @enum
- */
-export const DeviceStatus = {
-  ARCHIVED: "ARCHIVED",
-  DEREGISTERED: "DEREGISTERED",
-  DEREGISTERING: "DEREGISTERING",
-  REGISTERED: "REGISTERED",
-} as const;
-
-/**
- * @public
- */
-export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
 
 /**
  * <p>Describes a thin client device.</p>
@@ -953,22 +559,6 @@ export interface DeviceSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnvironmentSoftwareSetComplianceStatus = {
-  COMPLIANT: "COMPLIANT",
-  NOT_COMPLIANT: "NOT_COMPLIANT",
-  NO_REGISTERED_DEVICES: "NO_REGISTERED_DEVICES",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentSoftwareSetComplianceStatus =
-  (typeof EnvironmentSoftwareSetComplianceStatus)[keyof typeof EnvironmentSoftwareSetComplianceStatus];
-
-/**
  * <p>Describes an environment.</p>
  * @public
  */
@@ -1160,21 +750,6 @@ export interface Software {
    */
   version?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SoftwareSetValidationStatus = {
-  NOT_VALIDATED: "NOT_VALIDATED",
-  VALIDATED: "VALIDATED",
-} as const;
-
-/**
- * @public
- */
-export type SoftwareSetValidationStatus =
-  (typeof SoftwareSetValidationStatus)[keyof typeof SoftwareSetValidationStatus];
 
 /**
  * <p>Describes a software set.</p>

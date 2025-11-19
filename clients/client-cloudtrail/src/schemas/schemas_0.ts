@@ -594,7 +594,7 @@ import {
   TrailNotFoundException as __TrailNotFoundException,
   TrailNotProvidedException as __TrailNotProvidedException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -1,7 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DirectConnectServiceException as __BaseException } from "./DirectConnectServiceException";
+import {
+  AddressFamily,
+  BGPPeerState,
+  BGPStatus,
+  ConnectionState,
+  DirectConnectGatewayAssociationProposalState,
+  DirectConnectGatewayAssociationState,
+  DirectConnectGatewayAttachmentState,
+  DirectConnectGatewayAttachmentType,
+  DirectConnectGatewayState,
+  GatewayType,
+  HasLogicalRedundancy,
+  InterconnectState,
+  LagState,
+  LoaContentType,
+  NniPartnerType,
+  VirtualInterfaceState,
+} from "./enums";
 
 /**
  * <p>Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP)
@@ -71,20 +86,6 @@ export interface AssociatedCoreNetwork {
 }
 
 /**
- * @public
- * @enum
- */
-export const GatewayType = {
-  TransitGateway: "transitGateway",
-  VirtualPrivateGateway: "virtualPrivateGateway",
-} as const;
-
-/**
- * @public
- */
-export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
-
-/**
  * <p>Information about the associated gateway.</p>
  * @public
  */
@@ -113,24 +114,6 @@ export interface AssociatedGateway {
    */
   region?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DirectConnectGatewayAssociationState = {
-  associated: "associated",
-  associating: "associating",
-  disassociated: "disassociated",
-  disassociating: "disassociating",
-  updating: "updating",
-} as const;
-
-/**
- * @public
- */
-export type DirectConnectGatewayAssociationState =
-  (typeof DirectConnectGatewayAssociationState)[keyof typeof DirectConnectGatewayAssociationState];
 
 /**
  * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
@@ -241,60 +224,6 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult {
 }
 
 /**
- * <p>One or more parameters are not valid.</p>
- * @public
- */
-export class DirectConnectClientException extends __BaseException {
-  readonly name: "DirectConnectClientException" = "DirectConnectClientException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectConnectClientException, __BaseException>) {
-    super({
-      name: "DirectConnectClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectConnectClientException.prototype);
-  }
-}
-
-/**
- * <p>A server-side error occurred.</p>
- * @public
- */
-export class DirectConnectServerException extends __BaseException {
-  readonly name: "DirectConnectServerException" = "DirectConnectServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectConnectServerException, __BaseException>) {
-    super({
-      name: "DirectConnectServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectConnectServerException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AddressFamily = {
-  IPv4: "ipv4",
-  IPv6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type AddressFamily = (typeof AddressFamily)[keyof typeof AddressFamily];
-
-/**
  * <p>The name and status of a customer agreement. </p>
  * @public
  */
@@ -350,42 +279,6 @@ export interface AllocateConnectionOnInterconnectRequest {
    */
   vlan: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  down: "down",
-  ordering: "ordering",
-  pending: "pending",
-  rejected: "rejected",
-  requested: "requested",
-  unknown: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
-
-/**
- * @public
- * @enum
- */
-export const HasLogicalRedundancy = {
-  No: "no",
-  Unknown: "unknown",
-  Yes: "yes",
-} as const;
-
-/**
- * @public
- */
-export type HasLogicalRedundancy = (typeof HasLogicalRedundancy)[keyof typeof HasLogicalRedundancy];
 
 /**
  * <p>Information about the MAC Security (MACsec) secret key.</p>
@@ -686,46 +579,6 @@ export interface AllocateHostedConnectionRequest {
 }
 
 /**
- * <p>A tag key was specified more than once.</p>
- * @public
- */
-export class DuplicateTagKeysException extends __BaseException {
-  readonly name: "DuplicateTagKeysException" = "DuplicateTagKeysException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateTagKeysException, __BaseException>) {
-    super({
-      name: "DuplicateTagKeysException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateTagKeysException.prototype);
-  }
-}
-
-/**
- * <p>You have reached the limit on the number of tags that can be assigned.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
  * <p>Information about a private virtual interface to be provisioned on a connection.</p>
  * @public
  */
@@ -842,38 +695,6 @@ export interface AllocatePrivateVirtualInterfaceRequest {
    */
   newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BGPPeerState = {
-  Available: "available",
-  Deleted: "deleted",
-  Deleting: "deleting",
-  Pending: "pending",
-  Verifying: "verifying",
-} as const;
-
-/**
- * @public
- */
-export type BGPPeerState = (typeof BGPPeerState)[keyof typeof BGPPeerState];
-
-/**
- * @public
- * @enum
- */
-export const BGPStatus = {
-  Down: "down",
-  Unknown: "unknown",
-  Up: "up",
-} as const;
-
-/**
- * @public
- */
-export type BGPStatus = (typeof BGPStatus)[keyof typeof BGPStatus];
 
 /**
  * <p>Information about a BGP peer.</p>
@@ -1012,28 +833,6 @@ export interface BGPPeer {
    */
   awsLogicalDeviceId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VirtualInterfaceState = {
-  available: "available",
-  confirming: "confirming",
-  deleted: "deleted",
-  deleting: "deleting",
-  down: "down",
-  pending: "pending",
-  rejected: "rejected",
-  testing: "testing",
-  unknown: "unknown",
-  verifying: "verifying",
-} as const;
-
-/**
- * @public
- */
-export type VirtualInterfaceState = (typeof VirtualInterfaceState)[keyof typeof VirtualInterfaceState];
 
 /**
  * <p>Information about a virtual interface.</p>
@@ -2086,22 +1885,6 @@ export interface CreateDirectConnectGatewayRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DirectConnectGatewayState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type DirectConnectGatewayState = (typeof DirectConnectGatewayState)[keyof typeof DirectConnectGatewayState];
-
-/**
  * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
  * @public
  */
@@ -2256,22 +2039,6 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DirectConnectGatewayAssociationProposalState = {
-  accepted: "accepted",
-  deleted: "deleted",
-  requested: "requested",
-} as const;
-
-/**
- * @public
- */
-export type DirectConnectGatewayAssociationProposalState =
-  (typeof DirectConnectGatewayAssociationProposalState)[keyof typeof DirectConnectGatewayAssociationProposalState];
-
-/**
  * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
  * @public
  */
@@ -2390,25 +2157,6 @@ export interface CreateInterconnectRequest {
    */
   requestMACSec?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InterconnectState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  down: "down",
-  pending: "pending",
-  requested: "requested",
-  unknown: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type InterconnectState = (typeof InterconnectState)[keyof typeof InterconnectState];
 
 /**
  * <p>Information about an interconnect.</p>
@@ -2630,25 +2378,6 @@ export interface CreateLagRequest {
    */
   requestMACSec?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LagState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  down: "down",
-  pending: "pending",
-  requested: "requested",
-  unknown: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type LagState = (typeof LagState)[keyof typeof LagState];
 
 /**
  * <p>Information about a link aggregation group (LAG).</p>
@@ -3488,19 +3217,6 @@ export interface DeleteVirtualInterfaceResponse {
 
 /**
  * @public
- * @enum
- */
-export const LoaContentType = {
-  PDF: "application/pdf",
-} as const;
-
-/**
- * @public
- */
-export type LoaContentType = (typeof LoaContentType)[keyof typeof LoaContentType];
-
-/**
- * @public
  */
 export interface DescribeConnectionLoaRequest {
   /**
@@ -3588,21 +3304,6 @@ export interface DescribeConnectionsOnInterconnectRequest {
    */
   interconnectId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NniPartnerType = {
-  NonPartner: "nonPartner",
-  V1: "v1",
-  V2: "v2",
-} as const;
-
-/**
- * @public
- */
-export type NniPartnerType = (typeof NniPartnerType)[keyof typeof NniPartnerType];
 
 /**
  * @public
@@ -3779,38 +3480,6 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DirectConnectGatewayAttachmentState = {
-  attached: "attached",
-  attaching: "attaching",
-  detached: "detached",
-  detaching: "detaching",
-} as const;
-
-/**
- * @public
- */
-export type DirectConnectGatewayAttachmentState =
-  (typeof DirectConnectGatewayAttachmentState)[keyof typeof DirectConnectGatewayAttachmentState];
-
-/**
- * @public
- * @enum
- */
-export const DirectConnectGatewayAttachmentType = {
-  PrivateVirtualInterface: "PrivateVirtualInterface",
-  TransitVirtualInterface: "TransitVirtualInterface",
-} as const;
-
-/**
- * @public
- */
-export type DirectConnectGatewayAttachmentType =
-  (typeof DirectConnectGatewayAttachmentType)[keyof typeof DirectConnectGatewayAttachmentType];
 
 /**
  * <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>

@@ -347,7 +347,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { VerifiedPermissionsServiceException as __VerifiedPermissionsServiceException } from "../models/VerifiedPermissionsServiceException";
 
 /* eslint no-var: 0 */

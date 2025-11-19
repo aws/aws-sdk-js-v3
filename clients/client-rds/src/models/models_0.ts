@@ -1,7 +1,38 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { RDSServiceException as __BaseException } from "./RDSServiceException";
+import {
+  ActivityStreamMode,
+  ActivityStreamPolicyStatus,
+  ActivityStreamStatus,
+  ApplyMethod,
+  AuthScheme,
+  AutomationMode,
+  ClientPasswordAuthType,
+  ClusterScalabilityType,
+  DatabaseInsightsMode,
+  DBProxyEndpointStatus,
+  DBProxyEndpointTargetRole,
+  DBProxyStatus,
+  DefaultAuthScheme,
+  EndpointNetworkType,
+  EngineFamily,
+  ExportSourceType,
+  FailoverStatus,
+  GlobalClusterMemberSynchronizationStatus,
+  IAMAuthMode,
+  IntegrationStatus,
+  LifecycleSupportName,
+  LimitlessDatabaseStatus,
+  LocalWriteForwardingStatus,
+  MasterUserAuthenticationType,
+  ReplicaMode,
+  SourceType,
+  TargetConnectionNetworkType,
+  TargetHealthReason,
+  TargetRole,
+  TargetState,
+  TargetType,
+  WriteForwardingStatus,
+} from "./enums";
 
 /**
  * <p>Describes a quota for an Amazon Web Services account.</p>
@@ -151,52 +182,6 @@ export interface AccountAttributesMessage {
 
 /**
  * @public
- * @enum
- */
-export const ActivityStreamMode = {
-  async: "async",
-  sync: "sync",
-} as const;
-
-/**
- * @public
- */
-export type ActivityStreamMode = (typeof ActivityStreamMode)[keyof typeof ActivityStreamMode];
-
-/**
- * @public
- * @enum
- */
-export const ActivityStreamPolicyStatus = {
-  locked: "locked",
-  locking_policy: "locking-policy",
-  unlocked: "unlocked",
-  unlocking_policy: "unlocking-policy",
-} as const;
-
-/**
- * @public
- */
-export type ActivityStreamPolicyStatus = (typeof ActivityStreamPolicyStatus)[keyof typeof ActivityStreamPolicyStatus];
-
-/**
- * @public
- * @enum
- */
-export const ActivityStreamStatus = {
-  started: "started",
-  starting: "starting",
-  stopped: "stopped",
-  stopping: "stopping",
-} as const;
-
-/**
- * @public
- */
-export type ActivityStreamStatus = (typeof ActivityStreamStatus)[keyof typeof ActivityStreamStatus];
-
-/**
- * @public
  */
 export interface AddRoleToDBClusterMessage {
   /**
@@ -218,87 +203,6 @@ export interface AddRoleToDBClusterMessage {
    * @public
    */
   FeatureName?: string | undefined;
-}
-
-/**
- * <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
- * @public
- */
-export class DBClusterNotFoundFault extends __BaseException {
-  readonly name: "DBClusterNotFoundFault" = "DBClusterNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
- * @public
- */
-export class DBClusterRoleAlreadyExistsFault extends __BaseException {
-  readonly name: "DBClusterRoleAlreadyExistsFault" = "DBClusterRoleAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterRoleAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBClusterRoleAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterRoleAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
- * @public
- */
-export class DBClusterRoleQuotaExceededFault extends __BaseException {
-  readonly name: "DBClusterRoleQuotaExceededFault" = "DBClusterRoleQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterRoleQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBClusterRoleQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterRoleQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The requested operation can't be performed while the cluster is in this state.</p>
- * @public
- */
-export class InvalidDBClusterStateFault extends __BaseException {
-  readonly name: "InvalidDBClusterStateFault" = "InvalidDBClusterStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBClusterStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBClusterStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBClusterStateFault.prototype);
-  }
 }
 
 /**
@@ -324,87 +228,6 @@ export interface AddRoleToDBInstanceMessage {
    * @public
    */
   FeatureName: string | undefined;
-}
-
-/**
- * <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
- * @public
- */
-export class DBInstanceNotFoundFault extends __BaseException {
-  readonly name: "DBInstanceNotFoundFault" = "DBInstanceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBInstanceNotFoundFault, __BaseException>) {
-    super({
-      name: "DBInstanceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBInstanceNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>
- * @public
- */
-export class DBInstanceRoleAlreadyExistsFault extends __BaseException {
-  readonly name: "DBInstanceRoleAlreadyExistsFault" = "DBInstanceRoleAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBInstanceRoleAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBInstanceRoleAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBInstanceRoleAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
- * @public
- */
-export class DBInstanceRoleQuotaExceededFault extends __BaseException {
-  readonly name: "DBInstanceRoleQuotaExceededFault" = "DBInstanceRoleQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBInstanceRoleQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBInstanceRoleQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBInstanceRoleQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The DB instance isn't in a valid state.</p>
- * @public
- */
-export class InvalidDBInstanceStateFault extends __BaseException {
-  readonly name: "InvalidDBInstanceStateFault" = "InvalidDBInstanceStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBInstanceStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBInstanceStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBInstanceStateFault.prototype);
-  }
 }
 
 /**
@@ -530,46 +353,6 @@ export interface AddSourceIdentifierToSubscriptionResult {
 }
 
 /**
- * <p>The requested source could not be found.</p>
- * @public
- */
-export class SourceNotFoundFault extends __BaseException {
-  readonly name: "SourceNotFoundFault" = "SourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceNotFoundFault, __BaseException>) {
-    super({
-      name: "SourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The subscription name does not exist.</p>
- * @public
- */
-export class SubscriptionNotFoundFault extends __BaseException {
-  readonly name: "SubscriptionNotFoundFault" = "SubscriptionNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionNotFoundFault, __BaseException>) {
-    super({
-      name: "SubscriptionNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionNotFoundFault.prototype);
-  }
-}
-
-/**
  * <p>Metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
  *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
@@ -610,208 +393,6 @@ export interface AddTagsToResourceMessage {
    * @public
    */
   Tags: Tag[] | undefined;
-}
-
-/**
- * <p>
- *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
- * @public
- */
-export class BlueGreenDeploymentNotFoundFault extends __BaseException {
-  readonly name: "BlueGreenDeploymentNotFoundFault" = "BlueGreenDeploymentNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BlueGreenDeploymentNotFoundFault, __BaseException>) {
-    super({
-      name: "BlueGreenDeploymentNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BlueGreenDeploymentNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The DB proxy endpoint doesn't exist.</p>
- * @public
- */
-export class DBProxyEndpointNotFoundFault extends __BaseException {
-  readonly name: "DBProxyEndpointNotFoundFault" = "DBProxyEndpointNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyEndpointNotFoundFault, __BaseException>) {
-    super({
-      name: "DBProxyEndpointNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyEndpointNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
- * @public
- */
-export class DBProxyNotFoundFault extends __BaseException {
-  readonly name: "DBProxyNotFoundFault" = "DBProxyNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyNotFoundFault, __BaseException>) {
-    super({
-      name: "DBProxyNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
- * @public
- */
-export class DBProxyTargetGroupNotFoundFault extends __BaseException {
-  readonly name: "DBProxyTargetGroupNotFoundFault" = "DBProxyTargetGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyTargetGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBProxyTargetGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyTargetGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified DB shard group name wasn't found.</p>
- * @public
- */
-export class DBShardGroupNotFoundFault extends __BaseException {
-  readonly name: "DBShardGroupNotFoundFault" = "DBShardGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBShardGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBShardGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBShardGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
- * @public
- */
-export class DBSnapshotNotFoundFault extends __BaseException {
-  readonly name: "DBSnapshotNotFoundFault" = "DBSnapshotNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSnapshotNotFoundFault, __BaseException>) {
-    super({
-      name: "DBSnapshotNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSnapshotNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified snapshot tenant database wasn't found.</p>
- * @public
- */
-export class DBSnapshotTenantDatabaseNotFoundFault extends __BaseException {
-  readonly name: "DBSnapshotTenantDatabaseNotFoundFault" = "DBSnapshotTenantDatabaseNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSnapshotTenantDatabaseNotFoundFault, __BaseException>) {
-    super({
-      name: "DBSnapshotTenantDatabaseNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSnapshotTenantDatabaseNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified integration could not be found.</p>
- * @public
- */
-export class IntegrationNotFoundFault extends __BaseException {
-  readonly name: "IntegrationNotFoundFault" = "IntegrationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationNotFoundFault, __BaseException>) {
-    super({
-      name: "IntegrationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
- * @public
- */
-export class InvalidDBClusterEndpointStateFault extends __BaseException {
-  readonly name: "InvalidDBClusterEndpointStateFault" = "InvalidDBClusterEndpointStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBClusterEndpointStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBClusterEndpointStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBClusterEndpointStateFault.prototype);
-  }
-}
-
-/**
- * <p>The specified tenant database wasn't found in the DB instance.</p>
- * @public
- */
-export class TenantDatabaseNotFoundFault extends __BaseException {
-  readonly name: "TenantDatabaseNotFoundFault" = "TenantDatabaseNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TenantDatabaseNotFoundFault, __BaseException>) {
-    super({
-      name: "TenantDatabaseNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TenantDatabaseNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -1005,67 +586,6 @@ export interface ApplyPendingMaintenanceActionResult {
 }
 
 /**
- * <p>The specified resource ID was not found.</p>
- * @public
- */
-export class ResourceNotFoundFault extends __BaseException {
-  readonly name: "ResourceNotFoundFault" = "ResourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundFault, __BaseException>) {
-    super({
-      name: "ResourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for
- *             the specified DB security group.</p>
- * @public
- */
-export class AuthorizationAlreadyExistsFault extends __BaseException {
-  readonly name: "AuthorizationAlreadyExistsFault" = "AuthorizationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "AuthorizationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The DB security group authorization quota has been reached.</p>
- * @public
- */
-export class AuthorizationQuotaExceededFault extends __BaseException {
-  readonly name: "AuthorizationQuotaExceededFault" = "AuthorizationQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationQuotaExceededFault, __BaseException>) {
-    super({
-      name: "AuthorizationQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -1240,47 +760,6 @@ export interface AuthorizeDBSecurityGroupIngressResult {
 }
 
 /**
- * <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
- * @public
- */
-export class DBSecurityGroupNotFoundFault extends __BaseException {
-  readonly name: "DBSecurityGroupNotFoundFault" = "DBSecurityGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSecurityGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBSecurityGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSecurityGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The state of the DB security group doesn't allow deletion.</p>
- * @public
- */
-export class InvalidDBSecurityGroupStateFault extends __BaseException {
-  readonly name: "InvalidDBSecurityGroupStateFault" = "InvalidDBSecurityGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBSecurityGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBSecurityGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBSecurityGroupStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -1418,20 +897,6 @@ export interface CancelExportTaskMessage {
    */
   ExportTaskIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportSourceType = {
-  CLUSTER: "CLUSTER",
-  SNAPSHOT: "SNAPSHOT",
-} as const;
-
-/**
- * @public
- */
-export type ExportSourceType = (typeof ExportSourceType)[keyof typeof ExportSourceType];
 
 /**
  * <p>Contains the details of a snapshot or cluster export to Amazon S3.</p>
@@ -1597,46 +1062,6 @@ export interface ExportTask {
 }
 
 /**
- * <p>The export task doesn't exist.</p>
- * @public
- */
-export class ExportTaskNotFoundFault extends __BaseException {
-  readonly name: "ExportTaskNotFoundFault" = "ExportTaskNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExportTaskNotFoundFault, __BaseException>) {
-    super({
-      name: "ExportTaskNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExportTaskNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>You can't cancel an export task that has completed.</p>
- * @public
- */
-export class InvalidExportTaskStateFault extends __BaseException {
-  readonly name: "InvalidExportTaskStateFault" = "InvalidExportTaskStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidExportTaskStateFault, __BaseException>) {
-    super({
-      name: "InvalidExportTaskStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidExportTaskStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CopyDBClusterParameterGroupMessage {
@@ -1737,69 +1162,6 @@ export interface CopyDBClusterParameterGroupResult {
    * @public
    */
   DBClusterParameterGroup?: DBClusterParameterGroup | undefined;
-}
-
-/**
- * <p>A DB parameter group with the same name exists.</p>
- * @public
- */
-export class DBParameterGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "DBParameterGroupAlreadyExistsFault" = "DBParameterGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBParameterGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBParameterGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBParameterGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
- * @public
- */
-export class DBParameterGroupNotFoundFault extends __BaseException {
-  readonly name: "DBParameterGroupNotFoundFault" = "DBParameterGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBParameterGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBParameterGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBParameterGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of DB parameter
- *             groups.</p>
- * @public
- */
-export class DBParameterGroupQuotaExceededFault extends __BaseException {
-  readonly name: "DBParameterGroupQuotaExceededFault" = "DBParameterGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBParameterGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBParameterGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBParameterGroupQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -2138,108 +1500,6 @@ export interface CopyDBClusterSnapshotResult {
    * @public
    */
   DBClusterSnapshot?: DBClusterSnapshot | undefined;
-}
-
-/**
- * <p>The user already has a DB cluster snapshot with the given identifier.</p>
- * @public
- */
-export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
-  readonly name: "DBClusterSnapshotAlreadyExistsFault" = "DBClusterSnapshotAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterSnapshotAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBClusterSnapshotAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterSnapshotAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
- * @public
- */
-export class DBClusterSnapshotNotFoundFault extends __BaseException {
-  readonly name: "DBClusterSnapshotNotFoundFault" = "DBClusterSnapshotNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterSnapshotNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterSnapshotNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterSnapshotNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The supplied value isn't a valid DB cluster snapshot state.</p>
- * @public
- */
-export class InvalidDBClusterSnapshotStateFault extends __BaseException {
-  readonly name: "InvalidDBClusterSnapshotStateFault" = "InvalidDBClusterSnapshotStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBClusterSnapshotStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBClusterSnapshotStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBClusterSnapshotStateFault.prototype);
-  }
-}
-
-/**
- * <p>An error occurred accessing an Amazon Web Services KMS key.</p>
- * @public
- */
-export class KMSKeyNotAccessibleFault extends __BaseException {
-  readonly name: "KMSKeyNotAccessibleFault" = "KMSKeyNotAccessibleFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSKeyNotAccessibleFault, __BaseException>) {
-    super({
-      name: "KMSKeyNotAccessibleFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSKeyNotAccessibleFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
- * @public
- */
-export class SnapshotQuotaExceededFault extends __BaseException {
-  readonly name: "SnapshotQuotaExceededFault" = "SnapshotQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotQuotaExceededFault, __BaseException>) {
-    super({
-      name: "SnapshotQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -2899,69 +2159,6 @@ export interface CopyDBSnapshotResult {
 }
 
 /**
- * <p>
- *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
- *             Availability Zone identifier.</p>
- * @public
- */
-export class CustomAvailabilityZoneNotFoundFault extends __BaseException {
-  readonly name: "CustomAvailabilityZoneNotFoundFault" = "CustomAvailabilityZoneNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomAvailabilityZoneNotFoundFault, __BaseException>) {
-    super({
-      name: "CustomAvailabilityZoneNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomAvailabilityZoneNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
- * @public
- */
-export class DBSnapshotAlreadyExistsFault extends __BaseException {
-  readonly name: "DBSnapshotAlreadyExistsFault" = "DBSnapshotAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSnapshotAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBSnapshotAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSnapshotAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The state of the DB snapshot doesn't allow deletion.</p>
- * @public
- */
-export class InvalidDBSnapshotStateFault extends __BaseException {
-  readonly name: "InvalidDBSnapshotStateFault" = "InvalidDBSnapshotStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBSnapshotStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBSnapshotStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBSnapshotStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -3284,86 +2481,6 @@ export interface CopyOptionGroupResult {
    * @public
    */
   OptionGroup?: OptionGroup | undefined;
-}
-
-/**
- * <p>The option group you are trying to create already exists.</p>
- * @public
- */
-export class OptionGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "OptionGroupAlreadyExistsFault" = "OptionGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OptionGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "OptionGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OptionGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The specified option group could not be found.</p>
- * @public
- */
-export class OptionGroupNotFoundFault extends __BaseException {
-  readonly name: "OptionGroupNotFoundFault" = "OptionGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OptionGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "OptionGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OptionGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
- * @public
- */
-export class OptionGroupQuotaExceededFault extends __BaseException {
-  readonly name: "OptionGroupQuotaExceededFault" = "OptionGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OptionGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "OptionGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OptionGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>A blue/green deployment with the specified name already exists.</p>
- * @public
- */
-export class BlueGreenDeploymentAlreadyExistsFault extends __BaseException {
-  readonly name: "BlueGreenDeploymentAlreadyExistsFault" = "BlueGreenDeploymentAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BlueGreenDeploymentAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "BlueGreenDeploymentAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BlueGreenDeploymentAlreadyExistsFault.prototype);
-  }
 }
 
 /**
@@ -3715,151 +2832,6 @@ export interface CreateBlueGreenDeploymentResponse {
 }
 
 /**
- * <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
- *             cluster parameter group.</p>
- * @public
- */
-export class DBClusterParameterGroupNotFoundFault extends __BaseException {
-  readonly name: "DBClusterParameterGroupNotFoundFault" = "DBClusterParameterGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterParameterGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterParameterGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterParameterGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The user attempted to create a new DB cluster and the user has already reached the
- *             maximum allowed DB cluster quota.</p>
- * @public
- */
-export class DBClusterQuotaExceededFault extends __BaseException {
-  readonly name: "DBClusterQuotaExceededFault" = "DBClusterQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBClusterQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of DB
- *             instances.</p>
- * @public
- */
-export class InstanceQuotaExceededFault extends __BaseException {
-  readonly name: "InstanceQuotaExceededFault" = "InstanceQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceQuotaExceededFault, __BaseException>) {
-    super({
-      name: "InstanceQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The source DB cluster isn't supported for a blue/green deployment.</p>
- * @public
- */
-export class SourceClusterNotSupportedFault extends __BaseException {
-  readonly name: "SourceClusterNotSupportedFault" = "SourceClusterNotSupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceClusterNotSupportedFault, __BaseException>) {
-    super({
-      name: "SourceClusterNotSupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceClusterNotSupportedFault.prototype);
-  }
-}
-
-/**
- * <p>The source DB instance isn't supported for a blue/green deployment.</p>
- * @public
- */
-export class SourceDatabaseNotSupportedFault extends __BaseException {
-  readonly name: "SourceDatabaseNotSupportedFault" = "SourceDatabaseNotSupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceDatabaseNotSupportedFault, __BaseException>) {
-    super({
-      name: "SourceDatabaseNotSupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceDatabaseNotSupportedFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
- * @public
- */
-export class StorageQuotaExceededFault extends __BaseException {
-  readonly name: "StorageQuotaExceededFault" = "StorageQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StorageQuotaExceededFault, __BaseException>) {
-    super({
-      name: "StorageQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StorageQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>An error occurred while trying to create the CEV.</p>
- * @public
- */
-export class CreateCustomDBEngineVersionFault extends __BaseException {
-  readonly name: "CreateCustomDBEngineVersionFault" = "CreateCustomDBEngineVersionFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CreateCustomDBEngineVersionFault, __BaseException>) {
-    super({
-      name: "CreateCustomDBEngineVersionFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreateCustomDBEngineVersionFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateCustomDBEngineVersionMessage {
@@ -4002,66 +2974,6 @@ export interface CreateCustomDBEngineVersionMessage {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>A CEV with the specified name already exists.</p>
- * @public
- */
-export class CustomDBEngineVersionAlreadyExistsFault extends __BaseException {
-  readonly name: "CustomDBEngineVersionAlreadyExistsFault" = "CustomDBEngineVersionAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomDBEngineVersionAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "CustomDBEngineVersionAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomDBEngineVersionAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The specified CEV was not found.</p>
- * @public
- */
-export class CustomDBEngineVersionNotFoundFault extends __BaseException {
-  readonly name: "CustomDBEngineVersionNotFoundFault" = "CustomDBEngineVersionNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomDBEngineVersionNotFoundFault, __BaseException>) {
-    super({
-      name: "CustomDBEngineVersionNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomDBEngineVersionNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded your CEV quota.</p>
- * @public
- */
-export class CustomDBEngineVersionQuotaExceededFault extends __BaseException {
-  readonly name: "CustomDBEngineVersionQuotaExceededFault" = "CustomDBEngineVersionQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomDBEngineVersionQuotaExceededFault, __BaseException>) {
-    super({
-      name: "CustomDBEngineVersionQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomDBEngineVersionQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -4481,103 +3393,6 @@ export interface DBEngineVersion {
    */
   ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
 }
-
-/**
- * <p>The AMI configuration prerequisite has not been met.</p>
- * @public
- */
-export class Ec2ImagePropertiesNotSupportedFault extends __BaseException {
-  readonly name: "Ec2ImagePropertiesNotSupportedFault" = "Ec2ImagePropertiesNotSupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<Ec2ImagePropertiesNotSupportedFault, __BaseException>) {
-    super({
-      name: "Ec2ImagePropertiesNotSupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, Ec2ImagePropertiesNotSupportedFault.prototype);
-  }
-}
-
-/**
- * <p>You can't delete the CEV.</p>
- * @public
- */
-export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
-  readonly name: "InvalidCustomDBEngineVersionStateFault" = "InvalidCustomDBEngineVersionStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCustomDBEngineVersionStateFault, __BaseException>) {
-    super({
-      name: "InvalidCustomDBEngineVersionStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCustomDBEngineVersionStateFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ClusterScalabilityType = {
-  LIMITLESS: "limitless",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type ClusterScalabilityType = (typeof ClusterScalabilityType)[keyof typeof ClusterScalabilityType];
-
-/**
- * @public
- * @enum
- */
-export const DatabaseInsightsMode = {
-  ADVANCED: "advanced",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseInsightsMode = (typeof DatabaseInsightsMode)[keyof typeof DatabaseInsightsMode];
-
-/**
- * @public
- * @enum
- */
-export const MasterUserAuthenticationType = {
-  IAM_DB_AUTH: "iam-db-auth",
-  PASSWORD: "password",
-} as const;
-
-/**
- * @public
- */
-export type MasterUserAuthenticationType =
-  (typeof MasterUserAuthenticationType)[keyof typeof MasterUserAuthenticationType];
-
-/**
- * @public
- * @enum
- */
-export const ReplicaMode = {
-  MOUNTED: "mounted",
-  OPEN_READ_ONLY: "open-read-only",
-} as const;
-
-/**
- * @public
- */
-export type ReplicaMode = (typeof ReplicaMode)[keyof typeof ReplicaMode];
 
 /**
  * <p>Reserved for future use.</p>
@@ -5795,43 +4610,6 @@ export interface DomainMembership {
 }
 
 /**
- * @public
- * @enum
- */
-export const WriteForwardingStatus = {
-  DISABLED: "disabled",
-  DISABLING: "disabling",
-  ENABLED: "enabled",
-  ENABLING: "enabling",
-  UNKNOWN: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type WriteForwardingStatus = (typeof WriteForwardingStatus)[keyof typeof WriteForwardingStatus];
-
-/**
- * @public
- * @enum
- */
-export const LimitlessDatabaseStatus = {
-  ACTIVE: "active",
-  DISABLED: "disabled",
-  DISABLING: "disabling",
-  ENABLED: "enabled",
-  ENABLING: "enabling",
-  ERROR: "error",
-  MODIFYING_MAX_CAPACITY: "modifying-max-capacity",
-  NOT_IN_USE: "not-in-use",
-} as const;
-
-/**
- * @public
- */
-export type LimitlessDatabaseStatus = (typeof LimitlessDatabaseStatus)[keyof typeof LimitlessDatabaseStatus];
-
-/**
  * <p>Contains details for Aurora Limitless Database.</p>
  * @public
  */
@@ -5848,23 +4626,6 @@ export interface LimitlessDatabase {
    */
   MinRequiredACU?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LocalWriteForwardingStatus = {
-  DISABLED: "disabled",
-  DISABLING: "disabling",
-  ENABLED: "enabled",
-  ENABLING: "enabling",
-  REQUESTED: "requested",
-} as const;
-
-/**
- * @public
- */
-export type LocalWriteForwardingStatus = (typeof LocalWriteForwardingStatus)[keyof typeof LocalWriteForwardingStatus];
 
 /**
  * <p>Contains the secret managed by RDS in Amazon Web Services Secrets Manager for the master user password.</p>
@@ -6814,293 +5575,6 @@ export interface CreateDBClusterResult {
 }
 
 /**
- * <p>The user already has a DB cluster with the given identifier.</p>
- * @public
- */
-export class DBClusterAlreadyExistsFault extends __BaseException {
-  readonly name: "DBClusterAlreadyExistsFault" = "DBClusterAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBClusterAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
- * @public
- */
-export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
-  readonly name: "DBSubnetGroupDoesNotCoverEnoughAZs" = "DBSubnetGroupDoesNotCoverEnoughAZs";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSubnetGroupDoesNotCoverEnoughAZs, __BaseException>) {
-    super({
-      name: "DBSubnetGroupDoesNotCoverEnoughAZs",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSubnetGroupDoesNotCoverEnoughAZs.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
- * @public
- */
-export class DBSubnetGroupNotFoundFault extends __BaseException {
-  readonly name: "DBSubnetGroupNotFoundFault" = "DBSubnetGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSubnetGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBSubnetGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSubnetGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
- * @public
- */
-export class DomainNotFoundFault extends __BaseException {
-  readonly name: "DomainNotFoundFault" = "DomainNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DomainNotFoundFault, __BaseException>) {
-    super({
-      name: "DomainNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DomainNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
- * @public
- */
-export class GlobalClusterNotFoundFault extends __BaseException {
-  readonly name: "GlobalClusterNotFoundFault" = "GlobalClusterNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalClusterNotFoundFault, __BaseException>) {
-    super({
-      name: "GlobalClusterNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalClusterNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
- * @public
- */
-export class InsufficientDBInstanceCapacityFault extends __BaseException {
-  readonly name: "InsufficientDBInstanceCapacityFault" = "InsufficientDBInstanceCapacityFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientDBInstanceCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientDBInstanceCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
-  }
-}
-
-/**
- * <p>There is insufficient storage available for the current action. You might be able to
- *             resolve this error by updating your subnet group to use different Availability Zones
- *             that have more storage available.</p>
- * @public
- */
-export class InsufficientStorageClusterCapacityFault extends __BaseException {
-  readonly name: "InsufficientStorageClusterCapacityFault" = "InsufficientStorageClusterCapacityFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientStorageClusterCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientStorageClusterCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientStorageClusterCapacityFault.prototype);
-  }
-}
-
-/**
- * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
- *             cross-region read replica of the same source instance.</p>
- * @public
- */
-export class InvalidDBSubnetGroupFault extends __BaseException {
-  readonly name: "InvalidDBSubnetGroupFault" = "InvalidDBSubnetGroupFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBSubnetGroupFault, __BaseException>) {
-    super({
-      name: "InvalidDBSubnetGroupFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBSubnetGroupFault.prototype);
-  }
-}
-
-/**
- * <p>The DB subnet group cannot be deleted because it's in use.</p>
- * @public
- */
-export class InvalidDBSubnetGroupStateFault extends __BaseException {
-  readonly name: "InvalidDBSubnetGroupStateFault" = "InvalidDBSubnetGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBSubnetGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBSubnetGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBSubnetGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
- * @public
- */
-export class InvalidGlobalClusterStateFault extends __BaseException {
-  readonly name: "InvalidGlobalClusterStateFault" = "InvalidGlobalClusterStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGlobalClusterStateFault, __BaseException>) {
-    super({
-      name: "InvalidGlobalClusterStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGlobalClusterStateFault.prototype);
-  }
-}
-
-/**
- * <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
- * @public
- */
-export class InvalidSubnet extends __BaseException {
-  readonly name: "InvalidSubnet" = "InvalidSubnet";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
-    super({
-      name: "InvalidSubnet",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnet.prototype);
-  }
-}
-
-/**
- * <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
- * @public
- */
-export class InvalidVPCNetworkStateFault extends __BaseException {
-  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
-    super({
-      name: "InvalidVPCNetworkStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
-  }
-}
-
-/**
- * <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
- * @public
- */
-export class NetworkTypeNotSupported extends __BaseException {
-  readonly name: "NetworkTypeNotSupported" = "NetworkTypeNotSupported";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NetworkTypeNotSupported, __BaseException>) {
-    super({
-      name: "NetworkTypeNotSupported",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NetworkTypeNotSupported.prototype);
-  }
-}
-
-/**
- * <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
- * @public
- */
-export class StorageTypeNotSupportedFault extends __BaseException {
-  readonly name: "StorageTypeNotSupportedFault" = "StorageTypeNotSupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StorageTypeNotSupportedFault, __BaseException>) {
-    super({
-      name: "StorageTypeNotSupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StorageTypeNotSupportedFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateDBClusterEndpointMessage {
@@ -7238,46 +5712,6 @@ export interface DBClusterEndpoint {
    * @public
    */
   DBClusterEndpointArn?: string | undefined;
-}
-
-/**
- * <p>The specified custom endpoint can't be created because it already exists.</p>
- * @public
- */
-export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
-  readonly name: "DBClusterEndpointAlreadyExistsFault" = "DBClusterEndpointAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterEndpointAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBClusterEndpointAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterEndpointAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The cluster already has the maximum number of custom endpoints.</p>
- * @public
- */
-export class DBClusterEndpointQuotaExceededFault extends __BaseException {
-  readonly name: "DBClusterEndpointQuotaExceededFault" = "DBClusterEndpointQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterEndpointQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBClusterEndpointQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterEndpointQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -7443,70 +5877,6 @@ export interface CreateDBClusterSnapshotResult {
    * @public
    */
   DBClusterSnapshot?: DBClusterSnapshot | undefined;
-}
-
-/**
- * <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
- *             for the specified DB security group.</p>
- *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
- *             behalf.</p>
- * @public
- */
-export class AuthorizationNotFoundFault extends __BaseException {
-  readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationNotFoundFault, __BaseException>) {
-    super({
-      name: "AuthorizationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
- */
-export class BackupPolicyNotFoundFault extends __BaseException {
-  readonly name: "BackupPolicyNotFoundFault" = "BackupPolicyNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupPolicyNotFoundFault, __BaseException>) {
-    super({
-      name: "BackupPolicyNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupPolicyNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
- * @public
- */
-export class CertificateNotFoundFault extends __BaseException {
-  readonly name: "CertificateNotFoundFault" = "CertificateNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateNotFoundFault, __BaseException>) {
-    super({
-      name: "CertificateNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -9019,20 +7389,6 @@ export interface DBInstanceRole {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomationMode = {
-  ALL_PAUSED: "all-paused",
-  FULL: "full",
-} as const;
-
-/**
- * @public
- */
-export type AutomationMode = (typeof AutomationMode)[keyof typeof AutomationMode];
-
-/**
  * <p>Automated backups of a DB instance replicated to another Amazon Web Services Region. They consist of system backups, transaction logs, and database instance properties.</p>
  * @public
  */
@@ -10206,67 +8562,6 @@ export interface CreateDBInstanceResult {
 }
 
 /**
- * <p>The user already has a DB instance with the given identifier.</p>
- * @public
- */
-export class DBInstanceAlreadyExistsFault extends __BaseException {
-  readonly name: "DBInstanceAlreadyExistsFault" = "DBInstanceAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBInstanceAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBInstanceAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBInstanceAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
- * @public
- */
-export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
-  readonly name: "ProvisionedIopsNotAvailableInAZFault" = "ProvisionedIopsNotAvailableInAZFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProvisionedIopsNotAvailableInAZFault, __BaseException>) {
-    super({
-      name: "ProvisionedIopsNotAvailableInAZFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProvisionedIopsNotAvailableInAZFault.prototype);
-  }
-}
-
-/**
- * <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
- *             account.</p>
- * @public
- */
-export class TenantDatabaseQuotaExceededFault extends __BaseException {
-  readonly name: "TenantDatabaseQuotaExceededFault" = "TenantDatabaseQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TenantDatabaseQuotaExceededFault, __BaseException>) {
-    super({
-      name: "TenantDatabaseQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TenantDatabaseQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateDBInstanceReadReplicaMessage {
@@ -11012,27 +9307,6 @@ export interface CreateDBInstanceReadReplicaResult {
 }
 
 /**
- * <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie
- *             in the same region as the source instance.</p>
- * @public
- */
-export class DBSubnetGroupNotAllowedFault extends __BaseException {
-  readonly name: "DBSubnetGroupNotAllowedFault" = "DBSubnetGroupNotAllowedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSubnetGroupNotAllowedFault, __BaseException>) {
-    super({
-      name: "DBSubnetGroupNotAllowedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSubnetGroupNotAllowedFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -11174,51 +9448,6 @@ export interface CreateDBParameterGroupResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthScheme = {
-  SECRETS: "SECRETS",
-} as const;
-
-/**
- * @public
- */
-export type AuthScheme = (typeof AuthScheme)[keyof typeof AuthScheme];
-
-/**
- * @public
- * @enum
- */
-export const ClientPasswordAuthType = {
-  MYSQL_CACHING_SHA2_PASSWORD: "MYSQL_CACHING_SHA2_PASSWORD",
-  MYSQL_NATIVE_PASSWORD: "MYSQL_NATIVE_PASSWORD",
-  POSTGRES_MD5: "POSTGRES_MD5",
-  POSTGRES_SCRAM_SHA_256: "POSTGRES_SCRAM_SHA_256",
-  SQL_SERVER_AUTHENTICATION: "SQL_SERVER_AUTHENTICATION",
-} as const;
-
-/**
- * @public
- */
-export type ClientPasswordAuthType = (typeof ClientPasswordAuthType)[keyof typeof ClientPasswordAuthType];
-
-/**
- * @public
- * @enum
- */
-export const IAMAuthMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  REQUIRED: "REQUIRED",
-} as const;
-
-/**
- * @public
- */
-export type IAMAuthMode = (typeof IAMAuthMode)[keyof typeof IAMAuthMode];
-
-/**
  * <p>Specifies the details of authentication used by a proxy to log in as a specific database user.</p>
  * @public
  */
@@ -11275,65 +9504,6 @@ export interface UserAuthConfig {
    */
   ClientPasswordAuthType?: ClientPasswordAuthType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DefaultAuthScheme = {
-  IAM_AUTH: "IAM_AUTH",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type DefaultAuthScheme = (typeof DefaultAuthScheme)[keyof typeof DefaultAuthScheme];
-
-/**
- * @public
- * @enum
- */
-export const EndpointNetworkType = {
-  DUAL: "DUAL",
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-
-/**
- * @public
- */
-export type EndpointNetworkType = (typeof EndpointNetworkType)[keyof typeof EndpointNetworkType];
-
-/**
- * @public
- * @enum
- */
-export const EngineFamily = {
-  MYSQL: "MYSQL",
-  POSTGRESQL: "POSTGRESQL",
-  SQLSERVER: "SQLSERVER",
-} as const;
-
-/**
- * @public
- */
-export type EngineFamily = (typeof EngineFamily)[keyof typeof EngineFamily];
-
-/**
- * @public
- * @enum
- */
-export const TargetConnectionNetworkType = {
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-
-/**
- * @public
- */
-export type TargetConnectionNetworkType =
-  (typeof TargetConnectionNetworkType)[keyof typeof TargetConnectionNetworkType];
 
 /**
  * @public
@@ -11524,27 +9694,6 @@ export interface UserAuthConfigInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const DBProxyStatus = {
-  AVAILABLE: "available",
-  CREATING: "creating",
-  DELETING: "deleting",
-  INCOMPATIBLE_NETWORK: "incompatible-network",
-  INSUFFICIENT_RESOURCE_LIMITS: "insufficient-resource-limits",
-  MODIFYING: "modifying",
-  REACTIVATING: "reactivating",
-  SUSPENDED: "suspended",
-  SUSPENDING: "suspending",
-} as const;
-
-/**
- * @public
- */
-export type DBProxyStatus = (typeof DBProxyStatus)[keyof typeof DBProxyStatus];
-
-/**
  * <p>The data structure representing a proxy managed by the RDS Proxy.</p>
  *          <p>This data type is used as a response element in the <code>DescribeDBProxies</code> action.</p>
  * @public
@@ -11715,60 +9864,6 @@ export interface CreateDBProxyResponse {
 }
 
 /**
- * <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
- * @public
- */
-export class DBProxyAlreadyExistsFault extends __BaseException {
-  readonly name: "DBProxyAlreadyExistsFault" = "DBProxyAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBProxyAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
- * @public
- */
-export class DBProxyQuotaExceededFault extends __BaseException {
-  readonly name: "DBProxyQuotaExceededFault" = "DBProxyQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBProxyQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DBProxyEndpointTargetRole = {
-  READ_ONLY: "READ_ONLY",
-  READ_WRITE: "READ_WRITE",
-} as const;
-
-/**
- * @public
- */
-export type DBProxyEndpointTargetRole = (typeof DBProxyEndpointTargetRole)[keyof typeof DBProxyEndpointTargetRole];
-
-/**
  * @public
  */
 export interface CreateDBProxyEndpointRequest {
@@ -11849,24 +9944,6 @@ export interface CreateDBProxyEndpointRequest {
    */
   EndpointNetworkType?: EndpointNetworkType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DBProxyEndpointStatus = {
-  AVAILABLE: "available",
-  CREATING: "creating",
-  DELETING: "deleting",
-  INCOMPATIBLE_NETWORK: "incompatible-network",
-  INSUFFICIENT_RESOURCE_LIMITS: "insufficient-resource-limits",
-  MODIFYING: "modifying",
-} as const;
-
-/**
- * @public
- */
-export type DBProxyEndpointStatus = (typeof DBProxyEndpointStatus)[keyof typeof DBProxyEndpointStatus];
 
 /**
  * <p>The data structure representing an endpoint associated with a DB proxy. RDS automatically creates one
@@ -11986,66 +10063,6 @@ export interface CreateDBProxyEndpointResponse {
 }
 
 /**
- * <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
- * @public
- */
-export class DBProxyEndpointAlreadyExistsFault extends __BaseException {
-  readonly name: "DBProxyEndpointAlreadyExistsFault" = "DBProxyEndpointAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyEndpointAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBProxyEndpointAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyEndpointAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The DB proxy already has the maximum number of endpoints.</p>
- * @public
- */
-export class DBProxyEndpointQuotaExceededFault extends __BaseException {
-  readonly name: "DBProxyEndpointQuotaExceededFault" = "DBProxyEndpointQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyEndpointQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBProxyEndpointQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyEndpointQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The requested operation can't be performed while the proxy is in this state.</p>
- * @public
- */
-export class InvalidDBProxyStateFault extends __BaseException {
-  readonly name: "InvalidDBProxyStateFault" = "InvalidDBProxyStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBProxyStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBProxyStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBProxyStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -12097,68 +10114,6 @@ export interface CreateDBSecurityGroupResult {
    * @public
    */
   DBSecurityGroup?: DBSecurityGroup | undefined;
-}
-
-/**
- * <p>A DB security group with the name specified in
- *         <code>DBSecurityGroupName</code> already exists.</p>
- * @public
- */
-export class DBSecurityGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "DBSecurityGroupAlreadyExistsFault" = "DBSecurityGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSecurityGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBSecurityGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSecurityGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>A DB security group isn't allowed for this action.</p>
- * @public
- */
-export class DBSecurityGroupNotSupportedFault extends __BaseException {
-  readonly name: "DBSecurityGroupNotSupportedFault" = "DBSecurityGroupNotSupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSecurityGroupNotSupportedFault, __BaseException>) {
-    super({
-      name: "DBSecurityGroupNotSupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSecurityGroupNotSupportedFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of DB security
- *             groups.</p>
- * @public
- */
-export class DBSecurityGroupQuotaExceededFault extends __BaseException {
-  readonly name: "DBSecurityGroupQuotaExceededFault" = "DBSecurityGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSecurityGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBSecurityGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSecurityGroupQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -12345,66 +10300,6 @@ export interface DBShardGroup {
 }
 
 /**
- * <p>The specified DB shard group name must be unique in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
- * @public
- */
-export class DBShardGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "DBShardGroupAlreadyExistsFault" = "DBShardGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBShardGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBShardGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBShardGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of DB shard groups for your Amazon Web Services account in the specified Amazon Web Services Region has been reached.</p>
- * @public
- */
-export class MaxDBShardGroupLimitReached extends __BaseException {
-  readonly name: "MaxDBShardGroupLimitReached" = "MaxDBShardGroupLimitReached";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxDBShardGroupLimitReached, __BaseException>) {
-    super({
-      name: "MaxDBShardGroupLimitReached",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxDBShardGroupLimitReached.prototype);
-  }
-}
-
-/**
- * <p>The specified DB engine version isn't supported for Aurora Limitless Database.</p>
- * @public
- */
-export class UnsupportedDBEngineVersionFault extends __BaseException {
-  readonly name: "UnsupportedDBEngineVersionFault" = "UnsupportedDBEngineVersionFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedDBEngineVersionFault, __BaseException>) {
-    super({
-      name: "UnsupportedDBEngineVersionFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedDBEngineVersionFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -12526,69 +10421,6 @@ export interface CreateDBSubnetGroupResult {
 }
 
 /**
- * <p>
- *             <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
- * @public
- */
-export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "DBSubnetGroupAlreadyExistsFault" = "DBSubnetGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSubnetGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "DBSubnetGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSubnetGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of DB subnet
- *             groups.</p>
- * @public
- */
-export class DBSubnetGroupQuotaExceededFault extends __BaseException {
-  readonly name: "DBSubnetGroupQuotaExceededFault" = "DBSubnetGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSubnetGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBSubnetGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSubnetGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of subnets in a
- *             DB subnet groups.</p>
- * @public
- */
-export class DBSubnetQuotaExceededFault extends __BaseException {
-  readonly name: "DBSubnetQuotaExceededFault" = "DBSubnetQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBSubnetQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBSubnetQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBSubnetQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -12697,126 +10529,6 @@ export interface CreateEventSubscriptionResult {
    * @public
    */
   EventSubscription?: EventSubscription | undefined;
-}
-
-/**
- * <p>You have reached the maximum number of event subscriptions.</p>
- * @public
- */
-export class EventSubscriptionQuotaExceededFault extends __BaseException {
-  readonly name: "EventSubscriptionQuotaExceededFault" = "EventSubscriptionQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EventSubscriptionQuotaExceededFault, __BaseException>) {
-    super({
-      name: "EventSubscriptionQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EventSubscriptionQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>SNS has responded that there is a problem with the SNS topic specified.</p>
- * @public
- */
-export class SNSInvalidTopicFault extends __BaseException {
-  readonly name: "SNSInvalidTopicFault" = "SNSInvalidTopicFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSInvalidTopicFault, __BaseException>) {
-    super({
-      name: "SNSInvalidTopicFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSInvalidTopicFault.prototype);
-  }
-}
-
-/**
- * <p>You do not have permission to publish to the SNS topic ARN.</p>
- * @public
- */
-export class SNSNoAuthorizationFault extends __BaseException {
-  readonly name: "SNSNoAuthorizationFault" = "SNSNoAuthorizationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSNoAuthorizationFault, __BaseException>) {
-    super({
-      name: "SNSNoAuthorizationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
-  }
-}
-
-/**
- * <p>The SNS topic ARN does not exist.</p>
- * @public
- */
-export class SNSTopicArnNotFoundFault extends __BaseException {
-  readonly name: "SNSTopicArnNotFoundFault" = "SNSTopicArnNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSTopicArnNotFoundFault, __BaseException>) {
-    super({
-      name: "SNSTopicArnNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSTopicArnNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The supplied subscription name already exists.</p>
- * @public
- */
-export class SubscriptionAlreadyExistFault extends __BaseException {
-  readonly name: "SubscriptionAlreadyExistFault" = "SubscriptionAlreadyExistFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionAlreadyExistFault, __BaseException>) {
-    super({
-      name: "SubscriptionAlreadyExistFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionAlreadyExistFault.prototype);
-  }
-}
-
-/**
- * <p>The supplied category does not exist.</p>
- * @public
- */
-export class SubscriptionCategoryNotFoundFault extends __BaseException {
-  readonly name: "SubscriptionCategoryNotFoundFault" = "SubscriptionCategoryNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionCategoryNotFoundFault, __BaseException>) {
-    super({
-      name: "SubscriptionCategoryNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionCategoryNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -12942,21 +10654,6 @@ export interface CreateGlobalClusterMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const FailoverStatus = {
-  CANCELLING: "cancelling",
-  FAILING_OVER: "failing-over",
-  PENDING: "pending",
-} as const;
-
-/**
- * @public
- */
-export type FailoverStatus = (typeof FailoverStatus)[keyof typeof FailoverStatus];
-
-/**
  * <p>Contains the state of scheduled or in-process operations on a
  *         global cluster (Aurora global database). This data type is empty unless a switchover
  *         or failover operation is scheduled or is in progress on the Aurora global database.</p>
@@ -13008,21 +10705,6 @@ export interface FailoverState {
    */
   IsDataLossAllowed?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GlobalClusterMemberSynchronizationStatus = {
-  CONNECTED: "connected",
-  PENDING_RESYNC: "pending-resync",
-} as const;
-
-/**
- * @public
- */
-export type GlobalClusterMemberSynchronizationStatus =
-  (typeof GlobalClusterMemberSynchronizationStatus)[keyof typeof GlobalClusterMemberSynchronizationStatus];
 
 /**
  * <p>A data structure with information about any primary and
@@ -13177,67 +10859,6 @@ export interface CreateGlobalClusterResult {
 }
 
 /**
- * <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
- *         (unique name) to create a new global database cluster or to rename an existing one.</p>
- * @public
- */
-export class GlobalClusterAlreadyExistsFault extends __BaseException {
-  readonly name: "GlobalClusterAlreadyExistsFault" = "GlobalClusterAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalClusterAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "GlobalClusterAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalClusterAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The number of global database clusters for this account is already at the maximum allowed.</p>
- * @public
- */
-export class GlobalClusterQuotaExceededFault extends __BaseException {
-  readonly name: "GlobalClusterQuotaExceededFault" = "GlobalClusterQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalClusterQuotaExceededFault, __BaseException>) {
-    super({
-      name: "GlobalClusterQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalClusterQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The DB shard group must be in the available state.</p>
- * @public
- */
-export class InvalidDBShardGroupStateFault extends __BaseException {
-  readonly name: "InvalidDBShardGroupStateFault" = "InvalidDBShardGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBShardGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBShardGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBShardGroupStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateIntegrationMessage {
@@ -13322,25 +10943,6 @@ export interface IntegrationError {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IntegrationStatus = {
-  ACTIVE: "active",
-  CREATING: "creating",
-  DELETING: "deleting",
-  FAILED: "failed",
-  MODIFYING: "modifying",
-  NEEDS_ATTENTION: "needs_attention",
-  SYNCING: "syncing",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
 
 /**
  * <p>A zero-ETL integration with Amazon Redshift.</p>
@@ -13428,68 +11030,6 @@ export interface Integration {
    * @public
    */
   Errors?: IntegrationError[] | undefined;
-}
-
-/**
- * <p>The integration you are trying to create already exists.</p>
- * @public
- */
-export class IntegrationAlreadyExistsFault extends __BaseException {
-  readonly name: "IntegrationAlreadyExistsFault" = "IntegrationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "IntegrationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>A conflicting conditional operation is currently in progress against this resource.
- *             Typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
- * @public
- */
-export class IntegrationConflictOperationFault extends __BaseException {
-  readonly name: "IntegrationConflictOperationFault" = "IntegrationConflictOperationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationConflictOperationFault, __BaseException>) {
-    super({
-      name: "IntegrationConflictOperationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationConflictOperationFault.prototype);
-  }
-}
-
-/**
- * <p>You can't crate any more zero-ETL integrations because the quota has been reached.</p>
- * @public
- */
-export class IntegrationQuotaExceededFault extends __BaseException {
-  readonly name: "IntegrationQuotaExceededFault" = "IntegrationQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationQuotaExceededFault, __BaseException>) {
-    super({
-      name: "IntegrationQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -13869,27 +11409,6 @@ export interface CreateTenantDatabaseResult {
 }
 
 /**
- * <p>You attempted to either create a tenant database that already exists or
- *                 modify a tenant database to use the name of an existing tenant database.</p>
- * @public
- */
-export class TenantDatabaseAlreadyExistsFault extends __BaseException {
-  readonly name: "TenantDatabaseAlreadyExistsFault" = "TenantDatabaseAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TenantDatabaseAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "TenantDatabaseAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TenantDatabaseAlreadyExistsFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteBlueGreenDeploymentRequest {
@@ -13933,27 +11452,6 @@ export interface DeleteBlueGreenDeploymentResponse {
 }
 
 /**
- * <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
- *             the green environment.</p>
- * @public
- */
-export class InvalidBlueGreenDeploymentStateFault extends __BaseException {
-  readonly name: "InvalidBlueGreenDeploymentStateFault" = "InvalidBlueGreenDeploymentStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidBlueGreenDeploymentStateFault, __BaseException>) {
-    super({
-      name: "InvalidBlueGreenDeploymentStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidBlueGreenDeploymentStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteCustomDBEngineVersionMessage {
@@ -13992,27 +11490,6 @@ export interface DeleteCustomDBEngineVersionMessage {
    * @public
    */
   EngineVersion: string | undefined;
-}
-
-/**
- * <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated
- *             backups. The retained automated backups quota is the same as your DB cluster quota.</p>
- * @public
- */
-export class DBClusterAutomatedBackupQuotaExceededFault extends __BaseException {
-  readonly name: "DBClusterAutomatedBackupQuotaExceededFault" = "DBClusterAutomatedBackupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterAutomatedBackupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBClusterAutomatedBackupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterAutomatedBackupQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -14106,26 +11583,6 @@ export interface DeleteDBClusterResult {
    * @public
    */
   DBCluster?: DBCluster | undefined;
-}
-
-/**
- * <p>No automated backup for this DB cluster was found.</p>
- * @public
- */
-export class DBClusterAutomatedBackupNotFoundFault extends __BaseException {
-  readonly name: "DBClusterAutomatedBackupNotFoundFault" = "DBClusterAutomatedBackupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterAutomatedBackupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterAutomatedBackupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterAutomatedBackupNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -14345,47 +11802,6 @@ export interface DeleteDBClusterAutomatedBackupResult {
 }
 
 /**
- * <p>The automated backup is in an invalid state.
- *             For example, this automated backup is associated with an active cluster.</p>
- * @public
- */
-export class InvalidDBClusterAutomatedBackupStateFault extends __BaseException {
-  readonly name: "InvalidDBClusterAutomatedBackupStateFault" = "InvalidDBClusterAutomatedBackupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBClusterAutomatedBackupStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBClusterAutomatedBackupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBClusterAutomatedBackupStateFault.prototype);
-  }
-}
-
-/**
- * <p>The specified custom endpoint doesn't exist.</p>
- * @public
- */
-export class DBClusterEndpointNotFoundFault extends __BaseException {
-  readonly name: "DBClusterEndpointNotFoundFault" = "DBClusterEndpointNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterEndpointNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterEndpointNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterEndpointNotFoundFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteDBClusterEndpointMessage {
@@ -14421,28 +11837,6 @@ export interface DeleteDBClusterParameterGroupMessage {
 }
 
 /**
- * <p>The DB parameter group is in use or is in an invalid state. If you are attempting
- *             to delete the parameter group, you can't delete it when the parameter group is in
- *             this state.</p>
- * @public
- */
-export class InvalidDBParameterGroupStateFault extends __BaseException {
-  readonly name: "InvalidDBParameterGroupStateFault" = "InvalidDBParameterGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBParameterGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBParameterGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBParameterGroupStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -14466,28 +11860,6 @@ export interface DeleteDBClusterSnapshotResult {
    * @public
    */
   DBClusterSnapshot?: DBClusterSnapshot | undefined;
-}
-
-/**
- * <p>The quota for retained automated backups was exceeded. This prevents you
- *             from retaining any additional automated backups. The retained automated backups
- *             quota is the same as your DB instance quota.</p>
- * @public
- */
-export class DBInstanceAutomatedBackupQuotaExceededFault extends __BaseException {
-  readonly name: "DBInstanceAutomatedBackupQuotaExceededFault" = "DBInstanceAutomatedBackupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBInstanceAutomatedBackupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBInstanceAutomatedBackupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBInstanceAutomatedBackupQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -14572,26 +11944,6 @@ export interface DeleteDBInstanceResult {
    * @public
    */
   DBInstance?: DBInstance | undefined;
-}
-
-/**
- * <p>No automated backup for this DB instance was found.</p>
- * @public
- */
-export class DBInstanceAutomatedBackupNotFoundFault extends __BaseException {
-  readonly name: "DBInstanceAutomatedBackupNotFoundFault" = "DBInstanceAutomatedBackupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBInstanceAutomatedBackupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBInstanceAutomatedBackupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBInstanceAutomatedBackupNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -14845,27 +12197,6 @@ export interface DeleteDBInstanceAutomatedBackupResult {
 }
 
 /**
- * <p>The automated backup is in an invalid state.
- *             For example, this automated backup is associated with an active instance.</p>
- * @public
- */
-export class InvalidDBInstanceAutomatedBackupStateFault extends __BaseException {
-  readonly name: "InvalidDBInstanceAutomatedBackupStateFault" = "InvalidDBInstanceAutomatedBackupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBInstanceAutomatedBackupStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBInstanceAutomatedBackupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBInstanceAutomatedBackupStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -14931,26 +12262,6 @@ export interface DeleteDBProxyEndpointResponse {
    * @public
    */
   DBProxyEndpoint?: DBProxyEndpoint | undefined;
-}
-
-/**
- * <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
- * @public
- */
-export class InvalidDBProxyEndpointStateFault extends __BaseException {
-  readonly name: "InvalidDBProxyEndpointStateFault" = "InvalidDBProxyEndpointStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBProxyEndpointStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBProxyEndpointStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBProxyEndpointStateFault.prototype);
-  }
 }
 
 /**
@@ -15039,26 +12350,6 @@ export interface DeleteDBSubnetGroupMessage {
 }
 
 /**
- * <p>The DB subnet isn't in the <i>available</i> state.</p>
- * @public
- */
-export class InvalidDBSubnetStateFault extends __BaseException {
-  readonly name: "InvalidDBSubnetStateFault" = "InvalidDBSubnetStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDBSubnetStateFault, __BaseException>) {
-    super({
-      name: "InvalidDBSubnetStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDBSubnetStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -15082,26 +12373,6 @@ export interface DeleteEventSubscriptionResult {
 }
 
 /**
- * <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>
- * @public
- */
-export class InvalidEventSubscriptionStateFault extends __BaseException {
-  readonly name: "InvalidEventSubscriptionStateFault" = "InvalidEventSubscriptionStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEventSubscriptionStateFault, __BaseException>) {
-    super({
-      name: "InvalidEventSubscriptionStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEventSubscriptionStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteGlobalClusterMessage {
@@ -15110,4 +12381,6675 @@ export interface DeleteGlobalClusterMessage {
    * @public
    */
   GlobalClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGlobalClusterResult {
+  /**
+   * <p>A data type representing an Aurora global database.</p>
+   * @public
+   */
+  GlobalCluster?: GlobalCluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationMessage {
+  /**
+   * <p>The unique identifier of the integration.</p>
+   * @public
+   */
+  IntegrationIdentifier: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DeleteOptionGroupMessage {
+  /**
+   * <p>The name of the option group to be deleted.</p>
+   *          <note>
+   *             <p>You can't delete default option groups.</p>
+   *          </note>
+   * @public
+   */
+  OptionGroupName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTenantDatabaseMessage {
+  /**
+   * <p>The user-supplied identifier for the DB instance that contains the tenant database
+   *             that you want to delete.</p>
+   * @public
+   */
+  DBInstanceIdentifier: string | undefined;
+
+  /**
+   * <p>The user-supplied name of the tenant database that you want to remove from your DB
+   *             instance. Amazon RDS deletes the tenant database with this name. This parameter isn’t
+   *             case-sensitive.</p>
+   * @public
+   */
+  TenantDBName: string | undefined;
+
+  /**
+   * <p>Specifies whether to skip the creation of a final DB snapshot before removing the
+   *             tenant database from your DB instance. If you enable this parameter, RDS doesn't create
+   *             a DB snapshot. If you don't enable this parameter, RDS creates a DB snapshot before it
+   *             deletes the tenant database. By default, RDS doesn't skip the final snapshot. If you
+   *             don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code>
+   *             parameter.</p>
+   * @public
+   */
+  SkipFinalSnapshot?: boolean | undefined;
+
+  /**
+   * <p>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when
+   *             the <code>SkipFinalSnapshot</code> parameter is disabled.</p>
+   *          <note>
+   *             <p>If you enable this parameter and also enable <code>SkipFinalShapshot</code>, the
+   *                 command results in an error.</p>
+   *          </note>
+   * @public
+   */
+  FinalDBSnapshotIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTenantDatabaseResult {
+  /**
+   * <p>A tenant database in the DB instance. This data type is an element in the response to
+   *             the <code>DescribeTenantDatabases</code> action.</p>
+   * @public
+   */
+  TenantDatabase?: TenantDatabase | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterDBProxyTargetsRequest {
+  /**
+   * <p>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</p>
+   * @public
+   */
+  DBProxyName: string | undefined;
+
+  /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
+   * @public
+   */
+  TargetGroupName?: string | undefined;
+
+  /**
+   * <p>One or more DB instance identifiers.</p>
+   * @public
+   */
+  DBInstanceIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>One or more DB cluster identifiers.</p>
+   * @public
+   */
+  DBClusterIdentifiers?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterDBProxyTargetsResponse {}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeAccountAttributesMessage {}
+
+/**
+ * <p>A filter name and value pair that is used to return a more specific list of results
+ *             from a describe operation. Filters can be used to match a set of resources by specific
+ *             criteria, such as IDs. The filters supported by a describe operation are documented
+ *             with the describe operation.</p>
+ *          <note>
+ *             <p>Currently, wildcards are not supported in filters.</p>
+ *          </note>
+ *          <p>The following actions can be filtered:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterBacktracks</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusters</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBInstances</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBRecommendations</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBShardGroups</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribePendingMaintenanceActions</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more filter values. Filter values are case-sensitive.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBlueGreenDeploymentsRequest {
+  /**
+   * <p>The blue/green deployment identifier. If you specify this parameter, the response only
+   *             includes information about the specific blue/green deployment. This parameter isn't
+   *             case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match an existing blue/green deployment identifier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  BlueGreenDeploymentIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more blue/green deployments to describe.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>blue-green-deployment-identifier</code> - Accepts system-generated
+   *                     identifiers for blue/green deployments. The results list only includes
+   *                     information about the blue/green deployments with the specified
+   *                     identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green deployments.
+   *                     The results list only includes information about the blue/green deployments with the
+   *                     specified names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source</code> - Accepts source databases for a blue/green deployment.
+   *                     The results list only includes information about the blue/green deployments with
+   *                     the specified source databases.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target</code> - Accepts target databases for a blue/green deployment.
+   *                     The results list only includes information about the blue/green deployments with
+   *                     the specified target databases.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeBlueGreenDeployments</code> request. If you specify this parameter,
+   *             the response only includes records beyond the marker, up to the value specified by
+   *                 <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a minimum of 20.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't exceed 100.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBlueGreenDeploymentsResponse {
+  /**
+   * <p>A list of blue/green deployments in the current account and Amazon Web Services Region.</p>
+   * @public
+   */
+  BlueGreenDeployments?: BlueGreenDeployment[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a later
+   *                 <code>DescribeBlueGreenDeployments</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>A CA certificate for an Amazon Web Services account.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+ *             instance</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+ *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ * @public
+ */
+export interface Certificate {
+  /**
+   * <p>The unique key that identifies a certificate.</p>
+   * @public
+   */
+  CertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of the certificate.</p>
+   * @public
+   */
+  CertificateType?: string | undefined;
+
+  /**
+   * <p>The thumbprint of the certificate.</p>
+   * @public
+   */
+  Thumbprint?: string | undefined;
+
+  /**
+   * <p>The starting date from which the certificate is valid.</p>
+   * @public
+   */
+  ValidFrom?: Date | undefined;
+
+  /**
+   * <p>The final date that the certificate continues to be valid.</p>
+   * @public
+   */
+  ValidTill?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the certificate.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether there is an override for the default certificate identifier.</p>
+   * @public
+   */
+  CustomerOverride?: boolean | undefined;
+
+  /**
+   * <p>If there is an override for the default certificate identifier, when the override
+   *             expires.</p>
+   * @public
+   */
+  CustomerOverrideValidTill?: Date | undefined;
+}
+
+/**
+ * <p>Data returned by the <b>DescribeCertificates</b> action.</p>
+ * @public
+ */
+export interface CertificateMessage {
+  /**
+   * <p>The default root CA for new databases created by your Amazon Web Services account. This is either the root CA override
+   *             set on your Amazon Web Services account or the system default CA for the Region if no override exists. To override the default CA, use the
+   *             <code>ModifyCertificates</code> operation.</p>
+   * @public
+   */
+  DefaultCertificateForNewLaunches?: string | undefined;
+
+  /**
+   * <p>The list of <code>Certificate</code> objects for the Amazon Web Services account.</p>
+   * @public
+   */
+  Certificates?: Certificate[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeCertificates</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeCertificatesMessage {
+  /**
+   * <p>The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match an existing CertificateIdentifier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeCertificates</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DBClusterAutomatedBackupMessage {
+  /**
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
+   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBClusterAutomatedBackup</code> backups.</p>
+   * @public
+   */
+  DBClusterAutomatedBackups?: DBClusterAutomatedBackup[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBClusterAutomatedBackupsMessage {
+  /**
+   * <p>The resource ID of the DB cluster that is the source of the automated backup. This parameter isn't case-sensitive.</p>
+   * @public
+   */
+  DbClusterResourceId?: string | undefined;
+
+  /**
+   * <p>(Optional) The user-supplied DB cluster identifier. If this parameter is specified, it must
+   *             match the identifier of an existing DB cluster. It returns information from the
+   *             specific DB cluster's automated backup. This parameter isn't case-sensitive.</p>
+   * @public
+   */
+  DBClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies which resources to return based on status.</p>
+   *          <p>Supported filters are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>status</code>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>retained</code> - Automated backups for deleted clusters and after backup replication is stopped.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and Amazon Resource Names (ARNs).
+   *                     The results list includes only information about the DB cluster automated backups identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs).
+   *                     The results list includes only information about the DB cluster resources identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Returns all resources by default. The status for each resource is specified in the response.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code>
+   *             value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
+   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBClusterBacktracks</code> action.</p>
+ * @public
+ */
+export interface DBClusterBacktrackMessage {
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeDBClusterBacktracks</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Contains a list of backtracks for the user.</p>
+   * @public
+   */
+  DBClusterBacktracks?: DBClusterBacktrack[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBClusterBacktracksMessage {
+  /**
+   * <p>The DB cluster identifier of the DB cluster to be described. This parameter is
+   *             stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster1</code>
+   *          </p>
+   * @public
+   */
+  DBClusterIdentifier: string | undefined;
+
+  /**
+   * <p>If specified, this value is the backtrack identifier of the backtrack to be
+   *             described.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see
+   *                     <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally unique
+   *                         identifier</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>123e4567-e89b-12d3-a456-426655440000</code>
+   *          </p>
+   * @public
+   */
+  BacktrackIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB clusters to describe. Supported filters
+   *             include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-backtrack-id</code> - Accepts backtrack identifiers. The
+   *                     results list includes information about only the backtracks identified by these
+   *                     identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-backtrack-status</code> - Accepts any of the following backtrack status values:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>applying</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>completed</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>failed</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>pending</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>The results list includes information about only the backtracks identified
+   *                     by these values.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterBacktracks</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DBClusterEndpointMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterEndpoints</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Contains the details of the endpoints associated with the cluster
+   *        and matching any filter conditions.</p>
+   * @public
+   */
+  DBClusterEndpoints?: DBClusterEndpoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBClusterEndpointsMessage {
+  /**
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *             stored as a lowercase string.</p>
+   * @public
+   */
+  DBClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The identifier of the endpoint to describe. This parameter is stored as a lowercase string.</p>
+   * @public
+   */
+  DBClusterEndpointIdentifier?: string | undefined;
+
+  /**
+   * <p>A set of name-value pairs that define which endpoints to include in the output.
+   *        The filters are specified as name-value pairs, in the format
+   *        <code>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</code>.
+   *        <code>Name</code> can be one of: <code>db-cluster-endpoint-type</code>, <code>db-cluster-endpoint-custom-type</code>, <code>db-cluster-endpoint-id</code>, <code>db-cluster-endpoint-status</code>.
+   *          <code>Values</code> for the <code> db-cluster-endpoint-type</code> filter can be one or more of: <code>reader</code>, <code>writer</code>, <code>custom</code>.
+   *        <code>Values</code> for the <code>db-cluster-endpoint-custom-type</code> filter can be one or more of: <code>reader</code>, <code>any</code>.
+   *        <code>Values</code> for the <code>db-cluster-endpoint-status</code> filter can be one or more of: <code>available</code>, <code>creating</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterEndpoints</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DBClusterParameterGroupsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterParameterGroups</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of DB cluster parameter groups.</p>
+   * @public
+   */
+  DBClusterParameterGroups?: DBClusterParameterGroup[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBClusterParameterGroupsMessage {
+  /**
+   * <p>The name of a specific DB cluster parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBClusterParameterGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBClusterParameterGroups</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a request parameter in the
+ *         <code>ModifyDBParameterGroup</code> and <code>ResetDBParameterGroup</code> actions.</p>
+ *          <p>This data type is used as a response element in the
+ *         <code>DescribeEngineDefaultParameters</code> and <code>DescribeDBParameters</code> actions.</p>
+ * @public
+ */
+export interface Parameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  ParameterName?: string | undefined;
+
+  /**
+   * <p>The value of the parameter.</p>
+   * @public
+   */
+  ParameterValue?: string | undefined;
+
+  /**
+   * <p>Provides a description of the parameter.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The source of the parameter value.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>Specifies the engine specific parameters type.</p>
+   * @public
+   */
+  ApplyType?: string | undefined;
+
+  /**
+   * <p>Specifies the valid data type for the parameter.</p>
+   * @public
+   */
+  DataType?: string | undefined;
+
+  /**
+   * <p>Specifies the valid range of values for the parameter.</p>
+   * @public
+   */
+  AllowedValues?: string | undefined;
+
+  /**
+   * <p>Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be modified.
+   *         Some parameters have security or operational implications
+   *         that prevent them from being changed.</p>
+   * @public
+   */
+  IsModifiable?: boolean | undefined;
+
+  /**
+   * <p>The earliest engine version to which the parameter can apply.</p>
+   * @public
+   */
+  MinimumEngineVersion?: string | undefined;
+
+  /**
+   * <p>Indicates when to apply parameter updates.</p>
+   * @public
+   */
+  ApplyMethod?: ApplyMethod | undefined;
+
+  /**
+   * <p>The valid DB engine modes.</p>
+   * @public
+   */
+  SupportedEngineModes?: string[] | undefined;
+}
+
+/**
+ * <p>Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.</p>
+ * @public
+ */
+export interface DBClusterParameterGroupDetails {
+  /**
+   * <p>Provides a list of parameters for the DB cluster parameter group.</p>
+   * @public
+   */
+  Parameters?: Parameter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBClusterParametersMessage {
+  /**
+   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBClusterParameterGroupName: string | undefined;
+
+  /**
+   * <p>A specific source to return parameters for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>engine-default</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>system</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>user</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB cluster parameters to describe.</p>
+   *          <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the DB cluster parameters with these names.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *       If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterParameters</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBClusters</code> action.</p>
+ * @public
+ */
+export interface DBClusterMessage {
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeDBClusters</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Contains a list of DB clusters for the user.</p>
+   * @public
+   */
+  DBClusters?: DBCluster[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBClustersMessage {
+  /**
+   * <p>The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB cluster. If this parameter is specified,
+   *             information for only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DB cluster identifier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB clusters to describe.</p>
+   *          <p>Supported Filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>clone-group-id</code> - Accepts clone group identifiers.
+   *               The results list only includes information about
+   *               the DB clusters associated with these clone groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
+   *               the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-resource-id</code> - Accepts DB cluster resource identifiers.
+   *                     The results list will only include information about the DB clusters identified
+   *                     by these DB cluster resource identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>domain</code> - Accepts Active Directory directory IDs.
+   *               The results list only includes information about
+   *               the DB clusters associated with these domains.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names.
+   *               The results list only includes information about
+   *               the DB clusters for these engines.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusters</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Specifies whether the output includes information about clusters
+   *           shared from other Amazon Web Services accounts.</p>
+   * @public
+   */
+  IncludeShared?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBClusterSnapshotAttributesMessage {
+  /**
+   * <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
+   * @public
+   */
+  DBClusterSnapshotIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
+ *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
+ *             to restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
+ *             API action.</p>
+ * @public
+ */
+export interface DBClusterSnapshotAttribute {
+  /**
+   * <p>The name of the manual DB cluster snapshot attribute.</p>
+   *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
+   *             have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *             see the <code>ModifyDBClusterSnapshotAttribute</code>
+   *             API action.</p>
+   * @public
+   */
+  AttributeName?: string | undefined;
+
+  /**
+   * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
+   *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
+   *             returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
+   *             DB cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster snapshot
+   *             is public and available for any Amazon Web Services account to copy or restore.</p>
+   * @public
+   */
+  AttributeValues?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
+ *             API action.</p>
+ *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
+ *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
+ *             API action.</p>
+ * @public
+ */
+export interface DBClusterSnapshotAttributesResult {
+  /**
+   * <p>The identifier of the manual DB cluster snapshot that the attributes apply to.</p>
+   * @public
+   */
+  DBClusterSnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
+   * @public
+   */
+  DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBClusterSnapshotAttributesResult {
+  /**
+   * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
+   *             API action.</p>
+   *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
+   *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
+   *             API action.</p>
+   * @public
+   */
+  DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult | undefined;
+}
+
+/**
+ * <p>Provides a list of DB cluster snapshots for the user as the result of a call to the <code>DescribeDBClusterSnapshots</code> action.</p>
+ * @public
+ */
+export interface DBClusterSnapshotMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *           <code>DescribeDBClusterSnapshots</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Provides a list of DB cluster snapshots for the user.</p>
+   * @public
+   */
+  DBClusterSnapshots?: DBClusterSnapshot[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBClusterSnapshotsMessage {
+  /**
+   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
+   *             This parameter can't be used in conjunction with the
+   *             <code>DBClusterSnapshotIdentifier</code> parameter.
+   *             This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>A specific DB cluster snapshot identifier to describe.
+   *             This parameter can't be used in conjunction with the
+   *             <code>DBClusterIdentifier</code> parameter.
+   *             This value is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBClusterSnapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBClusterSnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of DB cluster snapshots to be returned. You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by
+   *               Amazon RDS for my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public</code> - Return all DB cluster snapshots that have been marked as public.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual DB cluster snapshots are
+   *           returned. You can include shared DB cluster snapshots with these results by enabling the <code>IncludeShared</code>
+   *           parameter. You can include public DB cluster snapshots with these results by enabling the
+   *           <code>IncludePublic</code> parameter.</p>
+   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
+   *           of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
+   *           set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
+   *           <code>public</code>.</p>
+   * @public
+   */
+  SnapshotType?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-type</code> - Accepts types of DB cluster snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts names of database engines.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeDBClusterSnapshots</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include shared manual DB cluster snapshots
+   *             from other Amazon Web Services accounts that this Amazon Web Services account has been given
+   *             permission to copy or restore. By default, these snapshots are not included.</p>
+   *          <p>You can give an Amazon Web Services account permission to restore a manual DB cluster snapshot from
+   *             another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
+   * @public
+   */
+  IncludeShared?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to include manual DB cluster snapshots that are public and can be copied
+   *             or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
+   *          <p>You can share a manual DB cluster snapshot  as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
+   * @public
+   */
+  IncludePublic?: boolean | undefined;
+
+  /**
+   * <p>A specific DB cluster resource ID to describe.</p>
+   * @public
+   */
+  DbClusterResourceId?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.</p>
+ * @public
+ */
+export interface DBEngineVersionMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBEngineVersion</code> elements.</p>
+   * @public
+   */
+  DBEngineVersions?: DBEngineVersion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBEngineVersionsMessage {
+  /**
+   * <p>The database engine to return version details for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>A specific database engine version to return details for.</p>
+   *          <p>Example: <code>5.1.49</code>
+   *          </p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>The name of a specific DB parameter group family to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DB parameter group family.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBParameterGroupFamily?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB engine versions to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-parameter-group-family</code> - Accepts parameter groups family names.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these parameter group families.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine-mode</code> - Accepts DB engine modes.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engine modes. Valid
+   *                   DB engine modes are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>global</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>multimaster</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>parallelquery</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>provisioned</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>serverless</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine-version</code> - Accepts engine versions.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engine versions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - Accepts engine version statuses.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these statuses. Valid statuses
+   *                   are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>available</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>deprecated</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *     included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Specifies whether to return only the default version of the specified engine or the engine and major version combination.</p>
+   * @public
+   */
+  DefaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to list the supported character sets for each engine version.</p>
+   *          <p>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code> parameter for
+   *                 <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine
+   *             version.</p>
+   *          <p>For RDS Custom, the default is not to list supported character sets. If you enable this parameter, RDS Custom returns no results.</p>
+   * @public
+   */
+  ListSupportedCharacterSets?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to list the supported time zones for each engine version.</p>
+   *          <p>If this parameter is enabled and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
+   *             the response includes a list of supported time zones for each engine version.</p>
+   *          <p>For RDS Custom, the default is not to list supported time zones. If you enable this parameter, RDS Custom returns no results.</p>
+   * @public
+   */
+  ListSupportedTimezones?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to also list the engine versions that aren't available. The default is to list only available engine versions.</p>
+   * @public
+   */
+  IncludeAll?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBInstanceAutomatedBackups</code> action.</p>
+ * @public
+ */
+export interface DBInstanceAutomatedBackupMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBInstanceAutomatedBackup</code> instances.</p>
+   * @public
+   */
+  DBInstanceAutomatedBackups?: DBInstanceAutomatedBackup[] | undefined;
+}
+
+/**
+ * <p>Parameter input for DescribeDBInstanceAutomatedBackups.</p>
+ * @public
+ */
+export interface DescribeDBInstanceAutomatedBackupsMessage {
+  /**
+   * <p>The resource ID of the DB instance that is the source of
+   *             the automated backup. This parameter isn't case-sensitive.</p>
+   * @public
+   */
+  DbiResourceId?: string | undefined;
+
+  /**
+   * <p>(Optional) The user-supplied instance identifier. If this parameter is specified, it must
+   *             match the identifier of an existing DB instance. It returns information from the
+   *             specific DB instance's automated backup. This parameter isn't case-sensitive.</p>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies which resources to return based on status.</p>
+   *          <p>Supported filters are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>status</code>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>active</code> - Automated backups for current instances.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>creating</code> - Automated backups that are waiting for the first automated snapshot to be available.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>retained</code> - Automated backups for deleted instances and after backup replication is stopped.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource Names (ARNs).
+   *                 The results list includes only information about the DB instance automated backups identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs).
+   *                 The results list includes only information about the DB instance resources identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Returns all resources by default. The status for each resource is specified in the response.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *             <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response
+   *             includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replicated automated backups, for example,
+   *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * @public
+   */
+  DBInstanceAutomatedBackupsArn?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBInstances</code> action.</p>
+ * @public
+ */
+export interface DBInstanceMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBInstance</code> instances.</p>
+   * @public
+   */
+  DBInstances?: DBInstance[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBInstancesMessage {
+  /**
+   * <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified,
+   *             information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DB instance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB instances to describe.</p>
+   *          <p>Supported Filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
+   *               the DB instances associated with the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *               instance Amazon Resource Names (ARNs). The results list only includes information about
+   *               the DB instances identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list
+   *               only includes information about the DB instances identified by these DB instance resource identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes
+   *               information about the DB instances associated with these domains.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names. The results list only includes information
+   *               about the DB instances for these engines.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBInstances</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBLogFilesMessage {
+  /**
+   * <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing DBInstance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBInstanceIdentifier: string | undefined;
+
+  /**
+   * <p>Filters the available log files for log file names that contain the specified string.</p>
+   * @public
+   */
+  FilenameContains?: string | undefined;
+
+  /**
+   * <p>Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.</p>
+   * @public
+   */
+  FileLastWritten?: number | undefined;
+
+  /**
+   * <p>Filters the available log files for files larger than the specified size.</p>
+   * @public
+   */
+  FileSize?: number | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element to <code>DescribeDBLogFiles</code>.</p>
+ * @public
+ */
+export interface DescribeDBLogFilesDetails {
+  /**
+   * <p>The name of the log file for the specified DB instance.</p>
+   * @public
+   */
+  LogFileName?: string | undefined;
+
+  /**
+   * <p>A POSIX timestamp when the last log entry was written.</p>
+   * @public
+   */
+  LastWritten?: number | undefined;
+
+  /**
+   * <p>The size, in bytes, of the log file for the specified DB instance.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
+
+/**
+ * <p>The response from a call to <code>DescribeDBLogFiles</code>.</p>
+ * @public
+ */
+export interface DescribeDBLogFilesResponse {
+  /**
+   * <p>The DB log files returned.</p>
+   * @public
+   */
+  DescribeDBLogFiles?: DescribeDBLogFilesDetails[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeDBLogFiles</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBMajorEngineVersionsRequest {
+  /**
+   * <p>The database engine to return major version details for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>A specific database major engine version to return details for.</p>
+   *          <p>Example: <code>8.4</code>
+   *          </p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value
+   *             specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *             included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the operation
+ *             <code>DescribeDBMajorEngineVersions</code>.</p>
+ *          <p>You can use the information that this data type returns to plan for upgrades.</p>
+ *          <p>This data type only returns information for the open source engines Amazon RDS for
+ *             MariaDB, Amazon RDS for MySQL, Amazon RDS for PostgreSQL, Aurora MySQL, and Aurora
+ *             PostgreSQL.</p>
+ * @public
+ */
+export interface SupportedEngineLifecycle {
+  /**
+   * <p>The type of lifecycle support that the engine version is in.</p>
+   *          <p>This parameter returns the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>open-source-rds-standard-support</code> - Indicates RDS standard support or Aurora standard support.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>open-source-rds-extended-support</code> - Indicates Amazon RDS Extended Support.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For Amazon RDS for MySQL, Amazon RDS for PostgreSQL, Aurora MySQL, and Aurora
+   *             PostgreSQL, this parameter returns both <code>open-source-rds-standard-support</code>
+   *             and <code>open-source-rds-extended-support</code>.</p>
+   *          <p>For Amazon RDS for MariaDB, this parameter only returns the value
+   *                 <code>open-source-rds-standard-support</code>.</p>
+   *          <p>For information about Amazon RDS Extended Support, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon RDS Extended Support
+   *             with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon
+   *                     Aurora User Guide</i>.</p>
+   * @public
+   */
+  LifecycleSupportName: LifecycleSupportName | undefined;
+
+  /**
+   * <p>The start date for the type of support returned by <code>LifecycleSupportName</code>.</p>
+   * @public
+   */
+  LifecycleSupportStartDate: Date | undefined;
+
+  /**
+   * <p>The end date for the type of support returned by <code>LifecycleSupportName</code>.</p>
+   * @public
+   */
+  LifecycleSupportEndDate: Date | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the operation
+ *             <code>DescribeDBMajorEngineVersions</code>.</p>
+ * @public
+ */
+export interface DBMajorEngineVersion {
+  /**
+   * <p>The name of the database engine.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The major version number of the database engine.</p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>A list of the lifecycles supported by this engine for the
+   *                 <code>DescribeDBMajorEngineVersions</code> operation.</p>
+   * @public
+   */
+  SupportedEngineLifecycles?: SupportedEngineLifecycle[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBMajorEngineVersionsResponse {
+  /**
+   * <p>A list of <code>DBMajorEngineVersion</code> elements.</p>
+   * @public
+   */
+  DBMajorEngineVersions?: DBMajorEngineVersion[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value
+   *             specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBParameterGroups</code> action.</p>
+ * @public
+ */
+export interface DBParameterGroupsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBParameterGroup</code> instances.</p>
+   * @public
+   */
+  DBParameterGroups?: DBParameterGroup[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBParameterGroupsMessage {
+  /**
+   * <p>The name of a specific DB parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBParameterGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBParameterGroups</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBParameters</code> action.</p>
+ * @public
+ */
+export interface DBParameterGroupDetails {
+  /**
+   * <p>A list of <code>Parameter</code> values.</p>
+   * @public
+   */
+  Parameters?: Parameter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBParametersMessage {
+  /**
+   * <p>The name of a specific DB parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBParameterGroupName: string | undefined;
+
+  /**
+   * <p>The parameter types to return.</p>
+   *          <p>Default: All parameter types returned</p>
+   *          <p>Valid Values: <code>user | system | engine-default</code>
+   *          </p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB parameters to describe.</p>
+   *          <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the DB parameters with these names.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxiesRequest {
+  /**
+   * <p>The name of the DB proxy. If you omit this parameter,
+   *         the output includes information about all DB proxies owned by
+   *         your Amazon Web Services account ID.</p>
+   * @public
+   */
+  DBProxyName?: string | undefined;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *           than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *           included in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxiesResponse {
+  /**
+   * <p>A return value representing an arbitrary number of <code>DBProxy</code> data structures.</p>
+   * @public
+   */
+  DBProxies?: DBProxy[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxyEndpointsRequest {
+  /**
+   * <p>The name of the DB proxy whose endpoints you want to describe. If you omit
+   *         this parameter, the output includes information about all DB proxy endpoints
+   *         associated with all your DB proxies.</p>
+   * @public
+   */
+  DBProxyName?: string | undefined;
+
+  /**
+   * <p>The name of a DB proxy endpoint to describe. If you omit this parameter,
+   *         the output includes information about all DB proxy endpoints associated with
+   *         the specified proxy.</p>
+   * @public
+   */
+  DBProxyEndpointName?: string | undefined;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *           than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *           included in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxyEndpointsResponse {
+  /**
+   * <p>The list of <code>ProxyEndpoint</code> objects returned by the API operation.</p>
+   * @public
+   */
+  DBProxyEndpoints?: DBProxyEndpoint[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxyTargetGroupsRequest {
+  /**
+   * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
+   * @public
+   */
+  DBProxyName: string | undefined;
+
+  /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
+   * @public
+   */
+  TargetGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that the remaining
+   *         results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>Displays the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTarget</code>.</p>
+ * @public
+ */
+export interface ConnectionPoolConfigurationInfo {
+  /**
+   * <p>The maximum size of the connection pool for each target in a target group. The value is expressed as a percentage of the
+   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
+   * @public
+   */
+  MaxConnectionsPercent?: number | undefined;
+
+  /**
+   * <p>Controls how actively the proxy closes idle database connections in the connection pool.
+   *         The value is expressed as a percentage of the <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
+   *         With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.</p>
+   * @public
+   */
+  MaxIdleConnectionsPercent?: number | undefined;
+
+  /**
+   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
+   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
+   * @public
+   */
+  ConnectionBorrowTimeout?: number | undefined;
+
+  /**
+   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
+   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
+   *         in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases.
+   *         Currently, the only allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
+   * @public
+   */
+  SessionPinningFilters?: string[] | undefined;
+
+  /**
+   * <p>One or more SQL statements for the proxy to run when opening each new database connection.
+   *         The setting is typically used with <code>SET</code> statements to make sure that each connection has identical settings.
+   *         The query added here must be valid. For including multiple variables in a single SET statement, use a comma separator.
+   *         This is an optional field.</p>
+   *          <p>For example: <code>SET variable1=value1, variable2=value2</code>
+   *          </p>
+   *          <important>
+   *             <p>Since you can access initialization query as part of target group configuration, it is not protected by authentication or cryptographic methods.
+   *                 Anyone with access to view or manage your proxy target group configuration can view the initialization query.
+   *                 You should not add sensitive data, such as passwords or long-lived encryption keys, to this option.</p>
+   *          </important>
+   * @public
+   */
+  InitQuery?: string | undefined;
+}
+
+/**
+ * <p>Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group
+ *         is associated with exactly one RDS DB instance or Aurora DB cluster.</p>
+ *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargetGroups</code> action.</p>
+ * @public
+ */
+export interface DBProxyTargetGroup {
+  /**
+   * <p>The identifier for the RDS proxy associated with this target group.</p>
+   * @public
+   */
+  DBProxyName?: string | undefined;
+
+  /**
+   * <p>The identifier for the target group. This name must be unique for all target groups owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+   * @public
+   */
+  TargetGroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) representing the target group.</p>
+   * @public
+   */
+  TargetGroupArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether this target group is the first one used for connection requests by the associated proxy.
+   *         Because each proxy is currently associated with a single target group, currently this setting
+   *         is always <code>true</code>.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The current status of this target group. A status of <code>available</code> means the
+   *         target group is correctly associated with a database. Other values indicate that you must wait for
+   *         the target group to be ready, or take some action to resolve an issue.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The settings that determine the size and behavior of the connection pool for the target group.</p>
+   * @public
+   */
+  ConnectionPoolConfig?: ConnectionPoolConfigurationInfo | undefined;
+
+  /**
+   * <p>The date and time when the target group was first created.</p>
+   * @public
+   */
+  CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the target group was last updated.</p>
+   * @public
+   */
+  UpdatedDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxyTargetGroupsResponse {
+  /**
+   * <p>An arbitrary number of <code>DBProxyTargetGroup</code> objects, containing details of the corresponding target groups.</p>
+   * @public
+   */
+  TargetGroups?: DBProxyTargetGroup[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxyTargetsRequest {
+  /**
+   * <p>The identifier of the <code>DBProxyTarget</code> to describe.</p>
+   * @public
+   */
+  DBProxyName: string | undefined;
+
+  /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
+   * @public
+   */
+  TargetGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that the remaining
+   *         results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>Information about the connection health of an RDS Proxy target.</p>
+ * @public
+ */
+export interface TargetHealth {
+  /**
+   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
+   *            The following is a typical lifecycle example for the states of an RDS Proxy target:</p>
+   *          <p>
+   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
+   *          </p>
+   * @public
+   */
+  State?: TargetState | undefined;
+
+  /**
+   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
+   * @public
+   */
+  Reason?: TargetHealthReason | undefined;
+
+  /**
+   * <p>A description of the health of the RDS Proxy target.
+   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
+ *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
+ *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
+ * @public
+ */
+export interface DBProxyTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+
+  /**
+   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
+   * @public
+   */
+  TrackedClusterId?: string | undefined;
+
+  /**
+   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
+   *         or the cluster identifier for an Aurora DB cluster.</p>
+   * @public
+   */
+  RdsResourceId?: string | undefined;
+
+  /**
+   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
+   * @public
+   */
+  Type?: TargetType | undefined;
+
+  /**
+   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
+   * @public
+   */
+  Role?: TargetRole | undefined;
+
+  /**
+   * <p>Information about the connection health of the RDS Proxy target.</p>
+   * @public
+   */
+  TargetHealth?: TargetHealth | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBProxyTargetsResponse {
+  /**
+   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
+   * @public
+   */
+  Targets?: DBProxyTarget[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the <code>db.sql</code> dimension group consists of the following dimensions: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>db.sql.id</code> - The hash of a running SQL statement, generated by Performance Insights.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>db.sql.db_id</code> - Either the SQL ID generated by the database engine, or a value generated by Performance Insights that begins with <code>pi-</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>db.sql.statement</code> - The full text of the SQL statement that is running, for example, <code>SELECT * FROM employees</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>db.sql_tokenized.id</code> - The hash of the SQL digest generated by Performance Insights.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements, only the first 500 bytes are returned.</p>
+ *          </note>
+ * @public
+ */
+export interface PerformanceInsightsMetricDimensionGroup {
+  /**
+   * <p>A list of specific dimensions from a dimension group. If this list isn't included, then all of the dimensions in the group were requested, or are present in the response.</p>
+   * @public
+   */
+  Dimensions?: string[] | undefined;
+
+  /**
+   * <p>The available dimension groups for Performance Insights metric type.</p>
+   * @public
+   */
+  Group?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to fetch for this dimension group.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+}
+
+/**
+ * <p>A single Performance Insights metric query to process. You must provide the metric to the query.
+ *             If other parameters aren't specified, Performance Insights returns all data points for the
+ *             specified metric. Optionally, you can request the data points to be aggregated by dimension
+ *             group (<code>GroupBy</code>) and return only those data points that match your criteria (<code>Filter</code>).</p>
+ *          <p>Constraints:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Must be a valid Performance Insights query.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface PerformanceInsightsMetricQuery {
+  /**
+   * <p>A specification for how to aggregate the data points from a query result. You must
+   *            specify a valid dimension group. Performance Insights will return all of the dimensions within that group,
+   *            unless you provide the names of specific dimensions within that group. You can also request
+   *            that Performance Insights return a limited number of values for a dimension.</p>
+   * @public
+   */
+  GroupBy?: PerformanceInsightsMetricDimensionGroup | undefined;
+
+  /**
+   * <p>The name of a Performance Insights metric to be measured.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db.load.avg</code> - A scaled representation of the number of active sessions for the
+   *                     database engine.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.sampledload.avg</code> - The raw number of active sessions for the database engine.</p>
+   *             </li>
+   *             <li>
+   *                <p>The counter metrics listed in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS">Performance Insights
+   *                     operating system counters</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code>
+   *             and <code>db.sampledload.avg</code> are the same value. If the number of active sessions is greater than the
+   *             internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code> showing the
+   *             scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than
+   *             <code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code> only.</p>
+   * @public
+   */
+  Metric?: string | undefined;
+}
+
+/**
+ * <p>The query to retrieve metric data points.</p>
+ * @public
+ */
+export interface MetricQuery {
+  /**
+   * <p>The Performance Insights query that you can use to retrieve Performance Insights metric data points.</p>
+   * @public
+   */
+  PerformanceInsightsMetricQuery?: PerformanceInsightsMetricQuery | undefined;
+}
+
+/**
+ * <p>The metric reference details when the reference is a scalar.</p>
+ * @public
+ */
+export interface ScalarReferenceDetails {
+  /**
+   * <p>The value of a scalar reference.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>The reference details of a metric.</p>
+ * @public
+ */
+export interface ReferenceDetails {
+  /**
+   * <p>The metric reference details when the reference is a scalar.</p>
+   * @public
+   */
+  ScalarReferenceDetails?: ScalarReferenceDetails | undefined;
+}
+
+/**
+ * <p>The reference (threshold) for a metric.</p>
+ * @public
+ */
+export interface MetricReference {
+  /**
+   * <p>The name of the metric reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The details of a performance issue.</p>
+   * @public
+   */
+  ReferenceDetails?: ReferenceDetails | undefined;
+}
+
+/**
+ * <p>The representation of a metric.</p>
+ * @public
+ */
+export interface Metric {
+  /**
+   * <p>The name of a metric.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A list of metric references (thresholds).</p>
+   * @public
+   */
+  References?: MetricReference[] | undefined;
+
+  /**
+   * <p>The details of different statistics for a metric. The description might contain markdown.</p>
+   * @public
+   */
+  StatisticsDetails?: string | undefined;
+
+  /**
+   * <p>The query to retrieve metric data points.</p>
+   * @public
+   */
+  MetricQuery?: MetricQuery | undefined;
+}
+
+/**
+ * <p>Details of the performance issue.</p>
+ * @public
+ */
+export interface PerformanceIssueDetails {
+  /**
+   * <p>The time when the performance issue started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the performance issue stopped.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The metrics that are relevant to the performance issue.</p>
+   * @public
+   */
+  Metrics?: Metric[] | undefined;
+
+  /**
+   * <p>The analysis of the performance issue. The information might contain markdown.</p>
+   * @public
+   */
+  Analysis?: string | undefined;
+}
+
+/**
+ * <p>The details of an issue with your DB instances, DB clusters, and DB parameter groups.</p>
+ * @public
+ */
+export interface IssueDetails {
+  /**
+   * <p>A detailed description of the issue when the recommendation category is <code>performance</code>.</p>
+   * @public
+   */
+  PerformanceIssueDetails?: PerformanceIssueDetails | undefined;
+}
+
+/**
+ * <p>A link to documentation that provides additional information for a recommendation.</p>
+ * @public
+ */
+export interface DocLink {
+  /**
+   * <p>The text with the link to documentation for the recommendation.</p>
+   * @public
+   */
+  Text?: string | undefined;
+
+  /**
+   * <p>The URL for the documentation for the recommendation.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>The additional attributes of <code>RecommendedAction</code> data type.</p>
+ * @public
+ */
+export interface ContextAttribute {
+  /**
+   * <p>The key of <code>ContextAttribute</code>.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of <code>ContextAttribute</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A single parameter to use with the <code>RecommendedAction</code> API operation to apply the action.</p>
+ * @public
+ */
+export interface RecommendedActionParameter {
+  /**
+   * <p>The key of the parameter to use with the <code>RecommendedAction</code> API operation.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the parameter to use with the <code>RecommendedAction</code> API operation.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The recommended actions to apply to resolve the issues associated with your DB instances, DB clusters, and DB parameter groups.</p>
+ * @public
+ */
+export interface RecommendedAction {
+  /**
+   * <p>The unique identifier of the recommended action.</p>
+   * @public
+   */
+  ActionId?: string | undefined;
+
+  /**
+   * <p>A short description to summarize the action. The description might contain markdown.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>A detailed description of the action. The description might contain markdown.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>An API operation for the action.</p>
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * <p>The parameters for the API operation.</p>
+   * @public
+   */
+  Parameters?: RecommendedActionParameter[] | undefined;
+
+  /**
+   * <p>The methods to apply the recommended action.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> - The action requires you to resolve the recommendation manually.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>immediately</code> - The action is applied immediately.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>next-maintainance-window</code> - The action is applied during the next scheduled maintainance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ApplyModes?: string[] | undefined;
+
+  /**
+   * <p>The status of the action.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ready</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>applied</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scheduled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolved</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The details of the issue.</p>
+   * @public
+   */
+  IssueDetails?: IssueDetails | undefined;
+
+  /**
+   * <p>The supporting attributes to explain the recommended action.</p>
+   * @public
+   */
+  ContextAttributes?: ContextAttribute[] | undefined;
+}
+
+/**
+ * <p>The recommendation for your DB instances, DB clusters, and DB parameter groups.</p>
+ * @public
+ */
+export interface DBRecommendation {
+  /**
+   * <p>The unique identifier of the recommendation.</p>
+   * @public
+   */
+  RecommendationId?: string | undefined;
+
+  /**
+   * <p>A value that indicates the type of recommendation. This value determines how the description is rendered.</p>
+   * @public
+   */
+  TypeId?: string | undefined;
+
+  /**
+   * <p>The severity level of the recommendation. The severity level can help you decide the
+   *             urgency with which to address the recommendation.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>high</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>medium</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>low</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>informational</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Severity?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the RDS resource associated with the recommendation.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The current status of the recommendation.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The recommendations which are ready for you to apply.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The applied or scheduled recommendations which are in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolved</code> - The recommendations which are completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dismissed</code> - The recommendations that you dismissed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The time when the recommendation was created. For example, <code>2023-09-28T01:13:53.931000+00:00</code>.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time when the recommendation was last updated.</p>
+   * @public
+   */
+  UpdatedTime?: Date | undefined;
+
+  /**
+   * <p>A short description of the issue identified for this recommendation. The description might contain markdown.</p>
+   * @public
+   */
+  Detection?: string | undefined;
+
+  /**
+   * <p>A short description of the recommendation to resolve an issue. The description might contain markdown.</p>
+   * @public
+   */
+  Recommendation?: string | undefined;
+
+  /**
+   * <p>A detailed description of the recommendation. The description might contain markdown.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The reason why this recommendation was created. The information might contain markdown.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>A list of recommended actions.</p>
+   * @public
+   */
+  RecommendedActions?: RecommendedAction[] | undefined;
+
+  /**
+   * <p>The category of the recommendation.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>performance efficiency</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>security</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reliability</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cost optimization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operational excellence</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sustainability</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service that generated the recommendations.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>A short description of the recommendation type. The description might contain markdown.</p>
+   * @public
+   */
+  TypeDetection?: string | undefined;
+
+  /**
+   * <p>A short description that summarizes the recommendation to fix all the issues of the recommendation type. The description might contain markdown.</p>
+   * @public
+   */
+  TypeRecommendation?: string | undefined;
+
+  /**
+   * <p>A short description that explains the possible impact of an issue.</p>
+   * @public
+   */
+  Impact?: string | undefined;
+
+  /**
+   * <p>Additional information about the recommendation. The information might contain markdown.</p>
+   * @public
+   */
+  AdditionalInfo?: string | undefined;
+
+  /**
+   * <p>A link to documentation that provides additional information about the recommendation.</p>
+   * @public
+   */
+  Links?: DocLink[] | undefined;
+
+  /**
+   * <p>Details of the issue that caused the recommendation.</p>
+   * @public
+   */
+  IssueDetails?: IssueDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DBRecommendationsMessage {
+  /**
+   * <p>A list of recommendations which is returned from <code>DescribeDBRecommendations</code> API request.</p>
+   * @public
+   */
+  DBRecommendations?: DBRecommendation[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DBRecommendationsMessage</code> request.  This token can be used
+   *             later in a <code>DescribeDBRecomendations</code> request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBRecommendationsMessage {
+  /**
+   * <p>A filter to include only the recommendations that were updated after this specified time.</p>
+   * @public
+   */
+  LastUpdatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter to include only the recommendations that were updated before this specified time.</p>
+   * @public
+   */
+  LastUpdatedBefore?: Date | undefined;
+
+  /**
+   * <p>The language that you choose to return the list of recommendations.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>en</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>en_UK</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>de</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>es</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fr</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>id</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>it</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ja</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ko</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pt_BR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zh_TW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zh_CN</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Locale?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more recommendations to describe.</p>
+   *          <p>Supported Filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>recommendation-id</code> - Accepts a list of recommendation identifiers. The results list
+   *                 only includes the recommendations whose identifier is one of the specified filter values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - Accepts a list of recommendation statuses.</p>
+   *                <p>Valid values:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>active</code> - The recommendations which are ready for you to apply.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>pending</code> - The applied or scheduled recommendations which are in progress.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>resolved</code> - The recommendations which are completed.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>dismissed</code> - The recommendations that you dismissed.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>The results list only includes the recommendations whose status is one of the specified filter values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>severity</code> - Accepts a list of recommendation severities. The results list only includes
+   *                 the recommendations whose severity is one of the specified filter values.</p>
+   *                <p>Valid values:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>high</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>medium</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>low</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>informational</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type-id</code> - Accepts a list of recommendation type identifiers. The results list only
+   *             includes the recommendations whose type is one of the specified filter values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts a list of database resource identifiers. The results list only
+   *                 includes the recommendations that generated for the specified databases.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-resource-id</code> - Accepts a list of cluster resource identifiers. The results list only
+   *                 includes the recommendations that generated for the specified clusters.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pg-arn</code> - Accepts a list of parameter group ARNs. The results list only
+   *                 includes the recommendations that generated for the specified parameter groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cluster-pg-arn</code> - Accepts a list of cluster parameter group ARNs. The results list only
+   *                 includes the recommendations that generated for the specified cluster parameter groups.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of recommendations to include in the response. If more records exist than the
+   *             specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so
+   *             that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeDBRecommendations</code> request.
+   *             If this parameter is specified, the response includes only records beyond the marker, up to the
+   *             value specified by <code>MaxRecords</code>.
+   *            </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.</p>
+ * @public
+ */
+export interface DBSecurityGroupMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBSecurityGroup</code> instances.</p>
+   * @public
+   */
+  DBSecurityGroups?: DBSecurityGroup[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBSecurityGroupsMessage {
+  /**
+   * <p>The name of the DB security group to return details for.</p>
+   * @public
+   */
+  DBSecurityGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBSecurityGroups</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBShardGroupsMessage {
+  /**
+   * <p>The user-supplied DB shard group identifier. If this parameter is specified, information for only the specific DB shard group is returned.
+   *             This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DB shard group identifier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBShardGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB shard groups to describe.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeDBShardGroups</code> request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code>
+   *             value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBShardGroupsResponse {
+  /**
+   * <p>Contains a list of DB shard groups for the user.</p>
+   * @public
+   */
+  DBShardGroups?: DBShardGroup[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeDBClusters</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBSnapshotAttributesMessage {
+  /**
+   * <p>The identifier for the DB snapshot to describe the attributes for.</p>
+   * @public
+   */
+  DBSnapshotIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains the name and values of a manual DB snapshot attribute</p>
+ *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+ *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *     API.</p>
+ * @public
+ */
+export interface DBSnapshotAttribute {
+  /**
+   * <p>The name of the manual DB snapshot attribute.</p>
+   *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
+   *           have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *           see the <code>ModifyDBSnapshotAttribute</code>
+   *           API action.</p>
+   * @public
+   */
+  AttributeName?: string | undefined;
+
+  /**
+   * <p>The value or values for the manual DB snapshot attribute.</p>
+   *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
+   *       returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
+   *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
+   *       is public and available for any Amazon Web Services account to copy or restore.</p>
+   * @public
+   */
+  AttributeValues?: string[] | undefined;
+}
+
+/**
+ * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
+ *     API action.</p>
+ *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+ *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *       API action.</p>
+ * @public
+ */
+export interface DBSnapshotAttributesResult {
+  /**
+   * <p>The identifier of the manual DB snapshot that the attributes apply to.</p>
+   * @public
+   */
+  DBSnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The list of attributes and values for the manual DB snapshot.</p>
+   * @public
+   */
+  DBSnapshotAttributes?: DBSnapshotAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBSnapshotAttributesResult {
+  /**
+   * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
+   *     API action.</p>
+   *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+   *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+   *       API action.</p>
+   * @public
+   */
+  DBSnapshotAttributesResult?: DBSnapshotAttributesResult | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.</p>
+ * @public
+ */
+export interface DBSnapshotMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBSnapshot</code> instances.</p>
+   * @public
+   */
+  DBSnapshots?: DBSnapshot[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBSnapshotsMessage {
+  /**
+   * <p>The ID of the DB instance to retrieve the list of DB snapshots for.
+   *         This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBInstance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>A specific DB snapshot identifier to describe.
+   *             This value is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBSnapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBSnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of snapshots to be returned. You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>automated</code> - Return all DB snapshots that have been automatically taken by
+   *       Amazon RDS for my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> - Return all DB snapshots that have been taken by my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shared</code> - Return all manual DB snapshots that have been shared to my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public</code> - Return all DB snapshots that have been marked as public.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awsbackup</code> - Return the DB snapshots managed by the Amazon Web Services Backup service.</p>
+   *                <p>For information about Amazon Web Services Backup, see the
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html">
+   *                      <i>Amazon Web Services Backup Developer Guide.</i>
+   *                   </a>
+   *                </p>
+   *                <p>The <code>awsbackup</code> type does not apply to Aurora.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual snapshots are
+   *       returned. Shared and public DB snapshots are not included in the returned results by default.
+   *       You can include shared snapshots with these results by enabling the <code>IncludeShared</code>
+   *       parameter. You can include public snapshots with these results by enabling the
+   *       <code>IncludePublic</code> parameter.</p>
+   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
+   *       of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
+   *       set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
+   *       <code>public</code>.</p>
+   * @public
+   */
+  SnapshotType?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more DB snapshots to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *               instance Amazon Resource Names (ARNs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts identifiers of source DB instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-type</code> - Accepts types of DB snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts names of database engines.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBSnapshots</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include shared manual DB cluster snapshots
+   *           from other Amazon Web Services accounts that this Amazon Web Services account has been given
+   *           permission to copy or restore. By default, these snapshots are not included.</p>
+   *          <p>You can give an Amazon Web Services account permission to restore a manual DB snapshot from
+   *     another Amazon Web Services account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * @public
+   */
+  IncludeShared?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to include manual DB cluster snapshots that are public and can be copied
+   *           or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
+   *          <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * @public
+   */
+  IncludePublic?: boolean | undefined;
+
+  /**
+   * <p>A specific DB resource ID to describe.</p>
+   * @public
+   */
+  DbiResourceId?: string | undefined;
+}
+
+/**
+ * <p>Contains the details of a tenant database in a snapshot of a DB instance.</p>
+ * @public
+ */
+export interface DBSnapshotTenantDatabase {
+  /**
+   * <p>The identifier for the snapshot of the DB instance.</p>
+   * @public
+   */
+  DBSnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The ID for the DB instance that contains the tenant databases.</p>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>The resource identifier of the source CDB instance. This identifier can't be changed
+   *             and is unique to an Amazon Web Services Region.</p>
+   * @public
+   */
+  DbiResourceId?: string | undefined;
+
+  /**
+   * <p>The name of the database engine.</p>
+   * @public
+   */
+  EngineName?: string | undefined;
+
+  /**
+   * <p>The type of DB snapshot.</p>
+   * @public
+   */
+  SnapshotType?: string | undefined;
+
+  /**
+   * <p>The time the DB snapshot was taken, specified in Coordinated Universal Time (UTC). If
+   *             you copy the snapshot, the creation time changes.</p>
+   * @public
+   */
+  TenantDatabaseCreateTime?: Date | undefined;
+
+  /**
+   * <p>The name of the tenant database.</p>
+   * @public
+   */
+  TenantDBName?: string | undefined;
+
+  /**
+   * <p>The master username of the tenant database.</p>
+   * @public
+   */
+  MasterUsername?: string | undefined;
+
+  /**
+   * <p>The resource ID of the tenant database.</p>
+   * @public
+   */
+  TenantDatabaseResourceId?: string | undefined;
+
+  /**
+   * <p>The name of the character set of a tenant database.</p>
+   * @public
+   */
+  CharacterSetName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the snapshot tenant database.</p>
+   * @public
+   */
+  DBSnapshotTenantDatabaseARN?: string | undefined;
+
+  /**
+   * <p>The <code>NCHAR</code> character set name of the tenant database.</p>
+   * @public
+   */
+  NcharCharacterSetName?: string | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS resources</a> in the <i>Amazon RDS User Guide</i> or
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS resources</a> in the <i>Amazon Aurora User Guide</i>.
+   *             </p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DBSnapshotTenantDatabasesMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value
+   *             specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of DB snapshot tenant databases.</p>
+   * @public
+   */
+  DBSnapshotTenantDatabases?: DBSnapshotTenantDatabase[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBSnapshotTenantDatabasesMessage {
+  /**
+   * <p>The ID of the DB instance used to create the DB snapshots. This parameter isn't
+   *             case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing <code>DBInstance</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>The ID of a DB snapshot that contains the tenant databases to describe. This value is
+   *             stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify this parameter, the value must match the ID of an existing DB snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify an automatic snapshot, you must also specify
+   *                 <code>SnapshotType</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBSnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The type of DB snapshots to be returned. You can specify one of the following
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>automated</code> – All DB snapshots that have been automatically taken
+   *                     by Amazon RDS for my Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> – All DB snapshots that have been taken by my Amazon Web
+   *                     Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shared</code> – All manual DB snapshots that have been shared to my
+   *                     Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public</code> – All DB snapshots that have been marked as public.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awsbackup</code> – All DB snapshots managed by the Amazon Web Services Backup
+   *                     service.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SnapshotType?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more tenant databases to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tenant-db-name</code> - Tenant database names. The results list only
+   *                     includes information about the tenant databases that match these tenant DB
+   *                     names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tenant-database-resource-id</code> - Tenant database resource
+   *                     identifiers. The results list only includes information about the tenant
+   *                     databases contained within the DB snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - DB instance resource identifiers. The results
+   *                     list only includes information about snapshots containing tenant databases
+   *                     contained within the DB instances identified by these resource
+   *                     identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance
+   *                     Amazon Resource Names (ARNs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-type</code> - Accepts types of DB snapshots.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *             the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeDBSnapshotTenantDatabases</code> request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value
+   *             specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A specific DB resource identifier to describe.</p>
+   * @public
+   */
+  DbiResourceId?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBSubnetGroups</code> action.</p>
+ * @public
+ */
+export interface DBSubnetGroupMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>DBSubnetGroup</code> instances.</p>
+   * @public
+   */
+  DBSubnetGroups?: DBSubnetGroup[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDBSubnetGroupsMessage {
+  /**
+   * <p>The name of the DB subnet group to return details for.</p>
+   * @public
+   */
+  DBSubnetGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous DescribeDBSubnetGroups request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEngineDefaultClusterParametersMessage {
+  /**
+   * <p>The name of the DB cluster parameter group family to return engine parameter information for.</p>
+   * @public
+   */
+  DBParameterGroupFamily: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *       If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *       <code>DescribeEngineDefaultClusterParameters</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
+ * @public
+ */
+export interface EngineDefaults {
+  /**
+   * <p>Specifies the name of the DB parameter group family that the engine default parameters apply to.</p>
+   * @public
+   */
+  DBParameterGroupFamily?: string | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             EngineDefaults request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Contains a list of engine default parameters.</p>
+   * @public
+   */
+  Parameters?: Parameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEngineDefaultClusterParametersResult {
+  /**
+   * <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
+   * @public
+   */
+  EngineDefaults?: EngineDefaults | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEngineDefaultParametersMessage {
+  /**
+   * <p>The name of the DB parameter group family.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql5.7</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql8.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql10</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql11</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql12</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql13</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql14</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee-cdb-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb10.2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb10.3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb10.4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb10.5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb10.6</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql5.7</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql8.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb-21</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb-19</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb-21</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres10</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres11</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres12</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres13</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres14</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee-15.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex-15.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se-15.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web-15.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DBParameterGroupFamily: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more parameters to describe.</p>
+   *          <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the parameters with these names.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeEngineDefaultParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEngineDefaultParametersResult {
+  /**
+   * <p>Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.</p>
+   * @public
+   */
+  EngineDefaults?: EngineDefaults | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEventCategoriesMessage {
+  /**
+   * <p>The type of source that is generating the events. For RDS Proxy events, specify <code>db-proxy</code>.</p>
+   *          <p>Valid Values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code> | <code>db-proxy</code>
+   *          </p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Contains the results of a successful invocation of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html">DescribeEventCategories</a>
+ *             operation.</p>
+ * @public
+ */
+export interface EventCategoriesMap {
+  /**
+   * <p>The source type that the returned categories belong to</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>The event categories for the specified source type</p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+}
+
+/**
+ * <p>Data returned from the <code>DescribeEventCategories</code> operation.</p>
+ * @public
+ */
+export interface EventCategoriesMessage {
+  /**
+   * <p>A list of <code>EventCategoriesMap</code> data types.</p>
+   * @public
+   */
+  EventCategoriesMapList?: EventCategoriesMap[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEventsMessage {
+  /**
+   * <p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>SourceIdentifier</code> is supplied, <code>SourceType</code> must also be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is a DB instance, a <code>DBInstanceIdentifier</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is a DB cluster, a <code>DBClusterIdentifier</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SourceIdentifier?: string | undefined;
+
+  /**
+   * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
+   * @public
+   */
+  SourceType?: SourceType | undefined;
+
+  /**
+   * <p>The beginning of the time interval to retrieve events for,
+   *         specified in ISO 8601 format. For more information about ISO 8601,
+   *         go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: 2009-07-08T18:00Z</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end of the time interval for which to retrieve events,
+   *         specified in ISO 8601 format. For more information about ISO 8601,
+   *         go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: 2009-07-08T18:00Z</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The number of minutes to retrieve events for.</p>
+   *          <p>Default: 60</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>A list of event categories that trigger notifications for a event notification subscription.</p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         DescribeEvents request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> action.</p>
+ * @public
+ */
+export interface Event {
+  /**
+   * <p>Provides the identifier for the source of the event.</p>
+   * @public
+   */
+  SourceIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies the source type for this event.</p>
+   * @public
+   */
+  SourceType?: SourceType | undefined;
+
+  /**
+   * <p>Provides the text of this event.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>Specifies the category for the event.</p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+
+  /**
+   * <p>Specifies the date and time of the event.</p>
+   * @public
+   */
+  Date?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the event.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeEvents</code> action.</p>
+ * @public
+ */
+export interface EventsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             Events request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>Event</code> instances.</p>
+   * @public
+   */
+  Events?: Event[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEventSubscriptionsMessage {
+  /**
+   * <p>The name of the RDS event notification subscription you want to describe.</p>
+   * @public
+   */
+  SubscriptionName?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             DescribeOrderableDBInstanceOptions request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Data returned by the <b>DescribeEventSubscriptions</b> action.</p>
+ * @public
+ */
+export interface EventSubscriptionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             DescribeOrderableDBInstanceOptions request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of EventSubscriptions data types.</p>
+   * @public
+   */
+  EventSubscriptionsList?: EventSubscription[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExportTasksMessage {
+  /**
+   * <p>The identifier of the snapshot or cluster export task to be described.</p>
+   * @public
+   */
+  ExportTaskIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>Filters specify one or more snapshot or cluster exports to describe. The filters are specified as name-value pairs that define what to
+   *             include in the output. Filter names and values are case-sensitive.</p>
+   *          <p>Supported filters include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>export-task-identifier</code> - An identifier for the snapshot or cluster export task.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>s3-bucket</code> - The Amazon S3 bucket the data is exported to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the export task. Must be lowercase. Valid statuses are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>canceled</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>canceling</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>complete</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>failed</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>in_progress</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>starting</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeExportTasks</code> request.
+   *             If you specify this parameter, the response includes only records beyond the marker,
+   *             up to the value specified by the <code>MaxRecords</code> parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *             specified value, a pagination token called a marker is included in the response.
+   *             You can use the marker in a later <code>DescribeExportTasks</code> request
+   *             to retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The type of source for the export.</p>
+   * @public
+   */
+  SourceType?: ExportSourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportTasksMessage {
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeExportTasks</code>
+   *             request. A marker is used for pagination to identify the location to begin output for
+   *             the next response of <code>DescribeExportTasks</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Information about an export of a snapshot or cluster to Amazon S3.</p>
+   * @public
+   */
+  ExportTasks?: ExportTask[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGlobalClustersMessage {
+  /**
+   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GlobalClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more global database clusters to describe. This parameter is case-sensitive.</p>
+   *          <p>Currently, the only supported filter is <code>region</code>.</p>
+   *          <p>If used, the request returns information about any global cluster with at least one member (primary or secondary) in the specified Amazon Web Services Regions.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *         <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *        you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request. If
+   *         this parameter is specified, the response includes only records beyond the marker, up to the value
+   *         specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GlobalClustersMessage {
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The list of global clusters returned by this request.</p>
+   * @public
+   */
+  GlobalClusters?: GlobalCluster[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsMessage {
+  /**
+   * <p>The unique identifier of the integration.</p>
+   * @public
+   */
+  IntegrationIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more resources to return.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *             the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeIntegrations</code>
+   *             request. If this parameter is specified, the response includes only records beyond the
+   *             marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsResponse {
+  /**
+   * <p>A pagination token that can be used in a later <code>DescribeIntegrations</code>
+   *             request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of integrations.</p>
+   * @public
+   */
+  Integrations?: Integration[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeOptionGroupOptionsMessage {
+  /**
+   * <p>The name of the engine to describe options for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EngineName: string | undefined;
+
+  /**
+   * <p>If specified, filters the results to include only options for the specified major engine version.</p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>The minimum DB engine version required for each corresponding allowed value for an option setting.</p>
+ * @public
+ */
+export interface MinimumEngineVersionPerAllowedValue {
+  /**
+   * <p>The allowed value for an option setting.</p>
+   * @public
+   */
+  AllowedValue?: string | undefined;
+
+  /**
+   * <p>The minimum DB engine version required for the allowed value.</p>
+   * @public
+   */
+  MinimumEngineVersion?: string | undefined;
+}
+
+/**
+ * <p>Option group option settings are used to display settings available for each option with their default values and other information. These values are used with the DescribeOptionGroupOptions action.</p>
+ * @public
+ */
+export interface OptionGroupOptionSetting {
+  /**
+   * <p>The name of the option group option.</p>
+   * @public
+   */
+  SettingName?: string | undefined;
+
+  /**
+   * <p>The description of the option group option.</p>
+   * @public
+   */
+  SettingDescription?: string | undefined;
+
+  /**
+   * <p>The default value for the option group option.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>The DB engine specific parameter type for the option group option.</p>
+   * @public
+   */
+  ApplyType?: string | undefined;
+
+  /**
+   * <p>Indicates the acceptable values for the option group option.</p>
+   * @public
+   */
+  AllowedValues?: string | undefined;
+
+  /**
+   * <p>Indicates whether this option group option can be changed from the default value.</p>
+   * @public
+   */
+  IsModifiable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a value must be specified for this option setting of the option group option.</p>
+   * @public
+   */
+  IsRequired?: boolean | undefined;
+
+  /**
+   * <p>The minimum DB engine version required for the corresponding allowed value for this option setting.</p>
+   * @public
+   */
+  MinimumEngineVersionPerAllowedValue?: MinimumEngineVersionPerAllowedValue[] | undefined;
+}
+
+/**
+ * <p>The version for an option. Option group option versions are returned by
+ *             the <code>DescribeOptionGroupOptions</code> action.</p>
+ * @public
+ */
+export interface OptionVersion {
+  /**
+   * <p>The version of the option.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>Indicates whether the version is the default version of the option.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+}
+
+/**
+ * <p>Available option.</p>
+ * @public
+ */
+export interface OptionGroupOption {
+  /**
+   * <p>The name of the option.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the option.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the engine that this option can be applied to.</p>
+   * @public
+   */
+  EngineName?: string | undefined;
+
+  /**
+   * <p>Indicates the major engine version that the option is available for.</p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+
+  /**
+   * <p>The minimum required engine version for the option to be applied.</p>
+   * @public
+   */
+  MinimumRequiredMinorEngineVersion?: string | undefined;
+
+  /**
+   * <p>Indicates whether the option requires a port.</p>
+   * @public
+   */
+  PortRequired?: boolean | undefined;
+
+  /**
+   * <p>If the option requires a port, specifies the default port for the option.</p>
+   * @public
+   */
+  DefaultPort?: number | undefined;
+
+  /**
+   * <p>The options that are prerequisites for this option.</p>
+   * @public
+   */
+  OptionsDependedOn?: string[] | undefined;
+
+  /**
+   * <p>The options that conflict with this option.</p>
+   * @public
+   */
+  OptionsConflictsWith?: string[] | undefined;
+
+  /**
+   * <p>Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.</p>
+   * @public
+   */
+  Persistent?: boolean | undefined;
+
+  /**
+   * <p>Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.</p>
+   * @public
+   */
+  Permanent?: boolean | undefined;
+
+  /**
+   * <p>If true, you must enable the Auto Minor Version Upgrade setting for your DB instance
+   *             before you can use this option.
+   *             You can enable Auto Minor Version Upgrade when you first create your DB instance,
+   *             or by modifying your DB instance later.</p>
+   * @public
+   */
+  RequiresAutoMinorEngineVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>If true, you can only use this option with a DB instance that is in a VPC.</p>
+   * @public
+   */
+  VpcOnly?: boolean | undefined;
+
+  /**
+   * <p>If true, you can change the option to an earlier version of the option.
+   *             This only applies to options that have different versions available.</p>
+   * @public
+   */
+  SupportsOptionVersionDowngrade?: boolean | undefined;
+
+  /**
+   * <p>The option settings that are available (and the default value) for each option in an option group.</p>
+   * @public
+   */
+  OptionGroupOptionSettings?: OptionGroupOptionSetting[] | undefined;
+
+  /**
+   * <p>The versions that are available for the option.</p>
+   * @public
+   */
+  OptionGroupOptionVersions?: OptionVersion[] | undefined;
+
+  /**
+   * <p>Indicates whether the option can be copied across Amazon Web Services accounts.</p>
+   * @public
+   */
+  CopyableCrossAccount?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface OptionGroupOptionsMessage {
+  /**
+   * <p>List of available option group options.</p>
+   * @public
+   */
+  OptionGroupOptions?: OptionGroupOption[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeOptionGroupsMessage {
+  /**
+   * <p>The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.</p>
+   * @public
+   */
+  OptionGroupName?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous DescribeOptionGroups request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A filter to only include option groups associated with this database engine.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EngineName?: string | undefined;
+
+  /**
+   * <p>Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.</p>
+   * @public
+   */
+  MajorEngineVersion?: string | undefined;
+}
+
+/**
+ * <p>List of option groups.</p>
+ * @public
+ */
+export interface OptionGroups {
+  /**
+   * <p>List of option groups.</p>
+   * @public
+   */
+  OptionGroupsList?: OptionGroup[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeOrderableDBInstanceOptionsMessage {
+  /**
+   * <p>The name of the database engine to describe DB instance options for.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-ae</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db2-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>A filter to include only the available options for the specified engine version.</p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>A filter to include only the available options for the specified DB instance class.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>A filter to include only the available options for the specified license model.</p>
+   *          <p>RDS Custom supports only the BYOL licensing model.</p>
+   * @public
+   */
+  LicenseModel?: string | undefined;
+
+  /**
+   * <p>The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available options for the Local Zones in the group.</p>
+   *          <p>Omit this parameter to show the available options in the specified Amazon Web Services Region.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   * @public
+   */
+  AvailabilityZoneGroup?: string | undefined;
+
+  /**
+   * <p>Specifies whether to show only VPC or non-VPC offerings. RDS Custom supports
+   *       only VPC offerings.</p>
+   *          <p>RDS Custom supports only VPC offerings. If you describe non-VPC offerings for RDS Custom, the output
+   *           shows VPC offerings.</p>
+   * @public
+   */
+  Vpc?: boolean | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 1000.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             DescribeOrderableDBInstanceOptions request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the available processor feature information for the DB instance class of a DB instance.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">Configuring the
+ *                 Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide.
+ *             </i>
+ *          </p>
+ * @public
+ */
+export interface AvailableProcessorFeature {
+  /**
+   * <p>The name of the processor feature. Valid names are <code>coreCount</code>
+   *             and <code>threadsPerCore</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The default value for the processor feature of the DB instance class.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>The allowed values for the processor feature of the DB instance class.</p>
+   * @public
+   */
+  AllowedValues?: string | undefined;
+}
+
+/**
+ * <p>Contains a list of available options for a DB instance.</p>
+ *          <p>This data type is used as a response element in the <code>DescribeOrderableDBInstanceOptions</code> action.</p>
+ * @public
+ */
+export interface OrderableDBInstanceOption {
+  /**
+   * <p>The engine type of a DB instance.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>The engine version of a DB instance.</p>
+   * @public
+   */
+  EngineVersion?: string | undefined;
+
+  /**
+   * <p>The DB instance class for a DB instance.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>The license model for a DB instance.</p>
+   * @public
+   */
+  LicenseModel?: string | undefined;
+
+  /**
+   * <p>The Availability Zone group for a DB instance.</p>
+   * @public
+   */
+  AvailabilityZoneGroup?: string | undefined;
+
+  /**
+   * <p>A list of Availability Zones for a DB instance.</p>
+   * @public
+   */
+  AvailabilityZones?: AvailabilityZone[] | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance is Multi-AZ capable.</p>
+   * @public
+   */
+  MultiAZCapable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance can have a read replica.</p>
+   * @public
+   */
+  ReadReplicaCapable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance is in a VPC.</p>
+   * @public
+   */
+  Vpc?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports encrypted storage.</p>
+   * @public
+   */
+  SupportsStorageEncryption?: boolean | undefined;
+
+  /**
+   * <p>The storage type for a DB instance.</p>
+   * @public
+   */
+  StorageType?: string | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports provisioned IOPS.</p>
+   * @public
+   */
+  SupportsIops?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports storage throughput.</p>
+   * @public
+   */
+  SupportsStorageThroughput?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.</p>
+   * @public
+   */
+  SupportsEnhancedMonitoring?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports IAM database authentication.</p>
+   * @public
+   */
+  SupportsIAMDatabaseAuthentication?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports Performance Insights.</p>
+   * @public
+   */
+  SupportsPerformanceInsights?: boolean | undefined;
+
+  /**
+   * <p>Minimum storage size for a DB instance.</p>
+   * @public
+   */
+  MinStorageSize?: number | undefined;
+
+  /**
+   * <p>Maximum storage size for a DB instance.</p>
+   * @public
+   */
+  MaxStorageSize?: number | undefined;
+
+  /**
+   * <p>Minimum total provisioned IOPS for a DB instance.</p>
+   * @public
+   */
+  MinIopsPerDbInstance?: number | undefined;
+
+  /**
+   * <p>Maximum total provisioned IOPS for a DB instance.</p>
+   * @public
+   */
+  MaxIopsPerDbInstance?: number | undefined;
+
+  /**
+   * <p>Minimum provisioned IOPS per GiB for a DB instance.</p>
+   * @public
+   */
+  MinIopsPerGib?: number | undefined;
+
+  /**
+   * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
+   * @public
+   */
+  MaxIopsPerGib?: number | undefined;
+
+  /**
+   * <p>Minimum storage throughput for a DB instance.</p>
+   * @public
+   */
+  MinStorageThroughputPerDbInstance?: number | undefined;
+
+  /**
+   * <p>Maximum storage throughput for a DB instance.</p>
+   * @public
+   */
+  MaxStorageThroughputPerDbInstance?: number | undefined;
+
+  /**
+   * <p>Minimum storage throughput to provisioned IOPS ratio for a DB instance.</p>
+   * @public
+   */
+  MinStorageThroughputPerIops?: number | undefined;
+
+  /**
+   * <p>Maximum storage throughput to provisioned IOPS ratio for a DB instance.</p>
+   * @public
+   */
+  MaxStorageThroughputPerIops?: number | undefined;
+
+  /**
+   * <p>A list of the available processor features for the DB instance class of a DB instance.</p>
+   * @public
+   */
+  AvailableProcessorFeatures?: AvailableProcessorFeature[] | undefined;
+
+  /**
+   * <p>A list of the supported DB engine modes.</p>
+   * @public
+   */
+  SupportedEngineModes?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.</p>
+   * @public
+   */
+  SupportsStorageAutoscaling?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports Kerberos Authentication.</p>
+   * @public
+   */
+  SupportsKerberosAuthentication?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports RDS on Outposts.</p>
+   *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on Amazon Web Services Outposts</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   * @public
+   */
+  OutpostCapable?: boolean | undefined;
+
+  /**
+   * <p>The list of supported modes for Database Activity Streams. Aurora PostgreSQL returns the value <code>[sync,
+   *           async]</code>. Aurora MySQL and RDS for Oracle return <code>[async]</code> only. If Database Activity Streams
+   *           isn't supported, the return value is an empty list.</p>
+   * @public
+   */
+  SupportedActivityStreamModes?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.</p>
+   * @public
+   */
+  SupportsGlobalDatabases?: boolean | undefined;
+
+  /**
+   * <p>The network types supported by the DB instance (<code>IPV4</code> or <code>DUAL</code>).</p>
+   *          <p>A DB instance can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   * @public
+   */
+  SupportedNetworkTypes?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether DB instances can be configured as a Multi-AZ DB cluster.</p>
+   *          <p>For more information on Multi-AZ DB clusters, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *                Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   * @public
+   */
+  SupportsClusters?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports using a dedicated log volume (DLV).</p>
+   * @public
+   */
+  SupportsDedicatedLogVolume?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a DB instance supports HTTP endpoints.</p>
+   * @public
+   */
+  SupportsHttpEndpoint?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeOrderableDBInstanceOptions</code> action.</p>
+ * @public
+ */
+export interface OrderableDBInstanceOptionsMessage {
+  /**
+   * <p>An <code>OrderableDBInstanceOption</code> structure containing information about orderable options for the DB instance.</p>
+   * @public
+   */
+  OrderableDBInstanceOptions?: OrderableDBInstanceOption[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             OrderableDBInstanceOptions request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribePendingMaintenanceActionsMessage {
+  /**
+   * <p>The ARN of a resource to return pending maintenance actions for.</p>
+   * @public
+   */
+  ResourceIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more resources to return pending maintenance actions for.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs). The results list only includes pending maintenance
+   *               actions for the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *             instance ARNs. The results list only includes pending maintenance
+   *             actions for the DB instances identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribePendingMaintenanceActions</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to a number of records specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>Data returned from the <b>DescribePendingMaintenanceActions</b> action.</p>
+ * @public
+ */
+export interface PendingMaintenanceActionsMessage {
+  /**
+   * <p>A list of the pending maintenance actions for the resource.</p>
+   * @public
+   */
+  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribePendingMaintenanceActions</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to a number of records specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReservedDBInstancesMessage {
+  /**
+   * <p>The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.</p>
+   * @public
+   */
+  ReservedDBInstanceId?: string | undefined;
+
+  /**
+   * <p>The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.</p>
+   * @public
+   */
+  ReservedDBInstancesOfferingId?: string | undefined;
+
+  /**
+   * <p>The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p>
+   *          <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   *          </p>
+   * @public
+   */
+  Duration?: string | undefined;
+
+  /**
+   * <p>The product description filter value. Specify this parameter to show only those reservations matching the specified product description.</p>
+   * @public
+   */
+  ProductDescription?: string | undefined;
+
+  /**
+   * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p>
+   *          <p>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code>
+   *          </p>
+   * @public
+   */
+  OfferingType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to show only those reservations that support Multi-AZ.</p>
+   * @public
+   */
+  MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.</p>
+   *          <note>
+   *             <p>Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.</p>
+   *          </note>
+   * @public
+   */
+  LeaseId?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *           included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the
+ *             <code>DescribeReservedDBInstances</code> and <code>DescribeReservedDBInstancesOfferings</code> actions.</p>
+ * @public
+ */
+export interface RecurringCharge {
+  /**
+   * <p>The amount of the recurring charge.</p>
+   * @public
+   */
+  RecurringChargeAmount?: number | undefined;
+
+  /**
+   * <p>The frequency of the recurring charge.</p>
+   * @public
+   */
+  RecurringChargeFrequency?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the
+ *             <code>DescribeReservedDBInstances</code> and
+ *             <code>PurchaseReservedDBInstancesOffering</code> actions.</p>
+ * @public
+ */
+export interface ReservedDBInstance {
+  /**
+   * <p>The unique identifier for the reservation.</p>
+   * @public
+   */
+  ReservedDBInstanceId?: string | undefined;
+
+  /**
+   * <p>The offering identifier.</p>
+   * @public
+   */
+  ReservedDBInstancesOfferingId?: string | undefined;
+
+  /**
+   * <p>The DB instance class for the reserved DB instance.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>The time the reservation started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The duration of the reservation in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The fixed price charged for this reserved DB instance.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The hourly price charged for this reserved DB instance.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The currency code for the reserved DB instance.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The number of reserved DB instances.</p>
+   * @public
+   */
+  DBInstanceCount?: number | undefined;
+
+  /**
+   * <p>The description of the reserved DB instance.</p>
+   * @public
+   */
+  ProductDescription?: string | undefined;
+
+  /**
+   * <p>The offering type of this reserved DB instance.</p>
+   * @public
+   */
+  OfferingType?: string | undefined;
+
+  /**
+   * <p>Indicates whether the reservation applies to Multi-AZ deployments.</p>
+   * @public
+   */
+  MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>The state of the reserved DB instance.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The recurring price charged to run this reserved DB instance.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the reserved DB instance.</p>
+   * @public
+   */
+  ReservedDBInstanceArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the lease associated with the reserved DB instance.</p>
+   *          <note>
+   *             <p>Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.</p>
+   *          </note>
+   * @public
+   */
+  LeaseId?: string | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeReservedDBInstances</code> action.</p>
+ * @public
+ */
+export interface ReservedDBInstanceMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of reserved DB instances.</p>
+   * @public
+   */
+  ReservedDBInstances?: ReservedDBInstance[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReservedDBInstancesOfferingsMessage {
+  /**
+   * <p>The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.</p>
+   *          <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
+   *          </p>
+   * @public
+   */
+  ReservedDBInstancesOfferingId?: string | undefined;
+
+  /**
+   * <p>The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>Duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.</p>
+   *          <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   *          </p>
+   * @public
+   */
+  Duration?: string | undefined;
+
+  /**
+   * <p>Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.</p>
+   *          <note>
+   *             <p>The results show offerings that partially match the filter value.</p>
+   *          </note>
+   * @public
+   */
+  ProductDescription?: string | undefined;
+
+  /**
+   * <p>The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.</p>
+   *          <p>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code>
+   *          </p>
+   * @public
+   */
+  OfferingType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to show only those reservations that support Multi-AZ.</p>
+   * @public
+   */
+  MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *     If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is
+   *     included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the <code>DescribeReservedDBInstancesOfferings</code> action.</p>
+ * @public
+ */
+export interface ReservedDBInstancesOffering {
+  /**
+   * <p>The offering identifier.</p>
+   * @public
+   */
+  ReservedDBInstancesOfferingId?: string | undefined;
+
+  /**
+   * <p>The DB instance class for the reserved DB instance.</p>
+   * @public
+   */
+  DBInstanceClass?: string | undefined;
+
+  /**
+   * <p>The duration of the offering in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The fixed price charged for this offering.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The hourly price charged for this offering.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The currency code for the reserved DB instance offering.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The database engine used by the offering.</p>
+   * @public
+   */
+  ProductDescription?: string | undefined;
+
+  /**
+   * <p>The offering type.</p>
+   * @public
+   */
+  OfferingType?: string | undefined;
+
+  /**
+   * <p>Indicates whether the offering applies to Multi-AZ deployments.</p>
+   * @public
+   */
+  MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>The recurring price charged to run this reserved DB instance.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeReservedDBInstancesOfferings</code> action.</p>
+ * @public
+ */
+export interface ReservedDBInstancesOfferingMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of reserved DB instance offerings.</p>
+   * @public
+   */
+  ReservedDBInstancesOfferings?: ReservedDBInstancesOffering[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeSourceRegionsMessage {
+  /**
+   * <p>The source Amazon Web Services Region name. For example, <code>us-east-1</code>.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must specify a valid Amazon Web Services Region name.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeSourceRegions</code> request. If this parameter is specified, the response
+   *             includes only records beyond the marker, up to the value specified by
+   *             <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Contains an Amazon Web Services Region name as the result of a successful call to the <code>DescribeSourceRegions</code> action.</p>
+ * @public
+ */
+export interface SourceRegion {
+  /**
+   * <p>The name of the source Amazon Web Services Region.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The endpoint for the source Amazon Web Services Region endpoint.</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+
+  /**
+   * <p>The status of the source Amazon Web Services Region.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Indicates whether the source Amazon Web Services Region supports replicating automated backups to the current Amazon Web Services Region.</p>
+   * @public
+   */
+  SupportsDBInstanceAutomatedBackupsReplication?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeSourceRegions</code> action.</p>
+ * @public
+ */
+export interface SourceRegionMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>SourceRegion</code> instances that contains each source Amazon Web Services Region that the
+   *             current Amazon Web Services Region can get a read replica or a DB snapshot from.</p>
+   * @public
+   */
+  SourceRegions?: SourceRegion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTenantDatabasesMessage {
+  /**
+   * <p>The user-supplied DB instance identifier, which must match the identifier of an
+   *             existing instance owned by the Amazon Web Services account. This parameter isn't
+   *             case-sensitive.</p>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>The user-supplied tenant database name, which must match the name of an existing
+   *             tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter
+   *             isn’t case-sensitive.</p>
+   * @public
+   */
+  TenantDBName?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more database tenants to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tenant-db-name</code> - Tenant database names. The results list only
+   *                     includes information about the tenant databases that match these tenant DB
+   *                     names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tenant-database-resource-id</code> - Tenant database resource
+   *                     identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - DB instance resource identifiers. The results
+   *                     list only includes information about the tenants contained within the DB
+   *                     instances identified by these resource identifiers.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeTenantDatabases</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by
+   *                 <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *             the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TenantDatabasesMessage {
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeTenantDatabases</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by
+   *                 <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>An array of the tenant databases requested by the <code>DescribeTenantDatabases</code>
+   *             operation.</p>
+   * @public
+   */
+  TenantDatabases?: TenantDatabase[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeValidDBInstanceModificationsMessage {
+  /**
+   * <p>The customer identifier or the ARN of your DB instance.</p>
+   * @public
+   */
+  DBInstanceIdentifier: string | undefined;
+}
+
+/**
+ * <p>A range of double values.</p>
+ * @public
+ */
+export interface DoubleRange {
+  /**
+   * <p>The minimum value in the range.</p>
+   * @public
+   */
+  From?: number | undefined;
+
+  /**
+   * <p>The maximum value in the range.</p>
+   * @public
+   */
+  To?: number | undefined;
+}
+
+/**
+ * <p>A range of integer values.</p>
+ * @public
+ */
+export interface Range {
+  /**
+   * <p>The minimum value in the range.</p>
+   * @public
+   */
+  From?: number | undefined;
+
+  /**
+   * <p>The maximum value in the range.</p>
+   * @public
+   */
+  To?: number | undefined;
+
+  /**
+   * <p>The step value for the range.
+   *             For example, if you have a range of 5,000 to 10,000,
+   *             with a step value of 1,000,
+   *             the valid values start at 5,000 and step up by 1,000.
+   *             Even though 7,500 is within the range,
+   *             it isn't a valid value for the range.
+   *             The valid values are 5,000, 6,000, 7,000, 8,000...</p>
+   * @public
+   */
+  Step?: number | undefined;
 }

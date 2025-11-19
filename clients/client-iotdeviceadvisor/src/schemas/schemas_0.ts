@@ -143,7 +143,7 @@ import {
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { IotDeviceAdvisorServiceException as __IotDeviceAdvisorServiceException } from "../models/IotDeviceAdvisorServiceException";
 
 /* eslint no-var: 0 */

@@ -1,64 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { TrustedAdvisorServiceException as __BaseException } from "./TrustedAdvisorServiceException";
-
-/**
- * <p>Exception that access has been denied due to insufficient access</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RecommendationLifecycleStage = {
-  DISMISSED: "dismissed",
-  IN_PROGRESS: "in_progress",
-  PENDING_RESPONSE: "pending_response",
-  RESOLVED: "resolved",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationLifecycleStage =
-  (typeof RecommendationLifecycleStage)[keyof typeof RecommendationLifecycleStage];
-
-/**
- * @public
- * @enum
- */
-export const UpdateRecommendationLifecycleStageReasonCode = {
-  LOW_PRIORITY: "low_priority",
-  NON_CRITICAL_ACCOUNT: "non_critical_account",
-  NOT_APPLICABLE: "not_applicable",
-  OTHER: "other",
-  OTHER_METHODS_AVAILABLE: "other_methods_available",
-  TEMPORARY_ACCOUNT: "temporary_account",
-  VALID_BUSINESS_CASE: "valid_business_case",
-} as const;
-
-/**
- * @public
- */
-export type UpdateRecommendationLifecycleStageReasonCode =
-  (typeof UpdateRecommendationLifecycleStageReasonCode)[keyof typeof UpdateRecommendationLifecycleStageReasonCode];
+import {
+  ExclusionStatus,
+  RecommendationLanguage,
+  RecommendationLifecycleStage,
+  RecommendationPillar,
+  RecommendationSource,
+  RecommendationStatus,
+  RecommendationType,
+  ResourceStatus,
+  UpdateRecommendationLifecycleStage,
+  UpdateRecommendationLifecycleStageReasonCode,
+} from "./enums";
 
 /**
  * <p>Summary of an AccountRecommendationLifecycle for an Organization Recommendation</p>
@@ -185,133 +137,6 @@ export interface BatchUpdateRecommendationResourceExclusionResponse {
 }
 
 /**
- * <p>Exception that the request was denied due to conflictions in state</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Exception to notify that requests are being throttled</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Exception that the request failed to satisfy service constraints</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RecommendationPillar = {
-  COST_OPTIMIZING: "cost_optimizing",
-  FAULT_TOLERANCE: "fault_tolerance",
-  OPERATIONAL_EXCELLENCE: "operational_excellence",
-  PERFORMANCE: "performance",
-  SECURITY: "security",
-  SERVICE_LIMITS: "service_limits",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationPillar = (typeof RecommendationPillar)[keyof typeof RecommendationPillar];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationSource = {
-  AWS_CONFIG: "aws_config",
-  COMPUTE_OPTIMIZER: "compute_optimizer",
-  COST_EXPLORER: "cost_explorer",
-  LSE: "lse",
-  MANUAL: "manual",
-  PSE: "pse",
-  RDS: "rds",
-  RESILIENCE: "resilience",
-  RESILIENCE_HUB: "resilience_hub",
-  SECURITY_HUB: "security_hub",
-  STIR: "stir",
-  TA_CHECK: "ta_check",
-  WELL_ARCHITECTED: "well_architected",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationSource = (typeof RecommendationSource)[keyof typeof RecommendationSource];
-
-/**
  * <p>A summary of an AWS Trusted Advisor Check</p>
  * @public
  */
@@ -364,20 +189,6 @@ export interface CheckSummary {
    */
   metadata: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExclusionStatus = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-} as const;
-
-/**
- * @public
- */
-export type ExclusionStatus = (typeof ExclusionStatus)[keyof typeof ExclusionStatus];
 
 /**
  * @public
@@ -444,35 +255,6 @@ export interface RecommendationResourcesAggregates {
    */
   errorCount: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationStatus = {
-  ERROR: "error",
-  OK: "ok",
-  WARNING: "warning",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationType = {
-  PRIORITY: "priority",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
  * <p>A Recommendation for accounts within an Organization</p>
@@ -621,26 +403,6 @@ export interface GetOrganizationRecommendationResponse {
    * @public
    */
   organizationRecommendation?: OrganizationRecommendation | undefined;
-}
-
-/**
- * <p>Exception that the requested resource has not been found</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -805,29 +567,6 @@ export interface GetRecommendationResponse {
 
 /**
  * @public
- * @enum
- */
-export const RecommendationLanguage = {
-  BAHASA_INDONESIA: "id",
-  BRAZILIAN_PORTUGUESE: "pt_BR",
-  CHINESE: "zh",
-  ENGLISH: "en",
-  FRENCH: "fr",
-  GERMAN: "de",
-  ITALIAN: "it",
-  JAPANESE: "ja",
-  KOREAN: "ko",
-  SPANISH: "es",
-  TRADITIONAL_CHINESE: "zh_TW",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationLanguage = (typeof RecommendationLanguage)[keyof typeof RecommendationLanguage];
-
-/**
- * @public
  */
 export interface ListChecksRequest {
   /**
@@ -937,21 +676,6 @@ export interface ListOrganizationRecommendationAccountsResponse {
    */
   accountRecommendationLifecycleSummaries: AccountRecommendationLifecycleSummary[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  ERROR: "error",
-  OK: "ok",
-  WARNING: "warning",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * @public
@@ -1560,23 +1284,6 @@ export interface ListRecommendationsResponse {
    */
   recommendationSummaries: RecommendationSummary[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateRecommendationLifecycleStage = {
-  DISMISSED: "dismissed",
-  IN_PROGRESS: "in_progress",
-  PENDING_RESPONSE: "pending_response",
-  RESOLVED: "resolved",
-} as const;
-
-/**
- * @public
- */
-export type UpdateRecommendationLifecycleStage =
-  (typeof UpdateRecommendationLifecycleStage)[keyof typeof UpdateRecommendationLifecycleStage];
 
 /**
  * @public

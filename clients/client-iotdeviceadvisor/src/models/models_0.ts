@@ -1,41 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IotDeviceAdvisorServiceException as __BaseException } from "./IotDeviceAdvisorServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationMethod = {
-  SignatureVersion4: "SignatureVersion4",
-  X509ClientCertificate: "X509ClientCertificate",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
-
-/**
- * <p>Sends a Conflict Exception.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
+import {
+  AuthenticationMethod,
+  Protocol,
+  Status,
+  SuiteRunStatus,
+  TestCaseScenarioStatus,
+  TestCaseScenarioType,
+} from "./enums";
 
 /**
  * <p>Information of a test device. A thing ARN, certificate ARN
@@ -61,22 +32,6 @@ export interface DeviceUnderTest {
    */
   deviceRoleArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  MqttV3_1_1: "MqttV3_1_1",
-  MqttV3_1_1_OverWebSocket: "MqttV3_1_1_OverWebSocket",
-  MqttV5: "MqttV5",
-  MqttV5_OverWebSocket: "MqttV5_OverWebSocket",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * <p>Gets the suite definition configuration.</p>
@@ -192,46 +147,6 @@ export interface CreateSuiteDefinitionResponse {
 }
 
 /**
- * <p>Sends an Internal Failure exception.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Sends a validation exception.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteSuiteDefinitionRequest {
@@ -285,26 +200,6 @@ export interface GetEndpointResponse {
    * @public
    */
   endpoint?: string | undefined;
-}
-
-/**
- * <p>Sends a Resource Not Found exception.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -395,27 +290,6 @@ export interface GetSuiteRunRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SuiteRunStatus = {
-  CANCELED: "CANCELED",
-  ERROR: "ERROR",
-  FAIL: "FAIL",
-  PASS: "PASS",
-  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type SuiteRunStatus = (typeof SuiteRunStatus)[keyof typeof SuiteRunStatus];
-
-/**
  * <p>Gets suite run configuration.</p>
  * @public
  */
@@ -439,62 +313,6 @@ export interface SuiteRunConfiguration {
    */
   parallelRun?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  CANCELED: "CANCELED",
-  ERROR: "ERROR",
-  FAIL: "FAIL",
-  PASS: "PASS",
-  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * @public
- * @enum
- */
-export const TestCaseScenarioStatus = {
-  CANCELED: "CANCELED",
-  ERROR: "ERROR",
-  FAIL: "FAIL",
-  PASS: "PASS",
-  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type TestCaseScenarioStatus = (typeof TestCaseScenarioStatus)[keyof typeof TestCaseScenarioStatus];
-
-/**
- * @public
- * @enum
- */
-export const TestCaseScenarioType = {
-  Advanced: "Advanced",
-  Basic: "Basic",
-} as const;
-
-/**
- * @public
- */
-export type TestCaseScenarioType = (typeof TestCaseScenarioType)[keyof typeof TestCaseScenarioType];
 
 /**
  * <p>Provides test case scenario.</p>

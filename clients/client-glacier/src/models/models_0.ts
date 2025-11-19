@@ -1,9 +1,18 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { GlacierServiceException as __BaseException } from "./GlacierServiceException";
+import {
+  ActionCode,
+  CannedACL,
+  EncryptionType,
+  ExpressionType,
+  FileHeaderInfo,
+  Permission,
+  QuoteFields,
+  StatusCode,
+  StorageClass,
+  Type,
+} from "./enums";
 
 /**
  * <p>Provides options to abort a multipart upload identified by the upload ID.</p>
@@ -38,143 +47,6 @@ export interface AbortMultipartUploadInput {
 }
 
 /**
- * <p>Returned if a parameter of the request is incorrectly specified.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Client</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>400 Bad Request</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Returned if a required header or parameter is missing from the request.</p>
- * @public
- */
-export class MissingParameterValueException extends __BaseException {
-  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Client.</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>400 Bad Request</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
-    super({
-      name: "MissingParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Client</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>404 Not Found</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Returned if the service cannot complete the request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>Server</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>500 Internal Server Error</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
  * <p>The input values for <code>AbortVaultLock</code>.</p>
  * @public
  */
@@ -195,21 +67,6 @@ export interface AbortVaultLockInput {
    */
   vaultName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  AmazonCustomerByEmail: "AmazonCustomerByEmail",
-  CanonicalUser: "CanonicalUser",
-  Group: "Group",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * <p>Contains information about the grantee.</p>
@@ -248,23 +105,6 @@ export interface Grantee {
 }
 
 /**
- * @public
- * @enum
- */
-export const Permission = {
-  FULL_CONTROL: "FULL_CONTROL",
-  READ: "READ",
-  READ_ACP: "READ_ACP",
-  WRITE: "WRITE",
-  WRITE_ACP: "WRITE_ACP",
-} as const;
-
-/**
- * @public
- */
-export type Permission = (typeof Permission)[keyof typeof Permission];
-
-/**
  * <p>Contains information about a grant.</p>
  * @public
  */
@@ -281,21 +121,6 @@ export interface Grant {
    */
   Permission?: Permission | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionCode = {
-  ArchiveRetrieval: "ArchiveRetrieval",
-  InventoryRetrieval: "InventoryRetrieval",
-  Select: "Select",
-} as const;
-
-/**
- * @public
- */
-export type ActionCode = (typeof ActionCode)[keyof typeof ActionCode];
 
 /**
  * <p>The input values for <code>AddTagsToVault</code>.</p>
@@ -327,40 +152,6 @@ export interface AddTagsToVaultInput {
 }
 
 /**
- * <p>Returned if the request results in a vault or account limit being exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Client</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>400 Bad Request</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  *          <p>For information about the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html">Upload Archive</a>. For
  *          conceptual information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working with Archives in
@@ -386,25 +177,6 @@ export interface ArchiveCreationOutput {
    */
   archiveId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CannedACL = {
-  AuthenticatedRead: "authenticated-read",
-  AwsExecRead: "aws-exec-read",
-  BucketOwnerFullControl: "bucket-owner-full-control",
-  BucketOwnerRead: "bucket-owner-read",
-  Private: "private",
-  PublicRead: "public-read",
-  PublicReadWrite: "public-read-write",
-} as const;
-
-/**
- * @public
- */
-export type CannedACL = (typeof CannedACL)[keyof typeof CannedACL];
 
 /**
  * <p>Provides options to complete a multipart upload operation. This informs Amazon
@@ -516,21 +288,6 @@ export interface CreateVaultOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const FileHeaderInfo = {
-  Ignore: "IGNORE",
-  None: "NONE",
-  Use: "USE",
-} as const;
-
-/**
- * @public
- */
-export type FileHeaderInfo = (typeof FileHeaderInfo)[keyof typeof FileHeaderInfo];
-
-/**
  * <p>Contains information about the comma-separated value (CSV) file to select from.</p>
  * @public
  */
@@ -575,20 +332,6 @@ export interface CSVInput {
    */
   QuoteCharacter?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QuoteFields = {
-  Always: "ALWAYS",
-  AsNeeded: "ASNEEDED",
-} as const;
-
-/**
- * @public
- */
-export type QuoteFields = (typeof QuoteFields)[keyof typeof QuoteFields];
 
 /**
  * <p>Contains information about the comma-separated value (CSV) file that the job results
@@ -835,20 +578,6 @@ export interface InventoryRetrievalJobDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  KMS: "aws:kms",
-  S3: "AES256",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
  * @public
  */
@@ -875,21 +604,6 @@ export interface Encryption {
    */
   KMSContext?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageClass = {
-  ReducedRedundancy: "REDUCED_REDUNDANCY",
-  Standard: "STANDARD",
-  StandardInfrequentAccess: "STANDARD_IA",
-} as const;
-
-/**
- * @public
- */
-export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
 /**
  * <p>Contains information about the location in Amazon S3 where the select job results are stored.</p>
@@ -958,19 +672,6 @@ export interface OutputLocation {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExpressionType = {
-  SQL: "SQL",
-} as const;
-
-/**
- * @public
- */
-export type ExpressionType = (typeof ExpressionType)[keyof typeof ExpressionType];
-
-/**
  * <p>Describes how the archive is serialized.</p>
  * @public
  */
@@ -1023,21 +724,6 @@ export interface SelectParameters {
    */
   OutputSerialization?: OutputSerialization | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatusCode = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type StatusCode = (typeof StatusCode)[keyof typeof StatusCode];
 
 /**
  * <p>Contains the description of an Amazon S3 Glacier job.</p>
@@ -1799,67 +1485,6 @@ export interface InitiateJobOutput {
 }
 
 /**
- * <p>Returned if there is insufficient capacity to process this expedited request. This
- *          error only applies to expedited retrievals and not to standard or bulk
- *          retrievals.</p>
- * @public
- */
-export class InsufficientCapacityException extends __BaseException {
-  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
-  readonly $fault: "client" = "client";
-  type?: string | undefined;
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
-    super({
-      name: "InsufficientCapacityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
- *          limit. For more information about data retrieval policies,</p>
- * @public
- */
-export class PolicyEnforcedException extends __BaseException {
-  readonly name: "PolicyEnforcedException" = "PolicyEnforcedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Client</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>PolicyEnforcedException</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyEnforcedException, __BaseException>) {
-    super({
-      name: "PolicyEnforcedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyEnforcedException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
-}
-
-/**
  * <p>Provides options for initiating a multipart upload to an Amazon S3 Glacier
  *          vault.</p>
  * @public
@@ -2528,41 +2153,6 @@ export interface SetVaultNotificationsInput {
    * @public
    */
   vaultNotificationConfig?: VaultNotificationConfig | undefined;
-}
-
-/**
- * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
- *          upload.</p>
- * @public
- */
-export class RequestTimeoutException extends __BaseException {
-  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Client</p>
-   * @public
-   */
-  type?: string | undefined;
-
-  /**
-   * <p>408 Request Timeout</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
-    super({
-      name: "RequestTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
-    this.type = opts.type;
-    this.code = opts.code;
-  }
 }
 
 /**

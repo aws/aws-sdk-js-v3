@@ -1,7 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { XRayServiceException as __BaseException } from "./XRayServiceException";
+import {
+  EncryptionStatus,
+  EncryptionType,
+  InsightCategory,
+  InsightState,
+  RetrievalStatus,
+  SamplingStrategyName,
+  TimeRangeType,
+  TraceFormatType,
+  TraceSegmentDestination,
+  TraceSegmentDestinationStatus,
+} from "./enums";
 
 /**
  * <p>An alias for an edge.</p>
@@ -264,50 +273,6 @@ export interface BatchGetTracesResult {
 }
 
 /**
- * <p>The request is missing required parameters or has invalid parameters.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request exceeds the maximum number of requests per second.</p>
- * @public
- */
-export class ThrottledException extends __BaseException {
-  readonly name: "ThrottledException" = "ThrottledException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
-    super({
-      name: "ThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CancelTraceRetrievalRequest {
@@ -324,31 +289,6 @@ export interface CancelTraceRetrievalRequest {
  * @public
  */
 export interface CancelTraceRetrievalResult {}
-
-/**
- * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
- *       correct.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 /**
  * <p>The structure containing configurations related to insights.</p>
@@ -721,28 +661,6 @@ export interface CreateSamplingRuleResult {
 }
 
 /**
- * <p>You have reached the maximum number of sampling rules.</p>
- * @public
- */
-export class RuleLimitExceededException extends __BaseException {
-  readonly name: "RuleLimitExceededException" = "RuleLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RuleLimitExceededException, __BaseException>) {
-    super({
-      name: "RuleLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RuleLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteGroupRequest {
@@ -789,29 +707,6 @@ export interface DeleteResourcePolicyRequest {
 export interface DeleteResourcePolicyResult {}
 
 /**
- * <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
- *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
- * @public
- */
-export class InvalidPolicyRevisionIdException extends __BaseException {
-  readonly name: "InvalidPolicyRevisionIdException" = "InvalidPolicyRevisionIdException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPolicyRevisionIdException, __BaseException>) {
-    super({
-      name: "InvalidPolicyRevisionIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPolicyRevisionIdException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteSamplingRuleRequest {
@@ -843,34 +738,6 @@ export interface DeleteSamplingRuleResult {
  * @public
  */
 export interface GetEncryptionConfigRequest {}
-
-/**
- * @public
- * @enum
- */
-export const EncryptionStatus = {
-  ACTIVE: "ACTIVE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  KMS: "KMS",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
  * <p>A configuration document that specifies encryption configuration settings.</p>
@@ -1149,19 +1016,6 @@ export interface GetInsightRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InsightCategory = {
-  FAULT: "FAULT",
-} as const;
-
-/**
- * @public
- */
-export type InsightCategory = (typeof InsightCategory)[keyof typeof InsightCategory];
-
-/**
  * <p>Statistics that describe how the incident has impacted a service.</p>
  * @public
  */
@@ -1184,20 +1038,6 @@ export interface RequestImpactStatistics {
    */
   TotalCount?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InsightState = {
-  ACTIVE: "ACTIVE",
-  CLOSED: "CLOSED",
-} as const;
-
-/**
- * @public
- */
-export type InsightState = (typeof InsightState)[keyof typeof InsightState];
 
 /**
  * <p>When fault rates go outside of the expected range, X-Ray creates an insight. Insights
@@ -1697,24 +1537,6 @@ export interface GetRetrievedTracesGraphRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetrievalStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SCHEDULED: "SCHEDULED",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalStatus = (typeof RetrievalStatus)[keyof typeof RetrievalStatus];
 
 /**
  * <p>
@@ -2671,35 +2493,6 @@ export interface GetTraceSegmentDestinationRequest {}
 
 /**
  * @public
- * @enum
- */
-export const TraceSegmentDestination = {
-  CloudWatchLogs: "CloudWatchLogs",
-  XRay: "XRay",
-} as const;
-
-/**
- * @public
- */
-export type TraceSegmentDestination = (typeof TraceSegmentDestination)[keyof typeof TraceSegmentDestination];
-
-/**
- * @public
- * @enum
- */
-export const TraceSegmentDestinationStatus = {
-  ACTIVE: "ACTIVE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type TraceSegmentDestinationStatus =
-  (typeof TraceSegmentDestinationStatus)[keyof typeof TraceSegmentDestinationStatus];
-
-/**
- * @public
  */
 export interface GetTraceSegmentDestinationResult {
   /**
@@ -2720,20 +2513,6 @@ export interface GetTraceSegmentDestinationResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const SamplingStrategyName = {
-  FixedRate: "FixedRate",
-  PartialScan: "PartialScan",
-} as const;
-
-/**
- * @public
- */
-export type SamplingStrategyName = (typeof SamplingStrategyName)[keyof typeof SamplingStrategyName];
-
-/**
  * <p>The name and value of a sampling rule to apply to a trace summary.</p>
  * @public
  */
@@ -2750,21 +2529,6 @@ export interface SamplingStrategy {
    */
   Value?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeRangeType = {
-  Event: "Event",
-  Service: "Service",
-  TraceId: "TraceId",
-} as const;
-
-/**
- * @public
- */
-export type TimeRangeType = (typeof TimeRangeType)[keyof typeof TimeRangeType];
 
 /**
  * @public
@@ -3404,20 +3168,6 @@ export interface ListResourcePoliciesResult {
 
 /**
  * @public
- * @enum
- */
-export const TraceFormatType = {
-  OTEL: "OTEL",
-  XRAY: "XRAY",
-} as const;
-
-/**
- * @public
- */
-export type TraceFormatType = (typeof TraceFormatType)[keyof typeof TraceFormatType];
-
-/**
- * @public
  */
 export interface ListRetrievedTracesRequest {
   /**
@@ -3622,94 +3372,6 @@ export interface PutEncryptionConfigResult {
    * @public
    */
   EncryptionConfig?: EncryptionConfig | undefined;
-}
-
-/**
- * <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
- * @public
- */
-export class LockoutPreventionException extends __BaseException {
-  readonly name: "LockoutPreventionException" = "LockoutPreventionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LockoutPreventionException, __BaseException>) {
-    super({
-      name: "LockoutPreventionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LockoutPreventionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Invalid policy document provided in request.</p>
- * @public
- */
-export class MalformedPolicyDocumentException extends __BaseException {
-  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
-    super({
-      name: "MalformedPolicyDocumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
- * @public
- */
-export class PolicyCountLimitExceededException extends __BaseException {
-  readonly name: "PolicyCountLimitExceededException" = "PolicyCountLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyCountLimitExceededException, __BaseException>) {
-    super({
-      name: "PolicyCountLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyCountLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Exceeded the maximum size for a resource policy.</p>
- * @public
- */
-export class PolicySizeLimitExceededException extends __BaseException {
-  readonly name: "PolicySizeLimitExceededException" = "PolicySizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicySizeLimitExceededException, __BaseException>) {
-    super({
-      name: "PolicySizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicySizeLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -4015,30 +3677,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 /**
  * @public

@@ -42,19 +42,17 @@ import {
 } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 
+import { EnumString, FooEnum, IntegerEnum } from "../models/enums";
+import { ValidationException } from "../models/errors";
 import {
-  EnumString,
   EnumUnion,
-  FooEnum,
   FooUnion,
   GreetingStruct,
-  IntegerEnum,
   MissingKeyStructure,
   PatternUnion,
   PatternUnionOverride,
   RecursiveUnionOne,
   RecursiveUnionTwo,
-  ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
 import { MalformedEnumServerInput, MalformedEnumServerOutput } from "../server/operations/MalformedEnum";

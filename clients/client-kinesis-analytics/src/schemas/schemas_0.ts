@@ -223,7 +223,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnableToDetectSchemaException as __UnableToDetectSchemaException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisAnalyticsServiceException as __KinesisAnalyticsServiceException } from "../models/KinesisAnalyticsServiceException";
 
 /* eslint no-var: 0 */

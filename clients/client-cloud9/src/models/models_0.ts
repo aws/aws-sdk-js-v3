@@ -1,69 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceException";
-
-/**
- * <p>The target request is invalid.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>A conflict occurred.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  CONNECT_SSH: "CONNECT_SSH",
-  CONNECT_SSM: "CONNECT_SSM",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+import {
+  ConnectionType,
+  EnvironmentLifecycleStatus,
+  EnvironmentStatus,
+  EnvironmentType,
+  ManagedCredentialsAction,
+  ManagedCredentialsStatus,
+  MemberPermissions,
+  Permissions,
+} from "./enums";
 
 /**
  * <p>Metadata that is associated with Amazon Web Services resources. In particular, a name-value pair that
@@ -241,140 +186,6 @@ export interface CreateEnvironmentEC2Result {
 }
 
 /**
- * <p>An access permissions issue occurred.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>An internal server error occurred.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>A service limit was exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>The target resource cannot be found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>Too many service requests were made over the given time period.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const MemberPermissions = {
-  READ_ONLY: "read-only",
-  READ_WRITE: "read-write",
-} as const;
-
-/**
- * @public
- */
-export type MemberPermissions = (typeof MemberPermissions)[keyof typeof MemberPermissions];
-
-/**
  * @public
  */
 export interface CreateEnvironmentMembershipRequest {
@@ -407,21 +218,6 @@ export interface CreateEnvironmentMembershipRequest {
    */
   permissions: MemberPermissions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Permissions = {
-  OWNER: "owner",
-  READ_ONLY: "read-only",
-  READ_WRITE: "read-write",
-} as const;
-
-/**
- * @public
- */
-export type Permissions = (typeof Permissions)[keyof typeof Permissions];
 
 /**
  * <p>Information about an environment member for an Cloud9 development environment.</p>
@@ -613,23 +409,6 @@ export interface DescribeEnvironmentsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnvironmentLifecycleStatus = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentLifecycleStatus = (typeof EnvironmentLifecycleStatus)[keyof typeof EnvironmentLifecycleStatus];
-
-/**
  * <p>Information about the current creation or deletion lifecycle state of an Cloud9 development
  *       environment.</p>
  * @public
@@ -676,43 +455,6 @@ export interface EnvironmentLifecycle {
    */
   failureResource?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManagedCredentialsStatus = {
-  DISABLED_BY_COLLABORATOR: "DISABLED_BY_COLLABORATOR",
-  DISABLED_BY_DEFAULT: "DISABLED_BY_DEFAULT",
-  DISABLED_BY_OWNER: "DISABLED_BY_OWNER",
-  ENABLED_BY_OWNER: "ENABLED_BY_OWNER",
-  ENABLED_ON_CREATE: "ENABLED_ON_CREATE",
-  FAILED_REMOVAL_BY_COLLABORATOR: "FAILED_REMOVAL_BY_COLLABORATOR",
-  FAILED_REMOVAL_BY_OWNER: "FAILED_REMOVAL_BY_OWNER",
-  PENDING_REMOVAL_BY_COLLABORATOR: "PENDING_REMOVAL_BY_COLLABORATOR",
-  PENDING_REMOVAL_BY_OWNER: "PENDING_REMOVAL_BY_OWNER",
-  PENDING_START_REMOVAL_BY_COLLABORATOR: "PENDING_START_REMOVAL_BY_COLLABORATOR",
-  PENDING_START_REMOVAL_BY_OWNER: "PENDING_START_REMOVAL_BY_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type ManagedCredentialsStatus = (typeof ManagedCredentialsStatus)[keyof typeof ManagedCredentialsStatus];
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentType = {
-  EC2: "ec2",
-  SSH: "ssh",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentType];
 
 /**
  * <p>Information about an Cloud9 development environment.</p>
@@ -862,25 +604,6 @@ export interface DescribeEnvironmentStatusRequest {
 
 /**
  * @public
- * @enum
- */
-export const EnvironmentStatus = {
-  CONNECTING: "connecting",
-  CREATING: "creating",
-  DELETING: "deleting",
-  ERROR: "error",
-  READY: "ready",
-  STOPPED: "stopped",
-  STOPPING: "stopping",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
-
-/**
- * @public
  */
 export interface DescribeEnvironmentStatusResult {
   /**
@@ -990,30 +713,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>A concurrent access issue occurred.</p>
- * @public
- */
-export class ConcurrentAccessException extends __BaseException {
-  readonly name: "ConcurrentAccessException" = "ConcurrentAccessException";
-  readonly $fault: "client" = "client";
-  className?: string | undefined;
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentAccessException, __BaseException>) {
-    super({
-      name: "ConcurrentAccessException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentAccessException.prototype);
-    this.className = opts.className;
-    this.code = opts.code;
-  }
-}
-
-/**
  * @public
  */
 export interface TagResourceRequest {
@@ -1059,20 +758,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @public
- * @enum
- */
-export const ManagedCredentialsAction = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-} as const;
-
-/**
- * @public
- */
-export type ManagedCredentialsAction = (typeof ManagedCredentialsAction)[keyof typeof ManagedCredentialsAction];
 
 /**
  * @public

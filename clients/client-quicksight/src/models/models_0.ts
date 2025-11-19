@@ -1,38 +1,91 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
-
-/**
- * <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
+import {
+  ActionConnectorErrorType,
+  ActionConnectorSearchFilterNameEnum,
+  ActionConnectorType,
+  AggType,
+  AnalysisErrorType,
+  AnchorOption,
+  AuthorizationCodeGrantCredentialsSource,
+  AxisBinding,
+  BarChartOrientation,
+  BarsArrangement,
+  CategoricalAggregationFunction,
+  CategoryFilterMatchOperator,
+  CategoryFilterSelectAllOptions,
+  ClientCredentialsSource,
+  ColumnRole,
+  CommitMode,
+  ConnectionAuthType,
+  CrossDatasetTypes,
+  DashboardBehavior,
+  DataLabelContent,
+  DataLabelOverlap,
+  DataLabelPosition,
+  DataPrepSimpleAggregationFunctionType,
+  DateAggregationFunction,
+  DayOfTheWeek,
+  DigitGroupingStyle,
+  Edition,
+  FilterNullOption,
+  FilterOperator,
+  FilterVisualScope,
+  FontDecoration,
+  FontStyle,
+  FontWeightName,
+  HorizontalTextAlignment,
+  ImageCustomActionTrigger,
+  LayoutElementType,
+  LegendPosition,
+  NegativeValueDisplayMode,
+  NumberScale,
+  NumericEqualityMatchOperator,
+  NumericFilterSelectAllOptions,
+  NumericSeparatorSymbol,
+  OtherCategories,
+  PanelBorderStyle,
+  PaperOrientation,
+  PaperSize,
+  ParameterValueType,
+  PivotTableDataPathType,
+  QBusinessInsightsStatus,
+  QueryExecutionMode,
+  ReferenceLineLabelHorizontalPosition,
+  ReferenceLineLabelVerticalPosition,
+  ReferenceLinePatternType,
+  ReferenceLineSeriesType,
+  ReferenceLineValueLabelRelativePosition,
+  RelativeDateType,
+  RelativeFontSize,
+  ResizeOption,
+  ResourceStatus,
+  SectionPageBreakStatus,
+  SelectAllValueOptions,
+  SelectedFieldOptions,
+  SelectedTooltipType,
+  SheetContentType,
+  SheetControlDateTimePickerType,
+  SheetControlListType,
+  SheetControlSliderType,
+  SheetImageScalingType,
+  SimpleAttributeAggregationFunction,
+  SimpleNumericalAggregationFunction,
+  SmallMultiplesAxisPlacement,
+  SmallMultiplesAxisScale,
+  SortDirection,
+  SpecialValue,
+  TargetVisualOptions,
+  TimeGranularity,
+  TooltipTarget,
+  TooltipTitleType,
+  TopicTimeGranularity,
+  URLTargetConfiguration,
+  ValueWhenUnsetOption,
+  Visibility,
+  VisualCustomActionTrigger,
+  VisualHighlightTrigger,
+  WidgetStatus,
+} from "./enums";
 
 /**
  * <p>The Quick Sight customizations associated with your Amazon Web Services account or a Quick Sight namespace in a specific Amazon Web Services Region.</p>
@@ -51,21 +104,6 @@ export interface AccountCustomization {
    */
   DefaultEmailCustomizationTemplate?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Edition = {
-  ENTERPRISE: "ENTERPRISE",
-  ENTERPRISE_AND_Q: "ENTERPRISE_AND_Q",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type Edition = (typeof Edition)[keyof typeof Edition];
 
 /**
  * <p>A structure that contains the following account information elements:
@@ -194,20 +232,6 @@ export interface ReadAPIKeyConnectionMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthorizationCodeGrantCredentialsSource = {
-  PLAIN_CREDENTIALS: "PLAIN_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizationCodeGrantCredentialsSource =
-  (typeof AuthorizationCodeGrantCredentialsSource)[keyof typeof AuthorizationCodeGrantCredentialsSource];
-
-/**
  * <p>Read-only configuration details for OAuth2 authorization code grant flow, including endpoints and client information.</p>
  * @public
  */
@@ -317,19 +341,6 @@ export interface ReadBasicAuthConnectionMetadata {
    */
   Username: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClientCredentialsSource = {
-  PLAIN_CREDENTIALS: "PLAIN_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type ClientCredentialsSource = (typeof ClientCredentialsSource)[keyof typeof ClientCredentialsSource];
 
 /**
  * <p>Read-only configuration details for OAuth2 client credentials grant flow, including client ID and token endpoint.</p>
@@ -572,24 +583,6 @@ export namespace ReadAuthenticationMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectionAuthType = {
-  API_KEY: "API_KEY",
-  BASIC: "BASIC",
-  IAM: "IAM",
-  NONE: "NONE",
-  OAUTH2_AUTHORIZATION_CODE: "OAUTH2_AUTHORIZATION_CODE",
-  OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionAuthType = (typeof ConnectionAuthType)[keyof typeof ConnectionAuthType];
-
-/**
  * <p>Read-only authentication configuration containing non-sensitive authentication details for action connectors.</p>
  * @public
  */
@@ -608,19 +601,6 @@ export interface ReadAuthConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActionConnectorErrorType = {
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type ActionConnectorErrorType = (typeof ActionConnectorErrorType)[keyof typeof ActionConnectorErrorType];
-
-/**
  * <p>Contains error information for an action connector that is in an error state.</p>
  * @public
  */
@@ -637,64 +617,6 @@ export interface ActionConnectorError {
    */
   Type?: ActionConnectorErrorType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
-  DELETED: "DELETED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
-
-/**
- * @public
- * @enum
- */
-export const ActionConnectorType = {
-  AMAZON_BEDROCK_AGENT_RUNTIME: "AMAZON_BEDROCK_AGENT_RUNTIME",
-  AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME: "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME",
-  AMAZON_BEDROCK_RUNTIME: "AMAZON_BEDROCK_RUNTIME",
-  AMAZON_COMPREHEND: "AMAZON_COMPREHEND",
-  AMAZON_COMPREHEND_MEDICAL: "AMAZON_COMPREHEND_MEDICAL",
-  AMAZON_S3: "AMAZON_S3",
-  AMAZON_TEXTRACT: "AMAZON_TEXTRACT",
-  ASANA: "ASANA",
-  ATLASSIAN_CONFLUENCE: "ATLASSIAN_CONFLUENCE",
-  BAMBOO_HR: "BAMBOO_HR",
-  GENERIC_HTTP: "GENERIC_HTTP",
-  JIRA_CLOUD: "JIRA_CLOUD",
-  MICROSOFT_ONEDRIVE: "MICROSOFT_ONEDRIVE",
-  MICROSOFT_OUTLOOK: "MICROSOFT_OUTLOOK",
-  MICROSOFT_SHAREPOINT: "MICROSOFT_SHAREPOINT",
-  MICROSOFT_TEAMS: "MICROSOFT_TEAMS",
-  PAGERDUTY_ADVANCE: "PAGERDUTY_ADVANCE",
-  SALESFORCE_CRM: "SALESFORCE_CRM",
-  SAP_BILLOFMATERIALS: "SAP_BILLOFMATERIALS",
-  SAP_BUSINESSPARTNER: "SAP_BUSINESSPARTNER",
-  SAP_MATERIALSTOCK: "SAP_MATERIALSTOCK",
-  SAP_PHYSICALINVENTORY: "SAP_PHYSICALINVENTORY",
-  SAP_PRODUCTMASTERDATA: "SAP_PRODUCTMASTERDATA",
-  SERVICENOW_NOW_PLATFORM: "SERVICENOW_NOW_PLATFORM",
-  SLACK: "SLACK",
-  SMARTSHEET: "SMARTSHEET",
-  ZENDESK_SUITE: "ZENDESK_SUITE",
-} as const;
-
-/**
- * @public
- */
-export type ActionConnectorType = (typeof ActionConnectorType)[keyof typeof ActionConnectorType];
 
 /**
  * <p>Contains detailed information about an action connector, including its configuration, status, and enabled actions.</p>
@@ -773,40 +695,6 @@ export interface ActionConnector {
    */
   VpcConnectionArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionConnectorSearchFilterNameEnum = {
-  ACTION_CONNECTOR_NAME: "ACTION_CONNECTOR_NAME",
-  ACTION_CONNECTOR_TYPE: "ACTION_CONNECTOR_TYPE",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type ActionConnectorSearchFilterNameEnum =
-  (typeof ActionConnectorSearchFilterNameEnum)[keyof typeof ActionConnectorSearchFilterNameEnum];
-
-/**
- * @public
- * @enum
- */
-export const FilterOperator = {
-  StringEquals: "StringEquals",
-  StringLike: "StringLike",
-} as const;
-
-/**
- * @public
- */
-export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * <p>A filter used to search for action connectors based on specific criteria.</p>
@@ -905,20 +793,6 @@ export interface ActiveIAMPolicyAssignment {
 }
 
 /**
- * @public
- * @enum
- */
-export const DashboardBehavior = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DashboardBehavior = (typeof DashboardBehavior)[keyof typeof DashboardBehavior];
-
-/**
  * <p>An ad hoc (one-time) filtering option.</p>
  * @public
  */
@@ -929,58 +803,6 @@ export interface AdHocFilteringOption {
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AggType = {
-  AVERAGE: "AVERAGE",
-  COLUMN: "COLUMN",
-  COUNT: "COUNT",
-  CUSTOM: "CUSTOM",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  PERCENTILE: "PERCENTILE",
-  PTD_AVERAGE: "PTD_AVERAGE",
-  PTD_COUNT: "PTD_COUNT",
-  PTD_DISTINCT_COUNT: "PTD_DISTINCT_COUNT",
-  PTD_MAX: "PTD_MAX",
-  PTD_MIN: "PTD_MIN",
-  PTD_SUM: "PTD_SUM",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type AggType = (typeof AggType)[keyof typeof AggType];
-
-/**
- * @public
- * @enum
- */
-export const TopicTimeGranularity = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  MINUTE: "MINUTE",
-  MONTH: "MONTH",
-  QUARTER: "QUARTER",
-  SECOND: "SECOND",
-  WEEK: "WEEK",
-  YEAR: "YEAR",
-} as const;
-
-/**
- * @public
- */
-export type TopicTimeGranularity = (typeof TopicTimeGranularity)[keyof typeof TopicTimeGranularity];
 
 /**
  * <p>The definition of an Agg function.</p>
@@ -1036,25 +858,6 @@ export interface DataPrepListAggregationFunction {
    */
   Distinct: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataPrepSimpleAggregationFunctionType = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MIN: "MIN",
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type DataPrepSimpleAggregationFunctionType =
-  (typeof DataPrepSimpleAggregationFunctionType)[keyof typeof DataPrepSimpleAggregationFunctionType];
 
 /**
  * <p>A simple aggregation function that performs standard statistical operations on a column.</p>
@@ -1192,20 +995,6 @@ export interface AggregateOperation {
 }
 
 /**
- * @public
- * @enum
- */
-export const SimpleAttributeAggregationFunction = {
-  UNIQUE_VALUE: "UNIQUE_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type SimpleAttributeAggregationFunction =
-  (typeof SimpleAttributeAggregationFunction)[keyof typeof SimpleAttributeAggregationFunction];
-
-/**
  * <p>Aggregation for attributes.</p>
  * @public
  */
@@ -1230,37 +1019,6 @@ export interface AttributeAggregationFunction {
 }
 
 /**
- * @public
- * @enum
- */
-export const CategoricalAggregationFunction = {
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-} as const;
-
-/**
- * @public
- */
-export type CategoricalAggregationFunction =
-  (typeof CategoricalAggregationFunction)[keyof typeof CategoricalAggregationFunction];
-
-/**
- * @public
- * @enum
- */
-export const DateAggregationFunction = {
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MIN: "MIN",
-} as const;
-
-/**
- * @public
- */
-export type DateAggregationFunction = (typeof DateAggregationFunction)[keyof typeof DateAggregationFunction];
-
-/**
  * <p>An aggregation based on the percentile of values in a dimension or measure.</p>
  * @public
  */
@@ -1271,30 +1029,6 @@ export interface PercentileAggregation {
    */
   PercentileValue?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SimpleNumericalAggregationFunction = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type SimpleNumericalAggregationFunction =
-  (typeof SimpleNumericalAggregationFunction)[keyof typeof SimpleNumericalAggregationFunction];
 
 /**
  * <p>Aggregation for numerical values.</p>
@@ -1420,27 +1154,6 @@ export interface AggregationFunction {
 }
 
 /**
- * @public
- * @enum
- */
-export const TimeGranularity = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  MILLISECOND: "MILLISECOND",
-  MINUTE: "MINUTE",
-  MONTH: "MONTH",
-  QUARTER: "QUARTER",
-  SECOND: "SECOND",
-  WEEK: "WEEK",
-  YEAR: "YEAR",
-} as const;
-
-/**
- * @public
- */
-export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranularity];
-
-/**
  * <p>The definition of an <code>AggregationPartitionBy</code>.</p>
  * @public
  */
@@ -1475,20 +1188,6 @@ export interface ColumnIdentifier {
    */
   ColumnName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortDirection = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
 
 /**
  * <p>The configuration options to sort aggregated values.</p>
@@ -1648,28 +1347,6 @@ export interface AmazonQInQuickSightDashboardConfigurations {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnalysisErrorType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisErrorType = (typeof AnalysisErrorType)[keyof typeof AnalysisErrorType];
-
-/**
  * <p>An object, structure, or sub-structure of an analysis, template, or dashboard.</p>
  * @public
  */
@@ -1781,19 +1458,6 @@ export interface CustomValuesConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SelectAllValueOptions = {
-  ALL_VALUES: "ALL_VALUES",
-} as const;
-
-/**
- * @public
- */
-export type SelectAllValueOptions = (typeof SelectAllValueOptions)[keyof typeof SelectAllValueOptions];
-
-/**
  * <p>The configuration of destination parameter values.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  * @public
@@ -1862,21 +1526,6 @@ export interface CustomActionSetParametersOperation {
 }
 
 /**
- * @public
- * @enum
- */
-export const URLTargetConfiguration = {
-  NEW_TAB: "NEW_TAB",
-  NEW_WINDOW: "NEW_WINDOW",
-  SAME_TAB: "SAME_TAB",
-} as const;
-
-/**
- * @public
- */
-export type URLTargetConfiguration = (typeof URLTargetConfiguration)[keyof typeof URLTargetConfiguration];
-
-/**
  * <p>The URL operation that opens a link to another webpage.</p>
  * @public
  */
@@ -1934,34 +1583,6 @@ export interface ImageCustomActionOperation {
    */
   SetParametersOperation?: CustomActionSetParametersOperation | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WidgetStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type WidgetStatus = (typeof WidgetStatus)[keyof typeof WidgetStatus];
-
-/**
- * @public
- * @enum
- */
-export const ImageCustomActionTrigger = {
-  CLICK: "CLICK",
-  MENU: "MENU",
-} as const;
-
-/**
- * @public
- */
-export type ImageCustomActionTrigger = (typeof ImageCustomActionTrigger)[keyof typeof ImageCustomActionTrigger];
 
 /**
  * <p>A custom action defined on an image.</p>
@@ -2036,22 +1657,6 @@ export interface ImageInteractionOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const SheetImageScalingType = {
-  SCALE_NONE: "SCALE_NONE",
-  SCALE_TO_CONTAINER: "SCALE_TO_CONTAINER",
-  SCALE_TO_HEIGHT: "SCALE_TO_HEIGHT",
-  SCALE_TO_WIDTH: "SCALE_TO_WIDTH",
-} as const;
-
-/**
- * @public
- */
-export type SheetImageScalingType = (typeof SheetImageScalingType)[keyof typeof SheetImageScalingType];
-
-/**
  * <p>Determines how the image is scaled</p>
  * @public
  */
@@ -2117,20 +1722,6 @@ export interface SheetImageTooltipText {
    */
   PlainText?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Visibility = {
-  HIDDEN: "HIDDEN",
-  VISIBLE: "VISIBLE",
-} as const;
-
-/**
- * @public
- */
-export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * <p>The tooltip configuration for a sheet image.</p>
@@ -2330,20 +1921,6 @@ export interface DefaultFreeFormLayoutConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResizeOption = {
-  FIXED: "FIXED",
-  RESPONSIVE: "RESPONSIVE",
-} as const;
-
-/**
- * @public
- */
-export type ResizeOption = (typeof ResizeOption)[keyof typeof ResizeOption];
-
-/**
  * <p>The options that determine the sizing of the canvas used in a grid layout.</p>
  * @public
  */
@@ -2446,43 +2023,6 @@ export interface Spacing {
 }
 
 /**
- * @public
- * @enum
- */
-export const PaperOrientation = {
-  LANDSCAPE: "LANDSCAPE",
-  PORTRAIT: "PORTRAIT",
-} as const;
-
-/**
- * @public
- */
-export type PaperOrientation = (typeof PaperOrientation)[keyof typeof PaperOrientation];
-
-/**
- * @public
- * @enum
- */
-export const PaperSize = {
-  A0: "A0",
-  A1: "A1",
-  A2: "A2",
-  A3: "A3",
-  A4: "A4",
-  A5: "A5",
-  JIS_B4: "JIS_B4",
-  JIS_B5: "JIS_B5",
-  US_LEGAL: "US_LEGAL",
-  US_LETTER: "US_LETTER",
-  US_TABLOID_LEDGER: "US_TABLOID_LEDGER",
-} as const;
-
-/**
- * @public
- */
-export type PaperSize = (typeof PaperSize)[keyof typeof PaperSize];
-
-/**
  * <p>The options for a paper canvas of a section-based layout.</p>
  * @public
  */
@@ -2553,20 +2093,6 @@ export interface DefaultPaginatedLayoutConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SheetContentType = {
-  INTERACTIVE: "INTERACTIVE",
-  PAGINATED: "PAGINATED",
-} as const;
-
-/**
- * @public
- */
-export type SheetContentType = (typeof SheetContentType)[keyof typeof SheetContentType];
-
-/**
  * <p>The configuration for default new sheet settings.</p>
  * @public
  */
@@ -2625,21 +2151,6 @@ export interface CalculatedField {
    */
   Expression: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SpecialValue = {
-  EMPTY: "EMPTY",
-  NULL: "NULL",
-  OTHER: "OTHER",
-} as const;
-
-/**
- * @public
- */
-export type SpecialValue = (typeof SpecialValue)[keyof typeof SpecialValue];
 
 /**
  * <p>Determines the color that's applied to a particular data value in a column.</p>
@@ -2702,20 +2213,6 @@ export interface DecimalPlacesConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const NegativeValueDisplayMode = {
-  NEGATIVE: "NEGATIVE",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type NegativeValueDisplayMode = (typeof NegativeValueDisplayMode)[keyof typeof NegativeValueDisplayMode];
-
-/**
  * <p>The options that determine the negative value configuration.</p>
  * @public
  */
@@ -2726,55 +2223,6 @@ export interface NegativeValueConfiguration {
    */
   DisplayMode: NegativeValueDisplayMode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NumberScale = {
-  AUTO: "AUTO",
-  BILLIONS: "BILLIONS",
-  CRORES: "CRORES",
-  LAKHS: "LAKHS",
-  MILLIONS: "MILLIONS",
-  NONE: "NONE",
-  THOUSANDS: "THOUSANDS",
-  TRILLIONS: "TRILLIONS",
-} as const;
-
-/**
- * @public
- */
-export type NumberScale = (typeof NumberScale)[keyof typeof NumberScale];
-
-/**
- * @public
- * @enum
- */
-export const NumericSeparatorSymbol = {
-  COMMA: "COMMA",
-  DOT: "DOT",
-  SPACE: "SPACE",
-} as const;
-
-/**
- * @public
- */
-export type NumericSeparatorSymbol = (typeof NumericSeparatorSymbol)[keyof typeof NumericSeparatorSymbol];
-
-/**
- * @public
- * @enum
- */
-export const DigitGroupingStyle = {
-  DEFAULT: "DEFAULT",
-  LAKHS: "LAKHS",
-} as const;
-
-/**
- * @public
- */
-export type DigitGroupingStyle = (typeof DigitGroupingStyle)[keyof typeof DigitGroupingStyle];
 
 /**
  * <p>The options that determine the thousands separator configuration.</p>
@@ -3066,20 +2514,6 @@ export interface FormatConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ColumnRole = {
-  DIMENSION: "DIMENSION",
-  MEASURE: "MEASURE",
-} as const;
-
-/**
- * @public
- */
-export type ColumnRole = (typeof ColumnRole)[keyof typeof ColumnRole];
-
-/**
  * <p>The general configuration of a column.</p>
  * @public
  */
@@ -3126,68 +2560,6 @@ export interface DataSetIdentifierDeclaration {
    */
   DataSetArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CrossDatasetTypes = {
-  ALL_DATASETS: "ALL_DATASETS",
-  SINGLE_DATASET: "SINGLE_DATASET",
-} as const;
-
-/**
- * @public
- */
-export type CrossDatasetTypes = (typeof CrossDatasetTypes)[keyof typeof CrossDatasetTypes];
-
-/**
- * @public
- * @enum
- */
-export const CategoryFilterMatchOperator = {
-  CONTAINS: "CONTAINS",
-  DOES_NOT_CONTAIN: "DOES_NOT_CONTAIN",
-  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type CategoryFilterMatchOperator =
-  (typeof CategoryFilterMatchOperator)[keyof typeof CategoryFilterMatchOperator];
-
-/**
- * @public
- * @enum
- */
-export const FilterNullOption = {
-  ALL_VALUES: "ALL_VALUES",
-  NON_NULLS_ONLY: "NON_NULLS_ONLY",
-  NULLS_ONLY: "NULLS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type FilterNullOption = (typeof FilterNullOption)[keyof typeof FilterNullOption];
-
-/**
- * @public
- * @enum
- */
-export const CategoryFilterSelectAllOptions = {
-  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
-} as const;
-
-/**
- * @public
- */
-export type CategoryFilterSelectAllOptions =
-  (typeof CategoryFilterSelectAllOptions)[keyof typeof CategoryFilterSelectAllOptions];
 
 /**
  * <p>A custom filter that filters based on a single value. This filter can be partially matched.</p>
@@ -3376,20 +2748,6 @@ export interface CategoryFilterConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CommitMode = {
-  AUTO: "AUTO",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type CommitMode = (typeof CommitMode)[keyof typeof CommitMode];
-
-/**
  * <p>A control to display info icons for filters and parameters.</p>
  * @public
  */
@@ -3408,37 +2766,6 @@ export interface SheetControlInfoIconLabelOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const FontDecoration = {
-  NONE: "NONE",
-  UNDERLINE: "UNDERLINE",
-} as const;
-
-/**
- * @public
- */
-export type FontDecoration = (typeof FontDecoration)[keyof typeof FontDecoration];
-
-/**
- * @public
- * @enum
- */
-export const RelativeFontSize = {
-  EXTRA_LARGE: "EXTRA_LARGE",
-  EXTRA_SMALL: "EXTRA_SMALL",
-  LARGE: "LARGE",
-  MEDIUM: "MEDIUM",
-  SMALL: "SMALL",
-} as const;
-
-/**
- * @public
- */
-export type RelativeFontSize = (typeof RelativeFontSize)[keyof typeof RelativeFontSize];
-
-/**
  * <p>The option that determines the text display size.</p>
  * @public
  */
@@ -3455,34 +2782,6 @@ export interface FontSize {
    */
   Absolute?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FontStyle = {
-  ITALIC: "ITALIC",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type FontStyle = (typeof FontStyle)[keyof typeof FontStyle];
-
-/**
- * @public
- * @enum
- */
-export const FontWeightName = {
-  BOLD: "BOLD",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type FontWeightName = (typeof FontWeightName)[keyof typeof FontWeightName];
 
 /**
  * <p>The option that determines the text display weight, or boldness.</p>
@@ -3599,21 +2898,6 @@ export interface DateTimePickerControlDisplayOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const SheetControlDateTimePickerType = {
-  DATE_RANGE: "DATE_RANGE",
-  SINGLE_VALUED: "SINGLE_VALUED",
-} as const;
-
-/**
- * @public
- */
-export type SheetControlDateTimePickerType =
-  (typeof SheetControlDateTimePickerType)[keyof typeof SheetControlDateTimePickerType];
-
-/**
  * <p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>
  * @public
  */
@@ -3695,20 +2979,6 @@ export interface FilterSelectableValues {
    */
   Values?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SheetControlListType = {
-  MULTI_SELECT: "MULTI_SELECT",
-  SINGLE_SELECT: "SINGLE_SELECT",
-} as const;
-
-/**
- * @public
- */
-export type SheetControlListType = (typeof SheetControlListType)[keyof typeof SheetControlListType];
 
 /**
  * <p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>
@@ -3885,20 +3155,6 @@ export interface SliderControlDisplayOptions {
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SheetControlSliderType = {
-  RANGE: "RANGE",
-  SINGLE_POINT: "SINGLE_POINT",
-} as const;
-
-/**
- * @public
- */
-export type SheetControlSliderType = (typeof SheetControlSliderType)[keyof typeof SheetControlSliderType];
 
 /**
  * <p>The default options that correspond to the <code>Slider</code> filter control type.</p>
@@ -4201,35 +3457,6 @@ export interface NestedFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const NumericEqualityMatchOperator = {
-  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type NumericEqualityMatchOperator =
-  (typeof NumericEqualityMatchOperator)[keyof typeof NumericEqualityMatchOperator];
-
-/**
- * @public
- * @enum
- */
-export const NumericFilterSelectAllOptions = {
-  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
-} as const;
-
-/**
- * @public
- */
-export type NumericFilterSelectAllOptions =
-  (typeof NumericFilterSelectAllOptions)[keyof typeof NumericFilterSelectAllOptions];
-
-/**
  * <p>A <code>NumericEqualityFilter</code> filters values that are equal to the specified value.</p>
  * @public
  */
@@ -4416,19 +3643,6 @@ export interface NumericRangeFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnchorOption = {
-  NOW: "NOW",
-} as const;
-
-/**
- * @public
- */
-export type AnchorOption = (typeof AnchorOption)[keyof typeof AnchorOption];
-
-/**
  * <p>The date configuration of the filter.</p>
  * @public
  */
@@ -4488,23 +3702,6 @@ export interface ExcludePeriodConfiguration {
    */
   Status?: WidgetStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RelativeDateType = {
-  LAST: "LAST",
-  NEXT: "NEXT",
-  NOW: "NOW",
-  PREVIOUS: "PREVIOUS",
-  THIS: "THIS",
-} as const;
-
-/**
- * @public
- */
-export type RelativeDateType = (typeof RelativeDateType)[keyof typeof RelativeDateType];
 
 /**
  * <p>A <code>RelativeDatesFilter</code> filters relative dates values.</p>
@@ -4899,20 +4096,6 @@ export interface Filter {
 }
 
 /**
- * @public
- * @enum
- */
-export const FilterVisualScope = {
-  ALL_VISUALS: "ALL_VISUALS",
-  SELECTED_VISUALS: "SELECTED_VISUALS",
-} as const;
-
-/**
- * @public
- */
-export type FilterVisualScope = (typeof FilterVisualScope)[keyof typeof FilterVisualScope];
-
-/**
  * <p>The filter that is applied to the options.</p>
  * @public
  */
@@ -5031,21 +4214,6 @@ export interface FilterGroup {
 }
 
 /**
- * @public
- * @enum
- */
-export const VisualHighlightTrigger = {
-  DATA_POINT_CLICK: "DATA_POINT_CLICK",
-  DATA_POINT_HOVER: "DATA_POINT_HOVER",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type VisualHighlightTrigger = (typeof VisualHighlightTrigger)[keyof typeof VisualHighlightTrigger];
-
-/**
  * <p>Defines what initiates a highlight operation on a visual, such as a click or hover.</p>
  * @public
  */
@@ -5068,39 +4236,6 @@ export interface VisualCustomActionDefaults {
    */
   highlightOperation?: VisualHighlightOperation | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QBusinessInsightsStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type QBusinessInsightsStatus = (typeof QBusinessInsightsStatus)[keyof typeof QBusinessInsightsStatus];
-
-/**
- * @public
- * @enum
- */
-export const DayOfTheWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfTheWeek = (typeof DayOfTheWeek)[keyof typeof DayOfTheWeek];
 
 /**
  * <p>An array of analysis level configurations.</p>
@@ -5205,20 +4340,6 @@ export interface MappedDataSetParameter {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValueWhenUnsetOption = {
-  NULL: "NULL",
-  RECOMMENDED_VALUE: "RECOMMENDED_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type ValueWhenUnsetOption = (typeof ValueWhenUnsetOption)[keyof typeof ValueWhenUnsetOption];
-
-/**
  * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
  * @public
  */
@@ -5299,20 +4420,6 @@ export interface DecimalDefaultValues {
    */
   StaticValues?: number[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParameterValueType = {
-  MULTI_VALUED: "MULTI_VALUED",
-  SINGLE_VALUED: "SINGLE_VALUED",
-} as const;
-
-/**
- * @public
- */
-export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
 
 /**
  * <p>The configuration that defines the default value of a <code>Decimal</code> parameter when a value has not been set.</p>
@@ -5574,20 +4681,6 @@ export interface ParameterDeclaration {
    */
   DateTimeParameterDeclaration?: DateTimeParameterDeclaration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryExecutionMode = {
-  AUTO: "AUTO",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type QueryExecutionMode = (typeof QueryExecutionMode)[keyof typeof QueryExecutionMode];
 
 /**
  * <p>A structure that describes the query execution options.</p>
@@ -6087,23 +5180,6 @@ export interface FreeFormLayoutElementBorderStyle {
 }
 
 /**
- * @public
- * @enum
- */
-export const LayoutElementType = {
-  FILTER_CONTROL: "FILTER_CONTROL",
-  IMAGE: "IMAGE",
-  PARAMETER_CONTROL: "PARAMETER_CONTROL",
-  TEXT_BOX: "TEXT_BOX",
-  VISUAL: "VISUAL",
-} as const;
-
-/**
- * @public
- */
-export type LayoutElementType = (typeof LayoutElementType)[keyof typeof LayoutElementType];
-
-/**
  * <p>The configuration of loading animation in free-form layout. </p>
  * @public
  */
@@ -6349,20 +5425,6 @@ export interface BodySectionContent {
    */
   Layout?: SectionLayoutConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SectionPageBreakStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type SectionPageBreakStatus = (typeof SectionPageBreakStatus)[keyof typeof SectionPageBreakStatus];
 
 /**
  * <p>The configuration of a page break after a section.</p>
@@ -7044,19 +6106,6 @@ export interface SheetTextBox {
 }
 
 /**
- * @public
- * @enum
- */
-export const SelectedFieldOptions = {
-  ALL_FIELDS: "ALL_FIELDS",
-} as const;
-
-/**
- * @public
- */
-export type SelectedFieldOptions = (typeof SelectedFieldOptions)[keyof typeof SelectedFieldOptions];
-
-/**
  * <p>The configuration of selected fields in the<code>CustomActionFilterOperation</code>.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  * @public
@@ -7087,19 +6136,6 @@ export interface FilterOperationSelectedFieldsConfiguration {
    */
   SelectedColumns?: ColumnIdentifier[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetVisualOptions = {
-  ALL_VISUALS: "ALL_VISUALS",
-} as const;
-
-/**
- * @public
- */
-export type TargetVisualOptions = (typeof TargetVisualOptions)[keyof typeof TargetVisualOptions];
 
 /**
  * <p>The configuration of the same-sheet target visuals that you want to be filtered.</p>
@@ -7190,20 +6226,6 @@ export interface VisualCustomActionOperation {
 }
 
 /**
- * @public
- * @enum
- */
-export const VisualCustomActionTrigger = {
-  DATA_POINT_CLICK: "DATA_POINT_CLICK",
-  DATA_POINT_MENU: "DATA_POINT_MENU",
-} as const;
-
-/**
- * @public
- */
-export type VisualCustomActionTrigger = (typeof VisualCustomActionTrigger)[keyof typeof VisualCustomActionTrigger];
-
-/**
  * <p>A custom action defined on a visual.</p>
  * @public
  */
@@ -7250,21 +6272,6 @@ export interface VisualCustomAction {
    */
   ActionOperations: VisualCustomActionOperation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BarsArrangement = {
-  CLUSTERED: "CLUSTERED",
-  STACKED: "STACKED",
-  STACKED_PERCENT: "STACKED_PERCENT",
-} as const;
-
-/**
- * @public
- */
-export type BarsArrangement = (typeof BarsArrangement)[keyof typeof BarsArrangement];
 
 /**
  * <p>The options that determine how a date axis is displayed.</p>
@@ -7437,4 +6444,1969 @@ export interface VisibleRangeOptions {
    * @public
    */
   PercentRange?: PercentVisibleRange | undefined;
+}
+
+/**
+ * <p>The visual display options for a data zoom scroll bar.</p>
+ * @public
+ */
+export interface ScrollBarOptions {
+  /**
+   * <p>The visibility of the data zoom scroll bar.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility range for the data zoom scroll bar.</p>
+   * @public
+   */
+  VisibleRange?: VisibleRangeOptions | undefined;
+}
+
+/**
+ * <p>The tick label options of an axis.</p>
+ * @public
+ */
+export interface AxisTickLabelOptions {
+  /**
+   * <p>Determines whether or not the axis ticks are visible.</p>
+   * @public
+   */
+  LabelOptions?: LabelOptions | undefined;
+
+  /**
+   * <p>The rotation angle of the axis tick labels.</p>
+   * @public
+   */
+  RotationAngle?: number | undefined;
+}
+
+/**
+ * <p>The display options for the axis label.</p>
+ * @public
+ */
+export interface AxisDisplayOptions {
+  /**
+   * <p>The tick label options of an axis.</p>
+   * @public
+   */
+  TickLabelOptions?: AxisTickLabelOptions | undefined;
+
+  /**
+   * <p>Determines whether or not the axis line is visible.</p>
+   * @public
+   */
+  AxisLineVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines whether or not the grid line is visible.</p>
+   * @public
+   */
+  GridLineVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The data options for an axis.</p>
+   * @public
+   */
+  DataOptions?: AxisDataOptions | undefined;
+
+  /**
+   * <p>The scroll bar options for an axis.</p>
+   * @public
+   */
+  ScrollbarOptions?: ScrollBarOptions | undefined;
+
+  /**
+   * <p>The offset value that determines the starting placement of the axis within a visual's bounds.</p>
+   * @public
+   */
+  AxisOffset?: string | undefined;
+}
+
+/**
+ * <p>The reference that specifies where the axis label is applied to.</p>
+ * @public
+ */
+export interface AxisLabelReferenceOptions {
+  /**
+   * <p>The field that the axis label is targeted to.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that the axis label is targeted to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+}
+
+/**
+ * <p>The label options for a chart axis. You must specify the field that the label is targeted to.</p>
+ * @public
+ */
+export interface AxisLabelOptions {
+  /**
+   * <p>The font configuration of the axis label.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>The text for the axis label.</p>
+   * @public
+   */
+  CustomLabel?: string | undefined;
+
+  /**
+   * <p>The options that indicate which field the label belongs to.</p>
+   * @public
+   */
+  ApplyTo?: AxisLabelReferenceOptions | undefined;
+}
+
+/**
+ * <p>The label options for an axis on a chart.</p>
+ * @public
+ */
+export interface ChartAxisLabelOptions {
+  /**
+   * <p>The visibility of an axis label on a chart. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>VISIBLE</code>: Shows the axis.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIDDEN</code>: Hides the axis.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility configuration of the sort icon on a chart's axis label.</p>
+   * @public
+   */
+  SortIconVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The label options for a chart axis.</p>
+   * @public
+   */
+  AxisLabelOptions?: AxisLabelOptions[] | undefined;
+}
+
+/**
+ * <p>The contribution analysis visual display for a line, pie, or bar chart.</p>
+ * @public
+ */
+export interface ContributionAnalysisDefault {
+  /**
+   * <p>The measure field that is used in the contribution analysis.</p>
+   * @public
+   */
+  MeasureFieldId: string | undefined;
+
+  /**
+   * <p>The dimensions columns that are used in the contribution analysis,
+   *             usually a list of <code>ColumnIdentifiers</code>.</p>
+   * @public
+   */
+  ContributorDimensions: ColumnIdentifier[] | undefined;
+}
+
+/**
+ * <p>The option that specifies individual data values for labels.</p>
+ * @public
+ */
+export interface DataPathLabelType {
+  /**
+   * <p>The field ID of the field that the data label needs to be applied to.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+
+  /**
+   * <p>The actual value of the field that is labeled.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>The visibility of the data label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The field label type.</p>
+ * @public
+ */
+export interface FieldLabelType {
+  /**
+   * <p>Indicates the field that is targeted by the field
+   *             label.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+
+  /**
+   * <p>The visibility of the field label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The maximum label of a data path label.</p>
+ * @public
+ */
+export interface MaximumLabelType {
+  /**
+   * <p>The visibility of the maximum label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The minimum label of a data path label.</p>
+ * @public
+ */
+export interface MinimumLabelType {
+  /**
+   * <p>The visibility of the minimum label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The range ends label type of a data path label.</p>
+ * @public
+ */
+export interface RangeEndsLabelType {
+  /**
+   * <p>The visibility of the range ends label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The option that determines the data label type.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface DataLabelType {
+  /**
+   * <p>Determines the label configuration for the entire field.</p>
+   * @public
+   */
+  FieldLabelType?: FieldLabelType | undefined;
+
+  /**
+   * <p>The option that specifies individual data values for labels.</p>
+   * @public
+   */
+  DataPathLabelType?: DataPathLabelType | undefined;
+
+  /**
+   * <p>Determines the label configuration for range end value in a visual.</p>
+   * @public
+   */
+  RangeEndsLabelType?: RangeEndsLabelType | undefined;
+
+  /**
+   * <p>Determines the label configuration for the minimum value in a visual.</p>
+   * @public
+   */
+  MinimumLabelType?: MinimumLabelType | undefined;
+
+  /**
+   * <p>Determines the label configuration for the maximum value in a visual.</p>
+   * @public
+   */
+  MaximumLabelType?: MaximumLabelType | undefined;
+}
+
+/**
+ * <p>The options that determine the presentation of the data labels.</p>
+ * @public
+ */
+export interface DataLabelOptions {
+  /**
+   * <p>Determines the visibility of the data labels.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines the visibility of the category field labels.</p>
+   * @public
+   */
+  CategoryLabelVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines the visibility of the measure field labels.</p>
+   * @public
+   */
+  MeasureLabelVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The option that determines the data label type.</p>
+   * @public
+   */
+  DataLabelTypes?: DataLabelType[] | undefined;
+
+  /**
+   * <p>Determines the position of the data labels.</p>
+   * @public
+   */
+  Position?: DataLabelPosition | undefined;
+
+  /**
+   * <p>Determines the content of the data labels.</p>
+   * @public
+   */
+  LabelContent?: DataLabelContent | undefined;
+
+  /**
+   * <p>Determines the font configuration of the data labels.</p>
+   * @public
+   */
+  LabelFontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Determines the color of the data labels.</p>
+   * @public
+   */
+  LabelColor?: string | undefined;
+
+  /**
+   * <p>Determines whether overlap is enabled or disabled for the data labels.</p>
+   * @public
+   */
+  Overlap?: DataLabelOverlap | undefined;
+
+  /**
+   * <p>Determines the visibility of the total.</p>
+   * @public
+   */
+  TotalsVisibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The dimension type field with categorical type columns..</p>
+ * @public
+ */
+export interface CategoricalDimensionField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>CategoricalDimensionField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The custom hierarchy ID.</p>
+   * @public
+   */
+  HierarchyId?: string | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: StringFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The dimension type field with date type columns.</p>
+ * @public
+ */
+export interface DateDimensionField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>DateDimensionField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The date granularity of the <code>DateDimensionField</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YEAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUARTER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MONTH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WEEK</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DAY</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOUR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MINUTE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SECOND</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MILLISECOND</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DateGranularity?: TimeGranularity | undefined;
+
+  /**
+   * <p>The custom hierarchy ID.</p>
+   * @public
+   */
+  HierarchyId?: string | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: DateTimeFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The dimension type field with numerical type columns.</p>
+ * @public
+ */
+export interface NumericalDimensionField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>NumericalDimensionField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The custom hierarchy ID.</p>
+   * @public
+   */
+  HierarchyId?: string | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: NumberFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The dimension type field.</p>
+ * @public
+ */
+export interface DimensionField {
+  /**
+   * <p>The dimension type field with numerical type columns.</p>
+   * @public
+   */
+  NumericalDimensionField?: NumericalDimensionField | undefined;
+
+  /**
+   * <p>The dimension type field with categorical type columns.</p>
+   * @public
+   */
+  CategoricalDimensionField?: CategoricalDimensionField | undefined;
+
+  /**
+   * <p>The dimension type field with date type columns.</p>
+   * @public
+   */
+  DateDimensionField?: DateDimensionField | undefined;
+}
+
+/**
+ * <p>The table calculation measure field for pivot tables.</p>
+ * @public
+ */
+export interface CalculatedMeasureField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The expression in the table calculation.</p>
+   * @public
+   */
+  Expression: string | undefined;
+}
+
+/**
+ * <p>The measure type field with categorical type columns.</p>
+ * @public
+ */
+export interface CategoricalMeasureField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>CategoricalMeasureField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The aggregation function of the measure field.</p>
+   * @public
+   */
+  AggregationFunction?: CategoricalAggregationFunction | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: StringFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The measure type field with date type columns.</p>
+ * @public
+ */
+export interface DateMeasureField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>DateMeasureField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The aggregation function of the measure field.</p>
+   * @public
+   */
+  AggregationFunction?: DateAggregationFunction | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: DateTimeFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The measure type field with numerical type columns.</p>
+ * @public
+ */
+export interface NumericalMeasureField {
+  /**
+   * <p>The custom field ID.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that is used in the <code>NumericalMeasureField</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The aggregation function of the measure field.</p>
+   * @public
+   */
+  AggregationFunction?: NumericalAggregationFunction | undefined;
+
+  /**
+   * <p>The format configuration of the field.</p>
+   * @public
+   */
+  FormatConfiguration?: NumberFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The measure (metric) type field.</p>
+ * @public
+ */
+export interface MeasureField {
+  /**
+   * <p>The measure type field with numerical type columns.</p>
+   * @public
+   */
+  NumericalMeasureField?: NumericalMeasureField | undefined;
+
+  /**
+   * <p>The measure type field with categorical type columns.</p>
+   * @public
+   */
+  CategoricalMeasureField?: CategoricalMeasureField | undefined;
+
+  /**
+   * <p>The measure type field with date type columns.</p>
+   * @public
+   */
+  DateMeasureField?: DateMeasureField | undefined;
+
+  /**
+   * <p>The calculated measure field only used in pivot tables.</p>
+   * @public
+   */
+  CalculatedMeasureField?: CalculatedMeasureField | undefined;
+}
+
+/**
+ * <p>The aggregated field wells of a bar chart.</p>
+ * @public
+ */
+export interface BarChartAggregatedFieldWells {
+  /**
+   * <p>The category (y-axis) field well of a bar chart.</p>
+   * @public
+   */
+  Category?: DimensionField[] | undefined;
+
+  /**
+   * <p>The value field wells of a bar chart. Values are aggregated by
+   *             category.</p>
+   * @public
+   */
+  Values?: MeasureField[] | undefined;
+
+  /**
+   * <p>The color (group/color) field well of a bar chart.</p>
+   * @public
+   */
+  Colors?: DimensionField[] | undefined;
+
+  /**
+   * <p>The small multiples field well of a bar chart.</p>
+   * @public
+   */
+  SmallMultiples?: DimensionField[] | undefined;
+}
+
+/**
+ * <p>The field wells of a <code>BarChartVisual</code>.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface BarChartFieldWells {
+  /**
+   * <p>The aggregated field wells of a bar chart.</p>
+   * @public
+   */
+  BarChartAggregatedFieldWells?: BarChartAggregatedFieldWells | undefined;
+}
+
+/**
+ * <p>The context menu options for a visual's interactions.</p>
+ * @public
+ */
+export interface ContextMenuOption {
+  /**
+   * <p>The availability status of the context menu options. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the context menu.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The menu options for a visual.</p>
+ * @public
+ */
+export interface VisualMenuOption {
+  /**
+   * <p>The availaiblity status of a visual's menu options.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The general visual interactions setup for visual publish options</p>
+ * @public
+ */
+export interface VisualInteractionOptions {
+  /**
+   * <p>The on-visual menu options for a visual.</p>
+   * @public
+   */
+  VisualMenuOption?: VisualMenuOption | undefined;
+
+  /**
+   * <p>The context menu options for a visual.</p>
+   * @public
+   */
+  ContextMenuOption?: ContextMenuOption | undefined;
+}
+
+/**
+ * <p>The options for the legend setup of a visual.</p>
+ * @public
+ */
+export interface LegendOptions {
+  /**
+   * <p>Determines whether or not the legend is visible.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The custom title for the legend.</p>
+   * @public
+   */
+  Title?: LabelOptions | undefined;
+
+  /**
+   * <p>The positions for the legend. Choose one of the following
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RIGHT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOTTOM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LEFT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Position?: LegendPosition | undefined;
+
+  /**
+   * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
+   * @public
+   */
+  Width?: string | undefined;
+
+  /**
+   * <p>The height of the legend. If this value is omitted, a default height is used when
+   *             rendering.</p>
+   * @public
+   */
+  Height?: string | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  ValueFontConfiguration?: FontConfiguration | undefined;
+}
+
+/**
+ * <p>The dynamic configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineDynamicDataConfiguration {
+  /**
+   * <p>The column that the dynamic data targets.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The aggregation function that is used in the dynamic data.</p>
+   * @public
+   */
+  MeasureAggregationFunction?: AggregationFunction | undefined;
+
+  /**
+   * <p>The calculation that is used in the dynamic data.</p>
+   * @public
+   */
+  Calculation: NumericalAggregationFunction | undefined;
+}
+
+/**
+ * <p>The static data configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineStaticDataConfiguration {
+  /**
+   * <p>The double input of the static data.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The data configuration of the reference line.</p>
+ * @public
+ */
+export interface ReferenceLineDataConfiguration {
+  /**
+   * <p>The static data configuration of the reference line data configuration.</p>
+   * @public
+   */
+  StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
+
+  /**
+   * <p>The dynamic configuration of the reference line data configuration.</p>
+   * @public
+   */
+  DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
+
+  /**
+   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PrimaryY</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SecondaryY</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AxisBinding?: AxisBinding | undefined;
+
+  /**
+   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SeriesType?: ReferenceLineSeriesType | undefined;
+}
+
+/**
+ * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
+ * @public
+ */
+export interface ReferenceLineCustomLabelConfiguration {
+  /**
+   * <p>The string text of the custom label.</p>
+   * @public
+   */
+  CustomLabel: string | undefined;
+}
+
+/**
+ * <p>The value label configuration of the label in a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineValueLabelConfiguration {
+  /**
+   * <p>The relative position of the value label. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BEFORE_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AFTER_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
+
+  /**
+   * <p>The format configuration of the value label.</p>
+   * @public
+   */
+  FormatConfiguration?: NumericFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The label configuration of a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineLabelConfiguration {
+  /**
+   * <p>The value label configuration of the label in a reference line.</p>
+   * @public
+   */
+  ValueLabelConfiguration?: ReferenceLineValueLabelConfiguration | undefined;
+
+  /**
+   * <p>The custom label configuration of the label in a reference line.</p>
+   * @public
+   */
+  CustomLabelConfiguration?: ReferenceLineCustomLabelConfiguration | undefined;
+
+  /**
+   * <p>The font configuration of the label in a reference line.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>The font color configuration of the label in a reference line.</p>
+   * @public
+   */
+  FontColor?: string | undefined;
+
+  /**
+   * <p>The horizontal position configuration of the label in a reference line. Choose one of
+   *             the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LEFT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CENTER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RIGHT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | undefined;
+
+  /**
+   * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ABOVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BELOW</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VerticalPosition?: ReferenceLineLabelVerticalPosition | undefined;
+}
+
+/**
+ * <p>The style configuration of the reference
+ *             line.</p>
+ * @public
+ */
+export interface ReferenceLineStyleConfiguration {
+  /**
+   * <p>The pattern type of the line style. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SOLID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DOTTED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Pattern?: ReferenceLinePatternType | undefined;
+
+  /**
+   * <p>The hex color of the reference line.</p>
+   * @public
+   */
+  Color?: string | undefined;
+}
+
+/**
+ * <p>The reference line visual display options.</p>
+ * @public
+ */
+export interface ReferenceLine {
+  /**
+   * <p>The status of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>The data configuration of the reference line.</p>
+   * @public
+   */
+  DataConfiguration: ReferenceLineDataConfiguration | undefined;
+
+  /**
+   * <p>The style configuration of the reference line.</p>
+   * @public
+   */
+  StyleConfiguration?: ReferenceLineStyleConfiguration | undefined;
+
+  /**
+   * <p>The label configuration of the reference line.</p>
+   * @public
+   */
+  LabelConfiguration?: ReferenceLineLabelConfiguration | undefined;
+}
+
+/**
+ * <p>The options that determine the title styles for each small multiples
+ *             panel.</p>
+ * @public
+ */
+export interface PanelTitleOptions {
+  /**
+   * <p>Determines whether or not panel titles are displayed.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Sets the horizontal text alignment of the title within each panel.</p>
+   * @public
+   */
+  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
+}
+
+/**
+ * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
+ * @public
+ */
+export interface PanelConfiguration {
+  /**
+   * <p>Configures the title display within each small multiples panel.</p>
+   * @public
+   */
+  Title?: PanelTitleOptions | undefined;
+
+  /**
+   * <p>Determines whether or not each panel displays a border.</p>
+   * @public
+   */
+  BorderVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the line thickness of panel borders.</p>
+   * @public
+   */
+  BorderThickness?: string | undefined;
+
+  /**
+   * <p>Sets the line style of panel borders.</p>
+   * @public
+   */
+  BorderStyle?: PanelBorderStyle | undefined;
+
+  /**
+   * <p>Sets the line color of panel borders.</p>
+   * @public
+   */
+  BorderColor?: string | undefined;
+
+  /**
+   * <p>Determines whether or not negative space between sibling panels is rendered.</p>
+   * @public
+   */
+  GutterVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the total amount of negative space to display between sibling panels.</p>
+   * @public
+   */
+  GutterSpacing?: string | undefined;
+
+  /**
+   * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
+   * @public
+   */
+  BackgroundVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the background color for each panel.</p>
+   * @public
+   */
+  BackgroundColor?: string | undefined;
+}
+
+/**
+ * <p>Configures the properties of a chart's axes that are used by small multiples panels.</p>
+ * @public
+ */
+export interface SmallMultiplesAxisProperties {
+  /**
+   * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
+   * @public
+   */
+  Scale?: SmallMultiplesAxisScale | undefined;
+
+  /**
+   * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
+   * @public
+   */
+  Placement?: SmallMultiplesAxisPlacement | undefined;
+}
+
+/**
+ * <p>Options that determine the layout and display options of a chart's small multiples.</p>
+ * @public
+ */
+export interface SmallMultiplesOptions {
+  /**
+   * <p>Sets the maximum number of visible rows to display in the grid of small multiples panels.</p>
+   *          <p>The default value is <code>Auto</code>,
+   *             which automatically adjusts the rows in the grid
+   *             to fit the overall layout and size of the given chart.</p>
+   * @public
+   */
+  MaxVisibleRows?: number | undefined;
+
+  /**
+   * <p>Sets the maximum number of visible columns to display in the grid of small multiples panels.</p>
+   *          <p>The default is <code>Auto</code>, which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.</p>
+   * @public
+   */
+  MaxVisibleColumns?: number | undefined;
+
+  /**
+   * <p>Configures the display options for each small multiples panel.</p>
+   * @public
+   */
+  PanelConfiguration?: PanelConfiguration | undefined;
+
+  /**
+   * <p>The properties of a small multiples X axis.</p>
+   * @public
+   */
+  XAxis?: SmallMultiplesAxisProperties | undefined;
+
+  /**
+   * <p>The properties of a small multiples Y axis.</p>
+   * @public
+   */
+  YAxis?: SmallMultiplesAxisProperties | undefined;
+}
+
+/**
+ * <p>The limit configuration of the visual display for an axis.</p>
+ * @public
+ */
+export interface ItemsLimitConfiguration {
+  /**
+   * <p>The limit on how many items of a field are showed in the chart. For
+   *             example, the number of slices that are displayed in a pie chart.</p>
+   * @public
+   */
+  ItemsLimit?: number | undefined;
+
+  /**
+   * <p>The <code>Show
+   *                 other</code> of an axis in the chart. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INCLUDE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUDE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OtherCategories?: OtherCategories | undefined;
+}
+
+/**
+ * <p>The sort configuration for a field in a
+ *             field well.</p>
+ * @public
+ */
+export interface FieldSort {
+  /**
+   * <p>The sort configuration target field.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The sort direction. Choose one of the following
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASC</code>: Ascending</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESC</code>: Descending</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Direction: SortDirection | undefined;
+}
+
+/**
+ * <p>The field sort options in a chart configuration.</p>
+ * @public
+ */
+export interface FieldSortOptions {
+  /**
+   * <p>The sort configuration for a field in a field well.</p>
+   * @public
+   */
+  FieldSort?: FieldSort | undefined;
+
+  /**
+   * <p>The sort configuration for a column that is not used in a field well.</p>
+   * @public
+   */
+  ColumnSort?: ColumnSort | undefined;
+}
+
+/**
+ * <p>sort-configuration-description</p>
+ * @public
+ */
+export interface BarChartSortConfiguration {
+  /**
+   * <p>The sort configuration of category fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of categories displayed in a bar chart.</p>
+   * @public
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of color fields in a bar chart.</p>
+   * @public
+   */
+  ColorSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of values displayed in a bar chart.</p>
+   * @public
+   */
+  ColorItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of the small multiples field.</p>
+   * @public
+   */
+  SmallMultiplesSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of small multiples panels that are displayed.</p>
+   * @public
+   */
+  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
+}
+
+/**
+ * <p>The tooltip item for the columns that are not part of a field well.</p>
+ * @public
+ */
+export interface ColumnTooltipItem {
+  /**
+   * <p>The target column of the tooltip item.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The label of the tooltip item.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The visibility of the tooltip item.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The aggregation function of the column tooltip item.</p>
+   * @public
+   */
+  Aggregation?: AggregationFunction | undefined;
+
+  /**
+   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
+   * @public
+   */
+  TooltipTarget?: TooltipTarget | undefined;
+}
+
+/**
+ * <p>The tooltip item for the fields.</p>
+ * @public
+ */
+export interface FieldTooltipItem {
+  /**
+   * <p>The unique ID of the field that is targeted by the tooltip.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The label of the tooltip item.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The visibility of the tooltip item.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines the target of the field tooltip item in a combo chart visual.</p>
+   * @public
+   */
+  TooltipTarget?: TooltipTarget | undefined;
+}
+
+/**
+ * <p>The tooltip.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface TooltipItem {
+  /**
+   * <p>The tooltip item for the fields.</p>
+   * @public
+   */
+  FieldTooltipItem?: FieldTooltipItem | undefined;
+
+  /**
+   * <p>The tooltip item for the columns that are not part of a field well.</p>
+   * @public
+   */
+  ColumnTooltipItem?: ColumnTooltipItem | undefined;
+}
+
+/**
+ * <p>The setup for the detailed tooltip.</p>
+ * @public
+ */
+export interface FieldBasedTooltip {
+  /**
+   * <p>The visibility of <code>Show aggregations</code>.</p>
+   * @public
+   */
+  AggregationVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The type for the >tooltip title. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Doesn't use the primary value as the title.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRIMARY_VALUE</code>: Uses primary value as the title.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TooltipTitleType?: TooltipTitleType | undefined;
+
+  /**
+   * <p>The fields configuration in the
+   *             tooltip.</p>
+   * @public
+   */
+  TooltipFields?: TooltipItem[] | undefined;
+}
+
+/**
+ * <p>The display options for the visual tooltip.</p>
+ * @public
+ */
+export interface TooltipOptions {
+  /**
+   * <p>Determines whether or not the tooltip is visible.</p>
+   * @public
+   */
+  TooltipVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The selected type for the tooltip. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC</code>: A basic tooltip.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DETAILED</code>: A detailed tooltip.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SelectedTooltipType?: SelectedTooltipType | undefined;
+
+  /**
+   * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
+   * @public
+   */
+  FieldBasedTooltip?: FieldBasedTooltip | undefined;
+}
+
+/**
+ * <p>The type of the data path value.</p>
+ * @public
+ */
+export interface DataPathType {
+  /**
+   * <p>The type of data path value utilized in a pivot table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY_ROWS_LAYOUT_COLUMN</code> - The type of data path for the rows layout column, when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTIPLE_ROW_METRICS_COLUMN</code> - The type of data path for the metric column when the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMPTY_COLUMN_HEADER</code> - The type of data path for the column with empty column header, when there is no field in <code>ColumnsFieldWell</code> and the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT_METRIC_COLUMN</code> - The type of data path for the column with <code>COUNT</code> as the metric, when there is no field in the <code>ValuesFieldWell</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PivotTableDataPathType?: PivotTableDataPathType | undefined;
+}
+
+/**
+ * <p>The data path that needs to be sorted.</p>
+ * @public
+ */
+export interface DataPathValue {
+  /**
+   * <p>The field ID of the field that needs to be sorted.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+
+  /**
+   * <p>The actual value of the field that needs to be sorted.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>The type configuration of the field.</p>
+   * @public
+   */
+  DataPathType?: DataPathType | undefined;
+}
+
+/**
+ * <p>The color map that determines the color options for a particular element.</p>
+ * @public
+ */
+export interface DataPathColor {
+  /**
+   * <p>The element that the color needs to be applied to.</p>
+   * @public
+   */
+  Element: DataPathValue | undefined;
+
+  /**
+   * <p>The color that needs to be applied to the element.</p>
+   * @public
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>The time granularity of the field that the color needs to be applied to.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity | undefined;
+}
+
+/**
+ * <p>The visual display options for the visual palette.</p>
+ * @public
+ */
+export interface VisualPalette {
+  /**
+   * <p>The chart color options for the visual palette.</p>
+   * @public
+   */
+  ChartColor?: string | undefined;
+
+  /**
+   * <p>The color map options for the visual palette.</p>
+   * @public
+   */
+  ColorMap?: DataPathColor[] | undefined;
+}
+
+/**
+ * <p>The configuration of a <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface BarChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: BarChartFieldWells | undefined;
+
+  /**
+   * <p>The sort configuration of a <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  SortConfiguration?: BarChartSortConfiguration | undefined;
+
+  /**
+   * <p>The orientation of the bars in a bar chart visual. There are two valid values in this structure:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HORIZONTAL</code>: Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERTICAL</code>: Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Orientation?: BarChartOrientation | undefined;
+
+  /**
+   * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
+   * @public
+   */
+  BarsArrangement?: BarsArrangement | undefined;
+
+  /**
+   * <p>The palette (chart color) display setup of the visual.</p>
+   * @public
+   */
+  VisualPalette?: VisualPalette | undefined;
+
+  /**
+   * <p>The small multiples setup for the visual.</p>
+   * @public
+   */
+  SmallMultiplesOptions?: SmallMultiplesOptions | undefined;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) for bar chart category.</p>
+   * @public
+   */
+  CategoryAxis?: AxisDisplayOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart.</p>
+   * @public
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) for a bar chart value.</p>
+   * @public
+   */
+  ValueAxis?: AxisDisplayOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart value.</p>
+   * @public
+   */
+  ValueLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.</p>
+   * @public
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions | undefined;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions | undefined;
+
+  /**
+   * <p>The tooltip display setup of the visual.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
+
+  /**
+   * <p>The reference line setup of the visual.</p>
+   * @public
+   */
+  ReferenceLines?: ReferenceLine[] | undefined;
+
+  /**
+   * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
+   * @public
+   */
+  ContributionAnalysisDefaults?: ContributionAnalysisDefault[] | undefined;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
+
+/**
+ * <p>The category drill down filter.</p>
+ * @public
+ */
+export interface CategoryDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>A list of the string inputs that are the values of the category drill down filter.</p>
+   * @public
+   */
+  CategoryValues: string[] | undefined;
+}
+
+/**
+ * <p>The numeric equality type drill down filter.</p>
+ * @public
+ */
+export interface NumericEqualityDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The value of the double input numeric drill down filter.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The time range drill down filter.</p>
+ * @public
+ */
+export interface TimeRangeDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The minimum value for the filter value range.</p>
+   * @public
+   */
+  RangeMinimum: Date | undefined;
+
+  /**
+   * <p>The maximum value for the filter value range.</p>
+   * @public
+   */
+  RangeMaximum: Date | undefined;
+
+  /**
+   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * @public
+   */
+  TimeGranularity: TimeGranularity | undefined;
+}
+
+/**
+ * <p>The drill down filter for the column hierarchies.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface DrillDownFilter {
+  /**
+   * <p>The numeric equality type drill down filter. This filter is used for number type columns.</p>
+   * @public
+   */
+  NumericEqualityFilter?: NumericEqualityDrillDownFilter | undefined;
+
+  /**
+   * <p>The category type drill down filter. This filter is used for string type columns.</p>
+   * @public
+   */
+  CategoryFilter?: CategoryDrillDownFilter | undefined;
+
+  /**
+   * <p>The time range drill down filter. This filter is used for date time columns.</p>
+   * @public
+   */
+  TimeRangeFilter?: TimeRangeDrillDownFilter | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
+ * @public
+ */
+export interface DateTimeHierarchy {
+  /**
+   * <p>The hierarchy ID of the <code>DateTime</code> hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the
+   *                 <code>DateTime</code> hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[] | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
+ * @public
+ */
+export interface ExplicitHierarchy {
+  /**
+   * <p>The hierarchy ID of the explicit hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The list of columns that define the explicit hierarchy.</p>
+   * @public
+   */
+  Columns: ColumnIdentifier[] | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[] | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
+ * @public
+ */
+export interface PredefinedHierarchy {
+  /**
+   * <p>The hierarchy ID of the predefined hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The list of columns that define the predefined hierarchy.</p>
+   * @public
+   */
+  Columns: ColumnIdentifier[] | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the predefined hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[] | undefined;
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields for a visual element.</p>
+ * @public
+ */
+export interface ColumnHierarchy {
+  /**
+   * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
+   * @public
+   */
+  ExplicitHierarchy?: ExplicitHierarchy | undefined;
+
+  /**
+   * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
+   * @public
+   */
+  DateTimeHierarchy?: DateTimeHierarchy | undefined;
+
+  /**
+   * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
+   * @public
+   */
+  PredefinedHierarchy?: PredefinedHierarchy | undefined;
+}
+
+/**
+ * <p>The text format for a subtitle.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface LongFormatText {
+  /**
+   * <p>Plain text format.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+
+  /**
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   * @public
+   */
+  RichText?: string | undefined;
+}
+
+/**
+ * <p>The subtitle label options for a visual.</p>
+ * @public
+ */
+export interface VisualSubtitleLabelOptions {
+  /**
+   * <p>The visibility of the subtitle label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
+   * @public
+   */
+  FormatText?: LongFormatText | undefined;
+}
+
+/**
+ * <p>The text format for the title.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface ShortFormatText {
+  /**
+   * <p>Plain text format.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+
+  /**
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   * @public
+   */
+  RichText?: string | undefined;
 }

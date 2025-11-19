@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateCloudFrontOriginAccessIdentityRequest,
   UpdateCloudFrontOriginAccessIdentityResult,
-} from "../models/models_2";
+} from "../models/models_1";
 import { UpdateCloudFrontOriginAccessIdentity } from "../schemas/schemas_0";
 
 /**

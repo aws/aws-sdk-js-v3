@@ -1,10 +1,43 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
-import { NetworkManagerServiceException as __BaseException } from "./NetworkManagerServiceException";
+import {
+  AttachmentErrorCode,
+  AttachmentState,
+  AttachmentType,
+  ChangeAction,
+  ChangeSetState,
+  ChangeStatus,
+  ChangeType,
+  ConnectionState,
+  ConnectionStatus,
+  ConnectionType,
+  ConnectPeerAssociationState,
+  ConnectPeerErrorCode,
+  ConnectPeerState,
+  CoreNetworkPolicyAlias,
+  CoreNetworkState,
+  CustomerGatewayAssociationState,
+  DeviceState,
+  GlobalNetworkState,
+  LinkAssociationState,
+  LinkState,
+  PeeringErrorCode,
+  PeeringState,
+  PeeringType,
+  RouteAnalysisCompletionReasonCode,
+  RouteAnalysisCompletionResultCode,
+  RouteAnalysisStatus,
+  RouteState,
+  RouteTableType,
+  RouteType,
+  SegmentActionServiceInsertion,
+  SendViaMode,
+  SiteState,
+  TransitGatewayConnectPeerAssociationState,
+  TransitGatewayRegistrationState,
+  TunnelProtocol,
+} from "./enums";
 
 /**
  * @public
@@ -16,46 +49,6 @@ export interface AcceptAttachmentRequest {
    */
   AttachmentId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachmentType = {
-  CONNECT: "CONNECT",
-  DIRECT_CONNECT_GATEWAY: "DIRECT_CONNECT_GATEWAY",
-  SITE_TO_SITE_VPN: "SITE_TO_SITE_VPN",
-  TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
-  VPC: "VPC",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType];
-
-/**
- * @public
- * @enum
- */
-export const AttachmentErrorCode = {
-  DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS: "DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS",
-  DIRECT_CONNECT_GATEWAY_NOT_FOUND: "DIRECT_CONNECT_GATEWAY_NOT_FOUND",
-  DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF: "DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF",
-  MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED: "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
-  SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE: "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE",
-  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
-  SUBNET_NO_FREE_ADDRESSES: "SUBNET_NO_FREE_ADDRESSES",
-  SUBNET_NO_IPV6_CIDRS: "SUBNET_NO_IPV6_CIDRS",
-  SUBNET_UNSUPPORTED_AVAILABILITY_ZONE: "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE",
-  VPC_NOT_FOUND: "VPC_NOT_FOUND",
-  VPN_CONNECTION_NOT_FOUND: "VPN_CONNECTION_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentErrorCode = (typeof AttachmentErrorCode)[keyof typeof AttachmentErrorCode];
 
 /**
  * <p>Describes the error associated with an attachment request.</p>
@@ -154,27 +147,6 @@ export interface ProposedSegmentChange {
    */
   SegmentName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachmentState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  PENDING_ATTACHMENT_ACCEPTANCE: "PENDING_ATTACHMENT_ACCEPTANCE",
-  PENDING_NETWORK_UPDATE: "PENDING_NETWORK_UPDATE",
-  PENDING_TAG_ACCEPTANCE: "PENDING_TAG_ACCEPTANCE",
-  REJECTED: "REJECTED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentState = (typeof AttachmentState)[keyof typeof AttachmentState];
 
 /**
  * <p>Describes a core network attachment.</p>
@@ -302,162 +274,6 @@ export interface AcceptAttachmentResponse {
 }
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>There was a conflict processing the request. Updating or deleting the resource can
- *             cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request has failed due to an internal error.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * <p>Indicates when to retry the request.</p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
- * <p>The specified resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>The specified resource could not be found.</p>
-   * @public
-   */
-  Context?: Record<string, string> | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.Context = opts.Context;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>Indicates when to retry the request.</p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
  * <p>Describes a validation exception for a field.</p>
  * @public
  */
@@ -473,57 +289,6 @@ export interface ValidationExceptionField {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CannotParse",
-  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
-  OTHER: "Other",
-  UNKNOWN_OPERATION: "UnknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The reason for the error.</p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that caused the error, if applicable.</p>
-   * @public
-   */
-  Fields?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Fields = opts.Fields;
-  }
 }
 
 /**
@@ -574,23 +339,6 @@ export interface AssociateConnectPeerRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectPeerAssociationState = {
-  available: "AVAILABLE",
-  deleted: "DELETED",
-  deleting: "DELETING",
-  pending: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ConnectPeerAssociationState =
-  (typeof ConnectPeerAssociationState)[keyof typeof ConnectPeerAssociationState];
-
-/**
  * <p>Describes a core network Connect peer association.</p>
  * @public
  */
@@ -638,60 +386,6 @@ export interface AssociateConnectPeerResponse {
 }
 
 /**
- * <p>A service limit was exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The limit code.</p>
-   * @public
-   */
-  LimitCode: string | undefined;
-
-  /**
-   * <p>The service code.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.LimitCode = opts.LimitCode;
-    this.ServiceCode = opts.ServiceCode;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateCustomerGatewayRequest {
@@ -719,23 +413,6 @@ export interface AssociateCustomerGatewayRequest {
    */
   LinkId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomerGatewayAssociationState = {
-  available: "AVAILABLE",
-  deleted: "DELETED",
-  deleting: "DELETING",
-  pending: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type CustomerGatewayAssociationState =
-  (typeof CustomerGatewayAssociationState)[keyof typeof CustomerGatewayAssociationState];
 
 /**
  * <p>Describes the association between a customer gateway, a device, and a link.</p>
@@ -808,22 +485,6 @@ export interface AssociateLinkRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const LinkAssociationState = {
-  available: "AVAILABLE",
-  deleted: "DELETED",
-  deleting: "DELETING",
-  pending: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type LinkAssociationState = (typeof LinkAssociationState)[keyof typeof LinkAssociationState];
-
-/**
  * <p>Describes the association between a device and a link.</p>
  * @public
  */
@@ -892,23 +553,6 @@ export interface AssociateTransitGatewayConnectPeerRequest {
    */
   LinkId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TransitGatewayConnectPeerAssociationState = {
-  available: "AVAILABLE",
-  deleted: "DELETED",
-  deleting: "DELETING",
-  pending: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type TransitGatewayConnectPeerAssociationState =
-  (typeof TransitGatewayConnectPeerAssociationState)[keyof typeof TransitGatewayConnectPeerAssociationState];
 
 /**
  * <p>Describes a transit gateway Connect peer association.</p>
@@ -1007,91 +651,6 @@ export interface BgpOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeAction = {
-  ADD: "ADD",
-  MODIFY: "MODIFY",
-  REMOVE: "REMOVE",
-} as const;
-
-/**
- * @public
- */
-export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
-
-/**
- * @public
- * @enum
- */
-export const ChangeSetState = {
-  EXECUTING: "EXECUTING",
-  EXECUTION_SUCCEEDED: "EXECUTION_SUCCEEDED",
-  FAILED_GENERATION: "FAILED_GENERATION",
-  OUT_OF_DATE: "OUT_OF_DATE",
-  PENDING_GENERATION: "PENDING_GENERATION",
-  READY_TO_EXECUTE: "READY_TO_EXECUTE",
-} as const;
-
-/**
- * @public
- */
-export type ChangeSetState = (typeof ChangeSetState)[keyof typeof ChangeSetState];
-
-/**
- * @public
- * @enum
- */
-export const ChangeStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
-
-/**
- * @public
- * @enum
- */
-export const ChangeType = {
-  ATTACHMENT_MAPPING: "ATTACHMENT_MAPPING",
-  ATTACHMENT_POLICIES_CONFIGURATION: "ATTACHMENT_POLICIES_CONFIGURATION",
-  ATTACHMENT_ROUTE_PROPAGATION: "ATTACHMENT_ROUTE_PROPAGATION",
-  ATTACHMENT_ROUTE_STATIC: "ATTACHMENT_ROUTE_STATIC",
-  CORE_NETWORK_CONFIGURATION: "CORE_NETWORK_CONFIGURATION",
-  CORE_NETWORK_EDGE: "CORE_NETWORK_EDGE",
-  CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
-  NETWORK_FUNCTION_GROUP: "NETWORK_FUNCTION_GROUP",
-  SEGMENTS_CONFIGURATION: "SEGMENTS_CONFIGURATION",
-  SEGMENT_ACTIONS_CONFIGURATION: "SEGMENT_ACTIONS_CONFIGURATION",
-} as const;
-
-/**
- * @public
- */
-export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
-
-/**
- * @public
- * @enum
- */
-export const TunnelProtocol = {
-  GRE: "GRE",
-  NO_ENCAP: "NO_ENCAP",
-} as const;
-
-/**
- * @public
- */
-export type TunnelProtocol = (typeof TunnelProtocol)[keyof typeof TunnelProtocol];
-
-/**
  * <p>Describes a core network Connect attachment options.</p>
  * @public
  */
@@ -1126,22 +685,6 @@ export interface ConnectAttachment {
    */
   Options?: ConnectAttachmentOptions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionState = {
-  available: "AVAILABLE",
-  deleting: "DELETING",
-  pending: "PENDING",
-  updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
 
 /**
  * <p>Describes a connection.</p>
@@ -1214,34 +757,6 @@ export interface Connection {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionStatus = {
-  DOWN: "DOWN",
-  UP: "UP",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  BGP: "BGP",
-  IPSEC: "IPSEC",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 /**
  * <p>Describes connection health.</p>
@@ -1334,24 +849,6 @@ export interface ConnectPeerConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectPeerErrorCode = {
-  EDGE_LOCATION_NO_FREE_IPS: "EDGE_LOCATION_NO_FREE_IPS",
-  EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
-  INVALID_INSIDE_CIDR_BLOCK: "INVALID_INSIDE_CIDR_BLOCK",
-  IP_OUTSIDE_SUBNET_CIDR_RANGE: "IP_OUTSIDE_SUBNET_CIDR_RANGE",
-  NO_ASSOCIATED_CIDR_BLOCK: "NO_ASSOCIATED_CIDR_BLOCK",
-  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type ConnectPeerErrorCode = (typeof ConnectPeerErrorCode)[keyof typeof ConnectPeerErrorCode];
-
-/**
  * <p>Describes an error associated with a Connect peer request</p>
  * @public
  */
@@ -1380,22 +877,6 @@ export interface ConnectPeerError {
    */
   RequestId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectPeerState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ConnectPeerState = (typeof ConnectPeerState)[keyof typeof ConnectPeerState];
 
 /**
  * <p>Describes a core network Connect peer.</p>
@@ -1608,22 +1089,6 @@ export interface CoreNetworkSegment {
 }
 
 /**
- * @public
- * @enum
- */
-export const CoreNetworkState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type CoreNetworkState = (typeof CoreNetworkState)[keyof typeof CoreNetworkState];
-
-/**
  * <p>Describes a core network.</p>
  * @public
  */
@@ -1688,35 +1153,6 @@ export interface CoreNetwork {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SegmentActionServiceInsertion = {
-  SEND_TO: "send-to",
-  SEND_VIA: "send-via",
-} as const;
-
-/**
- * @public
- */
-export type SegmentActionServiceInsertion =
-  (typeof SegmentActionServiceInsertion)[keyof typeof SegmentActionServiceInsertion];
-
-/**
- * @public
- * @enum
- */
-export const SendViaMode = {
-  DUAL_HOP: "dual-hop",
-  SINGLE_HOP: "single-hop",
-} as const;
-
-/**
- * @public
- */
-export type SendViaMode = (typeof SendViaMode)[keyof typeof SendViaMode];
 
 /**
  * <p>Describes a network function group for service insertion.</p>
@@ -2039,20 +1475,6 @@ export interface CoreNetworkNetworkFunctionGroupIdentifier {
 }
 
 /**
- * @public
- * @enum
- */
-export const CoreNetworkPolicyAlias = {
-  LATEST: "LATEST",
-  LIVE: "LIVE",
-} as const;
-
-/**
- * @public
- */
-export type CoreNetworkPolicyAlias = (typeof CoreNetworkPolicyAlias)[keyof typeof CoreNetworkPolicyAlias];
-
-/**
  * <p>Provides details about an error in a core network policy.</p>
  * @public
  */
@@ -2128,34 +1550,6 @@ export interface CoreNetworkPolicy {
    * @public
    */
   PolicyDocument?: __AutomaticJsonStringConversion | string | undefined;
-}
-
-/**
- * <p>Describes a core network policy exception.</p>
- * @public
- */
-export class CoreNetworkPolicyException extends __BaseException {
-  readonly name: "CoreNetworkPolicyException" = "CoreNetworkPolicyException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>Describes a core network policy exception.</p>
-   * @public
-   */
-  Errors?: CoreNetworkPolicyError[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CoreNetworkPolicyException, __BaseException>) {
-    super({
-      name: "CoreNetworkPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CoreNetworkPolicyException.prototype);
-    this.Message = opts.Message;
-    this.Errors = opts.Errors;
-  }
 }
 
 /**
@@ -2587,22 +1981,6 @@ export interface CreateDeviceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeviceState = {
-  available: "AVAILABLE",
-  deleting: "DELETING",
-  pending: "PENDING",
-  updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DeviceState = (typeof DeviceState)[keyof typeof DeviceState];
-
-/**
  * <p>Describes a device.</p>
  * @public
  */
@@ -2786,22 +2164,6 @@ export interface CreateGlobalNetworkRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const GlobalNetworkState = {
-  available: "AVAILABLE",
-  deleting: "DELETING",
-  pending: "PENDING",
-  updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type GlobalNetworkState = (typeof GlobalNetworkState)[keyof typeof GlobalNetworkState];
-
-/**
  * <p>Describes a global network. This is a single private network acting as a high-level container for your network objects, including an Amazon Web Services-managed Core Network.</p>
  * @public
  */
@@ -2903,22 +2265,6 @@ export interface CreateLinkRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LinkState = {
-  available: "AVAILABLE",
-  deleting: "DELETING",
-  pending: "PENDING",
-  updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type LinkState = (typeof LinkState)[keyof typeof LinkState];
 
 /**
  * <p>Describes a link.</p>
@@ -3046,22 +2392,6 @@ export interface CreateSiteRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SiteState = {
-  available: "AVAILABLE",
-  deleting: "DELETING",
-  pending: "PENDING",
-  updating: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type SiteState = (typeof SiteState)[keyof typeof SiteState];
 
 /**
  * <p>Describes a site.</p>
@@ -3216,24 +2546,6 @@ export interface CreateTransitGatewayPeeringRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PeeringErrorCode = {
-  EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_TRANSIT_GATEWAY_STATE: "INVALID_TRANSIT_GATEWAY_STATE",
-  MISSING_REQUIRED_PERMISSIONS: "MISSING_PERMISSIONS",
-  TRANSIT_GATEWAY_NOT_FOUND: "TRANSIT_GATEWAY_NOT_FOUND",
-  TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED: "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type PeeringErrorCode = (typeof PeeringErrorCode)[keyof typeof PeeringErrorCode];
-
-/**
  * <p>Describes additional information about missing permissions. </p>
  * @public
  */
@@ -3281,35 +2593,6 @@ export interface PeeringError {
    */
   MissingPermissionsContext?: PermissionsErrorContext | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PeeringType = {
-  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
-} as const;
-
-/**
- * @public
- */
-export type PeeringType = (typeof PeeringType)[keyof typeof PeeringType];
-
-/**
- * @public
- * @enum
- */
-export const PeeringState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type PeeringState = (typeof PeeringState)[keyof typeof PeeringState];
 
 /**
  * <p>Describes a peering connection.</p>
@@ -3870,24 +3153,6 @@ export interface DeregisterTransitGatewayRequest {
    */
   TransitGatewayArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TransitGatewayRegistrationState = {
-  available: "AVAILABLE",
-  deleted: "DELETED",
-  deleting: "DELETING",
-  failed: "FAILED",
-  pending: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type TransitGatewayRegistrationState =
-  (typeof TransitGatewayRegistrationState)[keyof typeof TransitGatewayRegistrationState];
 
 /**
  * <p>Describes the status of a transit gateway registration.</p>
@@ -5356,34 +4621,6 @@ export interface RouteTableIdentifier {
 
 /**
  * @public
- * @enum
- */
-export const RouteState = {
-  ACTIVE: "ACTIVE",
-  BLACKHOLE: "BLACKHOLE",
-} as const;
-
-/**
- * @public
- */
-export type RouteState = (typeof RouteState)[keyof typeof RouteState];
-
-/**
- * @public
- * @enum
- */
-export const RouteType = {
-  PROPAGATED: "PROPAGATED",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type RouteType = (typeof RouteType)[keyof typeof RouteType];
-
-/**
- * @public
  */
 export interface GetNetworkRoutesRequest {
   /**
@@ -5530,21 +4767,6 @@ export interface NetworkRoute {
    */
   Type?: RouteType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RouteTableType = {
-  CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
-  NETWORK_FUNCTION_GROUP: "NETWORK_FUNCTION_GROUP",
-  TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
-} as const;
-
-/**
- * @public
- */
-export type RouteTableType = (typeof RouteTableType)[keyof typeof RouteTableType];
 
 /**
  * @public
@@ -5798,45 +5020,6 @@ export interface RouteAnalysisEndpointOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const RouteAnalysisCompletionReasonCode = {
-  BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND: "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
-  CYCLIC_PATH_DETECTED: "CYCLIC_PATH_DETECTED",
-  INACTIVE_ROUTE_FOR_DESTINATION_FOUND: "INACTIVE_ROUTE_FOR_DESTINATION_FOUND",
-  MAX_HOPS_EXCEEDED: "MAX_HOPS_EXCEEDED",
-  NO_DESTINATION_ARN_PROVIDED: "NO_DESTINATION_ARN_PROVIDED",
-  POSSIBLE_MIDDLEBOX: "POSSIBLE_MIDDLEBOX",
-  ROUTE_NOT_FOUND: "ROUTE_NOT_FOUND",
-  TRANSIT_GATEWAY_ATTACHMENT: "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH",
-  TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND: "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND",
-  TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY: "TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY",
-  TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND: "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type RouteAnalysisCompletionReasonCode =
-  (typeof RouteAnalysisCompletionReasonCode)[keyof typeof RouteAnalysisCompletionReasonCode];
-
-/**
- * @public
- * @enum
- */
-export const RouteAnalysisCompletionResultCode = {
-  CONNECTED: "CONNECTED",
-  NOT_CONNECTED: "NOT_CONNECTED",
-} as const;
-
-/**
- * @public
- */
-export type RouteAnalysisCompletionResultCode =
-  (typeof RouteAnalysisCompletionResultCode)[keyof typeof RouteAnalysisCompletionResultCode];
-
-/**
  * <p>Describes the status of an analysis at completion.</p>
  * @public
  */
@@ -5982,21 +5165,6 @@ export interface RouteAnalysisPath {
    */
   Path?: PathComponent[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RouteAnalysisStatus = {
-  completed: "COMPLETED",
-  failed: "FAILED",
-  running: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type RouteAnalysisStatus = (typeof RouteAnalysisStatus)[keyof typeof RouteAnalysisStatus];
 
 /**
  * <p>Describes a route analysis.</p>

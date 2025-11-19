@@ -149,7 +149,7 @@ import {
   QueryTimeoutException as __QueryTimeoutException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { RedshiftDataServiceException as __RedshiftDataServiceException } from "../models/RedshiftDataServiceException";
 
 /* eslint no-var: 0 */

@@ -26,7 +26,7 @@ import {
   BadRequestException as __BadRequestException,
   InternalServerException as __InternalServerException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { MarketplaceReportingServiceException as __MarketplaceReportingServiceException } from "../models/MarketplaceReportingServiceException";
 
 /* eslint no-var: 0 */

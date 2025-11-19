@@ -25,7 +25,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { MalformedRangeOverrideInput, ValidationException } from "../../models/models_0";
+import { ValidationException } from "../../models/errors";
+import { MalformedRangeOverrideInput } from "../../models/models_0";
 import {
   deserializeMalformedRangeOverrideRequest,
   serializeFrameworkException,

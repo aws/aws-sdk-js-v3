@@ -41,7 +41,7 @@ import {
   GoneException as __GoneException,
   LimitExceededException as __LimitExceededException,
   PayloadTooLargeException as __PayloadTooLargeException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

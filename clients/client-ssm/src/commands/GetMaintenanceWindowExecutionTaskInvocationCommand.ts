@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
   GetMaintenanceWindowExecutionTaskInvocationResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetMaintenanceWindowExecutionTaskInvocation } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

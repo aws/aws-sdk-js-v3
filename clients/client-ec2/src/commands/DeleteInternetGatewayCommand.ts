@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteInternetGatewayRequest } from "../models/models_3";
+import { DeleteInternetGatewayRequest } from "../models/models_2";
 import { DeleteInternetGateway } from "../schemas/schemas_0";
 
 /**

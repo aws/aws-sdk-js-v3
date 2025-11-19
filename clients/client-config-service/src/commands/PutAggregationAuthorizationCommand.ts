@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_1";
+import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_0";
 import { PutAggregationAuthorization } from "../schemas/schemas_0";
 
 /**

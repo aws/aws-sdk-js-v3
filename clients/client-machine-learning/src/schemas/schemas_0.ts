@@ -236,7 +236,7 @@ import {
   PredictorNotMountedException as __PredictorNotMountedException,
   ResourceNotFoundException as __ResourceNotFoundException,
   TagLimitExceededException as __TagLimitExceededException,
-} from "../models/index";
+} from "../models/errors";
 import { MachineLearningServiceException as __MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
 /* eslint no-var: 0 */

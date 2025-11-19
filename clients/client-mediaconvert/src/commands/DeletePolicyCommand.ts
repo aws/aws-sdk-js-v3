@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_2";
+import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_0";
 import { DeletePolicy } from "../schemas/schemas_0";
 
 /**

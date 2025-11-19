@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_1";
+import { GetUsageStatisticsRequest } from "../models/models_0";
+import { GetUsageStatisticsResponse } from "../models/models_1";
 import { GetUsageStatistics } from "../schemas/schemas_0";
 
 /**

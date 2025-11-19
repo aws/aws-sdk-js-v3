@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListRealtimeContactAnalysisSegmentsV2Request,
   ListRealtimeContactAnalysisSegmentsV2Response,
-} from "../models/models_2";
+} from "../models/models_1";
 import { ListRealtimeContactAnalysisSegmentsV2 } from "../schemas/schemas_0";
 
 /**

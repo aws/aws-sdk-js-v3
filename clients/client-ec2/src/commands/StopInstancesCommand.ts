@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopInstancesRequest, StopInstancesResult } from "../models/models_8";
+import { StopInstancesRequest, StopInstancesResult } from "../models/models_7";
 import { StopInstances } from "../schemas/schemas_0";
 
 /**

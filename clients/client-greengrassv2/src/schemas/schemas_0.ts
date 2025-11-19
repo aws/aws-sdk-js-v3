@@ -339,7 +339,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GreengrassV2ServiceException as __GreengrassV2ServiceException } from "../models/GreengrassV2ServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -349,7 +348,8 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { GreengrassV2ServiceException as __GreengrassV2ServiceException } from "../models/GreengrassV2ServiceException";
 
 /* eslint no-var: 0 */
 

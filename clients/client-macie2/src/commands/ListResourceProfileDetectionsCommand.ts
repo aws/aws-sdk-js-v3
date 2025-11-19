@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { ListResourceProfileDetectionsRequest, ListResourceProfileDetectionsResponse } from "../models/models_1";
+import { ListResourceProfileDetectionsRequest, ListResourceProfileDetectionsResponse } from "../models/models_0";
 import { ListResourceProfileDetections } from "../schemas/schemas_0";
 
 /**

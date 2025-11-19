@@ -935,7 +935,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnauthorizedException as __UnauthorizedException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { QConnectServiceException as __QConnectServiceException } from "../models/QConnectServiceException";
 
 /* eslint no-var: 0 */

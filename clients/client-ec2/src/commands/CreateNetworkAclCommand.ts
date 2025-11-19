@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/models_2";
+import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/models_1";
 import { CreateNetworkAcl } from "../schemas/schemas_0";
 
 /**

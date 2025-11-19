@@ -64,7 +64,7 @@ import {
   ServiceLimitExceededException as __ServiceLimitExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { Route53RecoveryClusterServiceException as __Route53RecoveryClusterServiceException } from "../models/Route53RecoveryClusterServiceException";
 
 /* eslint no-var: 0 */

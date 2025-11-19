@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetInvalidationForDistributionTenantRequest,
   GetInvalidationForDistributionTenantResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetInvalidationForDistributionTenant } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,39 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FirehoseServiceException as __BaseException } from "./FirehoseServiceException";
+import {
+  AmazonOpenSearchServerlessS3BackupMode,
+  AmazonopensearchserviceIndexRotationPeriod,
+  AmazonopensearchserviceS3BackupMode,
+  CompressionFormat,
+  Connectivity,
+  ContentEncoding,
+  DatabaseType,
+  DefaultDocumentIdFormat,
+  DeliveryStreamEncryptionStatus,
+  DeliveryStreamFailureType,
+  DeliveryStreamStatus,
+  DeliveryStreamType,
+  ElasticsearchIndexRotationPeriod,
+  ElasticsearchS3BackupMode,
+  HECEndpointType,
+  HttpEndpointS3BackupMode,
+  IcebergS3BackupMode,
+  KeyType,
+  NoEncryptionConfig,
+  OrcCompression,
+  OrcFormatVersion,
+  ParquetCompression,
+  ParquetWriterVersion,
+  ProcessorParameterName,
+  ProcessorType,
+  RedshiftS3BackupMode,
+  S3BackupMode,
+  SnapshotRequestedBy,
+  SnapshotStatus,
+  SnowflakeDataLoadingOption,
+  SnowflakeS3BackupMode,
+  SplunkS3BackupMode,
+  SSLMode,
+} from "./enums";
 
 /**
  * <p>Describes the buffering to perform before delivering data to the Serverless offering for
@@ -54,29 +86,6 @@ export interface CloudWatchLoggingOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProcessorParameterName = {
-  BUFFER_INTERVAL_IN_SECONDS: "BufferIntervalInSeconds",
-  BUFFER_SIZE_IN_MB: "BufferSizeInMBs",
-  COMPRESSION_FORMAT: "CompressionFormat",
-  DATA_MESSAGE_EXTRACTION: "DataMessageExtraction",
-  Delimiter: "Delimiter",
-  JSON_PARSING_ENGINE: "JsonParsingEngine",
-  LAMBDA_ARN: "LambdaArn",
-  LAMBDA_NUMBER_OF_RETRIES: "NumberOfRetries",
-  METADATA_EXTRACTION_QUERY: "MetadataExtractionQuery",
-  ROLE_ARN: "RoleArn",
-  SUB_RECORD_TYPE: "SubRecordType",
-} as const;
-
-/**
- * @public
- */
-export type ProcessorParameterName = (typeof ProcessorParameterName)[keyof typeof ProcessorParameterName];
-
-/**
  * <p>Describes the processor parameter. </p>
  * @public
  */
@@ -97,24 +106,6 @@ export interface ProcessorParameter {
    */
   ParameterValue: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProcessorType = {
-  AppendDelimiterToRecord: "AppendDelimiterToRecord",
-  CloudWatchLogProcessing: "CloudWatchLogProcessing",
-  Decompression: "Decompression",
-  Lambda: "Lambda",
-  MetadataExtraction: "MetadataExtraction",
-  RecordDeAggregation: "RecordDeAggregation",
-} as const;
-
-/**
- * @public
- */
-export type ProcessorType = (typeof ProcessorType)[keyof typeof ProcessorType];
 
 /**
  * <p>Describes a data processor.</p>
@@ -173,21 +164,6 @@ export interface AmazonOpenSearchServerlessRetryOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const AmazonOpenSearchServerlessS3BackupMode = {
-  AllDocuments: "AllDocuments",
-  FailedDocumentsOnly: "FailedDocumentsOnly",
-} as const;
-
-/**
- * @public
- */
-export type AmazonOpenSearchServerlessS3BackupMode =
-  (typeof AmazonOpenSearchServerlessS3BackupMode)[keyof typeof AmazonOpenSearchServerlessS3BackupMode];
-
-/**
  * <p>Describes hints for the buffering to perform before delivering data to the
  *          destination. These options are treated as hints, and therefore Firehose might
  *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
@@ -219,23 +195,6 @@ export interface BufferingHints {
 }
 
 /**
- * @public
- * @enum
- */
-export const CompressionFormat = {
-  GZIP: "GZIP",
-  HADOOP_SNAPPY: "HADOOP_SNAPPY",
-  SNAPPY: "Snappy",
-  UNCOMPRESSED: "UNCOMPRESSED",
-  ZIP: "ZIP",
-} as const;
-
-/**
- * @public
- */
-export type CompressionFormat = (typeof CompressionFormat)[keyof typeof CompressionFormat];
-
-/**
  * <p>Describes an encryption key for a destination in Amazon S3.</p>
  * @public
  */
@@ -247,19 +206,6 @@ export interface KMSEncryptionConfig {
    */
   AWSKMSKeyARN: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NoEncryptionConfig = {
-  NoEncryption: "NoEncryption",
-} as const;
-
-/**
- * @public
- */
-export type NoEncryptionConfig = (typeof NoEncryptionConfig)[keyof typeof NoEncryptionConfig];
 
 /**
  * <p>Describes the encryption for a destination in Amazon S3.</p>
@@ -901,20 +847,6 @@ export interface AmazonopensearchserviceBufferingHints {
 }
 
 /**
- * @public
- * @enum
- */
-export const DefaultDocumentIdFormat = {
-  FIREHOSE_DEFAULT: "FIREHOSE_DEFAULT",
-  NO_DOCUMENT_ID: "NO_DOCUMENT_ID",
-} as const;
-
-/**
- * @public
- */
-export type DefaultDocumentIdFormat = (typeof DefaultDocumentIdFormat)[keyof typeof DefaultDocumentIdFormat];
-
-/**
  * <p>Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.</p>
  *          <p></p>
  * @public
@@ -938,24 +870,6 @@ export interface DocumentIdOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const AmazonopensearchserviceIndexRotationPeriod = {
-  NoRotation: "NoRotation",
-  OneDay: "OneDay",
-  OneHour: "OneHour",
-  OneMonth: "OneMonth",
-  OneWeek: "OneWeek",
-} as const;
-
-/**
- * @public
- */
-export type AmazonopensearchserviceIndexRotationPeriod =
-  (typeof AmazonopensearchserviceIndexRotationPeriod)[keyof typeof AmazonopensearchserviceIndexRotationPeriod];
-
-/**
  * <p>Configures retry behavior in case Firehose is unable to deliver documents
  *          to Amazon OpenSearch Service. </p>
  * @public
@@ -970,21 +884,6 @@ export interface AmazonopensearchserviceRetryOptions {
    */
   DurationInSeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AmazonopensearchserviceS3BackupMode = {
-  AllDocuments: "AllDocuments",
-  FailedDocumentsOnly: "FailedDocumentsOnly",
-} as const;
-
-/**
- * @public
- */
-export type AmazonopensearchserviceS3BackupMode =
-  (typeof AmazonopensearchserviceS3BackupMode)[keyof typeof AmazonopensearchserviceS3BackupMode];
 
 /**
  * <p>Describes the configuration of a destination in Amazon OpenSearch Service</p>
@@ -1278,20 +1177,6 @@ export interface AmazonopensearchserviceDestinationUpdate {
 }
 
 /**
- * @public
- * @enum
- */
-export const Connectivity = {
-  PRIVATE: "PRIVATE",
-  PUBLIC: "PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type Connectivity = (typeof Connectivity)[keyof typeof Connectivity];
-
-/**
  * <p>The authentication configuration of the Amazon MSK cluster.</p>
  * @public
  */
@@ -1332,41 +1217,6 @@ export interface CatalogConfiguration {
    */
   WarehouseLocation?: string | undefined;
 }
-
-/**
- * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
- *          it to update the destination.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ContentEncoding = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ContentEncoding = (typeof ContentEncoding)[keyof typeof ContentEncoding];
 
 /**
  * <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
@@ -1525,20 +1375,6 @@ export interface DatabaseSourceVPCConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SSLMode = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type SSLMode = (typeof SSLMode)[keyof typeof SSLMode];
-
-/**
  * <p>The structure used to configure the list of table patterns in source database endpoint
  *          for Firehose to read from. </p>
  *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
@@ -1561,20 +1397,6 @@ export interface DatabaseTableList {
    */
   Exclude?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatabaseType = {
-  MySQL: "MySQL",
-  PostgreSQL: "PostgreSQL",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
 
 /**
  * <p>
@@ -1697,20 +1519,6 @@ export interface DatabaseSourceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const KeyType = {
-  AWS_OWNED_CMK: "AWS_OWNED_CMK",
-  CUSTOMER_MANAGED_CMK: "CUSTOMER_MANAGED_CMK",
-} as const;
-
-/**
- * @public
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
-
-/**
  * <p>Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side
  *          Encryption (SSE). </p>
  * @public
@@ -1748,22 +1556,6 @@ export interface DeliveryStreamEncryptionConfigurationInput {
    */
   KeyType: KeyType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeliveryStreamType = {
-  DatabaseAsSource: "DatabaseAsSource",
-  DirectPut: "DirectPut",
-  KinesisStreamAsSource: "KinesisStreamAsSource",
-  MSKAsSource: "MSKAsSource",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryStreamType = (typeof DeliveryStreamType)[keyof typeof DeliveryStreamType];
 
 /**
  * <p>The structure that configures parameters such as <code>ThroughputHintInMBs</code> for a stream configured with
@@ -1804,24 +1596,6 @@ export interface ElasticsearchBufferingHints {
 }
 
 /**
- * @public
- * @enum
- */
-export const ElasticsearchIndexRotationPeriod = {
-  NoRotation: "NoRotation",
-  OneDay: "OneDay",
-  OneHour: "OneHour",
-  OneMonth: "OneMonth",
-  OneWeek: "OneWeek",
-} as const;
-
-/**
- * @public
- */
-export type ElasticsearchIndexRotationPeriod =
-  (typeof ElasticsearchIndexRotationPeriod)[keyof typeof ElasticsearchIndexRotationPeriod];
-
-/**
  * <p>Configures retry behavior in case Firehose is unable to deliver
  *          documents to Amazon OpenSearch Service.</p>
  * @public
@@ -1836,20 +1610,6 @@ export interface ElasticsearchRetryOptions {
    */
   DurationInSeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ElasticsearchS3BackupMode = {
-  AllDocuments: "AllDocuments",
-  FailedDocumentsOnly: "FailedDocumentsOnly",
-} as const;
-
-/**
- * @public
- */
-export type ElasticsearchS3BackupMode = (typeof ElasticsearchS3BackupMode)[keyof typeof ElasticsearchS3BackupMode];
 
 /**
  * <p>Describes the configuration of a destination in Amazon OpenSearch Service.</p>
@@ -2063,35 +1823,6 @@ export interface InputFormatConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrcCompression = {
-  NONE: "NONE",
-  SNAPPY: "SNAPPY",
-  ZLIB: "ZLIB",
-} as const;
-
-/**
- * @public
- */
-export type OrcCompression = (typeof OrcCompression)[keyof typeof OrcCompression];
-
-/**
- * @public
- * @enum
- */
-export const OrcFormatVersion = {
-  V0_11: "V0_11",
-  V0_12: "V0_12",
-} as const;
-
-/**
- * @public
- */
-export type OrcFormatVersion = (typeof OrcFormatVersion)[keyof typeof OrcFormatVersion];
-
-/**
  * <p>A serializer to use for converting data to the ORC format before storing it in Amazon
  *          S3. For more information, see <a href="https://orc.apache.org/docs/">Apache
  *          ORC</a>.</p>
@@ -2177,35 +1908,6 @@ export interface OrcSerDe {
    */
   FormatVersion?: OrcFormatVersion | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParquetCompression = {
-  GZIP: "GZIP",
-  SNAPPY: "SNAPPY",
-  UNCOMPRESSED: "UNCOMPRESSED",
-} as const;
-
-/**
- * @public
- */
-export type ParquetCompression = (typeof ParquetCompression)[keyof typeof ParquetCompression];
-
-/**
- * @public
- * @enum
- */
-export const ParquetWriterVersion = {
-  V1: "V1",
-  V2: "V2",
-} as const;
-
-/**
- * @public
- */
-export type ParquetWriterVersion = (typeof ParquetWriterVersion)[keyof typeof ParquetWriterVersion];
 
 /**
  * <p>A serializer to use for converting data to the Parquet format before storing it in
@@ -2441,20 +2143,6 @@ export interface DynamicPartitioningConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const S3BackupMode = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type S3BackupMode = (typeof S3BackupMode)[keyof typeof S3BackupMode];
-
-/**
  * <p>Describes the configuration of a destination in Amazon S3.</p>
  * @public
  */
@@ -2680,20 +2368,6 @@ export interface HttpEndpointRetryOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const HttpEndpointS3BackupMode = {
-  AllData: "AllData",
-  FailedDataOnly: "FailedDataOnly",
-} as const;
-
-/**
- * @public
- */
-export type HttpEndpointS3BackupMode = (typeof HttpEndpointS3BackupMode)[keyof typeof HttpEndpointS3BackupMode];
-
-/**
  * <p>Describes the configuration of the HTTP endpoint destination.</p>
  * @public
  */
@@ -2858,20 +2532,6 @@ export interface DestinationTableConfiguration {
    */
   S3ErrorOutputPrefix?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IcebergS3BackupMode = {
-  AllData: "AllData",
-  FailedDataOnly: "FailedDataOnly",
-} as const;
-
-/**
- * @public
- */
-export type IcebergS3BackupMode = (typeof IcebergS3BackupMode)[keyof typeof IcebergS3BackupMode];
 
 /**
  * <p>The configuration to enable schema evolution.</p>
@@ -3078,20 +2738,6 @@ export interface RedshiftRetryOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const RedshiftS3BackupMode = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type RedshiftS3BackupMode = (typeof RedshiftS3BackupMode)[keyof typeof RedshiftS3BackupMode];
-
-/**
  * <p>Describes the configuration of a destination in Amazon Redshift.</p>
  * @public
  */
@@ -3205,21 +2851,6 @@ export interface SnowflakeBufferingHints {
 }
 
 /**
- * @public
- * @enum
- */
-export const SnowflakeDataLoadingOption = {
-  JSON_MAPPING: "JSON_MAPPING",
-  VARIANT_CONTENT_AND_METADATA_MAPPING: "VARIANT_CONTENT_AND_METADATA_MAPPING",
-  VARIANT_CONTENT_MAPPING: "VARIANT_CONTENT_MAPPING",
-} as const;
-
-/**
- * @public
- */
-export type SnowflakeDataLoadingOption = (typeof SnowflakeDataLoadingOption)[keyof typeof SnowflakeDataLoadingOption];
-
-/**
  * <p>Specify how long Firehose retries sending data to the New Relic HTTP endpoint.
  *
  *          After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket.
@@ -3238,20 +2869,6 @@ export interface SnowflakeRetryOptions {
    */
   DurationInSeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnowflakeS3BackupMode = {
-  AllData: "AllData",
-  FailedDataOnly: "FailedDataOnly",
-} as const;
-
-/**
- * @public
- */
-export type SnowflakeS3BackupMode = (typeof SnowflakeS3BackupMode)[keyof typeof SnowflakeS3BackupMode];
 
 /**
  * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
@@ -3452,20 +3069,6 @@ export interface SplunkBufferingHints {
 }
 
 /**
- * @public
- * @enum
- */
-export const HECEndpointType = {
-  Event: "Event",
-  Raw: "Raw",
-} as const;
-
-/**
- * @public
- */
-export type HECEndpointType = (typeof HECEndpointType)[keyof typeof HECEndpointType];
-
-/**
  * <p>Configures retry behavior in case Firehose is unable to deliver
  *          documents to Splunk, or if it doesn't receive an acknowledgment from Splunk.</p>
  * @public
@@ -3480,20 +3083,6 @@ export interface SplunkRetryOptions {
    */
   DurationInSeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SplunkS3BackupMode = {
-  AllEvents: "AllEvents",
-  FailedEventsOnly: "FailedEventsOnly",
-} as const;
-
-/**
- * @public
- */
-export type SplunkS3BackupMode = (typeof SplunkS3BackupMode)[keyof typeof SplunkS3BackupMode];
 
 /**
  * <p>Describes the configuration of a destination in Splunk.</p>
@@ -3778,121 +3367,6 @@ export interface CreateDeliveryStreamOutput {
 }
 
 /**
- * <p>The specified input parameter has a value that is not valid.</p>
- * @public
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-  }
-}
-
-/**
- * <p>Firehose throws this exception when an attempt to put records or to start
- *          or stop Firehose stream encryption fails. This happens when the KMS service throws one of
- *          the following exception types: <code>AccessDeniedException</code>,
- *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
- *             <code>NotFoundException</code>.</p>
- * @public
- */
-export class InvalidKMSResourceException extends __BaseException {
-  readonly name: "InvalidKMSResourceException" = "InvalidKMSResourceException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidKMSResourceException, __BaseException>) {
-    super({
-      name: "InvalidKMSResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidKMSResourceException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>You have already reached the limit for a requested resource.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The resource is already in use and not available for this operation.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DeliveryStreamFailureType = {
-  CREATE_ENI_FAILED: "CREATE_ENI_FAILED",
-  CREATE_KMS_GRANT_FAILED: "CREATE_KMS_GRANT_FAILED",
-  DELETE_ENI_FAILED: "DELETE_ENI_FAILED",
-  DISABLED_KMS_KEY: "DISABLED_KMS_KEY",
-  ENI_ACCESS_DENIED: "ENI_ACCESS_DENIED",
-  INVALID_KMS_KEY: "INVALID_KMS_KEY",
-  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
-  KMS_OPT_IN_REQUIRED: "KMS_OPT_IN_REQUIRED",
-  RETIRE_KMS_GRANT_FAILED: "RETIRE_KMS_GRANT_FAILED",
-  SECURITY_GROUP_ACCESS_DENIED: "SECURITY_GROUP_ACCESS_DENIED",
-  SECURITY_GROUP_NOT_FOUND: "SECURITY_GROUP_NOT_FOUND",
-  SUBNET_ACCESS_DENIED: "SUBNET_ACCESS_DENIED",
-  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
-  UNKNOWN_ERROR: "UNKNOWN_ERROR",
-  VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND: "VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND",
-  VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED: "VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryStreamFailureType = (typeof DeliveryStreamFailureType)[keyof typeof DeliveryStreamFailureType];
-
-/**
  * <p>Provides details in case one of the following operations fails due to an error related
  *          to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>,
  *             <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
@@ -3911,35 +3385,6 @@ export interface FailureDescription {
    */
   Details: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnapshotRequestedBy = {
-  FIREHOSE: "FIREHOSE",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotRequestedBy = (typeof SnapshotRequestedBy)[keyof typeof SnapshotRequestedBy];
-
-/**
- * @public
- * @enum
- */
-export const SnapshotStatus = {
-  COMPLETE: "COMPLETE",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
 
 /**
  * <p>
@@ -4162,45 +3607,6 @@ export interface DeleteDeliveryStreamInput {
 export interface DeleteDeliveryStreamOutput {}
 
 /**
- * <p>The specified resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DeliveryStreamEncryptionStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  DISABLING_FAILED: "DISABLING_FAILED",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-  ENABLING_FAILED: "ENABLING_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryStreamEncryptionStatus =
-  (typeof DeliveryStreamEncryptionStatus)[keyof typeof DeliveryStreamEncryptionStatus];
-
-/**
  * <p>Contains information about the server-side encryption (SSE) status for the delivery
  *          stream, the type customer master key (CMK) in use, if any, and the ARN of the CMK. You can
  *          get <code>DeliveryStreamEncryptionConfiguration</code> by invoking the <a>DescribeDeliveryStream</a> operation. </p>
@@ -4240,23 +3646,6 @@ export interface DeliveryStreamEncryptionConfiguration {
    */
   FailureDescription?: FailureDescription | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeliveryStreamStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  CREATING_FAILED: "CREATING_FAILED",
-  DELETING: "DELETING",
-  DELETING_FAILED: "DELETING_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryStreamStatus = (typeof DeliveryStreamStatus)[keyof typeof DeliveryStreamStatus];
 
 /**
  * <p>The destination description in Amazon OpenSearch Service.</p>
@@ -5594,28 +4983,6 @@ export interface ListTagsForDeliveryStreamOutput {
 }
 
 /**
- * <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
- * @public
- */
-export class InvalidSourceException extends __BaseException {
-  readonly name: "InvalidSourceException" = "InvalidSourceException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSourceException, __BaseException>) {
-    super({
-      name: "InvalidSourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSourceException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
  * <p>The unit of data in a Firehose stream.</p>
  * @public
  */
@@ -5660,29 +5027,6 @@ export interface PutRecordOutput {
    * @public
    */
   Encrypted?: boolean | undefined;
-}
-
-/**
- * <p>The service is unavailable. Back off and retry the operation. If you continue to see
- *          the exception, throughput limits for the Firehose stream may have been exceeded. For more
- *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Firehose
- *          Limits</a>.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
 }
 
 /**

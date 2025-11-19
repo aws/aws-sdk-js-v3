@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { KinesisAnalyticsServiceException as __BaseException } from "./KinesisAnalyticsServiceException";
+import { ApplicationStatus, InputStartingPosition, RecordFormatType } from "./enums";
 
 /**
  * <p>Provides a description of CloudWatch logging options, including the log stream
@@ -53,106 +51,6 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
  * @public
  */
 export interface AddApplicationCloudWatchLoggingOptionResponse {}
-
-/**
- * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
- * <p>Specified input parameter value is invalid.</p>
- * @public
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-  }
-}
-
-/**
- * <p>Application is not available for this operation.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * <p>Specified application can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-  }
-}
 
 /**
  * <p>Describes the number of in-application streams to create for a given
@@ -301,20 +199,6 @@ export interface MappingParameters {
    */
   CSVMappingParameters?: CSVMappingParameters | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordFormatType = {
-  CSV: "CSV",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type RecordFormatType = (typeof RecordFormatType)[keyof typeof RecordFormatType];
 
 /**
  * <p>
@@ -493,26 +377,6 @@ export interface AddApplicationInputRequest {
  * @public
  */
 export interface AddApplicationInputResponse {}
-
-/**
- * <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
- * @public
- */
-export class CodeValidationException extends __BaseException {
-  readonly name: "CodeValidationException" = "CodeValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CodeValidationException, __BaseException>) {
-    super({
-      name: "CodeValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CodeValidationException.prototype);
-  }
-}
 
 /**
  * @public
@@ -805,24 +669,6 @@ export interface AddApplicationReferenceDataSourceRequest {
 export interface AddApplicationReferenceDataSourceResponse {}
 
 /**
- * @public
- * @enum
- */
-export const ApplicationStatus = {
-  DELETING: "DELETING",
-  READY: "READY",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
-
-/**
  * <p>Description of the CloudWatch logging option.</p>
  * @public
  */
@@ -878,21 +724,6 @@ export interface InputProcessingConfigurationDescription {
    */
   InputLambdaProcessorDescription?: InputLambdaProcessorDescription | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputStartingPosition = {
-  LAST_STOPPED_POINT: "LAST_STOPPED_POINT",
-  NOW: "NOW",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type InputStartingPosition = (typeof InputStartingPosition)[keyof typeof InputStartingPosition];
 
 /**
  * <p>Describes the point at which the application reads from
@@ -1846,46 +1677,6 @@ export interface CreateApplicationResponse {
 }
 
 /**
- * <p>Exceeded the number of applications allowed.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -2162,75 +1953,6 @@ export interface DiscoverInputSchemaResponse {
 }
 
 /**
- * <p>Discovery failed to get a record from the
- *             streaming source because of the Amazon Kinesis Streams
- *             ProvisionedThroughputExceededException. For more information,
- *             see <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
- *             in the Amazon Kinesis Streams API Reference.</p>
- * @public
- */
-export class ResourceProvisionedThroughputExceededException extends __BaseException {
-  readonly name: "ResourceProvisionedThroughputExceededException" = "ResourceProvisionedThroughputExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceProvisionedThroughputExceededException, __BaseException>) {
-    super({
-      name: "ResourceProvisionedThroughputExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceProvisionedThroughputExceededException.prototype);
-  }
-}
-
-/**
- * <p>The service is unavailable. Back off and retry the operation. </p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
- *             the given streaming source.</p>
- * @public
- */
-export class UnableToDetectSchemaException extends __BaseException {
-  readonly name: "UnableToDetectSchemaException" = "UnableToDetectSchemaException";
-  readonly $fault: "client" = "client";
-  RawInputRecords?: string[] | undefined;
-  ProcessedInputRecords?: string[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToDetectSchemaException, __BaseException>) {
-    super({
-      name: "UnableToDetectSchemaException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToDetectSchemaException.prototype);
-    this.RawInputRecords = opts.RawInputRecords;
-    this.ProcessedInputRecords = opts.ProcessedInputRecords;
-  }
-}
-
-/**
  * <p>When you start your application,
  *             you provide this configuration, which identifies the input source and the point
  *             in the input source at which you want the application to start processing records.</p>
@@ -2250,26 +1972,6 @@ export interface InputConfiguration {
    * @public
    */
   InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
-}
-
-/**
- * <p>User-provided application configuration is not valid.</p>
- * @public
- */
-export class InvalidApplicationConfigurationException extends __BaseException {
-  readonly name: "InvalidApplicationConfigurationException" = "InvalidApplicationConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApplicationConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidApplicationConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApplicationConfigurationException.prototype);
-  }
 }
 
 /**

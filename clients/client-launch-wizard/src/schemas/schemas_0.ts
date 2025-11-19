@@ -121,7 +121,7 @@ import {
   ResourceLimitException as __ResourceLimitException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LaunchWizardServiceException as __LaunchWizardServiceException } from "../models/LaunchWizardServiceException";
 
 /* eslint no-var: 0 */

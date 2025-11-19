@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutResourcePolicyRequest, PutResourcePolicyResult } from "../models/models_2";
+import { PutResourcePolicyRequest, PutResourcePolicyResult } from "../models/models_1";
 import { PutResourcePolicy } from "../schemas/schemas_0";
 
 /**

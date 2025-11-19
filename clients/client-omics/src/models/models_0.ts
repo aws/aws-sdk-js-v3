@@ -1,12 +1,9 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
-import { OmicsServiceException as __BaseException } from "./OmicsServiceException";
+import { StoreType } from "./enums";
 
 /**
  * @public
@@ -29,170 +26,6 @@ export interface AbortMultipartReadSetUploadRequest {
  * @public
  */
 export interface AbortMultipartReadSetUploadResponse {}
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>An unexpected error occurred. Try the request again.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
- * @public
- */
-export class NotSupportedOperationException extends __BaseException {
-  readonly name: "NotSupportedOperationException" = "NotSupportedOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotSupportedOperationException, __BaseException>) {
-    super({
-      name: "NotSupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotSupportedOperationException.prototype);
-  }
-}
-
-/**
- * <p>The request timed out.</p>
- * @public
- */
-export class RequestTimeoutException extends __BaseException {
-  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
-    super({
-      name: "RequestTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
-  }
-}
-
-/**
- * <p>The target resource was not found in the current Region.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request exceeds a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
 
 /**
  * @public
@@ -263,26 +96,6 @@ export interface AcceptShareResponse {
    * @public
    */
   status?: ShareStatus | undefined;
-}
-
-/**
- * <p>The request cannot be applied to the target resource in its current state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -4139,27 +3952,6 @@ export interface GetReadSetResponse {
 }
 
 /**
- * <p>The ranges specified in the request are not valid.</p>
- * @public
- */
-export class RangeNotSatisfiableException extends __BaseException {
-  readonly name: "RangeNotSatisfiableException" = "RangeNotSatisfiableException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RangeNotSatisfiableException, __BaseException>) {
-    super({
-      name: "RangeNotSatisfiableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RangeNotSatisfiableException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetReadSetActivationJobRequest {
@@ -5747,20 +5539,6 @@ export interface GetS3AccessPolicyRequest {
    */
   s3AccessPointArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StoreType = {
-  REFERENCE_STORE: "REFERENCE_STORE",
-  SEQUENCE_STORE: "SEQUENCE_STORE",
-} as const;
-
-/**
- * @public
- */
-export type StoreType = (typeof StoreType)[keyof typeof StoreType];
 
 /**
  * @public
@@ -9227,4 +9005,300 @@ export interface StartReadSetImportJobSourceItem {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartReadSetImportJobRequest {
+  /**
+   * <p>The read set's sequence store ID.</p>
+   * @public
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>A service role for the job.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The job's source files.</p>
+   * @public
+   */
+  sources: StartReadSetImportJobSourceItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartReadSetImportJobResponse {
+  /**
+   * <p>The job's ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The read set's sequence store ID.</p>
+   * @public
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>The job's service role ARN.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The job's status.</p>
+   * @public
+   */
+  status: ReadSetImportJobStatus | undefined;
+
+  /**
+   * <p>When the job was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSequenceStoreRequest {
+  /**
+   * <p>The ID of the sequence store.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A name for the sequence store.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description for the sequence store.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * @public
+   */
+  fallbackLocation?: string | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>S3 access configuration parameters.</p>
+   * @public
+   */
+  s3AccessConfig?: S3AccessConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSequenceStoreResponse {
+  /**
+   * <p>The ID of the sequence store.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ARN of the sequence store.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the sequence store.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description of the sequence store.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Server-side encryption (SSE) settings for a store.</p>
+   * @public
+   */
+  sseConfig?: SseConfig | undefined;
+
+  /**
+   * <p>The time when the store was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The last-updated time of the Sequence Store.</p>
+   * @public
+   */
+  updateTime?: Date | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>The status of the sequence store.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>The status message of the sequence store.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * @public
+   */
+  fallbackLocation?: string | undefined;
+
+  /**
+   * <p>The S3 access metadata of the sequence store.</p>
+   * @public
+   */
+  s3Access?: SequenceStoreS3Access | undefined;
+
+  /**
+   * <p>The ETag algorithm family to use on ingested read sets.</p>
+   * @public
+   */
+  eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UploadReadSetPartRequest {
+  /**
+   * <p>The Sequence Store ID used for the multipart upload.</p>
+   * @public
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>The ID for the initiated multipart upload.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The source file for an upload part.</p>
+   * @public
+   */
+  partSource: ReadSetPartSource | undefined;
+
+  /**
+   * <p>The number of the part being uploaded.</p>
+   * @public
+   */
+  partNumber: number | undefined;
+
+  /**
+   * <p>The read set data to upload for a part.</p>
+   * @public
+   */
+  payload: StreamingBlobTypes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UploadReadSetPartResponse {
+  /**
+   * <p>An identifier used to confirm that parts are being added to the intended upload.</p>
+   * @public
+   */
+  checksum: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The resource's ARN.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Tags for the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The resource's ARN.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Keys of tags to remove.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * <p>A imported variant item's source.</p>
+ * @public
+ */
+export interface VariantImportItemSource {
+  /**
+   * <p>The source file's location in Amazon S3.</p>
+   * @public
+   */
+  source: string | undefined;
 }

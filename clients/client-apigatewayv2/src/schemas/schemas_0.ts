@@ -586,7 +586,7 @@ import {
   ConflictException as __ConflictException,
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

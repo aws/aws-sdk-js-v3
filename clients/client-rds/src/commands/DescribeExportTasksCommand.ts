@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_1";
+import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_0";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeExportTasks } from "../schemas/schemas_0";
 

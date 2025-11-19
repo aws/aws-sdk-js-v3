@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { GetPresetRequest, GetPresetResponse } from "../models/models_2";
+import { GetPresetRequest, GetPresetResponse } from "../models/models_0";
 import { GetPreset } from "../schemas/schemas_0";
 
 /**

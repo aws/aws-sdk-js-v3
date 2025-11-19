@@ -213,7 +213,7 @@ import {
   InternalServerErrorException as __InternalServerErrorException,
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { ServerlessApplicationRepositoryServiceException as __ServerlessApplicationRepositoryServiceException } from "../models/ServerlessApplicationRepositoryServiceException";
 
 /* eslint no-var: 0 */

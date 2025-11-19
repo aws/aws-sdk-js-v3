@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGuardrailsRequest, ListGuardrailsResponse } from "../models/models_1";
+import { ListGuardrailsRequest, ListGuardrailsResponse } from "../models/models_0";
 import { ListGuardrails } from "../schemas/schemas_0";
 
 /**

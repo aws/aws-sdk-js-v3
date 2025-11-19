@@ -194,7 +194,7 @@ import {
   DescribeAttachmentLimitExceeded as __DescribeAttachmentLimitExceeded,
   InternalServerError as __InternalServerError,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { SupportServiceException as __SupportServiceException } from "../models/SupportServiceException";
 
 /* eslint no-var: 0 */

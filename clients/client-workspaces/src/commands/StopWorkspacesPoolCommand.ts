@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopWorkspacesPoolRequest, StopWorkspacesPoolResult } from "../models/models_1";
+import { StopWorkspacesPoolRequest, StopWorkspacesPoolResult } from "../models/models_0";
 import { StopWorkspacesPool } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 

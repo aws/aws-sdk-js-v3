@@ -61,7 +61,7 @@ import {
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

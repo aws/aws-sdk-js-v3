@@ -1,57 +1,41 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import {
+  ActionStatus,
+  AnomalyDetectorStatus,
+  DataProtectionStatus,
+  DeliveryDestinationType,
+  Distribution,
+  EntityRejectionErrorType,
+  EvaluationFrequency,
+  EventSource,
+  ExecutionStatus,
+  ExportTaskStatusCode,
+  FlattenedElement,
+  IndexSource,
+  InheritedProperty,
+  IntegrationStatus,
+  IntegrationType,
+  LogGroupClass,
+  OCSFVersion,
+  OpenSearchResourceStatusType,
+  OrderBy,
+  OutputFormat,
+  PolicyScope,
+  PolicyType,
+  QueryLanguage,
+  QueryStatus,
+  ScheduledQueryDestinationType,
+  ScheduledQueryState,
+  Scope,
+  StandardUnit,
+  State,
+  SuppressionState,
+  SuppressionType,
+  SuppressionUnit,
+  Type,
+} from "./enums";
 
-import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchLogsServiceException";
-
-/**
- * <p>You don't have sufficient permissions to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const PolicyType = {
-  DATA_PROTECTION_POLICY: "DATA_PROTECTION_POLICY",
-  FIELD_INDEX_POLICY: "FIELD_INDEX_POLICY",
-  METRIC_EXTRACTION_POLICY: "METRIC_EXTRACTION_POLICY",
-  SUBSCRIPTION_FILTER_POLICY: "SUBSCRIPTION_FILTER_POLICY",
-  TRANSFORMER_POLICY: "TRANSFORMER_POLICY",
-} as const;
-
-/**
- * @public
- */
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
-
-/**
- * @public
- * @enum
- */
-export const Scope = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type Scope = (typeof Scope)[keyof typeof Scope];
+import { InternalStreamingException, SessionStreamingException, SessionTimeoutException } from "./errors";
 
 /**
  * <p>A structure that contains information about one CloudWatch Logs account policy.</p>
@@ -101,22 +85,6 @@ export interface AccountPolicy {
    */
   accountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionStatus = {
-  CLIENT_ERROR: "CLIENT_ERROR",
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
 /**
  * <p>This object defines one key that will be added with the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKey"> addKeys</a> processor.</p>
@@ -245,21 +213,6 @@ export interface PatternToken {
    */
   inferredTokenName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  Active: "Active",
-  Baseline: "Baseline",
-  Suppressed: "Suppressed",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
 
 /**
  * <p>This structure represents one anomaly that has been found by a logs anomaly
@@ -402,42 +355,6 @@ export interface Anomaly {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnomalyDetectorStatus = {
-  ANALYZING: "ANALYZING",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  INITIALIZING: "INITIALIZING",
-  PAUSED: "PAUSED",
-  TRAINING: "TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type AnomalyDetectorStatus = (typeof AnomalyDetectorStatus)[keyof typeof AnomalyDetectorStatus];
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFrequency = {
-  FIFTEEN_MIN: "FIFTEEN_MIN",
-  FIVE_MIN: "FIVE_MIN",
-  ONE_HOUR: "ONE_HOUR",
-  ONE_MIN: "ONE_MIN",
-  TEN_MIN: "TEN_MIN",
-  THIRTY_MIN: "THIRTY_MIN",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFrequency = (typeof EvaluationFrequency)[keyof typeof EvaluationFrequency];
-
-/**
  * <p>Contains information about one anomaly detector in the account.</p>
  * @public
  */
@@ -560,86 +477,6 @@ export interface AssociateKmsKeyRequest {
 }
 
 /**
- * <p>A parameter is specified incorrectly.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
-}
-
-/**
- * <p>Multiple concurrent requests to update the same resource were in conflict.</p>
- * @public
- */
-export class OperationAbortedException extends __BaseException {
-  readonly name: "OperationAbortedException" = "OperationAbortedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationAbortedException, __BaseException>) {
-    super({
-      name: "OperationAbortedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationAbortedException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The service cannot complete the request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CancelExportTaskRequest {
@@ -649,43 +486,6 @@ export interface CancelExportTaskRequest {
    */
   taskId: string | undefined;
 }
-
-/**
- * <p>The operation is not valid on the specified resource.</p>
- * @public
- */
-export class InvalidOperationException extends __BaseException {
-  readonly name: "InvalidOperationException" = "InvalidOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
-    super({
-      name: "InvalidOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOperationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const OutputFormat = {
-  JSON: "json",
-  PARQUET: "parquet",
-  PLAIN: "plain",
-  RAW: "raw",
-  W3C: "w3c",
-} as const;
-
-/**
- * @public
- */
-export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
 
 /**
  * <p>This structure contains delivery configurations that apply only when the delivery
@@ -739,22 +539,6 @@ export interface ConfigurationTemplateDeliveryConfigValues {
    */
   s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeliveryDestinationType = {
-  CWL: "CWL",
-  FH: "FH",
-  S3: "S3",
-  XRAY: "XRAY",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryDestinationType = (typeof DeliveryDestinationType)[keyof typeof DeliveryDestinationType];
 
 /**
  * <p>A structure containing information about the deafult settings and available settings that
@@ -831,26 +615,6 @@ export interface ConfigurationTemplate {
    * @public
    */
   allowedSuffixPathFields?: string[] | undefined;
-}
-
-/**
- * <p>This operation attempted to create a resource that already exists.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -1020,66 +784,6 @@ export interface CreateDeliveryResponse {
 }
 
 /**
- * <p>This request exceeds a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was throttled because of quota limits.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>One of the parameters for the request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateExportTaskRequest {
@@ -1145,46 +849,6 @@ export interface CreateExportTaskResponse {
    * @public
    */
   taskId?: string | undefined;
-}
-
-/**
- * <p>You have reached the maximum number of resources that can be created.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
 }
 
 /**
@@ -1263,21 +927,6 @@ export interface CreateLogAnomalyDetectorResponse {
    */
   anomalyDetectorArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogGroupClass = {
-  DELIVERY: "DELIVERY",
-  INFREQUENT_ACCESS: "INFREQUENT_ACCESS",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type LogGroupClass = (typeof LogGroupClass)[keyof typeof LogGroupClass];
 
 /**
  * @public
@@ -1390,35 +1039,6 @@ export interface DestinationConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const QueryLanguage = {
-  CWLI: "CWLI",
-  PPL: "PPL",
-  SQL: "SQL",
-} as const;
-
-/**
- * @public
- */
-export type QueryLanguage = (typeof QueryLanguage)[keyof typeof QueryLanguage];
-
-/**
- * @public
- * @enum
- */
-export const ScheduledQueryState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ScheduledQueryState = (typeof ScheduledQueryState)[keyof typeof ScheduledQueryState];
-
-/**
- * @public
  */
 export interface CreateScheduledQueryRequest {
   /**
@@ -1526,26 +1146,6 @@ export interface CreateScheduledQueryResponse {
 }
 
 /**
- * <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
  * <p>The <code>CSV</code> processor parses comma-separated values (CSV) from the log events
  *       into columns.</p>
  *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-csv"> csv</a> in the <i>CloudWatch Logs User Guide</i>.</p>
@@ -1582,50 +1182,6 @@ export interface CSV {
    */
   source?: string | undefined;
 }
-
-/**
- * <p>The event was already logged.</p>
- *          <important>
- *             <p>
- *                <code>PutLogEvents</code> actions are now always accepted and never return
- *           <code>DataAlreadyAcceptedException</code> regardless of whether a given batch of log
- *         events has already been accepted. </p>
- *          </important>
- * @public
- */
-export class DataAlreadyAcceptedException extends __BaseException {
-  readonly name: "DataAlreadyAcceptedException" = "DataAlreadyAcceptedException";
-  readonly $fault: "client" = "client";
-  expectedSequenceToken?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataAlreadyAcceptedException, __BaseException>) {
-    super({
-      name: "DataAlreadyAcceptedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataAlreadyAcceptedException.prototype);
-    this.expectedSequenceToken = opts.expectedSequenceToken;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DataProtectionStatus = {
-  ACTIVATED: "ACTIVATED",
-  ARCHIVED: "ARCHIVED",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type DataProtectionStatus = (typeof DataProtectionStatus)[keyof typeof DataProtectionStatus];
 
 /**
  * <p>This processor converts a datetime string into a format that you specify. </p>
@@ -2465,24 +2021,6 @@ export interface DescribeDestinationsResponse {
 
 /**
  * @public
- * @enum
- */
-export const ExportTaskStatusCode = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  PENDING_CANCEL: "PENDING_CANCEL",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type ExportTaskStatusCode = (typeof ExportTaskStatusCode)[keyof typeof ExportTaskStatusCode];
-
-/**
- * @public
  */
 export interface DescribeExportTasksRequest {
   /**
@@ -2731,20 +2269,6 @@ export interface DescribeIndexPoliciesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const IndexSource = {
-  ACCOUNT: "ACCOUNT",
-  LOG_GROUP: "LOG_GROUP",
-} as const;
-
-/**
- * @public
- */
-export type IndexSource = (typeof IndexSource)[keyof typeof IndexSource];
-
-/**
  * <p>This structure contains information about one field index policy in this account.</p>
  * @public
  */
@@ -2907,19 +2431,6 @@ export interface DescribeLogGroupsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InheritedProperty = {
-  ACCOUNT_DATA_PROTECTION: "ACCOUNT_DATA_PROTECTION",
-} as const;
-
-/**
- * @public
- */
-export type InheritedProperty = (typeof InheritedProperty)[keyof typeof InheritedProperty];
-
-/**
  * <p>Represents a log group.</p>
  * @public
  */
@@ -3054,20 +2565,6 @@ export interface DescribeLogGroupsResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OrderBy = {
-  LastEventTime: "LastEventTime",
-  LogStreamName: "LogStreamName",
-} as const;
-
-/**
- * @public
- */
-export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
 
 /**
  * @public
@@ -3283,45 +2780,6 @@ export interface DescribeMetricFiltersRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const StandardUnit = {
-  Bits: "Bits",
-  BitsSecond: "Bits/Second",
-  Bytes: "Bytes",
-  BytesSecond: "Bytes/Second",
-  Count: "Count",
-  CountSecond: "Count/Second",
-  Gigabits: "Gigabits",
-  GigabitsSecond: "Gigabits/Second",
-  Gigabytes: "Gigabytes",
-  GigabytesSecond: "Gigabytes/Second",
-  Kilobits: "Kilobits",
-  KilobitsSecond: "Kilobits/Second",
-  Kilobytes: "Kilobytes",
-  KilobytesSecond: "Kilobytes/Second",
-  Megabits: "Megabits",
-  MegabitsSecond: "Megabits/Second",
-  Megabytes: "Megabytes",
-  MegabytesSecond: "Megabytes/Second",
-  Microseconds: "Microseconds",
-  Milliseconds: "Milliseconds",
-  None: "None",
-  Percent: "Percent",
-  Seconds: "Seconds",
-  Terabits: "Terabits",
-  TerabitsSecond: "Terabits/Second",
-  Terabytes: "Terabytes",
-  TerabytesSecond: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type StandardUnit = (typeof StandardUnit)[keyof typeof StandardUnit];
-
-/**
  * <p>Indicates how to transform ingested log events to metric data in a CloudWatch
  *       metric.</p>
  * @public
@@ -3460,25 +2918,6 @@ export interface DescribeMetricFiltersResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryStatus = {
-  Cancelled: "Cancelled",
-  Complete: "Complete",
-  Failed: "Failed",
-  Running: "Running",
-  Scheduled: "Scheduled",
-  Timeout: "Timeout",
-  Unknown: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
 
 /**
  * @public
@@ -3684,20 +3123,6 @@ export interface DescribeQueryDefinitionsResponse {
 
 /**
  * @public
- * @enum
- */
-export const PolicyScope = {
-  ACCOUNT: "ACCOUNT",
-  RESOURCE: "RESOURCE",
-} as const;
-
-/**
- * @public
- */
-export type PolicyScope = (typeof PolicyScope)[keyof typeof PolicyScope];
-
-/**
- * @public
  */
 export interface DescribeResourcePoliciesRequest {
   /**
@@ -3823,20 +3248,6 @@ export interface DescribeSubscriptionFiltersRequest {
    */
   limit?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Distribution = {
-  ByLogStream: "ByLogStream",
-  Random: "Random",
-} as const;
-
-/**
- * @public
- */
-export type Distribution = (typeof Distribution)[keyof typeof Distribution];
 
 /**
  * <p>Represents a subscription filter.</p>
@@ -4003,59 +3414,6 @@ export interface Entity {
    */
   attributes?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityRejectionErrorType = {
-  ENTITY_SIZE_TOO_LARGE: "EntitySizeTooLarge",
-  INVALID_ATTRIBUTES: "InvalidAttributes",
-  INVALID_ENTITY: "InvalidEntity",
-  INVALID_KEY_ATTRIBUTE: "InvalidKeyAttributes",
-  INVALID_TYPE_VALUE: "InvalidTypeValue",
-  MISSING_REQUIRED_FIELDS: "MissingRequiredFields",
-  UNSUPPORTED_LOG_GROUP_TYPE: "UnsupportedLogGroupType",
-} as const;
-
-/**
- * @public
- */
-export type EntityRejectionErrorType = (typeof EntityRejectionErrorType)[keyof typeof EntityRejectionErrorType];
-
-/**
- * @public
- * @enum
- */
-export const EventSource = {
-  AWSWAF: "AWSWAF",
-  CLOUD_TRAIL: "CloudTrail",
-  EKS_AUDIT: "EKSAudit",
-  ROUTE53_RESOLVER: "Route53Resolver",
-  VPC_FLOW: "VPCFlow",
-} as const;
-
-/**
- * @public
- */
-export type EventSource = (typeof EventSource)[keyof typeof EventSource];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  Complete: "Complete",
-  Failed: "Failed",
-  InvalidQuery: "InvalidQuery",
-  Running: "Running",
-  Timeout: "Timeout",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * <p>A structure containing the extracted fields from a log event. These fields are extracted
@@ -4267,20 +3625,6 @@ export interface FilterLogEventsResponse {
 
 /**
  * @public
- * @enum
- */
-export const FlattenedElement = {
-  FIRST: "first",
-  LAST: "last",
-} as const;
-
-/**
- * @public
- */
-export type FlattenedElement = (typeof FlattenedElement)[keyof typeof FlattenedElement];
-
-/**
- * @public
  */
 export interface GetDataProtectionPolicyRequest {
   /**
@@ -4426,22 +3770,6 @@ export interface GetIntegrationRequest {
    */
   integrationName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OpenSearchResourceStatusType = {
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type OpenSearchResourceStatusType =
-  (typeof OpenSearchResourceStatusType)[keyof typeof OpenSearchResourceStatusType];
 
 /**
  * <p>This structure contains information about the status of an OpenSearch Service
@@ -4787,34 +4115,6 @@ export namespace IntegrationDetails {
 
 /**
  * @public
- * @enum
- */
-export const IntegrationStatus = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  PROVISIONING: "PROVISIONING",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
-
-/**
- * @public
- * @enum
- */
-export const IntegrationType = {
-  OPENSEARCH: "OPENSEARCH",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
-
-/**
- * @public
  */
 export interface GetIntegrationResponse {
   /**
@@ -5148,28 +4448,6 @@ export interface GetLogObjectRequest {
    * @public
    */
   logObjectPointer: string | undefined;
-}
-
-/**
- * <p>An internal error occurred during the streaming of log data. This exception is thrown when
- *       there's an issue with the internal streaming mechanism used by the GetLogObject
- *       operation.</p>
- * @public
- */
-export class InternalStreamingException extends __BaseException {
-  readonly name: "InternalStreamingException" = "InternalStreamingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalStreamingException, __BaseException>) {
-    super({
-      name: "InternalStreamingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalStreamingException.prototype);
-  }
 }
 
 /**
@@ -5578,20 +4856,6 @@ export interface GetScheduledQueryHistoryRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScheduledQueryDestinationType = {
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ScheduledQueryDestinationType =
-  (typeof ScheduledQueryDestinationType)[keyof typeof ScheduledQueryDestinationType];
-
-/**
  * <p>Information about a destination where scheduled query results are processed and delivered.</p>
  * @public
  */
@@ -5972,19 +5236,6 @@ export interface ParseRoute53 {
 }
 
 /**
- * @public
- * @enum
- */
-export const OCSFVersion = {
-  V1_1: "V1.1",
-} as const;
-
-/**
- * @public
- */
-export type OCSFVersion = (typeof OCSFVersion)[keyof typeof OCSFVersion];
-
-/**
  * <p>This processor converts logs into <a href="https://ocsf.io">Open Cybersecurity Schema
  *         Framework (OCSF)</a> events.</p>
  *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF"> parseToOSCF</a> in the <i>CloudWatch Logs User Guide</i>.</p>
@@ -6180,22 +5431,6 @@ export interface TrimString {
    */
   withKeys: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  BOOLEAN: "boolean",
-  DOUBLE: "double",
-  INTEGER: "integer",
-  STRING: "string",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * <p>This object defines one value type that will be converted using the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-typeConverter"> typeConverter</a> processor.</p>
@@ -6471,50 +5706,6 @@ export interface IntegrationSummary {
    */
   integrationStatus?: IntegrationStatus | undefined;
 }
-
-/**
- * <p>The sequence token is not valid. You can get the correct sequence token in the
- *         <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
- *       message. </p>
- *          <important>
- *             <p>
- *                <code>PutLogEvents</code> actions are now always accepted and never return
- *           <code>InvalidSequenceTokenException</code> regardless of receiving an invalid sequence
- *         token. </p>
- *          </important>
- * @public
- */
-export class InvalidSequenceTokenException extends __BaseException {
-  readonly name: "InvalidSequenceTokenException" = "InvalidSequenceTokenException";
-  readonly $fault: "client" = "client";
-  expectedSequenceToken?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSequenceTokenException, __BaseException>) {
-    super({
-      name: "InvalidSequenceTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSequenceTokenException.prototype);
-    this.expectedSequenceToken = opts.expectedSequenceToken;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SuppressionState = {
-  SUPPRESSED: "SUPPRESSED",
-  UNSUPPRESSED: "UNSUPPRESSED",
-} as const;
-
-/**
- * @public
- */
-export type SuppressionState = (typeof SuppressionState)[keyof typeof SuppressionState];
 
 /**
  * @public
@@ -7930,27 +7121,6 @@ export interface PutLogEventsResponse {
 }
 
 /**
- * <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not
- *       valid.</p>
- * @public
- */
-export class UnrecognizedClientException extends __BaseException {
-  readonly name: "UnrecognizedClientException" = "UnrecognizedClientException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnrecognizedClientException, __BaseException>) {
-    super({
-      name: "UnrecognizedClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnrecognizedClientException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PutMetricFilterRequest {
@@ -8325,47 +7495,6 @@ export interface StartLiveTailRequest {
 }
 
 /**
- * <p>This exception is returned if an unknown error occurs during a Live Tail session.</p>
- * @public
- */
-export class SessionStreamingException extends __BaseException {
-  readonly name: "SessionStreamingException" = "SessionStreamingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SessionStreamingException, __BaseException>) {
-    super({
-      name: "SessionStreamingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SessionStreamingException.prototype);
-  }
-}
-
-/**
- * <p>This exception is returned in a Live Tail stream when the Live Tail session times out.
- *       Live Tail sessions time out after three hours.</p>
- * @public
- */
-export class SessionTimeoutException extends __BaseException {
-  readonly name: "SessionTimeoutException" = "SessionTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SessionTimeoutException, __BaseException>) {
-    super({
-      name: "SessionTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SessionTimeoutException.prototype);
-  }
-}
-
-/**
  * <p>This object includes the stream returned by your <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.html">StartLiveTail</a>
  *       request.</p>
  * @public
@@ -8501,36 +7630,6 @@ export interface QueryCompileError {
    * @public
    */
   message?: string | undefined;
-}
-
-/**
- * <p>The query string is not valid. Details about this error are displayed in a
- *         <code>QueryCompileError</code> object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.</p>
- *          <p>For more information about valid query syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query
- *         Syntax</a>.</p>
- * @public
- */
-export class MalformedQueryException extends __BaseException {
-  readonly name: "MalformedQueryException" = "MalformedQueryException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  queryCompileError?: QueryCompileError | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedQueryException, __BaseException>) {
-    super({
-      name: "MalformedQueryException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedQueryException.prototype);
-    this.queryCompileError = opts.queryCompileError;
-  }
 }
 
 /**
@@ -8696,4 +7795,507 @@ export interface TagResourceRequest {
    * @public
    */
   tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestMetricFilterRequest {
+  /**
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   * @public
+   */
+  filterPattern: string | undefined;
+
+  /**
+   * <p>The log event messages to test.</p>
+   * @public
+   */
+  logEventMessages: string[] | undefined;
+}
+
+/**
+ * <p>Represents a matched event.</p>
+ * @public
+ */
+export interface MetricFilterMatchRecord {
+  /**
+   * <p>The event number.</p>
+   * @public
+   */
+  eventNumber?: number | undefined;
+
+  /**
+   * <p>The raw event data.</p>
+   * @public
+   */
+  eventMessage?: string | undefined;
+
+  /**
+   * <p>The values extracted from the event data by the filter.</p>
+   * @public
+   */
+  extractedValues?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestMetricFilterResponse {
+  /**
+   * <p>The matched events.</p>
+   * @public
+   */
+  matches?: MetricFilterMatchRecord[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestTransformerRequest {
+  /**
+   * <p>This structure contains the configuration of this log transformer that you want to test. A
+   *       log transformer is an array of processors, where each processor applies one type of
+   *       transformation to the log events that are ingested.</p>
+   * @public
+   */
+  transformerConfig: Processor[] | undefined;
+
+  /**
+   * <p>An array of the raw log events that you want to use to test this transformer.</p>
+   * @public
+   */
+  logEventMessages: string[] | undefined;
+}
+
+/**
+ * <p>This structure contains information for one log event that has been processed by a log
+ *       transformer.</p>
+ * @public
+ */
+export interface TransformedLogRecord {
+  /**
+   * <p>The event number.</p>
+   * @public
+   */
+  eventNumber?: number | undefined;
+
+  /**
+   * <p>The original log event message before it was transformed.</p>
+   * @public
+   */
+  eventMessage?: string | undefined;
+
+  /**
+   * <p>The log event message after being transformed.</p>
+   * @public
+   */
+  transformedEventMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestTransformerResponse {
+  /**
+   * <p>An array where each member of the array includes both the original version and the
+   *       transformed version of one of the log events that you input.</p>
+   * @public
+   */
+  transformedLogs?: TransformedLogRecord[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagLogGroupRequest {
+  /**
+   * <p>The name of the log group.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>The tag keys. The corresponding tags are removed from the log group.</p>
+   * @public
+   */
+  tags: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p>
+   *          <p>The ARN format of a log group is
+   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a destination is
+   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *         resources and operations</a>.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * <p>If you are suppressing an anomaly temporariliy, this structure defines how long the
+ *       suppression period is to be.</p>
+ * @public
+ */
+export interface SuppressionPeriod {
+  /**
+   * <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no
+   *       maximum.</p>
+   * @public
+   */
+  value?: number | undefined;
+
+  /**
+   * <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+   * @public
+   */
+  suppressionUnit?: SuppressionUnit | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnomalyRequest {
+  /**
+   * <p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can
+   *       find anomaly IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
+   *       operation.</p>
+   * @public
+   */
+  anomalyId?: string | undefined;
+
+  /**
+   * <p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can
+   *       find pattern IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
+   *       operation.</p>
+   * @public
+   */
+  patternId?: string | undefined;
+
+  /**
+   * <p>The ARN of the anomaly detector that this operation is to act on.</p>
+   * @public
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>Use this to specify whether the suppression to be temporary or infinite. If you specify
+   *         <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you specify
+   *         <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored. </p>
+   * @public
+   */
+  suppressionType?: SuppressionType | undefined;
+
+  /**
+   * <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify
+   *       how long the suppression is to last.</p>
+   * @public
+   */
+  suppressionPeriod?: SuppressionPeriod | undefined;
+
+  /**
+   * <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior
+   *       as an anomaly in the future. The behavior is then treated as baseline behavior. However, if
+   *       similar but more severe occurrences of this behavior occur in the future, those will still be
+   *       reported as anomalies. </p>
+   *          <p>The default is <code>false</code>
+   *          </p>
+   * @public
+   */
+  baseline?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeliveryConfigurationRequest {
+  /**
+   * <p>The ID of the delivery to be updated by this request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The list of record fields to be delivered to the destination, in order. If the delivery's
+   *       log source has mandatory fields, they must be included in this list.</p>
+   * @public
+   */
+  recordFields?: string[] | undefined;
+
+  /**
+   * <p>The field delimiter to use between record fields when the final output format of a
+   *       delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * @public
+   */
+  fieldDelimiter?: string | undefined;
+
+  /**
+   * <p>This structure contains parameters that are valid only when the delivery's delivery
+   *       destination is an S3 bucket.</p>
+   * @public
+   */
+  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeliveryConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLogAnomalyDetectorRequest {
+  /**
+   * <p>The ARN of the anomaly detector that you want to update.</p>
+   * @public
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
+   *       according to the frequency that the log group receives new logs. For example, if the log group
+   *       receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
+   *         <code>FIFTEEN_MIN</code> might be appropriate.</p>
+   * @public
+   */
+  evaluationFrequency?: EvaluationFrequency | undefined;
+
+  /**
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   * @public
+   */
+  filterPattern?: string | undefined;
+
+  /**
+   * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are
+   *       automatically baselined and the anomaly detector model will treat new occurrences of similar
+   *       event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it
+   *       will be considered normal going forward and will not be detected.</p>
+   * @public
+   */
+  anomalyVisibilityTime?: number | undefined;
+
+  /**
+   * <p>Use this parameter to pause or restart the anomaly detector. </p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledQueryRequest {
+  /**
+   * <p>The name or ARN of the scheduled query to update.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>Updated description for the scheduled query.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Updated query language to use (LogsQL, PPL, or SQL).</p>
+   * @public
+   */
+  queryLanguage: QueryLanguage | undefined;
+
+  /**
+   * <p>Updated CloudWatch Logs Insights query string to execute.</p>
+   * @public
+   */
+  queryString: string | undefined;
+
+  /**
+   * <p>Updated log group identifiers to query.</p>
+   * @public
+   */
+  logGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>Updated cron expression that defines when the scheduled query runs.</p>
+   * @public
+   */
+  scheduleExpression: string | undefined;
+
+  /**
+   * <p>Updated timezone in which the schedule expression is evaluated.</p>
+   * @public
+   */
+  timezone?: string | undefined;
+
+  /**
+   * <p>Updated time offset in seconds from the execution time for the start of the query time range.</p>
+   * @public
+   */
+  startTimeOffset?: number | undefined;
+
+  /**
+   * <p>Updated configuration for destinations where the query results will be delivered.</p>
+   * @public
+   */
+  destinationConfiguration?: DestinationConfiguration | undefined;
+
+  /**
+   * <p>Updated start time for the query schedule in Unix epoch time.</p>
+   * @public
+   */
+  scheduleStartTime?: number | undefined;
+
+  /**
+   * <p>Updated end time for the query schedule in Unix epoch time.</p>
+   * @public
+   */
+  scheduleEndTime?: number | undefined;
+
+  /**
+   * <p>Updated ARN of the IAM role that CloudWatch Logs will assume to execute the scheduled query.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>Updated state of the scheduled query (ENABLED or DISABLED).</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledQueryResponse {
+  /**
+   * <p>The ARN of the updated scheduled query.</p>
+   * @public
+   */
+  scheduledQueryArn?: string | undefined;
+
+  /**
+   * <p>The name of the updated scheduled query.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the updated scheduled query.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The query language used by the updated scheduled query.</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
+  /**
+   * <p>The query string of the updated scheduled query.</p>
+   * @public
+   */
+  queryString?: string | undefined;
+
+  /**
+   * <p>The log group identifiers of the updated scheduled query.</p>
+   * @public
+   */
+  logGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The schedule expression of the updated scheduled query.</p>
+   * @public
+   */
+  scheduleExpression?: string | undefined;
+
+  /**
+   * <p>The timezone of the updated scheduled query.</p>
+   * @public
+   */
+  timezone?: string | undefined;
+
+  /**
+   * <p>The start time offset of the updated scheduled query.</p>
+   * @public
+   */
+  startTimeOffset?: number | undefined;
+
+  /**
+   * <p>The destination configuration of the updated scheduled query.</p>
+   * @public
+   */
+  destinationConfiguration?: DestinationConfiguration | undefined;
+
+  /**
+   * <p>The state of the updated scheduled query.</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>The time when the updated scheduled query was last executed.</p>
+   * @public
+   */
+  lastTriggeredTime?: number | undefined;
+
+  /**
+   * <p>The status of the last execution of the updated scheduled query (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * @public
+   */
+  lastExecutionStatus?: ExecutionStatus | undefined;
+
+  /**
+   * <p>The schedule start time of the updated scheduled query.</p>
+   * @public
+   */
+  scheduleStartTime?: number | undefined;
+
+  /**
+   * <p>The schedule end time of the updated scheduled query.</p>
+   * @public
+   */
+  scheduleEndTime?: number | undefined;
+
+  /**
+   * <p>The execution role ARN of the updated scheduled query.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The creation time of the updated scheduled query.</p>
+   * @public
+   */
+  creationTime?: number | undefined;
+
+  /**
+   * <p>The last updated time of the scheduled query.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
 }

@@ -228,7 +228,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottledRequestException as __ThrottledRequestException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SocialMessagingServiceException as __SocialMessagingServiceException } from "../models/SocialMessagingServiceException";
 
 /* eslint no-var: 0 */

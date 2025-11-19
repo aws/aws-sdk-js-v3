@@ -234,7 +234,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MigrationHubOrchestratorServiceException as __MigrationHubOrchestratorServiceException } from "../models/MigrationHubOrchestratorServiceException";
 
 /* eslint no-var: 0 */

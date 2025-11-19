@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_3";
+import { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_2";
 import { SubmitContactEvaluation } from "../schemas/schemas_0";
 
 /**

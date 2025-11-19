@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteTransitGatewayPrefixListReferenceRequest,
   DeleteTransitGatewayPrefixListReferenceResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteTransitGatewayPrefixListReference } from "../schemas/schemas_0";
 
 /**

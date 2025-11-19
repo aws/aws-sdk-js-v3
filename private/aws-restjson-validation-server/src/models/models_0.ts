@@ -13,11 +13,12 @@ import {
   RangeValidator as __RangeValidator,
   RequiredValidator as __RequiredValidator,
   SensitiveConstraintValidator as __SensitiveConstraintValidator,
-  ServiceException as __BaseException,
   UniqueItemsValidator as __UniqueItemsValidator,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
+import { EnumString, FooEnum, IntegerEnum, RecursiveEnumString } from "./enums";
 
 /**
  * @public
@@ -50,43 +51,6 @@ export namespace GreetingStruct {
     return [...getMemberValidator("hi").validate(obj.hi, `${path}/hi`)];
   };
 }
-
-/**
- * @public
- * @enum
- */
-export const FooEnum = {
-  BAR: "Bar",
-  BAZ: "Baz",
-  FOO: "Foo",
-  ONE: "1",
-  ZERO: "0",
-} as const;
-/**
- * @public
- */
-export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
-
-export enum IntegerEnum {
-  A = 1,
-  B = 2,
-  C = 3,
-}
-
-/**
- * @public
- * @enum
- */
-export const EnumString = {
-  ABC: "abc",
-  DEF: "def",
-  GHI: "ghi",
-  JKL: "jkl",
-} as const;
-/**
- * @public
- */
-export type EnumString = (typeof EnumString)[keyof typeof EnumString];
 
 /**
  * @public
@@ -311,33 +275,6 @@ export namespace ValidationExceptionField {
       ...getMemberValidator("message").validate(obj.message, `${path}/message`),
     ];
   };
-}
-
-/**
- * A standard error for input validation failures.
- * This should be thrown by services when a member of the input structure
- * falls outside of the modeled or documented constraints.
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * A list of specific failures encountered while validating the input.
-   * A member can appear in this list more than once if it failed to satisfy multiple constraints.
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -1430,19 +1367,6 @@ export namespace MalformedUniqueItemsInput {
     ];
   };
 }
-
-/**
- * @public
- * @enum
- */
-export const RecursiveEnumString = {
-  ABC: "abc",
-  DEF: "def",
-} as const;
-/**
- * @public
- */
-export type RecursiveEnumString = (typeof RecursiveEnumString)[keyof typeof RecursiveEnumString];
 
 /**
  * @public

@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { FailoverPrimaryComputeInputMessage, FailoverPrimaryComputeResult } from "../models/models_1";
+import { FailoverPrimaryComputeInputMessage, FailoverPrimaryComputeResult } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { FailoverPrimaryCompute } from "../schemas/schemas_0";
 

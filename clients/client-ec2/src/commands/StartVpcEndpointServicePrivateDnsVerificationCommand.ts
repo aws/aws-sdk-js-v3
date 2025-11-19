@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-} from "../models/models_8";
+} from "../models/models_7";
 import { StartVpcEndpointServicePrivateDnsVerification } from "../schemas/schemas_0";
 
 /**

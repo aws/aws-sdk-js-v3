@@ -1,42 +1,74 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { BedrockAgentServiceException as __BaseException } from "./BedrockAgentServiceException";
-
-/**
- * <p>The request is denied because of missing access permissions.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CustomControlMethod = {
-  RETURN_CONTROL: "RETURN_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type CustomControlMethod = (typeof CustomControlMethod)[keyof typeof CustomControlMethod];
+import {
+  ActionGroupSignature,
+  ActionGroupState,
+  AgentAliasStatus,
+  AgentCollaboration,
+  AgentStatus,
+  AliasInvocationState,
+  CachePointType,
+  ChunkingStrategy,
+  ConcurrencyType,
+  ConfluenceAuthType,
+  ConfluenceHostType,
+  ContentDataSourceType,
+  ContextEnrichmentType,
+  ConversationRole,
+  CrawlFilterConfigurationType,
+  CreationMode,
+  CustomControlMethod,
+  CustomSourceType,
+  DataDeletionPolicy,
+  DataSourceStatus,
+  DataSourceType,
+  DocumentStatus,
+  EmbeddingDataType,
+  EnrichmentStrategyMethod,
+  FlowConnectionType,
+  FlowNodeInputCategory,
+  FlowNodeIODataType,
+  FlowStatus,
+  FlowValidationSeverity,
+  FlowValidationType,
+  IncludeExclude,
+  IncompatibleLoopNodeType,
+  IngestionJobFilterAttribute,
+  IngestionJobFilterOperator,
+  IngestionJobSortByAttribute,
+  IngestionJobStatus,
+  InlineContentType,
+  KnowledgeBaseState,
+  MemoryType,
+  MetadataSourceType,
+  MetadataValueType,
+  OrchestrationType,
+  ParsingModality,
+  ParsingStrategy,
+  PerformanceConfigLatency,
+  PromptState,
+  PromptTemplateType,
+  PromptType,
+  QueryEngineType,
+  RedshiftProvisionedAuthType,
+  RedshiftQueryEngineStorageType,
+  RedshiftQueryEngineType,
+  RedshiftServerlessAuthType,
+  RelayConversationHistory,
+  RequireConfirmation,
+  RerankingMetadataSelectionMode,
+  SalesforceAuthType,
+  SharePointAuthType,
+  SharePointHostType,
+  SortOrder,
+  StepType,
+  SupplementalDataStorageLocationType,
+  SupportedLanguages,
+  Type,
+  VectorSearchRerankingConfigurationType,
+  WebScopeType,
+} from "./enums";
 
 /**
  * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
@@ -90,40 +122,6 @@ export namespace ActionGroupExecutor {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * <p>There was a conflict performing an operation.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionGroupState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ActionGroupState = (typeof ActionGroupState)[keyof typeof ActionGroupState];
 
 /**
  * <p>The identifier information for an Amazon S3 bucket.</p>
@@ -194,23 +192,6 @@ export namespace APISchema {
 }
 
 /**
- * @public
- * @enum
- */
-export const Type = {
-  ARRAY: "array",
-  BOOLEAN: "boolean",
-  INTEGER: "integer",
-  NUMBER: "number",
-  STRING: "string",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
  * <p>Contains details about a parameter in a function for an action group.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a> </p> </li> </ul>
  * @public
  */
@@ -233,20 +214,6 @@ export interface ParameterDetail {
    */
   required?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RequireConfirmation = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RequireConfirmation = (typeof RequireConfirmation)[keyof typeof RequireConfirmation];
 
 /**
  * <p>Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a> </p> </li> </ul>
@@ -314,23 +281,6 @@ export namespace FunctionSchema {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionGroupSignature = {
-  AMAZON_CODEINTERPRETER: "AMAZON.CodeInterpreter",
-  AMAZON_USERINPUT: "AMAZON.UserInput",
-  ANTHROPIC_BASH: "ANTHROPIC.Bash",
-  ANTHROPIC_COMPUTER: "ANTHROPIC.Computer",
-  ANTHROPIC_TEXTEDITOR: "ANTHROPIC.TextEditor",
-} as const;
-
-/**
- * @public
- */
-export type ActionGroupSignature = (typeof ActionGroupSignature)[keyof typeof ActionGroupSignature];
 
 /**
  * @public
@@ -505,86 +455,6 @@ export interface CreateAgentActionGroupResponse {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>Stores information about a field passed inside a request that resulted in an validation error.</p>
  * @public
  */
@@ -600,33 +470,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A list of objects containing fields that caused validation errors and their corresponding validation error messages.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -862,41 +705,6 @@ export interface UpdateAgentActionGroupResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentCollaboration = {
-  DISABLED: "DISABLED",
-  SUPERVISOR: "SUPERVISOR",
-  SUPERVISOR_ROUTER: "SUPERVISOR_ROUTER",
-} as const;
-
-/**
- * @public
- */
-export type AgentCollaboration = (typeof AgentCollaboration)[keyof typeof AgentCollaboration];
-
-/**
- * @public
- * @enum
- */
-export const AgentStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  NOT_PREPARED: "NOT_PREPARED",
-  PREPARED: "PREPARED",
-  PREPARING: "PREPARING",
-  UPDATING: "UPDATING",
-  VERSIONING: "VERSIONING",
-} as const;
-
-/**
- * @public
- */
-export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
-
-/**
  * <p> Contains details about the Lambda function containing the orchestration logic carried out upon invoking the custom orchestration. </p>
  * @public
  */
@@ -964,19 +772,6 @@ export interface GuardrailConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const MemoryType = {
-  SESSION_SUMMARY: "SESSION_SUMMARY",
-} as const;
-
-/**
- * @public
- */
-export type MemoryType = (typeof MemoryType)[keyof typeof MemoryType];
-
-/**
  * <p>Configuration for SESSION_SUMMARY memory type enabled for the agent.</p>
  * @public
  */
@@ -1013,20 +808,6 @@ export interface MemoryConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrchestrationType = {
-  CUSTOM_ORCHESTRATION: "CUSTOM_ORCHESTRATION",
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type OrchestrationType = (typeof OrchestrationType)[keyof typeof OrchestrationType];
-
-/**
  * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  * @public
  */
@@ -1061,51 +842,6 @@ export interface InferenceConfiguration {
    */
   stopSequences?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CreationMode = {
-  DEFAULT: "DEFAULT",
-  OVERRIDDEN: "OVERRIDDEN",
-} as const;
-
-/**
- * @public
- */
-export type CreationMode = (typeof CreationMode)[keyof typeof CreationMode];
-
-/**
- * @public
- * @enum
- */
-export const PromptState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PromptState = (typeof PromptState)[keyof typeof PromptState];
-
-/**
- * @public
- * @enum
- */
-export const PromptType = {
-  KNOWLEDGE_BASE_RESPONSE_GENERATION: "KNOWLEDGE_BASE_RESPONSE_GENERATION",
-  MEMORY_SUMMARIZATION: "MEMORY_SUMMARIZATION",
-  ORCHESTRATION: "ORCHESTRATION",
-  POST_PROCESSING: "POST_PROCESSING",
-  PRE_PROCESSING: "PRE_PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type PromptType = (typeof PromptType)[keyof typeof PromptType];
 
 /**
  * <p>Contains configurations to override a prompt template in one part of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
@@ -1366,44 +1102,6 @@ export interface AgentAliasHistoryEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentAliasStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  DISSOCIATED: "DISSOCIATED",
-  FAILED: "FAILED",
-  PREPARED: "PREPARED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type AgentAliasStatus = (typeof AgentAliasStatus)[keyof typeof AgentAliasStatus];
-
-/**
- * @public
- * @enum
- */
-export const AliasInvocationState = {
-  /**
-   * Agent is actively processing requests
-   */
-  ACCEPT_INVOCATIONS: "ACCEPT_INVOCATIONS",
-  /**
-   * Agent is paused and will not accept new requests
-   */
-  REJECT_INVOCATIONS: "REJECT_INVOCATIONS",
-} as const;
-
-/**
- * @public
- */
-export type AliasInvocationState = (typeof AliasInvocationState)[keyof typeof AliasInvocationState];
-
-/**
  * <p>Contains details about an alias of an agent.</p>
  * @public
  */
@@ -1552,20 +1250,6 @@ export interface AgentDescriptor {
    */
   aliasArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RelayConversationHistory = {
-  DISABLED: "DISABLED",
-  TO_COLLABORATOR: "TO_COLLABORATOR",
-} as const;
-
-/**
- * @public
- */
-export type RelayConversationHistory = (typeof RelayConversationHistory)[keyof typeof RelayConversationHistory];
 
 /**
  * <p>An agent collaborator.</p>
@@ -1928,20 +1612,6 @@ export interface AgentFlowNodeConfiguration {
    */
   agentAliasArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KnowledgeBaseState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type KnowledgeBaseState = (typeof KnowledgeBaseState)[keyof typeof KnowledgeBaseState];
 
 /**
  * <p>Contains details about a knowledge base that is associated with an agent.</p>
@@ -2786,20 +2456,6 @@ export interface UpdateAgentAliasResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataDeletionPolicy = {
-  DELETE: "DELETE",
-  RETAIN: "RETAIN",
-} as const;
-
-/**
- * @public
- */
-export type DataDeletionPolicy = (typeof DataDeletionPolicy)[keyof typeof DataDeletionPolicy];
-
-/**
  * <p>The specific filters applied to your data source content. You can filter out or include certain content.</p>
  * @public
  */
@@ -2836,20 +2492,6 @@ export interface PatternObjectFilterConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CrawlFilterConfigurationType = {
-  PATTERN: "PATTERN",
-} as const;
-
-/**
- * @public
- */
-export type CrawlFilterConfigurationType =
-  (typeof CrawlFilterConfigurationType)[keyof typeof CrawlFilterConfigurationType];
-
-/**
  * <p>The configuration of filtering the data source content. For example, configuring regular expression patterns to include or exclude certain content.</p>
  * @public
  */
@@ -2878,33 +2520,6 @@ export interface ConfluenceCrawlerConfiguration {
    */
   filterConfiguration?: CrawlFilterConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfluenceAuthType = {
-  BASIC: "BASIC",
-  OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceAuthType = (typeof ConfluenceAuthType)[keyof typeof ConfluenceAuthType];
-
-/**
- * @public
- * @enum
- */
-export const ConfluenceHostType = {
-  SAAS: "SAAS",
-} as const;
-
-/**
- * @public
- */
-export type ConfluenceHostType = (typeof ConfluenceHostType)[keyof typeof ConfluenceHostType];
 
 /**
  * <p>The endpoint information to connect to your Confluence data source.</p>
@@ -2991,19 +2606,6 @@ export interface SalesforceCrawlerConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SalesforceAuthType = {
-  OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type SalesforceAuthType = (typeof SalesforceAuthType)[keyof typeof SalesforceAuthType];
-
-/**
  * <p>The endpoint information to connect to your Salesforce data source.</p>
  * @public
  */
@@ -3056,33 +2658,6 @@ export interface SharePointCrawlerConfiguration {
    */
   filterConfiguration?: CrawlFilterConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SharePointAuthType = {
-  OAUTH2_CLIENT_CREDENTIALS: "OAUTH2_CLIENT_CREDENTIALS",
-  OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS: "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type SharePointAuthType = (typeof SharePointAuthType)[keyof typeof SharePointAuthType];
-
-/**
- * @public
- * @enum
- */
-export const SharePointHostType = {
-  ONLINE: "ONLINE",
-} as const;
-
-/**
- * @public
- */
-export type SharePointHostType = (typeof SharePointHostType)[keyof typeof SharePointHostType];
 
 /**
  * <p>The endpoint information to connect to your SharePoint data source.</p>
@@ -3145,25 +2720,6 @@ export interface SharePointDataSourceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataSourceType = {
-  CONFLUENCE: "CONFLUENCE",
-  CUSTOM: "CUSTOM",
-  REDSHIFT_METADATA: "REDSHIFT_METADATA",
-  S3: "S3",
-  SALESFORCE: "SALESFORCE",
-  SHAREPOINT: "SHAREPOINT",
-  WEB: "WEB",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
-
-/**
  * <p>The rate limits for the URLs that you want to crawl. You should be authorized to crawl the URLs.</p>
  * @public
  */
@@ -3180,20 +2736,6 @@ export interface WebCrawlerLimits {
    */
   maxPages?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebScopeType = {
-  HOST_ONLY: "HOST_ONLY",
-  SUBDOMAINS: "SUBDOMAINS",
-} as const;
-
-/**
- * @public
- */
-export type WebScopeType = (typeof WebScopeType)[keyof typeof WebScopeType];
 
 /**
  * <p>The configuration of web URLs that you want to crawl. You should be authorized to crawl the URLs.</p>
@@ -3346,22 +2888,6 @@ export interface ServerSideEncryptionConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChunkingStrategy = {
-  FIXED_SIZE: "FIXED_SIZE",
-  HIERARCHICAL: "HIERARCHICAL",
-  NONE: "NONE",
-  SEMANTIC: "SEMANTIC",
-} as const;
-
-/**
- * @public
- */
-export type ChunkingStrategy = (typeof ChunkingStrategy)[keyof typeof ChunkingStrategy];
-
-/**
  * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
  * @public
  */
@@ -3464,19 +2990,6 @@ export interface ChunkingConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnrichmentStrategyMethod = {
-  CHUNK_ENTITY_EXTRACTION: "CHUNK_ENTITY_EXTRACTION",
-} as const;
-
-/**
- * @public
- */
-export type EnrichmentStrategyMethod = (typeof EnrichmentStrategyMethod)[keyof typeof EnrichmentStrategyMethod];
-
-/**
  * <p>The strategy used for performing context enrichment.</p>
  * @public
  */
@@ -3505,19 +3018,6 @@ export interface BedrockFoundationModelContextEnrichmentConfiguration {
    */
   modelArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContextEnrichmentType = {
-  BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type ContextEnrichmentType = (typeof ContextEnrichmentType)[keyof typeof ContextEnrichmentType];
 
 /**
  * <p>Context enrichment configuration is used to provide additional context to the RAG application.</p>
@@ -3560,19 +3060,6 @@ export interface IntermediateStorage {
    */
   s3Location: S3Location | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StepType = {
-  POST_CHUNKING: "POST_CHUNKING",
-} as const;
-
-/**
- * @public
- */
-export type StepType = (typeof StepType)[keyof typeof StepType];
 
 /**
  * <p>A Lambda function that processes documents.</p>
@@ -3635,19 +3122,6 @@ export interface CustomTransformationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ParsingModality = {
-  MULTIMODAL: "MULTIMODAL",
-} as const;
-
-/**
- * @public
- */
-export type ParsingModality = (typeof ParsingModality)[keyof typeof ParsingModality];
-
-/**
  * <p>Contains configurations for using Amazon Bedrock Data Automation as the parser for ingesting your data sources.</p>
  * @public
  */
@@ -3694,20 +3168,6 @@ export interface BedrockFoundationModelConfiguration {
    */
   parsingModality?: ParsingModality | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParsingStrategy = {
-  BEDROCK_DATA_AUTOMATION: "BEDROCK_DATA_AUTOMATION",
-  BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type ParsingStrategy = (typeof ParsingStrategy)[keyof typeof ParsingStrategy];
 
 /**
  * <p>Settings for parsing document contents. If you exclude this field, the default parser converts the contents of each document into text before splitting it into chunks. Specify the parsing strategy to use in the <code>parsingStrategy</code> field and include the relevant configuration, or omit it to use the Amazon Bedrock default parser. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html">Parsing options for your data source</a>.</p> <note> <p>If you specify <code>BEDROCK_DATA_AUTOMATION</code> or <code>BEDROCK_FOUNDATION_MODEL</code> and it fails to parse a file, the Amazon Bedrock default parser will be used instead.</p> </note>
@@ -3815,21 +3275,6 @@ export interface CreateDataSourceRequest {
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataSourceStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
 /**
  * <p>Contains details about a data source.</p>
@@ -4218,20 +3663,6 @@ export namespace FlowConnectionConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const FlowConnectionType = {
-  CONDITIONAL: "Conditional",
-  DATA: "Data",
-} as const;
-
-/**
- * @public
- */
-export type FlowConnectionType = (typeof FlowConnectionType)[keyof typeof FlowConnectionType];
-
-/**
  * <p>Contains information about a connection between two nodes in the flow.</p>
  * @public
  */
@@ -4302,19 +3733,6 @@ export interface ConditionFlowNodeConfiguration {
    */
   conditions: FlowCondition[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SupportedLanguages = {
-  PYTHON_3: "Python_3",
-} as const;
-
-/**
- * @public
- */
-export type SupportedLanguages = (typeof SupportedLanguages)[keyof typeof SupportedLanguages];
 
 /**
  * <p>Contains configurations for an inline code node in your flow. Inline code nodes let you write and execute code directly within your flow, enabling data transformations, custom logic, and integrations without needing an external Lambda function.</p>
@@ -4416,20 +3834,6 @@ export namespace PromptInferenceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PerformanceConfigLatency = {
-  OPTIMIZED: "optimized",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
-
-/**
  * <p>The performance-related configuration options for the knowledge base retrieval and generation process.</p>
  * @public
  */
@@ -4482,21 +3886,6 @@ export interface KnowledgeBaseOrchestrationConfiguration {
    */
   performanceConfig?: PerformanceConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RerankingMetadataSelectionMode = {
-  ALL: "ALL",
-  SELECTIVE: "SELECTIVE",
-} as const;
-
-/**
- * @public
- */
-export type RerankingMetadataSelectionMode =
-  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
 
 /**
  * <p>Specifies a metadata field to include or exclude during the reranking process.</p>
@@ -4622,20 +4011,6 @@ export interface VectorSearchBedrockRerankingConfiguration {
    */
   metadataConfiguration?: MetadataConfigurationForReranking | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VectorSearchRerankingConfigurationType = {
-  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type VectorSearchRerankingConfigurationType =
-  (typeof VectorSearchRerankingConfigurationType)[keyof typeof VectorSearchRerankingConfigurationType];
 
 /**
  * <p>Specifies how retrieved results from a knowledge base are reranked to improve relevance.</p>
@@ -4782,19 +4157,6 @@ export interface PromptInputVariable {
 }
 
 /**
- * @public
- * @enum
- */
-export const CachePointType = {
-  DEFAULT: "default",
-} as const;
-
-/**
- * @public
- */
-export type CachePointType = (typeof CachePointType)[keyof typeof CachePointType];
-
-/**
  * <p>Indicates where a cache checkpoint is located. All information before this checkpoint is cached to be accessed on subsequent requests.</p>
  * @public
  */
@@ -4855,20 +4217,6 @@ export namespace ContentBlock {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ConversationRole = {
-  ASSISTANT: "assistant",
-  USER: "user",
-} as const;
-
-/**
- * @public
- */
-export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
 
 /**
  * <p>A message input or response from a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
@@ -5271,20 +4619,6 @@ export namespace PromptTemplateConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PromptTemplateType = {
-  CHAT: "CHAT",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type PromptTemplateType = (typeof PromptTemplateType)[keyof typeof PromptTemplateType];
-
-/**
  * <p>Contains configurations for a prompt defined inline in the node.</p>
  * @public
  */
@@ -5530,38 +4864,6 @@ export interface StorageFlowNodeConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const FlowNodeInputCategory = {
-  EXIT_LOOP: "ExitLoop",
-  LOOP_CONDITION: "LoopCondition",
-  RETURN_VALUE_TO_LOOP_START: "ReturnValueToLoopStart",
-} as const;
-
-/**
- * @public
- */
-export type FlowNodeInputCategory = (typeof FlowNodeInputCategory)[keyof typeof FlowNodeInputCategory];
-
-/**
- * @public
- * @enum
- */
-export const FlowNodeIODataType = {
-  ARRAY: "Array",
-  BOOLEAN: "Boolean",
-  NUMBER: "Number",
-  OBJECT: "Object",
-  STRING: "String",
-} as const;
-
-/**
- * @public
- */
-export type FlowNodeIODataType = (typeof FlowNodeIODataType)[keyof typeof FlowNodeIODataType];
-
-/**
  * <p>Contains configurations for an input in an Amazon Bedrock Flows node.</p>
  * @public
  */
@@ -5611,50 +4913,6 @@ export interface FlowNodeOutput {
 
 /**
  * @public
- * @enum
- */
-export const FlowNodeType = {
-  AGENT: "Agent",
-  COLLECTOR: "Collector",
-  CONDITION: "Condition",
-  INLINE_CODE: "InlineCode",
-  INPUT: "Input",
-  ITERATOR: "Iterator",
-  KNOWLEDGE_BASE: "KnowledgeBase",
-  LAMBDA_FUNCTION: "LambdaFunction",
-  LEX: "Lex",
-  LOOP: "Loop",
-  LOOP_CONTROLLER: "LoopController",
-  LOOP_INPUT: "LoopInput",
-  OUTPUT: "Output",
-  PROMPT: "Prompt",
-  RETRIEVAL: "Retrieval",
-  STORAGE: "Storage",
-} as const;
-
-/**
- * @public
- */
-export type FlowNodeType = (typeof FlowNodeType)[keyof typeof FlowNodeType];
-
-/**
- * @public
- * @enum
- */
-export const FlowStatus = {
-  FAILED: "Failed",
-  NOT_PREPARED: "NotPrepared",
-  PREPARED: "Prepared",
-  PREPARING: "Preparing",
-} as const;
-
-/**
- * @public
- */
-export type FlowStatus = (typeof FlowStatus)[keyof typeof FlowStatus];
-
-/**
- * @public
  */
 export interface DeleteFlowRequest {
   /**
@@ -5680,20 +4938,6 @@ export interface DeleteFlowResponse {
    */
   id: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConcurrencyType = {
-  AUTOMATIC: "Automatic",
-  MANUAL: "Manual",
-} as const;
-
-/**
- * @public
- */
-export type ConcurrencyType = (typeof ConcurrencyType)[keyof typeof ConcurrencyType];
 
 /**
  * <p>Determines how multiple nodes in a flow can run in parallel. Running nodes concurrently can improve your flow's performance.</p>
@@ -6391,22 +5635,6 @@ export interface InvalidLoopBoundaryFlowValidationDetails {
    */
   target: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IncompatibleLoopNodeType = {
-  COLLECTOR: "Collector",
-  CONDITION: "Condition",
-  INPUT: "Input",
-  ITERATOR: "Iterator",
-} as const;
-
-/**
- * @public
- */
-export type IncompatibleLoopNodeType = (typeof IncompatibleLoopNodeType)[keyof typeof IncompatibleLoopNodeType];
 
 /**
  * <p>Details about a flow that contains an incompatible node in a DoWhile loop.</p>
@@ -8302,65 +7530,6 @@ export namespace FlowValidationDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const FlowValidationSeverity = {
-  ERROR: "Error",
-  WARNING: "Warning",
-} as const;
-
-/**
- * @public
- */
-export type FlowValidationSeverity = (typeof FlowValidationSeverity)[keyof typeof FlowValidationSeverity];
-
-/**
- * @public
- * @enum
- */
-export const FlowValidationType = {
-  CYCLIC_CONNECTION: "CyclicConnection",
-  DUPLICATE_CONDITION_EXPRESSION: "DuplicateConditionExpression",
-  DUPLICATE_CONNECTIONS: "DuplicateConnections",
-  INCOMPATIBLE_CONNECTION_DATA_TYPE: "IncompatibleConnectionDataType",
-  INVALID_LOOP_BOUNDARY: "InvalidLoopBoundary",
-  LOOP_INCOMPATIBLE_NODE_TYPE: "LoopIncompatibleNodeType",
-  MALFORMED_CONDITION_EXPRESSION: "MalformedConditionExpression",
-  MALFORMED_NODE_INPUT_EXPRESSION: "MalformedNodeInputExpression",
-  MISMATCHED_NODE_INPUT_TYPE: "MismatchedNodeInputType",
-  MISMATCHED_NODE_OUTPUT_TYPE: "MismatchedNodeOutputType",
-  MISSING_CONNECTION_CONFIGURATION: "MissingConnectionConfiguration",
-  MISSING_DEFAULT_CONDITION: "MissingDefaultCondition",
-  MISSING_ENDING_NODES: "MissingEndingNodes",
-  MISSING_LOOP_CONTROLLER_NODE: "MissingLoopControllerNode",
-  MISSING_LOOP_INPUT_NODE: "MissingLoopInputNode",
-  MISSING_NODE_CONFIGURATION: "MissingNodeConfiguration",
-  MISSING_NODE_INPUT: "MissingNodeInput",
-  MISSING_NODE_OUTPUT: "MissingNodeOutput",
-  MISSING_STARTING_NODES: "MissingStartingNodes",
-  MULTIPLE_LOOP_CONTROLLER_NODES: "MultipleLoopControllerNodes",
-  MULTIPLE_LOOP_INPUT_NODES: "MultipleLoopInputNodes",
-  MULTIPLE_NODE_INPUT_CONNECTIONS: "MultipleNodeInputConnections",
-  UNFULFILLED_NODE_INPUT: "UnfulfilledNodeInput",
-  UNKNOWN_CONNECTION_CONDITION: "UnknownConnectionCondition",
-  UNKNOWN_CONNECTION_SOURCE: "UnknownConnectionSource",
-  UNKNOWN_CONNECTION_SOURCE_OUTPUT: "UnknownConnectionSourceOutput",
-  UNKNOWN_CONNECTION_TARGET: "UnknownConnectionTarget",
-  UNKNOWN_CONNECTION_TARGET_INPUT: "UnknownConnectionTargetInput",
-  UNKNOWN_NODE_INPUT: "UnknownNodeInput",
-  UNKNOWN_NODE_OUTPUT: "UnknownNodeOutput",
-  UNREACHABLE_NODE: "UnreachableNode",
-  UNSATISFIED_CONNECTION_CONDITIONS: "UnsatisfiedConnectionConditions",
-  UNSPECIFIED: "Unspecified",
-} as const;
-
-/**
- * @public
- */
-export type FlowValidationType = (typeof FlowValidationType)[keyof typeof FlowValidationType];
-
-/**
  * <p>Contains information about validation of the flow.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html#API_agent_GetFlow_ResponseSyntax">GetFlow response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlowVersion.html#API_agent_GetFlowVersion_ResponseSyntax">GetFlowVersion response</a> </p> </li> </ul>
  * @public
  */
@@ -8575,4 +7744,1193 @@ export interface IngestionJobStatistics {
    * @public
    */
   numberOfDocumentsFailed?: number | undefined;
+}
+
+/**
+ * <p>Contains details about a data ingestion job. Data sources are ingested into a knowledge base so that Large Language Models (LLMs) can use your data.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StartIngestionJob.html#API_agent_StartIngestionJob_ResponseSyntax">StartIngestionJob response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html#API_agent_GetIngestionJob_ResponseSyntax">GetIngestionJob response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html#API_agent_ListIngestionJobs_ResponseSyntax">ListIngestionJob response</a> </p> </li> </ul>
+ * @public
+ */
+export interface IngestionJob {
+  /**
+   * <p>The unique identifier of the knowledge for the data ingestion job.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source for the data ingestion job.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data ingestion job.</p>
+   * @public
+   */
+  ingestionJobId: string | undefined;
+
+  /**
+   * <p>The description of the data ingestion job.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the data ingestion job.</p>
+   * @public
+   */
+  status: IngestionJobStatus | undefined;
+
+  /**
+   * <p>Contains statistics about the data ingestion job.</p>
+   * @public
+   */
+  statistics?: IngestionJobStatistics | undefined;
+
+  /**
+   * <p>A list of reasons that the data ingestion job failed.</p>
+   * @public
+   */
+  failureReasons?: string[] | undefined;
+
+  /**
+   * <p>The time the data ingestion job started.</p> <p>If you stop a data ingestion job, the <code>startedAt</code> time is the time the job was started before the job was stopped.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The time the data ingestion job was last updated.</p> <p>If you stop a data ingestion job, the <code>updatedAt</code> time is the time the job was stopped.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestionJobResponse {
+  /**
+   * <p>Contains details about the data ingestion job.</p>
+   * @public
+   */
+  ingestionJob: IngestionJob | undefined;
+}
+
+/**
+ * <p>The definition of a filter to filter the data.</p>
+ * @public
+ */
+export interface IngestionJobFilter {
+  /**
+   * <p>The name of field or attribute to apply the filter.</p>
+   * @public
+   */
+  attribute: IngestionJobFilterAttribute | undefined;
+
+  /**
+   * <p>The operation to apply to the field or attribute.</p>
+   * @public
+   */
+  operator: IngestionJobFilterOperator | undefined;
+
+  /**
+   * <p>A list of values that belong to the field or attribute.</p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * <p>The parameters of sorting the data.</p>
+ * @public
+ */
+export interface IngestionJobSortBy {
+  /**
+   * <p>The name of field or attribute to apply sorting of data.</p>
+   * @public
+   */
+  attribute: IngestionJobSortByAttribute | undefined;
+
+  /**
+   * <p>The order for sorting the data.</p>
+   * @public
+   */
+  order: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionJobsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base for the list of data ingestion jobs.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source for the list of data ingestion jobs.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>Contains information about the filters for filtering the data.</p>
+   * @public
+   */
+  filters?: IngestionJobFilter[] | undefined;
+
+  /**
+   * <p>Contains details about how to sort the data.</p>
+   * @public
+   */
+  sortBy?: IngestionJobSortBy | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a data ingestion job.</p>
+ * @public
+ */
+export interface IngestionJobSummary {
+  /**
+   * <p>The unique identifier of the knowledge base for the data ingestion job.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source for the data ingestion job.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data ingestion job.</p>
+   * @public
+   */
+  ingestionJobId: string | undefined;
+
+  /**
+   * <p>The description of the data ingestion job.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the data ingestion job.</p>
+   * @public
+   */
+  status: IngestionJobStatus | undefined;
+
+  /**
+   * <p>The time the data ingestion job started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The time the data ingestion job was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Contains statistics for the data ingestion job.</p>
+   * @public
+   */
+  statistics?: IngestionJobStatistics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionJobsResponse {
+  /**
+   * <p>A list of data ingestion jobs with information about each job.</p>
+   * @public
+   */
+  ingestionJobSummaries: IngestionJobSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartIngestionJobRequest {
+  /**
+   * <p>The unique identifier of the knowledge base for the data ingestion job.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source you want to ingest into your knowledge base.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A description of the data ingestion job.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartIngestionJobResponse {
+  /**
+   * <p>Contains information about the data ingestion job.</p>
+   * @public
+   */
+  ingestionJob: IngestionJob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopIngestionJobRequest {
+  /**
+   * <p>The unique identifier of the knowledge base for the data ingestion job you want to stop.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source for the data ingestion job you want to stop.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data ingestion job you want to stop.</p>
+   * @public
+   */
+  ingestionJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopIngestionJobResponse {
+  /**
+   * <p>Contains information about the stopped data ingestion job.</p>
+   * @public
+   */
+  ingestionJob: IngestionJob | undefined;
+}
+
+/**
+ * <p>Contains information about the identifier of the document to ingest into a custom data source.</p>
+ * @public
+ */
+export interface CustomDocumentIdentifier {
+  /**
+   * <p>The identifier of the document to ingest into a custom data source.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * <p>Contains information that identifies the document.</p>
+ * @public
+ */
+export interface DocumentIdentifier {
+  /**
+   * <p>The type of data source connected to the knowledge base that contains the document.</p>
+   * @public
+   */
+  dataSourceType: ContentDataSourceType | undefined;
+
+  /**
+   * <p>Contains information that identifies the document in an S3 data source.</p>
+   * @public
+   */
+  s3?: S3Location | undefined;
+
+  /**
+   * <p>Contains information that identifies the document in a custom data source.</p>
+   * @public
+   */
+  custom?: CustomDocumentIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information to identify a document to delete.</p>
+   * @public
+   */
+  documentIdentifiers: DocumentIdentifier[] | undefined;
+}
+
+/**
+ * <p>Contains the details for a document that was ingested or deleted.</p>
+ * @public
+ */
+export interface KnowledgeBaseDocumentDetail {
+  /**
+   * <p>The identifier of the knowledge base that the document was ingested into or deleted from.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the data source connected to the knowledge base that the document was ingested into or deleted from.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The ingestion status of the document. The following statuses are possible:</p> <ul> <li> <p>STARTED – You submitted the ingestion job containing the document.</p> </li> <li> <p>PENDING – The document is waiting to be ingested.</p> </li> <li> <p>IN_PROGRESS – The document is being ingested.</p> </li> <li> <p>INDEXED – The document was successfully indexed.</p> </li> <li> <p>PARTIALLY_INDEXED – The document was partially indexed.</p> </li> <li> <p>METADATA_PARTIALLY_INDEXED – You submitted metadata for an existing document and it was partially indexed.</p> </li> <li> <p>METADATA_UPDATE_FAILED – You submitted a metadata update for an existing document but it failed.</p> </li> <li> <p>FAILED – The document failed to be ingested.</p> </li> <li> <p>NOT_FOUND – The document wasn't found.</p> </li> <li> <p>IGNORED – The document was ignored during ingestion.</p> </li> <li> <p>DELETING – You submitted the delete job containing the document.</p> </li> <li> <p>DELETE_IN_PROGRESS – The document is being deleted.</p> </li> </ul>
+   * @public
+   */
+  status: DocumentStatus | undefined;
+
+  /**
+   * <p>Contains information that identifies the document.</p>
+   * @public
+   */
+  identifier: DocumentIdentifier | undefined;
+
+  /**
+   * <p>The reason for the status. Appears alongside the status <code>IGNORED</code>.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The date and time at which the document was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were deleted.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information to identify a document for which to retrieve information.</p>
+   * @public
+   */
+  documentIdentifiers: DocumentIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * <p>Contains information about content defined inline in bytes.</p>
+ * @public
+ */
+export interface ByteContentDoc {
+  /**
+   * <p>The MIME type of the content. For a list of MIME types, see <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. The following MIME types are supported:</p> <ul> <li> <p>text/plain</p> </li> <li> <p>text/html</p> </li> <li> <p>text/csv</p> </li> <li> <p>text/vtt</p> </li> <li> <p>message/rfc822</p> </li> <li> <p>application/xhtml+xml</p> </li> <li> <p>application/pdf</p> </li> <li> <p>application/msword</p> </li> <li> <p>application/vnd.ms-word.document.macroenabled.12</p> </li> <li> <p>application/vnd.ms-word.template.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel</p> </li> <li> <p>application/vnd.ms-excel.addin.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel.sheet.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel.template.macroenabled.12</p> </li> <li> <p>application/vnd.ms-excel.sheet.binary.macroenabled.12</p> </li> <li> <p>application/vnd.ms-spreadsheetml</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.spreadsheetml.template</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.wordprocessingml.document</p> </li> <li> <p>application/vnd.openxmlformats-officedocument.wordprocessingml.template</p> </li> </ul>
+   * @public
+   */
+  mimeType: string | undefined;
+
+  /**
+   * <p>The base64-encoded string of the content.</p>
+   * @public
+   */
+  data: Uint8Array | undefined;
+}
+
+/**
+ * <p>Contains information about content defined inline in text.</p>
+ * @public
+ */
+export interface TextContentDoc {
+  /**
+   * <p>The text of the content.</p>
+   * @public
+   */
+  data: string | undefined;
+}
+
+/**
+ * <p>Contains information about content defined inline to ingest into a data source. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface InlineContent {
+  /**
+   * <p>The type of inline content to define.</p>
+   * @public
+   */
+  type: InlineContentType | undefined;
+
+  /**
+   * <p>Contains information about content defined inline in bytes.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc | undefined;
+
+  /**
+   * <p>Contains information about content defined inline in text.</p>
+   * @public
+   */
+  textContent?: TextContentDoc | undefined;
+}
+
+/**
+ * <p>Contains information about the Amazon S3 location of the file containing the content to ingest into a knowledge base connected to a custom data source.</p>
+ * @public
+ */
+export interface CustomS3Location {
+  /**
+   * <p>The S3 URI of the file containing the content to ingest.</p>
+   * @public
+   */
+  uri: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account that owns the S3 bucket containing the content to ingest.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source. Choose a <code>sourceType</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface CustomContent {
+  /**
+   * <p>A unique identifier for the document.</p>
+   * @public
+   */
+  customDocumentIdentifier: CustomDocumentIdentifier | undefined;
+
+  /**
+   * <p>The source of the data to ingest.</p>
+   * @public
+   */
+  sourceType: CustomSourceType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location of the file from which to ingest data.</p>
+   * @public
+   */
+  s3Location?: CustomS3Location | undefined;
+
+  /**
+   * <p>Contains information about content defined inline to ingest into a knowledge base.</p>
+   * @public
+   */
+  inlineContent?: InlineContent | undefined;
+}
+
+/**
+ * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source.</p>
+ * @public
+ */
+export interface S3Content {
+  /**
+   * <p>The S3 location of the file containing the content to ingest.</p>
+   * @public
+   */
+  s3Location: S3Location | undefined;
+}
+
+/**
+ * <p>Contains information about the content of a document. Choose a <code>dataSourceType</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface DocumentContent {
+  /**
+   * <p>The type of data source that is connected to the knowledge base to which to ingest this document.</p>
+   * @public
+   */
+  dataSourceType: ContentDataSourceType | undefined;
+
+  /**
+   * <p>Contains information about the content to ingest into a knowledge base connected to a custom data source.</p>
+   * @public
+   */
+  custom?: CustomContent | undefined;
+
+  /**
+   * <p>Contains information about the content to ingest into a knowledge base connected to an Amazon S3 data source</p>
+   * @public
+   */
+  s3?: S3Content | undefined;
+}
+
+/**
+ * <p>Contains the value of the metadata attribute. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface MetadataAttributeValue {
+  /**
+   * <p>The type of the metadata attribute.</p>
+   * @public
+   */
+  type: MetadataValueType | undefined;
+
+  /**
+   * <p>The value of the numeric metadata attribute.</p>
+   * @public
+   */
+  numberValue?: number | undefined;
+
+  /**
+   * <p>The value of the Boolean metadata attribute.</p>
+   * @public
+   */
+  booleanValue?: boolean | undefined;
+
+  /**
+   * <p>The value of the string metadata attribute.</p>
+   * @public
+   */
+  stringValue?: string | undefined;
+
+  /**
+   * <p>An array of strings that define the value of the metadata attribute.</p>
+   * @public
+   */
+  stringListValue?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a metadata attribute.</p>
+ * @public
+ */
+export interface MetadataAttribute {
+  /**
+   * <p>The key of the metadata attribute.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>Contains the value of the metadata attribute.</p>
+   * @public
+   */
+  value: MetadataAttributeValue | undefined;
+}
+
+/**
+ * <p>Contains information about the metadata associate with the content to ingest into a knowledge base. Choose a <code>type</code> and include the field that corresponds to it.</p>
+ * @public
+ */
+export interface DocumentMetadata {
+  /**
+   * <p>The type of the source source from which to add metadata.</p>
+   * @public
+   */
+  type: MetadataSourceType | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines a metadata attribute to associate with the content to ingest. You define the attributes inline.</p>
+   * @public
+   */
+  inlineAttributes?: MetadataAttribute[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location of the file containing metadata to associate with the content to ingest.</p>
+   * @public
+   */
+  s3Location?: CustomS3Location | undefined;
+}
+
+/**
+ * <p>Contains information about a document to ingest into a knowledge base and metadata to associate with it.</p>
+ * @public
+ */
+export interface KnowledgeBaseDocument {
+  /**
+   * <p>Contains the metadata to associate with the document.</p>
+   * @public
+   */
+  metadata?: DocumentMetadata | undefined;
+
+  /**
+   * <p>Contains the content of the document.</p>
+   * @public
+   */
+  content: DocumentContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngestKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to ingest the documents into.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source connected to the knowledge base that you're adding documents to.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains information about the documents to add.</p>
+   * @public
+   */
+  documents: KnowledgeBaseDocument[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngestKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were ingested.</p>
+   * @public
+   */
+  documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * @public
+   */
+  documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentKnowledgeBaseRequest {
+  /**
+   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The version of the agent with which you want to associate the knowledge base.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A description of what the agent should use the knowledge base for.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
+   * @public
+   */
+  knowledgeBaseState?: KnowledgeBaseState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentKnowledgeBaseResponse {
+  /**
+   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
+   * @public
+   */
+  agentKnowledgeBase: AgentKnowledgeBase | undefined;
+}
+
+/**
+ * <p>Settings for an Amazon Kendra knowledge base.</p>
+ * @public
+ */
+export interface KendraKnowledgeBaseConfiguration {
+  /**
+   * <p>The ARN of the Amazon Kendra index.</p>
+   * @public
+   */
+  kendraIndexArn: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * @public
+ */
+export interface RedshiftProvisionedAuthConfiguration {
+  /**
+   * <p>The type of authentication to use.</p>
+   * @public
+   */
+  type: RedshiftProvisionedAuthType | undefined;
+
+  /**
+   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  databaseUser?: string | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for a provisioned Amazon Redshift query engine.</p>
+ * @public
+ */
+export interface RedshiftProvisionedConfiguration {
+  /**
+   * <p>The ID of the Amazon Redshift cluster.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies configurations for authentication to Amazon Redshift.</p>
+   * @public
+   */
+  authConfiguration: RedshiftProvisionedAuthConfiguration | undefined;
+}
+
+/**
+ * <p>Specifies configurations for authentication to a Redshift Serverless. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * @public
+ */
+export interface RedshiftServerlessAuthConfiguration {
+  /**
+   * <p>The type of authentication to use.</p>
+   * @public
+   */
+  type: RedshiftServerlessAuthType | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for authentication to Amazon Redshift Serverless.</p>
+ * @public
+ */
+export interface RedshiftServerlessConfiguration {
+  /**
+   * <p>The ARN of the Amazon Redshift workgroup.</p>
+   * @public
+   */
+  workgroupArn: string | undefined;
+
+  /**
+   * <p>Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  authConfiguration: RedshiftServerlessAuthConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Redshift query engine. Specify the type of query engine in <code>type</code> and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineConfiguration {
+  /**
+   * <p>The type of query engine.</p>
+   * @public
+   */
+  type: RedshiftQueryEngineType | undefined;
+
+  /**
+   * <p>Specifies configurations for a serverless Amazon Redshift query engine.</p>
+   * @public
+   */
+  serverlessConfiguration?: RedshiftServerlessConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for a provisioned Amazon Redshift query engine.</p>
+   * @public
+   */
+  provisionedConfiguration?: RedshiftProvisionedConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a query, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+ * @public
+ */
+export interface CuratedQuery {
+  /**
+   * <p>An example natural language query.</p>
+   * @public
+   */
+  naturalLanguage: string | undefined;
+
+  /**
+   * <p>The SQL equivalent of the natural language query.</p>
+   * @public
+   */
+  sql: string | undefined;
+}
+
+/**
+ * <p>Contains information about a column in the current table for the query engine to consider.</p>
+ * @public
+ */
+export interface QueryGenerationColumn {
+  /**
+   * <p>The name of the column for which the other fields in this object apply.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the column that helps the query engine understand the contents of the column.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include or exclude the column during query generation. If you specify <code>EXCLUDE</code>, the column will be ignored. If you specify <code>INCLUDE</code>, all other columns in the table will be ignored.</p>
+   * @public
+   */
+  inclusion?: IncludeExclude | undefined;
+}
+
+/**
+ * <p>Contains information about a table for the query engine to consider.</p>
+ * @public
+ */
+export interface QueryGenerationTable {
+  /**
+   * <p>The name of the table for which the other fields in this object apply.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the table that helps the query engine understand the contents of the table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include or exclude the table during query generation. If you specify <code>EXCLUDE</code>, the table will be ignored. If you specify <code>INCLUDE</code>, all other tables will be ignored.</p>
+   * @public
+   */
+  inclusion?: IncludeExclude | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines information about a column in the table.</p>
+   * @public
+   */
+  columns?: QueryGenerationColumn[] | undefined;
+}
+
+/**
+ * <p>&gt;Contains configurations for context to use during query generation.</p>
+ * @public
+ */
+export interface QueryGenerationContext {
+  /**
+   * <p>An array of objects, each of which defines information about a table in the database.</p>
+   * @public
+   */
+  tables?: QueryGenerationTable[] | undefined;
+
+  /**
+   * <p>An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.</p>
+   * @public
+   */
+  curatedQueries?: CuratedQuery[] | undefined;
+}
+
+/**
+ * <p>Contains configurations for query generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide..</p>
+ * @public
+ */
+export interface QueryGenerationConfiguration {
+  /**
+   * <p>The time after which query generation will time out.</p>
+   * @public
+   */
+  executionTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies configurations for context to use during query generation.</p>
+   * @public
+   */
+  generationContext?: QueryGenerationContext | undefined;
+}
+
+/**
+ * <p>Contains configurations for storage in Glue Data Catalog.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineAwsDataCatalogStorageConfiguration {
+  /**
+   * <p>A list of names of the tables to use.</p>
+   * @public
+   */
+  tableNames: string[] | undefined;
+}
+
+/**
+ * <p>Contains configurations for storage in Amazon Redshift.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineRedshiftStorageConfiguration {
+  /**
+   * <p>The name of the Amazon Redshift database.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for Amazon Redshift data storage. Specify the data storage service to use in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftQueryEngineStorageConfiguration {
+  /**
+   * <p>The data storage service to use.</p>
+   * @public
+   */
+  type: RedshiftQueryEngineStorageType | undefined;
+
+  /**
+   * <p>Specifies configurations for storage in Glue Data Catalog.</p>
+   * @public
+   */
+  awsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for storage in Amazon Redshift.</p>
+   * @public
+   */
+  redshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Redshift database. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface RedshiftConfiguration {
+  /**
+   * <p>Specifies configurations for Amazon Redshift database storage.</p>
+   * @public
+   */
+  storageConfigurations: RedshiftQueryEngineStorageConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies configurations for an Amazon Redshift query engine.</p>
+   * @public
+   */
+  queryEngineConfiguration: RedshiftQueryEngineConfiguration | undefined;
+
+  /**
+   * <p>Specifies configurations for generating queries.</p>
+   * @public
+   */
+  queryGenerationConfiguration?: QueryGenerationConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for a knowledge base connected to an SQL database. Specify the SQL database type in the <code>type</code> field and include the corresponding field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html">Build a knowledge base by connecting to a structured data source</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface SqlKnowledgeBaseConfiguration {
+  /**
+   * <p>The type of SQL database to connect to the knowledge base.</p>
+   * @public
+   */
+  type: QueryEngineType | undefined;
+
+  /**
+   * <p>Specifies configurations for a knowledge base connected to an Amazon Redshift database.</p>
+   * @public
+   */
+  redshiftConfiguration?: RedshiftConfiguration | undefined;
+}
+
+/**
+ * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * @public
+ */
+export interface BedrockEmbeddingModelConfiguration {
+  /**
+   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * @public
+   */
+  dimensions?: number | undefined;
+
+  /**
+   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
+   * @public
+   */
+  embeddingDataType?: EmbeddingDataType | undefined;
+}
+
+/**
+ * <p>The configuration details for the embeddings model.</p>
+ * @public
+ */
+export interface EmbeddingModelConfiguration {
+  /**
+   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * @public
+   */
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+}
+
+/**
+ * <p>Contains information about a storage location for images extracted from multimodal documents in your data source.</p>
+ * @public
+ */
+export interface SupplementalDataStorageLocation {
+  /**
+   * <p>Specifies the storage service used for this location.</p>
+   * @public
+   */
+  type: SupplementalDataStorageLocationType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location for the extracted images.</p>
+   * @public
+   */
+  s3Location?: S3Location | undefined;
+}
+
+/**
+ * <p>Specifies configurations for the storage location of the images extracted from multimodal documents in your data source. These images can be retrieved and returned to the end user.</p>
+ * @public
+ */
+export interface SupplementalDataStorageConfiguration {
+  /**
+   * <p>A list of objects specifying storage locations for images extracted from multimodal documents in your data source.</p>
+   * @public
+   */
+  storageLocations: SupplementalDataStorageLocation[] | undefined;
 }

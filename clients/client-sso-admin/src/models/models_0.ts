@@ -1,9 +1,26 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceException";
+import {
+  ApplicationStatus,
+  ApplicationVisibility,
+  AuthenticationMethodType,
+  FederationProtocol,
+  GrantType,
+  InstanceAccessControlAttributeConfigurationStatus,
+  InstanceStatus,
+  JwksRetrievalOption,
+  KmsKeyStatus,
+  KmsKeyType,
+  PrincipalType,
+  ProvisioningStatus,
+  ProvisionTargetType,
+  SignInOrigin,
+  StatusValues,
+  TargetType,
+  TrustedTokenIssuerType,
+  UserBackgroundSessionApplicationStatus,
+} from "./enums";
 
 /**
  * <p>The value used for mapping a specified attribute to an identity source. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute mappings</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -34,62 +51,6 @@ export interface AccessControlAttribute {
    */
   Value: AccessControlAttributeValue | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AccessDeniedExceptionReason = {
-  KMS_ACCESS_DENIED_EXCEPTION: "KMS_AccessDeniedException",
-} as const;
-
-/**
- * @public
- */
-export type AccessDeniedExceptionReason =
-  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the access denied exception.</p>
-   * @public
-   */
-  Reason?: AccessDeniedExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const PrincipalType = {
-  GROUP: "GROUP",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * <p>The assignment that indicates a principal's limited access to a specified Amazon Web Services account with a specified permission set.</p> <note> <p>The term <i>principal</i> here refers to a user or group that is defined in IAM Identity Center.</p> </note>
@@ -150,34 +111,6 @@ export interface AccountAssignmentForPrincipal {
    */
   PrincipalType?: PrincipalType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatusValues = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type StatusValues = (typeof StatusValues)[keyof typeof StatusValues];
-
-/**
- * @public
- * @enum
- */
-export const TargetType = {
-  AWS_ACCOUNT: "AWS_ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * <p>The status of the creation or deletion operation of an assignment that a principal needs to access an account.</p>
@@ -264,20 +197,6 @@ export interface AccountAssignmentOperationStatusMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const SignInOrigin = {
-  APPLICATION: "APPLICATION",
-  IDENTITY_CENTER: "IDENTITY_CENTER",
-} as const;
-
-/**
- * @public
- */
-export type SignInOrigin = (typeof SignInOrigin)[keyof typeof SignInOrigin];
-
-/**
  * <p>A structure that describes the sign-in options for an application portal.</p>
  * @public
  */
@@ -296,20 +215,6 @@ export interface SignInOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const ApplicationVisibility = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationVisibility = (typeof ApplicationVisibility)[keyof typeof ApplicationVisibility];
-
-/**
  * <p>A structure that describes the options for the access portal associated with an application.</p>
  * @public
  */
@@ -326,20 +231,6 @@ export interface PortalOptions {
    */
   Visibility?: ApplicationVisibility | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
 
 /**
  * <p>A structure that describes an application that uses IAM Identity Center for access management.</p>
@@ -402,28 +293,6 @@ export interface Application {
 }
 
 /**
- * <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteApplicationAccessScopeRequest {
@@ -438,154 +307,6 @@ export interface DeleteApplicationAccessScopeRequest {
    * @public
    */
   Scope: string | undefined;
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceNotFoundExceptionReason = {
-  KMS_NOT_FOUND_EXCEPTION: "KMS_NotFoundException",
-} as const;
-
-/**
- * @public
- */
-export type ResourceNotFoundExceptionReason =
-  (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
-
-/**
- * <p>Indicates that a requested resource is not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the resource not found exception.</p>
-   * @public
-   */
-  Reason?: ResourceNotFoundExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ThrottlingExceptionReason = {
-  KMS_THROTTLING_EXCEPTION: "KMS_ThrottlingException",
-} as const;
-
-/**
- * @public
- */
-export type ThrottlingExceptionReason = (typeof ThrottlingExceptionReason)[keyof typeof ThrottlingExceptionReason];
-
-/**
- * <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the throttling exception.</p>
-   * @public
-   */
-  Reason?: ThrottlingExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  KMS_DISABLED_EXCEPTION: "KMS_DisabledException",
-  KMS_INVALID_KEY_USAGE_EXCEPTION: "KMS_InvalidKeyUsageException",
-  KMS_INVALID_STATE_EXCEPTION: "KMS_InvalidStateException",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The request failed because it contains a syntax error.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the validation exception.</p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
 }
 
 /**
@@ -750,19 +471,6 @@ export interface ApplicationAssignmentForPrincipal {
    */
   PrincipalType?: PrincipalType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationMethodType = {
-  IAM: "IAM",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationMethodType = (typeof AuthenticationMethodType)[keyof typeof AuthenticationMethodType];
 
 /**
  * @public
@@ -932,22 +640,6 @@ export interface PutApplicationAuthenticationMethodRequest {
    */
   AuthenticationMethod: AuthenticationMethod | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GrantType = {
-  AUTHORIZATION_CODE: "authorization_code",
-  JWT_BEARER: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  REFRESH_TOKEN: "refresh_token",
-  TOKEN_EXCHANGE: "urn:ietf:params:oauth:grant-type:token-exchange",
-} as const;
-
-/**
- * @public
- */
-export type GrantType = (typeof GrantType)[keyof typeof GrantType];
 
 /**
  * @public
@@ -1235,20 +927,6 @@ export interface DisplayData {
 }
 
 /**
- * @public
- * @enum
- */
-export const FederationProtocol = {
-  OAUTH: "OAUTH",
-  SAML: "SAML",
-} as const;
-
-/**
- * @public
- */
-export type FederationProtocol = (typeof FederationProtocol)[keyof typeof FederationProtocol];
-
-/**
  * <p>A structure that describes details for an IAM Identity Center access scope that is associated with a resource server.</p>
  * @public
  */
@@ -1353,28 +1031,6 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
  * @public
  */
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
-
-/**
- * <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * <p>A structure that stores a list of managed policy ARNs that describe the associated Amazon Web Services managed policy.</p>
@@ -1747,19 +1403,6 @@ export interface CreatePermissionSetResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const JwksRetrievalOption = {
-  OPEN_ID_DISCOVERY: "OPEN_ID_DISCOVERY",
-} as const;
-
-/**
- * @public
- */
-export type JwksRetrievalOption = (typeof JwksRetrievalOption)[keyof typeof JwksRetrievalOption];
-
-/**
  * <p>A structure that describes configuration settings for a trusted token issuer that supports OpenID Connect (OIDC) and JSON Web Tokens (JWTs).</p>
  * @public
  */
@@ -1827,19 +1470,6 @@ export namespace TrustedTokenIssuerConfiguration {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const TrustedTokenIssuerType = {
-  OIDC_JWT: "OIDC_JWT",
-} as const;
-
-/**
- * @public
- */
-export type TrustedTokenIssuerType = (typeof TrustedTokenIssuerType)[keyof typeof TrustedTokenIssuerType];
 
 /**
  * @public
@@ -2327,35 +1957,6 @@ export interface DescribeInstanceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const KmsKeyStatus = {
-  ENABLED: "ENABLED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type KmsKeyStatus = (typeof KmsKeyStatus)[keyof typeof KmsKeyStatus];
-
-/**
- * @public
- * @enum
- */
-export const KmsKeyType = {
-  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
-} as const;
-
-/**
- * @public
- */
-export type KmsKeyType = (typeof KmsKeyType)[keyof typeof KmsKeyType];
-
-/**
  * <p>The encryption configuration of your IAM Identity Center instance, including the key type, KMS key ARN, and current encryption status. </p>
  * @public
  */
@@ -2384,22 +1985,6 @@ export interface EncryptionConfigurationDetails {
    */
   EncryptionStatusReason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
 
 /**
  * @public
@@ -2464,22 +2049,6 @@ export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
    */
   InstanceArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceAccessControlAttributeConfigurationStatus = {
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type InstanceAccessControlAttributeConfigurationStatus =
-  (typeof InstanceAccessControlAttributeConfigurationStatus)[keyof typeof InstanceAccessControlAttributeConfigurationStatus];
 
 /**
  * @public
@@ -2748,21 +2317,6 @@ export interface GetApplicationSessionConfigurationRequest {
    */
   ApplicationArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserBackgroundSessionApplicationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type UserBackgroundSessionApplicationStatus =
-  (typeof UserBackgroundSessionApplicationStatus)[keyof typeof UserBackgroundSessionApplicationStatus];
 
 /**
  * @public
@@ -3122,20 +2676,6 @@ export interface ListAccountAssignmentsForPrincipalResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProvisioningStatus = {
-  LATEST_PERMISSION_SET_NOT_PROVISIONED: "LATEST_PERMISSION_SET_NOT_PROVISIONED",
-  LATEST_PERMISSION_SET_PROVISIONED: "LATEST_PERMISSION_SET_PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type ProvisioningStatus = (typeof ProvisioningStatus)[keyof typeof ProvisioningStatus];
 
 /**
  * @public
@@ -3812,20 +3352,6 @@ export interface OidcJwtUpdateConfiguration {
    */
   JwksRetrievalOption?: JwksRetrievalOption | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProvisionTargetType = {
-  ALL_PROVISIONED_ACCOUNTS: "ALL_PROVISIONED_ACCOUNTS",
-  AWS_ACCOUNT: "AWS_ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionTargetType = (typeof ProvisionTargetType)[keyof typeof ProvisionTargetType];
 
 /**
  * @public

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdatePullRequestApprovalRuleContentInput,
   UpdatePullRequestApprovalRuleContentOutput,
-} from "../models/models_1";
+} from "../models/models_0";
 import { UpdatePullRequestApprovalRuleContent } from "../schemas/schemas_0";
 
 /**

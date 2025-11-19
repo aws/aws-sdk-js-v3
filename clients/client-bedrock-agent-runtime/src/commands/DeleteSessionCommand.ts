@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_1";
+import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
 import { DeleteSession } from "../schemas/schemas_0";
 
 /**

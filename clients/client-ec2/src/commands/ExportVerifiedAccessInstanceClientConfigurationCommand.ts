@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ExportVerifiedAccessInstanceClientConfigurationRequest,
   ExportVerifiedAccessInstanceClientConfigurationResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { ExportVerifiedAccessInstanceClientConfiguration } from "../schemas/schemas_0";
 
 /**

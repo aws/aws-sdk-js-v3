@@ -194,7 +194,7 @@ import {
   ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { OSISServiceException as __OSISServiceException } from "../models/OSISServiceException";
 
 /* eslint no-var: 0 */

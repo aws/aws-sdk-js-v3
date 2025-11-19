@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
-} from "../models/models_8";
+} from "../models/models_7";
 import { RegisterTransitGatewayMulticastGroupSources } from "../schemas/schemas_0";
 
 /**

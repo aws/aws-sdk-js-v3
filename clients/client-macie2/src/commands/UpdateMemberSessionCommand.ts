@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { UpdateMemberSessionRequest, UpdateMemberSessionResponse } from "../models/models_1";
+import { UpdateMemberSessionRequest, UpdateMemberSessionResponse } from "../models/models_0";
 import { UpdateMemberSession } from "../schemas/schemas_0";
 
 /**

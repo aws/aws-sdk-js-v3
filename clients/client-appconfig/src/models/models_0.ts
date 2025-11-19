@@ -1,7 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
+import {
+  ActionPoint,
+  DeletionProtectionCheck,
+  DeploymentEventType,
+  DeploymentState,
+  EnvironmentState,
+  GrowthType,
+  ReplicateTo,
+  TriggeredBy,
+  ValidatorType,
+} from "./enums";
 
 /**
  * <p>A parameter to configure deletion protection. Deletion protection prevents a user from
@@ -177,26 +185,6 @@ export interface ActionInvocation {
 
 /**
  * @public
- * @enum
- */
-export const ActionPoint = {
-  AT_DEPLOYMENT_TICK: "AT_DEPLOYMENT_TICK",
-  ON_DEPLOYMENT_BAKING: "ON_DEPLOYMENT_BAKING",
-  ON_DEPLOYMENT_COMPLETE: "ON_DEPLOYMENT_COMPLETE",
-  ON_DEPLOYMENT_ROLLED_BACK: "ON_DEPLOYMENT_ROLLED_BACK",
-  ON_DEPLOYMENT_START: "ON_DEPLOYMENT_START",
-  ON_DEPLOYMENT_STEP: "ON_DEPLOYMENT_STEP",
-  PRE_CREATE_HOSTED_CONFIGURATION_VERSION: "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
-  PRE_START_DEPLOYMENT: "PRE_START_DEPLOYMENT",
-} as const;
-
-/**
- * @public
- */
-export type ActionPoint = (typeof ActionPoint)[keyof typeof ActionPoint];
-
-/**
- * @public
  */
 export interface Application {
   /**
@@ -299,50 +287,6 @@ export namespace BadRequestDetails {
 
 /**
  * @public
- * @enum
- */
-export const BadRequestReason = {
-  INVALID_CONFIGURATION: "InvalidConfiguration",
-} as const;
-
-/**
- * @public
- */
-export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Reason?: BadRequestReason | undefined;
-  /**
-   * <p>Detailed information about the input that failed to satisfy the constraints specified by
-   *          a call.</p>
-   * @public
-   */
-  Details?: BadRequestDetails | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Details = opts.Details;
-  }
-}
-
-/**
- * @public
  */
 export interface CreateApplicationRequest {
   /**
@@ -364,72 +308,6 @@ export interface CreateApplicationRequest {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * <p>There was an internal failure in the AppConfig service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
- *          environment doesn't exceed the following service quotas:</p>
- *          <p>Applications: 100 max</p>
- *          <p>Deployment strategies: 20 max</p>
- *          <p>Configuration profiles: 100 max per application</p>
- *          <p>Environments: 20 max per application</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
- *          request a quota increase. For more information about quotas and to request an increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidatorType = {
-  JSON_SCHEMA: "JSON_SCHEMA",
-  LAMBDA: "LAMBDA",
-} as const;
-
-/**
- * @public
- */
-export type ValidatorType = (typeof ValidatorType)[keyof typeof ValidatorType];
 
 /**
  * <p>A validator provides a syntactic or semantic check to ensure the configuration that you
@@ -648,58 +526,6 @@ export interface CreateConfigurationProfileRequest {
 }
 
 /**
- * <p>The requested resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const GrowthType = {
-  EXPONENTIAL: "EXPONENTIAL",
-  LINEAR: "LINEAR",
-} as const;
-
-/**
- * @public
- */
-export type GrowthType = (typeof GrowthType)[keyof typeof GrowthType];
-
-/**
- * @public
- * @enum
- */
-export const ReplicateTo = {
-  NONE: "NONE",
-  SSM_DOCUMENT: "SSM_DOCUMENT",
-} as const;
-
-/**
- * @public
- */
-export type ReplicateTo = (typeof ReplicateTo)[keyof typeof ReplicateTo];
-
-/**
  * @public
  */
 export interface CreateDeploymentStrategyRequest {
@@ -900,23 +726,6 @@ export interface CreateEnvironmentRequest {
 
 /**
  * @public
- * @enum
- */
-export const EnvironmentState = {
-  DEPLOYING: "DEPLOYING",
-  READY_FOR_DEPLOYMENT: "READY_FOR_DEPLOYMENT",
-  REVERTED: "REVERTED",
-  ROLLED_BACK: "ROLLED_BACK",
-  ROLLING_BACK: "ROLLING_BACK",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentState = (typeof EnvironmentState)[keyof typeof EnvironmentState];
-
-/**
- * @public
  */
 export interface Environment {
   /**
@@ -957,29 +766,6 @@ export interface Environment {
    * @public
    */
   Monitors?: Monitor[] | undefined;
-}
-
-/**
- * <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1307,47 +1093,6 @@ export interface HostedConfigurationVersion {
 
 /**
  * @public
- * @enum
- */
-export const BytesMeasure = {
-  KILOBYTES: "KILOBYTES",
-} as const;
-
-/**
- * @public
- */
-export type BytesMeasure = (typeof BytesMeasure)[keyof typeof BytesMeasure];
-
-/**
- * <p>The configuration size is too large.</p>
- * @public
- */
-export class PayloadTooLargeException extends __BaseException {
-  readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Measure?: BytesMeasure | undefined;
-  Limit?: number | undefined;
-  Size?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PayloadTooLargeException, __BaseException>) {
-    super({
-      name: "PayloadTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PayloadTooLargeException.prototype);
-    this.Message = opts.Message;
-    this.Measure = opts.Measure;
-    this.Limit = opts.Limit;
-    this.Size = opts.Size;
-  }
-}
-
-/**
- * @public
  */
 export interface DeleteApplicationRequest {
   /**
@@ -1356,21 +1101,6 @@ export interface DeleteApplicationRequest {
    */
   ApplicationId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeletionProtectionCheck = {
-  ACCOUNT_DEFAULT: "ACCOUNT_DEFAULT",
-  APPLY: "APPLY",
-  BYPASS: "BYPASS",
-} as const;
-
-/**
- * @public
- */
-export type DeletionProtectionCheck = (typeof DeletionProtectionCheck)[keyof typeof DeletionProtectionCheck];
 
 /**
  * @public
@@ -1675,41 +1405,6 @@ export interface AppliedExtension {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentEventType = {
-  BAKE_TIME_STARTED: "BAKE_TIME_STARTED",
-  DEPLOYMENT_COMPLETED: "DEPLOYMENT_COMPLETED",
-  DEPLOYMENT_STARTED: "DEPLOYMENT_STARTED",
-  PERCENTAGE_UPDATED: "PERCENTAGE_UPDATED",
-  REVERT_COMPLETED: "REVERT_COMPLETED",
-  ROLLBACK_COMPLETED: "ROLLBACK_COMPLETED",
-  ROLLBACK_STARTED: "ROLLBACK_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentEventType = (typeof DeploymentEventType)[keyof typeof DeploymentEventType];
-
-/**
- * @public
- * @enum
- */
-export const TriggeredBy = {
-  APPCONFIG: "APPCONFIG",
-  CLOUDWATCH_ALARM: "CLOUDWATCH_ALARM",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type TriggeredBy = (typeof TriggeredBy)[keyof typeof TriggeredBy];
-
-/**
  * <p>An object that describes a deployment event.</p>
  * @public
  */
@@ -1760,25 +1455,6 @@ export interface DeploymentEvent {
    */
   OccurredAt?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentState = {
-  BAKING: "BAKING",
-  COMPLETE: "COMPLETE",
-  DEPLOYING: "DEPLOYING",
-  REVERTED: "REVERTED",
-  ROLLED_BACK: "ROLLED_BACK",
-  ROLLING_BACK: "ROLLING_BACK",
-  VALIDATING: "VALIDATING",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
 
 /**
  * @public

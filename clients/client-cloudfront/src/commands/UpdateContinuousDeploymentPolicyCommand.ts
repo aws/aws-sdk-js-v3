@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContinuousDeploymentPolicyRequest, UpdateContinuousDeploymentPolicyResult } from "../models/models_2";
+import { UpdateContinuousDeploymentPolicyRequest, UpdateContinuousDeploymentPolicyResult } from "../models/models_1";
 import { UpdateContinuousDeploymentPolicy } from "../schemas/schemas_0";
 
 /**

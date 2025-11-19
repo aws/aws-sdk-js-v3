@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetProtectedQueryInput, GetProtectedQueryOutput } from "../models/models_1";
+import { GetProtectedQueryInput } from "../models/models_0";
+import { GetProtectedQueryOutput } from "../models/models_1";
 import { GetProtectedQuery } from "../schemas/schemas_0";
 
 /**

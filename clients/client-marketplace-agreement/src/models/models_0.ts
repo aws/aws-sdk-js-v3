@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MarketplaceAgreementServiceException as __BaseException } from "./MarketplaceAgreementServiceException";
+import { AgreementStatus, SortOrder } from "./enums";
 
 /**
  * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The
@@ -819,54 +817,6 @@ export interface Acceptor {
 }
 
 /**
- * <p>User does not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier for the error.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.requestId = opts.requestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AgreementStatus = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-  CANCELLED: "CANCELLED",
-  EXPIRED: "EXPIRED",
-  RENEWED: "RENEWED",
-  REPLACED: "REPLACED",
-  ROLLED_BACK: "ROLLED_BACK",
-  SUPERSEDED: "SUPERSEDED",
-  TERMINATED: "TERMINATED",
-} as const;
-
-/**
- * @public
- */
-export type AgreementStatus = (typeof AgreementStatus)[keyof typeof AgreementStatus];
-
-/**
  * <p>The list of resources involved in the agreement.</p>
  * @public
  */
@@ -1155,114 +1105,6 @@ export interface DescribeAgreementOutput {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The unique identifier for the error.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.requestId = opts.requestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  AGREEMENT: "Agreement",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier for the error.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the resource.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.requestId = opts.requestId;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier for the error.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.requestId = opts.requestId;
-  }
-}
-
-/**
  * <p>The input fails to satisfy the constraints specified by the service.</p>
  * @public
  */
@@ -1278,70 +1120,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  INVALID_AGREEMENT_ID: "INVALID_AGREEMENT_ID",
-  INVALID_CATALOG: "INVALID_CATALOG",
-  INVALID_FILTER_NAME: "INVALID_FILTER_NAME",
-  INVALID_FILTER_VALUES: "INVALID_FILTER_VALUES",
-  INVALID_MAX_RESULTS: "INVALID_MAX_RESULTS",
-  INVALID_NEXT_TOKEN: "INVALID_NEXT_TOKEN",
-  INVALID_SORT_BY: "INVALID_SORT_BY",
-  INVALID_SORT_ORDER: "INVALID_SORT_ORDER",
-  MISSING_AGREEMENT_ID: "MISSING_AGREEMENT_ID",
-  OTHER: "OTHER",
-  UNSUPPORTED_FILTERS: "UNSUPPORTED_FILTERS",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique identifier associated with the error.</p>
-   * @public
-   */
-  requestId?: string | undefined;
-
-  /**
-   * <p>The reason associated with the error.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields associated with the error.</p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.requestId = opts.requestId;
-    this.reason = opts.reason;
-    this.fields = opts.fields;
-  }
 }
 
 /**
@@ -1404,20 +1182,6 @@ export interface Filter {
    */
   values?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code>

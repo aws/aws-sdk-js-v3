@@ -481,7 +481,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { WorkSpacesWebServiceException as __WorkSpacesWebServiceException } from "../models/WorkSpacesWebServiceException";
 
 /* eslint no-var: 0 */

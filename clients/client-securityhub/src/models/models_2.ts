@@ -1,17 +1,71 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { DocumentType as __DocumentType } from "@smithy/types";
+
+import {
+  AssociationStatus,
+  AssociationType,
+  AutoEnableStandards,
+  BatchUpdateFindingsV2UnprocessedFindingErrorCode,
+  ConfigurationPolicyAssociationStatus,
+  ConnectorAuthStatus,
+  ConnectorProviderName,
+  ConnectorStatus,
+  ControlFindingGenerator,
+  ControlStatus,
+  FindingHistoryUpdateSourceType,
+  IntegrationType,
+  IntegrationV2Type,
+  OcsfBooleanField,
+  OcsfDateField,
+  OcsfIpField,
+  OcsfMapField,
+  OcsfNumberField,
+  OcsfStringField,
+  OrganizationConfigurationConfigurationType,
+  OrganizationConfigurationStatus,
+  ParameterValueType,
+  Partition,
+  RecordState,
+  RegionAvailabilityStatus,
+  ResourceCategory,
+  ResourcesDateField,
+  ResourcesMapField,
+  ResourcesNumberField,
+  ResourcesStringField,
+  RuleStatus,
+  SecurityControlProperty,
+  SecurityHubFeature,
+  SeverityLabel,
+  SeverityRating,
+  SortOrder,
+  StandardsControlsUpdatable,
+  StandardsStatus,
+  StatusReasonCode,
+  TargetType,
+  ThreatIntelIndicatorCategory,
+  ThreatIntelIndicatorType,
+  UnprocessedErrorCode,
+  UpdateStatus,
+  VerificationState,
+  VulnerabilityExploitAvailable,
+  VulnerabilityFixAvailable,
+  WorkflowState,
+  WorkflowStatus,
+} from "./enums";
 
 import {
   AccountDetails,
   Action,
   ActionTarget,
   Adjustment,
-  AssociationStatus,
-  AssociationType,
-  AutoEnableStandards,
+  AdminAccount,
+  AggregatorV2,
+  AssociationFilters,
   AutomationRulesAction,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
+  AutomationRulesMetadata,
+  AutomationRulesMetadataV2,
   AwsAmazonMqBrokerDetails,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
@@ -54,18 +108,13 @@ import {
   AwsEcsClusterDetails,
   AwsEcsContainerDetails,
   AwsEcsServiceDetails,
-  ConfigurationPolicyAssociationStatus,
   DateFilter,
   MapFilter,
   NoteUpdate,
   NumberFilter,
   RelatedFinding,
-  RuleStatus,
-  SeverityLabel,
   SeverityUpdate,
   StringFilter,
-  VerificationState,
-  WorkflowStatus,
   WorkflowUpdate,
 } from "./models_0";
 
@@ -110,8 +159,20 @@ import {
   AwsS3ObjectDetails,
   AwsSageMakerNotebookInstanceDetails,
   AwsSecretsManagerSecretDetails,
-  ClassificationResult,
+  AwsSnsTopicDetails,
+  AwsSqsQueueDetails,
+  AwsSsmPatchComplianceDetails,
+  AwsStepFunctionStateMachineDetails,
+  AwsWafRateBasedRuleDetails,
+  AwsWafRegionalRateBasedRuleDetails,
+  AwsWafRegionalRuleDetails,
+  AwsWafRegionalRuleGroupDetails,
+  AwsWafRegionalWebAclDetails,
+  AwsWafRuleDetails,
+  AwsWafRuleGroupDetails,
+  AwsWafv2CustomHttpHeader,
   Compliance,
+  DataClassificationDetails,
   Detection,
   FindingProviderFields,
   GeneratorDetails,
@@ -121,1173 +182,8 @@ import {
   Note,
   PatchSummary,
   ProcessDetails,
-  RecordState,
   Remediation,
 } from "./models_1";
-
-import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
-
-/**
- * <p>Provides details about sensitive data that was detected on a resource.</p>
- * @public
- */
-export interface DataClassificationDetails {
-  /**
-   * <p>The path to the folder or file that contains the sensitive data.</p>
-   * @public
-   */
-  DetailedResultsLocation?: string | undefined;
-
-  /**
-   * <p>The details about the sensitive data that was detected on the resource.</p>
-   * @public
-   */
-  Result?: ClassificationResult | undefined;
-}
-
-/**
- * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
- * @public
- */
-export interface AwsSnsTopicSubscription {
-  /**
-   * <p>The subscription's endpoint (format depends on the protocol).</p>
-   * @public
-   */
-  Endpoint?: string | undefined;
-
-  /**
-   * <p>The subscription's protocol.</p>
-   * @public
-   */
-  Protocol?: string | undefined;
-}
-
-/**
- * <p>Provides information about an Amazon SNS topic to which notifications can be published.</p>
- * @public
- */
-export interface AwsSnsTopicDetails {
-  /**
-   * <p>The ID of an Amazon Web Services managed key for Amazon SNS or a customer managed key.</p>
-   * @public
-   */
-  KmsMasterKeyId?: string | undefined;
-
-  /**
-   * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
-   * @public
-   */
-  Subscription?: AwsSnsTopicSubscription[] | undefined;
-
-  /**
-   * <p>The name of the Amazon SNS topic.</p>
-   * @public
-   */
-  TopicName?: string | undefined;
-
-  /**
-   * <p>The subscription's owner.</p>
-   * @public
-   */
-  Owner?: string | undefined;
-
-  /**
-   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
-   *       </p>
-   * @public
-   */
-  SqsSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
-   *       </p>
-   * @public
-   */
-  SqsFailureFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.
-   *       </p>
-   * @public
-   */
-  ApplicationSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
-   *       </p>
-   * @public
-   */
-  FirehoseSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
-   *       </p>
-   * @public
-   */
-  FirehoseFailureFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.
-   *       </p>
-   * @public
-   */
-  HttpSuccessFeedbackRoleArn?: string | undefined;
-
-  /**
-   * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p>
-   * @public
-   */
-  HttpFailureFeedbackRoleArn?: string | undefined;
-}
-
-/**
- * <p>Data about a queue.</p>
- * @public
- */
-export interface AwsSqsQueueDetails {
-  /**
-   * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again.</p>
-   * @public
-   */
-  KmsDataKeyReusePeriodSeconds?: number | undefined;
-
-  /**
-   * <p>The ID of an Amazon Web Services managed key for Amazon SQS or a custom
-   *          KMS key.</p>
-   * @public
-   */
-  KmsMasterKeyId?: string | undefined;
-
-  /**
-   * <p>The name of the new queue.</p>
-   * @public
-   */
-  QueueName?: string | undefined;
-
-  /**
-   * <p>The ARN of the dead-letter queue to which Amazon SQS moves
-   *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
-   * @public
-   */
-  DeadLetterTargetArn?: string | undefined;
-}
-
-/**
- * <p>Provides the details about the compliance status for a patch.</p>
- * @public
- */
-export interface AwsSsmComplianceSummary {
-  /**
-   * <p>The current patch compliance status. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLIANT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_COMPLIANT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNSPECIFIED_DATA</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>CRITICAL</code>.</p>
-   * @public
-   */
-  CompliantCriticalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *          <code>HIGH</code>.</p>
-   * @public
-   */
-  CompliantHighCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>MEDIUM</code>.</p>
-   * @public
-   */
-  CompliantMediumCount?: number | undefined;
-
-  /**
-   * <p>The type of execution that was used determine compliance.</p>
-   * @public
-   */
-  ExecutionType?: string | undefined;
-
-  /**
-   * <p>For the patch items that are noncompliant, the number of items that have a severity of
-   *             <code>CRITICAL</code>.</p>
-   * @public
-   */
-  NonCompliantCriticalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>INFORMATIONAL</code>.</p>
-   * @public
-   */
-  CompliantInformationalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>INFORMATIONAL</code>.</p>
-   * @public
-   */
-  NonCompliantInformationalCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *             <code>UNSPECIFIED</code>.</p>
-   * @public
-   */
-  CompliantUnspecifiedCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>LOW</code>.</p>
-   * @public
-   */
-  NonCompliantLowCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>HIGH</code>.</p>
-   * @public
-   */
-  NonCompliantHighCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are compliant, the number that have a severity of
-   *          <code>LOW</code>.</p>
-   * @public
-   */
-  CompliantLowCount?: number | undefined;
-
-  /**
-   * <p>The type of resource for which the compliance was determined. For
-   *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
-   * @public
-   */
-  ComplianceType?: string | undefined;
-
-  /**
-   * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
-   *          approved for installation.</p>
-   * @public
-   */
-  PatchBaselineId?: string | undefined;
-
-  /**
-   * <p>The highest severity for the patches. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CRITICAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIGH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIUM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INFORMATIONAL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNSPECIFIED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  OverallSeverity?: string | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>MEDIUM</code>.</p>
-   * @public
-   */
-  NonCompliantMediumCount?: number | undefined;
-
-  /**
-   * <p>For the patches that are noncompliant, the number that have a severity of
-   *             <code>UNSPECIFIED</code>.</p>
-   * @public
-   */
-  NonCompliantUnspecifiedCount?: number | undefined;
-
-  /**
-   * <p>The identifier of the patch group for which compliance was determined. A patch group
-   *          uses tags to group EC2 instances that should have the same patch compliance.</p>
-   * @public
-   */
-  PatchGroup?: string | undefined;
-}
-
-/**
- * <p>Provides details about the compliance for a patch.</p>
- * @public
- */
-export interface AwsSsmPatch {
-  /**
-   * <p>The compliance status details for the patch.</p>
-   * @public
-   */
-  ComplianceSummary?: AwsSsmComplianceSummary | undefined;
-}
-
-/**
- * <p>Provides information about the state of a patch on an instance based on the patch
- *          baseline that was used to patch the instance.</p>
- * @public
- */
-export interface AwsSsmPatchComplianceDetails {
-  /**
-   * <p>Information about the status of a patch.</p>
-   * @public
-   */
-  Patch?: AwsSsmPatch | undefined;
-}
-
-/**
- * <p>
- *             An object describing a CloudWatch log group. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
- *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails {
-  /**
-   * <p>The ARN (ends with <code>:*</code>) of the CloudWatch Logs log group to which you want your logs emitted.</p>
-   * @public
-   */
-  LogGroupArn?: string | undefined;
-}
-
-/**
- * <p>
- *             An array of objects that describes where your execution history events will be logged.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails {
-  /**
-   * <p>
-   *             An object describing a CloudWatch Logs log group. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
-   *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
-   *         </p>
-   * @public
-   */
-  CloudWatchLogsLogGroup?:
-    | AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
-    | undefined;
-}
-
-/**
- * <p>
- *             The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs options.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
-  /**
-   * <p>
-   *             An array of objects that describes where your execution history events will be logged.
-   *         </p>
-   * @public
-   */
-  Destinations?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails[] | undefined;
-
-  /**
-   * <p>
-   *             Determines whether execution data is included in your log. When set to false, data is excluded.
-   *         </p>
-   * @public
-   */
-  IncludeExecutionData?: boolean | undefined;
-
-  /**
-   * <p>
-   *             Defines which category of execution history events are logged.
-   *         </p>
-   * @public
-   */
-  Level?: string | undefined;
-}
-
-/**
- * <p>
- *             Specifies whether X-Ray tracing is enabled.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineTracingConfigurationDetails {
-  /**
-   * <p>
-   *             When set to true, X-Ray tracing is enabled.
-   *         </p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * <p>
- *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-
- *             driven steps.
- *         </p>
- * @public
- */
-export interface AwsStepFunctionStateMachineDetails {
-  /**
-   * <p>
-   *             A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if
-   *             the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.
-   *         </p>
-   * @public
-   */
-  Label?: string | undefined;
-
-  /**
-   * <p>
-   *             Used to set CloudWatch Logs options.
-   *         </p>
-   * @public
-   */
-  LoggingConfiguration?: AwsStepFunctionStateMachineLoggingConfigurationDetails | undefined;
-
-  /**
-   * <p>
-   *             The name of the state machine.
-   *         </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of the IAM role used when creating this state machine.
-   *         </p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>
-   *             The ARN that identifies the state machine.
-   *         </p>
-   * @public
-   */
-  StateMachineArn?: string | undefined;
-
-  /**
-   * <p>
-   *             The current status of the state machine.
-   *         </p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>
-   *             Specifies whether X-Ray tracing is enabled.
-   *         </p>
-   * @public
-   */
-  TracingConfiguration?: AwsStepFunctionStateMachineTracingConfigurationDetails | undefined;
-
-  /**
-   * <p>
-   *             The type of the state machine (STANDARD or EXPRESS).
-   *         </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
- * @public
- */
-export interface AwsWafRateBasedRuleMatchPredicate {
-  /**
-   * <p>The unique identifier for the predicate.</p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
-   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.
-   *       </p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ByteMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GeoMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IPMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RegexMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SizeConstraint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SqlInjectionMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XssMatch</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
- * @public
- */
-export interface AwsWafRateBasedRuleDetails {
-  /**
-   * <p>The name of the metrics for the rate-based rule.</p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The name of the rate-based rule.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
-   * @public
-   */
-  RateKey?: string | undefined;
-
-  /**
-   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
-   * @public
-   */
-  RateLimit?: number | undefined;
-
-  /**
-   * <p>The unique identifier for the rate-based rule.</p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The predicates to include in the rate-based rule.</p>
-   * @public
-   */
-  MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[] | undefined;
-}
-
-/**
- * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
- * @public
- */
-export interface AwsWafRegionalRateBasedRuleMatchPredicate {
-  /**
-   * <p>The unique identifier for the predicate.</p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
-   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.</p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ByteMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>GeoMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IPMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RegexMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SizeConstraint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SqlInjectionMatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XssMatch</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
- * @public
- */
-export interface AwsWafRegionalRateBasedRuleDetails {
-  /**
-   * <p>The name of the metrics for the rate-based rule.</p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The name of the rate-based rule.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
-   * @public
-   */
-  RateKey?: string | undefined;
-
-  /**
-   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
-   * @public
-   */
-  RateLimit?: number | undefined;
-
-  /**
-   * <p>The unique identifier for the rate-based rule.</p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The predicates to include in the rate-based rule.</p>
-   * @public
-   */
-  MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[] | undefined;
-}
-
-/**
- * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
- *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalRulePredicateListDetails {
-  /**
-   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
-   *       </p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
-   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
-   *       </p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about an WAF Regional rule. This rule identifies the web requests that you want to allow, block, or count. </p>
- * @public
- */
-export interface AwsWafRegionalRuleDetails {
-  /**
-   * <p>A name for the metrics for the rule.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>A descriptive name for the rule.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>,
-   *             <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
-   *             <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to
-   *          add to a rule and, for each object, indicates whether you want to negate the settings. </p>
-   * @public
-   */
-  PredicateList?: AwsWafRegionalRulePredicateListDetails[] | undefined;
-
-  /**
-   * <p>The ID of the rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-}
-
-/**
- * <p>Describes the action that WAF should take on a web request when it matches the criteria defined in the rule.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalRuleGroupRulesActionDetails {
-  /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
-   * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about the rules attached to a rule group
- *       </p>
- * @public
- */
-export interface AwsWafRegionalRuleGroupRulesDetails {
-  /**
-   * <p>The action that WAF should take on a web request when it matches the criteria defined in the rule. </p>
-   * @public
-   */
-  Action?: AwsWafRegionalRuleGroupRulesActionDetails | undefined;
-
-  /**
-   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in
-   *          order based on the value of <code>Priority</code>. </p>
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * <p>The ID for a rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The type of rule in the rule group.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about an WAF Regional rule group. The rule group is a collection of rules for inspecting and controlling web
- *          requests. </p>
- * @public
- */
-export interface AwsWafRegionalRuleGroupDetails {
-  /**
-   * <p>A name for the metrics for this rule group.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the rule group.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the rule group.
-   *       </p>
-   * @public
-   */
-  RuleGroupId?: string | undefined;
-
-  /**
-   * <p>Provides information about the rule statements used to identify the web requests that you want to allow, block, or
-   * count.
-   *       </p>
-   * @public
-   */
-  Rules?: AwsWafRegionalRuleGroupRulesDetails[] | undefined;
-}
-
-/**
- * <p>The action that WAF takes when a web request matches all conditions in the
- *          rule, such as allow, block, or count the request. </p>
- * @public
- */
-export interface AwsWafRegionalWebAclRulesListActionDetails {
-  /**
-   * <p>For actions that are associated with a rule, the action that WAF takes when a web request matches all conditions in a rule.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides details about the action to use in the place of the action that results from the rule group
- * evaluation.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
-  /**
-   * <p>Overrides the rule evaluation result in the rule group.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
- * objects that identify the web requests that you want to allow, block, or count.
- *       </p>
- * @public
- */
-export interface AwsWafRegionalWebAclRulesListDetails {
-  /**
-   * <p>The action that WAF takes when a web request matches all conditions in the rule, such as allow,
-   *          block, or count the request.
-   *       </p>
-   * @public
-   */
-  Action?: AwsWafRegionalWebAclRulesListActionDetails | undefined;
-
-  /**
-   * <p>Overrides the rule evaluation result in the rule group.
-   *       </p>
-   * @public
-   */
-  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails | undefined;
-
-  /**
-   * <p>The order in which WAF evaluates the rules in a web ACL.
-   *       </p>
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * <p>The ID of an WAF Regional rule to associate with a web ACL. </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>For actions that are associated with a rule, the action that WAF takes when a web
-   * request matches all conditions in a rule.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
- *          want to allow, block, or count. </p>
- * @public
- */
-export interface AwsWafRegionalWebAclDetails {
-  /**
-   * <p>The action to perform if none of the rules contained in the web ACL match.
-   *       </p>
-   * @public
-   */
-  DefaultAction?: string | undefined;
-
-  /**
-   * <p>A name for the metrics for this web ACL.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>A descriptive name for the web ACL.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of
-   * the rule.
-   *       </p>
-   * @public
-   */
-  RulesList?: AwsWafRegionalWebAclRulesListDetails[] | undefined;
-
-  /**
-   * <p>The ID of the web ACL.
-   *       </p>
-   * @public
-   */
-  WebAclId?: string | undefined;
-}
-
-/**
- * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
- *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
- * for each object, indicates whether you want to negate the settings.
- *       </p>
- * @public
- */
-export interface AwsWafRulePredicateListDetails {
-  /**
-   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
-   *       </p>
-   * @public
-   */
-  DataId?: string | undefined;
-
-  /**
-   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
-   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
-   *       </p>
-   * @public
-   */
-  Negated?: boolean | undefined;
-
-  /**
-   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
- *       </p>
- * @public
- */
-export interface AwsWafRuleDetails {
-  /**
-   * <p>The name of the metrics for this rule.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>A descriptive name for the rule.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
-   *          for each object, indicates whether you want to negate the settings.
-   *       </p>
-   * @public
-   */
-  PredicateList?: AwsWafRulePredicateListDetails[] | undefined;
-
-  /**
-   * <p>The ID of the WAF rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-}
-
-/**
- * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
- *       </p>
- * @public
- */
-export interface AwsWafRuleGroupRulesActionDetails {
-  /**
-   * <p>The action that WAF should take on a web request when it matches the rule's
-   *          statement.</p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
- *          allow, block, or count.
- *       </p>
- * @public
- */
-export interface AwsWafRuleGroupRulesDetails {
-  /**
-   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
-   *       </p>
-   * @public
-   */
-  Action?: AwsWafRuleGroupRulesActionDetails | undefined;
-
-  /**
-   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
-   *          based on the value of <code>Priority</code>.</p>
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * <p>The rule ID for a rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The type of rule.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
- *       </p>
- * @public
- */
-export interface AwsWafRuleGroupDetails {
-  /**
-   * <p>The name of the metrics for this rule group.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The name of the rule group.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the rule group.
-   *       </p>
-   * @public
-   */
-  RuleGroupId?: string | undefined;
-
-  /**
-   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
-   * allow, block, or count.
-   *       </p>
-   * @public
-   */
-  Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
-}
-
-/**
- * <p>
- *          A custom header for custom request and response handling.
- *       </p>
- * @public
- */
-export interface AwsWafv2CustomHttpHeader {
-  /**
-   * <p>
-   *          The name of the custom header.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>
-   *          The value of the custom header.
-   *       </p>
-   * @public
-   */
-  Value?: string | undefined;
-}
 
 /**
  * <p>
@@ -2728,21 +1624,6 @@ export interface ResourceDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const Partition = {
-  AWS: "aws",
-  AWS_CN: "aws-cn",
-  AWS_US_GOV: "aws-us-gov",
-} as const;
-
-/**
- * @public
- */
-export type Partition = (typeof Partition)[keyof typeof Partition];
-
-/**
  * <p>A resource related to a finding.</p>
  * @public
  */
@@ -2932,48 +1813,6 @@ export interface Severity {
    */
   Original?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ThreatIntelIndicatorCategory = {
-  BACKDOOR: "BACKDOOR",
-  CARD_STEALER: "CARD_STEALER",
-  COMMAND_AND_CONTROL: "COMMAND_AND_CONTROL",
-  DROP_SITE: "DROP_SITE",
-  EXPLOIT_SITE: "EXPLOIT_SITE",
-  KEYLOGGER: "KEYLOGGER",
-} as const;
-
-/**
- * @public
- */
-export type ThreatIntelIndicatorCategory =
-  (typeof ThreatIntelIndicatorCategory)[keyof typeof ThreatIntelIndicatorCategory];
-
-/**
- * @public
- * @enum
- */
-export const ThreatIntelIndicatorType = {
-  DOMAIN: "DOMAIN",
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  HASH_MD5: "HASH_MD5",
-  HASH_SHA1: "HASH_SHA1",
-  HASH_SHA256: "HASH_SHA256",
-  HASH_SHA512: "HASH_SHA512",
-  IPV4_ADDRESS: "IPV4_ADDRESS",
-  IPV6_ADDRESS: "IPV6_ADDRESS",
-  MUTEX: "MUTEX",
-  PROCESS: "PROCESS",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type ThreatIntelIndicatorType = (typeof ThreatIntelIndicatorType)[keyof typeof ThreatIntelIndicatorType];
 
 /**
  * <p>Details about the threat intelligence related to a finding.</p>
@@ -3206,36 +2045,6 @@ export interface Cvss {
    */
   Adjustments?: Adjustment[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VulnerabilityExploitAvailable = {
-  NO: "NO",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type VulnerabilityExploitAvailable =
-  (typeof VulnerabilityExploitAvailable)[keyof typeof VulnerabilityExploitAvailable];
-
-/**
- * @public
- * @enum
- */
-export const VulnerabilityFixAvailable = {
-  NO: "NO",
-  PARTIAL: "PARTIAL",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type VulnerabilityFixAvailable = (typeof VulnerabilityFixAvailable)[keyof typeof VulnerabilityFixAvailable];
 
 /**
  * <p>A vendor that generates a vulnerability report.</p>
@@ -3496,23 +2305,6 @@ export interface Workflow {
    */
   Status?: WorkflowStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowState = {
-  ASSIGNED: "ASSIGNED",
-  DEFERRED: "DEFERRED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NEW: "NEW",
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];
 
 /**
  * <p>Provides a consistent format for Security Hub findings.
@@ -4769,52 +3561,6 @@ export interface BatchDisableStandardsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const StandardsControlsUpdatable = {
-  NOT_READY_FOR_UPDATES: "NOT_READY_FOR_UPDATES",
-  READY_FOR_UPDATES: "READY_FOR_UPDATES",
-} as const;
-
-/**
- * @public
- */
-export type StandardsControlsUpdatable = (typeof StandardsControlsUpdatable)[keyof typeof StandardsControlsUpdatable];
-
-/**
- * @public
- * @enum
- */
-export const StandardsStatus = {
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INCOMPLETE: "INCOMPLETE",
-  PENDING: "PENDING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type StandardsStatus = (typeof StandardsStatus)[keyof typeof StandardsStatus];
-
-/**
- * @public
- * @enum
- */
-export const StatusReasonCode = {
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED: "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED",
-  NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
-} as const;
-
-/**
- * @public
- */
-export type StatusReasonCode = (typeof StatusReasonCode)[keyof typeof StatusReasonCode];
-
-/**
  * <p>The reason for the current status of your subscription to the standard.</p>
  * @public
  */
@@ -5098,21 +3844,6 @@ export interface BatchGetConfigurationPolicyAssociationsRequest {
    */
   ConfigurationPolicyAssociationIdentifiers: ConfigurationPolicyAssociation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetType = {
-  ACCOUNT: "ACCOUNT",
-  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
-  ROOT: "ROOT",
-} as const;
-
-/**
- * @public
- */
-export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * <p>
@@ -5448,20 +4179,6 @@ export namespace ParameterValue {
 }
 
 /**
- * @public
- * @enum
- */
-export const ParameterValueType = {
-  CUSTOM: "CUSTOM",
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
-
-/**
  * <p>
  *             An object that provides the current value of a security control parameter and identifies whether it has been customized.
  *         </p>
@@ -5489,50 +4206,6 @@ export interface ParameterConfiguration {
    */
   Value?: ParameterValue | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
-
-/**
- * @public
- * @enum
- */
-export const SeverityRating = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type SeverityRating = (typeof SeverityRating)[keyof typeof SeverityRating];
-
-/**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  READY: "READY",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * <p>
@@ -5630,23 +4303,6 @@ export interface SecurityControl {
    */
   LastUpdateReason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UnprocessedErrorCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  INVALID_INPUT: "INVALID_INPUT",
-  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
-  NOT_FOUND: "NOT_FOUND",
-  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type UnprocessedErrorCode = (typeof UnprocessedErrorCode)[keyof typeof UnprocessedErrorCode];
 
 /**
  * <p> Provides details about a security control for which a response couldn't be returned. </p>
@@ -6370,23 +5026,6 @@ export interface BatchUpdateFindingsV2ProcessedFinding {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchUpdateFindingsV2UnprocessedFindingErrorCode = {
-  ConflictException: "ConflictException",
-  InternalServerException: "InternalServerException",
-  ResourceNotFoundException: "ResourceNotFoundException",
-  ValidationException: "ValidationException",
-} as const;
-
-/**
- * @public
- */
-export type BatchUpdateFindingsV2UnprocessedFindingErrorCode =
-  (typeof BatchUpdateFindingsV2UnprocessedFindingErrorCode)[keyof typeof BatchUpdateFindingsV2UnprocessedFindingErrorCode];
-
-/**
  * <p>The list of findings that were not updated.</p>
  * @public
  */
@@ -6431,106 +5070,6 @@ export interface BatchUpdateFindingsV2Response {
    * @public
    */
   UnprocessedFindings: BatchUpdateFindingsV2UnprocessedFinding[] | undefined;
-}
-
-/**
- * <p>The request causes conflict with the current state of the service resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**
@@ -6643,21 +5182,6 @@ export interface BooleanConfigurationOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const OcsfBooleanField = {
-  COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA: "compliance.assessments.meets_criteria",
-  VULNERABILITIES_IS_EXPLOIT_AVAILABLE: "vulnerabilities.is_exploit_available",
-  VULNERABILITIES_IS_FIX_AVAILABLE: "vulnerabilities.is_fix_available",
-} as const;
-
-/**
- * @public
- */
-export type OcsfBooleanField = (typeof OcsfBooleanField)[keyof typeof OcsfBooleanField];
-
-/**
  * <p>Enables filtering of security findings based on boolean field values in OCSF.</p>
  * @public
  */
@@ -6674,25 +5198,6 @@ export interface OcsfBooleanFilter {
    */
   Filter?: BooleanFilter | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OcsfDateField = {
-  FINDING_INFO_CREATED_TIME_DT: "finding_info.created_time_dt",
-  FINDING_INFO_FIRST_SEEN_TIME_DT: "finding_info.first_seen_time_dt",
-  FINDING_INFO_LAST_SEEN_TIME_DT: "finding_info.last_seen_time_dt",
-  FINDING_INFO_MODIFIED_TIME_DT: "finding_info.modified_time_dt",
-  RESOURCES_IMAGE_CREATED_TIME_DT: "resources.image.created_time_dt",
-  RESOURCES_IMAGE_LAST_USED_TIME_DT: "resources.image.last_used_time_dt",
-  RESOURCES_MODIFIED_TIME_DT: "resources.modified_time_dt",
-} as const;
-
-/**
- * @public
- */
-export type OcsfDateField = (typeof OcsfDateField)[keyof typeof OcsfDateField];
 
 /**
  * <p>Enables filtering of security findings based on date and timestamp fields in OCSF.</p>
@@ -6713,20 +5218,6 @@ export interface OcsfDateFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const OcsfIpField = {
-  EVIDENCES_DST_ENDPOINT_IP: "evidences.dst_endpoint.ip",
-  EVIDENCES_SRC_ENDPOINT_IP: "evidences.src_endpoint.ip",
-} as const;
-
-/**
- * @public
- */
-export type OcsfIpField = (typeof OcsfIpField)[keyof typeof OcsfIpField];
-
-/**
  * <p>The structure for filtering findings based on IP address attributes.</p>
  * @public
  */
@@ -6743,22 +5234,6 @@ export interface OcsfIpFilter {
    */
   Filter?: IpFilter | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OcsfMapField = {
-  COMPLIANCE_CONTROL_PARAMETERS: "compliance.control_parameters",
-  DATABUCKET_TAGS: "databucket.tags",
-  FINDING_INFO_TAGS: "finding_info.tags",
-  RESOURCES_TAGS: "resources.tags",
-} as const;
-
-/**
- * @public
- */
-export type OcsfMapField = (typeof OcsfMapField)[keyof typeof OcsfMapField];
 
 /**
  * <p>Enables filtering of security findings based on map field values in OCSF.</p>
@@ -6780,30 +5255,6 @@ export interface OcsfMapFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const OcsfNumberField = {
-  ACTIVITY_ID: "activity_id",
-  COMPLIANCE_STATUS_ID: "compliance.status_id",
-  CONFIDENCE_SCORE: "confidence_score",
-  EVIDENCES_API_RESPONSE_CODE: "evidences.api.response.code",
-  EVIDENCES_DST_ENDPOINT_AUTONOMOUS_SYSTEM_NUMBER: "evidences.dst_endpoint.autonomous_system.number",
-  EVIDENCES_DST_ENDPOINT_PORT: "evidences.dst_endpoint.port",
-  EVIDENCES_SRC_ENDPOINT_AUTONOMOUS_SYSTEM_NUMBER: "evidences.src_endpoint.autonomous_system.number",
-  EVIDENCES_SRC_ENDPOINT_PORT: "evidences.src_endpoint.port",
-  FINDING_INFO_RELATED_EVENTS_COUNT: "finding_info.related_events_count",
-  RESOURCES_IMAGE_IN_USE_COUNT: "resources.image.in_use_count",
-  SEVERITY_ID: "severity_id",
-  STATUS_ID: "status_id",
-} as const;
-
-/**
- * @public
- */
-export type OcsfNumberField = (typeof OcsfNumberField)[keyof typeof OcsfNumberField];
-
-/**
  * <p>Enables filtering of security findings based on numerical field values in OCSF.</p>
  * @public
  */
@@ -6820,88 +5271,6 @@ export interface OcsfNumberFilter {
    */
   Filter?: NumberFilter | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OcsfStringField = {
-  ACTIVITY_NAME: "activity_name",
-  CLASS_NAME: "class_name",
-  CLOUD_ACCOUNT_NAME: "cloud.account.name",
-  CLOUD_ACCOUNT_UID: "cloud.account.uid",
-  CLOUD_PROVIDER: "cloud.provider",
-  CLOUD_REGION: "cloud.region",
-  COMMENT: "comment",
-  COMPLIANCE_ASSESSMENTS_CATEGORY: "compliance.assessments.category",
-  COMPLIANCE_ASSESSMENTS_NAME: "compliance.assessments.name",
-  COMPLIANCE_CONTROL: "compliance.control",
-  COMPLIANCE_STANDARDS: "compliance.standards",
-  COMPLIANCE_STATUS: "compliance.status",
-  DATABUCKET_ENCRYPTION_DETAILS_ALGORITHM: "databucket.encryption_details.algorithm",
-  DATABUCKET_ENCRYPTION_DETAILS_KEY_UID: "databucket.encryption_details.key_uid",
-  DATABUCKET_FILE_DATA_CLASSIFICATIONS_CLASSIFIER_DETAILS_TYPE:
-    "databucket.file.data_classifications.classifier_details.type",
-  EVIDENCES_ACTOR_USER_ACCOUNT_UID: "evidences.actor.user.account.uid",
-  EVIDENCES_API_OPERATION: "evidences.api.operation",
-  EVIDENCES_API_RESPONSE_ERROR_MESSAGE: "evidences.api.response.error_message",
-  EVIDENCES_API_SERVICE_NAME: "evidences.api.service.name",
-  EVIDENCES_CONNECTION_INFO_DIRECTION: "evidences.connection_info.direction",
-  EVIDENCES_CONNECTION_INFO_PROTOCOL_NAME: "evidences.connection_info.protocol_name",
-  EVIDENCES_DST_ENDPOINT_AUTONOMOUS_SYSTEM_NAME: "evidences.dst_endpoint.autonomous_system.name",
-  EVIDENCES_DST_ENDPOINT_LOCATION_CITY: "evidences.dst_endpoint.location.city",
-  EVIDENCES_DST_ENDPOINT_LOCATION_COUNTRY: "evidences.dst_endpoint.location.country",
-  EVIDENCES_SRC_ENDPOINT_AUTONOMOUS_SYSTEM_NAME: "evidences.src_endpoint.autonomous_system.name",
-  EVIDENCES_SRC_ENDPOINT_HOSTNAME: "evidences.src_endpoint.hostname",
-  EVIDENCES_SRC_ENDPOINT_LOCATION_CITY: "evidences.src_endpoint.location.city",
-  EVIDENCES_SRC_ENDPOINT_LOCATION_COUNTRY: "evidences.src_endpoint.location.country",
-  FINDING_INFO_ANALYTIC_NAME: "finding_info.analytic.name",
-  FINDING_INFO_DESC: "finding_info.desc",
-  FINDING_INFO_RELATED_EVENTS_PRODUCT_UID: "finding_info.related_events.product.uid",
-  FINDING_INFO_RELATED_EVENTS_TITLE: "finding_info.related_events.title",
-  FINDING_INFO_RELATED_EVENTS_UID: "finding_info.related_events.uid",
-  FINDING_INFO_SRC_URL: "finding_info.src_url",
-  FINDING_INFO_TITLE: "finding_info.title",
-  FINDING_INFO_TYPES: "finding_info.types",
-  FINDING_INFO_UID: "finding_info.uid",
-  MALWARE_NAME: "malware.name",
-  MALWARE_SCAN_INFO_UID: "malware_scan_info.uid",
-  MALWARE_SEVERITY: "malware.severity",
-  METADATA_PRODUCT_NAME: "metadata.product.name",
-  METADATA_PRODUCT_UID: "metadata.product.uid",
-  METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
-  METADATA_UID: "metadata.uid",
-  REMEDIATION_DESC: "remediation.desc",
-  REMEDIATION_REFERENCES: "remediation.references",
-  RESOURCES_CLOUD_FUNCTION_LAYERS_UID_ALT: "resources.cloud_function.layers.uid_alt",
-  RESOURCES_CLOUD_FUNCTION_RUNTIME: "resources.cloud_function.runtime",
-  RESOURCES_CLOUD_FUNCTION_USER_UID: "resources.cloud_function.user.uid",
-  RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
-  RESOURCES_DEVICE_ENCRYPTION_DETAILS_KEY_UID: "resources.device.encryption_details.key_uid",
-  RESOURCES_DEVICE_IMAGE_UID: "resources.device.image.uid",
-  RESOURCES_IMAGE_ARCHITECTURE: "resources.image.architecture",
-  RESOURCES_IMAGE_REGISTRY_UID: "resources.image.registry_uid",
-  RESOURCES_IMAGE_REPOSITORY_NAME: "resources.image.repository_name",
-  RESOURCES_IMAGE_UID: "resources.image.uid",
-  RESOURCES_REGION: "resources.region",
-  RESOURCES_SUBNET_INFO_UID: "resources.subnet_info.uid",
-  RESOURCES_TYPE: "resources.type",
-  RESOURCES_UID: "resources.uid",
-  RESOURCES_VPC_UID: "resources.vpc_uid",
-  SEVERITY: "severity",
-  STATUS: "status",
-  VULNERABILITIES_AFFECTED_CODE_FILE_PATH: "vulnerabilities.affected_code.file.path",
-  VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
-  VULNERABILITIES_CVE_EPSS_SCORE: "vulnerabilities.cve.epss.score",
-  VULNERABILITIES_CVE_UID: "vulnerabilities.cve.uid",
-  VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
-  VULNERABILITIES_RELATED_VULNERABILITIES: "vulnerabilities.related_vulnerabilities",
-} as const;
-
-/**
- * @public
- */
-export type OcsfStringField = (typeof OcsfStringField)[keyof typeof OcsfStringField];
 
 /**
  * <p>Enables filtering of security findings based on string field values in OCSF.</p>
@@ -7412,34 +5781,6 @@ export interface ConfigurationPolicySummary {
 
 /**
  * @public
- * @enum
- */
-export const ConnectorAuthStatus = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorAuthStatus = (typeof ConnectorAuthStatus)[keyof typeof ConnectorAuthStatus];
-
-/**
- * @public
- * @enum
- */
-export const ConnectorProviderName = {
-  JIRA_CLOUD: "JIRA_CLOUD",
-  SERVICENOW: "SERVICENOW",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorProviderName = (typeof ConnectorProviderName)[keyof typeof ConnectorProviderName];
-
-/**
- * @public
  */
 export interface ConnectorRegistrationsV2Request {
   /**
@@ -7471,22 +5812,6 @@ export interface ConnectorRegistrationsV2Response {
    */
   ConnectorId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectorStatus = {
-  CONNECTED: "CONNECTED",
-  FAILED_TO_CONNECT: "FAILED_TO_CONNECT",
-  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
-  PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
 
 /**
  * <p>The connectorV2 third-party provider configuration summary.</p>
@@ -7550,20 +5875,6 @@ export interface ConnectorSummary {
 
 /**
  * @public
- * @enum
- */
-export const ControlFindingGenerator = {
-  SECURITY_CONTROL: "SECURITY_CONTROL",
-  STANDARD_CONTROL: "STANDARD_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typeof ControlFindingGenerator];
-
-/**
- * @public
  */
 export interface CreateActionTargetRequest {
   /**
@@ -7594,30 +5905,6 @@ export interface CreateActionTargetResponse {
    * @public
    */
   ActionTargetArn: string | undefined;
-}
-
-/**
- * <p>The resource specified in the request conflicts with an existing resource.</p>
- * @public
- */
-export class ResourceConflictException extends __BaseException {
-  readonly name: "ResourceConflictException" = "ResourceConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
-    super({
-      name: "ResourceConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceConflictException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**
@@ -8387,19 +6674,6 @@ export interface CreateTicketV2Response {
 
 /**
  * @public
- * @enum
- */
-export const SecurityControlProperty = {
-  Parameters: "Parameters",
-} as const;
-
-/**
- * @public
- */
-export type SecurityControlProperty = (typeof SecurityControlProperty)[keyof typeof SecurityControlProperty];
-
-/**
- * @public
  */
 export interface DeclineInvitationsRequest {
   /**
@@ -8702,37 +6976,6 @@ export interface DescribeHubResponse {
 export interface DescribeOrganizationConfigurationRequest {}
 
 /**
- * @public
- * @enum
- */
-export const OrganizationConfigurationConfigurationType = {
-  CENTRAL: "CENTRAL",
-  LOCAL: "LOCAL",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationConfigurationConfigurationType =
-  (typeof OrganizationConfigurationConfigurationType)[keyof typeof OrganizationConfigurationConfigurationType];
-
-/**
- * @public
- * @enum
- */
-export const OrganizationConfigurationStatus = {
-  ENABLED: "ENABLED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationConfigurationStatus =
-  (typeof OrganizationConfigurationStatus)[keyof typeof OrganizationConfigurationStatus];
-
-/**
  * <p>
  *             Provides information about the way an organization is configured in Security Hub.
  *         </p>
@@ -8852,21 +7095,6 @@ export interface DescribeProductsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const IntegrationType = {
-  RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-  SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
-  UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
-
-/**
  * <p>Contains details about a product.</p>
  * @public
  */
@@ -8979,21 +7207,6 @@ export interface DescribeProductsV2Request {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IntegrationV2Type = {
-  RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-  SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
-  UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationV2Type = (typeof IntegrationV2Type)[keyof typeof IntegrationV2Type];
 
 /**
  * <p>Defines the structure for the productV2.</p>
@@ -9319,20 +7532,6 @@ export interface DisableImportFindingsForProductResponse {}
 
 /**
  * @public
- * @enum
- */
-export const SecurityHubFeature = {
-  SECURITY_HUB: "SecurityHub",
-  SECURITY_HUB_V2: "SecurityHubV2",
-} as const;
-
-/**
- * @public
- */
-export type SecurityHubFeature = (typeof SecurityHubFeature)[keyof typeof SecurityHubFeature];
-
-/**
- * @public
  */
 export interface DisableOrganizationAdminAccountRequest {
   /**
@@ -9578,21 +7777,6 @@ export interface FindingHistoryUpdate {
    */
   NewValue?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FindingHistoryUpdateSourceType = {
-  BATCH_IMPORT_FINDINGS: "BATCH_IMPORT_FINDINGS",
-  BATCH_UPDATE_FINDINGS: "BATCH_UPDATE_FINDINGS",
-} as const;
-
-/**
- * @public
- */
-export type FindingHistoryUpdateSourceType =
-  (typeof FindingHistoryUpdateSourceType)[keyof typeof FindingHistoryUpdateSourceType];
 
 /**
  * <p>
@@ -10313,20 +8497,6 @@ export interface GetFindingHistoryResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "asc",
-  DESCENDING: "desc",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
  * <p>A collection of finding attributes used to sort findings.</p>
  * @public
  */
@@ -10400,34 +8570,1682 @@ export interface GetFindingsResponse {
 }
 
 /**
+ * <p>Represents individual aggregated results when grouping security findings for each <code>GroupByField</code>.</p>
  * @public
- * @enum
  */
-export const GroupByField = {
-  ACTIVITY_NAME: "activity_name",
-  CLASS_NAME: "class_name",
-  CLOUD_ACCOUNT_NAME: "cloud.account.name",
-  CLOUD_ACCOUNT_UID: "cloud.account.uid",
-  CLOUD_PROVIDER: "cloud.provider",
-  CLOUD_REGION: "cloud.region",
-  COMPLIANCE_ASSESSMENTS_NAME: "compliance.assessments.name",
-  COMPLIANCE_CONTROL: "compliance.control",
-  COMPLIANCE_STANDARDS: "compliance.standards",
-  COMPLIANCE_STATUS: "compliance.status",
-  FINDING_INFO_ANALYTIC_NAME: "finding_info.analytic.name",
-  FINDING_INFO_TITLE: "finding_info.title",
-  FINDING_INFO_TYPES: "finding_info.types",
-  METADATA_PRODUCT_NAME: "metadata.product.name",
-  METADATA_PRODUCT_UID: "metadata.product.uid",
-  RESOURCES_TYPE: "resources.type",
-  RESOURCES_UID: "resources.uid",
-  SEVERITY: "severity",
-  STATUS: "status",
-  VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
-  VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
-} as const;
+export interface GroupByValue {
+  /**
+   * <p>The value of the field by which findings are grouped.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>The number of findings for a specific <code>FieldValue</code> and <code>GroupByField</code>.</p>
+   * @public
+   */
+  Count?: number | undefined;
+}
+
+/**
+ * <p>Represents finding statistics grouped by <code>GroupedByField</code>.</p>
+ * @public
+ */
+export interface GroupByResult {
+  /**
+   * <p>The attribute by which filtered security findings should be grouped.</p>
+   * @public
+   */
+  GroupByField?: string | undefined;
+
+  /**
+   * <p>An array of grouped values and their respective counts for each <code>GroupByField</code>.</p>
+   * @public
+   */
+  GroupByValues?: GroupByValue[] | undefined;
+}
 
 /**
  * @public
  */
-export type GroupByField = (typeof GroupByField)[keyof typeof GroupByField];
+export interface GetFindingStatisticsV2Response {
+  /**
+   * <p>Aggregated statistics about security findings based on specified grouping criteria.</p>
+   * @public
+   */
+  GroupByResults?: GroupByResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsV2Response {
+  /**
+   * <p>An array of security findings returned by the operation.</p>
+   * @public
+   */
+  Findings?: __DocumentType[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInsightResultsRequest {
+  /**
+   * <p>The ARN of the insight for which to return results.</p>
+   * @public
+   */
+  InsightArn: string | undefined;
+}
+
+/**
+ * <p>The insight result values returned by the <code>GetInsightResults</code>
+ *          operation.</p>
+ * @public
+ */
+export interface InsightResultValue {
+  /**
+   * <p>The value of the attribute that the findings are grouped by for the insight whose
+   *          results are returned by the <code>GetInsightResults</code> operation.</p>
+   * @public
+   */
+  GroupByAttributeValue: string | undefined;
+
+  /**
+   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   * @public
+   */
+  Count: number | undefined;
+}
+
+/**
+ * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
+ * @public
+ */
+export interface InsightResults {
+  /**
+   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   * @public
+   */
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The attribute that the findings are grouped by for the insight whose results are
+   *          returned by the <code>GetInsightResults</code> operation.</p>
+   * @public
+   */
+  GroupByAttribute: string | undefined;
+
+  /**
+   * <p>The list of insight result values returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   * @public
+   */
+  ResultValues: InsightResultValue[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInsightResultsResponse {
+  /**
+   * <p>The insight results returned by the operation.</p>
+   * @public
+   */
+  InsightResults: InsightResults | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInsightsRequest {
+  /**
+   * <p>The ARNs of the insights to describe. If you don't provide any insight ARNs, then
+   *             <code>GetInsights</code> returns all of your custom insights. It does not return any
+   *          managed insights.</p>
+   * @public
+   */
+  InsightArns?: string[] | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetInsights</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about a Security Hub insight.</p>
+ * @public
+ */
+export interface Insight {
+  /**
+   * <p>The ARN of a Security Hub insight.</p>
+   * @public
+   */
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The name of a Security Hub insight.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values.
+   *             The insight only includes findings that match the criteria defined in the filters.</p>
+   * @public
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The grouping attribute for the insight's findings. Indicates how to group the matching
+   *          findings, and identifies the type of item that the insight applies to. For example, if an
+   *          insight is grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   * @public
+   */
+  GroupByAttribute: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInsightsResponse {
+  /**
+   * <p>The insights returned by the operation.</p>
+   * @public
+   */
+  Insights: Insight[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvitationsCountRequest {}
+
+/**
+ * @public
+ */
+export interface GetInvitationsCountResponse {
+  /**
+   * <p>The number of all membership invitations sent to this Security Hub member account, not
+   *          including the currently accepted invitation.</p>
+   * @public
+   */
+  InvitationsCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMasterAccountRequest {}
+
+/**
+ * @public
+ */
+export interface GetMasterAccountResponse {
+  /**
+   * <p>A list of details about the Security Hub administrator account for the current member account.
+   *       </p>
+   * @public
+   */
+  Master?: Invitation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersRequest {
+  /**
+   * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * <p>The details about a member account.</p>
+ * @public
+ */
+export interface Member {
+  /**
+   * <p>The Amazon Web Services account ID of the member account.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The email address of the member account.</p>
+   * @public
+   */
+  Email?: string | undefined;
+
+  /**
+   * <p>This is replaced by <code>AdministratorID</code>.</p>
+   *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
+   *
+   * @deprecated This field is deprecated, use AdministratorId instead.
+   * @public
+   */
+  MasterId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
+   * @public
+   */
+  AdministratorId?: string | undefined;
+
+  /**
+   * <p>The status of the relationship between the member account and its administrator account.
+   *       </p>
+   *          <p>The status can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Created</code> - Indicates that the administrator account added the member account,
+   *                but has not yet invited the member account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Invited</code> - Indicates that the administrator account invited the member
+   *                account. The member account has not yet responded to the invitation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Enabled</code> - Indicates that the member account is currently active. For
+   *                manually invited member accounts, indicates that the member account accepted the
+   *                invitation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Removed</code> - Indicates that the administrator account disassociated the member
+   *                account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Resigned</code> - Indicates that the member account disassociated themselves
+   *                from the administrator account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleted</code> - Indicates that the administrator account deleted the member
+   *                account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccountSuspended</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MemberStatus?: string | undefined;
+
+  /**
+   * <p>A timestamp for the date and time when the invitation was sent to the member
+   *          account.</p>
+   * @public
+   */
+  InvitedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp for the date and time when the member account was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembersResponse {
+  /**
+   * <p>The list of details about the Security Hub member accounts.</p>
+   * @public
+   */
+  Members?: Member[] | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
+   * @public
+   */
+  UnprocessedAccounts?: Result[] | undefined;
+}
+
+/**
+ * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
+ * @public
+ */
+export interface ResourcesDateFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesDateField | undefined;
+
+  /**
+   * <p>A date filter for querying findings.</p>
+   * @public
+   */
+  Filter?: DateFilter | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on key-value map attributes.</p>
+ * @public
+ */
+export interface ResourcesMapFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesMapField | undefined;
+
+  /**
+   * <p>A map filter for filtering Security Hub findings. Each map filter provides the field to check for, the
+   *          value to check for, and the comparison operator.</p>
+   * @public
+   */
+  Filter?: MapFilter | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on numerical values.</p>
+ * @public
+ */
+export interface ResourcesNumberFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesNumberField | undefined;
+
+  /**
+   * <p>A number filter for querying findings.</p>
+   * @public
+   */
+  Filter?: NumberFilter | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on string field values.</p>
+ * @public
+ */
+export interface ResourcesStringFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesStringField | undefined;
+
+  /**
+   * <p>A string filter for filtering Security Hub findings.</p>
+   * @public
+   */
+  Filter?: StringFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesStatisticsV2Response {
+  /**
+   * <p>The aggregated statistics about resources based on the specified grouping rule.</p>
+   * @public
+   */
+  GroupByResults: GroupByResult[] | undefined;
+}
+
+/**
+ * <p>A comprehensive distribution of security findings by severity level for Amazon Web Services resources.</p>
+ * @public
+ */
+export interface ResourceSeverityBreakdown {
+  /**
+   * <p>The number of findings not in any of the severity categories.</p>
+   * @public
+   */
+  Other?: number | undefined;
+
+  /**
+   * <p>The number of findings with a severity level of fatal.</p>
+   * @public
+   */
+  Fatal?: number | undefined;
+
+  /**
+   * <p>The number of findings with a severity level of critical.</p>
+   * @public
+   */
+  Critical?: number | undefined;
+
+  /**
+   * <p>The number of findings with a severity level of high.</p>
+   * @public
+   */
+  High?: number | undefined;
+
+  /**
+   * <p>The number of findings with a severity level of medium.</p>
+   * @public
+   */
+  Medium?: number | undefined;
+
+  /**
+   * <p>The number of findings with a severity level of low.</p>
+   * @public
+   */
+  Low?: number | undefined;
+
+  /**
+   * <p>The number of findings that provide security-related information.</p>
+   * @public
+   */
+  Informational?: number | undefined;
+
+  /**
+   * <p>The number of findings with a severity level cannot be determined.</p>
+   * @public
+   */
+  Unknown?: number | undefined;
+}
+
+/**
+ * <p>A list of summaries for all finding types on a resource.</p>
+ * @public
+ */
+export interface ResourceFindingsSummary {
+  /**
+   * <p>The category or classification of the security finding.</p>
+   * @public
+   */
+  FindingType: string | undefined;
+
+  /**
+   * <p>The name of the product associated with the security finding.</p>
+   * @public
+   */
+  ProductName: string | undefined;
+
+  /**
+   * <p>The total count of security findings.</p>
+   * @public
+   */
+  TotalFindings: number | undefined;
+
+  /**
+   * <p>A breakdown of security findings by their severity levels.</p>
+   * @public
+   */
+  Severities?: ResourceSeverityBreakdown | undefined;
+}
+
+/**
+ * <p>Represents tag information associated with Amazon Web Services resources.</p>
+ * @public
+ */
+export interface ResourceTag {
+  /**
+   * <p>The identifier or name of the tag.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The data associated with the tag key.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Provides comprehensive details about an Amazon Web Services resource and its associated security findings.</p>
+ * @public
+ */
+export interface ResourceResult {
+  /**
+   * <p>The global identifier used to identify a resource.</p>
+   * @public
+   */
+  ResourceGuid?: string | undefined;
+
+  /**
+   * <p>The unique identifier for a resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account that owns the resource.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the resource is located.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The grouping where the resource belongs.</p>
+   * @public
+   */
+  ResourceCategory?: ResourceCategory | undefined;
+
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The time when the resource was created.</p>
+   * @public
+   */
+  ResourceCreationTimeDt?: string | undefined;
+
+  /**
+   * <p>The timestamp when information about the resource was captured.</p>
+   * @public
+   */
+  ResourceDetailCaptureTimeDt: string | undefined;
+
+  /**
+   * <p>An aggregated view of security findings associated with a resource.</p>
+   * @public
+   */
+  FindingsSummary?: ResourceFindingsSummary[] | undefined;
+
+  /**
+   * <p>The key-value pairs associated with a resource.</p>
+   * @public
+   */
+  ResourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p>The configuration details of a resource.</p>
+   * @public
+   */
+  ResourceConfig: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesV2Response {
+  /**
+   * <p>Filters resources based on a set of criteria.</p>
+   * @public
+   */
+  Resources: ResourceResult[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityControlDefinitionRequest {
+  /**
+   * <p>
+   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+   *         </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+}
+
+/**
+ * <p>
+ *             An object that describes a security control parameter and the options for customizing it.
+ *         </p>
+ * @public
+ */
+export interface ParameterDefinition {
+  /**
+   * <p>
+   *             Description of a control parameter.
+   *         </p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
+   *         </p>
+   * @public
+   */
+  ConfigurationOptions: ConfigurationOptions | undefined;
+}
+
+/**
+ * <p>
+ *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+ *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+ *       </p>
+ * @public
+ */
+export interface SecurityControlDefinition {
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an
+   *          Amazon Web Services service name and a number (for example, APIGateway.3). This parameter differs from
+   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
+   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
+   *       </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The title of a security control.
+   *       </p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   * @public
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub determines control severity,
+   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   * @public
+   */
+  SeverityRating: SeverityRating | undefined;
+
+  /**
+   * <p>
+   *          Specifies whether a security control is available in the current Amazon Web Services Region.
+   *       </p>
+   * @public
+   */
+  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
+
+  /**
+   * <p>
+   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
+   *             controls. An empty array is returned for controls that don’t support custom properties.
+   *         </p>
+   * @public
+   */
+  CustomizableProperties?: SecurityControlProperty[] | undefined;
+
+  /**
+   * <p>
+   *             An object that provides a security control parameter name, description, and the options for customizing it. This
+   * object is excluded for a control that doesn't support custom parameters.
+   *         </p>
+   * @public
+   */
+  ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityControlDefinitionResponse {
+  /**
+   * <p>
+   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+   *       </p>
+   * @public
+   */
+  SecurityControlDefinition: SecurityControlDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InviteMembersRequest {
+  /**
+   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InviteMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
+   * @public
+   */
+  UnprocessedAccounts?: Result[] | undefined;
+}
+
+/**
+ * <p>The parameters used to modify an existing Jira Cloud integration.</p>
+ * @public
+ */
+export interface JiraCloudUpdateConfiguration {
+  /**
+   * <p>The project key for a JiraCloud instance.</p>
+   * @public
+   */
+  ProjectKey: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregatorsV2Request {
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregatorsV2Response {
+  /**
+   * <p>An array of aggregators.</p>
+   * @public
+   */
+  AggregatorsV2?: AggregatorV2[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesRequest {
+  /**
+   * <p>
+   *          A token to specify where to start paginating the response. This is the <code>NextToken</code>
+   *          from a previously truncated response. On your first call to the <code>ListAutomationRules</code>
+   *          API, set the value of this parameter to <code>NULL</code>.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> The maximum number of rules to return in the response. This currently ranges from 1 to
+   *          100. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesResponse {
+  /**
+   * <p>
+   *          Metadata for rules in the calling account. The response includes rules with a
+   *          <code>RuleStatus</code> of <code>ENABLED</code> and <code>DISABLED</code>.
+   *       </p>
+   * @public
+   */
+  AutomationRulesMetadata?: AutomationRulesMetadata[] | undefined;
+
+  /**
+   * <p>
+   *          A pagination token for the response.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesV2Request {
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesV2Response {
+  /**
+   * <p>An array of automation rules.</p>
+   * @public
+   */
+  Rules?: AutomationRulesMetadataV2[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesRequest {
+  /**
+   * <p>
+   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
+   *             there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
+   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
+   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
+   *             valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesResponse {
+  /**
+   * <p>
+   *             Provides metadata for each of your configuration policies.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicySummaries?: ConfigurationPolicySummary[] | undefined;
+
+  /**
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
+   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
+   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsRequest {
+  /**
+   * <p>
+   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
+   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
+   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
+   *             when there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
+   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
+   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
+   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
+   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
+   *         </p>
+   * @public
+   */
+  Filters?: AssociationFilters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsResponse {
+  /**
+   * <p>
+   *             An object that contains the details of each configuration policy association that’s returned in a
+   *             <code>ListConfigurationPolicyAssociations</code> request.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[] | undefined;
+
+  /**
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
+   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
+   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsV2Request {
+  /**
+   * <p>The pagination token per the Amazon Web Services Pagination standard</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The name of the third-party provider.</p>
+   * @public
+   */
+  ProviderName?: ConnectorProviderName | undefined;
+
+  /**
+   * <p>The status for the connectorV2.</p>
+   * @public
+   */
+  ConnectorStatus?: ConnectorStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsV2Response {
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An array of connectorV2 summaries.</p>
+   * @public
+   */
+  Connectors: ConnectorSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledProductsForImportRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledProductsForImportResponse {
+  /**
+   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
+   * @public
+   */
+  ProductSubscriptions?: string[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingAggregatorsRequest {
+  /**
+   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingAggregatorsResponse {
+  /**
+   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
+   * @public
+   */
+  FindingAggregators?: FindingAggregator[] | undefined;
+
+  /**
+   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
+   *          <p>This operation currently only returns a single result.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsRequest {
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListInvitations</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsResponse {
+  /**
+   * <p>The details of the invitations returned by the operation.</p>
+   * @public
+   */
+  Invitations?: Invitation[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersRequest {
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   * @public
+   */
+  OnlyAssociated?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListMembers</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersResponse {
+  /**
+   * <p>Member details returned by the operation.</p>
+   * @public
+   */
+  Members?: Member[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
+   *          the value of this parameter to the value returned from the previous response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The feature where the delegated administrator account is listed.
+   *          Defaults to Security Hub if not specified.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * <p>The list of Security Hub administrator accounts.</p>
+   * @public
+   */
+  AdminAccounts?: AdminAccount[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The feature where the delegated administrator account is listed.
+   *          Defaults to Security Hub CSPM if not specified.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityControlDefinitionsRequest {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the standard that you want to view controls for.
+   *       </p>
+   * @public
+   */
+  StandardsArn?: string | undefined;
+
+  /**
+   * <p>
+   *          Optional pagination parameter.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> An optional parameter that limits the total results of the API response to the
+   *          specified number. If this parameter isn't provided in the request, the results include the
+   *          first 25 security controls that apply to the specified standard. The results also include a
+   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+   *          next 25 controls. This repeats until all controls for the standard are returned. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityControlDefinitionsResponse {
+  /**
+   * <p>
+   *          An array of controls that apply to the specified standard.
+   *       </p>
+   * @public
+   */
+  SecurityControlDefinitions: SecurityControlDefinition[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you
+   *          want to determine the enablement status of in each enabled standard.
+   *       </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          Optional pagination parameter.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> An optional parameter that limits the total results of the API response to the
+   *          specified number. If this parameter isn't provided in the request, the results include the
+   *          first 25 standard and control associations. The results also include a
+   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+   *          next 25 associations. This repeats until all associations for the specified control are
+   *          returned. The number of results is limited by the number of supported Security Hub
+   *          standards that you've enabled in the calling account. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p> An array that provides the enablement status and other details for each control that
+ *          applies to each enabled standard. </p>
+ * @public
+ */
+export interface StandardsControlAssociationSummary {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of a standard.
+   *       </p>
+   * @public
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>
+   *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
+   *          Amazon Web Services service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
+   *       </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The ARN of a control, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   * @public
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>
+   *          The enablement status of a control in a specific standard.
+   *       </p>
+   * @public
+   */
+  AssociationStatus: AssociationStatus | undefined;
+
+  /**
+   * <p>
+   *          The requirement that underlies this control in the compliance framework related to the standard.
+   *       </p>
+   * @public
+   */
+  RelatedRequirements?: string[] | undefined;
+
+  /**
+   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The reason for updating a control's enablement status in a specified standard.</p>
+   * @public
+   */
+  UpdatedReason?: string | undefined;
+
+  /**
+   * <p>
+   *          The title of a control.
+   *       </p>
+   * @public
+   */
+  StandardsControlTitle?: string | undefined;
+
+  /**
+   * <p>
+   *          The description of a control. This typically summarizes how Security Hub evaluates the control and the
+   *          conditions under which it produces a failed finding. The parameter may reference a specific standard.
+   *       </p>
+   * @public
+   */
+  StandardsControlDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsResponse {
+  /**
+   * <p> An array that provides the enablement status and other details for each security
+   *          control that applies to each enabled standard. </p>
+   * @public
+   */
+  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with a resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The parameters required to update the configuration of an integration provider.</p>
+ * @public
+ */
+export type ProviderUpdateConfiguration =
+  | ProviderUpdateConfiguration.JiraCloudMember
+  | ProviderUpdateConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderUpdateConfiguration {
+  /**
+   * <p>The parameters required to update the configuration for a Jira Cloud integration.</p>
+   * @public
+   */
+  export interface JiraCloudMember {
+    JiraCloud: JiraCloudUpdateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    JiraCloud?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationRequest {
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
+   *         </p>
+   * @public
+   */
+  Target: Target | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationResponse {
+  /**
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyId?: string | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
+   *         </p>
+   * @public
+   */
+  TargetId?: string | undefined;
+
+  /**
+   * <p>
+   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *         </p>
+   * @public
+   */
+  TargetType?: TargetType | undefined;
+
+  /**
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   * @public
+   */
+  AssociationType?: AssociationType | undefined;
+
+  /**
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   * @public
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
+
+  /**
+   * <p>
+   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   * @public
+   */
+  AssociationStatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationRequest {
+  /**
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
+   *         </p>
+   * @public
+   */
+  Target?: Target | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationResponse {}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to apply the tags to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}

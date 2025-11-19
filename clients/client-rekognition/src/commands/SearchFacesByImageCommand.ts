@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_1";
+import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_0";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { SearchFacesByImage } from "../schemas/schemas_0";
 

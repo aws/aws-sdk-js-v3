@@ -139,7 +139,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SavingsplansServiceException as __SavingsplansServiceException } from "../models/SavingsplansServiceException";
 
 /* eslint no-var: 0 */

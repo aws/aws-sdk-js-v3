@@ -1,32 +1,31 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DevOpsGuruServiceException as __BaseException } from "./DevOpsGuruServiceException";
-
-/**
- * <p> You don't have permissions to perform the requested operation. The user or role that
- * 			is making the request must have at least one IAM permissions policy attached that grants
- * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- * 				<i>IAM User Guide</i>. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  AnomalySeverity,
+  AnomalyStatus,
+  AnomalyType,
+  CloudWatchMetricDataStatusCode,
+  CloudWatchMetricsStat,
+  CostEstimationServiceResourceState,
+  CostEstimationStatus,
+  EventClass,
+  EventDataSource,
+  EventSourceOptInStatus,
+  InsightFeedbackOption,
+  InsightSeverity,
+  InsightStatus,
+  InsightType,
+  Locale,
+  LogAnomalyType,
+  NotificationMessageType,
+  OptInStatus,
+  OrganizationResourceCollectionType,
+  ResourceCollectionType,
+  ResourcePermission,
+  ResourceTypeFilter,
+  ServerSideEncryptionType,
+  ServiceName,
+  UpdateResourceCollectionAction,
+} from "./enums";
 
 /**
  * <p> Information about the number of open reactive and proactive insights that can be used
@@ -70,38 +69,6 @@ export interface AccountHealth {
    */
   Insight?: AccountInsightHealth | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NotificationMessageType = {
-  CLOSED_INSIGHT: "CLOSED_INSIGHT",
-  NEW_ASSOCIATION: "NEW_ASSOCIATION",
-  NEW_INSIGHT: "NEW_INSIGHT",
-  NEW_RECOMMENDATION: "NEW_RECOMMENDATION",
-  SEVERITY_UPGRADED: "SEVERITY_UPGRADED",
-} as const;
-
-/**
- * @public
- */
-export type NotificationMessageType = (typeof NotificationMessageType)[keyof typeof NotificationMessageType];
-
-/**
- * @public
- * @enum
- */
-export const InsightSeverity = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type InsightSeverity = (typeof InsightSeverity)[keyof typeof InsightSeverity];
 
 /**
  * <p>
@@ -204,170 +171,6 @@ export interface AddNotificationChannelResponse {
 }
 
 /**
- * <p> An exception that is thrown when a conflict occurs. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p> The ID of the Amazon Web Services resource in which a conflict occurred. </p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p> The type of the Amazon Web Services resource in which a conflict occurred. </p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>An internal failure in an Amazon service occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * <p> The number of seconds after which the action that caused the internal server
-   * 			exception can be retried. </p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
- * <p>A requested resource could not be found</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p> The ID of the Amazon Web Services resource that could not be found. </p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p> The type of the Amazon Web Services resource that could not be found. </p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request contains a value that exceeds a maximum quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to a request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p> The code of the quota that was exceeded, causing the throttling exception. </p>
-   * @public
-   */
-  QuotaCode?: string | undefined;
-
-  /**
-   * <p> The code of the service that caused the throttling exception. </p>
-   * @public
-   */
-  ServiceCode?: string | undefined;
-
-  /**
-   * <p> The number of seconds after which the action that caused the throttling exception can
-   * 			be retried. </p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
  * <p> The field associated with the validation exception. </p>
  * @public
  */
@@ -387,79 +190,6 @@ export interface ValidationExceptionField {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  INVALID_PARAMETER_COMBINATION: "INVALID_PARAMETER_COMBINATION",
-  OTHER: "OTHER",
-  PARAMETER_INCONSISTENT_WITH_SERVICE_STATE: "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p> Contains information about data passed in to a field during a request that is not
- * 			valid. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> A message that describes the validation exception. </p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p> The reason the validation exception was thrown. </p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p> An array of fields that are associated with the validation exception. </p>
-   * @public
-   */
-  Fields?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Fields = opts.Fields;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EventSourceOptInStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EventSourceOptInStatus = (typeof EventSourceOptInStatus)[keyof typeof EventSourceOptInStatus];
-
-/**
  * <p>Information about your account's integration with Amazon CodeGuru Profiler. This
  * 			returns whether DevOps Guru is configured to consume recommendations generated from Amazon
  * 			CodeGuru Profiler.</p>
@@ -473,26 +203,6 @@ export interface AmazonCodeGuruProfilerIntegration {
    */
   Status?: EventSourceOptInStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogAnomalyType = {
-  BLOCK_FORMAT: "BLOCK_FORMAT",
-  FORMAT: "FORMAT",
-  HTTP_CODE: "HTTP_CODE",
-  KEYWORD: "KEYWORD",
-  KEYWORD_TOKEN: "KEYWORD_TOKEN",
-  NEW_FIELD_NAME: "NEW_FIELD_NAME",
-  NUMERICAL_NAN: "NUMERICAL_NAN",
-  NUMERICAL_POINT: "NUMERICAL_POINT",
-} as const;
-
-/**
- * @public
- */
-export type LogAnomalyType = (typeof LogAnomalyType)[keyof typeof LogAnomalyType];
 
 /**
  * <p>
@@ -664,21 +374,6 @@ export interface AnomalyResource {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnomalySeverity = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type AnomalySeverity = (typeof AnomalySeverity)[keyof typeof AnomalySeverity];
-
-/**
  * <p> The dimension of an Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
  * 			your account for operational problems and anomalous behavior. A dimension is a
  * 			name/value pair that is part of the identity of a metric. A metric can have up to 10
@@ -698,22 +393,6 @@ export interface CloudWatchMetricsDimension {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CloudWatchMetricDataStatusCode = {
-  COMPLETE: "Complete",
-  INTERNAL_ERROR: "InternalError",
-  PARTIAL_DATA: "PartialData",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchMetricDataStatusCode =
-  (typeof CloudWatchMetricDataStatusCode)[keyof typeof CloudWatchMetricDataStatusCode];
 
 /**
  * <p>A pair that contains metric values at the respective timestamp.</p>
@@ -752,26 +431,6 @@ export interface CloudWatchMetricsDataSummary {
    */
   StatusCode?: CloudWatchMetricDataStatusCode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CloudWatchMetricsStat = {
-  AVERAGE: "Average",
-  MAXIMUM: "Maximum",
-  MINIMUM: "Minimum",
-  P50: "p50",
-  P90: "p90",
-  P99: "p99",
-  SAMPLE_COUNT: "SampleCount",
-  SUM: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchMetricsStat = (typeof CloudWatchMetricsStat)[keyof typeof CloudWatchMetricsStat];
 
 /**
  * <p> Information about an Amazon CloudWatch metric. </p>
@@ -1287,20 +946,6 @@ export interface AnomalySourceMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnomalyStatus = {
-  CLOSED: "CLOSED",
-  ONGOING: "ONGOING",
-} as const;
-
-/**
- * @public
- */
-export type AnomalyStatus = (typeof AnomalyStatus)[keyof typeof AnomalyStatus];
-
-/**
  * <p> A time range that specifies when the observed unusual behavior in an anomaly started
  * 			and ended. This is different from <code>AnomalyReportedTimeRange</code>, which specifies
  * 			the time range when DevOps Guru opens and then closes an anomaly. </p>
@@ -1319,20 +964,6 @@ export interface AnomalyTimeRange {
    */
   EndTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnomalyType = {
-  CAUSAL: "CAUSAL",
-  CONTEXTUAL: "CONTEXTUAL",
-} as const;
-
-/**
- * @public
- */
-export type AnomalyType = (typeof AnomalyType)[keyof typeof AnomalyType];
 
 /**
  * @public
@@ -1894,23 +1525,6 @@ export interface DescribeFeedbackRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InsightFeedbackOption = {
-  ALERT_TOO_SENSITIVE: "ALERT_TOO_SENSITIVE",
-  DATA_INCORRECT: "DATA_INCORRECT",
-  DATA_NOISY_ANOMALY: "DATA_NOISY_ANOMALY",
-  RECOMMENDATION_USEFUL: "RECOMMENDATION_USEFUL",
-  VALID_COLLECTION: "VALID_COLLECTION",
-} as const;
-
-/**
- * @public
- */
-export type InsightFeedbackOption = (typeof InsightFeedbackOption)[keyof typeof InsightFeedbackOption];
-
-/**
  * <p> Information about insight feedback received from a customer. </p>
  * @public
  */
@@ -1974,20 +1588,6 @@ export interface InsightTimeRange {
    */
   EndTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InsightStatus = {
-  CLOSED: "CLOSED",
-  ONGOING: "ONGOING",
-} as const;
-
-/**
- * @public
- */
-export type InsightStatus = (typeof InsightStatus)[keyof typeof InsightStatus];
 
 /**
  * <p>Details about a proactive insight. This object is returned by
@@ -2241,23 +1841,6 @@ export interface DescribeOrganizationOverviewResponse {
 
 /**
  * @public
- * @enum
- */
-export const OrganizationResourceCollectionType = {
-  AWS_ACCOUNT: "AWS_ACCOUNT",
-  AWS_CLOUD_FORMATION: "AWS_CLOUD_FORMATION",
-  AWS_SERVICE: "AWS_SERVICE",
-  AWS_TAGS: "AWS_TAGS",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationResourceCollectionType =
-  (typeof OrganizationResourceCollectionType)[keyof typeof OrganizationResourceCollectionType];
-
-/**
- * @public
  */
 export interface DescribeOrganizationResourceCollectionHealthRequest {
   /**
@@ -2368,43 +1951,6 @@ export interface ServiceInsightHealth {
    */
   OpenReactiveInsights?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceName = {
-  API_GATEWAY: "API_GATEWAY",
-  APPLICATION_ELB: "APPLICATION_ELB",
-  AUTO_SCALING_GROUP: "AUTO_SCALING_GROUP",
-  CLOUD_FRONT: "CLOUD_FRONT",
-  DYNAMO_DB: "DYNAMO_DB",
-  EC2: "EC2",
-  ECS: "ECS",
-  EKS: "EKS",
-  ELASTIC_BEANSTALK: "ELASTIC_BEANSTALK",
-  ELASTI_CACHE: "ELASTI_CACHE",
-  ELB: "ELB",
-  ES: "ES",
-  KINESIS: "KINESIS",
-  LAMBDA: "LAMBDA",
-  NAT_GATEWAY: "NAT_GATEWAY",
-  NETWORK_ELB: "NETWORK_ELB",
-  RDS: "RDS",
-  REDSHIFT: "REDSHIFT",
-  ROUTE_53: "ROUTE_53",
-  S3: "S3",
-  SAGE_MAKER: "SAGE_MAKER",
-  SNS: "SNS",
-  SQS: "SQS",
-  STEP_FUNCTIONS: "STEP_FUNCTIONS",
-  SWF: "SWF",
-} as const;
-
-/**
- * @public
- */
-export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 
 /**
  * <p>Represents the health of an Amazon Web Services service.</p>
@@ -2561,21 +2107,6 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceCollectionType = {
-  AWS_CLOUD_FORMATION: "AWS_CLOUD_FORMATION",
-  AWS_SERVICE: "AWS_SERVICE",
-  AWS_TAGS: "AWS_TAGS",
-} as const;
-
-/**
- * @public
- */
-export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeof ResourceCollectionType];
-
-/**
- * @public
  */
 export interface DescribeResourceCollectionHealthRequest {
   /**
@@ -2665,34 +2196,6 @@ export interface DescribeResourceCollectionHealthResponse {
  * @public
  */
 export interface DescribeServiceIntegrationRequest {}
-
-/**
- * @public
- * @enum
- */
-export const OptInStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type OptInStatus = (typeof OptInStatus)[keyof typeof OptInStatus];
-
-/**
- * @public
- * @enum
- */
-export const ServerSideEncryptionType = {
-  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
-} as const;
-
-/**
- * @public
- */
-export type ServerSideEncryptionType = (typeof ServerSideEncryptionType)[keyof typeof ServerSideEncryptionType];
 
 /**
  * <p>
@@ -2818,21 +2321,6 @@ export interface GetCostEstimationRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CostEstimationServiceResourceState = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type CostEstimationServiceResourceState =
-  (typeof CostEstimationServiceResourceState)[keyof typeof CostEstimationServiceResourceState];
 
 /**
  * <p>An object that contains information about the estimated monthly cost to analyze an
@@ -2997,20 +2485,6 @@ export interface CostEstimationResourceCollectionFilter {
    */
   Tags?: TagCostEstimationResourceCollectionFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CostEstimationStatus = {
-  COMPLETED: "COMPLETED",
-  ONGOING: "ONGOING",
-} as const;
-
-/**
- * @public
- */
-export type CostEstimationStatus = (typeof CostEstimationStatus)[keyof typeof CostEstimationStatus];
 
 /**
  * <p>The time range of a cost estimation.</p>
@@ -3616,37 +3090,6 @@ export interface ListAnomalousLogGroupsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventDataSource = {
-  AWS_CLOUD_TRAIL: "AWS_CLOUD_TRAIL",
-  AWS_CODE_DEPLOY: "AWS_CODE_DEPLOY",
-} as const;
-
-/**
- * @public
- */
-export type EventDataSource = (typeof EventDataSource)[keyof typeof EventDataSource];
-
-/**
- * @public
- * @enum
- */
-export const EventClass = {
-  CONFIG_CHANGE: "CONFIG_CHANGE",
-  DEPLOYMENT: "DEPLOYMENT",
-  INFRASTRUCTURE: "INFRASTRUCTURE",
-  SCHEMA_CHANGE: "SCHEMA_CHANGE",
-  SECURITY_CHANGE: "SECURITY_CHANGE",
-} as const;
-
-/**
- * @public
- */
-export type EventClass = (typeof EventClass)[keyof typeof EventClass];
-
-/**
  * <p> The time range during which an Amazon Web Services event occurred. Amazon Web Services resource events and
  * 			metrics are analyzed by DevOps Guru to find anomalous behavior and provide recommendations to
  * 			improve your operational solutions. </p>
@@ -3851,20 +3294,6 @@ export interface ListEventsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InsightType = {
-  PROACTIVE: "PROACTIVE",
-  REACTIVE: "REACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type InsightType = (typeof InsightType)[keyof typeof InsightType];
 
 /**
  * <p> Used to filter for insights that have any status. </p>
@@ -4148,59 +3577,6 @@ export interface ListInsightsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourcePermission = {
-  FULL_PERMISSION: "FULL_PERMISSION",
-  MISSING_PERMISSION: "MISSING_PERMISSION",
-} as const;
-
-/**
- * @public
- */
-export type ResourcePermission = (typeof ResourcePermission)[keyof typeof ResourcePermission];
-
-/**
- * @public
- * @enum
- */
-export const ResourceTypeFilter = {
-  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
-  DYNAMODB_TABLE: "DYNAMODB_TABLE",
-  EC2_NAT_GATEWAY: "EC2_NAT_GATEWAY",
-  ECS_CLUSTER: "ECS_CLUSTER",
-  ECS_SERVICE: "ECS_SERVICE",
-  EKS_CLUSTER: "EKS_CLUSTER",
-  ELASTICACHE_CACHE_CLUSTER: "ELASTICACHE_CACHE_CLUSTER",
-  ELASTICSEARCH_DOMAIN: "ELASTICSEARCH_DOMAIN",
-  ELASTIC_BEANSTALK_ENVIRONMENT: "ELASTIC_BEANSTALK_ENVIRONMENT",
-  ELASTIC_LOAD_BALANCER_LOAD_BALANCER: "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
-  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER: "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
-  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP: "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
-  KINESIS_STREAM: "KINESIS_STREAM",
-  LAMBDA_FUNCTION: "LAMBDA_FUNCTION",
-  LOG_GROUPS: "LOG_GROUPS",
-  OPEN_SEARCH_SERVICE_DOMAIN: "OPEN_SEARCH_SERVICE_DOMAIN",
-  RDS_DB_CLUSTER: "RDS_DB_CLUSTER",
-  RDS_DB_INSTANCE: "RDS_DB_INSTANCE",
-  REDSHIFT_CLUSTER: "REDSHIFT_CLUSTER",
-  ROUTE53_HEALTH_CHECK: "ROUTE53_HEALTH_CHECK",
-  ROUTE53_HOSTED_ZONE: "ROUTE53_HOSTED_ZONE",
-  S3_BUCKET: "S3_BUCKET",
-  SAGEMAKER_ENDPOINT: "SAGEMAKER_ENDPOINT",
-  SNS_TOPIC: "SNS_TOPIC",
-  SQS_QUEUE: "SQS_QUEUE",
-  STEP_FUNCTIONS_ACTIVITY: "STEP_FUNCTIONS_ACTIVITY",
-  STEP_FUNCTIONS_STATE_MACHINE: "STEP_FUNCTIONS_STATE_MACHINE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTypeFilter = (typeof ResourceTypeFilter)[keyof typeof ResourceTypeFilter];
 
 /**
  * <p>
@@ -4586,29 +3962,6 @@ export interface ListOrganizationInsightsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Locale = {
-  DE_DE: "DE_DE",
-  EN_GB: "EN_GB",
-  EN_US: "EN_US",
-  ES_ES: "ES_ES",
-  FR_FR: "FR_FR",
-  IT_IT: "IT_IT",
-  JA_JP: "JA_JP",
-  KO_KR: "KO_KR",
-  PT_BR: "PT_BR",
-  ZH_CN: "ZH_CN",
-  ZH_TW: "ZH_TW",
-} as const;
-
-/**
- * @public
- */
-export type Locale = (typeof Locale)[keyof typeof Locale];
 
 /**
  * @public
@@ -5107,21 +4460,6 @@ export interface UpdateEventSourcesConfigRequest {
  * @public
  */
 export interface UpdateEventSourcesConfigResponse {}
-
-/**
- * @public
- * @enum
- */
-export const UpdateResourceCollectionAction = {
-  ADD: "ADD",
-  REMOVE: "REMOVE",
-} as const;
-
-/**
- * @public
- */
-export type UpdateResourceCollectionAction =
-  (typeof UpdateResourceCollectionAction)[keyof typeof UpdateResourceCollectionAction];
 
 /**
  * <p> Contains the names of Amazon Web Services CloudFormation stacks used to update a collection of stacks.

@@ -515,7 +515,7 @@ import {
   StillContainsLinksException as __StillContainsLinksException,
   UnsupportedIndexTypeException as __UnsupportedIndexTypeException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

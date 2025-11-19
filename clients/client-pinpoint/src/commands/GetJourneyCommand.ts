@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetJourneyRequest, GetJourneyResponse } from "../models/models_1";
+import { GetJourneyRequest } from "../models/models_0";
+import { GetJourneyResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetJourney } from "../schemas/schemas_0";
 

@@ -1,7 +1,67 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DataZoneServiceException as __BaseException } from "./DataZoneServiceException";
+import {
+  AcceptRuleBehavior,
+  AuthenticationType,
+  AuthType,
+  ChangeAction,
+  ComputeEnvironments,
+  ConfigurableActionTypeAuthorization,
+  ConnectionScope,
+  ConnectionStatus,
+  ConnectionType,
+  DataProductItemType,
+  DataProductStatus,
+  DataSourceErrorType,
+  DataSourceRunStatus,
+  DataSourceStatus,
+  DataZoneEntityType,
+  DeploymentMode,
+  DeploymentStatus,
+  DeploymentType,
+  DomainStatus,
+  DomainUnitDesignation,
+  DomainVersion,
+  EnableSetting,
+  EntityType,
+  EnvironmentStatus,
+  FilterExpressionType,
+  FilterStatus,
+  FormTypeStatus,
+  GlossaryStatus,
+  GlossaryTermStatus,
+  GlossaryUsageRestriction,
+  GlueConnectionType,
+  GovernanceType,
+  GovernedEntityType,
+  GroupProfileStatus,
+  HyperPodOrchestrator,
+  ListingStatus,
+  ManagedPolicyType,
+  OAuth2GrantType,
+  OverallDeploymentStatus,
+  ProjectDesignation,
+  ProjectStatus,
+  Protocol,
+  ResolutionStrategy,
+  ResourceTagSource,
+  RuleAction,
+  RuleScopeSelectionMode,
+  RuleTargetType,
+  RuleType,
+  S3Permission,
+  Status,
+  SubscriptionGrantOverallStatus,
+  SubscriptionGrantStatus,
+  SubscriptionRequestStatus,
+  SubscriptionStatus,
+  TargetEntityType,
+  Timezone,
+  UserAssignment,
+  UserDesignation,
+  UserProfileStatus,
+  UserProfileType,
+  UserType,
+} from "./enums";
 
 /**
  * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be accepted.</p>
@@ -44,20 +104,6 @@ export interface AcceptedAssetScope {
    */
   filterIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AcceptRuleBehavior = {
-  ALL: "ALL",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AcceptRuleBehavior = (typeof AcceptRuleBehavior)[keyof typeof AcceptRuleBehavior];
 
 /**
  * <p>Specifies the rule and the threshold under which a prediction can be accepted.</p>
@@ -140,162 +186,6 @@ export interface AcceptPredictionsOutput {
    */
   revision: string | undefined;
 }
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>There is a conflict while performing this action.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The request has failed because of an unknown error, exception or failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>You do not have permission to perform this action.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const S3Permission = {
-  READ: "READ",
-  WRITE: "WRITE",
-} as const;
-
-/**
- * @public
- */
-export type S3Permission = (typeof S3Permission)[keyof typeof S3Permission];
 
 /**
  * <p>The asset permissions.</p>
@@ -416,21 +306,6 @@ export interface FormOutput {
    */
   content?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionRequestStatus = {
-  ACCEPTED: "ACCEPTED",
-  PENDING: "PENDING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionRequestStatus = (typeof SubscriptionRequestStatus)[keyof typeof SubscriptionRequestStatus];
 
 /**
  * <p>The asset scope.</p>
@@ -1003,26 +878,6 @@ export interface AcceptSubscriptionRequestOutput {
 }
 
 /**
- * <p>The request has exceeded the specified service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
  * <p>The account information within an account pool.</p>
  * @public
  */
@@ -1045,19 +900,6 @@ export interface AccountInfo {
    */
   awsAccountName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolutionStrategy = {
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type ResolutionStrategy = (typeof ResolutionStrategy)[keyof typeof ResolutionStrategy];
 
 /**
  * <p>The summary of the account pool.</p>
@@ -1226,19 +1068,6 @@ export namespace ActionParameters {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const DataZoneEntityType = {
-  DOMAIN_UNIT: "DOMAIN_UNIT",
-} as const;
-
-/**
- * @public
- */
-export type DataZoneEntityType = (typeof DataZoneEntityType)[keyof typeof DataZoneEntityType];
 
 /**
  * <p>The properties of the domain unit owners group.</p>
@@ -1876,61 +1705,6 @@ export namespace PolicyGrantDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const TargetEntityType = {
-  ASSET_TYPE: "ASSET_TYPE",
-  DOMAIN_UNIT: "DOMAIN_UNIT",
-  ENVIRONMENT_BLUEPRINT_CONFIGURATION: "ENVIRONMENT_BLUEPRINT_CONFIGURATION",
-  ENVIRONMENT_PROFILE: "ENVIRONMENT_PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type TargetEntityType = (typeof TargetEntityType)[keyof typeof TargetEntityType];
-
-/**
- * @public
- * @enum
- */
-export const ManagedPolicyType = {
-  ADD_TO_PROJECT_MEMBER_POOL: "ADD_TO_PROJECT_MEMBER_POOL",
-  CREATE_ASSET_TYPE: "CREATE_ASSET_TYPE",
-  CREATE_DOMAIN_UNIT: "CREATE_DOMAIN_UNIT",
-  CREATE_ENVIRONMENT: "CREATE_ENVIRONMENT",
-  CREATE_ENVIRONMENT_FROM_BLUEPRINT: "CREATE_ENVIRONMENT_FROM_BLUEPRINT",
-  CREATE_ENVIRONMENT_PROFILE: "CREATE_ENVIRONMENT_PROFILE",
-  CREATE_FORM_TYPE: "CREATE_FORM_TYPE",
-  CREATE_GLOSSARY: "CREATE_GLOSSARY",
-  CREATE_PROJECT: "CREATE_PROJECT",
-  CREATE_PROJECT_FROM_PROJECT_PROFILE: "CREATE_PROJECT_FROM_PROJECT_PROFILE",
-  DELEGATE_CREATE_ENVIRONMENT_PROFILE: "DELEGATE_CREATE_ENVIRONMENT_PROFILE",
-  OVERRIDE_DOMAIN_UNIT_OWNERS: "OVERRIDE_DOMAIN_UNIT_OWNERS",
-  OVERRIDE_PROJECT_OWNERS: "OVERRIDE_PROJECT_OWNERS",
-  USE_ASSET_TYPE: "USE_ASSET_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ManagedPolicyType = (typeof ManagedPolicyType)[keyof typeof ManagedPolicyType];
-
-/**
- * @public
- * @enum
- */
-export const DomainUnitDesignation = {
-  OWNER: "OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DomainUnitDesignation = (typeof DomainUnitDesignation)[keyof typeof DomainUnitDesignation];
-
-/**
  * <p>The grant filter for all domain units.</p>
  * @public
  */
@@ -2037,21 +1811,6 @@ export namespace GroupPolicyGrantPrincipal {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ProjectDesignation = {
-  CONTRIBUTOR: "CONTRIBUTOR",
-  OWNER: "OWNER",
-  PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
-} as const;
-
-/**
- * @public
- */
-export type ProjectDesignation = (typeof ProjectDesignation)[keyof typeof ProjectDesignation];
 
 /**
  * <p>The domain unit filter of the project grant filter.</p>
@@ -2473,21 +2232,6 @@ export interface AmazonQPropertiesPatch {
    */
   authMode?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListingStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ListingStatus = (typeof ListingStatus)[keyof typeof ListingStatus];
 
 /**
  * <p>The details of an asset published in an Amazon DataZone catalog. </p>
@@ -3667,20 +3411,6 @@ export namespace RowFilterExpression {
 }
 
 /**
- * @public
- * @enum
- */
-export const FilterStatus = {
-  INVALID: "INVALID",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type FilterStatus = (typeof FilterStatus)[keyof typeof FilterStatus];
-
-/**
  * <p>The summary of the asset filter.</p>
  * @public
  */
@@ -4540,20 +4270,6 @@ export interface AssetTypeItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleScopeSelectionMode = {
-  ALL: "ALL",
-  SPECIFIC: "SPECIFIC",
-} as const;
-
-/**
- * @public
- */
-export type RuleScopeSelectionMode = (typeof RuleScopeSelectionMode)[keyof typeof RuleScopeSelectionMode];
-
-/**
  * <p>The asset type for the rule details.</p>
  * @public
  */
@@ -4598,19 +4314,6 @@ export interface AssociateEnvironmentRoleInput {
  * @public
  */
 export interface AssociateEnvironmentRoleOutput {}
-
-/**
- * @public
- * @enum
- */
-export const GovernedEntityType = {
-  ASSET: "ASSET",
-} as const;
-
-/**
- * @public
- */
-export type GovernedEntityType = (typeof GovernedEntityType)[keyof typeof GovernedEntityType];
 
 /**
  * @public
@@ -4683,21 +4386,6 @@ export interface AthenaPropertiesPatch {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthenticationType = {
-  BASIC: "BASIC",
-  CUSTOM: "CUSTOM",
-  OAUTH2: "OAUTH2",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
-
-/**
  * <p>The authorization code properties of a connection.</p>
  * @public
  */
@@ -4762,21 +4450,6 @@ export interface GlueOAuth2Credentials {
    */
   jwtToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OAuth2GrantType = {
-  AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
-  CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
-  JWT_BEARER: "JWT_BEARER",
-} as const;
-
-/**
- * @public
- */
-export type OAuth2GrantType = (typeof OAuth2GrantType)[keyof typeof OAuth2GrantType];
 
 /**
  * <p>The OAuth2 properties.</p>
@@ -4923,20 +4596,6 @@ export interface AuthenticationConfigurationPatch {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthType = {
-  DISABLED: "DISABLED",
-  IAM_IDC: "IAM_IDC",
-} as const;
-
-/**
- * @public
- */
-export type AuthType = (typeof AuthType)[keyof typeof AuthType];
-
-/**
  * <p>The account ID of a project.</p>
  * @public
  */
@@ -5057,21 +4716,6 @@ export interface CancelSubscriptionInput {
 
 /**
  * @public
- * @enum
- */
-export const SubscriptionStatus = {
-  APPROVED: "APPROVED",
-  CANCELLED: "CANCELLED",
-  REVOKED: "REVOKED",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
-
-/**
- * @public
  */
 export interface CancelSubscriptionOutput {
   /**
@@ -5142,20 +4786,6 @@ export interface CancelSubscriptionOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeAction = {
-  PUBLISH: "PUBLISH",
-  UNPUBLISH: "UNPUBLISH",
-} as const;
-
-/**
- * @public
- */
-export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
-
-/**
  * <p>Part of the provisioning properties of the environment blueprint.</p>
  * @public
  */
@@ -5166,21 +4796,6 @@ export interface CloudFormationProperties {
    */
   templateUrl: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComputeEnvironments = {
-  ATHENA: "ATHENA",
-  PYTHON: "PYTHON",
-  SPARK: "SPARK",
-} as const;
-
-/**
- * @public
- */
-export type ComputeEnvironments = (typeof ComputeEnvironments)[keyof typeof ComputeEnvironments];
 
 /**
  * <p>The details of the parameters for the configurable environment action.</p>
@@ -5199,21 +4814,6 @@ export interface ConfigurableActionParameter {
    */
   value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurableActionTypeAuthorization = {
-  HTTPS: "HTTPS",
-  IAM: "IAM",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurableActionTypeAuthorization =
-  (typeof ConfigurableActionTypeAuthorization)[keyof typeof ConfigurableActionTypeAuthorization];
 
 /**
  * <p>The configurable action of a Amazon DataZone environment.</p>
@@ -5268,31 +4868,6 @@ export interface ConnectionCredentials {
    */
   expiration?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GlueConnectionType = {
-  BIGQUERY: "BIGQUERY",
-  DOCUMENTDB: "DOCUMENTDB",
-  DYNAMODB: "DYNAMODB",
-  MYSQL: "MYSQL",
-  OPENSEARCH: "OPENSEARCH",
-  ORACLE: "ORACLE",
-  POSTGRESQL: "POSTGRESQL",
-  REDSHIFT: "REDSHIFT",
-  SAPHANA: "SAPHANA",
-  SNOWFLAKE: "SNOWFLAKE",
-  SQLSERVER: "SQLSERVER",
-  TERADATA: "TERADATA",
-  VERTICA: "VERTICA",
-} as const;
-
-/**
- * @public
- */
-export type GlueConnectionType = (typeof GlueConnectionType)[keyof typeof GlueConnectionType];
 
 /**
  * <p>Physical connection requirements of a connection.</p>
@@ -6022,26 +5597,6 @@ export namespace ConnectionPropertiesInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectionStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  READY: "READY",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
-/**
  * <p>The properties of the Amazon Web Services Glue connection.</p>
  * @public
  */
@@ -6058,20 +5613,6 @@ export interface GluePropertiesOutput {
    */
   errorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HyperPodOrchestrator = {
-  EKS: "EKS",
-  SLURM: "SLURM",
-} as const;
-
-/**
- * @public
- */
-export type HyperPodOrchestrator = (typeof HyperPodOrchestrator)[keyof typeof HyperPodOrchestrator];
 
 /**
  * <p>The hyper pod properties of a Amazon Web Services Glue properties patch.</p>
@@ -6240,20 +5781,6 @@ export interface S3PropertiesOutput {
    */
   errorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GovernanceType = {
-  AWS_MANAGED: "AWS_MANAGED",
-  USER_MANAGED: "USER_MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type GovernanceType = (typeof GovernanceType)[keyof typeof GovernanceType];
 
 /**
  * <p>The managed endpoint credentials of the EMR on EKS cluster.</p>
@@ -7008,54 +6535,6 @@ export namespace ConnectionPropertiesPatch {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectionScope = {
-  DOMAIN: "DOMAIN",
-  PROJECT: "PROJECT",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionScope = (typeof ConnectionScope)[keyof typeof ConnectionScope];
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  AMAZON_Q: "AMAZON_Q",
-  ATHENA: "ATHENA",
-  BIGQUERY: "BIGQUERY",
-  DATABRICKS: "DATABRICKS",
-  DOCUMENTDB: "DOCUMENTDB",
-  DYNAMODB: "DYNAMODB",
-  HYPERPOD: "HYPERPOD",
-  IAM: "IAM",
-  MLFLOW: "MLFLOW",
-  MYSQL: "MYSQL",
-  OPENSEARCH: "OPENSEARCH",
-  ORACLE: "ORACLE",
-  POSTGRESQL: "POSTGRESQL",
-  REDSHIFT: "REDSHIFT",
-  S3: "S3",
-  SAPHANA: "SAPHANA",
-  SNOWFLAKE: "SNOWFLAKE",
-  SPARK: "SPARK",
-  SQLSERVER: "SQLSERVER",
-  TERADATA: "TERADATA",
-  VERTICA: "VERTICA",
-  WORKFLOWS_MWAA: "WORKFLOWS_MWAA",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
-
-/**
  * <p>The Amazon Web Services Glue connection.</p>
  * @public
  */
@@ -7168,25 +6647,6 @@ export interface GlueConnection {
    */
   compatibleComputeEnvironments?: ComputeEnvironments[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  ATHENA: "ATHENA",
-  GLUE_INTERACTIVE_SESSION: "GLUE_INTERACTIVE_SESSION",
-  HTTPS: "HTTPS",
-  JDBC: "JDBC",
-  LIVY: "LIVY",
-  ODBC: "ODBC",
-  PRISM: "PRISM",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * <p>The physical endpoints of a connection.</p>
@@ -7545,19 +7005,6 @@ export interface CreateConnectionOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataProductItemType = {
-  ASSET: "ASSET",
-} as const;
-
-/**
- * @public
- */
-export type DataProductItemType = (typeof DataProductItemType)[keyof typeof DataProductItemType];
-
-/**
  * <p>The data product.</p>
  * @public
  */
@@ -7639,21 +7086,6 @@ export interface CreateDataProductInput {
    */
   clientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataProductStatus = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-} as const;
-
-/**
- * @public
- */
-export type DataProductStatus = (typeof DataProductStatus)[keyof typeof DataProductStatus];
 
 /**
  * @public
@@ -7885,20 +7317,6 @@ export interface CreateDataProductRevisionOutput {
    */
   firstRevisionCreatedBy?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterExpressionType = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type FilterExpressionType = (typeof FilterExpressionType)[keyof typeof FilterExpressionType];
 
 /**
  * <p>A filter expression in Amazon DataZone.</p>
@@ -8173,20 +7591,6 @@ export namespace DataSourceConfigurationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnableSetting = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EnableSetting = (typeof EnableSetting)[keyof typeof EnableSetting];
-
-/**
  * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code> action.</p>
  * @public
  */
@@ -8197,82 +7601,6 @@ export interface RecommendationConfiguration {
    */
   enableBusinessNameGeneration?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Timezone = {
-  AFRICA_JOHANNESBURG: "AFRICA_JOHANNESBURG",
-  AMERICA_MONTREAL: "AMERICA_MONTREAL",
-  AMERICA_SAO_PAULO: "AMERICA_SAO_PAULO",
-  ASIA_BAHRAIN: "ASIA_BAHRAIN",
-  ASIA_BANGKOK: "ASIA_BANGKOK",
-  ASIA_CALCUTTA: "ASIA_CALCUTTA",
-  ASIA_DUBAI: "ASIA_DUBAI",
-  ASIA_HONG_KONG: "ASIA_HONG_KONG",
-  ASIA_JAKARTA: "ASIA_JAKARTA",
-  ASIA_KUALA_LUMPUR: "ASIA_KUALA_LUMPUR",
-  ASIA_SEOUL: "ASIA_SEOUL",
-  ASIA_SHANGHAI: "ASIA_SHANGHAI",
-  ASIA_SINGAPORE: "ASIA_SINGAPORE",
-  ASIA_TAIPEI: "ASIA_TAIPEI",
-  ASIA_TOKYO: "ASIA_TOKYO",
-  AUSTRALIA_MELBOURNE: "AUSTRALIA_MELBOURNE",
-  AUSTRALIA_SYDNEY: "AUSTRALIA_SYDNEY",
-  CANADA_CENTRAL: "CANADA_CENTRAL",
-  CET: "CET",
-  CST6CDT: "CST6CDT",
-  ETC_GMT: "ETC_GMT",
-  ETC_GMT0: "ETC_GMT0",
-  ETC_GMT_ADD_0: "ETC_GMT_ADD_0",
-  ETC_GMT_ADD_1: "ETC_GMT_ADD_1",
-  ETC_GMT_ADD_10: "ETC_GMT_ADD_10",
-  ETC_GMT_ADD_11: "ETC_GMT_ADD_11",
-  ETC_GMT_ADD_12: "ETC_GMT_ADD_12",
-  ETC_GMT_ADD_2: "ETC_GMT_ADD_2",
-  ETC_GMT_ADD_3: "ETC_GMT_ADD_3",
-  ETC_GMT_ADD_4: "ETC_GMT_ADD_4",
-  ETC_GMT_ADD_5: "ETC_GMT_ADD_5",
-  ETC_GMT_ADD_6: "ETC_GMT_ADD_6",
-  ETC_GMT_ADD_7: "ETC_GMT_ADD_7",
-  ETC_GMT_ADD_8: "ETC_GMT_ADD_8",
-  ETC_GMT_ADD_9: "ETC_GMT_ADD_9",
-  ETC_GMT_NEG_0: "ETC_GMT_NEG_0",
-  ETC_GMT_NEG_1: "ETC_GMT_NEG_1",
-  ETC_GMT_NEG_10: "ETC_GMT_NEG_10",
-  ETC_GMT_NEG_11: "ETC_GMT_NEG_11",
-  ETC_GMT_NEG_12: "ETC_GMT_NEG_12",
-  ETC_GMT_NEG_13: "ETC_GMT_NEG_13",
-  ETC_GMT_NEG_14: "ETC_GMT_NEG_14",
-  ETC_GMT_NEG_2: "ETC_GMT_NEG_2",
-  ETC_GMT_NEG_3: "ETC_GMT_NEG_3",
-  ETC_GMT_NEG_4: "ETC_GMT_NEG_4",
-  ETC_GMT_NEG_5: "ETC_GMT_NEG_5",
-  ETC_GMT_NEG_6: "ETC_GMT_NEG_6",
-  ETC_GMT_NEG_7: "ETC_GMT_NEG_7",
-  ETC_GMT_NEG_8: "ETC_GMT_NEG_8",
-  ETC_GMT_NEG_9: "ETC_GMT_NEG_9",
-  EUROPE_DUBLIN: "EUROPE_DUBLIN",
-  EUROPE_LONDON: "EUROPE_LONDON",
-  EUROPE_PARIS: "EUROPE_PARIS",
-  EUROPE_STOCKHOLM: "EUROPE_STOCKHOLM",
-  EUROPE_ZURICH: "EUROPE_ZURICH",
-  ISRAEL: "ISRAEL",
-  MEXICO_GENERAL: "MEXICO_GENERAL",
-  MST7MDT: "MST7MDT",
-  PACIFIC_AUCKLAND: "PACIFIC_AUCKLAND",
-  US_CENTRAL: "US_CENTRAL",
-  US_EASTERN: "US_EASTERN",
-  US_MOUNTAIN: "US_MOUNTAIN",
-  US_PACIFIC: "US_PACIFIC",
-  UTC: "UTC",
-} as const;
-
-/**
- * @public
- */
-export type Timezone = (typeof Timezone)[keyof typeof Timezone];
 
 /**
  * <p>The details of the schedule of the data source runs.</p>
@@ -8559,25 +7887,6 @@ export namespace DataSourceConfigurationOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataSourceErrorType = {
-  ACCESS_DENIED_EXCEPTION: "ACCESS_DENIED_EXCEPTION",
-  CONFLICT_EXCEPTION: "CONFLICT_EXCEPTION",
-  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
-  RESOURCE_NOT_FOUND_EXCEPTION: "RESOURCE_NOT_FOUND_EXCEPTION",
-  SERVICE_QUOTA_EXCEEDED_EXCEPTION: "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-  THROTTLING_EXCEPTION: "THROTTLING_EXCEPTION",
-  VALIDATION_EXCEPTION: "VALIDATION_EXCEPTION",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceErrorType = (typeof DataSourceErrorType)[keyof typeof DataSourceErrorType];
-
-/**
  * <p>The details of the error message that is returned if the operation cannot be successfully completed.</p>
  * @public
  */
@@ -8594,43 +7903,6 @@ export interface DataSourceErrorMessage {
    */
   errorDetail?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataSourceRunStatus = {
-  FAILED: "FAILED",
-  PARTIALLY_SUCCEEDED: "PARTIALLY_SUCCEEDED",
-  REQUESTED: "REQUESTED",
-  RUNNING: "RUNNING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceRunStatus = (typeof DataSourceRunStatus)[keyof typeof DataSourceRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const DataSourceStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED_CREATION: "FAILED_CREATION",
-  FAILED_DELETION: "FAILED_DELETION",
-  FAILED_UPDATE: "FAILED_UPDATE",
-  READY: "READY",
-  RUNNING: "RUNNING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
 /**
  * @public
@@ -8764,34 +8036,6 @@ export interface CreateDataSourceOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DomainVersion = {
-  V1: "V1",
-  V2: "V2",
-} as const;
-
-/**
- * @public
- */
-export type DomainVersion = (typeof DomainVersion)[keyof typeof DomainVersion];
-
-/**
- * @public
- * @enum
- */
-export const UserAssignment = {
-  AUTOMATIC: "AUTOMATIC",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type UserAssignment = (typeof UserAssignment)[keyof typeof UserAssignment];
-
-/**
  * <p>The single sign-on details in Amazon DataZone.</p>
  * @public
  */
@@ -8873,24 +8117,6 @@ export interface CreateDomainInput {
    */
   clientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DomainStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  CREATION_FAILED: "CREATION_FAILED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  DELETION_FAILED: "DELETION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * @public
@@ -9260,37 +8486,6 @@ export interface DeploymentProperties {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
-
-/**
- * @public
- * @enum
- */
-export const DeploymentType = {
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
-
-/**
  * <p>The failure reasons for the environment deployment.</p>
  * @public
  */
@@ -9418,31 +8613,6 @@ export namespace ProvisioningProperties {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  DISABLED: "DISABLED",
-  EXPIRED: "EXPIRED",
-  INACCESSIBLE: "INACCESSIBLE",
-  SUSPENDED: "SUSPENDED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-  VALIDATION_FAILED: "VALIDATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
 /**
  * <p>The details of user parameters of an environment blueprint.</p>
@@ -9974,20 +9144,6 @@ export namespace Model {
 
 /**
  * @public
- * @enum
- */
-export const FormTypeStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FormTypeStatus = (typeof FormTypeStatus)[keyof typeof FormTypeStatus];
-
-/**
- * @public
  */
 export interface CreateFormTypeInput {
   /**
@@ -10073,33 +9229,6 @@ export interface CreateFormTypeOutput {
    */
   originProjectId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GlossaryStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type GlossaryStatus = (typeof GlossaryStatus)[keyof typeof GlossaryStatus];
-
-/**
- * @public
- * @enum
- */
-export const GlossaryUsageRestriction = {
-  ASSET_GOVERNED_TERMS: "ASSET_GOVERNED_TERMS",
-} as const;
-
-/**
- * @public
- */
-export type GlossaryUsageRestriction = (typeof GlossaryUsageRestriction)[keyof typeof GlossaryUsageRestriction];
 
 /**
  * @public
@@ -10194,20 +9323,6 @@ export interface CreateGlossaryOutput {
    */
   usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GlossaryTermStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type GlossaryTermStatus = (typeof GlossaryTermStatus)[keyof typeof GlossaryTermStatus];
 
 /**
  * <p>The details of the term relations.</p>
@@ -10364,20 +9479,6 @@ export interface CreateGroupProfileInput {
 
 /**
  * @public
- * @enum
- */
-export const GroupProfileStatus = {
-  ASSIGNED: "ASSIGNED",
-  NOT_ASSIGNED: "NOT_ASSIGNED",
-} as const;
-
-/**
- * @public
- */
-export type GroupProfileStatus = (typeof GroupProfileStatus)[keyof typeof GroupProfileStatus];
-
-/**
- * @public
  */
 export interface CreateGroupProfileOutput {
   /**
@@ -10404,20 +9505,6 @@ export interface CreateGroupProfileOutput {
    */
   groupName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  ASSET: "ASSET",
-  DATA_PRODUCT: "DATA_PRODUCT",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * @public
@@ -10591,18 +9678,2144 @@ export interface CreateProjectInput {
 }
 
 /**
+ * <p>The environment deployment details.</p>
  * @public
- * @enum
  */
-export const OverallDeploymentStatus = {
-  FAILED_DEPLOYMENT: "FAILED_DEPLOYMENT",
-  FAILED_VALIDATION: "FAILED_VALIDATION",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
+export interface EnvironmentDeploymentDetails {
+  /**
+   * <p>The overall deployment status of the environment.</p>
+   * @public
+   */
+  overallDeploymentStatus?: OverallDeploymentStatus | undefined;
+
+  /**
+   * <p>Environment failure reasons.</p>
+   * @public
+   */
+  environmentFailureReasons?: Record<string, EnvironmentError[]> | undefined;
+}
+
+/**
+ * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+ * @public
+ */
+export interface ProjectDeletionError {
+  /**
+   * <p>The code of the project deletion error.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>The message of the project deletion error.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>The resource tag of the project.</p>
+ * @public
+ */
+export interface ResourceTag {
+  /**
+   * <p>The key of the resource tag of the project.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the resource tag of the project.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The source of the resource tag of the project.</p>
+   * @public
+   */
+  source: ResourceTagSource | undefined;
+}
 
 /**
  * @public
  */
-export type OverallDeploymentStatus = (typeof OverallDeploymentStatus)[keyof typeof OverallDeploymentStatus];
+export interface CreateProjectOutput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the project was created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone project.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the Amazon DataZone project that was created.</p>
+   * @public
+   */
+  projectStatus?: ProjectStatus | undefined;
+
+  /**
+   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+   * @public
+   */
+  failureReasons?: ProjectDeletionError[] | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the project.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp of when the project was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the project was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The resource tags of the project.</p>
+   * @public
+   */
+  resourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p>The glossary terms that can be used in the project.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+
+  /**
+   * <p>The project profile ID.</p>
+   * @public
+   */
+  projectProfileId?: string | undefined;
+
+  /**
+   * <p>The user parameters of the project.</p>
+   * @public
+   */
+  userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
+
+  /**
+   * <p>The environment deployment details.</p>
+   * @public
+   */
+  environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
+}
+
+/**
+ * <p>The details about a project member.</p>
+ * @public
+ */
+export type Member = Member.GroupIdentifierMember | Member.UserIdentifierMember | Member.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Member {
+  /**
+   * <p>The user ID of a project member.</p>
+   * @public
+   */
+  export interface UserIdentifierMember {
+    userIdentifier: string;
+    groupIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ID of the group of a project member.</p>
+   * @public
+   */
+  export interface GroupIdentifierMember {
+    userIdentifier?: never;
+    groupIdentifier: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    userIdentifier?: never;
+    groupIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    userIdentifier: (value: string) => T;
+    groupIdentifier: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectMembershipInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which project membership is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the project for which this project membership was created.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The project member whose project membership was created.</p>
+   * @public
+   */
+  member: Member | undefined;
+
+  /**
+   * <p>The designation of the project membership.</p>
+   * @public
+   */
+  designation: UserDesignation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectMembershipOutput {}
+
+/**
+ * <p>The Amazon Web Services Region.</p>
+ * @public
+ */
+export type Region = Region.RegionNameMember | Region.RegionNamePathMember | Region.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Region {
+  /**
+   * <p>The Amazon Web Services Region name.</p>
+   * @public
+   */
+  export interface RegionNameMember {
+    regionName: string;
+    regionNamePath?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The region name path.</p>
+   * @public
+   */
+  export interface RegionNamePathMember {
+    regionName?: never;
+    regionNamePath: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    regionName?: never;
+    regionNamePath?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    regionName: (value: string) => T;
+    regionNamePath: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The environment configuration parameter.</p>
+ * @public
+ */
+export interface EnvironmentConfigurationParameter {
+  /**
+   * <p>The name of the environment configuration parameter.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The value of the environment configuration parameter.</p>
+   * @public
+   */
+  value?: string | undefined;
+
+  /**
+   * <p>Specifies whether the environment parameter is editable.</p>
+   * @public
+   */
+  isEditable?: boolean | undefined;
+}
+
+/**
+ * <p>The details of the environment configuration parameter.</p>
+ * @public
+ */
+export interface EnvironmentConfigurationParametersDetails {
+  /**
+   * <p>Ssm path environment configuration parameters.</p>
+   * @public
+   */
+  ssmPath?: string | undefined;
+
+  /**
+   * <p>The parameter overrides.</p>
+   * @public
+   */
+  parameterOverrides?: EnvironmentConfigurationParameter[] | undefined;
+
+  /**
+   * <p>The resolved environment configuration parameters.</p>
+   * @public
+   */
+  resolvedParameters?: EnvironmentConfigurationParameter[] | undefined;
+}
+
+/**
+ * <p>The configuration of an environment.</p>
+ * @public
+ */
+export interface EnvironmentConfiguration {
+  /**
+   * <p>The environment name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The environment ID.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The environment blueprint ID.</p>
+   * @public
+   */
+  environmentBlueprintId: string | undefined;
+
+  /**
+   * <p>The environment description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The deployment mode of the environment.</p>
+   * @public
+   */
+  deploymentMode?: DeploymentMode | undefined;
+
+  /**
+   * <p>The configuration parameters of the environment.</p>
+   * @public
+   */
+  configurationParameters?: EnvironmentConfigurationParametersDetails | undefined;
+
+  /**
+   * <p>The Amazon Web Services account of the environment.</p>
+   * @public
+   */
+  awsAccount?: AwsAccount | undefined;
+
+  /**
+   * <p>The account pools used by a custom project profile.</p>
+   * @public
+   */
+  accountPools?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the environment.</p>
+   * @public
+   */
+  awsRegion?: Region | undefined;
+
+  /**
+   * <p>The deployment order of the environment.</p>
+   * @public
+   */
+  deploymentOrder?: number | undefined;
+}
+
+/**
+ * <p>The resource tag parameter of the project profile.</p>
+ * @public
+ */
+export interface ResourceTagParameter {
+  /**
+   * <p>The key of the resource tag parameter of the project profile.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the resource tag parameter key of the project profile.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>Specifies whether the value of the resource tag parameter of the project profile is editable at the project level.</p>
+   * @public
+   */
+  isValueEditable: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectProfileInput {
+  /**
+   * <p>A domain ID of the project profile.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Project profile name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of a project profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Project profile status.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The resource tags of the project profile.</p>
+   * @public
+   */
+  projectResourceTags?: ResourceTagParameter[] | undefined;
+
+  /**
+   * <p>Specifies whether custom project resource tags are supported.</p>
+   * @public
+   */
+  allowCustomProjectResourceTags?: boolean | undefined;
+
+  /**
+   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * @public
+   */
+  projectResourceTagsDescription?: string | undefined;
+
+  /**
+   * <p>Environment configurations of the project profile.</p>
+   * @public
+   */
+  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
+
+  /**
+   * <p>A domain unit ID of the project profile.</p>
+   * @public
+   */
+  domainUnitIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectProfileOutput {
+  /**
+   * <p>The ID of the domain where a project profile is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Project profile ID.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Project profile name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A project profile description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Project profile status.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The resource tags of the project profile.</p>
+   * @public
+   */
+  projectResourceTags?: ResourceTagParameter[] | undefined;
+
+  /**
+   * <p>Specifies whether custom project resource tags are supported.</p>
+   * @public
+   */
+  allowCustomProjectResourceTags?: boolean | undefined;
+
+  /**
+   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * @public
+   */
+  projectResourceTagsDescription?: string | undefined;
+
+  /**
+   * <p>Environment configurations of a project profile.</p>
+   * @public
+   */
+  environmentConfigurations?: EnvironmentConfiguration[] | undefined;
+
+  /**
+   * <p>A user who created a project profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>A timestamp at which a project profile is created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp when a project profile was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The ID of the domain unit where a project profile is created.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+}
+
+/**
+ * <p>The reference of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormReference {
+  /**
+   * <p>The type ID of the metadata form reference.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The type revision of the metadata form reference.</p>
+   * @public
+   */
+  typeRevision: string | undefined;
+}
+
+/**
+ * <p>The enforcement details of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormEnforcementDetail {
+  /**
+   * <p>The required metadata forms.</p>
+   * @public
+   */
+  requiredMetadataForms?: MetadataFormReference[] | undefined;
+}
+
+/**
+ * <p>The details of a rule.</p>
+ * @public
+ */
+export type RuleDetail = RuleDetail.MetadataFormEnforcementDetailMember | RuleDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleDetail {
+  /**
+   * <p>The enforcement detail of the metadata form.</p>
+   * @public
+   */
+  export interface MetadataFormEnforcementDetailMember {
+    metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataFormEnforcementDetail?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Specifies projects in which the rule is created.</p>
+ * @public
+ */
+export interface ProjectsForRule {
+  /**
+   * <p>The selection mode of the rule.</p>
+   * @public
+   */
+  selectionMode: RuleScopeSelectionMode | undefined;
+
+  /**
+   * <p>The specific projects in which the rule is created.</p>
+   * @public
+   */
+  specificProjects?: string[] | undefined;
+}
+
+/**
+ * <p>The scope of a rule.</p>
+ * @public
+ */
+export interface RuleScope {
+  /**
+   * <p>The asset type included in the rule scope.</p>
+   * @public
+   */
+  assetType?: AssetTypesForRule | undefined;
+
+  /**
+   * <p>The data product included in the rule scope.</p>
+   * @public
+   */
+  dataProduct?: boolean | undefined;
+
+  /**
+   * <p>The project included in the rule scope.</p>
+   * @public
+   */
+  project?: ProjectsForRule | undefined;
+}
+
+/**
+ * <p>The target for the domain unit.</p>
+ * @public
+ */
+export interface DomainUnitTarget {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId: string | undefined;
+
+  /**
+   * <p>Specifies whether to apply a rule to the child domain units.</p>
+   * @public
+   */
+  includeChildDomainUnits?: boolean | undefined;
+}
+
+/**
+ * <p>The target of the rule.</p>
+ * @public
+ */
+export type RuleTarget = RuleTarget.DomainUnitTargetMember | RuleTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleTarget {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  export interface DomainUnitTargetMember {
+    domainUnitTarget: DomainUnitTarget;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    domainUnitTarget?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    domainUnitTarget: (value: DomainUnitTarget) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateRuleInput {
+  /**
+   * <p>The ID of the domain where the rule is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user who creates the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+}
+
+/**
+ * <p>A revision to be made to an asset published in a Amazon DataZone catalog.</p>
+ * @public
+ */
+export interface ListingRevisionInput {
+  /**
+   * <p>An identifier of revision to be made to an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The details of a revision to be made to an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  revision: string | undefined;
+}
+
+/**
+ * <p>The details of a listing for which a subscription is to be granted.</p>
+ * @public
+ */
+export type GrantedEntityInput = GrantedEntityInput.ListingMember | GrantedEntityInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GrantedEntityInput {
+  /**
+   * <p>The listing for which a subscription is to be granted.</p>
+   * @public
+   */
+  export interface ListingMember {
+    listing: ListingRevisionInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    listing?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    listing: (value: ListingRevisionInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionGrantInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which the subscription grant is created.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the subscription target for which the subscription grant is created.</p>
+   * @public
+   */
+  subscriptionTargetIdentifier?: string | undefined;
+
+  /**
+   * <p>The entity to which the subscription is to be granted.</p>
+   * @public
+   */
+  grantedEntity: GrantedEntityInput | undefined;
+
+  /**
+   * <p>The names of the assets for which the subscription grant is created.</p>
+   * @public
+   */
+  assetTargetNames?: AssetTargetNameMap[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+ * @public
+ */
+export interface FailureCause {
+  /**
+   * <p>The description of the error message.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>The details of the asset for which the subscription grant is created.</p>
+ * @public
+ */
+export interface SubscribedAsset {
+  /**
+   * <p>The identifier of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The revision of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  assetRevision: string | undefined;
+
+  /**
+   * <p>The status of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  status: SubscriptionGrantStatus | undefined;
+
+  /**
+   * <p>The target name of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  targetName?: string | undefined;
+
+  /**
+   * <p>The failure cause included in the details of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  failureCause?: FailureCause | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription grant to the asset is created.</p>
+   * @public
+   */
+  grantedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The failure timestamp included in the details of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  failureTimestamp?: Date | undefined;
+
+  /**
+   * <p>The asset scope of the subscribed asset.</p>
+   * @public
+   */
+  assetScope?: AssetScope | undefined;
+
+  /**
+   * <p>The asset permissions.</p>
+   * @public
+   */
+  permissions?: Permissions | undefined;
+}
+
+/**
+ * <p>A revision of an asset published in a Amazon DataZone catalog.</p>
+ * @public
+ */
+export interface ListingRevision {
+  /**
+   * <p>An identifier of a revision of an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The details of a revision of an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  revision: string | undefined;
+}
+
+/**
+ * <p>The details of a listing for which a subscription is granted.</p>
+ * @public
+ */
+export type GrantedEntity = GrantedEntity.ListingMember | GrantedEntity.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GrantedEntity {
+  /**
+   * <p>The listing for which a subscription is granted.</p>
+   * @public
+   */
+  export interface ListingMember {
+    listing: ListingRevision;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    listing?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    listing: (value: ListingRevision) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionGrantOutput {
+  /**
+   * <p>The ID of the subscription grant.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription grant.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription grant.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>A timestamp of when the subscription grant is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>A timestamp of when the subscription grant was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The environment ID for which subscription grant is created.</p>
+   * @public
+   */
+  environmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the subscription target for which the subscription grant is created.</p>
+   * @public
+   */
+  subscriptionTargetId: string | undefined;
+
+  /**
+   * <p>The entity to which the subscription is granted.</p>
+   * @public
+   */
+  grantedEntity: GrantedEntity | undefined;
+
+  /**
+   * <p>The status of the subscription grant.</p>
+   * @public
+   */
+  status: SubscriptionGrantOverallStatus | undefined;
+
+  /**
+   * <p>The assets for which the subscription grant is created.</p>
+   * @public
+   */
+  assets?: SubscribedAsset[] | undefined;
+
+  /**
+   * <p>The identifier of the subscription grant.</p>
+   *
+   * @deprecated Multiple subscriptions can exist for a single grant
+   * @public
+   */
+  subscriptionId?: string | undefined;
+}
+
+/**
+ * <p>The published asset for which the subscription grant is to be created.</p>
+ * @public
+ */
+export interface SubscribedListingInput {
+  /**
+   * <p>The identifier of the published asset for which the subscription grant is to be created.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * <p>The details of the subscribed group.</p>
+ * @public
+ */
+export interface SubscribedGroupInput {
+  /**
+   * <p>The ID of the subscribed group.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
+
+/**
+ * <p>The project that is to be given a subscription grant.</p>
+ * @public
+ */
+export interface SubscribedProjectInput {
+  /**
+   * <p>The identifier of the project that is to be given a subscription grant.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
+
+/**
+ * <p>The subscribed user.</p>
+ * @public
+ */
+export interface SubscribedUserInput {
+  /**
+   * <p>The ID of the subscribed user.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
+
+/**
+ * <p>The principal that is to be given a subscriptiong grant.</p>
+ * @public
+ */
+export type SubscribedPrincipalInput =
+  | SubscribedPrincipalInput.GroupMember
+  | SubscribedPrincipalInput.ProjectMember
+  | SubscribedPrincipalInput.UserMember
+  | SubscribedPrincipalInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SubscribedPrincipalInput {
+  /**
+   * <p>The project that is to be given a subscription grant.</p>
+   * @public
+   */
+  export interface ProjectMember {
+    project: SubscribedProjectInput;
+    user?: never;
+    group?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed user.</p>
+   * @public
+   */
+  export interface UserMember {
+    project?: never;
+    user: SubscribedUserInput;
+    group?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed group.</p>
+   * @public
+   */
+  export interface GroupMember {
+    project?: never;
+    user?: never;
+    group: SubscribedGroupInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    project?: never;
+    user?: never;
+    group?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    project: (value: SubscribedProjectInput) => T;
+    user: (value: SubscribedUserInput) => T;
+    group: (value: SubscribedGroupInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionRequestInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription request is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone principals for whom the subscription request is created.</p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipalInput[] | undefined;
+
+  /**
+   * <p>The published asset for which the subscription grant is to be created.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListingInput[] | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The metadata form included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormInput[] | undefined;
+
+  /**
+   * <p>The asset permissions of the subscription request.</p>
+   * @public
+   */
+  assetPermissions?: AssetPermission[] | undefined;
+
+  /**
+   * <p>The asset scopes of the subscription request.</p>
+   * @public
+   */
+  assetScopes?: AcceptedAssetScope[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionRequestOutput {
+  /**
+   * <p>The ID of the subscription request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone domain in whcih the subscription request is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the subscription request.</p>
+   * @public
+   */
+  status: SubscriptionRequestStatus | undefined;
+
+  /**
+   * <p>A timestamp of when the subscription request is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>The subscribed principals of the subscription request.</p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipal[] | undefined;
+
+  /**
+   * <p>The published asset for which the subscription grant is to be created.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListing[] | undefined;
+
+  /**
+   * <p>The ID of the reviewer of the subscription request.</p>
+   * @public
+   */
+  reviewerId?: string | undefined;
+
+  /**
+   * <p>The decision comment of the subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>The metadata form included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormOutput[] | undefined;
+}
+
+/**
+ * <p>The details of the subscription target configuration.</p>
+ * @public
+ */
+export interface SubscriptionTargetForm {
+  /**
+   * <p>The form name included in the subscription target configuration.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The content of the subscription target configuration.</p>
+   * @public
+   */
+  content: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionTargetInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which subscription target is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which subscription target is created.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the subscription target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the subscription target.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The configuration of the subscription target.</p>
+   * @public
+   */
+  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
+
+  /**
+   * <p>The authorized principals of the subscription target.</p>
+   * @public
+   */
+  authorizedPrincipals: string[] | undefined;
+
+  /**
+   * <p>The manage access role that is used to create the subscription target.</p>
+   * @public
+   */
+  manageAccessRole: string | undefined;
+
+  /**
+   * <p>The asset types that can be included in the subscription target.</p>
+   * @public
+   */
+  applicableAssetTypes: string[] | undefined;
+
+  /**
+   * <p>The provider of the subscription target.</p>
+   * @public
+   */
+  provider?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionTargetOutput {
+  /**
+   * <p>The ID of the subscription target.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The authorised principals of the subscription target.</p>
+   * @public
+   */
+  authorizedPrincipals: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription target was created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>???</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which the subscription target was created.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The name of the subscription target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the subscription target.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription target was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The manage access role with which the subscription target was created.</p>
+   * @public
+   */
+  manageAccessRole?: string | undefined;
+
+  /**
+   * <p>The asset types that can be included in the subscription target.</p>
+   * @public
+   */
+  applicableAssetTypes: string[] | undefined;
+
+  /**
+   * <p>The configuration of the subscription target.</p>
+   * @public
+   */
+  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
+
+  /**
+   * <p>The provider of the subscription target.</p>
+   * @public
+   */
+  provider: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserProfileInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the user for which the user profile is created.</p>
+   * @public
+   */
+  userIdentifier: string | undefined;
+
+  /**
+   * <p>The user type of the user for which the user profile is created.</p>
+   * @public
+   */
+  userType?: UserType | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserProfileOutput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The identifier of the user profile.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The type of the user profile.</p>
+   * @public
+   */
+  type?: UserProfileType | undefined;
+
+  /**
+   * <p>The status of the user profile.</p>
+   * @public
+   */
+  status?: UserProfileStatus | undefined;
+
+  /**
+   * <p>The user profile details.</p>
+   * @public
+   */
+  details?: UserProfileDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProductInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the data product is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the data product that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProductOutput {}
+
+/**
+ * @public
+ */
+export interface GetDataProductInput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataProductOutput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the data product.</p>
+   * @public
+   */
+  status: DataProductStatus | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The data assets of the data product.</p>
+   * @public
+   */
+  items?: DataProductItem[] | undefined;
+
+  /**
+   * <p>The metadata forms of the data product.</p>
+   * @public
+   */
+  formsOutput?: FormOutput[] | undefined;
+
+  /**
+   * <p>The timestamp at which the data product is created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the first revision of the data product is created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string | undefined;
+}
+
+/**
+ * <p>The additional attributes of an Amazon DataZone data product.</p>
+ * @public
+ */
+export interface DataProductItemAdditionalAttributes {
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
+ * <p>The summary of the listing of the data product.</p>
+ * @public
+ */
+export interface ListingSummary {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  listingId?: string | undefined;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  listingRevision?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+}
+
+/**
+ * <p>The data product listing.</p>
+ * @public
+ */
+export interface DataProductListing {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  dataProductId?: string | undefined;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  dataProductRevision?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data product listing was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The metadata forms of the data product listing.</p>
+   * @public
+   */
+  forms?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product listing.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The data assets of the data product listing.</p>
+   * @public
+   */
+  items?: ListingSummary[] | undefined;
+}
+
+/**
+ * <p>The additional attributes of the asset of the data product. </p>
+ * @public
+ */
+export interface DataProductListingItemAdditionalAttributes {
+  /**
+   * <p>The metadata forms of the asset of the data product. </p>
+   * @public
+   */
+  forms?: string | undefined;
+
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
+ * <p>The results of the data product summary.</p>
+ * @public
+ */
+export interface ListingSummaryItem {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  listingId?: string | undefined;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  listingRevision?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+}
+
+/**
+ * <p>The asset of the data product listing.</p>
+ * @public
+ */
+export interface DataProductListingItem {
+  /**
+   * <p>The ID of the listing.</p>
+   * @public
+   */
+  listingId?: string | undefined;
+
+  /**
+   * <p>The revision of the listing.</p>
+   * @public
+   */
+  listingRevision?: string | undefined;
+
+  /**
+   * <p>The name of the asset of the data product. </p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The entity ID of the asset of the asset of the data product. </p>
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * <p>The revision of the asset of the asset of the data product. </p>
+   * @public
+   */
+  entityRevision?: string | undefined;
+
+  /**
+   * <p>The description of the asset of the asset of the data product. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the asset of the data product listing was created. </p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the listing was created.</p>
+   * @public
+   */
+  listingCreatedBy?: string | undefined;
+
+  /**
+   * <p>The user who updated the listing.</p>
+   * @public
+   */
+  listingUpdatedBy?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the asset of the asset of the data product. </p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+
+  /**
+   * <p>The ID of the owning project of the asset of the data product. </p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The additional attributes of the asset of the data product.</p>
+   * @public
+   */
+  additionalAttributes?: DataProductListingItemAdditionalAttributes | undefined;
+
+  /**
+   * <p>The data of the asset of the data product. </p>
+   * @public
+   */
+  items?: ListingSummaryItem[] | undefined;
+}
+
+/**
+ * <p>The data product.</p>
+ * @public
+ */
+export interface DataProductResultItem {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The timestamp at which the data product was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp at which first revision of the data product was created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string | undefined;
+
+  /**
+   * <p>The additional attributes of an Amazon DataZone data product.</p>
+   * @public
+   */
+  additionalAttributes?: DataProductItemAdditionalAttributes | undefined;
+}
+
+/**
+ * <p>The data product revision.</p>
+ * @public
+ */
+export interface DataProductRevision {
+  /**
+   * <p>The ID of the domain where the data product revision lives.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of the data product revision.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The data product revision.</p>
+   * @public
+   */
+  revision?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data product revision was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data product revision.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the data source is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the data source that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   *
+   * @deprecated This field is no longer required for idempotency.
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
+   * @public
+   */
+  retainPermissionsOnRevokeFailure?: boolean | undefined;
+}

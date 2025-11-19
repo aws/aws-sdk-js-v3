@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateDelegateMacVolumeOwnershipTaskRequest,
   CreateDelegateMacVolumeOwnershipTaskResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { CreateDelegateMacVolumeOwnershipTask } from "../schemas/schemas_0";
 
 /**

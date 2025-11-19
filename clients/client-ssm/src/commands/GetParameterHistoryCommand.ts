@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_1";
+import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_0";
 import { GetParameterHistory } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

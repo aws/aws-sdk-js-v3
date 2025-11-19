@@ -312,7 +312,7 @@ import {
   NotFoundException as __NotFoundException,
   ResourceNotFoundException as __ResourceNotFoundException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

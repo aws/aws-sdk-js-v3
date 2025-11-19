@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RemoveRoleFromInstanceProfileRequest } from "../models/models_1";
+import { RemoveRoleFromInstanceProfileRequest } from "../models/models_0";
 import { RemoveRoleFromInstanceProfile } from "../schemas/schemas_0";
 
 /**

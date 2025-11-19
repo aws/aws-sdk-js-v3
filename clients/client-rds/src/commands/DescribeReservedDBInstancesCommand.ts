@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/models_1";
+import { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/models_0";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeReservedDBInstances } from "../schemas/schemas_0";
 

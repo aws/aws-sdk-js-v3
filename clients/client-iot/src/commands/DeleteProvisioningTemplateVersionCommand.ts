@@ -8,7 +8,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteProvisioningTemplateVersionRequest,
   DeleteProvisioningTemplateVersionResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { DeleteProvisioningTemplateVersion } from "../schemas/schemas_0";
 
 /**

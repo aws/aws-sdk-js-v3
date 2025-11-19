@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateGroupRequest } from "../models/models_1";
+import { UpdateGroupRequest } from "../models/models_0";
 import { UpdateGroup } from "../schemas/schemas_0";
 
 /**

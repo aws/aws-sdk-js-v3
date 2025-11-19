@@ -597,7 +597,7 @@ import {
   UnsupportedOperationException as __UnsupportedOperationException,
   UnsupportedSettingsException as __UnsupportedSettingsException,
   UserDoesNotExistException as __UserDoesNotExistException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

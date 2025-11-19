@@ -1,7 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
+import {
+  BrokerAZDistribution,
+  ClientBroker,
+  ClusterState,
+  ClusterType,
+  ConfigurationState,
+  CustomerActionStatus,
+  EnhancedMonitoring,
+  KafkaVersionStatus,
+  NodeType,
+  RebalancingStatus,
+  ReplicationStartingPositionType,
+  ReplicationTopicNameConfigurationType,
+  ReplicatorState,
+  StorageMode,
+  TargetCompressionType,
+  TopicState,
+  UserIdentityType,
+  VpcConnectionState,
+} from "./enums";
 
 /**
  * <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>
@@ -46,26 +63,6 @@ export interface BrokerEBSVolumeInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const VpcConnectionState = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DEACTIVATING: "DEACTIVATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-  REJECTED: "REJECTED",
-  REJECTING: "REJECTING",
-} as const;
-
-/**
- * @public
- */
-export type VpcConnectionState = (typeof VpcConnectionState)[keyof typeof VpcConnectionState];
-
-/**
  * <p>The client VPC connection object.</p>
  * @public
  */
@@ -100,33 +97,6 @@ export interface ClientVpcConnection {
    */
   Owner?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterType = {
-  PROVISIONED: "PROVISIONED",
-  SERVERLESS: "SERVERLESS",
-} as const;
-
-/**
- * @public
- */
-export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
-
-/**
- * @public
- * @enum
- */
-export const BrokerAZDistribution = {
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type BrokerAZDistribution = (typeof BrokerAZDistribution)[keyof typeof BrokerAZDistribution];
 
 /**
  * Public access control for brokers.
@@ -442,21 +412,6 @@ export interface BrokerSoftwareInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const CustomerActionStatus = {
-  ACTION_RECOMMENDED: "ACTION_RECOMMENDED",
-  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type CustomerActionStatus = (typeof CustomerActionStatus)[keyof typeof CustomerActionStatus];
-
-/**
  * <p>The data-volume encryption details.</p>
  * @public
  */
@@ -467,21 +422,6 @@ export interface EncryptionAtRest {
    */
   DataVolumeKMSKeyId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClientBroker = {
-  PLAINTEXT: "PLAINTEXT",
-  TLS: "TLS",
-  TLS_PLAINTEXT: "TLS_PLAINTEXT",
-} as const;
-
-/**
- * @public
- */
-export type ClientBroker = (typeof ClientBroker)[keyof typeof ClientBroker];
 
 /**
  * <p>The settings for encrypting data in transit.</p>
@@ -526,22 +466,6 @@ export interface EncryptionInfo {
    */
   EncryptionInTransit?: EncryptionInTransit | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnhancedMonitoring = {
-  DEFAULT: "DEFAULT",
-  PER_BROKER: "PER_BROKER",
-  PER_TOPIC_PER_BROKER: "PER_TOPIC_PER_BROKER",
-  PER_TOPIC_PER_PARTITION: "PER_TOPIC_PER_PARTITION",
-} as const;
-
-/**
- * @public
- */
-export type EnhancedMonitoring = (typeof EnhancedMonitoring)[keyof typeof EnhancedMonitoring];
 
 /**
  * @public
@@ -639,20 +563,6 @@ export interface OpenMonitoringInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const RebalancingStatus = {
-  ACTIVE: "ACTIVE",
-  PAUSED: "PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type RebalancingStatus = (typeof RebalancingStatus)[keyof typeof RebalancingStatus];
-
-/**
  * <p>Specifies whether or not intelligent rebalancing is turned on for a newly created MSK Provisioned cluster with Express brokers. Intelligent rebalancing performs automatic partition balancing operations when you scale your clusters up or down. By default, intelligent rebalancing is ACTIVE for all new Express-based clusters.</p>
  * @public
  */
@@ -663,20 +573,6 @@ export interface Rebalancing {
    */
   Status?: RebalancingStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageMode = {
-  LOCAL: "LOCAL",
-  TIERED: "TIERED",
-} as const;
-
-/**
- * @public
- */
-export type StorageMode = (typeof StorageMode)[keyof typeof StorageMode];
 
 /**
  * <p>Provisioned cluster.</p>
@@ -821,26 +717,6 @@ export interface Serverless {
    */
   ClientAuthentication?: ServerlessClientAuthentication | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterState = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  HEALING: "HEALING",
-  MAINTENANCE: "MAINTENANCE",
-  REBOOTING_BROKER: "REBOOTING_BROKER",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * @public
@@ -1273,20 +1149,6 @@ export interface MutableClusterInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const UserIdentityType = {
-  AWSACCOUNT: "AWSACCOUNT",
-  AWSSERVICE: "AWSSERVICE",
-} as const;
-
-/**
- * @public
- */
-export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
-
-/**
  * <p>Description of the requester that calls the API operation.</p>
  * @public
  */
@@ -1503,21 +1365,6 @@ export interface ConfigurationRevision {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigurationState = {
-  ACTIVE: "ACTIVE",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
-
-/**
  * <p>Represents an MSK Configuration.</p>
  * @public
  */
@@ -1657,20 +1504,6 @@ export interface KafkaClusterSummary {
 
 /**
  * @public
- * @enum
- */
-export const KafkaVersionStatus = {
-  ACTIVE: "ACTIVE",
-  DEPRECATED: "DEPRECATED",
-} as const;
-
-/**
- * @public
- */
-export type KafkaVersionStatus = (typeof KafkaVersionStatus)[keyof typeof KafkaVersionStatus];
-
-/**
- * @public
  */
 export interface KafkaVersion {
   Version?: string | undefined;
@@ -1730,19 +1563,6 @@ export interface ControllerNodeInfo {
    */
   Endpoints?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NodeType = {
-  BROKER: "BROKER",
-} as const;
-
-/**
- * @public
- */
-export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
  * <p>Zookeeper node information.</p>
@@ -1859,38 +1679,6 @@ export interface ConsumerGroupReplication {
 }
 
 /**
- * @public
- * @enum
- */
-export const TargetCompressionType = {
-  GZIP: "GZIP",
-  LZ4: "LZ4",
-  NONE: "NONE",
-  SNAPPY: "SNAPPY",
-  ZSTD: "ZSTD",
-} as const;
-
-/**
- * @public
- */
-export type TargetCompressionType = (typeof TargetCompressionType)[keyof typeof TargetCompressionType];
-
-/**
- * @public
- * @enum
- */
-export const ReplicationStartingPositionType = {
-  EARLIEST: "EARLIEST",
-  LATEST: "LATEST",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationStartingPositionType =
-  (typeof ReplicationStartingPositionType)[keyof typeof ReplicationStartingPositionType];
-
-/**
  * <p>Configuration for specifying the position in the topics to start replicating from.</p>
  * @public
  */
@@ -1901,21 +1689,6 @@ export interface ReplicationStartingPosition {
    */
   Type?: ReplicationStartingPositionType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationTopicNameConfigurationType = {
-  IDENTICAL: "IDENTICAL",
-  PREFIXED_WITH_SOURCE_CLUSTER_ALIAS: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationTopicNameConfigurationType =
-  (typeof ReplicationTopicNameConfigurationType)[keyof typeof ReplicationTopicNameConfigurationType];
 
 /**
  * <p>Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.</p>
@@ -2066,23 +1839,6 @@ export interface ReplicationInfoSummary {
    */
   TargetKafkaClusterAlias?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicatorState = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ReplicatorState = (typeof ReplicatorState)[keyof typeof ReplicatorState];
 
 /**
  * <p>Information about a replicator.</p>
@@ -2277,39 +2033,6 @@ export interface VpcConnection {
 }
 
 /**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Associates sasl scram secrets to cluster.</p>
  * @public
  */
@@ -2342,204 +2065,6 @@ export interface BatchAssociateScramSecretResponse {
    * @public
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[] | undefined;
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2713,39 +2238,6 @@ export interface ClusterOperationV2 {
    * @public
    */
   Serverless?: ClusterOperationV2Serverless | undefined;
-}
-
-/**
- * <p>Returns information about an error.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   * @public
-   */
-  InvalidParameter?: string | undefined;
-
-  /**
-   * <p>The description of the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.InvalidParameter = opts.InvalidParameter;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3718,22 +3210,6 @@ export interface DescribeTopicRequest {
    */
   TopicName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TopicState = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TopicState = (typeof TopicState)[keyof typeof TopicState];
 
 /**
  * @public

@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUserPoolsRequest, ListUserPoolsResponse } from "../models/models_1";
+import { ListUserPoolsRequest, ListUserPoolsResponse } from "../models/models_0";
 import { ListUserPools } from "../schemas/schemas_0";
 
 /**

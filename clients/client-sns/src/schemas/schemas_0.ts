@@ -290,7 +290,7 @@ import {
   UserErrorException as __UserErrorException,
   ValidationException as __ValidationException,
   VerificationException as __VerificationException,
-} from "../models/index";
+} from "../models/errors";
 import { SNSServiceException as __SNSServiceException } from "../models/SNSServiceException";
 
 /* eslint no-var: 0 */

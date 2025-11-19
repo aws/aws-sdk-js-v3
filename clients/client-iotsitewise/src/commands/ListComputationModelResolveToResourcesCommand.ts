@@ -8,7 +8,7 @@ import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ListComputationModelResolveToResourcesRequest,
   ListComputationModelResolveToResourcesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListComputationModelResolveToResources } from "../schemas/schemas_0";
 
 /**

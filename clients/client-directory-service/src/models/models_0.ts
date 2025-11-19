@@ -1,7 +1,41 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DirectoryServiceServiceException as __BaseException } from "./DirectoryServiceServiceException";
+import {
+  CaEnrollmentPolicyStatus,
+  CertificateState,
+  CertificateType,
+  ClientAuthenticationStatus,
+  ClientAuthenticationType,
+  DataAccessStatus,
+  DirectoryConfigurationStatus,
+  DirectoryEdition,
+  DirectorySize,
+  DirectoryStage,
+  DirectoryType,
+  DomainControllerStatus,
+  HybridUpdateType,
+  IpRouteStatusMsg,
+  LDAPSStatus,
+  LDAPSType,
+  NetworkType,
+  OSVersion,
+  RadiusAuthenticationProtocol,
+  RadiusStatus,
+  RegionType,
+  ReplicationScope,
+  SchemaExtensionStatus,
+  SelectiveAuth,
+  ShareMethod,
+  ShareStatus,
+  SnapshotStatus,
+  SnapshotType,
+  TargetType,
+  TopicStatus,
+  TrustDirection,
+  TrustState,
+  TrustType,
+  UpdateStatus,
+  UpdateType,
+} from "./enums";
 
 /**
  * @public
@@ -14,41 +48,6 @@ export interface AcceptSharedDirectoryRequest {
    */
   SharedDirectoryId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShareMethod = {
-  HANDSHAKE: "HANDSHAKE",
-  ORGANIZATIONS: "ORGANIZATIONS",
-} as const;
-
-/**
- * @public
- */
-export type ShareMethod = (typeof ShareMethod)[keyof typeof ShareMethod];
-
-/**
- * @public
- * @enum
- */
-export const ShareStatus = {
-  DELETED: "Deleted",
-  DELETING: "Deleting",
-  PENDING_ACCEPTANCE: "PendingAcceptance",
-  REJECTED: "Rejected",
-  REJECTING: "Rejecting",
-  REJECT_FAILED: "RejectFailed",
-  SHARED: "Shared",
-  SHARE_FAILED: "ShareFailed",
-  SHARING: "Sharing",
-} as const;
-
-/**
- * @public
- */
-export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 /**
  * <p>Details about the shared directory in the directory owner account for which the share
@@ -127,245 +126,6 @@ export interface AcceptSharedDirectoryResult {
    * @public
    */
   SharedDirectory?: SharedDirectory | undefined;
-}
-
-/**
- * <p>A client exception has occurred.</p>
- * @public
- */
-export class ClientException extends __BaseException {
-  readonly name: "ClientException" = "ClientException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
-    super({
-      name: "ClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClientException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The specified directory has already been shared with this Amazon Web Services account.</p>
- * @public
- */
-export class DirectoryAlreadySharedException extends __BaseException {
-  readonly name: "DirectoryAlreadySharedException" = "DirectoryAlreadySharedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryAlreadySharedException, __BaseException>) {
-    super({
-      name: "DirectoryAlreadySharedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryAlreadySharedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The specified entity could not be found.</p>
- * @public
- */
-export class EntityDoesNotExistException extends __BaseException {
-  readonly name: "EntityDoesNotExistException" = "EntityDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityDoesNotExistException, __BaseException>) {
-    super({
-      name: "EntityDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityDoesNotExistException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>One or more parameters are not valid.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>An exception has occurred in Directory Service.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>A directory assessment is automatically created when you create a hybrid directory.
- *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
- *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
- *          <p>If you attempt to create a hybrid directory; and you already have 100
- *                 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete
- *             assessments to free up capacity before trying again.</p>
- *          <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota
- *             by contacting customer support or delete existing CUSTOMER directory assessments; to
- *             free up capacity.</p>
- * @public
- */
-export class ADAssessmentLimitExceededException extends __BaseException {
-  readonly name: "ADAssessmentLimitExceededException" = "ADAssessmentLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ADAssessmentLimitExceededException, __BaseException>) {
-    super({
-      name: "ADAssessmentLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ADAssessmentLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -508,106 +268,6 @@ export interface AddIpRoutesRequest {
 export interface AddIpRoutesResult {}
 
 /**
- * <p>The specified directory is unavailable.</p>
- * @public
- */
-export class DirectoryUnavailableException extends __BaseException {
-  readonly name: "DirectoryUnavailableException" = "DirectoryUnavailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryUnavailableException, __BaseException>) {
-    super({
-      name: "DirectoryUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryUnavailableException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The specified entity already exists.</p>
- * @public
- */
-export class EntityAlreadyExistsException extends __BaseException {
-  readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
-    super({
-      name: "EntityAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP
- *          address blocks.</p>
- * @public
- */
-export class IpRouteLimitExceededException extends __BaseException {
-  readonly name: "IpRouteLimitExceededException" = "IpRouteLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IpRouteLimitExceededException, __BaseException>) {
-    super({
-      name: "IpRouteLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IpRouteLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>Contains VPC information for the <a>CreateDirectory</a>, <a>CreateMicrosoftAD</a>, or <a>CreateHybridAD</a> operation.</p>
  * @public
  */
@@ -657,140 +317,6 @@ export interface AddRegionRequest {
 export interface AddRegionResult {}
 
 /**
- * <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created.
- *       Specify a different Region and try again.</p>
- * @public
- */
-export class DirectoryAlreadyInRegionException extends __BaseException {
-  readonly name: "DirectoryAlreadyInRegionException" = "DirectoryAlreadyInRegionException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryAlreadyInRegionException, __BaseException>) {
-    super({
-      name: "DirectoryAlreadyInRegionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryAlreadyInRegionException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The specified directory does not exist in the system.</p>
- * @public
- */
-export class DirectoryDoesNotExistException extends __BaseException {
-  readonly name: "DirectoryDoesNotExistException" = "DirectoryDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryDoesNotExistException, __BaseException>) {
-    super({
-      name: "DirectoryDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryDoesNotExistException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>You have reached the limit for maximum number of simultaneous Region replications per
- *       directory.</p>
- * @public
- */
-export class RegionLimitExceededException extends __BaseException {
-  readonly name: "RegionLimitExceededException" = "RegionLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RegionLimitExceededException, __BaseException>) {
-    super({
-      name: "RegionLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RegionLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The operation is not supported.</p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>Metadata assigned to a directory consisting of a key-value pair.</p>
  * @public
  */
@@ -834,39 +360,6 @@ export interface AddTagsToResourceRequest {
  * @public
  */
 export interface AddTagsToResourceResult {}
-
-/**
- * <p>The maximum allowed number of tags was exceeded.</p>
- * @public
- */
-export class TagLimitExceededException extends __BaseException {
-  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
-    super({
-      name: "TagLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
 
 /**
  * <p>Contains detailed information about a directory assessment, including configuration
@@ -1165,57 +658,6 @@ export interface Attribute {
 }
 
 /**
- * <p>An authentication error occurred.</p>
- * @public
- */
-export class AuthenticationFailedException extends __BaseException {
-  readonly name: "AuthenticationFailedException" = "AuthenticationFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The textual message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The identifier of the request that caused the exception.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthenticationFailedException, __BaseException>) {
-    super({
-      name: "AuthenticationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthenticationFailedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CaEnrollmentPolicyStatus = {
-  DISABLED: "Disabled",
-  DISABLING: "Disabling",
-  FAILED: "Failed",
-  IMPAIRED: "Impaired",
-  IN_PROGRESS: "InProgress",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type CaEnrollmentPolicyStatus = (typeof CaEnrollmentPolicyStatus)[keyof typeof CaEnrollmentPolicyStatus];
-
-/**
  * @public
  */
 export interface CancelSchemaExtensionRequest {
@@ -1250,38 +692,6 @@ export interface ClientCertAuthSettings {
    */
   OCSPUrl?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CertificateState = {
-  DEREGISTERED: "Deregistered",
-  DEREGISTERING: "Deregistering",
-  DEREGISTER_FAILED: "DeregisterFailed",
-  REGISTERED: "Registered",
-  REGISTERING: "Registering",
-  REGISTER_FAILED: "RegisterFailed",
-} as const;
-
-/**
- * @public
- */
-export type CertificateState = (typeof CertificateState)[keyof typeof CertificateState];
-
-/**
- * @public
- * @enum
- */
-export const CertificateType = {
-  CLIENT_CERT_AUTH: "ClientCertAuth",
-  CLIENT_LDAPS: "ClientLDAPS",
-} as const;
-
-/**
- * @public
- */
-export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
 
 /**
  * <p>Information about the certificate.</p>
@@ -1341,72 +751,6 @@ export interface Certificate {
 }
 
 /**
- * <p>The certificate has already been registered into the system.</p>
- * @public
- */
-export class CertificateAlreadyExistsException extends __BaseException {
-  readonly name: "CertificateAlreadyExistsException" = "CertificateAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateAlreadyExistsException, __BaseException>) {
-    super({
-      name: "CertificateAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The certificate is not present in the system for describe or deregister activities.</p>
- * @public
- */
-export class CertificateDoesNotExistException extends __BaseException {
-  readonly name: "CertificateDoesNotExistException" = "CertificateDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateDoesNotExistException, __BaseException>) {
-    super({
-      name: "CertificateDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateDoesNotExistException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>Contains general information about a certificate.</p>
  * @public
  */
@@ -1443,101 +787,6 @@ export interface CertificateInfo {
    */
   Type?: CertificateType | undefined;
 }
-
-/**
- * <p>The certificate is being used for the LDAP security connection and cannot be removed
- *       without disabling LDAP security.</p>
- * @public
- */
-export class CertificateInUseException extends __BaseException {
-  readonly name: "CertificateInUseException" = "CertificateInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateInUseException, __BaseException>) {
-    super({
-      name: "CertificateInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateInUseException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The certificate could not be added because the certificate limit has been reached.</p>
- * @public
- */
-export class CertificateLimitExceededException extends __BaseException {
-  readonly name: "CertificateLimitExceededException" = "CertificateLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateLimitExceededException, __BaseException>) {
-    super({
-      name: "CertificateLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ClientAuthenticationStatus = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ClientAuthenticationStatus = (typeof ClientAuthenticationStatus)[keyof typeof ClientAuthenticationStatus];
-
-/**
- * @public
- * @enum
- */
-export const ClientAuthenticationType = {
-  SMART_CARD: "SmartCard",
-  SMART_CARD_OR_PASSWORD: "SmartCardOrPassword",
-} as const;
-
-/**
- * @public
- */
-export type ClientAuthenticationType = (typeof ClientAuthenticationType)[keyof typeof ClientAuthenticationType];
 
 /**
  * <p>Contains information about a client authentication method for a directory.</p>
@@ -1591,19 +840,6 @@ export interface Computer {
    */
   ComputerAttributes?: Attribute[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationScope = {
-  Domain: "Domain",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationScope = (typeof ReplicationScope)[keyof typeof ReplicationScope];
 
 /**
  * <p>Points to a remote domain with which you are setting up a trust relationship.
@@ -1694,35 +930,6 @@ export interface DirectoryConnectSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL_STACK: "Dual-stack",
-  IPV4_ONLY: "IPv4",
-  IPV6_ONLY: "IPv6",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
-
-/**
- * @public
- * @enum
- */
-export const DirectorySize = {
-  LARGE: "Large",
-  SMALL: "Small",
-} as const;
-
-/**
- * @public
- */
-export type DirectorySize = (typeof DirectorySize)[keyof typeof DirectorySize];
-
-/**
  * <p>Contains the inputs for the <a>ConnectDirectory</a> operation.</p>
  * @public
  */
@@ -1789,41 +996,6 @@ export interface ConnectDirectoryResult {
    * @public
    */
   DirectoryId?: string | undefined;
-}
-
-/**
- * <p>The maximum number of directories in the region has been reached. You can use the
- *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
- *             the region.</p>
- * @public
- */
-export class DirectoryLimitExceededException extends __BaseException {
-  readonly name: "DirectoryLimitExceededException" = "DirectoryLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryLimitExceededException, __BaseException>) {
-    super({
-      name: "DirectoryLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -2116,54 +1288,6 @@ export interface CreateLogSubscriptionRequest {
 export interface CreateLogSubscriptionResult {}
 
 /**
- * <p>The account does not have sufficient permission to perform the operation.</p>
- * @public
- */
-export class InsufficientPermissionsException extends __BaseException {
-  readonly name: "InsufficientPermissionsException" = "InsufficientPermissionsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientPermissionsException, __BaseException>) {
-    super({
-      name: "InsufficientPermissionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientPermissionsException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DirectoryEdition = {
-  ENTERPRISE: "Enterprise",
-  HYBRID: "Hybrid",
-  STANDARD: "Standard",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryEdition = (typeof DirectoryEdition)[keyof typeof DirectoryEdition];
-
-/**
  * <p>Creates an Managed Microsoft AD directory.</p>
  * @public
  */
@@ -2269,84 +1393,6 @@ export interface CreateSnapshotResult {
 }
 
 /**
- * <p>The maximum number of manual snapshots for the directory has been reached. You can
- *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
- *             for a directory.</p>
- * @public
- */
-export class SnapshotLimitExceededException extends __BaseException {
-  readonly name: "SnapshotLimitExceededException" = "SnapshotLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotLimitExceededException, __BaseException>) {
-    super({
-      name: "SnapshotLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SelectiveAuth = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type SelectiveAuth = (typeof SelectiveAuth)[keyof typeof SelectiveAuth];
-
-/**
- * @public
- * @enum
- */
-export const TrustDirection = {
-  ONE_WAY_INCOMING: "One-Way: Incoming",
-  ONE_WAY_OUTGOING: "One-Way: Outgoing",
-  TWO_WAY: "Two-Way",
-} as const;
-
-/**
- * @public
- */
-export type TrustDirection = (typeof TrustDirection)[keyof typeof TrustDirection];
-
-/**
- * @public
- * @enum
- */
-export const TrustType = {
-  EXTERNAL: "External",
-  FOREST: "Forest",
-} as const;
-
-/**
- * @public
- */
-export type TrustType = (typeof TrustType)[keyof typeof TrustType];
-
-/**
  * <p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
  *       example, you can establish a trust between your Managed Microsoft AD directory, and your existing
  *       self-managed Microsoft Active Directory. This would allow you to provide users and groups
@@ -2419,23 +1465,6 @@ export interface CreateTrustResult {
    */
   TrustId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataAccessStatus = {
-  DISABLED: "Disabled",
-  DISABLING: "Disabling",
-  ENABLED: "Enabled",
-  ENABLING: "Enabling",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type DataAccessStatus = (typeof DataAccessStatus)[keyof typeof DataAccessStatus];
 
 /**
  * @public
@@ -2950,37 +1979,6 @@ export interface HybridSettingsDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const OSVersion = {
-  VERSION_2012: "SERVER_2012",
-  VERSION_2019: "SERVER_2019",
-} as const;
-
-/**
- * @public
- */
-export type OSVersion = (typeof OSVersion)[keyof typeof OSVersion];
-
-/**
- * @public
- * @enum
- */
-export const RadiusAuthenticationProtocol = {
-  CHAP: "CHAP",
-  MSCHAPV1: "MS-CHAPv1",
-  MSCHAPV2: "MS-CHAPv2",
-  PAP: "PAP",
-} as const;
-
-/**
- * @public
- */
-export type RadiusAuthenticationProtocol =
-  (typeof RadiusAuthenticationProtocol)[keyof typeof RadiusAuthenticationProtocol];
-
-/**
  * <p>Contains information about a Remote Authentication Dial In User Service (RADIUS)
  *          server.</p>
  * @public
@@ -3044,21 +2042,6 @@ export interface RadiusSettings {
    */
   UseSameUsername?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RadiusStatus = {
-  COMPLETED: "Completed",
-  CREATING: "Creating",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type RadiusStatus = (typeof RadiusStatus)[keyof typeof RadiusStatus];
 
 /**
  * <p>Contains information about the directory.</p>
@@ -3164,46 +2147,6 @@ export interface RegionsInfo {
    */
   AdditionalRegions?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DirectoryStage = {
-  ACTIVE: "Active",
-  CREATED: "Created",
-  CREATING: "Creating",
-  DELETED: "Deleted",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  IMPAIRED: "Impaired",
-  INOPERABLE: "Inoperable",
-  REQUESTED: "Requested",
-  RESTOREFAILED: "RestoreFailed",
-  RESTORING: "Restoring",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryStage = (typeof DirectoryStage)[keyof typeof DirectoryStage];
-
-/**
- * @public
- * @enum
- */
-export const DirectoryType = {
-  AD_CONNECTOR: "ADConnector",
-  MICROSOFT_AD: "MicrosoftAD",
-  SHARED_MICROSOFT_AD: "SharedMicrosoftAD",
-  SIMPLE_AD: "SimpleAD",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryType = (typeof DirectoryType)[keyof typeof DirectoryType];
 
 /**
  * <p>Contains information about an Directory Service directory.</p>
@@ -3434,39 +2377,6 @@ export interface DescribeDirectoriesResult {
 }
 
 /**
- * <p>The <code>NextToken</code> value is not valid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeDirectoryDataAccessRequest {
@@ -3520,26 +2430,6 @@ export interface DescribeDomainControllersRequest {
    */
   Limit?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DomainControllerStatus = {
-  ACTIVE: "Active",
-  CREATING: "Creating",
-  DELETED: "Deleted",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  IMPAIRED: "Impaired",
-  RESTORING: "Restoring",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type DomainControllerStatus = (typeof DomainControllerStatus)[keyof typeof DomainControllerStatus];
 
 /**
  * <p>Contains information about the domain controllers for a specified directory.</p>
@@ -3655,22 +2545,6 @@ export interface DescribeEventTopicsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const TopicStatus = {
-  DELETED: "Deleted",
-  FAILED: "Failed",
-  REGISTERED: "Registered",
-  TOPIC_NOT_FOUND: "Topic not found",
-} as const;
-
-/**
- * @public
- */
-export type TopicStatus = (typeof TopicStatus)[keyof typeof TopicStatus];
-
-/**
  * <p>Information about Amazon SNS topic and Directory Service directory associations.</p>
  * @public
  */
@@ -3722,20 +2596,6 @@ export interface DescribeEventTopicsResult {
 
 /**
  * @public
- * @enum
- */
-export const HybridUpdateType = {
-  HYBRID_ADMINISTRATOR_ACCOUNT: "HybridAdministratorAccount",
-  SELF_MANAGED_INSTANCES: "SelfManagedInstances",
-} as const;
-
-/**
- * @public
- */
-export type HybridUpdateType = (typeof HybridUpdateType)[keyof typeof HybridUpdateType];
-
-/**
- * @public
  */
 export interface DescribeHybridADUpdateRequest {
   /**
@@ -3780,21 +2640,6 @@ export interface HybridUpdateValue {
    */
   DnsIps?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  UPDATED: "Updated",
-  UPDATE_FAILED: "UpdateFailed",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * <p>Contains detailed information about a specific update activity for a hybrid directory
@@ -3897,19 +2742,6 @@ export interface DescribeHybridADUpdateResult {
 
 /**
  * @public
- * @enum
- */
-export const LDAPSType = {
-  CLIENT: "Client",
-} as const;
-
-/**
- * @public
- */
-export type LDAPSType = (typeof LDAPSType)[keyof typeof LDAPSType];
-
-/**
- * @public
  */
 export interface DescribeLDAPSSettingsRequest {
   /**
@@ -3937,22 +2769,6 @@ export interface DescribeLDAPSSettingsRequest {
    */
   Limit?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LDAPSStatus = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-  ENABLE_FAILED: "EnableFailed",
-  ENABLING: "Enabling",
-} as const;
-
-/**
- * @public
- */
-export type LDAPSStatus = (typeof LDAPSStatus)[keyof typeof LDAPSStatus];
 
 /**
  * <p>Contains general information about the LDAPS settings.</p>
@@ -4019,20 +2835,6 @@ export interface DescribeRegionsRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RegionType = {
-  ADDITIONAL: "Additional",
-  PRIMARY: "Primary",
-} as const;
-
-/**
- * @public
- */
-export type RegionType = (typeof RegionType)[keyof typeof RegionType];
 
 /**
  * <p>The replicated Region information for a directory.</p>
@@ -4113,24 +2915,6 @@ export interface DescribeRegionsResult {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DirectoryConfigurationStatus = {
-  DEFAULT: "Default",
-  FAILED: "Failed",
-  REQUESTED: "Requested",
-  UPDATED: "Updated",
-  UPDATING: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryConfigurationStatus =
-  (typeof DirectoryConfigurationStatus)[keyof typeof DirectoryConfigurationStatus];
 
 /**
  * @public
@@ -4351,35 +3135,6 @@ export interface DescribeSnapshotsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SnapshotStatus = {
-  COMPLETED: "Completed",
-  CREATING: "Creating",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
-
-/**
- * @public
- * @enum
- */
-export const SnapshotType = {
-  AUTO: "Auto",
-  MANUAL: "Manual",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
-
-/**
  * <p>Describes a directory snapshot.</p>
  * @public
  */
@@ -4482,29 +3237,6 @@ export interface DescribeTrustsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const TrustState = {
-  CREATED: "Created",
-  CREATING: "Creating",
-  DELETED: "Deleted",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  UPDATED: "Updated",
-  UPDATE_FAILED: "UpdateFailed",
-  UPDATING: "Updating",
-  VERIFIED: "Verified",
-  VERIFYING: "Verifying",
-  VERIFY_FAILED: "VerifyFailed",
-} as const;
-
-/**
- * @public
- */
-export type TrustState = (typeof TrustState)[keyof typeof TrustState];
-
-/**
  * <p>Describes a trust relationship between an Managed Microsoft AD directory and an external
  *       domain.</p>
  * @public
@@ -4600,21 +3332,6 @@ export interface DescribeTrustsResult {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateType = {
-  NETWORK: "NETWORK",
-  OS: "OS",
-  SIZE: "SIZE",
-} as const;
-
-/**
- * @public
- */
-export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
 
 /**
  * @public
@@ -4744,39 +3461,6 @@ export interface DescribeUpdateDirectoryResult {
 }
 
 /**
- * <p> The directory is already updated to desired update type settings. </p>
- * @public
- */
-export class DirectoryInDesiredStateException extends __BaseException {
-  readonly name: "DirectoryInDesiredStateException" = "DirectoryInDesiredStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryInDesiredStateException, __BaseException>) {
-    super({
-      name: "DirectoryInDesiredStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryInDesiredStateException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>Contains directory limit information for a Region.</p>
  * @public
  */
@@ -4837,72 +3521,6 @@ export interface DirectoryLimits {
 }
 
 /**
- * <p>The specified directory has not been shared with this Amazon Web Services account.</p>
- * @public
- */
-export class DirectoryNotSharedException extends __BaseException {
-  readonly name: "DirectoryNotSharedException" = "DirectoryNotSharedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryNotSharedException, __BaseException>) {
-    super({
-      name: "DirectoryNotSharedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryNotSharedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>A disable operation for CA enrollment policy is already in progress for this directory.</p>
- * @public
- */
-export class DisableAlreadyInProgressException extends __BaseException {
-  readonly name: "DisableAlreadyInProgressException" = "DisableAlreadyInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DisableAlreadyInProgressException, __BaseException>) {
-    super({
-      name: "DisableAlreadyInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DisableAlreadyInProgressException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>Contains the inputs for the <a>DisableCAEnrollmentPolicy</a> operation.</p>
  * @public
  */
@@ -4944,39 +3562,6 @@ export interface DisableClientAuthenticationRequest {
 export interface DisableClientAuthenticationResult {}
 
 /**
- * <p>Client authentication is already enabled.</p>
- * @public
- */
-export class InvalidClientAuthStatusException extends __BaseException {
-  readonly name: "InvalidClientAuthStatusException" = "InvalidClientAuthStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClientAuthStatusException, __BaseException>) {
-    super({
-      name: "InvalidClientAuthStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClientAuthStatusException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * @public
  */
 export interface DisableDirectoryDataAccessRequest {
@@ -5014,40 +3599,6 @@ export interface DisableLDAPSRequest {
  * @public
  */
 export interface DisableLDAPSResult {}
-
-/**
- * <p>The LDAP activities could not be performed because they are limited by the LDAPS
- *       status.</p>
- * @public
- */
-export class InvalidLDAPSStatusException extends __BaseException {
-  readonly name: "InvalidLDAPSStatusException" = "InvalidLDAPSStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLDAPSStatusException, __BaseException>) {
-    super({
-      name: "InvalidLDAPSStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLDAPSStatusException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
 
 /**
  * <p>Contains the inputs for the <a>DisableRadius</a> operation.</p>
@@ -5107,39 +3658,6 @@ export interface DisableSsoRequest {
 export interface DisableSsoResult {}
 
 /**
- * <p>An enable operation for CA enrollment policy is already in progress for this directory.</p>
- * @public
- */
-export class EnableAlreadyInProgressException extends __BaseException {
-  readonly name: "EnableAlreadyInProgressException" = "EnableAlreadyInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EnableAlreadyInProgressException, __BaseException>) {
-    super({
-      name: "EnableAlreadyInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EnableAlreadyInProgressException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>Contains the inputs for the <a>EnableCAEnrollmentPolicy</a> operation.</p>
  * @public
  */
@@ -5193,40 +3711,6 @@ export interface EnableClientAuthenticationRequest {
  * @public
  */
 export interface EnableClientAuthenticationResult {}
-
-/**
- * <p>Client authentication setup could not be completed because at least one valid certificate
- *       must be registered in the system.</p>
- * @public
- */
-export class NoAvailableCertificateException extends __BaseException {
-  readonly name: "NoAvailableCertificateException" = "NoAvailableCertificateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoAvailableCertificateException, __BaseException>) {
-    super({
-      name: "NoAvailableCertificateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoAvailableCertificateException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
 
 /**
  * @public
@@ -5514,24 +3998,6 @@ export interface ListIpRoutesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const IpRouteStatusMsg = {
-  ADDED: "Added",
-  ADDING: "Adding",
-  ADD_FAILED: "AddFailed",
-  REMOVED: "Removed",
-  REMOVE_FAILED: "RemoveFailed",
-  REMOVING: "Removing",
-} as const;
-
-/**
- * @public
- */
-export type IpRouteStatusMsg = (typeof IpRouteStatusMsg)[keyof typeof IpRouteStatusMsg];
-
-/**
  * <p>Information about one or more IP address blocks.</p>
  * @public
  */
@@ -5693,27 +4159,6 @@ export interface ListSchemaExtensionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SchemaExtensionStatus = {
-  CANCELLED: "Cancelled",
-  CANCEL_IN_PROGRESS: "CancelInProgress",
-  COMPLETED: "Completed",
-  CREATING_SNAPSHOT: "CreatingSnapshot",
-  FAILED: "Failed",
-  INITIALIZING: "Initializing",
-  REPLICATING: "Replicating",
-  ROLLBACK_IN_PROGRESS: "RollbackInProgress",
-  UPDATING_SCHEMA: "UpdatingSchema",
-} as const;
-
-/**
- * @public
- */
-export type SchemaExtensionStatus = (typeof SchemaExtensionStatus)[keyof typeof SchemaExtensionStatus];
-
-/**
  * <p>Information about a schema extension.</p>
  * @public
  */
@@ -5819,39 +4264,6 @@ export interface ListTagsForResourceResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The certificate PEM that was provided has incorrect encoding.</p>
- * @public
- */
-export class InvalidCertificateException extends __BaseException {
-  readonly name: "InvalidCertificateException" = "InvalidCertificateException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCertificateException, __BaseException>) {
-    super({
-      name: "InvalidCertificateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCertificateException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -6012,40 +4424,6 @@ export interface RemoveTagsFromResourceRequest {
 export interface RemoveTagsFromResourceResult {}
 
 /**
- * <p>The new password provided by the user does not meet the password complexity
- *             requirements defined in your directory.</p>
- * @public
- */
-export class InvalidPasswordException extends __BaseException {
-  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
-    super({
-      name: "InvalidPasswordException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * @public
  */
 export interface ResetUserPasswordRequest {
@@ -6074,39 +4452,6 @@ export interface ResetUserPasswordRequest {
 export interface ResetUserPasswordResult {}
 
 /**
- * <p>The user provided a username that does not exist in your directory.</p>
- * @public
- */
-export class UserDoesNotExistException extends __BaseException {
-  readonly name: "UserDoesNotExistException" = "UserDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserDoesNotExistException, __BaseException>) {
-    super({
-      name: "UserDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserDoesNotExistException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.</p>
  * @public
  */
@@ -6123,85 +4468,6 @@ export interface RestoreFromSnapshotRequest {
  * @public
  */
 export interface RestoreFromSnapshotResult {}
-
-/**
- * <p>The specified shared target is not valid.</p>
- * @public
- */
-export class InvalidTargetException extends __BaseException {
-  readonly name: "InvalidTargetException" = "InvalidTargetException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
-    super({
-      name: "InvalidTargetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
- * @public
- */
-export class OrganizationsException extends __BaseException {
-  readonly name: "OrganizationsException" = "OrganizationsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationsException, __BaseException>) {
-    super({
-      name: "OrganizationsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationsException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TargetType = {
-  ACCOUNT: "ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * <p>Identifier that contains details about the directory consumer account.</p>
@@ -6266,40 +4532,6 @@ export interface ShareDirectoryResult {
    * @public
    */
   SharedDirectoryId?: string | undefined;
-}
-
-/**
- * <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
- *             reached.</p>
- * @public
- */
-export class ShareLimitExceededException extends __BaseException {
-  readonly name: "ShareLimitExceededException" = "ShareLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ShareLimitExceededException, __BaseException>) {
-    super({
-      name: "ShareLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ShareLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
 }
 
 /**
@@ -6636,40 +4868,6 @@ export interface UpdateHybridADResult {
 }
 
 /**
- * <p>The maximum allowed number of domain controllers per directory was exceeded. The
- *       default limit per directory is 20 domain controllers.</p>
- * @public
- */
-export class DomainControllerLimitExceededException extends __BaseException {
-  readonly name: "DomainControllerLimitExceededException" = "DomainControllerLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DomainControllerLimitExceededException, __BaseException>) {
-    super({
-      name: "DomainControllerLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DomainControllerLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * @public
  */
 export interface UpdateNumberOfDomainControllersRequest {
@@ -6717,72 +4915,6 @@ export interface UpdateRadiusRequest {
  * @public
  */
 export interface UpdateRadiusResult {}
-
-/**
- * <p>The specified directory setting is not compatible with other settings.</p>
- * @public
- */
-export class IncompatibleSettingsException extends __BaseException {
-  readonly name: "IncompatibleSettingsException" = "IncompatibleSettingsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IncompatibleSettingsException, __BaseException>) {
-    super({
-      name: "IncompatibleSettingsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IncompatibleSettingsException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The specified directory setting is not supported.</p>
- * @public
- */
-export class UnsupportedSettingsException extends __BaseException {
-  readonly name: "UnsupportedSettingsException" = "UnsupportedSettingsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The descriptive message for the exception.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request identifier.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedSettingsException, __BaseException>) {
-    super({
-      name: "UnsupportedSettingsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedSettingsException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
 
 /**
  * <p>Contains information about the configurable settings for a directory.</p>

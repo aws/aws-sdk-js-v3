@@ -1,21 +1,29 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { APIGatewayServiceException as __BaseException } from "./APIGatewayServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AccessAssociationSourceType = {
-  VPCE: "VPCE",
-} as const;
-
-/**
- * @public
- */
-export type AccessAssociationSourceType =
-  (typeof AccessAssociationSourceType)[keyof typeof AccessAssociationSourceType];
+import {
+  AccessAssociationSourceType,
+  ApiKeysFormat,
+  ApiKeySourceType,
+  AuthorizerType,
+  CacheClusterSize,
+  CacheClusterStatus,
+  ConnectionType,
+  ContentHandlingStrategy,
+  DocumentationPartType,
+  DomainNameStatus,
+  EndpointType,
+  GatewayResponseType,
+  IntegrationType,
+  IpAddressType,
+  LocationStatusType,
+  Op,
+  PutMode,
+  QuotaPeriodType,
+  ResourceOwner,
+  RoutingMode,
+  SecurityPolicy,
+  UnauthorizedCacheControlHeaderStrategy,
+  VpcLinkStatus,
+} from "./enums";
 
 /**
  * <p>Access log settings, including the access log format and access log destination ARN.</p>
@@ -192,33 +200,6 @@ export interface ApiKeys {
 }
 
 /**
- * @public
- * @enum
- */
-export const ApiKeysFormat = {
-  csv: "csv",
-} as const;
-
-/**
- * @public
- */
-export type ApiKeysFormat = (typeof ApiKeysFormat)[keyof typeof ApiKeysFormat];
-
-/**
- * @public
- * @enum
- */
-export const ApiKeySourceType = {
-  AUTHORIZER: "AUTHORIZER",
-  HEADER: "HEADER",
-} as const;
-
-/**
- * @public
- */
-export type ApiKeySourceType = (typeof ApiKeySourceType)[keyof typeof ApiKeySourceType];
-
-/**
  * <p>API stage name of the associated API stage in a usage plan.</p>
  * @public
  */
@@ -241,21 +222,6 @@ export interface ApiStage {
    */
   throttle?: Record<string, ThrottleSettings> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthorizerType = {
-  COGNITO_USER_POOLS: "COGNITO_USER_POOLS",
-  REQUEST: "REQUEST",
-  TOKEN: "TOKEN",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizerType = (typeof AuthorizerType)[keyof typeof AuthorizerType];
 
 /**
  * <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p>
@@ -356,46 +322,6 @@ export interface Authorizers {
 }
 
 /**
- * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * <p>A reference to a unique stage identified in the format <code>\{restApiId\}/\{stage\}</code>.</p>
  * @public
  */
@@ -465,90 +391,6 @@ export interface CreateApiKeyRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  retryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  retryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The request is denied because the caller has insufficient permissions.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
 }
 
 /**
@@ -694,26 +536,6 @@ export interface CreateBasePathMappingRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CacheClusterSize = {
-  SIZE_0_POINT_5_GB: "0.5",
-  SIZE_118_GB: "118",
-  SIZE_13_POINT_5_GB: "13.5",
-  SIZE_1_POINT_6_GB: "1.6",
-  SIZE_237_GB: "237",
-  SIZE_28_POINT_4_GB: "28.4",
-  SIZE_58_POINT_2_GB: "58.2",
-  SIZE_6_POINT_1_GB: "6.1",
-} as const;
-
-/**
- * @public
- */
-export type CacheClusterSize = (typeof CacheClusterSize)[keyof typeof CacheClusterSize];
-
-/**
  * <p>The input configuration for a canary deployment.</p>
  * @public
  */
@@ -846,52 +668,6 @@ export interface Deployment {
    */
   apiSummary?: Record<string, Record<string, MethodSnapshot>> | undefined;
 }
-
-/**
- * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  retryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DocumentationPartType = {
-  API: "API",
-  AUTHORIZER: "AUTHORIZER",
-  METHOD: "METHOD",
-  MODEL: "MODEL",
-  PATH_PARAMETER: "PATH_PARAMETER",
-  QUERY_PARAMETER: "QUERY_PARAMETER",
-  REQUEST_BODY: "REQUEST_BODY",
-  REQUEST_HEADER: "REQUEST_HEADER",
-  RESOURCE: "RESOURCE",
-  RESPONSE: "RESPONSE",
-  RESPONSE_BODY: "RESPONSE_BODY",
-  RESPONSE_HEADER: "RESPONSE_HEADER",
-} as const;
-
-/**
- * @public
- */
-export type DocumentationPartType = (typeof DocumentationPartType)[keyof typeof DocumentationPartType];
 
 /**
  * <p>Specifies the target API entity to which the documentation applies.</p>
@@ -1032,35 +808,6 @@ export interface DocumentationVersion {
 }
 
 /**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  dualstack: "dualstack",
-  ipv4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
-
-/**
- * @public
- * @enum
- */
-export const EndpointType = {
-  EDGE: "EDGE",
-  PRIVATE: "PRIVATE",
-  REGIONAL: "REGIONAL",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-/**
  * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it. </p>
  * @public
  */
@@ -1109,35 +856,6 @@ export interface MutualTlsAuthenticationInput {
    */
   truststoreVersion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RoutingMode = {
-  BASE_PATH_MAPPING_ONLY: "BASE_PATH_MAPPING_ONLY",
-  ROUTING_RULE_ONLY: "ROUTING_RULE_ONLY",
-  ROUTING_RULE_THEN_BASE_PATH_MAPPING: "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
-} as const;
-
-/**
- * @public
- */
-export type RoutingMode = (typeof RoutingMode)[keyof typeof RoutingMode];
-
-/**
- * @public
- * @enum
- */
-export const SecurityPolicy = {
-  TLS_1_0: "TLS_1_0",
-  TLS_1_2: "TLS_1_2",
-} as const;
-
-/**
- * @public
- */
-export type SecurityPolicy = (typeof SecurityPolicy)[keyof typeof SecurityPolicy];
 
 /**
  * <p>A request to create a new domain name.</p>
@@ -1242,23 +960,6 @@ export interface CreateDomainNameRequest {
    */
   routingMode?: RoutingMode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DomainNameStatus = {
-  AVAILABLE: "AVAILABLE",
-  PENDING: "PENDING",
-  PENDING_CERTIFICATE_REIMPORT: "PENDING_CERTIFICATE_REIMPORT",
-  PENDING_OWNERSHIP_VERIFICATION: "PENDING_OWNERSHIP_VERIFICATION",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DomainNameStatus = (typeof DomainNameStatus)[keyof typeof DomainNameStatus];
 
 /**
  * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
@@ -1674,34 +1375,6 @@ export interface CreateResourceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  INTERNET: "INTERNET",
-  VPC_LINK: "VPC_LINK",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
-
-/**
- * @public
- * @enum
- */
-export const ContentHandlingStrategy = {
-  CONVERT_TO_BINARY: "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT: "CONVERT_TO_TEXT",
-} as const;
-
-/**
- * @public
- */
-export type ContentHandlingStrategy = (typeof ContentHandlingStrategy)[keyof typeof ContentHandlingStrategy];
-
-/**
  * <p>Represents an integration response. The status code must map to an existing MethodResponse, and parameters and templates can be used to transform the back-end response.</p>
  * @public
  */
@@ -1760,23 +1433,6 @@ export interface TlsConfig {
    */
   insecureSkipVerification?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IntegrationType = {
-  AWS: "AWS",
-  AWS_PROXY: "AWS_PROXY",
-  HTTP: "HTTP",
-  HTTP_PROXY: "HTTP_PROXY",
-  MOCK: "MOCK",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
 
 /**
  * <p>Represents an <code>HTTP</code>, <code>HTTP_PROXY</code>, <code>AWS</code>, <code>AWS_PROXY</code>, or Mock integration.</p>
@@ -2323,39 +1979,6 @@ export interface CreateStageRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CacheClusterStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  FLUSH_IN_PROGRESS: "FLUSH_IN_PROGRESS",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type CacheClusterStatus = (typeof CacheClusterStatus)[keyof typeof CacheClusterStatus];
-
-/**
- * @public
- * @enum
- */
-export const UnauthorizedCacheControlHeaderStrategy = {
-  FAIL_WITH_403: "FAIL_WITH_403",
-  SUCCEED_WITHOUT_RESPONSE_HEADER: "SUCCEED_WITHOUT_RESPONSE_HEADER",
-  SUCCEED_WITH_RESPONSE_HEADER: "SUCCEED_WITH_RESPONSE_HEADER",
-} as const;
-
-/**
- * @public
- */
-export type UnauthorizedCacheControlHeaderStrategy =
-  (typeof UnauthorizedCacheControlHeaderStrategy)[keyof typeof UnauthorizedCacheControlHeaderStrategy];
-
-/**
  * <p>Specifies the method setting properties.</p>
  * @public
  */
@@ -2529,21 +2152,6 @@ export interface Stage {
    */
   lastUpdatedDate?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QuotaPeriodType = {
-  DAY: "DAY",
-  MONTH: "MONTH",
-  WEEK: "WEEK",
-} as const;
-
-/**
- * @public
- */
-export type QuotaPeriodType = (typeof QuotaPeriodType)[keyof typeof QuotaPeriodType];
 
 /**
  * <p>Quotas configured for a usage plan.</p>
@@ -2753,22 +2361,6 @@ export interface CreateVpcLinkRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const VpcLinkStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type VpcLinkStatus = (typeof VpcLinkStatus)[keyof typeof VpcLinkStatus];
-
-/**
  * <p>An API Gateway VPC link for a RestApi to access resources in an Amazon Virtual Private Cloud (VPC).</p>
  * @public
  */
@@ -2970,39 +2562,6 @@ export interface DeleteDomainNameAccessAssociationRequest {
    */
   domainNameAccessAssociationArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GatewayResponseType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  API_CONFIGURATION_ERROR: "API_CONFIGURATION_ERROR",
-  AUTHORIZER_CONFIGURATION_ERROR: "AUTHORIZER_CONFIGURATION_ERROR",
-  AUTHORIZER_FAILURE: "AUTHORIZER_FAILURE",
-  BAD_REQUEST_BODY: "BAD_REQUEST_BODY",
-  BAD_REQUEST_PARAMETERS: "BAD_REQUEST_PARAMETERS",
-  DEFAULT_4XX: "DEFAULT_4XX",
-  DEFAULT_5XX: "DEFAULT_5XX",
-  EXPIRED_TOKEN: "EXPIRED_TOKEN",
-  INTEGRATION_FAILURE: "INTEGRATION_FAILURE",
-  INTEGRATION_TIMEOUT: "INTEGRATION_TIMEOUT",
-  INVALID_API_KEY: "INVALID_API_KEY",
-  INVALID_SIGNATURE: "INVALID_SIGNATURE",
-  MISSING_AUTHENTICATION_TOKEN: "MISSING_AUTHENTICATION_TOKEN",
-  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
-  REQUEST_TOO_LARGE: "REQUEST_TOO_LARGE",
-  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
-  THROTTLED: "THROTTLED",
-  UNAUTHORIZED: "UNAUTHORIZED",
-  UNSUPPORTED_MEDIA_TYPE: "UNSUPPORTED_MEDIA_TYPE",
-  WAF_FILTERED: "WAF_FILTERED",
-} as const;
-
-/**
- * @public
- */
-export type GatewayResponseType = (typeof GatewayResponseType)[keyof typeof GatewayResponseType];
 
 /**
  * <p>Clears any customization of a GatewayResponse of a specified response type on the given RestApi and resets it with the default settings.</p>
@@ -3680,20 +3239,6 @@ export interface DocumentationParts {
 }
 
 /**
- * @public
- * @enum
- */
-export const LocationStatusType = {
-  DOCUMENTED: "DOCUMENTED",
-  UNDOCUMENTED: "UNDOCUMENTED",
-} as const;
-
-/**
- * @public
- */
-export type LocationStatusType = (typeof LocationStatusType)[keyof typeof LocationStatusType];
-
-/**
  * <p>Gets the documentation parts of an API. The result may be filtered by the type, name, or path of API entities (targets).</p>
  * @public
  */
@@ -3840,20 +3385,6 @@ export interface DomainNameAccessAssociations {
    */
   position?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceOwner = {
-  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
-  SELF: "SELF",
-} as const;
-
-/**
- * @public
- */
-export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
  * @public
@@ -5002,20 +4533,6 @@ export interface DocumentationPartIds {
 }
 
 /**
- * @public
- * @enum
- */
-export const PutMode = {
-  Merge: "merge",
-  Overwrite: "overwrite",
-} as const;
-
-/**
- * @public
- */
-export type PutMode = (typeof PutMode)[keyof typeof PutMode];
-
-/**
  * <p>Import documentation parts from an external (e.g., OpenAPI) definition file. </p>
  * @public
  */
@@ -5701,24 +5218,6 @@ export interface UntagResourceRequest {
    */
   tagKeys: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Op = {
-  add: "add",
-  copy: "copy",
-  move: "move",
-  remove: "remove",
-  replace: "replace",
-  test: "test",
-} as const;
-
-/**
- * @public
- */
-export type Op = (typeof Op)[keyof typeof Op];
 
 /**
  * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>

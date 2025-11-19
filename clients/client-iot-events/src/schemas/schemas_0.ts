@@ -335,7 +335,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTEventsServiceException as __IoTEventsServiceException } from "../models/IoTEventsServiceException";
 
 /* eslint no-var: 0 */

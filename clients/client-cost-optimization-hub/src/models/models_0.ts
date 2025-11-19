@@ -1,41 +1,19 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CostOptimizationHubServiceException as __BaseException } from "./CostOptimizationHubServiceException";
-
-/**
- * <p>You are not authorized to use this operation with the given parameters.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EnrollmentStatus = {
-  ACTIVE: "Active",
-  INACTIVE: "Inactive",
-} as const;
-
-/**
- * @public
- */
-export type EnrollmentStatus = (typeof EnrollmentStatus)[keyof typeof EnrollmentStatus];
+import {
+  ActionType,
+  AllocationStrategy,
+  Ec2AutoScalingGroupType,
+  EnrollmentStatus,
+  ImplementationEffort,
+  MemberAccountDiscountVisibility,
+  Order,
+  PaymentOption,
+  ResourceType,
+  SavingsEstimationMode,
+  Source,
+  SummaryMetrics,
+  Term,
+} from "./enums";
 
 /**
  * <p>Describes the enrollment status of an organization's member accounts in Cost Optimization Hub.</p>
@@ -66,40 +44,6 @@ export interface AccountEnrollmentStatus {
    */
   createdTimestamp?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionType = {
-  DELETE: "Delete",
-  MIGRATE_TO_GRAVITON: "MigrateToGraviton",
-  PURCHASE_RESERVED_INSTANCES: "PurchaseReservedInstances",
-  PURCHASE_SAVINGS_PLANS: "PurchaseSavingsPlans",
-  RIGHTSIZE: "Rightsize",
-  SCALE_IN: "ScaleIn",
-  STOP: "Stop",
-  UPGRADE: "Upgrade",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
-
-/**
- * @public
- * @enum
- */
-export const AllocationStrategy = {
-  LOWEST_PRICE: "LowestPrice",
-  PRIORITIZED: "Prioritized",
-} as const;
-
-/**
- * @public
- */
-export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
 
 /**
  * <p>The Aurora DB cluster storage configuration used for recommendations.</p>
@@ -383,50 +327,6 @@ export interface ComputeSavingsPlans {
 export interface GetPreferencesRequest {}
 
 /**
- * @public
- * @enum
- */
-export const MemberAccountDiscountVisibility = {
-  ALL: "All",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type MemberAccountDiscountVisibility =
-  (typeof MemberAccountDiscountVisibility)[keyof typeof MemberAccountDiscountVisibility];
-
-/**
- * @public
- * @enum
- */
-export const PaymentOption = {
-  ALL_UPFRONT: "AllUpfront",
-  NO_UPFRONT: "NoUpfront",
-  PARTIAL_UPFRONT: "PartialUpfront",
-} as const;
-
-/**
- * @public
- */
-export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
-
-/**
- * @public
- * @enum
- */
-export const Term = {
-  ONE_YEAR: "OneYear",
-  THREE_YEARS: "ThreeYears",
-} as const;
-
-/**
- * @public
- */
-export type Term = (typeof Term)[keyof typeof Term];
-
-/**
  * <p>The preferred configuration for Reserved Instances and Savings Plans commitment-based discounts, consisting of a payment option and a commitment duration.</p>
  * @public
  */
@@ -443,20 +343,6 @@ export interface PreferredCommitment {
    */
   paymentOption?: PaymentOption | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SavingsEstimationMode = {
-  AFTER_DISCOUNTS: "AfterDiscounts",
-  BEFORE_DISCOUNTS: "BeforeDiscounts",
-} as const;
-
-/**
- * @public
- */
-export type SavingsEstimationMode = (typeof SavingsEstimationMode)[keyof typeof SavingsEstimationMode];
 
 /**
  * @public
@@ -482,46 +368,6 @@ export interface GetPreferencesResponse {
 }
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.</p>
  * @public
  */
@@ -537,54 +383,6 @@ export interface ValidationExceptionDetail {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
-  OTHER: "Other",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the validation exception.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The list of fields that are invalid.</p>
-   * @public
-   */
-  fields?: ValidationExceptionDetail[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
-  }
 }
 
 /**
@@ -801,20 +599,6 @@ export interface MixedInstanceConfiguration {
    */
   type?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Ec2AutoScalingGroupType = {
-  MIXED_INSTANCE_TYPES: "MixedInstanceTypes",
-  SINGLE_INSTANCE_TYPE: "SingleInstanceType",
-} as const;
-
-/**
- * @public
- */
-export type Ec2AutoScalingGroupType = (typeof Ec2AutoScalingGroupType)[keyof typeof Ec2AutoScalingGroupType];
 
 /**
  * <p>The EC2 Auto Scaling group configuration used for recommendations.</p>
@@ -2350,67 +2134,6 @@ export namespace ResourceDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceType = {
-  AURORA_DB_CLUSTER_STORAGE: "AuroraDbClusterStorage",
-  COMPUTE_SAVINGS_PLANS: "ComputeSavingsPlans",
-  DYNAMO_DB_RESERVED_CAPACITY: "DynamoDbReservedCapacity",
-  EBS_VOLUME: "EbsVolume",
-  EC2_AUTO_SCALING_GROUP: "Ec2AutoScalingGroup",
-  EC2_INSTANCE: "Ec2Instance",
-  EC2_INSTANCE_SAVINGS_PLANS: "Ec2InstanceSavingsPlans",
-  EC2_RESERVED_INSTANCES: "Ec2ReservedInstances",
-  ECS_SERVICE: "EcsService",
-  ELASTI_CACHE_RESERVED_INSTANCES: "ElastiCacheReservedInstances",
-  LAMBDA_FUNCTION: "LambdaFunction",
-  MEMORY_DB_RESERVED_INSTANCES: "MemoryDbReservedInstances",
-  OPEN_SEARCH_RESERVED_INSTANCES: "OpenSearchReservedInstances",
-  RDS_DB_INSTANCE: "RdsDbInstance",
-  RDS_DB_INSTANCE_STORAGE: "RdsDbInstanceStorage",
-  RDS_RESERVED_INSTANCES: "RdsReservedInstances",
-  REDSHIFT_RESERVED_INSTANCES: "RedshiftReservedInstances",
-  SAGE_MAKER_SAVINGS_PLANS: "SageMakerSavingsPlans",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const ImplementationEffort = {
-  HIGH: "High",
-  LOW: "Low",
-  MEDIUM: "Medium",
-  VERY_HIGH: "VeryHigh",
-  VERY_LOW: "VeryLow",
-} as const;
-
-/**
- * @public
- */
-export type ImplementationEffort = (typeof ImplementationEffort)[keyof typeof ImplementationEffort];
-
-/**
- * @public
- * @enum
- */
-export const Source = {
-  COMPUTE_OPTIMIZER: "ComputeOptimizer",
-  COST_EXPLORER: "CostExplorer",
-} as const;
-
-/**
- * @public
- */
-export type Source = (typeof Source)[keyof typeof Source];
-
-/**
  * <p>The tag structure that contains a tag key and value.</p>
  * @public
  */
@@ -2572,33 +2295,6 @@ export interface GetRecommendationResponse {
 }
 
 /**
- * <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that was not found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-  }
-}
-
-/**
  * @public
  */
 export interface ListEnrollmentStatusesRequest {
@@ -2721,20 +2417,6 @@ export interface Filter {
    */
   recommendationIds?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Order = {
-  ASC: "Asc",
-  DESC: "Desc",
-} as const;
-
-/**
- * @public
- */
-export type Order = (typeof Order)[keyof typeof Order];
 
 /**
  * <p>Defines how rows will be sorted in the response.</p>
@@ -2937,19 +2619,6 @@ export interface ListRecommendationsResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SummaryMetrics = {
-  SAVINGS_PERCENTAGE: "SavingsPercentage",
-} as const;
-
-/**
- * @public
- */
-export type SummaryMetrics = (typeof SummaryMetrics)[keyof typeof SummaryMetrics];
 
 /**
  * @public

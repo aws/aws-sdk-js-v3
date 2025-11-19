@@ -36,7 +36,7 @@ import {
   MessageFrozen as __MessageFrozen,
   MessageRejected as __MessageRejected,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { WorkMailMessageFlowServiceException as __WorkMailMessageFlowServiceException } from "../models/WorkMailMessageFlowServiceException";
 
 /* eslint no-var: 0 */

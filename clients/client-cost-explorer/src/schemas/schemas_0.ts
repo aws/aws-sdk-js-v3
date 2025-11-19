@@ -647,7 +647,7 @@ import {
   UnknownMonitorException as __UnknownMonitorException,
   UnknownSubscriptionException as __UnknownSubscriptionException,
   UnresolvableUsageUnitException as __UnresolvableUsageUnitException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

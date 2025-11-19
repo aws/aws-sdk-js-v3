@@ -80,20 +80,18 @@ import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlList
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
 import { EC2ProtocolServiceException as __BaseException } from "../models/EC2ProtocolServiceException";
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, InvalidGreeting } from "../models/errors";
 import {
-  ComplexError,
   ComplexNestedErrorData,
   DatetimeOffsetsOutput,
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
-  FooEnum,
   FractionalSecondsOutput,
   GreetingStruct,
   GreetingWithErrorsOutput,
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
-  IntegerEnum,
-  InvalidGreeting,
   NestedStructuresInput,
   NestedStructWithList,
   NoInputAndOutputOutput,

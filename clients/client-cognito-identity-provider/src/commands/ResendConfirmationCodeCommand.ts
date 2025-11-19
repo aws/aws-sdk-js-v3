@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/models_1";
+import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/models_0";
 import { ResendConfirmationCode } from "../schemas/schemas_0";
 
 /**

@@ -1,7 +1,44 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
+import {
+  AggregateConformancePackComplianceSummaryGroupKey,
+  AggregatedSourceStatusType,
+  AggregatedSourceType,
+  AggregatorFilterType,
+  ChronologicalOrder,
+  ComplianceType,
+  ConfigRuleComplianceSummaryGroupKey,
+  ConfigRuleState,
+  ConfigurationItemStatus,
+  ConfigurationRecorderFilterName,
+  ConformancePackComplianceType,
+  ConformancePackState,
+  DeliveryStatus,
+  EvaluationMode,
+  EventSource,
+  MaximumExecutionFrequency,
+  MemberAccountRuleStatus,
+  MessageType,
+  OrganizationConfigRuleTriggerType,
+  OrganizationConfigRuleTriggerTypeNoSN,
+  OrganizationResourceDetailedStatus,
+  OrganizationResourceStatus,
+  OrganizationRuleStatus,
+  Owner,
+  RecorderStatus,
+  RecordingFrequency,
+  RecordingScope,
+  RecordingStrategyType,
+  RemediationExecutionState,
+  RemediationExecutionStepState,
+  RemediationTargetType,
+  ResourceConfigurationSchemaType,
+  ResourceCountGroupKey,
+  ResourceEvaluationStatus,
+  ResourceType,
+  ResourceValueType,
+  SortBy,
+  SortOrder,
+} from "./enums";
 
 /**
  * <p>A collection of accounts and regions.</p>
@@ -49,22 +86,6 @@ export interface ComplianceContributorCount {
    */
   CapExceeded?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComplianceType = {
-  Compliant: "COMPLIANT",
-  Insufficient_Data: "INSUFFICIENT_DATA",
-  Non_Compliant: "NON_COMPLIANT",
-  Not_Applicable: "NOT_APPLICABLE",
-} as const;
-
-/**
- * @public
- */
-export type ComplianceType = (typeof ComplianceType)[keyof typeof ComplianceType];
 
 /**
  * <p>Indicates whether an Amazon Web Services resource or Config rule is
@@ -136,22 +157,6 @@ export interface AggregateComplianceByConfigRule {
    */
   AwsRegion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConformancePackComplianceType = {
-  COMPLIANT: "COMPLIANT",
-  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
-  NON_COMPLIANT: "NON_COMPLIANT",
-} as const;
-
-/**
- * @public
- */
-export type ConformancePackComplianceType =
-  (typeof ConformancePackComplianceType)[keyof typeof ConformancePackComplianceType];
 
 /**
  * <p>Provides the number of compliant and noncompliant rules within a conformance pack.
@@ -357,50 +362,6 @@ export interface AggregateConformancePackComplianceSummaryFilters {
 }
 
 /**
- * @public
- * @enum
- */
-export const AggregateConformancePackComplianceSummaryGroupKey = {
-  ACCOUNT_ID: "ACCOUNT_ID",
-  AWS_REGION: "AWS_REGION",
-} as const;
-
-/**
- * @public
- */
-export type AggregateConformancePackComplianceSummaryGroupKey =
-  (typeof AggregateConformancePackComplianceSummaryGroupKey)[keyof typeof AggregateConformancePackComplianceSummaryGroupKey];
-
-/**
- * @public
- * @enum
- */
-export const AggregatedSourceStatusType = {
-  FAILED: "FAILED",
-  OUTDATED: "OUTDATED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type AggregatedSourceStatusType = (typeof AggregatedSourceStatusType)[keyof typeof AggregatedSourceStatusType];
-
-/**
- * @public
- * @enum
- */
-export const AggregatedSourceType = {
-  ACCOUNT: "ACCOUNT",
-  ORGANIZATION: "ORGANIZATION",
-} as const;
-
-/**
- * @public
- */
-export type AggregatedSourceType = (typeof AggregatedSourceType)[keyof typeof AggregatedSourceType];
-
-/**
  * <p>The current sync status between the source and the aggregator
  * 			account.</p>
  * @public
@@ -464,20 +425,6 @@ export interface AggregatedSourceStatus {
    */
   LastErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EvaluationMode = {
-  DETECTIVE: "DETECTIVE",
-  PROACTIVE: "PROACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationMode = (typeof EvaluationMode)[keyof typeof EvaluationMode];
 
 /**
  * <p>Identifies an Config rule that evaluated an Amazon Web Services resource,
@@ -599,460 +546,6 @@ export interface AggregateEvaluationResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceType = {
-  ACMPCACertificateAuthority: "AWS::ACMPCA::CertificateAuthority",
-  ACMPCACertificateAuthorityActivation: "AWS::ACMPCA::CertificateAuthorityActivation",
-  APSRuleGroupsNamespace: "AWS::APS::RuleGroupsNamespace",
-  AccessAnalyzerAnalyzer: "AWS::AccessAnalyzer::Analyzer",
-  AccountPublicAccessBlock: "AWS::S3::AccountPublicAccessBlock",
-  Alarm: "AWS::CloudWatch::Alarm",
-  AmazonMQBroker: "AWS::AmazonMQ::Broker",
-  AmplifyApp: "AWS::Amplify::App",
-  AmplifyBranch: "AWS::Amplify::Branch",
-  Api: "AWS::ApiGatewayV2::Api",
-  AppConfigApplication: "AWS::AppConfig::Application",
-  AppConfigConfigurationProfile: "AWS::AppConfig::ConfigurationProfile",
-  AppConfigDeploymentStrategy: "AWS::AppConfig::DeploymentStrategy",
-  AppConfigEnvironment: "AWS::AppConfig::Environment",
-  AppConfigExtensionAssociation: "AWS::AppConfig::ExtensionAssociation",
-  AppConfigHostedConfigurationVersion: "AWS::AppConfig::HostedConfigurationVersion",
-  AppFlowFlow: "AWS::AppFlow::Flow",
-  AppIntegrationsApplication: "AWS::AppIntegrations::Application",
-  AppIntegrationsEventIntegration: "AWS::AppIntegrations::EventIntegration",
-  AppMeshGatewayRoute: "AWS::AppMesh::GatewayRoute",
-  AppMeshMesh: "AWS::AppMesh::Mesh",
-  AppMeshRoute: "AWS::AppMesh::Route",
-  AppMeshVirtualGateway: "AWS::AppMesh::VirtualGateway",
-  AppMeshVirtualNode: "AWS::AppMesh::VirtualNode",
-  AppMeshVirtualRouter: "AWS::AppMesh::VirtualRouter",
-  AppMeshVirtualService: "AWS::AppMesh::VirtualService",
-  AppRunnerService: "AWS::AppRunner::Service",
-  AppRunnerVpcConnector: "AWS::AppRunner::VpcConnector",
-  AppStreamApplication: "AWS::AppStream::Application",
-  AppStreamDirectoryConfig: "AWS::AppStream::DirectoryConfig",
-  AppStreamFleet: "AWS::AppStream::Fleet",
-  AppStreamStack: "AWS::AppStream::Stack",
-  AppSyncApiCache: "AWS::AppSync::ApiCache",
-  AppSyncGraphQLApi: "AWS::AppSync::GraphQLApi",
-  Application: "AWS::ElasticBeanstalk::Application",
-  ApplicationVersion: "AWS::ElasticBeanstalk::ApplicationVersion",
-  AssociationCompliance: "AWS::SSM::AssociationCompliance",
-  AthenaDataCatalog: "AWS::Athena::DataCatalog",
-  AthenaPreparedStatement: "AWS::Athena::PreparedStatement",
-  AthenaWorkGroup: "AWS::Athena::WorkGroup",
-  AuditManagerAssessment: "AWS::AuditManager::Assessment",
-  AutoScalingGroup: "AWS::AutoScaling::AutoScalingGroup",
-  AutoScalingWarmPool: "AWS::AutoScaling::WarmPool",
-  BackupPlan: "AWS::Backup::BackupPlan",
-  BackupRecoveryPoint: "AWS::Backup::RecoveryPoint",
-  BackupReportPlan: "AWS::Backup::ReportPlan",
-  BackupSelection: "AWS::Backup::BackupSelection",
-  BackupVault: "AWS::Backup::BackupVault",
-  BatchComputeEnvironment: "AWS::Batch::ComputeEnvironment",
-  BatchJobQueue: "AWS::Batch::JobQueue",
-  BatchSchedulingPolicy: "AWS::Batch::SchedulingPolicy",
-  BedrockGuardrail: "AWS::Bedrock::Guardrail",
-  BedrockKnowledgeBase: "AWS::Bedrock::KnowledgeBase",
-  Bucket: "AWS::S3::Bucket",
-  BudgetsBudgetsAction: "AWS::Budgets::BudgetsAction",
-  CassandraKeyspace: "AWS::Cassandra::Keyspace",
-  Certificate: "AWS::ACM::Certificate",
-  Cloud9EnvironmentEC2: "AWS::Cloud9::EnvironmentEC2",
-  CloudFormationProduct: "AWS::ServiceCatalog::CloudFormationProduct",
-  CloudFormationProvisionedProduct: "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-  CloudWatchMetricStream: "AWS::CloudWatch::MetricStream",
-  Cluster: "AWS::Redshift::Cluster",
-  ClusterParameterGroup: "AWS::Redshift::ClusterParameterGroup",
-  ClusterSecurityGroup: "AWS::Redshift::ClusterSecurityGroup",
-  ClusterSnapshot: "AWS::Redshift::ClusterSnapshot",
-  ClusterSubnetGroup: "AWS::Redshift::ClusterSubnetGroup",
-  CodeArtifactRepository: "AWS::CodeArtifact::Repository",
-  CodeBuildReportGroup: "AWS::CodeBuild::ReportGroup",
-  CodeDeployApplication: "AWS::CodeDeploy::Application",
-  CodeDeployDeploymentConfig: "AWS::CodeDeploy::DeploymentConfig",
-  CodeDeployDeploymentGroup: "AWS::CodeDeploy::DeploymentGroup",
-  CodeGuruProfilerProfilingGroup: "AWS::CodeGuruProfiler::ProfilingGroup",
-  CodeGuruReviewerRepositoryAssociation: "AWS::CodeGuruReviewer::RepositoryAssociation",
-  CognitoIdentityPool: "AWS::Cognito::IdentityPool",
-  CognitoUserPool: "AWS::Cognito::UserPool",
-  CognitoUserPoolClient: "AWS::Cognito::UserPoolClient",
-  CognitoUserPoolGroup: "AWS::Cognito::UserPoolGroup",
-  ConformancePackCompliance: "AWS::Config::ConformancePackCompliance",
-  ConnectInstance: "AWS::Connect::Instance",
-  ConnectPhoneNumber: "AWS::Connect::PhoneNumber",
-  ConnectQuickConnect: "AWS::Connect::QuickConnect",
-  ConnectRule: "AWS::Connect::Rule",
-  ConnectUser: "AWS::Connect::User",
-  CustomerGateway: "AWS::EC2::CustomerGateway",
-  CustomerProfilesDomain: "AWS::CustomerProfiles::Domain",
-  CustomerProfilesObjectType: "AWS::CustomerProfiles::ObjectType",
-  DBCluster: "AWS::RDS::DBCluster",
-  DBClusterSnapshot: "AWS::RDS::DBClusterSnapshot",
-  DBInstance: "AWS::RDS::DBInstance",
-  DBSecurityGroup: "AWS::RDS::DBSecurityGroup",
-  DBSnapshot: "AWS::RDS::DBSnapshot",
-  DBSubnetGroup: "AWS::RDS::DBSubnetGroup",
-  DMSCertificate: "AWS::DMS::Certificate",
-  DMSEndpoint: "AWS::DMS::Endpoint",
-  DMSEventSubscription: "AWS::DMS::EventSubscription",
-  DMSReplicationSubnetGroup: "AWS::DMS::ReplicationSubnetGroup",
-  DataSyncLocationEFS: "AWS::DataSync::LocationEFS",
-  DataSyncLocationFSxLustre: "AWS::DataSync::LocationFSxLustre",
-  DataSyncLocationFSxWindows: "AWS::DataSync::LocationFSxWindows",
-  DataSyncLocationHDFS: "AWS::DataSync::LocationHDFS",
-  DataSyncLocationNFS: "AWS::DataSync::LocationNFS",
-  DataSyncLocationObjectStorage: "AWS::DataSync::LocationObjectStorage",
-  DataSyncLocationS3: "AWS::DataSync::LocationS3",
-  DataSyncLocationSMB: "AWS::DataSync::LocationSMB",
-  DataSyncTask: "AWS::DataSync::Task",
-  DetectiveGraph: "AWS::Detective::Graph",
-  DeviceFarmInstanceProfile: "AWS::DeviceFarm::InstanceProfile",
-  DeviceFarmProject: "AWS::DeviceFarm::Project",
-  DeviceFarmTestGridProject: "AWS::DeviceFarm::TestGridProject",
-  Distribution: "AWS::CloudFront::Distribution",
-  Domain: "AWS::Elasticsearch::Domain",
-  EC2CapacityReservation: "AWS::EC2::CapacityReservation",
-  EC2CarrierGateway: "AWS::EC2::CarrierGateway",
-  EC2ClientVpnEndpoint: "AWS::EC2::ClientVpnEndpoint",
-  EC2ClientVpnTargetNetworkAssociation: "AWS::EC2::ClientVpnTargetNetworkAssociation",
-  EC2DHCPOptions: "AWS::EC2::DHCPOptions",
-  EC2EC2Fleet: "AWS::EC2::EC2Fleet",
-  EC2EIPAssociation: "AWS::EC2::EIPAssociation",
-  EC2IPAM: "AWS::EC2::IPAM",
-  EC2IPAMPool: "AWS::EC2::IPAMPool",
-  EC2IPAMResourceDiscovery: "AWS::EC2::IPAMResourceDiscovery",
-  EC2IPAMResourceDiscoveryAssociation: "AWS::EC2::IPAMResourceDiscoveryAssociation",
-  EC2IPAMScope: "AWS::EC2::IPAMScope",
-  EC2InstanceConnectEndpoint: "AWS::EC2::InstanceConnectEndpoint",
-  EC2NetworkInsightsAccessScope: "AWS::EC2::NetworkInsightsAccessScope",
-  EC2NetworkInsightsAnalysis: "AWS::EC2::NetworkInsightsAnalysis",
-  EC2NetworkInsightsPath: "AWS::EC2::NetworkInsightsPath",
-  EC2PrefixList: "AWS::EC2::PrefixList",
-  EC2SnapshotBlockPublicAccess: "AWS::EC2::SnapshotBlockPublicAccess",
-  EC2SpotFleet: "AWS::EC2::SpotFleet",
-  EC2SubnetRouteTableAssociation: "AWS::EC2::SubnetRouteTableAssociation",
-  EC2TrafficMirrorFilter: "AWS::EC2::TrafficMirrorFilter",
-  EC2TrafficMirrorSession: "AWS::EC2::TrafficMirrorSession",
-  EC2TrafficMirrorTarget: "AWS::EC2::TrafficMirrorTarget",
-  EC2TransitGatewayConnect: "AWS::EC2::TransitGatewayConnect",
-  EC2TransitGatewayMulticastDomain: "AWS::EC2::TransitGatewayMulticastDomain",
-  EC2VPCBlockPublicAccessExclusion: "AWS::EC2::VPCBlockPublicAccessExclusion",
-  EC2VPCBlockPublicAccessOptions: "AWS::EC2::VPCBlockPublicAccessOptions",
-  EC2VPCEndpointConnectionNotification: "AWS::EC2::VPCEndpointConnectionNotification",
-  EC2VPNConnectionRoute: "AWS::EC2::VPNConnectionRoute",
-  ECRPublicRepository: "AWS::ECR::PublicRepository",
-  ECRPullThroughCacheRule: "AWS::ECR::PullThroughCacheRule",
-  ECRRegistryPolicy: "AWS::ECR::RegistryPolicy",
-  ECRRepository: "AWS::ECR::Repository",
-  ECSCapacityProvider: "AWS::ECS::CapacityProvider",
-  ECSCluster: "AWS::ECS::Cluster",
-  ECSService: "AWS::ECS::Service",
-  ECSTaskDefinition: "AWS::ECS::TaskDefinition",
-  ECSTaskSet: "AWS::ECS::TaskSet",
-  EFSAccessPoint: "AWS::EFS::AccessPoint",
-  EFSFileSystem: "AWS::EFS::FileSystem",
-  EIP: "AWS::EC2::EIP",
-  EKSAddon: "AWS::EKS::Addon",
-  EKSCluster: "AWS::EKS::Cluster",
-  EKSFargateProfile: "AWS::EKS::FargateProfile",
-  EKSIdentityProviderConfig: "AWS::EKS::IdentityProviderConfig",
-  EMRSecurityConfiguration: "AWS::EMR::SecurityConfiguration",
-  EgressOnlyInternetGateway: "AWS::EC2::EgressOnlyInternetGateway",
-  EncryptionConfig: "AWS::XRay::EncryptionConfig",
-  Environment: "AWS::ElasticBeanstalk::Environment",
-  EventSchemasDiscoverer: "AWS::EventSchemas::Discoverer",
-  EventSchemasRegistry: "AWS::EventSchemas::Registry",
-  EventSchemasRegistryPolicy: "AWS::EventSchemas::RegistryPolicy",
-  EventSchemasSchema: "AWS::EventSchemas::Schema",
-  EventSubscription: "AWS::RDS::EventSubscription",
-  EventsApiDestination: "AWS::Events::ApiDestination",
-  EventsArchive: "AWS::Events::Archive",
-  EventsConnection: "AWS::Events::Connection",
-  EventsEndpoint: "AWS::Events::Endpoint",
-  EventsEventBus: "AWS::Events::EventBus",
-  EventsRule: "AWS::Events::Rule",
-  EvidentlyLaunch: "AWS::Evidently::Launch",
-  EvidentlyProject: "AWS::Evidently::Project",
-  EvidentlySegment: "AWS::Evidently::Segment",
-  FISExperimentTemplate: "AWS::FIS::ExperimentTemplate",
-  FileData: "AWS::SSM::FileData",
-  FlowLog: "AWS::EC2::FlowLog",
-  ForecastDataset: "AWS::Forecast::Dataset",
-  ForecastDatasetGroup: "AWS::Forecast::DatasetGroup",
-  FraudDetectorEntityType: "AWS::FraudDetector::EntityType",
-  FraudDetectorLabel: "AWS::FraudDetector::Label",
-  FraudDetectorOutcome: "AWS::FraudDetector::Outcome",
-  FraudDetectorVariable: "AWS::FraudDetector::Variable",
-  Function: "AWS::Lambda::Function",
-  GlobalAcceleratorAccelerator: "AWS::GlobalAccelerator::Accelerator",
-  GlobalAcceleratorEndpointGroup: "AWS::GlobalAccelerator::EndpointGroup",
-  GlobalAcceleratorListener: "AWS::GlobalAccelerator::Listener",
-  GlueClassifier: "AWS::Glue::Classifier",
-  GlueJob: "AWS::Glue::Job",
-  GlueMLTransform: "AWS::Glue::MLTransform",
-  GrafanaWorkspace: "AWS::Grafana::Workspace",
-  GreengrassV2ComponentVersion: "AWS::GreengrassV2::ComponentVersion",
-  GroundStationConfig: "AWS::GroundStation::Config",
-  GroundStationDataflowEndpointGroup: "AWS::GroundStation::DataflowEndpointGroup",
-  GroundStationMissionProfile: "AWS::GroundStation::MissionProfile",
-  Group: "AWS::IAM::Group",
-  GuardDutyDetector: "AWS::GuardDuty::Detector",
-  GuardDutyFilter: "AWS::GuardDuty::Filter",
-  GuardDutyIPSet: "AWS::GuardDuty::IPSet",
-  GuardDutyThreatIntelSet: "AWS::GuardDuty::ThreatIntelSet",
-  HealthLakeFHIRDatastore: "AWS::HealthLake::FHIRDatastore",
-  Host: "AWS::EC2::Host",
-  IAMInstanceProfile: "AWS::IAM::InstanceProfile",
-  IAMOIDCProvider: "AWS::IAM::OIDCProvider",
-  IAMSAMLProvider: "AWS::IAM::SAMLProvider",
-  IAMServerCertificate: "AWS::IAM::ServerCertificate",
-  IPSetV2: "AWS::WAFv2::IPSet",
-  IVSChannel: "AWS::IVS::Channel",
-  IVSPlaybackKeyPair: "AWS::IVS::PlaybackKeyPair",
-  IVSRecordingConfiguration: "AWS::IVS::RecordingConfiguration",
-  ImageBuilderContainerRecipe: "AWS::ImageBuilder::ContainerRecipe",
-  ImageBuilderDistributionConfiguration: "AWS::ImageBuilder::DistributionConfiguration",
-  ImageBuilderImagePipeline: "AWS::ImageBuilder::ImagePipeline",
-  ImageBuilderImageRecipe: "AWS::ImageBuilder::ImageRecipe",
-  ImageBuilderInfrastructureConfiguration: "AWS::ImageBuilder::InfrastructureConfiguration",
-  InspectorV2Activation: "AWS::InspectorV2::Activation",
-  InspectorV2Filter: "AWS::InspectorV2::Filter",
-  Instance: "AWS::EC2::Instance",
-  InternetGateway: "AWS::EC2::InternetGateway",
-  IoTAccountAuditConfiguration: "AWS::IoT::AccountAuditConfiguration",
-  IoTAnalyticsChannel: "AWS::IoTAnalytics::Channel",
-  IoTAnalyticsDataset: "AWS::IoTAnalytics::Dataset",
-  IoTAnalyticsDatastore: "AWS::IoTAnalytics::Datastore",
-  IoTAnalyticsPipeline: "AWS::IoTAnalytics::Pipeline",
-  IoTAuthorizer: "AWS::IoT::Authorizer",
-  IoTCACertificate: "AWS::IoT::CACertificate",
-  IoTCustomMetric: "AWS::IoT::CustomMetric",
-  IoTDimension: "AWS::IoT::Dimension",
-  IoTEventsAlarmModel: "AWS::IoTEvents::AlarmModel",
-  IoTEventsDetectorModel: "AWS::IoTEvents::DetectorModel",
-  IoTEventsInput: "AWS::IoTEvents::Input",
-  IoTFleetMetric: "AWS::IoT::FleetMetric",
-  IoTJobTemplate: "AWS::IoT::JobTemplate",
-  IoTMitigationAction: "AWS::IoT::MitigationAction",
-  IoTPolicy: "AWS::IoT::Policy",
-  IoTProvisioningTemplate: "AWS::IoT::ProvisioningTemplate",
-  IoTRoleAlias: "AWS::IoT::RoleAlias",
-  IoTScheduledAudit: "AWS::IoT::ScheduledAudit",
-  IoTSecurityProfile: "AWS::IoT::SecurityProfile",
-  IoTSiteWiseAssetModel: "AWS::IoTSiteWise::AssetModel",
-  IoTSiteWiseDashboard: "AWS::IoTSiteWise::Dashboard",
-  IoTSiteWiseGateway: "AWS::IoTSiteWise::Gateway",
-  IoTSiteWisePortal: "AWS::IoTSiteWise::Portal",
-  IoTSiteWiseProject: "AWS::IoTSiteWise::Project",
-  IoTTwinMakerComponentType: "AWS::IoTTwinMaker::ComponentType",
-  IoTTwinMakerEntity: "AWS::IoTTwinMaker::Entity",
-  IoTTwinMakerScene: "AWS::IoTTwinMaker::Scene",
-  IoTTwinMakerSyncJob: "AWS::IoTTwinMaker::SyncJob",
-  IoTTwinMakerWorkspace: "AWS::IoTTwinMaker::Workspace",
-  IoTWirelessFuotaTask: "AWS::IoTWireless::FuotaTask",
-  IoTWirelessMulticastGroup: "AWS::IoTWireless::MulticastGroup",
-  IoTWirelessServiceProfile: "AWS::IoTWireless::ServiceProfile",
-  KMSAlias: "AWS::KMS::Alias",
-  KafkaConnectConnector: "AWS::KafkaConnect::Connector",
-  KendraIndex: "AWS::Kendra::Index",
-  Key: "AWS::KMS::Key",
-  KinesisAnalyticsV2Application: "AWS::KinesisAnalyticsV2::Application",
-  KinesisFirehoseDeliveryStream: "AWS::KinesisFirehose::DeliveryStream",
-  KinesisStream: "AWS::Kinesis::Stream",
-  KinesisStreamConsumer: "AWS::Kinesis::StreamConsumer",
-  KinesisVideoSignalingChannel: "AWS::KinesisVideo::SignalingChannel",
-  KinesisVideoStream: "AWS::KinesisVideo::Stream",
-  LambdaCodeSigningConfig: "AWS::Lambda::CodeSigningConfig",
-  LaunchConfiguration: "AWS::AutoScaling::LaunchConfiguration",
-  LaunchTemplate: "AWS::EC2::LaunchTemplate",
-  LexBot: "AWS::Lex::Bot",
-  LexBotAlias: "AWS::Lex::BotAlias",
-  LightsailBucket: "AWS::Lightsail::Bucket",
-  LightsailCertificate: "AWS::Lightsail::Certificate",
-  LightsailDisk: "AWS::Lightsail::Disk",
-  LightsailStaticIp: "AWS::Lightsail::StaticIp",
-  ListenerV2: "AWS::ElasticLoadBalancingV2::Listener",
-  LoadBalancer: "AWS::ElasticLoadBalancing::LoadBalancer",
-  LoadBalancerV2: "AWS::ElasticLoadBalancingV2::LoadBalancer",
-  LogsDestination: "AWS::Logs::Destination",
-  LookoutMetricsAlert: "AWS::LookoutMetrics::Alert",
-  LookoutVisionProject: "AWS::LookoutVision::Project",
-  M2Environment: "AWS::M2::Environment",
-  MSKBatchScramSecret: "AWS::MSK::BatchScramSecret",
-  MSKCluster: "AWS::MSK::Cluster",
-  MSKClusterPolicy: "AWS::MSK::ClusterPolicy",
-  MSKConfiguration: "AWS::MSK::Configuration",
-  MSKVpcConnection: "AWS::MSK::VpcConnection",
-  ManagedInstanceInventory: "AWS::SSM::ManagedInstanceInventory",
-  ManagedRuleSetV2: "AWS::WAFv2::ManagedRuleSet",
-  MediaConnectFlowEntitlement: "AWS::MediaConnect::FlowEntitlement",
-  MediaConnectFlowSource: "AWS::MediaConnect::FlowSource",
-  MediaConnectFlowVpcInterface: "AWS::MediaConnect::FlowVpcInterface",
-  MediaConnectGateway: "AWS::MediaConnect::Gateway",
-  MediaPackagePackagingConfiguration: "AWS::MediaPackage::PackagingConfiguration",
-  MediaPackagePackagingGroup: "AWS::MediaPackage::PackagingGroup",
-  MediaTailorPlaybackConfiguration: "AWS::MediaTailor::PlaybackConfiguration",
-  MemoryDBSubnetGroup: "AWS::MemoryDB::SubnetGroup",
-  NatGateway: "AWS::EC2::NatGateway",
-  NetworkAcl: "AWS::EC2::NetworkAcl",
-  NetworkFirewallFirewall: "AWS::NetworkFirewall::Firewall",
-  NetworkFirewallFirewallPolicy: "AWS::NetworkFirewall::FirewallPolicy",
-  NetworkFirewallRuleGroup: "AWS::NetworkFirewall::RuleGroup",
-  NetworkInsightsAccessScopeAnalysis: "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
-  NetworkInterface: "AWS::EC2::NetworkInterface",
-  NetworkManagerConnectPeer: "AWS::NetworkManager::ConnectPeer",
-  NetworkManagerCustomerGatewayAssociation: "AWS::NetworkManager::CustomerGatewayAssociation",
-  NetworkManagerDevice: "AWS::NetworkManager::Device",
-  NetworkManagerGlobalNetwork: "AWS::NetworkManager::GlobalNetwork",
-  NetworkManagerLink: "AWS::NetworkManager::Link",
-  NetworkManagerLinkAssociation: "AWS::NetworkManager::LinkAssociation",
-  NetworkManagerSite: "AWS::NetworkManager::Site",
-  NetworkManagerTransitGatewayRegistration: "AWS::NetworkManager::TransitGatewayRegistration",
-  OpenSearchDomain: "AWS::OpenSearch::Domain",
-  OpenSearchServerlessCollection: "AWS::OpenSearchServerless::Collection",
-  OpenSearchServerlessVpcEndpoint: "AWS::OpenSearchServerless::VpcEndpoint",
-  PanoramaPackage: "AWS::Panorama::Package",
-  PatchCompliance: "AWS::SSM::PatchCompliance",
-  PersonalizeDataset: "AWS::Personalize::Dataset",
-  PersonalizeDatasetGroup: "AWS::Personalize::DatasetGroup",
-  PersonalizeSchema: "AWS::Personalize::Schema",
-  PersonalizeSolution: "AWS::Personalize::Solution",
-  PinpointApp: "AWS::Pinpoint::App",
-  PinpointApplicationSettings: "AWS::Pinpoint::ApplicationSettings",
-  PinpointCampaign: "AWS::Pinpoint::Campaign",
-  PinpointEmailChannel: "AWS::Pinpoint::EmailChannel",
-  PinpointEmailTemplate: "AWS::Pinpoint::EmailTemplate",
-  PinpointEventStream: "AWS::Pinpoint::EventStream",
-  PinpointInAppTemplate: "AWS::Pinpoint::InAppTemplate",
-  PinpointSegment: "AWS::Pinpoint::Segment",
-  Pipeline: "AWS::CodePipeline::Pipeline",
-  Policy: "AWS::IAM::Policy",
-  Portfolio: "AWS::ServiceCatalog::Portfolio",
-  Project: "AWS::CodeBuild::Project",
-  Protection: "AWS::Shield::Protection",
-  QLDBLedger: "AWS::QLDB::Ledger",
-  Queue: "AWS::SQS::Queue",
-  QuickSightDataSource: "AWS::QuickSight::DataSource",
-  QuickSightTemplate: "AWS::QuickSight::Template",
-  QuickSightTheme: "AWS::QuickSight::Theme",
-  RDSGlobalCluster: "AWS::RDS::GlobalCluster",
-  RDSOptionGroup: "AWS::RDS::OptionGroup",
-  RUMAppMonitor: "AWS::RUM::AppMonitor",
-  RateBasedRule: "AWS::WAF::RateBasedRule",
-  RedshiftEndpointAccess: "AWS::Redshift::EndpointAccess",
-  RedshiftEndpointAuthorization: "AWS::Redshift::EndpointAuthorization",
-  RedshiftEventSubscription: "AWS::Redshift::EventSubscription",
-  RedshiftScheduledAction: "AWS::Redshift::ScheduledAction",
-  RegexPatternSetV2: "AWS::WAFv2::RegexPatternSet",
-  RegionalProtection: "AWS::ShieldRegional::Protection",
-  RegionalRateBasedRule: "AWS::WAFRegional::RateBasedRule",
-  RegionalRule: "AWS::WAFRegional::Rule",
-  RegionalRuleGroup: "AWS::WAFRegional::RuleGroup",
-  RegionalWebACL: "AWS::WAFRegional::WebACL",
-  RegisteredHAInstance: "AWS::EC2::RegisteredHAInstance",
-  ResilienceHubApp: "AWS::ResilienceHub::App",
-  ResilienceHubResiliencyPolicy: "AWS::ResilienceHub::ResiliencyPolicy",
-  ResourceCompliance: "AWS::Config::ResourceCompliance",
-  ResourceExplorer2Index: "AWS::ResourceExplorer2::Index",
-  RestApi: "AWS::ApiGateway::RestApi",
-  RoboMakerRobotApplication: "AWS::RoboMaker::RobotApplication",
-  RoboMakerRobotApplicationVersion: "AWS::RoboMaker::RobotApplicationVersion",
-  RoboMakerSimulationApplication: "AWS::RoboMaker::SimulationApplication",
-  Role: "AWS::IAM::Role",
-  Route53HostedZone: "AWS::Route53::HostedZone",
-  Route53ProfilesProfile: "AWS::Route53Profiles::Profile",
-  Route53RecoveryControlCluster: "AWS::Route53RecoveryControl::Cluster",
-  Route53RecoveryControlControlPanel: "AWS::Route53RecoveryControl::ControlPanel",
-  Route53RecoveryControlRoutingControl: "AWS::Route53RecoveryControl::RoutingControl",
-  Route53RecoveryControlSafetyRule: "AWS::Route53RecoveryControl::SafetyRule",
-  Route53RecoveryReadinessCell: "AWS::Route53RecoveryReadiness::Cell",
-  Route53RecoveryReadinessReadinessCheck: "AWS::Route53RecoveryReadiness::ReadinessCheck",
-  Route53RecoveryReadinessRecoveryGroup: "AWS::Route53RecoveryReadiness::RecoveryGroup",
-  Route53RecoveryReadinessResourceSet: "AWS::Route53RecoveryReadiness::ResourceSet",
-  Route53ResolverFirewallDomainList: "AWS::Route53Resolver::FirewallDomainList",
-  Route53ResolverFirewallRuleGroup: "AWS::Route53Resolver::FirewallRuleGroup",
-  Route53ResolverFirewallRuleGroupAssociation: "AWS::Route53Resolver::FirewallRuleGroupAssociation",
-  Route53ResolverResolverEndpoint: "AWS::Route53Resolver::ResolverEndpoint",
-  Route53ResolverResolverQueryLoggingConfig: "AWS::Route53Resolver::ResolverQueryLoggingConfig",
-  Route53ResolverResolverQueryLoggingConfigAssociation: "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
-  Route53ResolverResolverRule: "AWS::Route53Resolver::ResolverRule",
-  Route53ResolverResolverRuleAssociation: "AWS::Route53Resolver::ResolverRuleAssociation",
-  RouteTable: "AWS::EC2::RouteTable",
-  Rule: "AWS::WAF::Rule",
-  RuleGroup: "AWS::WAF::RuleGroup",
-  RuleGroupV2: "AWS::WAFv2::RuleGroup",
-  S3AccessPoint: "AWS::S3::AccessPoint",
-  S3ExpressBucketPolicy: "AWS::S3Express::BucketPolicy",
-  S3ExpressDirectoryBucket: "AWS::S3Express::DirectoryBucket",
-  S3MultiRegionAccessPoint: "AWS::S3::MultiRegionAccessPoint",
-  S3StorageLens: "AWS::S3::StorageLens",
-  S3StorageLensGroup: "AWS::S3::StorageLensGroup",
-  SESConfigurationSet: "AWS::SES::ConfigurationSet",
-  SESContactList: "AWS::SES::ContactList",
-  SESReceiptFilter: "AWS::SES::ReceiptFilter",
-  SESReceiptRuleSet: "AWS::SES::ReceiptRuleSet",
-  SESTemplate: "AWS::SES::Template",
-  SSMDocument: "AWS::SSM::Document",
-  SageMakerAppImageConfig: "AWS::SageMaker::AppImageConfig",
-  SageMakerCodeRepository: "AWS::SageMaker::CodeRepository",
-  SageMakerDomain: "AWS::SageMaker::Domain",
-  SageMakerFeatureGroup: "AWS::SageMaker::FeatureGroup",
-  SageMakerImage: "AWS::SageMaker::Image",
-  SageMakerInferenceExperiment: "AWS::SageMaker::InferenceExperiment",
-  SageMakerModel: "AWS::SageMaker::Model",
-  SageMakerNotebookInstanceLifecycleConfig: "AWS::SageMaker::NotebookInstanceLifecycleConfig",
-  SageMakerWorkteam: "AWS::SageMaker::Workteam",
-  ScalingPolicy: "AWS::AutoScaling::ScalingPolicy",
-  ScheduledAction: "AWS::AutoScaling::ScheduledAction",
-  Secret: "AWS::SecretsManager::Secret",
-  SecurityGroup: "AWS::EC2::SecurityGroup",
-  SecurityHubStandard: "AWS::SecurityHub::Standard",
-  ServiceDiscoveryHttpNamespace: "AWS::ServiceDiscovery::HttpNamespace",
-  ServiceDiscoveryInstance: "AWS::ServiceDiscovery::Instance",
-  ServiceDiscoveryPublicDnsNamespace: "AWS::ServiceDiscovery::PublicDnsNamespace",
-  ServiceDiscoveryService: "AWS::ServiceDiscovery::Service",
-  SignerSigningProfile: "AWS::Signer::SigningProfile",
-  Stack: "AWS::CloudFormation::Stack",
-  Stage: "AWS::ApiGateway::Stage",
-  StageV2: "AWS::ApiGatewayV2::Stage",
-  StepFunctionsActivity: "AWS::StepFunctions::Activity",
-  StepFunctionsStateMachine: "AWS::StepFunctions::StateMachine",
-  StreamingDistribution: "AWS::CloudFront::StreamingDistribution",
-  Subnet: "AWS::EC2::Subnet",
-  Table: "AWS::DynamoDB::Table",
-  Topic: "AWS::SNS::Topic",
-  Trail: "AWS::CloudTrail::Trail",
-  TransferAgreement: "AWS::Transfer::Agreement",
-  TransferCertificate: "AWS::Transfer::Certificate",
-  TransferConnector: "AWS::Transfer::Connector",
-  TransferProfile: "AWS::Transfer::Profile",
-  TransferWorkflow: "AWS::Transfer::Workflow",
-  TransitGateway: "AWS::EC2::TransitGateway",
-  TransitGatewayAttachment: "AWS::EC2::TransitGatewayAttachment",
-  TransitGatewayRouteTable: "AWS::EC2::TransitGatewayRouteTable",
-  User: "AWS::IAM::User",
-  VPC: "AWS::EC2::VPC",
-  VPCEndpoint: "AWS::EC2::VPCEndpoint",
-  VPCEndpointService: "AWS::EC2::VPCEndpointService",
-  VPCPeeringConnection: "AWS::EC2::VPCPeeringConnection",
-  VPNConnection: "AWS::EC2::VPNConnection",
-  VPNGateway: "AWS::EC2::VPNGateway",
-  Volume: "AWS::EC2::Volume",
-  WebACL: "AWS::WAF::WebACL",
-  WebACLV2: "AWS::WAFv2::WebACL",
-  WorkSpacesConnectionAlias: "AWS::WorkSpaces::ConnectionAlias",
-  WorkSpacesWorkspace: "AWS::WorkSpaces::Workspace",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * <p>The details that identify a resource that is collected by Config aggregator, including the resource type, ID, (if available) the custom resource name, the source account, and source region.</p>
  * @public
  */
@@ -1121,19 +614,6 @@ export interface AggregationAuthorization {
    */
   CreationTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AggregatorFilterType = {
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type AggregatorFilterType = (typeof AggregatorFilterType)[keyof typeof AggregatorFilterType];
 
 /**
  * <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
@@ -1238,21 +718,6 @@ export interface ExclusionByResourceTypes {
    */
   resourceTypes?: ResourceType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordingStrategyType = {
-  ALL_SUPPORTED_RESOURCE_TYPES: "ALL_SUPPORTED_RESOURCE_TYPES",
-  EXCLUSION_BY_RESOURCE_TYPES: "EXCLUSION_BY_RESOURCE_TYPES",
-  INCLUSION_BY_RESOURCE_TYPES: "INCLUSION_BY_RESOURCE_TYPES",
-} as const;
-
-/**
- * @public
- */
-export type RecordingStrategyType = (typeof RecordingStrategyType)[keyof typeof RecordingStrategyType];
 
 /**
  * <p>Specifies the recording strategy of the configuration recorder.</p>
@@ -1539,20 +1004,6 @@ export interface RecordingGroup {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecordingFrequency = {
-  CONTINUOUS: "CONTINUOUS",
-  DAILY: "DAILY",
-} as const;
-
-/**
- * @public
- */
-export type RecordingFrequency = (typeof RecordingFrequency)[keyof typeof RecordingFrequency];
-
-/**
  * <p>An object for you to specify your overrides for the recording mode.</p>
  * @public
  */
@@ -1665,20 +1116,6 @@ export interface RecordingMode {
    */
   recordingModeOverrides?: RecordingModeOverride[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordingScope = {
-  INTERNAL: "INTERNAL",
-  PAID: "PAID",
-} as const;
-
-/**
- * @public
- */
-export type RecordingScope = (typeof RecordingScope)[keyof typeof RecordingScope];
 
 /**
  * <p>Records configuration changes to the resource types in scope.</p>
@@ -1819,129 +1256,6 @@ export interface AssociateResourceTypesResponse {
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
-
-/**
- * <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a>, you cannot delete the service-linked recorder because it is currently in use by the linked Amazon Web Services service.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html">DeleteDeliveryChannel</a>, you cannot delete the specified delivery channel because the customer managed configuration recorder is running. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html">StopConfigurationRecorder</a> operation to stop the customer managed configuration
- * 			recorder.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>For service-linked configuration recorders, the configuration recorder is not in use by the service. No association or dissociation of resource types is permitted.</p>
- *             </li>
- *             <li>
- *                <p>For service-linked configuration recorders, your requested change to the configuration recorder has been denied by its linked Amazon Web Services service.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>You have specified a configuration recorder that does not
- * 			exist.</p>
- * @public
- */
-export class NoSuchConfigurationRecorderException extends __BaseException {
-  readonly name: "NoSuchConfigurationRecorderException" = "NoSuchConfigurationRecorderException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchConfigurationRecorderException, __BaseException>) {
-    super({
-      name: "NoSuchConfigurationRecorderException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchConfigurationRecorderException.prototype);
-  }
-}
-
-/**
- * <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>There are missing required fields.</p>
- *             </li>
- *             <li>
- *                <p>The input value fails the validation.</p>
- *             </li>
- *             <li>
- *                <p>You are trying to create more than 300 queries.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have specified more than one configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
- *             </li>
- *          </ul>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p>
- *             </li>
- *             <li>
- *                <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p>
- *             </li>
- *             <li>
- *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationItemStatus = {
-  OK: "OK",
-  ResourceDeleted: "ResourceDeleted",
-  ResourceDeletedNotRecorded: "ResourceDeletedNotRecorded",
-  ResourceDiscovered: "ResourceDiscovered",
-  ResourceNotRecorded: "ResourceNotRecorded",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationItemStatus = (typeof ConfigurationItemStatus)[keyof typeof ConfigurationItemStatus];
 
 /**
  * <p>The detailed configurations of a specified resource.</p>
@@ -2113,26 +1427,6 @@ export interface BatchGetAggregateResourceConfigResponse {
 }
 
 /**
- * <p>You have specified a configuration aggregator that does not exist.</p>
- * @public
- */
-export class NoSuchConfigurationAggregatorException extends __BaseException {
-  readonly name: "NoSuchConfigurationAggregatorException" = "NoSuchConfigurationAggregatorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchConfigurationAggregatorException, __BaseException>) {
-    super({
-      name: "NoSuchConfigurationAggregatorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchConfigurationAggregatorException.prototype);
-  }
-}
-
-/**
  * <p>The details that identify a resource within Config, including
  * 			the resource type and resource ID.</p>
  * @public
@@ -2187,41 +1481,6 @@ export interface BatchGetResourceConfigResponse {
    */
   unprocessedResourceKeys?: ResourceKey[] | undefined;
 }
-
-/**
- * <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
- * 			recorder.</p>
- * @public
- */
-export class NoAvailableConfigurationRecorderException extends __BaseException {
-  readonly name: "NoAvailableConfigurationRecorderException" = "NoAvailableConfigurationRecorderException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoAvailableConfigurationRecorderException, __BaseException>) {
-    super({
-      name: "NoAvailableConfigurationRecorderException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoAvailableConfigurationRecorderException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ChronologicalOrder = {
-  Forward: "Forward",
-  Reverse: "Reverse",
-} as const;
-
-/**
- * @public
- */
-export type ChronologicalOrder = (typeof ChronologicalOrder)[keyof typeof ChronologicalOrder];
 
 /**
  * <p>Indicates whether an Config rule is compliant. A rule is
@@ -2294,21 +1553,6 @@ export interface ComplianceSummaryByResourceType {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeliveryStatus = {
-  Failure: "Failure",
-  Not_Applicable: "Not_Applicable",
-  Success: "Success",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
-
-/**
  * <p>Provides status of the delivery of the snapshot or the
  * 			configuration history to the specified Amazon S3 bucket. Also
  * 			provides the status of notifications about the Amazon S3 delivery to
@@ -2354,22 +1598,6 @@ export interface ConfigExportDeliveryInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigRuleState = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-  DELETING_RESULTS: "DELETING_RESULTS",
-  EVALUATING: "EVALUATING",
-} as const;
-
-/**
- * @public
- */
-export type ConfigRuleState = (typeof ConfigRuleState)[keyof typeof ConfigRuleState];
-
-/**
  * <p>The configuration object for Config rule evaluation mode. The supported valid values are Detective or Proactive.</p>
  * @public
  */
@@ -2380,23 +1608,6 @@ export interface EvaluationModeConfiguration {
    */
   Mode?: EvaluationMode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MaximumExecutionFrequency = {
-  One_Hour: "One_Hour",
-  Six_Hours: "Six_Hours",
-  Three_Hours: "Three_Hours",
-  Twelve_Hours: "Twelve_Hours",
-  TwentyFour_Hours: "TwentyFour_Hours",
-} as const;
-
-/**
- * @public
- */
-export type MaximumExecutionFrequency = (typeof MaximumExecutionFrequency)[keyof typeof MaximumExecutionFrequency];
 
 /**
  * <p>Defines which resources trigger an evaluation for an Config
@@ -2471,50 +1682,6 @@ export interface CustomPolicyDetails {
    */
   EnableDebugLogDelivery?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Owner = {
-  Aws: "AWS",
-  Custom_Lambda: "CUSTOM_LAMBDA",
-  Custom_Policy: "CUSTOM_POLICY",
-} as const;
-
-/**
- * @public
- */
-export type Owner = (typeof Owner)[keyof typeof Owner];
-
-/**
- * @public
- * @enum
- */
-export const EventSource = {
-  Aws_Config: "aws.config",
-} as const;
-
-/**
- * @public
- */
-export type EventSource = (typeof EventSource)[keyof typeof EventSource];
-
-/**
- * @public
- * @enum
- */
-export const MessageType = {
-  ConfigurationItemChangeNotification: "ConfigurationItemChangeNotification",
-  ConfigurationSnapshotDeliveryCompleted: "ConfigurationSnapshotDeliveryCompleted",
-  OversizedConfigurationItemChangeNotification: "OversizedConfigurationItemChangeNotification",
-  ScheduledNotification: "ScheduledNotification",
-} as const;
-
-/**
- * @public
- */
-export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * <p>Provides the source and the message types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also
@@ -2835,21 +2002,6 @@ export interface ConfigRuleComplianceSummaryFilters {
    */
   AwsRegion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigRuleComplianceSummaryGroupKey = {
-  ACCOUNT_ID: "ACCOUNT_ID",
-  AWS_REGION: "AWS_REGION",
-} as const;
-
-/**
- * @public
- */
-export type ConfigRuleComplianceSummaryGroupKey =
-  (typeof ConfigRuleComplianceSummaryGroupKey)[keyof typeof ConfigRuleComplianceSummaryGroupKey];
 
 /**
  * <p>Status information for your Config Managed rules and Config Custom Policy rules. The
@@ -3366,20 +2518,6 @@ export interface ConfigurationItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigurationRecorderFilterName = {
-  RecordingScope: "recordingScope",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationRecorderFilterName =
-  (typeof ConfigurationRecorderFilterName)[keyof typeof ConfigurationRecorderFilterName];
-
-/**
  * <p>Filters configuration recorders by recording scope.</p>
  * @public
  */
@@ -3400,22 +2538,6 @@ export interface ConfigurationRecorderFilter {
    */
   filterValue?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecorderStatus = {
-  Failure: "Failure",
-  NotApplicable: "NotApplicable",
-  Pending: "Pending",
-  Success: "Success",
-} as const;
-
-/**
- * @public
- */
-export type RecorderStatus = (typeof RecorderStatus)[keyof typeof RecorderStatus];
 
 /**
  * <p>The current status of the configuration recorder.</p>
@@ -3796,23 +2918,6 @@ export interface ConformancePackRuleCompliance {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConformancePackState = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ConformancePackState = (typeof ConformancePackState)[keyof typeof ConformancePackState];
-
-/**
  * <p>Status details of a conformance pack.</p>
  * @public
  */
@@ -3885,26 +2990,6 @@ export interface ConformancePackStatusDetail {
 }
 
 /**
- * <p>You have specified a template that is not valid or supported.</p>
- * @public
- */
-export class ConformancePackTemplateValidationException extends __BaseException {
-  readonly name: "ConformancePackTemplateValidationException" = "ConformancePackTemplateValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConformancePackTemplateValidationException, __BaseException>) {
-    super({
-      name: "ConformancePackTemplateValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConformancePackTemplateValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteAggregationAuthorizationRequest {
@@ -3923,27 +3008,6 @@ export interface DeleteAggregationAuthorizationRequest {
 }
 
 /**
- * <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -3954,69 +3018,6 @@ export interface DeleteConfigRuleRequest {
    * @public
    */
   ConfigRuleName: string | undefined;
-}
-
-/**
- * <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
- * @public
- */
-export class NoSuchConfigRuleException extends __BaseException {
-  readonly name: "NoSuchConfigRuleException" = "NoSuchConfigRuleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchConfigRuleException, __BaseException>) {
-    super({
-      name: "NoSuchConfigRuleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchConfigRuleException.prototype);
-  }
-}
-
-/**
- * <p>You see this exception in the following cases: </p>
- *          <ul>
- *             <li>
- *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p>
- *             </li>
- *             <li>
- *                <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
 }
 
 /**
@@ -4045,34 +3046,6 @@ export interface DeleteConfigurationRecorderRequest {
 }
 
 /**
- * <p>The requested operation is not valid.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a>,
- * 			you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration
- * 			recorder.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration
- * 			recorder.</p>
- *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html">StartConfigurationRecorder</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders.
- * 			Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration
- * 			recorder.</p>
- * @public
- */
-export class UnmodifiableEntityException extends __BaseException {
-  readonly name: "UnmodifiableEntityException" = "UnmodifiableEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnmodifiableEntityException, __BaseException>) {
-    super({
-      name: "UnmodifiableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnmodifiableEntityException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteConformancePackRequest {
@@ -4081,26 +3054,6 @@ export interface DeleteConformancePackRequest {
    * @public
    */
   ConformancePackName: string | undefined;
-}
-
-/**
- * <p>You specified one or more conformance packs that do not exist.</p>
- * @public
- */
-export class NoSuchConformancePackException extends __BaseException {
-  readonly name: "NoSuchConformancePackException" = "NoSuchConformancePackException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchConformancePackException, __BaseException>) {
-    super({
-      name: "NoSuchConformancePackException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchConformancePackException.prototype);
-  }
 }
 
 /**
@@ -4115,47 +3068,6 @@ export interface DeleteDeliveryChannelRequest {
    * @public
    */
   DeliveryChannelName: string | undefined;
-}
-
-/**
- * <p>You cannot delete the delivery channel you specified because the customer managed configuration recorder is running.</p>
- * @public
- */
-export class LastDeliveryChannelDeleteFailedException extends __BaseException {
-  readonly name: "LastDeliveryChannelDeleteFailedException" = "LastDeliveryChannelDeleteFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LastDeliveryChannelDeleteFailedException, __BaseException>) {
-    super({
-      name: "LastDeliveryChannelDeleteFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LastDeliveryChannelDeleteFailedException.prototype);
-  }
-}
-
-/**
- * <p>You have specified a delivery channel that does not
- * 			exist.</p>
- * @public
- */
-export class NoSuchDeliveryChannelException extends __BaseException {
-  readonly name: "NoSuchDeliveryChannelException" = "NoSuchDeliveryChannelException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchDeliveryChannelException, __BaseException>) {
-    super({
-      name: "NoSuchDeliveryChannelException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchDeliveryChannelException.prototype);
-  }
 }
 
 /**
@@ -4190,64 +3102,6 @@ export interface DeleteOrganizationConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
- * @public
- */
-export class NoSuchOrganizationConfigRuleException extends __BaseException {
-  readonly name: "NoSuchOrganizationConfigRuleException" = "NoSuchOrganizationConfigRuleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchOrganizationConfigRuleException, __BaseException>) {
-    super({
-      name: "NoSuchOrganizationConfigRuleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchOrganizationConfigRuleException.prototype);
-  }
-}
-
-/**
- * <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
- *             </li>
- *             <li>
- *                <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed.
- * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
- *             </li>
- *             <li>
- *                <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization.
- * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
- *             </li>
- *             <li>
- *                <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API.
- * 			Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p>
- *             </li>
- *          </ul>
- *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
- * @public
- */
-export class OrganizationAccessDeniedException extends __BaseException {
-  readonly name: "OrganizationAccessDeniedException" = "OrganizationAccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationAccessDeniedException, __BaseException>) {
-    super({
-      name: "OrganizationAccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationAccessDeniedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteOrganizationConformancePackRequest {
@@ -4256,27 +3110,6 @@ export interface DeleteOrganizationConformancePackRequest {
    * @public
    */
   OrganizationConformancePackName: string | undefined;
-}
-
-/**
- * <p>Config organization conformance pack that you passed in the filter does not exist.</p>
- *          <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
- * @public
- */
-export class NoSuchOrganizationConformancePackException extends __BaseException {
-  readonly name: "NoSuchOrganizationConformancePackException" = "NoSuchOrganizationConformancePackException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchOrganizationConformancePackException, __BaseException>) {
-    super({
-      name: "NoSuchOrganizationConformancePackException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchOrganizationConformancePackException.prototype);
-  }
 }
 
 /**
@@ -4318,91 +3151,6 @@ export interface DeleteRemediationConfigurationRequest {
  * @public
  */
 export interface DeleteRemediationConfigurationResponse {}
-
-/**
- * <p>Indicates one of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p>
- *                <ul>
- *                   <li>
- *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
- *                   </li>
- *                   <li>
- *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InsufficientPermissionsException extends __BaseException {
-  readonly name: "InsufficientPermissionsException" = "InsufficientPermissionsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientPermissionsException, __BaseException>) {
-    super({
-      name: "InsufficientPermissionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientPermissionsException.prototype);
-  }
-}
-
-/**
- * <p>You specified an Config rule without a remediation configuration.</p>
- * @public
- */
-export class NoSuchRemediationConfigurationException extends __BaseException {
-  readonly name: "NoSuchRemediationConfigurationException" = "NoSuchRemediationConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchRemediationConfigurationException, __BaseException>) {
-    super({
-      name: "NoSuchRemediationConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchRemediationConfigurationException.prototype);
-  }
-}
-
-/**
- * <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
- * @public
- */
-export class RemediationInProgressException extends __BaseException {
-  readonly name: "RemediationInProgressException" = "RemediationInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RemediationInProgressException, __BaseException>) {
-    super({
-      name: "RemediationInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RemediationInProgressException.prototype);
-  }
-}
 
 /**
  * <p>The details that identify a resource within Config, including the resource type and resource ID. </p>
@@ -4469,26 +3217,6 @@ export interface DeleteRemediationExceptionsResponse {
 }
 
 /**
- * <p>You tried to delete a remediation exception that does not exist.</p>
- * @public
- */
-export class NoSuchRemediationExceptionException extends __BaseException {
-  readonly name: "NoSuchRemediationExceptionException" = "NoSuchRemediationExceptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchRemediationExceptionException, __BaseException>) {
-    super({
-      name: "NoSuchRemediationExceptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchRemediationExceptionException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteResourceConfigRequest {
@@ -4506,26 +3234,6 @@ export interface DeleteResourceConfigRequest {
 }
 
 /**
- * <p>There is no configuration recorder running.</p>
- * @public
- */
-export class NoRunningConfigurationRecorderException extends __BaseException {
-  readonly name: "NoRunningConfigurationRecorderException" = "NoRunningConfigurationRecorderException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoRunningConfigurationRecorderException, __BaseException>) {
-    super({
-      name: "NoRunningConfigurationRecorderException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoRunningConfigurationRecorderException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteRetentionConfigurationRequest {
@@ -4534,26 +3242,6 @@ export interface DeleteRetentionConfigurationRequest {
    * @public
    */
   RetentionConfigurationName: string | undefined;
-}
-
-/**
- * <p>You have specified a retention configuration that does not exist.</p>
- * @public
- */
-export class NoSuchRetentionConfigurationException extends __BaseException {
-  readonly name: "NoSuchRetentionConfigurationException" = "NoSuchRetentionConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchRetentionConfigurationException, __BaseException>) {
-    super({
-      name: "NoSuchRetentionConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchRetentionConfigurationException.prototype);
-  }
 }
 
 /**
@@ -4599,26 +3287,6 @@ export interface DeleteStoredQueryRequest {
  * @public
  */
 export interface DeleteStoredQueryResponse {}
-
-/**
- * <p>You have specified a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * <p>The input for the <a>DeliverConfigSnapshot</a>
@@ -4794,48 +3462,6 @@ export interface DescribeAggregateComplianceByConfigRulesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The specified limit is outside the allowable range.</p>
- * @public
- */
-export class InvalidLimitException extends __BaseException {
-  readonly name: "InvalidLimitException" = "InvalidLimitException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLimitException, __BaseException>) {
-    super({
-      name: "InvalidLimitException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLimitException.prototype);
-  }
-}
-
-/**
- * <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-  }
 }
 
 /**
@@ -5400,26 +4026,6 @@ export interface DescribeConformancePackComplianceResponse {
 }
 
 /**
- * <p>Config rule that you passed in the filter does not exist.</p>
- * @public
- */
-export class NoSuchConfigRuleInConformancePackException extends __BaseException {
-  readonly name: "NoSuchConfigRuleInConformancePackException" = "NoSuchConfigRuleInConformancePackException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchConfigRuleInConformancePackException, __BaseException>) {
-    super({
-      name: "NoSuchConfigRuleInConformancePackException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchConfigRuleInConformancePackException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeConformancePacksRequest {
@@ -5576,21 +4182,6 @@ export interface DescribeOrganizationConfigRulesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrganizationConfigRuleTriggerTypeNoSN = {
-  CONFIGURATION_ITEM_CHANGE_NOTIFICATION: "ConfigurationItemChangeNotification",
-  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION: "OversizedConfigurationItemChangeNotification",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationConfigRuleTriggerTypeNoSN =
-  (typeof OrganizationConfigRuleTriggerTypeNoSN)[keyof typeof OrganizationConfigRuleTriggerTypeNoSN];
-
-/**
  * <p> metadata for your organization Config Custom Policy rule including the runtime system in use, which accounts have debug logging enabled, and
  * 			other custom rule metadata such as resource type, resource ID of Amazon Web Services
  * 			resource, and organization trigger types that trigger Config to evaluate
@@ -5674,22 +4265,6 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    */
   DebugLogDeliveryAccounts?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OrganizationConfigRuleTriggerType = {
-  CONFIGURATION_ITEM_CHANGE_NOTIFICATION: "ConfigurationItemChangeNotification",
-  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION: "OversizedConfigurationItemChangeNotification",
-  SCHEDULED_NOTIFICATION: "ScheduledNotification",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationConfigRuleTriggerType =
-  (typeof OrganizationConfigRuleTriggerType)[keyof typeof OrganizationConfigRuleTriggerType];
 
 /**
  * <p>An object that specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN,
@@ -5930,27 +4505,6 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrganizationRuleStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationRuleStatus = (typeof OrganizationRuleStatus)[keyof typeof OrganizationRuleStatus];
-
-/**
  * <p>Returns the status for an organization Config rule in an organization.</p>
  * @public
  */
@@ -6168,27 +4722,6 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrganizationResourceStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationResourceStatus = (typeof OrganizationResourceStatus)[keyof typeof OrganizationResourceStatus];
-
-/**
  * <p>Returns the status for an organization conformance pack in an organization.</p>
  * @public
  */
@@ -6392,19 +4925,6 @@ export interface ExecutionControls {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceValueType = {
-  RESOURCE_ID: "RESOURCE_ID",
-} as const;
-
-/**
- * @public
- */
-export type ResourceValueType = (typeof ResourceValueType)[keyof typeof ResourceValueType];
-
-/**
  * <p>The dynamic value of the resource.</p>
  * @public
  */
@@ -6445,19 +4965,6 @@ export interface RemediationParameterValue {
    */
   StaticValue?: StaticValue | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RemediationTargetType = {
-  SSM_DOCUMENT: "SSM_DOCUMENT",
-} as const;
-
-/**
- * @public
- */
-export type RemediationTargetType = (typeof RemediationTargetType)[keyof typeof RemediationTargetType];
 
 /**
  * <p>An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.</p>
@@ -6670,42 +5177,6 @@ export interface DescribeRemediationExecutionStatusRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RemediationExecutionState = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-  SUCCEEDED: "SUCCEEDED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type RemediationExecutionState = (typeof RemediationExecutionState)[keyof typeof RemediationExecutionState];
-
-/**
- * @public
- * @enum
- */
-export const RemediationExecutionStepState = {
-  EXITED: "EXITED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  SUCCEEDED: "SUCCEEDED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type RemediationExecutionStepState =
-  (typeof RemediationExecutionStepState)[keyof typeof RemediationExecutionStepState];
 
 /**
  * <p>Name of the step from the SSM document.</p>
@@ -7013,21 +5484,6 @@ export interface EvaluationResult {
    */
   ResultToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceEvaluationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ResourceEvaluationStatus = (typeof ResourceEvaluationStatus)[keyof typeof ResourceEvaluationStatus];
 
 /**
  * <p>Returns status details of an evaluation.</p>
@@ -7355,21 +5811,6 @@ export interface ResourceCountFilters {
 
 /**
  * @public
- * @enum
- */
-export const ResourceCountGroupKey = {
-  ACCOUNT_ID: "ACCOUNT_ID",
-  AWS_REGION: "AWS_REGION",
-  RESOURCE_TYPE: "RESOURCE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceCountGroupKey = (typeof ResourceCountGroupKey)[keyof typeof ResourceCountGroupKey];
-
-/**
- * @public
  */
 export interface GetAggregateDiscoveredResourceCountsRequest {
   /**
@@ -7476,47 +5917,6 @@ export interface GetAggregateResourceConfigResponse {
    * @public
    */
   ConfigurationItem?: ConfigurationItem | undefined;
-}
-
-/**
- * <p>The configuration item size is outside the allowable range.</p>
- * @public
- */
-export class OversizedConfigurationItemException extends __BaseException {
-  readonly name: "OversizedConfigurationItemException" = "OversizedConfigurationItemException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OversizedConfigurationItemException, __BaseException>) {
-    super({
-      name: "OversizedConfigurationItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OversizedConfigurationItemException.prototype);
-  }
-}
-
-/**
- * <p>You have specified a resource that is either unknown or has not
- * 			been discovered.</p>
- * @public
- */
-export class ResourceNotDiscoveredException extends __BaseException {
-  readonly name: "ResourceNotDiscoveredException" = "ResourceNotDiscoveredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotDiscoveredException, __BaseException>) {
-    super({
-      name: "ResourceNotDiscoveredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotDiscoveredException.prototype);
-  }
 }
 
 /**
@@ -7912,27 +6312,6 @@ export interface GetDiscoveredResourceCountsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MemberAccountRuleStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type MemberAccountRuleStatus = (typeof MemberAccountRuleStatus)[keyof typeof MemberAccountRuleStatus];
-
-/**
  * <p>Status filter object to filter results based on specific member account ID or status type for an organization Config rule. </p>
  * @public
  */
@@ -8123,28 +6502,6 @@ export interface GetOrganizationConfigRuleDetailedStatusResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OrganizationResourceDetailedStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL: "CREATE_SUCCESSFUL",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL: "DELETE_SUCCESSFUL",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationResourceDetailedStatus =
-  (typeof OrganizationResourceDetailedStatus)[keyof typeof OrganizationResourceDetailedStatus];
 
 /**
  * <p>Status filter object to filter results based on specific member account ID or status type for an organization conformance pack.</p>
@@ -8447,27 +6804,6 @@ export interface GetResourceConfigHistoryResponse {
 }
 
 /**
- * <p>The specified time range is not valid. The earlier time is not
- * 			chronologically before the later time.</p>
- * @public
- */
-export class InvalidTimeRangeException extends __BaseException {
-  readonly name: "InvalidTimeRangeException" = "InvalidTimeRangeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTimeRangeException, __BaseException>) {
-    super({
-      name: "InvalidTimeRangeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTimeRangeException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetResourceEvaluationSummaryRequest {
@@ -8477,20 +6813,6 @@ export interface GetResourceEvaluationSummaryRequest {
    */
   ResourceEvaluationId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceConfigurationSchemaType = {
-  CFN_RESOURCE_SCHEMA: "CFN_RESOURCE_SCHEMA",
-} as const;
-
-/**
- * @public
- */
-export type ResourceConfigurationSchemaType =
-  (typeof ResourceConfigurationSchemaType)[keyof typeof ResourceConfigurationSchemaType];
 
 /**
  * <p>Returns information about the resource being evaluated.</p>
@@ -8642,277 +6964,6 @@ export interface GetStoredQueryResponse {
 }
 
 /**
- * <p>Using the same client token with one or more different parameters. Specify a new client token with the parameter changes and try again.</p>
- * @public
- */
-export class IdempotentParameterMismatch extends __BaseException {
-  readonly name: "IdempotentParameterMismatch" = "IdempotentParameterMismatch";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatch, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatch",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatch.prototype);
-  }
-}
-
-/**
- * <p>Your Amazon S3 bucket policy does not allow Config to
- * 			write to it.</p>
- * @public
- */
-export class InsufficientDeliveryPolicyException extends __BaseException {
-  readonly name: "InsufficientDeliveryPolicyException" = "InsufficientDeliveryPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientDeliveryPolicyException, __BaseException>) {
-    super({
-      name: "InsufficientDeliveryPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientDeliveryPolicyException.prototype);
-  }
-}
-
-/**
- * <p>The configuration recorder name is not valid. The prefix "<code>AWSConfigurationRecorderFor</code>" is reserved for service-linked configuration recorders.</p>
- * @public
- */
-export class InvalidConfigurationRecorderNameException extends __BaseException {
-  readonly name: "InvalidConfigurationRecorderNameException" = "InvalidConfigurationRecorderNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConfigurationRecorderNameException, __BaseException>) {
-    super({
-      name: "InvalidConfigurationRecorderNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConfigurationRecorderNameException.prototype);
-  }
-}
-
-/**
- * <p>The specified delivery channel name is not valid.</p>
- * @public
- */
-export class InvalidDeliveryChannelNameException extends __BaseException {
-  readonly name: "InvalidDeliveryChannelNameException" = "InvalidDeliveryChannelNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeliveryChannelNameException, __BaseException>) {
-    super({
-      name: "InvalidDeliveryChannelNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeliveryChannelNameException.prototype);
-  }
-}
-
-/**
- * <p>The syntax of the query is incorrect.</p>
- * @public
- */
-export class InvalidExpressionException extends __BaseException {
-  readonly name: "InvalidExpressionException" = "InvalidExpressionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidExpressionException, __BaseException>) {
-    super({
-      name: "InvalidExpressionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidExpressionException.prototype);
-  }
-}
-
-/**
- * <p>One of the following errors:</p>
- *          <ul>
- *             <li>
- *                <p>You have provided a combination of parameter values that is not valid. For example:</p>
- *                <ul>
- *                   <li>
- *                      <p>Setting the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>,
- * 						but providing a non-empty list for the <code>resourceTypes</code>field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
- *                   </li>
- *                   <li>
- *                      <p>Setting the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>, but also setting the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Every parameter is either null, false, or empty.</p>
- *             </li>
- *             <li>
- *                <p>You have reached the limit of the number of resource types you can provide for the recording group.</p>
- *             </li>
- *             <li>
- *                <p>You have provided resource types or a recording strategy that are not valid.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidRecordingGroupException extends __BaseException {
-  readonly name: "InvalidRecordingGroupException" = "InvalidRecordingGroupException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRecordingGroupException, __BaseException>) {
-    super({
-      name: "InvalidRecordingGroupException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRecordingGroupException.prototype);
-  }
-}
-
-/**
- * <p>The specified <code>ResultToken</code> is not valid.</p>
- * @public
- */
-export class InvalidResultTokenException extends __BaseException {
-  readonly name: "InvalidResultTokenException" = "InvalidResultTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResultTokenException, __BaseException>) {
-    super({
-      name: "InvalidResultTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResultTokenException.prototype);
-  }
-}
-
-/**
- * <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
- * @public
- */
-export class InvalidRoleException extends __BaseException {
-  readonly name: "InvalidRoleException" = "InvalidRoleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRoleException, __BaseException>) {
-    super({
-      name: "InvalidRoleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRoleException.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon S3 key prefix is not valid.</p>
- * @public
- */
-export class InvalidS3KeyPrefixException extends __BaseException {
-  readonly name: "InvalidS3KeyPrefixException" = "InvalidS3KeyPrefixException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidS3KeyPrefixException, __BaseException>) {
-    super({
-      name: "InvalidS3KeyPrefixException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidS3KeyPrefixException.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon KMS Key ARN is not valid.</p>
- * @public
- */
-export class InvalidS3KmsKeyArnException extends __BaseException {
-  readonly name: "InvalidS3KmsKeyArnException" = "InvalidS3KmsKeyArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidS3KmsKeyArnException, __BaseException>) {
-    super({
-      name: "InvalidS3KmsKeyArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidS3KmsKeyArnException.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon SNS topic does not exist.</p>
- * @public
- */
-export class InvalidSNSTopicARNException extends __BaseException {
-  readonly name: "InvalidSNSTopicARNException" = "InvalidSNSTopicARNException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSNSTopicARNException, __BaseException>) {
-    super({
-      name: "InvalidSNSTopicARNException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSNSTopicARNException.prototype);
-  }
-}
-
-/**
- * <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception
- * 			is thrown if the number of service-linked roles in the account exceeds the limit.</p>
- *          <p>For <code>StartConfigRulesEvaluation</code> API, this exception
- * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
- * 			minute.</p>
- *          <p>For <code>PutConfigurationAggregator</code> API, this exception
- * 			is thrown if the number of accounts and aggregators exceeds the
- * 			limit.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
  * <p>Filters the results by resource account ID, region, resource ID, and resource name.</p>
  * @public
  */
@@ -8992,4 +7043,1553 @@ export interface ListAggregateDiscoveredResourcesResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationRecordersRequest {
+  /**
+   * <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
+   * @public
+   */
+  Filters?: ConfigurationRecorderFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to include in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationRecordersResponse {
+  /**
+   * <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
+   * @public
+   */
+  ConfigurationRecorderSummaries: ConfigurationRecorderSummary[] | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConformancePackComplianceScoresRequest {
+  /**
+   * <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
+   * @public
+   */
+  Filters?: ConformancePackComplianceScoresFilters | undefined;
+
+  /**
+   * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
+   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
+   *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
+   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
+   * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
+   * @public
+   */
+  SortBy?: SortBy | undefined;
+
+  /**
+   * <p>The maximum number of conformance pack compliance scores returned on each page.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConformancePackComplianceScoresResponse {
+  /**
+   * <p>The <code>nextToken</code> string that you can use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
+   * @public
+   */
+  ConformancePackComplianceScores: ConformancePackComplianceScore[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListDiscoveredResourcesRequest {
+  /**
+   * <p>The type of resources that you want Config to list in the
+   * 			response.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * <p>The IDs of only those resources that you want Config to
+   * 			list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has
+   * 			discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
+   * @public
+   */
+  resourceIds?: string[] | undefined;
+
+  /**
+   * <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this
+   * 			parameter, Config lists all resources of the specified type that
+   * 			it has discovered.</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * <p>The maximum number of resource identifiers returned on each
+   * 			page. The default is 100. You cannot specify a number greater than
+   * 			100. If you specify 0, Config uses the default.</p>
+   * @public
+   */
+  limit?: number | undefined;
+
+  /**
+   * <p>Specifies whether Config includes deleted resources in the
+   * 			results. By default, deleted resources are not included.</p>
+   * @public
+   */
+  includeDeletedResources?: boolean | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
+ * 			custom resource name.</p>
+ * @public
+ */
+export interface ResourceIdentifier {
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource (for example,
+   * 			<code>sg-xxxxxx</code>).</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The custom name of the resource (if available).</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * <p>The time that the resource was deleted.</p>
+   * @public
+   */
+  resourceDeletionTime?: Date | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListDiscoveredResourcesResponse {
+  /**
+   * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
+   * 			custom resource name.</p>
+   * @public
+   */
+  resourceIdentifiers?: ResourceIdentifier[] | undefined;
+
+  /**
+   * <p>The string that you use in a subsequent request to get the next
+   * 			page of results in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters evaluation results based on start and end times.</p>
+ * @public
+ */
+export interface TimeWindow {
+  /**
+   * <p>The start time of an execution.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of an execution. The end time must be after the start date.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * <p>Returns details of a resource evaluation based on the selected filter.</p>
+ * @public
+ */
+export interface ResourceEvaluationFilters {
+  /**
+   * <p>Filters all resource evaluations results based on an evaluation mode.</p>
+   *          <important>
+   *             <p>Currently, <code>DECTECTIVE</code> is not supported as a valid value. Ignore other documentation stating otherwise.</p>
+   *          </important>
+   * @public
+   */
+  EvaluationMode?: EvaluationMode | undefined;
+
+  /**
+   * <p>Returns a <code>TimeWindow</code> object.</p>
+   * @public
+   */
+  TimeWindow?: TimeWindow | undefined;
+
+  /**
+   * <p>Filters evaluations for a given infrastructure deployment. For example: CFN Stack.</p>
+   * @public
+   */
+  EvaluationContextIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceEvaluationsRequest {
+  /**
+   * <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
+   * @public
+   */
+  Filters?: ResourceEvaluationFilters | undefined;
+
+  /**
+   * <p>The maximum number of evaluations returned on each page. The default is 10.
+   * 			You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Returns details of a resource evaluation.</p>
+ * @public
+ */
+export interface ResourceEvaluation {
+  /**
+   * <p>The ResourceEvaluationId of a evaluation.</p>
+   * @public
+   */
+  ResourceEvaluationId?: string | undefined;
+
+  /**
+   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   * @public
+   */
+  EvaluationMode?: EvaluationMode | undefined;
+
+  /**
+   * <p>The starting time of an execution.</p>
+   * @public
+   */
+  EvaluationStartTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceEvaluationsResponse {
+  /**
+   * <p>Returns a <code>ResourceEvaluations</code> object.</p>
+   * @public
+   */
+  ResourceEvaluations?: ResourceEvaluation[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStoredQueriesRequest {
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Returns details of a specific query. </p>
+ * @public
+ */
+export interface StoredQueryMetadata {
+  /**
+   * <p>The ID of the query. </p>
+   * @public
+   */
+  QueryId: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * @public
+   */
+  QueryArn: string | undefined;
+
+  /**
+   * <p>The name of the query.</p>
+   * @public
+   */
+  QueryName: string | undefined;
+
+  /**
+   * <p>A unique description for the query.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStoredQueriesResponse {
+  /**
+   * <p>A list of <code>StoredQueryMetadata</code> objects.</p>
+   * @public
+   */
+  StoredQueryMetadata?: StoredQueryMetadata[] | undefined;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token.
+   * 			To retrieve the next set of results, call this operation again and assign that token to the request object's <code>NextToken</code> parameter.
+   * 			If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationRecorder</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationAggregator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AggregationAuthorization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default. </p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
+ * 			Each tag consists of a key and an optional value, both of which you define.
+ * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags for the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>An
+ * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
+ * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
+ * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+ * @public
+ */
+export interface OrganizationCustomPolicyRuleMetadata {
+  /**
+   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of notification that initiates Config to run an evaluation for a rule.
+   * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
+   * 					change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when
+   * 						Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the
+   * 					notification exceeds the maximum size allowed by Amazon SNS.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[] | undefined;
+
+  /**
+   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   * @public
+   */
+  InputParameters?: string | undefined;
+
+  /**
+   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
+   * 			Config Custom Policy rule is triggered when Config delivers
+   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   * @public
+   */
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
+
+  /**
+   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * @public
+   */
+  ResourceTypesScope?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * @public
+   */
+  ResourceIdScope?: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * @public
+   */
+  TagKeyScope?: string | undefined;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * @public
+   */
+  TagValueScope?: string | undefined;
+
+  /**
+   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+   * 			Repository</a>.</p>
+   * @public
+   */
+  PolicyRuntime: string | undefined;
+
+  /**
+   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   * @public
+   */
+  PolicyText: string | undefined;
+
+  /**
+   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   * @public
+   */
+  DebugLogDeliveryAccounts?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAggregationAuthorizationRequest {
+  /**
+   * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
+   * @public
+   */
+  AuthorizedAccountId: string | undefined;
+
+  /**
+   * <p>The region authorized to collect aggregated data.</p>
+   * @public
+   */
+  AuthorizedAwsRegion: string | undefined;
+
+  /**
+   * <p>An array of tag object.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAggregationAuthorizationResponse {
+  /**
+   * <p>Returns an AggregationAuthorization object.
+   *
+   * 		</p>
+   * @public
+   */
+  AggregationAuthorization?: AggregationAuthorization | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConfigRuleRequest {
+  /**
+   * <p>The rule that you want to add to your account.</p>
+   * @public
+   */
+  ConfigRule: ConfigRule | undefined;
+
+  /**
+   * <p>An array of tag object.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConfigurationAggregatorRequest {
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   * @public
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>A list of AccountAggregationSource object.
+   *
+   * 		</p>
+   * @public
+   */
+  AccountAggregationSources?: AccountAggregationSource[] | undefined;
+
+  /**
+   * <p>An OrganizationAggregationSource object.</p>
+   * @public
+   */
+  OrganizationAggregationSource?: OrganizationAggregationSource | undefined;
+
+  /**
+   * <p>An array of tag object.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An object to filter configuration recorders in an aggregator. Either <code>ResourceType</code> or <code>ServicePrincipal</code> is required.</p>
+   * @public
+   */
+  AggregatorFilters?: AggregatorFilters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConfigurationAggregatorResponse {
+  /**
+   * <p>Returns a ConfigurationAggregator object.</p>
+   * @public
+   */
+  ConfigurationAggregator?: ConfigurationAggregator | undefined;
+}
+
+/**
+ * <p>The input for the <a>PutConfigurationRecorder</a>
+ * 			action.</p>
+ * @public
+ */
+export interface PutConfigurationRecorderRequest {
+  /**
+   * <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
+   * @public
+   */
+  ConfigurationRecorder: ConfigurationRecorder | undefined;
+
+  /**
+   * <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConformancePackRequest {
+  /**
+   * <p>The unique name of the conformance pack you want to deploy.</p>
+   * @public
+   */
+  ConformancePackName: string | undefined;
+
+  /**
+   * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
+   *          <note>
+   *             <p>You must have access to read Amazon S3 bucket.
+   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
+   *          </note>
+   * @public
+   */
+  TemplateS3Uri?: string | undefined;
+
+  /**
+   * <p>A string that contains the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   *          <note>
+   *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
+   *          </note>
+   * @public
+   */
+  TemplateBody?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
+   *          <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   * @public
+   */
+  DeliveryS3Bucket?: string | undefined;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket. </p>
+   *          <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   * @public
+   */
+  DeliveryS3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * @public
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
+
+  /**
+   * <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
+   * @public
+   */
+  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConformancePackResponse {
+  /**
+   * <p>ARN of the conformance pack.</p>
+   * @public
+   */
+  ConformancePackArn?: string | undefined;
+}
+
+/**
+ * <p>The input for the <a>PutDeliveryChannel</a>
+ * 			action.</p>
+ * @public
+ */
+export interface PutDeliveryChannelRequest {
+  /**
+   * <p>An object for the delivery channel. A delivery channel sends notifications and updated configuration states.
+   * 		</p>
+   * @public
+   */
+  DeliveryChannel: DeliveryChannel | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface PutEvaluationsRequest {
+  /**
+   * <p>The assessments that the Lambda function performs. Each
+   * 			evaluation identifies an Amazon Web Services resource and indicates whether it
+   * 			complies with the Config rule that invokes the Lambda
+   * 			function.</p>
+   * @public
+   */
+  Evaluations?: Evaluation[] | undefined;
+
+  /**
+   * <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the
+   * 			evaluation.</p>
+   * @public
+   */
+  ResultToken: string | undefined;
+
+  /**
+   * <p>Use this parameter to specify a test run for
+   * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
+   * 			updates occur to your existing evaluations, and evaluation results
+   * 			are not sent to Config.</p>
+   *          <note>
+   *             <p>When <code>TestMode</code> is <code>true</code>,
+   * 					<code>PutEvaluations</code> doesn't require a valid value
+   * 				for the <code>ResultToken</code> parameter, but the value cannot
+   * 				be null.</p>
+   *          </note>
+   * @public
+   */
+  TestMode?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface PutEvaluationsResponse {
+  /**
+   * <p>Requests that failed because of a client or server
+   * 			error.</p>
+   * @public
+   */
+  FailedEvaluations?: Evaluation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutExternalEvaluationRequest {
+  /**
+   * <p>The name of the Config rule.</p>
+   * @public
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+   * @public
+   */
+  ExternalEvaluation: ExternalEvaluation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutExternalEvaluationResponse {}
+
+/**
+ * @public
+ */
+export interface PutOrganizationConfigRuleRequest {
+  /**
+   * <p>The name that you assign to an organization Config rule.</p>
+   * @public
+   */
+  OrganizationConfigRuleName: string | undefined;
+
+  /**
+   * <p>An <code>OrganizationManagedRuleMetadata</code> object. This object specifies organization
+   * 			managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
+   * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   * @public
+   */
+  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata | undefined;
+
+  /**
+   * <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type,
+   * 			resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule.
+   * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   * @public
+   */
+  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata | undefined;
+
+  /**
+   * <p>A comma-separated list of accounts that you want to exclude from an organization Config rule.</p>
+   * @public
+   */
+  ExcludedAccounts?: string[] | undefined;
+
+  /**
+   * <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
+   * 			logging enabled, and other custom rule metadata, such as resource type, resource ID of
+   * 			Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   * @public
+   */
+  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutOrganizationConfigRuleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
+   * @public
+   */
+  OrganizationConfigRuleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutOrganizationConformancePackRequest {
+  /**
+   * <p>Name of the organization conformance pack you want to create.</p>
+   * @public
+   */
+  OrganizationConformancePackName: string | undefined;
+
+  /**
+   * <p>Location of file containing the template body. The uri must point to the conformance pack template
+   * 			(max size: 300 KB).</p>
+   *          <note>
+   *             <p>You must have access to read Amazon S3 bucket.
+   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
+   *          </note>
+   * @public
+   */
+  TemplateS3Uri?: string | undefined;
+
+  /**
+   * <p>A string that contains the full conformance pack template body. Structure containing the template body
+   * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * @public
+   */
+  TemplateBody?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
+   *          <note>
+   *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
+   *          </note>
+   * @public
+   */
+  DeliveryS3Bucket?: string | undefined;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket.</p>
+   *          <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   * @public
+   */
+  DeliveryS3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * @public
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+   * @public
+   */
+  ExcludedAccounts?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutOrganizationConformancePackResponse {
+  /**
+   * <p>ARN of the organization conformance pack.</p>
+   * @public
+   */
+  OrganizationConformancePackArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRemediationConfigurationsRequest {
+  /**
+   * <p>A list of remediation configuration objects.</p>
+   * @public
+   */
+  RemediationConfigurations: RemediationConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRemediationConfigurationsResponse {
+  /**
+   * <p>Returns a list of failed remediation batch objects.</p>
+   * @public
+   */
+  FailedBatches?: FailedRemediationBatch[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRemediationExceptionsRequest {
+  /**
+   * <p>The name of the Config rule for which you want to create remediation exception.</p>
+   * @public
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+   * @public
+   */
+  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
+
+  /**
+   * <p>The message contains an explanation of the exception.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The exception is automatically deleted after the expiration date.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRemediationExceptionsResponse {
+  /**
+   * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
+   * @public
+   */
+  FailedBatches?: FailedRemediationExceptionBatch[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourceConfigRequest {
+  /**
+   * <p>The type of the resource. The custom resource type must be registered with CloudFormation. </p>
+   *          <note>
+   *             <p>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
+   *          </note>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>Version of the schema registered for the ResourceType in CloudFormation.</p>
+   * @public
+   */
+  SchemaVersionId: string | undefined;
+
+  /**
+   * <p>Unique identifier of the resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Name of the resource.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
+   *          <note>
+   *             <p>The configuration JSON must not exceed 64 KB.</p>
+   *          </note>
+   * @public
+   */
+  Configuration: string | undefined;
+
+  /**
+   * <p>Tags associated with the resource.</p>
+   *          <note>
+   *             <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources.
+   * 			Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p>
+   *          </note>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRetentionConfigurationRequest {
+  /**
+   * <p>Number of days Config stores your historical
+   * 			information.</p>
+   *          <note>
+   *             <p>Currently, only applicable to the configuration item
+   * 				history.</p>
+   *          </note>
+   * @public
+   */
+  RetentionPeriodInDays: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRetentionConfigurationResponse {
+  /**
+   * <p>Returns a retention configuration object.</p>
+   * @public
+   */
+  RetentionConfiguration?: RetentionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutServiceLinkedConfigurationRecorderRequest {
+  /**
+   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
+   * @public
+   */
+  ServicePrincipal: string | undefined;
+
+  /**
+   * <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutServiceLinkedConfigurationRecorderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the specified configuration recorder.</p>
+   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWSConfigurationRecorderFor</code>" to the new service-linked configuration recorder.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutStoredQueryRequest {
+  /**
+   * <p>A list of <code>StoredQuery</code> objects.
+   * 			The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p>
+   *          <note>
+   *             <p>When you are creating a query, you must provide a query name and an expression.
+   * 			When you are updating a query, you must provide a query name but updating the description is optional.</p>
+   *          </note>
+   * @public
+   */
+  StoredQuery: StoredQuery | undefined;
+
+  /**
+   * <p>A list of <code>Tags</code> object.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutStoredQueryResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the query.
+   * 			For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * @public
+   */
+  QueryArn?: string | undefined;
+}
+
+/**
+ * <p>Details about the query.</p>
+ * @public
+ */
+export interface QueryInfo {
+  /**
+   * <p>Returns a <code>FieldInfo</code> object.</p>
+   * @public
+   */
+  SelectFields?: FieldInfo[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SelectAggregateResourceConfigRequest {
+  /**
+   * <p>The SQL query SELECT command. </p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   * @public
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The maximum number of query results returned on each page. </p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The maximum number of query results returned on each page. Config also allows the Limit request parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SelectAggregateResourceConfigResponse {
+  /**
+   * <p>Returns the results for the SQL query.</p>
+   * @public
+   */
+  Results?: string[] | undefined;
+
+  /**
+   * <p>Details about the query.</p>
+   * @public
+   */
+  QueryInfo?: QueryInfo | undefined;
+
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SelectResourceConfigRequest {
+  /**
+   * <p>The SQL query <code>SELECT</code> command.</p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The maximum number of query results returned on each page. </p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SelectResourceConfigResponse {
+  /**
+   * <p>Returns the results for the SQL query.</p>
+   * @public
+   */
+  Results?: string[] | undefined;
+
+  /**
+   * <p>Returns the <code>QueryInfo</code> object.</p>
+   * @public
+   */
+  QueryInfo?: QueryInfo | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface StartConfigRulesEvaluationRequest {
+  /**
+   * <p>The list of names of Config rules that you want to run
+   * 			evaluations for.</p>
+   * @public
+   */
+  ConfigRuleNames?: string[] | undefined;
+}
+
+/**
+ * <p>The output when you start the evaluation for the specified Config rule.</p>
+ * @public
+ */
+export interface StartConfigRulesEvaluationResponse {}
+
+/**
+ * <p>The input for the <a>StartConfigurationRecorder</a>
+ * 			operation.</p>
+ * @public
+ */
+export interface StartConfigurationRecorderRequest {
+  /**
+   * <p>The name of the customer managed configuration recorder that you want to start.</p>
+   * @public
+   */
+  ConfigurationRecorderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemediationExecutionRequest {
+  /**
+   * <p>The list of names of Config rules that you want to run remediation execution for.</p>
+   * @public
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+   * @public
+   */
+  ResourceKeys: ResourceKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRemediationExecutionResponse {
+  /**
+   * <p>Returns a failure message. For example, the resource is already compliant.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
+   * @public
+   */
+  FailedItems?: ResourceKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartResourceEvaluationRequest {
+  /**
+   * <p>Returns a <code>ResourceDetails</code> object.</p>
+   * @public
+   */
+  ResourceDetails: ResourceDetails | undefined;
+
+  /**
+   * <p>Returns an <code>EvaluationContext</code> object.</p>
+   * @public
+   */
+  EvaluationContext?: EvaluationContext | undefined;
+
+  /**
+   * <p>The mode of an evaluation.</p>
+   *          <note>
+   *             <p>The only valid value for this API is <code>PROACTIVE</code>.</p>
+   *          </note>
+   * @public
+   */
+  EvaluationMode: EvaluationMode | undefined;
+
+  /**
+   * <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>
+   * @public
+   */
+  EvaluationTimeout?: number | undefined;
+
+  /**
+   * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
+   * 			To make an idempotent API request using one of these actions, specify a client token in the request.</p>
+   *          <note>
+   *             <p>Avoid reusing the same client token for other API requests. If you retry
+   * 				a request that completed successfully using the same client token and the same
+   * 				parameters, the retry succeeds without performing any further actions. If you retry
+   * 				a successful request using the same client token, but one or more of the parameters
+   * 				are different, other than the Region or Availability Zone, the retry fails with an
+   * 				IdempotentParameterMismatch error.</p>
+   *          </note>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartResourceEvaluationResponse {
+  /**
+   * <p>A
+   * 			unique ResourceEvaluationId that is associated with a single execution.</p>
+   * @public
+   */
+  ResourceEvaluationId?: string | undefined;
+}
+
+/**
+ * <p>The input for the <a>StopConfigurationRecorder</a> operation.</p>
+ * @public
+ */
+export interface StopConfigurationRecorderRequest {
+  /**
+   * <p>The name of the customer managed configuration recorder that you want to stop.</p>
+   * @public
+   */
+  ConfigurationRecorderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationRecorder</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationAggregator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AggregationAuthorization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An array of tag object.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationRecorder</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationAggregator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AggregationAuthorization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to be removed.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
 }

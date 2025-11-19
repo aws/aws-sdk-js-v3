@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisassociateCapacityReservationBillingOwnerRequest,
   DisassociateCapacityReservationBillingOwnerResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { DisassociateCapacityReservationBillingOwner } from "../schemas/schemas_0";
 
 /**
