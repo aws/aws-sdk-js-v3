@@ -80,6 +80,8 @@
     }
   },
   "files": [
+    "./signin.d.ts",
+    "./signin.js",
     "./sso-oidc.d.ts",
     "./sso-oidc.js",
     "./sts.d.ts",
@@ -87,6 +89,7 @@
     "dist-*/**"
   ],
   "browser": {
+    "./dist-es/submodules/signin/runtimeConfig": "./dist-es/submodules/signin/runtimeConfig.browser",
     "./dist-es/submodules/sso-oidc/runtimeConfig": "./dist-es/submodules/sso-oidc/runtimeConfig.browser",
     "./dist-es/submodules/sts/runtimeConfig": "./dist-es/submodules/sts/runtimeConfig.browser"
   },
@@ -98,6 +101,7 @@
     "directory": "packages/nested-clients"
   },
   "exports": {
+    "./package.json": "./package.json",
     "./sso-oidc": {
       "types": "./dist-types/submodules/sso-oidc/index.d.ts",
       "module": "./dist-es/submodules/sso-oidc/index.js",
@@ -111,6 +115,13 @@
       "node": "./dist-cjs/submodules/sts/index.js",
       "import": "./dist-es/submodules/sts/index.js",
       "require": "./dist-cjs/submodules/sts/index.js"
+    },
+    "./signin": {
+      "types": "./dist-types/submodules/signin/index.d.ts",
+      "module": "./dist-es/submodules/signin/index.js",
+      "node": "./dist-cjs/submodules/signin/index.js",
+      "import": "./dist-es/submodules/signin/index.js",
+      "require": "./dist-cjs/submodules/signin/index.js"
     }
   }
 }

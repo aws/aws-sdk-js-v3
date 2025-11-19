@@ -62,6 +62,8 @@ export type AwsSdkCredentialsFeatures = Partial<{
   CREDENTIALS_AWS_SDK_STORE: "y";
   CREDENTIALS_HTTP: "z";
   CREDENTIALS_IMDS: "0";
+  CREDENTIALS_PROFILE_LOGIN: "AC";
+  CREDENTIALS_LOGIN: "AD";
 }>;
 
 /**

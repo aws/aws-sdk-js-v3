@@ -1,3 +1,4 @@
+import type { FromLoginCredentialsInit } from "@aws-sdk/credential-provider-login";
 import type { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
@@ -10,7 +11,7 @@ import { resolveProfileData } from "./resolveProfileData";
 /**
  * @public
  */
-export interface FromIniInit extends SourceProfileInit, CredentialProviderOptions {
+export interface FromIniInit extends SourceProfileInit, CredentialProviderOptions, FromLoginCredentialsInit {
   /**
    * A function that returns a promise fulfilled with an MFA token code for
    * the provided MFA Serial code. If a profile requires an MFA code and
@@ -40,8 +41,8 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 
   /**
-   * STSClientConfig or SSOClientConfig to be used for creating inner client
-   * for auth operations.
+   * AWS SDK Client configuration to be used for creating inner client
+   * for auth operations. Inner clients include STS, SSO, and Signin clients.
    * @internal
    */
   clientConfig?: any;

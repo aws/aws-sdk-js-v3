@@ -7,6 +7,10 @@ const clients = [
     name: "sso-oidc",
     operations: ["CreateToken"],
   },
+  {
+    name: "signin",
+    operations: ["CreateOAuth2Token"],
+  },
 ];
 
 const { join, relative, normalize } = require("path");

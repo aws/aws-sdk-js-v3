@@ -28,6 +28,9 @@ A collection of all credential providers.
   - [Supported Configuration](#supported-configuration)
   - [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
   - [Sample Files](#sample-files-2)
+- [From Login Credentials](#fromLoginCredentials)
+  - [Login with AWS CLI](#login-with-aws-cli)
+  - [Sample Files](#sample-files-3)
 - [From Node.js default credentials provider chain](#fromnodeproviderchain)
 - [Creating a custom credentials chain](#createcredentialchain)
 
@@ -918,6 +921,109 @@ sso_account_id = 012345678901
 sso_region = us-east-1
 sso_role_name = SampleRole
 sso_start_url = https://d-abc123.awsapps.com/start
+```
+
+## `fromLoginCredentials()`
+
+- Uses `@aws-sdk/client-signin`
+- Not available in browsers & native apps
+
+`fromLoginCredentials` creates an `AwsCredentialIdentityProvider` function that reads from cached login credentials stored on disk after authenticating with the AWS CLI using the `aws login` command. The provider automatically refreshes when the credentials are about to expire.
+
+This provider is not typically used in an explicit fashion and is designed to simplify credential usage by allowing SDK clients to work seamlessly after running `aws login` with AWS CLI, without requiring any additional configuration.
+
+```javascript
+import { fromLoginCredentials } from "@aws-sdk/credential-providers"; // ES6 import
+
+const client = new FooClient({
+  // Optional, available on clients as of v3.714.0.
+  profile: "my-profile",
+  credentials: fromLoginCredentials({
+    // Optional. Defaults to the client's profile if that is set.
+    // Optional. Should match the profile name used with 'aws login --profile <name>'
+    // to ensure credentials are found in the cache. Uses 'default' if no
+    // --profile was specified during aws login or if this option is omitted.
+    profile: "my-profile",
+    // Optional. Overwrite the configuration used to construct the signin service client.
+    // If not specified, a default signin client will be created with the region specified in the profile.
+    // Warning: setting a region here overrides the region set in the config file
+    // for the selected profile.
+    clientConfig: { region },
+  }),
+});
+```
+
+### Login with AWS CLI
+
+This credential provider relies on the AWS CLI to authenticate and cache login credentials. Here's how to set it up:
+
+1. **Initial Login**: Run the `aws login` command to authenticate using your existing AWS Management Console credentials:
+
+```console
+$ aws login
+```
+
+2. **Named Profile**: To sign in to a named profile or create a new one, use the `--profile` option:
+
+```console
+$ aws login --profile my-dev-profile
+```
+
+3. **Region Configuration**: If this is a new profile or no AWS Region has been specified, the AWS CLI prompts you to provide a region:
+
+```console
+No AWS region has been configured. The AWS region is the geographic location of
+your AWS resources.
+
+If you've used AWS before and already have resources in your account, tell us
+which region they were created in. If you haven't created resources in your account
+before, you can pick the region closest to you:
+https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html.
+You are able to change the region in the CLI at any time with the command
+`aws configure set region NEW_REGION`.
+
+AWS Region [us-east-1]:
+```
+
+4. **Browser Authentication**: The AWS CLI attempts to open your default browser for the sign in process:
+
+```console
+Attempting to open the login page for `us-east-1` in your default browser.
+If the browser does not open, use the following URL to complete your login:
+https://signin.us-east-1.amazonaws.com/authorize?<abbreviated>
+```
+
+5. **No Browser Option**: If the device using the AWS CLI does not have a browser, you can use the `--no-browser` option:
+
+```console
+$ aws login --no-browser
+```
+
+This will provide a URL for you to open on a browser-enabled device and prompt for an authorization code.
+
+6. **Logout**: When you are done using your session, you can let your credentials expire, or run the `aws logout` command:
+
+```console
+$ aws logout
+$ aws logout --profile my-dev-profile
+```
+
+### Cached Credentials
+
+The temporary cached credentials, as well as the metadata required to refresh them are stored by default in `~/.aws/login/cache` on Linux and macOS, or `%USERPROFILE%\.aws\login\cache` on Windows.
+
+You can override this location by setting the `AWS_LOGIN_CACHE_DIRECTORY` environment variable.
+
+### Sample Files
+
+After running `aws login`, the configuration file will contain a `login_session` entry:
+
+#### `~/.aws/config`
+
+```ini
+[default]
+login_session = arn:aws:iam::0123456789012:user/username
+region = us-east-1
 ```
 
 ## `fromNodeProviderChain()`

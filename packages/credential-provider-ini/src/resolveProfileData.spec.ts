@@ -2,12 +2,14 @@ import { CredentialsProviderError } from "@smithy/property-provider";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
+import { isLoginProfile, resolveLoginCredentials } from "./resolveLoginCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
 
 vi.mock("./resolveAssumeRoleCredentials");
+vi.mock("./resolveLoginCredentials");
 vi.mock("./resolveSsoCredentials");
 vi.mock("./resolveStaticCredentials");
 vi.mock("./resolveWebIdentityCredentials");
@@ -37,6 +39,7 @@ describe(resolveProfileData.name, () => {
   beforeEach(() => {
     [
       resolveAssumeRoleCredentials,
+      resolveLoginCredentials,
       resolveSsoCredentials,
       resolveStaticCredentials,
       resolveWebIdentityCredentials,
@@ -46,9 +49,11 @@ describe(resolveProfileData.name, () => {
   });
 
   beforeEach(() => {
-    [isAssumeRoleProfile, isSsoProfile, isStaticCredsProfile, isWebIdentityProfile].forEach((isProfileFn) => {
-      vi.mocked(isProfileFn).mockReturnValue(true);
-    });
+    [isAssumeRoleProfile, isLoginProfile, isSsoProfile, isStaticCredsProfile, isWebIdentityProfile].forEach(
+      (isProfileFn) => {
+        vi.mocked(isProfileFn).mockReturnValue(true);
+      }
+    );
   });
 
   afterEach(() => {
@@ -56,9 +61,11 @@ describe(resolveProfileData.name, () => {
   });
 
   it("throws error if all profile checks fail", async () => {
-    [isAssumeRoleProfile, isSsoProfile, isStaticCredsProfile, isWebIdentityProfile].forEach((isProfileFn) => {
-      vi.mocked(isProfileFn).mockReturnValue(false);
-    });
+    [isAssumeRoleProfile, isLoginProfile, isSsoProfile, isStaticCredsProfile, isWebIdentityProfile].forEach(
+      (isProfileFn) => {
+        vi.mocked(isProfileFn).mockReturnValue(false);
+      }
+    );
     try {
       await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
       fail(`expected ${mockError}`);
@@ -131,5 +138,15 @@ describe(resolveProfileData.name, () => {
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(resolveSsoCredentials).toHaveBeenCalledWith(mockProfileName, {}, mockOptions);
+  });
+
+  it("resolves with login profile, when it's not static or assume role or web identity or sso", async () => {
+    [isAssumeRoleProfile, isStaticCredsProfile, isWebIdentityProfile, isSsoProfile].forEach((isProfileFn) => {
+      vi.mocked(isProfileFn).mockReturnValue(false);
+    });
+    vi.mocked(resolveLoginCredentials).mockImplementation(() => Promise.resolve(mockCreds));
+    const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
+    expect(receivedCreds).toStrictEqual(mockCreds);
+    expect(resolveLoginCredentials).toHaveBeenCalledWith(mockProfileName, mockOptions);
   });
 });
