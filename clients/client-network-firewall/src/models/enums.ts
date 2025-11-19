@@ -138,7 +138,9 @@ export type FirewallStatusValue = (typeof FirewallStatusValue)[keyof typeof Fire
  */
 export const PerObjectSyncStatus = {
   CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
+  DEPRECATED: "DEPRECATED",
   IN_SYNC: "IN_SYNC",
+  NOT_SUBSCRIBED: "NOT_SUBSCRIBED",
   PENDING: "PENDING",
 } as const;
 /**
@@ -397,6 +399,7 @@ export const ResourceManagedType = {
   ACTIVE_THREAT_DEFENSE: "ACTIVE_THREAT_DEFENSE",
   AWS_MANAGED_DOMAIN_LISTS: "AWS_MANAGED_DOMAIN_LISTS",
   AWS_MANAGED_THREAT_SIGNATURES: "AWS_MANAGED_THREAT_SIGNATURES",
+  PARTNER_MANAGED: "PARTNER_MANAGED",
 } as const;
 /**
  * @public
@@ -415,3 +418,16 @@ export const ResourceManagedStatus = {
  * @public
  */
 export type ResourceManagedStatus = (typeof ResourceManagedStatus)[keyof typeof ResourceManagedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionStatus = {
+  NOT_SUBSCRIBED: "NOT_SUBSCRIBED",
+  SUBSCRIBED: "SUBSCRIBED",
+} as const;
+/**
+ * @public
+ */
+export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];

@@ -42,7 +42,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Scope: "MANAGED" || "ACCOUNT",
- *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS" || "ACTIVE_THREAT_DEFENSE",
+ *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS" || "ACTIVE_THREAT_DEFENSE" || "PARTNER_MANAGED",
+ *   SubscriptionStatus: "NOT_SUBSCRIBED" || "SUBSCRIBED",
  *   Type: "STATELESS" || "STATEFUL",
  * };
  * const command = new ListRuleGroupsCommand(input);
@@ -53,6 +54,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * //     { // RuleGroupMetadata
  * //       Name: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
+ * //       VendorName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

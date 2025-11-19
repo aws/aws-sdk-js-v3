@@ -56,6 +56,9 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * //     RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  * //   },
  * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   VendorName: "STRING_VALUE",
+ * //   ProductId: "STRING_VALUE",
+ * //   ListingName: "STRING_VALUE",
  * // };
  *
  * ```

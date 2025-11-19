@@ -133,7 +133,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //         },
  * //         Config: { // SyncStateConfig
  * //           "<keys>": { // PerObjectStatus
- * //             SyncStatus: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED",
+ * //             SyncStatus: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED" || "NOT_SUBSCRIBED" || "DEPRECATED",
  * //             UpdateToken: "STRING_VALUE",
  * //           },
  * //         },

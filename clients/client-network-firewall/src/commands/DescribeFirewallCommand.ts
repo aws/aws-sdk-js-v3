@@ -96,7 +96,7 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //         },
  * //         Config: { // SyncStateConfig
  * //           "<keys>": { // PerObjectStatus
- * //             SyncStatus: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED",
+ * //             SyncStatus: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED" || "NOT_SUBSCRIBED" || "DEPRECATED",
  * //             UpdateToken: "STRING_VALUE",
  * //           },
  * //         },

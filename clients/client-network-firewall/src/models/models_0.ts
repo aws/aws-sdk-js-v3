@@ -24,6 +24,7 @@ import {
   StatefulRuleDirection,
   StatefulRuleProtocol,
   StreamExceptionPolicy,
+  SubscriptionStatus,
   SummaryRuleOption,
   TargetType,
   TCPFlag,
@@ -3885,6 +3886,24 @@ export interface DescribeRuleGroupMetadataResponse {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Marketplace vendor that provides this rule group.</p>
+   * @public
+   */
+  VendorName?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the product listing associated with this rule group.</p>
+   * @public
+   */
+  ProductId?: string | undefined;
+
+  /**
+   * <p>The display name of the product listing for this rule group.</p>
+   * @public
+   */
+  ListingName?: string | undefined;
 }
 
 /**
@@ -4814,6 +4833,12 @@ export interface ListRuleGroupsRequest {
   ManagedType?: ResourceManagedType | undefined;
 
   /**
+   * <p>Filters the results to show only rule groups with the specified subscription status. Use this to find subscribed or unsubscribed rule groups.</p>
+   * @public
+   */
+  SubscriptionStatus?: SubscriptionStatus | undefined;
+
+  /**
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
    * @public
    */
@@ -4838,6 +4863,12 @@ export interface RuleGroupMetadata {
    * @public
    */
   Arn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Marketplace seller that provides this rule group.</p>
+   * @public
+   */
+  VendorName?: string | undefined;
 }
 
 /**

@@ -235,6 +235,7 @@ const _LFPRi = "ListFirewallPoliciesResponse";
 const _LFR = "ListFirewallsRequest";
 const _LFRi = "ListFirewallsResponse";
 const _LMT = "LastModifiedTime";
+const _LN = "ListingName";
 const _LRG = "ListRuleGroups";
 const _LRGR = "ListRuleGroupsRequest";
 const _LRGRi = "ListRuleGroupsResponse";
@@ -262,6 +263,7 @@ const _NT = "NextToken";
 const _O = "Override";
 const _P = "Protocol";
 const _PC = "PacketCount";
+const _PI = "ProductId";
 const _PMA = "PublishMetricAction";
 const _POS = "PerObjectStatus";
 const _PR = "PortRange";
@@ -354,6 +356,7 @@ const _SRta = "StatelessRule";
 const _SRtat = "StatelessRules";
 const _SS = "SyncStates";
 const _SSC = "SyncStateConfig";
+const _SSu = "SubscriptionStatus";
 const _SSy = "SyncStatus";
 const _SSyn = "SyncState";
 const _ST = "StartTime";
@@ -445,6 +448,7 @@ const _VEAp = "VpcEndpointAssociations";
 const _VEI = "VpcEndpointId";
 const _VI = "VpcId";
 const _VIp = "VpcIds";
+const _VN = "VendorName";
 const _c = "client";
 const _e = "error";
 const _s = "server";
@@ -801,8 +805,8 @@ export var DescribeRuleGroupMetadataResponse: StaticStructureSchema = [
   n0,
   _DRGMRe,
   0,
-  [_RGA, _RGN, _De, _Ty, _C, _SRO, _LMT],
-  [0, 0, 0, 0, 1, () => StatefulRuleOptions, 4],
+  [_RGA, _RGN, _De, _Ty, _C, _SRO, _LMT, _VN, _PI, _LN],
+  [0, 0, 0, 0, 1, () => StatefulRuleOptions, 4, 0, 0, 0],
 ];
 export var DescribeRuleGroupRequest: StaticStructureSchema = [3, n0, _DRGRes, 0, [_RGN, _RGA, _Ty, _ARG], [0, 0, 0, 2]];
 export var DescribeRuleGroupResponse: StaticStructureSchema = [
@@ -1121,7 +1125,14 @@ export var ListFlowOperationsResponse: StaticStructureSchema = [
   [_FOl, _NT],
   [() => FlowOperations, 0],
 ];
-export var ListRuleGroupsRequest: StaticStructureSchema = [3, n0, _LRGR, 0, [_NT, _MR, _Sc, _MT, _Ty], [0, 1, 0, 0, 0]];
+export var ListRuleGroupsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LRGR,
+  0,
+  [_NT, _MR, _Sc, _MT, _SSu, _Ty],
+  [0, 1, 0, 0, 0, 0],
+];
 export var ListRuleGroupsResponse: StaticStructureSchema = [3, n0, _LRGRi, 0, [_NT, _RGu], [0, () => RuleGroups]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_NT, _MR, _RA], [0, 1, 0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_NT, _T], [0, () => TagList]];
@@ -1222,7 +1233,7 @@ export var RuleGroup: StaticStructureSchema = [
   [_RV, _RS, _RSu, _SRO],
   [() => RuleVariables, () => ReferenceSets, () => RulesSource, () => StatefulRuleOptions],
 ];
-export var RuleGroupMetadata: StaticStructureSchema = [3, n0, _RGM, 0, [_N, _Ar], [0, 0]];
+export var RuleGroupMetadata: StaticStructureSchema = [3, n0, _RGM, 0, [_N, _Ar, _VN], [0, 0, 0]];
 export var RuleGroupResponse: StaticStructureSchema = [
   3,
   n0,

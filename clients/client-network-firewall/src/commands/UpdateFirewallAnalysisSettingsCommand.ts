@@ -85,6 +85,9 @@ export interface UpdateFirewallAnalysisSettingsCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link InvalidTokenException} (client fault)
+ *  <p>The token you provided is stale or isn't valid for the operation. </p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Unable to locate a resource using the parameters that you provided.</p>
  *
