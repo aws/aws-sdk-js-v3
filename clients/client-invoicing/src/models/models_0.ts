@@ -345,6 +345,12 @@ export interface InvoiceUnitRule {
    * @public
    */
   LinkedAccounts?: string[] | undefined;
+
+  /**
+   * <p> A list of Amazon Web Services account account IDs that have delegated their billing responsibility to the receiver account through transfer billing. Unlike linked accounts, these bill source accounts can be payer accounts from other organizations that have authorized billing transfer to this account. </p>
+   * @public
+   */
+  BillSourceAccounts?: string[] | undefined;
 }
 
 /**
@@ -497,6 +503,12 @@ export interface Filters {
    * @public
    */
   Accounts?: string[] | undefined;
+
+  /**
+   * <p> A list of Amazon Web Services account account IDs used to filter invoice units. These are payer accounts from other Organizations that have delegated their billing responsibility to the receiver account through the billing transfer feature. </p>
+   * @public
+   */
+  BillSourceAccounts?: string[] | undefined;
 }
 
 /**

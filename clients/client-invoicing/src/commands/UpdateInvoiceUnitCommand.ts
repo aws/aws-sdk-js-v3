@@ -41,7 +41,10 @@ export interface UpdateInvoiceUnitCommandOutput extends UpdateInvoiceUnitRespons
  *   Description: "STRING_VALUE",
  *   TaxInheritanceDisabled: true || false,
  *   Rule: { // InvoiceUnitRule
- *     LinkedAccounts: [ // AccountIdList
+ *     LinkedAccounts: [ // RuleAccountIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     BillSourceAccounts: [
  *       "STRING_VALUE",
  *     ],
  *   },

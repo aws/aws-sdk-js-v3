@@ -14,6 +14,7 @@ const _BGIP = "BatchGetInvoiceProfile";
 const _BGIPR = "BatchGetInvoiceProfileRequest";
 const _BGIPRa = "BatchGetInvoiceProfileResponse";
 const _BP = "BillingPeriod";
+const _BSA = "BillSourceAccounts";
 const _C = "City";
 const _CC = "CurrencyCode";
 const _CCo = "CountryCode";
@@ -227,7 +228,7 @@ export var DiscountsBreakdownAmount: StaticStructureSchema = [3, n0, _DBA, 0, [_
 export var Entity: StaticStructureSchema = [3, n0, _E, 0, [_IE], [0]];
 export var FeesBreakdown: StaticStructureSchema = [3, n0, _FB, 0, [_B, _TA], [() => FeesBreakdownAmountList, 0]];
 export var FeesBreakdownAmount: StaticStructureSchema = [3, n0, _FBA, 0, [_De, _A, _Ra], [0, 0, 0]];
-export var Filters: StaticStructureSchema = [3, n0, _Fi, 0, [_Na, _IRn, _Ac], [64 | 0, 64 | 0, 64 | 0]];
+export var Filters: StaticStructureSchema = [3, n0, _Fi, 0, [_Na, _IRn, _Ac, _BSA], [64 | 0, 64 | 0, 64 | 0, 64 | 0]];
 export var GetInvoicePDFRequest: StaticStructureSchema = [3, n0, _GIPDFR, 0, [_II], [0]];
 export var GetInvoicePDFResponse: StaticStructureSchema = [3, n0, _GIPDFRe, 0, [_IPDF], [() => InvoicePDF]];
 export var GetInvoiceUnitRequest: StaticStructureSchema = [3, n0, _GIUR, 0, [_IUA, _AO], [0, 4]];
@@ -330,7 +331,7 @@ export var InvoiceUnit: StaticStructureSchema = [
   [_IUA, _IR, _N, _De, _TID, _R, _LM],
   [0, 0, 0, 0, 2, () => InvoiceUnitRule, 4],
 ];
-export var InvoiceUnitRule: StaticStructureSchema = [3, n0, _IUR, 0, [_LA], [64 | 0]];
+export var InvoiceUnitRule: StaticStructureSchema = [3, n0, _IUR, 0, [_LA, _BSA], [64 | 0, 64 | 0]];
 export var ListInvoiceSummariesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -457,6 +458,8 @@ export var ProfileList: StaticListSchema = [1, n0, _PL, 0, [() => InvoiceProfile
 export var ResourceTagKeyList = 64 | 0;
 
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
+export var RuleAccountIdList = 64 | 0;
+
 export var SupplementalDocuments: StaticListSchema = [1, n0, _SDu, 0, () => SupplementalDocument];
 export var TaxesBreakdownAmountList: StaticListSchema = [1, n0, _TBAL, 0, () => TaxesBreakdownAmount];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
