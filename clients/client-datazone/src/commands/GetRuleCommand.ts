@@ -47,7 +47,7 @@ export interface GetRuleCommandOutput extends GetRuleOutput, __MetadataBearer {}
  * //   identifier: "STRING_VALUE", // required
  * //   revision: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   ruleType: "METADATA_FORM_ENFORCEMENT", // required
+ * //   ruleType: "METADATA_FORM_ENFORCEMENT" || "GLOSSARY_TERM_ENFORCEMENT", // required
  * //   target: { // RuleTarget Union: only one key present
  * //     domainUnitTarget: { // DomainUnitTarget
  * //       domainUnitId: "STRING_VALUE", // required
@@ -77,6 +77,11 @@ export interface GetRuleCommandOutput extends GetRuleOutput, __MetadataBearer {}
  * //           typeIdentifier: "STRING_VALUE", // required
  * //           typeRevision: "STRING_VALUE", // required
  * //         },
+ * //       ],
+ * //     },
+ * //     glossaryTermEnforcementDetail: { // GlossaryTermEnforcementDetail
+ * //       requiredGlossaryTermIds: [ // GlossaryTermIdentifiers
+ * //         "STRING_VALUE",
  * //       ],
  * //     },
  * //   },

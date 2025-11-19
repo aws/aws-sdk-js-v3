@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEnvironmentBlueprintInput, UpdateEnvironmentBlueprintOutput } from "../models/models_1";
+import { UpdateEnvironmentBlueprintInput, UpdateEnvironmentBlueprintOutput } from "../models/models_2";
 import { UpdateEnvironmentBlueprint } from "../schemas/schemas_0";
 
 /**

@@ -33,6 +33,16 @@ import {
   AssociateGovernedTermsCommandOutput,
 } from "./commands/AssociateGovernedTermsCommand";
 import {
+  BatchGetAttributesMetadataCommand,
+  BatchGetAttributesMetadataCommandInput,
+  BatchGetAttributesMetadataCommandOutput,
+} from "./commands/BatchGetAttributesMetadataCommand";
+import {
+  BatchPutAttributesMetadataCommand,
+  BatchPutAttributesMetadataCommandInput,
+  BatchPutAttributesMetadataCommandOutput,
+} from "./commands/BatchPutAttributesMetadataCommand";
+import {
   CancelMetadataGenerationRunCommand,
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
@@ -750,6 +760,11 @@ import {
   UpdateProjectProfileCommandInput,
   UpdateProjectProfileCommandOutput,
 } from "./commands/UpdateProjectProfileCommand";
+import {
+  UpdateRootDomainUnitOwnerCommand,
+  UpdateRootDomainUnitOwnerCommandInput,
+  UpdateRootDomainUnitOwnerCommandOutput,
+} from "./commands/UpdateRootDomainUnitOwnerCommand";
 import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommand,
@@ -780,6 +795,8 @@ const commands = {
   AddPolicyGrantCommand,
   AssociateEnvironmentRoleCommand,
   AssociateGovernedTermsCommand,
+  BatchGetAttributesMetadataCommand,
+  BatchPutAttributesMetadataCommand,
   CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
   CreateAccountPoolCommand,
@@ -938,6 +955,7 @@ const commands = {
   UpdateGroupProfileCommand,
   UpdateProjectCommand,
   UpdateProjectProfileCommand,
+  UpdateRootDomainUnitOwnerCommand,
   UpdateRuleCommand,
   UpdateSubscriptionGrantStatusCommand,
   UpdateSubscriptionRequestCommand,
@@ -1040,6 +1058,40 @@ export interface DataZone {
     args: AssociateGovernedTermsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateGovernedTermsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetAttributesMetadataCommand}
+   */
+  batchGetAttributesMetadata(
+    args: BatchGetAttributesMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAttributesMetadataCommandOutput>;
+  batchGetAttributesMetadata(
+    args: BatchGetAttributesMetadataCommandInput,
+    cb: (err: any, data?: BatchGetAttributesMetadataCommandOutput) => void
+  ): void;
+  batchGetAttributesMetadata(
+    args: BatchGetAttributesMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAttributesMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchPutAttributesMetadataCommand}
+   */
+  batchPutAttributesMetadata(
+    args: BatchPutAttributesMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutAttributesMetadataCommandOutput>;
+  batchPutAttributesMetadata(
+    args: BatchPutAttributesMetadataCommandInput,
+    cb: (err: any, data?: BatchPutAttributesMetadataCommandOutput) => void
+  ): void;
+  batchPutAttributesMetadata(
+    args: BatchPutAttributesMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutAttributesMetadataCommandOutput) => void
   ): void;
 
   /**
@@ -3481,6 +3533,23 @@ export interface DataZone {
     args: UpdateProjectProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProjectProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRootDomainUnitOwnerCommand}
+   */
+  updateRootDomainUnitOwner(
+    args: UpdateRootDomainUnitOwnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRootDomainUnitOwnerCommandOutput>;
+  updateRootDomainUnitOwner(
+    args: UpdateRootDomainUnitOwnerCommandInput,
+    cb: (err: any, data?: UpdateRootDomainUnitOwnerCommandOutput) => void
+  ): void;
+  updateRootDomainUnitOwner(
+    args: UpdateRootDomainUnitOwnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRootDomainUnitOwnerCommandOutput) => void
   ): void;
 
   /**

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   AcceptRuleBehavior,
+  AttributeEntityType,
   AuthenticationType,
   AuthType,
   ChangeAction,
@@ -607,7 +608,7 @@ export interface SubscribedProject {
 }
 
 /**
- * <p/>
+ * <p>The details of the IAM user profile.</p>
  * @public
  */
 export interface IamUserProfileDetails {
@@ -4386,6 +4387,48 @@ export interface AthenaPropertiesPatch {
 }
 
 /**
+ * <p>The attribute error.</p>
+ * @public
+ */
+export interface AttributeError {
+  /**
+   * <p>The attribute ID as part of the attribute error.</p>
+   * @public
+   */
+  attributeIdentifier: string | undefined;
+
+  /**
+   * <p>The code generated as part of the attribute error.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The message generated as part of the attribute error.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The attribute input.</p>
+ * @public
+ */
+export interface AttributeInput {
+  /**
+   * <p>The ID of the attribute.</p>
+   * @public
+   */
+  attributeIdentifier: string | undefined;
+
+  /**
+   * <p>The metadata forms as part of the attribute input.</p>
+   * @public
+   */
+  forms: FormInput[] | undefined;
+}
+
+/**
  * <p>The authorization code properties of a connection.</p>
  * @public
  */
@@ -4673,6 +4716,140 @@ export interface AwsLocation {
    * @public
    */
   iamConnectionId?: string | undefined;
+}
+
+/**
+ * <p>The results of the BatchGetAttribute action.</p>
+ * @public
+ */
+export interface BatchGetAttributeOutput {
+  /**
+   * <p>The attribute ID.</p>
+   * @public
+   */
+  attributeIdentifier: string | undefined;
+
+  /**
+   * <p>The metadata forms that are part of the results of the BatchGetAttribute action.</p>
+   * @public
+   */
+  forms?: FormOutput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetAttributesMetadataInput {
+  /**
+   * <p>The domain ID where you want to get the attribute metadata.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The entity type for which you want to get attribute metadata.</p>
+   * @public
+   */
+  entityType: AttributeEntityType | undefined;
+
+  /**
+   * <p>The entity ID for which you want to get attribute metadata.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The entity revision for which you want to get attribute metadata.</p>
+   * @public
+   */
+  entityRevision?: string | undefined;
+
+  /**
+   * <p>The attribute identifier.</p>
+   * @public
+   */
+  attributeIdentifiers: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetAttributesMetadataOutput {
+  /**
+   * <p>The results of the BatchGetAttributesMetadata action.</p>
+   * @public
+   */
+  attributes?: BatchGetAttributeOutput[] | undefined;
+
+  /**
+   * <p>The errors generated when the BatchGetAttributesMetadata action is invoked.</p>
+   * @public
+   */
+  errors: AttributeError[] | undefined;
+}
+
+/**
+ * <p>The results of the BatchPutAttribute action.</p>
+ * @public
+ */
+export interface BatchPutAttributeOutput {
+  /**
+   * <p>The attribute ID.</p>
+   * @public
+   */
+  attributeIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutAttributesMetadataInput {
+  /**
+   * <p>The domain ID where you want to write the attribute metadata.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The entity type for which you want to write the attribute metadata.</p>
+   * @public
+   */
+  entityType: AttributeEntityType | undefined;
+
+  /**
+   * <p>The entity ID for which you want to write the attribute metadata.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The attributes of the metadata.</p>
+   * @public
+   */
+  attributes: AttributeInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutAttributesMetadataOutput {
+  /**
+   * <p>The errors generated when the BatchPutAttributeMetadata action is invoked.</p>
+   * @public
+   */
+  errors?: AttributeError[] | undefined;
+
+  /**
+   * <p>The results of the BatchPutAttributeMetadata action.</p>
+   * @public
+   */
+  attributes?: BatchPutAttributeOutput[] | undefined;
 }
 
 /**
@@ -10247,6 +10424,18 @@ export interface CreateProjectProfileOutput {
 }
 
 /**
+ * <p>The enforcement details of a glossary term.</p>
+ * @public
+ */
+export interface GlossaryTermEnforcementDetail {
+  /**
+   * <p>The ID of the required glossary term.</p>
+   * @public
+   */
+  requiredGlossaryTermIds?: string[] | undefined;
+}
+
+/**
  * <p>The reference of a metadata form.</p>
  * @public
  */
@@ -10280,7 +10469,10 @@ export interface MetadataFormEnforcementDetail {
  * <p>The details of a rule.</p>
  * @public
  */
-export type RuleDetail = RuleDetail.MetadataFormEnforcementDetailMember | RuleDetail.$UnknownMember;
+export type RuleDetail =
+  | RuleDetail.GlossaryTermEnforcementDetailMember
+  | RuleDetail.MetadataFormEnforcementDetailMember
+  | RuleDetail.$UnknownMember;
 
 /**
  * @public
@@ -10292,6 +10484,17 @@ export namespace RuleDetail {
    */
   export interface MetadataFormEnforcementDetailMember {
     metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
+    glossaryTermEnforcementDetail?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The enforcement details of a glossary term that's part of the metadata rule.</p>
+   * @public
+   */
+  export interface GlossaryTermEnforcementDetailMember {
+    metadataFormEnforcementDetail?: never;
+    glossaryTermEnforcementDetail: GlossaryTermEnforcementDetail;
     $unknown?: never;
   }
 
@@ -10300,6 +10503,7 @@ export namespace RuleDetail {
    */
   export interface $UnknownMember {
     metadataFormEnforcementDetail?: never;
+    glossaryTermEnforcementDetail?: never;
     $unknown: [string, any];
   }
 
@@ -10309,6 +10513,7 @@ export namespace RuleDetail {
    */
   export interface Visitor<T> {
     metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
+    glossaryTermEnforcementDetail: (value: GlossaryTermEnforcementDetail) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11469,353 +11674,4 @@ export interface GetDataProductOutput {
    * @public
    */
   firstRevisionCreatedBy?: string | undefined;
-}
-
-/**
- * <p>The additional attributes of an Amazon DataZone data product.</p>
- * @public
- */
-export interface DataProductItemAdditionalAttributes {
-  /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
-   * @public
-   */
-  matchRationale?: MatchRationaleItem[] | undefined;
-}
-
-/**
- * <p>The summary of the listing of the data product.</p>
- * @public
- */
-export interface ListingSummary {
-  /**
-   * <p>The ID of the data product listing.</p>
-   * @public
-   */
-  listingId?: string | undefined;
-
-  /**
-   * <p>The revision of the data product listing.</p>
-   * @public
-   */
-  listingRevision?: string | undefined;
-
-  /**
-   * <p>The glossary terms of the data product.</p>
-   * @public
-   */
-  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
-}
-
-/**
- * <p>The data product listing.</p>
- * @public
- */
-export interface DataProductListing {
-  /**
-   * <p>The ID of the data product listing.</p>
-   * @public
-   */
-  dataProductId?: string | undefined;
-
-  /**
-   * <p>The revision of the data product listing.</p>
-   * @public
-   */
-  dataProductRevision?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the data product listing was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The metadata forms of the data product listing.</p>
-   * @public
-   */
-  forms?: string | undefined;
-
-  /**
-   * <p>The glossary terms of the data product listing.</p>
-   * @public
-   */
-  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
-
-  /**
-   * <p>The ID of the owning project of the data product listing.</p>
-   * @public
-   */
-  owningProjectId?: string | undefined;
-
-  /**
-   * <p>The data assets of the data product listing.</p>
-   * @public
-   */
-  items?: ListingSummary[] | undefined;
-}
-
-/**
- * <p>The additional attributes of the asset of the data product. </p>
- * @public
- */
-export interface DataProductListingItemAdditionalAttributes {
-  /**
-   * <p>The metadata forms of the asset of the data product. </p>
-   * @public
-   */
-  forms?: string | undefined;
-
-  /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
-   * @public
-   */
-  matchRationale?: MatchRationaleItem[] | undefined;
-}
-
-/**
- * <p>The results of the data product summary.</p>
- * @public
- */
-export interface ListingSummaryItem {
-  /**
-   * <p>The ID of the data product listing.</p>
-   * @public
-   */
-  listingId?: string | undefined;
-
-  /**
-   * <p>The revision of the data product listing.</p>
-   * @public
-   */
-  listingRevision?: string | undefined;
-
-  /**
-   * <p>The glossary terms of the data product listing.</p>
-   * @public
-   */
-  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
-}
-
-/**
- * <p>The asset of the data product listing.</p>
- * @public
- */
-export interface DataProductListingItem {
-  /**
-   * <p>The ID of the listing.</p>
-   * @public
-   */
-  listingId?: string | undefined;
-
-  /**
-   * <p>The revision of the listing.</p>
-   * @public
-   */
-  listingRevision?: string | undefined;
-
-  /**
-   * <p>The name of the asset of the data product. </p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The entity ID of the asset of the asset of the data product. </p>
-   * @public
-   */
-  entityId?: string | undefined;
-
-  /**
-   * <p>The revision of the asset of the asset of the data product. </p>
-   * @public
-   */
-  entityRevision?: string | undefined;
-
-  /**
-   * <p>The description of the asset of the asset of the data product. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the asset of the data product listing was created. </p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the listing was created.</p>
-   * @public
-   */
-  listingCreatedBy?: string | undefined;
-
-  /**
-   * <p>The user who updated the listing.</p>
-   * @public
-   */
-  listingUpdatedBy?: string | undefined;
-
-  /**
-   * <p>The glossary terms of the asset of the asset of the data product. </p>
-   * @public
-   */
-  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
-
-  /**
-   * <p>The ID of the owning project of the asset of the data product. </p>
-   * @public
-   */
-  owningProjectId?: string | undefined;
-
-  /**
-   * <p>The additional attributes of the asset of the data product.</p>
-   * @public
-   */
-  additionalAttributes?: DataProductListingItemAdditionalAttributes | undefined;
-
-  /**
-   * <p>The data of the asset of the data product. </p>
-   * @public
-   */
-  items?: ListingSummaryItem[] | undefined;
-}
-
-/**
- * <p>The data product.</p>
- * @public
- */
-export interface DataProductResultItem {
-  /**
-   * <p>The ID of the domain where the data product lives.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the data product.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the data product.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ID of the owning project of the data product.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The description of the data product.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The glossary terms of the data product.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The timestamp at which the data product was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the data product.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp at which first revision of the data product was created.</p>
-   * @public
-   */
-  firstRevisionCreatedAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the first revision of the data product.</p>
-   * @public
-   */
-  firstRevisionCreatedBy?: string | undefined;
-
-  /**
-   * <p>The additional attributes of an Amazon DataZone data product.</p>
-   * @public
-   */
-  additionalAttributes?: DataProductItemAdditionalAttributes | undefined;
-}
-
-/**
- * <p>The data product revision.</p>
- * @public
- */
-export interface DataProductRevision {
-  /**
-   * <p>The ID of the domain where the data product revision lives.</p>
-   * @public
-   */
-  domainId?: string | undefined;
-
-  /**
-   * <p>The ID of the data product revision.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The data product revision.</p>
-   * @public
-   */
-  revision?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the data product revision was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the data product revision.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSourceInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the data source is deleted.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the data source that is deleted.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   *
-   * @deprecated This field is no longer required for idempotency.
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
-   * @public
-   */
-  retainPermissionsOnRevokeFailure?: boolean | undefined;
 }

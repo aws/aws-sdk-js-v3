@@ -1,3 +1,4 @@
+const _A = "Attributes";
 const _AA = "AwsAccount";
 const _AAN = "AwsAccountName";
 const _AAS = "AcceptedAssetScope";
@@ -11,12 +12,14 @@ const _ACc = "AcceptChoices";
 const _ACu = "AuthenticationConfiguration";
 const _ADE = "AccessDeniedException";
 const _ADUGF = "AllDomainUnitsGrantFilter";
+const _AE = "AttributeError";
 const _AEO = "AddEntityOwner";
 const _AEOI = "AddEntityOwnerInput";
 const _AEOO = "AddEntityOwnerOutput";
 const _AER = "AssociateEnvironmentRole";
 const _AERI = "AssociateEnvironmentRoleInput";
 const _AERO = "AssociateEnvironmentRoleOutput";
+const _AEt = "AttributesErrors";
 const _AF = "AssetFilters";
 const _AFC = "AssetFilterConfiguration";
 const _AFS = "AssetFilterSummary";
@@ -29,6 +32,7 @@ const _AIDPLI = "AssetInDataProductListingItem";
 const _AIDPLIs = "AssetInDataProductListingItems";
 const _AIL = "AccountInfoList";
 const _AIs = "AssetItem";
+const _AIt = "AttributeInput";
 const _AL = "ActionLink";
 const _ALD = "AssetListingDetails";
 const _ALI = "AggregationListItem";
@@ -75,7 +79,17 @@ const _ATNM = "AssetTargetNameMap";
 const _ATPMPPGD = "AddToProjectMemberPoolPolicyGrantDetail";
 const _AUGF = "AllUsersGrantFilter";
 const _BAC = "BasicAuthenticationCredentials";
+const _BGAI = "BatchGetAttributeItems";
+const _BGAM = "BatchGetAttributesMetadata";
+const _BGAMI = "BatchGetAttributesMetadataInput";
+const _BGAMO = "BatchGetAttributesMetadataOutput";
+const _BGAO = "BatchGetAttributeOutput";
 const _BNGC = "BusinessNameGenerationConfiguration";
+const _BPAI = "BatchPutAttributeItems";
+const _BPAM = "BatchPutAttributesMetadata";
+const _BPAMI = "BatchPutAttributesMetadataInput";
+const _BPAMO = "BatchPutAttributesMetadataOutput";
+const _BPAO = "BatchPutAttributeOutput";
 const _CA = "Created-At";
 const _CAF = "CreateAssetFilter";
 const _CAFI = "CreateAssetFilterInput";
@@ -487,6 +501,7 @@ const _GSTI = "GetSubscriptionTargetInput";
 const _GSTO = "GetSubscriptionTargetOutput";
 const _GSTe = "GetSubscriptionTarget";
 const _GTE = "GreaterThanExpression";
+const _GTED = "GlossaryTermEnforcementDetail";
 const _GTI = "GlossaryTermItem";
 const _GTIAA = "GlossaryTermItemAdditionalAttributes";
 const _GTN = "GlossaryTermName";
@@ -923,6 +938,9 @@ const _UPS = "UserProfileSummary";
 const _UPSs = "UserProfileSummaries";
 const _UPp = "UpdateProject";
 const _UR = "UntagResource";
+const _URDUO = "UpdateRootDomainUnitOwner";
+const _URDUOI = "UpdateRootDomainUnitOwnerInput";
+const _URDUOO = "UpdateRootDomainUnitOwnerOutput";
 const _URI = "UpdateRuleInput";
 const _URO = "UpdateRuleOutput";
 const _URR = "UntagResourceRequest";
@@ -967,6 +985,8 @@ const _aIDQR = "autoImportDataQualityResult";
 const _aIc = "accountId";
 const _aIs = "assetIdentifier";
 const _aIss = "assetItem";
+const _aIt = "attributeIdentifier";
+const _aItt = "attributeIdentifiers";
 const _aKI = "accessKeyId";
 const _aL = "awsLocation";
 const _aLc = "actionLink";
@@ -1005,6 +1025,7 @@ const _agg = "aggregates";
 const _an = "and";
 const _ar = "arn";
 const _as = "assets";
+const _at = "attributes";
 const _au = "auth";
 const _bAC = "basicAuthenticationCredentials";
 const _bNG = "businessNameGeneration";
@@ -1035,6 +1056,7 @@ const _cIo = "connectionIdentifier";
 const _cN = "columnName";
 const _cNa = "catalogName";
 const _cNl = "clusterName";
+const _cO = "currentOwner";
 const _cP = "configurationParameters";
 const _cPFPP = "createProjectFromProjectProfile";
 const _cPo = "connectionProperties";
@@ -1144,6 +1166,7 @@ const _eTven = "eventType";
 const _eUR = "environmentUserRole";
 const _eV = "editedValue";
 const _en = "enabled";
+const _er = "errors";
 const _ev = "event";
 const _ex = "expiration";
 const _exp = "expression";
@@ -1188,6 +1211,7 @@ const _gPl = "glueProperties";
 const _gRC = "glueRunConfiguration";
 const _gSGS = "glueSelfGrantStatus";
 const _gT = "glossaryTerms";
+const _gTED = "glossaryTermEnforcementDetail";
 const _gTI = "glossaryTermItem";
 const _gTOET = "greaterThanOrEqualTo";
 const _gTo = "governanceType";
@@ -1302,6 +1326,7 @@ const _n = "name";
 const _nET = "notEqualTo";
 const _nI = "notIn";
 const _nL = "notLike";
+const _nO = "newOwner";
 const _nOW = "numberOfWorkers";
 const _nQF = "numQueriesFailed";
 const _nT = "nextToken";
@@ -1384,6 +1409,7 @@ const _rCo = "rowConfiguration";
 const _rDUI = "rootDomainUnitId";
 const _rF = "rowFilter";
 const _rFC = "relationalFilterConfigurations";
+const _rGTI = "requiredGlossaryTermIds";
 const _rI = "reviewerId";
 const _rIu = "runId";
 const _rM = "runMode";
@@ -1863,6 +1889,8 @@ export var AssociateGovernedTermsOutput: StaticStructureSchema = [3, n0, _AGTO, 
 export var AthenaPropertiesInput: StaticStructureSchema = [3, n0, _APIt, 0, [_wN], [0]];
 export var AthenaPropertiesOutput: StaticStructureSchema = [3, n0, _APOt, 0, [_wN], [0]];
 export var AthenaPropertiesPatch: StaticStructureSchema = [3, n0, _APP, 0, [_wN], [0]];
+export var AttributeError: StaticStructureSchema = [3, n0, _AE, 0, [_aIt, _cod, _m], [0, 0, 0]];
+export var AttributeInput: StaticStructureSchema = [3, n0, _AIt, 0, [_aIt, _f], [0, [() => FormInputList, 0]]];
 export var AuthenticationConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1891,6 +1919,69 @@ export var AuthorizationCodeProperties: StaticStructureSchema = [3, n0, _ACPu, 0
 export var AwsConsoleLinkParameters: StaticStructureSchema = [3, n0, _ACLP, 0, [_u], [0]];
 export var AwsLocation: StaticStructureSchema = [3, n0, _ALw, 0, [_aRc, _aAI, _aRw, _iCI], [0, 0, 0, 0]];
 export var BasicAuthenticationCredentials: StaticStructureSchema = [3, n0, _BAC, 8, [_uN, _pa], [0, 0]];
+export var BatchGetAttributeOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _BGAO,
+  0,
+  [_aIt, _f],
+  [0, [() => FormOutputList, 0]],
+];
+export var BatchGetAttributesMetadataInput: StaticStructureSchema = [
+  3,
+  n0,
+  _BGAMI,
+  0,
+  [_dI, _eT, _eI, _eR, _aItt],
+  [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _eR,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_hQ]: _aIt,
+      },
+    ],
+  ],
+];
+export var BatchGetAttributesMetadataOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _BGAMO,
+  0,
+  [_at, _er],
+  [[() => BatchGetAttributeItems, 0], () => AttributesErrors],
+];
+export var BatchPutAttributeOutput: StaticStructureSchema = [3, n0, _BPAO, 0, [_aIt], [0]];
+export var BatchPutAttributesMetadataInput: StaticStructureSchema = [
+  3,
+  n0,
+  _BPAMI,
+  0,
+  [_dI, _eT, _eI, _cT, _at],
+  [
+    [0, 1],
+    [0, 1],
+    [0, 1],
+    [0, 4],
+    [() => Attributes, 0],
+  ],
+];
+export var BatchPutAttributesMetadataOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _BPAMO,
+  0,
+  [_er, _at],
+  [() => AttributesErrors, () => BatchPutAttributeItems],
+];
 export var BusinessNameGenerationConfiguration: StaticStructureSchema = [3, n0, _BNGC, 0, [_en], [2]];
 export var CancelMetadataGenerationRunInput: StaticStructureSchema = [
   3,
@@ -4447,6 +4538,7 @@ export var GlossaryItem: StaticStructureSchema = [
   ],
 ];
 export var GlossaryItemAdditionalAttributes: StaticStructureSchema = [3, n0, _GIAA, 0, [_mR], [() => MatchRationale]];
+export var GlossaryTermEnforcementDetail: StaticStructureSchema = [3, n0, _GTED, 0, [_rGTI], [64 | 0]];
 export var GlossaryTermItem: StaticStructureSchema = [
   3,
   n0,
@@ -7373,6 +7465,15 @@ export var UpdateProjectProfileOutput: StaticStructureSchema = [
     0,
   ],
 ];
+export var UpdateRootDomainUnitOwnerInput: StaticStructureSchema = [
+  3,
+  n0,
+  _URDUOI,
+  0,
+  [_dI, _cO, _nO, _cT],
+  [[0, 1], 0, 0, [0, 4]],
+];
+export var UpdateRootDomainUnitOwnerOutput: StaticStructureSchema = [3, n0, _URDUOO, 0, [], []];
 export var UpdateRuleInput: StaticStructureSchema = [
   3,
   n0,
@@ -7533,10 +7634,16 @@ export var AssetRevisions: StaticListSchema = [1, n0, _ARss, 0, () => AssetRevis
 export var AssetTargetNames: StaticListSchema = [1, n0, _ATN, 0, () => AssetTargetNameMap];
 export var AssetTypeIdentifiers = 64 | 0;
 
+export var Attributes: StaticListSchema = [1, n0, _A, 0, [() => AttributeInput, 0]];
+export var AttributesErrors: StaticListSchema = [1, n0, _AEt, 0, () => AttributeError];
+export var AttributesList = 64 | 0;
+
 export var AuthorizedPrincipalIdentifiers = 64 | 0;
 
 export var AwsRegionList = 64 | 0;
 
+export var BatchGetAttributeItems: StaticListSchema = [1, n0, _BGAI, 0, [() => BatchGetAttributeOutput, 0]];
+export var BatchPutAttributeItems: StaticListSchema = [1, n0, _BPAI, 0, () => BatchPutAttributeOutput];
 export var ColumnNameList = 64 | 0;
 
 export var ComputeEnvironmentsList = 64 | 0;
@@ -7597,6 +7704,8 @@ export var FilterIds = 64 | 0;
 export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => FilterClause];
 export var FormInputList: StaticListSchema = [1, n0, _FIL, 8, [() => FormInput, 0]];
 export var FormOutputList: StaticListSchema = [1, n0, _FOL, 0, [() => FormOutput, 0]];
+export var GlossaryTermIdentifiers = 64 | 0;
+
 export var GlossaryTerms = 64 | 0;
 
 export var GlossaryUsageRestrictions = 64 | 0;
@@ -7967,7 +8076,14 @@ export var RowFilterExpression: StaticStructureSchema = [
     () => NotLikeExpression,
   ],
 ];
-export var RuleDetail: StaticStructureSchema = [3, n0, _RD, 0, [_mFED], [() => MetadataFormEnforcementDetail]];
+export var RuleDetail: StaticStructureSchema = [
+  3,
+  n0,
+  _RD,
+  0,
+  [_mFED, _gTED],
+  [() => MetadataFormEnforcementDetail, () => GlossaryTermEnforcementDetail],
+];
 export var RuleTarget: StaticStructureSchema = [3, n0, _RTu, 0, [_dUT], [() => DomainUnitTarget]];
 export var SearchInventoryResultItem: StaticStructureSchema = [
   3,
@@ -8127,6 +8243,26 @@ export var AssociateGovernedTerms: StaticOperationSchema = [
   },
   () => AssociateGovernedTermsInput,
   () => AssociateGovernedTermsOutput,
+];
+export var BatchGetAttributesMetadata: StaticOperationSchema = [
+  9,
+  n0,
+  _BGAM,
+  {
+    [_ht]: ["GET", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/attributes-metadata", 200],
+  },
+  () => BatchGetAttributesMetadataInput,
+  () => BatchGetAttributesMetadataOutput,
+];
+export var BatchPutAttributesMetadata: StaticOperationSchema = [
+  9,
+  n0,
+  _BPAM,
+  {
+    [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/attributes-metadata", 200],
+  },
+  () => BatchPutAttributesMetadataInput,
+  () => BatchPutAttributesMetadataOutput,
 ];
 export var CancelMetadataGenerationRun: StaticOperationSchema = [
   9,
@@ -9751,6 +9887,16 @@ export var UpdateProjectProfile: StaticOperationSchema = [
   },
   () => UpdateProjectProfileInput,
   () => UpdateProjectProfileOutput,
+];
+export var UpdateRootDomainUnitOwner: StaticOperationSchema = [
+  9,
+  n0,
+  _URDUO,
+  {
+    [_ht]: ["PATCH", "/v2/domains/{domainIdentifier}/root-domain-unit-owner", 204],
+  },
+  () => UpdateRootDomainUnitOwnerInput,
+  () => UpdateRootDomainUnitOwnerOutput,
 ];
 export var UpdateRule: StaticOperationSchema = [
   9,

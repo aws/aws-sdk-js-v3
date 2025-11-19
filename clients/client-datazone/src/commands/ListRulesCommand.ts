@@ -40,7 +40,7 @@ export interface ListRulesCommandOutput extends ListRulesOutput, __MetadataBeare
  *   domainIdentifier: "STRING_VALUE", // required
  *   targetType: "DOMAIN_UNIT", // required
  *   targetIdentifier: "STRING_VALUE", // required
- *   ruleType: "METADATA_FORM_ENFORCEMENT",
+ *   ruleType: "METADATA_FORM_ENFORCEMENT" || "GLOSSARY_TERM_ENFORCEMENT",
  *   action: "CREATE_LISTING_CHANGE_SET" || "CREATE_SUBSCRIPTION_REQUEST",
  *   projectIds: [ // ProjectIds
  *     "STRING_VALUE",
@@ -60,7 +60,7 @@ export interface ListRulesCommandOutput extends ListRulesOutput, __MetadataBeare
  * //     { // RuleSummary
  * //       identifier: "STRING_VALUE",
  * //       revision: "STRING_VALUE",
- * //       ruleType: "METADATA_FORM_ENFORCEMENT",
+ * //       ruleType: "METADATA_FORM_ENFORCEMENT" || "GLOSSARY_TERM_ENFORCEMENT",
  * //       name: "STRING_VALUE",
  * //       targetType: "DOMAIN_UNIT",
  * //       target: { // RuleTarget Union: only one key present

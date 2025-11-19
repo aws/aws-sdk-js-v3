@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEnvironmentActionInput, UpdateEnvironmentActionOutput } from "../models/models_2";
-import { UpdateEnvironmentAction } from "../schemas/schemas_0";
+import { UpdateRootDomainUnitOwnerInput, UpdateRootDomainUnitOwnerOutput } from "../models/models_2";
+import { UpdateRootDomainUnitOwner } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,59 +16,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateEnvironmentActionCommand}.
+ * The input for {@link UpdateRootDomainUnitOwnerCommand}.
  */
-export interface UpdateEnvironmentActionCommandInput extends UpdateEnvironmentActionInput {}
+export interface UpdateRootDomainUnitOwnerCommandInput extends UpdateRootDomainUnitOwnerInput {}
 /**
  * @public
  *
- * The output of {@link UpdateEnvironmentActionCommand}.
+ * The output of {@link UpdateRootDomainUnitOwnerCommand}.
  */
-export interface UpdateEnvironmentActionCommandOutput extends UpdateEnvironmentActionOutput, __MetadataBearer {}
+export interface UpdateRootDomainUnitOwnerCommandOutput extends UpdateRootDomainUnitOwnerOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an environment action.</p>
+ * <p>Updates the owner of the root domain unit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, UpdateEnvironmentActionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, UpdateEnvironmentActionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, UpdateRootDomainUnitOwnerCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, UpdateRootDomainUnitOwnerCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // UpdateEnvironmentActionInput
+ * const input = { // UpdateRootDomainUnitOwnerInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   environmentIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
- *   parameters: { // ActionParameters Union: only one key present
- *     awsConsoleLink: { // AwsConsoleLinkParameters
- *       uri: "STRING_VALUE",
- *     },
- *   },
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ *   currentOwner: "STRING_VALUE", // required
+ *   newOwner: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new UpdateEnvironmentActionCommand(input);
+ * const command = new UpdateRootDomainUnitOwnerCommand(input);
  * const response = await client.send(command);
- * // { // UpdateEnvironmentActionOutput
- * //   domainId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
- * //   id: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   parameters: { // ActionParameters Union: only one key present
- * //     awsConsoleLink: { // AwsConsoleLinkParameters
- * //       uri: "STRING_VALUE",
- * //     },
- * //   },
- * //   description: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdateEnvironmentActionCommandInput - {@link UpdateEnvironmentActionCommandInput}
- * @returns {@link UpdateEnvironmentActionCommandOutput}
- * @see {@link UpdateEnvironmentActionCommandInput} for command's `input` shape.
- * @see {@link UpdateEnvironmentActionCommandOutput} for command's `response` shape.
+ * @param UpdateRootDomainUnitOwnerCommandInput - {@link UpdateRootDomainUnitOwnerCommandInput}
+ * @returns {@link UpdateRootDomainUnitOwnerCommandOutput}
+ * @see {@link UpdateRootDomainUnitOwnerCommandInput} for command's `input` shape.
+ * @see {@link UpdateRootDomainUnitOwnerCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -98,10 +81,10 @@ export interface UpdateEnvironmentActionCommandOutput extends UpdateEnvironmentA
  *
  * @public
  */
-export class UpdateEnvironmentActionCommand extends $Command
+export class UpdateRootDomainUnitOwnerCommand extends $Command
   .classBuilder<
-    UpdateEnvironmentActionCommandInput,
-    UpdateEnvironmentActionCommandOutput,
+    UpdateRootDomainUnitOwnerCommandInput,
+    UpdateRootDomainUnitOwnerCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,19 +93,19 @@ export class UpdateEnvironmentActionCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "UpdateEnvironmentAction", {})
-  .n("DataZoneClient", "UpdateEnvironmentActionCommand")
-  .sc(UpdateEnvironmentAction)
+  .s("DataZone", "UpdateRootDomainUnitOwner", {})
+  .n("DataZoneClient", "UpdateRootDomainUnitOwnerCommand")
+  .sc(UpdateRootDomainUnitOwner)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateEnvironmentActionInput;
-      output: UpdateEnvironmentActionOutput;
+      input: UpdateRootDomainUnitOwnerInput;
+      output: {};
     };
     sdk: {
-      input: UpdateEnvironmentActionCommandInput;
-      output: UpdateEnvironmentActionCommandOutput;
+      input: UpdateRootDomainUnitOwnerCommandInput;
+      output: UpdateRootDomainUnitOwnerCommandOutput;
     };
   };
 }

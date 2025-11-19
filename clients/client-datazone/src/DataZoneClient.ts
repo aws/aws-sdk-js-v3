@@ -73,6 +73,14 @@ import {
   AssociateGovernedTermsCommandOutput,
 } from "./commands/AssociateGovernedTermsCommand";
 import {
+  BatchGetAttributesMetadataCommandInput,
+  BatchGetAttributesMetadataCommandOutput,
+} from "./commands/BatchGetAttributesMetadataCommand";
+import {
+  BatchPutAttributesMetadataCommandInput,
+  BatchPutAttributesMetadataCommandOutput,
+} from "./commands/BatchPutAttributesMetadataCommand";
+import {
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
 } from "./commands/CancelMetadataGenerationRunCommand";
@@ -413,6 +421,10 @@ import {
   UpdateProjectProfileCommandInput,
   UpdateProjectProfileCommandOutput,
 } from "./commands/UpdateProjectProfileCommand";
+import {
+  UpdateRootDomainUnitOwnerCommandInput,
+  UpdateRootDomainUnitOwnerCommandOutput,
+} from "./commands/UpdateRootDomainUnitOwnerCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommandInput,
@@ -448,6 +460,8 @@ export type ServiceInputTypes =
   | AddPolicyGrantCommandInput
   | AssociateEnvironmentRoleCommandInput
   | AssociateGovernedTermsCommandInput
+  | BatchGetAttributesMetadataCommandInput
+  | BatchPutAttributesMetadataCommandInput
   | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
   | CreateAccountPoolCommandInput
@@ -606,6 +620,7 @@ export type ServiceInputTypes =
   | UpdateGroupProfileCommandInput
   | UpdateProjectCommandInput
   | UpdateProjectProfileCommandInput
+  | UpdateRootDomainUnitOwnerCommandInput
   | UpdateRuleCommandInput
   | UpdateSubscriptionGrantStatusCommandInput
   | UpdateSubscriptionRequestCommandInput
@@ -622,6 +637,8 @@ export type ServiceOutputTypes =
   | AddPolicyGrantCommandOutput
   | AssociateEnvironmentRoleCommandOutput
   | AssociateGovernedTermsCommandOutput
+  | BatchGetAttributesMetadataCommandOutput
+  | BatchPutAttributesMetadataCommandOutput
   | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
   | CreateAccountPoolCommandOutput
@@ -780,6 +797,7 @@ export type ServiceOutputTypes =
   | UpdateGroupProfileCommandOutput
   | UpdateProjectCommandOutput
   | UpdateProjectProfileCommandOutput
+  | UpdateRootDomainUnitOwnerCommandOutput
   | UpdateRuleCommandOutput
   | UpdateSubscriptionGrantStatusCommandOutput
   | UpdateSubscriptionRequestCommandOutput

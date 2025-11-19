@@ -78,15 +78,12 @@ import {
   ConnectionPropertiesPatch,
   ConnectionSummary,
   CustomParameter,
-  DataProductListing,
-  DataProductListingItem,
-  DataProductResultItem,
-  DataProductRevision,
   DataSourceConfigurationInput,
   DataSourceConfigurationOutput,
   DataSourceErrorMessage,
   Deployment,
   DeploymentProperties,
+  DetailedGlossaryTerm,
   DomainUnitOwnerProperties,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
@@ -122,6 +119,355 @@ import {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The additional attributes of an Amazon DataZone data product.</p>
+ * @public
+ */
+export interface DataProductItemAdditionalAttributes {
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
+ * <p>The summary of the listing of the data product.</p>
+ * @public
+ */
+export interface ListingSummary {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  listingId?: string | undefined;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  listingRevision?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+}
+
+/**
+ * <p>The data product listing.</p>
+ * @public
+ */
+export interface DataProductListing {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  dataProductId?: string | undefined;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  dataProductRevision?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data product listing was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The metadata forms of the data product listing.</p>
+   * @public
+   */
+  forms?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product listing.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The data assets of the data product listing.</p>
+   * @public
+   */
+  items?: ListingSummary[] | undefined;
+}
+
+/**
+ * <p>The additional attributes of the asset of the data product. </p>
+ * @public
+ */
+export interface DataProductListingItemAdditionalAttributes {
+  /**
+   * <p>The metadata forms of the asset of the data product. </p>
+   * @public
+   */
+  forms?: string | undefined;
+
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
+ * <p>The results of the data product summary.</p>
+ * @public
+ */
+export interface ListingSummaryItem {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  listingId?: string | undefined;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  listingRevision?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+}
+
+/**
+ * <p>The asset of the data product listing.</p>
+ * @public
+ */
+export interface DataProductListingItem {
+  /**
+   * <p>The ID of the listing.</p>
+   * @public
+   */
+  listingId?: string | undefined;
+
+  /**
+   * <p>The revision of the listing.</p>
+   * @public
+   */
+  listingRevision?: string | undefined;
+
+  /**
+   * <p>The name of the asset of the data product. </p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The entity ID of the asset of the asset of the data product. </p>
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * <p>The revision of the asset of the asset of the data product. </p>
+   * @public
+   */
+  entityRevision?: string | undefined;
+
+  /**
+   * <p>The description of the asset of the asset of the data product. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the asset of the data product listing was created. </p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the listing was created.</p>
+   * @public
+   */
+  listingCreatedBy?: string | undefined;
+
+  /**
+   * <p>The user who updated the listing.</p>
+   * @public
+   */
+  listingUpdatedBy?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the asset of the asset of the data product. </p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[] | undefined;
+
+  /**
+   * <p>The ID of the owning project of the asset of the data product. </p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The additional attributes of the asset of the data product.</p>
+   * @public
+   */
+  additionalAttributes?: DataProductListingItemAdditionalAttributes | undefined;
+
+  /**
+   * <p>The data of the asset of the data product. </p>
+   * @public
+   */
+  items?: ListingSummaryItem[] | undefined;
+}
+
+/**
+ * <p>The data product.</p>
+ * @public
+ */
+export interface DataProductResultItem {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The timestamp at which the data product was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp at which first revision of the data product was created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string | undefined;
+
+  /**
+   * <p>The additional attributes of an Amazon DataZone data product.</p>
+   * @public
+   */
+  additionalAttributes?: DataProductItemAdditionalAttributes | undefined;
+}
+
+/**
+ * <p>The data product revision.</p>
+ * @public
+ */
+export interface DataProductRevision {
+  /**
+   * <p>The ID of the domain where the data product revision lives.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of the data product revision.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The data product revision.</p>
+   * @public
+   */
+  revision?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data product revision was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data product revision.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the data source is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the data source that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   *
+   * @deprecated This field is no longer required for idempotency.
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe functionality failure for a data source.</p>
+   * @public
+   */
+  retainPermissionsOnRevokeFailure?: boolean | undefined;
+}
 
 /**
  * <p>The details for the self granting status.</p>
@@ -11004,427 +11350,4 @@ export interface UpdateEnvironmentOutput {
    * @public
    */
   environmentConfigurationId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentActionInput {
-  /**
-   * <p>The domain ID of the environment action.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The environment ID of the environment action.</p>
-   * @public
-   */
-  environmentIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the environment action.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The parameters of the environment action.</p>
-   * @public
-   */
-  parameters?: ActionParameters | undefined;
-
-  /**
-   * <p>The name of the environment action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the environment action.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentActionOutput {
-  /**
-   * <p>The domain ID of the environment action.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The environment ID of the environment action.</p>
-   * @public
-   */
-  environmentId: string | undefined;
-
-  /**
-   * <p>The ID of the environment action.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the environment action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The parameters of the environment action.</p>
-   * @public
-   */
-  parameters: ActionParameters | undefined;
-
-  /**
-   * <p>The description of the environment action.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentBlueprintInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which an environment blueprint is to be updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the environment blueprint to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  provisioningProperties?: ProvisioningProperties | undefined;
-
-  /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  userParameters?: CustomParameter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentBlueprintOutput {
-  /**
-   * <p>The identifier of the blueprint to be updated.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The provider of the blueprint to be udpated.</p>
-   * @public
-   */
-  provider: string | undefined;
-
-  /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  provisioningProperties: ProvisioningProperties | undefined;
-
-  /**
-   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  deploymentProperties?: DeploymentProperties | undefined;
-
-  /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  userParameters?: CustomParameter[] | undefined;
-
-  /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The timestamp of when the environment blueprint was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the blueprint was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentProfileInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the environment profile that is to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
-   * @public
-   */
-  userParameters?: EnvironmentParameter[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
-   * @public
-   */
-  awsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
-   * @public
-   */
-  awsAccountRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnvironmentProfileOutput {
-  /**
-   * <p>The identifier of the environment profile that is to be udpated.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which the environment profile is to be updated.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
-   * @public
-   */
-  awsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
-   * @public
-   */
-  awsAccountRegion?: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the environment profile.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp of when the environment profile was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the environment profile was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The identifier of the blueprint of the environment profile that is to be updated.</p>
-   * @public
-   */
-  environmentBlueprintId: string | undefined;
-
-  /**
-   * <p>The identifier of the project of the environment profile that is to be updated.</p>
-   * @public
-   */
-  projectId?: string | undefined;
-
-  /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
-   * @public
-   */
-  userParameters?: CustomParameter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGroupProfileInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the group profile that is updated.</p>
-   * @public
-   */
-  groupIdentifier: string | undefined;
-
-  /**
-   * <p>The status of the group profile that is updated.</p>
-   * @public
-   */
-  status: GroupProfileStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGroupProfileOutput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
-   * @public
-   */
-  domainId?: string | undefined;
-
-  /**
-   * <p>The identifier of the group profile that is updated.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The status of the group profile that is updated.</p>
-   * @public
-   */
-  status?: GroupProfileStatus | undefined;
-
-  /**
-   * <p>The name of the group profile that is updated.</p>
-   * @public
-   */
-  groupName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProjectInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain where a project is being updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the project that is to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateProject</code> action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateProject</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The resource tags of the project.</p>
-   * @public
-   */
-  resourceTags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateProject</code> action.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  domainUnitId?: string | undefined;
-
-  /**
-   * <p>The environment deployment details of the project.</p>
-   * @public
-   */
-  environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
-
-  /**
-   * <p>The user parameters of the project.</p>
-   * @public
-   */
-  userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
-
-  /**
-   * <p>The project profile version to which the project should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
-   * @public
-   */
-  projectProfileVersion?: string | undefined;
 }

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   FilterStatus,
+  GroupProfileStatus,
   InventorySearchScope,
   ProjectStatus,
   SearchOutputAdditionalAttribute,
@@ -14,15 +15,20 @@ import {
 } from "./enums";
 
 import {
+  ActionParameters,
   AggregationListItem,
   ColumnFilterConfiguration,
+  CustomParameter,
+  DeploymentProperties,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
+  EnvironmentParameter,
   FailureCause,
   FormOutput,
   GrantedEntity,
   ProjectDeletionError,
+  ProvisioningProperties,
   ResourceTag,
   ResourceTagParameter,
   RowFilterExpression,
@@ -34,6 +40,429 @@ import {
 } from "./models_0";
 
 import { Filter, SearchInItem, SearchSort } from "./models_1";
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentActionInput {
+  /**
+   * <p>The domain ID of the environment action.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The environment ID of the environment action.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment action.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The parameters of the environment action.</p>
+   * @public
+   */
+  parameters?: ActionParameters | undefined;
+
+  /**
+   * <p>The name of the environment action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the environment action.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentActionOutput {
+  /**
+   * <p>The domain ID of the environment action.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The environment ID of the environment action.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The ID of the environment action.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the environment action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The parameters of the environment action.</p>
+   * @public
+   */
+  parameters: ActionParameters | undefined;
+
+  /**
+   * <p>The description of the environment action.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentBlueprintInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which an environment blueprint is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment blueprint to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  provisioningProperties?: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentBlueprintOutput {
+  /**
+   * <p>The identifier of the blueprint to be updated.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provider of the blueprint to be udpated.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  deploymentProperties?: DeploymentProperties | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The timestamp of when the environment blueprint was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the blueprint was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentProfileInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment profile that is to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * @public
+   */
+  userParameters?: EnvironmentParameter[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
+   * @public
+   */
+  awsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
+   * @public
+   */
+  awsAccountRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentProfileOutput {
+  /**
+   * <p>The identifier of the environment profile that is to be udpated.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the environment profile is to be updated.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
+   * @public
+   */
+  awsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
+   * @public
+   */
+  awsAccountRegion?: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the environment profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp of when the environment profile was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the environment profile was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The identifier of the blueprint of the environment profile that is to be updated.</p>
+   * @public
+   */
+  environmentBlueprintId: string | undefined;
+
+  /**
+   * <p>The identifier of the project of the environment profile that is to be updated.</p>
+   * @public
+   */
+  projectId?: string | undefined;
+
+  /**
+   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * @public
+   */
+  userParameters?: CustomParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGroupProfileInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the group profile that is updated.</p>
+   * @public
+   */
+  groupIdentifier: string | undefined;
+
+  /**
+   * <p>The status of the group profile that is updated.</p>
+   * @public
+   */
+  status: GroupProfileStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGroupProfileOutput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The identifier of the group profile that is updated.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The status of the group profile that is updated.</p>
+   * @public
+   */
+  status?: GroupProfileStatus | undefined;
+
+  /**
+   * <p>The name of the group profile that is updated.</p>
+   * @public
+   */
+  groupName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProjectInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain where a project is being updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that is to be updated.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name to be updated as part of the <code>UpdateProject</code> action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description to be updated as part of the <code>UpdateProject</code> action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The resource tags of the project.</p>
+   * @public
+   */
+  resourceTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The glossary terms to be updated as part of the <code>UpdateProject</code> action.</p>
+   * @public
+   */
+  glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId?: string | undefined;
+
+  /**
+   * <p>The environment deployment details of the project.</p>
+   * @public
+   */
+  environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
+
+  /**
+   * <p>The user parameters of the project.</p>
+   * @public
+   */
+  userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
+
+  /**
+   * <p>The project profile version to which the project should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
+   * @public
+   */
+  projectProfileVersion?: string | undefined;
+}
 
 /**
  * @public
@@ -277,6 +706,40 @@ export interface UpdateProjectProfileOutput {
    */
   domainUnitId?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateRootDomainUnitOwnerInput {
+  /**
+   * <p>The ID of the domain where the root domain unit owner is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The current owner of the root domain unit.</p>
+   * @public
+   */
+  currentOwner: string | undefined;
+
+  /**
+   * <p>The new owner of the root domain unit.</p>
+   * @public
+   */
+  newOwner: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRootDomainUnitOwnerOutput {}
 
 /**
  * @public

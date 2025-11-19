@@ -185,6 +185,19 @@ export type GovernedEntityType = (typeof GovernedEntityType)[keyof typeof Govern
  * @public
  * @enum
  */
+export const AttributeEntityType = {
+  ASSET: "ASSET",
+  LISTING: "LISTING",
+} as const;
+/**
+ * @public
+ */
+export type AttributeEntityType = (typeof AttributeEntityType)[keyof typeof AttributeEntityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthenticationType = {
   BASIC: "BASIC",
   CUSTOM: "CUSTOM",
@@ -869,6 +882,7 @@ export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
  * @enum
  */
 export const RuleType = {
+  GLOSSARY_TERM_ENFORCEMENT: "GLOSSARY_TERM_ENFORCEMENT",
   METADATA_FORM_ENFORCEMENT: "METADATA_FORM_ENFORCEMENT",
 } as const;
 /**

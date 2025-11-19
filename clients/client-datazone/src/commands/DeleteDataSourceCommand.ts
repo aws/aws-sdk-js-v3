@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDataSourceInput } from "../models/models_0";
-import { DeleteDataSourceOutput } from "../models/models_1";
+import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_1";
 import { DeleteDataSource } from "../schemas/schemas_0";
 
 /**

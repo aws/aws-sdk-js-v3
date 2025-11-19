@@ -70,6 +70,11 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *         },
  *       ],
  *     },
+ *     glossaryTermEnforcementDetail: { // GlossaryTermEnforcementDetail
+ *       requiredGlossaryTermIds: [ // GlossaryTermIdentifiers
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
@@ -79,7 +84,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * // { // CreateRuleOutput
  * //   identifier: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   ruleType: "METADATA_FORM_ENFORCEMENT", // required
+ * //   ruleType: "METADATA_FORM_ENFORCEMENT" || "GLOSSARY_TERM_ENFORCEMENT", // required
  * //   target: { // RuleTarget Union: only one key present
  * //     domainUnitTarget: { // DomainUnitTarget
  * //       domainUnitId: "STRING_VALUE", // required
@@ -109,6 +114,11 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //           typeIdentifier: "STRING_VALUE", // required
  * //           typeRevision: "STRING_VALUE", // required
  * //         },
+ * //       ],
+ * //     },
+ * //     glossaryTermEnforcementDetail: { // GlossaryTermEnforcementDetail
+ * //       requiredGlossaryTermIds: [ // GlossaryTermIdentifiers
+ * //         "STRING_VALUE",
  * //       ],
  * //     },
  * //   },
