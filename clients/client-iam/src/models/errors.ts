@@ -414,6 +414,26 @@ export class ServiceAccessNotEnabledException extends __BaseException {
 }
 
 /**
+ * <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+ * @public
+ */
+export class FeatureDisabledException extends __BaseException {
+  readonly name = "FeatureDisabledException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureDisabledException, __BaseException>) {
+    super({
+      name: "FeatureDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureDisabledException.prototype);
+  }
+}
+
+/**
  * <p>The request was rejected because the authentication code was not recognized. The error
  *       message describes the specific error.</p>
  * @public
@@ -454,6 +474,27 @@ export class CallerIsNotManagementAccountException extends __BaseException {
     });
     Object.setPrototypeOf(this, CallerIsNotManagementAccountException.prototype);
     this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You
+ *       cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the <code>GetOutboundWebIdentityFederationInfo</code> operation.</p>
+ * @public
+ */
+export class FeatureEnabledException extends __BaseException {
+  readonly name = "FeatureEnabledException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureEnabledException, __BaseException>) {
+    super({
+      name: "FeatureEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureEnabledException.prototype);
   }
 }
 

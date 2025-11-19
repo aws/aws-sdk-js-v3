@@ -634,6 +634,14 @@ DisableOrganizationsRootSessions
 </details>
 <details>
 <summary>
+DisableOutboundWebIdentityFederation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DisableOutboundWebIdentityFederationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/DisableOutboundWebIdentityFederationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/DisableOutboundWebIdentityFederationCommandOutput/)
+
+</details>
+<details>
+<summary>
 EnableMFADevice
 </summary>
 
@@ -654,6 +662,14 @@ EnableOrganizationsRootSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/EnableOrganizationsRootSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOrganizationsRootSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOrganizationsRootSessionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableOutboundWebIdentityFederation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/EnableOutboundWebIdentityFederationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOutboundWebIdentityFederationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOutboundWebIdentityFederationCommandOutput/)
 
 </details>
 <details>
@@ -806,6 +822,14 @@ GetOrganizationsAccessReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetOrganizationsAccessReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetOrganizationsAccessReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetOrganizationsAccessReportCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetOutboundWebIdentityFederationInfo
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetOutboundWebIdentityFederationInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetOutboundWebIdentityFederationInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetOutboundWebIdentityFederationInfoCommandOutput/)
 
 </details>
 <details>

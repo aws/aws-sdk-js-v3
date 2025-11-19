@@ -6,6 +6,66 @@ import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, Tag 
 /**
  * @public
  */
+export interface UpdateOpenIDConnectProviderThumbprintRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
+   *             you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>A list of certificate thumbprints that are associated with the specified IAM OpenID
+   *             Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>. </p>
+   * @public
+   */
+  ThumbprintList: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoleRequest {
+  /**
+   * <p>The name of the role that you want to modify.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The new description that you want to apply to the specified role.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The maximum session duration (in seconds) that you want to set for the specified role.
+   *             If you do not specify a value for this setting, the default value of one hour is
+   *             applied. This setting can have a value from 1 hour to 12 hours.</p>
+   *          <p>Anyone who assumes the role from the CLI or API can use the
+   *                 <code>DurationSeconds</code> API parameter or the <code>duration-seconds</code>
+   *             CLI parameter to request a longer session. The <code>MaxSessionDuration</code> setting
+   *             determines the maximum duration that can be requested using the
+   *                 <code>DurationSeconds</code> parameter. If users don't specify a value for the
+   *                 <code>DurationSeconds</code> parameter, their security credentials are valid for one
+   *             hour by default. This applies when you use the <code>AssumeRole*</code> API operations
+   *             or the <code>assume-role*</code> CLI operations but does not apply when you use those
+   *             operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
+   *                 roles</a> in the <i>IAM User Guide</i>.</p>
+   *          <note>
+   *             <p>IAM role credentials provided by Amazon EC2 instances assigned to the role are not
+   *                 subject to the specified maximum session duration.</p>
+   *          </note>
+   * @public
+   */
+  MaxSessionDuration?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateRoleResponse {}
 
 /**

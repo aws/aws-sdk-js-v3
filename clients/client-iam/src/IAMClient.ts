@@ -185,6 +185,10 @@ import {
   DisableOrganizationsRootSessionsCommandInput,
   DisableOrganizationsRootSessionsCommandOutput,
 } from "./commands/DisableOrganizationsRootSessionsCommand";
+import {
+  DisableOutboundWebIdentityFederationCommandInput,
+  DisableOutboundWebIdentityFederationCommandOutput,
+} from "./commands/DisableOutboundWebIdentityFederationCommand";
 import { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "./commands/EnableMFADeviceCommand";
 import {
   EnableOrganizationsRootCredentialsManagementCommandInput,
@@ -194,6 +198,10 @@ import {
   EnableOrganizationsRootSessionsCommandInput,
   EnableOrganizationsRootSessionsCommandOutput,
 } from "./commands/EnableOrganizationsRootSessionsCommand";
+import {
+  EnableOutboundWebIdentityFederationCommandInput,
+  EnableOutboundWebIdentityFederationCommandOutput,
+} from "./commands/EnableOutboundWebIdentityFederationCommand";
 import {
   GenerateCredentialReportCommandInput,
   GenerateCredentialReportCommandOutput,
@@ -252,6 +260,10 @@ import {
   GetOrganizationsAccessReportCommandInput,
   GetOrganizationsAccessReportCommandOutput,
 } from "./commands/GetOrganizationsAccessReportCommand";
+import {
+  GetOutboundWebIdentityFederationInfoCommandInput,
+  GetOutboundWebIdentityFederationInfoCommandOutput,
+} from "./commands/GetOutboundWebIdentityFederationInfoCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
 import { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
@@ -565,9 +577,11 @@ export type ServiceInputTypes =
   | DetachUserPolicyCommandInput
   | DisableOrganizationsRootCredentialsManagementCommandInput
   | DisableOrganizationsRootSessionsCommandInput
+  | DisableOutboundWebIdentityFederationCommandInput
   | EnableMFADeviceCommandInput
   | EnableOrganizationsRootCredentialsManagementCommandInput
   | EnableOrganizationsRootSessionsCommandInput
+  | EnableOutboundWebIdentityFederationCommandInput
   | GenerateCredentialReportCommandInput
   | GenerateOrganizationsAccessReportCommandInput
   | GenerateServiceLastAccessedDetailsCommandInput
@@ -587,6 +601,7 @@ export type ServiceInputTypes =
   | GetMFADeviceCommandInput
   | GetOpenIDConnectProviderCommandInput
   | GetOrganizationsAccessReportCommandInput
+  | GetOutboundWebIdentityFederationInfoCommandInput
   | GetPolicyCommandInput
   | GetPolicyVersionCommandInput
   | GetRoleCommandInput
@@ -743,9 +758,11 @@ export type ServiceOutputTypes =
   | DetachUserPolicyCommandOutput
   | DisableOrganizationsRootCredentialsManagementCommandOutput
   | DisableOrganizationsRootSessionsCommandOutput
+  | DisableOutboundWebIdentityFederationCommandOutput
   | EnableMFADeviceCommandOutput
   | EnableOrganizationsRootCredentialsManagementCommandOutput
   | EnableOrganizationsRootSessionsCommandOutput
+  | EnableOutboundWebIdentityFederationCommandOutput
   | GenerateCredentialReportCommandOutput
   | GenerateOrganizationsAccessReportCommandOutput
   | GenerateServiceLastAccessedDetailsCommandOutput
@@ -765,6 +782,7 @@ export type ServiceOutputTypes =
   | GetMFADeviceCommandOutput
   | GetOpenIDConnectProviderCommandOutput
   | GetOrganizationsAccessReportCommandOutput
+  | GetOutboundWebIdentityFederationInfoCommandOutput
   | GetPolicyCommandOutput
   | GetPolicyVersionCommandOutput
   | GetRoleCommandOutput

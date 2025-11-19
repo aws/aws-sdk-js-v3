@@ -244,6 +244,11 @@ import {
   DisableOrganizationsRootSessionsCommandOutput,
 } from "./commands/DisableOrganizationsRootSessionsCommand";
 import {
+  DisableOutboundWebIdentityFederationCommand,
+  DisableOutboundWebIdentityFederationCommandInput,
+  DisableOutboundWebIdentityFederationCommandOutput,
+} from "./commands/DisableOutboundWebIdentityFederationCommand";
+import {
   EnableMFADeviceCommand,
   EnableMFADeviceCommandInput,
   EnableMFADeviceCommandOutput,
@@ -258,6 +263,11 @@ import {
   EnableOrganizationsRootSessionsCommandInput,
   EnableOrganizationsRootSessionsCommandOutput,
 } from "./commands/EnableOrganizationsRootSessionsCommand";
+import {
+  EnableOutboundWebIdentityFederationCommand,
+  EnableOutboundWebIdentityFederationCommandInput,
+  EnableOutboundWebIdentityFederationCommandOutput,
+} from "./commands/EnableOutboundWebIdentityFederationCommand";
 import {
   GenerateCredentialReportCommand,
   GenerateCredentialReportCommandInput,
@@ -349,6 +359,11 @@ import {
   GetOrganizationsAccessReportCommandInput,
   GetOrganizationsAccessReportCommandOutput,
 } from "./commands/GetOrganizationsAccessReportCommand";
+import {
+  GetOutboundWebIdentityFederationInfoCommand,
+  GetOutboundWebIdentityFederationInfoCommandInput,
+  GetOutboundWebIdentityFederationInfoCommandOutput,
+} from "./commands/GetOutboundWebIdentityFederationInfoCommand";
 import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetPolicyVersionCommand,
@@ -835,9 +850,11 @@ const commands = {
   DetachUserPolicyCommand,
   DisableOrganizationsRootCredentialsManagementCommand,
   DisableOrganizationsRootSessionsCommand,
+  DisableOutboundWebIdentityFederationCommand,
   EnableMFADeviceCommand,
   EnableOrganizationsRootCredentialsManagementCommand,
   EnableOrganizationsRootSessionsCommand,
+  EnableOutboundWebIdentityFederationCommand,
   GenerateCredentialReportCommand,
   GenerateOrganizationsAccessReportCommand,
   GenerateServiceLastAccessedDetailsCommand,
@@ -857,6 +874,7 @@ const commands = {
   GetMFADeviceCommand,
   GetOpenIDConnectProviderCommand,
   GetOrganizationsAccessReportCommand,
+  GetOutboundWebIdentityFederationInfoCommand,
   GetPolicyCommand,
   GetPolicyVersionCommand,
   GetRoleCommand,
@@ -1806,6 +1824,24 @@ export interface IAM {
   ): void;
 
   /**
+   * @see {@link DisableOutboundWebIdentityFederationCommand}
+   */
+  disableOutboundWebIdentityFederation(): Promise<DisableOutboundWebIdentityFederationCommandOutput>;
+  disableOutboundWebIdentityFederation(
+    args: DisableOutboundWebIdentityFederationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableOutboundWebIdentityFederationCommandOutput>;
+  disableOutboundWebIdentityFederation(
+    args: DisableOutboundWebIdentityFederationCommandInput,
+    cb: (err: any, data?: DisableOutboundWebIdentityFederationCommandOutput) => void
+  ): void;
+  disableOutboundWebIdentityFederation(
+    args: DisableOutboundWebIdentityFederationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableOutboundWebIdentityFederationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableMFADeviceCommand}
    */
   enableMFADevice(
@@ -1853,6 +1889,24 @@ export interface IAM {
     args: EnableOrganizationsRootSessionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableOrganizationsRootSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableOutboundWebIdentityFederationCommand}
+   */
+  enableOutboundWebIdentityFederation(): Promise<EnableOutboundWebIdentityFederationCommandOutput>;
+  enableOutboundWebIdentityFederation(
+    args: EnableOutboundWebIdentityFederationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableOutboundWebIdentityFederationCommandOutput>;
+  enableOutboundWebIdentityFederation(
+    args: EnableOutboundWebIdentityFederationCommandInput,
+    cb: (err: any, data?: EnableOutboundWebIdentityFederationCommandOutput) => void
+  ): void;
+  enableOutboundWebIdentityFederation(
+    args: EnableOutboundWebIdentityFederationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableOutboundWebIdentityFederationCommandOutput) => void
   ): void;
 
   /**
@@ -2164,6 +2218,24 @@ export interface IAM {
     args: GetOrganizationsAccessReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOrganizationsAccessReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOutboundWebIdentityFederationInfoCommand}
+   */
+  getOutboundWebIdentityFederationInfo(): Promise<GetOutboundWebIdentityFederationInfoCommandOutput>;
+  getOutboundWebIdentityFederationInfo(
+    args: GetOutboundWebIdentityFederationInfoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOutboundWebIdentityFederationInfoCommandOutput>;
+  getOutboundWebIdentityFederationInfo(
+    args: GetOutboundWebIdentityFederationInfoCommandInput,
+    cb: (err: any, data?: GetOutboundWebIdentityFederationInfoCommandOutput) => void
+  ): void;
+  getOutboundWebIdentityFederationInfo(
+    args: GetOutboundWebIdentityFederationInfoCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOutboundWebIdentityFederationInfoCommandOutput) => void
   ): void;
 
   /**

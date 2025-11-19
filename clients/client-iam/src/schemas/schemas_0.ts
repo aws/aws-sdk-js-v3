@@ -147,6 +147,7 @@ const _DORCMRi = "DisableOrganizationsRootCredentialsManagementResponse";
 const _DORS = "DisableOrganizationsRootSessions";
 const _DORSR = "DisableOrganizationsRootSessionsRequest";
 const _DORSRi = "DisableOrganizationsRootSessionsResponse";
+const _DOWIF = "DisableOutboundWebIdentityFederation";
 const _DP = "DelegationPermission";
 const _DPC = "DelegationPermissionCheck";
 const _DPR = "DeletePolicyRequest";
@@ -215,6 +216,8 @@ const _EORCMRn = "EnableOrganizationsRootCredentialsManagementResponse";
 const _EORS = "EnableOrganizationsRootSessions";
 const _EORSR = "EnableOrganizationsRootSessionsRequest";
 const _EORSRn = "EnableOrganizationsRootSessionsResponse";
+const _EOWIF = "EnableOutboundWebIdentityFederation";
+const _EOWIFR = "EnableOutboundWebIdentityFederationResponse";
 const _EP = "EntityPath";
 const _EPn = "EndPosition";
 const _EPx = "ExpirePasswords";
@@ -228,6 +231,8 @@ const _ETUE = "EntityTemporarilyUnmodifiableException";
 const _En = "Encoding";
 const _Ex = "Expiration";
 const _F = "Filter";
+const _FDE = "FeatureDisabledException";
+const _FEE = "FeatureEnabledException";
 const _Fi = "Fingerprint";
 const _G = "Group";
 const _GAAD = "GetAccountAuthorizationDetails";
@@ -285,6 +290,8 @@ const _GOARe = "GetOrganizationsAccessReport";
 const _GOIDCP = "GetOpenIDConnectProvider";
 const _GOIDCPR = "GetOpenIDConnectProviderRequest";
 const _GOIDCPRe = "GetOpenIDConnectProviderResponse";
+const _GOWIFI = "GetOutboundWebIdentityFederationInfo";
+const _GOWIFIR = "GetOutboundWebIdentityFederationInfoResponse";
 const _GP = "GetPolicy";
 const _GPL = "GroupPolicyList";
 const _GPR = "GetPolicyRequest";
@@ -334,6 +341,7 @@ const _IA = "IsAttachable";
 const _IACE = "InvalidAuthenticationCodeException";
 const _ICE = "InvalidCertificateException";
 const _IDV = "IsDefaultVersion";
+const _II = "IssuerIdentifier";
 const _IIE = "InvalidInputException";
 const _IP = "InstanceProfile";
 const _IPI = "InstanceProfileId";
@@ -348,6 +356,7 @@ const _JCDo = "JobCompletionDate";
 const _JI = "JobId";
 const _JS = "JobStatus";
 const _JT = "JobType";
+const _JVE = "JwtVendingEnabled";
 const _K = "Key";
 const _KI = "KeyId";
 const _KPME = "KeyPairMismatchException";
@@ -850,6 +859,8 @@ import {
   DuplicateSSHPublicKeyException as __DuplicateSSHPublicKeyException,
   EntityAlreadyExistsException as __EntityAlreadyExistsException,
   EntityTemporarilyUnmodifiableException as __EntityTemporarilyUnmodifiableException,
+  FeatureDisabledException as __FeatureDisabledException,
+  FeatureEnabledException as __FeatureEnabledException,
   InvalidAuthenticationCodeException as __InvalidAuthenticationCodeException,
   InvalidCertificateException as __InvalidCertificateException,
   InvalidInputException as __InvalidInputException,
@@ -1265,6 +1276,7 @@ export var EnableOrganizationsRootSessionsResponse: StaticStructureSchema = [
   [_OIr, _EF],
   [0, 64 | 0],
 ];
+export var EnableOutboundWebIdentityFederationResponse: StaticStructureSchema = [3, n0, _EOWIFR, 0, [_II], [0]];
 export var EntityAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
@@ -1314,6 +1326,34 @@ export var EvaluationResult: StaticStructureSchema = [
     () => ResourceSpecificResultListType,
   ],
 ];
+export var FeatureDisabledException: StaticErrorSchema = [
+  -3,
+  n0,
+  _FDE,
+  {
+    [_e]: _c,
+    [_hE]: 404,
+    [_aQE]: [`FeatureDisabled`, 404],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(FeatureDisabledException, __FeatureDisabledException);
+
+export var FeatureEnabledException: StaticErrorSchema = [
+  -3,
+  n0,
+  _FEE,
+  {
+    [_e]: _c,
+    [_hE]: 409,
+    [_aQE]: [`FeatureEnabled`, 409],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(FeatureEnabledException, __FeatureEnabledException);
+
 export var GenerateCredentialReportResponse: StaticStructureSchema = [3, n0, _GCRR, 0, [_St, _D], [0, 0]];
 export var GenerateOrganizationsAccessReportRequest: StaticStructureSchema = [3, n0, _GOARR, 0, [_EP, _OPI], [0, 0]];
 export var GenerateOrganizationsAccessReportResponse: StaticStructureSchema = [3, n0, _GOARRe, 0, [_JI], [0]];
@@ -1423,6 +1463,14 @@ export var GetOrganizationsAccessReportResponse: StaticStructureSchema = [
   0,
   [_JS, _JCD, _JCDo, _NOSA, _NOSNA, _ADc, _IT, _Ma, _EDr],
   [0, 4, 4, 1, 1, () => AccessDetails, 2, 0, () => ErrorDetails],
+];
+export var GetOutboundWebIdentityFederationInfoResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GOWIFIR,
+  0,
+  [_II, _JVE],
+  [0, 2],
 ];
 export var GetPolicyRequest: StaticStructureSchema = [3, n0, _GPR, 0, [_PA], [0]];
 export var GetPolicyResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_Po], [() => Policy]];
@@ -2841,6 +2889,7 @@ export var DisableOrganizationsRootSessions: StaticOperationSchema = [
   () => DisableOrganizationsRootSessionsRequest,
   () => DisableOrganizationsRootSessionsResponse,
 ];
+export var DisableOutboundWebIdentityFederation: StaticOperationSchema = [9, n0, _DOWIF, 0, () => __Unit, () => __Unit];
 export var EnableMFADevice: StaticOperationSchema = [9, n0, _EMFAD, 0, () => EnableMFADeviceRequest, () => __Unit];
 export var EnableOrganizationsRootCredentialsManagement: StaticOperationSchema = [
   9,
@@ -2857,6 +2906,14 @@ export var EnableOrganizationsRootSessions: StaticOperationSchema = [
   0,
   () => EnableOrganizationsRootSessionsRequest,
   () => EnableOrganizationsRootSessionsResponse,
+];
+export var EnableOutboundWebIdentityFederation: StaticOperationSchema = [
+  9,
+  n0,
+  _EOWIF,
+  0,
+  () => __Unit,
+  () => EnableOutboundWebIdentityFederationResponse,
 ];
 export var GenerateCredentialReport: StaticOperationSchema = [
   9,
@@ -2995,6 +3052,14 @@ export var GetOrganizationsAccessReport: StaticOperationSchema = [
   0,
   () => GetOrganizationsAccessReportRequest,
   () => GetOrganizationsAccessReportResponse,
+];
+export var GetOutboundWebIdentityFederationInfo: StaticOperationSchema = [
+  9,
+  n0,
+  _GOWIFI,
+  0,
+  () => __Unit,
+  () => GetOutboundWebIdentityFederationInfoResponse,
 ];
 export var GetPolicy: StaticOperationSchema = [9, n0, _GP, 0, () => GetPolicyRequest, () => GetPolicyResponse];
 export var GetPolicyVersion: StaticOperationSchema = [
