@@ -437,6 +437,7 @@ export type ScheduledQueryDestinationType =
  */
 export const OCSFVersion = {
   V1_1: "V1.1",
+  V1_5: "V1.5",
 } as const;
 /**
  * @public

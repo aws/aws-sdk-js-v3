@@ -2889,13 +2889,17 @@ export interface MetricFilter {
   applyOnTransformedLogs?: boolean | undefined;
 
   /**
-   * <p>The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the metric filter was created.</p>
+   * <p>The filter expression that specifies which log events are processed by this metric filter
+   *       based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was
+   *       specified when the metric filter was created.</p>
    * @public
    */
   fieldSelectionCriteria?: string | undefined;
 
   /**
-   * <p>The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the <code>emitSystemFieldDimensions</code> value if it was specified when the metric filter was created.</p>
+   * <p>The list of system fields that are emitted as additional dimensions in the generated
+   *       metrics. Returns the <code>emitSystemFieldDimensions</code> value if it was specified when the
+   *       metric filter was created.</p>
    * @public
    */
   emitSystemFieldDimensions?: string[] | undefined;
@@ -3310,13 +3314,17 @@ export interface SubscriptionFilter {
   creationTime?: number | undefined;
 
   /**
-   * <p>The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the subscription filter was created.</p>
+   * <p>The filter expression that specifies which log events are processed by this subscription
+   *       filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was
+   *       specified when the subscription filter was created.</p>
    * @public
    */
   fieldSelectionCriteria?: string | undefined;
 
   /**
-   * <p>The list of system fields that are included in the log events sent to the subscription destination. Returns the <code>emitSystemFields</code> value if it was specified when the subscription filter was created.</p>
+   * <p>The list of system fields that are included in the log events sent to the subscription
+   *       destination. Returns the <code>emitSystemFields</code> value if it was specified when the
+   *       subscription filter was created.</p>
    * @public
    */
   emitSystemFields?: string[] | undefined;
@@ -4861,13 +4869,13 @@ export interface GetScheduledQueryHistoryRequest {
  */
 export interface ScheduledQueryDestination {
   /**
-   * <p>The type of destination (S3 or EVENTBRIDGE).</p>
+   * <p>The type of destination (S3).</p>
    * @public
    */
   destinationType?: ScheduledQueryDestinationType | undefined;
 
   /**
-   * <p>The destination identifier (S3 URI or EventBridge ARN).</p>
+   * <p>The destination identifier (S3 URI).</p>
    * @public
    */
   destinationIdentifier?: string | undefined;
@@ -4879,7 +4887,7 @@ export interface ScheduledQueryDestination {
   status?: ActionStatus | undefined;
 
   /**
-   * <p>The processed identifier returned for the destination (S3 key or event ID).</p>
+   * <p>The processed identifier returned for the destination (S3 key).</p>
    * @public
    */
   processedIdentifier?: string | undefined;
@@ -4903,7 +4911,7 @@ export interface TriggerHistoryRecord {
   queryId?: string | undefined;
 
   /**
-   * <p>The status of the query execution (SUCCEEDED, FAILED, TIMEOUT, or INVALID_QUERY).</p>
+   * <p>The status of the query execution (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
    * @public
    */
   executionStatus?: ExecutionStatus | undefined;
@@ -4921,7 +4929,7 @@ export interface TriggerHistoryRecord {
   errorMessage?: string | undefined;
 
   /**
-   * <p>The list of destinations where the scheduled query results were delivered for this execution. This includes S3 buckets and EventBridge targets configured for the scheduled query.</p>
+   * <p>The list of destinations where the scheduled query results were delivered for this execution. This includes S3 buckets configured for the scheduled query.</p>
    * @public
    */
   destinations?: ScheduledQueryDestination[] | undefined;
@@ -5238,7 +5246,7 @@ export interface ParseRoute53 {
 /**
  * <p>This processor converts logs into <a href="https://ocsf.io">Open Cybersecurity Schema
  *         Framework (OCSF)</a> events.</p>
- *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF"> parseToOSCF</a> in the <i>CloudWatch Logs User Guide</i>.</p>
+ *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseToOCSF">parseToOCSF</a> in the <i>CloudWatch Logs User Guide</i>.</p>
  * @public
  */
 export interface ParseToOCSF {
@@ -5261,6 +5269,13 @@ export interface ParseToOCSF {
    * @public
    */
   ocsfVersion: OCSFVersion | undefined;
+
+  /**
+   * <p>Identifies the specific release of the Open Cybersecurity Schema Framework (OCSF)
+   *       transformer being used to parse OCSF data. Defaults to the latest version if not specified. Does not automatically update.</p>
+   * @public
+   */
+  mappingVersion?: string | undefined;
 }
 
 /**
@@ -6712,11 +6727,18 @@ export interface PutDeliverySourceRequest {
    *           <code>ERROR_LOGS</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For Network Load Balancer, the valid value is <code>NLB_ACCESS_LOGS</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code> and
    *             <code>PCS_JOBCOMP_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p>
+   *                <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and
+   *             <code>SYNC_JOB_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon SES mail manager, the valid values are
@@ -7159,13 +7181,21 @@ export interface PutMetricFilterRequest {
   applyOnTransformedLogs?: boolean | undefined;
 
   /**
-   * <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = "us-east-1"</code> or <code>@aws.account IN ["123456789012", "987654321098"]</code>. Maximum length: 2000 characters.</p>
+   * <p>A filter expression that specifies which log events should be processed by this metric
+   *       filter based on system fields such as source account and source region. Uses selection
+   *       criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>,
+   *         <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region =
+   *         "us-east-1"</code> or <code>@aws.account IN ["123456789012", "987654321098"]</code>. Maximum
+   *       length: 2000 characters.</p>
    * @public
    */
   fieldSelectionCriteria?: string | undefined;
 
   /**
-   * <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
+   * <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid
+   *       values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help
+   *       identify the source of centralized log data and count toward the total dimension limit for
+   *       metric filters.</p>
    * @public
    */
   emitSystemFieldDimensions?: string[] | undefined;
@@ -7263,11 +7293,11 @@ export interface PutResourcePolicyRequest {
    *       that call.</p>
    *          <p></p>
    *          <p>
-   *             <code>\{ "Version": "2012-10-17",		 	 	  "Statement": [ \{ "Sid": "Route53LogsToCloudWatchLogs",
-   *         "Effect": "Allow", "Principal": \{ "Service": [ "route53.amazonaws.com" ] \}, "Action":
-   *         "logs:PutLogEvents", "Resource": "logArn", "Condition": \{ "ArnLike": \{ "aws:SourceArn":
-   *         "myRoute53ResourceArn" \}, "StringEquals": \{ "aws:SourceAccount": "myAwsAccountId" \} \} \} ]
-   *         \}</code>
+   *             <code>\{ "Version": "2012-10-17",		 	 	  "Statement": [ \{ "Sid":
+   *         "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": \{ "Service": [
+   *         "route53.amazonaws.com" ] \}, "Action": "logs:PutLogEvents", "Resource": "logArn",
+   *         "Condition": \{ "ArnLike": \{ "aws:SourceArn": "myRoute53ResourceArn" \}, "StringEquals": \{
+   *         "aws:SourceAccount": "myAwsAccountId" \} \} \} ] \}</code>
    *          </p>
    * @public
    */
@@ -7407,13 +7437,20 @@ export interface PutSubscriptionFilterRequest {
   applyOnTransformedLogs?: boolean | undefined;
 
   /**
-   * <p>A filter expression that specifies which log events should be processed by this subscription filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region NOT IN ["cn-north-1"]</code> or <code>@aws.account = "123456789012" AND @aws.region = "us-east-1"</code>. Maximum length: 2000 characters.</p>
+   * <p>A filter expression that specifies which log events should be processed by this
+   *       subscription filter based on system fields such as source account and source region. Uses
+   *       selection criteria syntax with operators like <code>=</code>, <code>!=</code>,
+   *         <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example:
+   *         <code>@aws.region NOT IN ["cn-north-1"]</code> or <code>@aws.account = "123456789012" AND
+   *         @aws.region = "us-east-1"</code>. Maximum length: 2000 characters.</p>
    * @public
    */
   fieldSelectionCriteria?: string | undefined;
 
   /**
-   * <p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These fields provide source information for centralized log data in the forwarded payload.</p>
+   * <p>A list of system fields to include in the log events sent to the subscription destination.
+   *       Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These fields provide
+   *       source information for centralized log data in the forwarded payload.</p>
    * @public
    */
   emitSystemFields?: string[] | undefined;

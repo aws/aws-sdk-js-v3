@@ -154,7 +154,8 @@ export interface PutTransformerCommandOutput extends __MetadataBearer {}
  *       parseToOCSF: { // ParseToOCSF
  *         source: "STRING_VALUE",
  *         eventSource: "CloudTrail" || "Route53Resolver" || "VPCFlow" || "EKSAudit" || "AWSWAF", // required
- *         ocsfVersion: "V1.1", // required
+ *         ocsfVersion: "V1.1" || "V1.5", // required
+ *         mappingVersion: "STRING_VALUE",
  *       },
  *       parsePostgres: { // ParsePostgres
  *         source: "STRING_VALUE",

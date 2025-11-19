@@ -27,23 +27,32 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put log events to this account, such as Amazon Route 53. This API has the following restrictions:</p>
+ * <p>Creates or updates a resource policy allowing other Amazon Web Services services to put
+ *       log events to this account, such as Amazon Route 53. This API has the following
+ *       restrictions:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Supported actions</b> - Policy only supports <code>logs:PutLogEvents</code> and <code>logs:CreateLogStream </code> actions</p>
+ *                   <b>Supported actions</b> - Policy only supports
+ *             <code>logs:PutLogEvents</code> and <code>logs:CreateLogStream </code> actions</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Supported principals</b> - Policy only applies when operations are invoked by Amazon Web Services service principals (not IAM users, roles, or cross-account principals</p>
+ *                   <b>Supported principals</b> - Policy only applies when
+ *           operations are invoked by Amazon Web Services service principals (not IAM
+ *           users, roles, or cross-account principals</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Policy limits</b> - An account can have a maximum of 10 policies without resourceARN and one per LogGroup resourceARN</p>
+ *                   <b>Policy limits</b> - An account can have a maximum of 10
+ *           policies without resourceARN and one per LogGroup resourceARN</p>
  *             </li>
  *          </ul>
  *          <important>
- *             <p>Resource policies with actions invoked by non-Amazon Web Services service principals (such as IAM users, roles, or other Amazon Web Services accounts) will not be enforced. For access control involving these principals, use the IAM policies.</p>
+ *             <p>Resource policies with actions invoked by non-Amazon Web Services service principals
+ *         (such as IAM users, roles, or other Amazon Web Services accounts) will not be
+ *         enforced. For access control involving these principals, use the IAM
+ *         policies.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

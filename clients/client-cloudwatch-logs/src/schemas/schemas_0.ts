@@ -637,6 +637,7 @@ const _mP = "matchPatterns";
 const _mR = "maxResults";
 const _mT = "metricTransformations";
 const _mV = "metricValue";
+const _mVa = "mappingVersion";
 const _ma = "match";
 const _man = "mandatory";
 const _mat = "matches";
@@ -1625,7 +1626,7 @@ export var ParseKeyValue: StaticStructureSchema = [
 ];
 export var ParsePostgres: StaticStructureSchema = [3, n0, _PP, 0, [_so], [0]];
 export var ParseRoute53: StaticStructureSchema = [3, n0, _PR, 0, [_so], [0]];
-export var ParseToOCSF: StaticStructureSchema = [3, n0, _PTOCSF, 0, [_so, _eSv, _oV], [0, 0, 0]];
+export var ParseToOCSF: StaticStructureSchema = [3, n0, _PTOCSF, 0, [_so, _eSv, _oV, _mVa], [0, 0, 0, 0]];
 export var ParseVPC: StaticStructureSchema = [3, n0, _PVPC, 0, [_so], [0]];
 export var ParseWAF: StaticStructureSchema = [3, n0, _PWAF, 0, [_so], [0]];
 export var PatternToken: StaticStructureSchema = [3, n0, _PT, 0, [_dTP, _iDs, _tS, _enu, _iTN], [1, 2, 0, 128 | 1, 0]];
