@@ -326,6 +326,14 @@ DeleteRepositoryPolicy
 </details>
 <details>
 <summary>
+DeregisterPullTimeUpdateExclusion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/DeregisterPullTimeUpdateExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DeregisterPullTimeUpdateExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DeregisterPullTimeUpdateExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeImageReplicationStatus
 </summary>
 
@@ -454,10 +462,26 @@ InitiateLayerUpload
 </details>
 <details>
 <summary>
+ListImageReferrers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/ListImageReferrersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListImageReferrersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListImageReferrersCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListImages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/ListImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListImagesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPullTimeUpdateExclusions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/ListPullTimeUpdateExclusionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListPullTimeUpdateExclusionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListPullTimeUpdateExclusionsCommandOutput/)
 
 </details>
 <details>
@@ -534,6 +558,14 @@ PutReplicationConfiguration
 </details>
 <details>
 <summary>
+RegisterPullTimeUpdateExclusion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/RegisterPullTimeUpdateExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/RegisterPullTimeUpdateExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/RegisterPullTimeUpdateExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
 SetRepositoryPolicy
 </summary>
 
@@ -570,6 +602,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateImageStorageClass
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/UpdateImageStorageClassCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UpdateImageStorageClassCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UpdateImageStorageClassCommandOutput/)
 
 </details>
 <details>

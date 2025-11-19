@@ -56,7 +56,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * //     imageTag: "STRING_VALUE",
  * //   },
  * //   imageScanStatus: { // ImageScanStatus
- * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED",
+ * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED" || "IMAGE_ARCHIVED",
  * //     description: "STRING_VALUE",
  * //   },
  * //   imageScanFindings: { // ImageScanFindings

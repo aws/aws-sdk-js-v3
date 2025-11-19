@@ -3,6 +3,7 @@ const _AD = "AuthorizationData";
 const _ADL = "AuthorizationDataList";
 const _AECID = "AwsEcrContainerImageDetails";
 const _AL = "AttributeList";
+const _BBOPE = "BlockedByOrganizationPolicyException";
 const _BCLA = "BatchCheckLayerAvailability";
 const _BCLAR = "BatchCheckLayerAvailabilityRequest";
 const _BCLARa = "BatchCheckLayerAvailabilityResponse";
@@ -51,6 +52,9 @@ const _DPTCRRe = "DeletePullThroughCacheRuleResponse";
 const _DPTCRRes = "DescribePullThroughCacheRulesRequest";
 const _DPTCRResc = "DescribePullThroughCacheRulesResponse";
 const _DPTCRe = "DescribePullThroughCacheRules";
+const _DPTUE = "DeregisterPullTimeUpdateExclusion";
+const _DPTUER = "DeregisterPullTimeUpdateExclusionRequest";
+const _DPTUERe = "DeregisterPullTimeUpdateExclusionResponse";
 const _DR = "DeleteRepository";
 const _DRCT = "DeleteRepositoryCreationTemplate";
 const _DRCTR = "DeleteRepositoryCreationTemplateRequest";
@@ -72,10 +76,12 @@ const _DRRescr = "DescribeRepositoriesRequest";
 const _DRRescri = "DescribeRepositoriesResponse";
 const _DRe = "DescribeRegistry";
 const _DRes = "DescribeRepositories";
+const _EAEE = "ExclusionAlreadyExistsException";
 const _EC = "EncryptionConfiguration";
 const _ECFRCT = "EncryptionConfigurationForRepositoryCreationTemplate";
 const _EISF = "EnhancedImageScanFinding";
 const _EISFL = "EnhancedImageScanFindingList";
+const _ENFE = "ExclusionNotFoundException";
 const _EUE = "EmptyUploadException";
 const _GAS = "GetAccountSetting";
 const _GASR = "GetAccountSettingRequest";
@@ -102,6 +108,7 @@ const _GRSC = "GetRegistryScanningConfiguration";
 const _GRSCR = "GetRegistryScanningConfigurationRequest";
 const _GRSCRe = "GetRegistryScanningConfigurationResponse";
 const _I = "Image";
+const _IAE = "ImageArchivedException";
 const _IAEE = "ImageAlreadyExistsException";
 const _ID = "ImageDetail";
 const _IDDNME = "ImageDigestDoesNotMatchException";
@@ -118,9 +125,12 @@ const _ILUR = "InitiateLayerUploadRequest";
 const _ILURn = "InitiateLayerUploadResponse";
 const _INFE = "ImageNotFoundException";
 const _IPE = "InvalidParameterException";
+const _IR = "ImageReferrer";
+const _IRL = "ImageReferrerList";
 const _IRS = "ImageReplicationStatus";
 const _IRSL = "ImageReplicationStatusList";
 const _ISC = "ImageScanningConfiguration";
+const _ISCUNSE = "ImageStorageClassUpdateNotSupportedException";
 const _ISF = "ImageScanFinding";
 const _ISFL = "ImageScanFindingList";
 const _ISFS = "ImageScanFindingsSummary";
@@ -141,7 +151,11 @@ const _LI = "ListImages";
 const _LIE = "LayerInaccessibleException";
 const _LIF = "ListImagesFilter";
 const _LIR = "ListImagesRequest";
+const _LIRF = "ListImageReferrersFilter";
+const _LIRR = "ListImageReferrersRequest";
+const _LIRRi = "ListImageReferrersResponse";
 const _LIRi = "ListImagesResponse";
+const _LIRis = "ListImageReferrers";
 const _LL = "LayerList";
 const _LNFE = "LayersNotFoundException";
 const _LPNFE = "LifecyclePolicyNotFoundException";
@@ -153,6 +167,9 @@ const _LPPRL = "LifecyclePolicyPreviewResultList";
 const _LPPS = "LifecyclePolicyPreviewSummary";
 const _LPRA = "LifecyclePolicyRuleAction";
 const _LPTSE = "LayerPartTooSmallException";
+const _LPTUE = "ListPullTimeUpdateExclusions";
+const _LPTUER = "ListPullTimeUpdateExclusionsRequest";
+const _LPTUERi = "ListPullTimeUpdateExclusionsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -202,6 +219,9 @@ const _RNEE = "RepositoryNotEmptyException";
 const _RNFE = "RepositoryNotFoundException";
 const _RPNFE = "RegistryPolicyNotFoundException";
 const _RPNFEe = "RepositoryPolicyNotFoundException";
+const _RPTUE = "RegisterPullTimeUpdateExclusion";
+const _RPTUER = "RegisterPullTimeUpdateExclusionRequest";
+const _RPTUERe = "RegisterPullTimeUpdateExclusionResponse";
 const _RR = "ReplicationRule";
 const _RRL = "ReplicationRuleList";
 const _RSC = "RegistryScanningConfiguration";
@@ -216,6 +236,7 @@ const _Rep = "Repository";
 const _Res = "Resource";
 const _SD = "ScoreDetails";
 const _SE = "ServerException";
+const _SI = "SubjectIdentifier";
 const _SIS = "StartImageScan";
 const _SISR = "StartImageScanRequest";
 const _SISRt = "StartImageScanResponse";
@@ -231,12 +252,17 @@ const _SRPR = "SetRepositoryPolicyRequest";
 const _SRPRe = "SetRepositoryPolicyResponse";
 const _T = "Tag";
 const _TAEE = "TemplateAlreadyExistsException";
+const _TITC = "TransitioningImageTotalCount";
+const _TITCr = "TransitioningImageTotalCounts";
 const _TL = "TagList";
 const _TMTE = "TooManyTagsException";
 const _TNFE = "TemplateNotFoundException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _UISC = "UpdateImageStorageClass";
+const _UISCR = "UpdateImageStorageClassRequest";
+const _UISCRp = "UpdateImageStorageClassResponse";
 const _UITE = "UnsupportedImageTypeException";
 const _ULP = "UploadLayerPart";
 const _ULPR = "UploadLayerPartRequest";
@@ -271,10 +297,14 @@ const _aF = "appliedFor";
 const _aMT = "acceptedMediaTypes";
 const _aMTr = "artifactMediaType";
 const _aRP = "appliedRulePriority";
+const _aS = "artifactStatus";
 const _aSF = "appliedScanFilters";
 const _aT = "authorizationToken";
+const _aTr = "artifactType";
+const _aTrt = "artifactTypes";
 const _ac = "action";
 const _ad = "adjustments";
+const _an = "annotations";
 const _ar = "arch";
 const _at = "attributes";
 const _au = "author";
@@ -288,6 +318,7 @@ const _d = "description";
 const _dU = "downloadUrl";
 const _de = "destinations";
 const _det = "details";
+const _di = "digest";
 const _e = "error";
 const _eA = "expiresAt";
 const _eAx = "exploitAvailable";
@@ -322,6 +353,7 @@ const _iIm = "imageId";
 const _iM = "imageManifest";
 const _iMMT = "imageManifestMediaType";
 const _iPA = "imagePushedAt";
+const _iS = "imageStatus";
 const _iSC = "imageScanningConfiguration";
 const _iSCA = "imageScanCompletedAt";
 const _iSF = "imageScanFindings";
@@ -329,6 +361,7 @@ const _iSFS = "imageScanFindingsSummary";
 const _iSIB = "imageSizeInBytes";
 const _iSS = "imageScanStatus";
 const _iT = "imageTags";
+const _iTC = "imageTotalCount";
 const _iTM = "imageTagMutability";
 const _iTMEF = "imageTagMutabilityExclusionFilters";
 const _iTm = "imageTag";
@@ -341,6 +374,8 @@ const _kE = "kmsError";
 const _kK = "kmsKey";
 const _l = "layers";
 const _lA = "layerAvailability";
+const _lAA = "lastArchivedAt";
+const _lAAa = "lastActivatedAt";
 const _lBR = "lastByteReceived";
 const _lD = "layerDigests";
 const _lDa = "layerDigest";
@@ -353,14 +388,15 @@ const _lPT = "lifecyclePolicyText";
 const _lRPT = "lastRecordedPullTime";
 const _lS = "layerSize";
 const _lVBR = "lastValidByteReceived";
-const _m = "metric";
+const _m = "message";
 const _mR = "maxResults";
 const _mT = "mediaType";
-const _me = "message";
+const _me = "metric";
 const _n = "name";
 const _nT = "nextToken";
 const _p = "platform";
 const _pA = "pushedAt";
+const _pAr = "principalArn";
 const _pE = "proxyEndpoint";
 const _pFB = "partFirstByte";
 const _pLB = "partLastByte";
@@ -369,6 +405,7 @@ const _pR = "previewResults";
 const _pS = "partSize";
 const _pT = "policyText";
 const _pTCR = "pullThroughCacheRules";
+const _pTUE = "pullTimeUpdateExclusions";
 const _pVD = "packageVulnerabilityDetails";
 const _pr = "prefix";
 const _pre = "prefixes";
@@ -393,6 +430,7 @@ const _rV = "relatedVulnerabilities";
 const _re = "repository";
 const _rea = "reason";
 const _rec = "recommendation";
+const _ref = "referrers";
 const _reg = "region";
 const _rel = "release";
 const _rem = "remediation";
@@ -402,9 +440,12 @@ const _ru = "rules";
 const _s = "source";
 const _sC = "scanningConfigurations";
 const _sCc = "scanningConfiguration";
+const _sCt = "storageClass";
 const _sD = "scoreDetails";
 const _sF = "scanFrequency";
+const _sI = "subjectId";
 const _sLH = "sourceLayerHash";
+const _sMD = "subjectManifestDigest";
 const _sOP = "scanOnPush";
 const _sS = "scoreSource";
 const _sT = "scanType";
@@ -413,12 +454,15 @@ const _sV = "scoringVector";
 const _sc = "score";
 const _se = "severity";
 const _ser = "server";
+const _si = "size";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ecr";
 const _st = "status";
 const _su = "summary";
 const _t = "tags";
+const _tITC = "transitioningImageTotalCounts";
 const _tK = "tagKeys";
 const _tS = "tagStatus";
+const _tSC = "targetStorageClass";
 const _te = "text";
 const _ti = "title";
 const _ty = "type";
@@ -451,10 +495,15 @@ import {
 
 import { ECRServiceException as __ECRServiceException } from "../models/ECRServiceException";
 import {
+  BlockedByOrganizationPolicyException as __BlockedByOrganizationPolicyException,
   EmptyUploadException as __EmptyUploadException,
+  ExclusionAlreadyExistsException as __ExclusionAlreadyExistsException,
+  ExclusionNotFoundException as __ExclusionNotFoundException,
   ImageAlreadyExistsException as __ImageAlreadyExistsException,
+  ImageArchivedException as __ImageArchivedException,
   ImageDigestDoesNotMatchException as __ImageDigestDoesNotMatchException,
   ImageNotFoundException as __ImageNotFoundException,
+  ImageStorageClassUpdateNotSupportedException as __ImageStorageClassUpdateNotSupportedException,
   ImageTagAlreadyExistsException as __ImageTagAlreadyExistsException,
   InvalidLayerException as __InvalidLayerException,
   InvalidLayerPartException as __InvalidLayerPartException,
@@ -569,6 +618,18 @@ export var BatchGetRepositoryScanningConfigurationResponse: StaticStructureSchem
   [_sC, _f],
   [() => RepositoryScanningConfigurationList, () => RepositoryScanningConfigurationFailureList],
 ];
+export var BlockedByOrganizationPolicyException: StaticErrorSchema = [
+  -3,
+  n0,
+  _BBOPE,
+  {
+    [_e]: _c,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(BlockedByOrganizationPolicyException, __BlockedByOrganizationPolicyException);
+
 export var CompleteLayerUploadRequest: StaticStructureSchema = [
   3,
   n0,
@@ -639,7 +700,7 @@ export var CreateRepositoryRequest: StaticStructureSchema = [
 ];
 export var CreateRepositoryResponse: StaticStructureSchema = [3, n0, _CRRr, 0, [_re], [() => Repository]];
 export var CvssScore: StaticStructureSchema = [3, n0, _CS, 0, [_bS, _sV, _s, _ve], [1, 0, 0, 0]];
-export var CvssScoreAdjustment: StaticStructureSchema = [3, n0, _CSA, 0, [_m, _rea], [0, 0]];
+export var CvssScoreAdjustment: StaticStructureSchema = [3, n0, _CSA, 0, [_me, _rea], [0, 0]];
 export var CvssScoreDetails: StaticStructureSchema = [
   3,
   n0,
@@ -681,6 +742,8 @@ export var DeleteRepositoryPolicyRequest: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteRepositoryPolicyResponse: StaticStructureSchema = [3, n0, _DRPRele, 0, [_rI, _rN, _pT], [0, 0, 0]];
 export var DeleteRepositoryRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_rI, _rN, _fo], [0, 0, 2]];
 export var DeleteRepositoryResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [_re], [() => Repository]];
+export var DeregisterPullTimeUpdateExclusionRequest: StaticStructureSchema = [3, n0, _DPTUER, 0, [_pAr], [0]];
+export var DeregisterPullTimeUpdateExclusionResponse: StaticStructureSchema = [3, n0, _DPTUERe, 0, [_pAr], [0]];
 export var DescribeImageReplicationStatusRequest: StaticStructureSchema = [
   3,
   n0,
@@ -713,7 +776,7 @@ export var DescribeImageScanFindingsResponse: StaticStructureSchema = [
   [_rI, _rN, _iIm, _iSS, _iSF, _nT],
   [0, 0, () => ImageIdentifier, () => ImageScanStatus, () => ImageScanFindings, 0],
 ];
-export var DescribeImagesFilter: StaticStructureSchema = [3, n0, _DIF, 0, [_tS], [0]];
+export var DescribeImagesFilter: StaticStructureSchema = [3, n0, _DIF, 0, [_tS, _iS], [0, 0]];
 export var DescribeImagesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -787,7 +850,7 @@ export var EmptyUploadException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(EmptyUploadException, __EmptyUploadException);
@@ -827,6 +890,30 @@ export var EnhancedImageScanFinding: StaticStructureSchema = [
     0,
   ],
 ];
+export var ExclusionAlreadyExistsException: StaticErrorSchema = [
+  -3,
+  n0,
+  _EAEE,
+  {
+    [_e]: _c,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ExclusionAlreadyExistsException, __ExclusionAlreadyExistsException);
+
+export var ExclusionNotFoundException: StaticErrorSchema = [
+  -3,
+  n0,
+  _ENFE,
+  {
+    [_e]: _c,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ExclusionNotFoundException, __ExclusionNotFoundException);
+
 export var GetAccountSettingRequest: StaticStructureSchema = [3, n0, _GASR, 0, [_n], [0]];
 export var GetAccountSettingResponse: StaticStructureSchema = [3, n0, _GASRe, 0, [_n, _v], [0, 0]];
 export var GetAuthorizationTokenRequest: StaticStructureSchema = [3, n0, _GATR, 0, [_rIe], [64 | 0]];
@@ -886,18 +973,30 @@ export var ImageAlreadyExistsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ImageAlreadyExistsException, __ImageAlreadyExistsException);
+
+export var ImageArchivedException: StaticErrorSchema = [
+  -3,
+  n0,
+  _IAE,
+  {
+    [_e]: _c,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ImageArchivedException, __ImageArchivedException);
 
 export var ImageDetail: StaticStructureSchema = [
   3,
   n0,
   _ID,
   0,
-  [_rI, _rN, _iDm, _iT, _iSIB, _iPA, _iSS, _iSFS, _iMMT, _aMTr, _lRPT],
-  [0, 0, 0, 64 | 0, 1, 4, () => ImageScanStatus, () => ImageScanFindingsSummary, 0, 0, 4],
+  [_rI, _rN, _iDm, _iT, _iSIB, _iPA, _iSS, _iSFS, _iMMT, _aMTr, _lRPT, _sMD, _iS, _lAA, _lAAa],
+  [0, 0, 0, 64 | 0, 1, 4, () => ImageScanStatus, () => ImageScanFindingsSummary, 0, 0, 4, 0, 0, 4, 4],
 ];
 export var ImageDigestDoesNotMatchException: StaticErrorSchema = [
   -3,
@@ -906,7 +1005,7 @@ export var ImageDigestDoesNotMatchException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ImageDigestDoesNotMatchException, __ImageDigestDoesNotMatchException);
@@ -920,11 +1019,19 @@ export var ImageNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ImageNotFoundException, __ImageNotFoundException);
 
+export var ImageReferrer: StaticStructureSchema = [
+  3,
+  n0,
+  _IR,
+  0,
+  [_di, _mT, _aTr, _si, _an, _aS],
+  [0, 0, 0, 1, 128 | 0, 0],
+];
 export var ImageReplicationStatus: StaticStructureSchema = [3, n0, _IRS, 0, [_reg, _rI, _st, _fC], [0, 0, 0, 0]];
 export var ImageScanFinding: StaticStructureSchema = [
   3,
@@ -945,6 +1052,21 @@ export var ImageScanFindings: StaticStructureSchema = [
 export var ImageScanFindingsSummary: StaticStructureSchema = [3, n0, _ISFS, 0, [_iSCA, _vSUA, _fSC], [4, 4, 128 | 1]];
 export var ImageScanningConfiguration: StaticStructureSchema = [3, n0, _ISC, 0, [_sOP], [2]];
 export var ImageScanStatus: StaticStructureSchema = [3, n0, _ISS, 0, [_st, _d], [0, 0]];
+export var ImageStorageClassUpdateNotSupportedException: StaticErrorSchema = [
+  -3,
+  n0,
+  _ISCUNSE,
+  {
+    [_e]: _c,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(
+  ImageStorageClassUpdateNotSupportedException,
+  __ImageStorageClassUpdateNotSupportedException
+);
+
 export var ImageTagAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
@@ -952,7 +1074,7 @@ export var ImageTagAlreadyExistsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ImageTagAlreadyExistsException, __ImageTagAlreadyExistsException);
@@ -967,7 +1089,7 @@ export var InvalidLayerException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidLayerException, __InvalidLayerException);
@@ -979,7 +1101,7 @@ export var InvalidLayerPartException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_rI, _rN, _uI, _lVBR, _me],
+  [_rI, _rN, _uI, _lVBR, _m],
   [0, 0, 0, 1, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidLayerPartException, __InvalidLayerPartException);
@@ -991,7 +1113,7 @@ export var InvalidParameterException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
@@ -1003,7 +1125,7 @@ export var InvalidTagParameterException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTagParameterException, __InvalidTagParameterException);
@@ -1015,7 +1137,7 @@ export var KmsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me, _kE],
+  [_m, _kE],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(KmsException, __KmsException);
@@ -1028,7 +1150,7 @@ export var LayerAlreadyExistsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LayerAlreadyExistsException, __LayerAlreadyExistsException);
@@ -1041,7 +1163,7 @@ export var LayerInaccessibleException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LayerInaccessibleException, __LayerInaccessibleException);
@@ -1053,7 +1175,7 @@ export var LayerPartTooSmallException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LayerPartTooSmallException, __LayerPartTooSmallException);
@@ -1065,7 +1187,7 @@ export var LayersNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LayersNotFoundException, __LayersNotFoundException);
@@ -1077,7 +1199,7 @@ export var LifecyclePolicyNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LifecyclePolicyNotFoundException, __LifecyclePolicyNotFoundException);
@@ -1090,7 +1212,7 @@ export var LifecyclePolicyPreviewInProgressException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(
@@ -1105,7 +1227,7 @@ export var LifecyclePolicyPreviewNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LifecyclePolicyPreviewNotFoundException, __LifecyclePolicyPreviewNotFoundException);
@@ -1115,11 +1237,18 @@ export var LifecyclePolicyPreviewResult: StaticStructureSchema = [
   n0,
   _LPPR,
   0,
-  [_iT, _iDm, _iPA, _ac, _aRP],
-  [64 | 0, 0, 4, () => LifecyclePolicyRuleAction, 1],
+  [_iT, _iDm, _iPA, _ac, _aRP, _sCt],
+  [64 | 0, 0, 4, () => LifecyclePolicyRuleAction, 1, 0],
 ];
-export var LifecyclePolicyPreviewSummary: StaticStructureSchema = [3, n0, _LPPS, 0, [_eITC], [1]];
-export var LifecyclePolicyRuleAction: StaticStructureSchema = [3, n0, _LPRA, 0, [_ty], [0]];
+export var LifecyclePolicyPreviewSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _LPPS,
+  0,
+  [_eITC, _tITC],
+  [1, () => TransitioningImageTotalCounts],
+];
+export var LifecyclePolicyRuleAction: StaticStructureSchema = [3, n0, _LPRA, 0, [_ty, _tSC], [0, 0]];
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -1127,12 +1256,29 @@ export var LimitExceededException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
 
-export var ListImagesFilter: StaticStructureSchema = [3, n0, _LIF, 0, [_tS], [0]];
+export var ListImageReferrersFilter: StaticStructureSchema = [3, n0, _LIRF, 0, [_aTrt, _aS], [64 | 0, 0]];
+export var ListImageReferrersRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRR,
+  0,
+  [_rI, _rN, _sI, _fi, _nT, _mR],
+  [0, 0, () => SubjectIdentifier, () => ListImageReferrersFilter, 0, 1],
+];
+export var ListImageReferrersResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRRi,
+  0,
+  [_ref, _nT],
+  [() => ImageReferrerList, 0],
+];
+export var ListImagesFilter: StaticStructureSchema = [3, n0, _LIF, 0, [_tS, _iS], [0, 0]];
 export var ListImagesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1142,6 +1288,15 @@ export var ListImagesRequest: StaticStructureSchema = [
   [0, 0, 0, 1, () => ListImagesFilter],
 ];
 export var ListImagesResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_iI, _nT], [() => ImageIdentifierList, 0]];
+export var ListPullTimeUpdateExclusionsRequest: StaticStructureSchema = [3, n0, _LPTUER, 0, [_mR, _nT], [1, 0]];
+export var ListPullTimeUpdateExclusionsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LPTUERi,
+  0,
+  [_pTUE, _nT],
+  [64 | 0, 0],
+];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
 export var PackageVulnerabilityDetails: StaticStructureSchema = [
@@ -1167,7 +1322,7 @@ export var PullThroughCacheRuleAlreadyExistsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(
@@ -1182,7 +1337,7 @@ export var PullThroughCacheRuleNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(PullThroughCacheRuleNotFoundException, __PullThroughCacheRuleNotFoundException);
@@ -1274,11 +1429,13 @@ export var ReferencedImagesNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException, __ReferencedImagesNotFoundException);
 
+export var RegisterPullTimeUpdateExclusionRequest: StaticStructureSchema = [3, n0, _RPTUER, 0, [_pAr], [0]];
+export var RegisterPullTimeUpdateExclusionResponse: StaticStructureSchema = [3, n0, _RPTUERe, 0, [_pAr, _cAr], [0, 4]];
 export var RegistryPolicyNotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -1286,7 +1443,7 @@ export var RegistryPolicyNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RegistryPolicyNotFoundException, __RegistryPolicyNotFoundException);
@@ -1343,7 +1500,7 @@ export var RepositoryAlreadyExistsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RepositoryAlreadyExistsException, __RepositoryAlreadyExistsException);
@@ -1377,7 +1534,7 @@ export var RepositoryNotEmptyException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RepositoryNotEmptyException, __RepositoryNotEmptyException);
@@ -1389,7 +1546,7 @@ export var RepositoryNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RepositoryNotFoundException, __RepositoryNotFoundException);
@@ -1401,7 +1558,7 @@ export var RepositoryPolicyNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(RepositoryPolicyNotFoundException, __RepositoryPolicyNotFoundException);
@@ -1439,7 +1596,7 @@ export var ScanNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ScanNotFoundException, __ScanNotFoundException);
@@ -1452,7 +1609,7 @@ export var SecretNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(SecretNotFoundException, __SecretNotFoundException);
@@ -1464,7 +1621,7 @@ export var ServerException: StaticErrorSchema = [
   {
     [_e]: _ser,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ServerException, __ServerException);
@@ -1496,6 +1653,7 @@ export var StartLifecyclePolicyPreviewResponse: StaticStructureSchema = [
   [_rI, _rN, _lPT, _st],
   [0, 0, 0, 0],
 ];
+export var SubjectIdentifier: StaticStructureSchema = [3, n0, _SI, 0, [_iDm], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -1506,7 +1664,7 @@ export var TemplateAlreadyExistsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TemplateAlreadyExistsException, __TemplateAlreadyExistsException);
@@ -1518,7 +1676,7 @@ export var TemplateNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TemplateNotFoundException, __TemplateNotFoundException);
@@ -1530,11 +1688,12 @@ export var TooManyTagsException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
 
+export var TransitioningImageTotalCount: StaticStructureSchema = [3, n0, _TITC, 0, [_tSC, _iTC], [0, 1]];
 export var UnableToAccessSecretException: StaticErrorSchema = [
   -3,
   n0,
@@ -1542,7 +1701,7 @@ export var UnableToAccessSecretException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnableToAccessSecretException, __UnableToAccessSecretException);
@@ -1554,7 +1713,7 @@ export var UnableToDecryptSecretValueException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnableToDecryptSecretValueException, __UnableToDecryptSecretValueException);
@@ -1566,7 +1725,7 @@ export var UnableToGetUpstreamImageException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnableToGetUpstreamImageException, __UnableToGetUpstreamImageException);
@@ -1578,7 +1737,7 @@ export var UnableToGetUpstreamLayerException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnableToGetUpstreamLayerException, __UnableToGetUpstreamLayerException);
@@ -1590,7 +1749,7 @@ export var UnsupportedImageTypeException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedImageTypeException, __UnsupportedImageTypeException);
@@ -1602,13 +1761,29 @@ export var UnsupportedUpstreamRegistryException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UnsupportedUpstreamRegistryException, __UnsupportedUpstreamRegistryException);
 
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateImageStorageClassRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UISCR,
+  0,
+  [_rI, _rN, _iIm, _tSC],
+  [0, 0, () => ImageIdentifier, 0],
+];
+export var UpdateImageStorageClassResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UISCRp,
+  0,
+  [_rI, _rN, _iIm, _iS],
+  [0, 0, () => ImageIdentifier, 0],
+];
 export var UpdatePullThroughCacheRuleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1668,7 +1843,7 @@ export var UploadNotFoundException: StaticErrorSchema = [
   {
     [_e]: _c,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(UploadNotFoundException, __UploadNotFoundException);
@@ -1690,7 +1865,7 @@ export var ValidationException: StaticErrorSchema = [
     [_e]: _c,
     [_hE]: 400,
   },
-  [_me],
+  [_m],
   [0],
 ];
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
@@ -1708,6 +1883,8 @@ export var __Unit = "unit" as const;
 export var ECRServiceException: StaticErrorSchema = [-3, _sm, "ECRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECRServiceException, __ECRServiceException);
 
+export var ArtifactTypeList = 64 | 0;
+
 export var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => Attribute];
 export var AuthorizationDataList: StaticListSchema = [1, n0, _ADL, 0, () => AuthorizationData];
 export var BatchedOperationLayerDigestList = 64 | 0;
@@ -1721,6 +1898,7 @@ export var ImageDetailList: StaticListSchema = [1, n0, _IDL, 0, () => ImageDetai
 export var ImageFailureList: StaticListSchema = [1, n0, _IFL, 0, () => ImageFailure];
 export var ImageIdentifierList: StaticListSchema = [1, n0, _IIL, 0, () => ImageIdentifier];
 export var ImageList: StaticListSchema = [1, n0, _IL, 0, () => Image];
+export var ImageReferrerList: StaticListSchema = [1, n0, _IRL, 0, () => ImageReferrer];
 export var ImageReplicationStatusList: StaticListSchema = [1, n0, _IRSL, 0, () => ImageReplicationStatus];
 export var ImageScanFindingList: StaticListSchema = [1, n0, _ISFL, 0, () => ImageScanFinding];
 export var ImageTagList = 64 | 0;
@@ -1745,6 +1923,8 @@ export var PrefixList = 64 | 0;
 
 export var PullThroughCacheRuleList: StaticListSchema = [1, n0, _PTCRL, 0, () => PullThroughCacheRule];
 export var PullThroughCacheRuleRepositoryPrefixList = 64 | 0;
+
+export var PullTimeUpdateExclusionList = 64 | 0;
 
 export var RCTAppliedForList = 64 | 0;
 
@@ -1781,7 +1961,10 @@ export var ScanningRepositoryFilterList: StaticListSchema = [1, n0, _SRFL, 0, ()
 export var TagKeyList = 64 | 0;
 
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
+export var TransitioningImageTotalCounts: StaticListSchema = [1, n0, _TITCr, 0, () => TransitioningImageTotalCount];
 export var VulnerablePackagesList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage];
+export var Annotations = 128 | 0;
+
 export var FindingSeverityCounts = 128 | 1;
 
 export var Tags = 128 | 0;
@@ -1897,6 +2080,14 @@ export var DeleteRepositoryPolicy: StaticOperationSchema = [
   0,
   () => DeleteRepositoryPolicyRequest,
   () => DeleteRepositoryPolicyResponse,
+];
+export var DeregisterPullTimeUpdateExclusion: StaticOperationSchema = [
+  9,
+  n0,
+  _DPTUE,
+  0,
+  () => DeregisterPullTimeUpdateExclusionRequest,
+  () => DeregisterPullTimeUpdateExclusionResponse,
 ];
 export var DescribeImageReplicationStatus: StaticOperationSchema = [
   9,
@@ -2026,7 +2217,23 @@ export var InitiateLayerUpload: StaticOperationSchema = [
   () => InitiateLayerUploadRequest,
   () => InitiateLayerUploadResponse,
 ];
+export var ListImageReferrers: StaticOperationSchema = [
+  9,
+  n0,
+  _LIRis,
+  0,
+  () => ListImageReferrersRequest,
+  () => ListImageReferrersResponse,
+];
 export var ListImages: StaticOperationSchema = [9, n0, _LI, 0, () => ListImagesRequest, () => ListImagesResponse];
+export var ListPullTimeUpdateExclusions: StaticOperationSchema = [
+  9,
+  n0,
+  _LPTUE,
+  0,
+  () => ListPullTimeUpdateExclusionsRequest,
+  () => ListPullTimeUpdateExclusionsResponse,
+];
 export var ListTagsForResource: StaticOperationSchema = [
   9,
   n0,
@@ -2092,6 +2299,14 @@ export var PutReplicationConfiguration: StaticOperationSchema = [
   () => PutReplicationConfigurationRequest,
   () => PutReplicationConfigurationResponse,
 ];
+export var RegisterPullTimeUpdateExclusion: StaticOperationSchema = [
+  9,
+  n0,
+  _RPTUE,
+  0,
+  () => RegisterPullTimeUpdateExclusionRequest,
+  () => RegisterPullTimeUpdateExclusionResponse,
+];
 export var SetRepositoryPolicy: StaticOperationSchema = [
   9,
   n0,
@@ -2124,6 +2339,14 @@ export var UntagResource: StaticOperationSchema = [
   0,
   () => UntagResourceRequest,
   () => UntagResourceResponse,
+];
+export var UpdateImageStorageClass: StaticOperationSchema = [
+  9,
+  n0,
+  _UISC,
+  0,
+  () => UpdateImageStorageClassRequest,
+  () => UpdateImageStorageClassResponse,
 ];
 export var UpdatePullThroughCacheRule: StaticOperationSchema = [
   9,

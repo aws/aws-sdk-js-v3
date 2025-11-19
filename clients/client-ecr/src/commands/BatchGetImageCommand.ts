@@ -73,7 +73,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * //         imageDigest: "STRING_VALUE",
  * //         imageTag: "STRING_VALUE",
  * //       },
- * //       failureCode: "InvalidImageDigest" || "InvalidImageTag" || "ImageTagDoesNotMatchDigest" || "ImageNotFound" || "MissingDigestAndTag" || "ImageReferencedByManifestList" || "KmsError" || "UpstreamAccessDenied" || "UpstreamTooManyRequests" || "UpstreamUnavailable",
+ * //       failureCode: "InvalidImageDigest" || "InvalidImageTag" || "ImageTagDoesNotMatchDigest" || "ImageNotFound" || "MissingDigestAndTag" || "ImageReferencedByManifestList" || "KmsError" || "UpstreamAccessDenied" || "UpstreamTooManyRequests" || "UpstreamUnavailable" || "ImageInaccessible",
  * //       failureReason: "STRING_VALUE",
  * //     },
  * //   ],

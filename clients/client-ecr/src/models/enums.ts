@@ -17,6 +17,7 @@ export type LayerFailureCode = (typeof LayerFailureCode)[keyof typeof LayerFailu
  * @enum
  */
 export const LayerAvailability = {
+  ARCHIVED: "ARCHIVED",
   AVAILABLE: "AVAILABLE",
   UNAVAILABLE: "UNAVAILABLE",
 } as const;
@@ -30,6 +31,7 @@ export type LayerAvailability = (typeof LayerAvailability)[keyof typeof LayerAva
  * @enum
  */
 export const ImageFailureCode = {
+  ImageInaccessible: "ImageInaccessible",
   ImageNotFound: "ImageNotFound",
   ImageReferencedByManifestList: "ImageReferencedByManifestList",
   ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
@@ -178,6 +180,21 @@ export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof Replicat
  * @public
  * @enum
  */
+export const ImageStatusFilter = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ANY: "ANY",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type ImageStatusFilter = (typeof ImageStatusFilter)[keyof typeof ImageStatusFilter];
+
+/**
+ * @public
+ * @enum
+ */
 export const TagStatus = {
   ANY: "ANY",
   TAGGED: "TAGGED",
@@ -214,6 +231,7 @@ export const ScanStatus = {
   COMPLETE: "COMPLETE",
   FAILED: "FAILED",
   FINDINGS_UNAVAILABLE: "FINDINGS_UNAVAILABLE",
+  IMAGE_ARCHIVED: "IMAGE_ARCHIVED",
   IN_PROGRESS: "IN_PROGRESS",
   LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
   PENDING: "PENDING",
@@ -224,6 +242,20 @@ export const ScanStatus = {
  * @public
  */
 export type ScanStatus = (typeof ScanStatus)[keyof typeof ScanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
 
 /**
  * @public
@@ -241,13 +273,41 @@ export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof Re
  * @public
  * @enum
  */
+export const LifecyclePolicyTargetStorageClass = {
+  ARCHIVE: "ARCHIVE",
+} as const;
+/**
+ * @public
+ */
+export type LifecyclePolicyTargetStorageClass =
+  (typeof LifecyclePolicyTargetStorageClass)[keyof typeof LifecyclePolicyTargetStorageClass];
+
+/**
+ * @public
+ * @enum
+ */
 export const ImageActionType = {
   EXPIRE: "EXPIRE",
+  TRANSITION: "TRANSITION",
 } as const;
 /**
  * @public
  */
 export type ImageActionType = (typeof ImageActionType)[keyof typeof ImageActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyStorageClass = {
+  ARCHIVE: "ARCHIVE",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type LifecyclePolicyStorageClass =
+  (typeof LifecyclePolicyStorageClass)[keyof typeof LifecyclePolicyStorageClass];
 
 /**
  * @public
@@ -277,3 +337,45 @@ export const ScanType = {
  * @public
  */
 export type ScanType = (typeof ScanType)[keyof typeof ScanType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactStatusFilter = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ANY: "ANY",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type ArtifactStatusFilter = (typeof ArtifactStatusFilter)[keyof typeof ArtifactStatusFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const ArtifactStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetStorageClass = {
+  ARCHIVE: "ARCHIVE",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type TargetStorageClass = (typeof TargetStorageClass)[keyof typeof TargetStorageClass];

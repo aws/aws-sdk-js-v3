@@ -58,7 +58,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * //   layers: [ // LayerList
  * //     { // Layer
  * //       layerDigest: "STRING_VALUE",
- * //       layerAvailability: "AVAILABLE" || "UNAVAILABLE",
+ * //       layerAvailability: "AVAILABLE" || "UNAVAILABLE" || "ARCHIVED",
  * //       layerSize: Number("long"),
  * //       mediaType: "STRING_VALUE",
  * //     },

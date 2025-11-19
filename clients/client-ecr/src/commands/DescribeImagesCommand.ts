@@ -35,13 +35,11 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  *                 image than the image shown in the Amazon Web Services Management Console.</p>
  *          </note>
  *          <important>
- *             <p>The new version of Amazon ECR <i>Basic Scanning</i> doesn't use the
- *                 <a>ImageDetail$imageScanFindingsSummary</a> and
- *                 <a>ImageDetail$imageScanStatus</a>
- *                 attributes from the API response to return scan results.
- *                 Use the <a>DescribeImageScanFindings</a> API instead. For more
- *                 information about Amazon Web Services native basic scanning, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html"> Scan images for software
- *                     vulnerabilities in Amazon ECR</a>.</p>
+ *             <p>The new version of Amazon ECR
+ *                 <i>Basic Scanning</i> doesn't use the <a>ImageDetail$imageScanFindingsSummary</a> and <a>ImageDetail$imageScanStatus</a> attributes from the API response to
+ *                 return scan results. Use the <a>DescribeImageScanFindings</a> API
+ *                 instead. For more information about Amazon Web Services native basic scanning, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html"> Scan
+ *                     images for software vulnerabilities in Amazon ECR</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +62,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  *   maxResults: Number("int"),
  *   filter: { // DescribeImagesFilter
  *     tagStatus: "TAGGED" || "UNTAGGED" || "ANY",
+ *     imageStatus: "ACTIVE" || "ARCHIVED" || "ACTIVATING" || "ANY",
  *   },
  * };
  * const command = new DescribeImagesCommand(input);
@@ -80,7 +79,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * //       imageSizeInBytes: Number("long"),
  * //       imagePushedAt: new Date("TIMESTAMP"),
  * //       imageScanStatus: { // ImageScanStatus
- * //         status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED",
+ * //         status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED" || "IMAGE_ARCHIVED",
  * //         description: "STRING_VALUE",
  * //       },
  * //       imageScanFindingsSummary: { // ImageScanFindingsSummary
@@ -93,6 +92,10 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * //       imageManifestMediaType: "STRING_VALUE",
  * //       artifactMediaType: "STRING_VALUE",
  * //       lastRecordedPullTime: new Date("TIMESTAMP"),
+ * //       subjectManifestDigest: "STRING_VALUE",
+ * //       imageStatus: "ACTIVE" || "ARCHIVED" || "ACTIVATING",
+ * //       lastArchivedAt: new Date("TIMESTAMP"),
+ * //       lastActivatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

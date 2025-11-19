@@ -49,6 +49,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *   maxResults: Number("int"),
  *   filter: { // ListImagesFilter
  *     tagStatus: "TAGGED" || "UNTAGGED" || "ANY",
+ *     imageStatus: "ACTIVE" || "ARCHIVED" || "ACTIVATING" || "ANY",
  *   },
  * };
  * const command = new ListImagesCommand(input);

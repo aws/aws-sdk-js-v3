@@ -28,11 +28,10 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
 
 /**
  * <p>Starts a basic image vulnerability scan.</p>
- *          <p> A basic image scan can only be started once per 24
- *             hours on an individual image. This limit includes if an image was scanned on initial
- *             push. You can start up to 100,000 basic scans per 24 hours. This limit includes both scans on initial push
- *             and scans initiated by the StartImageScan API. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html">Basic scanning</a> in the
- *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ *          <p> A basic image scan can only be started once per 24 hours on an individual image. This
+ *             limit includes if an image was scanned on initial push. You can start up to 100,000
+ *             basic scans per 24 hours. This limit includes both scans on initial push and scans
+ *             initiated by the StartImageScan API. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html">Basic scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +58,7 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * //     imageTag: "STRING_VALUE",
  * //   },
  * //   imageScanStatus: { // ImageScanStatus
- * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED",
+ * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED" || "IMAGE_ARCHIVED",
  * //     description: "STRING_VALUE",
  * //   },
  * // };
@@ -71,6 +70,9 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * @see {@link StartImageScanCommandInput} for command's `input` shape.
  * @see {@link StartImageScanCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link ImageArchivedException} (client fault)
+ *  <p>The specified image is archived and cannot be scanned.</p>
  *
  * @throws {@link ImageNotFoundException} (client fault)
  *  <p>The image requested does not exist in the specified repository.</p>

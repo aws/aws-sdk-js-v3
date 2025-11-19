@@ -1,14 +1,20 @@
 // smithy-typescript generated code
 import {
+  ArtifactStatus,
+  ArtifactStatusFilter,
   EncryptionType,
   FindingSeverity,
   ImageActionType,
   ImageFailureCode,
+  ImageStatus,
+  ImageStatusFilter,
   ImageTagMutability,
   ImageTagMutabilityExclusionFilterType,
   LayerAvailability,
   LayerFailureCode,
   LifecyclePolicyPreviewStatus,
+  LifecyclePolicyStorageClass,
+  LifecyclePolicyTargetStorageClass,
   RCTAppliedFor,
   ReplicationStatus,
   RepositoryFilterType,
@@ -18,6 +24,7 @@ import {
   ScanStatus,
   ScanType,
   TagStatus,
+  TargetStorageClass,
   UpstreamRegistry,
 } from "./enums";
 
@@ -486,7 +493,7 @@ export interface CreatePullThroughCacheRuleRequest {
    *          <ul>
    *             <li>
    *                <p>Amazon ECR (<code>ecr</code>) –
-   *                     <code><accountId>.dkr.ecr.<region>.amazonaws.com</code>
+   *                         <code><accountId>.dkr.ecr.<region>.amazonaws.com</code>
    *                </p>
    *             </li>
    *             <li>
@@ -678,18 +685,20 @@ export interface ImageScanningConfiguration {
 }
 
 /**
- * <p>Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.</p>
+ * <p>A filter that specifies which image tags should be excluded from the repository's
+ *             image tag mutability setting.</p>
  * @public
  */
 export interface ImageTagMutabilityExclusionFilter {
   /**
-   * <p>Specifies the type of filter to use for excluding image tags from the repository's mutability setting.</p>
+   * <p>The type of filter to apply for excluding image tags from mutability settings.</p>
    * @public
    */
   filterType: ImageTagMutabilityExclusionFilterType | undefined;
 
   /**
-   * <p>The value to use when filtering image tags. Must be either a regular expression pattern or a tag prefix value based on the specified filter type.</p>
+   * <p>The filter value used to match image tags for exclusion from mutability
+   *             settings.</p>
    * @public
    */
   filter: string | undefined;
@@ -756,13 +765,19 @@ export interface CreateRepositoryRequest {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>Creates a repository with a list of filters that define which image tags can override the default image tag mutability setting.</p>
+   * <p>A list of filters that specify which image tags should be excluded from the
+   *             repository's image tag mutability setting.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
 
   /**
-   * <p>The image scanning configuration for the repository. This determines whether images
+   * <important>
+   *             <p>The <code>imageScanningConfiguration</code> parameter is being deprecated, in
+   *                 favor of specifying the image scanning configuration at the registry level. For more
+   *                 information, see <code>PutRegistryScanningConfiguration</code>.</p>
+   *          </important>
+   *          <p>The image scanning configuration for the repository. This determines whether images
    *             are scanned for known vulnerabilities after being pushed to the repository.</p>
    * @public
    */
@@ -821,7 +836,8 @@ export interface Repository {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.</p>
+   * <p>A list of filters that specify which image tags are excluded from the repository's
+   *             image tag mutability setting.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
@@ -939,7 +955,8 @@ export interface CreateRepositoryCreationTemplateRequest {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>Creates a repository creation template with a list of filters that define which image tags can override the default image tag mutability setting.</p>
+   * <p>A list of filters that specify which image tags should be excluded from the repository
+   *             creation template's image tag mutability setting.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
@@ -1011,15 +1028,16 @@ export interface RepositoryCreationTemplate {
 
   /**
    * <p>The tag mutability setting for the repository. If this parameter is omitted, the
-   *             default setting of <code>MUTABLE</code> will be used which will allow image tags to be overwritten.
-   *             If <code>IMMUTABLE</code> is specified, all image tags within the repository will be immutable which
-   *             will prevent them from being overwritten.</p>
+   *             default setting of <code>MUTABLE</code> will be used which will allow image tags to be
+   *             overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the
+   *             repository will be immutable which will prevent them from being overwritten.</p>
    * @public
    */
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.</p>
+   * <p>A list of filters that specify which image tags are excluded from the repository
+   *             creation template's image tag mutability setting.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
@@ -1332,6 +1350,28 @@ export interface DeleteRepositoryPolicyResponse {
 /**
  * @public
  */
+export interface DeregisterPullTimeUpdateExclusionRequest {
+  /**
+   * <p>The ARN of the IAM principal to remove from the pull time update exclusion list.</p>
+   * @public
+   */
+  principalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterPullTimeUpdateExclusionResponse {
+  /**
+   * <p>The ARN of the IAM principal that was removed from the pull time update exclusion list.</p>
+   * @public
+   */
+  principalArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeImageReplicationStatusRequest {
   /**
    * <p>The name of the repository that the image is in.</p>
@@ -1418,6 +1458,12 @@ export interface DescribeImagesFilter {
    * @public
    */
   tagStatus?: TagStatus | undefined;
+
+  /**
+   * <p>The image status with which to filter your <a>DescribeImages</a> results. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.</p>
+   * @public
+   */
+  imageStatus?: ImageStatusFilter | undefined;
 }
 
 /**
@@ -1607,6 +1653,30 @@ export interface ImageDetail {
    * @public
    */
   lastRecordedPullTime?: Date | undefined;
+
+  /**
+   * <p>The digest of the subject manifest for images that are referrers.</p>
+   * @public
+   */
+  subjectManifestDigest?: string | undefined;
+
+  /**
+   * <p>The current status of the image.</p>
+   * @public
+   */
+  imageStatus?: ImageStatus | undefined;
+
+  /**
+   * <p>The date and time, expressed in standard JavaScript date format, when the image was last transitioned to Amazon ECR archive.</p>
+   * @public
+   */
+  lastArchivedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time, expressed in standard JavaScript date format, when the image was last restored from Amazon ECR archive to Amazon ECR standard.</p>
+   * @public
+   */
+  lastActivatedAt?: Date | undefined;
 }
 
 /**
@@ -2922,6 +2992,13 @@ export interface LifecyclePolicyRuleAction {
    * @public
    */
   type?: ImageActionType | undefined;
+
+  /**
+   * <p>The target storage class for the action. This is only present when the <code>type</code> is <code>TRANSITION.</code>
+   *          </p>
+   * @public
+   */
+  targetStorageClass?: LifecyclePolicyTargetStorageClass | undefined;
 }
 
 /**
@@ -2959,6 +3036,30 @@ export interface LifecyclePolicyPreviewResult {
    * @public
    */
   appliedRulePriority?: number | undefined;
+
+  /**
+   * <p>The storage class of the image.</p>
+   * @public
+   */
+  storageClass?: LifecyclePolicyStorageClass | undefined;
+}
+
+/**
+ * <p>The total count of images transitioning to a storage class.</p>
+ * @public
+ */
+export interface TransitioningImageTotalCount {
+  /**
+   * <p>The target storage class.</p>
+   * @public
+   */
+  targetStorageClass?: LifecyclePolicyTargetStorageClass | undefined;
+
+  /**
+   * <p>The total number of images transitioning to the storage class.</p>
+   * @public
+   */
+  imageTotalCount?: number | undefined;
 }
 
 /**
@@ -2971,6 +3072,13 @@ export interface LifecyclePolicyPreviewSummary {
    * @public
    */
   expiringImageTotalCount?: number | undefined;
+
+  /**
+   * <p>The total count of images that will be transitioned to each storage class.
+   *             This field is only present if at least one image will be transitoned in the summary.</p>
+   * @public
+   */
+  transitioningImageTotalCounts?: TransitioningImageTotalCount[] | undefined;
 }
 
 /**
@@ -3188,17 +3296,172 @@ export interface InitiateLayerUploadResponse {
 }
 
 /**
+ * <p>An object representing a filter on a <a>ListImageReferrers</a> operation.</p>
+ * @public
+ */
+export interface ListImageReferrersFilter {
+  /**
+   * <p>The artifact types with which to filter your <a>ListImageReferrers</a> results.</p>
+   * @public
+   */
+  artifactTypes?: string[] | undefined;
+
+  /**
+   * <p>The artifact status with which to filter your <a>ListImageReferrers</a> results. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, <code>ACTIVATING</code>, or <code>ANY</code>. If not specified, only artifacts with <code>ACTIVE</code> status are returned.</p>
+   * @public
+   */
+  artifactStatus?: ArtifactStatusFilter | undefined;
+}
+
+/**
+ * <p>An object that identifies an image subject.</p>
+ * @public
+ */
+export interface SubjectIdentifier {
+  /**
+   * <p>The digest of the image.</p>
+   * @public
+   */
+  imageDigest: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImageReferrersRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry that contains the repository in
+   *             which to list image referrers. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The name of the repository that contains the subject image.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>An object containing the image digest of the subject image for which to retrieve associated artifacts.</p>
+   * @public
+   */
+  subjectId: SubjectIdentifier | undefined;
+
+  /**
+   * <p>The filter key and value with which to filter your <code>ListImageReferrers</code>
+   *             results. If no filter is specified, only artifacts with <code>ACTIVE</code> status are returned.</p>
+   * @public
+   */
+  filter?: ListImageReferrersFilter | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListImageReferrers</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the
+   *             previous results that returned the <code>nextToken</code> value. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of image referrer results returned by <code>ListImageReferrers</code> in paginated
+   *             output. When this parameter is used, <code>ListImageReferrers</code> only returns
+   *                 <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *             response element. The remaining results of the initial request can be seen by sending
+   *             another <code>ListImageReferrers</code> request with the returned <code>nextToken</code> value.
+   *             This value can be between 1 and 50. If this parameter is
+   *             not used, then <code>ListImageReferrers</code> returns up to 50 results and a
+   *                 <code>nextToken</code> value, if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>An object representing an artifact associated with a subject image.</p>
+ * @public
+ */
+export interface ImageReferrer {
+  /**
+   * <p>The digest of the artifact manifest.</p>
+   * @public
+   */
+  digest: string | undefined;
+
+  /**
+   * <p>The media type of the artifact manifest.</p>
+   * @public
+   */
+  mediaType: string | undefined;
+
+  /**
+   * <p>A string identifying the type of artifact.</p>
+   * @public
+   */
+  artifactType?: string | undefined;
+
+  /**
+   * <p>The size, in bytes, of the artifact.</p>
+   * @public
+   */
+  size: number | undefined;
+
+  /**
+   * <p>A map of annotations associated with the artifact.</p>
+   * @public
+   */
+  annotations?: Record<string, string> | undefined;
+
+  /**
+   * <p>The status of the artifact. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, or <code>ACTIVATING</code>.</p>
+   * @public
+   */
+  artifactStatus?: ArtifactStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImageReferrersResponse {
+  /**
+   * <p>The list of artifacts associated with the subject image.</p>
+   * @public
+   */
+  referrers?: ImageReferrer[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListImageReferrers</code>
+   *             request. When the results of a <code>ListImageReferrers</code> request exceed
+   *                 <code>maxResults</code>, this value can be used to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>An object representing a filter on a <a>ListImages</a> operation.</p>
  * @public
  */
 export interface ListImagesFilter {
   /**
-   * <p>The tag status with which to filter your <a>ListImages</a> results. You can
-   *             filter results based on whether they are <code>TAGGED</code> or
-   *             <code>UNTAGGED</code>.</p>
+   * <p>The tag status with which to filter your <a>ListImages</a> results.</p>
    * @public
    */
   tagStatus?: TagStatus | undefined;
+
+  /**
+   * <p>The image status with which to filter your <a>ListImages</a> results. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.</p>
+   * @public
+   */
+  imageStatus?: ImageStatusFilter | undefined;
 }
 
 /**
@@ -3266,6 +3529,59 @@ export interface ListImagesResponse {
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListImages</code>
    *             request. When the results of a <code>ListImages</code> request exceed
+   *                 <code>maxResults</code>, this value can be used to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPullTimeUpdateExclusionsRequest {
+  /**
+   * <p>The maximum number of pull time update exclusion results returned by <code>ListPullTimeUpdateExclusions</code> in
+   *             paginated output. When this parameter is used, <code>ListPullTimeUpdateExclusions</code> only returns
+   *                 <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *             response element. The remaining results of the initial request can be seen by sending
+   *             another <code>ListPullTimeUpdateExclusions</code> request with the returned <code>nextToken</code> value.
+   *             This value can be between 1 and 1000. If this parameter is
+   *             not used, then <code>ListPullTimeUpdateExclusions</code> returns up to 100 results and a
+   *                 <code>nextToken</code> value, if applicable.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListPullTimeUpdateExclusions</code> request where <code>maxResults</code> was used and the
+   *             results exceeded the value of that parameter. Pagination continues from the end of the
+   *             previous results that returned the <code>nextToken</code> value. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPullTimeUpdateExclusionsResponse {
+  /**
+   * <p>The list of IAM principal ARNs that are excluded from having their image pull times recorded.</p>
+   * @public
+   */
+  pullTimeUpdateExclusions?: string[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListPullTimeUpdateExclusions</code>
+   *             request. When the results of a <code>ListPullTimeUpdateExclusions</code> request exceed
    *                 <code>maxResults</code>, this value can be used to retrieve the next page of
    *             results. This value is <code>null</code> when there are no more results to
    *             return.</p>
@@ -3367,8 +3683,7 @@ export interface PutImageRequest {
   imageManifestMediaType?: string | undefined;
 
   /**
-   * <p>The tag to associate with the image. This parameter is required for images that use
-   *             the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.</p>
+   * <p>The tag to associate with the image. This parameter is optional.</p>
    * @public
    */
   imageTag?: string | undefined;
@@ -3470,7 +3785,8 @@ export interface PutImageTagMutabilityRequest {
   imageTagMutability: ImageTagMutability | undefined;
 
   /**
-   * <p>Creates or updates a repository with filters that define which image tags can override the default image tag mutability setting.</p>
+   * <p>A list of filters that specify which image tags should be excluded from the image tag
+   *             mutability setting being applied.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
@@ -3499,7 +3815,8 @@ export interface PutImageTagMutabilityResponse {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>Returns a list of filters that were defined for a repository. These filters determine which image tags can override the default image tag mutability setting of the repository.</p>
+   * <p>The list of filters that specify which image tags are excluded from the repository's
+   *             image tag mutability setting.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;
@@ -3640,6 +3957,34 @@ export interface PutReplicationConfigurationResponse {
    * @public
    */
   replicationConfiguration?: ReplicationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterPullTimeUpdateExclusionRequest {
+  /**
+   * <p>The ARN of the IAM principal to exclude from having image pull times recorded.</p>
+   * @public
+   */
+  principalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterPullTimeUpdateExclusionResponse {
+  /**
+   * <p>The ARN of the IAM principal that was added to the pull time update exclusion list.</p>
+   * @public
+   */
+  principalArn?: string | undefined;
+
+  /**
+   * <p>The date and time, expressed in standard JavaScript date format, when the exclusion was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -3857,6 +4202,64 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateImageStorageClassRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with the registry that contains the image to transition. If you do not specify a registry, the default registry is assumed.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The name of the repository that contains the image to transition.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
+   * @public
+   */
+  imageId: ImageIdentifier | undefined;
+
+  /**
+   * <p>The target storage class for the image.</p>
+   * @public
+   */
+  targetStorageClass: TargetStorageClass | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageStorageClassResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string | undefined;
+
+  /**
+   * <p>The repository name associated with the request.</p>
+   * @public
+   */
+  repositoryName?: string | undefined;
+
+  /**
+   * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
+   * @public
+   */
+  imageId?: ImageIdentifier | undefined;
+
+  /**
+   * <p>The current status of the image after the call to UpdateImageStorageClass is complete. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.</p>
+   * @public
+   */
+  imageStatus?: ImageStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdatePullThroughCacheRuleRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the registry associated with the pull through
@@ -3879,9 +4282,9 @@ export interface UpdatePullThroughCacheRuleRequest {
   credentialArn?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to the
-   *             ECR upstream registry. This role must be in the same account as the registry that you
-   *             are configuring.</p>
+   * <p>Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to
+   *             the ECR upstream registry. This role must be in the same account as the registry that
+   *             you are configuring.</p>
    * @public
    */
   customRoleArn?: string | undefined;
@@ -3978,7 +4381,8 @@ export interface UpdateRepositoryCreationTemplateRequest {
   imageTagMutability?: ImageTagMutability | undefined;
 
   /**
-   * <p>Updates a repository with filters that define which image tags can override the default image tag mutability setting.</p>
+   * <p>A list of filters that specify which image tags should be excluded from the repository
+   *             creation template's image tag mutability setting.</p>
    * @public
    */
   imageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[] | undefined;

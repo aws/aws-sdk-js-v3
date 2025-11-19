@@ -68,13 +68,21 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * //       imageDigest: "STRING_VALUE",
  * //       imagePushedAt: new Date("TIMESTAMP"),
  * //       action: { // LifecyclePolicyRuleAction
- * //         type: "EXPIRE",
+ * //         type: "EXPIRE" || "TRANSITION",
+ * //         targetStorageClass: "ARCHIVE",
  * //       },
  * //       appliedRulePriority: Number("int"),
+ * //       storageClass: "ARCHIVE" || "STANDARD",
  * //     },
  * //   ],
  * //   summary: { // LifecyclePolicyPreviewSummary
  * //     expiringImageTotalCount: Number("int"),
+ * //     transitioningImageTotalCounts: [ // TransitioningImageTotalCounts
+ * //       { // TransitioningImageTotalCount
+ * //         targetStorageClass: "ARCHIVE",
+ * //         imageTotalCount: Number("int"),
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

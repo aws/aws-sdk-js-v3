@@ -79,6 +79,9 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * @see {@link PutRegistryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link BlockedByOrganizationPolicyException} (client fault)
+ *  <p>The operation did not succeed because the account is managed by a organization policy.</p>
+ *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>

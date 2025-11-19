@@ -73,6 +73,11 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  DeregisterPullTimeUpdateExclusionCommand,
+  DeregisterPullTimeUpdateExclusionCommandInput,
+  DeregisterPullTimeUpdateExclusionCommandOutput,
+} from "./commands/DeregisterPullTimeUpdateExclusionCommand";
+import {
   DescribeImageReplicationStatusCommand,
   DescribeImageReplicationStatusCommandInput,
   DescribeImageReplicationStatusCommandOutput,
@@ -152,7 +157,17 @@ import {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
+import {
+  ListImageReferrersCommand,
+  ListImageReferrersCommandInput,
+  ListImageReferrersCommandOutput,
+} from "./commands/ListImageReferrersCommand";
 import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
+import {
+  ListPullTimeUpdateExclusionsCommand,
+  ListPullTimeUpdateExclusionsCommandInput,
+  ListPullTimeUpdateExclusionsCommandOutput,
+} from "./commands/ListPullTimeUpdateExclusionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -195,6 +210,11 @@ import {
   PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
 import {
+  RegisterPullTimeUpdateExclusionCommand,
+  RegisterPullTimeUpdateExclusionCommandInput,
+  RegisterPullTimeUpdateExclusionCommandOutput,
+} from "./commands/RegisterPullTimeUpdateExclusionCommand";
+import {
   SetRepositoryPolicyCommand,
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
@@ -215,6 +235,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateImageStorageClassCommand,
+  UpdateImageStorageClassCommandInput,
+  UpdateImageStorageClassCommandOutput,
+} from "./commands/UpdateImageStorageClassCommand";
 import {
   UpdatePullThroughCacheRuleCommand,
   UpdatePullThroughCacheRuleCommandInput,
@@ -252,6 +277,7 @@ const commands = {
   DeleteRepositoryCommand,
   DeleteRepositoryCreationTemplateCommand,
   DeleteRepositoryPolicyCommand,
+  DeregisterPullTimeUpdateExclusionCommand,
   DescribeImageReplicationStatusCommand,
   DescribeImagesCommand,
   DescribeImageScanFindingsCommand,
@@ -268,7 +294,9 @@ const commands = {
   GetRegistryScanningConfigurationCommand,
   GetRepositoryPolicyCommand,
   InitiateLayerUploadCommand,
+  ListImageReferrersCommand,
   ListImagesCommand,
+  ListPullTimeUpdateExclusionsCommand,
   ListTagsForResourceCommand,
   PutAccountSettingCommand,
   PutImageCommand,
@@ -278,11 +306,13 @@ const commands = {
   PutRegistryPolicyCommand,
   PutRegistryScanningConfigurationCommand,
   PutReplicationConfigurationCommand,
+  RegisterPullTimeUpdateExclusionCommand,
   SetRepositoryPolicyCommand,
   StartImageScanCommand,
   StartLifecyclePolicyPreviewCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateImageStorageClassCommand,
   UpdatePullThroughCacheRuleCommand,
   UpdateRepositoryCreationTemplateCommand,
   UploadLayerPartCommand,
@@ -521,6 +551,23 @@ export interface ECR {
     args: DeleteRepositoryPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRepositoryPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeregisterPullTimeUpdateExclusionCommand}
+   */
+  deregisterPullTimeUpdateExclusion(
+    args: DeregisterPullTimeUpdateExclusionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterPullTimeUpdateExclusionCommandOutput>;
+  deregisterPullTimeUpdateExclusion(
+    args: DeregisterPullTimeUpdateExclusionCommandInput,
+    cb: (err: any, data?: DeregisterPullTimeUpdateExclusionCommandOutput) => void
+  ): void;
+  deregisterPullTimeUpdateExclusion(
+    args: DeregisterPullTimeUpdateExclusionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterPullTimeUpdateExclusionCommandOutput) => void
   ): void;
 
   /**
@@ -800,6 +847,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link ListImageReferrersCommand}
+   */
+  listImageReferrers(
+    args: ListImageReferrersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImageReferrersCommandOutput>;
+  listImageReferrers(
+    args: ListImageReferrersCommandInput,
+    cb: (err: any, data?: ListImageReferrersCommandOutput) => void
+  ): void;
+  listImageReferrers(
+    args: ListImageReferrersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImageReferrersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListImagesCommand}
    */
   listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
@@ -808,6 +872,24 @@ export interface ECR {
     args: ListImagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPullTimeUpdateExclusionsCommand}
+   */
+  listPullTimeUpdateExclusions(): Promise<ListPullTimeUpdateExclusionsCommandOutput>;
+  listPullTimeUpdateExclusions(
+    args: ListPullTimeUpdateExclusionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPullTimeUpdateExclusionsCommandOutput>;
+  listPullTimeUpdateExclusions(
+    args: ListPullTimeUpdateExclusionsCommandInput,
+    cb: (err: any, data?: ListPullTimeUpdateExclusionsCommandOutput) => void
+  ): void;
+  listPullTimeUpdateExclusions(
+    args: ListPullTimeUpdateExclusionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPullTimeUpdateExclusionsCommandOutput) => void
   ): void;
 
   /**
@@ -959,6 +1041,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link RegisterPullTimeUpdateExclusionCommand}
+   */
+  registerPullTimeUpdateExclusion(
+    args: RegisterPullTimeUpdateExclusionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterPullTimeUpdateExclusionCommandOutput>;
+  registerPullTimeUpdateExclusion(
+    args: RegisterPullTimeUpdateExclusionCommandInput,
+    cb: (err: any, data?: RegisterPullTimeUpdateExclusionCommandOutput) => void
+  ): void;
+  registerPullTimeUpdateExclusion(
+    args: RegisterPullTimeUpdateExclusionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterPullTimeUpdateExclusionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SetRepositoryPolicyCommand}
    */
   setRepositoryPolicy(
@@ -1026,6 +1125,23 @@ export interface ECR {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateImageStorageClassCommand}
+   */
+  updateImageStorageClass(
+    args: UpdateImageStorageClassCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateImageStorageClassCommandOutput>;
+  updateImageStorageClass(
+    args: UpdateImageStorageClassCommandInput,
+    cb: (err: any, data?: UpdateImageStorageClassCommandOutput) => void
+  ): void;
+  updateImageStorageClass(
+    args: UpdateImageStorageClassCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImageStorageClassCommandOutput) => void
   ): void;
 
   /**

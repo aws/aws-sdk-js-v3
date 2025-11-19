@@ -571,6 +571,26 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The specified pull time update exclusion was not found.</p>
+ * @public
+ */
+export class ExclusionNotFoundException extends __BaseException {
+  readonly name = "ExclusionNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExclusionNotFoundException, __BaseException>) {
+    super({
+      name: "ExclusionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExclusionNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The image requested does not exist in the specified repository.</p>
  * @public
  */
@@ -778,6 +798,66 @@ export class ReferencedImagesNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The operation did not succeed because the account is managed by a organization policy.</p>
+ * @public
+ */
+export class BlockedByOrganizationPolicyException extends __BaseException {
+  readonly name = "BlockedByOrganizationPolicyException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BlockedByOrganizationPolicyException, __BaseException>) {
+    super({
+      name: "BlockedByOrganizationPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlockedByOrganizationPolicyException.prototype);
+  }
+}
+
+/**
+ * <p>The specified pull time update exclusion already exists for the registry.</p>
+ * @public
+ */
+export class ExclusionAlreadyExistsException extends __BaseException {
+  readonly name = "ExclusionAlreadyExistsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExclusionAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ExclusionAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExclusionAlreadyExistsException.prototype);
+  }
+}
+
+/**
+ * <p>The specified image is archived and cannot be scanned.</p>
+ * @public
+ */
+export class ImageArchivedException extends __BaseException {
+  readonly name = "ImageArchivedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImageArchivedException, __BaseException>) {
+    super({
+      name: "ImageArchivedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageArchivedException.prototype);
+  }
+}
+
+/**
  * <p>The image is of a type that cannot be scanned.</p>
  * @public
  */
@@ -815,6 +895,26 @@ export class LifecyclePolicyPreviewInProgressException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LifecyclePolicyPreviewInProgressException.prototype);
+  }
+}
+
+/**
+ * <p>The requested image storage class update is not supported.</p>
+ * @public
+ */
+export class ImageStorageClassUpdateNotSupportedException extends __BaseException {
+  readonly name = "ImageStorageClassUpdateNotSupportedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImageStorageClassUpdateNotSupportedException, __BaseException>) {
+    super({
+      name: "ImageStorageClassUpdateNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageStorageClassUpdateNotSupportedException.prototype);
   }
 }
 

@@ -102,6 +102,10 @@ import {
   DeleteRepositoryPolicyCommandOutput,
 } from "./commands/DeleteRepositoryPolicyCommand";
 import {
+  DeregisterPullTimeUpdateExclusionCommandInput,
+  DeregisterPullTimeUpdateExclusionCommandOutput,
+} from "./commands/DeregisterPullTimeUpdateExclusionCommand";
+import {
   DescribeImageReplicationStatusCommandInput,
   DescribeImageReplicationStatusCommandOutput,
 } from "./commands/DescribeImageReplicationStatusCommand";
@@ -150,7 +154,12 @@ import {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
+import { ListImageReferrersCommandInput, ListImageReferrersCommandOutput } from "./commands/ListImageReferrersCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
+import {
+  ListPullTimeUpdateExclusionsCommandInput,
+  ListPullTimeUpdateExclusionsCommandOutput,
+} from "./commands/ListPullTimeUpdateExclusionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -176,6 +185,10 @@ import {
   PutReplicationConfigurationCommandOutput,
 } from "./commands/PutReplicationConfigurationCommand";
 import {
+  RegisterPullTimeUpdateExclusionCommandInput,
+  RegisterPullTimeUpdateExclusionCommandOutput,
+} from "./commands/RegisterPullTimeUpdateExclusionCommand";
+import {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
@@ -186,6 +199,10 @@ import {
 } from "./commands/StartLifecyclePolicyPreviewCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateImageStorageClassCommandInput,
+  UpdateImageStorageClassCommandOutput,
+} from "./commands/UpdateImageStorageClassCommand";
 import {
   UpdatePullThroughCacheRuleCommandInput,
   UpdatePullThroughCacheRuleCommandOutput,
@@ -228,6 +245,7 @@ export type ServiceInputTypes =
   | DeleteRepositoryCommandInput
   | DeleteRepositoryCreationTemplateCommandInput
   | DeleteRepositoryPolicyCommandInput
+  | DeregisterPullTimeUpdateExclusionCommandInput
   | DescribeImageReplicationStatusCommandInput
   | DescribeImageScanFindingsCommandInput
   | DescribeImagesCommandInput
@@ -244,7 +262,9 @@ export type ServiceInputTypes =
   | GetRegistryScanningConfigurationCommandInput
   | GetRepositoryPolicyCommandInput
   | InitiateLayerUploadCommandInput
+  | ListImageReferrersCommandInput
   | ListImagesCommandInput
+  | ListPullTimeUpdateExclusionsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountSettingCommandInput
   | PutImageCommandInput
@@ -254,11 +274,13 @@ export type ServiceInputTypes =
   | PutRegistryPolicyCommandInput
   | PutRegistryScanningConfigurationCommandInput
   | PutReplicationConfigurationCommandInput
+  | RegisterPullTimeUpdateExclusionCommandInput
   | SetRepositoryPolicyCommandInput
   | StartImageScanCommandInput
   | StartLifecyclePolicyPreviewCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateImageStorageClassCommandInput
   | UpdatePullThroughCacheRuleCommandInput
   | UpdateRepositoryCreationTemplateCommandInput
   | UploadLayerPartCommandInput
@@ -282,6 +304,7 @@ export type ServiceOutputTypes =
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryCreationTemplateCommandOutput
   | DeleteRepositoryPolicyCommandOutput
+  | DeregisterPullTimeUpdateExclusionCommandOutput
   | DescribeImageReplicationStatusCommandOutput
   | DescribeImageScanFindingsCommandOutput
   | DescribeImagesCommandOutput
@@ -298,7 +321,9 @@ export type ServiceOutputTypes =
   | GetRegistryScanningConfigurationCommandOutput
   | GetRepositoryPolicyCommandOutput
   | InitiateLayerUploadCommandOutput
+  | ListImageReferrersCommandOutput
   | ListImagesCommandOutput
+  | ListPullTimeUpdateExclusionsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountSettingCommandOutput
   | PutImageCommandOutput
@@ -308,11 +333,13 @@ export type ServiceOutputTypes =
   | PutRegistryPolicyCommandOutput
   | PutRegistryScanningConfigurationCommandOutput
   | PutReplicationConfigurationCommandOutput
+  | RegisterPullTimeUpdateExclusionCommandOutput
   | SetRepositoryPolicyCommandOutput
   | StartImageScanCommandOutput
   | StartLifecyclePolicyPreviewCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateImageStorageClassCommandOutput
   | UpdatePullThroughCacheRuleCommandOutput
   | UpdateRepositoryCreationTemplateCommandOutput
   | UploadLayerPartCommandOutput
