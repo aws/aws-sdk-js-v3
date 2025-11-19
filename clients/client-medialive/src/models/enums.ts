@@ -1621,6 +1621,19 @@ export type InputSourceType = (typeof InputSourceType)[keyof typeof InputSourceT
  * @public
  * @enum
  */
+export const RouterEncryptionType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type RouterEncryptionType = (typeof RouterEncryptionType)[keyof typeof RouterEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Algorithm = {
   AES128: "AES128",
   AES192: "AES192",
@@ -1655,6 +1668,7 @@ export const InputType = {
   AWS_CDI: "AWS_CDI",
   INPUT_DEVICE: "INPUT_DEVICE",
   MEDIACONNECT: "MEDIACONNECT",
+  MEDIACONNECT_ROUTER: "MEDIACONNECT_ROUTER",
   MP4_FILE: "MP4_FILE",
   MULTICAST: "MULTICAST",
   RTMP_PULL: "RTMP_PULL",

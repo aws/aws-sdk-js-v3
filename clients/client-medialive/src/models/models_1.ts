@@ -17,6 +17,8 @@ import {
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   EventBridgeRuleTemplateEventType,
+  FeatureActivationsInputPrepareScheduleActions,
+  FeatureActivationsOutputStaticImageOverlayScheduleActions,
   GlobalConfigurationInputEndAction,
   GlobalConfigurationLowFramerateInputs,
   GlobalConfigurationOutputLockingMode,
@@ -27,6 +29,7 @@ import {
   InputDeviceConnectionState,
   InputDeviceOutputType,
   InputDeviceType,
+  InputLossImageType,
   InputNetworkLocation,
   InputSecurityGroupState,
   InputSourceType,
@@ -46,6 +49,7 @@ import {
   PreferredChannelPipeline,
   RebootInputDeviceForce,
   ReservationState,
+  RouterEncryptionType,
   SdiSourceMode,
   SdiSourceState,
   SdiSourceType,
@@ -73,7 +77,7 @@ import {
   CloudWatchAlarmTemplateSummary,
   ClusterAlert,
   ClusterNetworkSettings,
-  ColorCorrectionSettings,
+  ColorCorrection,
   DescribeAnywhereSettings,
   DescribeChannelPlacementGroupSummary,
   DescribeClusterSummary,
@@ -82,7 +86,6 @@ import {
   EventBridgeRuleTemplateGroupSummary,
   EventBridgeRuleTemplateSummary,
   EventBridgeRuleTemplateTarget,
-  FeatureActivations,
   Input,
   InputAttachment,
   InputDestination,
@@ -94,7 +97,7 @@ import {
   InputDeviceSettings,
   InputDeviceSummary,
   InputDeviceUhdSettings,
-  InputLossBehavior,
+  InputLocation,
   InputSecurityGroup,
   InputSource,
   InputSourceRequest,
@@ -129,6 +132,8 @@ import {
   ReservationResourceSpecification,
   Route,
   RouteCreateRequest,
+  RouterDestinationSettings,
+  RouterInputSettings,
   RouteUpdateRequest,
   ScheduleAction,
   SdiSourceMapping,
@@ -142,6 +147,74 @@ import {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
+ * @public
+ */
+export interface ColorCorrectionSettings {
+  /**
+   * An array of colorCorrections that applies when you are using 3D LUT files to perform color conversion on video. Each colorCorrection contains one 3D LUT file (that defines the color mapping for converting an input color space to an output color space), and the input/output combination that this 3D LUT file applies to. MediaLive reads the color space in the input metadata, determines the color space that you have specified for the output, and finds and uses the LUT file that applies to this combination.
+   * @public
+   */
+  GlobalColorCorrections: ColorCorrection[] | undefined;
+}
+
+/**
+ * Feature Activations
+ * @public
+ */
+export interface FeatureActivations {
+  /**
+   * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
+   * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+   * @public
+   */
+  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | undefined;
+
+  /**
+   * Enables the output static image overlay feature. Enabling this feature allows you to send channel schedule updates
+   * to display/clear/modify image overlays on an output-by-output bases.
+   * @public
+   */
+  OutputStaticImageOverlayScheduleActions?: FeatureActivationsOutputStaticImageOverlayScheduleActions | undefined;
+}
+
+/**
+ * Input Loss Behavior
+ * @public
+ */
+export interface InputLossBehavior {
+  /**
+   * Documentation update needed
+   * @public
+   */
+  BlackFrameMsec?: number | undefined;
+
+  /**
+   * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
+   * @public
+   */
+  InputLossImageColor?: string | undefined;
+
+  /**
+   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
+   * @public
+   */
+  InputLossImageSlate?: InputLocation | undefined;
+
+  /**
+   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+   * @public
+   */
+  InputLossImageType?: InputLossImageType | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  RepeatFrameMsec?: number | undefined;
+}
 
 /**
  * Epoch Locking Settings
@@ -1438,6 +1511,30 @@ export interface MulticastSettingsCreateRequest {
 }
 
 /**
+ * This is the collection of settings that are used during the creation of a MediaConnect router input.
+ * @public
+ */
+export interface RouterSettings {
+  /**
+   * Destinations for the input from MediaConnect Router. Provide one for a single-pipeline input and two for a standard input.
+   * @public
+   */
+  Destinations?: RouterDestinationSettings[] | undefined;
+
+  /**
+   * Encryption configuration for MediaConnect router. When using SECRETS_MANAGER encryption, you must provide the ARN of the secret used to encrypt data in transit. When using AUTOMATIC encryption, a service-managed secret will be used instead.
+   * @public
+   */
+  EncryptionType?: RouterEncryptionType | undefined;
+
+  /**
+   * ARN of the secret used to encrypt this input.
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
  * Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource.
  * @public
  */
@@ -1581,6 +1678,12 @@ export interface CreateInputRequest {
    * @public
    */
   SdiSources?: string[] | undefined;
+
+  /**
+   * This is the collection of settings that are used during the creation of a MediaConnect router input.
+   * @public
+   */
+  RouterSettings?: RouterSettings | undefined;
 }
 
 /**
@@ -3957,6 +4060,12 @@ export interface DescribeInputResponse {
    * @public
    */
   SdiSources?: string[] | undefined;
+
+  /**
+   * Information about any MediaConnect router association with this input.
+   * @public
+   */
+  RouterSettings?: RouterInputSettings | undefined;
 }
 
 /**
@@ -8340,6 +8449,20 @@ export interface MulticastSettingsUpdateRequest {
 }
 
 /**
+ * When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output
+ * is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This
+ * setting object can only by used by that service.
+ * @public
+ */
+export interface SpecialRouterSettings {
+  /**
+   * This is the arn of the MediaConnect Router resource being associated with the MediaLive Input.
+   * @public
+   */
+  RouterArn?: string | undefined;
+}
+
+/**
  * A request to update an input.
  * @public
  */
@@ -8419,6 +8542,14 @@ export interface UpdateInputRequest {
    * @public
    */
   SdiSources?: string[] | undefined;
+
+  /**
+   * When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output
+   * is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This
+   * setting object can only by used by that service.
+   * @public
+   */
+  SpecialRouterSettings?: SpecialRouterSettings | undefined;
 }
 
 /**

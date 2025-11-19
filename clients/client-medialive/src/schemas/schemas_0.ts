@@ -85,6 +85,7 @@ const _ATu = "AudioTrack";
 const _AWS = "AudioWatermarkingSettings";
 const _AWSu = "AudioWatermarkSettings";
 const _AZ = "AvailabilityZones";
+const _AZN = "AvailabilityZoneName";
 const _AZv = "AvailabilityZone";
 const _Ac = "Accessibility";
 const _Acc = "Accept";
@@ -1020,6 +1021,7 @@ const _R = "Resolution";
 const _RA = "RoleArn";
 const _RAN = "ReferenceActionName";
 const _RAe = "ResourceArn";
+const _RAo = "RouterArn";
 const _RC = "RenewalCount";
 const _RCIDS = "RtmpCaptionInfoDestinationSettings";
 const _RCM = "RateControlMode";
@@ -1028,6 +1030,8 @@ const _RCPR = "RestartChannelPipelinesRequest";
 const _RCPRe = "RestartChannelPipelinesResponse";
 const _RCR = "RouteCreateRequest";
 const _RD = "RestartDelay";
+const _RDS = "RouterDestinationSettings";
+const _RDo = "RouterDestination";
 const _RF = "RawFormat";
 const _RFM = "RepeatFrameMsec";
 const _RGS = "RtmpGroupSettings";
@@ -1038,6 +1042,7 @@ const _RIDRe = "RebootInputDeviceResponse";
 const _RIDT = "RejectInputDeviceTransfer";
 const _RIDTR = "RejectInputDeviceTransferRequest";
 const _RIDTRe = "RejectInputDeviceTransferResponse";
+const _RIS = "RouterInputSettings";
 const _RIe = "RequestId";
 const _RIep = "RepInterval";
 const _RIes = "ReservationId";
@@ -1045,6 +1050,7 @@ const _RIet = "RetryInterval";
 const _RL = "RowLength";
 const _RM = "RedundantManifest";
 const _RMa = "RateMode";
+const _ROA = "RouterOutputArn";
 const _ROS = "RtmpOutputSettings";
 const _RRS = "ReservationResourceSpecification";
 const _RS = "RawSettings";
@@ -1053,6 +1059,7 @@ const _RSec = "Rec601Settings";
 const _RSece = "Rec709Settings";
 const _RSen = "RenewalSettings";
 const _RSes = "ResourceSpecification";
+const _RSo = "RouterSettings";
 const _RT = "ResourceType";
 const _RTA = "RespondToAfd";
 const _RUR = "RouteUpdateRequest";
@@ -1192,6 +1199,7 @@ const _SRG = "Smpte2110ReceiverGroup";
 const _SRGS = "Smpte2110ReceiverGroupSettings";
 const _SRGSS = "Smpte2110ReceiverGroupSdpSettings";
 const _SRGm = "Smpte2110ReceiverGroups";
+const _SRS = "SpecialRouterSettings";
 const _SRTNS = "Scte35ReturnToNetworkSettings";
 const _SRTNSAS = "Scte35ReturnToNetworkScheduleActionSettings";
 const _SRu = "SubtitleRows";
@@ -1493,6 +1501,7 @@ const _aTT = "audioTrackType";
 const _aTl = "alertType";
 const _aWS = "audioWatermarkingSettings";
 const _aZ = "availabilityZones";
+const _aZN = "availabilityZoneName";
 const _aZv = "availabilityZone";
 const _ac = "accessibility";
 const _acc = "accept";
@@ -1930,6 +1939,8 @@ const _lOPD = "__listOfPipelineDetail";
 const _lOPPSS = "__listOfPipelinePauseStateSettings";
 const _lOR = "__listOfReservation";
 const _lORCR = "__listOfRouteCreateRequest";
+const _lORD = "__listOfRouterDestination";
+const _lORDS = "__listOfRouterDestinationSettings";
 const _lORUR = "__listOfRouteUpdateRequest";
 const _lORi = "__listOfRoute";
 const _lOSA = "__listOfScheduleAction";
@@ -2129,6 +2140,7 @@ const _qQL = "qvbrQualityLevel";
 const _r = "resolution";
 const _rA = "roleArn";
 const _rAN = "referenceActionName";
+const _rAo = "routerArn";
 const _rC = "renewalCount";
 const _rCIDS = "rtmpCaptionInfoDestinationSettings";
 const _rCM = "rateControlMode";
@@ -2144,6 +2156,7 @@ const _rIet = "retryInterval";
 const _rL = "rowLength";
 const _rM = "redundantManifest";
 const _rMa = "rateMode";
+const _rOA = "routerOutputArn";
 const _rOS = "rtmpOutputSettings";
 const _rS = "rawSettings";
 const _rSe = "remixSettings";
@@ -2151,6 +2164,7 @@ const _rSec = "rec601Settings";
 const _rSece = "rec709Settings";
 const _rSen = "renewalSettings";
 const _rSes = "resourceSpecification";
+const _rSo = "routerSettings";
 const _rT = "resourceType";
 const _rTA = "respondToAfd";
 const _re = "reserved";
@@ -2244,6 +2258,7 @@ const _sPm = "smpte2038Pid";
 const _sR = "sampleRate";
 const _sRG = "smpte2110ReceiverGroups";
 const _sRGS = "smpte2110ReceiverGroupSettings";
+const _sRS = "specialRouterSettings";
 const _sRTNS = "scte35ReturnToNetworkSettings";
 const _sRu = "subtitleRows";
 const _sS = "selectorSettings";
@@ -5937,7 +5952,7 @@ export var CreateInputRequest: StaticStructureSchema = [
   n0,
   _CIR,
   0,
-  [_Des, _ID, _ISG, _MCF, _N, _RIe, _RA, _So, _Ta, _Ty, _V, _SSr, _INL, _MSu, _SRGS, _SSd],
+  [_Des, _ID, _ISG, _MCF, _N, _RIe, _RA, _So, _Ta, _Ty, _V, _SSr, _INL, _MSu, _SRGS, _SSd, _RSo],
   [
     [
       () => __listOfInputDestinationRequest,
@@ -6034,6 +6049,12 @@ export var CreateInputRequest: StaticStructureSchema = [
       64 | 0,
       {
         [_jN]: _sSd,
+      },
+    ],
+    [
+      () => RouterSettings,
+      {
+        [_jN]: _rSo,
       },
     ],
   ],
@@ -7967,7 +7988,30 @@ export var DescribeInputResponse: StaticStructureSchema = [
   n0,
   _DIResc,
   0,
-  [_Ar, _ACt, _Des, _I, _IC, _ID, _IPI, _IST, _MCF, _N, _RA, _SGe, _So, _St, _Ta, _Ty, _SSr, _INL, _MSu, _SRGS, _SSd],
+  [
+    _Ar,
+    _ACt,
+    _Des,
+    _I,
+    _IC,
+    _ID,
+    _IPI,
+    _IST,
+    _MCF,
+    _N,
+    _RA,
+    _SGe,
+    _So,
+    _St,
+    _Ta,
+    _Ty,
+    _SSr,
+    _INL,
+    _MSu,
+    _SRGS,
+    _SSd,
+    _RSo,
+  ],
   [
     [
       0,
@@ -8093,6 +8137,12 @@ export var DescribeInputResponse: StaticStructureSchema = [
       64 | 0,
       {
         [_jN]: _sSd,
+      },
+    ],
+    [
+      () => RouterInputSettings,
+      {
+        [_jN]: _rSo,
       },
     ],
   ],
@@ -11820,7 +11870,30 @@ export var Input: StaticStructureSchema = [
   n0,
   _In,
   0,
-  [_Ar, _ACt, _Des, _I, _IC, _ID, _IPI, _IST, _MCF, _N, _RA, _SGe, _So, _St, _Ta, _Ty, _SSr, _INL, _MSu, _SRGS, _SSd],
+  [
+    _Ar,
+    _ACt,
+    _Des,
+    _I,
+    _IC,
+    _ID,
+    _IPI,
+    _IST,
+    _MCF,
+    _N,
+    _RA,
+    _SGe,
+    _So,
+    _St,
+    _Ta,
+    _Ty,
+    _SSr,
+    _INL,
+    _MSu,
+    _SRGS,
+    _SSd,
+    _RSo,
+  ],
   [
     [
       0,
@@ -11946,6 +12019,12 @@ export var Input: StaticStructureSchema = [
       64 | 0,
       {
         [_jN]: _sSd,
+      },
+    ],
+    [
+      () => RouterInputSettings,
+      {
+        [_jN]: _rSo,
       },
     ],
   ],
@@ -17560,6 +17639,96 @@ export var RouteCreateRequest: StaticStructureSchema = [
     ],
   ],
 ];
+export var RouterDestination: StaticStructureSchema = [
+  3,
+  n0,
+  _RDo,
+  0,
+  [_AZN, _ROA],
+  [
+    [
+      0,
+      {
+        [_jN]: _aZN,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rOA,
+      },
+    ],
+  ],
+];
+export var RouterDestinationSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _RDS,
+  0,
+  [_AZN],
+  [
+    [
+      0,
+      {
+        [_jN]: _aZN,
+      },
+    ],
+  ],
+];
+export var RouterInputSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _RIS,
+  0,
+  [_Des, _ETn, _SAe],
+  [
+    [
+      () => __listOfRouterDestination,
+      {
+        [_jN]: _des,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _eTn,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sAe,
+      },
+    ],
+  ],
+];
+export var RouterSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _RSo,
+  0,
+  [_Des, _ETn, _SAe],
+  [
+    [
+      () => __listOfRouterDestinationSettings,
+      {
+        [_jN]: _des,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _eTn,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sAe,
+      },
+    ],
+  ],
+];
 export var RouteUpdateRequest: StaticStructureSchema = [
   3,
   n0,
@@ -18440,6 +18609,21 @@ export var Smpte2110ReceiverGroupSettings: StaticStructureSchema = [
   ],
 ];
 export var SmpteTtDestinationSettings: StaticStructureSchema = [3, n0, _STDS, 0, [], []];
+export var SpecialRouterSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _SRS,
+  0,
+  [_RAo],
+  [
+    [
+      0,
+      {
+        [_jN]: _rAo,
+      },
+    ],
+  ],
+];
 export var SrtCallerDecryption: StaticStructureSchema = [
   3,
   n0,
@@ -21046,7 +21230,7 @@ export var UpdateInputRequest: StaticStructureSchema = [
   n0,
   _UIR,
   0,
-  [_Des, _ID, _IIn, _ISG, _MCF, _N, _RA, _So, _SSr, _MSu, _SRGS, _SSd],
+  [_Des, _ID, _IIn, _ISG, _MCF, _N, _RA, _So, _SSr, _MSu, _SRGS, _SSd, _SRS],
   [
     [
       () => __listOfInputDestinationRequest,
@@ -21113,6 +21297,12 @@ export var UpdateInputRequest: StaticStructureSchema = [
       64 | 0,
       {
         [_jN]: _sSd,
+      },
+    ],
+    [
+      () => SpecialRouterSettings,
+      {
+        [_jN]: _sRS,
       },
     ],
   ],
@@ -22160,6 +22350,14 @@ export var __listOfPipelinePauseStateSettings: StaticListSchema = [
 export var __listOfReservation: StaticListSchema = [1, n0, _lOR, 0, [() => Reservation, 0]];
 export var __listOfRoute: StaticListSchema = [1, n0, _lORi, 0, [() => Route, 0]];
 export var __listOfRouteCreateRequest: StaticListSchema = [1, n0, _lORCR, 0, [() => RouteCreateRequest, 0]];
+export var __listOfRouterDestination: StaticListSchema = [1, n0, _lORD, 0, [() => RouterDestination, 0]];
+export var __listOfRouterDestinationSettings: StaticListSchema = [
+  1,
+  n0,
+  _lORDS,
+  0,
+  [() => RouterDestinationSettings, 0],
+];
 export var __listOfRouteUpdateRequest: StaticListSchema = [1, n0, _lORUR, 0, [() => RouteUpdateRequest, 0]];
 export var __listOfRtmpAdMarkers = 64 | 0;
 

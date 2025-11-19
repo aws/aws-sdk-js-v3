@@ -99,7 +99,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI",
+ * //       Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER",
  * //       SrtSettings: { // SrtSettings
  * //         SrtCallerSources: [ // __listOfSrtCallerSource
  * //           { // SrtCallerSource
@@ -150,6 +150,16 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * //       SdiSources: [ // InputSdiSources
  * //         "STRING_VALUE",
  * //       ],
+ * //       RouterSettings: { // RouterInputSettings
+ * //         Destinations: [ // __listOfRouterDestination
+ * //           { // RouterDestination
+ * //             AvailabilityZoneName: "STRING_VALUE",
+ * //             RouterOutputArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         EncryptionType: "AUTOMATIC" || "SECRETS_MANAGER",
+ * //         SecretArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

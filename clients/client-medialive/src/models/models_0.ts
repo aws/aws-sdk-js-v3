@@ -100,8 +100,6 @@ import {
   EmbeddedConvert608To708,
   EmbeddedScte20Detection,
   EventBridgeRuleTemplateEventType,
-  FeatureActivationsInputPrepareScheduleActions,
-  FeatureActivationsOutputStaticImageOverlayScheduleActions,
   FecOutputIncludeFec,
   FixedAfd,
   Fmp4NielsenId3Behavior,
@@ -201,7 +199,6 @@ import {
   InputLossActionForMsSmoothOut,
   InputLossActionForRtmpOut,
   InputLossActionForUdpOut,
-  InputLossImageType,
   InputMaximumBitrate,
   InputNetworkLocation,
   InputPreference,
@@ -272,6 +269,7 @@ import {
   ReservationSpecialFeature,
   ReservationState,
   ReservationVideoQuality,
+  RouterEncryptionType,
   RtmpAdMarkers,
   RtmpCacheFullBehavior,
   RtmpCaptionData,
@@ -3682,6 +3680,48 @@ export interface MulticastSettings {
 }
 
 /**
+ * Placeholder documentation for RouterDestination
+ * @public
+ */
+export interface RouterDestination {
+  /**
+   * The Availability Zone (AZ) names of the AZs this destination is created in.
+   * @public
+   */
+  AvailabilityZoneName?: string | undefined;
+
+  /**
+   * ARN of the output from MediaConnect Router currently connected to this input.
+   * @public
+   */
+  RouterOutputArn?: string | undefined;
+}
+
+/**
+ * The settings for a MediaConnect Router Input.
+ * @public
+ */
+export interface RouterInputSettings {
+  /**
+   * MediaConnect Router destinations associated with the MediaLive Input.
+   * @public
+   */
+  Destinations?: RouterDestination[] | undefined;
+
+  /**
+   * Encryption configuration for MediaConnect router. When using SECRETS_MANAGER encryption, you must provide the ARN of the secret used to encrypt data in transit. When using AUTOMATIC encryption, a service-managed secret will be used instead.
+   * @public
+   */
+  EncryptionType?: RouterEncryptionType | undefined;
+
+  /**
+   * ARN of the secret used to encrypt this input.
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
  * The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
  * @public
  */
@@ -3972,6 +4012,12 @@ export interface Input {
    * @public
    */
   SdiSources?: string[] | undefined;
+
+  /**
+   * Information about any MediaConnect router association with this input.
+   * @public
+   */
+  RouterSettings?: RouterInputSettings | undefined;
 }
 
 /**
@@ -7399,6 +7445,18 @@ export interface RouteCreateRequest {
 }
 
 /**
+ * Placeholder documentation for RouterDestinationSettings
+ * @public
+ */
+export interface RouterDestinationSettings {
+  /**
+   * Availability Zone for this MediaConnect Router destination.
+   * @public
+   */
+  AvailabilityZoneName: string | undefined;
+}
+
+/**
  * Used in UpdateNetworkRequest.
  * @public
  */
@@ -10154,71 +10212,3 @@ export interface CancelInputDeviceTransferRequest {
  * @public
  */
 export interface CancelInputDeviceTransferResponse {}
-
-/**
- * Property of encoderSettings. Controls color conversion when you are using 3D LUT files to perform color conversion on video.
- * @public
- */
-export interface ColorCorrectionSettings {
-  /**
-   * An array of colorCorrections that applies when you are using 3D LUT files to perform color conversion on video. Each colorCorrection contains one 3D LUT file (that defines the color mapping for converting an input color space to an output color space), and the input/output combination that this 3D LUT file applies to. MediaLive reads the color space in the input metadata, determines the color space that you have specified for the output, and finds and uses the LUT file that applies to this combination.
-   * @public
-   */
-  GlobalColorCorrections: ColorCorrection[] | undefined;
-}
-
-/**
- * Feature Activations
- * @public
- */
-export interface FeatureActivations {
-  /**
-   * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
-   * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
-   * @public
-   */
-  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | undefined;
-
-  /**
-   * Enables the output static image overlay feature. Enabling this feature allows you to send channel schedule updates
-   * to display/clear/modify image overlays on an output-by-output bases.
-   * @public
-   */
-  OutputStaticImageOverlayScheduleActions?: FeatureActivationsOutputStaticImageOverlayScheduleActions | undefined;
-}
-
-/**
- * Input Loss Behavior
- * @public
- */
-export interface InputLossBehavior {
-  /**
-   * Documentation update needed
-   * @public
-   */
-  BlackFrameMsec?: number | undefined;
-
-  /**
-   * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
-   * @public
-   */
-  InputLossImageColor?: string | undefined;
-
-  /**
-   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
-   * @public
-   */
-  InputLossImageSlate?: InputLocation | undefined;
-
-  /**
-   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
-   * @public
-   */
-  InputLossImageType?: InputLossImageType | undefined;
-
-  /**
-   * Documentation update needed
-   * @public
-   */
-  RepeatFrameMsec?: number | undefined;
-}
