@@ -55,7 +55,7 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * //       LastUpdatedDate: "STRING_VALUE",
  * //       LastEvaluatedDate: "STRING_VALUE",
  * //       MonitorType: "DIMENSIONAL" || "CUSTOM", // required
- * //       MonitorDimension: "SERVICE",
+ * //       MonitorDimension: "SERVICE" || "LINKED_ACCOUNT" || "TAG" || "COST_CATEGORY",
  * //       MonitorSpecification: { // Expression
  * //         Or: [ // Expressions
  * //           {

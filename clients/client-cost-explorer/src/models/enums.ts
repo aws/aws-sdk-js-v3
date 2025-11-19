@@ -118,7 +118,10 @@ export type AnomalyFeedbackType = (typeof AnomalyFeedbackType)[keyof typeof Anom
  * @enum
  */
 export const MonitorDimension = {
+  COST_CATEGORY: "COST_CATEGORY",
+  LINKED_ACCOUNT: "LINKED_ACCOUNT",
   SERVICE: "SERVICE",
+  TAG: "TAG",
 } as const;
 /**
  * @public

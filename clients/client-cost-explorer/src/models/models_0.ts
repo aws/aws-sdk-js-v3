@@ -5251,140 +5251,72 @@ export interface AnomalyMonitor {
   LastEvaluatedDate?: string | undefined;
 
   /**
-   * <p>The possible type values. </p>
+   * <p>The type of the monitor. </p>
+   *          <p>Set this to <code>DIMENSIONAL</code> for an Amazon Web Services managed monitor.
+   *             Amazon Web Services managed monitors automatically track up to the top 5,000 values by
+   *             cost within a dimension of your choosing. Each dimension value is evaluated
+   *             independently. If you start incurring cost in a new value of your chosen dimension, it
+   *             will automatically be analyzed by an Amazon Web Services managed monitor.</p>
+   *          <p>Set this to <code>CUSTOM</code> for a customer managed monitor. Customer managed
+   *             monitors let you select specific dimension values that get monitored in aggregate.
+   *         </p>
+   *          <p>For more information about monitor types, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def">Monitor
+   *             types</a> in the <i>Billing and Cost Management User Guide</i>.</p>
    * @public
    */
   MonitorType: MonitorType | undefined;
 
   /**
-   * <p>The dimensions to evaluate. </p>
+   * <p>For customer managed monitors, do not specify this field.</p>
+   *          <p>For Amazon Web Services managed monitors, this field controls which cost dimension is
+   *             automatically analyzed by the monitor. For <code>TAG</code> and <code>COST_CATEGORY
+   *             </code> dimensions, you must also specify MonitorSpecification to configure the specific
+   *             tag or cost category key to analyze.</p>
    * @public
    */
   MonitorDimension?: MonitorDimension | undefined;
 
   /**
-   * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
-   *          <p>Not all <code>Expression</code> types are supported in each API. Refer to the
-   *             documentation for each specific API to see what is supported.</p>
-   *          <p>There are two patterns:</p>
+   * <p>An <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+   *             object used to control what costs the monitor analyzes for anomalies.</p>
+   *          <p>For Amazon Web Services managed monitors:</p>
    *          <ul>
    *             <li>
-   *                <p>Simple dimension values.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>Specify the <code>CostCategories</code> field to define a
-   *                                     filter that acts on Cost Categories.</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>Specify the <code>Tags</code> field to define a filter that
-   *                                     acts on Cost Allocation Tags.</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>Specify the <code>Dimensions</code> field to define a filter
-   *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
-   *                                  <code>DimensionValues</code>
-   *                               </a>.</p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>For each filter type, you can set the dimension name and values for
-   *                             the filters that you plan to use.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>For example, you can filter for <code>REGION==us-east-1 OR
-   *                                         REGION==us-west-1</code>. For
-   *                                         <code>GetRightsizingRecommendation</code>, the Region is a
-   *                                     full name (for example, <code>REGION==US East (N.
-   *                                         Virginia)</code>.</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", "us-west-1" ] \} \}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>As shown in the previous example, lists of dimension values
-   *                                     are combined with <code>OR</code> when applying the
-   *                                     filter.</p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>You can also set different match options to further control how the
-   *                             filter behaves. Not all APIs support match options. Refer to the
-   *                             documentation for each specific API to see what is supported.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>For example, you can filter for linked account names that
-   *                                     start with "a".</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>The corresponding <code>Expression</code> for this example is
-   *                                     as follows: <code>\{ "Dimensions": \{ "Key":
-   *                                         "LINKED_ACCOUNT_NAME", "MatchOptions": [ "STARTS_WITH" ],
-   *                                         "Values": [ "a" ] \} \}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                </ul>
+   *                <p>If MonitorDimension is <code>SERVICE</code> or <code>LINKED_ACCOUNT</code>, do
+   *                     not specify this field</p>
    *             </li>
    *             <li>
-   *                <p>Compound <code>Expression</code> types with logical operations.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>You can use multiple <code>Expression</code> types and the logical
-   *                             operators <code>AND/OR/NOT</code> to create a list of one or more
-   *                                 <code>Expression</code> objects. By doing this, you can filter by
-   *                             more advanced options.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>For example, you can filter by <code>((REGION == us-east-1 OR REGION
-   *                                 == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
-   *                                 DataTransfer)</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The corresponding <code>Expression</code> for this example is as
-   *                             follows: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION",
-   *                                 "Values": [ "us-east-1", "us-west-1" ] \}\}, \{"Tags": \{ "Key":
-   *                                 "TagName", "Values": ["Value1"] \} \} ]\}, \{"Not": \{"Dimensions": \{
-   *                                 "Key": "USAGE_TYPE", "Values": ["DataTransfer"] \}\}\} ] \}
-   *                             </code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <note>
-   *                   <p>Because each <code>Expression</code> can have only one operator, the
-   *                         service returns an error if more than one is specified. The following
-   *                         example shows an <code>Expression</code> object that creates an error:
-   *                             <code> \{ "And": [ ... ], "Dimensions": \{ "Key": "USAGE_TYPE", "Values":
-   *                             [ "DataTransfer" ] \} \} </code>
-   *                   </p>
-   *                   <p>The following is an example of the corresponding error message:
-   *                             <code>"Expression has more than one roots. Only one root operator is
-   *                             allowed for each expression: And, Or, Not, Dimensions, Tags,
-   *                             CostCategories"</code>
-   *                   </p>
-   *                </note>
+   *                <p>If MonitorDimension is <code>TAG</code>, set this field to <code>\{ "Tags": \{
+   *                         "Key": "your tag key" \} \}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If MonitorDimension is <code>COST_CATEGORY</code>, set this field to <code>\{
+   *                         "CostCategories": \{ "Key": "your cost category key" \} \}</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
-   *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
-   *                 and tags. NOT operators aren't supported. Dimensions are also limited to
-   *                     <code>LINKED_ACCOUNT</code>, <code>REGION</code>, or
-   *                     <code>RIGHTSIZING_TYPE</code>.</p>
-   *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
-   *                 supported. AND and OR aren't supported. Dimensions are limited to
-   *                     <code>LINKED_ACCOUNT</code>.</p>
-   *          </note>
+   *          <p>For customer managed monitors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To track linked accounts, set this field to <code>\{ "Dimensions": \{ "Key":
+   *                         "LINKED_ACCOUNT", "Values": [ "your list of up to 10 account IDs" ] \} \}
+   *                         </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>To track cost allocation tags, set this field to <code>\{ "Tags": \{ "Key":
+   *                         "your tag key", "Values": [ "your list of up to 10 tag values" ] \} \}
+   *                         </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>To track cost categories, set this field to<code>\{ "CostCategories": \{ "Key":
+   *                         "your cost category key", "Values": [ "your cost category value" ] \} \}
+   *                         </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   MonitorSpecification?: Expression | undefined;
