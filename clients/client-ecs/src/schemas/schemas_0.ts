@@ -180,6 +180,7 @@ const _IHCR = "InstanceHealthCheckResult";
 const _IHCRL = "InstanceHealthCheckResultList";
 const _ILT = "InstanceLaunchTemplate";
 const _ILTU = "InstanceLaunchTemplateUpdate";
+const _IO = "InfrastructureOptimization";
 const _IPE = "InvalidParameterException";
 const _IRR = "InstanceRequirementsRequest";
 const _KC = "KernelCapabilities";
@@ -628,6 +629,7 @@ const _iID = "instanceIdentityDocument";
 const _iIDS = "instanceIdentityDocumentSignature";
 const _iLT = "instanceLaunchTemplate";
 const _iM = "ipcMode";
+const _iO = "infrastructureOptimization";
 const _iPE = "initProcessEnabled";
 const _iPO = "ingressPortOverride";
 const _iQP = "includeQueryParameters";
@@ -793,6 +795,7 @@ const _sDAe = "serviceDeploymentArn";
 const _sEE = "s3EncryptionEnabled";
 const _sG = "securityGroups";
 const _sI = "snapshotId";
+const _sIA = "scaleInAfter";
 const _sIGB = "sizeInGiB";
 const _sIe = "sessionId";
 const _sKP = "s3KeyPrefix";
@@ -1334,8 +1337,8 @@ export var CreateManagedInstancesProviderConfiguration: StaticStructureSchema = 
   n0,
   _CMIPC,
   0,
-  [_iRA, _iLT, _pTr],
-  [0, [() => InstanceLaunchTemplate, 0], 0],
+  [_iRA, _iLT, _pTr, _iO],
+  [0, [() => InstanceLaunchTemplate, 0], 0, () => InfrastructureOptimization],
 ];
 export var CreateServiceRequest: StaticStructureSchema = [
   3,
@@ -1704,6 +1707,7 @@ export var HostEntry: StaticStructureSchema = [3, n0, _HE, 0, [_h, _iA], [0, 0]]
 export var HostVolumeProperties: StaticStructureSchema = [3, n0, _HVP, 0, [_sPo], [0]];
 export var InferenceAccelerator: StaticStructureSchema = [3, n0, _IA, 0, [_dNe, _dT], [0, 0]];
 export var InferenceAcceleratorOverride: StaticStructureSchema = [3, n0, _IAO, 0, [_dNe, _dT], [0, 0]];
+export var InfrastructureOptimization: StaticStructureSchema = [3, n0, _IO, 0, [_sIA], [1]];
 export var InstanceHealthCheckResult: StaticStructureSchema = [3, n0, _IHCR, 0, [_t, _s, _lU, _lSC], [0, 0, 4, 4]];
 export var InstanceLaunchTemplate: StaticStructureSchema = [
   3,
@@ -1968,8 +1972,8 @@ export var ManagedInstancesProvider: StaticStructureSchema = [
   n0,
   _MIP,
   0,
-  [_iRA, _iLT, _pTr],
-  [0, [() => InstanceLaunchTemplate, 0], 0],
+  [_iRA, _iLT, _pTr, _iO],
+  [0, [() => InstanceLaunchTemplate, 0], 0, () => InfrastructureOptimization],
 ];
 export var ManagedInstancesStorageConfiguration: StaticStructureSchema = [3, n0, _MISC, 0, [_sSGB], [1]];
 export var ManagedScaling: StaticStructureSchema = [3, n0, _MS, 0, [_s, _tC, _mSSS, _mSSSa, _iWP], [0, 1, 1, 1, 1]];
@@ -2871,8 +2875,8 @@ export var UpdateManagedInstancesProviderConfiguration: StaticStructureSchema = 
   n0,
   _UMIPC,
   0,
-  [_iRA, _iLT, _pTr],
-  [0, [() => InstanceLaunchTemplateUpdate, 0], 0],
+  [_iRA, _iLT, _pTr, _iO],
+  [0, [() => InstanceLaunchTemplateUpdate, 0], 0, () => InfrastructureOptimization],
 ];
 export var UpdateServicePrimaryTaskSetRequest: StaticStructureSchema = [
   3,

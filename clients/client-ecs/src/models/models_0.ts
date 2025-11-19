@@ -272,6 +272,34 @@ export interface AutoScalingGroupProvider {
 }
 
 /**
+ * <p>The configuration that controls how Amazon ECS optimizes your infrastructure.</p>
+ * @public
+ */
+export interface InfrastructureOptimization {
+  /**
+   * <p>This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized.
+   * 		A longer delay increases the likelihood of placing new tasks on idle or underutilized instances instances, reducing startup time.
+   * 		A shorter delay helps reduce infrastructure costs by optimizing idle or underutilized instances,instances more quickly.</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - Uses the default optimization behavior.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>-1</code> - Disables automatic infrastructure optimization.</p>
+   *             </li>
+   *             <li>
+   *                <p>A value between <code>0</code> and <code>3600</code> (inclusive) - Specifies the number of seconds to wait before optimizing instances.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  scaleInAfter?: number | undefined;
+}
+
+/**
  * <p>The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps)
  * 			for instance type selection. This is important for workloads with high storage I/O
  * 			requirements.</p>
@@ -757,6 +785,13 @@ export interface CreateManagedInstancesProviderConfiguration {
    * @public
    */
   propagateTags?: PropagateMITags | undefined;
+
+  /**
+   * <p>Defines how Amazon ECS Managed Instances optimizes the infrastastructure in your capacity provider.
+   * 		Provides control over the delay between when EC2 instances become idle or underutilized and when Amazon ECS optimizes them.</p>
+   * @public
+   */
+  infrastructureOptimization?: InfrastructureOptimization | undefined;
 }
 
 /**
@@ -930,6 +965,13 @@ export interface ManagedInstancesProvider {
    * @public
    */
   propagateTags?: PropagateMITags | undefined;
+
+  /**
+   * <p>Defines how Amazon ECS Managed Instances optimizes the infrastastructure in your capacity provider.
+   * 		Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle or underutilized EC2 instances optimization delay.</p>
+   * @public
+   */
+  infrastructureOptimization?: InfrastructureOptimization | undefined;
 }
 
 /**
@@ -13624,6 +13666,13 @@ export interface UpdateManagedInstancesProviderConfiguration {
    * @public
    */
   propagateTags?: PropagateMITags | undefined;
+
+  /**
+   * <p>The updated infrastructure optimization configuration.
+   * 		Changes to this setting affect how Amazon ECS optimizes instances going forward.</p>
+   * @public
+   */
+  infrastructureOptimization?: InfrastructureOptimization | undefined;
 }
 
 /**

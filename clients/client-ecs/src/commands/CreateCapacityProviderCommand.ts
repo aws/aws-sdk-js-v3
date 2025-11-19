@@ -141,6 +141,9 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *       },
  *     },
  *     propagateTags: "CAPACITY_PROVIDER" || "NONE",
+ *     infrastructureOptimization: { // InfrastructureOptimization
+ *       scaleInAfter: Number("int"),
+ *     },
  *   },
  *   tags: [ // Tags
  *     { // Tag
@@ -256,6 +259,9 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * //         },
  * //       },
  * //       propagateTags: "CAPACITY_PROVIDER" || "NONE",
+ * //       infrastructureOptimization: { // InfrastructureOptimization
+ * //         scaleInAfter: Number("int"),
+ * //       },
  * //     },
  * //     updateStatus: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
  * //     updateStatusReason: "STRING_VALUE",
