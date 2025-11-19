@@ -27,7 +27,10 @@ export interface ListAccountPermissionsCommandInput extends ListAccountPermissio
 export interface ListAccountPermissionsCommandOutput extends ListAccountPermissionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the permissions an account has to configure Amazon Inspector.</p>
+ * <p>
+ *          Lists the permissions an account has to configure Amazon Inspector.
+ *          If the account is a member account or standalone account with resources managed by an Organizations policy, the operation returns fewer permissions.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

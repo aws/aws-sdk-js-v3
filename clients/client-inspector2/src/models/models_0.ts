@@ -286,6 +286,7 @@ export const ErrorCode = {
   ACCESS_DENIED: "ACCESS_DENIED",
   ACCOUNT_IS_ISOLATED: "ACCOUNT_IS_ISOLATED",
   ALREADY_ENABLED: "ALREADY_ENABLED",
+  BLOCKED_BY_ORGANIZATION_POLICY: "BLOCKED_BY_ORGANIZATION_POLICY",
   DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
   DISASSOCIATE_ALL_MEMBERS: "DISASSOCIATE_ALL_MEMBERS",
   EC2_SSM_ASSOCIATION_VERSION_LIMIT_EXCEEDED: "EC2_SSM_ASSOCIATION_VERSION_LIMIT_EXCEEDED",
@@ -4604,6 +4605,7 @@ export const ScanStatusReason = {
   DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED: "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED",
   EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
   EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
+  IMAGE_ARCHIVED: "IMAGE_ARCHIVED",
   IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
   INTEGRATION_CONNECTION_LOST: "INTEGRATION_CONNECTION_LOST",
   INTERNAL_ERROR: "INTERNAL_ERROR",
@@ -4759,6 +4761,9 @@ export interface ScanStatus {
    *          <p>
    *             <code>UNSUPPORTED_RUNTIME</code> - The function was not scanned because it has an
    *          unsupported runtime. To see a complete list of supported runtimes see: <a href=" https://docs.aws.amazon.com/inspector/latest/user/supported.html">https://docs.aws.amazon.com/inspector/latest/user/supported.html</a>.</p>
+   *          <p>
+   *             <code>IMAGE_ARCHIVED</code> - This image has been archived in Amazon ECR and is no longer available for scanning in Amazon Inspector.
+   *       </p>
    * @public
    */
   reason: ScanStatusReason | undefined;
