@@ -32,6 +32,8 @@ export type Dimension = (typeof Dimension)[keyof typeof Dimension];
  */
 export const BillingViewType = {
   BILLING_GROUP: "BILLING_GROUP",
+  BILLING_TRANSFER: "BILLING_TRANSFER",
+  BILLING_TRANSFER_SHOWBACK: "BILLING_TRANSFER_SHOWBACK",
   CUSTOM: "CUSTOM",
   PRIMARY: "PRIMARY",
 } as const;
@@ -73,3 +75,15 @@ export const BillingViewStatusReason = {
  * @public
  */
 export type BillingViewStatusReason = (typeof BillingViewStatusReason)[keyof typeof BillingViewStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchOption = {
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+/**
+ * @public
+ */
+export type SearchOption = (typeof SearchOption)[keyof typeof SearchOption];

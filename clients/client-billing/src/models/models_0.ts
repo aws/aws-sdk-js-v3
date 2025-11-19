@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { BillingViewStatus, BillingViewStatusReason, BillingViewType, Dimension } from "./enums";
+import { BillingViewStatus, BillingViewStatusReason, BillingViewType, Dimension, SearchOption } from "./enums";
 
 /**
  * <p>A time range with a start and end time.</p>
@@ -428,6 +428,24 @@ export interface GetResourcePolicyResponse {
 }
 
 /**
+ * <p> A structure that defines how to search for string values. You can specify a search option and the value to search for. </p>
+ * @public
+ */
+export interface StringSearch {
+  /**
+   * <p> The type of search operation to perform on the string value. Determines how the search value is matched against the target field. </p>
+   * @public
+   */
+  searchOption: SearchOption | undefined;
+
+  /**
+   * <p> The string value to use in the search operation. This value is compared against the target field using the specified search option. </p>
+   * @public
+   */
+  searchValue: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListBillingViewsRequest {
@@ -448,6 +466,12 @@ export interface ListBillingViewsRequest {
    * @public
    */
   billingViewTypes?: BillingViewType[] | undefined;
+
+  /**
+   * <p> Filters the list of billing views by name. You can specify search criteria to match billing view names based on the search option provided. </p>
+   * @public
+   */
+  names?: StringSearch[] | undefined;
 
   /**
    * <p> The list of owners of the billing view. </p>

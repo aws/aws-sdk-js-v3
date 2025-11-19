@@ -42,6 +42,8 @@ const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceTag";
 const _RTL = "ResourceTagList";
 const _SQEE = "ServiceQuotaExceededException";
+const _SS = "StringSearch";
+const _SSt = "StringSearches";
 const _TE = "ThrottlingException";
 const _TR = "TimeRange";
 const _TRR = "TagResourceRequest";
@@ -90,6 +92,7 @@ const _m = "message";
 const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
+const _na = "names";
 const _oAI = "ownerAccountId";
 const _p = "policy";
 const _qC = "quotaCode";
@@ -103,9 +106,11 @@ const _s = "server";
 const _sAI = "sourceAccountId";
 const _sC = "statusCode";
 const _sCe = "serviceCode";
+const _sO = "searchOption";
 const _sR = "statusReasons";
 const _sV = "sourceViews";
 const _sVC = "sourceViewCount";
+const _sVe = "searchValue";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.billing";
 const _t = "tags";
 const _tR = "timeRange";
@@ -274,8 +279,8 @@ export var ListBillingViewsRequest: StaticStructureSchema = [
   n0,
   _LBVR,
   0,
-  [_aTR, _ar, _bVTi, _oAI, _sAI, _mR, _nT],
-  [() => ActiveTimeRange, 64 | 0, 64 | 0, 0, 0, 1, 0],
+  [_aTR, _ar, _bVTi, _na, _oAI, _sAI, _mR, _nT],
+  [() => ActiveTimeRange, 64 | 0, 64 | 0, () => StringSearches, 0, 0, 1, 0],
 ];
 export var ListBillingViewsResponse: StaticStructureSchema = [
   3,
@@ -332,6 +337,7 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
+export var StringSearch: StaticStructureSchema = [3, n0, _SS, 0, [_sO, _sVe], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _rTe], [0, () => ResourceTagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TagValues: StaticStructureSchema = [3, n0, _TV, 0, [_k, _v], [0, 64 | 0]];
@@ -393,6 +399,7 @@ export var BillingViewTypeList = 64 | 0;
 export var ResourceTagKeyList = 64 | 0;
 
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
+export var StringSearches: StaticListSchema = [1, n0, _SSt, 0, () => StringSearch];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var Values = 64 | 0;
 

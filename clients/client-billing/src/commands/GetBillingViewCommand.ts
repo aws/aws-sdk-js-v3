@@ -46,7 +46,7 @@ export interface GetBillingViewCommandOutput extends GetBillingViewResponse, __M
  * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
- * //     billingViewType: "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
+ * //     billingViewType: "PRIMARY" || "BILLING_GROUP" || "CUSTOM" || "BILLING_TRANSFER" || "BILLING_TRANSFER_SHOWBACK",
  * //     ownerAccountId: "STRING_VALUE",
  * //     sourceAccountId: "STRING_VALUE",
  * //     dataFilterExpression: { // Expression

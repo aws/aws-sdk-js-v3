@@ -45,7 +45,13 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  *     "STRING_VALUE",
  *   ],
  *   billingViewTypes: [ // BillingViewTypeList
- *     "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
+ *     "PRIMARY" || "BILLING_GROUP" || "CUSTOM" || "BILLING_TRANSFER" || "BILLING_TRANSFER_SHOWBACK",
+ *   ],
+ *   names: [ // StringSearches
+ *     { // StringSearch
+ *       searchOption: "STARTS_WITH", // required
+ *       searchValue: "STRING_VALUE", // required
+ *     },
  *   ],
  *   ownerAccountId: "STRING_VALUE",
  *   sourceAccountId: "STRING_VALUE",
@@ -62,7 +68,7 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  * //       description: "STRING_VALUE",
  * //       ownerAccountId: "STRING_VALUE",
  * //       sourceAccountId: "STRING_VALUE",
- * //       billingViewType: "PRIMARY" || "BILLING_GROUP" || "CUSTOM",
+ * //       billingViewType: "PRIMARY" || "BILLING_GROUP" || "CUSTOM" || "BILLING_TRANSFER" || "BILLING_TRANSFER_SHOWBACK",
  * //       healthStatus: { // BillingViewHealthStatus
  * //         statusCode: "HEALTHY" || "UNHEALTHY" || "CREATING" || "UPDATING",
  * //         statusReasons: [ // BillingViewStatusReasons
