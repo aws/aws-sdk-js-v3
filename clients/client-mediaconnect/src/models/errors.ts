@@ -250,6 +250,72 @@ export class CreateGateway420Exception extends __BaseException {
 }
 
 /**
+ * <p>The request to create a new router input would exceed the service quotas for the account. </p>
+ * @public
+ */
+export class RouterInputServiceQuotaExceededException extends __BaseException {
+  readonly name = "RouterInputServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RouterInputServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "RouterInputServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RouterInputServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request to create a new router network interface would exceed the service quotas (limits) set for the account. </p>
+ * @public
+ */
+export class RouterNetworkInterfaceServiceQuotaExceededException extends __BaseException {
+  readonly name = "RouterNetworkInterfaceServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RouterNetworkInterfaceServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "RouterNetworkInterfaceServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RouterNetworkInterfaceServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request to create a new router output would exceed the service quotas (limits) set for the account. </p>
+ * @public
+ */
+export class RouterOutputServiceQuotaExceededException extends __BaseException {
+  readonly name = "RouterOutputServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RouterOutputServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "RouterOutputServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RouterOutputServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Exception raised by Elemental MediaConnect when granting the entitlement. See the error message for the operation for more information on the cause of this exception. </p>
  * @public
  */

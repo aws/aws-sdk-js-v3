@@ -85,6 +85,17 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *       VpcInterfaceName: "STRING_VALUE",
  *     },
  *   },
+ *   RouterIntegrationState: "ENABLED" || "DISABLED",
+ *   RouterIntegrationTransitDecryption: { // FlowTransitEncryption
+ *     EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ *     EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ *       SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ *         SecretArn: "STRING_VALUE", // required
+ *         RoleArn: "STRING_VALUE", // required
+ *       },
+ *       Automatic: {},
+ *     },
+ *   },
  * };
  * const command = new UpdateFlowSourceCommand(input);
  * const response = await client.send(command);
@@ -154,6 +165,18 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * //       },
  * //     },
  * //     PeerIpAddress: "STRING_VALUE",
+ * //     RouterIntegrationState: "ENABLED" || "DISABLED",
+ * //     RouterIntegrationTransitDecryption: { // FlowTransitEncryption
+ * //       EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //       EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ * //         SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ * //           SecretArn: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //         },
+ * //         Automatic: {},
+ * //       },
+ * //     },
+ * //     ConnectedRouterOutputArn: "STRING_VALUE",
  * //   },
  * // };
  *

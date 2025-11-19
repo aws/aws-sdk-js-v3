@@ -213,6 +213,18 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //         ],
  * //         OutputStatus: "ENABLED" || "DISABLED",
  * //         PeerIpAddress: "STRING_VALUE",
+ * //         RouterIntegrationState: "ENABLED" || "DISABLED",
+ * //         RouterIntegrationTransitEncryption: { // FlowTransitEncryption
+ * //           EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //           EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ * //             SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ * //               SecretArn: "STRING_VALUE", // required
+ * //               RoleArn: "STRING_VALUE", // required
+ * //             },
+ * //             Automatic: {},
+ * //           },
+ * //         },
+ * //         ConnectedRouterInputArn: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Source: { // Source
@@ -279,6 +291,18 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //         },
  * //       },
  * //       PeerIpAddress: "STRING_VALUE",
+ * //       RouterIntegrationState: "ENABLED" || "DISABLED",
+ * //       RouterIntegrationTransitDecryption: {
+ * //         EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //         EncryptionKeyConfiguration: {//  Union: only one key present
+ * //           SecretsManager: {
+ * //             SecretArn: "STRING_VALUE", // required
+ * //             RoleArn: "STRING_VALUE", // required
+ * //           },
+ * //           Automatic: {},
+ * //         },
+ * //       },
+ * //       ConnectedRouterOutputArn: "STRING_VALUE",
  * //     },
  * //     SourceFailoverConfig: { // FailoverConfig
  * //       FailoverMode: "MERGE" || "FAILOVER",
@@ -353,6 +377,18 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * //           },
  * //         },
  * //         PeerIpAddress: "STRING_VALUE",
+ * //         RouterIntegrationState: "ENABLED" || "DISABLED",
+ * //         RouterIntegrationTransitDecryption: {
+ * //           EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //           EncryptionKeyConfiguration: {//  Union: only one key present
+ * //             SecretsManager: {
+ * //               SecretArn: "STRING_VALUE", // required
+ * //               RoleArn: "STRING_VALUE", // required
+ * //             },
+ * //             Automatic: {},
+ * //           },
+ * //         },
+ * //         ConnectedRouterOutputArn: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR", // required

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { UntagResourceRequest } from "../models/models_0";
+import { UntagResourceRequest } from "../models/models_1";
 import { UntagResource } from "../schemas/schemas_0";
 
 /**
@@ -27,7 +27,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Deletes specified tags from a resource.</p>
+ * <p> Deletes specified tags from a resource in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

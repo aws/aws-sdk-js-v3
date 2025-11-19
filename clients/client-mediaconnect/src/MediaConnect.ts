@@ -33,6 +33,21 @@ import {
   AddFlowVpcInterfacesCommandOutput,
 } from "./commands/AddFlowVpcInterfacesCommand";
 import {
+  BatchGetRouterInputCommand,
+  BatchGetRouterInputCommandInput,
+  BatchGetRouterInputCommandOutput,
+} from "./commands/BatchGetRouterInputCommand";
+import {
+  BatchGetRouterNetworkInterfaceCommand,
+  BatchGetRouterNetworkInterfaceCommandInput,
+  BatchGetRouterNetworkInterfaceCommandOutput,
+} from "./commands/BatchGetRouterNetworkInterfaceCommand";
+import {
+  BatchGetRouterOutputCommand,
+  BatchGetRouterOutputCommandInput,
+  BatchGetRouterOutputCommandOutput,
+} from "./commands/BatchGetRouterOutputCommand";
+import {
   CreateBridgeCommand,
   CreateBridgeCommandInput,
   CreateBridgeCommandOutput,
@@ -44,6 +59,21 @@ import {
   CreateGatewayCommandOutput,
 } from "./commands/CreateGatewayCommand";
 import {
+  CreateRouterInputCommand,
+  CreateRouterInputCommandInput,
+  CreateRouterInputCommandOutput,
+} from "./commands/CreateRouterInputCommand";
+import {
+  CreateRouterNetworkInterfaceCommand,
+  CreateRouterNetworkInterfaceCommandInput,
+  CreateRouterNetworkInterfaceCommandOutput,
+} from "./commands/CreateRouterNetworkInterfaceCommand";
+import {
+  CreateRouterOutputCommand,
+  CreateRouterOutputCommandInput,
+  CreateRouterOutputCommandOutput,
+} from "./commands/CreateRouterOutputCommand";
+import {
   DeleteBridgeCommand,
   DeleteBridgeCommandInput,
   DeleteBridgeCommandOutput,
@@ -54,6 +84,21 @@ import {
   DeleteGatewayCommandInput,
   DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
+import {
+  DeleteRouterInputCommand,
+  DeleteRouterInputCommandInput,
+  DeleteRouterInputCommandOutput,
+} from "./commands/DeleteRouterInputCommand";
+import {
+  DeleteRouterNetworkInterfaceCommand,
+  DeleteRouterNetworkInterfaceCommandInput,
+  DeleteRouterNetworkInterfaceCommandOutput,
+} from "./commands/DeleteRouterNetworkInterfaceCommand";
+import {
+  DeleteRouterOutputCommand,
+  DeleteRouterOutputCommandInput,
+  DeleteRouterOutputCommandOutput,
+} from "./commands/DeleteRouterOutputCommand";
 import {
   DeregisterGatewayInstanceCommand,
   DeregisterGatewayInstanceCommandInput,
@@ -100,6 +145,31 @@ import {
   DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand";
 import {
+  GetRouterInputCommand,
+  GetRouterInputCommandInput,
+  GetRouterInputCommandOutput,
+} from "./commands/GetRouterInputCommand";
+import {
+  GetRouterInputSourceMetadataCommand,
+  GetRouterInputSourceMetadataCommandInput,
+  GetRouterInputSourceMetadataCommandOutput,
+} from "./commands/GetRouterInputSourceMetadataCommand";
+import {
+  GetRouterInputThumbnailCommand,
+  GetRouterInputThumbnailCommandInput,
+  GetRouterInputThumbnailCommandOutput,
+} from "./commands/GetRouterInputThumbnailCommand";
+import {
+  GetRouterNetworkInterfaceCommand,
+  GetRouterNetworkInterfaceCommandInput,
+  GetRouterNetworkInterfaceCommandOutput,
+} from "./commands/GetRouterNetworkInterfaceCommand";
+import {
+  GetRouterOutputCommand,
+  GetRouterOutputCommandInput,
+  GetRouterOutputCommandOutput,
+} from "./commands/GetRouterOutputCommand";
+import {
   GrantFlowEntitlementsCommand,
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
@@ -131,6 +201,26 @@ import {
   ListReservationsCommandInput,
   ListReservationsCommandOutput,
 } from "./commands/ListReservationsCommand";
+import {
+  ListRouterInputsCommand,
+  ListRouterInputsCommandInput,
+  ListRouterInputsCommandOutput,
+} from "./commands/ListRouterInputsCommand";
+import {
+  ListRouterNetworkInterfacesCommand,
+  ListRouterNetworkInterfacesCommandInput,
+  ListRouterNetworkInterfacesCommandOutput,
+} from "./commands/ListRouterNetworkInterfacesCommand";
+import {
+  ListRouterOutputsCommand,
+  ListRouterOutputsCommandInput,
+  ListRouterOutputsCommandOutput,
+} from "./commands/ListRouterOutputsCommand";
+import {
+  ListTagsForGlobalResourceCommand,
+  ListTagsForGlobalResourceCommandInput,
+  ListTagsForGlobalResourceCommandOutput,
+} from "./commands/ListTagsForGlobalResourceCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -172,13 +262,58 @@ import {
   RemoveFlowVpcInterfaceCommandOutput,
 } from "./commands/RemoveFlowVpcInterfaceCommand";
 import {
+  RestartRouterInputCommand,
+  RestartRouterInputCommandInput,
+  RestartRouterInputCommandOutput,
+} from "./commands/RestartRouterInputCommand";
+import {
+  RestartRouterOutputCommand,
+  RestartRouterOutputCommandInput,
+  RestartRouterOutputCommandOutput,
+} from "./commands/RestartRouterOutputCommand";
+import {
   RevokeFlowEntitlementCommand,
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput,
 } from "./commands/RevokeFlowEntitlementCommand";
 import { StartFlowCommand, StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
+import {
+  StartRouterInputCommand,
+  StartRouterInputCommandInput,
+  StartRouterInputCommandOutput,
+} from "./commands/StartRouterInputCommand";
+import {
+  StartRouterOutputCommand,
+  StartRouterOutputCommandInput,
+  StartRouterOutputCommandOutput,
+} from "./commands/StartRouterOutputCommand";
 import { StopFlowCommand, StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
+import {
+  StopRouterInputCommand,
+  StopRouterInputCommandInput,
+  StopRouterInputCommandOutput,
+} from "./commands/StopRouterInputCommand";
+import {
+  StopRouterOutputCommand,
+  StopRouterOutputCommandInput,
+  StopRouterOutputCommandOutput,
+} from "./commands/StopRouterOutputCommand";
+import {
+  TagGlobalResourceCommand,
+  TagGlobalResourceCommandInput,
+  TagGlobalResourceCommandOutput,
+} from "./commands/TagGlobalResourceCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TakeRouterInputCommand,
+  TakeRouterInputCommandInput,
+  TakeRouterInputCommandOutput,
+} from "./commands/TakeRouterInputCommand";
+import {
+  UntagGlobalResourceCommand,
+  UntagGlobalResourceCommandInput,
+  UntagGlobalResourceCommandOutput,
+} from "./commands/UntagGlobalResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -230,6 +365,21 @@ import {
   UpdateGatewayInstanceCommandInput,
   UpdateGatewayInstanceCommandOutput,
 } from "./commands/UpdateGatewayInstanceCommand";
+import {
+  UpdateRouterInputCommand,
+  UpdateRouterInputCommandInput,
+  UpdateRouterInputCommandOutput,
+} from "./commands/UpdateRouterInputCommand";
+import {
+  UpdateRouterNetworkInterfaceCommand,
+  UpdateRouterNetworkInterfaceCommandInput,
+  UpdateRouterNetworkInterfaceCommandOutput,
+} from "./commands/UpdateRouterNetworkInterfaceCommand";
+import {
+  UpdateRouterOutputCommand,
+  UpdateRouterOutputCommandInput,
+  UpdateRouterOutputCommandOutput,
+} from "./commands/UpdateRouterOutputCommand";
 import { MediaConnectClient, MediaConnectClientConfig } from "./MediaConnectClient";
 
 const commands = {
@@ -239,12 +389,21 @@ const commands = {
   AddFlowOutputsCommand,
   AddFlowSourcesCommand,
   AddFlowVpcInterfacesCommand,
+  BatchGetRouterInputCommand,
+  BatchGetRouterNetworkInterfaceCommand,
+  BatchGetRouterOutputCommand,
   CreateBridgeCommand,
   CreateFlowCommand,
   CreateGatewayCommand,
+  CreateRouterInputCommand,
+  CreateRouterNetworkInterfaceCommand,
+  CreateRouterOutputCommand,
   DeleteBridgeCommand,
   DeleteFlowCommand,
   DeleteGatewayCommand,
+  DeleteRouterInputCommand,
+  DeleteRouterNetworkInterfaceCommand,
+  DeleteRouterOutputCommand,
   DeregisterGatewayInstanceCommand,
   DescribeBridgeCommand,
   DescribeFlowCommand,
@@ -254,6 +413,11 @@ const commands = {
   DescribeGatewayInstanceCommand,
   DescribeOfferingCommand,
   DescribeReservationCommand,
+  GetRouterInputCommand,
+  GetRouterInputSourceMetadataCommand,
+  GetRouterInputThumbnailCommand,
+  GetRouterNetworkInterfaceCommand,
+  GetRouterOutputCommand,
   GrantFlowEntitlementsCommand,
   ListBridgesCommand,
   ListEntitlementsCommand,
@@ -262,6 +426,10 @@ const commands = {
   ListGatewaysCommand,
   ListOfferingsCommand,
   ListReservationsCommand,
+  ListRouterInputsCommand,
+  ListRouterNetworkInterfacesCommand,
+  ListRouterOutputsCommand,
+  ListTagsForGlobalResourceCommand,
   ListTagsForResourceCommand,
   PurchaseOfferingCommand,
   RemoveBridgeOutputCommand,
@@ -270,10 +438,19 @@ const commands = {
   RemoveFlowOutputCommand,
   RemoveFlowSourceCommand,
   RemoveFlowVpcInterfaceCommand,
+  RestartRouterInputCommand,
+  RestartRouterOutputCommand,
   RevokeFlowEntitlementCommand,
   StartFlowCommand,
+  StartRouterInputCommand,
+  StartRouterOutputCommand,
   StopFlowCommand,
+  StopRouterInputCommand,
+  StopRouterOutputCommand,
+  TagGlobalResourceCommand,
   TagResourceCommand,
+  TakeRouterInputCommand,
+  UntagGlobalResourceCommand,
   UntagResourceCommand,
   UpdateBridgeCommand,
   UpdateBridgeOutputCommand,
@@ -285,6 +462,9 @@ const commands = {
   UpdateFlowOutputCommand,
   UpdateFlowSourceCommand,
   UpdateGatewayInstanceCommand,
+  UpdateRouterInputCommand,
+  UpdateRouterNetworkInterfaceCommand,
+  UpdateRouterOutputCommand,
 };
 
 export interface MediaConnect {
@@ -385,6 +565,57 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link BatchGetRouterInputCommand}
+   */
+  batchGetRouterInput(
+    args: BatchGetRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRouterInputCommandOutput>;
+  batchGetRouterInput(
+    args: BatchGetRouterInputCommandInput,
+    cb: (err: any, data?: BatchGetRouterInputCommandOutput) => void
+  ): void;
+  batchGetRouterInput(
+    args: BatchGetRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetRouterNetworkInterfaceCommand}
+   */
+  batchGetRouterNetworkInterface(
+    args: BatchGetRouterNetworkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRouterNetworkInterfaceCommandOutput>;
+  batchGetRouterNetworkInterface(
+    args: BatchGetRouterNetworkInterfaceCommandInput,
+    cb: (err: any, data?: BatchGetRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+  batchGetRouterNetworkInterface(
+    args: BatchGetRouterNetworkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetRouterOutputCommand}
+   */
+  batchGetRouterOutput(
+    args: BatchGetRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRouterOutputCommandOutput>;
+  batchGetRouterOutput(
+    args: BatchGetRouterOutputCommandInput,
+    cb: (err: any, data?: BatchGetRouterOutputCommandOutput) => void
+  ): void;
+  batchGetRouterOutput(
+    args: BatchGetRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateBridgeCommand}
    */
   createBridge(args: CreateBridgeCommandInput, options?: __HttpHandlerOptions): Promise<CreateBridgeCommandOutput>;
@@ -418,6 +649,57 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link CreateRouterInputCommand}
+   */
+  createRouterInput(
+    args: CreateRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouterInputCommandOutput>;
+  createRouterInput(
+    args: CreateRouterInputCommandInput,
+    cb: (err: any, data?: CreateRouterInputCommandOutput) => void
+  ): void;
+  createRouterInput(
+    args: CreateRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRouterNetworkInterfaceCommand}
+   */
+  createRouterNetworkInterface(
+    args: CreateRouterNetworkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouterNetworkInterfaceCommandOutput>;
+  createRouterNetworkInterface(
+    args: CreateRouterNetworkInterfaceCommandInput,
+    cb: (err: any, data?: CreateRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+  createRouterNetworkInterface(
+    args: CreateRouterNetworkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRouterOutputCommand}
+   */
+  createRouterOutput(
+    args: CreateRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouterOutputCommandOutput>;
+  createRouterOutput(
+    args: CreateRouterOutputCommandInput,
+    cb: (err: any, data?: CreateRouterOutputCommandOutput) => void
+  ): void;
+  createRouterOutput(
+    args: CreateRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBridgeCommand}
    */
   deleteBridge(args: DeleteBridgeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBridgeCommandOutput>;
@@ -448,6 +730,57 @@ export interface MediaConnect {
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRouterInputCommand}
+   */
+  deleteRouterInput(
+    args: DeleteRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouterInputCommandOutput>;
+  deleteRouterInput(
+    args: DeleteRouterInputCommandInput,
+    cb: (err: any, data?: DeleteRouterInputCommandOutput) => void
+  ): void;
+  deleteRouterInput(
+    args: DeleteRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRouterNetworkInterfaceCommand}
+   */
+  deleteRouterNetworkInterface(
+    args: DeleteRouterNetworkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouterNetworkInterfaceCommandOutput>;
+  deleteRouterNetworkInterface(
+    args: DeleteRouterNetworkInterfaceCommandInput,
+    cb: (err: any, data?: DeleteRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+  deleteRouterNetworkInterface(
+    args: DeleteRouterNetworkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRouterOutputCommand}
+   */
+  deleteRouterOutput(
+    args: DeleteRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouterOutputCommandOutput>;
+  deleteRouterOutput(
+    args: DeleteRouterOutputCommandInput,
+    cb: (err: any, data?: DeleteRouterOutputCommandOutput) => void
+  ): void;
+  deleteRouterOutput(
+    args: DeleteRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRouterOutputCommandOutput) => void
   ): void;
 
   /**
@@ -592,6 +925,85 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link GetRouterInputCommand}
+   */
+  getRouterInput(
+    args: GetRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouterInputCommandOutput>;
+  getRouterInput(args: GetRouterInputCommandInput, cb: (err: any, data?: GetRouterInputCommandOutput) => void): void;
+  getRouterInput(
+    args: GetRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRouterInputSourceMetadataCommand}
+   */
+  getRouterInputSourceMetadata(
+    args: GetRouterInputSourceMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouterInputSourceMetadataCommandOutput>;
+  getRouterInputSourceMetadata(
+    args: GetRouterInputSourceMetadataCommandInput,
+    cb: (err: any, data?: GetRouterInputSourceMetadataCommandOutput) => void
+  ): void;
+  getRouterInputSourceMetadata(
+    args: GetRouterInputSourceMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRouterInputSourceMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRouterInputThumbnailCommand}
+   */
+  getRouterInputThumbnail(
+    args: GetRouterInputThumbnailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouterInputThumbnailCommandOutput>;
+  getRouterInputThumbnail(
+    args: GetRouterInputThumbnailCommandInput,
+    cb: (err: any, data?: GetRouterInputThumbnailCommandOutput) => void
+  ): void;
+  getRouterInputThumbnail(
+    args: GetRouterInputThumbnailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRouterInputThumbnailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRouterNetworkInterfaceCommand}
+   */
+  getRouterNetworkInterface(
+    args: GetRouterNetworkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouterNetworkInterfaceCommandOutput>;
+  getRouterNetworkInterface(
+    args: GetRouterNetworkInterfaceCommandInput,
+    cb: (err: any, data?: GetRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+  getRouterNetworkInterface(
+    args: GetRouterNetworkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRouterOutputCommand}
+   */
+  getRouterOutput(
+    args: GetRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouterOutputCommandOutput>;
+  getRouterOutput(args: GetRouterOutputCommandInput, cb: (err: any, data?: GetRouterOutputCommandOutput) => void): void;
+  getRouterOutput(
+    args: GetRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GrantFlowEntitlementsCommand}
    */
   grantFlowEntitlements(
@@ -708,6 +1120,77 @@ export interface MediaConnect {
     args: ListReservationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReservationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRouterInputsCommand}
+   */
+  listRouterInputs(): Promise<ListRouterInputsCommandOutput>;
+  listRouterInputs(
+    args: ListRouterInputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRouterInputsCommandOutput>;
+  listRouterInputs(
+    args: ListRouterInputsCommandInput,
+    cb: (err: any, data?: ListRouterInputsCommandOutput) => void
+  ): void;
+  listRouterInputs(
+    args: ListRouterInputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRouterInputsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRouterNetworkInterfacesCommand}
+   */
+  listRouterNetworkInterfaces(): Promise<ListRouterNetworkInterfacesCommandOutput>;
+  listRouterNetworkInterfaces(
+    args: ListRouterNetworkInterfacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRouterNetworkInterfacesCommandOutput>;
+  listRouterNetworkInterfaces(
+    args: ListRouterNetworkInterfacesCommandInput,
+    cb: (err: any, data?: ListRouterNetworkInterfacesCommandOutput) => void
+  ): void;
+  listRouterNetworkInterfaces(
+    args: ListRouterNetworkInterfacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRouterNetworkInterfacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRouterOutputsCommand}
+   */
+  listRouterOutputs(): Promise<ListRouterOutputsCommandOutput>;
+  listRouterOutputs(
+    args: ListRouterOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRouterOutputsCommandOutput>;
+  listRouterOutputs(
+    args: ListRouterOutputsCommandInput,
+    cb: (err: any, data?: ListRouterOutputsCommandOutput) => void
+  ): void;
+  listRouterOutputs(
+    args: ListRouterOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRouterOutputsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForGlobalResourceCommand}
+   */
+  listTagsForGlobalResource(
+    args: ListTagsForGlobalResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForGlobalResourceCommandOutput>;
+  listTagsForGlobalResource(
+    args: ListTagsForGlobalResourceCommandInput,
+    cb: (err: any, data?: ListTagsForGlobalResourceCommandOutput) => void
+  ): void;
+  listTagsForGlobalResource(
+    args: ListTagsForGlobalResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForGlobalResourceCommandOutput) => void
   ): void;
 
   /**
@@ -847,6 +1330,40 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link RestartRouterInputCommand}
+   */
+  restartRouterInput(
+    args: RestartRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestartRouterInputCommandOutput>;
+  restartRouterInput(
+    args: RestartRouterInputCommandInput,
+    cb: (err: any, data?: RestartRouterInputCommandOutput) => void
+  ): void;
+  restartRouterInput(
+    args: RestartRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestartRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestartRouterOutputCommand}
+   */
+  restartRouterOutput(
+    args: RestartRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestartRouterOutputCommandOutput>;
+  restartRouterOutput(
+    args: RestartRouterOutputCommandInput,
+    cb: (err: any, data?: RestartRouterOutputCommandOutput) => void
+  ): void;
+  restartRouterOutput(
+    args: RestartRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestartRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RevokeFlowEntitlementCommand}
    */
   revokeFlowEntitlement(
@@ -875,6 +1392,40 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link StartRouterInputCommand}
+   */
+  startRouterInput(
+    args: StartRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRouterInputCommandOutput>;
+  startRouterInput(
+    args: StartRouterInputCommandInput,
+    cb: (err: any, data?: StartRouterInputCommandOutput) => void
+  ): void;
+  startRouterInput(
+    args: StartRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartRouterOutputCommand}
+   */
+  startRouterOutput(
+    args: StartRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRouterOutputCommandOutput>;
+  startRouterOutput(
+    args: StartRouterOutputCommandInput,
+    cb: (err: any, data?: StartRouterOutputCommandOutput) => void
+  ): void;
+  startRouterOutput(
+    args: StartRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopFlowCommand}
    */
   stopFlow(args: StopFlowCommandInput, options?: __HttpHandlerOptions): Promise<StopFlowCommandOutput>;
@@ -886,6 +1437,54 @@ export interface MediaConnect {
   ): void;
 
   /**
+   * @see {@link StopRouterInputCommand}
+   */
+  stopRouterInput(
+    args: StopRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRouterInputCommandOutput>;
+  stopRouterInput(args: StopRouterInputCommandInput, cb: (err: any, data?: StopRouterInputCommandOutput) => void): void;
+  stopRouterInput(
+    args: StopRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopRouterOutputCommand}
+   */
+  stopRouterOutput(
+    args: StopRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRouterOutputCommandOutput>;
+  stopRouterOutput(
+    args: StopRouterOutputCommandInput,
+    cb: (err: any, data?: StopRouterOutputCommandOutput) => void
+  ): void;
+  stopRouterOutput(
+    args: StopRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopRouterOutputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagGlobalResourceCommand}
+   */
+  tagGlobalResource(
+    args: TagGlobalResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagGlobalResourceCommandOutput>;
+  tagGlobalResource(
+    args: TagGlobalResourceCommandInput,
+    cb: (err: any, data?: TagGlobalResourceCommandOutput) => void
+  ): void;
+  tagGlobalResource(
+    args: TagGlobalResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagGlobalResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -894,6 +1493,37 @@ export interface MediaConnect {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TakeRouterInputCommand}
+   */
+  takeRouterInput(
+    args: TakeRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TakeRouterInputCommandOutput>;
+  takeRouterInput(args: TakeRouterInputCommandInput, cb: (err: any, data?: TakeRouterInputCommandOutput) => void): void;
+  takeRouterInput(
+    args: TakeRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TakeRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagGlobalResourceCommand}
+   */
+  untagGlobalResource(
+    args: UntagGlobalResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagGlobalResourceCommandOutput>;
+  untagGlobalResource(
+    args: UntagGlobalResourceCommandInput,
+    cb: (err: any, data?: UntagGlobalResourceCommandOutput) => void
+  ): void;
+  untagGlobalResource(
+    args: UntagGlobalResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagGlobalResourceCommandOutput) => void
   ): void;
 
   /**
@@ -1063,6 +1693,57 @@ export interface MediaConnect {
     args: UpdateGatewayInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGatewayInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRouterInputCommand}
+   */
+  updateRouterInput(
+    args: UpdateRouterInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRouterInputCommandOutput>;
+  updateRouterInput(
+    args: UpdateRouterInputCommandInput,
+    cb: (err: any, data?: UpdateRouterInputCommandOutput) => void
+  ): void;
+  updateRouterInput(
+    args: UpdateRouterInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRouterInputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRouterNetworkInterfaceCommand}
+   */
+  updateRouterNetworkInterface(
+    args: UpdateRouterNetworkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRouterNetworkInterfaceCommandOutput>;
+  updateRouterNetworkInterface(
+    args: UpdateRouterNetworkInterfaceCommandInput,
+    cb: (err: any, data?: UpdateRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+  updateRouterNetworkInterface(
+    args: UpdateRouterNetworkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRouterNetworkInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRouterOutputCommand}
+   */
+  updateRouterOutput(
+    args: UpdateRouterOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRouterOutputCommandOutput>;
+  updateRouterOutput(
+    args: UpdateRouterOutputCommandInput,
+    cb: (err: any, data?: UpdateRouterOutputCommandOutput) => void
+  ): void;
+  updateRouterOutput(
+    args: UpdateRouterOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRouterOutputCommandOutput) => void
   ): void;
 }
 

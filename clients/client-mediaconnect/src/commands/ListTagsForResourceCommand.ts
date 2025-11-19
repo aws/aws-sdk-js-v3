@@ -27,7 +27,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p> List all tags on a MediaConnect resource.</p>
+ * <p> List all tags on a MediaConnect resource in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

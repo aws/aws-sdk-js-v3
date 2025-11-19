@@ -7,3 +7,6 @@ export * from "./ListGatewayInstancesPaginator";
 export * from "./ListGatewaysPaginator";
 export * from "./ListOfferingsPaginator";
 export * from "./ListReservationsPaginator";
+export * from "./ListRouterInputsPaginator";
+export * from "./ListRouterNetworkInterfacesPaginator";
+export * from "./ListRouterOutputsPaginator";

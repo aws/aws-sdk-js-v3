@@ -188,6 +188,20 @@ export type State = (typeof State)[keyof typeof State];
  * @public
  * @enum
  */
+export const FlowTransitEncryptionKeyType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type FlowTransitEncryptionKeyType =
+  (typeof FlowTransitEncryptionKeyType)[keyof typeof FlowTransitEncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EntitlementStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -366,6 +380,305 @@ export const NetworkInterfaceType = {
  * @public
  */
 export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ForwardErrorCorrectionState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ForwardErrorCorrectionState =
+  (typeof ForwardErrorCorrectionState)[keyof typeof ForwardErrorCorrectionState];
+
+/**
+ * @public
+ * @enum
+ */
+export const FailoverInputSourcePriorityMode = {
+  NO_PRIORITY: "NO_PRIORITY",
+  PRIMARY_SECONDARY: "PRIMARY_SECONDARY",
+} as const;
+/**
+ * @public
+ */
+export type FailoverInputSourcePriorityMode =
+  (typeof FailoverInputSourcePriorityMode)[keyof typeof FailoverInputSourcePriorityMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterInputProtocol = {
+  RIST: "RIST",
+  RTP: "RTP",
+  SRT_CALLER: "SRT_CALLER",
+  SRT_LISTENER: "SRT_LISTENER",
+} as const;
+/**
+ * @public
+ */
+export type RouterInputProtocol = (typeof RouterInputProtocol)[keyof typeof RouterInputProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterInputType = {
+  FAILOVER: "FAILOVER",
+  MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
+  MERGE: "MERGE",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type RouterInputType = (typeof RouterInputType)[keyof typeof RouterInputType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Day = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+/**
+ * @public
+ */
+export type Day = (typeof Day)[keyof typeof Day];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceScheduleType = {
+  WINDOW: "WINDOW",
+} as const;
+/**
+ * @public
+ */
+export type MaintenanceScheduleType = (typeof MaintenanceScheduleType)[keyof typeof MaintenanceScheduleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceType = {
+  DEFAULT: "DEFAULT",
+  PREFERRED_DAY_TIME: "PREFERRED_DAY_TIME",
+} as const;
+/**
+ * @public
+ */
+export type MaintenanceType = (typeof MaintenanceType)[keyof typeof MaintenanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RoutingScope = {
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
+/**
+ * @public
+ */
+export type RoutingScope = (typeof RoutingScope)[keyof typeof RoutingScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterInputState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  MIGRATING: "MIGRATING",
+  RECOVERING: "RECOVERING",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RouterInputState = (typeof RouterInputState)[keyof typeof RouterInputState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterInputTier = {
+  INPUT_100: "INPUT_100",
+  INPUT_20: "INPUT_20",
+  INPUT_50: "INPUT_50",
+} as const;
+/**
+ * @public
+ */
+export type RouterInputTier = (typeof RouterInputTier)[keyof typeof RouterInputTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterInputTransitEncryptionKeyType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type RouterInputTransitEncryptionKeyType =
+  (typeof RouterInputTransitEncryptionKeyType)[keyof typeof RouterInputTransitEncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterNetworkInterfaceType = {
+  PUBLIC: "PUBLIC",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type RouterNetworkInterfaceType = (typeof RouterNetworkInterfaceType)[keyof typeof RouterNetworkInterfaceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterNetworkInterfaceState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  RECOVERING: "RECOVERING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RouterNetworkInterfaceState =
+  (typeof RouterNetworkInterfaceState)[keyof typeof RouterNetworkInterfaceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaLiveTransitEncryptionKeyType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type MediaLiveTransitEncryptionKeyType =
+  (typeof MediaLiveTransitEncryptionKeyType)[keyof typeof MediaLiveTransitEncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaLiveInputPipelineId = {
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
+/**
+ * @public
+ */
+export type MediaLiveInputPipelineId = (typeof MediaLiveInputPipelineId)[keyof typeof MediaLiveInputPipelineId];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterOutputProtocol = {
+  RIST: "RIST",
+  RTP: "RTP",
+  SRT_CALLER: "SRT_CALLER",
+  SRT_LISTENER: "SRT_LISTENER",
+} as const;
+/**
+ * @public
+ */
+export type RouterOutputProtocol = (typeof RouterOutputProtocol)[keyof typeof RouterOutputProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterOutputType = {
+  MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
+  MEDIALIVE_INPUT: "MEDIALIVE_INPUT",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type RouterOutputType = (typeof RouterOutputType)[keyof typeof RouterOutputType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterOutputRoutedState = {
+  ROUTED: "ROUTED",
+  ROUTING: "ROUTING",
+  UNROUTED: "UNROUTED",
+} as const;
+/**
+ * @public
+ */
+export type RouterOutputRoutedState = (typeof RouterOutputRoutedState)[keyof typeof RouterOutputRoutedState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterOutputState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  MIGRATING: "MIGRATING",
+  RECOVERING: "RECOVERING",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RouterOutputState = (typeof RouterOutputState)[keyof typeof RouterOutputState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouterOutputTier = {
+  OUTPUT_100: "OUTPUT_100",
+  OUTPUT_20: "OUTPUT_20",
+  OUTPUT_50: "OUTPUT_50",
+} as const;
+/**
+ * @public
+ */
+export type RouterOutputTier = (typeof RouterOutputTier)[keyof typeof RouterOutputTier];
 
 /**
  * @public

@@ -89,6 +89,17 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   OutputStatus: "ENABLED" || "DISABLED",
  *   NdiProgramName: "STRING_VALUE",
  *   NdiSpeedHqQuality: Number("int"),
+ *   RouterIntegrationState: "ENABLED" || "DISABLED",
+ *   RouterIntegrationTransitEncryption: { // FlowTransitEncryption
+ *     EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ *     EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ *       SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ *         SecretArn: "STRING_VALUE", // required
+ *         RoleArn: "STRING_VALUE", // required
+ *       },
+ *       Automatic: {},
+ *     },
+ *   },
  * };
  * const command = new UpdateFlowOutputCommand(input);
  * const response = await client.send(command);
@@ -163,6 +174,18 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //     ],
  * //     OutputStatus: "ENABLED" || "DISABLED",
  * //     PeerIpAddress: "STRING_VALUE",
+ * //     RouterIntegrationState: "ENABLED" || "DISABLED",
+ * //     RouterIntegrationTransitEncryption: { // FlowTransitEncryption
+ * //       EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //       EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ * //         SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ * //           SecretArn: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //         },
+ * //         Automatic: {},
+ * //       },
+ * //     },
+ * //     ConnectedRouterInputArn: "STRING_VALUE",
  * //   },
  * // };
  *

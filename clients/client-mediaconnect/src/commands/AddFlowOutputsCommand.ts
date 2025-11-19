@@ -93,6 +93,17 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *       OutputTags: { // __mapOfString
  *         "<keys>": "STRING_VALUE",
  *       },
+ *       RouterIntegrationState: "ENABLED" || "DISABLED",
+ *       RouterIntegrationTransitEncryption: { // FlowTransitEncryption
+ *         EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ *         EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ *           SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ *             SecretArn: "STRING_VALUE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *           },
+ *           Automatic: {},
+ *         },
+ *       },
  *     },
  *   ],
  * };
@@ -170,6 +181,18 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //       ],
  * //       OutputStatus: "ENABLED" || "DISABLED",
  * //       PeerIpAddress: "STRING_VALUE",
+ * //       RouterIntegrationState: "ENABLED" || "DISABLED",
+ * //       RouterIntegrationTransitEncryption: { // FlowTransitEncryption
+ * //         EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //         EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ * //           SecretsManager: { // SecretsManagerEncryptionKeyConfiguration
+ * //             SecretArn: "STRING_VALUE", // required
+ * //             RoleArn: "STRING_VALUE", // required
+ * //           },
+ * //           Automatic: {},
+ * //         },
+ * //       },
+ * //       ConnectedRouterInputArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

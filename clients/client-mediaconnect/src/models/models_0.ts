@@ -6,17 +6,25 @@ import {
   Colorimetry,
   ConnectionStatus,
   ContentQualityAnalysisState,
+  Day,
   DesiredState,
   DurationUnits,
   EncoderProfile,
   EncodingName,
   EntitlementStatus,
+  FailoverInputSourcePriorityMode,
   FailoverMode,
   FlowSize,
+  FlowTransitEncryptionKeyType,
+  ForwardErrorCorrectionState,
   GatewayState,
   InstanceState,
   KeyType,
   MaintenanceDay,
+  MaintenanceScheduleType,
+  MaintenanceType,
+  MediaLiveInputPipelineId,
+  MediaLiveTransitEncryptionKeyType,
   MediaStreamType,
   NdiState,
   NetworkInterfaceType,
@@ -26,6 +34,19 @@ import {
   Range,
   ReservationState,
   ResourceType,
+  RouterInputProtocol,
+  RouterInputState,
+  RouterInputTier,
+  RouterInputTransitEncryptionKeyType,
+  RouterInputType,
+  RouterNetworkInterfaceState,
+  RouterNetworkInterfaceType,
+  RouterOutputProtocol,
+  RouterOutputRoutedState,
+  RouterOutputState,
+  RouterOutputTier,
+  RouterOutputType,
+  RoutingScope,
   ScanMode,
   SourceType,
   State,
@@ -461,6 +482,101 @@ export interface MediaStreamOutputConfigurationRequest {
 }
 
 /**
+ * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+ * @public
+ */
+export interface AutomaticEncryptionKeyConfiguration {}
+
+/**
+ * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+ * @public
+ */
+export interface SecretsManagerEncryptionKeyConfiguration {
+  /**
+   * <p>The ARN of the AWS Secrets Manager secret used for transit encryption.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for flow transit encryption keys.</p>
+ * @public
+ */
+export type FlowTransitEncryptionKeyConfiguration =
+  | FlowTransitEncryptionKeyConfiguration.AutomaticMember
+  | FlowTransitEncryptionKeyConfiguration.SecretsManagerMember
+  | FlowTransitEncryptionKeyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowTransitEncryptionKeyConfiguration {
+  /**
+   * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    SecretsManager: SecretsManagerEncryptionKeyConfiguration;
+    Automatic?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * @public
+   */
+  export interface AutomaticMember {
+    SecretsManager?: never;
+    Automatic: AutomaticEncryptionKeyConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecretsManager?: never;
+    Automatic?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    SecretsManager: (value: SecretsManagerEncryptionKeyConfiguration) => T;
+    Automatic: (value: AutomaticEncryptionKeyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.</p>
+ * @public
+ */
+export interface FlowTransitEncryption {
+  /**
+   * <p>The type of encryption key to use for flow transit encryption.</p>
+   * @public
+   */
+  EncryptionKeyType?: FlowTransitEncryptionKeyType | undefined;
+
+  /**
+   * <p>The configuration details for the encryption key.</p>
+   * @public
+   */
+  EncryptionKeyConfiguration: FlowTransitEncryptionKeyConfiguration | undefined;
+}
+
+/**
  * <p> A request to add an output to a flow.</p>
  * @public
  */
@@ -578,6 +694,18 @@ export interface AddOutputRequest {
    * @public
    */
   OutputTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Indicates whether to enable or disable router integration when creating a new flow output.</p>
+   * @public
+   */
+  RouterIntegrationState?: State | undefined;
+
+  /**
+   * <p>The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.</p>
+   * @public
+   */
+  RouterIntegrationTransitEncryption?: FlowTransitEncryption | undefined;
 }
 
 /**
@@ -1712,6 +1840,24 @@ export interface Output {
    * @public
    */
   PeerIpAddress?: string | undefined;
+
+  /**
+   * <p>Indicates if router integration is enabled or disabled on the flow output.</p>
+   * @public
+   */
+  RouterIntegrationState?: State | undefined;
+
+  /**
+   * <p>The encryption configuration for the output when router integration is enabled.</p>
+   * @public
+   */
+  RouterIntegrationTransitEncryption?: FlowTransitEncryption | undefined;
+
+  /**
+   * <p>The ARN of the router input that's connected to this flow output.</p>
+   * @public
+   */
+  ConnectedRouterInputArn?: string | undefined;
 }
 
 /**
@@ -1940,6 +2086,18 @@ export interface SetSourceRequest {
    * @public
    */
   SourceTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Indicates whether to enable or disable router integration when setting a flow source.</p>
+   * @public
+   */
+  RouterIntegrationState?: State | undefined;
+
+  /**
+   * <p>The decryption configuration for the flow source when router integration is enabled. Specifies how the source content should be decrypted when router integration is used.</p>
+   * @public
+   */
+  RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
 }
 
 /**
@@ -2060,6 +2218,24 @@ export interface Source {
    * @public
    */
   PeerIpAddress?: string | undefined;
+
+  /**
+   * <p>Indicates if router integration is enabled or disabled on the flow source.</p>
+   * @public
+   */
+  RouterIntegrationState?: State | undefined;
+
+  /**
+   * <p>The decryption configuration for the flow source when router integration is enabled.</p>
+   * @public
+   */
+  RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
+
+  /**
+   * <p>The ARN of the router output that's currently connected to this source.</p>
+   * @public
+   */
+  ConnectedRouterOutputArn?: string | undefined;
 }
 
 /**
@@ -2558,6 +2734,2081 @@ export interface AddMaintenance {
    * @public
    */
   MaintenanceStartHour: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the router inputs you want to retrieve information about.</p>
+   * @public
+   */
+  Arns: string[] | undefined;
+}
+
+/**
+ * <p>An error that occurred when retrieving multiple router inputs in the BatchGetRouterInput operation, including the ARN, error code, and error message.</p>
+ * @public
+ */
+export interface BatchGetRouterInputError {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input for which the error occurred.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The error code associated with the error.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A message describing the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+ * @public
+ */
+export interface RistRouterInputConfiguration {
+  /**
+   * <p>The port number used for the RIST protocol in the router input configuration.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The recovery latency in milliseconds for the RIST protocol in the router input configuration.</p>
+   * @public
+   */
+  RecoveryLatencyMilliseconds: number | undefined;
+}
+
+/**
+ * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+ * @public
+ */
+export interface RtpRouterInputConfiguration {
+  /**
+   * <p>The port number used for the RTP protocol in the router input configuration.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The state of forward error correction for the RTP protocol in the router input configuration.</p>
+   * @public
+   */
+  ForwardErrorCorrection?: ForwardErrorCorrectionState | undefined;
+}
+
+/**
+ * <p>Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.</p>
+ * @public
+ */
+export interface SrtDecryptionConfiguration {
+  /**
+   * <p>Specifies the encryption key configuration used for decrypting SRT streams, including the key source and associated credentials.</p>
+   * @public
+   */
+  EncryptionKey: SecretsManagerEncryptionKeyConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+ * @public
+ */
+export interface SrtCallerRouterInputConfiguration {
+  /**
+   * <p>The source IP address for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  SourceAddress: string | undefined;
+
+  /**
+   * <p>The source port number for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  SourcePort: number | undefined;
+
+  /**
+   * <p>The minimum latency in milliseconds for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>The stream ID for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
+   * <p>Specifies the decryption settings for an SRT caller input, including the encryption key configuration and associated parameters.</p>
+   * @public
+   */
+  DecryptionConfiguration?: SrtDecryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+ * @public
+ */
+export interface SrtListenerRouterInputConfiguration {
+  /**
+   * <p>The port number for the SRT protocol in listener mode.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The minimum latency in milliseconds for the SRT protocol in listener mode.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>Specifies the decryption settings for an SRT listener input, including the encryption key configuration and associated parameters.</p>
+   * @public
+   */
+  DecryptionConfiguration?: SrtDecryptionConfiguration | undefined;
+}
+
+/**
+ * <p>Protocol configuration settings for failover router inputs.</p>
+ * @public
+ */
+export type FailoverRouterInputProtocolConfiguration =
+  | FailoverRouterInputProtocolConfiguration.RistMember
+  | FailoverRouterInputProtocolConfiguration.RtpMember
+  | FailoverRouterInputProtocolConfiguration.SrtCallerMember
+  | FailoverRouterInputProtocolConfiguration.SrtListenerMember
+  | FailoverRouterInputProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FailoverRouterInputProtocolConfiguration {
+  /**
+   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rtp: RtpRouterInputConfiguration;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+   * @public
+   */
+  export interface RistMember {
+    Rtp?: never;
+    Rist: RistRouterInputConfiguration;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+   * @public
+   */
+  export interface SrtListenerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener: SrtListenerRouterInputConfiguration;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+   * @public
+   */
+  export interface SrtCallerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller: SrtCallerRouterInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Rtp: (value: RtpRouterInputConfiguration) => T;
+    Rist: (value: RistRouterInputConfiguration) => T;
+    SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
+    SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration settings for a failover router input that allows switching between two input sources.</p>
+ * @public
+ */
+export interface FailoverRouterInputConfiguration {
+  /**
+   * <p>The ARN of the network interface to use for this failover router input.</p>
+   * @public
+   */
+  NetworkInterfaceArn: string | undefined;
+
+  /**
+   * <p>A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.</p>
+   * @public
+   */
+  ProtocolConfigurations: FailoverRouterInputProtocolConfiguration[] | undefined;
+
+  /**
+   * <p>The mode for determining source priority in failover configurations.</p>
+   * @public
+   */
+  SourcePriorityMode: FailoverInputSourcePriorityMode | undefined;
+
+  /**
+   * <p>The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY</p>
+   * @public
+   */
+  PrimarySourceIndex?: number | undefined;
+}
+
+/**
+ * <p>Configuration settings for connecting a router input to a flow output.</p>
+ * @public
+ */
+export interface MediaConnectFlowRouterInputConfiguration {
+  /**
+   * <p>The ARN of the flow to connect to.</p>
+   * @public
+   */
+  FlowArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the flow output to connect to this router input.</p>
+   * @public
+   */
+  FlowOutputArn?: string | undefined;
+
+  /**
+   * <p>The decryption configuration for the flow source when connected to this router input.</p>
+   * @public
+   */
+  SourceTransitDecryption: FlowTransitEncryption | undefined;
+}
+
+/**
+ * <p>Protocol configuration settings for merge router inputs.</p>
+ * @public
+ */
+export type MergeRouterInputProtocolConfiguration =
+  | MergeRouterInputProtocolConfiguration.RistMember
+  | MergeRouterInputProtocolConfiguration.RtpMember
+  | MergeRouterInputProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MergeRouterInputProtocolConfiguration {
+  /**
+   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rtp: RtpRouterInputConfiguration;
+    Rist?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+   * @public
+   */
+  export interface RistMember {
+    Rtp?: never;
+    Rist: RistRouterInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Rtp?: never;
+    Rist?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Rtp: (value: RtpRouterInputConfiguration) => T;
+    Rist: (value: RistRouterInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration settings for a merge router input that combines two input sources.</p>
+ * @public
+ */
+export interface MergeRouterInputConfiguration {
+  /**
+   * <p>The ARN of the network interface to use for this merge router input.</p>
+   * @public
+   */
+  NetworkInterfaceArn: string | undefined;
+
+  /**
+   * <p>A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.</p>
+   * @public
+   */
+  ProtocolConfigurations: MergeRouterInputProtocolConfiguration[] | undefined;
+
+  /**
+   * <p>The time window in milliseconds for merging the two input sources.</p>
+   * @public
+   */
+  MergeRecoveryWindowMilliseconds: number | undefined;
+}
+
+/**
+ * <p>The protocol configuration settings for a router input.</p>
+ * @public
+ */
+export type RouterInputProtocolConfiguration =
+  | RouterInputProtocolConfiguration.RistMember
+  | RouterInputProtocolConfiguration.RtpMember
+  | RouterInputProtocolConfiguration.SrtCallerMember
+  | RouterInputProtocolConfiguration.SrtListenerMember
+  | RouterInputProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterInputProtocolConfiguration {
+  /**
+   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rtp: RtpRouterInputConfiguration;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
+   * @public
+   */
+  export interface RistMember {
+    Rtp?: never;
+    Rist: RistRouterInputConfiguration;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.</p>
+   * @public
+   */
+  export interface SrtListenerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener: SrtListenerRouterInputConfiguration;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.</p>
+   * @public
+   */
+  export interface SrtCallerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller: SrtCallerRouterInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Rtp: (value: RtpRouterInputConfiguration) => T;
+    Rist: (value: RistRouterInputConfiguration) => T;
+    SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
+    SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+ * @public
+ */
+export interface StandardRouterInputConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network interface associated with the standard router input.</p>
+   * @public
+   */
+  NetworkInterfaceArn: string | undefined;
+
+  /**
+   * <p>The configuration settings for the protocol used by the standard router input.</p>
+   * @public
+   */
+  ProtocolConfiguration: RouterInputProtocolConfiguration | undefined;
+
+  /**
+   * <p>The protocol used by the standard router input.</p>
+   * @public
+   */
+  Protocol?: RouterInputProtocol | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router input.</p>
+ * @public
+ */
+export type RouterInputConfiguration =
+  | RouterInputConfiguration.FailoverMember
+  | RouterInputConfiguration.MediaConnectFlowMember
+  | RouterInputConfiguration.MergeMember
+  | RouterInputConfiguration.StandardMember
+  | RouterInputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterInputConfiguration {
+  /**
+   * <p>The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardRouterInputConfiguration;
+    Failover?: never;
+    Merge?: never;
+    MediaConnectFlow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for a failover router input that allows switching between two input sources.</p>
+   * @public
+   */
+  export interface FailoverMember {
+    Standard?: never;
+    Failover: FailoverRouterInputConfiguration;
+    Merge?: never;
+    MediaConnectFlow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for a merge router input that combines two input sources.</p>
+   * @public
+   */
+  export interface MergeMember {
+    Standard?: never;
+    Failover?: never;
+    Merge: MergeRouterInputConfiguration;
+    MediaConnectFlow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for connecting a router input to a flow output.</p>
+   * @public
+   */
+  export interface MediaConnectFlowMember {
+    Standard?: never;
+    Failover?: never;
+    Merge?: never;
+    MediaConnectFlow: MediaConnectFlowRouterInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    Failover?: never;
+    Merge?: never;
+    MediaConnectFlow?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardRouterInputConfiguration) => T;
+    Failover: (value: FailoverRouterInputConfiguration) => T;
+    Merge: (value: MergeRouterInputConfiguration) => T;
+    MediaConnectFlow: (value: MediaConnectFlowRouterInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration settings for default maintenance scheduling.</p>
+ * @public
+ */
+export interface DefaultMaintenanceConfiguration {}
+
+/**
+ * <p>Configuration for preferred day and time maintenance settings.</p>
+ * @public
+ */
+export interface PreferredDayTimeMaintenanceConfiguration {
+  /**
+   * <p>The preferred day for maintenance operations.</p>
+   * @public
+   */
+  Day: Day | undefined;
+
+  /**
+   * <p>The preferred time for maintenance operations.</p>
+   * @public
+   */
+  Time: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for maintenance operations, including preferred maintenance windows and schedules.</p>
+ * @public
+ */
+export type MaintenanceConfiguration =
+  | MaintenanceConfiguration.DefaultMember
+  | MaintenanceConfiguration.PreferredDayTimeMember
+  | MaintenanceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MaintenanceConfiguration {
+  /**
+   * <p>Preferred day and time maintenance configuration settings.</p>
+   * @public
+   */
+  export interface PreferredDayTimeMember {
+    PreferredDayTime: PreferredDayTimeMaintenanceConfiguration;
+    Default?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Default maintenance configuration settings.</p>
+   * @public
+   */
+  export interface DefaultMember {
+    PreferredDayTime?: never;
+    Default: DefaultMaintenanceConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    PreferredDayTime?: never;
+    Default?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    PreferredDayTime: (value: PreferredDayTimeMaintenanceConfiguration) => T;
+    Default: (value: DefaultMaintenanceConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines a specific time window for maintenance operations.</p>
+ * @public
+ */
+export interface WindowMaintenanceSchedule {
+  /**
+   * <p>The start time of the maintenance window.</p>
+   * @public
+   */
+  Start: Date | undefined;
+
+  /**
+   * <p>The end time of the maintenance window.</p>
+   * @public
+   */
+  End: Date | undefined;
+
+  /**
+   * <p>The date and time when the maintenance window is scheduled to occur.</p>
+   * @public
+   */
+  ScheduledTime: Date | undefined;
+}
+
+/**
+ * <p>The details of the maintenance schedule.</p>
+ * @public
+ */
+export type MaintenanceSchedule = MaintenanceSchedule.WindowMember | MaintenanceSchedule.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MaintenanceSchedule {
+  /**
+   * <p>Defines a specific time window for maintenance operations.</p>
+   * @public
+   */
+  export interface WindowMember {
+    Window: WindowMaintenanceSchedule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Window?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Window: (value: WindowMaintenanceSchedule) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A message associated with a router input, including a code and a message.</p>
+ * @public
+ */
+export interface RouterInputMessage {
+  /**
+   * <p>The code associated with the router input message.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The message text associated with the router input message.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>Configuration details for an indexed stream in a failover router input setup.</p>
+ * @public
+ */
+export interface FailoverRouterInputIndexedStreamDetails {
+  /**
+   * <p>The index number (0 or 1) assigned to this source in the failover configuration.</p>
+   * @public
+   */
+  SourceIndex: number | undefined;
+
+  /**
+   * <p>The IP address of the source for this indexed stream.</p>
+   * @public
+   */
+  SourceIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Configuration details for a failover router input that can automatically switch between two sources.</p>
+ * @public
+ */
+export interface FailoverRouterInputStreamDetails {
+  /**
+   * <p>Configuration details for the primary source (index 0) in the failover setup.</p>
+   * @public
+   */
+  SourceIndexZeroStreamDetails: FailoverRouterInputIndexedStreamDetails | undefined;
+
+  /**
+   * <p>Configuration details for the secondary source (index 1) in the failover setup.</p>
+   * @public
+   */
+  SourceIndexOneStreamDetails: FailoverRouterInputIndexedStreamDetails | undefined;
+}
+
+/**
+ * <p>Configuration details for a MediaConnect flow when used as a router input source.</p>
+ * @public
+ */
+export interface MediaConnectFlowRouterInputStreamDetails {}
+
+/**
+ * <p>Configuration details for an indexed stream in a merge router input setup.</p>
+ * @public
+ */
+export interface MergeRouterInputIndexedStreamDetails {
+  /**
+   * <p>The index number (0 or 1) assigned to this source in the merge configuration.</p>
+   * @public
+   */
+  SourceIndex: number | undefined;
+
+  /**
+   * <p>The IP address of the source for this indexed stream in the merge setup.</p>
+   * @public
+   */
+  SourceIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Configuration details for a merge router input that combines two input sources.</p>
+ * @public
+ */
+export interface MergeRouterInputStreamDetails {
+  /**
+   * <p>Configuration details for the first source (index 0) in the merge setup.</p>
+   * @public
+   */
+  SourceIndexZeroStreamDetails: MergeRouterInputIndexedStreamDetails | undefined;
+
+  /**
+   * <p>Configuration details for the second source (index 1) in the merge setup.</p>
+   * @public
+   */
+  SourceIndexOneStreamDetails: MergeRouterInputIndexedStreamDetails | undefined;
+}
+
+/**
+ * <p>Configuration details for a standard router input stream type.</p>
+ * @public
+ */
+export interface StandardRouterInputStreamDetails {
+  /**
+   * <p>The source IP address for the standard router input stream.</p>
+   * @public
+   */
+  SourceIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Configuration details for the router input stream.</p>
+ * @public
+ */
+export type RouterInputStreamDetails =
+  | RouterInputStreamDetails.FailoverMember
+  | RouterInputStreamDetails.MediaConnectFlowMember
+  | RouterInputStreamDetails.MergeMember
+  | RouterInputStreamDetails.StandardMember
+  | RouterInputStreamDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterInputStreamDetails {
+  /**
+   * <p>Configuration details for a standard router input stream type.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardRouterInputStreamDetails;
+    Failover?: never;
+    Merge?: never;
+    MediaConnectFlow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a failover router input that can automatically switch between two sources.</p>
+   * @public
+   */
+  export interface FailoverMember {
+    Standard?: never;
+    Failover: FailoverRouterInputStreamDetails;
+    Merge?: never;
+    MediaConnectFlow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a merge router input that combines two input sources.</p>
+   * @public
+   */
+  export interface MergeMember {
+    Standard?: never;
+    Failover?: never;
+    Merge: MergeRouterInputStreamDetails;
+    MediaConnectFlow?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a MediaConnect flow when used as a router input source.</p>
+   * @public
+   */
+  export interface MediaConnectFlowMember {
+    Standard?: never;
+    Failover?: never;
+    Merge?: never;
+    MediaConnectFlow: MediaConnectFlowRouterInputStreamDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    Failover?: never;
+    Merge?: never;
+    MediaConnectFlow?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardRouterInputStreamDetails) => T;
+    Failover: (value: FailoverRouterInputStreamDetails) => T;
+    Merge: (value: MergeRouterInputStreamDetails) => T;
+    MediaConnectFlow: (value: MediaConnectFlowRouterInputStreamDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines the configuration settings for transit encryption keys.</p>
+ * @public
+ */
+export type RouterInputTransitEncryptionKeyConfiguration =
+  | RouterInputTransitEncryptionKeyConfiguration.AutomaticMember
+  | RouterInputTransitEncryptionKeyConfiguration.SecretsManagerMember
+  | RouterInputTransitEncryptionKeyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterInputTransitEncryptionKeyConfiguration {
+  /**
+   * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    SecretsManager: SecretsManagerEncryptionKeyConfiguration;
+    Automatic?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * @public
+   */
+  export interface AutomaticMember {
+    SecretsManager?: never;
+    Automatic: AutomaticEncryptionKeyConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecretsManager?: never;
+    Automatic?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    SecretsManager: (value: SecretsManagerEncryptionKeyConfiguration) => T;
+    Automatic: (value: AutomaticEncryptionKeyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The transit encryption settings for a router input.</p>
+ * @public
+ */
+export interface RouterInputTransitEncryption {
+  /**
+   * <p>Specifies the type of encryption key to use for transit encryption.</p>
+   * @public
+   */
+  EncryptionKeyType?: RouterInputTransitEncryptionKeyType | undefined;
+
+  /**
+   * <p>Contains the configuration details for the encryption key used in transit encryption, including the key source and associated parameters.</p>
+   * @public
+   */
+  EncryptionKeyConfiguration: RouterInputTransitEncryptionKeyConfiguration | undefined;
+}
+
+/**
+ * <p>A router input in AWS Elemental MediaConnect. A router input is a source of media content that can be routed to one or more router outputs.</p>
+ * @public
+ */
+export interface RouterInput {
+  /**
+   * <p>The name of the router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the router input.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current state of the router input.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+
+  /**
+   * <p>The type of the router input.</p>
+   * @public
+   */
+  InputType: RouterInputType | undefined;
+
+  /**
+   * <p>The configuration settings for a router input.</p>
+   * @public
+   */
+  Configuration: RouterInputConfiguration | undefined;
+
+  /**
+   * <p>The number of router outputs associated with the router input.</p>
+   * @public
+   */
+  RoutedOutputs: number | undefined;
+
+  /**
+   * <p>The maximum number of outputs that can be simultaneously routed to this input.</p>
+   * @public
+   */
+  MaximumRoutedOutputs?: number | undefined;
+
+  /**
+   * <p>The AWS Region where the router input is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the router input.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The maximum bitrate for the router input.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>The tier level of the router input.</p>
+   * @public
+   */
+  Tier: RouterInputTier | undefined;
+
+  /**
+   * <p>Indicates whether the router input is configured for Regional or global routing.</p>
+   * @public
+   */
+  RoutingScope: RoutingScope | undefined;
+
+  /**
+   * <p>The timestamp when the router input was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the router input was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The messages associated with the router input.</p>
+   * @public
+   */
+  Messages: RouterInputMessage[] | undefined;
+
+  /**
+   * <p>The transit encryption settings for a router input.</p>
+   * @public
+   */
+  TransitEncryption: RouterInputTransitEncryption | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to tag and organize this router input.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration details for the router input stream.</p>
+   * @public
+   */
+  StreamDetails: RouterInputStreamDetails | undefined;
+
+  /**
+   * <p>The IP address of the router input.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>The type of maintenance configuration applied to this router input.</p>
+   * @public
+   */
+  MaintenanceType: MaintenanceType | undefined;
+
+  /**
+   * <p>The maintenance configuration settings applied to this router input.</p>
+   * @public
+   */
+  MaintenanceConfiguration: MaintenanceConfiguration | undefined;
+
+  /**
+   * <p>The type of maintenance schedule currently in effect for this router input.</p>
+   * @public
+   */
+  MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The current maintenance schedule details for this router input.</p>
+   * @public
+   */
+  MaintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetRouterInputResponse {
+  /**
+   * <p>An array of router inputs that were successfully retrieved.</p>
+   * @public
+   */
+  RouterInputs: RouterInput[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when retrieving the requested router inputs.</p>
+   * @public
+   */
+  Errors: BatchGetRouterInputError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetRouterNetworkInterfaceRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the router network interfaces you want to retrieve information about.</p>
+   * @public
+   */
+  Arns: string[] | undefined;
+}
+
+/**
+ * <p>An error that occurred when retrieving multiple router network interfaces in the BatchGetRouterNetworkInterface operation, including the ARN, error code, and error message.</p>
+ * @public
+ */
+export interface BatchGetRouterNetworkInterfaceError {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router network interface for which the error occurred.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The error code associated with the error.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A message describing the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>A rule that allows a specific CIDR block to access the public router network interface.</p>
+ * @public
+ */
+export interface PublicRouterNetworkInterfaceRule {
+  /**
+   * <p>The CIDR block that is allowed to access the public router network interface.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for a public router network interface, including the list of allowed CIDR blocks.</p>
+ * @public
+ */
+export interface PublicRouterNetworkInterfaceConfiguration {
+  /**
+   * <p>The list of allowed CIDR blocks for the public router network interface.</p>
+   * @public
+   */
+  AllowRules: PublicRouterNetworkInterfaceRule[] | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.</p>
+ * @public
+ */
+export interface VpcRouterNetworkInterfaceConfiguration {
+  /**
+   * <p>The IDs of the security groups to associate with the router network interface within the VPC.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnet within the VPC to associate the router network interface with.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router network interface.</p>
+ * @public
+ */
+export type RouterNetworkInterfaceConfiguration =
+  | RouterNetworkInterfaceConfiguration.PublicMember
+  | RouterNetworkInterfaceConfiguration.VpcMember
+  | RouterNetworkInterfaceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterNetworkInterfaceConfiguration {
+  /**
+   * <p>The configuration settings for a public router network interface, including the list of allowed CIDR blocks.</p>
+   * @public
+   */
+  export interface PublicMember {
+    Public: PublicRouterNetworkInterfaceConfiguration;
+    Vpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.</p>
+   * @public
+   */
+  export interface VpcMember {
+    Public?: never;
+    Vpc: VpcRouterNetworkInterfaceConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Public?: never;
+    Vpc?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Public: (value: PublicRouterNetworkInterfaceConfiguration) => T;
+    Vpc: (value: VpcRouterNetworkInterfaceConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A router network interface in AWS Elemental MediaConnect. A router network interface is a network interface that can be associated with one or more router inputs and outputs.</p>
+ * @public
+ */
+export interface RouterNetworkInterface {
+  /**
+   * <p>The name of the router network interface.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router network interface.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the router network interface.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current state of the router network interface.</p>
+   * @public
+   */
+  State: RouterNetworkInterfaceState | undefined;
+
+  /**
+   * <p>The type of the router network interface.</p>
+   * @public
+   */
+  NetworkInterfaceType: RouterNetworkInterfaceType | undefined;
+
+  /**
+   * <p>The configuration settings for a router network interface.</p>
+   * @public
+   */
+  Configuration: RouterNetworkInterfaceConfiguration | undefined;
+
+  /**
+   * <p>The number of router outputs associated with the network interface.</p>
+   * @public
+   */
+  AssociatedOutputCount: number | undefined;
+
+  /**
+   * <p>The number of router inputs associated with the network interface.</p>
+   * @public
+   */
+  AssociatedInputCount: number | undefined;
+
+  /**
+   * <p>The AWS Region where the router network interface is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The timestamp when the router network interface was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the router network interface was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to tag and organize this router network interface.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetRouterNetworkInterfaceResponse {
+  /**
+   * <p>An array of router network interfaces that were successfully retrieved.</p>
+   * @public
+   */
+  RouterNetworkInterfaces: RouterNetworkInterface[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when retrieving the requested router network interfaces.</p>
+   * @public
+   */
+  Errors: BatchGetRouterNetworkInterfaceError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetRouterOutputRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the router outputs you want to retrieve information about.</p>
+   * @public
+   */
+  Arns: string[] | undefined;
+}
+
+/**
+ * <p>An error that occurred when retrieving multiple router outputs in the BatchGetRouterOutput operation, including the ARN, error code, and error message.</p>
+ * @public
+ */
+export interface BatchGetRouterOutputError {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router output for which the error occurred.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The error code associated with the error.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A message describing the error.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p>
+ * @public
+ */
+export interface MediaConnectFlowRouterOutputConfiguration {
+  /**
+   * <p>The ARN of the flow to connect to this router output.</p>
+   * @public
+   */
+  FlowArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the flow source to connect to this router output.</p>
+   * @public
+   */
+  FlowSourceArn?: string | undefined;
+
+  /**
+   * <p>The encryption configuration for the flow destination when connected to this router output.</p>
+   * @public
+   */
+  DestinationTransitEncryption: FlowTransitEncryption | undefined;
+}
+
+/**
+ * <p>Configuration settings for the MediaLive transit encryption key.</p>
+ * @public
+ */
+export type MediaLiveTransitEncryptionKeyConfiguration =
+  | MediaLiveTransitEncryptionKeyConfiguration.AutomaticMember
+  | MediaLiveTransitEncryptionKeyConfiguration.SecretsManagerMember
+  | MediaLiveTransitEncryptionKeyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MediaLiveTransitEncryptionKeyConfiguration {
+  /**
+   * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    SecretsManager: SecretsManagerEncryptionKeyConfiguration;
+    Automatic?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * @public
+   */
+  export interface AutomaticMember {
+    SecretsManager?: never;
+    Automatic: AutomaticEncryptionKeyConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecretsManager?: never;
+    Automatic?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    SecretsManager: (value: SecretsManagerEncryptionKeyConfiguration) => T;
+    Automatic: (value: AutomaticEncryptionKeyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.</p>
+ * @public
+ */
+export interface MediaLiveTransitEncryption {
+  /**
+   * <p>The type of encryption key to use for MediaLive transit encryption.</p>
+   * @public
+   */
+  EncryptionKeyType?: MediaLiveTransitEncryptionKeyType | undefined;
+
+  /**
+   * <p>The configuration details for the MediaLive encryption key.</p>
+   * @public
+   */
+  EncryptionKeyConfiguration: MediaLiveTransitEncryptionKeyConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration settings for connecting a router output to a MediaLive input.</p>
+ * @public
+ */
+export interface MediaLiveInputRouterOutputConfiguration {
+  /**
+   * <p>The ARN of the MediaLive input to connect to this router output.</p>
+   * @public
+   */
+  MediaLiveInputArn?: string | undefined;
+
+  /**
+   * <p>The index of the MediaLive pipeline to connect to this router output.</p>
+   * @public
+   */
+  MediaLivePipelineId?: MediaLiveInputPipelineId | undefined;
+
+  /**
+   * <p>The encryption configuration for the MediaLive input when connected to this router output.</p>
+   * @public
+   */
+  DestinationTransitEncryption: MediaLiveTransitEncryption | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.</p>
+ * @public
+ */
+export interface RistRouterOutputConfiguration {
+  /**
+   * <p>The destination IP address for the RIST protocol in the router output configuration.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The destination port number for the RIST protocol in the router output configuration.</p>
+   * @public
+   */
+  DestinationPort: number | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.</p>
+ * @public
+ */
+export interface RtpRouterOutputConfiguration {
+  /**
+   * <p>The destination IP address for the RTP protocol in the router output configuration.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The destination port number for the RTP protocol in the router output configuration.</p>
+   * @public
+   */
+  DestinationPort: number | undefined;
+
+  /**
+   * <p>The state of forward error correction for the RTP protocol in the router output configuration.</p>
+   * @public
+   */
+  ForwardErrorCorrection?: ForwardErrorCorrectionState | undefined;
+}
+
+/**
+ * <p>Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.</p>
+ * @public
+ */
+export interface SrtEncryptionConfiguration {
+  /**
+   * <p>Specifies the encryption key configuration used for encrypting SRT streams, including the key source and associated credentials.</p>
+   * @public
+   */
+  EncryptionKey: SecretsManagerEncryptionKeyConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.</p>
+ * @public
+ */
+export interface SrtCallerRouterOutputConfiguration {
+  /**
+   * <p>The destination IP address for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  DestinationAddress: string | undefined;
+
+  /**
+   * <p>The destination port number for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  DestinationPort: number | undefined;
+
+  /**
+   * <p>The minimum latency in milliseconds for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>The stream ID for the SRT protocol in caller mode.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
+   * <p>Defines the encryption settings for an SRT caller output, including the encryption key configuration and associated parameters.</p>
+   * @public
+   */
+  EncryptionConfiguration?: SrtEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.</p>
+ * @public
+ */
+export interface SrtListenerRouterOutputConfiguration {
+  /**
+   * <p>The port number for the SRT protocol in listener mode.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The minimum latency in milliseconds for the SRT protocol in listener mode.</p>
+   * @public
+   */
+  MinimumLatencyMilliseconds: number | undefined;
+
+  /**
+   * <p>Defines the encryption settings for an SRT listener output, including the encryption key configuration and associated parameters.</p>
+   * @public
+   */
+  EncryptionConfiguration?: SrtEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The protocol configuration settings for a router output.</p>
+ * @public
+ */
+export type RouterOutputProtocolConfiguration =
+  | RouterOutputProtocolConfiguration.RistMember
+  | RouterOutputProtocolConfiguration.RtpMember
+  | RouterOutputProtocolConfiguration.SrtCallerMember
+  | RouterOutputProtocolConfiguration.SrtListenerMember
+  | RouterOutputProtocolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterOutputProtocolConfiguration {
+  /**
+   * <p>The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rtp: RtpRouterOutputConfiguration;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.</p>
+   * @public
+   */
+  export interface RistMember {
+    Rtp?: never;
+    Rist: RistRouterOutputConfiguration;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.</p>
+   * @public
+   */
+  export interface SrtListenerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener: SrtListenerRouterOutputConfiguration;
+    SrtCaller?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.</p>
+   * @public
+   */
+  export interface SrtCallerMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller: SrtCallerRouterOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Rtp?: never;
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Rtp: (value: RtpRouterOutputConfiguration) => T;
+    Rist: (value: RistRouterOutputConfiguration) => T;
+    SrtListener: (value: SrtListenerRouterOutputConfiguration) => T;
+    SrtCaller: (value: SrtCallerRouterOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+ * @public
+ */
+export interface StandardRouterOutputConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network interface associated with the standard router output.</p>
+   * @public
+   */
+  NetworkInterfaceArn: string | undefined;
+
+  /**
+   * <p>The configuration settings for the protocol used by the standard router output.</p>
+   * @public
+   */
+  ProtocolConfiguration: RouterOutputProtocolConfiguration | undefined;
+
+  /**
+   * <p>The protocol used by the standard router output.</p>
+   * @public
+   */
+  Protocol?: RouterOutputProtocol | undefined;
+}
+
+/**
+ * <p>The configuration settings for a router output.</p>
+ * @public
+ */
+export type RouterOutputConfiguration =
+  | RouterOutputConfiguration.MediaConnectFlowMember
+  | RouterOutputConfiguration.MediaLiveInputMember
+  | RouterOutputConfiguration.StandardMember
+  | RouterOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterOutputConfiguration {
+  /**
+   * <p>The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardRouterOutputConfiguration;
+    MediaConnectFlow?: never;
+    MediaLiveInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for connecting a router output to a MediaConnect flow source.</p>
+   * @public
+   */
+  export interface MediaConnectFlowMember {
+    Standard?: never;
+    MediaConnectFlow: MediaConnectFlowRouterOutputConfiguration;
+    MediaLiveInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for connecting a router output to a MediaLive input.</p>
+   * @public
+   */
+  export interface MediaLiveInputMember {
+    Standard?: never;
+    MediaConnectFlow?: never;
+    MediaLiveInput: MediaLiveInputRouterOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    MediaConnectFlow?: never;
+    MediaLiveInput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardRouterOutputConfiguration) => T;
+    MediaConnectFlow: (value: MediaConnectFlowRouterOutputConfiguration) => T;
+    MediaLiveInput: (value: MediaLiveInputRouterOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A message associated with a router output.</p>
+ * @public
+ */
+export interface RouterOutputMessage {
+  /**
+   * <p>The code associated with the router output message.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The message text associated with the router output message.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>Configuration details for a MediaConnect flow when used as a router output destination.</p>
+ * @public
+ */
+export interface MediaConnectFlowRouterOutputStreamDetails {}
+
+/**
+ * <p>Configuration details for a MediaLive input when used as a router output destination.</p>
+ * @public
+ */
+export interface MediaLiveInputRouterOutputStreamDetails {}
+
+/**
+ * <p>Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.</p>
+ * @public
+ */
+export interface StandardRouterOutputStreamDetails {
+  /**
+   * <p>The IP address where the output stream will be sent. This is the destination address that will receive the routed media content.</p>
+   * @public
+   */
+  DestinationIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Information about the router output's stream, including connection state and destination details. The specific details provided vary based on the router output type.</p>
+ * @public
+ */
+export type RouterOutputStreamDetails =
+  | RouterOutputStreamDetails.MediaConnectFlowMember
+  | RouterOutputStreamDetails.MediaLiveInputMember
+  | RouterOutputStreamDetails.StandardMember
+  | RouterOutputStreamDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterOutputStreamDetails {
+  /**
+   * <p>Configuration details for a standard router output stream type. Contains information about the destination IP address and connection state for basic output routing.</p>
+   * @public
+   */
+  export interface StandardMember {
+    Standard: StandardRouterOutputStreamDetails;
+    MediaConnectFlow?: never;
+    MediaLiveInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a MediaConnect flow when used as a router output destination.</p>
+   * @public
+   */
+  export interface MediaConnectFlowMember {
+    Standard?: never;
+    MediaConnectFlow: MediaConnectFlowRouterOutputStreamDetails;
+    MediaLiveInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a MediaLive input when used as a router output destination.</p>
+   * @public
+   */
+  export interface MediaLiveInputMember {
+    Standard?: never;
+    MediaConnectFlow?: never;
+    MediaLiveInput: MediaLiveInputRouterOutputStreamDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Standard?: never;
+    MediaConnectFlow?: never;
+    MediaLiveInput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Standard: (value: StandardRouterOutputStreamDetails) => T;
+    MediaConnectFlow: (value: MediaConnectFlowRouterOutputStreamDetails) => T;
+    MediaLiveInput: (value: MediaLiveInputRouterOutputStreamDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A router output in AWS Elemental MediaConnect. A router output is a destination for media content that can receive input from one or more router inputs.</p>
+ * @public
+ */
+export interface RouterOutput {
+  /**
+   * <p>The name of the router output.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router output.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the router output.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The overall state of the router output.</p>
+   * @public
+   */
+  State: RouterOutputState | undefined;
+
+  /**
+   * <p>The type of the router output.</p>
+   * @public
+   */
+  OutputType: RouterOutputType | undefined;
+
+  /**
+   * <p>The configuration settings for a router output.</p>
+   * @public
+   */
+  Configuration: RouterOutputConfiguration | undefined;
+
+  /**
+   * <p>The current state of the association between the router output and its input.</p>
+   * @public
+   */
+  RoutedState: RouterOutputRoutedState | undefined;
+
+  /**
+   * <p>The AWS Region where the router output is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the router output.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The maximum bitrate for the router output.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>Indicates whether the router output is configured for Regional or global routing.</p>
+   * @public
+   */
+  RoutingScope: RoutingScope | undefined;
+
+  /**
+   * <p>The tier level of the router output.</p>
+   * @public
+   */
+  Tier: RouterOutputTier | undefined;
+
+  /**
+   * <p>The timestamp when the router output was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the router output was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The messages associated with the router output.</p>
+   * @public
+   */
+  Messages: RouterOutputMessage[] | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to tag and organize this router output.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+
+  /**
+   * <p>Information about the router output's stream, including connection state and destination details. The specific details provided vary based on the router output type.</p>
+   * @public
+   */
+  StreamDetails: RouterOutputStreamDetails | undefined;
+
+  /**
+   * <p>The IP address of the router output.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input associated with the output.</p>
+   * @public
+   */
+  RoutedInputArn?: string | undefined;
+
+  /**
+   * <p>The type of maintenance configuration applied to this router output.</p>
+   * @public
+   */
+  MaintenanceType: MaintenanceType | undefined;
+
+  /**
+   * <p>The maintenance configuration settings applied to this router output.</p>
+   * @public
+   */
+  MaintenanceConfiguration: MaintenanceConfiguration | undefined;
+
+  /**
+   * <p>The type of maintenance schedule currently in effect for this router output.</p>
+   * @public
+   */
+  MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The current maintenance schedule details for this router output.</p>
+   * @public
+   */
+  MaintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetRouterOutputResponse {
+  /**
+   * <p>An array of router outputs that were successfully retrieved.</p>
+   * @public
+   */
+  RouterOutputs: RouterOutput[] | undefined;
+
+  /**
+   * <p>An array of errors that occurred when retrieving the requested router outputs.</p>
+   * @public
+   */
+  Errors: BatchGetRouterOutputError[] | undefined;
 }
 
 /**
@@ -3571,6 +5822,210 @@ export interface CreateGatewayResponse {
 /**
  * @public
  */
+export interface CreateRouterInputRequest {
+  /**
+   * <p>The name of the router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration settings for the router input, which can include the protocol, network interface, and other details.</p>
+   * @public
+   */
+  Configuration: RouterInputConfiguration | undefined;
+
+  /**
+   * <p>The maximum bitrate for the router input.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>Specifies whether the router input can be assigned to outputs in different Regions. REGIONAL (default) - connects only to outputs in same Region. GLOBAL - connects to outputs in any Region.</p>
+   * @public
+   */
+  RoutingScope: RoutingScope | undefined;
+
+  /**
+   * <p>The tier level for the router input.</p>
+   * @public
+   */
+  Tier: RouterInputTier | undefined;
+
+  /**
+   * <p>The AWS Region for the router input. Defaults to the current region if not specified.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by <code>regionName</code>, or the current region if no <code>regionName</code> is provided. </p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The transit encryption settings for the router input.</p>
+   * @public
+   */
+  TransitEncryption?: RouterInputTransitEncryption | undefined;
+
+  /**
+   * <p>The maintenance configuration settings for the router input, including preferred maintenance windows and schedules.</p>
+   * @public
+   */
+  MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to tag and organize this router input.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier for the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouterInputResponse {
+  /**
+   * <p>The newly-created router input.</p>
+   * @public
+   */
+  RouterInput: RouterInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouterNetworkInterfaceRequest {
+  /**
+   * <p>The name of the router network interface.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration settings for the router network interface.</p>
+   * @public
+   */
+  Configuration: RouterNetworkInterfaceConfiguration | undefined;
+
+  /**
+   * <p>The AWS Region for the router network interface. Defaults to the current region if not specified.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to tag and organize this router network interface.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier for the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouterNetworkInterfaceResponse {
+  /**
+   * <p>The newly-created router network interface.</p>
+   * @public
+   */
+  RouterNetworkInterface: RouterNetworkInterface | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouterOutputRequest {
+  /**
+   * <p>The name of the router output.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration settings for the router output.</p>
+   * @public
+   */
+  Configuration: RouterOutputConfiguration | undefined;
+
+  /**
+   * <p>The maximum bitrate for the router output.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>Specifies whether the router output can take inputs that are in different Regions. REGIONAL (default) - can only take inputs from same Region. GLOBAL - can take inputs from any Region.</p>
+   * @public
+   */
+  RoutingScope: RoutingScope | undefined;
+
+  /**
+   * <p>The tier level for the router output.</p>
+   * @public
+   */
+  Tier: RouterOutputTier | undefined;
+
+  /**
+   * <p>The AWS Region for the router output. Defaults to the current region if not specified.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by <code>regionName</code>, or the current region if no <code>regionName</code> is provided. </p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The maintenance configuration settings for the router output, including preferred maintenance windows and schedules.</p>
+   * @public
+   */
+  MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
+
+  /**
+   * <p>Key-value pairs that can be used to tag this router output.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier for the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouterOutputResponse {
+  /**
+   * <p>The newly-created router output.</p>
+   * @public
+   */
+  RouterOutput: RouterOutput | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFlowRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the flow that you want to delete.</p>
@@ -3616,6 +6071,108 @@ export interface DeleteGatewayResponse {
    * @public
    */
   GatewayArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to delete.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouterInputResponse {
+  /**
+   * <p>The ARN of the deleted router input.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the deleted router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the deleted router input, indicating where it is in the deletion process.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouterNetworkInterfaceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router network interface that you want to delete.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouterNetworkInterfaceResponse {
+  /**
+   * <p>The ARN of the deleted router network interface.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the deleted router network interface.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the deleted router network interface, indicating where it is in the deletion process.</p>
+   * @public
+   */
+  State: RouterNetworkInterfaceState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouterOutputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router output that you want to delete.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouterOutputResponse {
+  /**
+   * <p>The ARN of the deleted router output.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the deleted router output.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the deleted router output, indicating where it is in the deletion process.</p>
+   * @public
+   */
+  State: RouterOutputState | undefined;
 }
 
 /**
@@ -4625,6 +7182,18 @@ export interface UpdateFlowOutputRequest {
    * @public
    */
   NdiSpeedHqQuality?: number | undefined;
+
+  /**
+   * <p>Indicates whether to enable or disable router integration for this flow output.</p>
+   * @public
+   */
+  RouterIntegrationState?: State | undefined;
+
+  /**
+   * <p>The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.</p>
+   * @public
+   */
+  RouterIntegrationTransitEncryption?: FlowTransitEncryption | undefined;
 }
 
 /**
@@ -4785,6 +7354,18 @@ export interface UpdateFlowSourceRequest {
    * @public
    */
   GatewayBridgeSource?: UpdateGatewayBridgeSourceRequest | undefined;
+
+  /**
+   * <p>Indicates whether to enable or disable router integration for this flow source.</p>
+   * @public
+   */
+  RouterIntegrationState?: State | undefined;
+
+  /**
+   * <p>The encryption configuration for the flow source when router integration is enabled.</p>
+   * @public
+   */
+  RouterIntegrationTransitDecryption?: FlowTransitEncryption | undefined;
 }
 
 /**
@@ -4915,6 +7496,509 @@ export interface ListGatewaysResponse {
 /**
  * @public
  */
+export interface GetRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input to retrieve information about.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterInputResponse {
+  /**
+   * <p>The details of the requested router input, including its configuration, state, and other attributes.</p>
+   * @public
+   */
+  RouterInput: RouterInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterInputSourceMetadataRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input to retrieve metadata for.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>Metadata information associated with the router input, including stream details and connection state.</p>
+ * @public
+ */
+export type RouterInputMetadata =
+  | RouterInputMetadata.TransportStreamMediaInfoMember
+  | RouterInputMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterInputMetadata {
+  /**
+   * <p> The metadata of the transport stream in the current flow's source.</p>
+   * @public
+   */
+  export interface TransportStreamMediaInfoMember {
+    TransportStreamMediaInfo: TransportMediaInfo;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    TransportStreamMediaInfo?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    TransportStreamMediaInfo: (value: TransportMediaInfo) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Detailed metadata information about a router input source.</p>
+ * @public
+ */
+export interface RouterInputSourceMetadataDetails {
+  /**
+   * <p>Collection of metadata messages associated with the router input source.</p>
+   * @public
+   */
+  SourceMetadataMessages: RouterInputMessage[] | undefined;
+
+  /**
+   * <p>The timestamp when the metadata was last updated.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>Metadata information specific to the router input configuration and state.</p>
+   * @public
+   */
+  RouterInputMetadata?: RouterInputMetadata | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterInputSourceMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Detailed metadata information about the router input source, including connection state, timestamps, and stream configuration.</p>
+   * @public
+   */
+  SourceMetadataDetails: RouterInputSourceMetadataDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterInputThumbnailRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to see a thumbnail of.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>The details of a thumbnail associated with a router input, including the thumbnail messages, the thumbnail image, the timecode, and the timestamp.</p>
+ * @public
+ */
+export interface RouterInputThumbnailDetails {
+  /**
+   * <p>The messages associated with the router input thumbnail.</p>
+   * @public
+   */
+  ThumbnailMessages: RouterInputMessage[] | undefined;
+
+  /**
+   * <p>The thumbnail image, encoded as a Base64-encoded binary data object.</p>
+   * @public
+   */
+  Thumbnail?: Uint8Array | undefined;
+
+  /**
+   * <p>The timecode associated with the thumbnail.</p>
+   * @public
+   */
+  Timecode?: string | undefined;
+
+  /**
+   * <p>The timestamp associated with the thumbnail.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterInputThumbnailResponse {
+  /**
+   * <p>The ARN of the router input.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The details of the thumbnail associated with the router input, including the thumbnail image, timecode, timestamp, and any associated error messages.</p>
+   * @public
+   */
+  ThumbnailDetails: RouterInputThumbnailDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterNetworkInterfaceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router network interface that you want to retrieve information about.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterNetworkInterfaceResponse {
+  /**
+   * <p>The details of the requested router network interface, including its configuration and other attributes.</p>
+   * @public
+   */
+  RouterNetworkInterface: RouterNetworkInterface | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterOutputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router output that you want to retrieve information about.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouterOutputResponse {
+  /**
+   * <p>The details of the requested router output, including its configuration, state, and other attributes.</p>
+   * @public
+   */
+  RouterOutput: RouterOutput | undefined;
+}
+
+/**
+ * <p>A summary of a router input, including its name, type, ARN, ID, state, and other key details. This structure is used in the response of the ListRouterInputs operation.</p>
+ * @public
+ */
+export interface ListedRouterInput {
+  /**
+   * <p>The name of the router input.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the router input.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of the router input.</p>
+   * @public
+   */
+  InputType: RouterInputType | undefined;
+
+  /**
+   * <p>The overall state of the router input.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+
+  /**
+   * <p>The number of router outputs that are associated with this router input.</p>
+   * @public
+   */
+  RoutedOutputs: number | undefined;
+
+  /**
+   * <p>The AWS Region where the router input is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the router input.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The maximum bitrate of the router input.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>Indicates whether the router input is configured for Regional or global routing.</p>
+   * @public
+   */
+  RoutingScope: RoutingScope | undefined;
+
+  /**
+   * <p>The timestamp when the router input was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the router input was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The number of messages associated with the router input.</p>
+   * @public
+   */
+  MessageCount: number | undefined;
+
+  /**
+   * <p>The ARN of the network interface associated with the router input.</p>
+   * @public
+   */
+  NetworkInterfaceArn?: string | undefined;
+
+  /**
+   * <p>The type of maintenance schedule currently associated with the listed router input.</p>
+   * @public
+   */
+  MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The details of the maintenance schedule for the listed router input.</p>
+   * @public
+   */
+  MaintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * <p>A summary of a router network interface, including its name, type, ARN, ID, associated input/output counts, state, and other key details. This structure is used in the response of the ListRouterNetworkInterfaces operation.</p>
+ * @public
+ */
+export interface ListedRouterNetworkInterface {
+  /**
+   * <p>The name of the router network interface.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router network interface.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the router network interface.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of the router network interface.</p>
+   * @public
+   */
+  NetworkInterfaceType: RouterNetworkInterfaceType | undefined;
+
+  /**
+   * <p>The number of router outputs associated with the network interface.</p>
+   * @public
+   */
+  AssociatedOutputCount: number | undefined;
+
+  /**
+   * <p>The number of router inputs associated with the network interface.</p>
+   * @public
+   */
+  AssociatedInputCount: number | undefined;
+
+  /**
+   * <p>The current state of the router network interface.</p>
+   * @public
+   */
+  State: RouterNetworkInterfaceState | undefined;
+
+  /**
+   * <p>The AWS Region where the router network interface is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The timestamp when the network interface was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the router network interface was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * <p>A summary of a router output, including its name, type, ARN, ID, state, routed state, and other key details. This structure is used in the response of the ListRouterOutputs operation.</p>
+ * @public
+ */
+export interface ListedRouterOutput {
+  /**
+   * <p>The name of the router output.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router output.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the router output.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of the router output.</p>
+   * @public
+   */
+  OutputType: RouterOutputType | undefined;
+
+  /**
+   * <p>The overall state of the router output.</p>
+   * @public
+   */
+  State: RouterOutputState | undefined;
+
+  /**
+   * <p>The current state of the association between the router output and its input.</p>
+   * @public
+   */
+  RoutedState: RouterOutputRoutedState | undefined;
+
+  /**
+   * <p>The AWS Region where the router output is located.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the router output.</p>
+   * @public
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The maximum bitrate of the router output.</p>
+   * @public
+   */
+  MaximumBitrate: number | undefined;
+
+  /**
+   * <p>Indicates whether the router output is configured for Regional or global routing.</p>
+   * @public
+   */
+  RoutingScope: RoutingScope | undefined;
+
+  /**
+   * <p>The timestamp when the router output was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the router output was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The number of messages associated with the router output.</p>
+   * @public
+   */
+  MessageCount: number | undefined;
+
+  /**
+   * <p>The ARN of the router input associated with the output.</p>
+   * @public
+   */
+  RoutedInputArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the network interface associated with the router output.</p>
+   * @public
+   */
+  NetworkInterfaceArn?: string | undefined;
+
+  /**
+   * <p>The type of maintenance schedule currently associated with the listed router output.</p>
+   * @public
+   */
+  MaintenanceScheduleType?: MaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The details of the maintenance schedule for the listed router output.</p>
+   * @public
+   */
+  MaintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListEntitlementsRequest {
   /**
    * <p> The maximum number of results to return per API request. </p> <p>For example, you submit a <code>ListEntitlements</code> request with set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the <code>MaxResults</code> value. If <code>MaxResults</code> is not included in the request, the service defaults to pagination with a maximum of 20 results per page.</p>
@@ -5015,6 +8099,453 @@ export interface ListReservationsResponse {
 }
 
 /**
+ * <p>A filter that can be used to retrieve a list of router inputs.</p>
+ * @public
+ */
+export type RouterInputFilter =
+  | RouterInputFilter.InputTypesMember
+  | RouterInputFilter.NameContainsMember
+  | RouterInputFilter.NetworkInterfaceArnsMember
+  | RouterInputFilter.RegionNamesMember
+  | RouterInputFilter.RoutingScopesMember
+  | RouterInputFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterInputFilter {
+  /**
+   * <p>The AWS Regions of the router inputs to include in the filter.</p>
+   * @public
+   */
+  export interface RegionNamesMember {
+    RegionNames: string[];
+    InputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router inputs to include in the filter.</p>
+   * @public
+   */
+  export interface InputTypesMember {
+    RegionNames?: never;
+    InputTypes: RouterInputType[];
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The names of the router inputs to include in the filter.</p>
+   * @public
+   */
+  export interface NameContainsMember {
+    RegionNames?: never;
+    InputTypes?: never;
+    NameContains: string[];
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router inputs to include in the filter.</p>
+   * @public
+   */
+  export interface NetworkInterfaceArnsMember {
+    RegionNames?: never;
+    InputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns: string[];
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter criteria to list router inputs based on their routing scope (REGIONAL or GLOBAL).</p>
+   * @public
+   */
+  export interface RoutingScopesMember {
+    RegionNames?: never;
+    InputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes: RoutingScope[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RegionNames?: never;
+    InputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RegionNames: (value: string[]) => T;
+    InputTypes: (value: RouterInputType[]) => T;
+    NameContains: (value: string[]) => T;
+    NetworkInterfaceArns: (value: string[]) => T;
+    RoutingScopes: (value: RoutingScope[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListRouterInputsRequest {
+  /**
+   * <p>The maximum number of router inputs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router inputs.</p>
+   * @public
+   */
+  Filters?: RouterInputFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRouterInputsResponse {
+  /**
+   * <p>The summary information for the retrieved router inputs.</p>
+   * @public
+   */
+  RouterInputs: ListedRouterInput[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter that can be used to retrieve a list of router network interfaces.</p>
+ * @public
+ */
+export type RouterNetworkInterfaceFilter =
+  | RouterNetworkInterfaceFilter.NameContainsMember
+  | RouterNetworkInterfaceFilter.NetworkInterfaceTypesMember
+  | RouterNetworkInterfaceFilter.RegionNamesMember
+  | RouterNetworkInterfaceFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterNetworkInterfaceFilter {
+  /**
+   * <p>The AWS Regions of the router network interfaces to include in the filter.</p>
+   * @public
+   */
+  export interface RegionNamesMember {
+    RegionNames: string[];
+    NetworkInterfaceTypes?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router network interfaces to include in the filter.</p>
+   * @public
+   */
+  export interface NetworkInterfaceTypesMember {
+    RegionNames?: never;
+    NetworkInterfaceTypes: RouterNetworkInterfaceType[];
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The names of the router network interfaces to include in the filter.</p>
+   * @public
+   */
+  export interface NameContainsMember {
+    RegionNames?: never;
+    NetworkInterfaceTypes?: never;
+    NameContains: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RegionNames?: never;
+    NetworkInterfaceTypes?: never;
+    NameContains?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RegionNames: (value: string[]) => T;
+    NetworkInterfaceTypes: (value: RouterNetworkInterfaceType[]) => T;
+    NameContains: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListRouterNetworkInterfacesRequest {
+  /**
+   * <p>The maximum number of router network interfaces to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router network interfaces.</p>
+   * @public
+   */
+  Filters?: RouterNetworkInterfaceFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRouterNetworkInterfacesResponse {
+  /**
+   * <p>The summary information for the retrieved router network interfaces.</p>
+   * @public
+   */
+  RouterNetworkInterfaces: ListedRouterNetworkInterface[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter that can be used to retrieve a list of router outputs.</p>
+ * @public
+ */
+export type RouterOutputFilter =
+  | RouterOutputFilter.NameContainsMember
+  | RouterOutputFilter.NetworkInterfaceArnsMember
+  | RouterOutputFilter.OutputTypesMember
+  | RouterOutputFilter.RegionNamesMember
+  | RouterOutputFilter.RoutedInputArnsMember
+  | RouterOutputFilter.RoutingScopesMember
+  | RouterOutputFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterOutputFilter {
+  /**
+   * <p>The AWS Regions of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RegionNamesMember {
+    RegionNames: string[];
+    OutputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutedInputArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface OutputTypesMember {
+    RegionNames?: never;
+    OutputTypes: RouterOutputType[];
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutedInputArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The names of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NameContainsMember {
+    RegionNames?: never;
+    OutputTypes?: never;
+    NameContains: string[];
+    NetworkInterfaceArns?: never;
+    RoutedInputArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NetworkInterfaceArnsMember {
+    RegionNames?: never;
+    OutputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns: string[];
+    RoutedInputArns?: never;
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ARNs of the router inputs associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RoutedInputArnsMember {
+    RegionNames?: never;
+    OutputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutedInputArns: string[];
+    RoutingScopes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter criteria to list router outputs based on their routing scope.</p>
+   * @public
+   */
+  export interface RoutingScopesMember {
+    RegionNames?: never;
+    OutputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutedInputArns?: never;
+    RoutingScopes: RoutingScope[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RegionNames?: never;
+    OutputTypes?: never;
+    NameContains?: never;
+    NetworkInterfaceArns?: never;
+    RoutedInputArns?: never;
+    RoutingScopes?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RegionNames: (value: string[]) => T;
+    OutputTypes: (value: RouterOutputType[]) => T;
+    NameContains: (value: string[]) => T;
+    NetworkInterfaceArns: (value: string[]) => T;
+    RoutedInputArns: (value: string[]) => T;
+    RoutingScopes: (value: RoutingScope[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListRouterOutputsRequest {
+  /**
+   * <p>The maximum number of router outputs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router outputs.</p>
+   * @public
+   */
+  Filters?: RouterOutputFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRouterOutputsResponse {
+  /**
+   * <p>The summary information for the retrieved router outputs.</p>
+   * @public
+   */
+  RouterOutputs: ListedRouterOutput[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForGlobalResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global resource whose tags you want to list.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForGlobalResourceResponse {
+  /**
+   * <p>A map of tag keys and values associated with the global resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
  * @public
  */
 export interface ListTagsForResourceRequest {
@@ -5073,33 +8604,177 @@ export interface PurchaseOfferingResponse {
 /**
  * @public
  */
-export interface TagResourceRequest {
+export interface RestartRouterInputRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource to which to add tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to restart.</p>
    * @public
    */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p> A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
+  Arn: string | undefined;
 }
 
 /**
  * @public
  */
-export interface UntagResourceRequest {
+export interface RestartRouterInputResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the resource that you want to untag. </p>
+   * <p>The ARN of the router input that was restarted.</p>
    * @public
    */
-  ResourceArn: string | undefined;
+  Arn: string | undefined;
 
   /**
-   * <p>The keys of the tags to be removed. </p>
+   * <p>The name of the router input that was restarted.</p>
    * @public
    */
-  TagKeys: string[] | undefined;
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the router input after the restart operation.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRouterInputResponse {
+  /**
+   * <p>The ARN of the router input that was started.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input that was started.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the router input after being started.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+
+  /**
+   * <p>The type of maintenance schedule associated with the router input.</p>
+   * @public
+   */
+  MaintenanceScheduleType: MaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The details of the maintenance schedule for the router input.</p>
+   * @public
+   */
+  MaintenanceSchedule: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to stop.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopRouterInputResponse {
+  /**
+   * <p>The ARN of the router input that was stopped.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input that was stopped.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the router input after being stopped.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to update.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The updated name for the router input.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The updated configuration settings for the router input. Changing the type of the configuration is not supported.</p>
+   * @public
+   */
+  Configuration?: RouterInputConfiguration | undefined;
+
+  /**
+   * <p>The updated maximum bitrate for the router input.</p>
+   * @public
+   */
+  MaximumBitrate?: number | undefined;
+
+  /**
+   * <p>Specifies whether the router input can be assigned to outputs in different Regions. REGIONAL (default) - can be assigned only to outputs in the same Region. GLOBAL - can be assigned to outputs in any Region.</p>
+   * @public
+   */
+  RoutingScope?: RoutingScope | undefined;
+
+  /**
+   * <p>The updated tier level for the router input.</p>
+   * @public
+   */
+  Tier?: RouterInputTier | undefined;
+
+  /**
+   * <p>The updated transit encryption settings for the router input.</p>
+   * @public
+   */
+  TransitEncryption?: RouterInputTransitEncryption | undefined;
+
+  /**
+   * <p>The updated maintenance configuration settings for the router input, including any changes to preferred maintenance windows and schedules.</p>
+   * @public
+   */
+  MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRouterInputResponse {
+  /**
+   * <p>The updated router input.</p>
+   * @public
+   */
+  RouterInput: RouterInput | undefined;
 }
