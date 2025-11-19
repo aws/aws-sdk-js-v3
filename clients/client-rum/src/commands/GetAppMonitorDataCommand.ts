@@ -27,8 +27,7 @@ export interface GetAppMonitorDataCommandInput extends GetAppMonitorDataRequest 
 export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the raw performance events that RUM has collected from your web application,
- *          so that you can do your own processing or analysis of this data.</p>
+ * <p>Retrieves the raw performance events that RUM has collected from your web application, so that you can do your own processing or analysis of this data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -89,6 +89,7 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * //         S3Uri: "STRING_VALUE",
  * //       },
  * //     },
+ * //     Platform: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -27,20 +27,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch RUM resource. Currently,
- *        the only resources that
- *        can be tagged app monitors.</p>
- *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
- *        permissions by granting a user
- *        permission to access or change only resources with certain tag values.</p>
- *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
- *          <p>You can use the <code>TagResource</code> action with a resource that already has tags.
- *        If you specify a new tag key for the resource,
- *        this tag is appended to the list of tags associated
- *        with the alarm. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces
- *        the previous value for that tag.</p>
- *          <p>You can associate as many as 50 tags with a resource.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+ * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch RUM resource. Currently, the only resources that can be tagged app monitors.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a resource.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

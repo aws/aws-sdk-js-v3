@@ -27,9 +27,7 @@ export interface ListRumMetricsDestinationsCommandInput extends ListRumMetricsDe
 export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of destinations that you have created to receive RUM extended metrics,
- *          for the specified app monitor.</p>
- *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
+ * <p>Returns a list of destinations that you have created to receive RUM extended metrics, for the specified app monitor.</p> <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

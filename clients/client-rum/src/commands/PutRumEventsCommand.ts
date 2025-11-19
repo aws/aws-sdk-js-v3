@@ -27,10 +27,7 @@ export interface PutRumEventsCommandInput extends PutRumEventsRequest {}
 export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Sends telemetry events about your application performance and user behavior to CloudWatch RUM. The code
- *       snippet that RUM generates for you to add to your application includes <code>PutRumEvents</code> operations to
- *       send this data to RUM.</p>
- *          <p>Each <code>PutRumEvents</code> operation can send a batch of events from one user session.</p>
+ * <p>Sends telemetry events about your application performance and user behavior to CloudWatch RUM. The code snippet that RUM generates for you to add to your application includes <code>PutRumEvents</code> operations to send this data to RUM.</p> <p>Each <code>PutRumEvents</code> operation can send a batch of events from one user session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

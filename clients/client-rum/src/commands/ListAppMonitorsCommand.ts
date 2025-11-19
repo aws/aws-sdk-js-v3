@@ -51,6 +51,7 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * //       Created: "STRING_VALUE",
  * //       LastModified: "STRING_VALUE",
  * //       State: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

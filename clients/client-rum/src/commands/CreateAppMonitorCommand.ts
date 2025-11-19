@@ -27,15 +27,7 @@ export interface CreateAppMonitorCommandInput extends CreateAppMonitorRequest {}
 export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that
- *       data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
- *       and user behavior.</p>
- *          <p>You use this operation only to create a new app monitor. To update an existing app monitor, use <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html">UpdateAppMonitor</a> instead.</p>
- *          <p>After you create an app monitor, sign in to the CloudWatch RUM console to get
- *          the JavaScript code snippet to add to your web application. For more information, see
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html">How do I find a code snippet
- *          that I've already generated?</a>
- *          </p>
+ * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that data to RUM. The data includes performance and reliability information such as page load time, client-side errors, and user behavior.</p> <p>You use this operation only to create a new app monitor. To update an existing app monitor, use <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html">UpdateAppMonitor</a> instead.</p> <p>After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html">How do I find a code snippet that I've already generated?</a> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +74,7 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  *       S3Uri: "STRING_VALUE",
  *     },
  *   },
+ *   Platform: "STRING_VALUE",
  * };
  * const command = new CreateAppMonitorCommand(input);
  * const response = await client.send(command);

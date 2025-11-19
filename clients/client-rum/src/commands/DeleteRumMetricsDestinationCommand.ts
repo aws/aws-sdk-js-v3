@@ -29,8 +29,7 @@ export interface DeleteRumMetricsDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
- *          sending extended metrics to that destination.</p>
+ * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops sending extended metrics to that destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

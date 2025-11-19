@@ -27,8 +27,7 @@ export interface UpdateRumMetricDefinitionCommandInput extends UpdateRumMetricDe
 export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For
- *          more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>.</p>
+ * <p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

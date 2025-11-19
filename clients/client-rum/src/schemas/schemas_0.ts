@@ -100,6 +100,7 @@ const _MR = "MaxResults";
 const _N = "Name";
 const _NT = "NextToken";
 const _Na = "Namespace";
+const _P = "Platform";
 const _PD = "PolicyDocument";
 const _PNFE = "PolicyNotFoundException";
 const _PRE = "PutRumEvents";
@@ -238,7 +239,7 @@ export var AppMonitor: StaticStructureSchema = [
   n0,
   _AM,
   0,
-  [_N, _D, _DL, _I, _C, _LM, _T, _S, _AMC, _DS, _CE, _DC],
+  [_N, _D, _DL, _I, _C, _LM, _T, _S, _AMC, _DS, _CE, _DC, _P],
   [
     0,
     0,
@@ -252,6 +253,7 @@ export var AppMonitor: StaticStructureSchema = [
     () => DataStorage,
     () => CustomEvents,
     () => DeobfuscationConfiguration,
+    0,
   ],
 ];
 export var AppMonitorConfiguration: StaticStructureSchema = [
@@ -263,7 +265,7 @@ export var AppMonitorConfiguration: StaticStructureSchema = [
   [0, 64 | 0, 64 | 0, 64 | 0, 1, 0, 2, 64 | 0, 2],
 ];
 export var AppMonitorDetails: StaticStructureSchema = [3, n0, _AMD, 0, [_n, _i, _v], [0, 0, 0]];
-export var AppMonitorSummary: StaticStructureSchema = [3, n0, _AMS, 0, [_N, _I, _C, _LM, _S], [0, 0, 0, 0, 0]];
+export var AppMonitorSummary: StaticStructureSchema = [3, n0, _AMS, 0, [_N, _I, _C, _LM, _S, _P], [0, 0, 0, 0, 0, 0]];
 export var BatchCreateRumMetricDefinitionsError: StaticStructureSchema = [
   3,
   n0,
@@ -392,8 +394,8 @@ export var CreateAppMonitorRequest: StaticStructureSchema = [
   n0,
   _CAMR,
   0,
-  [_N, _D, _DL, _T, _AMC, _CLE, _CE, _DC],
-  [0, 0, 64 | 0, 128 | 0, () => AppMonitorConfiguration, 2, () => CustomEvents, () => DeobfuscationConfiguration],
+  [_N, _D, _DL, _T, _AMC, _CLE, _CE, _DC, _P],
+  [0, 0, 64 | 0, 128 | 0, () => AppMonitorConfiguration, 2, () => CustomEvents, () => DeobfuscationConfiguration, 0],
 ];
 export var CreateAppMonitorResponse: StaticStructureSchema = [3, n0, _CAMRr, 0, [_I], [0]];
 export var CustomEvents: StaticStructureSchema = [3, n0, _CE, 0, [_St], [0]];

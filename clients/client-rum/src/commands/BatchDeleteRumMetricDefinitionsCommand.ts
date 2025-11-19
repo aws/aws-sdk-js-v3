@@ -29,12 +29,7 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes the specified metrics from being sent to an extended metrics destination.</p>
- *          <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid,
- *          those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still
- *          deleted.</p>
- *          <p>The maximum number of metric definitions that you can specify in one
- *          <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
+ * <p>Removes the specified metrics from being sent to an extended metrics destination.</p> <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid, those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still deleted.</p> <p>The maximum number of metric definitions that you can specify in one <code>BatchDeleteRumMetricDefinitions</code> operation is 200.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
