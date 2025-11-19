@@ -15,8 +15,6 @@ describe(DynamoDB.name, () => {
       })
       .catch((e) => e);
 
-    delete error.$response;
-
     expect(error).toMatchObject({
       message: "Requested resource not found: Table: DynamoDB not found",
       $fault: "client",
