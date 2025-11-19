@@ -44,6 +44,11 @@ import {
   GetSessionTokenCommandInput,
   GetSessionTokenCommandOutput,
 } from "./commands/GetSessionTokenCommand";
+import {
+  GetWebIdentityTokenCommand,
+  GetWebIdentityTokenCommandInput,
+  GetWebIdentityTokenCommandOutput,
+} from "./commands/GetWebIdentityTokenCommand";
 import { STSClient, STSClientConfig } from "./STSClient";
 
 const commands = {
@@ -57,6 +62,7 @@ const commands = {
   GetDelegatedAccessTokenCommand,
   GetFederationTokenCommand,
   GetSessionTokenCommand,
+  GetWebIdentityTokenCommand,
 };
 
 export interface STS {
@@ -215,6 +221,23 @@ export interface STS {
     args: GetSessionTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSessionTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWebIdentityTokenCommand}
+   */
+  getWebIdentityToken(
+    args: GetWebIdentityTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWebIdentityTokenCommandOutput>;
+  getWebIdentityToken(
+    args: GetWebIdentityTokenCommandInput,
+    cb: (err: any, data?: GetWebIdentityTokenCommandOutput) => void
+  ): void;
+  getWebIdentityToken(
+    args: GetWebIdentityTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWebIdentityTokenCommandOutput) => void
   ): void;
 }
 

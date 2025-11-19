@@ -77,6 +77,10 @@ import {
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "./commands/GetSessionTokenCommand";
 import {
+  GetWebIdentityTokenCommandInput,
+  GetWebIdentityTokenCommandOutput,
+} from "./commands/GetWebIdentityTokenCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -100,7 +104,8 @@ export type ServiceInputTypes =
   | GetCallerIdentityCommandInput
   | GetDelegatedAccessTokenCommandInput
   | GetFederationTokenCommandInput
-  | GetSessionTokenCommandInput;
+  | GetSessionTokenCommandInput
+  | GetWebIdentityTokenCommandInput;
 
 /**
  * @public
@@ -115,7 +120,8 @@ export type ServiceOutputTypes =
   | GetCallerIdentityCommandOutput
   | GetDelegatedAccessTokenCommandOutput
   | GetFederationTokenCommandOutput
-  | GetSessionTokenCommandOutput;
+  | GetSessionTokenCommandOutput
+  | GetWebIdentityTokenCommandOutput;
 
 /**
  * @public

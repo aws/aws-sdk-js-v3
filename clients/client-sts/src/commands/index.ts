@@ -9,3 +9,4 @@ export * from "./GetCallerIdentityCommand";
 export * from "./GetDelegatedAccessTokenCommand";
 export * from "./GetFederationTokenCommand";
 export * from "./GetSessionTokenCommand";
+export * from "./GetWebIdentityTokenCommand";

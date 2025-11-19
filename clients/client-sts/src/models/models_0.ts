@@ -1019,7 +1019,8 @@ export interface GetCallerIdentityResponse {
  */
 export interface GetDelegatedAccessTokenRequest {
   /**
-   * <p></p>
+   * <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and
+   *          unexpired at the time of the request.</p>
    * @public
    */
   TradeInToken: string | undefined;
@@ -1036,13 +1037,17 @@ export interface GetDelegatedAccessTokenResponse {
   Credentials?: Credentials | undefined;
 
   /**
-   * <p></p>
+   * <p>The percentage of the maximum policy size that is used by the session policy. The policy
+   *          size is calculated as the sum of all the session policies and permission boundaries
+   *          attached to the session. If the packed size exceeds 100%, the request fails.</p>
    * @public
    */
   PackedPolicySize?: number | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the
+   *          delegated access token. This ARN identifies the IAM entity whose permissions are granted
+   *          by the temporary credentials.</p>
    * @public
    */
   AssumedPrincipal?: string | undefined;
@@ -1283,4 +1288,63 @@ export interface GetSessionTokenResponse {
    * @public
    */
   Credentials?: Credentials | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWebIdentityTokenRequest {
+  /**
+   * <p>The intended recipient of the web identity token. This value populates the
+   *             <code>aud</code> claim in the JWT and should identify the service or application that
+   *          will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
+   * @public
+   */
+  Audience: string[] | undefined;
+
+  /**
+   * <p>The duration, in seconds, for which the JSON Web Token (JWT) will remain valid.
+   *          The value can range from 60 seconds (1 minute) to 3600 seconds (1 hour). If not specified,
+   *          the default duration is 300 seconds (5 minutes). The token is designed to be short-lived and
+   *          should be used for proof of identity, then exchanged for credentials or short-lived tokens in the external service.</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+
+  /**
+   * <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are
+   *          RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384). </p>
+   * @public
+   */
+  SigningAlgorithm: string | undefined;
+
+  /**
+   * <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom
+   *          claims to the JWT and can be used by the downstream service for authorization decisions. </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWebIdentityTokenResponse {
+  /**
+   * <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity. The token contains
+   *          standard JWT claims such as subject, audience, expiration time, and additional identity attributes
+   *          added by STS as custom claims. You can also add your own custom claims to the token by passing tags
+   *          as request parameters to the <code>GetWebIdentityToken</code> API. The token is signed using the specified signing
+   *          algorithm and can be verified using the verification keys available at the issuer's JWKS endpoint.</p>
+   * @public
+   */
+  WebIdentityToken?: string | undefined;
+
+  /**
+   * <p>The date and time when the web identity token expires, in UTC. The expiration is
+   *          determined by adding the <code>DurationSeconds</code> value to the time the token was
+   *          issued. After this time, the token should no longer be considered valid.</p>
+   * @public
+   */
+  Expiration?: Date | undefined;
 }

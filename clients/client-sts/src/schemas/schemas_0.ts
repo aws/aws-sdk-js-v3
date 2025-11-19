@@ -46,15 +46,20 @@ const _GFTRe = "GetFederationTokenResponse";
 const _GST = "GetSessionToken";
 const _GSTR = "GetSessionTokenRequest";
 const _GSTRe = "GetSessionTokenResponse";
+const _GWIT = "GetWebIdentityToken";
+const _GWITR = "GetWebIdentityTokenRequest";
+const _GWITRe = "GetWebIdentityTokenResponse";
 const _I = "Issuer";
 const _IAME = "InvalidAuthorizationMessageException";
 const _IDPCEE = "IDPCommunicationErrorException";
 const _IDPRCE = "IDPRejectedClaimException";
 const _IITE = "InvalidIdentityTokenException";
+const _JWTPSEE = "JWTPayloadSizeExceededException";
 const _K = "Key";
 const _MPDE = "MalformedPolicyDocumentException";
 const _N = "Name";
 const _NQ = "NameQualifier";
+const _OWIFDE = "OutboundWebIdentityFederationDisabledException";
 const _P = "Policy";
 const _PA = "PolicyArns";
 const _PAr = "PrincipalArn";
@@ -71,9 +76,11 @@ const _RA = "RoleArn";
 const _RDE = "RegionDisabledException";
 const _RSN = "RoleSessionName";
 const _S = "Subject";
+const _SA = "SigningAlgorithm";
 const _SAK = "SecretAccessKey";
 const _SAMLA = "SAMLAssertion";
 const _SAMLAT = "SAMLAssertionType";
+const _SDEE = "SessionDurationEscalationException";
 const _SFWIT = "SubjectFromWebIdentityToken";
 const _SI = "SourceIdentity";
 const _SN = "SerialNumber";
@@ -101,6 +108,7 @@ const _pDLT = "policyDescriptorListType";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sts";
 const _tITT = "tradeInTokenType";
 const _tLT = "tagListType";
+const _wITT = "webIdentityTokenType";
 const n0 = "com.amazonaws.sts";
 
 // smithy-typescript generated code
@@ -120,9 +128,12 @@ import {
   IDPRejectedClaimException as __IDPRejectedClaimException,
   InvalidAuthorizationMessageException as __InvalidAuthorizationMessageException,
   InvalidIdentityTokenException as __InvalidIdentityTokenException,
+  JWTPayloadSizeExceededException as __JWTPayloadSizeExceededException,
   MalformedPolicyDocumentException as __MalformedPolicyDocumentException,
+  OutboundWebIdentityFederationDisabledException as __OutboundWebIdentityFederationDisabledException,
   PackedPolicyTooLargeException as __PackedPolicyTooLargeException,
   RegionDisabledException as __RegionDisabledException,
+  SessionDurationEscalationException as __SessionDurationEscalationException,
 } from "../models/errors";
 import { STSServiceException as __STSServiceException } from "../models/STSServiceException";
 
@@ -132,6 +143,7 @@ export var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 export var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
 export var SAMLAssertionType: StaticSimpleSchema = [0, n0, _SAMLAT, 8, 0];
 export var tradeInTokenType: StaticSimpleSchema = [0, n0, _tITT, 8, 0];
+export var webIdentityTokenType: StaticSimpleSchema = [0, n0, _wITT, 8, 0];
 export var AssumedRoleUser: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0]];
 export var AssumeRoleRequest: StaticStructureSchema = [
   3,
@@ -267,6 +279,22 @@ export var GetFederationTokenResponse: StaticStructureSchema = [
 ];
 export var GetSessionTokenRequest: StaticStructureSchema = [3, n0, _GSTR, 0, [_DS, _SN, _TC], [1, 0, 0]];
 export var GetSessionTokenResponse: StaticStructureSchema = [3, n0, _GSTRe, 0, [_C], [[() => Credentials, 0]]];
+export var GetWebIdentityTokenRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GWITR,
+  0,
+  [_Au, _DS, _SA, _T],
+  [64 | 0, 1, 0, () => tagListType],
+];
+export var GetWebIdentityTokenResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GWITRe,
+  0,
+  [_WIT, _E],
+  [[() => webIdentityTokenType, 0], 4],
+];
 export var IDPCommunicationErrorException: StaticErrorSchema = [
   -3,
   n0,
@@ -323,6 +351,20 @@ export var InvalidIdentityTokenException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidIdentityTokenException, __InvalidIdentityTokenException);
 
+export var JWTPayloadSizeExceededException: StaticErrorSchema = [
+  -3,
+  n0,
+  _JWTPSEE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+    [_aQE]: [`JWTPayloadSizeExceededException`, 400],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(JWTPayloadSizeExceededException, __JWTPayloadSizeExceededException);
+
 export var MalformedPolicyDocumentException: StaticErrorSchema = [
   -3,
   n0,
@@ -336,6 +378,23 @@ export var MalformedPolicyDocumentException: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException, __MalformedPolicyDocumentException);
+
+export var OutboundWebIdentityFederationDisabledException: StaticErrorSchema = [
+  -3,
+  n0,
+  _OWIFDE,
+  {
+    [_e]: _c,
+    [_hE]: 403,
+    [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(
+  OutboundWebIdentityFederationDisabledException,
+  __OutboundWebIdentityFederationDisabledException
+);
 
 export var PackedPolicyTooLargeException: StaticErrorSchema = [
   -3,
@@ -367,6 +426,20 @@ export var RegionDisabledException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(RegionDisabledException, __RegionDisabledException);
 
+export var SessionDurationEscalationException: StaticErrorSchema = [
+  -3,
+  n0,
+  _SDEE,
+  {
+    [_e]: _c,
+    [_hE]: 403,
+    [_aQE]: [`SessionDurationEscalationException`, 403],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(SessionDurationEscalationException, __SessionDurationEscalationException);
+
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var STSServiceException: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(STSServiceException, __STSServiceException);
@@ -376,6 +449,8 @@ export var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT, 0, () => 
 export var tagKeyListType = 64 | 0;
 
 export var tagListType: StaticListSchema = [1, n0, _tLT, 0, () => Tag];
+export var webIdentityTokenAudienceListType = 64 | 0;
+
 export var AssumeRole: StaticOperationSchema = [9, n0, _AR, 0, () => AssumeRoleRequest, () => AssumeRoleResponse];
 export var AssumeRoleWithSAML: StaticOperationSchema = [
   9,
@@ -441,4 +516,12 @@ export var GetSessionToken: StaticOperationSchema = [
   0,
   () => GetSessionTokenRequest,
   () => GetSessionTokenResponse,
+];
+export var GetWebIdentityToken: StaticOperationSchema = [
+  9,
+  n0,
+  _GWIT,
+  0,
+  () => GetWebIdentityTokenRequest,
+  () => GetWebIdentityTokenResponse,
 ];

@@ -76,9 +76,8 @@ export class PackedPolicyTooLargeException extends __BaseException {
 /**
  * <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and
- *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                 Guide</i>.</p>
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM
+ *                 User Guide</i>.</p>
  * @public
  */
 export class RegionDisabledException extends __BaseException {
@@ -188,7 +187,8 @@ export class InvalidAuthorizationMessageException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>The trade-in token provided in the request has expired and can no longer be exchanged
+ *             for credentials. Request a new token and retry the operation.</p>
  * @public
  */
 export class ExpiredTradeInTokenException extends __BaseException {
@@ -204,5 +204,67 @@ export class ExpiredTradeInTokenException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ExpiredTradeInTokenException.prototype);
+  }
+}
+
+/**
+ * <p>The requested token payload size exceeds the maximum allowed size. Reduce the number of request tags included in the <code>GetWebIdentityToken</code> API call to reduce the token payload size.</p>
+ * @public
+ */
+export class JWTPayloadSizeExceededException extends __BaseException {
+  readonly name = "JWTPayloadSizeExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<JWTPayloadSizeExceededException, __BaseException>) {
+    super({
+      name: "JWTPayloadSizeExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, JWTPayloadSizeExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The outbound web identity federation feature is not enabled for this account. To use
+ *             this feature, you must first enable it through the Amazon Web Services Management Console or API.</p>
+ * @public
+ */
+export class OutboundWebIdentityFederationDisabledException extends __BaseException {
+  readonly name = "OutboundWebIdentityFederationDisabledException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OutboundWebIdentityFederationDisabledException, __BaseException>) {
+    super({
+      name: "OutboundWebIdentityFederationDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OutboundWebIdentityFederationDisabledException.prototype);
+  }
+}
+
+/**
+ * <p>The requested token duration would extend the session beyond its original expiration time.
+ *             You cannot use this operation to extend the lifetime of a session beyond what was granted when the session was originally created.</p>
+ * @public
+ */
+export class SessionDurationEscalationException extends __BaseException {
+  readonly name = "SessionDurationEscalationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionDurationEscalationException, __BaseException>) {
+    super({
+      name: "SessionDurationEscalationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionDurationEscalationException.prototype);
   }
 }

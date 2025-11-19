@@ -27,7 +27,10 @@ export interface GetDelegatedAccessTokenCommandInput extends GetDelegatedAccessT
 export interface GetDelegatedAccessTokenCommandOutput extends GetDelegatedAccessTokenResponse, __MetadataBearer {}
 
 /**
- * <p>This API is currently unavailable for general use.</p>
+ * <p>Exchanges a trade-in token for temporary Amazon Web Services credentials with the permissions
+ *          associated with the assumed principal. This operation allows you to obtain credentials for
+ *          a specific principal based on a trade-in token, enabling delegation of access to Amazon Web Services
+ *          resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +64,25 @@ export interface GetDelegatedAccessTokenCommandOutput extends GetDelegatedAccess
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
  * @throws {@link ExpiredTradeInTokenException} (client fault)
- *  <p></p>
+ *  <p>The trade-in token provided in the request has expired and can no longer be exchanged
+ *             for credentials. Request a new token and retry the operation.</p>
+ *
+ * @throws {@link PackedPolicyTooLargeException} (client fault)
+ *  <p>The request was rejected because the total packed size of the session policies and
+ *             session tags combined was too large. An Amazon Web Services conversion compresses the session policy
+ *             document, session policy ARNs, and session tags into a packed binary format that has a
+ *             separate limit. The error message indicates by percentage how close the policies and
+ *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+ *             the <i>IAM User Guide</i>.</p>
+ *          <p>You could receive this error even though you meet other defined session policy and
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and
- *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                 Guide</i>.</p>
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM
+ *                 User Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
