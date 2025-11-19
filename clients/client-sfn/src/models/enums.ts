@@ -261,6 +261,20 @@ export type InspectionLevel = (typeof InspectionLevel)[keyof typeof InspectionLe
  * @public
  * @enum
  */
+export const MockResponseValidationMode = {
+  NONE: "NONE",
+  PRESENT: "PRESENT",
+  STRICT: "STRICT",
+} as const;
+/**
+ * @public
+ */
+export type MockResponseValidationMode = (typeof MockResponseValidationMode)[keyof typeof MockResponseValidationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const TestExecutionStatus = {
   CAUGHT_ERROR: "CAUGHT_ERROR",
   FAILED: "FAILED",

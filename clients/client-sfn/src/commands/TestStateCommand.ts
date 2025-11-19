@@ -75,7 +75,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  *          <p>The <code>TestState</code> API assumes an IAM role which must contain the required IAM permissions for the resources your state is accessing. For information about the permissions a state might need, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM permissions to test a state</a>.</p>
  *          <p>The <code>TestState</code> API can run for up to five minutes. If the execution of a state exceeds this duration, it fails with the <code>States.Timeout</code> error.</p>
  *          <p>
- *             <code>TestState</code> doesn't support <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity tasks</a>, <code>.sync</code> or <code>.waitForTaskToken</code>
+ *             <code>TestState</code> only supports the following when a mock is specified: <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity tasks</a>, <code>.sync</code> or <code>.waitForTaskToken</code>
  *             <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html">service integration patterns</a>, <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html">Parallel</a>, or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html">Map</a> states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +92,22 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  *   inspectionLevel: "INFO" || "DEBUG" || "TRACE",
  *   revealSecrets: true || false,
  *   variables: "STRING_VALUE",
+ *   stateName: "STRING_VALUE",
+ *   mock: { // MockInput
+ *     result: "STRING_VALUE",
+ *     errorOutput: { // MockErrorOutput
+ *       error: "STRING_VALUE",
+ *       cause: "STRING_VALUE",
+ *     },
+ *     fieldValidationMode: "STRICT" || "PRESENT" || "NONE",
+ *   },
+ *   context: "STRING_VALUE",
+ *   stateConfiguration: { // TestStateConfiguration
+ *     retrierRetryCount: Number("int"),
+ *     errorCausedByState: "STRING_VALUE",
+ *     mapIterationFailureCount: Number("int"),
+ *     mapItemReaderData: "STRING_VALUE",
+ *   },
  * };
  * const command = new TestStateCommand(input);
  * const response = await client.send(command);
@@ -122,6 +138,18 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * //       body: "STRING_VALUE",
  * //     },
  * //     variables: "STRING_VALUE",
+ * //     errorDetails: { // InspectionErrorDetails
+ * //       catchIndex: Number("int"),
+ * //       retryIndex: Number("int"),
+ * //       retryBackoffIntervalSeconds: Number("int"),
+ * //     },
+ * //     afterItemsPath: "STRING_VALUE",
+ * //     afterItemSelector: "STRING_VALUE",
+ * //     afterItemBatcher: "STRING_VALUE",
+ * //     afterItemsPointer: "STRING_VALUE",
+ * //     toleratedFailureCount: Number("int"),
+ * //     toleratedFailurePercentage: Number("float"),
+ * //     maxConcurrency: Number("int"),
  * //   },
  * //   nextState: "STRING_VALUE",
  * //   status: "SUCCEEDED" || "FAILED" || "RETRIABLE" || "CAUGHT_ERROR",

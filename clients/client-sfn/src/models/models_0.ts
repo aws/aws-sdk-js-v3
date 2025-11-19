@@ -9,6 +9,7 @@ import {
   InspectionLevel,
   LogLevel,
   MapRunStatus,
+  MockResponseValidationMode,
   StateMachineStatus,
   StateMachineType,
   SyncExecutionStatus,
@@ -2297,7 +2298,7 @@ export interface TaskTimedOutEventDetails {
  */
 export interface HistoryEvent {
   /**
-   * <p>The date and time the event occurred.</p>
+   * <p>The date and time the event occurred, expressed in seconds and fractional milliseconds since the Unix epoch, which is defined as January 1, 1970, at 00:00:00 Coordinated Universal Time (UTC).</p>
    * @public
    */
   timestamp: Date | undefined;
@@ -3598,11 +3599,98 @@ export interface TagResourceInput {
 export interface TagResourceOutput {}
 
 /**
+ * <p>A JSON object that contains a mocked error.</p>
+ * @public
+ */
+export interface MockErrorOutput {
+  /**
+   * <p>A string denoting the error code of the exception thrown when invoking the tested state. This field is required if <code>mock.errorOutput</code> is specified.</p>
+   * @public
+   */
+  error?: string | undefined;
+
+  /**
+   * <p>A string containing the cause of the exception thrown when executing the state's logic.</p>
+   * @public
+   */
+  cause?: string | undefined;
+}
+
+/**
+ * <p>A JSON object that contains a mocked <code>result</code> or <code>errorOutput</code>.</p>
+ * @public
+ */
+export interface MockInput {
+  /**
+   * <p>A JSON string containing the mocked result of the state invocation.</p>
+   * @public
+   */
+  result?: string | undefined;
+
+  /**
+   * <p>The mocked error output when calling TestState. When specified, the mocked response is returned as a JSON object that contains an <code>error</code> and <code>cause</code> field.</p>
+   * @public
+   */
+  errorOutput?: MockErrorOutput | undefined;
+
+  /**
+   * <p>Determines the level of strictness when validating mocked results against their respective API models. Values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRICT</code>: All required fields must be present, and all present fields must conform to the API's schema.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRESENT</code>: All present fields must conform to the API's schema.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: No validation is performed.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If no value is specified, the default value is <code>STRICT</code>.</p>
+   * @public
+   */
+  fieldValidationMode?: MockResponseValidationMode | undefined;
+}
+
+/**
+ * <p>Contains configurations for the tested state.</p>
+ * @public
+ */
+export interface TestStateConfiguration {
+  /**
+   * <p>The number of retry attempts that have occurred for the state's Retry that applies to the mocked error.</p>
+   * @public
+   */
+  retrierRetryCount?: number | undefined;
+
+  /**
+   * <p>The name of the state from which an error originates when an error is mocked for a Map or Parallel state.</p>
+   * @public
+   */
+  errorCausedByState?: string | undefined;
+
+  /**
+   * <p>The number of Map state iterations that failed during the Map state invocation.</p>
+   * @public
+   */
+  mapIterationFailureCount?: number | undefined;
+
+  /**
+   * <p>The data read by ItemReader in Distributed Map states as found in its original source.</p>
+   * @public
+   */
+  mapItemReaderData?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface TestStateInput {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL) definition of the state.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL) definition of the state or state machine.</p>
    * @public
    */
   definition: string | undefined;
@@ -3653,6 +3741,55 @@ export interface TestStateInput {
    * @public
    */
   variables?: string | undefined;
+
+  /**
+   * <p>Denotes the particular state within a state machine definition to be tested. If this field is specified, the <code>definition</code> must contain a fully-formed state machine definition.</p>
+   * @public
+   */
+  stateName?: string | undefined;
+
+  /**
+   * <p>Defines a mocked result or error for the state under test.</p>
+   *          <p>A mock can only be specified for Task, Map, or Parallel states. If it is specified for another state type, an exception will be thrown.</p>
+   * @public
+   */
+  mock?: MockInput | undefined;
+
+  /**
+   * <p>A JSON string representing a valid Context object for the state under test. This field may only be specified if a mock is specified in the same request.</p>
+   * @public
+   */
+  context?: string | undefined;
+
+  /**
+   * <p>Contains configurations for the state under test.</p>
+   * @public
+   */
+  stateConfiguration?: TestStateConfiguration | undefined;
+}
+
+/**
+ * <p>An object containing data about a handled exception in the tested state.</p>
+ * @public
+ */
+export interface InspectionErrorDetails {
+  /**
+   * <p>The array index of the Catch which handled the exception.</p>
+   * @public
+   */
+  catchIndex?: number | undefined;
+
+  /**
+   * <p>The array index of the Retry which handled the exception.</p>
+   * @public
+   */
+  retryIndex?: number | undefined;
+
+  /**
+   * <p>The duration in seconds of the backoff for a retry on a failed state invocation.</p>
+   * @public
+   */
+  retryBackoffIntervalSeconds?: number | undefined;
 }
 
 /**
@@ -3791,6 +3928,54 @@ export interface InspectionData {
    * @public
    */
   variables?: string | undefined;
+
+  /**
+   * <p>An object containing data about a handled exception in the tested state.</p>
+   * @public
+   */
+  errorDetails?: InspectionErrorDetails | undefined;
+
+  /**
+   * <p>The effective input after the ItemsPath filter is applied. Not populated when the QueryLanguage is JSONata.</p>
+   * @public
+   */
+  afterItemsPath?: string | undefined;
+
+  /**
+   * <p>An array containing the inputs for each Map iteration, transformed by the ItemSelector specified in a Map state.</p>
+   * @public
+   */
+  afterItemSelector?: string | undefined;
+
+  /**
+   * <p>The effective input after the ItemBatcher filter is applied in a Map state.</p>
+   * @public
+   */
+  afterItemBatcher?: string | undefined;
+
+  /**
+   * <p>The effective input after the ItemsPointer filter is applied in a Map state.</p>
+   * @public
+   */
+  afterItemsPointer?: string | undefined;
+
+  /**
+   * <p>The tolerated failure threshold for a Map state as defined in number of Map state iterations.</p>
+   * @public
+   */
+  toleratedFailureCount?: number | undefined;
+
+  /**
+   * <p>The tolerated failure threshold for a Map state as defined in percentage of Map state iterations.</p>
+   * @public
+   */
+  toleratedFailurePercentage?: number | undefined;
+
+  /**
+   * <p>The max concurrency of the Map state.</p>
+   * @public
+   */
+  maxConcurrency?: number | undefined;
 }
 
 /**

@@ -65,6 +65,7 @@ const _EDNE = "ExecutionDoesNotExist";
 const _EFED = "EvaluationFailedEventDetails";
 const _EFEDx = "ExecutionFailedEventDetails";
 const _EFL = "EvaluationFailureLocation";
+const _EHI = "ExceptionHandlerIndex";
 const _EL = "ExecutionList";
 const _ELE = "ExecutionLimitExceeded";
 const _ELI = "ExecutionListItem";
@@ -88,12 +89,16 @@ const _IDR = "InspectionDataRequest";
 const _IDRn = "InspectionDataResponse";
 const _IDn = "InvalidDefinition";
 const _IEC = "InvalidEncryptionConfiguration";
+const _IED = "InspectionErrorDetails";
 const _IEI = "InvalidExecutionInput";
 const _ILC = "InvalidLoggingConfiguration";
+const _IMC = "InspectionMaxConcurrency";
 const _IN = "InvalidName";
 const _IO = "InvalidOutput";
 const _IT = "InvalidToken";
 const _ITC = "InvalidTracingConfiguration";
+const _ITFC = "InspectionToleratedFailureCount";
+const _ITFP = "InspectionToleratedFailurePercentage";
 const _KADE = "KmsAccessDeniedException";
 const _KISE = "KmsInvalidStateException";
 const _KTE = "KmsThrottlingException";
@@ -127,6 +132,8 @@ const _LSMVO = "ListStateMachineVersionsOutput";
 const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
+const _MEO = "MockErrorOutput";
+const _MI = "MockInput";
 const _MIED = "MapIterationEventDetails";
 const _MREC = "MapRunExecutionCounts";
 const _MRFED = "MapRunFailedEventDetails";
@@ -140,6 +147,7 @@ const _MSSED = "MapStateStartedEventDetails";
 const _PSMV = "PublishStateMachineVersion";
 const _PSMVI = "PublishStateMachineVersionInput";
 const _PSMVO = "PublishStateMachineVersionOutput";
+const _RBIS = "RetryBackoffIntervalSeconds";
 const _RCL = "RoutingConfigurationList";
 const _RCLI = "RoutingConfigurationListItem";
 const _RE = "RedriveExecution";
@@ -193,6 +201,7 @@ const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _TRO = "TagResourceOutput";
 const _TS = "TestState";
+const _TSC = "TestStateConfiguration";
 const _TSED = "TaskScheduledEventDetails";
 const _TSEDa = "TaskStartedEventDetails";
 const _TSEDas = "TaskSubmittedEventDetails";
@@ -201,6 +210,7 @@ const _TSFED = "TaskStartFailedEventDetails";
 const _TSFEDa = "TaskSubmitFailedEventDetails";
 const _TSI = "TestStateInput";
 const _TSO = "TestStateOutput";
+const _TSSN = "TestStateStateName";
 const _TTO = "TaskTimedOut";
 const _TTOED = "TaskTimedOutEventDetails";
 const _UMR = "UpdateMapRun";
@@ -233,7 +243,11 @@ const _a = "activities";
 const _aA = "activityArn";
 const _aAf = "afterArguments";
 const _aFED = "activityFailedEventDetails";
+const _aIB = "afterItemBatcher";
 const _aIP = "afterInputPath";
+const _aIPf = "afterItemsPath";
+const _aIPft = "afterItemsPointer";
+const _aIS = "afterItemSelector";
 const _aP = "afterParameters";
 const _aRP = "afterResultPath";
 const _aRS = "afterResultSelector";
@@ -251,10 +265,12 @@ const _bDIM = "billedDurationInMilliseconds";
 const _bMUIMB = "billedMemoryUsedInMB";
 const _c = "client";
 const _cD = "creationDate";
+const _cI = "catchIndex";
 const _cT = "clientToken";
 const _cWLLG = "cloudWatchLogsLogGroup";
 const _ca = "cause";
-const _co = "code";
+const _co = "context";
+const _cod = "code";
 const _d = "description";
 const _de = "definition";
 const _des = "destinations";
@@ -263,9 +279,12 @@ const _e = "error";
 const _eA = "executionArn";
 const _eAED = "executionAbortedEventDetails";
 const _eC = "encryptionConfiguration";
+const _eCBS = "errorCausedByState";
 const _eCx = "executionCounts";
+const _eD = "errorDetails";
 const _eFED = "executionFailedEventDetails";
 const _eFEDv = "evaluationFailedEventDetails";
+const _eO = "errorOutput";
 const _eRED = "executionRedrivenEventDetails";
 const _eSED = "executionStartedEventDetails";
 const _eSEDx = "executionSucceededEventDetails";
@@ -276,6 +295,7 @@ const _ev = "events";
 const _ex = "executions";
 const _f = "failed";
 const _fNR = "failuresNotRedrivable";
+const _fVM = "fieldValidationMode";
 const _h = "headers";
 const _hE = "httpError";
 const _hIS = "heartbeatInSeconds";
@@ -309,7 +329,9 @@ const _lo = "location";
 const _m = "message";
 const _mC = "maxConcurrency";
 const _mIAED = "mapIterationAbortedEventDetails";
+const _mIFC = "mapIterationFailureCount";
 const _mIFED = "mapIterationFailedEventDetails";
+const _mIRD = "mapItemReaderData";
 const _mISED = "mapIterationStartedEventDetails";
 const _mISEDa = "mapIterationSucceededEventDetails";
 const _mR = "maxResults";
@@ -320,6 +342,7 @@ const _mRSED = "mapRunStartedEventDetails";
 const _mRa = "mapRuns";
 const _mSSED = "mapStateStartedEventDetails";
 const _me = "method";
+const _mo = "mock";
 const _n = "name";
 const _nS = "nextState";
 const _nT = "nextToken";
@@ -334,13 +357,16 @@ const _pr = "protocol";
 const _r = "resource";
 const _rA = "roleArn";
 const _rAe = "resourceArn";
+const _rBIS = "retryBackoffIntervalSeconds";
 const _rC = "routingConfiguration";
 const _rCe = "redriveCount";
 const _rD = "redriveDate";
 const _rF = "redriveFilter";
 const _rI = "revisionId";
+const _rIe = "retryIndex";
 const _rN = "resourceName";
 const _rO = "reverseOrder";
+const _rRC = "retrierRetryCount";
 const _rS = "redriveStatus";
 const _rSR = "redriveStatusReason";
 const _rSe = "revealSecrets";
@@ -354,6 +380,7 @@ const _res = "response";
 const _ru = "running";
 const _s = "status";
 const _sC = "statusCode";
+const _sCt = "stateConfiguration";
 const _sD = "startDate";
 const _sDt = "stopDate";
 const _sEED = "stateEnteredEventDetails";
@@ -366,6 +393,7 @@ const _sMAt = "stateMachineAliases";
 const _sMV = "stateMachineVersions";
 const _sMVA = "stateMachineVersionArn";
 const _sMt = "stateMachines";
+const _sN = "stateName";
 const _se = "severity";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sfn";
 const _st = "state";
@@ -456,10 +484,16 @@ export var AliasDescription: StaticSimpleSchema = [0, n0, _AD, 8, 0];
 export var ConnectorParameters: StaticSimpleSchema = [0, n0, _CP, 8, 0];
 export var Definition: StaticSimpleSchema = [0, n0, _D, 8, 0];
 export var EvaluationFailureLocation: StaticSimpleSchema = [0, n0, _EFL, 8, 0];
+export var ExceptionHandlerIndex: StaticSimpleSchema = [0, n0, _EHI, 8, 1];
+export var InspectionMaxConcurrency: StaticSimpleSchema = [0, n0, _IMC, 8, 1];
+export var InspectionToleratedFailureCount: StaticSimpleSchema = [0, n0, _ITFC, 8, 1];
+export var InspectionToleratedFailurePercentage: StaticSimpleSchema = [0, n0, _ITFP, 8, 1];
+export var RetryBackoffIntervalSeconds: StaticSimpleSchema = [0, n0, _RBIS, 8, 1];
 export var SensitiveCause: StaticSimpleSchema = [0, n0, _SC, 8, 0];
 export var SensitiveData: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 export var SensitiveDataJobInput: StaticSimpleSchema = [0, n0, _SDJI, 8, 0];
 export var SensitiveError: StaticSimpleSchema = [0, n0, _SE, 8, 0];
+export var TestStateStateName: StaticSimpleSchema = [0, n0, _TSSN, 8, 0];
 export var ValidateStateMachineDefinitionCode: StaticSimpleSchema = [0, n0, _VSMDC, 8, 0];
 export var ValidateStateMachineDefinitionLocation: StaticSimpleSchema = [0, n0, _VSMDL, 8, 0];
 export var ValidateStateMachineDefinitionMessage: StaticSimpleSchema = [0, n0, _VSMDM, 8, 0];
@@ -969,7 +1003,7 @@ export var InspectionData: StaticStructureSchema = [
   n0,
   _ID,
   8,
-  [_i, _aAf, _aIP, _aP, _re, _aRS, _aRP, _req, _res, _v],
+  [_i, _aAf, _aIP, _aP, _re, _aRS, _aRP, _req, _res, _v, _eD, _aIPf, _aIS, _aIB, _aIPft, _tFC, _tFP, _mC],
   [
     [() => SensitiveData, 0],
     [() => SensitiveData, 0],
@@ -981,10 +1015,30 @@ export var InspectionData: StaticStructureSchema = [
     () => InspectionDataRequest,
     () => InspectionDataResponse,
     [() => SensitiveData, 0],
+    [() => InspectionErrorDetails, 0],
+    [() => SensitiveData, 0],
+    [() => SensitiveData, 0],
+    [() => SensitiveData, 0],
+    [() => SensitiveData, 0],
+    [() => InspectionToleratedFailureCount, 0],
+    [() => InspectionToleratedFailurePercentage, 0],
+    [() => InspectionMaxConcurrency, 0],
   ],
 ];
 export var InspectionDataRequest: StaticStructureSchema = [3, n0, _IDR, 0, [_pr, _me, _u, _h, _b], [0, 0, 0, 0, 0]];
 export var InspectionDataResponse: StaticStructureSchema = [3, n0, _IDRn, 0, [_pr, _sC, _sM, _h, _b], [0, 0, 0, 0, 0]];
+export var InspectionErrorDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _IED,
+  0,
+  [_cI, _rIe, _rBIS],
+  [
+    [() => ExceptionHandlerIndex, 0],
+    [() => ExceptionHandlerIndex, 0],
+    [() => RetryBackoffIntervalSeconds, 0],
+  ],
+];
 export var InvalidArn: StaticErrorSchema = [
   -3,
   n0,
@@ -1277,6 +1331,25 @@ export var MissingRequiredParameter: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(MissingRequiredParameter, __MissingRequiredParameter);
 
+export var MockErrorOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _MEO,
+  0,
+  [_e, _ca],
+  [
+    [() => SensitiveError, 0],
+    [() => SensitiveCause, 0],
+  ],
+];
+export var MockInput: StaticStructureSchema = [
+  3,
+  n0,
+  _MI,
+  0,
+  [_re, _eO, _fVM],
+  [[() => SensitiveData, 0], [() => MockErrorOutput, 0], 0],
+];
 export var PublishStateMachineVersionInput: StaticStructureSchema = [
   3,
   n0,
@@ -1547,13 +1620,32 @@ export var TaskTimedOutEventDetails: StaticStructureSchema = [
   [_rT, _r, _e, _ca],
   [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]],
 ];
+export var TestStateConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _TSC,
+  0,
+  [_rRC, _eCBS, _mIFC, _mIRD],
+  [1, [() => TestStateStateName, 0], 1, [() => SensitiveData, 0]],
+];
 export var TestStateInput: StaticStructureSchema = [
   3,
   n0,
   _TSI,
   0,
-  [_de, _rA, _i, _iL, _rSe, _v],
-  [[() => Definition, 0], 0, [() => SensitiveData, 0], 0, 2, [() => SensitiveData, 0]],
+  [_de, _rA, _i, _iL, _rSe, _v, _sN, _mo, _co, _sCt],
+  [
+    [() => Definition, 0],
+    0,
+    [() => SensitiveData, 0],
+    0,
+    2,
+    [() => SensitiveData, 0],
+    [() => TestStateStateName, 0],
+    [() => MockInput, 0],
+    [() => SensitiveData, 0],
+    [() => TestStateConfiguration, 0],
+  ],
 ];
 export var TestStateOutput: StaticStructureSchema = [
   3,
@@ -1613,7 +1705,7 @@ export var ValidateStateMachineDefinitionDiagnostic: StaticStructureSchema = [
   n0,
   _VSMDD,
   0,
-  [_se, _co, _m, _lo],
+  [_se, _cod, _m, _lo],
   [
     0,
     [() => ValidateStateMachineDefinitionCode, 0],
