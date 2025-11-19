@@ -135,6 +135,18 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                     s3Location: "<S3Location>",
  *                   },
  *                 },
+ *                 searchResult: { // SearchResultBlock
+ *                   source: "STRING_VALUE", // required
+ *                   title: "STRING_VALUE", // required
+ *                   content: [ // SearchResultContentBlocks // required
+ *                     { // SearchResultContentBlock
+ *                       text: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   citations: {
+ *                     enabled: true || false, // required
+ *                   },
+ *                 },
  *               },
  *             ],
  *             status: "success" || "error",
@@ -173,6 +185,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             citations: [ // Citations
  *               { // Citation
  *                 title: "STRING_VALUE",
+ *                 source: "STRING_VALUE",
  *                 sourceContent: [ // CitationSourceContentList
  *                   { // CitationSourceContent Union: only one key present
  *                     text: "STRING_VALUE",
@@ -198,9 +211,26 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                     start: Number("int"),
  *                     end: Number("int"),
  *                   },
+ *                   searchResultLocation: { // SearchResultLocation
+ *                     searchResultIndex: Number("int"),
+ *                     start: Number("int"),
+ *                     end: Number("int"),
+ *                   },
  *                 },
  *               },
  *             ],
+ *           },
+ *           searchResult: {
+ *             source: "STRING_VALUE", // required
+ *             title: "STRING_VALUE", // required
+ *             content: [ // required
+ *               {
+ *                 text: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             citations: {
+ *               enabled: true || false, // required
+ *             },
  *           },
  *         },
  *       ],
@@ -325,6 +355,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         },
  * //         citation: { // CitationsDelta
  * //           title: "STRING_VALUE",
+ * //           source: "STRING_VALUE",
  * //           sourceContent: [ // CitationSourceContentListDelta
  * //             { // CitationSourceContentDelta
  * //               text: "STRING_VALUE",
@@ -347,6 +378,11 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //             },
  * //             documentChunk: { // DocumentChunkLocation
  * //               documentIndex: Number("int"),
+ * //               start: Number("int"),
+ * //               end: Number("int"),
+ * //             },
+ * //             searchResultLocation: { // SearchResultLocation
+ * //               searchResultIndex: Number("int"),
  * //               start: Number("int"),
  * //               end: Number("int"),
  * //             },

@@ -1638,6 +1638,30 @@ export interface DocumentPageLocation {
 }
 
 /**
+ * <p>Specifies a search result location within the content array, providing positioning information for cited content using search result index and block positions.</p>
+ * @public
+ */
+export interface SearchResultLocation {
+  /**
+   * <p>The index of the search result content block where the cited content is found.</p>
+   * @public
+   */
+  searchResultIndex?: number | undefined;
+
+  /**
+   * <p>The starting position in the content array where the cited content begins.</p>
+   * @public
+   */
+  start?: number | undefined;
+
+  /**
+   * <p>The ending position in the content array where the cited content ends.</p>
+   * @public
+   */
+  end?: number | undefined;
+}
+
+/**
  * <p>Provides the URL and domain information for the website that was cited when performing a web search.</p>
  * @public
  */
@@ -1663,6 +1687,7 @@ export type CitationLocation =
   | CitationLocation.DocumentCharMember
   | CitationLocation.DocumentChunkMember
   | CitationLocation.DocumentPageMember
+  | CitationLocation.SearchResultLocationMember
   | CitationLocation.WebMember
   | CitationLocation.$UnknownMember;
 
@@ -1679,6 +1704,7 @@ export namespace CitationLocation {
     documentChar?: never;
     documentPage?: never;
     documentChunk?: never;
+    searchResultLocation?: never;
     $unknown?: never;
   }
 
@@ -1691,6 +1717,7 @@ export namespace CitationLocation {
     documentChar: DocumentCharLocation;
     documentPage?: never;
     documentChunk?: never;
+    searchResultLocation?: never;
     $unknown?: never;
   }
 
@@ -1703,6 +1730,7 @@ export namespace CitationLocation {
     documentChar?: never;
     documentPage: DocumentPageLocation;
     documentChunk?: never;
+    searchResultLocation?: never;
     $unknown?: never;
   }
 
@@ -1715,6 +1743,20 @@ export namespace CitationLocation {
     documentChar?: never;
     documentPage?: never;
     documentChunk: DocumentChunkLocation;
+    searchResultLocation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The search result location where the cited content is found, including the search result index and block positions within the content array.</p>
+   * @public
+   */
+  export interface SearchResultLocationMember {
+    web?: never;
+    documentChar?: never;
+    documentPage?: never;
+    documentChunk?: never;
+    searchResultLocation: SearchResultLocation;
     $unknown?: never;
   }
 
@@ -1726,6 +1768,7 @@ export namespace CitationLocation {
     documentChar?: never;
     documentPage?: never;
     documentChunk?: never;
+    searchResultLocation?: never;
     $unknown: [string, any];
   }
 
@@ -1738,6 +1781,7 @@ export namespace CitationLocation {
     documentChar: (value: DocumentCharLocation) => T;
     documentPage: (value: DocumentPageLocation) => T;
     documentChunk: (value: DocumentChunkLocation) => T;
+    searchResultLocation: (value: SearchResultLocation) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1789,6 +1833,12 @@ export interface Citation {
    * @public
    */
   title?: string | undefined;
+
+  /**
+   * <p>The source from the original search result that provided the cited content.</p>
+   * @public
+   */
+  source?: string | undefined;
 
   /**
    * <p>The specific content from the source document that was referenced or cited in the generated response.</p>
@@ -2316,6 +2366,48 @@ export namespace ReasoningContentBlock {
 }
 
 /**
+ * <p>A block within a search result that contains the content.</p>
+ * @public
+ */
+export interface SearchResultContentBlock {
+  /**
+   * <p>The actual text content</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>A search result block that enables natural citations with proper source attribution for retrieved content.</p> <note> <p>This field is only supported by Anthropic Claude Opus 4.1, Opus 4, Sonnet 4.5, Sonnet 4, Sonnet 3.7, and 3.5 Haiku models.</p> </note>
+ * @public
+ */
+export interface SearchResultBlock {
+  /**
+   * <p>The source URL or identifier for the content.</p>
+   * @public
+   */
+  source: string | undefined;
+
+  /**
+   * <p>A descriptive title for the search result.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>An array of search result content block.</p>
+   * @public
+   */
+  content: SearchResultContentBlock[] | undefined;
+
+  /**
+   * <p>Configuration setting for citations</p>
+   * @public
+   */
+  citations?: CitationsConfig | undefined;
+}
+
+/**
  * <p>A video source. You can upload a smaller video as a base64-encoded string as long as the encoded file is less than 25MB. You can also transfer videos up to 1GB in size from an S3 bucket.</p>
  * @public
  */
@@ -2391,6 +2483,7 @@ export type ToolResultContentBlock =
   | ToolResultContentBlock.DocumentMember
   | ToolResultContentBlock.ImageMember
   | ToolResultContentBlock.JsonMember
+  | ToolResultContentBlock.SearchResultMember
   | ToolResultContentBlock.TextMember
   | ToolResultContentBlock.VideoMember
   | ToolResultContentBlock.$UnknownMember;
@@ -2409,6 +2502,7 @@ export namespace ToolResultContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2422,6 +2516,7 @@ export namespace ToolResultContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2435,6 +2530,7 @@ export namespace ToolResultContentBlock {
     image: ImageBlock;
     document?: never;
     video?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2448,6 +2544,7 @@ export namespace ToolResultContentBlock {
     image?: never;
     document: DocumentBlock;
     video?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2461,6 +2558,21 @@ export namespace ToolResultContentBlock {
     image?: never;
     document?: never;
     video: VideoBlock;
+    searchResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool result that is a search result.</p>
+   * @public
+   */
+  export interface SearchResultMember {
+    json?: never;
+    text?: never;
+    image?: never;
+    document?: never;
+    video?: never;
+    searchResult: SearchResultBlock;
     $unknown?: never;
   }
 
@@ -2473,6 +2585,7 @@ export namespace ToolResultContentBlock {
     image?: never;
     document?: never;
     video?: never;
+    searchResult?: never;
     $unknown: [string, any];
   }
 
@@ -2486,6 +2599,7 @@ export namespace ToolResultContentBlock {
     image: (value: ImageBlock) => T;
     document: (value: DocumentBlock) => T;
     video: (value: VideoBlock) => T;
+    searchResult: (value: SearchResultBlock) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2561,6 +2675,7 @@ export type ContentBlock =
   | ContentBlock.GuardContentMember
   | ContentBlock.ImageMember
   | ContentBlock.ReasoningContentMember
+  | ContentBlock.SearchResultMember
   | ContentBlock.TextMember
   | ContentBlock.ToolResultMember
   | ContentBlock.ToolUseMember
@@ -2586,6 +2701,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2604,6 +2720,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2622,6 +2739,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2640,6 +2758,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2658,6 +2777,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2676,6 +2796,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2694,6 +2815,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2712,6 +2834,7 @@ export namespace ContentBlock {
     cachePoint: CachePointBlock;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2730,6 +2853,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent: ReasoningContentBlock;
     citationsContent?: never;
+    searchResult?: never;
     $unknown?: never;
   }
 
@@ -2748,6 +2872,26 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent: CitationsContentBlock;
+    searchResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Search result to include in the message.</p>
+   * @public
+   */
+  export interface SearchResultMember {
+    text?: never;
+    image?: never;
+    document?: never;
+    video?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    cachePoint?: never;
+    reasoningContent?: never;
+    citationsContent?: never;
+    searchResult: SearchResultBlock;
     $unknown?: never;
   }
 
@@ -2765,6 +2909,7 @@ export namespace ContentBlock {
     cachePoint?: never;
     reasoningContent?: never;
     citationsContent?: never;
+    searchResult?: never;
     $unknown: [string, any];
   }
 
@@ -2783,6 +2928,7 @@ export namespace ContentBlock {
     cachePoint: (value: CachePointBlock) => T;
     reasoningContent: (value: ReasoningContentBlock) => T;
     citationsContent: (value: CitationsContentBlock) => T;
+    searchResult: (value: SearchResultBlock) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3588,6 +3734,12 @@ export interface CitationsDelta {
    * @public
    */
   title?: string | undefined;
+
+  /**
+   * <p>The source from the original search result that provided the cited content.</p>
+   * @public
+   */
+  source?: string | undefined;
 
   /**
    * <p>The specific content from the source document that was referenced or cited in the generated response.</p>

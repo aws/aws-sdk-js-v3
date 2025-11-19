@@ -177,6 +177,10 @@ const _SCB = "SystemContentBlocks";
 const _SCBy = "SystemContentBlock";
 const _SL = "S3Location";
 const _SQEE = "ServiceQuotaExceededException";
+const _SRB = "SearchResultBlock";
+const _SRCB = "SearchResultContentBlock";
+const _SRCBe = "SearchResultContentBlocks";
+const _SRL = "SearchResultLocation";
 const _ST = "ServiceTier";
 const _STC = "SpecificToolChoice";
 const _STy = "SystemTool";
@@ -367,6 +371,9 @@ const _sO = "sortOrder";
 const _sODC = "s3OutputDataConfig";
 const _sPM = "streamProcessingMode";
 const _sR = "stopReason";
+const _sRI = "searchResultIndex";
+const _sRL = "searchResultLocation";
+const _sRe = "searchResult";
 const _sRu = "supportingRules";
 const _sS = "stopSequences";
 const _sT = "submitTime";
@@ -518,8 +525,8 @@ export var Citation: StaticStructureSchema = [
   n0,
   _C,
   0,
-  [_ti, _sC, _l],
-  [0, () => CitationSourceContentList, () => CitationLocation],
+  [_ti, _s, _sC, _l],
+  [0, 0, () => CitationSourceContentList, () => CitationLocation],
 ];
 export var CitationsConfig: StaticStructureSchema = [3, n0, _CC, 0, [_en], [2]];
 export var CitationsContentBlock: StaticStructureSchema = [
@@ -535,8 +542,8 @@ export var CitationsDelta: StaticStructureSchema = [
   n0,
   _CD,
   0,
-  [_ti, _sC, _l],
-  [0, () => CitationSourceContentListDelta, () => CitationLocation],
+  [_ti, _s, _sC, _l],
+  [0, 0, () => CitationSourceContentListDelta, () => CitationLocation],
 ];
 export var CitationSourceContentDelta: StaticStructureSchema = [3, n0, _CSCD, 0, [_te], [0]];
 export var ConflictException: StaticErrorSchema = [
@@ -1291,6 +1298,16 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_ur, _bO], [0, 0]];
+export var SearchResultBlock: StaticStructureSchema = [
+  3,
+  n0,
+  _SRB,
+  0,
+  [_s, _ti, _co, _ci],
+  [0, 0, () => SearchResultContentBlocks, () => CitationsConfig],
+];
+export var SearchResultContentBlock: StaticStructureSchema = [3, n0, _SRCB, 0, [_te], [0]];
+export var SearchResultLocation: StaticStructureSchema = [3, n0, _SRL, 0, [_sRI, _sta, _end], [1, 1, 1]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -1461,6 +1478,7 @@ export var ModelOutputs = 64 | 0;
 
 export var NonEmptyStringList = 64 | 0;
 
+export var SearchResultContentBlocks: StaticListSchema = [1, n0, _SRCBe, 0, () => SearchResultContentBlock];
 export var SystemContentBlocks: StaticListSchema = [1, n0, _SCB, 0, [() => SystemContentBlock, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var ToolResultBlocksDelta: StaticListSchema = [1, n0, _TRBD, 0, () => ToolResultBlockDelta];
@@ -1484,8 +1502,14 @@ export var CitationLocation: StaticStructureSchema = [
   n0,
   _CL,
   0,
-  [_w, _dC, _dP, _dCo],
-  [() => WebLocation, () => DocumentCharLocation, () => DocumentPageLocation, () => DocumentChunkLocation],
+  [_w, _dC, _dP, _dCo, _sRL],
+  [
+    () => WebLocation,
+    () => DocumentCharLocation,
+    () => DocumentPageLocation,
+    () => DocumentChunkLocation,
+    () => SearchResultLocation,
+  ],
 ];
 export var CitationSourceContent: StaticStructureSchema = [3, n0, _CSC, 0, [_te], [0]];
 export var ContentBlock: StaticStructureSchema = [
@@ -1493,7 +1517,7 @@ export var ContentBlock: StaticStructureSchema = [
   n0,
   _CBo,
   0,
-  [_te, _ima, _doc, _vi, _tU, _tR, _gCua, _cPa, _rC, _cC],
+  [_te, _ima, _doc, _vi, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
   [
     0,
     () => ImageBlock,
@@ -1505,6 +1529,7 @@ export var ContentBlock: StaticStructureSchema = [
     () => CachePointBlock,
     [() => ReasoningContentBlock, 0],
     () => CitationsContentBlock,
+    () => SearchResultBlock,
   ],
 ];
 export var ContentBlockDelta: StaticStructureSchema = [
@@ -1694,8 +1719,8 @@ export var ToolResultContentBlock: StaticStructureSchema = [
   n0,
   _TRCBo,
   0,
-  [_j, _te, _ima, _doc, _vi],
-  [15, 0, () => ImageBlock, () => DocumentBlock, () => VideoBlock],
+  [_j, _te, _ima, _doc, _vi, _sRe],
+  [15, 0, () => ImageBlock, () => DocumentBlock, () => VideoBlock, () => SearchResultBlock],
 ];
 export var VideoSource: StaticStructureSchema = [3, n0, _VS, 0, [_b, _sL], [21, () => S3Location]];
 export var ApplyGuardrail: StaticOperationSchema = [

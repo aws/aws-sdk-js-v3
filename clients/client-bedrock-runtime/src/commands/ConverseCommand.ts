@@ -135,6 +135,18 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *                     s3Location: "<S3Location>",
  *                   },
  *                 },
+ *                 searchResult: { // SearchResultBlock
+ *                   source: "STRING_VALUE", // required
+ *                   title: "STRING_VALUE", // required
+ *                   content: [ // SearchResultContentBlocks // required
+ *                     { // SearchResultContentBlock
+ *                       text: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   citations: {
+ *                     enabled: true || false, // required
+ *                   },
+ *                 },
  *               },
  *             ],
  *             status: "success" || "error",
@@ -173,6 +185,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *             citations: [ // Citations
  *               { // Citation
  *                 title: "STRING_VALUE",
+ *                 source: "STRING_VALUE",
  *                 sourceContent: [ // CitationSourceContentList
  *                   { // CitationSourceContent Union: only one key present
  *                     text: "STRING_VALUE",
@@ -198,9 +211,26 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *                     start: Number("int"),
  *                     end: Number("int"),
  *                   },
+ *                   searchResultLocation: { // SearchResultLocation
+ *                     searchResultIndex: Number("int"),
+ *                     start: Number("int"),
+ *                     end: Number("int"),
+ *                   },
  *                 },
  *               },
  *             ],
+ *           },
+ *           searchResult: {
+ *             source: "STRING_VALUE", // required
+ *             title: "STRING_VALUE", // required
+ *             content: [ // required
+ *               {
+ *                 text: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             citations: {
+ *               enabled: true || false, // required
+ *             },
  *           },
  *         },
  *       ],
@@ -384,6 +414,18 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                     s3Location: "<S3Location>",
  * //                   },
  * //                 },
+ * //                 searchResult: { // SearchResultBlock
+ * //                   source: "STRING_VALUE", // required
+ * //                   title: "STRING_VALUE", // required
+ * //                   content: [ // SearchResultContentBlocks // required
+ * //                     { // SearchResultContentBlock
+ * //                       text: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   citations: {
+ * //                     enabled: true || false, // required
+ * //                   },
+ * //                 },
  * //               },
  * //             ],
  * //             status: "success" || "error",
@@ -422,6 +464,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //             citations: [ // Citations
  * //               { // Citation
  * //                 title: "STRING_VALUE",
+ * //                 source: "STRING_VALUE",
  * //                 sourceContent: [ // CitationSourceContentList
  * //                   { // CitationSourceContent Union: only one key present
  * //                     text: "STRING_VALUE",
@@ -447,9 +490,26 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                     start: Number("int"),
  * //                     end: Number("int"),
  * //                   },
+ * //                   searchResultLocation: { // SearchResultLocation
+ * //                     searchResultIndex: Number("int"),
+ * //                     start: Number("int"),
+ * //                     end: Number("int"),
+ * //                   },
  * //                 },
  * //               },
  * //             ],
+ * //           },
+ * //           searchResult: {
+ * //             source: "STRING_VALUE", // required
+ * //             title: "STRING_VALUE", // required
+ * //             content: [ // required
+ * //               {
+ * //                 text: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //             citations: {
+ * //               enabled: true || false, // required
+ * //             },
  * //           },
  * //         },
  * //       ],
