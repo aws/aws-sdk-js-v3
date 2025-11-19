@@ -13,25 +13,25 @@ import {
 } from "./enums";
 
 /**
- * <p>A local resource is the host where the agent is installed. Local resources can be a a subnet, a VPC, an Availability Zone, or an Amazon Web Services service.</p>
+ * <p>A local resource is the host where the agent is installed. Local resources can be a a subnet, a VPC, an Availability Zone, an EKS cluster or an Amazon Web Services Region.</p>
  * @public
  */
 export interface MonitorLocalResource {
   /**
-   * <p>The type of the local resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, or <code>AWS::Region</code>.</p>
+   * <p>The type of the local resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, <code>AWS::EKS::Cluster</code>, or <code>AWS::Region</code>.</p>
    * @public
    */
   type: MonitorLocalResourceType | undefined;
 
   /**
-   * <p>The identifier of the local resource. For a VPC or subnet, this identifier is the VPC Amazon Resource Name (ARN) or subnet ARN. For an Availability Zone, this identifier is the AZ name, for example, us-west-2b.</p>
+   * <p>The identifier of the local resource. The values you can specify are the following:</p> <ul> <li> <p>For a VPC, subnet or EKS cluster, this identifier is the VPC Amazon Resource Name (ARN), subnet ARN or cluster ARN.</p> </li> <li> <p>For an Availability Zone, this identifier is the AZ name, for example, us-west-2b.</p> </li> <li> <p>For a Region, this identifier is the Region name, for example, us-west-2.</p> </li> </ul>
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint is the local resource and the other is the remote resource. Remote resources can be a a subnet, a VPC, an Availability Zone, an Amazon Web Services service, or an Amazon Web Services Region.</p> <p>When a remote resource is an Amazon Web Services Region, Network Flow Monitor provides network performance measurements up to the edge of the Region that you specify.</p>
+ * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint is the local resource and the other is the remote resource. The values you can specify are the following:</p> <ul> <li> <p>For a VPC or subnet, this identifier is the VPC Amazon Resource Name (ARN) or subnet ARN.</p> </li> <li> <p>For a service, this identifier is one of the following strings: <code>S3</code> or <code>DynamoDB</code>.</p> </li> <li> <p>For an Availability Zone, this identifier is the AZ name, for example, us-west-2b.</p> </li> <li> <p>For a Region, this identifier is the Region name, for example, us-west-2.</p> </li> </ul> <p>When a remote resource is an Amazon Web Services Region, Network Flow Monitor provides network performance measurements up to the edge of the Region that you specify.</p>
  * @public
  */
 export interface MonitorRemoteResource {

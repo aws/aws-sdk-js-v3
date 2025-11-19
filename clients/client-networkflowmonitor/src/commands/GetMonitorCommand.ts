@@ -51,7 +51,7 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * //   monitorStatus: "PENDING" || "ACTIVE" || "INACTIVE" || "ERROR" || "DELETING", // required
  * //   localResources: [ // MonitorLocalResources // required
  * //     { // MonitorLocalResource
- * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
+ * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region" || "AWS::EKS::Cluster", // required
  * //       identifier: "STRING_VALUE", // required
  * //     },
  * //   ],

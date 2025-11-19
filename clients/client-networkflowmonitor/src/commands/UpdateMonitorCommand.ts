@@ -44,13 +44,13 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *   monitorName: "STRING_VALUE", // required
  *   localResourcesToAdd: [ // MonitorLocalResources
  *     { // MonitorLocalResource
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region" || "AWS::EKS::Cluster", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
  *   localResourcesToRemove: [
  *     {
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region" || "AWS::EKS::Cluster", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
@@ -76,7 +76,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * //   monitorStatus: "PENDING" || "ACTIVE" || "INACTIVE" || "ERROR" || "DELETING", // required
  * //   localResources: [ // MonitorLocalResources // required
  * //     { // MonitorLocalResource
- * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
+ * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region" || "AWS::EKS::Cluster", // required
  * //       identifier: "STRING_VALUE", // required
  * //     },
  * //   ],

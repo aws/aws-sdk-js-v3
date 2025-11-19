@@ -8,6 +8,7 @@ export const MonitorLocalResourceType = {
   AWS_REGION: "AWS::Region",
   AWS_SUBNET: "AWS::EC2::Subnet",
   AWS_VPC: "AWS::EC2::VPC",
+  EKS_CLUSTER: "AWS::EKS::Cluster",
 } as const;
 /**
  * @public

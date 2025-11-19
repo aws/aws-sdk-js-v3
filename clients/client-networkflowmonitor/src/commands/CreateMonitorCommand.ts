@@ -44,7 +44,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *   monitorName: "STRING_VALUE", // required
  *   localResources: [ // MonitorLocalResources // required
  *     { // MonitorLocalResource
- *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
+ *       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region" || "AWS::EKS::Cluster", // required
  *       identifier: "STRING_VALUE", // required
  *     },
  *   ],
@@ -68,7 +68,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * //   monitorStatus: "PENDING" || "ACTIVE" || "INACTIVE" || "ERROR" || "DELETING", // required
  * //   localResources: [ // MonitorLocalResources // required
  * //     { // MonitorLocalResource
- * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region", // required
+ * //       type: "AWS::EC2::VPC" || "AWS::AvailabilityZone" || "AWS::EC2::Subnet" || "AWS::Region" || "AWS::EKS::Cluster", // required
  * //       identifier: "STRING_VALUE", // required
  * //     },
  * //   ],
