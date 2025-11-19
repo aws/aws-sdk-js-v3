@@ -95,6 +95,7 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
  * //     tlsConfig: { // TlsConfig
  * //       insecureSkipVerification: true || false,
  * //     },
+ * //     responseTransferMode: "BUFFERED" || "STREAM",
  * //   },
  * //   authorizationScopes: [
  * //     "STRING_VALUE",

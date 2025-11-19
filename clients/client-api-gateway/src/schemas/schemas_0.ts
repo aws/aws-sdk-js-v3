@@ -372,7 +372,9 @@ const _aKV = "apiKeyVersion";
 const _aLS = "accessLogSettings";
 const _aRTIS = "authorizerResultTtlInSeconds";
 const _aS = "apiStages";
+const _aSM = "apiStatusMessage";
 const _aSp = "apiSummary";
+const _aSpi = "apiStatus";
 const _aSu = "authorizationScopes";
 const _aT = "authType";
 const _aTu = "authorizationType";
@@ -430,6 +432,7 @@ const _dTE = "dataTraceEnabled";
 const _dV = "documentationVersion";
 const _dVe = "defaultValue";
 const _e = "enabled";
+const _eAM = "endpointAccessMode";
 const _eC = "endpointConfiguration";
 const _eD = "expirationDate";
 const _eDn = "endDate";
@@ -529,6 +532,7 @@ const _rP = "responseParameters";
 const _rPe = "requestParameters";
 const _rRI = "rootResourceId";
 const _rT = "responseType";
+const _rTM = "responseTransferMode";
 const _rTe = "responseTemplates";
 const _rTeq = "requestTemplates";
 const _rVI = "requestValidatorId";
@@ -829,8 +833,8 @@ export var CreateDomainNameRequest: StaticStructureSchema = [
   n0,
   _CDNR,
   0,
-  [_dN, _cN, _cB, _cPK, _cC, _cA, _rCN, _rCA, _eC, _t, _sP, _mTA, _oVCA, _po, _rM],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => EndpointConfiguration, 128 | 0, 0, () => MutualTlsAuthenticationInput, 0, 0, 0],
+  [_dN, _cN, _cB, _cPK, _cC, _cA, _rCN, _rCA, _eC, _t, _sP, _eAM, _mTA, _oVCA, _po, _rM],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => EndpointConfiguration, 128 | 0, 0, 0, () => MutualTlsAuthenticationInput, 0, 0, 0],
 ];
 export var CreateModelRequest: StaticStructureSchema = [3, n0, _CMR, 0, [_rAI, _n, _d, _sc, _cT], [[0, 1], 0, 0, 0, 0]];
 export var CreateRequestValidatorRequest: StaticStructureSchema = [
@@ -847,8 +851,8 @@ export var CreateRestApiRequest: StaticStructureSchema = [
   n0,
   _CRAR,
   0,
-  [_n, _d, _ve, _cF, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE],
-  [0, 0, 0, 0, 64 | 0, 1, 0, () => EndpointConfiguration, 0, 128 | 0, 2],
+  [_n, _d, _ve, _cF, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE, _sP, _eAM],
+  [0, 0, 0, 0, 64 | 0, 1, 0, () => EndpointConfiguration, 0, 128 | 0, 2, 0, 0],
 ];
 export var CreateStageRequest: StaticStructureSchema = [
   3,
@@ -1179,6 +1183,7 @@ export var DomainName: StaticStructureSchema = [
     _dNS,
     _dNSM,
     _sP,
+    _eAM,
     _t,
     _mTA,
     _oVCA,
@@ -1200,6 +1205,7 @@ export var DomainName: StaticStructureSchema = [
     0,
     0,
     () => EndpointConfiguration,
+    0,
     0,
     0,
     0,
@@ -2223,8 +2229,8 @@ export var Integration: StaticStructureSchema = [
   n0,
   _I,
   0,
-  [_ty, _hM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cH, _tIM, _cNa, _cKP, _iR, _tC],
-  [0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 1, 0, 64 | 0, () => MapOfIntegrationResponse, () => TlsConfig],
+  [_ty, _hM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cH, _tIM, _cNa, _cKP, _iR, _tC, _rTM],
+  [0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 0, 1, 0, 64 | 0, () => MapOfIntegrationResponse, () => TlsConfig, 0],
 ];
 export var IntegrationResponse: StaticStructureSchema = [
   3,
@@ -2324,7 +2330,7 @@ export var PutIntegrationRequest: StaticStructureSchema = [
   n0,
   _PIR,
   0,
-  [_rAI, _rI, _hM, _ty, _iHM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cNa, _cKP, _cH, _tIM, _tC],
+  [_rAI, _rI, _hM, _ty, _iHM, _u, _cTo, _cIo, _cr, _rPe, _rTeq, _pB, _cNa, _cKP, _cH, _tIM, _tC, _rTM],
   [
     [0, 1],
     [0, 1],
@@ -2354,6 +2360,7 @@ export var PutIntegrationRequest: StaticStructureSchema = [
     0,
     1,
     () => TlsConfig,
+    0,
   ],
 ];
 export var PutIntegrationResponseRequest: StaticStructureSchema = [
@@ -2482,8 +2489,8 @@ export var RestApi: StaticStructureSchema = [
   n0,
   _RAe,
   0,
-  [_i, _n, _d, _cD, _ve, _w, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE, _rRI],
-  [0, 0, 0, 4, 0, 64 | 0, 64 | 0, 1, 0, () => EndpointConfiguration, 0, 128 | 0, 2, 0],
+  [_i, _n, _d, _cD, _ve, _w, _bMT, _mCS, _aKS, _eC, _po, _t, _dEAE, _rRI, _sP, _eAM, _aSpi, _aSM],
+  [0, 0, 0, 4, 0, 64 | 0, 64 | 0, 1, 0, () => EndpointConfiguration, 0, 128 | 0, 2, 0, 0, 0, 0, 0],
 ];
 export var RestApis: StaticStructureSchema = [
   3,

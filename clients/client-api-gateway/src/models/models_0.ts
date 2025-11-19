@@ -3,6 +3,7 @@ import {
   AccessAssociationSourceType,
   ApiKeysFormat,
   ApiKeySourceType,
+  ApiStatus,
   AuthorizerType,
   CacheClusterSize,
   CacheClusterStatus,
@@ -10,6 +11,7 @@ import {
   ContentHandlingStrategy,
   DocumentationPartType,
   DomainNameStatus,
+  EndpointAccessMode,
   EndpointType,
   GatewayResponseType,
   IntegrationType,
@@ -19,6 +21,7 @@ import {
   PutMode,
   QuotaPeriodType,
   ResourceOwner,
+  ResponseTransferMode,
   RoutingMode,
   SecurityPolicy,
   UnauthorizedCacheControlHeaderStrategy,
@@ -923,10 +926,18 @@ export interface CreateDomainNameRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
+   * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName.</p>
    * @public
    */
   securityPolicy?: SecurityPolicy | undefined;
+
+  /**
+   * <p>
+   * The endpoint access mode of the DomainName. Only available for DomainNames that use security policies that start with <code>SecurityPolicy_</code>.
+   * </p>
+   * @public
+   */
+  endpointAccessMode?: EndpointAccessMode | undefined;
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
@@ -1091,10 +1102,18 @@ export interface DomainName {
   domainNameStatusMessage?: string | undefined;
 
   /**
-   * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
+   * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName.</p>
    * @public
    */
   securityPolicy?: SecurityPolicy | undefined;
+
+  /**
+   * <p>
+   * The endpoint access mode of the DomainName.
+   * </p>
+   * @public
+   */
+  endpointAccessMode?: EndpointAccessMode | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
@@ -1559,6 +1578,14 @@ export interface Integration {
    * @public
    */
   tlsConfig?: TlsConfig | undefined;
+
+  /**
+   * <p>
+   * The response transfer mode of the integration.
+   * </p>
+   * @public
+   */
+  responseTransferMode?: ResponseTransferMode | undefined;
 }
 
 /**
@@ -1776,6 +1803,21 @@ export interface CreateRestApiRequest {
    * @public
    */
   disableExecuteApiEndpoint?: boolean | undefined;
+
+  /**
+   * <p>
+   * The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+   * </p>
+   * @public
+   */
+  securityPolicy?: SecurityPolicy | undefined;
+
+  /**
+   * <p>
+   * The endpoint access mode of the RestApi. Only available for RestApis that use security policies that start with <code>SecurityPolicy_</code>.</p>
+   * @public
+   */
+  endpointAccessMode?: EndpointAccessMode | undefined;
 }
 
 /**
@@ -1872,6 +1914,37 @@ export interface RestApi {
    * @public
    */
   rootResourceId?: string | undefined;
+
+  /**
+   * <p>
+   * The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+   * </p>
+   * @public
+   */
+  securityPolicy?: SecurityPolicy | undefined;
+
+  /**
+   * <p>
+   * The endpoint access mode of the RestApi.
+   * </p>
+   * @public
+   */
+  endpointAccessMode?: EndpointAccessMode | undefined;
+
+  /**
+   * <p>The ApiStatus of the RestApi.
+   * </p>
+   * @public
+   */
+  apiStatus?: ApiStatus | undefined;
+
+  /**
+   * <p>
+   * The status message of the RestApi. When the status message is <code>UPDATING</code> you can still invoke it.
+   * </p>
+   * @public
+   */
+  apiStatusMessage?: string | undefined;
 }
 
 /**
@@ -4749,6 +4822,14 @@ export interface PutIntegrationRequest {
    * @public
    */
   tlsConfig?: TlsConfig | undefined;
+
+  /**
+   * <p>
+   * The response transfer mode of the integration.
+   * </p>
+   * @public
+   */
+  responseTransferMode?: ResponseTransferMode | undefined;
 }
 
 /**

@@ -101,6 +101,7 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  * //         tlsConfig: { // TlsConfig
  * //           insecureSkipVerification: true || false,
  * //         },
+ * //         responseTransferMode: "BUFFERED" || "STREAM",
  * //       },
  * //       authorizationScopes: [
  * //         "STRING_VALUE",

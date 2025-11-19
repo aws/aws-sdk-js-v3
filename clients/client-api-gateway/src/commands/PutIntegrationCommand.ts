@@ -62,6 +62,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  *   tlsConfig: { // TlsConfig
  *     insecureSkipVerification: true || false,
  *   },
+ *   responseTransferMode: "BUFFERED" || "STREAM",
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
@@ -101,6 +102,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * //   tlsConfig: { // TlsConfig
  * //     insecureSkipVerification: true || false,
  * //   },
+ * //   responseTransferMode: "BUFFERED" || "STREAM",
  * // };
  *
  * ```

@@ -79,6 +79,7 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  * //   tlsConfig: { // TlsConfig
  * //     insecureSkipVerification: true || false,
  * //   },
+ * //   responseTransferMode: "BUFFERED" || "STREAM",
  * // };
  *
  * ```

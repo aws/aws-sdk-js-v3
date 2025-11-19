@@ -103,6 +103,7 @@ export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
  * //         tlsConfig: { // TlsConfig
  * //           insecureSkipVerification: true || false,
  * //         },
+ * //         responseTransferMode: "BUFFERED" || "STREAM",
  * //       },
  * //       authorizationScopes: [
  * //         "STRING_VALUE",

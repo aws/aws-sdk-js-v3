@@ -41,6 +41,21 @@ export type ApiKeySourceType = (typeof ApiKeySourceType)[keyof typeof ApiKeySour
  * @public
  * @enum
  */
+export const ApiStatus = {
+  AVAILABLE: "AVAILABLE",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ApiStatus = (typeof ApiStatus)[keyof typeof ApiStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthorizerType = {
   COGNITO_USER_POOLS: "COGNITO_USER_POOLS",
   REQUEST: "REQUEST",
@@ -97,6 +112,19 @@ export type DocumentationPartType = (typeof DocumentationPartType)[keyof typeof 
  * @public
  * @enum
  */
+export const EndpointAccessMode = {
+  BASIC: "BASIC",
+  STRICT: "STRICT",
+} as const;
+/**
+ * @public
+ */
+export type EndpointAccessMode = (typeof EndpointAccessMode)[keyof typeof EndpointAccessMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpAddressType = {
   dualstack: "dualstack",
   ipv4: "ipv4",
@@ -139,6 +167,15 @@ export type RoutingMode = (typeof RoutingMode)[keyof typeof RoutingMode];
  * @enum
  */
 export const SecurityPolicy = {
+  SecurityPolicy_TLS12_2018_EDGE: "SecurityPolicy_TLS12_2018_EDGE",
+  SecurityPolicy_TLS12_PFS_2025_EDGE: "SecurityPolicy_TLS12_PFS_2025_EDGE",
+  SecurityPolicy_TLS13_1_2_2021_06: "SecurityPolicy_TLS13_1_2_2021_06",
+  SecurityPolicy_TLS13_1_2_FIPS_PQ_2025_09: "SecurityPolicy_TLS13_1_2_FIPS_PQ_2025_09",
+  SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09: "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+  SecurityPolicy_TLS13_1_2_PQ_2025_09: "SecurityPolicy_TLS13_1_2_PQ_2025_09",
+  SecurityPolicy_TLS13_1_3_2025_09: "SecurityPolicy_TLS13_1_3_2025_09",
+  SecurityPolicy_TLS13_1_3_FIPS_2025_09: "SecurityPolicy_TLS13_1_3_FIPS_2025_09",
+  SecurityPolicy_TLS13_2025_EDGE: "SecurityPolicy_TLS13_2025_EDGE",
   TLS_1_0: "TLS_1_0",
   TLS_1_2: "TLS_1_2",
 } as const;
@@ -153,6 +190,7 @@ export type SecurityPolicy = (typeof SecurityPolicy)[keyof typeof SecurityPolicy
  */
 export const DomainNameStatus = {
   AVAILABLE: "AVAILABLE",
+  FAILED: "FAILED",
   PENDING: "PENDING",
   PENDING_CERTIFICATE_REIMPORT: "PENDING_CERTIFICATE_REIMPORT",
   PENDING_OWNERSHIP_VERIFICATION: "PENDING_OWNERSHIP_VERIFICATION",
@@ -188,6 +226,19 @@ export const ContentHandlingStrategy = {
  * @public
  */
 export type ContentHandlingStrategy = (typeof ContentHandlingStrategy)[keyof typeof ContentHandlingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResponseTransferMode = {
+  BUFFERED: "BUFFERED",
+  STREAM: "STREAM",
+} as const;
+/**
+ * @public
+ */
+export type ResponseTransferMode = (typeof ResponseTransferMode)[keyof typeof ResponseTransferMode];
 
 /**
  * @public

@@ -60,6 +60,8 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  *     "<keys>": "STRING_VALUE",
  *   },
  *   disableExecuteApiEndpoint: true || false,
+ *   securityPolicy: "TLS_1_0" || "TLS_1_2" || "SecurityPolicy_TLS13_1_3_2025_09" || "SecurityPolicy_TLS13_1_3_FIPS_2025_09" || "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09" || "SecurityPolicy_TLS13_1_2_FIPS_PQ_2025_09" || "SecurityPolicy_TLS13_1_2_PQ_2025_09" || "SecurityPolicy_TLS13_1_2_2021_06" || "SecurityPolicy_TLS13_2025_EDGE" || "SecurityPolicy_TLS12_PFS_2025_EDGE" || "SecurityPolicy_TLS12_2018_EDGE",
+ *   endpointAccessMode: "BASIC" || "STRICT",
  * };
  * const command = new CreateRestApiCommand(input);
  * const response = await client.send(command);
@@ -92,6 +94,10 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * //   },
  * //   disableExecuteApiEndpoint: true || false,
  * //   rootResourceId: "STRING_VALUE",
+ * //   securityPolicy: "TLS_1_0" || "TLS_1_2" || "SecurityPolicy_TLS13_1_3_2025_09" || "SecurityPolicy_TLS13_1_3_FIPS_2025_09" || "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09" || "SecurityPolicy_TLS13_1_2_FIPS_PQ_2025_09" || "SecurityPolicy_TLS13_1_2_PQ_2025_09" || "SecurityPolicy_TLS13_1_2_2021_06" || "SecurityPolicy_TLS13_2025_EDGE" || "SecurityPolicy_TLS12_PFS_2025_EDGE" || "SecurityPolicy_TLS12_2018_EDGE",
+ * //   endpointAccessMode: "BASIC" || "STRICT",
+ * //   apiStatus: "UPDATING" || "AVAILABLE" || "PENDING" || "FAILED",
+ * //   apiStatusMessage: "STRING_VALUE",
  * // };
  *
  * ```

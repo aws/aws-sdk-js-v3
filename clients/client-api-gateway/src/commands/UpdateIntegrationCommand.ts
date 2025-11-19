@@ -87,6 +87,7 @@ export interface UpdateIntegrationCommandOutput extends Integration, __MetadataB
  * //   tlsConfig: { // TlsConfig
  * //     insecureSkipVerification: true || false,
  * //   },
+ * //   responseTransferMode: "BUFFERED" || "STREAM",
  * // };
  *
  * ```
