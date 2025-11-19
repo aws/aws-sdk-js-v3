@@ -1,22 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecureTunnelingServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ClientMode = {
-  ALL: "ALL",
-  DESTINATION: "DESTINATION",
-  SOURCE: "SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ClientMode = (typeof ClientMode)[keyof typeof ClientMode];
+import { ClientMode, ConnectionStatus, TunnelStatus } from "./enums";
 
 /**
  * @public
@@ -40,40 +23,6 @@ export interface CloseTunnelRequest {
  * @public
  */
 export interface CloseTunnelResponse {}
-
-/**
- * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConnectionStatus = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
  * <p>The state of a connection.</p>
@@ -125,20 +74,6 @@ export interface DestinationConfig {
    */
   services: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TunnelStatus = {
-  CLOSED: "CLOSED",
-  OPEN: "OPEN",
-} as const;
-
-/**
- * @public
- */
-export type TunnelStatus = (typeof TunnelStatus)[keyof typeof TunnelStatus];
 
 /**
  * <p>An arbitary key/value pair used to add searchable metadata to secure tunnel
@@ -362,26 +297,6 @@ export interface ListTunnelsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>Thrown when a tunnel limit is exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
 }
 
 /**

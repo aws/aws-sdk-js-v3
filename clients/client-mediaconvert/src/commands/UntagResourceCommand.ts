@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_2";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
 import { UntagResource } from "../schemas/schemas_0";
 
 /**

@@ -189,7 +189,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LexRuntimeV2ServiceException as __LexRuntimeV2ServiceException } from "../models/LexRuntimeV2ServiceException";
 
 /* eslint no-var: 0 */

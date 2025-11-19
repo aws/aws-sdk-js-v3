@@ -1,44 +1,18 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AmplifyServiceException as __BaseException } from "./AmplifyServiceException";
-
-/**
- * <p>A request contains unexpected data. </p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Stage = {
-  BETA: "BETA",
-  DEVELOPMENT: "DEVELOPMENT",
-  EXPERIMENTAL: "EXPERIMENTAL",
-  PRODUCTION: "PRODUCTION",
-  PULL_REQUEST: "PULL_REQUEST",
-} as const;
-
-/**
- * @public
- */
-export type Stage = (typeof Stage)[keyof typeof Stage];
+import {
+  BuildComputeType,
+  CacheConfigType,
+  CertificateType,
+  DomainStatus,
+  JobStatus,
+  JobType,
+  Platform,
+  RepositoryCloneMethod,
+  SourceUrlType,
+  Stage,
+  UpdateStatus,
+  WafStatus,
+} from "./enums";
 
 /**
  * <p>Describes the automated branch creation configuration. </p>
@@ -110,20 +84,6 @@ export interface AutoBranchCreationConfig {
    */
   pullRequestEnvironmentName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CacheConfigType = {
-  AMPLIFY_MANAGED: "AMPLIFY_MANAGED",
-  AMPLIFY_MANAGED_NO_COOKIES: "AMPLIFY_MANAGED_NO_COOKIES",
-} as const;
-
-/**
- * @public
- */
-export type CacheConfigType = (typeof CacheConfigType)[keyof typeof CacheConfigType];
 
 /**
  * <p>Describes the cache configuration for an Amplify app.</p>
@@ -200,21 +160,6 @@ export interface CustomRule {
 }
 
 /**
- * @public
- * @enum
- */
-export const BuildComputeType = {
-  LARGE_16GB: "LARGE_16GB",
-  STANDARD_8GB: "STANDARD_8GB",
-  XLARGE_72GB: "XLARGE_72GB",
-} as const;
-
-/**
- * @public
- */
-export type BuildComputeType = (typeof BuildComputeType)[keyof typeof BuildComputeType];
-
-/**
  * <p>Describes the configuration details that apply to the jobs for an Amplify app.</p>
  *          <p>Use <code>JobConfig</code> to apply configuration to jobs, such as customizing the build instance size when you create or
  *             update an Amplify app. For more information about customizable build
@@ -277,21 +222,6 @@ export interface JobConfig {
    */
   buildComputeType: BuildComputeType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Platform = {
-  WEB: "WEB",
-  WEB_COMPUTE: "WEB_COMPUTE",
-  WEB_DYNAMIC: "WEB_DYNAMIC",
-} as const;
-
-/**
- * @public
- */
-export type Platform = (typeof Platform)[keyof typeof Platform];
 
 /**
  * <p>The request structure used to create apps in Amplify. </p>
@@ -501,38 +431,6 @@ export interface ProductionBranch {
    */
   branchName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RepositoryCloneMethod = {
-  SIGV4: "SIGV4",
-  SSH: "SSH",
-  TOKEN: "TOKEN",
-} as const;
-
-/**
- * @public
- */
-export type RepositoryCloneMethod = (typeof RepositoryCloneMethod)[keyof typeof RepositoryCloneMethod];
-
-/**
- * @public
- * @enum
- */
-export const WafStatus = {
-  ASSOCIATING: "ASSOCIATING",
-  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
-  ASSOCIATION_SUCCESS: "ASSOCIATION_SUCCESS",
-  DISASSOCIATING: "DISASSOCIATING",
-  DISASSOCIATION_FAILED: "DISASSOCIATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type WafStatus = (typeof WafStatus)[keyof typeof WafStatus];
 
 /**
  * <p>Describes the Firewall configuration for a hosted Amplify application.
@@ -784,86 +682,6 @@ export interface CreateAppResult {
 }
 
 /**
- * <p>An operation failed because a dependent service threw an exception. </p>
- * @public
- */
-export class DependentServiceFailureException extends __BaseException {
-  readonly name: "DependentServiceFailureException" = "DependentServiceFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependentServiceFailureException, __BaseException>) {
-    super({
-      name: "DependentServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependentServiceFailureException.prototype);
-  }
-}
-
-/**
- * <p>The service failed to perform an operation due to an internal issue. </p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>A resource could not be created because service quotas were exceeded. </p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>An operation failed due to a lack of access. </p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
-}
-
-/**
  * <p>The request structure for the backend environment create request. </p>
  * @public
  */
@@ -951,26 +769,6 @@ export interface CreateBackendEnvironmentResult {
    * @public
    */
   backendEnvironment: BackendEnvironment | undefined;
-}
-
-/**
- * <p>An entity was not found during an operation. </p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
 }
 
 /**
@@ -1420,20 +1218,6 @@ export interface CreateDeploymentResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const CertificateType = {
-  AMPLIFY_MANAGED: "AMPLIFY_MANAGED",
-  CUSTOM: "CUSTOM",
-} as const;
-
-/**
- * @public
- */
-export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
-
-/**
  * <p>The type of SSL/TLS certificate to use for your custom domain. If a certificate type
  *             isn't specified, Amplify uses the default <code>AMPLIFY_MANAGED</code>
  *             certificate.</p>
@@ -1569,28 +1353,6 @@ export interface Certificate {
 }
 
 /**
- * @public
- * @enum
- */
-export const DomainStatus = {
-  AVAILABLE: "AVAILABLE",
-  AWAITING_APP_CNAME: "AWAITING_APP_CNAME",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-  IMPORTING_CUSTOM_CERTIFICATE: "IMPORTING_CUSTOM_CERTIFICATE",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
-  PENDING_VERIFICATION: "PENDING_VERIFICATION",
-  REQUESTING_CERTIFICATE: "REQUESTING_CERTIFICATE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
-
-/**
  * <p> The subdomain for the domain association. </p>
  * @public
  */
@@ -1613,25 +1375,6 @@ export interface SubDomain {
    */
   dnsRecord: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  AWAITING_APP_CNAME: "AWAITING_APP_CNAME",
-  IMPORTING_CUSTOM_CERTIFICATE: "IMPORTING_CUSTOM_CERTIFICATE",
-  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
-  PENDING_VERIFICATION: "PENDING_VERIFICATION",
-  REQUESTING_CERTIFICATE: "REQUESTING_CERTIFICATE",
-  UPDATE_COMPLETE: "UPDATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * <p>Describes the association between a custom domain and an Amplify app. </p>
@@ -1999,56 +1742,6 @@ export interface DeleteJobRequest {
    */
   jobId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobType = {
-  MANUAL: "MANUAL",
-  RELEASE: "RELEASE",
-  RETRY: "RETRY",
-  WEB_HOOK: "WEB_HOOK",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
-
-/**
- * @public
- * @enum
- */
-export const SourceUrlType = {
-  BUCKET_PREFIX: "BUCKET_PREFIX",
-  ZIP: "ZIP",
-} as const;
-
-/**
- * @public
- */
-export type SourceUrlType = (typeof SourceUrlType)[keyof typeof SourceUrlType];
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  PROVISIONING: "PROVISIONING",
-  RUNNING: "RUNNING",
-  SUCCEED: "SUCCEED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * <p> Describes the summary for an execution job for an Amplify app. </p>
@@ -2836,28 +2529,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>An operation failed due to a non-existent resource. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  code: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.code = opts.code;
-  }
 }
 
 /**

@@ -1,57 +1,49 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MailManagerServiceException as __BaseException } from "./MailManagerServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AcceptAction = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type AcceptAction = (typeof AcceptAction)[keyof typeof AcceptAction];
-
-/**
- * <p>Occurs when a user is denied access to a specific resource or action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionFailurePolicy = {
-  CONTINUE: "CONTINUE",
-  DROP: "DROP",
-} as const;
-
-/**
- * @public
- */
-export type ActionFailurePolicy = (typeof ActionFailurePolicy)[keyof typeof ActionFailurePolicy];
+import {
+  AcceptAction,
+  ActionFailurePolicy,
+  ArchiveBooleanEmailAttribute,
+  ArchiveBooleanOperator,
+  ArchiveState,
+  ArchiveStringEmailAttribute,
+  ArchiveStringOperator,
+  ExportState,
+  ImportDataType,
+  ImportJobStatus,
+  IngressAddressListEmailAttribute,
+  IngressBooleanOperator,
+  IngressIpOperator,
+  IngressIpv4Attribute,
+  IngressIpv6Attribute,
+  IngressPointStatus,
+  IngressPointStatusToUpdate,
+  IngressPointType,
+  IngressStringEmailAttribute,
+  IngressStringOperator,
+  IngressTlsAttribute,
+  IngressTlsProtocolAttribute,
+  IngressTlsProtocolOperator,
+  IpType,
+  MailFrom,
+  RetentionPeriod,
+  RuleAddressListEmailAttribute,
+  RuleBooleanEmailAttribute,
+  RuleBooleanOperator,
+  RuleDmarcOperator,
+  RuleDmarcPolicy,
+  RuleIpEmailAttribute,
+  RuleIpOperator,
+  RuleNumberEmailAttribute,
+  RuleNumberOperator,
+  RuleStringEmailAttribute,
+  RuleStringOperator,
+  RuleVerdict,
+  RuleVerdictAttribute,
+  RuleVerdictOperator,
+  SearchState,
+  SnsNotificationEncoding,
+  SnsNotificationPayloadType,
+} from "./enums";
 
 /**
  * <p>The action to add a header to a message. When executed, this action will add the given header to the message.</p>
@@ -108,28 +100,6 @@ export interface AddonInstance {
 }
 
 /**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A key-value pair (the value is optional), that you can define and assign to Amazon Web Services resources.</p>
  * @public
  */
@@ -179,72 +149,6 @@ export interface CreateAddonInstanceResponse {
    * @public
    */
   AddonInstanceId: string | undefined;
-}
-
-/**
- * <p>Occurs when a requested resource is not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request validation has failed. For details, see the accompanying error message.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -568,28 +472,6 @@ export interface CreateAddressListResponse {
 }
 
 /**
- * <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteAddressListRequest {
@@ -704,20 +586,6 @@ export interface Analysis {
 }
 
 /**
- * @public
- * @enum
- */
-export const ArchiveState = {
-  ACTIVE: "ACTIVE",
-  PENDING_DELETION: "PENDING_DELETION",
-} as const;
-
-/**
- * @public
- */
-export type ArchiveState = (typeof ArchiveState)[keyof typeof ArchiveState];
-
-/**
  * <p>An archive resource for storing and retaining emails.</p>
  * @public
  */
@@ -766,20 +634,6 @@ export interface ArchiveAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const ArchiveBooleanEmailAttribute = {
-  HAS_ATTACHMENTS: "HAS_ATTACHMENTS",
-} as const;
-
-/**
- * @public
- */
-export type ArchiveBooleanEmailAttribute =
-  (typeof ArchiveBooleanEmailAttribute)[keyof typeof ArchiveBooleanEmailAttribute];
-
-/**
  * <p>The attribute to evaluate in a boolean expression.</p>
  * @public
  */
@@ -819,20 +673,6 @@ export namespace ArchiveBooleanToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const ArchiveBooleanOperator = {
-  IS_FALSE: "IS_FALSE",
-  IS_TRUE: "IS_TRUE",
-} as const;
-
-/**
- * @public
- */
-export type ArchiveBooleanOperator = (typeof ArchiveBooleanOperator)[keyof typeof ArchiveBooleanOperator];
-
-/**
  * <p>A boolean expression to evaluate email attribute values.</p>
  * @public
  */
@@ -849,25 +689,6 @@ export interface ArchiveBooleanExpression {
    */
   Operator: ArchiveBooleanOperator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ArchiveStringEmailAttribute = {
-  CC: "CC",
-  ENVELOPE_FROM: "ENVELOPE_FROM",
-  ENVELOPE_TO: "ENVELOPE_TO",
-  FROM: "FROM",
-  SUBJECT: "SUBJECT",
-  TO: "TO",
-} as const;
-
-/**
- * @public
- */
-export type ArchiveStringEmailAttribute =
-  (typeof ArchiveStringEmailAttribute)[keyof typeof ArchiveStringEmailAttribute];
 
 /**
  * <p>Specifies the email attribute to evaluate in a string expression.</p>
@@ -905,19 +726,6 @@ export namespace ArchiveStringToEvaluate {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ArchiveStringOperator = {
-  CONTAINS: "CONTAINS",
-} as const;
-
-/**
- * @public
- */
-export type ArchiveStringOperator = (typeof ArchiveStringOperator)[keyof typeof ArchiveStringOperator];
 
 /**
  * <p>A string expression to evaluate an email attribute value against one or more string values.</p>
@@ -1013,34 +821,6 @@ export interface ArchiveFilters {
    */
   Unless?: ArchiveFilterCondition[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetentionPeriod = {
-  EIGHTEEN_MONTHS: "EIGHTEEN_MONTHS",
-  EIGHT_YEARS: "EIGHT_YEARS",
-  FIVE_YEARS: "FIVE_YEARS",
-  FOUR_YEARS: "FOUR_YEARS",
-  NINE_MONTHS: "NINE_MONTHS",
-  NINE_YEARS: "NINE_YEARS",
-  ONE_YEAR: "ONE_YEAR",
-  PERMANENT: "PERMANENT",
-  SEVEN_YEARS: "SEVEN_YEARS",
-  SIX_MONTHS: "SIX_MONTHS",
-  SIX_YEARS: "SIX_YEARS",
-  TEN_YEARS: "TEN_YEARS",
-  THIRTY_MONTHS: "THIRTY_MONTHS",
-  THREE_MONTHS: "THREE_MONTHS",
-  THREE_YEARS: "THREE_YEARS",
-  TWO_YEARS: "TWO_YEARS",
-} as const;
-
-/**
- * @public
- */
-export type RetentionPeriod = (typeof RetentionPeriod)[keyof typeof RetentionPeriod];
 
 /**
  * <p>The retention policy for an email archive that specifies how long emails are kept before being automatically deleted. </p>
@@ -1278,20 +1058,6 @@ export interface UpdateArchiveRequest {
 export interface UpdateArchiveResponse {}
 
 /**
- * @public
- * @enum
- */
-export const ImportDataType = {
-  CSV: "CSV",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type ImportDataType = (typeof ImportDataType)[keyof typeof ImportDataType];
-
-/**
  * <p>The import data format contains the specifications of the input file that would be passed to the address list import job.</p>
  * @public
  */
@@ -1415,20 +1181,6 @@ export interface PrivateNetworkConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const IpType = {
-  DUAL_STACK: "DUAL_STACK",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type IpType = (typeof IpType)[keyof typeof IpType];
-
-/**
  * <p>Specifies the network configuration for the public ingress point.</p>
  * @public
  */
@@ -1492,20 +1244,6 @@ export namespace NetworkConfiguration {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressPointType = {
-  AUTH: "AUTH",
-  OPEN: "OPEN",
-} as const;
-
-/**
- * @public
- */
-export type IngressPointType = (typeof IngressPointType)[keyof typeof IngressPointType];
 
 /**
  * @public
@@ -1743,34 +1481,6 @@ export interface DeliverToQBusinessAction {
 export interface DropAction {}
 
 /**
- * @public
- * @enum
- */
-export const SnsNotificationEncoding = {
-  BASE64: "BASE64",
-  UTF_8: "UTF-8",
-} as const;
-
-/**
- * @public
- */
-export type SnsNotificationEncoding = (typeof SnsNotificationEncoding)[keyof typeof SnsNotificationEncoding];
-
-/**
- * @public
- * @enum
- */
-export const SnsNotificationPayloadType = {
-  CONTENT: "CONTENT",
-  HEADERS: "HEADERS",
-} as const;
-
-/**
- * @public
- */
-export type SnsNotificationPayloadType = (typeof SnsNotificationPayloadType)[keyof typeof SnsNotificationPayloadType];
-
-/**
  * <p>The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.</p>
  * @public
  */
@@ -1805,20 +1515,6 @@ export interface SnsAction {
    */
   PayloadType?: SnsNotificationPayloadType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MailFrom = {
-  PRESERVE: "PRESERVE",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type MailFrom = (typeof MailFrom)[keyof typeof MailFrom];
 
 /**
  * <p>The action relays the email via SMTP to another specific SMTP server.</p>
@@ -2148,40 +1844,6 @@ export namespace RuleAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleBooleanEmailAttribute = {
-  READ_RECEIPT_REQUESTED: "READ_RECEIPT_REQUESTED",
-  TLS: "TLS",
-  TLS_WRAPPED: "TLS_WRAPPED",
-} as const;
-
-/**
- * @public
- */
-export type RuleBooleanEmailAttribute = (typeof RuleBooleanEmailAttribute)[keyof typeof RuleBooleanEmailAttribute];
-
-/**
- * @public
- * @enum
- */
-export const RuleAddressListEmailAttribute = {
-  CC: "CC",
-  FROM: "FROM",
-  MAIL_FROM: "MAIL_FROM",
-  RECIPIENT: "RECIPIENT",
-  SENDER: "SENDER",
-  TO: "TO",
-} as const;
-
-/**
- * @public
- */
-export type RuleAddressListEmailAttribute =
-  (typeof RuleAddressListEmailAttribute)[keyof typeof RuleAddressListEmailAttribute];
-
-/**
  * <p>The structure type for a boolean condition that provides the address lists and address list attribute to evaluate.</p>
  * @public
  */
@@ -2269,20 +1931,6 @@ export namespace RuleBooleanToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleBooleanOperator = {
-  IS_FALSE: "IS_FALSE",
-  IS_TRUE: "IS_TRUE",
-} as const;
-
-/**
- * @public
- */
-export type RuleBooleanOperator = (typeof RuleBooleanOperator)[keyof typeof RuleBooleanOperator];
-
-/**
  * <p>A boolean expression to be used in a rule condition.</p>
  * @public
  */
@@ -2301,35 +1949,6 @@ export interface RuleBooleanExpression {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleDmarcOperator = {
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type RuleDmarcOperator = (typeof RuleDmarcOperator)[keyof typeof RuleDmarcOperator];
-
-/**
- * @public
- * @enum
- */
-export const RuleDmarcPolicy = {
-  NONE: "NONE",
-  QUARANTINE: "QUARANTINE",
-  REJECT: "REJECT",
-} as const;
-
-/**
- * @public
- */
-export type RuleDmarcPolicy = (typeof RuleDmarcPolicy)[keyof typeof RuleDmarcPolicy];
-
-/**
  * <p>A DMARC policy expression. The condition matches if the given DMARC policy matches that of the incoming email.</p>
  * @public
  */
@@ -2346,19 +1965,6 @@ export interface RuleDmarcExpression {
    */
   Values: RuleDmarcPolicy[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleIpEmailAttribute = {
-  SOURCE_IP: "SOURCE_IP",
-} as const;
-
-/**
- * @public
- */
-export type RuleIpEmailAttribute = (typeof RuleIpEmailAttribute)[keyof typeof RuleIpEmailAttribute];
 
 /**
  * <p>The IP address to evaluate for this condition.</p>
@@ -2398,20 +2004,6 @@ export namespace RuleIpToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleIpOperator = {
-  CIDR_MATCHES: "CIDR_MATCHES",
-  NOT_CIDR_MATCHES: "NOT_CIDR_MATCHES",
-} as const;
-
-/**
- * @public
- */
-export type RuleIpOperator = (typeof RuleIpOperator)[keyof typeof RuleIpOperator];
-
-/**
  * <p>An IP address expression matching certain IP addresses within a given range of IP addresses.</p>
  * @public
  */
@@ -2434,19 +2026,6 @@ export interface RuleIpExpression {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleNumberEmailAttribute = {
-  MESSAGE_SIZE: "MESSAGE_SIZE",
-} as const;
-
-/**
- * @public
- */
-export type RuleNumberEmailAttribute = (typeof RuleNumberEmailAttribute)[keyof typeof RuleNumberEmailAttribute];
 
 /**
  * <p>The number to evaluate in a numeric condition expression.</p>
@@ -2486,24 +2065,6 @@ export namespace RuleNumberToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleNumberOperator = {
-  EQUALS: "EQUALS",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type RuleNumberOperator = (typeof RuleNumberOperator)[keyof typeof RuleNumberOperator];
-
-/**
  * <p>A number expression to match numeric conditions with integers from the incoming email.</p>
  * @public
  */
@@ -2526,26 +2087,6 @@ export interface RuleNumberExpression {
    */
   Value: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleStringEmailAttribute = {
-  CC: "CC",
-  FROM: "FROM",
-  HELO: "HELO",
-  MAIL_FROM: "MAIL_FROM",
-  RECIPIENT: "RECIPIENT",
-  SENDER: "SENDER",
-  SUBJECT: "SUBJECT",
-  TO: "TO",
-} as const;
-
-/**
- * @public
- */
-export type RuleStringEmailAttribute = (typeof RuleStringEmailAttribute)[keyof typeof RuleStringEmailAttribute];
 
 /**
  * <p>The string to evaluate in a string condition expression.</p>
@@ -2617,23 +2158,6 @@ export namespace RuleStringToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleStringOperator = {
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type RuleStringOperator = (typeof RuleStringOperator)[keyof typeof RuleStringOperator];
-
-/**
  * <p>A string expression is evaluated against strings or substrings of the email.</p>
  * @public
  */
@@ -2656,20 +2180,6 @@ export interface RuleStringExpression {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleVerdictAttribute = {
-  DKIM: "DKIM",
-  SPF: "SPF",
-} as const;
-
-/**
- * @public
- */
-export type RuleVerdictAttribute = (typeof RuleVerdictAttribute)[keyof typeof RuleVerdictAttribute];
 
 /**
  * <p>The verdict to evaluate in a verdict condition expression.</p>
@@ -2723,36 +2233,6 @@ export namespace RuleVerdictToEvaluate {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleVerdictOperator = {
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type RuleVerdictOperator = (typeof RuleVerdictOperator)[keyof typeof RuleVerdictOperator];
-
-/**
- * @public
- * @enum
- */
-export const RuleVerdict = {
-  FAIL: "FAIL",
-  GRAY: "GRAY",
-  PASS: "PASS",
-  PROCESSING_FAILED: "PROCESSING_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type RuleVerdict = (typeof RuleVerdict)[keyof typeof RuleVerdict];
 
 /**
  * <p>A verdict expression is evaluated against verdicts of the email.</p>
@@ -2996,20 +2476,6 @@ export interface IngressAnalysis {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngressAddressListEmailAttribute = {
-  RECIPIENT: "RECIPIENT",
-} as const;
-
-/**
- * @public
- */
-export type IngressAddressListEmailAttribute =
-  (typeof IngressAddressListEmailAttribute)[keyof typeof IngressAddressListEmailAttribute];
-
-/**
  * <p>The address lists and the address list attribute value that is evaluated in a policy statement's conditional expression to either deny or block the incoming email.</p>
  * @public
  */
@@ -3081,20 +2547,6 @@ export namespace IngressBooleanToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngressBooleanOperator = {
-  IS_FALSE: "IS_FALSE",
-  IS_TRUE: "IS_TRUE",
-} as const;
-
-/**
- * @public
- */
-export type IngressBooleanOperator = (typeof IngressBooleanOperator)[keyof typeof IngressBooleanOperator];
-
-/**
  * <p>The structure for a boolean condition matching on the incoming mail.</p>
  * @public
  */
@@ -3111,19 +2563,6 @@ export interface IngressBooleanExpression {
    */
   Operator: IngressBooleanOperator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressIpv4Attribute = {
-  SENDER_IP: "SENDER_IP",
-} as const;
-
-/**
- * @public
- */
-export type IngressIpv4Attribute = (typeof IngressIpv4Attribute)[keyof typeof IngressIpv4Attribute];
 
 /**
  * <p>The structure for an IP based condition matching on the incoming mail.</p>
@@ -3163,20 +2602,6 @@ export namespace IngressIpToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngressIpOperator = {
-  CIDR_MATCHES: "CIDR_MATCHES",
-  NOT_CIDR_MATCHES: "NOT_CIDR_MATCHES",
-} as const;
-
-/**
- * @public
- */
-export type IngressIpOperator = (typeof IngressIpOperator)[keyof typeof IngressIpOperator];
-
-/**
  * <p>The union type representing the allowed types for the left hand side of an IP condition.</p>
  * @public
  */
@@ -3199,19 +2624,6 @@ export interface IngressIpv4Expression {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressIpv6Attribute = {
-  SENDER_IPV6: "SENDER_IPV6",
-} as const;
-
-/**
- * @public
- */
-export type IngressIpv6Attribute = (typeof IngressIpv6Attribute)[keyof typeof IngressIpv6Attribute];
 
 /**
  * <p>The structure for an IPv6 based condition matching on the incoming mail.</p>
@@ -3275,20 +2687,6 @@ export interface IngressIpv6Expression {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngressStringEmailAttribute = {
-  RECIPIENT: "RECIPIENT",
-} as const;
-
-/**
- * @public
- */
-export type IngressStringEmailAttribute =
-  (typeof IngressStringEmailAttribute)[keyof typeof IngressStringEmailAttribute];
-
-/**
  * <p>The union type representing the allowed types for the left hand side of a string condition.</p>
  * @public
  */
@@ -3342,23 +2740,6 @@ export namespace IngressStringToEvaluate {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngressStringOperator = {
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type IngressStringOperator = (typeof IngressStringOperator)[keyof typeof IngressStringOperator];
-
-/**
  * <p>The structure for a string based condition matching on the incoming mail.</p>
  * @public
  */
@@ -3381,19 +2762,6 @@ export interface IngressStringExpression {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressTlsAttribute = {
-  TLS_PROTOCOL: "TLS_PROTOCOL",
-} as const;
-
-/**
- * @public
- */
-export type IngressTlsAttribute = (typeof IngressTlsAttribute)[keyof typeof IngressTlsAttribute];
 
 /**
  * <p>The union type representing the allowed types for the left hand side of a TLS condition.</p>
@@ -3433,35 +2801,6 @@ export namespace IngressTlsProtocolToEvaluate {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressTlsProtocolOperator = {
-  IS: "IS",
-  MINIMUM_TLS_VERSION: "MINIMUM_TLS_VERSION",
-} as const;
-
-/**
- * @public
- */
-export type IngressTlsProtocolOperator = (typeof IngressTlsProtocolOperator)[keyof typeof IngressTlsProtocolOperator];
-
-/**
- * @public
- * @enum
- */
-export const IngressTlsProtocolAttribute = {
-  TLS1_2: "TLS1_2",
-  TLS1_3: "TLS1_3",
-} as const;
-
-/**
- * @public
- */
-export type IngressTlsProtocolAttribute =
-  (typeof IngressTlsProtocolAttribute)[keyof typeof IngressTlsProtocolAttribute];
 
 /**
  * <p>The structure for a TLS related condition matching on the incoming mail.</p>
@@ -3826,24 +3165,6 @@ export namespace ExportDestinationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExportState = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PREPROCESSING: "PREPROCESSING",
-  PROCESSING: "PROCESSING",
-  QUEUED: "QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type ExportState = (typeof ExportState)[keyof typeof ExportState];
-
-/**
  * <p>The current status of an archive export job.</p>
  * @public
  */
@@ -3901,23 +3222,6 @@ export interface GetAddressListImportJobRequest {
    */
   JobId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImportJobStatus = {
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type ImportJobStatus = (typeof ImportJobStatus)[keyof typeof ImportJobStatus];
 
 /**
  * @public
@@ -4237,23 +3541,6 @@ export interface GetArchiveSearchRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SearchState = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type SearchState = (typeof SearchState)[keyof typeof SearchState];
-
-/**
  * <p>The current status of an archive search job.</p>
  * @public
  */
@@ -4521,24 +3808,6 @@ export interface IngressPointAuthConfiguration {
    */
   SecretArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressPointStatus = {
-  ACTIVE: "ACTIVE",
-  CLOSED: "CLOSED",
-  DEPROVISIONING: "DEPROVISIONING",
-  FAILED: "FAILED",
-  PROVISIONING: "PROVISIONING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IngressPointStatus = (typeof IngressPointStatus)[keyof typeof IngressPointStatus];
 
 /**
  * @public
@@ -4978,20 +4247,6 @@ export interface ListIngressPointsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngressPointStatusToUpdate = {
-  ACTIVE: "ACTIVE",
-  CLOSED: "CLOSED",
-} as const;
-
-/**
- * @public
- */
-export type IngressPointStatusToUpdate = (typeof IngressPointStatusToUpdate)[keyof typeof IngressPointStatusToUpdate];
 
 /**
  * @public

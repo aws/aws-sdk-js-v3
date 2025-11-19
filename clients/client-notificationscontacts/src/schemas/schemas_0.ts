@@ -91,7 +91,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { NotificationsContactsServiceException as __NotificationsContactsServiceException } from "../models/NotificationsContactsServiceException";
 
 /* eslint no-var: 0 */

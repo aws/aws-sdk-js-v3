@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeServiceLinkVirtualInterfacesRequest,
   DescribeServiceLinkVirtualInterfacesResult,
-} from "../models/models_5";
+} from "../models/models_4";
 import { DescribeServiceLinkVirtualInterfaces } from "../schemas/schemas_0";
 
 /**

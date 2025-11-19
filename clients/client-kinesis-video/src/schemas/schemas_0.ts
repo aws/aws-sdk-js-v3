@@ -230,7 +230,7 @@ import {
   StreamEdgeConfigurationNotFoundException as __StreamEdgeConfigurationNotFoundException,
   TagsPerResourceExceededLimitException as __TagsPerResourceExceededLimitException,
   VersionMismatchException as __VersionMismatchException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisVideoServiceException as __KinesisVideoServiceException } from "../models/KinesisVideoServiceException";
 
 /* eslint no-var: 0 */

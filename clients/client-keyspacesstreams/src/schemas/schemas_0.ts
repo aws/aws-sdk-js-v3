@@ -122,7 +122,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { KeyspacesStreamsServiceException as __KeyspacesStreamsServiceException } from "../models/KeyspacesStreamsServiceException";
 
 /* eslint no-var: 0 */

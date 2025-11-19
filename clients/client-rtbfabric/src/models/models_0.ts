@@ -1,38 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { RTBFabricServiceException as __BaseException } from "./RTBFabricServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ResponderErrorMaskingAction = {
-  NO_BID: "NO_BID",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type ResponderErrorMaskingAction =
-  (typeof ResponderErrorMaskingAction)[keyof typeof ResponderErrorMaskingAction];
-
-/**
- * @public
- * @enum
- */
-export const ResponderErrorMaskingLoggingType = {
-  METRIC: "METRIC",
-  NONE: "NONE",
-  RESPONSE: "RESPONSE",
-} as const;
-
-/**
- * @public
- */
-export type ResponderErrorMaskingLoggingType =
-  (typeof ResponderErrorMaskingLoggingType)[keyof typeof ResponderErrorMaskingLoggingType];
+import {
+  FilterType,
+  LinkDirection,
+  LinkStatus,
+  Protocol,
+  RequesterGatewayStatus,
+  ResponderErrorMaskingAction,
+  ResponderErrorMaskingLoggingType,
+  ResponderGatewayStatus,
+} from "./enums";
 
 /**
  * <p>Describes the masking for HTTP error codes.</p>
@@ -152,20 +128,6 @@ export interface AcceptLinkRequest {
    */
   logSettings: LinkLogSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LinkDirection = {
-  REQUEST: "REQUEST",
-  RESPONSE: "RESPONSE",
-} as const;
-
-/**
- * @public
- */
-export type LinkDirection = (typeof LinkDirection)[keyof typeof LinkDirection];
 
 /**
  * <p>Describes the parameters of a no bid module.</p>
@@ -300,20 +262,6 @@ export interface Filter {
    */
   criteria: FilterCriterion[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterType = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 /**
  * <p>Describes the parameters of an open RTB attribute module.</p>
@@ -458,31 +406,6 @@ export interface ModuleConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const LinkStatus = {
-  ACCEPTED: "ACCEPTED",
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  ISOLATED: "ISOLATED",
-  PENDING_CREATION: "PENDING_CREATION",
-  PENDING_DELETION: "PENDING_DELETION",
-  PENDING_ISOLATION: "PENDING_ISOLATION",
-  PENDING_REQUEST: "PENDING_REQUEST",
-  PENDING_RESTORATION: "PENDING_RESTORATION",
-  PENDING_UPDATE: "PENDING_UPDATE",
-  REJECTED: "REJECTED",
-  REQUESTED: "REQUESTED",
-} as const;
-
-/**
- * @public
- */
-export type LinkStatus = (typeof LinkStatus)[keyof typeof LinkStatus];
-
-/**
- * @public
  */
 export interface AcceptLinkResponse {
   /**
@@ -544,128 +467,6 @@ export interface AcceptLinkResponse {
    * @public
    */
   linkId: string | undefined;
-}
-
-/**
- * <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The request could not be completed because of a conflict in the current state of the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The request could not be completed because of an internal server error. Try your call again.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request could not be completed because the resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -748,26 +549,6 @@ export interface CreateInboundExternalLinkResponse {
    * @public
    */
   domainName: string | undefined;
-}
-
-/**
- * <p>The request could not be completed because you exceeded a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -989,27 +770,6 @@ export interface CreateRequesterGatewayRequest {
 
 /**
  * @public
- * @enum
- */
-export const RequesterGatewayStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  ERROR: "ERROR",
-  ISOLATED: "ISOLATED",
-  PENDING_CREATION: "PENDING_CREATION",
-  PENDING_DELETION: "PENDING_DELETION",
-  PENDING_ISOLATION: "PENDING_ISOLATION",
-  PENDING_RESTORATION: "PENDING_RESTORATION",
-  PENDING_UPDATE: "PENDING_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type RequesterGatewayStatus = (typeof RequesterGatewayStatus)[keyof typeof RequesterGatewayStatus];
-
-/**
- * @public
  */
 export interface CreateRequesterGatewayResponse {
   /**
@@ -1127,20 +887,6 @@ export namespace ManagedEndpointConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const Protocol = {
-  HTTP: "HTTP",
-  HTTPS: "HTTPS",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
-/**
  * <p>Describes the configuration of a trust store.</p>
  * @public
  */
@@ -1222,27 +968,6 @@ export interface CreateResponderGatewayRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResponderGatewayStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  ERROR: "ERROR",
-  ISOLATED: "ISOLATED",
-  PENDING_CREATION: "PENDING_CREATION",
-  PENDING_DELETION: "PENDING_DELETION",
-  PENDING_ISOLATION: "PENDING_ISOLATION",
-  PENDING_RESTORATION: "PENDING_RESTORATION",
-  PENDING_UPDATE: "PENDING_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type ResponderGatewayStatus = (typeof ResponderGatewayStatus)[keyof typeof ResponderGatewayStatus];
 
 /**
  * @public

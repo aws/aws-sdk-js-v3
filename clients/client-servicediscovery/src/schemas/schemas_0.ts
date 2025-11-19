@@ -241,7 +241,7 @@ import {
   ServiceAttributesLimitExceededException as __ServiceAttributesLimitExceededException,
   ServiceNotFound as __ServiceNotFound,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 import { ServiceDiscoveryServiceException as __ServiceDiscoveryServiceException } from "../models/ServiceDiscoveryServiceException";
 
 /* eslint no-var: 0 */

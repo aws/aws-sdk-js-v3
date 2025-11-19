@@ -1,27 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { KeyspacesStreamsServiceException as __BaseException } from "./KeyspacesStreamsServiceException";
-
-/**
- * <p>You don't have sufficient access permissions to perform this operation. </p> <p>This exception occurs when your IAM user or role lacks the required permissions to access the Amazon Keyspaces resource or perform the requested action. Check your IAM policies and ensure they grant the necessary permissions.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import { OriginType, ShardFilterType, ShardIteratorType, StreamStatus, StreamViewType } from "./enums";
 
 /**
  * @public
@@ -57,140 +35,6 @@ export interface KeyspacesMetadata {
    */
   writeTime?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OriginType = {
-  REPLICATION: "REPLICATION",
-  TTL: "TTL",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type OriginType = (typeof OriginType)[keyof typeof OriginType];
-
-/**
- * <p>The Amazon Keyspaces service encountered an unexpected error while processing the request. </p> <p>This internal server error is not related to your request parameters. Retry your request after a brief delay. If the issue persists, contact Amazon Web Services Support with details of your request to help identify and resolve the problem.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The requested resource doesn't exist or could not be found. </p> <p>This exception occurs when you attempt to access a keyspace, table, stream, or other Amazon Keyspaces resource that doesn't exist or that has been deleted. Verify that the resource identifier is correct and that the resource exists in your account.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request rate is too high and exceeds the service's throughput limits. </p> <p>This exception occurs when you send too many requests in a short period of time. Implement exponential backoff in your retry strategy to handle this exception. Reducing your request frequency or distributing requests more evenly can help avoid throughput exceptions.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionType = {
-  ExpiredIterator: "ExpiredIterator",
-  ExpiredNextToken: "ExpiredNextToken",
-  InvalidFormat: "InvalidFormat",
-  TrimmedDataAccess: "TrimmedDataAccess",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionType = (typeof ValidationExceptionType)[keyof typeof ValidationExceptionType];
-
-/**
- * <p>The request validation failed because one or more input parameters failed validation. </p> <p>This exception occurs when there are syntax errors in the request, field constraints are violated, or required parameters are missing. To help you fix the issue, the exception message provides details about which parameter failed and why.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error occurred validating your request. See the error message for details.</p>
-   * @public
-   */
-  errorCode?: ValidationExceptionType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.errorCode = opts.errorCode;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ShardIteratorType = {
-  AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
-  AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type ShardIteratorType = (typeof ShardIteratorType)[keyof typeof ShardIteratorType];
 
 /**
  * @public
@@ -231,19 +75,6 @@ export interface GetShardIteratorOutput {
    */
   shardIterator?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShardFilterType = {
-  CHILD_SHARDS: "CHILD_SHARDS",
-} as const;
-
-/**
- * @public
- */
-export type ShardFilterType = (typeof ShardFilterType)[keyof typeof ShardFilterType];
 
 /**
  * <p>A filter used to limit the shards returned by a <code>GetStream</code> operation.</p>
@@ -333,38 +164,6 @@ export interface Shard {
    */
   parentShardIds?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StreamStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-} as const;
-
-/**
- * @public
- */
-export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
-
-/**
- * @public
- * @enum
- */
-export const StreamViewType = {
-  KEYS_ONLY: "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE: "NEW_IMAGE",
-  OLD_IMAGE: "OLD_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type StreamViewType = (typeof StreamViewType)[keyof typeof StreamViewType];
 
 /**
  * @public

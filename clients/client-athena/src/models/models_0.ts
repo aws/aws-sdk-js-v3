@@ -1,20 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AthenaServiceException as __BaseException } from "./AthenaServiceException";
-
-/**
- * @public
- * @enum
- */
-export const S3AclOption = {
-  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type S3AclOption = (typeof S3AclOption)[keyof typeof S3AclOption];
+import {
+  AuthenticationType,
+  CalculationExecutionState,
+  CapacityAllocationStatus,
+  CapacityReservationStatus,
+  ColumnNullable,
+  ConnectionType,
+  DataCatalogStatus,
+  DataCatalogType,
+  EncryptionOption,
+  ExecutorState,
+  ExecutorType,
+  NotebookType,
+  QueryExecutionState,
+  QueryResultType,
+  S3AclOption,
+  SessionState,
+  StatementType,
+  WorkGroupState,
+} from "./enums";
 
 /**
  * <p>Indicates that an Amazon S3 canned ACL should be set to control ownership of
@@ -135,60 +139,6 @@ export interface BatchGetNamedQueryOutput {
    * @public
    */
   UnprocessedNamedQueryIds?: UnprocessedNamedQueryId[] | undefined;
-}
-
-/**
- * <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code returned when the query execution failed to process, or when the
-   *             processing request for the named query failed.</p>
-   * @public
-   */
-  AthenaErrorCode?: string | undefined;
-
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.AthenaErrorCode = opts.AthenaErrorCode;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -401,19 +351,6 @@ export interface QueryExecutionContext {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthenticationType = {
-  DIRECTORY_IDENTITY: "DIRECTORY_IDENTITY",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
-
-/**
  * <p>Specifies whether Amazon S3 access grants are enabled for query
  *             results.</p>
  * @public
@@ -440,21 +377,6 @@ export interface QueryResultsS3AccessGrantsConfiguration {
    */
   AuthenticationType: AuthenticationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionOption = {
-  CSE_KMS: "CSE_KMS",
-  SSE_KMS: "SSE_KMS",
-  SSE_S3: "SSE_S3",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionOption = (typeof EncryptionOption)[keyof typeof EncryptionOption];
 
 /**
  * <p>If query and calculation results are encrypted in Amazon S3, indicates the
@@ -574,21 +496,6 @@ export interface ResultReuseConfiguration {
    */
   ResultReuseByAgeConfiguration?: ResultReuseByAgeConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatementType = {
-  DDL: "DDL",
-  DML: "DML",
-  UTILITY: "UTILITY",
-} as const;
-
-/**
- * @public
- */
-export type StatementType = (typeof StatementType)[keyof typeof StatementType];
 
 /**
  * <p>Contains information about whether the result of a previous query was reused.</p>
@@ -721,23 +628,6 @@ export interface AthenaError {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryExecutionState = {
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type QueryExecutionState = (typeof QueryExecutionState)[keyof typeof QueryExecutionState];
 
 /**
  * <p>The completion date, current state, submission time, and state change reason (if
@@ -1013,22 +903,6 @@ export interface CreateCapacityReservationOutput {}
 
 /**
  * @public
- * @enum
- */
-export const DataCatalogType = {
-  FEDERATED: "FEDERATED",
-  GLUE: "GLUE",
-  HIVE: "HIVE",
-  LAMBDA: "LAMBDA",
-} as const;
-
-/**
- * @public
- */
-export type DataCatalogType = (typeof DataCatalogType)[keyof typeof DataCatalogType];
-
-/**
- * @public
  */
 export interface CreateDataCatalogInput {
   /**
@@ -1180,59 +1054,6 @@ export interface CreateDataCatalogInput {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  BIGQUERY: "BIGQUERY",
-  CMDB: "CMDB",
-  DATALAKEGEN2: "DATALAKEGEN2",
-  DB2: "DB2",
-  DB2AS400: "DB2AS400",
-  DOCUMENTDB: "DOCUMENTDB",
-  DYNAMODB: "DYNAMODB",
-  GOOGLECLOUDSTORAGE: "GOOGLECLOUDSTORAGE",
-  HBASE: "HBASE",
-  MYSQL: "MYSQL",
-  OPENSEARCH: "OPENSEARCH",
-  ORACLE: "ORACLE",
-  POSTGRESQL: "POSTGRESQL",
-  REDSHIFT: "REDSHIFT",
-  SAPHANA: "SAPHANA",
-  SNOWFLAKE: "SNOWFLAKE",
-  SQLSERVER: "SQLSERVER",
-  SYNAPSE: "SYNAPSE",
-  TIMESTREAM: "TIMESTREAM",
-  TPCDS: "TPCDS",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
-
-/**
- * @public
- * @enum
- */
-export const DataCatalogStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_FAILED_CLEANUP_COMPLETE: "CREATE_FAILED_CLEANUP_COMPLETE",
-  CREATE_FAILED_CLEANUP_FAILED: "CREATE_FAILED_CLEANUP_FAILED",
-  CREATE_FAILED_CLEANUP_IN_PROGRESS: "CREATE_FAILED_CLEANUP_IN_PROGRESS",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE: "DELETE_COMPLETE",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type DataCatalogStatus = (typeof DataCatalogStatus)[keyof typeof DataCatalogStatus];
 
 /**
  * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
@@ -1558,48 +1379,6 @@ export interface CreateNotebookOutput {
 
 /**
  * @public
- * @enum
- */
-export const ThrottleReason = {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED: "CONCURRENT_QUERY_LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ThrottleReason = (typeof ThrottleReason)[keyof typeof ThrottleReason];
-
-/**
- * <p>Indicates that the request was throttled.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
-   *             limit.</p>
-   * @public
-   */
-  Reason?: ThrottleReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
  */
 export interface CreatePreparedStatementInput {
   /**
@@ -1665,34 +1444,6 @@ export interface CreatePresignedNotebookUrlResponse {
    * @public
    */
   AuthTokenExpirationTime: number | undefined;
-}
-
-/**
- * <p>A resource, such as a workgroup, was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the Amazon resource.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
 }
 
 /**
@@ -2026,19 +1777,6 @@ export interface ExportNotebookInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const NotebookType = {
-  IPYNB: "IPYNB",
-} as const;
-
-/**
- * @public
- */
-export type NotebookType = (typeof NotebookType)[keyof typeof NotebookType];
-
-/**
  * <p>Contains metadata for notebook, including the notebook name, ID, workgroup, and time
  *             created.</p>
  * @public
@@ -2158,26 +1896,6 @@ export interface CalculationStatistics {
    */
   Progress?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CalculationExecutionState = {
-  CANCELED: "CANCELED",
-  CANCELING: "CANCELING",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type CalculationExecutionState = (typeof CalculationExecutionState)[keyof typeof CalculationExecutionState];
 
 /**
  * <p>Contains information about the status of a notebook calculation.</p>
@@ -2397,21 +2115,6 @@ export interface GetCapacityReservationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const CapacityAllocationStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type CapacityAllocationStatus = (typeof CapacityAllocationStatus)[keyof typeof CapacityAllocationStatus];
-
-/**
  * <p>Contains the submission time of a single allocation request for a capacity reservation
  *             and the most recent status of the attempted allocation.</p>
  * @public
@@ -2441,24 +2144,6 @@ export interface CapacityAllocation {
    */
   RequestCompletionTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationStatus = {
-  ACTIVE: "ACTIVE",
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  UPDATE_PENDING: "UPDATE_PENDING",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationStatus = (typeof CapacityReservationStatus)[keyof typeof CapacityReservationStatus];
 
 /**
  * <p>A reservation for a specified number of data processing units (DPUs). When a
@@ -2579,33 +2264,6 @@ export interface GetDatabaseOutput {
    * @public
    */
   Database?: Database | undefined;
-}
-
-/**
- * <p>An exception that Athena received when it called a custom metastore.
- *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
- *             or from the Athena platform (<code>InternalServerException</code>). For
- *             example, if a user-created Lambda function is missing permissions, the
- *                 Lambda
- *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
- * @public
- */
-export class MetadataException extends __BaseException {
-  readonly name: "MetadataException" = "MetadataException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MetadataException, __BaseException>) {
-    super({
-      name: "MetadataException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MetadataException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2733,20 +2391,6 @@ export interface GetQueryExecutionOutput {
 
 /**
  * @public
- * @enum
- */
-export const QueryResultType = {
-  DATA_MANIFEST: "DATA_MANIFEST",
-  DATA_ROWS: "DATA_ROWS",
-} as const;
-
-/**
- * @public
- */
-export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
-
-/**
- * @public
  */
 export interface GetQueryResultsInput {
   /**
@@ -2779,21 +2423,6 @@ export interface GetQueryResultsInput {
    */
   QueryResultType?: QueryResultType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ColumnNullable = {
-  NOT_NULL: "NOT_NULL",
-  NULLABLE: "NULLABLE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type ColumnNullable = (typeof ColumnNullable)[keyof typeof ColumnNullable];
 
 /**
  * <p>Information about the columns in a query execution result.</p>
@@ -3142,26 +2771,6 @@ export interface SessionStatistics {
 }
 
 /**
- * @public
- * @enum
- */
-export const SessionState = {
-  BUSY: "BUSY",
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  DEGRADED: "DEGRADED",
-  FAILED: "FAILED",
-  IDLE: "IDLE",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-} as const;
-
-/**
- * @public
- */
-export type SessionState = (typeof SessionState)[keyof typeof SessionState];
-
-/**
  * <p>Contains information about the status of a session.</p>
  * @public
  */
@@ -3437,20 +3046,6 @@ export interface GetWorkGroupInput {
    */
   WorkGroup: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkGroupState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type WorkGroupState = (typeof WorkGroupState)[keyof typeof WorkGroupState];
 
 /**
  * <p>A workgroup, which contains a name, description, creation time, state, and other
@@ -4001,24 +3596,6 @@ export interface ListEngineVersionsOutput {
 
 /**
  * @public
- * @enum
- */
-export const ExecutorState = {
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-  REGISTERED: "REGISTERED",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-} as const;
-
-/**
- * @public
- */
-export type ExecutorState = (typeof ExecutorState)[keyof typeof ExecutorState];
-
-/**
- * @public
  */
 export interface ListExecutorsRequest {
   /**
@@ -4060,21 +3637,6 @@ export interface ListExecutorsRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutorType = {
-  COORDINATOR: "COORDINATOR",
-  GATEWAY: "GATEWAY",
-  WORKER: "WORKER",
-} as const;
-
-/**
- * @public
- */
-export type ExecutorType = (typeof ExecutorType)[keyof typeof ExecutorType];
 
 /**
  * <p>Contains summary information about an executor.</p>
@@ -4921,28 +4483,6 @@ export interface StartQueryExecutionOutput {
    * @public
    */
   QueryExecutionId?: string | undefined;
-}
-
-/**
- * <p>The specified session already exists.</p>
- * @public
- */
-export class SessionAlreadyExistsException extends __BaseException {
-  readonly name: "SessionAlreadyExistsException" = "SessionAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SessionAlreadyExistsException, __BaseException>) {
-    super({
-      name: "SessionAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SessionAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

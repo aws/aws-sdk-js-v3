@@ -1207,7 +1207,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LexModelsV2ServiceException as __LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
 /* eslint no-var: 0 */

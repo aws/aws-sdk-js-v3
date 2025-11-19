@@ -260,7 +260,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { TnbServiceException as __TnbServiceException } from "../models/TnbServiceException";
 
 /* eslint no-var: 0 */

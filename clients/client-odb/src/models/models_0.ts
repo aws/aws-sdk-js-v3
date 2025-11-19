@@ -1,7 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { OdbServiceException as __BaseException } from "./OdbServiceException";
+import {
+  Access,
+  ComputeModel,
+  DayOfWeekName,
+  DbNodeMaintenanceType,
+  DbNodeResourceStatus,
+  DbServerPatchingStatus,
+  DiskRedundancy,
+  IormLifecycleState,
+  LicenseModel,
+  ManagedResourceStatus,
+  MonthName,
+  Objective,
+  OciOnboardingStatus,
+  PatchingModeType,
+  PreferenceType,
+  ResourceStatus,
+  ShapeType,
+  VpcEndpointType,
+} from "./enums";
 
 /**
  * @public
@@ -20,115 +37,6 @@ export interface AcceptMarketplaceRegistrationInput {
 export interface AcceptMarketplaceRegistrationOutput {}
 
 /**
- * <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that caused the conflict.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource that caused the conflict.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The number of seconds to wait before retrying the request after an internal server error.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The number of seconds to wait before retrying the request after being throttled.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>The input failed to meet the constraints specified by the service in a specified field. Make sure you provided the correct input and try again.</p>
  * @public
  */
@@ -145,89 +53,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason why the validation failed.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>A list of fields that failed validation.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Access = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type Access = (typeof Access)[keyof typeof Access];
-
-/**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  AVAILABLE: "AVAILABLE",
-  FAILED: "FAILED",
-  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
-  PROVISIONING: "PROVISIONING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * <p>A summary of an Autonomous Virtual Machine (VM) within an Autonomous VM cluster.</p>
@@ -314,53 +139,6 @@ export interface AutonomousVirtualMachineSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComputeModel = {
-  ECPU: "ECPU",
-  OCPU: "OCPU",
-} as const;
-
-/**
- * @public
- */
-export type ComputeModel = (typeof ComputeModel)[keyof typeof ComputeModel];
-
-/**
- * @public
- * @enum
- */
-export const LicenseModel = {
-  BRING_YOUR_OWN_LICENSE: "BRING_YOUR_OWN_LICENSE",
-  LICENSE_INCLUDED: "LICENSE_INCLUDED",
-} as const;
-
-/**
- * @public
- */
-export type LicenseModel = (typeof LicenseModel)[keyof typeof LicenseModel];
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeekName = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeekName = (typeof DayOfWeekName)[keyof typeof DayOfWeekName];
-
-/**
  * <p>An enumeration of days of the week used for scheduling maintenance windows.</p>
  * @public
  */
@@ -373,30 +151,6 @@ export interface DayOfWeek {
 }
 
 /**
- * @public
- * @enum
- */
-export const MonthName = {
-  APRIL: "APRIL",
-  AUGUST: "AUGUST",
-  DECEMBER: "DECEMBER",
-  FEBRUARY: "FEBRUARY",
-  JANUARY: "JANUARY",
-  JULY: "JULY",
-  JUNE: "JUNE",
-  MARCH: "MARCH",
-  MAY: "MAY",
-  NOVEMBER: "NOVEMBER",
-  OCTOBER: "OCTOBER",
-  SEPTEMBER: "SEPTEMBER",
-} as const;
-
-/**
- * @public
- */
-export type MonthName = (typeof MonthName)[keyof typeof MonthName];
-
-/**
  * <p>An enumeration of months used for scheduling maintenance windows.</p>
  * @public
  */
@@ -407,34 +161,6 @@ export interface Month {
    */
   name?: MonthName | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PatchingModeType = {
-  NONROLLING: "NONROLLING",
-  ROLLING: "ROLLING",
-} as const;
-
-/**
- * @public
- */
-export type PatchingModeType = (typeof PatchingModeType)[keyof typeof PatchingModeType];
-
-/**
- * @public
- * @enum
- */
-export const PreferenceType = {
-  CUSTOM_PREFERENCE: "CUSTOM_PREFERENCE",
-  NO_PREFERENCE: "NO_PREFERENCE",
-} as const;
-
-/**
- * @public
- */
-export type PreferenceType = (typeof PreferenceType)[keyof typeof PreferenceType];
 
 /**
  * <p>The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.</p>
@@ -1236,81 +962,6 @@ export interface CreateCloudAutonomousVmClusterOutput {
    * @public
    */
   cloudAutonomousVmClusterId: string | undefined;
-}
-
-/**
- * <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that was not found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource that was not found.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>You have exceeded the service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that exceeded the service quota.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource that exceeded the service quota.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The unqiue identifier of the service quota that was exceeded.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 /**
@@ -2167,22 +1818,6 @@ export interface GetDbServerInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DbServerPatchingStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
-  SCHEDULED: "SCHEDULED",
-} as const;
-
-/**
- * @public
- */
-export type DbServerPatchingStatus = (typeof DbServerPatchingStatus)[keyof typeof DbServerPatchingStatus];
-
-/**
  * <p>The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.</p>
  * @public
  */
@@ -2620,20 +2255,6 @@ export interface DataCollectionOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const DiskRedundancy = {
-  HIGH: "HIGH",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type DiskRedundancy = (typeof DiskRedundancy)[keyof typeof DiskRedundancy];
-
-/**
  * <p>The IORM configuration settings for the database.</p>
  * @public
  */
@@ -2656,40 +2277,6 @@ export interface DbIormConfig {
    */
   share?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IormLifecycleState = {
-  BOOTSTRAPPING: "BOOTSTRAPPING",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IormLifecycleState = (typeof IormLifecycleState)[keyof typeof IormLifecycleState];
-
-/**
- * @public
- * @enum
- */
-export const Objective = {
-  AUTO: "AUTO",
-  BALANCED: "BALANCED",
-  BASIC: "BASIC",
-  HIGH_THROUGHPUT: "HIGH_THROUGHPUT",
-  LOW_LATENCY: "LOW_LATENCY",
-} as const;
-
-/**
- * @public
- */
-export type Objective = (typeof Objective)[keyof typeof Objective];
 
 /**
  * <p>The IORM settings of the Exadata DB system.</p>
@@ -3628,40 +3215,6 @@ export interface CreateOdbPeeringConnectionOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DbNodeMaintenanceType = {
-  VMDB_REBOOT_MIGRATION: "VMDB_REBOOT_MIGRATION",
-} as const;
-
-/**
- * @public
- */
-export type DbNodeMaintenanceType = (typeof DbNodeMaintenanceType)[keyof typeof DbNodeMaintenanceType];
-
-/**
- * @public
- * @enum
- */
-export const DbNodeResourceStatus = {
-  AVAILABLE: "AVAILABLE",
-  FAILED: "FAILED",
-  PROVISIONING: "PROVISIONING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DbNodeResourceStatus = (typeof DbNodeResourceStatus)[keyof typeof DbNodeResourceStatus];
-
-/**
  * <p>Information about a DB node.</p>
  * @public
  */
@@ -4186,22 +3739,6 @@ export interface StopDbNodeOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ShapeType = {
-  AMD: "AMD",
-  AMPERE_FLEX_A1: "AMPERE_FLEX_A1",
-  INTEL: "INTEL",
-  INTEL_FLEX_X9: "INTEL_FLEX_X9",
-} as const;
-
-/**
- * @public
- */
-export type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
-
-/**
  * <p>Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.</p>
  * @public
  */
@@ -4396,30 +3933,6 @@ export interface GetOciOnboardingStatusInput {}
 
 /**
  * @public
- * @enum
- */
-export const OciOnboardingStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  ACTIVE_IN_HOME_REGION: "ACTIVE_IN_HOME_REGION",
-  ACTIVE_LIMITED: "ACTIVE_LIMITED",
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  NOT_STARTED: "NOT_STARTED",
-  PENDING_CUSTOMER_ACTION: "PENDING_CUSTOMER_ACTION",
-  PENDING_INITIALIZATION: "PENDING_INITIALIZATION",
-  PENDING_LINK_GENERATION: "PENDING_LINK_GENERATION",
-  PUBLIC_OFFER_UNSUPPORTED: "PUBLIC_OFFER_UNSUPPORTED",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type OciOnboardingStatus = (typeof OciOnboardingStatus)[keyof typeof OciOnboardingStatus];
-
-/**
- * @public
  */
 export interface GetOciOnboardingStatusOutput {
   /**
@@ -4451,22 +3964,6 @@ export interface GetOdbNetworkInput {
    */
   odbNetworkId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManagedResourceStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-} as const;
-
-/**
- * @public
- */
-export type ManagedResourceStatus = (typeof ManagedResourceStatus)[keyof typeof ManagedResourceStatus];
 
 /**
  * <p>The configuration for managed Amazon S3 backup access from the ODB network.</p>
@@ -4515,19 +4012,6 @@ export interface S3Access {
    */
   s3PolicyDocument?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VpcEndpointType = {
-  SERVICENETWORK: "SERVICENETWORK",
-} as const;
-
-/**
- * @public
- */
-export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
 
 /**
  * <p>The configuration for a service network endpoint.</p>

@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUICustomizationRequest, GetUICustomizationResponse } from "../models/models_1";
+import { GetUICustomizationRequest, GetUICustomizationResponse } from "../models/models_0";
 import { GetUICustomization } from "../schemas/schemas_0";
 
 /**

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListSbomValidationResultsRequest, ListSbomValidationResultsResponse } from "../models/models_2";
+import { ListSbomValidationResultsRequest, ListSbomValidationResultsResponse } from "../models/models_1";
 import { ListSbomValidationResults } from "../schemas/schemas_0";
 
 /**

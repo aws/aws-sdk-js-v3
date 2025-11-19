@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } f
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/models_2";
+import { DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/models_1";
 import { DescribeInputDeviceThumbnail } from "../schemas/schemas_0";
 
 /**

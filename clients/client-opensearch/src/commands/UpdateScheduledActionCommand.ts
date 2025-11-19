@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateScheduledActionRequest, UpdateScheduledActionResponse } from "../models/models_1";
+import { UpdateScheduledActionRequest, UpdateScheduledActionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { UpdateScheduledAction } from "../schemas/schemas_0";
 

@@ -1,44 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ServiceQuotasServiceException as __BaseException } from "./ServiceQuotasServiceException";
-
-/**
- * <p>You do not have sufficient permission to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AppliedLevelEnum = {
-  ACCOUNT: "ACCOUNT",
-  ALL: "ALL",
-  RESOURCE: "RESOURCE",
-} as const;
-
-/**
- * @public
- */
-export type AppliedLevelEnum = (typeof AppliedLevelEnum)[keyof typeof AppliedLevelEnum];
+import {
+  AppliedLevelEnum,
+  ErrorCode,
+  OptInLevel,
+  OptInStatus,
+  OptInType,
+  PeriodUnit,
+  QuotaContextScope,
+  RequestStatus,
+  ServiceQuotaTemplateAssociationStatus,
+} from "./enums";
 
 /**
  * @public
@@ -49,163 +20,6 @@ export interface AssociateServiceQuotaTemplateRequest {}
  * @public
  */
 export interface AssociateServiceQuotaTemplateResponse {}
-
-/**
- * <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in
- *             your organization.</p>
- * @public
- */
-export class AWSServiceAccessNotEnabledException extends __BaseException {
-  readonly name: "AWSServiceAccessNotEnabledException" = "AWSServiceAccessNotEnabledException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AWSServiceAccessNotEnabledException, __BaseException>) {
-    super({
-      name: "AWSServiceAccessNotEnabledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AWSServiceAccessNotEnabledException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You can't perform this action because a dependency does not have access.</p>
- * @public
- */
-export class DependencyAccessDeniedException extends __BaseException {
-  readonly name: "DependencyAccessDeniedException" = "DependencyAccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyAccessDeniedException, __BaseException>) {
-    super({
-      name: "DependencyAccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyAccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Amazon Web Services account making this call is not a member of an organization.</p>
- * @public
- */
-export class NoAvailableOrganizationException extends __BaseException {
-  readonly name: "NoAvailableOrganizationException" = "NoAvailableOrganizationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoAvailableOrganizationException, __BaseException>) {
-    super({
-      name: "NoAvailableOrganizationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoAvailableOrganizationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The organization that your Amazon Web Services account belongs to is not in All Features
- *             mode.</p>
- * @public
- */
-export class OrganizationNotInAllFeaturesModeException extends __BaseException {
-  readonly name: "OrganizationNotInAllFeaturesModeException" = "OrganizationNotInAllFeaturesModeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationNotInAllFeaturesModeException, __BaseException>) {
-    super({
-      name: "OrganizationNotInAllFeaturesModeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationNotInAllFeaturesModeException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Something went wrong.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
- * @public
- */
-export class TemplatesNotAvailableInRegionException extends __BaseException {
-  readonly name: "TemplatesNotAvailableInRegionException" = "TemplatesNotAvailableInRegionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TemplatesNotAvailableInRegionException, __BaseException>) {
-    super({
-      name: "TemplatesNotAvailableInRegionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TemplatesNotAvailableInRegionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -222,94 +36,6 @@ export interface CreateSupportCaseRequest {
  * @public
  */
 export interface CreateSupportCaseResponse {}
-
-/**
- * <p>Invalid input was provided.</p>
- * @public
- */
-export class IllegalArgumentException extends __BaseException {
-  readonly name: "IllegalArgumentException" = "IllegalArgumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalArgumentException, __BaseException>) {
-    super({
-      name: "IllegalArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalArgumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource is in an invalid state.</p>
- * @public
- */
-export class InvalidResourceStateException extends __BaseException {
-  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
-    super({
-      name: "InvalidResourceStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class NoSuchResourceException extends __BaseException {
-  readonly name: "NoSuchResourceException" = "NoSuchResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchResourceException, __BaseException>) {
-    super({
-      name: "NoSuchResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchResourceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -351,44 +77,6 @@ export interface DisassociateServiceQuotaTemplateRequest {}
  * @public
  */
 export interface DisassociateServiceQuotaTemplateResponse {}
-
-/**
- * <p>The quota request template is not associated with your organization.</p>
- * @public
- */
-export class ServiceQuotaTemplateNotInUseException extends __BaseException {
-  readonly name: "ServiceQuotaTemplateNotInUseException" = "ServiceQuotaTemplateNotInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaTemplateNotInUseException, __BaseException>) {
-    super({
-      name: "ServiceQuotaTemplateNotInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaTemplateNotInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  DEPENDENCY_ACCESS_DENIED_ERROR: "DEPENDENCY_ACCESS_DENIED_ERROR",
-  DEPENDENCY_SERVICE_ERROR: "DEPENDENCY_SERVICE_ERROR",
-  DEPENDENCY_THROTTLING_ERROR: "DEPENDENCY_THROTTLING_ERROR",
-  SERVICE_QUOTA_NOT_AVAILABLE_ERROR: "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * <p>An error that explains why an action did not succeed.</p>
@@ -457,21 +145,6 @@ export interface GetAssociationForServiceQuotaTemplateRequest {}
 
 /**
  * @public
- * @enum
- */
-export const ServiceQuotaTemplateAssociationStatus = {
-  ASSOCIATED: "ASSOCIATED",
-  DISASSOCIATED: "DISASSOCIATED",
-} as const;
-
-/**
- * @public
- */
-export type ServiceQuotaTemplateAssociationStatus =
-  (typeof ServiceQuotaTemplateAssociationStatus)[keyof typeof ServiceQuotaTemplateAssociationStatus];
-
-/**
- * @public
  */
 export interface GetAssociationForServiceQuotaTemplateResponse {
   /**
@@ -487,47 +160,6 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
  * @public
  */
 export interface GetAutoManagementConfigurationRequest {}
-
-/**
- * @public
- * @enum
- */
-export const OptInLevel = {
-  ACCOUNT: "ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type OptInLevel = (typeof OptInLevel)[keyof typeof OptInLevel];
-
-/**
- * @public
- * @enum
- */
-export const OptInStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type OptInStatus = (typeof OptInStatus)[keyof typeof OptInStatus];
-
-/**
- * @public
- * @enum
- */
-export const OptInType = {
-  NotifyAndAdjust: "NotifyAndAdjust",
-  NotifyOnly: "NotifyOnly",
-} as const;
-
-/**
- * @public
- */
-export type OptInType = (typeof OptInType)[keyof typeof OptInType];
 
 /**
  * @public
@@ -589,25 +221,6 @@ export interface GetAWSDefaultServiceQuotaRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PeriodUnit = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  MICROSECOND: "MICROSECOND",
-  MILLISECOND: "MILLISECOND",
-  MINUTE: "MINUTE",
-  SECOND: "SECOND",
-  WEEK: "WEEK",
-} as const;
-
-/**
- * @public
- */
-export type PeriodUnit = (typeof PeriodUnit)[keyof typeof PeriodUnit];
-
-/**
  * <p>Information about the quota period.</p>
  * @public
  */
@@ -624,20 +237,6 @@ export interface QuotaPeriod {
    */
   PeriodUnit?: PeriodUnit | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QuotaContextScope = {
-  ACCOUNT: "ACCOUNT",
-  RESOURCE: "RESOURCE",
-} as const;
-
-/**
- * @public
- */
-export type QuotaContextScope = (typeof QuotaContextScope)[keyof typeof QuotaContextScope];
 
 /**
  * <p>A structure that describes the context for a resource-level quota. For resource-level quotas, such as <code>Instances per OpenSearch Service Domain</code>, you can apply the quota value at the resource-level for each OpenSearch Service Domain in your Amazon Web Services account. Together the attributes of this structure help you understand how the quota is implemented by Amazon Web Services and how you can manage it. For quotas such as <code>Amazon OpenSearch Service Domains</code> which can be managed at the account-level for each Amazon Web Services Region, the <code>QuotaContext</code> field is absent. See the attribute descriptions below to further understand how to use them.</p>
@@ -814,25 +413,6 @@ export interface GetRequestedServiceQuotaChangeRequest {
    */
   RequestId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RequestStatus = {
-  APPROVED: "APPROVED",
-  CASE_CLOSED: "CASE_CLOSED",
-  CASE_OPENED: "CASE_OPENED",
-  DENIED: "DENIED",
-  INVALID_REQUEST: "INVALID_REQUEST",
-  NOT_APPROVED: "NOT_APPROVED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type RequestStatus = (typeof RequestStatus)[keyof typeof RequestStatus];
 
 /**
  * <p>Information about a quota increase request.</p>
@@ -1137,28 +717,6 @@ export interface Tag {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * <p>Invalid input was provided.</p>
- * @public
- */
-export class InvalidPaginationTokenException extends __BaseException {
-  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
-    super({
-      name: "InvalidPaginationTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1643,29 +1201,6 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
 }
 
 /**
- * <p>You have exceeded your service quota. To perform the requested action, remove some of
- *             the relevant resources, or use Service Quotas to request a service quota increase.</p>
- * @public
- */
-export class QuotaExceededException extends __BaseException {
-  readonly name: "QuotaExceededException" = "QuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<QuotaExceededException, __BaseException>) {
-    super({
-      name: "QuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, QuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface RequestServiceQuotaIncreaseRequest {
@@ -1767,28 +1302,6 @@ export interface StopAutoManagementRequest {}
 export interface StopAutoManagementResponse {}
 
 /**
- * <p>The specified tag is a reserved word and cannot be used.</p>
- * @public
- */
-export class TagPolicyViolationException extends __BaseException {
-  readonly name: "TagPolicyViolationException" = "TagPolicyViolationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagPolicyViolationException, __BaseException>) {
-    super({
-      name: "TagPolicyViolationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagPolicyViolationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface TagResourceRequest {
@@ -1810,30 +1323,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>You've exceeded the number of tags allowed for a resource. For more information, see
- *                 <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions">Tag
- *                 restrictions</a> in the <i>Service Quotas User Guide</i>.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public

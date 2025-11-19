@@ -25,7 +25,7 @@ import {
   ClientLimitExceededException as __ClientLimitExceededException,
   InvalidArgumentException as __InvalidArgumentException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisVideoWebRTCStorageServiceException as __KinesisVideoWebRTCStorageServiceException } from "../models/KinesisVideoWebRTCStorageServiceException";
 
 /* eslint no-var: 0 */

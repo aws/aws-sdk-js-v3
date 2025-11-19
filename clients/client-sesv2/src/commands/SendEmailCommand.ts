@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendEmailRequest, SendEmailResponse } from "../models/models_1";
+import { SendEmailRequest } from "../models/models_0";
+import { SendEmailResponse } from "../models/models_1";
 import { SendEmail } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

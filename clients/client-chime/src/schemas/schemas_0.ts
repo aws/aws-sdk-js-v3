@@ -405,7 +405,7 @@ import {
   ThrottledClientException as __ThrottledClientException,
   UnauthorizedClientException as __UnauthorizedClientException,
   UnprocessableEntityException as __UnprocessableEntityException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

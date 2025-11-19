@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
-} from "../models/models_7";
+} from "../models/models_6";
 import { GetTransitGatewayMulticastDomainAssociations } from "../schemas/schemas_0";
 
 /**

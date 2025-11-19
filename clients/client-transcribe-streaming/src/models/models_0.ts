@@ -1,7 +1,38 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import {
+  CallAnalyticsLanguageCode,
+  ClinicalNoteGenerationStatus,
+  ContentIdentificationType,
+  ContentRedactionOutput,
+  ContentRedactionType,
+  ItemType,
+  LanguageCode,
+  MediaEncoding,
+  MedicalContentIdentificationType,
+  MedicalScribeLanguageCode,
+  MedicalScribeMediaEncoding,
+  MedicalScribeNoteTemplate,
+  MedicalScribeParticipantRole,
+  MedicalScribeSessionControlEventType,
+  MedicalScribeStreamStatus,
+  MedicalScribeTranscriptItemType,
+  MedicalScribeVocabularyFilterMethod,
+  PartialResultsStability,
+  ParticipantRole,
+  Pronouns,
+  Sentiment,
+  Specialty,
+  Type,
+  VocabularyFilterMethod,
+} from "./enums";
 
-import { TranscribeStreamingServiceException as __BaseException } from "./TranscribeStreamingServiceException";
+import {
+  BadRequestException,
+  ConflictException,
+  InternalFailureException,
+  LimitExceededException,
+  ServiceUnavailableException,
+} from "./errors";
 
 /**
  * <p>Contains entities identified as personally identifiable information (PII) in your
@@ -50,20 +81,6 @@ export interface Entity {
    */
   Confidence?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ItemType = {
-  PRONUNCIATION: "pronunciation",
-  PUNCTUATION: "punctuation",
-} as const;
-
-/**
- * @public
- */
-export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
@@ -185,20 +202,6 @@ export interface AudioEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const ParticipantRole = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
-
-/**
  * <p>Makes it possible to specify which speaker is on which audio channel. For example, if your
  *       agent is the first participant to speak, you would set <code>ChannelId</code> to
  *       <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -219,20 +222,6 @@ export interface ChannelDefinition {
    */
   ParticipantRole: ParticipantRole | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentRedactionOutput = {
-  REDACTED: "redacted",
-  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
-} as const;
-
-/**
- * @public
- */
-export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
 
 /**
  * <p>Allows you to specify additional settings for your Call Analytics post-call request,
@@ -416,31 +405,6 @@ export namespace AudioStream {
 }
 
 /**
- * <p>One or more arguments to the <code>StartStreamTranscription</code>,
- *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
- *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used unsupported values. Check the specified parameters and try your request again.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, content, type, and start and end times.</p>
@@ -544,27 +508,6 @@ export interface CallAnalyticsItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const CallAnalyticsLanguageCode = {
-  DE_DE: "de-DE",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_US: "en-US",
-  ES_US: "es-US",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  IT_IT: "it-IT",
-  PT_BR: "pt-BR",
-} as const;
-
-/**
- * @public
- */
-export type CallAnalyticsLanguageCode = (typeof CallAnalyticsLanguageCode)[keyof typeof CallAnalyticsLanguageCode];
-
-/**
  * <p>The language code that represents the language identified in your audio, including the associated
  *       confidence score.</p>
  * @public
@@ -635,96 +578,6 @@ export interface CategoryEvent {
 }
 
 /**
- * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
- *       processing.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
- *       limit. Break your audio stream into smaller chunks and try your request again.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service is currently unavailable. Try your request later.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Provides the location, using character count, in your transcript where a match is identified. For example,
  *       the location of an issue or a category match within a segment.</p>
  * @public
@@ -756,22 +609,6 @@ export interface IssueDetected {
    */
   CharacterOffsets?: CharacterOffsets | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Sentiment = {
-  MIXED: "MIXED",
-  NEGATIVE: "NEGATIVE",
-  NEUTRAL: "NEUTRAL",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type Sentiment = (typeof Sentiment)[keyof typeof Sentiment];
 
 /**
  * <p>Contains set of transcription results from one or more audio segments, along with additional
@@ -1022,22 +859,6 @@ export namespace CallAnalyticsTranscriptResultStream {
 }
 
 /**
- * @public
- * @enum
- */
-export const ClinicalNoteGenerationStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ClinicalNoteGenerationStatus =
-  (typeof ClinicalNoteGenerationStatus)[keyof typeof ClinicalNoteGenerationStatus];
-
-/**
  * <p>The details for clinical note generation,
  *       including status, and output locations for clinical note and aggregated transcript if the analytics completed,
  *       or failure reason if the analytics failed.
@@ -1096,25 +917,6 @@ export interface ClinicalNoteGenerationResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const MedicalScribeNoteTemplate = {
-  BEHAVIORAL_SOAP: "BEHAVIORAL_SOAP",
-  BIRP: "BIRP",
-  DAP: "DAP",
-  GIRPP: "GIRPP",
-  HISTORY_AND_PHYSICAL: "HISTORY_AND_PHYSICAL",
-  PHYSICAL_SOAP: "PHYSICAL_SOAP",
-  SIRP: "SIRP",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeNoteTemplate = (typeof MedicalScribeNoteTemplate)[keyof typeof MedicalScribeNoteTemplate];
-
-/**
  * <p>The output configuration for aggregated transcript and clinical note generation.</p>
  * @public
  */
@@ -1166,32 +968,6 @@ export interface ClinicalNoteGenerationSettings {
 
 /**
  * @public
- * @enum
- */
-export const ContentIdentificationType = {
-  PII: "PII",
-} as const;
-
-/**
- * @public
- */
-export type ContentIdentificationType = (typeof ContentIdentificationType)[keyof typeof ContentIdentificationType];
-
-/**
- * @public
- * @enum
- */
-export const ContentRedactionType = {
-  PII: "PII",
-} as const;
-
-/**
- * @public
- */
-export type ContentRedactionType = (typeof ContentRedactionType)[keyof typeof ContentRedactionType];
-
-/**
- * @public
  */
 export interface GetMedicalScribeStreamRequest {
   /**
@@ -1200,21 +976,6 @@ export interface GetMedicalScribeStreamRequest {
    */
   SessionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeParticipantRole = {
-  CLINICIAN: "CLINICIAN",
-  PATIENT: "PATIENT",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeParticipantRole =
-  (typeof MedicalScribeParticipantRole)[keyof typeof MedicalScribeParticipantRole];
 
 /**
  * <p>Makes it possible to specify which speaker is on which channel.
@@ -1301,34 +1062,6 @@ export interface MedicalScribeEncryptionSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const MedicalScribeLanguageCode = {
-  EN_US: "en-US",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeLanguageCode = (typeof MedicalScribeLanguageCode)[keyof typeof MedicalScribeLanguageCode];
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeMediaEncoding = {
-  FLAC: "flac",
-  OGG_OPUS: "ogg-opus",
-  PCM: "pcm",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeMediaEncoding = (typeof MedicalScribeMediaEncoding)[keyof typeof MedicalScribeMediaEncoding];
-
-/**
  * <p>Contains details for the result of post-stream analytics.
  *     </p>
  * @public
@@ -1353,38 +1086,6 @@ export interface MedicalScribePostStreamAnalyticsSettings {
    */
   ClinicalNoteGenerationSettings: ClinicalNoteGenerationSettings | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeStreamStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PAUSED: "PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeStreamStatus = (typeof MedicalScribeStreamStatus)[keyof typeof MedicalScribeStreamStatus];
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeVocabularyFilterMethod = {
-  MASK: "mask",
-  REMOVE: "remove",
-  TAG: "tag",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeVocabularyFilterMethod =
-  (typeof MedicalScribeVocabularyFilterMethod)[keyof typeof MedicalScribeVocabularyFilterMethod];
 
 /**
  * <p>Contains details about a Amazon Web Services HealthScribe streaming session.</p>
@@ -1531,94 +1232,6 @@ export interface GetMedicalScribeStreamResponse {
 }
 
 /**
- * <p>The request references a resource which doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  AF_ZA: "af-ZA",
-  AR_AE: "ar-AE",
-  AR_SA: "ar-SA",
-  CA_ES: "ca-ES",
-  CS_CZ: "cs-CZ",
-  DA_DK: "da-DK",
-  DE_CH: "de-CH",
-  DE_DE: "de-DE",
-  EL_GR: "el-GR",
-  EN_AB: "en-AB",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_IE: "en-IE",
-  EN_IN: "en-IN",
-  EN_NZ: "en-NZ",
-  EN_US: "en-US",
-  EN_WL: "en-WL",
-  EN_ZA: "en-ZA",
-  ES_ES: "es-ES",
-  ES_US: "es-US",
-  EU_ES: "eu-ES",
-  FA_IR: "fa-IR",
-  FI_FI: "fi-FI",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  GL_ES: "gl-ES",
-  HE_IL: "he-IL",
-  HI_IN: "hi-IN",
-  HR_HR: "hr-HR",
-  ID_ID: "id-ID",
-  IT_IT: "it-IT",
-  JA_JP: "ja-JP",
-  KO_KR: "ko-KR",
-  LV_LV: "lv-LV",
-  MS_MY: "ms-MY",
-  NL_NL: "nl-NL",
-  NO_NO: "no-NO",
-  PL_PL: "pl-PL",
-  PT_BR: "pt-BR",
-  PT_PT: "pt-PT",
-  RO_RO: "ro-RO",
-  RU_RU: "ru-RU",
-  SK_SK: "sk-SK",
-  SO_SO: "so-SO",
-  SR_RS: "sr-RS",
-  SV_SE: "sv-SE",
-  TH_TH: "th-TH",
-  TL_PH: "tl-PH",
-  UK_UA: "uk-UA",
-  VI_VN: "vi-VN",
-  ZH_CN: "zh-CN",
-  ZH_HK: "zh-HK",
-  ZH_TW: "zh-TW",
-  ZU_ZA: "zu-ZA",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
-
-/**
  * <p>The language code that represents the language identified in your audio, including the associated
  *       confidence score. If you enabled channel identification in your request and each channel contained a
  *       different language, you will have more than one <code>LanguageWithScore</code> result.</p>
@@ -1638,21 +1251,6 @@ export interface LanguageWithScore {
    */
   Score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaEncoding = {
-  FLAC: "flac",
-  OGG_OPUS: "ogg-opus",
-  PCM: "pcm",
-} as const;
-
-/**
- * @public
- */
-export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
 
 /**
  * <p>Contains entities identified as personal health information (PHI) in your
@@ -1771,20 +1369,6 @@ export interface MedicalAlternative {
 }
 
 /**
- * @public
- * @enum
- */
-export const MedicalContentIdentificationType = {
-  PHI: "PHI",
-} as const;
-
-/**
- * @public
- */
-export type MedicalContentIdentificationType =
-  (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
-
-/**
  * <p>The <code>Result</code> associated with a
  *             <code></code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with
@@ -1865,21 +1449,6 @@ export interface MedicalScribeAudioEvent {
    */
   AudioChunk: Uint8Array | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Pronouns = {
-  HE_HIM: "HE_HIM",
-  SHE_HER: "SHE_HER",
-  THEY_THEM: "THEY_THEM",
-} as const;
-
-/**
- * @public
- */
-export type Pronouns = (typeof Pronouns)[keyof typeof Pronouns];
 
 /**
  * <p>Contains patient-specific information. </p>
@@ -1988,20 +1557,6 @@ export interface MedicalScribeConfigurationEvent {
    */
   MedicalScribeContext?: MedicalScribeContext | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeSessionControlEventType = {
-  END_OF_SESSION: "END_OF_SESSION",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeSessionControlEventType =
-  (typeof MedicalScribeSessionControlEventType)[keyof typeof MedicalScribeSessionControlEventType];
 
 /**
  * <p>Specify the lifecycle of your streaming session.</p>
@@ -2121,21 +1676,6 @@ export namespace MedicalScribeInputStream {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeTranscriptItemType = {
-  PRONUNCIATION: "pronunciation",
-  PUNCTUATION: "punctuation",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeTranscriptItemType =
-  (typeof MedicalScribeTranscriptItemType)[keyof typeof MedicalScribeTranscriptItemType];
 
 /**
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
@@ -2574,21 +2114,6 @@ export namespace MedicalTranscriptResultStream {
 }
 
 /**
- * @public
- * @enum
- */
-export const PartialResultsStability = {
-  HIGH: "high",
-  LOW: "low",
-  MEDIUM: "medium",
-} as const;
-
-/**
- * @public
- */
-export type PartialResultsStability = (typeof PartialResultsStability)[keyof typeof PartialResultsStability];
-
-/**
  * <p>The <code>Result</code> associated with a
  *       <code></code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
@@ -2651,39 +2176,6 @@ export interface Result {
    */
   LanguageIdentification?: LanguageWithScore[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Specialty = {
-  CARDIOLOGY: "CARDIOLOGY",
-  NEUROLOGY: "NEUROLOGY",
-  ONCOLOGY: "ONCOLOGY",
-  PRIMARYCARE: "PRIMARYCARE",
-  RADIOLOGY: "RADIOLOGY",
-  UROLOGY: "UROLOGY",
-} as const;
-
-/**
- * @public
- */
-export type Specialty = (typeof Specialty)[keyof typeof Specialty];
-
-/**
- * @public
- * @enum
- */
-export const VocabularyFilterMethod = {
-  MASK: "mask",
-  REMOVE: "remove",
-  TAG: "tag",
-} as const;
-
-/**
- * @public
- */
-export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
  * @public
@@ -3158,20 +2650,6 @@ export interface StartMedicalScribeStreamResponse {
    */
   ResultStream?: AsyncIterable<MedicalScribeResultStream> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  CONVERSATION: "CONVERSATION",
-  DICTATION: "DICTATION",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * @public

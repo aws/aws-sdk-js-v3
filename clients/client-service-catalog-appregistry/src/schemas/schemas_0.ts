@@ -165,7 +165,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { ServiceCatalogAppRegistryServiceException as __ServiceCatalogAppRegistryServiceException } from "../models/ServiceCatalogAppRegistryServiceException";
 
 /* eslint no-var: 0 */

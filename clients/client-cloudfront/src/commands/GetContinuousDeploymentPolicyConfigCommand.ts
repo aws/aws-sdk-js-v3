@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetContinuousDeploymentPolicyConfigRequest,
   GetContinuousDeploymentPolicyConfigResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetContinuousDeploymentPolicyConfig } from "../schemas/schemas_0";
 
 /**

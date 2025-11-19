@@ -204,7 +204,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnsupportedDisplayLanguageCodeException as __UnsupportedDisplayLanguageCodeException,
   UnsupportedLanguagePairException as __UnsupportedLanguagePairException,
-} from "../models/index";
+} from "../models/errors";
 import { TranslateServiceException as __TranslateServiceException } from "../models/TranslateServiceException";
 
 /* eslint no-var: 0 */

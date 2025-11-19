@@ -447,7 +447,7 @@ import {
   TaskTimedOut as __TaskTimedOut,
   TooManyTags as __TooManyTags,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SFNServiceException as __SFNServiceException } from "../models/SFNServiceException";
 
 /* eslint no-var: 0 */

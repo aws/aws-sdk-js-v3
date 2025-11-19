@@ -1,46 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MPAServiceException as __BaseException } from "./MPAServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>AccessDeniedException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionCompletionStrategy = {
-  AUTO_COMPLETION_UPON_APPROVAL: "AUTO_COMPLETION_UPON_APPROVAL",
-} as const;
-
-/**
- * @public
- */
-export type ActionCompletionStrategy = (typeof ActionCompletionStrategy)[keyof typeof ActionCompletionStrategy];
+import {
+  ActionCompletionStrategy,
+  ApprovalTeamStatus,
+  ApprovalTeamStatusCode,
+  FilterField,
+  IdentitySourceStatus,
+  IdentitySourceStatusCode,
+  IdentitySourceType,
+  IdentityStatus,
+  Operator,
+  PolicyStatus,
+  PolicyType,
+  SessionExecutionStatus,
+  SessionResponse,
+  SessionStatus,
+  SessionStatusCode,
+} from "./enums";
 
 /**
  * <p>Strategy for how an approval team grants approval.</p>
@@ -125,32 +100,6 @@ export namespace ApprovalStrategyResponse {
   export interface Visitor<T> {
     MofN: (value: MofNApprovalStrategy) => T;
     _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>ConflictException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
   }
 }
 
@@ -261,111 +210,6 @@ export interface CreateApprovalTeamResponse {
 }
 
 /**
- * <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Message for the <code>InternalServerException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request exceeds the service quota for your account. Request a quota increase or reduce your request size.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>ServiceQuotaExceededException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>ThrottlingException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>ValidationException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteInactiveApprovalTeamVersionRequest {
@@ -388,32 +232,6 @@ export interface DeleteInactiveApprovalTeamVersionRequest {
 export interface DeleteInactiveApprovalTeamVersionResponse {}
 
 /**
- * <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>ResourceNotFoundException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetApprovalTeamRequest {
@@ -423,22 +241,6 @@ export interface GetApprovalTeamRequest {
    */
   Arn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentityStatus = {
-  ACCEPTED: "ACCEPTED",
-  INVALID: "INVALID",
-  PENDING: "PENDING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type IdentityStatus = (typeof IdentityStatus)[keyof typeof IdentityStatus];
 
 /**
  * <p>Contains details for an approver.</p>
@@ -475,46 +277,6 @@ export interface GetApprovalTeamResponseApprover {
    */
   PrimaryIdentityStatus?: IdentityStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApprovalTeamStatus = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-  INACTIVE: "INACTIVE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ApprovalTeamStatus = (typeof ApprovalTeamStatus)[keyof typeof ApprovalTeamStatus];
-
-/**
- * @public
- * @enum
- */
-export const ApprovalTeamStatusCode = {
-  DELETE_FAILED_APPROVAL: "DELETE_FAILED_APPROVAL",
-  DELETE_FAILED_VALIDATION: "DELETE_FAILED_VALIDATION",
-  DELETE_PENDING_APPROVAL: "DELETE_PENDING_APPROVAL",
-  FAILED_ACTIVATION: "FAILED_ACTIVATION",
-  FAILED_VALIDATION: "FAILED_VALIDATION",
-  PENDING_ACTIVATION: "PENDING_ACTIVATION",
-  UPDATE_FAILED_ACTIVATION: "UPDATE_FAILED_ACTIVATION",
-  UPDATE_FAILED_APPROVAL: "UPDATE_FAILED_APPROVAL",
-  UPDATE_FAILED_VALIDATION: "UPDATE_FAILED_VALIDATION",
-  UPDATE_PENDING_ACTIVATION: "UPDATE_PENDING_ACTIVATION",
-  UPDATE_PENDING_APPROVAL: "UPDATE_PENDING_APPROVAL",
-  VALIDATING: "VALIDATING",
-} as const;
-
-/**
- * @public
- */
-export type ApprovalTeamStatusCode = (typeof ApprovalTeamStatusCode)[keyof typeof ApprovalTeamStatusCode];
 
 /**
  * <p>Contains details for the pending updates for an approval team, if applicable.</p>
@@ -851,34 +613,6 @@ export interface GetPolicyVersionRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PolicyType = {
-  AWS_MANAGED: "AWS_MANAGED",
-  AWS_RAM: "AWS_RAM",
-} as const;
-
-/**
- * @public
- */
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
-
-/**
- * @public
- * @enum
- */
-export const PolicyStatus = {
-  ATTACHABLE: "ATTACHABLE",
-  DEPRECATED: "DEPRECATED",
-} as const;
-
-/**
- * @public
- */
-export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
-
-/**
  * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
  * @public
  */
@@ -1014,32 +748,6 @@ export interface GetResourcePolicyResponse {
 }
 
 /**
- * <p>The request contains an invalid parameter value.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>InvalidParameterException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>IAM Identity Center credentials. For more information see, <a href="http://aws.amazon.com/identity-center/">IAM Identity Center</a> .</p>
  * @public
  */
@@ -1091,19 +799,6 @@ export interface CreateIdentitySourceRequest {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentitySourceType = {
-  IAM_IDENTITY_CENTER: "IAM_IDENTITY_CENTER",
-} as const;
-
-/**
- * @public
- */
-export type IdentitySourceType = (typeof IdentitySourceType)[keyof typeof IdentitySourceType];
 
 /**
  * @public
@@ -1212,38 +907,6 @@ export namespace IdentitySourceParametersForGet {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentitySourceStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type IdentitySourceStatus = (typeof IdentitySourceStatus)[keyof typeof IdentitySourceStatus];
-
-/**
- * @public
- * @enum
- */
-export const IdentitySourceStatusCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  DELETION_FAILED: "DELETION_FAILED",
-  IDC_INSTANCE_NOT_FOUND: "IDC_INSTANCE_NOT_FOUND",
-  IDC_INSTANCE_NOT_VALID: "IDC_INSTANCE_NOT_VALID",
-} as const;
-
-/**
- * @public
- */
-export type IdentitySourceStatusCode = (typeof IdentitySourceStatusCode)[keyof typeof IdentitySourceStatusCode];
 
 /**
  * @public
@@ -1715,21 +1378,6 @@ export interface GetSessionRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SessionResponse = {
-  APPROVED: "APPROVED",
-  NO_RESPONSE: "NO_RESPONSE",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type SessionResponse = (typeof SessionResponse)[keyof typeof SessionResponse];
-
-/**
  * <p>Contains details for an approver response in an approval session.</p>
  * @public
  */
@@ -1764,53 +1412,6 @@ export interface GetSessionResponseApproverResponse {
    */
   ResponseTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SessionExecutionStatus = {
-  EXECUTED: "EXECUTED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type SessionExecutionStatus = (typeof SessionExecutionStatus)[keyof typeof SessionExecutionStatus];
-
-/**
- * @public
- * @enum
- */
-export const SessionStatus = {
-  APPROVED: "APPROVED",
-  CANCELLED: "CANCELLED",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
-
-/**
- * @public
- * @enum
- */
-export const SessionStatusCode = {
-  CONFIGURATION_CHANGED: "CONFIGURATION_CHANGED",
-  EXPIRED: "EXPIRED",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type SessionStatusCode = (typeof SessionStatusCode)[keyof typeof SessionStatusCode];
 
 /**
  * @public
@@ -1954,45 +1555,6 @@ export interface GetSessionResponse {
    */
   ApproverResponses?: GetSessionResponseApproverResponse[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterField = {
-  ACTION_NAME: "ActionName",
-  APPROVAL_TEAM_NAME: "ApprovalTeamName",
-  INITIATION_TIME: "InitiationTime",
-  SESSION_STATUS: "SessionStatus",
-  VOTE: "Vote",
-  VOTING_TIME: "VotingTime",
-} as const;
-
-/**
- * @public
- */
-export type FilterField = (typeof FilterField)[keyof typeof FilterField];
-
-/**
- * @public
- * @enum
- */
-export const Operator = {
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  DOES_NOT_CONTAIN: "NOT_CONTAINS",
-  EQUALS: "EQ",
-  GREATER_THAN: "GT",
-  GREATER_THAN_OR_EQUAL_TO: "GTE",
-  LESS_THAN: "LT",
-  LESS_THAN_OR_EQUAL_TO: "LTE",
-  NOT_EQUALS: "NE",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * <p>Contains the filter to apply to requests. You can specify up to 10 filters for a request.</p>
@@ -2193,39 +1755,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>The request exceeds the maximum number of tags allowed for this resource. Remove some tags, and try again.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Message for the <code>TooManyTagsException</code> error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Name of the resource for the <code>TooManyTagsException</code> error.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 /**
  * @public

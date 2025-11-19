@@ -1,8 +1,4 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
-
 /**
  * @public
  * @enum
@@ -95,63 +91,6 @@ export const BadRequestReason = {
 export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequestReason];
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>Code indicating the reason the request was invalid.</p>
-   * @public
-   */
-  Reason?: BadRequestReason | undefined;
-
-  /**
-   * <p>Details describing why the request was invalid.</p>
-   * @public
-   */
-  Details?: BadRequestDetails | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Details = opts.Details;
-  }
-}
-
-/**
- * <p>There was an internal failure in the service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  * @enum
  */
@@ -182,42 +121,6 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>The requested resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The type of resource that was not found.</p>
-   * @public
-   */
-  ResourceType?: ResourceType | undefined;
-
-  /**
-   * <p>A map indicating which parameters in the request reference the resource that was not
-   *          found.</p>
-   * @public
-   */
-  ReferencedBy?: Record<string, string> | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.ReferencedBy = opts.ReferencedBy;
-  }
-}
 
 /**
  * @public
@@ -272,28 +175,6 @@ export interface StartConfigurationSessionResponse {
    * @public
    */
   InitialConfigurationToken?: string | undefined;
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

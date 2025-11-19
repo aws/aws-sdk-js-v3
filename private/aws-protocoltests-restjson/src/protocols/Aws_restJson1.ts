@@ -351,18 +351,15 @@ import {
   TimestampFormatHeadersCommandOutput,
 } from "../commands/TimestampFormatHeadersCommand";
 import { UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput } from "../commands/UnitInputAndOutputCommand";
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import {
   ClientOptionalDefaults,
-  ComplexError,
   ComplexNestedErrorData,
   Defaults,
   Dialog,
   Farewell,
-  FooEnum,
-  FooError,
   GreetingStruct,
-  IntegerEnum,
-  InvalidGreeting,
   MyUnion,
   NestedPayload,
   PayloadConfig,

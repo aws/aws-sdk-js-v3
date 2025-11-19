@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisableTransitGatewayRouteTablePropagationRequest,
   DisableTransitGatewayRouteTablePropagationResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { DisableTransitGatewayRouteTablePropagation } from "../schemas/schemas_0";
 
 /**

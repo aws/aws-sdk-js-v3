@@ -1,7 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceException";
+import {
+  AccessMethodType,
+  ActionType,
+  AuditReportResponseFormat,
+  AuditReportStatus,
+  CertificateAuthorityStatus,
+  CertificateAuthorityType,
+  CertificateAuthorityUsageMode,
+  CrlType,
+  ExtendedKeyUsageType,
+  FailureReason,
+  KeyAlgorithm,
+  KeyStorageSecurityStandard,
+  PolicyQualifierId,
+  ResourceOwner,
+  RevocationReason,
+  S3ObjectAcl,
+  SigningAlgorithm,
+  ValidityPeriodType,
+} from "./enums";
 
 /**
  * <p>Defines the X.500 relative distinguished name (RDN).</p>
@@ -208,21 +225,6 @@ export interface GeneralName {
 }
 
 /**
- * @public
- * @enum
- */
-export const AccessMethodType = {
-  CA_REPOSITORY: "CA_REPOSITORY",
-  RESOURCE_PKI_MANIFEST: "RESOURCE_PKI_MANIFEST",
-  RESOURCE_PKI_NOTIFY: "RESOURCE_PKI_NOTIFY",
-} as const;
-
-/**
- * @public
- */
-export type AccessMethodType = (typeof AccessMethodType)[keyof typeof AccessMethodType];
-
-/**
  * <p>Describes the type and format of extension access. Only one of <code>CustomObjectIdentifier</code> or <code>AccessMethodType</code> may be provided. Providing both results in <code>InvalidArgsException</code>.</p>
  * @public
  */
@@ -337,50 +339,6 @@ export interface CsrExtensions {
 }
 
 /**
- * @public
- * @enum
- */
-export const KeyAlgorithm = {
-  EC_prime256v1: "EC_prime256v1",
-  EC_secp384r1: "EC_secp384r1",
-  EC_secp521r1: "EC_secp521r1",
-  ML_DSA_44: "ML_DSA_44",
-  ML_DSA_65: "ML_DSA_65",
-  ML_DSA_87: "ML_DSA_87",
-  RSA_2048: "RSA_2048",
-  RSA_3072: "RSA_3072",
-  RSA_4096: "RSA_4096",
-  SM2: "SM2",
-} as const;
-
-/**
- * @public
- */
-export type KeyAlgorithm = (typeof KeyAlgorithm)[keyof typeof KeyAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const SigningAlgorithm = {
-  ML_DSA_44: "ML_DSA_44",
-  ML_DSA_65: "ML_DSA_65",
-  ML_DSA_87: "ML_DSA_87",
-  SHA256WITHECDSA: "SHA256WITHECDSA",
-  SHA256WITHRSA: "SHA256WITHRSA",
-  SHA384WITHECDSA: "SHA384WITHECDSA",
-  SHA384WITHRSA: "SHA384WITHRSA",
-  SHA512WITHECDSA: "SHA512WITHECDSA",
-  SHA512WITHRSA: "SHA512WITHRSA",
-  SM3WITHSM2: "SM3WITHSM2",
-} as const;
-
-/**
- * @public
- */
-export type SigningAlgorithm = (typeof SigningAlgorithm)[keyof typeof SigningAlgorithm];
-
-/**
  * <p>Contains configuration information for your private certificate authority (CA). This includes information about the class of public key algorithm and the key pair that your private CA creates when it issues a certificate. It also includes the signature algorithm that it uses when issuing certificates, and its X.500 distinguished name. You must specify this information when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. </p>
  * @public
  */
@@ -411,35 +369,6 @@ export interface CertificateAuthorityConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CertificateAuthorityType = {
-  ROOT: "ROOT",
-  SUBORDINATE: "SUBORDINATE",
-} as const;
-
-/**
- * @public
- */
-export type CertificateAuthorityType = (typeof CertificateAuthorityType)[keyof typeof CertificateAuthorityType];
-
-/**
- * @public
- * @enum
- */
-export const KeyStorageSecurityStandard = {
-  CCPC_LEVEL_1_OR_HIGHER: "CCPC_LEVEL_1_OR_HIGHER",
-  FIPS_140_2_LEVEL_2_OR_HIGHER: "FIPS_140_2_LEVEL_2_OR_HIGHER",
-  FIPS_140_2_LEVEL_3_OR_HIGHER: "FIPS_140_2_LEVEL_3_OR_HIGHER",
-} as const;
-
-/**
- * @public
- */
-export type KeyStorageSecurityStandard = (typeof KeyStorageSecurityStandard)[keyof typeof KeyStorageSecurityStandard];
-
-/**
  * <p>Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension omitted or not in certificates issued by your CA, you can set the <b>OmitExtension</b> parameter.</p>
  * @public
  */
@@ -450,34 +379,6 @@ export interface CrlDistributionPointExtensionConfiguration {
    */
   OmitExtension: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CrlType = {
-  COMPLETE: "COMPLETE",
-  PARTITIONED: "PARTITIONED",
-} as const;
-
-/**
- * @public
- */
-export type CrlType = (typeof CrlType)[keyof typeof CrlType];
-
-/**
- * @public
- * @enum
- */
-export const S3ObjectAcl = {
-  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
-  PUBLIC_READ: "PUBLIC_READ",
-} as const;
-
-/**
- * @public
- */
-export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
 
 /**
  * <p>Contains configuration information for a certificate revocation list (CRL). Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the <b>Enabled</b> parameter to <code>true</code>. Your private CA writes CRLs to an S3 bucket that you specify in the <b>S3BucketName</b> parameter. You can hide the name of your bucket by specifying a value for the <b>CustomCname</b> parameter. Your private CA by default copies the CNAME or the S3 bucket name to the <b>CRL Distribution Points</b> extension of each certificate it issues. If you want to configure this default behavior to be something different, you can set the <b>CrlDistributionPointExtensionConfiguration</b> parameter. Your S3 bucket policy must give write permission to Amazon Web Services Private CA. </p> <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting Your CRLs</a>.</p> <p>Your private CA uses the value in the <b>ExpirationInDays</b> parameter to calculate the <b>nextUpdate</b> field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.</p> <p>A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, Amazon Web Services Private CA makes further attempts every 15 minutes.</p> <p>CRLs contain the following fields:</p> <ul> <li> <p> <b>Version</b>: The current version number defined in RFC 5280 is V2. The integer value is 0x1. </p> </li> <li> <p> <b>Signature Algorithm</b>: The name of the algorithm used to sign the CRL.</p> </li> <li> <p> <b>Issuer</b>: The X.500 distinguished name of your private CA that issued the CRL.</p> </li> <li> <p> <b>Last Update</b>: The issue date and time of this CRL.</p> </li> <li> <p> <b>Next Update</b>: The day and time by which the next CRL will be issued.</p> </li> <li> <p> <b>Revoked Certificates</b>: List of revoked certificates. Each list item contains the following information.</p> <ul> <li> <p> <b>Serial Number</b>: The serial number, in hexadecimal format, of the revoked certificate.</p> </li> <li> <p> <b>Revocation Date</b>: Date and time the certificate was revoked.</p> </li> <li> <p> <b>CRL Entry Extensions</b>: Optional extensions for the CRL entry.</p> <ul> <li> <p> <b>X509v3 CRL Reason Code</b>: Reason the certificate was revoked.</p> </li> </ul> </li> </ul> </li> <li> <p> <b>CRL Extensions</b>: Optional extensions for the CRL.</p> <ul> <li> <p> <b>X509v3 Authority Key Identifier</b>: Identifies the public key associated with the private key used to sign the certificate.</p> </li> <li> <p> <b>X509v3 CRL Number:</b>: Decimal sequence number for the CRL.</p> </li> </ul> </li> <li> <p> <b>Signature Algorithm</b>: Algorithm used by your private CA to sign the CRL.</p> </li> <li> <p> <b>Signature Value</b>: Signature computed over the CRL.</p> </li> </ul> <p>Certificate revocation lists created by Amazon Web Services Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.</p> <p> <code>openssl crl -inform DER -text -in <i>crl_path</i> -noout</code> </p> <p>For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html">Planning a certificate revocation list (CRL)</a> in the <i>Amazon Web Services Private Certificate Authority User Guide</i> </p>
@@ -589,21 +490,6 @@ export interface Tag {
 
 /**
  * @public
- * @enum
- */
-export const CertificateAuthorityUsageMode = {
-  GENERAL_PURPOSE: "GENERAL_PURPOSE",
-  SHORT_LIVED_CERTIFICATE: "SHORT_LIVED_CERTIFICATE",
-} as const;
-
-/**
- * @public
- */
-export type CertificateAuthorityUsageMode =
-  (typeof CertificateAuthorityUsageMode)[keyof typeof CertificateAuthorityUsageMode];
-
-/**
- * @public
  */
 export interface CreateCertificateAuthorityRequest {
   /**
@@ -661,100 +547,6 @@ export interface CreateCertificateAuthorityResponse {
 }
 
 /**
- * <p>One or more of the specified arguments was not valid.</p>
- * @public
- */
-export class InvalidArgsException extends __BaseException {
-  readonly name: "InvalidArgsException" = "InvalidArgsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgsException, __BaseException>) {
-    super({
-      name: "InvalidArgsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgsException.prototype);
-  }
-}
-
-/**
- * <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
- * @public
- */
-export class InvalidPolicyException extends __BaseException {
-  readonly name: "InvalidPolicyException" = "InvalidPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPolicyException, __BaseException>) {
-    super({
-      name: "InvalidPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPolicyException.prototype);
-  }
-}
-
-/**
- * <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
- * @public
- */
-export class InvalidTagException extends __BaseException {
-  readonly name: "InvalidTagException" = "InvalidTagException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
-    super({
-      name: "InvalidTagException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagException.prototype);
-  }
-}
-
-/**
- * <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AuditReportResponseFormat = {
-  CSV: "CSV",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type AuditReportResponseFormat = (typeof AuditReportResponseFormat)[keyof typeof AuditReportResponseFormat];
-
-/**
  * @public
  */
 export interface CreateCertificateAuthorityAuditReportRequest {
@@ -795,121 +587,6 @@ export interface CreateCertificateAuthorityAuditReportResponse {
 }
 
 /**
- * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
- * @public
- */
-export class InvalidArnException extends __BaseException {
-  readonly name: "InvalidArnException" = "InvalidArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
-    super({
-      name: "InvalidArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArnException.prototype);
-  }
-}
-
-/**
- * <p>The state of the private CA does not allow this action to occur.</p>
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name: "InvalidStateException" = "InvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-  }
-}
-
-/**
- * <p>The request has failed for an unspecified reason.</p>
- * @public
- */
-export class RequestFailedException extends __BaseException {
-  readonly name: "RequestFailedException" = "RequestFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestFailedException, __BaseException>) {
-    super({
-      name: "RequestFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestFailedException.prototype);
-  }
-}
-
-/**
- * <p>Your request is already in progress.</p>
- * @public
- */
-export class RequestInProgressException extends __BaseException {
-  readonly name: "RequestInProgressException" = "RequestInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestInProgressException, __BaseException>) {
-    super({
-      name: "RequestInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestInProgressException.prototype);
-  }
-}
-
-/**
- * <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionType = {
-  GetCertificate: "GetCertificate",
-  IssueCertificate: "IssueCertificate",
-  ListPermissions: "ListPermissions",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
-
-/**
  * @public
  */
 export interface CreatePermissionRequest {
@@ -936,46 +613,6 @@ export interface CreatePermissionRequest {
    * @public
    */
   Actions: ActionType[] | undefined;
-}
-
-/**
- * <p>The designated permission has already been given to the user.</p>
- * @public
- */
-export class PermissionAlreadyExistsException extends __BaseException {
-  readonly name: "PermissionAlreadyExistsException" = "PermissionAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PermissionAlreadyExistsException, __BaseException>) {
-    super({
-      name: "PermissionAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PermissionAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>A previous update to your private CA is still ongoing.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
 }
 
 /**
@@ -1030,26 +667,6 @@ export interface DeletePolicyRequest {
 }
 
 /**
- * <p>The current action was prevented because it would lock the caller out from performing subsequent actions. Verify that the specified parameters would not result in the caller being denied access to the resource. </p>
- * @public
- */
-export class LockoutPreventedException extends __BaseException {
-  readonly name: "LockoutPreventedException" = "LockoutPreventedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LockoutPreventedException, __BaseException>) {
-    super({
-      name: "LockoutPreventedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LockoutPreventedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeCertificateAuthorityRequest {
@@ -1059,40 +676,6 @@ export interface DescribeCertificateAuthorityRequest {
    */
   CertificateAuthorityArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FailureReason = {
-  OTHER: "OTHER",
-  REQUEST_TIMED_OUT: "REQUEST_TIMED_OUT",
-  UNSUPPORTED_ALGORITHM: "UNSUPPORTED_ALGORITHM",
-} as const;
-
-/**
- * @public
- */
-export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
-
-/**
- * @public
- * @enum
- */
-export const CertificateAuthorityStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  PENDING_CERTIFICATE: "PENDING_CERTIFICATE",
-} as const;
-
-/**
- * @public
- */
-export type CertificateAuthorityStatus = (typeof CertificateAuthorityStatus)[keyof typeof CertificateAuthorityStatus];
 
 /**
  * <p>Contains information about your private certificate authority (CA). Your private CA can issue and revoke X.509 digital certificates. Digital certificates verify that the entity named in the certificate <b>Subject</b> field owns or controls the public key contained in the <b>Subject Public Key Info</b> field. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action to create your private CA. You must then call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCertificate.html">GetCertificateAuthorityCertificate</a> action to retrieve a private CA certificate signing request (CSR). Sign the CSR with your Amazon Web Services Private CA-hosted or on-premises root or subordinate CA certificate. Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a> action to import the signed certificate into Certificate Manager (ACM). </p>
@@ -1217,21 +800,6 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
    */
   AuditReportId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuditReportStatus = {
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type AuditReportStatus = (typeof AuditReportStatus)[keyof typeof AuditReportStatus];
 
 /**
  * @public
@@ -1369,26 +937,6 @@ export interface GetPolicyResponse {
 }
 
 /**
- * <p>The certificate authority certificate you are importing does not comply with conditions specified in the certificate that signed it.</p>
- * @public
- */
-export class CertificateMismatchException extends __BaseException {
-  readonly name: "CertificateMismatchException" = "CertificateMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateMismatchException, __BaseException>) {
-    super({
-      name: "CertificateMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateMismatchException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ImportCertificateAuthorityCertificateRequest {
@@ -1410,59 +958,6 @@ export interface ImportCertificateAuthorityCertificateRequest {
    */
   CertificateChain?: Uint8Array | undefined;
 }
-
-/**
- * <p>The request action cannot be performed or is prohibited.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p>One or more fields in the certificate are invalid.</p>
- * @public
- */
-export class MalformedCertificateException extends __BaseException {
-  readonly name: "MalformedCertificateException" = "MalformedCertificateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedCertificateException, __BaseException>) {
-    super({
-      name: "MalformedCertificateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedCertificateException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const PolicyQualifierId = {
-  CPS: "CPS",
-} as const;
-
-/**
- * @public
- */
-export type PolicyQualifierId = (typeof PolicyQualifierId)[keyof typeof PolicyQualifierId];
 
 /**
  * <p>Defines a <code>PolicyInformation</code> qualifier. Amazon Web Services Private CA supports the <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4">certification practice statement (CPS) qualifier</a> defined in RFC 5280. </p>
@@ -1537,27 +1032,6 @@ export interface CustomExtension {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExtendedKeyUsageType = {
-  CERTIFICATE_TRANSPARENCY: "CERTIFICATE_TRANSPARENCY",
-  CLIENT_AUTH: "CLIENT_AUTH",
-  CODE_SIGNING: "CODE_SIGNING",
-  DOCUMENT_SIGNING: "DOCUMENT_SIGNING",
-  EMAIL_PROTECTION: "EMAIL_PROTECTION",
-  OCSP_SIGNING: "OCSP_SIGNING",
-  SERVER_AUTH: "SERVER_AUTH",
-  SMART_CARD_LOGIN: "SMART_CARD_LOGIN",
-  TIME_STAMPING: "TIME_STAMPING",
-} as const;
-
-/**
- * @public
- */
-export type ExtendedKeyUsageType = (typeof ExtendedKeyUsageType)[keyof typeof ExtendedKeyUsageType];
-
-/**
  * <p>Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the <code>KeyUsage</code> extension.</p>
  * @public
  */
@@ -1628,23 +1102,6 @@ export interface ApiPassthrough {
    */
   Subject?: ASN1Subject | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidityPeriodType = {
-  ABSOLUTE: "ABSOLUTE",
-  DAYS: "DAYS",
-  END_DATE: "END_DATE",
-  MONTHS: "MONTHS",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof ValidityPeriodType];
 
 /**
  * <p>Validity specifies the period of time during which a certificate is valid. Validity can be expressed as an explicit date and time when the validity of a certificate starts or expires, or as a span of time after issuance, stated in days, months, or years. For more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC 5280.</p> <p>Amazon Web Services Private CA API consumes the <code>Validity</code> data type differently in two distinct parameters of the <code>IssueCertificate</code> action. The required parameter <code>IssueCertificate</code>:<code>Validity</code> specifies the end of a certificate's validity period. The optional parameter <code>IssueCertificate</code>:<code>ValidityNotBefore</code> specifies a customized starting time for the validity period.</p>
@@ -1727,60 +1184,6 @@ export interface IssueCertificateResponse {
    */
   CertificateArn?: string | undefined;
 }
-
-/**
- * <p>The certificate signing request is invalid.</p>
- * @public
- */
-export class MalformedCSRException extends __BaseException {
-  readonly name: "MalformedCSRException" = "MalformedCSRException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedCSRException, __BaseException>) {
-    super({
-      name: "MalformedCSRException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedCSRException.prototype);
-  }
-}
-
-/**
- * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token returned from your previous call to <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceOwner = {
-  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
-  SELF: "SELF",
-} as const;
-
-/**
- * @public
- */
-export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
  * @public
@@ -1973,46 +1376,6 @@ export interface RestoreCertificateAuthorityRequest {
 }
 
 /**
- * <p>Your request has already been completed.</p>
- * @public
- */
-export class RequestAlreadyProcessedException extends __BaseException {
-  readonly name: "RequestAlreadyProcessedException" = "RequestAlreadyProcessedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestAlreadyProcessedException, __BaseException>) {
-    super({
-      name: "RequestAlreadyProcessedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestAlreadyProcessedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RevocationReason = {
-  AFFILIATION_CHANGED: "AFFILIATION_CHANGED",
-  A_A_COMPROMISE: "A_A_COMPROMISE",
-  CERTIFICATE_AUTHORITY_COMPROMISE: "CERTIFICATE_AUTHORITY_COMPROMISE",
-  CESSATION_OF_OPERATION: "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE: "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
-  SUPERSEDED: "SUPERSEDED",
-  UNSPECIFIED: "UNSPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type RevocationReason = (typeof RevocationReason)[keyof typeof RevocationReason];
-
-/**
  * @public
  */
 export interface RevokeCertificateRequest {
@@ -2050,26 +1413,6 @@ export interface TagCertificateAuthorityRequest {
    * @public
    */
   Tags: Tag[] | undefined;
-}
-
-/**
- * <p>You can associate up to 50 tags with a private CA. Exception information is contained in the exception message field.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
 }
 
 /**

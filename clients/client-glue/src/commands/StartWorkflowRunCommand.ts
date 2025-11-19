@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartWorkflowRunRequest, StartWorkflowRunResponse } from "../models/models_3";
+import { StartWorkflowRunRequest, StartWorkflowRunResponse } from "../models/models_2";
 import { StartWorkflowRun } from "../schemas/schemas_0";
 
 /**

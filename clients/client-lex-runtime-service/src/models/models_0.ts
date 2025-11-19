@@ -1,12 +1,16 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";
+import {
+  ConfirmationStatus,
+  ContentType,
+  DialogActionType,
+  DialogState,
+  FulfillmentState,
+  MessageFormatType,
+} from "./enums";
 
 /**
  * <p>The length of time or number of turns that a context remains
@@ -63,49 +67,6 @@ export interface ActiveContext {
 }
 
 /**
- * <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * <p> Two clients are using the same AWS account, Amazon Lex bot, and user
- *       ID. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteSessionRequest {
@@ -158,69 +119,6 @@ export interface DeleteSessionResponse {
 }
 
 /**
- * <p>Internal service error. Retry the call.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>Exceeded a limit.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  retryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetSessionRequest {
@@ -253,54 +151,6 @@ export interface GetSessionRequest {
    */
   checkpointLabelFilter?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FulfillmentState = {
-  FAILED: "Failed",
-  FULFILLED: "Fulfilled",
-  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
-} as const;
-
-/**
- * @public
- */
-export type FulfillmentState = (typeof FulfillmentState)[keyof typeof FulfillmentState];
-
-/**
- * @public
- * @enum
- */
-export const MessageFormatType = {
-  COMPOSITE: "Composite",
-  CUSTOM_PAYLOAD: "CustomPayload",
-  PLAIN_TEXT: "PlainText",
-  SSML: "SSML",
-} as const;
-
-/**
- * @public
- */
-export type MessageFormatType = (typeof MessageFormatType)[keyof typeof MessageFormatType];
-
-/**
- * @public
- * @enum
- */
-export const DialogActionType = {
-  CLOSE: "Close",
-  CONFIRM_INTENT: "ConfirmIntent",
-  DELEGATE: "Delegate",
-  ELICIT_INTENT: "ElicitIntent",
-  ELICIT_SLOT: "ElicitSlot",
-} as const;
-
-/**
- * @public
- */
-export type DialogActionType = (typeof DialogActionType)[keyof typeof DialogActionType];
 
 /**
  * <p>Describes the next action that the bot should take in its interaction
@@ -424,21 +274,6 @@ export interface DialogAction {
    */
   messageFormat?: MessageFormatType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfirmationStatus = {
-  CONFIRMED: "Confirmed",
-  DENIED: "Denied",
-  NONE: "None",
-} as const;
-
-/**
- * @public
- */
-export type ConfirmationStatus = (typeof ConfirmationStatus)[keyof typeof ConfirmationStatus];
 
 /**
  * <p>Provides information about the state of an intent. You can use this
@@ -606,109 +441,6 @@ export interface GetSessionResponse {
    * @public
    */
   activeContexts?: ActiveContext[] | undefined;
-}
-
-/**
- * <p>Either the Amazon Lex bot is still building, or one of the dependent
- *       services (Amazon Polly, AWS Lambda) failed with an internal service
- *       error.</p>
- * @public
- */
-export class BadGatewayException extends __BaseException {
-  readonly name: "BadGatewayException" = "BadGatewayException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadGatewayException, __BaseException>) {
-    super({
-      name: "BadGatewayException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadGatewayException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
- *       exception. For example, </p>
- *          <ul>
- *             <li>
- *                <p>If Amazon Lex does not have sufficient permissions to call a Lambda
- *           function.</p>
- *             </li>
- *             <li>
- *                <p>If a Lambda function takes longer than 30 seconds to
- *           execute.</p>
- *             </li>
- *             <li>
- *                <p>If a fulfillment Lambda function returns a <code>Delegate</code>
- *           dialog action without removing any slot values.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class DependencyFailedException extends __BaseException {
-  readonly name: "DependencyFailedException" = "DependencyFailedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyFailedException, __BaseException>) {
-    super({
-      name: "DependencyFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyFailedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is not used.</p>
- * @public
- */
-export class LoopDetectedException extends __BaseException {
-  readonly name: "LoopDetectedException" = "LoopDetectedException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LoopDetectedException, __BaseException>) {
-    super({
-      name: "LoopDetectedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LoopDetectedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The accept header in the request does not have a valid value.</p>
- * @public
- */
-export class NotAcceptableException extends __BaseException {
-  readonly name: "NotAcceptableException" = "NotAcceptableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotAcceptableException, __BaseException>) {
-    super({
-      name: "NotAcceptableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotAcceptableException.prototype);
-  }
 }
 
 /**
@@ -900,24 +632,6 @@ export interface PostContentRequest {
    */
   activeContexts?: __AutomaticJsonStringConversion | string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DialogState = {
-  CONFIRM_INTENT: "ConfirmIntent",
-  ELICIT_INTENT: "ElicitIntent",
-  ELICIT_SLOT: "ElicitSlot",
-  FAILED: "Failed",
-  FULFILLED: "Fulfilled",
-  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
-} as const;
-
-/**
- * @public
- */
-export type DialogState = (typeof DialogState)[keyof typeof DialogState];
 
 /**
  * @public
@@ -1206,47 +920,6 @@ export interface PostContentResponse {
 }
 
 /**
- * <p>The input speech is too long.</p>
- * @public
- */
-export class RequestTimeoutException extends __BaseException {
-  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
-    super({
-      name: "RequestTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
-  }
-}
-
-/**
- * <p>The Content-Type header (<code>PostContent</code> API) has an invalid
- *       value. </p>
- * @public
- */
-export class UnsupportedMediaTypeException extends __BaseException {
-  readonly name: "UnsupportedMediaTypeException" = "UnsupportedMediaTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedMediaTypeException, __BaseException>) {
-    super({
-      name: "UnsupportedMediaTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedMediaTypeException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PostTextRequest {
@@ -1375,19 +1048,6 @@ export interface PredictedIntent {
    */
   slots?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentType = {
-  GENERIC: "application/vnd.amazonaws.card.generic",
-} as const;
-
-/**
- * @public
- */
-export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 /**
  * <p>Represents an option to be shown on the client platform (Facebook,

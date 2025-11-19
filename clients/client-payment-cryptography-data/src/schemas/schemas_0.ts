@@ -293,7 +293,7 @@ import {
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
   VerificationFailedException as __VerificationFailedException,
-} from "../models/index";
+} from "../models/errors";
 import { PaymentCryptographyDataServiceException as __PaymentCryptographyDataServiceException } from "../models/PaymentCryptographyDataServiceException";
 
 /* eslint no-var: 0 */

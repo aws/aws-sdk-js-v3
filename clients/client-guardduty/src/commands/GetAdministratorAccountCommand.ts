@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_1";
+import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
 import { GetAdministratorAccount } from "../schemas/schemas_0";
 
 /**

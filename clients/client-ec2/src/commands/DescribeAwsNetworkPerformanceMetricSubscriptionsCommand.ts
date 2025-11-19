@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeAwsNetworkPerformanceMetricSubscriptionsRequest,
   DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeAwsNetworkPerformanceMetricSubscriptions } from "../schemas/schemas_0";
 
 /**

@@ -1,22 +1,48 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ApproximateCreationDateTimePrecision = {
-  MICROSECOND: "MICROSECOND",
-  MILLISECOND: "MILLISECOND",
-} as const;
-
-/**
- * @public
- */
-export type ApproximateCreationDateTimePrecision =
-  (typeof ApproximateCreationDateTimePrecision)[keyof typeof ApproximateCreationDateTimePrecision];
+import {
+  ApproximateCreationDateTimePrecision,
+  AttributeAction,
+  BackupStatus,
+  BackupType,
+  BackupTypeFilter,
+  BatchStatementErrorCodeEnum,
+  BillingMode,
+  ComparisonOperator,
+  ConditionalOperator,
+  ContinuousBackupsStatus,
+  ContributorInsightsAction,
+  ContributorInsightsMode,
+  ContributorInsightsStatus,
+  DestinationStatus,
+  ExportFormat,
+  ExportStatus,
+  ExportType,
+  ExportViewType,
+  GlobalTableStatus,
+  ImportStatus,
+  IndexStatus,
+  InputCompressionType,
+  InputFormat,
+  KeyType,
+  MultiRegionConsistency,
+  PointInTimeRecoveryStatus,
+  ProjectionType,
+  ReplicaStatus,
+  ReturnConsumedCapacity,
+  ReturnItemCollectionMetrics,
+  ReturnValue,
+  ReturnValuesOnConditionCheckFailure,
+  S3SseAlgorithm,
+  ScalarAttributeType,
+  Select,
+  SSEStatus,
+  SSEType,
+  StreamViewType,
+  TableClass,
+  TableStatus,
+  TimeToLiveStatus,
+  WitnessStatus,
+} from "./enums";
 
 /**
  * <p>Contains details of a table archival operation.</p>
@@ -52,36 +78,6 @@ export interface ArchivalSummary {
    */
   ArchivalBackupArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttributeAction = {
-  ADD: "ADD",
-  DELETE: "DELETE",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type AttributeAction = (typeof AttributeAction)[keyof typeof AttributeAction];
-
-/**
- * @public
- * @enum
- */
-export const ScalarAttributeType = {
-  B: "B",
-  N: "N",
-  S: "S",
-} as const;
-
-/**
- * @public
- */
-export type ScalarAttributeType = (typeof ScalarAttributeType)[keyof typeof ScalarAttributeType];
 
 /**
  * <p>Represents an attribute for describing the schema for the table and indexes.</p>
@@ -318,36 +314,6 @@ export interface AutoScalingSettingsUpdate {
 }
 
 /**
- * @public
- * @enum
- */
-export const BackupStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-} as const;
-
-/**
- * @public
- */
-export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
-
-/**
- * @public
- * @enum
- */
-export const BackupType = {
-  AWS_BACKUP: "AWS_BACKUP",
-  SYSTEM: "SYSTEM",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type BackupType = (typeof BackupType)[keyof typeof BackupType];
-
-/**
  * <p>Contains the details of the backup created for the table.</p>
  * @public
  */
@@ -415,34 +381,6 @@ export interface BackupDetails {
    */
   BackupExpiryDateTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BillingMode = {
-  PAY_PER_REQUEST: "PAY_PER_REQUEST",
-  PROVISIONED: "PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
-
-/**
- * @public
- * @enum
- */
-export const KeyType = {
-  HASH: "HASH",
-  RANGE: "RANGE",
-} as const;
-
-/**
- * @public
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * <p>Represents <i>a single element</i> of a key schema. A key schema
@@ -636,21 +574,6 @@ export interface SourceTableDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProjectionType = {
-  ALL: "ALL",
-  INCLUDE: "INCLUDE",
-  KEYS_ONLY: "KEYS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type ProjectionType = (typeof ProjectionType)[keyof typeof ProjectionType];
-
-/**
  * <p>Represents attributes that are copied (projected) from the table into an index. These
  *             are in addition to the primary key attributes and index key attributes, which are
  *             automatically projected.</p>
@@ -807,37 +730,6 @@ export interface LocalSecondaryIndexInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const SSEType = {
-  AES256: "AES256",
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type SSEType = (typeof SSEType)[keyof typeof SSEType];
-
-/**
- * @public
- * @enum
- */
-export const SSEStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type SSEStatus = (typeof SSEStatus)[keyof typeof SSEStatus];
-
-/**
  * <p>The description of the server-side encryption status on the specified table.</p>
  * @public
  */
@@ -889,22 +781,6 @@ export interface SSEDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const StreamViewType = {
-  KEYS_ONLY: "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE: "NEW_IMAGE",
-  OLD_IMAGE: "OLD_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type StreamViewType = (typeof StreamViewType)[keyof typeof StreamViewType];
-
-/**
  * <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
  * @public
  */
@@ -946,22 +822,6 @@ export interface StreamSpecification {
    */
   StreamViewType?: StreamViewType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeToLiveStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-} as const;
-
-/**
- * @public
- */
-export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLiveStatus];
 
 /**
  * <p>The description of the Time to Live (TTL) status on the specified table. </p>
@@ -1046,47 +906,6 @@ export interface BackupDescription {
    * @public
    */
   SourceTableFeatureDetails?: SourceTableFeatureDetails | undefined;
-}
-
-/**
- * <p>There is another ongoing conflicting backup control plane operation on the table.
- *             The backup is either being created, deleted or restored to a table.</p>
- * @public
- */
-export class BackupInUseException extends __BaseException {
-  readonly name: "BackupInUseException" = "BackupInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupInUseException, __BaseException>) {
-    super({
-      name: "BackupInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupInUseException.prototype);
-  }
-}
-
-/**
- * <p>Backup not found for the given BackupARN. </p>
- * @public
- */
-export class BackupNotFoundException extends __BaseException {
-  readonly name: "BackupNotFoundException" = "BackupNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupNotFoundException, __BaseException>) {
-    super({
-      name: "BackupNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1176,52 +995,6 @@ export interface BackupSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const BackupTypeFilter = {
-  ALL: "ALL",
-  AWS_BACKUP: "AWS_BACKUP",
-  SYSTEM: "SYSTEM",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type BackupTypeFilter = (typeof BackupTypeFilter)[keyof typeof BackupTypeFilter];
-
-/**
- * @public
- * @enum
- */
-export const ReturnConsumedCapacity = {
-  INDEXES: "INDEXES",
-  NONE: "NONE",
-  TOTAL: "TOTAL",
-} as const;
-
-/**
- * @public
- */
-export type ReturnConsumedCapacity = (typeof ReturnConsumedCapacity)[keyof typeof ReturnConsumedCapacity];
-
-/**
- * @public
- * @enum
- */
-export const ReturnValuesOnConditionCheckFailure = {
-  ALL_OLD: "ALL_OLD",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ReturnValuesOnConditionCheckFailure =
-  (typeof ReturnValuesOnConditionCheckFailure)[keyof typeof ReturnValuesOnConditionCheckFailure];
-
-/**
  * <p>Represents the amount of provisioned throughput capacity consumed on a table or an
  *             index.</p>
  * @public
@@ -1302,50 +1075,6 @@ export interface ConsumedCapacity {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchStatementErrorCodeEnum = {
-  AccessDenied: "AccessDenied",
-  ConditionalCheckFailed: "ConditionalCheckFailed",
-  DuplicateItem: "DuplicateItem",
-  InternalServerError: "InternalServerError",
-  ItemCollectionSizeLimitExceeded: "ItemCollectionSizeLimitExceeded",
-  ProvisionedThroughputExceeded: "ProvisionedThroughputExceeded",
-  RequestLimitExceeded: "RequestLimitExceeded",
-  ResourceNotFound: "ResourceNotFound",
-  ThrottlingError: "ThrottlingError",
-  TransactionConflict: "TransactionConflict",
-  ValidationError: "ValidationError",
-} as const;
-
-/**
- * @public
- */
-export type BatchStatementErrorCodeEnum =
-  (typeof BatchStatementErrorCodeEnum)[keyof typeof BatchStatementErrorCodeEnum];
-
-/**
- * <p>An error occurred on the server side.</p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-  }
-}
-
-/**
  * <p>Represents the specific reason why a DynamoDB request was throttled and the
  *             ARN of the impacted resource. This helps identify exactly what resource is being throttled,
  *             what type of operation caused it, and why the throttling occurred.</p>
@@ -1417,202 +1146,6 @@ export interface ThrottlingReason {
 }
 
 /**
- * <p>Throughput exceeds the current throughput quota for your account. For detailed
- *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a quota
- *             increase.</p>
- * @public
- */
-export class RequestLimitExceeded extends __BaseException {
-  readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
-   *      provide detailed diagnostic information about why the request was throttled.
-   *     </p>
-   * @public
-   */
-  ThrottlingReasons?: ThrottlingReason[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestLimitExceeded, __BaseException>) {
-    super({
-      name: "RequestLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
-    this.ThrottlingReasons = opts.ThrottlingReasons;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. For detailed information about why
- *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
-   *      provide detailed diagnostic information about why the request was throttled.
-   *     </p>
-   * @public
-   */
-  throttlingReasons?: ThrottlingReason[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.throttlingReasons = opts.throttlingReasons;
-  }
-}
-
-/**
- * @public
- */
-export class InvalidEndpointException extends __BaseException {
-  readonly name: "InvalidEndpointException" = "InvalidEndpointException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEndpointException, __BaseException>) {
-    super({
-      name: "InvalidEndpointException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEndpointException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. For detailed information about
- *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
- *             SDKs for DynamoDB automatically retry requests that receive this exception.
- *             Your request is eventually successful, unless your retry queue is too large to finish.
- *             Reduce the frequency of requests and use exponential backoff. For more information, go
- *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
- * @public
- */
-export class ProvisionedThroughputExceededException extends __BaseException {
-  readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
-   *      provide detailed diagnostic information about why the request was throttled.
-   *     </p>
-   * @public
-   */
-  ThrottlingReasons?: ThrottlingReason[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProvisionedThroughputExceededException, __BaseException>) {
-    super({
-      name: "ProvisionedThroughputExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
-    this.ThrottlingReasons = opts.ThrottlingReasons;
-  }
-}
-
-/**
- * <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ReturnItemCollectionMetrics = {
-  NONE: "NONE",
-  SIZE: "SIZE",
-} as const;
-
-/**
- * @public
- */
-export type ReturnItemCollectionMetrics =
-  (typeof ReturnItemCollectionMetrics)[keyof typeof ReturnItemCollectionMetrics];
-
-/**
- * <p>An item collection is too large. This exception is only returned for tables that
- *             have one or more local secondary indexes.</p>
- * @public
- */
-export class ItemCollectionSizeLimitExceededException extends __BaseException {
-  readonly name: "ItemCollectionSizeLimitExceededException" = "ItemCollectionSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ItemCollectionSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "ItemCollectionSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ItemCollectionSizeLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because one or more items in the request are being modified
- *             by a request in another Region. </p>
- * @public
- */
-export class ReplicatedWriteConflictException extends __BaseException {
-  readonly name: "ReplicatedWriteConflictException" = "ReplicatedWriteConflictException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicatedWriteConflictException, __BaseException>) {
-    super({
-      name: "ReplicatedWriteConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicatedWriteConflictException.prototype);
-  }
-}
-
-/**
  * <p>Contains the details for the read/write capacity mode. This page talks about
  *                 <code>PROVISIONED</code> and <code>PAY_PER_REQUEST</code> billing modes. For more
  *             information about these modes, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html">Read/write capacity mode</a>.</p>
@@ -1651,73 +1184,6 @@ export interface BillingModeSummary {
    */
   LastUpdateToPayPerRequestDateTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  BEGINS_WITH: "BEGINS_WITH",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  EQ: "EQ",
-  GE: "GE",
-  GT: "GT",
-  IN: "IN",
-  LE: "LE",
-  LT: "LT",
-  NE: "NE",
-  NOT_CONTAINS: "NOT_CONTAINS",
-  NOT_NULL: "NOT_NULL",
-  NULL: "NULL",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const ConditionalOperator = {
-  AND: "AND",
-  OR: "OR",
-} as const;
-
-/**
- * @public
- */
-export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
-
-/**
- * @public
- * @enum
- */
-export const ContinuousBackupsStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ContinuousBackupsStatus = (typeof ContinuousBackupsStatus)[keyof typeof ContinuousBackupsStatus];
-
-/**
- * @public
- * @enum
- */
-export const PointInTimeRecoveryStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof typeof PointInTimeRecoveryStatus];
 
 /**
  * <p>The description of the point in time settings applied to the table.</p>
@@ -1786,71 +1252,6 @@ export interface ContinuousBackupsDescription {
 }
 
 /**
- * <p>Backups have not yet been enabled for this table.</p>
- * @public
- */
-export class ContinuousBackupsUnavailableException extends __BaseException {
-  readonly name: "ContinuousBackupsUnavailableException" = "ContinuousBackupsUnavailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ContinuousBackupsUnavailableException, __BaseException>) {
-    super({
-      name: "ContinuousBackupsUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ContinuousBackupsUnavailableException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ContributorInsightsAction = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-} as const;
-
-/**
- * @public
- */
-export type ContributorInsightsAction = (typeof ContributorInsightsAction)[keyof typeof ContributorInsightsAction];
-
-/**
- * @public
- * @enum
- */
-export const ContributorInsightsMode = {
-  ACCESSED_AND_THROTTLED_KEYS: "ACCESSED_AND_THROTTLED_KEYS",
-  THROTTLED_KEYS: "THROTTLED_KEYS",
-} as const;
-
-/**
- * @public
- */
-export type ContributorInsightsMode = (typeof ContributorInsightsMode)[keyof typeof ContributorInsightsMode];
-
-/**
- * @public
- * @enum
- */
-export const ContributorInsightsStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type ContributorInsightsStatus = (typeof ContributorInsightsStatus)[keyof typeof ContributorInsightsStatus];
-
-/**
  * <p>Represents a Contributor Insights summary entry.</p>
  * @public
  */
@@ -1910,84 +1311,6 @@ export interface CreateBackupOutput {
    * @public
    */
   BackupDetails?: BackupDetails | undefined;
-}
-
-/**
- * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>A target table with the specified name is either being created or deleted.
- *         </p>
- * @public
- */
-export class TableInUseException extends __BaseException {
-  readonly name: "TableInUseException" = "TableInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TableInUseException, __BaseException>) {
-    super({
-      name: "TableInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TableInUseException.prototype);
-  }
-}
-
-/**
- * <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
- *             Region.</p>
- * @public
- */
-export class TableNotFoundException extends __BaseException {
-  readonly name: "TableNotFoundException" = "TableNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TableNotFoundException, __BaseException>) {
-    super({
-      name: "TableNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TableNotFoundException.prototype);
-  }
 }
 
 /**
@@ -2096,22 +1419,6 @@ export interface CreateGlobalTableInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const GlobalTableStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type GlobalTableStatus = (typeof GlobalTableStatus)[keyof typeof GlobalTableStatus];
-
-/**
  * <p>Overrides the on-demand throughput settings for this replica table. If you don't
  *             specify a value for this parameter, it uses the source table's on-demand throughput
  *             settings.</p>
@@ -2138,22 +1445,6 @@ export interface ProvisionedThroughputOverride {
    */
   ReadCapacityUnits?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * <p>The description of the warm throughput value on a global secondary index.</p>
@@ -2214,42 +1505,6 @@ export interface ReplicaGlobalSecondaryIndexDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReplicaStatus = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-  ARCHIVING: "ARCHIVING",
-  CREATING: "CREATING",
-  CREATION_FAILED: "CREATION_FAILED",
-  DELETING: "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  REGION_DISABLED: "REGION_DISABLED",
-  REPLICATION_NOT_AUTHORIZED: "REPLICATION_NOT_AUTHORIZED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ReplicaStatus = (typeof ReplicaStatus)[keyof typeof ReplicaStatus];
-
-/**
- * @public
- * @enum
- */
-export const TableClass = {
-  STANDARD: "STANDARD",
-  STANDARD_INFREQUENT_ACCESS: "STANDARD_INFREQUENT_ACCESS",
-} as const;
-
-/**
- * @public
- */
-export type TableClass = (typeof TableClass)[keyof typeof TableClass];
-
-/**
  * <p>Contains details of the table class.</p>
  * @public
  */
@@ -2267,26 +1522,6 @@ export interface TableClassSummary {
    */
   LastUpdateDateTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TableStatus = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-  ARCHIVING: "ARCHIVING",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  REPLICATION_NOT_AUTHORIZED: "REPLICATION_NOT_AUTHORIZED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * <p>Represents the warm throughput value (in read units per second and write units per
@@ -2493,26 +1728,6 @@ export interface CreateGlobalTableOutput {
    * @public
    */
   GlobalTableDescription?: GlobalTableDescription | undefined;
-}
-
-/**
- * <p>The specified global table already exists.</p>
- * @public
- */
-export class GlobalTableAlreadyExistsException extends __BaseException {
-  readonly name: "GlobalTableAlreadyExistsException" = "GlobalTableAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalTableAlreadyExistsException, __BaseException>) {
-    super({
-      name: "GlobalTableAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalTableAlreadyExistsException.prototype);
-  }
 }
 
 /**
@@ -3344,21 +2559,6 @@ export interface GlobalSecondaryIndexDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const WitnessStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type WitnessStatus = (typeof WitnessStatus)[keyof typeof WitnessStatus];
-
-/**
  * <p>Represents the properties of a witness Region in a MRSC global table. </p>
  * @public
  */
@@ -3445,20 +2645,6 @@ export interface LocalSecondaryIndexDescription {
    */
   IndexArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MultiRegionConsistency = {
-  EVENTUAL: "EVENTUAL",
-  STRONG: "STRONG",
-} as const;
-
-/**
- * @public
- */
-export type MultiRegionConsistency = (typeof MultiRegionConsistency)[keyof typeof MultiRegionConsistency];
 
 /**
  * <p>Contains details for the restore.</p>
@@ -3984,40 +3170,6 @@ export interface CreateTableOutput {
 }
 
 /**
- * <p>The operation conflicts with the resource's availability. For example:</p>
- *          <ul>
- *             <li>
- *                <p>You attempted to recreate an existing table.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a table currently in the <code>CREATING</code>
- *                     state.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a resource that was already being updated.</p>
- *             </li>
- *          </ul>
- *          <p>When appropriate, wait for the ongoing update to complete and attempt the request
- *             again.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
  * <p> Processing options for the CSV file being imported. </p>
  * @public
  */
@@ -4088,44 +3240,6 @@ export interface DeleteGlobalTableWitnessGroupMemberAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReturnValue = {
-  ALL_NEW: "ALL_NEW",
-  ALL_OLD: "ALL_OLD",
-  NONE: "NONE",
-  UPDATED_NEW: "UPDATED_NEW",
-  UPDATED_OLD: "UPDATED_OLD",
-} as const;
-
-/**
- * @public
- */
-export type ReturnValue = (typeof ReturnValue)[keyof typeof ReturnValue];
-
-/**
- * <p>Operation was rejected because there is an ongoing transaction for the
- *             item.</p>
- * @public
- */
-export class TransactionConflictException extends __BaseException {
-  readonly name: "TransactionConflictException" = "TransactionConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransactionConflictException, __BaseException>) {
-    super({
-      name: "TransactionConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransactionConflictException.prototype);
-  }
-}
-
-/**
  * <p>Represents a replica to be removed.</p>
  * @public
  */
@@ -4184,28 +3298,6 @@ export interface DeleteResourcePolicyOutput {
    * @public
    */
   RevisionId?: string | undefined;
-}
-
-/**
- * <p>The operation tried to access a nonexistent resource-based policy.</p>
- *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is
- *             present for the resource but its revision ID didn't match the expected value.</p>
- * @public
- */
-export class PolicyNotFoundException extends __BaseException {
-  readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyNotFoundException, __BaseException>) {
-    super({
-      name: "PolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyNotFoundException.prototype);
-  }
 }
 
 /**
@@ -4431,63 +3523,6 @@ export interface DescribeExportInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExportFormat = {
-  DYNAMODB_JSON: "DYNAMODB_JSON",
-  ION: "ION",
-} as const;
-
-/**
- * @public
- */
-export type ExportFormat = (typeof ExportFormat)[keyof typeof ExportFormat];
-
-/**
- * @public
- * @enum
- */
-export const ExportStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
-
-/**
- * @public
- * @enum
- */
-export const ExportType = {
-  FULL_EXPORT: "FULL_EXPORT",
-  INCREMENTAL_EXPORT: "INCREMENTAL_EXPORT",
-} as const;
-
-/**
- * @public
- */
-export type ExportType = (typeof ExportType)[keyof typeof ExportType];
-
-/**
- * @public
- * @enum
- */
-export const ExportViewType = {
-  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE: "NEW_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type ExportViewType = (typeof ExportViewType)[keyof typeof ExportViewType];
-
-/**
  * <p>Optional object containing the parameters specific to an incremental export.</p>
  * @public
  */
@@ -4517,20 +3552,6 @@ export interface IncrementalExportSpecification {
    */
   ExportViewType?: ExportViewType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const S3SseAlgorithm = {
-  AES256: "AES256",
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type S3SseAlgorithm = (typeof S3SseAlgorithm)[keyof typeof S3SseAlgorithm];
 
 /**
  * <p>Represents the properties of the exported table.</p>
@@ -4697,26 +3718,6 @@ export interface DescribeExportOutput {
 }
 
 /**
- * <p>The specified export was not found.</p>
- * @public
- */
-export class ExportNotFoundException extends __BaseException {
-  readonly name: "ExportNotFoundException" = "ExportNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExportNotFoundException, __BaseException>) {
-    super({
-      name: "ExportNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExportNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeGlobalTableInput {
@@ -4736,26 +3737,6 @@ export interface DescribeGlobalTableOutput {
    * @public
    */
   GlobalTableDescription?: GlobalTableDescription | undefined;
-}
-
-/**
- * <p>The specified global table does not exist.</p>
- * @public
- */
-export class GlobalTableNotFoundException extends __BaseException {
-  readonly name: "GlobalTableNotFoundException" = "GlobalTableNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalTableNotFoundException, __BaseException>) {
-    super({
-      name: "GlobalTableNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalTableNotFoundException.prototype);
-  }
 }
 
 /**
@@ -4943,53 +3924,6 @@ export interface DescribeImportInput {
    */
   ImportArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImportStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
-
-/**
- * @public
- * @enum
- */
-export const InputCompressionType = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-  ZSTD: "ZSTD",
-} as const;
-
-/**
- * @public
- */
-export type InputCompressionType = (typeof InputCompressionType)[keyof typeof InputCompressionType];
-
-/**
- * @public
- * @enum
- */
-export const InputFormat = {
-  CSV: "CSV",
-  DYNAMODB_JSON: "DYNAMODB_JSON",
-  ION: "ION",
-} as const;
-
-/**
- * @public
- */
-export type InputFormat = (typeof InputFormat)[keyof typeof InputFormat];
 
 /**
  * <p> The format options for the data that was imported into the target table. There is one
@@ -5242,26 +4176,6 @@ export interface DescribeImportOutput {
 }
 
 /**
- * <p> The specified import was not found. </p>
- * @public
- */
-export class ImportNotFoundException extends __BaseException {
-  readonly name: "ImportNotFoundException" = "ImportNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImportNotFoundException, __BaseException>) {
-    super({
-      name: "ImportNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImportNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeKinesisStreamingDestinationInput {
@@ -5272,24 +4186,6 @@ export interface DescribeKinesisStreamingDestinationInput {
    */
   TableName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DestinationStatus = {
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLE_FAILED: "ENABLE_FAILED",
-  ENABLING: "ENABLING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DestinationStatus = (typeof DestinationStatus)[keyof typeof DestinationStatus];
 
 /**
  * <p>Describes a Kinesis data stream destination.</p>
@@ -5671,148 +4567,6 @@ export interface KinesisStreamingDestinationOutput {
 }
 
 /**
- * <p> There was an attempt to insert an item with the same primary key as an item that
- *             already exists in the DynamoDB table.</p>
- * @public
- */
-export class DuplicateItemException extends __BaseException {
-  readonly name: "DuplicateItemException" = "DuplicateItemException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicateItemException, __BaseException>) {
-    super({
-      name: "DuplicateItemException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicateItemException.prototype);
-  }
-}
-
-/**
- * <p>DynamoDB rejected the request because you retried a request with a
- *             different payload but with an idempotent token that was already used.</p>
- * @public
- */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The transaction with the given request token is already in progress.</p>
- *          <p> Recommended Settings </p>
- *          <note>
- *             <p> This is a general recommendation for handling the
- *                     <code>TransactionInProgressException</code>. These settings help ensure that the
- *                 client retries will trigger completion of the ongoing
- *                     <code>TransactWriteItems</code> request. </p>
- *          </note>
- *          <ul>
- *             <li>
- *                <p> Set <code>clientExecutionTimeout</code> to a value that allows at least one
- *                     retry to be processed after 5 seconds have elapsed since the first attempt for
- *                     the <code>TransactWriteItems</code> operation. </p>
- *             </li>
- *             <li>
- *                <p> Set <code>socketTimeout</code> to a value a little lower than the
- *                         <code>requestTimeout</code> setting. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>requestTimeout</code> should be set based on the time taken for the
- *                     individual retries of a single HTTP request for your use case, but setting it to
- *                     1 second or higher should work well to reduce chances of retries and
- *                         <code>TransactionInProgressException</code> errors. </p>
- *             </li>
- *             <li>
- *                <p> Use exponential backoff when retrying and tune backoff if needed. </p>
- *             </li>
- *          </ul>
- *          <p> Assuming <a href="https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97">default retry policy</a>, example timeout settings based on the guidelines
- *             above are as follows: </p>
- *          <p>Example timeline:</p>
- *          <ul>
- *             <li>
- *                <p>0-1000 first attempt</p>
- *             </li>
- *             <li>
- *                <p>1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay
- *                     for 4xx errors)</p>
- *             </li>
- *             <li>
- *                <p>1500-2500 second attempt</p>
- *             </li>
- *             <li>
- *                <p>2500-3500 second sleep/delay (500 * 2, exponential backoff)</p>
- *             </li>
- *             <li>
- *                <p>3500-4500 third attempt</p>
- *             </li>
- *             <li>
- *                <p>4500-6500 third sleep/delay (500 * 2^2)</p>
- *             </li>
- *             <li>
- *                <p>6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds
- *                     have elapsed since the first attempt reached TC)</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class TransactionInProgressException extends __BaseException {
-  readonly name: "TransactionInProgressException" = "TransactionInProgressException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransactionInProgressException, __BaseException>) {
-    super({
-      name: "TransactionInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransactionInProgressException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>There was a conflict when writing to the specified S3 bucket.</p>
- * @public
- */
-export class ExportConflictException extends __BaseException {
-  readonly name: "ExportConflictException" = "ExportConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExportConflictException, __BaseException>) {
-    super({
-      name: "ExportConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExportConflictException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ExportTableToPointInTimeInput {
@@ -5930,47 +4684,6 @@ export interface ExportTableToPointInTimeOutput {
 }
 
 /**
- * <p>The specified <code>ExportTime</code> is outside of the point in time recovery
- *             window.</p>
- * @public
- */
-export class InvalidExportTimeException extends __BaseException {
-  readonly name: "InvalidExportTimeException" = "InvalidExportTimeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidExportTimeException, __BaseException>) {
-    super({
-      name: "InvalidExportTimeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidExportTimeException.prototype);
-  }
-}
-
-/**
- * <p>Point in time recovery has not yet been enabled for this source table.</p>
- * @public
- */
-export class PointInTimeRecoveryUnavailableException extends __BaseException {
-  readonly name: "PointInTimeRecoveryUnavailableException" = "PointInTimeRecoveryUnavailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PointInTimeRecoveryUnavailableException, __BaseException>) {
-    super({
-      name: "PointInTimeRecoveryUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PointInTimeRecoveryUnavailableException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetResourcePolicyInput {
@@ -5998,28 +4711,6 @@ export interface GetResourcePolicyOutput {
    * @public
    */
   RevisionId?: string | undefined;
-}
-
-/**
- * <p> There was a conflict when importing from the specified S3 source. This can occur when
- *             the current import conflicts with a previous import request that had the same client
- *             token. </p>
- * @public
- */
-export class ImportConflictException extends __BaseException {
-  readonly name: "ImportConflictException" = "ImportConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImportConflictException, __BaseException>) {
-    super({
-      name: "ImportConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImportConflictException.prototype);
-  }
 }
 
 /**
@@ -6610,22 +5301,6 @@ export interface PutResourcePolicyOutput {
 
 /**
  * @public
- * @enum
- */
-export const Select = {
-  ALL_ATTRIBUTES: "ALL_ATTRIBUTES",
-  ALL_PROJECTED_ATTRIBUTES: "ALL_PROJECTED_ATTRIBUTES",
-  COUNT: "COUNT",
-  SPECIFIC_ATTRIBUTES: "SPECIFIC_ATTRIBUTES",
-} as const;
-
-/**
- * @public
- */
-export type Select = (typeof Select)[keyof typeof Select];
-
-/**
- * @public
  */
 export interface RestoreTableFromBackupInput {
   /**
@@ -6692,47 +5367,6 @@ export interface RestoreTableFromBackupOutput {
    * @public
    */
   TableDescription?: TableDescription | undefined;
-}
-
-/**
- * <p>A target table with the specified name already exists. </p>
- * @public
- */
-export class TableAlreadyExistsException extends __BaseException {
-  readonly name: "TableAlreadyExistsException" = "TableAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TableAlreadyExistsException, __BaseException>) {
-    super({
-      name: "TableAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TableAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>An invalid restore time was specified. RestoreDateTime must be between
- *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
- * @public
- */
-export class InvalidRestoreTimeException extends __BaseException {
-  readonly name: "InvalidRestoreTimeException" = "InvalidRestoreTimeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRestoreTimeException, __BaseException>) {
-    super({
-      name: "InvalidRestoreTimeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRestoreTimeException.prototype);
-  }
 }
 
 /**
@@ -6976,46 +5610,6 @@ export interface UpdateContributorInsightsOutput {
 }
 
 /**
- * <p>The specified replica is already part of the global table.</p>
- * @public
- */
-export class ReplicaAlreadyExistsException extends __BaseException {
-  readonly name: "ReplicaAlreadyExistsException" = "ReplicaAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicaAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ReplicaAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicaAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The specified replica is no longer part of the global table.</p>
- * @public
- */
-export class ReplicaNotFoundException extends __BaseException {
-  readonly name: "ReplicaNotFoundException" = "ReplicaNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicaNotFoundException, __BaseException>) {
-    super({
-      name: "ReplicaNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicaNotFoundException.prototype);
-  }
-}
-
-/**
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -7070,26 +5664,6 @@ export interface UpdateGlobalTableOutput {
    * @public
    */
   GlobalTableDescription?: GlobalTableDescription | undefined;
-}
-
-/**
- * <p>The operation tried to access a nonexistent index.</p>
- * @public
- */
-export class IndexNotFoundException extends __BaseException {
-  readonly name: "IndexNotFoundException" = "IndexNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IndexNotFoundException, __BaseException>) {
-    super({
-      name: "IndexNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IndexNotFoundException.prototype);
-  }
 }
 
 /**
@@ -8626,33 +7200,6 @@ export interface Condition {
 }
 
 /**
- * <p>A condition specified in the operation failed to be evaluated.</p>
- * @public
- */
-export class ConditionalCheckFailedException extends __BaseException {
-  readonly name: "ConditionalCheckFailedException" = "ConditionalCheckFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
-   * @public
-   */
-  Item?: Record<string, AttributeValue> | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConditionalCheckFailedException, __BaseException>) {
-    super({
-      name: "ConditionalCheckFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConditionalCheckFailedException.prototype);
-    this.Item = opts.Item;
-  }
-}
-
-/**
  * <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
  * @public
  */
@@ -9259,270 +7806,6 @@ export interface TransactGetItemsOutput {
    * @public
    */
   Responses?: ItemResponse[] | undefined;
-}
-
-/**
- * <p>The entire transaction request was canceled.</p>
- *          <p>DynamoDB cancels a <code>TransactWriteItems</code> request under the following
- *             circumstances:</p>
- *          <ul>
- *             <li>
- *                <p>A condition in one of the condition expressions is not met.</p>
- *             </li>
- *             <li>
- *                <p>A table in the <code>TransactWriteItems</code> request is in a different
- *                     account or region.</p>
- *             </li>
- *             <li>
- *                <p>More than one action in the <code>TransactWriteItems</code> operation
- *                     targets the same item.</p>
- *             </li>
- *             <li>
- *                <p>There is insufficient provisioned capacity for the transaction to be
- *                     completed.</p>
- *             </li>
- *             <li>
- *                <p>An item size becomes too large (larger than 400 KB), or a local secondary
- *                     index (LSI) becomes too large, or a similar validation error occurs because of
- *                     changes made by the transaction.</p>
- *             </li>
- *             <li>
- *                <p>There is a user error, such as an invalid data format.</p>
- *             </li>
- *             <li>
- *                <p> There is an ongoing <code>TransactWriteItems</code> operation that
- *                     conflicts with a concurrent <code>TransactWriteItems</code> request. In this
- *                     case the <code>TransactWriteItems</code> operation fails with a
- *                         <code>TransactionCanceledException</code>. </p>
- *             </li>
- *          </ul>
- *          <p>DynamoDB cancels a <code>TransactGetItems</code> request under the
- *             following circumstances:</p>
- *          <ul>
- *             <li>
- *                <p>There is an ongoing <code>TransactGetItems</code> operation that conflicts
- *                     with a concurrent <code>PutItem</code>, <code>UpdateItem</code>,
- *                         <code>DeleteItem</code> or <code>TransactWriteItems</code> request. In this
- *                     case the <code>TransactGetItems</code> operation fails with a
- *                         <code>TransactionCanceledException</code>.</p>
- *             </li>
- *             <li>
- *                <p>A table in the <code>TransactGetItems</code> request is in a different
- *                     account or region.</p>
- *             </li>
- *             <li>
- *                <p>There is insufficient provisioned capacity for the transaction to be
- *                     completed.</p>
- *             </li>
- *             <li>
- *                <p>There is a user error, such as an invalid data format.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>If using Java, DynamoDB lists the cancellation reasons on the
- *                     <code>CancellationReasons</code> property. This property is not set for other
- *                 languages. Transaction cancellation reasons are ordered in the order of requested
- *                 items, if an item has no error it will have <code>None</code> code and
- *                     <code>Null</code> message.</p>
- *          </note>
- *          <p>Cancellation reason codes and possible error messages:</p>
- *          <ul>
- *             <li>
- *                <p>No Errors:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>None</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: <code>null</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Conditional Check Failed:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ConditionalCheckFailed</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: The conditional request failed. </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Item Collection Size Limit Exceeded:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ItemCollectionSizeLimitExceeded</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: Collection size exceeded.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Transaction Conflict:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>TransactionConflict</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: Transaction is ongoing for the item.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Provisioned Throughput Exceeded:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ProvisionedThroughputExceeded</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Messages:</p>
- *                      <ul>
- *                         <li>
- *                            <p>The level of configured provisioned throughput for the
- *                                     table was exceeded. Consider increasing your provisioning level
- *                                     with the UpdateTable API.</p>
- *                            <note>
- *                               <p>This Message is received when provisioned throughput is
- *                                         exceeded is on a provisioned DynamoDB
- *                                         table.</p>
- *                            </note>
- *                         </li>
- *                         <li>
- *                            <p>The level of configured provisioned throughput for one or
- *                                     more global secondary indexes of the table was exceeded.
- *                                     Consider increasing your provisioning level for the
- *                                     under-provisioned global secondary indexes with the UpdateTable
- *                                     API.</p>
- *                            <note>
- *                               <p>This message is returned when provisioned throughput is
- *                                         exceeded is on a provisioned GSI.</p>
- *                            </note>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Throttling Error:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ThrottlingError</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Messages: </p>
- *                      <ul>
- *                         <li>
- *                            <p>Throughput exceeds the current capacity of your table or
- *                                     index. DynamoDB is automatically scaling your table or
- *                                     index so please try again shortly. If exceptions persist, check
- *                                     if you have a hot key:
- *                                     https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html.</p>
- *                            <note>
- *                               <p>This message is returned when writes get throttled on an
- *                                         On-Demand table as DynamoDB is automatically
- *                                         scaling the table.</p>
- *                            </note>
- *                         </li>
- *                         <li>
- *                            <p>Throughput exceeds the current capacity for one or more
- *                                     global secondary indexes. DynamoDB is automatically
- *                                     scaling your index so please try again shortly.</p>
- *                            <note>
- *                               <p>This message is returned when writes get throttled on an
- *                                         On-Demand GSI as DynamoDB is automatically scaling
- *                                         the GSI.</p>
- *                            </note>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Validation Error:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ValidationError</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Messages: </p>
- *                      <ul>
- *                         <li>
- *                            <p>One or more parameter values were invalid.</p>
- *                         </li>
- *                         <li>
- *                            <p>The update expression attempted to update the secondary
- *                                     index key beyond allowed size limits.</p>
- *                         </li>
- *                         <li>
- *                            <p>The update expression attempted to update the secondary
- *                                     index key to unsupported type.</p>
- *                         </li>
- *                         <li>
- *                            <p>An operand in the update expression has an incorrect data
- *                                     type.</p>
- *                         </li>
- *                         <li>
- *                            <p>Item size to update has exceeded the maximum allowed
- *                                     size.</p>
- *                         </li>
- *                         <li>
- *                            <p>Number overflow. Attempting to store a number with
- *                                     magnitude larger than supported range.</p>
- *                         </li>
- *                         <li>
- *                            <p>Type mismatch for attribute to update.</p>
- *                         </li>
- *                         <li>
- *                            <p>Nesting Levels have exceeded supported limits.</p>
- *                         </li>
- *                         <li>
- *                            <p>The document path provided in the update expression is
- *                                     invalid for update.</p>
- *                         </li>
- *                         <li>
- *                            <p>The provided expression refers to an attribute that does
- *                                     not exist in the item.</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- * @public
- */
-export class TransactionCanceledException extends __BaseException {
-  readonly name: "TransactionCanceledException" = "TransactionCanceledException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>A list of cancellation reasons.</p>
-   * @public
-   */
-  CancellationReasons?: CancellationReason[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransactionCanceledException, __BaseException>) {
-    super({
-      name: "TransactionCanceledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransactionCanceledException.prototype);
-    this.Message = opts.Message;
-    this.CancellationReasons = opts.CancellationReasons;
-  }
 }
 
 /**
@@ -12443,4 +10726,80 @@ export interface TransactWriteItem {
    * @public
    */
   Update?: Update | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TransactWriteItemsInput {
+  /**
+   * <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
+   *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
+   *                 <code>Delete</code> object. These can operate on items in different tables, but the
+   *             tables must reside in the same Amazon Web Services account and Region, and no two of them
+   *             can operate on the same item. </p>
+   * @public
+   */
+  TransactItems: TransactWriteItem[] | undefined;
+
+  /**
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation, together with
+   *                         <code>ConsumedCapacity</code> for each table and secondary index that was
+   *                     accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and
+   *                         <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
+   *                     specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
+   *                     information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
+   *                     response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
+
+  /**
+   * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
+   *             the response includes statistics about item collections (if any), that were modified
+   *             during the operation and are returned in the response. If set to <code>NONE</code> (the
+   *             default), no statistics are returned. </p>
+   * @public
+   */
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
+
+  /**
+   * <p>Providing a <code>ClientRequestToken</code> makes the call to
+   *                 <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls
+   *             have the same effect as one single call.</p>
+   *          <p>Although multiple identical calls using the same client request token produce the same
+   *             result on the server (no side effects), the responses to the calls might not be the
+   *             same. If the <code>ReturnConsumedCapacity</code> parameter is set, then the initial
+   *                 <code>TransactWriteItems</code> call returns the amount of write capacity units
+   *             consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls with
+   *             the same client token return the number of read capacity units consumed in reading the
+   *             item.</p>
+   *          <p>A client request token is valid for 10 minutes after the first request that uses it is
+   *             completed. After 10 minutes, any request with the same client token is treated as a new
+   *             request. Do not resubmit the same request with the same client token for more than 10
+   *             minutes, or the result might not be idempotent.</p>
+   *          <p>If you submit a request with the same client token but a change in other parameters
+   *             within the 10-minute idempotency window, DynamoDB returns an
+   *                 <code>IdempotentParameterMismatch</code> exception.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
 }

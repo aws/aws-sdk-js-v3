@@ -180,7 +180,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { RolesAnywhereServiceException as __RolesAnywhereServiceException } from "../models/RolesAnywhereServiceException";
 
 /* eslint no-var: 0 */

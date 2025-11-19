@@ -1,10 +1,5 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
-
-import { PersonalizeEventsServiceException as __BaseException } from "./PersonalizeEventsServiceException";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
 /**
  * <p>Represents action metadata added to an Action dataset using the
@@ -138,26 +133,6 @@ export interface ActionInteraction {
 }
 
 /**
- * <p>Provide a valid value for the field or parameter.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PutActionInteractionsRequest {
@@ -173,46 +148,6 @@ export interface PutActionInteractionsRequest {
    * @public
    */
   actionInteractions: ActionInteraction[] | undefined;
-}
-
-/**
- * <p>The specified resource is in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * <p>Could not find the specified resource.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**

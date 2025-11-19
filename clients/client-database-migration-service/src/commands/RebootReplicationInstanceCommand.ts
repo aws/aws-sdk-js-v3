@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_1";
+import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
 import { RebootReplicationInstance } from "../schemas/schemas_0";
 
 /**

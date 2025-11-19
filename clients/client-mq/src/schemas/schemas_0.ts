@@ -331,7 +331,7 @@ import {
   InternalServerErrorException as __InternalServerErrorException,
   NotFoundException as __NotFoundException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { MqServiceException as __MqServiceException } from "../models/MqServiceException";
 
 /* eslint no-var: 0 */

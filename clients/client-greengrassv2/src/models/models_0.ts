@@ -1,27 +1,27 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { GreengrassV2ServiceException as __BaseException } from "./GreengrassV2ServiceException";
-
-/**
- * <p>You don't have permission to perform the action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  CloudComponentState,
+  ComponentDependencyType,
+  ComponentVisibilityScope,
+  CoreDeviceStatus,
+  DeploymentComponentUpdatePolicyAction,
+  DeploymentFailureHandlingPolicy,
+  DeploymentHistoryFilter,
+  DeploymentStatus,
+  EffectiveDeploymentExecutionStatus,
+  InstalledComponentLifecycleState,
+  InstalledComponentTopologyFilter,
+  IotEndpointType,
+  IoTJobAbortAction,
+  IoTJobExecutionFailureType,
+  LambdaEventSourceType,
+  LambdaFilesystemPermission,
+  LambdaInputPayloadEncodingType,
+  LambdaIsolationMode,
+  RecipeOutputFormat,
+  S3EndpointType,
+  VendorGuidance,
+} from "./enums";
 
 /**
  * <p>Contains a request to associate a client device with a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation consumes a list of these
@@ -106,33 +106,6 @@ export interface AssociateServiceRoleToAccountResponse {
 }
 
 /**
- * <p>IoT Greengrass can't process your request right now. Try again later.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The amount of time to wait before you retry the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>Contains information about a validation exception field.</p>
  * @public
  */
@@ -148,57 +121,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the validation exception.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The list of fields that failed to validate.</p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
-  }
 }
 
 /**
@@ -228,82 +150,6 @@ export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
    * @public
    */
   errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[] | undefined;
-}
-
-/**
- * <p>The requested resource can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that isn't found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that isn't found.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The amount of time to wait before you retry the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.quotaCode = opts.quotaCode;
-    this.serviceCode = opts.serviceCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
 }
 
 /**
@@ -395,73 +241,6 @@ export interface CancelDeploymentResponse {
    */
   message?: string | undefined;
 }
-
-/**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that conflicts with the request.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that conflicts with the request.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CloudComponentState = {
-  DEPLOYABLE: "DEPLOYABLE",
-  DEPRECATED: "DEPRECATED",
-  FAILED: "FAILED",
-  INITIATED: "INITIATED",
-  REQUESTED: "REQUESTED",
-} as const;
-
-/**
- * @public
- */
-export type CloudComponentState = (typeof CloudComponentState)[keyof typeof CloudComponentState];
-
-/**
- * @public
- * @enum
- */
-export const VendorGuidance = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DISCONTINUED: "DISCONTINUED",
-} as const;
-
-/**
- * @public
- */
-export type VendorGuidance = (typeof VendorGuidance)[keyof typeof VendorGuidance];
 
 /**
  * <p>Contains the status of a component version in the IoT Greengrass service.</p>
@@ -670,20 +449,6 @@ export interface ComponentConfigurationUpdate {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComponentDependencyType = {
-  HARD: "HARD",
-  SOFT: "SOFT",
-} as const;
-
-/**
- * @public
- */
-export type ComponentDependencyType = (typeof ComponentDependencyType)[keyof typeof ComponentDependencyType];
-
-/**
  * <p>Contains information about a component dependency for a Lambda function component.</p>
  * @public
  */
@@ -839,20 +604,6 @@ export interface ComponentVersionListItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComponentVisibilityScope = {
-  PRIVATE: "PRIVATE",
-  PUBLIC: "PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type ComponentVisibilityScope = (typeof ComponentVisibilityScope)[keyof typeof ComponentVisibilityScope];
-
-/**
  * <p>Contains information about an endpoint and port where client devices can connect to an
  *       MQTT broker on a Greengrass core device.</p>
  * @public
@@ -884,20 +635,6 @@ export interface ConnectivityInfo {
    */
   metadata?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CoreDeviceStatus = {
-  HEALTHY: "HEALTHY",
-  UNHEALTHY: "UNHEALTHY",
-} as const;
-
-/**
- * @public
- */
-export type CoreDeviceStatus = (typeof CoreDeviceStatus)[keyof typeof CoreDeviceStatus];
 
 /**
  * <p>Contains information about a Greengrass core device, which is an IoT thing that runs the IoT Greengrass
@@ -968,20 +705,6 @@ export interface CoreDevice {
 }
 
 /**
- * @public
- * @enum
- */
-export const LambdaEventSourceType = {
-  IOT_CORE: "IOT_CORE",
-  PUB_SUB: "PUB_SUB",
-} as const;
-
-/**
- * @public
- */
-export type LambdaEventSourceType = (typeof LambdaEventSourceType)[keyof typeof LambdaEventSourceType];
-
-/**
  * <p>Contains information about an event source for an Lambda function. The event source
  *       defines the topics on which this Lambda function subscribes to receive messages that run the
  *       function.</p>
@@ -1014,35 +737,6 @@ export interface LambdaEventSource {
    */
   type: LambdaEventSourceType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LambdaInputPayloadEncodingType = {
-  BINARY: "binary",
-  JSON: "json",
-} as const;
-
-/**
- * @public
- */
-export type LambdaInputPayloadEncodingType =
-  (typeof LambdaInputPayloadEncodingType)[keyof typeof LambdaInputPayloadEncodingType];
-
-/**
- * @public
- * @enum
- */
-export const LambdaFilesystemPermission = {
-  RO: "ro",
-  RW: "rw",
-} as const;
-
-/**
- * @public
- */
-export type LambdaFilesystemPermission = (typeof LambdaFilesystemPermission)[keyof typeof LambdaFilesystemPermission];
 
 /**
  * <p>Contains information about a device that Linux processes in a container can access.</p>
@@ -1144,20 +838,6 @@ export interface LambdaContainerParams {
    */
   devices?: LambdaDeviceMount[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LambdaIsolationMode = {
-  GREENGRASS_CONTAINER: "GreengrassContainer",
-  NO_CONTAINER: "NoContainer",
-} as const;
-
-/**
- * @public
- */
-export type LambdaIsolationMode = (typeof LambdaIsolationMode)[keyof typeof LambdaIsolationMode];
 
 /**
  * <p>Contains parameters for a Linux process that contains an Lambda function.</p>
@@ -1399,92 +1079,6 @@ export interface CreateComponentVersionResponse {
 }
 
 /**
- * <p>The request is already in progress. This exception occurs when you use a client token for
- *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
- *       token.</p>
- * @public
- */
-export class RequestAlreadyInProgressException extends __BaseException {
-  readonly name: "RequestAlreadyInProgressException" = "RequestAlreadyInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestAlreadyInProgressException, __BaseException>) {
-    super({
-      name: "RequestAlreadyInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestAlreadyInProgressException.prototype);
-  }
-}
-
-/**
- * <p>Your request exceeds a service quota. For example, you might have the maximum number of
- *       components that you can create.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that exceeds the service quota.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that exceeds the service quota.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.quotaCode = opts.quotaCode;
-    this.serviceCode = opts.serviceCode;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DeploymentComponentUpdatePolicyAction = {
-  NOTIFY_COMPONENTS: "NOTIFY_COMPONENTS",
-  SKIP_NOTIFY_COMPONENTS: "SKIP_NOTIFY_COMPONENTS",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentComponentUpdatePolicyAction =
-  (typeof DeploymentComponentUpdatePolicyAction)[keyof typeof DeploymentComponentUpdatePolicyAction];
-
-/**
  * <p>Contains information about a deployment's policy that defines when components are safe to
  *       update.</p>
  *          <p>Each component on a device can report whether or not it's ready to update. After a
@@ -1548,21 +1142,6 @@ export interface DeploymentConfigurationValidationPolicy {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentFailureHandlingPolicy = {
-  DO_NOTHING: "DO_NOTHING",
-  ROLLBACK: "ROLLBACK",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentFailureHandlingPolicy =
-  (typeof DeploymentFailureHandlingPolicy)[keyof typeof DeploymentFailureHandlingPolicy];
-
-/**
  * <p>Contains information about policies that define how a deployment updates components and
  *       handles failure.</p>
  * @public
@@ -1591,35 +1170,6 @@ export interface DeploymentPolicies {
    */
   configurationValidationPolicy?: DeploymentConfigurationValidationPolicy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IoTJobAbortAction = {
-  CANCEL: "CANCEL",
-} as const;
-
-/**
- * @public
- */
-export type IoTJobAbortAction = (typeof IoTJobAbortAction)[keyof typeof IoTJobAbortAction];
-
-/**
- * @public
- * @enum
- */
-export const IoTJobExecutionFailureType = {
-  ALL: "ALL",
-  FAILED: "FAILED",
-  REJECTED: "REJECTED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type IoTJobExecutionFailureType = (typeof IoTJobExecutionFailureType)[keyof typeof IoTJobExecutionFailureType];
 
 /**
  * <p>Contains criteria that define when and how to cancel a job.</p>
@@ -1911,23 +1461,6 @@ export interface DeleteDeploymentRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  ACTIVE: "ACTIVE",
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
-
-/**
  * <p>Contains information about a deployment.</p>
  * @public
  */
@@ -1980,20 +1513,6 @@ export interface Deployment {
    */
   parentTargetArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentHistoryFilter = {
-  ALL: "ALL",
-  LATEST_ONLY: "LATEST_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentHistoryFilter = (typeof DeploymentHistoryFilter)[keyof typeof DeploymentHistoryFilter];
 
 /**
  * @public
@@ -2084,27 +1603,6 @@ export interface DisassociateServiceRoleFromAccountResponse {
    */
   disassociatedAt?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EffectiveDeploymentExecutionStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-  REJECTED: "REJECTED",
-  SUCCEEDED: "SUCCEEDED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type EffectiveDeploymentExecutionStatus =
-  (typeof EffectiveDeploymentExecutionStatus)[keyof typeof EffectiveDeploymentExecutionStatus];
 
 /**
  * <p>Contains all error-related information for the deployment record. The status details will
@@ -2251,20 +1749,6 @@ export interface EffectiveDeployment {
 
 /**
  * @public
- * @enum
- */
-export const RecipeOutputFormat = {
-  JSON: "JSON",
-  YAML: "YAML",
-} as const;
-
-/**
- * @public
- */
-export type RecipeOutputFormat = (typeof RecipeOutputFormat)[keyof typeof RecipeOutputFormat];
-
-/**
- * @public
  */
 export interface GetComponentRequest {
   /**
@@ -2304,34 +1788,6 @@ export interface GetComponentResponse {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IotEndpointType = {
-  fips: "fips",
-  standard: "standard",
-} as const;
-
-/**
- * @public
- */
-export type IotEndpointType = (typeof IotEndpointType)[keyof typeof IotEndpointType];
-
-/**
- * @public
- * @enum
- */
-export const S3EndpointType = {
-  GLOBAL: "GLOBAL",
-  REGIONAL: "REGIONAL",
-} as const;
-
-/**
- * @public
- */
-export type S3EndpointType = (typeof S3EndpointType)[keyof typeof S3EndpointType];
 
 /**
  * @public
@@ -2943,21 +2399,6 @@ export interface ListEffectiveDeploymentsResponse {
 
 /**
  * @public
- * @enum
- */
-export const InstalledComponentTopologyFilter = {
-  ALL: "ALL",
-  ROOT: "ROOT",
-} as const;
-
-/**
- * @public
- */
-export type InstalledComponentTopologyFilter =
-  (typeof InstalledComponentTopologyFilter)[keyof typeof InstalledComponentTopologyFilter];
-
-/**
- * @public
  */
 export interface ListInstalledComponentsRequest {
   /**
@@ -3000,27 +2441,6 @@ export interface ListInstalledComponentsRequest {
    */
   topologyFilter?: InstalledComponentTopologyFilter | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstalledComponentLifecycleState = {
-  BROKEN: "BROKEN",
-  ERRORED: "ERRORED",
-  FINISHED: "FINISHED",
-  INSTALLED: "INSTALLED",
-  NEW: "NEW",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type InstalledComponentLifecycleState =
-  (typeof InstalledComponentLifecycleState)[keyof typeof InstalledComponentLifecycleState];
 
 /**
  * <p>Contains information about a component on a Greengrass core device.</p>

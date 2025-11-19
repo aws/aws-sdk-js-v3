@@ -810,7 +810,7 @@ import {
   TokenAlreadyExistsException as __TokenAlreadyExistsException,
   TypeConfigurationNotFoundException as __TypeConfigurationNotFoundException,
   TypeNotFoundException as __TypeNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

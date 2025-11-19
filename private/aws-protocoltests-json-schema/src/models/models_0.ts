@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
+import { FooEnum, IntegerEnum } from "./enums";
 
 /**
  * @public
@@ -16,55 +13,9 @@ export interface GreetingStruct {
 
 /**
  * @public
- * @enum
- */
-export const FooEnum = {
-  BAR: "Bar",
-  BAZ: "Baz",
-  FOO: "Foo",
-  ONE: "1",
-  ZERO: "0",
-} as const;
-/**
- * @public
- */
-export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
-
-export enum IntegerEnum {
-  A = 1,
-  B = 2,
-  C = 3,
-}
-
-/**
- * @public
  */
 export interface ComplexNestedErrorData {
   Foo?: string | undefined;
-}
-
-/**
- * This error is thrown when a request is invalid.
- * @public
- */
-export class ComplexError extends __BaseException {
-  readonly name: "ComplexError" = "ComplexError";
-  readonly $fault: "client" = "client";
-  TopLevel?: string | undefined;
-  Nested?: ComplexNestedErrorData | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
-    super({
-      name: "ComplexError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ComplexError.prototype);
-    this.TopLevel = opts.TopLevel;
-    this.Nested = opts.Nested;
-  }
 }
 
 /**
@@ -115,46 +66,6 @@ export interface StructWithJsonName {
 /**
  * @public
  */
-export class ErrorWithoutMembers extends __BaseException {
-  readonly name: "ErrorWithoutMembers" = "ErrorWithoutMembers";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ErrorWithoutMembers, __BaseException>) {
-    super({
-      name: "ErrorWithoutMembers",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ErrorWithoutMembers.prototype);
-  }
-}
-
-/**
- * This error has test cases that test some of the dark corners of Amazon service
- * framework history. It should only be implemented by clients.
- * @public
- */
-export class FooError extends __BaseException {
-  readonly name: "FooError" = "FooError";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FooError, __BaseException>) {
-    super({
-      name: "FooError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FooError.prototype);
-  }
-}
-
-/**
- * @public
- */
 export interface FractionalSecondsOutput {
   datetime?: Date | undefined;
 }
@@ -164,28 +75,6 @@ export interface FractionalSecondsOutput {
  */
 export interface GreetingWithErrorsOutput {
   greeting?: string | undefined;
-}
-
-/**
- * This error is thrown when an invalid greeting value is provided.
- * @public
- */
-export class InvalidGreeting extends __BaseException {
-  readonly name: "InvalidGreeting" = "InvalidGreeting";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
-    super({
-      name: "InvalidGreeting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGreeting.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -477,41 +366,4 @@ export interface KitchenSink {
   StructWithJsonName?: StructWithJsonName | undefined;
   Timestamp?: Date | undefined;
   UnixTimestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export class ErrorWithMembers extends __BaseException {
-  readonly name: "ErrorWithMembers" = "ErrorWithMembers";
-  readonly $fault: "client" = "client";
-  Code?: string | undefined;
-  ComplexData?: KitchenSink | undefined;
-  IntegerField?: number | undefined;
-  ListField?: string[] | undefined;
-  MapField?: Record<string, string> | undefined;
-  Message?: string | undefined;
-  /**
-   * abc
-   * @public
-   */
-  StringField?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ErrorWithMembers, __BaseException>) {
-    super({
-      name: "ErrorWithMembers",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ErrorWithMembers.prototype);
-    this.Code = opts.Code;
-    this.ComplexData = opts.ComplexData;
-    this.IntegerField = opts.IntegerField;
-    this.ListField = opts.ListField;
-    this.MapField = opts.MapField;
-    this.Message = opts.Message;
-    this.StringField = opts.StringField;
-  }
 }

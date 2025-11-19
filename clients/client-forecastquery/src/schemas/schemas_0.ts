@@ -38,14 +38,14 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ForecastqueryServiceException as __ForecastqueryServiceException } from "../models/ForecastqueryServiceException";
 import {
   InvalidInputException as __InvalidInputException,
   InvalidNextTokenException as __InvalidNextTokenException,
   LimitExceededException as __LimitExceededException,
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
+import { ForecastqueryServiceException as __ForecastqueryServiceException } from "../models/ForecastqueryServiceException";
 
 /* eslint no-var: 0 */
 

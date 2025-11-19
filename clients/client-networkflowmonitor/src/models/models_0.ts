@@ -1,63 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { NetworkFlowMonitorServiceException as __BaseException } from "./NetworkFlowMonitorServiceException";
-
-/**
- * <p>You don't have sufficient permission to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The requested resource is in use.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitorLocalResourceType = {
-  AWS_AZ: "AWS::AvailabilityZone",
-  AWS_REGION: "AWS::Region",
-  AWS_SUBNET: "AWS::EC2::Subnet",
-  AWS_VPC: "AWS::EC2::VPC",
-} as const;
-
-/**
- * @public
- */
-export type MonitorLocalResourceType = (typeof MonitorLocalResourceType)[keyof typeof MonitorLocalResourceType];
+import {
+  DestinationCategory,
+  MetricUnit,
+  MonitorLocalResourceType,
+  MonitorMetric,
+  MonitorRemoteResourceType,
+  MonitorStatus,
+  QueryStatus,
+  ScopeStatus,
+  TargetType,
+  WorkloadInsightsMetric,
+} from "./enums";
 
 /**
  * <p>A local resource is the host where the agent is installed. Local resources can be a a subnet, a VPC, an Availability Zone, or an Amazon Web Services service.</p>
@@ -76,23 +29,6 @@ export interface MonitorLocalResource {
    */
   identifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MonitorRemoteResourceType = {
-  AWS_AZ: "AWS::AvailabilityZone",
-  AWS_REGION: "AWS::Region",
-  AWS_SERVICE: "AWS::AWSService",
-  AWS_SUBNET: "AWS::EC2::Subnet",
-  AWS_VPC: "AWS::EC2::VPC",
-} as const;
-
-/**
- * @public
- */
-export type MonitorRemoteResourceType = (typeof MonitorRemoteResourceType)[keyof typeof MonitorRemoteResourceType];
 
 /**
  * <p>A remote resource is the other endpoint in a network flow. That is, one endpoint is the local resource and the other is the remote resource. Remote resources can be a a subnet, a VPC, an Availability Zone, an Amazon Web Services service, or an Amazon Web Services Region.</p> <p>When a remote resource is an Amazon Web Services Region, Network Flow Monitor provides network performance measurements up to the edge of the Region that you specify.</p>
@@ -155,23 +91,6 @@ export interface CreateMonitorInput {
 
 /**
  * @public
- * @enum
- */
-export const MonitorStatus = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  INACTIVE: "INACTIVE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type MonitorStatus = (typeof MonitorStatus)[keyof typeof MonitorStatus];
-
-/**
- * @public
  */
 export interface CreateMonitorOutput {
   /**
@@ -224,90 +143,6 @@ export interface CreateMonitorOutput {
 }
 
 /**
- * <p>An internal error occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request exceeded a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Invalid request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>A target ID is an internally-generated identifier for a target. A target allows you to identify all the resources in a Network Flow Monitor scope. Currently, a target is always an Amazon Web Services account.</p>
  * @public
  */
@@ -343,19 +178,6 @@ export namespace TargetId {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetType = {
-  ACCOUNT: "ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
  * <p>A target identifier is a pair of identifying information for a scope that is included in a target. A target identifier is made up of a target ID and a target type. Currently the target ID is always an account ID and the target type is always ACCOUNT.</p>
@@ -418,23 +240,6 @@ export interface CreateScopeInput {
 
 /**
  * @public
- * @enum
- */
-export const ScopeStatus = {
-  DEACTIVATED: "DEACTIVATED",
-  DEACTIVATING: "DEACTIVATING",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ScopeStatus = (typeof ScopeStatus)[keyof typeof ScopeStatus];
-
-/**
- * @public
  */
 export interface CreateScopeOutput {
   /**
@@ -479,26 +284,6 @@ export interface DeleteMonitorInput {
 export interface DeleteMonitorOutput {}
 
 /**
- * <p>The request specifies a resource that doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteScopeInput {
@@ -513,25 +298,6 @@ export interface DeleteScopeInput {
  * @public
  */
 export interface DeleteScopeOutput {}
-
-/**
- * @public
- * @enum
- */
-export const DestinationCategory = {
-  AMAZON_DYNAMODB: "AMAZON_DYNAMODB",
-  AMAZON_S3: "AMAZON_S3",
-  INTER_AZ: "INTER_AZ",
-  INTER_REGION: "INTER_REGION",
-  INTER_VPC: "INTER_VPC",
-  INTRA_AZ: "INTRA_AZ",
-  UNCLASSIFIED: "UNCLASSIFIED",
-} as const;
-
-/**
- * @public
- */
-export type DestinationCategory = (typeof DestinationCategory)[keyof typeof DestinationCategory];
 
 /**
  * @public
@@ -856,45 +622,6 @@ export interface MonitorTopContributorsRow {
 
 /**
  * @public
- * @enum
- */
-export const MetricUnit = {
-  BITS: "Bits",
-  BITS_PER_SECOND: "Bits/Second",
-  BYTES: "Bytes",
-  BYTES_PER_SECOND: "Bytes/Second",
-  COUNT: "Count",
-  COUNT_PER_SECOND: "Count/Second",
-  GIGABITS: "Gigabits",
-  GIGABITS_PER_SECOND: "Gigabits/Second",
-  GIGABYTES: "Gigabytes",
-  GIGABYTES_PER_SECOND: "Gigabytes/Second",
-  KILOBITS: "Kilobits",
-  KILOBITS_PER_SECOND: "Kilobits/Second",
-  KILOBYTES: "Kilobytes",
-  KILOBYTES_PER_SECOND: "Kilobytes/Second",
-  MEGABITS: "Megabits",
-  MEGABITS_PER_SECOND: "Megabits/Second",
-  MEGABYTES: "Megabytes",
-  MEGABYTES_PER_SECOND: "Megabytes/Second",
-  MICROSECONDS: "Microseconds",
-  MILLISECONDS: "Milliseconds",
-  NONE: "None",
-  PERCENT: "Percent",
-  SECONDS: "Seconds",
-  TERABITS: "Terabits",
-  TERABITS_PER_SECOND: "Terabits/Second",
-  TERABYTES: "Terabytes",
-  TERABYTES_PER_SECOND: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type MetricUnit = (typeof MetricUnit)[keyof typeof MetricUnit];
-
-/**
- * @public
  */
 export interface GetQueryResultsMonitorTopContributorsOutput {
   /**
@@ -1114,23 +841,6 @@ export interface GetQueryStatusMonitorTopContributorsInput {
    */
   queryId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
 
 /**
  * @public
@@ -1391,22 +1101,6 @@ export interface ListTagsForResourceOutput {
 
 /**
  * @public
- * @enum
- */
-export const MonitorMetric = {
-  DATA_TRANSFERRED: "DATA_TRANSFERRED",
-  RETRANSMISSIONS: "RETRANSMISSIONS",
-  ROUND_TRIP_TIME: "ROUND_TRIP_TIME",
-  TIMEOUTS: "TIMEOUTS",
-} as const;
-
-/**
- * @public
- */
-export type MonitorMetric = (typeof MonitorMetric)[keyof typeof MonitorMetric];
-
-/**
- * @public
  */
 export interface StartQueryMonitorTopContributorsInput {
   /**
@@ -1572,21 +1266,6 @@ export interface UpdateMonitorOutput {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadInsightsMetric = {
-  DATA_TRANSFERRED: "DATA_TRANSFERRED",
-  RETRANSMISSIONS: "RETRANSMISSIONS",
-  TIMEOUTS: "TIMEOUTS",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadInsightsMetric = (typeof WorkloadInsightsMetric)[keyof typeof WorkloadInsightsMetric];
 
 /**
  * @public

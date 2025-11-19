@@ -207,7 +207,7 @@ import {
   InternalServerErrorException as __InternalServerErrorException,
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { S3TablesServiceException as __S3TablesServiceException } from "../models/S3TablesServiceException";
 
 /* eslint no-var: 0 */

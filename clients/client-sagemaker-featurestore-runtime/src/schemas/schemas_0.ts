@@ -62,7 +62,7 @@ import {
   ResourceNotFound as __ResourceNotFound,
   ServiceUnavailable as __ServiceUnavailable,
   ValidationError as __ValidationError,
-} from "../models/index";
+} from "../models/errors";
 import { SageMakerFeatureStoreRuntimeServiceException as __SageMakerFeatureStoreRuntimeServiceException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
 
 /* eslint no-var: 0 */

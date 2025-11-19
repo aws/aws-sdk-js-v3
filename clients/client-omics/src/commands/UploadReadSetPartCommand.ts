@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UploadReadSetPartRequest, UploadReadSetPartResponse } from "../models/models_1";
+import { UploadReadSetPartRequest, UploadReadSetPartResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { UploadReadSetPart } from "../schemas/schemas_0";
 

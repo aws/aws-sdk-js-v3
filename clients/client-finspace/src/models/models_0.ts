@@ -1,40 +1,29 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FinspaceServiceException as __BaseException } from "./FinspaceServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutoScalingMetric = {
-  CPU_UTILIZATION_PERCENTAGE: "CPU_UTILIZATION_PERCENTAGE",
-} as const;
-
-/**
- * @public
- */
-export type AutoScalingMetric = (typeof AutoScalingMetric)[keyof typeof AutoScalingMetric];
+import {
+  AutoScalingMetric,
+  ChangesetStatus,
+  ChangeType,
+  DnsStatus,
+  EnvironmentStatus,
+  ErrorDetails,
+  FederationMode,
+  IPAddressType,
+  KxAzMode,
+  KxClusterCodeDeploymentStrategy,
+  KxClusterStatus,
+  KxClusterType,
+  KxDataviewStatus,
+  KxDeploymentStrategy,
+  KxNAS1Type,
+  KxNodeStatus,
+  KxSavedownStorageType,
+  KxScalingGroupStatus,
+  KxVolumeStatus,
+  KxVolumeType,
+  RuleAction,
+  TgwStatus,
+  VolumeType,
+} from "./enums";
 
 /**
  * <p>The configuration based on which FinSpace will scale in or scale out nodes in your cluster. </p>
@@ -77,20 +66,6 @@ export interface AutoScalingConfiguration {
    */
   scaleOutCooldownSeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FederationMode = {
-  FEDERATED: "FEDERATED",
-  LOCAL: "LOCAL",
-} as const;
-
-/**
- * @public
- */
-export type FederationMode = (typeof FederationMode)[keyof typeof FederationMode];
 
 /**
  * <p>Configuration information when authentication mode is FEDERATED.</p>
@@ -259,149 +234,6 @@ export interface CreateEnvironmentResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or
- *          failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>A service limit or quota is exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p> You have exceeded your service quota. To perform the requested action,
- *          remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * <p>There was a conflict with this action, and it could not be completed.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the conflict exception.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ChangeType = {
-  DELETE: "DELETE",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
-
-/**
  * <p>A list of change request objects.</p>
  * @public
  */
@@ -519,26 +351,6 @@ export interface CreateKxChangesetRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorDetails = {
-  ACCESS_DENIED: "Missing required permission to perform this request.",
-  CANCELLED: "Cancelled",
-  INTERNAL_SERVICE_EXCEPTION: "An internal error has occurred.",
-  RESOURCE_NOT_FOUND: "One or more inputs to this request were not found.",
-  SERVICE_QUOTA_EXCEEDED: "Service limits have been exceeded.",
-  THROTTLING: "The system temporarily lacks sufficient resources to process the request.",
-  USER_RECOVERABLE: "A user recoverable error has occurred",
-  VALIDATION: "The inputs to this request are invalid.",
-} as const;
-
-/**
- * @public
- */
-export type ErrorDetails = (typeof ErrorDetails)[keyof typeof ErrorDetails];
-
-/**
  * <p>Provides details in the event of a failed flow, including the error type and the related error message.</p>
  * @public
  */
@@ -555,22 +367,6 @@ export interface ErrorInfo {
    */
   errorType?: ErrorDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChangesetStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type ChangesetStatus = (typeof ChangesetStatus)[keyof typeof ChangesetStatus];
 
 /**
  * @public
@@ -638,40 +434,6 @@ export interface CreateKxChangesetResponse {
    */
   errorInfo?: ErrorInfo | undefined;
 }
-
-/**
- * <p>One or more resources can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const KxAzMode = {
-  MULTI: "MULTI",
-  SINGLE: "SINGLE",
-} as const;
-
-/**
- * @public
- */
-export type KxAzMode = (typeof KxAzMode)[keyof typeof KxAzMode];
 
 /**
  * <p>The configuration for read only disk cache associated with a cluster.</p>
@@ -751,23 +513,6 @@ export interface CapacityConfiguration {
    */
   nodeCount?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxClusterType = {
-  GATEWAY: "GATEWAY",
-  GP: "GP",
-  HDB: "HDB",
-  RDB: "RDB",
-  TICKERPLANT: "TICKERPLANT",
-} as const;
-
-/**
- * @public
- */
-export type KxClusterType = (typeof KxClusterType)[keyof typeof KxClusterType];
 
 /**
  * <p>The structure of the customer code available within the running cluster.</p>
@@ -952,19 +697,6 @@ export interface KxDatabaseConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const KxSavedownStorageType = {
-  SDS01: "SDS01",
-} as const;
-
-/**
- * @public
- */
-export type KxSavedownStorageType = (typeof KxSavedownStorageType)[keyof typeof KxSavedownStorageType];
-
-/**
  * <p>The size and type of temporary storage that is used to hold data during the savedown process. All the data written to this storage space is lost when the cluster node is restarted.</p>
  * @public
  */
@@ -1060,19 +792,6 @@ export interface TickerplantLogConfiguration {
    */
   tickerplantLogVolumes?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IPAddressType = {
-  IP_V4: "IP_V4",
-} as const;
-
-/**
- * @public
- */
-export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
 
 /**
  * <p>Configuration details about the network where the Privatelink endpoint of the cluster resides.</p>
@@ -1272,39 +991,6 @@ export interface CreateKxClusterRequest {
    */
   scalingGroupConfiguration?: KxScalingGroupConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxClusterStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type KxClusterStatus = (typeof KxClusterStatus)[keyof typeof KxClusterStatus];
-
-/**
- * @public
- * @enum
- */
-export const VolumeType = {
-  NAS_1: "NAS_1",
-} as const;
-
-/**
- * @public
- */
-export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
 
 /**
  * <p>
@@ -1618,26 +1304,6 @@ export interface CreateKxDatabaseResponse {
 }
 
 /**
- * <p>The specified resource group already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateKxDataviewRequest {
@@ -1741,23 +1407,6 @@ export interface CreateKxDataviewRequest {
    */
   clientToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxDataviewStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type KxDataviewStatus = (typeof KxDataviewStatus)[keyof typeof KxDataviewStatus];
 
 /**
  * @public
@@ -1899,31 +1548,6 @@ export interface CreateKxEnvironmentRequest {
 
 /**
  * @public
- * @enum
- */
-export const EnvironmentStatus = {
-  CREATED: "CREATED",
-  CREATE_REQUESTED: "CREATE_REQUESTED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_REQUESTED: "DELETE_REQUESTED",
-  DELETING: "DELETING",
-  FAILED_CREATION: "FAILED_CREATION",
-  FAILED_DELETION: "FAILED_DELETION",
-  FAILED_UPDATING_NETWORK: "FAILED_UPDATING_NETWORK",
-  RETRY_DELETION: "RETRY_DELETION",
-  SUSPENDED: "SUSPENDED",
-  UPDATE_NETWORK_REQUESTED: "UPDATE_NETWORK_REQUESTED",
-  UPDATING_NETWORK: "UPDATING_NETWORK",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
-
-/**
- * @public
  */
 export interface CreateKxEnvironmentResponse {
   /**
@@ -2054,24 +1678,6 @@ export interface CreateKxScalingGroupRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxScalingGroupStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type KxScalingGroupStatus = (typeof KxScalingGroupStatus)[keyof typeof KxScalingGroupStatus];
 
 /**
  * @public
@@ -2218,21 +1824,6 @@ export interface CreateKxUserResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const KxNAS1Type = {
-  HDD_12: "HDD_12",
-  SSD_1000: "SSD_1000",
-  SSD_250: "SSD_250",
-} as const;
-
-/**
- * @public
- */
-export type KxNAS1Type = (typeof KxNAS1Type)[keyof typeof KxNAS1Type];
-
-/**
  * <p>
  *    The structure containing the size and type of the network attached storage (NAS_1) file system volume.
  * </p>
@@ -2258,19 +1849,6 @@ export interface KxNAS1Configuration {
    */
   size?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxVolumeType = {
-  NAS_1: "NAS_1",
-} as const;
-
-/**
- * @public
- */
-export type KxVolumeType = (typeof KxVolumeType)[keyof typeof KxVolumeType];
 
 /**
  * @public
@@ -2338,27 +1916,6 @@ export interface CreateKxVolumeRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxVolumeStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  UPDATED: "UPDATED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type KxVolumeStatus = (typeof KxVolumeStatus)[keyof typeof KxVolumeStatus];
 
 /**
  * @public
@@ -3471,40 +3028,6 @@ export interface CustomDNSServer {
 }
 
 /**
- * @public
- * @enum
- */
-export const DnsStatus = {
-  FAILED_UPDATE: "FAILED_UPDATE",
-  NONE: "NONE",
-  SUCCESSFULLY_UPDATED: "SUCCESSFULLY_UPDATED",
-  UPDATE_REQUESTED: "UPDATE_REQUESTED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DnsStatus = (typeof DnsStatus)[keyof typeof DnsStatus];
-
-/**
- * @public
- * @enum
- */
-export const TgwStatus = {
-  FAILED_UPDATE: "FAILED_UPDATE",
-  NONE: "NONE",
-  SUCCESSFULLY_UPDATED: "SUCCESSFULLY_UPDATED",
-  UPDATE_REQUESTED: "UPDATE_REQUESTED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TgwStatus = (typeof TgwStatus)[keyof typeof TgwStatus];
-
-/**
  * <p>
  *          Defines the ICMP protocol that consists of the ICMP type and code.
  *       </p>
@@ -3550,20 +3073,6 @@ export interface PortRange {
    */
   to: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleAction = {
-  ALLOW: "allow",
-  DENY: "deny",
-} as const;
-
-/**
- * @public
- */
-export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
 
 /**
  * <p>
@@ -4314,20 +3823,6 @@ export interface ListKxClusterNodesRequest {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KxNodeStatus = {
-  PROVISIONING: "PROVISIONING",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type KxNodeStatus = (typeof KxNodeStatus)[keyof typeof KxNodeStatus];
 
 /**
  * <p>A structure that stores metadata for a kdb node.</p>
@@ -5376,26 +4871,6 @@ export interface ListKxVolumesResponse {
 }
 
 /**
- * <p>The request is invalid. Something is wrong with the input to the request.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListTagsForResourceRequest {
@@ -5519,22 +4994,6 @@ export interface UpdateEnvironmentResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const KxClusterCodeDeploymentStrategy = {
-  FORCE: "FORCE",
-  NO_RESTART: "NO_RESTART",
-  ROLLING: "ROLLING",
-} as const;
-
-/**
- * @public
- */
-export type KxClusterCodeDeploymentStrategy =
-  (typeof KxClusterCodeDeploymentStrategy)[keyof typeof KxClusterCodeDeploymentStrategy];
-
-/**
  * <p>
  *          The configuration that allows you to choose how you want to update code on a cluster. Depending on the option you choose, you can reduce the time it takes to update the cluster.
  *       </p>
@@ -5623,20 +5082,6 @@ export interface UpdateKxClusterCodeConfigurationRequest {
  * @public
  */
 export interface UpdateKxClusterCodeConfigurationResponse {}
-
-/**
- * @public
- * @enum
- */
-export const KxDeploymentStrategy = {
-  NO_RESTART: "NO_RESTART",
-  ROLLING: "ROLLING",
-} as const;
-
-/**
- * @public
- */
-export type KxDeploymentStrategy = (typeof KxDeploymentStrategy)[keyof typeof KxDeploymentStrategy];
 
 /**
  * <p>

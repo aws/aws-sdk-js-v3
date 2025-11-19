@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeTestSetDiscrepancyReportRequest, DescribeTestSetDiscrepancyReportResponse } from "../models/models_1";
+import { DescribeTestSetDiscrepancyReportRequest, DescribeTestSetDiscrepancyReportResponse } from "../models/models_0";
 import { DescribeTestSetDiscrepancyReport } from "../schemas/schemas_0";
 
 /**

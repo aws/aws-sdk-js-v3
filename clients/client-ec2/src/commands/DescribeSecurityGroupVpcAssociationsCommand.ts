@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeSecurityGroupVpcAssociationsRequest,
   DescribeSecurityGroupVpcAssociationsResult,
-} from "../models/models_5";
+} from "../models/models_4";
 import { DescribeSecurityGroupVpcAssociations } from "../schemas/schemas_0";
 
 /**

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_7";
+import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_6";
 import { ImportKeyPair } from "../schemas/schemas_0";
 
 /**

@@ -719,7 +719,7 @@ import {
   SubscriptionAlreadyExistFault as __SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault as __SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault as __SubscriptionNotFoundFault,
-} from "../models/index";
+} from "../models/errors";
 import { NeptuneServiceException as __NeptuneServiceException } from "../models/NeptuneServiceException";
 
 /* eslint no-var: 0 */

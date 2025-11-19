@@ -2410,7 +2410,7 @@ import {
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
   UnprocessableEntityException as __UnprocessableEntityException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaLiveServiceException as __MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
 /* eslint no-var: 0 */

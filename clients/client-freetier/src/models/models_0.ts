@@ -1,69 +1,13 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FreeTierServiceException as __BaseException } from "./FreeTierServiceException";
-
-/**
- * <p> You don't have sufficient access to perform this action. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AccountPlanStatus = {
-  ACTIVE: "ACTIVE",
-  EXPIRED: "EXPIRED",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type AccountPlanStatus = (typeof AccountPlanStatus)[keyof typeof AccountPlanStatus];
-
-/**
- * @public
- * @enum
- */
-export const AccountPlanType = {
-  FREE: "FREE",
-  PAID: "PAID",
-} as const;
-
-/**
- * @public
- */
-export type AccountPlanType = (typeof AccountPlanType)[keyof typeof AccountPlanType];
-
-/**
- * @public
- * @enum
- */
-export const CurrencyCode = {
-  USD: "USD",
-} as const;
-
-/**
- * @public
- */
-export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
+import {
+  AccountPlanStatus,
+  AccountPlanType,
+  ActivityStatus,
+  CurrencyCode,
+  Dimension,
+  LanguageCode,
+  MatchOption,
+} from "./enums";
 
 /**
  * <p> The monetary amount of the credit. </p>
@@ -121,22 +65,6 @@ export namespace ActivityReward {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActivityStatus = {
-  COMPLETED: "COMPLETED",
-  EXPIRING: "EXPIRING",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ActivityStatus = (typeof ActivityStatus)[keyof typeof ActivityStatus];
-
-/**
  * <p> The summary of activities. </p>
  * @public
  */
@@ -165,31 +93,6 @@ export interface ActivitySummary {
    */
   status: ActivityStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  DE_DE: "de-DE",
-  EN_GB: "en-GB",
-  EN_US: "en-US",
-  ES_ES: "es-ES",
-  FR_FR: "fr-FR",
-  ID_ID: "id-ID",
-  IT_IT: "it-IT",
-  JA_JP: "ja-JP",
-  KO_KR: "ko-KR",
-  PT_PT: "pt-PT",
-  TR_TR: "tr-TR",
-  ZH_CN: "zh-CN",
-  ZH_TW: "zh-TW",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public
@@ -274,86 +177,6 @@ export interface GetAccountActivityResponse {
 }
 
 /**
- * <p>An unexpected error occurred during the processing of your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p> This exception is thrown when the requested resource cannot be found. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetAccountPlanStateRequest {}
@@ -392,42 +215,6 @@ export interface GetAccountPlanStateResponse {
    */
   accountPlanExpirationDate?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Dimension = {
-  DESCRIPTION: "DESCRIPTION",
-  FREE_TIER_TYPE: "FREE_TIER_TYPE",
-  OPERATION: "OPERATION",
-  REGION: "REGION",
-  SERVICE: "SERVICE",
-  USAGE_PERCENTAGE: "USAGE_PERCENTAGE",
-  USAGE_TYPE: "USAGE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type Dimension = (typeof Dimension)[keyof typeof Dimension];
-
-/**
- * @public
- * @enum
- */
-export const MatchOption = {
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
 
 /**
  * <p>Contains the specifications for the filters to use for your request.</p>

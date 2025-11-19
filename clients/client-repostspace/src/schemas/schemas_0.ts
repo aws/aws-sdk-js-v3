@@ -167,7 +167,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { RepostspaceServiceException as __RepostspaceServiceException } from "../models/RepostspaceServiceException";
 
 /* eslint no-var: 0 */

@@ -1,35 +1,4 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ConnectCampaignsServiceException as __BaseException } from "./ConnectCampaignsServiceException";
-
-/**
- * You do not have sufficient access to perform this action.
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
-}
-
 /**
  * Agentless Dialer config
  * @public
@@ -40,33 +9,6 @@ export interface AgentlessDialerConfig {
    * @public
    */
   dialingCapacity?: number | undefined;
-}
-
-/**
- * The request could not be processed because of conflict in the current state of the resource.
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
 }
 
 /**
@@ -283,143 +225,6 @@ export interface CreateCampaignResponse {
 }
 
 /**
- * Request processing failed because of an error or failure with the service.
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
-}
-
-/**
- * The specified resource was not found.
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
-}
-
-/**
- * Request would cause a service quota to be exceeded.
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
-}
-
-/**
- * The request was denied due to request throttling.
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
-}
-
-/**
- * The input fails to satisfy the constraints specified by an AWS service.
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
-}
-
-/**
  * DeleteCampaignRequest
  * @public
  */
@@ -441,33 +246,6 @@ export interface DeleteConnectInstanceConfigRequest {
    * @public
    */
   connectInstanceId: string | undefined;
-}
-
-/**
- * The request could not be processed because of conflict in the current state.
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name: "InvalidStateException" = "InvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
 }
 
 /**
@@ -1011,40 +789,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * The request could not be processed because of conflict in the current state of the campaign.
- * @public
- */
-export class InvalidCampaignStateException extends __BaseException {
-  readonly name: "InvalidCampaignStateException" = "InvalidCampaignStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * State of a campaign
-   * @public
-   */
-  state: CampaignState | undefined;
-
-  /**
-   * A header that defines the error encountered while processing the request.
-   * @public
-   */
-  xAmzErrorType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCampaignStateException, __BaseException>) {
-    super({
-      name: "InvalidCampaignStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCampaignStateException.prototype);
-    this.state = opts.state;
-    this.xAmzErrorType = opts.xAmzErrorType;
-  }
 }
 
 /**

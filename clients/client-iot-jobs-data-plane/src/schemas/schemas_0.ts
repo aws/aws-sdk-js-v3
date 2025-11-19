@@ -96,7 +96,7 @@ import {
   TerminalStateException as __TerminalStateException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTJobsDataPlaneServiceException as __IoTJobsDataPlaneServiceException } from "../models/IoTJobsDataPlaneServiceException";
 
 /* eslint no-var: 0 */

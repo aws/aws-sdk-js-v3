@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse } from "../models/models_3";
+import { DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse } from "../models/models_2";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeEdgePackagingJob } from "../schemas/schemas_0";
 

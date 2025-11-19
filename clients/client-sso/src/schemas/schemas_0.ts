@@ -65,7 +65,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { SSOServiceException as __SSOServiceException } from "../models/SSOServiceException";
 
 /* eslint no-var: 0 */

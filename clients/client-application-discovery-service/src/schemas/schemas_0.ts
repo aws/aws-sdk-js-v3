@@ -317,7 +317,7 @@ import {
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServerInternalErrorException as __ServerInternalErrorException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

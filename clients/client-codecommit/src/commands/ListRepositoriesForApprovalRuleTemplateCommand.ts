@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListRepositoriesForApprovalRuleTemplateInput,
   ListRepositoriesForApprovalRuleTemplateOutput,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListRepositoriesForApprovalRuleTemplate } from "../schemas/schemas_0";
 
 /**

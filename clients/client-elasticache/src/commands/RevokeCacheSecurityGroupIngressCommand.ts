@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeCacheSecurityGroupIngressMessage } from "../models/models_0";
-import { RevokeCacheSecurityGroupIngressResult } from "../models/models_1";
+import { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/models_0";
 import { RevokeCacheSecurityGroupIngress } from "../schemas/schemas_0";
 
 /**

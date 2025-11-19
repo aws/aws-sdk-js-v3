@@ -434,7 +434,7 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ComplexError as __ComplexError, InvalidGreeting as __InvalidGreeting } from "../models/index";
+import { ComplexError as __ComplexError, InvalidGreeting as __InvalidGreeting } from "../models/errors";
 import { RestXmlProtocolServiceException as __RestXmlProtocolServiceException } from "../models/RestXmlProtocolServiceException";
 
 /* eslint no-var: 0 */

@@ -394,7 +394,7 @@ import { DataSyncServiceException as __DataSyncServiceException } from "../model
 import {
   InternalException as __InternalException,
   InvalidRequestException as __InvalidRequestException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

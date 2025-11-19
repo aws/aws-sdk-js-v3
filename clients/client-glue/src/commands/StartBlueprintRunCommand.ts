@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartBlueprintRunRequest, StartBlueprintRunResponse } from "../models/models_3";
+import { StartBlueprintRunRequest, StartBlueprintRunResponse } from "../models/models_2";
 import { StartBlueprintRun } from "../schemas/schemas_0";
 
 /**

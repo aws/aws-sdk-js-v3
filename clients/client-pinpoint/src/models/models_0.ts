@@ -1,62 +1,33 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { PinpointServiceException as __BaseException } from "./PinpointServiceException";
-
-/**
- * @public
- * @enum
- */
-export const __EndpointTypesElement = {
-  ADM: "ADM",
-  APNS: "APNS",
-  APNS_SANDBOX: "APNS_SANDBOX",
-  APNS_VOIP: "APNS_VOIP",
-  APNS_VOIP_SANDBOX: "APNS_VOIP_SANDBOX",
-  BAIDU: "BAIDU",
-  CUSTOM: "CUSTOM",
-  EMAIL: "EMAIL",
-  GCM: "GCM",
-  IN_APP: "IN_APP",
-  PUSH: "PUSH",
-  SMS: "SMS",
-  VOICE: "VOICE",
-} as const;
-
-/**
- * @public
- */
-export type __EndpointTypesElement = (typeof __EndpointTypesElement)[keyof typeof __EndpointTypesElement];
-
-/**
- * @public
- * @enum
- */
-export const __TimezoneEstimationMethodsElement = {
-  PHONE_NUMBER: "PHONE_NUMBER",
-  POSTAL_CODE: "POSTAL_CODE",
-} as const;
-
-/**
- * @public
- */
-export type __TimezoneEstimationMethodsElement =
-  (typeof __TimezoneEstimationMethodsElement)[keyof typeof __TimezoneEstimationMethodsElement];
-
-/**
- * @public
- * @enum
- */
-export const Action = {
-  DEEP_LINK: "DEEP_LINK",
-  OPEN_APP: "OPEN_APP",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type Action = (typeof Action)[keyof typeof Action];
+import {
+  __EndpointTypesElement,
+  __TimezoneEstimationMethodsElement,
+  Action,
+  Alignment,
+  AttributeType,
+  ButtonAction,
+  CampaignStatus,
+  ChannelType,
+  DayOfWeek,
+  DeliveryStatus,
+  DimensionType,
+  Duration,
+  FilterType,
+  Format,
+  Frequency,
+  Include,
+  JobStatus,
+  Layout,
+  MessageType,
+  Mode,
+  Operator,
+  RecencyType,
+  SegmentType,
+  SourceType,
+  State,
+  TemplateType,
+  Type,
+} from "./enums";
 
 /**
  * <p>Provides information about an activity that was performed by a campaign.</p>
@@ -167,25 +138,6 @@ export interface ActivitiesResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AttributeType = {
-  AFTER: "AFTER",
-  BEFORE: "BEFORE",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  EXCLUSIVE: "EXCLUSIVE",
-  INCLUSIVE: "INCLUSIVE",
-  ON: "ON",
-} as const;
-
-/**
- * @public
- */
-export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
-
-/**
  * <p>Specifies attribute-based criteria for including or excluding endpoints from a segment.</p>
  * @public
  */
@@ -202,20 +154,6 @@ export interface AttributeDimension {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DimensionType = {
-  EXCLUSIVE: "EXCLUSIVE",
-  INCLUSIVE: "INCLUSIVE",
-} as const;
-
-/**
- * @public
- */
-export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
 
 /**
  * <p>Specifies the dimension type and values for a segment dimension.</p>
@@ -306,36 +244,6 @@ export interface SegmentCondition {
    */
   SegmentId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Duration = {
-  DAY_14: "DAY_14",
-  DAY_30: "DAY_30",
-  DAY_7: "DAY_7",
-  HR_24: "HR_24",
-} as const;
-
-/**
- * @public
- */
-export type Duration = (typeof Duration)[keyof typeof Duration];
-
-/**
- * @public
- * @enum
- */
-export const RecencyType = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type RecencyType = (typeof RecencyType)[keyof typeof RecencyType];
 
 /**
  * <p>Specifies criteria for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
@@ -528,20 +436,6 @@ export interface SimpleCondition {
    */
   SegmentDimensions?: SegmentDimensions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Operator = {
-  ALL: "ALL",
-  ANY: "ANY",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * <p>Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.</p>
@@ -849,20 +743,6 @@ export interface RandomSplitActivity {
 }
 
 /**
- * @public
- * @enum
- */
-export const MessageType = {
-  PROMOTIONAL: "PROMOTIONAL",
-  TRANSACTIONAL: "TRANSACTIONAL",
-} as const;
-
-/**
- * @public
- */
-export type MessageType = (typeof MessageType)[keyof typeof MessageType];
-
-/**
  * <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
  * @public
  */
@@ -1017,31 +897,6 @@ export interface Activity {
    */
   ContactCenter?: ContactCenterActivity | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelType = {
-  ADM: "ADM",
-  APNS: "APNS",
-  APNS_SANDBOX: "APNS_SANDBOX",
-  APNS_VOIP: "APNS_VOIP",
-  APNS_VOIP_SANDBOX: "APNS_VOIP_SANDBOX",
-  BAIDU: "BAIDU",
-  CUSTOM: "CUSTOM",
-  EMAIL: "EMAIL",
-  GCM: "GCM",
-  IN_APP: "IN_APP",
-  PUSH: "PUSH",
-  SMS: "SMS",
-  VOICE: "VOICE",
-} as const;
-
-/**
- * @public
- */
-export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
@@ -1276,21 +1131,6 @@ export interface ADMMessage {
    */
   Url?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Alignment = {
-  CENTER: "CENTER",
-  LEFT: "LEFT",
-  RIGHT: "RIGHT",
-} as const;
-
-/**
- * @public
- */
-export type Alignment = (typeof Alignment)[keyof typeof Alignment];
 
 /**
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
@@ -2217,20 +2057,6 @@ export interface ApplicationSettingsJourneyLimits {
 }
 
 /**
- * @public
- * @enum
- */
-export const Mode = {
-  DELIVERY: "DELIVERY",
-  FILTER: "FILTER",
-} as const;
-
-/**
- * @public
- */
-export type Mode = (typeof Mode)[keyof typeof Mode];
-
-/**
  * <p>Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign.</p>
  * @public
  */
@@ -2390,39 +2216,6 @@ export interface AttributesResource {
    * @public
    */
   Attributes?: string[] | undefined;
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
 }
 
 /**
@@ -2612,21 +2405,6 @@ export interface BaiduMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const ButtonAction = {
-  CLOSE: "CLOSE",
-  DEEP_LINK: "DEEP_LINK",
-  LINK: "LINK",
-} as const;
-
-/**
- * @public
- */
-export type ButtonAction = (typeof ButtonAction)[keyof typeof ButtonAction];
-
-/**
  * <p>Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.</p>
  * @public
  */
@@ -2739,20 +2517,6 @@ export interface CampaignEmailMessage {
    */
   Title?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterType = {
-  ENDPOINT: "ENDPOINT",
-  SYSTEM: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 /**
  * <p>Specifies the settings for events that cause a campaign to be sent.</p>
@@ -2951,24 +2715,6 @@ export interface InAppMessageContent {
    */
   SecondaryBtn?: InAppMessageButton | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Layout = {
-  BOTTOM_BANNER: "BOTTOM_BANNER",
-  CAROUSEL: "CAROUSEL",
-  MIDDLE_BANNER: "MIDDLE_BANNER",
-  MOBILE_FEED: "MOBILE_FEED",
-  OVERLAYS: "OVERLAYS",
-  TOP_BANNER: "TOP_BANNER",
-} as const;
-
-/**
- * @public
- */
-export type Layout = (typeof Layout)[keyof typeof Layout];
 
 /**
  * <p>In-app message configuration.</p>
@@ -3199,25 +2945,6 @@ export interface MessageConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const Frequency = {
-  DAILY: "DAILY",
-  EVENT: "EVENT",
-  HOURLY: "HOURLY",
-  IN_APP_EVENT: "IN_APP_EVENT",
-  MONTHLY: "MONTHLY",
-  ONCE: "ONCE",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type Frequency = (typeof Frequency)[keyof typeof Frequency];
-
-/**
  * <p>Specifies the schedule settings for a campaign.</p>
  * @public
  */
@@ -3267,25 +2994,6 @@ export interface Schedule {
    */
   Timezone?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CampaignStatus = {
-  COMPLETED: "COMPLETED",
-  DELETED: "DELETED",
-  EXECUTING: "EXECUTING",
-  INVALID: "INVALID",
-  PAUSED: "PAUSED",
-  PENDING_NEXT_RUN: "PENDING_NEXT_RUN",
-  SCHEDULED: "SCHEDULED",
-} as const;
-
-/**
- * @public
- */
-export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
 
 /**
  * <p>Provides information about the status of a campaign.</p>
@@ -3720,39 +3428,6 @@ export interface ClosedDays {
 }
 
 /**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
-}
-
-/**
  * <p>Specifies the display name of an application and the tags to associate with the application.</p>
  * @public
  */
@@ -3790,204 +3465,6 @@ export interface CreateAppResponse {
    * @public
    */
   ApplicationResponse: ApplicationResponse | undefined;
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class MethodNotAllowedException extends __BaseException {
-  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
-    super({
-      name: "MethodNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class PayloadTooLargeException extends __BaseException {
-  readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PayloadTooLargeException, __BaseException>) {
-    super({
-      name: "PayloadTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PayloadTooLargeException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
-}
-
-/**
- * <p>Provides information about an API request or response.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message that's returned from the API.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the request or response.</p>
-   * @public
-   */
-  RequestID?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-    this.RequestID = opts.RequestID;
-  }
 }
 
 /**
@@ -4358,27 +3835,6 @@ export interface ExportJobResource {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  COMPLETED: "COMPLETED",
-  COMPLETING: "COMPLETING",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  FAILING: "FAILING",
-  INITIALIZING: "INITIALIZING",
-  PENDING_JOB: "PENDING_JOB",
-  PREPARING_FOR_INITIALIZATION: "PREPARING_FOR_INITIALIZATION",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
  * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  * @public
  */
@@ -4472,20 +3928,6 @@ export interface CreateExportJobResponse {
    */
   ExportJobResponse: ExportJobResponse | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Format = {
-  CSV: "CSV",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type Format = (typeof Format)[keyof typeof Format];
 
 /**
  * <p>Specifies the settings for a job that imports endpoint definitions from an Amazon Simple Storage Service (Amazon S3) bucket.</p>
@@ -4856,25 +4298,6 @@ export interface JourneyLimits {
 }
 
 /**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
-/**
  * <p>Specifies the start and end time for OpenHours.</p>
  * @public
  */
@@ -5012,24 +4435,6 @@ export interface StartCondition {
    */
   SegmentStartCondition?: SegmentCondition | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  ACTIVE: "ACTIVE",
-  CANCELLED: "CANCELLED",
-  CLOSED: "CLOSED",
-  COMPLETED: "COMPLETED",
-  DRAFT: "DRAFT",
-  PAUSED: "PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
 
 /**
  * <p>Specifies the configuration and other settings for a journey.</p>
@@ -5620,36 +5025,6 @@ export interface SegmentReference {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceType = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
  * <p>Specifies the base segments and dimensions for a segment, and the relationships between these base segments and dimensions.</p>
  * @public
  */
@@ -5678,21 +5053,6 @@ export interface SegmentGroup {
    */
   Type?: Type | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Include = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Include = (typeof Include)[keyof typeof Include];
 
 /**
  * <p>Specifies the settings that define the relationships between segment groups for a segment.</p>
@@ -5800,20 +5160,6 @@ export interface SegmentImportResource {
    */
   Size: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SegmentType = {
-  DIMENSIONAL: "DIMENSIONAL",
-  IMPORT: "IMPORT",
-} as const;
-
-/**
- * @public
- */
-export type SegmentType = (typeof SegmentType)[keyof typeof SegmentType];
 
 /**
  * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -7297,25 +6643,6 @@ export interface DeleteVoiceTemplateResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeliveryStatus = {
-  DUPLICATE: "DUPLICATE",
-  OPT_OUT: "OPT_OUT",
-  PERMANENT_FAILURE: "PERMANENT_FAILURE",
-  SUCCESSFUL: "SUCCESSFUL",
-  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
-  THROTTLED: "THROTTLED",
-  UNKNOWN_FAILURE: "UNKNOWN_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
-
-/**
  * <p>Specifies the contents of an email message, represented as a raw MIME message.</p>
  * @public
  */
@@ -7734,23 +7061,6 @@ export interface EmailChannelRequest {
    */
   OrchestrationSendingRoleArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TemplateType = {
-  EMAIL: "EMAIL",
-  INAPP: "INAPP",
-  PUSH: "PUSH",
-  SMS: "SMS",
-  VOICE: "VOICE",
-} as const;
-
-/**
- * @public
- */
-export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
 
 /**
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
@@ -8808,4 +8118,623 @@ export interface GetCampaignsResponse {
    * @public
    */
   CampaignsResponse: CampaignsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the campaign.</p>
+   * @public
+   */
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The unique version number (Version property) for the campaign version.</p>
+   * @public
+   */
+  Version: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionResponse {
+  /**
+   * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
+   * @public
+   */
+  CampaignResponse: CampaignResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the campaign.</p>
+   * @public
+   */
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * @public
+   */
+  PageSize?: string | undefined;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  Token?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionsResponse {
+  /**
+   * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
+   * @public
+   */
+  CampaignsResponse: CampaignsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChannelsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChannelsResponse {
+  /**
+   * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
+   * @public
+   */
+  ChannelsResponse: ChannelsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEmailChannelRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEmailChannelResponse {
+  /**
+   * <p>Provides information about the status and settings of the email channel for an application.</p>
+   * @public
+   */
+  EmailChannelResponse: EmailChannelResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEmailTemplateRequest {
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEmailTemplateResponse {
+  /**
+   * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
+   * @public
+   */
+  EmailTemplateResponse: EmailTemplateResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEndpointRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>\{</code> or <code>\}</code>.</p>
+   * @public
+   */
+  EndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEndpointResponse {
+  /**
+   * <p>Provides information about the channel type and other settings for an endpoint.</p>
+   * @public
+   */
+  EndpointResponse: EndpointResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventStreamRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventStreamResponse {
+  /**
+   * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
+   * @public
+   */
+  EventStream: EventStream | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportJobRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportJobResponse {
+  /**
+   * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ExportJobResponse: ExportJobResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportJobsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * @public
+   */
+  PageSize?: string | undefined;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  Token?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportJobsResponse {
+  /**
+   * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
+   * @public
+   */
+  ExportJobsResponse: ExportJobsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGcmChannelRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGcmChannelResponse {
+  /**
+   * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
+   * @public
+   */
+  GCMChannelResponse: GCMChannelResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobResponse {
+  /**
+   * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ImportJobResponse: ImportJobResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * @public
+   */
+  PageSize?: string | undefined;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  Token?: string | undefined;
+}
+
+/**
+ * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
+ * @public
+ */
+export interface ImportJobsResponse {
+  /**
+   * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
+   * @public
+   */
+  Item: ImportJobResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetImportJobsResponse {
+  /**
+   * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
+   * @public
+   */
+  ImportJobsResponse: ImportJobsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInAppMessagesRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the endpoint.</p>
+   * @public
+   */
+  EndpointId: string | undefined;
+}
+
+/**
+ * <p>Provides all fields required for building an in-app message.</p>
+ * @public
+ */
+export interface InAppMessage {
+  /**
+   * <p>In-app message content.</p>
+   * @public
+   */
+  Content?: InAppMessageContent[] | undefined;
+
+  /**
+   * <p>Custom config to be sent to SDK.</p>
+   * @public
+   */
+  CustomConfig?: Record<string, string> | undefined;
+
+  /**
+   * <p>The layout of the message.</p>
+   * @public
+   */
+  Layout?: Layout | undefined;
+}
+
+/**
+ * <p>Schedule of the campaign.</p>
+ * @public
+ */
+export interface InAppCampaignSchedule {
+  /**
+   * <p>The scheduled time after which the in-app message should not be shown. Timestamp is in ISO 8601 format.</p>
+   * @public
+   */
+  EndDate?: string | undefined;
+
+  /**
+   * <p>The event filter the SDK has to use to show the in-app message in the application.</p>
+   * @public
+   */
+  EventFilter?: CampaignEventFilter | undefined;
+
+  /**
+   * <p>Time during which the in-app message should not be shown to the user.</p>
+   * @public
+   */
+  QuietTime?: QuietTime | undefined;
+}
+
+/**
+ * <p>Targeted in-app message campaign.</p>
+ * @public
+ */
+export interface InAppMessageCampaign {
+  /**
+   * <p>Campaign id of the corresponding campaign.</p>
+   * @public
+   */
+  CampaignId?: string | undefined;
+
+  /**
+   * <p>Daily cap which controls the number of times any in-app messages can be shown to the endpoint during a day.</p>
+   * @public
+   */
+  DailyCap?: number | undefined;
+
+  /**
+   * <p>In-app message content with all fields required for rendering an in-app message.</p>
+   * @public
+   */
+  InAppMessage?: InAppMessage | undefined;
+
+  /**
+   * <p>Priority of the in-app message.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>Schedule of the campaign.</p>
+   * @public
+   */
+  Schedule?: InAppCampaignSchedule | undefined;
+
+  /**
+   * <p>Session cap which controls the number of times an in-app message can be shown to the endpoint during an application session.</p>
+   * @public
+   */
+  SessionCap?: number | undefined;
+
+  /**
+   * <p>Total cap which controls the number of times an in-app message can be shown to the endpoint.</p>
+   * @public
+   */
+  TotalCap?: number | undefined;
+
+  /**
+   * <p>Treatment id of the campaign.</p>
+   * @public
+   */
+  TreatmentId?: string | undefined;
+}
+
+/**
+ * <p>Get in-app messages response object.</p>
+ * @public
+ */
+export interface InAppMessagesResponse {
+  /**
+   * <p>List of targeted in-app message campaigns.</p>
+   * @public
+   */
+  InAppMessageCampaigns?: InAppMessageCampaign[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInAppMessagesResponse {
+  /**
+   * <p>Get in-app messages response object.</p>
+   * @public
+   */
+  InAppMessagesResponse: InAppMessagesResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInAppTemplateRequest {
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * <p>In-App Template Response.</p>
+ * @public
+ */
+export interface InAppTemplateResponse {
+  /**
+   * <p>The resource arn of the template.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The content of the message, can include up to 5 modals. Each modal must contain a message, a header, and background color. ImageUrl and buttons are optional.</p>
+   * @public
+   */
+  Content?: InAppMessageContent[] | undefined;
+
+  /**
+   * <p>The creation date of the template.</p>
+   * @public
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>Custom config to be sent to client.</p>
+   * @public
+   */
+  CustomConfig?: Record<string, string> | undefined;
+
+  /**
+   * <p>The last modified date of the template.</p>
+   * @public
+   */
+  LastModifiedDate: string | undefined;
+
+  /**
+   * <p>The layout of the message.</p>
+   * @public
+   */
+  Layout?: Layout | undefined;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The description of the template.</p>
+   * @public
+   */
+  TemplateDescription?: string | undefined;
+
+  /**
+   * <p>The name of the template.</p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>The type of the template.</p>
+   * @public
+   */
+  TemplateType: TemplateType | undefined;
+
+  /**
+   * <p>The version id of the template.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInAppTemplateResponse {
+  /**
+   * <p>In-App Template Response.</p>
+   * @public
+   */
+  InAppTemplateResponse: InAppTemplateResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey.</p>
+   * @public
+   */
+  JourneyId: string | undefined;
 }

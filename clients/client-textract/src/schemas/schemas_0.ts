@@ -320,7 +320,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnsupportedDocumentException as __UnsupportedDocumentException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { TextractServiceException as __TextractServiceException } from "../models/TextractServiceException";
 
 /* eslint no-var: 0 */

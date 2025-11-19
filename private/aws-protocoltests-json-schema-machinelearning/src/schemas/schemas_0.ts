@@ -33,7 +33,7 @@ import {
   LimitExceededException as __LimitExceededException,
   PredictorNotMountedException as __PredictorNotMountedException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { MachineLearningServiceException as __MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
 /* eslint no-var: 0 */

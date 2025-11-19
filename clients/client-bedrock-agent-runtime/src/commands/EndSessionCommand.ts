@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EndSessionRequest, EndSessionResponse } from "../models/models_1";
+import { EndSessionRequest, EndSessionResponse } from "../models/models_0";
 import { EndSession } from "../schemas/schemas_0";
 
 /**

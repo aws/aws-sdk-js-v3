@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutConfigurationSetArchivingOptionsRequest,
   PutConfigurationSetArchivingOptionsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { PutConfigurationSetArchivingOptions } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

@@ -1,29 +1,18 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BillingconductorServiceException as __BaseException } from "./BillingconductorServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  AssociateResourceErrorReason,
+  BillingGroupStatus,
+  ComputationRuleEnum,
+  CurrencyCode,
+  CustomLineItemRelationship,
+  CustomLineItemType,
+  GroupByAttributeName,
+  LineItemFilterAttributeName,
+  LineItemFilterValue,
+  MatchOption,
+  PricingRuleScope,
+  PricingRuleType,
+} from "./enums";
 
 /**
  * <p>A representation of a linked account.</p>
@@ -102,205 +91,6 @@ export interface AssociateAccountsOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT: "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT",
-  PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT: "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT",
-  PRICING_RULE_IN_PRICING_PLAN_CONFLICT: "PRICING_RULE_IN_PRICING_PLAN_CONFLICT",
-  RESOURCE_NAME_CONFLICT: "RESOURCE_NAME_CONFLICT",
-  WRITE_CONFLICT_RETRY: "WRITE_CONFLICT_RETRY",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * <p>You can cause an inconsistent state by updating or deleting a resource. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>Identifier of the resource in use. </p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Type of the resource in use. </p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>Reason for the inconsistent state. </p>
-   * @public
-   */
-  Reason?: ConflictExceptionReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * <p>An unexpected error occurred while processing a request. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * <p>Number of seconds you can retry after the call. </p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
- * <p>The request references a resource that doesn't exist. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>Resource identifier that was not found. </p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Resource type that was not found. </p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request would cause a service limit to exceed. </p>
- * @public
- */
-export class ServiceLimitExceededException extends __BaseException {
-  readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>Identifier of the resource affected. </p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>Type of the resource affected. </p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The unique code identifier of the service limit that is being exceeded. </p>
-   * @public
-   */
-  LimitCode: string | undefined;
-
-  /**
-   * <p>The unique code for the service of the limit that is being exceeded. </p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceLimitExceededException, __BaseException>) {
-    super({
-      name: "ServiceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceLimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.LimitCode = opts.LimitCode;
-    this.ServiceCode = opts.ServiceCode;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>Number of seconds you can safely retry after the call. </p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
  * <p>The field's information of a request that resulted in an exception.</p>
  * @public
  */
@@ -316,117 +106,6 @@ export interface ValidationExceptionField {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  ACCOUNTS_ALREADY_ASSOCIATED: "ACCOUNTS_ALREADY_ASSOCIATED",
-  ACCOUNTS_NOT_ASSOCIATED: "ACCOUNTS_NOT_ASSOCIATED",
-  BILLING_GROUP_ALREADY_EXIST_IN_CURRENT_BILLING_PERIOD: "BILLING_GROUP_ALREADY_EXIST_IN_CURRENT_BILLING_PERIOD",
-  CANNOT_DELETE_AUTO_ASSOCIATE_BILLING_GROUP: "CANNOT_DELETE_AUTO_ASSOCIATE_BILLING_GROUP",
-  CANNOT_PARSE: "CANNOT_PARSE",
-  CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS: "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS",
-  DUPLICATE_ACCOUNT: "DUPLICATE_ACCOUNT",
-  DUPLICATE_PRICINGRULE_ARNS: "DUPLICATE_PRICINGRULE_ARNS",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
-  ILLEGAL_ACCOUNT_ID: "ILLEGAL_ACCOUNT_ID",
-  ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
-  ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
-  ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
-  ILLEGAL_CHARGE_DETAILS: "ILLEGAL_CHARGE_DETAILS",
-  ILLEGAL_CHILD_ASSOCIATE_RESOURCE: "ILLEGAL_CHILD_ASSOCIATE_RESOURCE",
-  ILLEGAL_COMPUTATION_RULE: "ILLEGAL_COMPUTATION_RULE",
-  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
-  ILLEGAL_CUSTOMLINEITEM_MODIFICATION: "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
-  ILLEGAL_CUSTOMLINEITEM_UPDATE: "ILLEGAL_CUSTOMLINEITEM_UPDATE",
-  ILLEGAL_ENDED_BILLINGGROUP: "ILLEGAL_ENDED_BILLINGGROUP",
-  ILLEGAL_EXPRESSION: "ILLEGAL_EXPRESSION",
-  ILLEGAL_LINE_ITEM_FILTER: "ILLEGAL_LINE_ITEM_FILTER",
-  ILLEGAL_MODIFIER_PERCENTAGE: "ILLEGAL_MODIFIER_PERCENTAGE",
-  ILLEGAL_OPERATION: "ILLEGAL_OPERATION",
-  ILLEGAL_PRIMARY_ACCOUNT: "ILLEGAL_PRIMARY_ACCOUNT",
-  ILLEGAL_RESOURCE_ARNS: "ILLEGAL_RESOURCE_ARNS",
-  ILLEGAL_SCOPE: "ILLEGAL_SCOPE",
-  ILLEGAL_SERVICE: "ILLEGAL_SERVICE",
-  ILLEGAL_TIERING_INPUT: "ILLEGAL_TIERING_INPUT",
-  ILLEGAL_TYPE: "ILLEGAL_TYPE",
-  ILLEGAL_UPDATE_CHARGE_DETAILS: "ILLEGAL_UPDATE_CHARGE_DETAILS",
-  ILLEGAL_USAGE_TYPE: "ILLEGAL_USAGE_TYPE",
-  INVALID_ARN: "INVALID_ARN",
-  INVALID_BILLINGVIEW_ARN: "INVALID_BILLINGVIEW_ARN",
-  INVALID_BILLING_GROUP: "INVALID_BILLING_GROUP",
-  INVALID_BILLING_GROUP_STATUS: "INVALID_BILLING_GROUP_STATUS",
-  INVALID_BILLING_PERIOD_FOR_OPERATION: "INVALID_BILLING_PERIOD_FOR_OPERATION",
-  INVALID_FILTER: "INVALID_FILTER",
-  INVALID_SKU_COMBO: "INVALID_SKU_COMBO",
-  INVALID_TIME_RANGE: "INVALID_TIME_RANGE",
-  MISMATCHED_BILLINGGROUP_ARN: "MISMATCHED_BILLINGGROUP_ARN",
-  MISMATCHED_BILLINGVIEW_ARN: "MISMATCHED_BILLINGVIEW_ARN",
-  MISMATCHED_CUSTOMLINEITEM_ARN: "MISMATCHED_CUSTOMLINEITEM_ARN",
-  MISMATCHED_PRICINGPLAN_ARN: "MISMATCHED_PRICINGPLAN_ARN",
-  MISMATCHED_PRICINGRULE_ARN: "MISMATCHED_PRICINGRULE_ARN",
-  MISSING_BILLINGGROUP: "MISSING_BILLINGGROUP",
-  MISSING_COSTCATEGORY: "MISSING_COSTCATEGORY",
-  MISSING_CUSTOMLINEITEM: "MISSING_CUSTOMLINEITEM",
-  MISSING_LINKED_ACCOUNT_IDS: "MISSING_LINKED_ACCOUNT_IDS",
-  MISSING_PRICINGPLAN: "MISSING_PRICINGPLAN",
-  MISSING_PRICING_PLAN_ARN: "MISSING_PRICING_PLAN_ARN",
-  MULTIPLE_LINKED_ACCOUNT_IDS: "MULTIPLE_LINKED_ACCOUNT_IDS",
-  MULTIPLE_PRICING_PLAN_ARN: "MULTIPLE_PRICING_PLAN_ARN",
-  OTHER: "OTHER",
-  PRICINGRULES_ALREADY_ASSOCIATED: "PRICINGRULES_ALREADY_ASSOCIATED",
-  PRICINGRULES_NOT_ASSOCIATED: "PRICINGRULES_NOT_ASSOCIATED",
-  PRICINGRULES_NOT_EXIST: "PRICINGRULES_NOT_EXIST",
-  PRIMARY_CANNOT_DISASSOCIATE: "PRIMARY_CANNOT_DISASSOCIATE",
-  PRIMARY_NOT_ASSOCIATED: "PRIMARY_NOT_ASSOCIATED",
-  TOO_MANY_ACCOUNTS_IN_REQUEST: "TOO_MANY_ACCOUNTS_IN_REQUEST",
-  TOO_MANY_AUTO_ASSOCIATE_BILLING_GROUPS: "TOO_MANY_AUTO_ASSOCIATE_BILLING_GROUPS",
-  TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST: "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The reason the request's validation failed. </p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that caused the error, if applicable. </p>
-   * @public
-   */
-  Fields?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Fields = opts.Fields;
-  }
 }
 
 /**
@@ -456,24 +135,6 @@ export interface AssociatePricingRulesOutput {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssociateResourceErrorReason = {
-  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
-  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
-  INVALID_ARN: "INVALID_ARN",
-  INVALID_BILLING_PERIOD_RANGE: "INVALID_BILLING_PERIOD_RANGE",
-  SERVICE_LIMIT_EXCEEDED: "SERVICE_LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type AssociateResourceErrorReason =
-  (typeof AssociateResourceErrorReason)[keyof typeof AssociateResourceErrorReason];
 
 /**
  * <p>A representation of a resource association error.</p>
@@ -648,20 +309,6 @@ export interface DisassociateAccountsOutput {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BillingGroupStatus = {
-  ACTIVE: "ACTIVE",
-  PRIMARY_ACCOUNT_MISSING: "PRIMARY_ACCOUNT_MISSING",
-} as const;
-
-/**
- * @public
- */
-export type BillingGroupStatus = (typeof BillingGroupStatus)[keyof typeof BillingGroupStatus];
 
 /**
  * <p>The filter that specifies the billing groups and pricing plans to retrieve billing group information.</p>
@@ -1070,46 +717,6 @@ export interface CustomLineItemFlatChargeDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const LineItemFilterAttributeName = {
-  LINE_ITEM_TYPE: "LINE_ITEM_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type LineItemFilterAttributeName =
-  (typeof LineItemFilterAttributeName)[keyof typeof LineItemFilterAttributeName];
-
-/**
- * @public
- * @enum
- */
-export const MatchOption = {
-  NOT_EQUAL: "NOT_EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
-
-/**
- * @public
- * @enum
- */
-export const LineItemFilterValue = {
-  SAVINGS_PLAN_NEGATION: "SAVINGS_PLAN_NEGATION",
-} as const;
-
-/**
- * @public
- */
-export type LineItemFilterValue = (typeof LineItemFilterValue)[keyof typeof LineItemFilterValue];
-
-/**
  * <p>A representation of the line item filter for your custom line item. You can use line item filters to include or exclude specific resource values from the billing group's total cost. For example, if you create a custom line item and you want to filter out a value, such as Savings Plan discounts, you can update <code>LineItemFilter</code> to exclude it.</p>
  * @public
  */
@@ -1152,20 +759,6 @@ export interface CustomLineItemPercentageChargeDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const CustomLineItemType = {
-  CREDIT: "CREDIT",
-  FEE: "FEE",
-} as const;
-
-/**
- * @public
- */
-export type CustomLineItemType = (typeof CustomLineItemType)[keyof typeof CustomLineItemType];
-
-/**
  * <p>The charge details of a custom line item. It should contain only one of <code>Flat</code> or <code>Percentage</code>.</p>
  * @public
  */
@@ -1194,19 +787,6 @@ export interface CustomLineItemChargeDetails {
    */
   LineItemFilters?: LineItemFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComputationRuleEnum = {
-  CONSOLIDATED: "CONSOLIDATED",
-} as const;
-
-/**
- * @public
- */
-export type ComputationRuleEnum = (typeof ComputationRuleEnum)[keyof typeof ComputationRuleEnum];
 
 /**
  * The presentation configuration of the custom line item
@@ -1436,20 +1016,6 @@ export interface ListCustomLineItemChargeDetails {
    */
   LineItemFilters?: LineItemFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CurrencyCode = {
-  CNY: "CNY",
-  USD: "USD",
-} as const;
-
-/**
- * @public
- */
-export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
 
 /**
  * <p>A representation of a custom line item.</p>
@@ -1731,20 +1297,6 @@ export interface ListCustomLineItemVersionsOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const CustomLineItemRelationship = {
-  CHILD: "CHILD",
-  PARENT: "PARENT",
-} as const;
-
-/**
- * @public
- */
-export type CustomLineItemRelationship = (typeof CustomLineItemRelationship)[keyof typeof CustomLineItemRelationship];
-
-/**
  * <p> A filter that specifies the type of resource associations that should be retrieved for a custom line item. </p>
  * @public
  */
@@ -1985,20 +1537,6 @@ export interface BillingPeriodRange {
    */
   ExclusiveEndBillingPeriod: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupByAttributeName = {
-  BILLING_PERIOD: "BILLING_PERIOD",
-  PRODUCT_NAME: "PRODUCT_NAME",
-} as const;
-
-/**
- * @public
- */
-export type GroupByAttributeName = (typeof GroupByAttributeName)[keyof typeof GroupByAttributeName];
 
 /**
  * @public
@@ -2605,22 +2143,6 @@ export interface UpdatePricingPlanOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const PricingRuleScope = {
-  BILLING_ENTITY: "BILLING_ENTITY",
-  GLOBAL: "GLOBAL",
-  SERVICE: "SERVICE",
-  SKU: "SKU",
-} as const;
-
-/**
- * @public
- */
-export type PricingRuleScope = (typeof PricingRuleScope)[keyof typeof PricingRuleScope];
-
-/**
  * <p> The possible Amazon Web Services Free Tier configurations. </p>
  * @public
  */
@@ -2643,21 +2165,6 @@ export interface CreateTieringInput {
    */
   FreeTier: CreateFreeTierConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PricingRuleType = {
-  DISCOUNT: "DISCOUNT",
-  MARKUP: "MARKUP",
-  TIERING: "TIERING",
-} as const;
-
-/**
- * @public
- */
-export type PricingRuleType = (typeof PricingRuleType)[keyof typeof PricingRuleType];
 
 /**
  * @public

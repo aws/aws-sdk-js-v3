@@ -1,75 +1,23 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
-
-/**
- * <p>
- *         The operation did not succeed because of an unauthorized access attempt.
- *       </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AllowPublish = {
-  ALLOW: "ALLOW",
-  BLOCK: "BLOCK",
-} as const;
-
-/**
- * @public
- */
-export type AllowPublish = (typeof AllowPublish)[keyof typeof AllowPublish];
-
-/**
- * @public
- * @enum
- */
-export const AllowUpstream = {
-  ALLOW: "ALLOW",
-  BLOCK: "BLOCK",
-} as const;
-
-/**
- * @public
- */
-export type AllowUpstream = (typeof AllowUpstream)[keyof typeof AllowUpstream];
-
-/**
- * @public
- * @enum
- */
-export const HashAlgorithm = {
-  MD5: "MD5",
-  SHA1: "SHA-1",
-  SHA256: "SHA-256",
-  SHA512: "SHA-512",
-} as const;
-
-/**
- * @public
- */
-export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
+import {
+  AllowPublish,
+  AllowUpstream,
+  DomainStatus,
+  EndpointType,
+  ExternalConnectionStatus,
+  HashAlgorithm,
+  PackageFormat,
+  PackageGroupAllowedRepositoryUpdateType,
+  PackageGroupAssociationType,
+  PackageGroupOriginRestrictionMode,
+  PackageGroupOriginRestrictionType,
+  PackageVersionErrorCode,
+  PackageVersionOriginType,
+  PackageVersionSortType,
+  PackageVersionStatus,
+} from "./enums";
 
 /**
  * <p>
@@ -102,41 +50,6 @@ export interface AssetSummary {
    */
   hashes?: Partial<Record<HashAlgorithm, string>> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PackageGroupAssociationType = {
-  STRONG: "STRONG",
-  WEAK: "WEAK",
-} as const;
-
-/**
- * @public
- */
-export type PackageGroupAssociationType =
-  (typeof PackageGroupAssociationType)[keyof typeof PackageGroupAssociationType];
-
-/**
- * @public
- * @enum
- */
-export const PackageFormat = {
-  CARGO: "cargo",
-  GENERIC: "generic",
-  MAVEN: "maven",
-  NPM: "npm",
-  NUGET: "nuget",
-  PYPI: "pypi",
-  RUBY: "ruby",
-  SWIFT: "swift",
-} as const;
-
-/**
- * @public
- */
-export type PackageFormat = (typeof PackageFormat)[keyof typeof PackageFormat];
 
 /**
  * <p>
@@ -281,19 +194,6 @@ export interface AssociateExternalConnectionRequest {
    */
   externalConnection: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExternalConnectionStatus = {
-  AVAILABLE: "Available",
-} as const;
-
-/**
- * @public
- */
-export type ExternalConnectionStatus = (typeof ExternalConnectionStatus)[keyof typeof ExternalConnectionStatus];
 
 /**
  * <p>
@@ -474,242 +374,6 @@ export interface AssociateExternalConnectionResult {
 
 /**
  * @public
- * @enum
- */
-export const ResourceType = {
-  ASSET: "asset",
-  DOMAIN: "domain",
-  PACKAGE: "package",
-  PACKAGE_VERSION: "package-version",
-  REPOSITORY: "repository",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>
- *         The operation did not succeed because prerequisites are not met.
- *       </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>
- *       The operation did not succeed because the resource requested is not found in the service.
- *     </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>
- *         The operation did not succeed because it would have exceeded a service limit for your account.
- *       </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>
-   *       The ID of the resource.
-   *     </p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>
-   *       The type of Amazon Web Services resource.
-   *     </p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>
- *       The operation did not succeed because too many requests are sent to the service.
- *     </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>
-   *       The time period, in seconds, to wait before retrying the request.
-   *     </p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  ENCRYPTION_KEY_ERROR: "ENCRYPTION_KEY_ERROR",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>
- *       The operation did not succeed because a parameter in the request was sent with an invalid value.
- *     </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>
-   *
-   *     </p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
  */
 export interface CopyPackageVersionsRequest {
   /**
@@ -851,24 +515,6 @@ export interface CopyPackageVersionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PackageVersionErrorCode = {
-  ALREADY_EXISTS: "ALREADY_EXISTS",
-  MISMATCHED_REVISION: "MISMATCHED_REVISION",
-  MISMATCHED_STATUS: "MISMATCHED_STATUS",
-  NOT_ALLOWED: "NOT_ALLOWED",
-  NOT_FOUND: "NOT_FOUND",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type PackageVersionErrorCode = (typeof PackageVersionErrorCode)[keyof typeof PackageVersionErrorCode];
-
-/**
  * <p>l
  *        An error associated with package.
  *    </p>
@@ -921,24 +567,6 @@ export interface PackageVersionError {
    */
   errorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PackageVersionStatus = {
-  ARCHIVED: "Archived",
-  DELETED: "Deleted",
-  DISPOSED: "Disposed",
-  PUBLISHED: "Published",
-  UNFINISHED: "Unfinished",
-  UNLISTED: "Unlisted",
-} as const;
-
-/**
- * @public
- */
-export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
 
 /**
  * <p>
@@ -1071,20 +699,6 @@ export interface CreateDomainRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DomainStatus = {
-  ACTIVE: "Active",
-  DELETED: "Deleted",
-} as const;
-
-/**
- * @public
- */
-export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
  * <p>
@@ -1221,39 +835,6 @@ export interface CreatePackageGroupRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PackageGroupOriginRestrictionType = {
-  EXTERNAL_UPSTREAM: "EXTERNAL_UPSTREAM",
-  INTERNAL_UPSTREAM: "INTERNAL_UPSTREAM",
-  PUBLISH: "PUBLISH",
-} as const;
-
-/**
- * @public
- */
-export type PackageGroupOriginRestrictionType =
-  (typeof PackageGroupOriginRestrictionType)[keyof typeof PackageGroupOriginRestrictionType];
-
-/**
- * @public
- * @enum
- */
-export const PackageGroupOriginRestrictionMode = {
-  ALLOW: "ALLOW",
-  ALLOW_SPECIFIC_REPOSITORIES: "ALLOW_SPECIFIC_REPOSITORIES",
-  BLOCK: "BLOCK",
-  INHERIT: "INHERIT",
-} as const;
-
-/**
- * @public
- */
-export type PackageGroupOriginRestrictionMode =
-  (typeof PackageGroupOriginRestrictionMode)[keyof typeof PackageGroupOriginRestrictionMode];
 
 /**
  * <p>Information about the identifiers of a package group.</p>
@@ -2443,21 +2024,6 @@ export interface DomainEntryPoint {
 }
 
 /**
- * @public
- * @enum
- */
-export const PackageVersionOriginType = {
-  EXTERNAL: "EXTERNAL",
-  INTERNAL: "INTERNAL",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type PackageVersionOriginType = (typeof PackageVersionOriginType)[keyof typeof PackageVersionOriginType];
-
-/**
  * <p>Information about how a package version was added to a repository.</p>
  * @public
  */
@@ -3381,20 +2947,6 @@ export interface GetPackageVersionReadmeResult {
    */
   readme?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointType = {
-  DUALSTACK: "dualstack",
-  IPV4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
@@ -4467,19 +4019,6 @@ export interface ListPackageVersionDependenciesResult {
 
 /**
  * @public
- * @enum
- */
-export const PackageVersionSortType = {
-  PUBLISHED_TIME: "PUBLISHED_TIME",
-} as const;
-
-/**
- * @public
- */
-export type PackageVersionSortType = (typeof PackageVersionSortType)[keyof typeof PackageVersionSortType];
-
-/**
- * @public
  */
 export interface ListPackageVersionsRequest {
   /**
@@ -5509,21 +5048,6 @@ export interface UpdatePackageGroupOriginConfigurationRequest {
    */
   removeAllowedRepositories?: PackageGroupAllowedRepository[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PackageGroupAllowedRepositoryUpdateType = {
-  ADDED: "ADDED",
-  REMOVED: "REMOVED",
-} as const;
-
-/**
- * @public
- */
-export type PackageGroupAllowedRepositoryUpdateType =
-  (typeof PackageGroupAllowedRepositoryUpdateType)[keyof typeof PackageGroupAllowedRepositoryUpdateType];
 
 /**
  * @public

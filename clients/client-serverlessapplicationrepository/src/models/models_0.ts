@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ServerlessApplicationRepositoryServiceException as __BaseException } from "./ServerlessApplicationRepositoryServiceException";
+import { Capability, Status } from "./enums";
 
 /**
  * <p>A nested application summary.</p>
@@ -105,22 +103,6 @@ export interface ApplicationSummary {
    */
   SpdxLicenseId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Capability = {
-  CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
-  CAPABILITY_IAM: "CAPABILITY_IAM",
-  CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
-  CAPABILITY_RESOURCE_POLICY: "CAPABILITY_RESOURCE_POLICY",
-} as const;
-
-/**
- * @public
- */
-export type Capability = (typeof Capability)[keyof typeof Capability];
 
 /**
  * <p>Parameters supported by the application.</p>
@@ -316,72 +298,6 @@ export interface VersionSummary {
    * @public
    */
   SourceCodeUrl?: string | undefined;
-}
-
-/**
- * <p>One of the parameters in the request is invalid.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>400</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>One of the parameters in the request is invalid.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource already exists.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>409</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The resource already exists.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -650,105 +566,6 @@ export interface CreateApplicationResponse {
    * @public
    */
   Version?: Version | undefined;
-}
-
-/**
- * <p>The client is not authenticated.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>403</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The client is not authenticated.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>500</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The client is sending more than the allowed number of requests per unit of time.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>429</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The client is sending more than the allowed number of requests per unit of time.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1064,21 +881,6 @@ export interface CreateCloudFormationTemplateRequest {
 
 /**
  * @public
- * @enum
- */
-export const Status = {
-  ACTIVE: "ACTIVE",
-  EXPIRED: "EXPIRED",
-  PREPARING: "PREPARING",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * @public
  */
 export interface CreateCloudFormationTemplateResponse {
   /**
@@ -1127,39 +929,6 @@ export interface CreateCloudFormationTemplateResponse {
    * @public
    */
   TemplateUrl?: string | undefined;
-}
-
-/**
- * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>404</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
 }
 
 /**

@@ -377,7 +377,7 @@ import {
   DirectConnectServerException as __DirectConnectServerException,
   DuplicateTagKeysException as __DuplicateTagKeysException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

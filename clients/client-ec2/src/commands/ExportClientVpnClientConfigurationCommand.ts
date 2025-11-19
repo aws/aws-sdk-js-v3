@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { ExportClientVpnClientConfiguration } from "../schemas/schemas_0";
 
 /**

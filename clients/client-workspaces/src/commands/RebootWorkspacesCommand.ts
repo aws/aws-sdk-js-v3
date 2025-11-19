@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_1";
+import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_0";
 import { RebootWorkspaces } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 

@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_1";
+import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
 import { SetUserPoolMfaConfig } from "../schemas/schemas_0";
 
 /**

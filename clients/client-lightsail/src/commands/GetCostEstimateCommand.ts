@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetCostEstimateRequest, GetCostEstimateResult } from "../models/models_1";
+import { GetCostEstimateRequest, GetCostEstimateResult } from "../models/models_0";
 import { GetCostEstimate } from "../schemas/schemas_0";
 
 /**

@@ -169,7 +169,7 @@ import {
   PipelineDeletedException as __PipelineDeletedException,
   PipelineNotFoundException as __PipelineNotFoundException,
   TaskNotFoundException as __TaskNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

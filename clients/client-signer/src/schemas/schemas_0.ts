@@ -200,7 +200,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyRequestsException as __TooManyRequestsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SignerServiceException as __SignerServiceException } from "../models/SignerServiceException";
 
 /* eslint no-var: 0 */

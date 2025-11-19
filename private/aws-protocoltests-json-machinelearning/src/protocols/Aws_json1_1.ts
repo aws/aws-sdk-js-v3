@@ -18,17 +18,15 @@ import {
 } from "@smithy/types";
 
 import { PredictCommandInput, PredictCommandOutput } from "../commands/PredictCommand";
-import { MachineLearningServiceException as __BaseException } from "../models/MachineLearningServiceException";
 import {
   InternalServerException,
   InvalidInputException,
   LimitExceededException,
-  PredictInput,
-  Prediction,
   PredictorNotMountedException,
-  PredictOutput,
   ResourceNotFoundException,
-} from "../models/models_0";
+} from "../models/errors";
+import { MachineLearningServiceException as __BaseException } from "../models/MachineLearningServiceException";
+import { PredictInput, Prediction, PredictOutput } from "../models/models_0";
 
 /**
  * serializeAws_json1_1PredictCommand

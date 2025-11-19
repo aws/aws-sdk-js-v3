@@ -1,44 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SupplyChainServiceException as __BaseException } from "./SupplyChainServiceException";
-
-/**
- * <p>You do not have the required privileges to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationJobStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NEW: "NEW",
-  QUEUED: "QUEUED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationJobStatus = (typeof ConfigurationJobStatus)[keyof typeof ConfigurationJobStatus];
+import {
+  ConfigurationJobStatus,
+  DataIntegrationEventDatasetLoadStatus,
+  DataIntegrationEventDatasetOperationType,
+  DataIntegrationEventType,
+  DataIntegrationFlowDedupeStrategyType,
+  DataIntegrationFlowExecutionStatus,
+  DataIntegrationFlowFieldPriorityDedupeSortOrder,
+  DataIntegrationFlowFileType,
+  DataIntegrationFlowLoadType,
+  DataIntegrationFlowSourceType,
+  DataIntegrationFlowTargetType,
+  DataIntegrationFlowTransformationType,
+  DataLakeDatasetPartitionTransformType,
+  DataLakeDatasetSchemaFieldType,
+  InstanceState,
+} from "./enums";
 
 /**
  * <p>The BillOfMaterialsImportJob details.</p>
@@ -74,26 +51,6 @@ export interface BillOfMaterialsImportJob {
    * @public
    */
   message?: string | undefined;
-}
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -133,110 +90,6 @@ export interface CreateBillOfMaterialsImportJobResponse {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input does not satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>The request parameters for GetBillOfMaterialsImportJob.</p>
  * @public
  */
@@ -265,21 +118,6 @@ export interface GetBillOfMaterialsImportJobResponse {
    */
   job: BillOfMaterialsImportJob | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationFlowFieldPriorityDedupeSortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowFieldPriorityDedupeSortOrder =
-  (typeof DataIntegrationFlowFieldPriorityDedupeSortOrder)[keyof typeof DataIntegrationFlowFieldPriorityDedupeSortOrder];
 
 /**
  * <p>The field used in the field priority deduplication strategy.</p>
@@ -312,20 +150,6 @@ export interface DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataIntegrationFlowDedupeStrategyType = {
-  FIELD_PRIORITY: "FIELD_PRIORITY",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowDedupeStrategyType =
-  (typeof DataIntegrationFlowDedupeStrategyType)[keyof typeof DataIntegrationFlowDedupeStrategyType];
-
-/**
  * <p>The deduplication strategy details.</p>
  * @public
  */
@@ -348,21 +172,6 @@ export interface DataIntegrationFlowDedupeStrategy {
    */
   fieldPriority?: DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationFlowLoadType = {
-  INCREMENTAL: "INCREMENTAL",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowLoadType =
-  (typeof DataIntegrationFlowLoadType)[keyof typeof DataIntegrationFlowLoadType];
 
 /**
  * <p>The dataset options used in dataset source and target configurations.</p>
@@ -418,22 +227,6 @@ export interface DataIntegrationFlowDatasetSourceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataIntegrationFlowFileType = {
-  CSV: "CSV",
-  JSON: "JSON",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowFileType =
-  (typeof DataIntegrationFlowFileType)[keyof typeof DataIntegrationFlowFileType];
-
-/**
  * <p>The Amazon S3 options used in S3 source and target configurations.</p>
  * @public
  */
@@ -468,21 +261,6 @@ export interface DataIntegrationFlowS3SourceConfiguration {
    */
   options?: DataIntegrationFlowS3Options | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationFlowSourceType = {
-  DATASET: "DATASET",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowSourceType =
-  (typeof DataIntegrationFlowSourceType)[keyof typeof DataIntegrationFlowSourceType];
 
 /**
  * <p>The DataIntegrationFlow source parameters.</p>
@@ -557,21 +335,6 @@ export interface DataIntegrationFlowS3TargetConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataIntegrationFlowTargetType = {
-  DATASET: "DATASET",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowTargetType =
-  (typeof DataIntegrationFlowTargetType)[keyof typeof DataIntegrationFlowTargetType];
-
-/**
  * <p>The DataIntegrationFlow target parameters.</p>
  * @public
  */
@@ -606,21 +369,6 @@ export interface DataIntegrationFlowSQLTransformationConfiguration {
    */
   query: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationFlowTransformationType = {
-  NONE: "NONE",
-  SQL: "SQL",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowTransformationType =
-  (typeof DataIntegrationFlowTransformationType)[keyof typeof DataIntegrationFlowTransformationType];
 
 /**
  * <p>The DataIntegrationFlow transformation parameters.</p>
@@ -701,24 +449,6 @@ export interface CreateDataIntegrationFlowResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataLakeDatasetPartitionTransformType = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  IDENTITY: "IDENTITY",
-  MONTH: "MONTH",
-  YEAR: "YEAR",
-} as const;
-
-/**
- * @public
- */
-export type DataLakeDatasetPartitionTransformType =
-  (typeof DataLakeDatasetPartitionTransformType)[keyof typeof DataLakeDatasetPartitionTransformType];
-
-/**
  * <p>The detail of the partition field transformation.</p>
  * @public
  */
@@ -781,24 +511,6 @@ export interface DataLakeDatasetPartitionSpec {
    */
   fields: DataLakeDatasetPartitionField[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataLakeDatasetSchemaFieldType = {
-  DOUBLE: "DOUBLE",
-  INT: "INT",
-  LONG: "LONG",
-  STRING: "STRING",
-  TIMESTAMP: "TIMESTAMP",
-} as const;
-
-/**
- * @public
- */
-export type DataLakeDatasetSchemaFieldType =
-  (typeof DataLakeDatasetSchemaFieldType)[keyof typeof DataLakeDatasetSchemaFieldType];
 
 /**
  * <p>The dataset field details.</p>
@@ -1129,24 +841,6 @@ export interface CreateInstanceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InstanceState = {
-  ACTIVE: "Active",
-  CREATE_FAILED: "CreateFailed",
-  DELETED: "Deleted",
-  DELETE_FAILED: "DeleteFailed",
-  DELETING: "Deleting",
-  INITIALIZING: "Initializing",
-} as const;
-
-/**
- * @public
- */
-export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
-
-/**
  * <p>The details of the instance.</p>
  * @public
  */
@@ -1231,22 +925,6 @@ export interface CreateInstanceResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataIntegrationEventDatasetLoadStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationEventDatasetLoadStatus =
-  (typeof DataIntegrationEventDatasetLoadStatus)[keyof typeof DataIntegrationEventDatasetLoadStatus];
-
-/**
  * <p>The target dataset load execution details.</p>
  * @public
  */
@@ -1263,22 +941,6 @@ export interface DataIntegrationEventDatasetLoadExecutionDetails {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationEventDatasetOperationType = {
-  APPEND: "APPEND",
-  DELETE: "DELETE",
-  UPSERT: "UPSERT",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationEventDatasetOperationType =
-  (typeof DataIntegrationEventDatasetOperationType)[keyof typeof DataIntegrationEventDatasetOperationType];
 
 /**
  * <p>The target dataset details for a DATASET event type.</p>
@@ -1317,34 +979,6 @@ export interface DataIntegrationEventDatasetTargetDetails {
    */
   datasetLoadExecution: DataIntegrationEventDatasetLoadExecutionDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationEventType = {
-  DATASET: "scn.data.dataset",
-  FORECAST: "scn.data.forecast",
-  INBOUND_ORDER: "scn.data.inboundorder",
-  INBOUND_ORDER_LINE: "scn.data.inboundorderline",
-  INBOUND_ORDER_LINE_SCHEDULE: "scn.data.inboundorderlineschedule",
-  INVENTORY_LEVEL: "scn.data.inventorylevel",
-  OUTBOUND_ORDER_LINE: "scn.data.outboundorderline",
-  OUTBOUND_SHIPMENT: "scn.data.outboundshipment",
-  PROCESS_HEADER: "scn.data.processheader",
-  PROCESS_OPERATION: "scn.data.processoperation",
-  PROCESS_PRODUCT: "scn.data.processproduct",
-  RESERVATION: "scn.data.reservation",
-  SHIPMENT: "scn.data.shipment",
-  SHIPMENT_STOP: "scn.data.shipmentstop",
-  SHIPMENT_STOP_ORDER: "scn.data.shipmentstoporder",
-  SUPPLY_PLAN: "scn.data.supplyplan",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationEventType = (typeof DataIntegrationEventType)[keyof typeof DataIntegrationEventType];
 
 /**
  * <p>The data integration event details.</p>
@@ -1519,22 +1153,6 @@ export interface DataIntegrationFlowExecutionSourceInfo {
    */
   datasetSource?: DataIntegrationFlowDatasetSource | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIntegrationFlowExecutionStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type DataIntegrationFlowExecutionStatus =
-  (typeof DataIntegrationFlowExecutionStatus)[keyof typeof DataIntegrationFlowExecutionStatus];
 
 /**
  * <p>The flow execution details.</p>

@@ -1,51 +1,55 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SESv2ServiceException as __BaseException } from "./SESv2ServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ContactLanguage = {
-  EN: "EN",
-  JA: "JA",
-} as const;
-
-/**
- * @public
- */
-export type ContactLanguage = (typeof ContactLanguage)[keyof typeof ContactLanguage];
-
-/**
- * @public
- * @enum
- */
-export const MailType = {
-  MARKETING: "MARKETING",
-  TRANSACTIONAL: "TRANSACTIONAL",
-} as const;
-
-/**
- * @public
- */
-export type MailType = (typeof MailType)[keyof typeof MailType];
-
-/**
- * @public
- * @enum
- */
-export const ReviewStatus = {
-  DENIED: "DENIED",
-  FAILED: "FAILED",
-  GRANTED: "GRANTED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus];
+import {
+  AttachmentContentDisposition,
+  AttachmentContentTransferEncoding,
+  BehaviorOnMxFailure,
+  BounceType,
+  BulkEmailStatus,
+  ContactLanguage,
+  ContactListImportAction,
+  DataFormat,
+  DeliverabilityDashboardAccountStatus,
+  DeliverabilityTestStatus,
+  DeliveryEventType,
+  DimensionValueSource,
+  DkimSigningAttributesOrigin,
+  DkimSigningKeyLength,
+  DkimStatus,
+  EngagementEventType,
+  EventType,
+  ExportSourceType,
+  FeatureStatus,
+  HttpsPolicy,
+  IdentityType,
+  ImportDestinationType,
+  JobStatus,
+  ListRecommendationsFilterKey,
+  ListTenantResourcesFilterKey,
+  MailFromDomainStatus,
+  MailType,
+  Metric,
+  MetricAggregation,
+  MetricDimensionName,
+  MetricNamespace,
+  QueryErrorCode,
+  RecommendationImpact,
+  RecommendationStatus,
+  RecommendationType,
+  ReputationEntityFilterKey,
+  ReputationEntityType,
+  ResourceType,
+  ReviewStatus,
+  ScalingMode,
+  SendingStatus,
+  Status,
+  SubscriptionStatus,
+  SuppressionListImportAction,
+  SuppressionListReason,
+  TlsPolicy,
+  VerificationError,
+  VerificationStatus,
+  WarmupStatus,
+} from "./enums";
 
 /**
  * <p>An object that contains information about your account details review.</p>
@@ -149,47 +153,6 @@ export interface AccountDetails {
 }
 
 /**
- * <p>The message can't be sent because the account's ability to send email has been
- *             permanently restricted.</p>
- * @public
- */
-export class AccountSuspendedException extends __BaseException {
-  readonly name: "AccountSuspendedException" = "AccountSuspendedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountSuspendedException, __BaseException>) {
-    super({
-      name: "AccountSuspendedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountSuspendedException.prototype);
-  }
-}
-
-/**
- * <p>The resource specified in your request already exists.</p>
- * @public
- */
-export class AlreadyExistsException extends __BaseException {
-  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
-    super({
-      name: "AlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
-  }
-}
-
-/**
  * <p>Used to associate a configuration set with a MailManager archive.</p>
  * @public
  */
@@ -201,37 +164,6 @@ export interface ArchivingOptions {
    */
   ArchiveArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachmentContentDisposition = {
-  ATTACHMENT: "ATTACHMENT",
-  INLINE: "INLINE",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentContentDisposition =
-  (typeof AttachmentContentDisposition)[keyof typeof AttachmentContentDisposition];
-
-/**
- * @public
- * @enum
- */
-export const AttachmentContentTransferEncoding = {
-  BASE64: "BASE64",
-  QUOTED_PRINTABLE: "QUOTED_PRINTABLE",
-  SEVEN_BIT: "SEVEN_BIT",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentContentTransferEncoding =
-  (typeof AttachmentContentTransferEncoding)[keyof typeof AttachmentContentTransferEncoding];
 
 /**
  * <p> Contains metadata and attachment raw content.</p>
@@ -291,76 +223,6 @@ export interface Attachment {
    */
   ContentType?: string | undefined;
 }
-
-/**
- * <p>The input you provided is invalid.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const MetricDimensionName = {
-  CONFIGURATION_SET: "CONFIGURATION_SET",
-  EMAIL_IDENTITY: "EMAIL_IDENTITY",
-  ISP: "ISP",
-} as const;
-
-/**
- * @public
- */
-export type MetricDimensionName = (typeof MetricDimensionName)[keyof typeof MetricDimensionName];
-
-/**
- * @public
- * @enum
- */
-export const Metric = {
-  CLICK: "CLICK",
-  COMPLAINT: "COMPLAINT",
-  DELIVERY: "DELIVERY",
-  DELIVERY_CLICK: "DELIVERY_CLICK",
-  DELIVERY_COMPLAINT: "DELIVERY_COMPLAINT",
-  DELIVERY_OPEN: "DELIVERY_OPEN",
-  OPEN: "OPEN",
-  PERMANENT_BOUNCE: "PERMANENT_BOUNCE",
-  SEND: "SEND",
-  TRANSIENT_BOUNCE: "TRANSIENT_BOUNCE",
-} as const;
-
-/**
- * @public
- */
-export type Metric = (typeof Metric)[keyof typeof Metric];
-
-/**
- * @public
- * @enum
- */
-export const MetricNamespace = {
-  VDM: "VDM",
-} as const;
-
-/**
- * @public
- */
-export type MetricNamespace = (typeof MetricNamespace)[keyof typeof MetricNamespace];
 
 /**
  * <p>Represents a single metric data query to include in a batch.</p>
@@ -482,20 +344,6 @@ export interface BatchGetMetricDataRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const QueryErrorCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type QueryErrorCode = (typeof QueryErrorCode)[keyof typeof QueryErrorCode];
-
-/**
  * <p>An error corresponding to the unsuccessful processing of a single metric data query.</p>
  * @public
  */
@@ -573,80 +421,6 @@ export interface BatchGetMetricDataResponse {
 }
 
 /**
- * <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-  }
-}
-
-/**
- * <p>The resource you attempted to access doesn't exist.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Too many requests have been made to the operation.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const BehaviorOnMxFailure = {
-  REJECT_MESSAGE: "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type BehaviorOnMxFailure = (typeof BehaviorOnMxFailure)[keyof typeof BehaviorOnMxFailure];
-
-/**
  * <p>An object that contains information about a blacklisting event that impacts one of the
  *             dedicated IP addresses that is associated with your account.</p>
  * @public
@@ -715,21 +489,6 @@ export interface Body {
    */
   Html?: Content | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BounceType = {
-  PERMANENT: "PERMANENT",
-  TRANSIENT: "TRANSIENT",
-  UNDETERMINED: "UNDETERMINED",
-} as const;
-
-/**
- * @public
- */
-export type BounceType = (typeof BounceType)[keyof typeof BounceType];
 
 /**
  * <p>Information about a <code>Bounce</code> event.</p>
@@ -1067,32 +826,6 @@ export interface BulkEmailEntry {
 }
 
 /**
- * @public
- * @enum
- */
-export const BulkEmailStatus = {
-  ACCOUNT_DAILY_QUOTA_EXCEEDED: "ACCOUNT_DAILY_QUOTA_EXCEEDED",
-  ACCOUNT_SENDING_PAUSED: "ACCOUNT_SENDING_PAUSED",
-  ACCOUNT_SUSPENDED: "ACCOUNT_SUSPENDED",
-  ACCOUNT_THROTTLED: "ACCOUNT_THROTTLED",
-  CONFIGURATION_SET_NOT_FOUND: "CONFIGURATION_SET_NOT_FOUND",
-  CONFIGURATION_SET_SENDING_PAUSED: "CONFIGURATION_SET_SENDING_PAUSED",
-  FAILED: "FAILED",
-  INVALID_PARAMETER: "INVALID_PARAMETER",
-  INVALID_SENDING_POOL_NAME: "INVALID_SENDING_POOL_NAME",
-  MAIL_FROM_DOMAIN_NOT_VERIFIED: "MAIL_FROM_DOMAIN_NOT_VERIFIED",
-  MESSAGE_REJECTED: "MESSAGE_REJECTED",
-  SUCCESS: "SUCCESS",
-  TEMPLATE_NOT_FOUND: "TEMPLATE_NOT_FOUND",
-  TRANSIENT_FAILURE: "TRANSIENT_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type BulkEmailStatus = (typeof BulkEmailStatus)[keyof typeof BulkEmailStatus];
-
-/**
  * <p>The result of the <code>SendBulkEmail</code> operation of each specified
  *                 <code>BulkEmailEntry</code>.</p>
  * @public
@@ -1199,21 +932,6 @@ export interface CancelExportJobRequest {
 export interface CancelExportJobResponse {}
 
 /**
- * @public
- * @enum
- */
-export const DimensionValueSource = {
-  EMAIL_HEADER: "EMAIL_HEADER",
-  LINK_TAG: "LINK_TAG",
-  MESSAGE_TAG: "MESSAGE_TAG",
-} as const;
-
-/**
- * @public
- */
-export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
-
-/**
  * <p>An object that defines the dimension configuration to use when you send email events
  *             to Amazon CloudWatch.</p>
  * @public
@@ -1302,60 +1020,6 @@ export interface Complaint {
 }
 
 /**
- * <p>The resource is being modified by another operation or thread.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
- * <p>If there is already an ongoing account details update under review.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SubscriptionStatus = {
-  OPT_IN: "OPT_IN",
-  OPT_OUT: "OPT_OUT",
-} as const;
-
-/**
- * @public
- */
-export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof SubscriptionStatus];
-
-/**
  * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
  * @public
  */
@@ -1431,20 +1095,6 @@ export interface ContactList {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContactListImportAction = {
-  DELETE: "DELETE",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type ContactListImportAction = (typeof ContactListImportAction)[keyof typeof ContactListImportAction];
-
-/**
  * <p>An object that contains details about the action of a contact list.</p>
  * @public
  */
@@ -1471,20 +1121,6 @@ export interface ContactListDestination {
    */
   ContactListImportAction: ContactListImportAction | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TlsPolicy = {
-  OPTIONAL: "OPTIONAL",
-  REQUIRE: "REQUIRE",
-} as const;
-
-/**
- * @public
- */
-export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
 
 /**
  * <p>Used to associate a configuration set with a dedicated IP pool.</p>
@@ -1552,20 +1188,6 @@ export interface SendingOptions {
    */
   SendingEnabled?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SuppressionListReason = {
-  BOUNCE: "BOUNCE",
-  COMPLAINT: "COMPLAINT",
-} as const;
-
-/**
- * @public
- */
-export type SuppressionListReason = (typeof SuppressionListReason)[keyof typeof SuppressionListReason];
 
 /**
  * <p>An object that contains information about the suppression list preferences for your
@@ -1651,21 +1273,6 @@ export interface Tag {
 }
 
 /**
- * @public
- * @enum
- */
-export const HttpsPolicy = {
-  OPTIONAL: "OPTIONAL",
-  REQUIRE: "REQUIRE",
-  REQUIRE_OPEN_ONLY: "REQUIRE_OPEN_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type HttpsPolicy = (typeof HttpsPolicy)[keyof typeof HttpsPolicy];
-
-/**
  * <p>An object that defines the tracking options for a configuration set. When you use the
  *             Amazon SES API v2 to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
@@ -1688,20 +1295,6 @@ export interface TrackingOptions {
    */
   HttpsPolicy?: HttpsPolicy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * <p>An object containing additional settings for your VDM configuration as applicable to
@@ -1853,26 +1446,6 @@ export interface CreateConfigurationSetRequest {
 export interface CreateConfigurationSetResponse {}
 
 /**
- * <p>There are too many instances of the specified resource type.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
  * <p>An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to
  *             send notifications when certain email events occur.</p>
  * @public
@@ -1905,28 +1478,6 @@ export interface KinesisFirehoseDestination {
    */
   DeliveryStreamArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  BOUNCE: "BOUNCE",
-  CLICK: "CLICK",
-  COMPLAINT: "COMPLAINT",
-  DELIVERY: "DELIVERY",
-  DELIVERY_DELAY: "DELIVERY_DELAY",
-  OPEN: "OPEN",
-  REJECT: "REJECT",
-  RENDERING_FAILURE: "RENDERING_FAILURE",
-  SEND: "SEND",
-  SUBSCRIPTION: "SUBSCRIPTION",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -2214,20 +1765,6 @@ export interface CreateCustomVerificationEmailTemplateRequest {
 export interface CreateCustomVerificationEmailTemplateResponse {}
 
 /**
- * @public
- * @enum
- */
-export const ScalingMode = {
-  MANAGED: "MANAGED",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ScalingMode = (typeof ScalingMode)[keyof typeof ScalingMode];
-
-/**
  * <p>A request to create a new dedicated IP pool.</p>
  * @public
  */
@@ -2432,20 +1969,6 @@ export interface CreateDeliverabilityTestReportRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeliverabilityTestStatus = {
-  COMPLETED: "COMPLETED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type DeliverabilityTestStatus = (typeof DeliverabilityTestStatus)[keyof typeof DeliverabilityTestStatus];
-
-/**
  * <p>Information about the predictive inbox placement test that you created.</p>
  * @public
  */
@@ -2465,121 +1988,6 @@ export interface CreateDeliverabilityTestReportResponse {
    */
   DeliverabilityTestStatus: DeliverabilityTestStatus | undefined;
 }
-
-/**
- * <p>The message can't be sent because the sending domain isn't verified.</p>
- * @public
- */
-export class MailFromDomainNotVerifiedException extends __BaseException {
-  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
-    super({
-      name: "MailFromDomainNotVerifiedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
-  }
-}
-
-/**
- * <p>The message can't be sent because it contains invalid content.</p>
- * @public
- */
-export class MessageRejected extends __BaseException {
-  readonly name: "MessageRejected" = "MessageRejected";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
-    super({
-      name: "MessageRejected",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MessageRejected.prototype);
-  }
-}
-
-/**
- * <p>The message can't be sent because the account's ability to send email is currently
- *             paused.</p>
- * @public
- */
-export class SendingPausedException extends __BaseException {
-  readonly name: "SendingPausedException" = "SendingPausedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SendingPausedException, __BaseException>) {
-    super({
-      name: "SendingPausedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SendingPausedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DkimSigningAttributesOrigin = {
-  AWS_SES: "AWS_SES",
-  AWS_SES_AF_SOUTH_1: "AWS_SES_AF_SOUTH_1",
-  AWS_SES_AP_NORTHEAST_1: "AWS_SES_AP_NORTHEAST_1",
-  AWS_SES_AP_NORTHEAST_2: "AWS_SES_AP_NORTHEAST_2",
-  AWS_SES_AP_NORTHEAST_3: "AWS_SES_AP_NORTHEAST_3",
-  AWS_SES_AP_SOUTHEAST_1: "AWS_SES_AP_SOUTHEAST_1",
-  AWS_SES_AP_SOUTHEAST_2: "AWS_SES_AP_SOUTHEAST_2",
-  AWS_SES_AP_SOUTHEAST_3: "AWS_SES_AP_SOUTHEAST_3",
-  AWS_SES_AP_SOUTH_1: "AWS_SES_AP_SOUTH_1",
-  AWS_SES_AP_SOUTH_2: "AWS_SES_AP_SOUTH_2",
-  AWS_SES_CA_CENTRAL_1: "AWS_SES_CA_CENTRAL_1",
-  AWS_SES_EU_CENTRAL_1: "AWS_SES_EU_CENTRAL_1",
-  AWS_SES_EU_CENTRAL_2: "AWS_SES_EU_CENTRAL_2",
-  AWS_SES_EU_NORTH_1: "AWS_SES_EU_NORTH_1",
-  AWS_SES_EU_SOUTH_1: "AWS_SES_EU_SOUTH_1",
-  AWS_SES_EU_WEST_1: "AWS_SES_EU_WEST_1",
-  AWS_SES_EU_WEST_2: "AWS_SES_EU_WEST_2",
-  AWS_SES_EU_WEST_3: "AWS_SES_EU_WEST_3",
-  AWS_SES_IL_CENTRAL_1: "AWS_SES_IL_CENTRAL_1",
-  AWS_SES_ME_CENTRAL_1: "AWS_SES_ME_CENTRAL_1",
-  AWS_SES_ME_SOUTH_1: "AWS_SES_ME_SOUTH_1",
-  AWS_SES_SA_EAST_1: "AWS_SES_SA_EAST_1",
-  AWS_SES_US_EAST_1: "AWS_SES_US_EAST_1",
-  AWS_SES_US_EAST_2: "AWS_SES_US_EAST_2",
-  AWS_SES_US_WEST_1: "AWS_SES_US_WEST_1",
-  AWS_SES_US_WEST_2: "AWS_SES_US_WEST_2",
-  EXTERNAL: "EXTERNAL",
-} as const;
-
-/**
- * @public
- */
-export type DkimSigningAttributesOrigin =
-  (typeof DkimSigningAttributesOrigin)[keyof typeof DkimSigningAttributesOrigin];
-
-/**
- * @public
- * @enum
- */
-export const DkimSigningKeyLength = {
-  RSA_1024_BIT: "RSA_1024_BIT",
-  RSA_2048_BIT: "RSA_2048_BIT",
-} as const;
-
-/**
- * @public
- */
-export type DkimSigningKeyLength = (typeof DkimSigningKeyLength)[keyof typeof DkimSigningKeyLength];
 
 /**
  * <p>An object that contains configuration for Bring Your Own DKIM (BYODKIM), or, for Easy
@@ -2846,23 +2254,6 @@ export interface CreateEmailIdentityRequest {
    */
   ConfigurationSetName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DkimStatus = {
-  FAILED: "FAILED",
-  NOT_STARTED: "NOT_STARTED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type DkimStatus = (typeof DkimStatus)[keyof typeof DkimStatus];
 
 /**
  * <p>An object that contains information about the DKIM authentication status for an email
@@ -3139,21 +2530,6 @@ export interface DkimAttributes {
 }
 
 /**
- * @public
- * @enum
- */
-export const IdentityType = {
-  DOMAIN: "DOMAIN",
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  MANAGED_DOMAIN: "MANAGED_DOMAIN",
-} as const;
-
-/**
- * @public
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
-/**
  * <p>If the email identity is a domain, this object contains information about the DKIM
  *             verification status for the domain.</p>
  *          <p>If the email identity is an email address, this object is empty. </p>
@@ -3245,38 +2621,6 @@ export interface CreateEmailTemplateRequest {
  * @public
  */
 export interface CreateEmailTemplateResponse {}
-
-/**
- * @public
- * @enum
- */
-export const DeliveryEventType = {
-  COMPLAINT: "COMPLAINT",
-  DELIVERY: "DELIVERY",
-  PERMANENT_BOUNCE: "PERMANENT_BOUNCE",
-  SEND: "SEND",
-  TRANSIENT_BOUNCE: "TRANSIENT_BOUNCE",
-  UNDETERMINED_BOUNCE: "UNDETERMINED_BOUNCE",
-} as const;
-
-/**
- * @public
- */
-export type DeliveryEventType = (typeof DeliveryEventType)[keyof typeof DeliveryEventType];
-
-/**
- * @public
- * @enum
- */
-export const EngagementEventType = {
-  CLICK: "CLICK",
-  OPEN: "OPEN",
-} as const;
-
-/**
- * @public
- */
-export type EngagementEventType = (typeof EngagementEventType)[keyof typeof EngagementEventType];
 
 /**
  * <p>An object containing Message Insights filters.</p>
@@ -3375,20 +2719,6 @@ export interface MessageInsightsDataSource {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricAggregation = {
-  RATE: "RATE",
-  VOLUME: "VOLUME",
-} as const;
-
-/**
- * @public
- */
-export type MetricAggregation = (typeof MetricAggregation)[keyof typeof MetricAggregation];
 
 /**
  * <p>An object that contains a mapping between a <code>Metric</code> and
@@ -3542,20 +2872,6 @@ export interface ExportDataSource {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataFormat = {
-  CSV: "CSV",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
-
-/**
  * <p>An object that contains details about the destination of the export job.</p>
  * @public
  */
@@ -3633,21 +2949,6 @@ export interface ImportDataSource {
    */
   DataFormat: DataFormat | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SuppressionListImportAction = {
-  DELETE: "DELETE",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type SuppressionListImportAction =
-  (typeof SuppressionListImportAction)[keyof typeof SuppressionListImportAction];
 
 /**
  * <p>An object that contains details about the action of suppression list.</p>
@@ -3770,22 +3071,6 @@ export interface CreateMultiRegionEndpointRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const Status = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  * @public
@@ -3845,21 +3130,6 @@ export interface CreateTenantRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SendingStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  REINSTATED: "REINSTATED",
-} as const;
-
-/**
- * @public
- */
-export type SendingStatus = (typeof SendingStatus)[keyof typeof SendingStatus];
 
 /**
  * <p>Information about a newly created tenant.</p>
@@ -4096,21 +3366,6 @@ export interface DashboardAttributes {
    */
   EngagementMetrics?: FeatureStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WarmupStatus = {
-  DONE: "DONE",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_APPLICABLE: "NOT_APPLICABLE",
-} as const;
-
-/**
- * @public
- */
-export type WarmupStatus = (typeof WarmupStatus)[keyof typeof WarmupStatus];
 
 /**
  * <p>Contains information about a dedicated IP address that is associated with your Amazon SES
@@ -4502,22 +3757,6 @@ export interface DeleteTenantResourceAssociationRequest {
  * @public
  */
 export interface DeleteTenantResourceAssociationResponse {}
-
-/**
- * @public
- * @enum
- */
-export const DeliverabilityDashboardAccountStatus = {
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-  PENDING_EXPIRATION: "PENDING_EXPIRATION",
-} as const;
-
-/**
- * @public
- */
-export type DeliverabilityDashboardAccountStatus =
-  (typeof DeliverabilityDashboardAccountStatus)[keyof typeof DeliverabilityDashboardAccountStatus];
 
 /**
  * <p>An object that contains metadata related to a predictive inbox placement test.</p>
@@ -4985,37 +4224,6 @@ export interface EventDestination {
    */
   PinpointDestination?: PinpointDestination | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportSourceType = {
-  MESSAGE_INSIGHTS: "MESSAGE_INSIGHTS",
-  METRICS_DATA: "METRICS_DATA",
-} as const;
-
-/**
- * @public
- */
-export type ExportSourceType = (typeof ExportSourceType)[keyof typeof ExportSourceType];
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * <p>A summary of the export job.</p>
@@ -6009,22 +5217,6 @@ export interface GetEmailIdentityRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MailFromDomainStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type MailFromDomainStatus = (typeof MailFromDomainStatus)[keyof typeof MailFromDomainStatus];
-
-/**
  * <p>A list of attributes that are associated with a MAIL FROM domain.</p>
  * @public
  */
@@ -6077,28 +5269,6 @@ export interface MailFromAttributes {
    */
   BehaviorOnMxFailure: BehaviorOnMxFailure | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerificationError = {
-  DNS_SERVER_ERROR: "DNS_SERVER_ERROR",
-  HOST_NOT_FOUND: "HOST_NOT_FOUND",
-  INVALID_VALUE: "INVALID_VALUE",
-  REPLICATION_ACCESS_DENIED: "REPLICATION_ACCESS_DENIED",
-  REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED: "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED",
-  REPLICATION_PRIMARY_INVALID_REGION: "REPLICATION_PRIMARY_INVALID_REGION",
-  REPLICATION_PRIMARY_NOT_FOUND: "REPLICATION_PRIMARY_NOT_FOUND",
-  REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED: "REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED",
-  SERVICE_ERROR: "SERVICE_ERROR",
-  TYPE_NOT_FOUND: "TYPE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type VerificationError = (typeof VerificationError)[keyof typeof VerificationError];
 
 /**
  * <p>An object that contains information about the start of authority (SOA) record
@@ -6222,23 +5392,6 @@ export interface VerificationInfo {
    */
   SOARecord?: SOARecord | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerificationStatus = {
-  FAILED: "FAILED",
-  NOT_STARTED: "NOT_STARTED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
 
 /**
  * <p>Details about an email identity.</p>
@@ -6690,19 +5843,6 @@ export interface GetMultiRegionEndpointResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReputationEntityType = {
-  RESOURCE: "RESOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ReputationEntityType = (typeof ReputationEntityType)[keyof typeof ReputationEntityType];
-
-/**
  * <p>Represents a request to retrieve information about a specific reputation entity.</p>
  * @public
  */
@@ -6760,20 +5900,6 @@ export interface StatusRecord {
    */
   LastUpdatedTimestamp?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationImpact = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationImpact = (typeof RecommendationImpact)[keyof typeof RecommendationImpact];
 
 /**
  * <p>An object that contains information about a reputation entity, including its
@@ -7057,20 +6183,6 @@ export interface IdentityInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const ImportDestinationType = {
-  CONTACT_LIST: "CONTACT_LIST",
-  SUPPRESSION_LIST: "SUPPRESSION_LIST",
-} as const;
-
-/**
- * @public
- */
-export type ImportDestinationType = (typeof ImportDestinationType)[keyof typeof ImportDestinationType];
-
-/**
  * <p>A summary of the import job.</p>
  * @public
  */
@@ -7130,26 +6242,6 @@ export interface ImportJobSummary {
    * @public
    */
   FailedRecordsCount?: number | undefined;
-}
-
-/**
- * <p>The specified request includes an invalid or expired token.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-  }
 }
 
 /**
@@ -7866,23 +6958,6 @@ export interface ListMultiRegionEndpointsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ListRecommendationsFilterKey = {
-  IMPACT: "IMPACT",
-  RESOURCE_ARN: "RESOURCE_ARN",
-  STATUS: "STATUS",
-  TYPE: "TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ListRecommendationsFilterKey =
-  (typeof ListRecommendationsFilterKey)[keyof typeof ListRecommendationsFilterKey];
-
-/**
  * <p>Represents a request to list the existing recommendations for your account.</p>
  * @public
  */
@@ -7914,40 +6989,6 @@ export interface ListRecommendationsRequest {
    */
   PageSize?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationStatus = {
-  FIXED: "FIXED",
-  OPEN: "OPEN",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationType = {
-  BIMI: "BIMI",
-  BOUNCE: "BOUNCE",
-  COMPLAINT: "COMPLAINT",
-  DKIM: "DKIM",
-  DMARC: "DMARC",
-  FEEDBACK_3P: "FEEDBACK_3P",
-  IP_LISTING: "IP_LISTING",
-  SPF: "SPF",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
  * <p>A recommendation generated for your account.</p>
@@ -8022,22 +7063,6 @@ export interface ListRecommendationsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReputationEntityFilterKey = {
-  ENTITY_REFERENCE_PREFIX: "ENTITY_REFERENCE_PREFIX",
-  ENTITY_TYPE: "ENTITY_TYPE",
-  REPUTATION_IMPACT: "REPUTATION_IMPACT",
-  STATUS: "SENDING_STATUS",
-} as const;
-
-/**
- * @public
- */
-export type ReputationEntityFilterKey = (typeof ReputationEntityFilterKey)[keyof typeof ReputationEntityFilterKey];
 
 /**
  * <p>Represents a request to list reputation entities with optional filtering.</p>
@@ -8162,4 +7187,1304 @@ export interface ListResourceTenantsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>A request to obtain a list of email destinations that are on the suppression list for
+ *             your account.</p>
+ * @public
+ */
+export interface ListSuppressedDestinationsRequest {
+  /**
+   * <p>The factors that caused the email address to be added to .</p>
+   * @public
+   */
+  Reasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>Used to filter the list of suppressed email destinations so that it only includes
+   *             addresses that were added to the list after a specific date.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>Used to filter the list of suppressed email destinations so that it only includes
+   *             addresses that were added to the list before a specific date.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListSuppressedDestinations</code> to
+   *             indicate the position in the list of suppressed email addresses.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to
+   *                 <code>ListSuppressedDestinations</code>. If the number of results is larger than the
+   *             number you specified in this parameter, then the response includes a
+   *                 <code>NextToken</code> element, which you can use to obtain additional
+   *             results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>A summary that describes the suppressed email address.</p>
+ * @public
+ */
+export interface SuppressedDestinationSummary {
+  /**
+   * <p>The email address that's on the suppression list for your account.</p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+
+  /**
+   * <p>The reason that the address was added to the suppression list for your account.</p>
+   * @public
+   */
+  Reason: SuppressionListReason | undefined;
+
+  /**
+   * <p>The date and time when the suppressed destination was last updated, shown in Unix time
+   *             format.</p>
+   * @public
+   */
+  LastUpdateTime: Date | undefined;
+}
+
+/**
+ * <p>A list of suppressed email addresses.</p>
+ * @public
+ */
+export interface ListSuppressedDestinationsResponse {
+  /**
+   * <p>A list of summaries, each containing a summary for a suppressed email
+   *             destination.</p>
+   * @public
+   */
+  SuppressedDestinationSummaries?: SuppressedDestinationSummary[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional email addresses on the suppression
+   *             list for your account. To view additional suppressed addresses, issue another request to
+   *                 <code>ListSuppressedDestinations</code>, and pass this token in the
+   *                 <code>NextToken</code> parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
+   *             information for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>An array that lists all the tags that are associated with the resource. Each tag
+   *             consists of a required tag key (<code>Key</code>) and an associated tag value
+   *                 (<code>Value</code>)</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * <p>Represents a request to list resources associated with a specific tenant.</p>
+ * @public
+ */
+export interface ListTenantResourcesRequest {
+  /**
+   * <p>The name of the tenant to list resources for.</p>
+   * @public
+   */
+  TenantName: string | undefined;
+
+  /**
+   * <p>A map of filter keys and values for filtering the list of tenant resources. Currently,
+   *             the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
+   * @public
+   */
+  Filter?: Partial<Record<ListTenantResourcesFilterKey, string>> | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to <code>ListTenantResources</code>.
+   *             If the number of results is larger than the number you specified in this parameter,
+   *             then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListTenantResources</code> to indicate the position in the list of tenant resources.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A structure that contains information about a resource associated with a tenant.</p>
+ * @public
+ */
+export interface TenantResource {
+  /**
+   * <p>The type of resource associated with the tenant. Valid values are <code>EMAIL_IDENTITY</code>,
+   *             <code>CONFIGURATION_SET</code>, or <code>EMAIL_TEMPLATE</code>.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource associated with the tenant.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+}
+
+/**
+ * <p>Information about resources associated with a specific tenant.</p>
+ * @public
+ */
+export interface ListTenantResourcesResponse {
+  /**
+   * <p>An array that contains information about each resource associated with the tenant.</p>
+   * @public
+   */
+  TenantResources?: TenantResource[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional resources to list. To view additional resources,
+   *             issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a request to list all tenants associated with your account in the current Amazon Web Services Region.</p>
+ * @public
+ */
+export interface ListTenantsRequest {
+  /**
+   * <p>A token returned from a previous call to <code>ListTenants</code> to indicate the position in the list of tenants.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to <code>ListTenants</code>.
+   *             If the number of results is larger than the number you specified in this parameter,
+   *             then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>A structure that contains basic information about a tenant.</p>
+ * @public
+ */
+export interface TenantInfo {
+  /**
+   * <p>The name of the tenant.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the tenant.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tenant.</p>
+   * @public
+   */
+  TenantArn?: string | undefined;
+
+  /**
+   * <p>The date and time when the tenant was created.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Information about tenants associated with your account.</p>
+ * @public
+ */
+export interface ListTenantsResponse {
+  /**
+   * <p>An array that contains basic information about each tenant.</p>
+   * @public
+   */
+  Tenants?: TenantInfo[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional tenants to list. To view additional tenants,
+   *             issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A request to enable or disable the automatic IP address warm-up feature.</p>
+ * @public
+ */
+export interface PutAccountDedicatedIpWarmupAttributesRequest {
+  /**
+   * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are
+   *             associated with your Amazon SES account in the current Amazon Web Services Region. Set to <code>true</code>
+   *             to enable the automatic warm-up feature, or set to <code>false</code> to disable
+   *             it.</p>
+   * @public
+   */
+  AutoWarmupEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountDedicatedIpWarmupAttributesResponse {}
+
+/**
+ * <p>A request to submit new account details.</p>
+ * @public
+ */
+export interface PutAccountDetailsRequest {
+  /**
+   * <p>The type of email your account will send.</p>
+   * @public
+   */
+  MailType: MailType | undefined;
+
+  /**
+   * <p>The URL of your website. This information helps us better understand the type of
+   *             content that you plan to send.</p>
+   * @public
+   */
+  WebsiteURL: string | undefined;
+
+  /**
+   * <p>The language you would prefer to be contacted with.</p>
+   * @public
+   */
+  ContactLanguage?: ContactLanguage | undefined;
+
+  /**
+   * <p>A description of the types of email that you plan to send.</p>
+   *
+   * @deprecated Use case description is optional and deprecated
+   * @public
+   */
+  UseCaseDescription?: string | undefined;
+
+  /**
+   * <p>Additional email addresses that you would like to be notified regarding Amazon SES
+   *             matters.</p>
+   * @public
+   */
+  AdditionalContactEmailAddresses?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether or not your account should have production access in the current
+   *             Amazon Web Services Region.</p>
+   *          <p>If the value is <code>false</code>, then your account is in the
+   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
+   *             email to verified identities.
+   *             </p>
+   *          <p>If the value is <code>true</code>, then your account has production access. When your
+   *             account has production access, you can send email to any address. The sending quota and
+   *             maximum sending rate for your account vary based on your specific use case.</p>
+   * @public
+   */
+  ProductionAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountDetailsResponse {}
+
+/**
+ * <p>A request to change the ability of your account to send email.</p>
+ * @public
+ */
+export interface PutAccountSendingAttributesRequest {
+  /**
+   * <p>Enables or disables your account's ability to send email. Set to <code>true</code> to
+   *             enable email sending, or set to <code>false</code> to disable email sending.</p>
+   *          <note>
+   *             <p>If Amazon Web Services paused your account's ability to send email, you can't use this operation
+   *                 to resume your account's ability to send email.</p>
+   *          </note>
+   * @public
+   */
+  SendingEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountSendingAttributesResponse {}
+
+/**
+ * <p>A request to change your account's suppression preferences.</p>
+ * @public
+ */
+export interface PutAccountSuppressionAttributesRequest {
+  /**
+   * <p>A list that contains the reasons that email addresses will be automatically added to
+   *             the suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountSuppressionAttributesResponse {}
+
+/**
+ * <p>A request to submit new account VDM attributes.</p>
+ * @public
+ */
+export interface PutAccountVdmAttributesRequest {
+  /**
+   * <p>The VDM attributes that you wish to apply to your Amazon SES account.</p>
+   * @public
+   */
+  VdmAttributes: VdmAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountVdmAttributesResponse {}
+
+/**
+ * <p>A request to associate a configuration set with a MailManager archive.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsRequest {
+  /**
+   * <p>The name of the configuration set to associate with a MailManager archive.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API v2 sends email
+   *             to.</p>
+   * @public
+   */
+  ArchiveArn?: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetArchivingOptionsResponse {}
+
+/**
+ * <p>A request to associate a configuration set with a dedicated IP pool.</p>
+ * @public
+ */
+export interface PutConfigurationSetDeliveryOptionsRequest {
+  /**
+   * <p>The name of the configuration set to associate with a dedicated IP pool.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>Specifies whether messages that use the configuration set are required to use
+   *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
+   *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
+   *             messages can be delivered in plain text if a TLS connection can't be established.</p>
+   * @public
+   */
+  TlsPolicy?: TlsPolicy | undefined;
+
+  /**
+   * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
+   * @public
+   */
+  SendingPoolName?: string | undefined;
+
+  /**
+   * <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email.
+   *             If specified, the value must greater than or equal to 300 seconds (5 minutes)
+   *             and less than or equal to 50400 seconds (840 minutes).
+   *         </p>
+   * @public
+   */
+  MaxDeliverySeconds?: number | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetDeliveryOptionsResponse {}
+
+/**
+ * <p>A request to enable or disable tracking of reputation metrics for a configuration
+ *             set.</p>
+ * @public
+ */
+export interface PutConfigurationSetReputationOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
+   *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
+   *             configuration set.</p>
+   * @public
+   */
+  ReputationMetricsEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetReputationOptionsResponse {}
+
+/**
+ * <p>A request to enable or disable the ability of Amazon SES to send emails that use a specific
+ *             configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetSendingOptionsRequest {
+  /**
+   * <p>The name of the configuration set to enable or disable email sending for.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, email sending is enabled for the configuration set. If
+   *                 <code>false</code>, email sending is disabled for the configuration set.</p>
+   * @public
+   */
+  SendingEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetSendingOptionsResponse {}
+
+/**
+ * <p>A request to change the account suppression list preferences for a specific
+ *             configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetSuppressionOptionsRequest {
+  /**
+   * <p>The name of the configuration set to change the suppression list preferences
+   *             for.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>A list that contains the reasons that email addresses are automatically added to the
+   *             suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetSuppressionOptionsResponse {}
+
+/**
+ * <p>A request to add a custom domain for tracking open and click events to a configuration
+ *             set.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The domain to use to track open and click events.</p>
+   * @public
+   */
+  CustomRedirectDomain?: string | undefined;
+
+  /**
+   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
+   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
+   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
+   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
+   *         </p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsResponse {}
+
+/**
+ * <p>A request to add specific VDM settings to a configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The VDM options to apply to the configuration set.</p>
+   * @public
+   */
+  VdmOptions?: VdmOptions | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsResponse {}
+
+/**
+ * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolRequest {
+  /**
+   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
+   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
+   *             specify an IP pool that already exists.</p>
+   * @public
+   */
+  DestinationPoolName: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolResponse {}
+
+/**
+ * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesRequest {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   * @public
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The scaling mode to apply to the dedicated IP pool.</p>
+   *          <note>
+   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
+   *          </note>
+   * @public
+   */
+  ScalingMode: ScalingMode | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesResponse {}
+
+/**
+ * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
+ *             is useful when you want to resume the warm-up process for an existing IP address.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesRequest {
+  /**
+   * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The warm-up percentage that you want to associate with the dedicated IP
+   *             address.</p>
+   * @public
+   */
+  WarmupPercentage: number | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesResponse {}
+
+/**
+ * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
+ *             access to reputation, deliverability, and other metrics for the domains that you use to
+ *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
+ *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
+ *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionRequest {
+  /**
+   * <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this
+   *             value to <code>true</code>.</p>
+   * @public
+   */
+  DashboardEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             enabled the Deliverability dashboard for.</p>
+   * @public
+   */
+  SubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
+}
+
+/**
+ * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionResponse {}
+
+/**
+ * <p>A request to associate a configuration set with an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesRequest {
+  /**
+   * <p>The email address or domain to associate with a configuration set.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The configuration set to associate with an email identity.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesResponse {}
+
+/**
+ * <p>A request to enable or disable DKIM signing of email that you send from an email
+ *             identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the DKIM signing configuration for the identity.</p>
+   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
+   *             identity are signed using DKIM. If you set this value to <code>false</code>, your
+   *             messages are sent without DKIM signing.</p>
+   * @public
+   */
+  SigningEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesResponse {}
+
+/**
+ * <p>A request to change the DKIM attributes for an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimSigningAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The method to use to configure DKIM for the identity. There are the following possible
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                         DKIM</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring
+   *                     Your Own DKIM (BYODKIM).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SigningAttributesOrigin: DkimSigningAttributesOrigin | undefined;
+
+  /**
+   * <p>An object that contains information about the private key and selector that you want
+   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
+   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   * @public
+   */
+  SigningAttributes?: DkimSigningAttributes | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
+ *          <p>The following data is returned in JSON format by the service.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimSigningAttributesResponse {
+  /**
+   * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
+   *             status by searching for specific records in the DNS configuration for your domain. If
+   *             you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                 DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME
+   *             records in the DNS configuration for your domain.</p>
+   *          <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
+   *             record that uses the selector that you specified. The value of the TXT record must be a
+   *             public key that's paired with the private key that you specified in the process of
+   *             creating the identity.</p>
+   *          <p>The status can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
+   *                     hasn't yet detected the DKIM records in the DNS configuration for the
+   *                     domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code> – The verification process completed
+   *                     successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The verification process failed. This typically
+   *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
+   *                     domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
+   *                     from determining the DKIM authentication status of the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
+   *                     initiated for the domain.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DkimStatus?: DkimStatus | undefined;
+
+  /**
+   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
+   *             contains a set of unique strings that you use to create a set of CNAME records that you
+   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
+   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
+   *          <p>If you configured DKIM authentication for the domain by providing your own
+   *             public-private key pair, then this object contains the selector that's associated with
+   *             your public key.</p>
+   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
+   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
+   * @public
+   */
+  DkimTokens?: string[] | undefined;
+}
+
+/**
+ * <p>A request to set the attributes that control how bounce and complaint events are
+ *             processed.</p>
+ * @public
+ */
+export interface PutEmailIdentityFeedbackAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the feedback forwarding configuration for the identity.</p>
+   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
+   *             complaint events occur. These notifications are sent to the address that you specified
+   *             in the <code>Return-Path</code> header of the original email.</p>
+   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
+   *             set up another mechanism for receiving bounce or complaint notifications (for example,
+   *             by setting up an event destination), you receive an email notification when these events
+   *             occur (even if this setting is disabled).</p>
+   * @public
+   */
+  EmailForwardingEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityFeedbackAttributesResponse {}
+
+/**
+ * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityMailFromAttributesRequest {
+  /**
+   * <p>The verified email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
+   *             domain must meet the following criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It has to be a subdomain of the verified identity.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't be used to receive email.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't be used in a "From" address if the MAIL FROM domain is a destination
+   *                     for feedback forwarding emails.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MailFromDomain?: string | undefined;
+
+  /**
+   * <p>The action to take if the required MX record isn't found when you send an email. When
+   *             you set this value to <code>UseDefaultValue</code>, the mail is sent using
+   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
+   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
+   *             email.</p>
+   *          <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *             states.</p>
+   * @public
+   */
+  BehaviorOnMxFailure?: BehaviorOnMxFailure | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityMailFromAttributesResponse {}
+
+/**
+ * <p>A request to add an email destination to the suppression list for your account.</p>
+ * @public
+ */
+export interface PutSuppressedDestinationRequest {
+  /**
+   * <p>The email address that should be added to the suppression list for your
+   *             account.</p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+
+  /**
+   * <p>The factors that should cause the email address to be added to the suppression list
+   *             for your account.</p>
+   * @public
+   */
+  Reason: SuppressionListReason | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutSuppressedDestinationResponse {}
+
+/**
+ * <p>Represents a request to send email messages to multiple destinations using Amazon SES. For
+ *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ * @public
+ */
+export interface SendBulkEmailRequest {
+  /**
+   * <p>The email address to use as the "From" address for the email. The address that you
+   *             specify has to be verified.</p>
+   * @public
+   */
+  FromEmailAddress?: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
+   *          <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use sender@example.com, then you would specify the
+   *                 <code>FromEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   * @public
+   */
+  FromEmailAddressIdentityArn?: string | undefined;
+
+  /**
+   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
+   *             message, each Reply-to address receives the reply.</p>
+   * @public
+   */
+  ReplyToAddresses?: string[] | undefined;
+
+  /**
+   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   * @public
+   */
+  FeedbackForwardingEmailAddress?: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
+   *             parameter.</p>
+   *          <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use feedback@example.com, then you would specify the
+   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   * @public
+   */
+  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events.</p>
+   * @public
+   */
+  DefaultEmailTags?: MessageTag[] | undefined;
+
+  /**
+   * <p>An object that contains the body of the message. You can specify a template
+   *             message.</p>
+   * @public
+   */
+  DefaultContent: BulkEmailContent | undefined;
+
+  /**
+   * <p>The list of bulk email entry objects.</p>
+   * @public
+   */
+  BulkEmailEntries: BulkEmailEntry[] | undefined;
+
+  /**
+   * <p>The name of the configuration set to use when sending the email.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>The name of the tenant through which this bulk email will be sent.</p>
+   *          <note>
+   *             <p>
+   *                 The email sending operation will only succeed if all referenced resources
+   *                 (identities, configuration sets, and templates) are associated with this tenant.
+   *             </p>
+   *          </note>
+   * @public
+   */
+  TenantName?: string | undefined;
+}
+
+/**
+ * <p>The following data is returned in JSON format by the service.</p>
+ * @public
+ */
+export interface SendBulkEmailResponse {
+  /**
+   * <p>One object per intended recipient. Check each response object and retry any messages
+   *             with a failure status.</p>
+   * @public
+   */
+  BulkEmailEntryResults: BulkEmailEntryResult[] | undefined;
+}
+
+/**
+ * <p>Represents a request to send a custom verification email to a specified
+ *             recipient.</p>
+ * @public
+ */
+export interface SendCustomVerificationEmailRequest {
+  /**
+   * <p>The email address to verify.</p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+
+  /**
+   * <p>The name of the custom verification email template to use when sending the
+   *             verification email.</p>
+   * @public
+   */
+  TemplateName: string | undefined;
+
+  /**
+   * <p>Name of a configuration set to use when sending the verification email.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+}
+
+/**
+ * <p>The following element is returned by the service.</p>
+ * @public
+ */
+export interface SendCustomVerificationEmailResponse {
+  /**
+   * <p>The unique message identifier returned from the
+   *                 <code>SendCustomVerificationEmail</code> operation.</p>
+   * @public
+   */
+  MessageId?: string | undefined;
+}
+
+/**
+ * <p>Represents a request to send a single formatted email using Amazon SES. For more
+ *             information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ * @public
+ */
+export interface SendEmailRequest {
+  /**
+   * <p>The email address to use as the "From" address for the email. The address that you
+   *             specify has to be verified.
+   *             </p>
+   * @public
+   */
+  FromEmailAddress?: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FromEmailAddress</code> parameter.</p>
+   *          <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use sender@example.com, then you would specify the
+   *                 <code>FromEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FromEmailAddress</code> to be sender@example.com.</p>
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *          <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the
+   *             X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message
+   *             content.</p>
+   * @public
+   */
+  FromEmailAddressIdentityArn?: string | undefined;
+
+  /**
+   * <p>An object that contains the recipients of the email message.</p>
+   * @public
+   */
+  Destination?: Destination | undefined;
+
+  /**
+   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
+   *             message, each Reply-to address receives the reply.</p>
+   * @public
+   */
+  ReplyToAddresses?: string[] | undefined;
+
+  /**
+   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   * @public
+   */
+  FeedbackForwardingEmailAddress?: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
+   *             parameter.</p>
+   *          <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use feedback@example.com, then you would specify the
+   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
+   *          <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   * @public
+   */
+  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
+
+  /**
+   * <p>An object that contains the body of the message. You can send either a Simple message,
+   *             Raw message, or a Templated message.</p>
+   * @public
+   */
+  Content: EmailContent | undefined;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events. </p>
+   * @public
+   */
+  EmailTags?: MessageTag[] | undefined;
+
+  /**
+   * <p>The name of the configuration set to use when sending the email.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
+
+  /**
+   * <p>The name of the tenant through which this email will be sent.</p>
+   *          <note>
+   *             <p>The email sending operation will only succeed if all referenced resources
+   *                 (identities, configuration sets, and templates) are associated with this tenant.
+   *             </p>
+   *          </note>
+   * @public
+   */
+  TenantName?: string | undefined;
+
+  /**
+   * <p>An object used to specify a list or topic to which an email belongs, which will be
+   *             used when a contact chooses to unsubscribe.</p>
+   * @public
+   */
+  ListManagementOptions?: ListManagementOptions | undefined;
 }

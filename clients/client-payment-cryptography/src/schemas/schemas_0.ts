@@ -237,7 +237,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { PaymentCryptographyServiceException as __PaymentCryptographyServiceException } from "../models/PaymentCryptographyServiceException";
 
 /* eslint no-var: 0 */

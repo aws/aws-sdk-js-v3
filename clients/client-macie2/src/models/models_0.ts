@@ -1,21 +1,66 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { Macie2ServiceException as __BaseException } from "./Macie2ServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AdminStatus = {
-  DISABLING_IN_PROGRESS: "DISABLING_IN_PROGRESS",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
+import {
+  AdminStatus,
+  AllowListStatusCode,
+  AllowsUnencryptedObjectUploads,
+  AutoEnableMode,
+  AutomatedDiscoveryAccountStatus,
+  AutomatedDiscoveryAccountUpdateErrorCode,
+  AutomatedDiscoveryMonitoringStatus,
+  AutomatedDiscoveryStatus,
+  AvailabilityCode,
+  BucketMetadataErrorCode,
+  ClassificationScopeUpdateOperation,
+  Currency,
+  DataIdentifierSeverity,
+  DataIdentifierType,
+  DayOfWeek,
+  EffectivePermission,
+  EncryptionType,
+  ErrorCode,
+  FindingActionType,
+  FindingCategory,
+  FindingPublishingFrequency,
+  FindingsFilterAction,
+  FindingStatisticsSortAttributeName,
+  FindingType,
+  GroupBy,
+  IsDefinedInJob,
+  IsMonitoredByJob,
+  JobComparator,
+  JobStatus,
+  JobType,
+  LastRunErrorStatusCode,
+  ListJobsFilterKey,
+  ListJobsSortAttributeName,
+  MacieStatus,
+  ManagedDataIdentifierSelector,
+  OrderBy,
+  OriginType,
+  RelationshipStatus,
+  RetrievalMode,
+  RevealRequestStatus,
+  RevealStatus,
+  ScopeFilterKey,
+  SearchResourcesComparator,
+  SearchResourcesSimpleCriterionKey,
+  SearchResourcesSortAttributeName,
+  SensitiveDataItemCategory,
+  SeverityDescription,
+  SharedAccess,
+  SimpleCriterionKeyForJob,
+  StorageClass,
+  TagTarget,
+  TimeRange,
+  Type,
+  UnavailabilityReasonCode,
+  Unit,
+  UsageStatisticsFilterComparator,
+  UsageStatisticsFilterKey,
+  UsageStatisticsSortKey,
+  UsageType,
+  UserIdentityType,
+} from "./enums";
 
 /**
  * <p>Provides information about the delegated Amazon Macie administrator account for an organization in Organizations.</p>
@@ -78,21 +123,6 @@ export interface AllowListSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomatedDiscoveryAccountStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedDiscoveryAccountStatus =
-  (typeof AutomatedDiscoveryAccountStatus)[keyof typeof AutomatedDiscoveryAccountStatus];
-
-/**
  * <p>Provides information about the status of automated sensitive data discovery for an Amazon Macie account.</p>
  * @public
  */
@@ -127,21 +157,6 @@ export interface AutomatedDiscoveryAccountUpdate {
    */
   status?: AutomatedDiscoveryAccountStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutomatedDiscoveryAccountUpdateErrorCode = {
-  ACCOUNT_NOT_FOUND: "ACCOUNT_NOT_FOUND",
-  ACCOUNT_PAUSED: "ACCOUNT_PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedDiscoveryAccountUpdateErrorCode =
-  (typeof AutomatedDiscoveryAccountUpdateErrorCode)[keyof typeof AutomatedDiscoveryAccountUpdateErrorCode];
 
 /**
  * <p>Provides information about a request that failed to change the status of automated sensitive data discovery for an Amazon Macie account.</p>
@@ -202,81 +217,6 @@ export interface BatchGetCustomDataIdentifierSummary {
    */
   name?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AllowsUnencryptedObjectUploads = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type AllowsUnencryptedObjectUploads =
-  (typeof AllowsUnencryptedObjectUploads)[keyof typeof AllowsUnencryptedObjectUploads];
-
-/**
- * @public
- * @enum
- */
-export const AutomatedDiscoveryMonitoringStatus = {
-  MONITORED: "MONITORED",
-  NOT_MONITORED: "NOT_MONITORED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedDiscoveryMonitoringStatus =
-  (typeof AutomatedDiscoveryMonitoringStatus)[keyof typeof AutomatedDiscoveryMonitoringStatus];
-
-/**
- * @public
- * @enum
- */
-export const BucketMetadataErrorCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  BUCKET_COUNT_EXCEEDS_QUOTA: "BUCKET_COUNT_EXCEEDS_QUOTA",
-} as const;
-
-/**
- * @public
- */
-export type BucketMetadataErrorCode = (typeof BucketMetadataErrorCode)[keyof typeof BucketMetadataErrorCode];
-
-/**
- * @public
- * @enum
- */
-export const IsDefinedInJob = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type IsDefinedInJob = (typeof IsDefinedInJob)[keyof typeof IsDefinedInJob];
-
-/**
- * @public
- * @enum
- */
-export const IsMonitoredByJob = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type IsMonitoredByJob = (typeof IsMonitoredByJob)[keyof typeof IsMonitoredByJob];
 
 /**
  * <p>Specifies whether any one-time or recurring classification jobs are configured to analyze objects in an S3 bucket, and, if so, the details of the job that ran most recently.</p>
@@ -343,21 +283,6 @@ export interface ObjectCountByEncryptionType {
    */
   unknown?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EffectivePermission = {
-  NOT_PUBLIC: "NOT_PUBLIC",
-  PUBLIC: "PUBLIC",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type EffectivePermission = (typeof EffectivePermission)[keyof typeof EffectivePermission];
 
 /**
  * <p>Provides information about the block public access settings for an S3 bucket. These settings can apply to a bucket at the account or bucket level. For detailed information about each setting, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
@@ -522,22 +447,6 @@ export interface ReplicationDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const Type = {
-  AES256: "AES256",
-  NONE: "NONE",
-  aws_kms: "aws:kms",
-  aws_kms_dsse: "aws:kms:dsse",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
  * <p>Provides information about the default server-side encryption settings for an S3 bucket. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  * @public
  */
@@ -554,22 +463,6 @@ export interface BucketServerSideEncryption {
    */
   type?: Type | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SharedAccess = {
-  EXTERNAL: "EXTERNAL",
-  INTERNAL: "INTERNAL",
-  NOT_SHARED: "NOT_SHARED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type SharedAccess = (typeof SharedAccess)[keyof typeof SharedAccess];
 
 /**
  * <p>Provides information about the tags that are associated with an S3 bucket or object. Each tag consists of a required tag key and an associated tag value.</p>
@@ -800,42 +693,6 @@ export interface ClassificationScopeSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobComparator = {
-  CONTAINS: "CONTAINS",
-  EQ: "EQ",
-  GT: "GT",
-  GTE: "GTE",
-  LT: "LT",
-  LTE: "LTE",
-  NE: "NE",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type JobComparator = (typeof JobComparator)[keyof typeof JobComparator];
-
-/**
- * @public
- * @enum
- */
-export const SimpleCriterionKeyForJob = {
-  ACCOUNT_ID: "ACCOUNT_ID",
-  S3_BUCKET_EFFECTIVE_PERMISSION: "S3_BUCKET_EFFECTIVE_PERMISSION",
-  S3_BUCKET_NAME: "S3_BUCKET_NAME",
-  S3_BUCKET_SHARED_ACCESS: "S3_BUCKET_SHARED_ACCESS",
-} as const;
-
-/**
- * @public
- */
-export type SimpleCriterionKeyForJob = (typeof SimpleCriterionKeyForJob)[keyof typeof SimpleCriterionKeyForJob];
-
-/**
  * <p>Specifies a property-based condition that determines whether an S3 bucket is included or excluded from a classification job.</p>
  * @public
  */
@@ -962,20 +819,6 @@ export interface DetectedDataDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataIdentifierType = {
-  CUSTOM: "CUSTOM",
-  MANAGED: "MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type DataIdentifierType = (typeof DataIdentifierType)[keyof typeof DataIdentifierType];
-
-/**
  * <p>Provides information about a type of sensitive data that Amazon Macie found in an S3 bucket while performing automated sensitive data discovery for an account. The information also specifies the custom or managed data identifier that detected the data. This information is available only if automated sensitive data discovery has been enabled for the account.</p>
  * @public
  */
@@ -1016,34 +859,6 @@ export interface Detection {
    */
   type?: DataIdentifierType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FindingCategory = {
-  CLASSIFICATION: "CLASSIFICATION",
-  POLICY: "POLICY",
-} as const;
-
-/**
- * @public
- */
-export type FindingCategory = (typeof FindingCategory)[keyof typeof FindingCategory];
-
-/**
- * @public
- * @enum
- */
-export const OriginType = {
-  AUTOMATED_SENSITIVE_DATA_DISCOVERY: "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
-  SENSITIVE_DATA_DISCOVERY_JOB: "SENSITIVE_DATA_DISCOVERY_JOB",
-} as const;
-
-/**
- * @public
- */
-export type OriginType = (typeof OriginType)[keyof typeof OriginType];
 
 /**
  * <p>Specifies the location of an occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file.</p>
@@ -1226,22 +1041,6 @@ export interface CustomDataIdentifiers {
 }
 
 /**
- * @public
- * @enum
- */
-export const SensitiveDataItemCategory = {
-  CREDENTIALS: "CREDENTIALS",
-  CUSTOM_IDENTIFIER: "CUSTOM_IDENTIFIER",
-  FINANCIAL_INFORMATION: "FINANCIAL_INFORMATION",
-  PERSONAL_INFORMATION: "PERSONAL_INFORMATION",
-} as const;
-
-/**
- * @public
- */
-export type SensitiveDataItemCategory = (typeof SensitiveDataItemCategory)[keyof typeof SensitiveDataItemCategory];
-
-/**
  * <p>Provides information about a type of sensitive data that was detected by a managed data identifier and produced a sensitive data finding.</p>
  * @public
  */
@@ -1384,19 +1183,6 @@ export interface ClassificationDetails {
    */
   result?: ClassificationResult | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FindingActionType = {
-  AWS_API_CALL: "AWS_API_CALL",
-} as const;
-
-/**
- * @public
- */
-export type FindingActionType = (typeof FindingActionType)[keyof typeof FindingActionType];
 
 /**
  * <p>Provides information about an API operation that an entity invoked for an affected resource.</p>
@@ -1801,24 +1587,6 @@ export interface UserIdentityRoot {
 }
 
 /**
- * @public
- * @enum
- */
-export const UserIdentityType = {
-  AWSAccount: "AWSAccount",
-  AWSService: "AWSService",
-  AssumedRole: "AssumedRole",
-  FederatedUser: "FederatedUser",
-  IAMUser: "IAMUser",
-  Root: "Root",
-} as const;
-
-/**
- * @public
- */
-export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
-
-/**
  * <p>Provides information about the type and other characteristics of an entity that performed an action on an affected resource.</p>
  * @public
  */
@@ -1909,23 +1677,6 @@ export interface PolicyDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  AES256: "AES256",
-  NONE: "NONE",
-  UNKNOWN: "UNKNOWN",
-  aws_kms: "aws:kms",
-  aws_kms_dsse: "aws:kms:dsse",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Provides information about the default server-side encryption settings for an S3 bucket or the encryption settings for an S3 object.</p>
  * @public
  */
@@ -2014,27 +1765,6 @@ export interface S3Bucket {
    */
   tags?: KeyValuePair[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageClass = {
-  DEEP_ARCHIVE: "DEEP_ARCHIVE",
-  GLACIER: "GLACIER",
-  GLACIER_IR: "GLACIER_IR",
-  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
-  ONEZONE_IA: "ONEZONE_IA",
-  OUTPOSTS: "OUTPOSTS",
-  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
-  STANDARD: "STANDARD",
-  STANDARD_IA: "STANDARD_IA",
-} as const;
-
-/**
- * @public
- */
-export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
 
 /**
  * <p>Provides information about the S3 object that a finding applies to.</p>
@@ -2133,21 +1863,6 @@ export interface ResourcesAffected {
 }
 
 /**
- * @public
- * @enum
- */
-export const SeverityDescription = {
-  High: "High",
-  Low: "Low",
-  Medium: "Medium",
-} as const;
-
-/**
- * @public
- */
-export type SeverityDescription = (typeof SeverityDescription)[keyof typeof SeverityDescription];
-
-/**
  * <p>Provides the numerical and qualitative representations of a finding's severity.</p>
  * @public
  */
@@ -2164,29 +1879,6 @@ export interface Severity {
    */
   score?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FindingType = {
-  Policy_IAMUser_S3BlockPublicAccessDisabled: "Policy:IAMUser/S3BlockPublicAccessDisabled",
-  Policy_IAMUser_S3BucketEncryptionDisabled: "Policy:IAMUser/S3BucketEncryptionDisabled",
-  Policy_IAMUser_S3BucketPublic: "Policy:IAMUser/S3BucketPublic",
-  Policy_IAMUser_S3BucketReplicatedExternally: "Policy:IAMUser/S3BucketReplicatedExternally",
-  Policy_IAMUser_S3BucketSharedExternally: "Policy:IAMUser/S3BucketSharedExternally",
-  Policy_IAMUser_S3BucketSharedWithCloudFront: "Policy:IAMUser/S3BucketSharedWithCloudFront",
-  SensitiveData_S3Object_Credentials: "SensitiveData:S3Object/Credentials",
-  SensitiveData_S3Object_CustomIdentifier: "SensitiveData:S3Object/CustomIdentifier",
-  SensitiveData_S3Object_Financial: "SensitiveData:S3Object/Financial",
-  SensitiveData_S3Object_Multiple: "SensitiveData:S3Object/Multiple",
-  SensitiveData_S3Object_Personal: "SensitiveData:S3Object/Personal",
-} as const;
-
-/**
- * @public
- */
-export type FindingType = (typeof FindingType)[keyof typeof FindingType];
 
 /**
  * <p>Provides the details of a finding.</p>
@@ -2303,20 +1995,6 @@ export interface Finding {
 }
 
 /**
- * @public
- * @enum
- */
-export const FindingsFilterAction = {
-  ARCHIVE: "ARCHIVE",
-  NOOP: "NOOP",
-} as const;
-
-/**
- * @public
- */
-export type FindingsFilterAction = (typeof FindingsFilterAction)[keyof typeof FindingsFilterAction];
-
-/**
  * <p>Provides information about a findings filter.</p>
  * @public
  */
@@ -2371,28 +2049,6 @@ export interface GroupCount {
 }
 
 /**
- * @public
- * @enum
- */
-export const RelationshipStatus = {
-  AccountSuspended: "AccountSuspended",
-  Created: "Created",
-  EmailVerificationFailed: "EmailVerificationFailed",
-  EmailVerificationInProgress: "EmailVerificationInProgress",
-  Enabled: "Enabled",
-  Invited: "Invited",
-  Paused: "Paused",
-  RegionDisabled: "RegionDisabled",
-  Removed: "Removed",
-  Resigned: "Resigned",
-} as const;
-
-/**
- * @public
- */
-export type RelationshipStatus = (typeof RelationshipStatus)[keyof typeof RelationshipStatus];
-
-/**
  * <p>Provides information about an Amazon Macie membership invitation.</p>
  * @public
  */
@@ -2421,22 +2077,6 @@ export interface Invitation {
    */
   relationshipStatus?: RelationshipStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScopeFilterKey = {
-  OBJECT_EXTENSION: "OBJECT_EXTENSION",
-  OBJECT_KEY: "OBJECT_KEY",
-  OBJECT_LAST_MODIFIED_DATE: "OBJECT_LAST_MODIFIED_DATE",
-  OBJECT_SIZE: "OBJECT_SIZE",
-} as const;
-
-/**
- * @public
- */
-export type ScopeFilterKey = (typeof ScopeFilterKey)[keyof typeof ScopeFilterKey];
 
 /**
  * <p>Specifies a property-based condition that determines whether an S3 object is included or excluded from a classification job.</p>
@@ -2479,19 +2119,6 @@ export interface TagValuePair {
    */
   value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TagTarget = {
-  S3_OBJECT: "S3_OBJECT",
-} as const;
-
-/**
- * @public
- */
-export type TagTarget = (typeof TagTarget)[keyof typeof TagTarget];
 
 /**
  * <p>Specifies a tag-based condition that determines whether an S3 object is included or excluded from a classification job.</p>
@@ -2590,52 +2217,6 @@ export interface S3BucketDefinitionForJob {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETE: "COMPLETE",
-  IDLE: "IDLE",
-  PAUSED: "PAUSED",
-  RUNNING: "RUNNING",
-  USER_PAUSED: "USER_PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
- * @public
- * @enum
- */
-export const JobType = {
-  ONE_TIME: "ONE_TIME",
-  SCHEDULED: "SCHEDULED",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
-
-/**
- * @public
- * @enum
- */
-export const LastRunErrorStatusCode = {
-  ERROR: "ERROR",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type LastRunErrorStatusCode = (typeof LastRunErrorStatusCode)[keyof typeof LastRunErrorStatusCode];
-
-/**
  * <p>Specifies whether any account- or bucket-level access errors occurred when a classification job ran. For information about using logging data to investigate these errors, see <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-monitor-cw-logs.html">Monitoring sensitive data discovery jobs</a> in the <i>Amazon Macie User Guide</i>.</p>
  * @public
  */
@@ -2730,22 +2311,6 @@ export interface JobSummary {
    */
   userPausedDetails?: UserPausedDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListJobsFilterKey = {
-  createdAt: "createdAt",
-  jobStatus: "jobStatus",
-  jobType: "jobType",
-  name: "name",
-} as const;
-
-/**
- * @public
- */
-export type ListJobsFilterKey = (typeof ListJobsFilterKey)[keyof typeof ListJobsFilterKey];
 
 /**
  * <p>Specifies a condition that filters the results of a request for information about classification jobs. Each condition consists of a property, an operator, and one or more values.</p>
@@ -2988,38 +2553,6 @@ export interface ResourceProfileArtifact {
 }
 
 /**
- * @public
- * @enum
- */
-export const SearchResourcesComparator = {
-  EQ: "EQ",
-  NE: "NE",
-} as const;
-
-/**
- * @public
- */
-export type SearchResourcesComparator = (typeof SearchResourcesComparator)[keyof typeof SearchResourcesComparator];
-
-/**
- * @public
- * @enum
- */
-export const SearchResourcesSimpleCriterionKey = {
-  ACCOUNT_ID: "ACCOUNT_ID",
-  AUTOMATED_DISCOVERY_MONITORING_STATUS: "AUTOMATED_DISCOVERY_MONITORING_STATUS",
-  S3_BUCKET_EFFECTIVE_PERMISSION: "S3_BUCKET_EFFECTIVE_PERMISSION",
-  S3_BUCKET_NAME: "S3_BUCKET_NAME",
-  S3_BUCKET_SHARED_ACCESS: "S3_BUCKET_SHARED_ACCESS",
-} as const;
-
-/**
- * @public
- */
-export type SearchResourcesSimpleCriterionKey =
-  (typeof SearchResourcesSimpleCriterionKey)[keyof typeof SearchResourcesSimpleCriterionKey];
-
-/**
  * <p>Specifies a property-based filter condition that determines which Amazon Web Services resources are included or excluded from the query results.</p>
  * @public
  */
@@ -3134,43 +2667,6 @@ export interface SuppressDataIdentifier {
 }
 
 /**
- * @public
- * @enum
- */
-export const UnavailabilityReasonCode = {
-  ACCOUNT_NOT_IN_ORGANIZATION: "ACCOUNT_NOT_IN_ORGANIZATION",
-  INVALID_CLASSIFICATION_RESULT: "INVALID_CLASSIFICATION_RESULT",
-  INVALID_RESULT_SIGNATURE: "INVALID_RESULT_SIGNATURE",
-  MEMBER_ROLE_TOO_PERMISSIVE: "MEMBER_ROLE_TOO_PERMISSIVE",
-  MISSING_GET_MEMBER_PERMISSION: "MISSING_GET_MEMBER_PERMISSION",
-  OBJECT_EXCEEDS_SIZE_QUOTA: "OBJECT_EXCEEDS_SIZE_QUOTA",
-  OBJECT_UNAVAILABLE: "OBJECT_UNAVAILABLE",
-  RESULT_NOT_SIGNED: "RESULT_NOT_SIGNED",
-  ROLE_TOO_PERMISSIVE: "ROLE_TOO_PERMISSIVE",
-  UNSUPPORTED_FINDING_TYPE: "UNSUPPORTED_FINDING_TYPE",
-  UNSUPPORTED_OBJECT_TYPE: "UNSUPPORTED_OBJECT_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type UnavailabilityReasonCode = (typeof UnavailabilityReasonCode)[keyof typeof UnavailabilityReasonCode];
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  ClientError: "ClientError",
-  InternalError: "InternalError",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
  * <p>Provides information about an account-related request that hasn't been processed.</p>
  * @public
  */
@@ -3195,32 +2691,6 @@ export interface UnprocessedAccount {
 }
 
 /**
- * @public
- * @enum
- */
-export const Currency = {
-  USD: "USD",
-} as const;
-
-/**
- * @public
- */
-export type Currency = (typeof Currency)[keyof typeof Currency];
-
-/**
- * @public
- * @enum
- */
-export const Unit = {
-  TERABYTES: "TERABYTES",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
-
-/**
  * <p>Specifies a current quota for an Amazon Macie account.</p>
  * @public
  */
@@ -3243,22 +2713,6 @@ export interface ServiceLimit {
    */
   value?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UsageType = {
-  AUTOMATED_OBJECT_MONITORING: "AUTOMATED_OBJECT_MONITORING",
-  AUTOMATED_SENSITIVE_DATA_DISCOVERY: "AUTOMATED_SENSITIVE_DATA_DISCOVERY",
-  DATA_INVENTORY_EVALUATION: "DATA_INVENTORY_EVALUATION",
-  SENSITIVE_DATA_DISCOVERY: "SENSITIVE_DATA_DISCOVERY",
-} as const;
-
-/**
- * @public
- */
-export type UsageType = (typeof UsageType)[keyof typeof UsageType];
 
 /**
  * <p>Provides data for a specific usage metric and the corresponding quota for an Amazon Macie account.</p>
@@ -3319,42 +2773,6 @@ export interface UsageRecord {
    */
   usage?: UsageByAccount[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UsageStatisticsFilterComparator = {
-  CONTAINS: "CONTAINS",
-  EQ: "EQ",
-  GT: "GT",
-  GTE: "GTE",
-  LT: "LT",
-  LTE: "LTE",
-  NE: "NE",
-} as const;
-
-/**
- * @public
- */
-export type UsageStatisticsFilterComparator =
-  (typeof UsageStatisticsFilterComparator)[keyof typeof UsageStatisticsFilterComparator];
-
-/**
- * @public
- * @enum
- */
-export const UsageStatisticsFilterKey = {
-  accountId: "accountId",
-  freeTrialStartDate: "freeTrialStartDate",
-  serviceLimit: "serviceLimit",
-  total: "total",
-} as const;
-
-/**
- * @public
- */
-export type UsageStatisticsFilterKey = (typeof UsageStatisticsFilterKey)[keyof typeof UsageStatisticsFilterKey];
 
 /**
  * <p>Specifies a condition for filtering the results of a query for quota and usage data for one or more Amazon Macie accounts.</p>
@@ -3433,146 +2851,6 @@ export interface AcceptInvitationRequest {
 export interface AcceptInvitationResponse {}
 
 /**
- * <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Provides information about an error that occurred due to a syntax error in a request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>Specifies the details of an account to associate with an Amazon Macie administrator account.</p>
  * @public
  */
@@ -3627,26 +2905,6 @@ export interface AllowListCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const AllowListStatusCode = {
-  OK: "OK",
-  S3_OBJECT_ACCESS_DENIED: "S3_OBJECT_ACCESS_DENIED",
-  S3_OBJECT_EMPTY: "S3_OBJECT_EMPTY",
-  S3_OBJECT_NOT_FOUND: "S3_OBJECT_NOT_FOUND",
-  S3_OBJECT_OVERSIZE: "S3_OBJECT_OVERSIZE",
-  S3_THROTTLED: "S3_THROTTLED",
-  S3_USER_ACCESS_DENIED: "S3_USER_ACCESS_DENIED",
-  UNKNOWN_ERROR: "UNKNOWN_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type AllowListStatusCode = (typeof AllowListStatusCode)[keyof typeof AllowListStatusCode];
-
-/**
  * <p>Provides information about the current status of an allow list, which indicates whether Amazon Macie can access and use the list's criteria.</p>
  * @public
  */
@@ -3663,49 +2921,6 @@ export interface AllowListStatus {
    */
   description?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoEnableMode = {
-  ALL: "ALL",
-  NEW: "NEW",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AutoEnableMode = (typeof AutoEnableMode)[keyof typeof AutoEnableMode];
-
-/**
- * @public
- * @enum
- */
-export const AutomatedDiscoveryStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutomatedDiscoveryStatus = (typeof AutomatedDiscoveryStatus)[keyof typeof AutomatedDiscoveryStatus];
-
-/**
- * @public
- * @enum
- */
-export const AvailabilityCode = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type AvailabilityCode = (typeof AvailabilityCode)[keyof typeof AvailabilityCode];
 
 /**
  * @public
@@ -3920,20 +3135,6 @@ export interface BucketCriteriaAdditionalProperties {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrderBy = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
-
-/**
  * <p>Specifies criteria for sorting the results of a query for information about S3 buckets.</p>
  * @public
  */
@@ -4049,22 +3250,6 @@ export interface ClassificationExportConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const ClassificationScopeUpdateOperation = {
-  ADD: "ADD",
-  REMOVE: "REMOVE",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type ClassificationScopeUpdateOperation =
-  (typeof ClassificationScopeUpdateOperation)[keyof typeof ClassificationScopeUpdateOperation];
-
-/**
- * @public
  */
 export interface CreateAllowListRequest {
   /**
@@ -4114,24 +3299,6 @@ export interface CreateAllowListResponse {
    */
   id?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManagedDataIdentifierSelector = {
-  ALL: "ALL",
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-  NONE: "NONE",
-  RECOMMENDED: "RECOMMENDED",
-} as const;
-
-/**
- * @public
- */
-export type ManagedDataIdentifierSelector =
-  (typeof ManagedDataIdentifierSelector)[keyof typeof ManagedDataIdentifierSelector];
 
 /**
  * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding S3 objects from a classification job.</p>
@@ -4204,25 +3371,6 @@ export interface MonthlySchedule {
    */
   dayOfMonth?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * <p>Specifies a weekly recurrence pattern for running a classification job.</p>
@@ -4359,21 +3507,6 @@ export interface CreateClassificationJobResponse {
    */
   jobId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataIdentifierSeverity = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type DataIdentifierSeverity = (typeof DataIdentifierSeverity)[keyof typeof DataIdentifierSeverity];
 
 /**
  * <p>Specifies a severity level for findings that a custom data identifier produces. A severity level determines which severity is assigned to the findings, based on the number of occurrences of text that match the custom data identifier's detection criteria.</p>
@@ -5071,35 +4204,6 @@ export interface DisassociateMemberResponse {}
 
 /**
  * @public
- * @enum
- */
-export const FindingPublishingFrequency = {
-  FIFTEEN_MINUTES: "FIFTEEN_MINUTES",
-  ONE_HOUR: "ONE_HOUR",
-  SIX_HOURS: "SIX_HOURS",
-} as const;
-
-/**
- * @public
- */
-export type FindingPublishingFrequency = (typeof FindingPublishingFrequency)[keyof typeof FindingPublishingFrequency];
-
-/**
- * @public
- * @enum
- */
-export const MacieStatus = {
-  ENABLED: "ENABLED",
-  PAUSED: "PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type MacieStatus = (typeof MacieStatus)[keyof typeof MacieStatus];
-
-/**
- * @public
  */
 export interface EnableMacieRequest {
   /**
@@ -5147,21 +4251,6 @@ export interface EnableOrganizationAdminAccountRequest {
  * @public
  */
 export interface EnableOrganizationAdminAccountResponse {}
-
-/**
- * @public
- * @enum
- */
-export const FindingStatisticsSortAttributeName = {
-  count: "count",
-  groupKey: "groupKey",
-} as const;
-
-/**
- * @public
- */
-export type FindingStatisticsSortAttributeName =
-  (typeof FindingStatisticsSortAttributeName)[keyof typeof FindingStatisticsSortAttributeName];
 
 /**
  * <p>Specifies criteria for sorting the results of a query that retrieves aggregated statistical data about findings.</p>
@@ -5727,22 +4816,6 @@ export interface GetFindingsPublicationConfigurationResponse {
 
 /**
  * @public
- * @enum
- */
-export const GroupBy = {
-  classificationDetails_jobId: "classificationDetails.jobId",
-  resourcesAffected_s3Bucket_name: "resourcesAffected.s3Bucket.name",
-  severity_description: "severity.description",
-  type: "type",
-} as const;
-
-/**
- * @public
- */
-export type GroupBy = (typeof GroupBy)[keyof typeof GroupBy];
-
-/**
- * @public
  */
 export interface GetFindingStatisticsRequest {
   /**
@@ -6029,20 +5102,6 @@ export interface GetResourceProfileResponse {
 export interface GetRevealConfigurationRequest {}
 
 /**
- * @public
- * @enum
- */
-export const RevealStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RevealStatus = (typeof RevealStatus)[keyof typeof RevealStatus];
-
-/**
  * <p>Specifies the status of the Amazon Macie configuration for retrieving occurrences of sensitive data reported by findings, and the Key Management Service (KMS) key to use to encrypt sensitive data that's retrieved. When you enable the configuration for the first time, your request must specify an KMS key. Otherwise, an error occurs.</p>
  * @public
  */
@@ -6059,20 +5118,6 @@ export interface RevealConfiguration {
    */
   status: RevealStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetrievalMode = {
-  ASSUME_ROLE: "ASSUME_ROLE",
-  CALLER_CREDENTIALS: "CALLER_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalMode = (typeof RetrievalMode)[keyof typeof RetrievalMode];
 
 /**
  * <p>Provides information about the access method and settings that are used to retrieve occurrences of sensitive data reported by findings.</p>
@@ -6128,21 +5173,6 @@ export interface GetSensitiveDataOccurrencesRequest {
 
 /**
  * @public
- * @enum
- */
-export const RevealRequestStatus = {
-  ERROR: "ERROR",
-  PROCESSING: "PROCESSING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type RevealRequestStatus = (typeof RevealRequestStatus)[keyof typeof RevealRequestStatus];
-
-/**
- * @public
  */
 export interface GetSensitiveDataOccurrencesResponse {
   /**
@@ -6162,26 +5192,6 @@ export interface GetSensitiveDataOccurrencesResponse {
    * @public
    */
   status?: RevealRequestStatus | undefined;
-}
-
-/**
- * <p>Provides information about an error that occurred due to an unprocessable entity.</p>
- * @public
- */
-export class UnprocessableEntityException extends __BaseException {
-  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
-    super({
-      name: "UnprocessableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
-  }
 }
 
 /**
@@ -6295,22 +5305,6 @@ export interface GetSensitivityInspectionTemplateResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const UsageStatisticsSortKey = {
-  accountId: "accountId",
-  freeTrialStartDate: "freeTrialStartDate",
-  serviceLimitValue: "serviceLimitValue",
-  total: "total",
-} as const;
-
-/**
- * @public
- */
-export type UsageStatisticsSortKey = (typeof UsageStatisticsSortKey)[keyof typeof UsageStatisticsSortKey];
-
-/**
  * <p>Specifies criteria for sorting the results of a query for Amazon Macie account quotas and usage data.</p>
  * @public
  */
@@ -6327,20 +5321,6 @@ export interface UsageStatisticsSortBy {
    */
   orderBy?: OrderBy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeRange = {
-  MONTH_TO_DATE: "MONTH_TO_DATE",
-  PAST_30_DAYS: "PAST_30_DAYS",
-} as const;
-
-/**
- * @public
- */
-export type TimeRange = (typeof TimeRange)[keyof typeof TimeRange];
 
 /**
  * @public
@@ -6500,4 +5480,1056 @@ export interface ListAutomatedDiscoveryAccountsResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>Specifies criteria for filtering the results of a request for information about classification jobs.</p>
+ * @public
+ */
+export interface ListJobsFilterCriteria {
+  /**
+   * <p>An array of objects, one for each condition that determines which jobs to exclude from the results.</p>
+   * @public
+   */
+  excludes?: ListJobsFilterTerm[] | undefined;
+
+  /**
+   * <p>An array of objects, one for each condition that determines which jobs to include in the results.</p>
+   * @public
+   */
+  includes?: ListJobsFilterTerm[] | undefined;
+}
+
+/**
+ * <p>Specifies criteria for sorting the results of a request for information about classification jobs.</p>
+ * @public
+ */
+export interface ListJobsSortCriteria {
+  /**
+   * <p>The property to sort the results by.</p>
+   * @public
+   */
+  attributeName?: ListJobsSortAttributeName | undefined;
+
+  /**
+   * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
+   * @public
+   */
+  orderBy?: OrderBy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationJobsRequest {
+  /**
+   * <p>The criteria to use to filter the results.</p>
+   * @public
+   */
+  filterCriteria?: ListJobsFilterCriteria | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   * @public
+   */
+  sortCriteria?: ListJobsSortCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationJobsResponse {
+  /**
+   * <p>An array of objects, one for each job that matches the filter criteria specified in the request.</p>
+   * @public
+   */
+  items?: JobSummary[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationScopesRequest {
+  /**
+   * <p>The name of the classification scope to retrieve the unique identifier for.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationScopesResponse {
+  /**
+   * <p>An array that specifies the unique identifier and name of the classification scope for the account.</p>
+   * @public
+   */
+  classificationScopes?: ClassificationScopeSummary[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDataIdentifiersRequest {
+  /**
+   * <p>The maximum number of items to include in each page of the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDataIdentifiersResponse {
+  /**
+   * <p>An array of objects, one for each custom data identifier.</p>
+   * @public
+   */
+  items?: CustomDataIdentifierSummary[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsRequest {
+  /**
+   * <p>The criteria to use to filter the results.</p>
+   * @public
+   */
+  findingCriteria?: FindingCriteria | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   * @public
+   */
+  sortCriteria?: SortCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsResponse {
+  /**
+   * <p>An array of strings, where each string is the unique identifier for a finding that matches the filter criteria specified in the request.</p>
+   * @public
+   */
+  findingIds?: string[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsFiltersRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsFiltersResponse {
+  /**
+   * <p>An array of objects, one for each filter that's associated with the account.</p>
+   * @public
+   */
+  findingsFilterListItems?: FindingsFilterListItem[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsResponse {
+  /**
+   * <p>An array of objects, one for each invitation that was received by the account.</p>
+   * @public
+   */
+  invitations?: Invitation[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedDataIdentifiersRequest {
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedDataIdentifiersResponse {
+  /**
+   * <p>An array of objects, one for each managed data identifier.</p>
+   * @public
+   */
+  items?: ManagedDataIdentifierSummary[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Specifies which accounts to include in the response, based on the status of an account's relationship with the administrator account. By default, the response includes only current member accounts. To include all accounts, set this value to false.</p>
+   * @public
+   */
+  onlyAssociated?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersResponse {
+  /**
+   * <p>An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.</p>
+   * @public
+   */
+  members?: Member[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * <p>An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.</p>
+   * @public
+   */
+  adminAccounts?: AdminAccount[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceProfileArtifactsRequest {
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceProfileArtifactsResponse {
+  /**
+   * <p>An array of objects, one for each of 1-100 S3 objects that Amazon Macie selected for analysis.</p> <p>If Macie has analyzed more than 100 objects in the bucket, Macie populates the array based on the value for the ResourceProfileArtifact.sensitive field for an object: true (sensitive), followed by false (not sensitive). Macie then populates any remaining items in the array with information about objects where the value for the ResourceProfileArtifact.classificationResultStatus field is SKIPPED.</p>
+   * @public
+   */
+  artifacts?: ResourceProfileArtifact[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceProfileDetectionsRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceProfileDetectionsResponse {
+  /**
+   * <p>An array of objects, one for each type of sensitive data that Amazon Macie found in the bucket. Each object reports the number of occurrences of the specified type and provides information about the custom data identifier or managed data identifier that detected the data.</p>
+   * @public
+   */
+  detections?: Detection[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSensitivityInspectionTemplatesRequest {
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSensitivityInspectionTemplatesResponse {
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array that specifies the unique identifier and name of the sensitivity inspection template for the account.</p>
+   * @public
+   */
+  sensitivityInspectionTemplates?: SensitivityInspectionTemplatesEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClassificationExportConfigurationRequest {
+  /**
+   * <p>The location to store data classification results in, and the encryption settings to use when storing results in that location.</p>
+   * @public
+   */
+  configuration: ClassificationExportConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClassificationExportConfigurationResponse {
+  /**
+   * <p>The location where the data classification results are stored, and the encryption settings that are used when storing results in that location.</p>
+   * @public
+   */
+  configuration?: ClassificationExportConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFindingsPublicationConfigurationRequest {
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The configuration settings that determine which findings to publish to Security Hub.</p>
+   * @public
+   */
+  securityHubConfiguration?: SecurityHubConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFindingsPublicationConfigurationResponse {}
+
+/**
+ * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding Amazon Web Services resources from the query results.</p>
+ * @public
+ */
+export interface SearchResourcesCriteriaBlock {
+  /**
+   * <p>An array of objects, one for each property- or tag-based condition that includes or excludes resources from the query results. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.</p>
+   * @public
+   */
+  and?: SearchResourcesCriteria[] | undefined;
+}
+
+/**
+ * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding S3 buckets from the query results. Exclude conditions take precedence over include conditions.</p>
+ * @public
+ */
+export interface SearchResourcesBucketCriteria {
+  /**
+   * <p>The property- and tag-based conditions that determine which buckets to exclude from the results.</p>
+   * @public
+   */
+  excludes?: SearchResourcesCriteriaBlock | undefined;
+
+  /**
+   * <p>The property- and tag-based conditions that determine which buckets to include in the results.</p>
+   * @public
+   */
+  includes?: SearchResourcesCriteriaBlock | undefined;
+}
+
+/**
+ * <p>Specifies criteria for sorting the results of a query for information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
+ * @public
+ */
+export interface SearchResourcesSortCriteria {
+  /**
+   * <p>The property to sort the results by.</p>
+   * @public
+   */
+  attributeName?: SearchResourcesSortAttributeName | undefined;
+
+  /**
+   * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
+   * @public
+   */
+  orderBy?: OrderBy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourcesRequest {
+  /**
+   * <p>The filter conditions that determine which S3 buckets to include or exclude from the query results.</p>
+   * @public
+   */
+  bucketCriteria?: SearchResourcesBucketCriteria | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   * @public
+   */
+  sortCriteria?: SearchResourcesSortCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourcesResponse {
+  /**
+   * <p>An array of objects, one for each resource that matches the filter criteria specified in the request.</p>
+   * @public
+   */
+  matchingResources?: MatchingResource[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specifies the tags to associate with the resource.</p> <p>A resource can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface TestCustomDataIdentifierRequest {
+  /**
+   * <p>An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</p>
+   * @public
+   */
+  ignoreWords?: string[] | undefined;
+
+  /**
+   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
+   * @public
+   */
+  keywords?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>
+   * @public
+   */
+  maximumMatchDistance?: number | undefined;
+
+  /**
+   * <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
+   * @public
+   */
+  regex: string | undefined;
+
+  /**
+   * <p>The sample text to inspect by using the custom data identifier. The text can contain as many as 1,000 characters.</p>
+   * @public
+   */
+  sampleText: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestCustomDataIdentifierResponse {
+  /**
+   * <p>The number of occurrences of sample text that matched the criteria specified by the custom data identifier.</p>
+   * @public
+   */
+  matchCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, separated by an ampersand (&amp;).</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAllowListRequest {
+  /**
+   * <p>The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression that defines a text pattern to ignore (regex).</p> <p>You can change a list's underlying criteria, such as the name of the S3 object or the regular expression to use. However, you can't change the type from s3WordsList to regex or the other way around.</p>
+   * @public
+   */
+  criteria: AllowListCriteria | undefined;
+
+  /**
+   * <p>A custom description of the allow list. The description can contain as many as 512 characters.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A custom name for the allow list. The name can contain as many as 128 characters.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAllowListResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the allow list.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the allow list.</p>
+   * @public
+   */
+  id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutomatedDiscoveryConfigurationRequest {
+  /**
+   * <p>Specifies whether to automatically enable automated sensitive data discovery for accounts in the organization. Valid values are: ALL (default), enable it for all existing accounts and new member accounts; NEW, enable it only for new member accounts; and, NONE, don't enable it for any accounts.</p> <p>If you specify NEW or NONE, automated sensitive data discovery continues to be enabled for any existing accounts that it's currently enabled for. To enable or disable it for individual member accounts, specify NEW or NONE, and then enable or disable it for each account by using the BatchUpdateAutomatedDiscoveryAccounts operation.</p>
+   * @public
+   */
+  autoEnableOrganizationMembers?: AutoEnableMode | undefined;
+
+  /**
+   * <p>The new status of automated sensitive data discovery for the organization or account. Valid values are: ENABLED, start or resume all automated sensitive data discovery activities; and, DISABLED, stop performing all automated sensitive data discovery activities.</p> <p>If you specify DISABLED for an administrator account, you also disable automated sensitive data discovery for all member accounts in the organization.</p>
+   * @public
+   */
+  status: AutomatedDiscoveryStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutomatedDiscoveryConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateClassificationJobRequest {
+  /**
+   * <p>The unique identifier for the classification job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The new status for the job. Valid values are:</p> <ul><li><p>CANCELLED - Stops the job permanently and cancels it. This value is valid only if the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</p> <p>If you specify this value and the job's current status is RUNNING, Amazon Macie immediately begins to stop all processing tasks for the job. You can't resume or restart a job after you cancel it.</p></li> <li><p>RUNNING - Resumes the job. This value is valid only if the job's current status is USER_PAUSED.</p> <p>If you paused the job while it was actively running and you specify this value less than 30 days after you paused the job, Macie immediately resumes processing from the point where you paused the job. Otherwise, Macie resumes the job according to the schedule and other settings for the job.</p></li> <li><p>USER_PAUSED - Pauses the job temporarily. This value is valid only if the job's current status is IDLE, PAUSED, or RUNNING. If you specify this value and the job's current status is RUNNING, Macie immediately begins to pause all processing tasks for the job.</p> <p>If you pause a one-time job and you don't resume it within 30 days, the job expires and Macie cancels the job. If you pause a recurring job when its status is RUNNING and you don't resume it within 30 days, the job run expires and Macie cancels the run. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
+   * @public
+   */
+  jobStatus: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClassificationJobResponse {}
+
+/**
+ * <p>Specifies S3 buckets to add or remove from the exclusion list defined by the classification scope for an Amazon Macie account.</p>
+ * @public
+ */
+export interface S3ClassificationScopeExclusionUpdate {
+  /**
+   * <p>Depending on the value specified for the update operation (ClassificationScopeUpdateOperation), an array of strings that: lists the names of buckets to add or remove from the list, or specifies a new set of bucket names that overwrites all existing names in the list. Each string must be the full name of an existing S3 bucket. Values are case sensitive.</p>
+   * @public
+   */
+  bucketNames: string[] | undefined;
+
+  /**
+   * <p>Specifies how to apply the changes to the exclusion list. Valid values are:</p> <ul><li><p>ADD - Append the specified bucket names to the current list.</p></li> <li><p>REMOVE - Remove the specified bucket names from the current list.</p></li> <li><p>REPLACE - Overwrite the current list with the specified list of bucket names. If you specify this value, Amazon Macie removes all existing names from the list and adds all the specified names to the list.</p></li></ul>
+   * @public
+   */
+  operation: ClassificationScopeUpdateOperation | undefined;
+}
+
+/**
+ * <p>Specifies changes to the list of S3 buckets that are excluded from automated sensitive data discovery for an Amazon Macie account.</p>
+ * @public
+ */
+export interface S3ClassificationScopeUpdate {
+  /**
+   * <p>The names of the S3 buckets to add or remove from the list.</p>
+   * @public
+   */
+  excludes: S3ClassificationScopeExclusionUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClassificationScopeRequest {
+  /**
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The S3 buckets to add or remove from the exclusion list defined by the classification scope.</p>
+   * @public
+   */
+  s3?: S3ClassificationScopeUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClassificationScopeResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateFindingsFilterRequest {
+  /**
+   * <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
+   * @public
+   */
+  action?: FindingsFilterAction | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see this description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The criteria to use to filter findings.</p>
+   * @public
+   */
+  findingCriteria?: FindingCriteria | undefined;
+
+  /**
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
+   * @public
+   */
+  position?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFindingsFilterResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the filter that was updated.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the filter that was updated.</p>
+   * @public
+   */
+  id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMacieSessionRequest {
+  /**
+   * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
+   * @public
+   */
+  findingPublishingFrequency?: FindingPublishingFrequency | undefined;
+
+  /**
+   * <p>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
+   * @public
+   */
+  status?: MacieStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMacieSessionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateMemberSessionRequest {
+  /**
+   * <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
+   * @public
+   */
+  status: MacieStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMemberSessionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateOrganizationConfigurationRequest {
+  /**
+   * <p>Specifies whether to enable Amazon Macie automatically for accounts that are added to the organization in Organizations.</p>
+   * @public
+   */
+  autoEnable: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOrganizationConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateResourceProfileRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The new sensitivity score for the bucket. Valid values are: 100, assign the maximum score and apply the <i>Sensitive</i> label to the bucket; and, null (empty), assign a score that Amazon Macie calculates automatically after you submit the request.</p>
+   * @public
+   */
+  sensitivityScoreOverride?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResourceProfileResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateResourceProfileDetectionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>An array of objects, one for each custom data identifier or managed data identifier that detected a type of sensitive data to exclude from the bucket's score. To include all sensitive data types in the score, don't specify any values for this array.</p>
+   * @public
+   */
+  suppressDataIdentifiers?: SuppressDataIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResourceProfileDetectionsResponse {}
+
+/**
+ * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd-options.html">Configuration options for retrieving sensitive data samples</a> in the <i>Amazon Macie User Guide</i>.</p>
+ * @public
+ */
+export interface UpdateRetrievalConfiguration {
+  /**
+   * <p>The access method to use when retrieving sensitive data from affected S3 objects. Valid values are: ASSUME_ROLE, assume an IAM role that is in the affected Amazon Web Services account and delegates access to Amazon Macie; and, CALLER_CREDENTIALS, use the credentials of the IAM user who requests the sensitive data. If you specify ASSUME_ROLE, also specify the name of an existing IAM role for Macie to assume (roleName).</p> <important><p>If you change this value from ASSUME_ROLE to CALLER_CREDENTIALS for an existing configuration, Macie permanently deletes the external ID and role name currently specified for the configuration. These settings can't be recovered after they're deleted.</p></important>
+   * @public
+   */
+  retrievalMode: RetrievalMode | undefined;
+
+  /**
+   * <p>The name of the IAM role that is in the affected Amazon Web Services account and Amazon Macie is allowed to assume when retrieving sensitive data from affected S3 objects for the account. The trust and permissions policies for the role must meet all requirements for Macie to assume the role.</p>
+   * @public
+   */
+  roleName?: string | undefined;
 }

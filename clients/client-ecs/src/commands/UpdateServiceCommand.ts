@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_1";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
 import { UpdateService } from "../schemas/schemas_0";
 
 /**

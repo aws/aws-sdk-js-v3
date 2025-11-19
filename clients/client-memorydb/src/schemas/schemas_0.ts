@@ -478,7 +478,7 @@ import {
   UserAlreadyExistsFault as __UserAlreadyExistsFault,
   UserNotFoundFault as __UserNotFoundFault,
   UserQuotaExceededFault as __UserQuotaExceededFault,
-} from "../models/index";
+} from "../models/errors";
 import { MemoryDBServiceException as __MemoryDBServiceException } from "../models/MemoryDBServiceException";
 
 /* eslint no-var: 0 */

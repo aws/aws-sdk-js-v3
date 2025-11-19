@@ -344,7 +344,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { EvidentlyServiceException as __EvidentlyServiceException } from "../models/EvidentlyServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -354,7 +353,8 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { EvidentlyServiceException as __EvidentlyServiceException } from "../models/EvidentlyServiceException";
 
 /* eslint no-var: 0 */
 

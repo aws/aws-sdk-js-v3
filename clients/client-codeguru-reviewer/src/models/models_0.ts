@@ -1,57 +1,17 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodeGuruReviewerServiceException as __BaseException } from "./CodeGuruReviewerServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AnalysisType = {
-  CODE_QUALITY: "CodeQuality",
-  SECURITY: "Security",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionOption = {
-  AoCmk: "AWS_OWNED_CMK",
-  CmCmk: "CUSTOMER_MANAGED_CMK",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionOption = (typeof EncryptionOption)[keyof typeof EncryptionOption];
+import {
+  AnalysisType,
+  ConfigFileState,
+  EncryptionOption,
+  JobState,
+  ProviderType,
+  Reaction,
+  RecommendationCategory,
+  RepositoryAssociationState,
+  Severity,
+  Type,
+  VendorName,
+} from "./enums";
 
 /**
  * <p>An object that contains:</p>
@@ -231,23 +191,6 @@ export interface AssociateRepositoryRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProviderType = {
-  BITBUCKET: "Bitbucket",
-  CODE_COMMIT: "CodeCommit",
-  GIT_HUB: "GitHub",
-  GIT_HUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
-  S3_BUCKET: "S3Bucket",
-} as const;
-
-/**
- * @public
- */
-export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
-
-/**
  * <p>Code artifacts are source code artifacts and build artifacts used in a repository
  *          analysis or a pull request review.</p>
  *          <ul>
@@ -301,23 +244,6 @@ export interface S3RepositoryDetails {
    */
   CodeArtifacts?: CodeArtifacts | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RepositoryAssociationState = {
-  ASSOCIATED: "Associated",
-  ASSOCIATING: "Associating",
-  DISASSOCIATED: "Disassociated",
-  DISASSOCIATING: "Disassociating",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type RepositoryAssociationState = (typeof RepositoryAssociationState)[keyof typeof RepositoryAssociationState];
 
 /**
  * <p>Information about a repository association. The <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRepositoryAssociation.html">DescribeRepositoryAssociation</a> operation returns a
@@ -481,96 +407,6 @@ export interface AssociateRepositoryResponse {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service
- *          resource associated with the request. Resolve the conflict before retrying this request.
- *       </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input fails to satisfy the specified constraints.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that specifies the tip of a branch in an associated
  *          repository.</p>
  * @public
@@ -653,21 +489,6 @@ export interface EventInfo {
    */
   State?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VendorName = {
-  GITHUB: "GitHub",
-  GITLAB: "GitLab",
-  NATIVE_S3: "NativeS3",
-} as const;
-
-/**
- * @public
- */
-export type VendorName = (typeof VendorName)[keyof typeof VendorName];
 
 /**
  * <p>Metadata that is associated with a code review. This applies to both pull request and
@@ -858,21 +679,6 @@ export interface CreateCodeReviewRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigFileState = {
-  ABSENT: "Absent",
-  PRESENT: "Present",
-  PRESENT_WITH_ERRORS: "PresentWithErrors",
-} as const;
-
-/**
- * @public
- */
-export type ConfigFileState = (typeof ConfigFileState)[keyof typeof ConfigFileState];
-
-/**
  * <p>Information about the statistics from the code review.</p>
  * @public
  */
@@ -903,36 +709,6 @@ export interface Metrics {
    */
   FindingsCount?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobState = {
-  COMPLETED: "Completed",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  PENDING: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type JobState = (typeof JobState)[keyof typeof JobState];
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  PULL_REQUEST: "PullRequest",
-  REPOSITORY_ANALYSIS: "RepositoryAnalysis",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * <p>Information about a code review. A code review belongs to the associated repository that
@@ -1076,28 +852,6 @@ export interface CreateCodeReviewResponse {
 }
 
 /**
- * <p> The resource specified in the request was not found. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeCodeReviewRequest {
@@ -1149,20 +903,6 @@ export interface DescribeRecommendationFeedbackRequest {
    */
   UserId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Reaction = {
-  THUMBS_DOWN: "ThumbsDown",
-  THUMBS_UP: "ThumbsUp",
-} as const;
-
-/**
- * @public
- */
-export type Reaction = (typeof Reaction)[keyof typeof Reaction];
 
 /**
  * <p>Information about the recommendation feedback.</p>
@@ -1263,28 +1003,6 @@ export interface DescribeRepositoryAssociationResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The resource specified in the request was not found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1676,29 +1394,6 @@ export interface ListRecommendationsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecommendationCategory = {
-  AWS_BEST_PRACTICES: "AWSBestPractices",
-  AWS_CLOUDFORMATION_ISSUES: "AWSCloudFormationIssues",
-  CODE_INCONSISTENCIES: "CodeInconsistencies",
-  CODE_MAINTENANCE_ISSUES: "CodeMaintenanceIssues",
-  CONCURRENCY_ISSUES: "ConcurrencyIssues",
-  DUPLICATE_CODE: "DuplicateCode",
-  INPUT_VALIDATIONS: "InputValidations",
-  JAVA_BEST_PRACTICES: "JavaBestPractices",
-  PYTHON_BEST_PRACTICES: "PythonBestPractices",
-  RESOURCE_LEAKS: "ResourceLeaks",
-  SECURITY_ISSUES: "SecurityIssues",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationCategory = (typeof RecommendationCategory)[keyof typeof RecommendationCategory];
-
-/**
  * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is included in analysis results if code is detected that violates the rule.</p>
  * @public
  */
@@ -1733,23 +1428,6 @@ export interface RuleMetadata {
    */
   RuleTags?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Severity = {
-  CRITICAL: "Critical",
-  HIGH: "High",
-  INFO: "Info",
-  LOW: "Low",
-  MEDIUM: "Medium",
-} as const;
-
-/**
- * @public
- */
-export type Severity = (typeof Severity)[keyof typeof Severity];
 
 /**
  * <p>Information about recommendations.</p>

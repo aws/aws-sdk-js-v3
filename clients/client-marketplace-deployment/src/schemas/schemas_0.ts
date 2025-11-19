@@ -62,7 +62,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MarketplaceDeploymentServiceException as __MarketplaceDeploymentServiceException } from "../models/MarketplaceDeploymentServiceException";
 
 /* eslint no-var: 0 */

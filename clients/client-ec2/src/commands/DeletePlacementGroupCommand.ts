@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeletePlacementGroupRequest } from "../models/models_3";
+import { DeletePlacementGroupRequest } from "../models/models_2";
 import { DeletePlacementGroup } from "../schemas/schemas_0";
 
 /**

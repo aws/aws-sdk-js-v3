@@ -598,7 +598,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { PinpointSMSVoiceV2ServiceException as __PinpointSMSVoiceV2ServiceException } from "../models/PinpointSMSVoiceV2ServiceException";
 
 /* eslint no-var: 0 */

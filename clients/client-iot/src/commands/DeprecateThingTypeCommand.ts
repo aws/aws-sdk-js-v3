@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_1";
+import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_0";
 import { DeprecateThingType } from "../schemas/schemas_0";
 
 /**

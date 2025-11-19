@@ -1,7 +1,41 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodePipelineServiceException as __BaseException } from "./CodePipelineServiceException";
+import {
+  ActionCategory,
+  ActionConfigurationPropertyType,
+  ActionExecutionStatus,
+  ActionOwner,
+  ApprovalStatus,
+  ArtifactLocationType,
+  ArtifactStoreType,
+  BlockerType,
+  ConditionExecutionStatus,
+  ConditionType,
+  EncryptionKeyType,
+  EnvironmentVariableType,
+  ExecutionMode,
+  ExecutionType,
+  ExecutorType,
+  FailureType,
+  GitPullRequestEventType,
+  JobStatus,
+  PipelineExecutionStatus,
+  PipelineTriggerProviderType,
+  PipelineType,
+  Result,
+  RetryTrigger,
+  RuleCategory,
+  RuleConfigurationPropertyType,
+  RuleExecutionStatus,
+  RuleOwner,
+  SourceRevisionType,
+  StageExecutionStatus,
+  StageRetryMode,
+  StageTransitionType,
+  StartTimeRange,
+  TargetFilterName,
+  TriggerType,
+  WebhookAuthenticationType,
+} from "./enums";
 
 /**
  * <p>Represents the input of an AcknowledgeJob action.</p>
@@ -25,25 +59,6 @@ export interface AcknowledgeJobInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  Created: "Created",
-  Dispatched: "Dispatched",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Queued: "Queued",
-  Succeeded: "Succeeded",
-  TimedOut: "TimedOut",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
  * <p>Represents the output of an AcknowledgeJob action.</p>
  * @public
  */
@@ -53,66 +68,6 @@ export interface AcknowledgeJobOutput {
    * @public
    */
   status?: JobStatus | undefined;
-}
-
-/**
- * <p>The nonce was specified in an invalid format.</p>
- * @public
- */
-export class InvalidNonceException extends __BaseException {
-  readonly name: "InvalidNonceException" = "InvalidNonceException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNonceException, __BaseException>) {
-    super({
-      name: "InvalidNonceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNonceException.prototype);
-  }
-}
-
-/**
- * <p>The job was specified in an invalid format or cannot be found.</p>
- * @public
- */
-export class JobNotFoundException extends __BaseException {
-  readonly name: "JobNotFoundException" = "JobNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<JobNotFoundException, __BaseException>) {
-    super({
-      name: "JobNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, JobNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The validation was specified in an invalid format.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -155,45 +110,6 @@ export interface AcknowledgeThirdPartyJobOutput {
 }
 
 /**
- * <p>The client token was specified in an invalid format</p>
- * @public
- */
-export class InvalidClientTokenException extends __BaseException {
-  readonly name: "InvalidClientTokenException" = "InvalidClientTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClientTokenException, __BaseException>) {
-    super({
-      name: "InvalidClientTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClientTokenException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionCategory = {
-  Approval: "Approval",
-  Build: "Build",
-  Compute: "Compute",
-  Deploy: "Deploy",
-  Invoke: "Invoke",
-  Source: "Source",
-  Test: "Test",
-} as const;
-
-/**
- * @public
- */
-export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory];
-
-/**
  * <p>Represents information about an action configuration.</p>
  * @public
  */
@@ -204,22 +120,6 @@ export interface ActionConfiguration {
    */
   configuration?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionConfigurationPropertyType = {
-  Boolean: "Boolean",
-  Number: "Number",
-  String: "String",
-} as const;
-
-/**
- * @public
- */
-export type ActionConfigurationPropertyType =
-  (typeof ActionConfigurationPropertyType)[keyof typeof ActionConfigurationPropertyType];
 
 /**
  * <p>Represents information about an action configuration property.</p>
@@ -300,21 +200,6 @@ export interface ActionContext {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActionOwner = {
-  AWS: "AWS",
-  Custom: "Custom",
-  ThirdParty: "ThirdParty",
-} as const;
-
-/**
- * @public
- */
-export type ActionOwner = (typeof ActionOwner)[keyof typeof ActionOwner];
-
-/**
  * <p>Represents information about an action type.</p>
  * @public
  */
@@ -374,20 +259,6 @@ export interface ActionTypeId {
    */
   version: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentVariableType = {
-  PLAINTEXT: "PLAINTEXT",
-  SECRETS_MANAGER: "SECRETS_MANAGER",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
 
 /**
  * <p>The environment variables for the action.</p>
@@ -587,22 +458,6 @@ export interface ErrorDetails {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActionExecutionStatus = {
-  Abandoned: "Abandoned",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type ActionExecutionStatus = (typeof ActionExecutionStatus)[keyof typeof ActionExecutionStatus];
 
 /**
  * <p>Represents information about the run of an action.</p>
@@ -915,20 +770,6 @@ export interface ActionExecutionDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const StartTimeRange = {
-  All: "All",
-  Latest: "Latest",
-} as const;
-
-/**
- * @public
- */
-export type StartTimeRange = (typeof StartTimeRange)[keyof typeof StartTimeRange];
-
-/**
  * <p>The field that specifies to filter on the latest execution in the
  *             pipeline.</p>
  *          <note>
@@ -980,46 +821,6 @@ export interface ActionExecutionFilter {
    * @public
    */
   latestInPipelineExecution?: LatestInPipelineExecutionFilter | undefined;
-}
-
-/**
- * <p>The action execution was not found.</p>
- * @public
- */
-export class ActionExecutionNotFoundException extends __BaseException {
-  readonly name: "ActionExecutionNotFoundException" = "ActionExecutionNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActionExecutionNotFoundException, __BaseException>) {
-    super({
-      name: "ActionExecutionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActionExecutionNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The specified action cannot be found.</p>
- * @public
- */
-export class ActionNotFoundException extends __BaseException {
-  readonly name: "ActionNotFoundException" = "ActionNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActionNotFoundException, __BaseException>) {
-    super({
-      name: "ActionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActionNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1255,20 +1056,6 @@ export interface ExecutorConfiguration {
    */
   jobWorkerExecutorConfiguration?: JobWorkerExecutorConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutorType = {
-  JobWorker: "JobWorker",
-  Lambda: "Lambda",
-} as const;
-
-/**
- * @public
- */
-export type ExecutorType = (typeof ExecutorType)[keyof typeof ExecutorType];
 
 /**
  * <p>The action engine, or executor, for an action type created for a provider, where the
@@ -1535,60 +1322,6 @@ export interface ActionTypeDeclaration {
 }
 
 /**
- * <p>The specified action type cannot be found.</p>
- * @public
- */
-export class ActionTypeNotFoundException extends __BaseException {
-  readonly name: "ActionTypeNotFoundException" = "ActionTypeNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActionTypeNotFoundException, __BaseException>) {
-    super({
-      name: "ActionTypeNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActionTypeNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The approval action has already been approved or rejected.</p>
- * @public
- */
-export class ApprovalAlreadyCompletedException extends __BaseException {
-  readonly name: "ApprovalAlreadyCompletedException" = "ApprovalAlreadyCompletedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalAlreadyCompletedException, __BaseException>) {
-    super({
-      name: "ApprovalAlreadyCompletedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalAlreadyCompletedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApprovalStatus = {
-  Approved: "Approved",
-  Rejected: "Rejected",
-} as const;
-
-/**
- * @public
- */
-export type ApprovalStatus = (typeof ApprovalStatus)[keyof typeof ApprovalStatus];
-
-/**
  * <p>Represents information about the result of an approval request.</p>
  * @public
  */
@@ -1625,19 +1358,6 @@ export interface S3ArtifactLocation {
    */
   objectKey: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ArtifactLocationType = {
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactLocationType = (typeof ArtifactLocationType)[keyof typeof ArtifactLocationType];
 
 /**
  * <p>Represents information about the location of an artifact.</p>
@@ -1735,19 +1455,6 @@ export interface ArtifactRevision {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionKeyType = {
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
-
-/**
  * <p>Represents information about the key used to encrypt data in the artifact store,
  *             such as an Amazon Web Services Key Management Service (Key Management Service)
  *             key.</p>
@@ -1775,19 +1482,6 @@ export interface EncryptionKey {
    */
   type: EncryptionKeyType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ArtifactStoreType = {
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactStoreType = (typeof ArtifactStoreType)[keyof typeof ArtifactStoreType];
 
 /**
  * <p>The S3 bucket where artifacts for the pipeline are stored.</p>
@@ -1851,48 +1545,6 @@ export interface AWSSessionCredentials {
    */
   sessionToken: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Result = {
-  FAIL: "FAIL",
-  RETRY: "RETRY",
-  ROLLBACK: "ROLLBACK",
-  SKIP: "SKIP",
-} as const;
-
-/**
- * @public
- */
-export type Result = (typeof Result)[keyof typeof Result];
-
-/**
- * @public
- * @enum
- */
-export const RuleCategory = {
-  Rule: "Rule",
-} as const;
-
-/**
- * @public
- */
-export type RuleCategory = (typeof RuleCategory)[keyof typeof RuleCategory];
-
-/**
- * @public
- * @enum
- */
-export const RuleOwner = {
-  AWS: "AWS",
-} as const;
-
-/**
- * @public
- */
-export type RuleOwner = (typeof RuleOwner)[keyof typeof RuleOwner];
 
 /**
  * <p>The ID for the rule type, which is made up of the combined values for category, owner,
@@ -2035,19 +1687,6 @@ export interface BeforeEntryConditions {
 }
 
 /**
- * @public
- * @enum
- */
-export const BlockerType = {
-  Schedule: "Schedule",
-} as const;
-
-/**
- * @public
- */
-export type BlockerType = (typeof BlockerType)[keyof typeof BlockerType];
-
-/**
  * <p>Reserved for future use.</p>
  * @public
  */
@@ -2063,26 +1702,6 @@ export interface BlockerDeclaration {
    * @public
    */
   type: BlockerType | undefined;
-}
-
-/**
- * <p>Unable to modify the tag due to a simultaneous update request.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
 }
 
 /**
@@ -2183,110 +1802,6 @@ export interface CreateCustomActionTypeOutput {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * <p>The specified resource tags are invalid.</p>
- * @public
- */
-export class InvalidTagsException extends __BaseException {
-  readonly name: "InvalidTagsException" = "InvalidTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagsException, __BaseException>) {
-    super({
-      name: "InvalidTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagsException.prototype);
-  }
-}
-
-/**
- * <p>The number of pipelines associated with the Amazon Web Services account has exceeded
- *             the limit allowed for the account.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The tags limit for a resource has been exceeded.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ExecutionMode = {
-  PARALLEL: "PARALLEL",
-  QUEUED: "QUEUED",
-  SUPERSEDED: "SUPERSEDED",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionMode = (typeof ExecutionMode)[keyof typeof ExecutionMode];
-
-/**
- * @public
- * @enum
- */
-export const PipelineType = {
-  V1: "V1",
-  V2: "V2",
-} as const;
-
-/**
- * @public
- */
-export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
-
-/**
- * @public
- * @enum
- */
-export const StageRetryMode = {
-  ALL_ACTIONS: "ALL_ACTIONS",
-  FAILED_ACTIONS: "FAILED_ACTIONS",
-} as const;
-
-/**
- * @public
- */
-export type StageRetryMode = (typeof StageRetryMode)[keyof typeof StageRetryMode];
 
 /**
  * <p>The retry configuration specifies automatic retry for a failed stage, along with the
@@ -2415,21 +1930,6 @@ export interface GitBranchFilterCriteria {
    */
   excludes?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GitPullRequestEventType = {
-  CLOSED: "CLOSED",
-  OPEN: "OPEN",
-  UPDATED: "UPDATED",
-} as const;
-
-/**
- * @public
- */
-export type GitPullRequestEventType = (typeof GitPullRequestEventType)[keyof typeof GitPullRequestEventType];
 
 /**
  * <p>The Git repository file paths specified as filter criteria to start the
@@ -2577,20 +2077,6 @@ export interface GitConfiguration {
    */
   pullRequest?: GitPullRequestFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PipelineTriggerProviderType = {
-  CodeStarSourceConnection: "CodeStarSourceConnection",
-} as const;
-
-/**
- * @public
- */
-export type PipelineTriggerProviderType =
-  (typeof PipelineTriggerProviderType)[keyof typeof PipelineTriggerProviderType];
 
 /**
  * <p>Represents information about the specified trigger configuration, such as the
@@ -2797,106 +2283,6 @@ export interface CreatePipelineOutput {
 }
 
 /**
- * <p>The action declaration was specified in an invalid format.</p>
- * @public
- */
-export class InvalidActionDeclarationException extends __BaseException {
-  readonly name: "InvalidActionDeclarationException" = "InvalidActionDeclarationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidActionDeclarationException, __BaseException>) {
-    super({
-      name: "InvalidActionDeclarationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidActionDeclarationException.prototype);
-  }
-}
-
-/**
- * <p>Reserved for future use.</p>
- * @public
- */
-export class InvalidBlockerDeclarationException extends __BaseException {
-  readonly name: "InvalidBlockerDeclarationException" = "InvalidBlockerDeclarationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidBlockerDeclarationException, __BaseException>) {
-    super({
-      name: "InvalidBlockerDeclarationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidBlockerDeclarationException.prototype);
-  }
-}
-
-/**
- * <p>The stage declaration was specified in an invalid format.</p>
- * @public
- */
-export class InvalidStageDeclarationException extends __BaseException {
-  readonly name: "InvalidStageDeclarationException" = "InvalidStageDeclarationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStageDeclarationException, __BaseException>) {
-    super({
-      name: "InvalidStageDeclarationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStageDeclarationException.prototype);
-  }
-}
-
-/**
- * <p>The structure was specified in an invalid format.</p>
- * @public
- */
-export class InvalidStructureException extends __BaseException {
-  readonly name: "InvalidStructureException" = "InvalidStructureException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStructureException, __BaseException>) {
-    super({
-      name: "InvalidStructureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStructureException.prototype);
-  }
-}
-
-/**
- * <p>The specified pipeline name is already in use.</p>
- * @public
- */
-export class PipelineNameInUseException extends __BaseException {
-  readonly name: "PipelineNameInUseException" = "PipelineNameInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PipelineNameInUseException, __BaseException>) {
-    super({
-      name: "PipelineNameInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PipelineNameInUseException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>DeleteCustomActionType</code> operation. The custom
  *             action will be marked as deleted.</p>
  * @public
@@ -2968,41 +2354,6 @@ export interface DeregisterWebhookWithThirdPartyInput {
 export interface DeregisterWebhookWithThirdPartyOutput {}
 
 /**
- * <p>The specified webhook was entered in an invalid format or cannot be
- *             found.</p>
- * @public
- */
-export class WebhookNotFoundException extends __BaseException {
-  readonly name: "WebhookNotFoundException" = "WebhookNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WebhookNotFoundException, __BaseException>) {
-    super({
-      name: "WebhookNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WebhookNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const StageTransitionType = {
-  Inbound: "Inbound",
-  Outbound: "Outbound",
-} as const;
-
-/**
- * @public
- */
-export type StageTransitionType = (typeof StageTransitionType)[keyof typeof StageTransitionType];
-
-/**
  * <p>Represents the input of a <code>DisableStageTransition</code> action.</p>
  * @public
  */
@@ -3037,46 +2388,6 @@ export interface DisableStageTransitionInput {
    * @public
    */
   reason: string | undefined;
-}
-
-/**
- * <p>The pipeline was specified in an invalid format or cannot be found.</p>
- * @public
- */
-export class PipelineNotFoundException extends __BaseException {
-  readonly name: "PipelineNotFoundException" = "PipelineNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PipelineNotFoundException, __BaseException>) {
-    super({
-      name: "PipelineNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PipelineNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The stage was specified in an invalid format or cannot be found.</p>
- * @public
- */
-export class StageNotFoundException extends __BaseException {
-  readonly name: "StageNotFoundException" = "StageNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StageNotFoundException, __BaseException>) {
-    super({
-      name: "StageNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StageNotFoundException.prototype);
-  }
 }
 
 /**
@@ -3442,27 +2753,6 @@ export interface GetPipelineOutput {
 }
 
 /**
- * <p>The pipeline version was specified in an invalid format or cannot be
- *             found.</p>
- * @public
- */
-export class PipelineVersionNotFoundException extends __BaseException {
-  readonly name: "PipelineVersionNotFoundException" = "PipelineVersionNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PipelineVersionNotFoundException, __BaseException>) {
-    super({
-      name: "PipelineVersionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PipelineVersionNotFoundException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>GetPipelineExecution</code> action.</p>
  * @public
  */
@@ -3482,20 +2772,6 @@ export interface GetPipelineExecutionInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExecutionType = {
-  ROLLBACK: "ROLLBACK",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
-
-/**
  * <p>The metadata for the stage execution to be rolled back.</p>
  * @public
  */
@@ -3506,46 +2782,6 @@ export interface PipelineRollbackMetadata {
    */
   rollbackTargetPipelineExecutionId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PipelineExecutionStatus = {
-  Cancelled: "Cancelled",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-  Succeeded: "Succeeded",
-  Superseded: "Superseded",
-} as const;
-
-/**
- * @public
- */
-export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typeof PipelineExecutionStatus];
-
-/**
- * @public
- * @enum
- */
-export const TriggerType = {
-  AutomatedRollback: "AutomatedRollback",
-  CloudWatchEvent: "CloudWatchEvent",
-  CreatePipeline: "CreatePipeline",
-  ManualRollback: "ManualRollback",
-  PollForSourceChanges: "PollForSourceChanges",
-  PutActionRevision: "PutActionRevision",
-  StartPipelineExecution: "StartPipelineExecution",
-  Webhook: "Webhook",
-  WebhookV2: "WebhookV2",
-} as const;
-
-/**
- * @public
- */
-export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * <p>The interaction or event that started a pipeline execution.</p>
@@ -3702,27 +2938,6 @@ export interface GetPipelineExecutionOutput {
 }
 
 /**
- * <p>The pipeline execution was specified in an invalid format or cannot be found, or an
- *             execution ID does not belong to the specified pipeline. </p>
- * @public
- */
-export class PipelineExecutionNotFoundException extends __BaseException {
-  readonly name: "PipelineExecutionNotFoundException" = "PipelineExecutionNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PipelineExecutionNotFoundException, __BaseException>) {
-    super({
-      name: "PipelineExecutionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PipelineExecutionNotFoundException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>GetPipelineState</code> action.</p>
  * @public
  */
@@ -3733,25 +2948,6 @@ export interface GetPipelineStateInput {
    */
   name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConditionExecutionStatus = {
-  Abandoned: "Abandoned",
-  Cancelled: "Cancelled",
-  Errored: "Errored",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Overridden: "Overridden",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type ConditionExecutionStatus = (typeof ConditionExecutionStatus)[keyof typeof ConditionExecutionStatus];
 
 /**
  * <p>The run of a condition.</p>
@@ -3802,22 +2998,6 @@ export interface RuleRevision {
    */
   created: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleExecutionStatus = {
-  Abandoned: "Abandoned",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type RuleExecutionStatus = (typeof RuleExecutionStatus)[keyof typeof RuleExecutionStatus];
 
 /**
  * <p>Represents information about each time a rule is run as part of the pipeline execution
@@ -3979,25 +3159,6 @@ export interface StageConditionState {
 }
 
 /**
- * @public
- * @enum
- */
-export const StageExecutionStatus = {
-  Cancelled: "Cancelled",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Skipped: "Skipped",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type StageExecutionStatus = (typeof StageExecutionStatus)[keyof typeof StageExecutionStatus];
-
-/**
  * <p>Represents information about the run of a stage.</p>
  * @public
  */
@@ -4059,20 +3220,6 @@ export interface TransitionState {
    */
   disabledReason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetryTrigger = {
-  AutomatedStageRetry: "AutomatedStageRetry",
-  ManualStageRetry: "ManualStageRetry",
-} as const;
-
-/**
- * @public
- */
-export type RetryTrigger = (typeof RetryTrigger)[keyof typeof RetryTrigger];
 
 /**
  * <p>The details of a specific automatic retry on stage failure, including the attempt
@@ -4339,47 +3486,6 @@ export interface GetThirdPartyJobDetailsOutput {
 }
 
 /**
- * <p>The job was specified in an invalid format or cannot be found.</p>
- * @public
- */
-export class InvalidJobException extends __BaseException {
-  readonly name: "InvalidJobException" = "InvalidJobException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidJobException, __BaseException>) {
-    super({
-      name: "InvalidJobException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidJobException.prototype);
-  }
-}
-
-/**
- * <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListActionExecutionsInput {
@@ -4475,19 +3581,6 @@ export interface ListActionTypesOutput {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetFilterName = {
-  TARGET_STATUS: "TARGET_STATUS",
-} as const;
-
-/**
- * @public
- */
-export type TargetFilterName = (typeof TargetFilterName)[keyof typeof TargetFilterName];
 
 /**
  * <p>Filters the list of targets.</p>
@@ -5257,22 +4350,6 @@ export interface ListRuleTypesInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleConfigurationPropertyType = {
-  Boolean: "Boolean",
-  Number: "Number",
-  String: "String",
-} as const;
-
-/**
- * @public
- */
-export type RuleConfigurationPropertyType =
-  (typeof RuleConfigurationPropertyType)[keyof typeof RuleConfigurationPropertyType];
-
-/**
  * <p>Represents information about a rule configuration property.</p>
  * @public
  */
@@ -5408,26 +4485,6 @@ export interface ListRuleTypesOutput {
 }
 
 /**
- * <p>The specified resource ARN is invalid.</p>
- * @public
- */
-export class InvalidArnException extends __BaseException {
-  readonly name: "InvalidArnException" = "InvalidArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
-    super({
-      name: "InvalidArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArnException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListTagsForResourceInput {
@@ -5473,26 +4530,6 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
- * <p>The resource was specified in an invalid format.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListWebhooksInput {
@@ -5510,21 +4547,6 @@ export interface ListWebhooksInput {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebhookAuthenticationType = {
-  GITHUB_HMAC: "GITHUB_HMAC",
-  IP: "IP",
-  UNAUTHENTICATED: "UNAUTHENTICATED",
-} as const;
-
-/**
- * @public
- */
-export type WebhookAuthenticationType = (typeof WebhookAuthenticationType)[keyof typeof WebhookAuthenticationType];
 
 /**
  * <p>The authentication applied to incoming webhook trigger requests.</p>
@@ -5741,104 +4763,6 @@ export interface ListWebhooksOutput {
 }
 
 /**
- * <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
- * @public
- */
-export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseException {
-  readonly name: "ConcurrentPipelineExecutionsLimitExceededException" =
-    "ConcurrentPipelineExecutionsLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentPipelineExecutionsLimitExceededException, __BaseException>) {
-    super({
-      name: "ConcurrentPipelineExecutionsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentPipelineExecutionsLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>Unable to override because the condition does not allow overrides.</p>
- * @public
- */
-export class ConditionNotOverridableException extends __BaseException {
-  readonly name: "ConditionNotOverridableException" = "ConditionNotOverridableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConditionNotOverridableException, __BaseException>) {
-    super({
-      name: "ConditionNotOverridableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConditionNotOverridableException.prototype);
-  }
-}
-
-/**
- * <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The stage has failed in a later run of the pipeline and the
- *                 <code>pipelineExecutionId</code> associated with the request is out of
- *             date.</p>
- * @public
- */
-export class NotLatestPipelineExecutionException extends __BaseException {
-  readonly name: "NotLatestPipelineExecutionException" = "NotLatestPipelineExecutionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotLatestPipelineExecutionException, __BaseException>) {
-    super({
-      name: "NotLatestPipelineExecutionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotLatestPipelineExecutionException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConditionType = {
-  BEFORE_ENTRY: "BEFORE_ENTRY",
-  ON_SUCCESS: "ON_SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
-
-/**
  * @public
  */
 export interface OverrideStageConditionInput {
@@ -6039,26 +4963,6 @@ export interface PutActionRevisionOutput {
 }
 
 /**
- * <p>The approval request already received a response or has expired.</p>
- * @public
- */
-export class InvalidApprovalTokenException extends __BaseException {
-  readonly name: "InvalidApprovalTokenException" = "InvalidApprovalTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApprovalTokenException, __BaseException>) {
-    super({
-      name: "InvalidApprovalTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApprovalTokenException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a <code>PutApprovalResult</code> action.</p>
  * @public
  */
@@ -6115,44 +5019,6 @@ export interface PutApprovalResultOutput {
 }
 
 /**
- * <p>The job state was specified in an invalid format.</p>
- * @public
- */
-export class InvalidJobStateException extends __BaseException {
-  readonly name: "InvalidJobStateException" = "InvalidJobStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidJobStateException, __BaseException>) {
-    super({
-      name: "InvalidJobStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidJobStateException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FailureType = {
-  ConfigurationError: "ConfigurationError",
-  JobFailed: "JobFailed",
-  PermissionError: "PermissionError",
-  RevisionOutOfSync: "RevisionOutOfSync",
-  RevisionUnavailable: "RevisionUnavailable",
-  SystemUnavailable: "SystemUnavailable",
-} as const;
-
-/**
- * @public
- */
-export type FailureType = (typeof FailureType)[keyof typeof FailureType];
-
-/**
  * <p>Represents information about failure details.</p>
  * @public
  */
@@ -6193,26 +5059,6 @@ export interface PutJobFailureResultInput {
    * @public
    */
   failureDetails: FailureDetails | undefined;
-}
-
-/**
- * <p>Exceeded the total size limit for all variables in the pipeline.</p>
- * @public
- */
-export class OutputVariablesSizeExceededException extends __BaseException {
-  readonly name: "OutputVariablesSizeExceededException" = "OutputVariablesSizeExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OutputVariablesSizeExceededException, __BaseException>) {
-    super({
-      name: "OutputVariablesSizeExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OutputVariablesSizeExceededException.prototype);
-  }
 }
 
 /**
@@ -6390,46 +5236,6 @@ export interface PutThirdPartyJobSuccessResultInput {
 }
 
 /**
- * <p>The specified authentication type is in an invalid format.</p>
- * @public
- */
-export class InvalidWebhookAuthenticationParametersException extends __BaseException {
-  readonly name: "InvalidWebhookAuthenticationParametersException" = "InvalidWebhookAuthenticationParametersException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidWebhookAuthenticationParametersException, __BaseException>) {
-    super({
-      name: "InvalidWebhookAuthenticationParametersException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidWebhookAuthenticationParametersException.prototype);
-  }
-}
-
-/**
- * <p>The specified event filter rule is in an invalid format.</p>
- * @public
- */
-export class InvalidWebhookFilterPatternException extends __BaseException {
-  readonly name: "InvalidWebhookFilterPatternException" = "InvalidWebhookFilterPatternException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidWebhookFilterPatternException, __BaseException>) {
-    super({
-      name: "InvalidWebhookFilterPatternException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidWebhookFilterPatternException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PutWebhookInput {
@@ -6522,49 +5328,6 @@ export interface RetryStageExecutionOutput {
 }
 
 /**
- * <p>Unable to retry. The pipeline structure or stage state might have changed while
- *             actions awaited retry, or the stage contains no failed
- *             actions.</p>
- * @public
- */
-export class StageNotRetryableException extends __BaseException {
-  readonly name: "StageNotRetryableException" = "StageNotRetryableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StageNotRetryableException, __BaseException>) {
-    super({
-      name: "StageNotRetryableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StageNotRetryableException.prototype);
-  }
-}
-
-/**
- * <p>The specified pipeline execution is outdated and cannot be used as a target pipeline
- *             execution for rollback.</p>
- * @public
- */
-export class PipelineExecutionOutdatedException extends __BaseException {
-  readonly name: "PipelineExecutionOutdatedException" = "PipelineExecutionOutdatedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PipelineExecutionOutdatedException, __BaseException>) {
-    super({
-      name: "PipelineExecutionOutdatedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PipelineExecutionOutdatedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface RollbackStageInput {
@@ -6598,44 +5361,6 @@ export interface RollbackStageOutput {
    */
   pipelineExecutionId: string | undefined;
 }
-
-/**
- * <p>Unable to roll back the stage. The cause might be if the pipeline version has changed
- *             since the target pipeline execution was deployed, the stage is currently running, or an
- *             incorrect target pipeline execution ID was provided.</p>
- * @public
- */
-export class UnableToRollbackStageException extends __BaseException {
-  readonly name: "UnableToRollbackStageException" = "UnableToRollbackStageException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToRollbackStageException, __BaseException>) {
-    super({
-      name: "UnableToRollbackStageException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToRollbackStageException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SourceRevisionType = {
-  COMMIT_ID: "COMMIT_ID",
-  IMAGE_DIGEST: "IMAGE_DIGEST",
-  S3_OBJECT_KEY: "S3_OBJECT_KEY",
-  S3_OBJECT_VERSION_ID: "S3_OBJECT_VERSION_ID",
-} as const;
-
-/**
- * @public
- */
-export type SourceRevisionType = (typeof SourceRevisionType)[keyof typeof SourceRevisionType];
 
 /**
  * <p>A list that allows you to specify, or override, the source revision for a pipeline
@@ -6737,51 +5462,6 @@ export interface StartPipelineExecutionOutput {
 }
 
 /**
- * <p>The pipeline execution is already in a <code>Stopping</code> state. If you already
- *             chose to stop and wait, you cannot make that request again. You can choose to stop and
- *             abandon now, but be aware that this option can lead to failed tasks or out of sequence
- *             tasks. If you already chose to stop and abandon, you cannot make that request
- *             again.</p>
- * @public
- */
-export class DuplicatedStopRequestException extends __BaseException {
-  readonly name: "DuplicatedStopRequestException" = "DuplicatedStopRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DuplicatedStopRequestException, __BaseException>) {
-    super({
-      name: "DuplicatedStopRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DuplicatedStopRequestException.prototype);
-  }
-}
-
-/**
- * <p>Unable to stop the pipeline execution. The execution might already be in a
- *                 <code>Stopped</code> state, or it might no longer be in progress.</p>
- * @public
- */
-export class PipelineExecutionNotStoppableException extends __BaseException {
-  readonly name: "PipelineExecutionNotStoppableException" = "PipelineExecutionNotStoppableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PipelineExecutionNotStoppableException, __BaseException>) {
-    super({
-      name: "PipelineExecutionNotStoppableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PipelineExecutionNotStoppableException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface StopPipelineExecutionInput {
@@ -6870,26 +5550,6 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
-
-/**
- * <p>The request failed because of an unknown error, exception, or failure.</p>
- * @public
- */
-export class RequestFailedException extends __BaseException {
-  readonly name: "RequestFailedException" = "RequestFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestFailedException, __BaseException>) {
-    super({
-      name: "RequestFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestFailedException.prototype);
-  }
-}
 
 /**
  * @public

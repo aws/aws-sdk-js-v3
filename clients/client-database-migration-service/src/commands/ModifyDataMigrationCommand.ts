@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyDataMigrationMessage, ModifyDataMigrationResponse } from "../models/models_1";
+import { ModifyDataMigrationMessage, ModifyDataMigrationResponse } from "../models/models_0";
 import { ModifyDataMigration } from "../schemas/schemas_0";
 
 /**

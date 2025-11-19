@@ -327,7 +327,7 @@ import {
   NotFoundException as __NotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { OutpostsServiceException as __OutpostsServiceException } from "../models/OutpostsServiceException";
 
 /* eslint no-var: 0 */

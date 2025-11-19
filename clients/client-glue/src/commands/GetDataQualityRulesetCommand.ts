@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDataQualityRulesetRequest, GetDataQualityRulesetResponse } from "../models/models_2";
+import { GetDataQualityRulesetRequest, GetDataQualityRulesetResponse } from "../models/models_1";
 import { GetDataQualityRuleset } from "../schemas/schemas_0";
 
 /**

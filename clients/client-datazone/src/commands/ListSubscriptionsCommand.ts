@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSubscriptionsInput, ListSubscriptionsOutput } from "../models/models_2";
+import { ListSubscriptionsInput, ListSubscriptionsOutput } from "../models/models_1";
 import { ListSubscriptions } from "../schemas/schemas_0";
 
 /**

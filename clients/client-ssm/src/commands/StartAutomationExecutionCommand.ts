@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_2";
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1";
 import { StartAutomationExecution } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

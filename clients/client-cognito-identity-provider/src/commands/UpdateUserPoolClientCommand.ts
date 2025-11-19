@@ -9,7 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserPoolClientRequest, UpdateUserPoolClientResponse } from "../models/models_1";
+import { UpdateUserPoolClientRequest } from "../models/models_0";
+import { UpdateUserPoolClientResponse } from "../models/models_1";
 import { UpdateUserPoolClient } from "../schemas/schemas_0";
 
 /**

@@ -167,7 +167,7 @@ import {
   InvalidRequestException as __InvalidRequestException,
   LimitExceededException as __LimitExceededException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

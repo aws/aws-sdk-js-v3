@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeTransitGatewayConnectPeersRequest,
   DescribeTransitGatewayConnectPeersResult,
-} from "../models/models_5";
+} from "../models/models_4";
 import { DescribeTransitGatewayConnectPeers } from "../schemas/schemas_0";
 
 /**

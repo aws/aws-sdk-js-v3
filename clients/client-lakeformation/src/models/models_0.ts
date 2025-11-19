@@ -1,35 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { LakeFormationServiceException as __BaseException } from "./LakeFormationServiceException";
-
-/**
- * <p>Access to a resource was denied.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  ApplicationStatus,
+  ComparisonOperator,
+  DataLakeResourceType,
+  EnableStatus,
+  FieldNameString,
+  OptimizerType,
+  Permission,
+  PermissionType,
+  QueryStateString,
+  ResourceShareType,
+  ResourceType,
+  TransactionStatus,
+  TransactionStatusFilter,
+  TransactionType,
+} from "./enums";
 
 /**
  * <p>A structure containing an LF-tag key-value pair.</p>
@@ -194,20 +181,6 @@ export interface LFTag {
    */
   TagValues: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  DATABASE: "DATABASE",
-  TABLE: "TABLE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * <p>A structure containing a list of LF-tag conditions or saved LF-Tag expressions that apply to a resource's LF-tag policy.</p>
@@ -458,136 +431,6 @@ export interface AddLFTagsToResourceResponse {
 }
 
 /**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A specified entity does not exist.</p>
- * @public
- */
-export class EntityNotFoundException extends __BaseException {
-  readonly name: "EntityNotFoundException" = "EntityNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityNotFoundException, __BaseException>) {
-    super({
-      name: "EntityNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An internal service error occurred.</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input provided was not valid.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The operation timed out.</p>
- * @public
- */
-export class OperationTimeoutException extends __BaseException {
-  readonly name: "OperationTimeoutException" = "OperationTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationTimeoutException, __BaseException>) {
-    super({
-      name: "OperationTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationTimeoutException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A new object to add to the governed table.</p>
  * @public
  */
@@ -623,46 +466,6 @@ export interface AddObjectInput {
  * @public
  */
 export interface AllRowsWildcard {}
-
-/**
- * <p>A resource to be created or added already exists.</p>
- * @public
- */
-export class AlreadyExistsException extends __BaseException {
-  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
-    super({
-      name: "AlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApplicationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
 
 /**
  * @public
@@ -745,34 +548,6 @@ export interface Condition {
    */
   Expression?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Permission = {
-  ALL: "ALL",
-  ALTER: "ALTER",
-  ASSOCIATE: "ASSOCIATE",
-  CREATE_CATALOG: "CREATE_CATALOG",
-  CREATE_DATABASE: "CREATE_DATABASE",
-  CREATE_LF_TAG: "CREATE_LF_TAG",
-  CREATE_LF_TAG_EXPRESSION: "CREATE_LF_TAG_EXPRESSION",
-  CREATE_TABLE: "CREATE_TABLE",
-  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
-  DELETE: "DELETE",
-  DESCRIBE: "DESCRIBE",
-  DROP: "DROP",
-  GRANT_WITH_LF_TAG_EXPRESSION: "GRANT_WITH_LF_TAG_EXPRESSION",
-  INSERT: "INSERT",
-  SELECT: "SELECT",
-  SUPER_USER: "SUPER_USER",
-} as const;
-
-/**
- * @public
- */
-export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * <p>The Lake Formation principal. Supported principals are IAM users
@@ -920,58 +695,6 @@ export interface CancelTransactionRequest {
 export interface CancelTransactionResponse {}
 
 /**
- * <p>Contains details about an error related to a transaction commit that was in progress.</p>
- * @public
- */
-export class TransactionCommitInProgressException extends __BaseException {
-  readonly name: "TransactionCommitInProgressException" = "TransactionCommitInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransactionCommitInProgressException, __BaseException>) {
-    super({
-      name: "TransactionCommitInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransactionCommitInProgressException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
- * @public
- */
-export class TransactionCommittedException extends __BaseException {
-  readonly name: "TransactionCommittedException" = "TransactionCommittedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransactionCommittedException, __BaseException>) {
-    super({
-      name: "TransactionCommittedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransactionCommittedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CommitTransactionRequest {
@@ -984,22 +707,6 @@ export interface CommitTransactionRequest {
 
 /**
  * @public
- * @enum
- */
-export const TransactionStatus = {
-  ABORTED: "ABORTED",
-  ACTIVE: "ACTIVE",
-  COMMITTED: "COMMITTED",
-  COMMIT_IN_PROGRESS: "COMMIT_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type TransactionStatus = (typeof TransactionStatus)[keyof typeof TransactionStatus];
-
-/**
- * @public
  */
 export interface CommitTransactionResponse {
   /**
@@ -1007,32 +714,6 @@ export interface CommitTransactionResponse {
    * @public
    */
   TransactionStatus?: TransactionStatus | undefined;
-}
-
-/**
- * <p>Contains details about an error related to a transaction that was cancelled.</p>
- * @public
- */
-export class TransactionCanceledException extends __BaseException {
-  readonly name: "TransactionCanceledException" = "TransactionCanceledException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransactionCanceledException, __BaseException>) {
-    super({
-      name: "TransactionCanceledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransactionCanceledException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1124,46 +805,6 @@ export interface CreateDataCellsFilterRequest {
  * @public
  */
 export interface CreateDataCellsFilterResponse {}
-
-/**
- * <p>A resource numerical limit was exceeded.</p>
- * @public
- */
-export class ResourceNumberLimitExceededException extends __BaseException {
-  readonly name: "ResourceNumberLimitExceededException" = "ResourceNumberLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNumberLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceNumberLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNumberLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EnableStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
 
 /**
  * <p>Configuration for enabling external data filtering for third-party applications to
@@ -1508,32 +1149,6 @@ export interface DeleteObjectsOnCancelRequest {
  * @public
  */
 export interface DeleteObjectsOnCancelResponse {}
-
-/**
- * <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
- * @public
- */
-export class ResourceNotReadyException extends __BaseException {
-  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
-    super({
-      name: "ResourceNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -2123,23 +1738,6 @@ export interface GetQueryStateRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const QueryStateString = {
-  ERROR: "ERROR",
-  EXPIRED: "EXPIRED",
-  FINISHED: "FINISHED",
-  PENDING: "PENDING",
-  WORKUNITS_AVAILABLE: "WORKUNITS_AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type QueryStateString = (typeof QueryStateString)[keyof typeof QueryStateString];
-
-/**
  * <p>A structure for the output.</p>
  * @public
  */
@@ -2169,32 +1767,6 @@ export interface GetQueryStateResponse {
    * @public
    */
   State: QueryStateString | undefined;
-}
-
-/**
- * <p>Contains details about an error where the query request expired.</p>
- * @public
- */
-export class ExpiredException extends __BaseException {
-  readonly name: "ExpiredException" = "ExpiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExpiredException, __BaseException>) {
-    super({
-      name: "ExpiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExpiredException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2286,61 +1858,6 @@ export interface GetQueryStatisticsResponse {
 }
 
 /**
- * <p>Contains details about an error related to statistics not being ready.</p>
- * @public
- */
-export class StatisticsNotReadyYetException extends __BaseException {
-  readonly name: "StatisticsNotReadyYetException" = "StatisticsNotReadyYetException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StatisticsNotReadyYetException, __BaseException>) {
-    super({
-      name: "StatisticsNotReadyYetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StatisticsNotReadyYetException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Contains details about an error where the query request was throttled.</p>
- * @public
- */
-export class ThrottledException extends __BaseException {
-  readonly name: "ThrottledException" = "ThrottledException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
-    super({
-      name: "ThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetResourceLFTagsRequest {
@@ -2402,32 +1919,6 @@ export interface GetResourceLFTagsResponse {
    * @public
    */
   LFTagsOnColumns?: ColumnLFTag[] | undefined;
-}
-
-/**
- * <p>An encryption operation failed.</p>
- * @public
- */
-export class GlueEncryptionException extends __BaseException {
-  readonly name: "GlueEncryptionException" = "GlueEncryptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlueEncryptionException, __BaseException>) {
-    super({
-      name: "GlueEncryptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlueEncryptionException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2567,22 +2058,6 @@ export interface PartitionValueList {
 
 /**
  * @public
- * @enum
- */
-export const PermissionType = {
-  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION: "COLUMN_PERMISSION",
-  NESTED_CELL_PERMISSION: "NESTED_CELL_PERMISSION",
-  NESTED_PERMISSION: "NESTED_PERMISSION",
-} as const;
-
-/**
- * @public
- */
-export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
-
-/**
- * @public
  */
 export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
@@ -2649,32 +2124,6 @@ export interface GetTemporaryGluePartitionCredentialsResponse {
    * @public
    */
   Expiration?: Date | undefined;
-}
-
-/**
- * <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
- * @public
- */
-export class PermissionTypeMismatchException extends __BaseException {
-  readonly name: "PermissionTypeMismatchException" = "PermissionTypeMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PermissionTypeMismatchException, __BaseException>) {
-    super({
-      name: "PermissionTypeMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PermissionTypeMismatchException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2899,32 +2348,6 @@ export interface GetWorkUnitsResponse {
    * @public
    */
   WorkUnitRanges: WorkUnitRange[] | undefined;
-}
-
-/**
- * <p>Contains details about an error related to work units not being ready.</p>
- * @public
- */
-export class WorkUnitsNotReadyYetException extends __BaseException {
-  readonly name: "WorkUnitsNotReadyYetException" = "WorkUnitsNotReadyYetException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<WorkUnitsNotReadyYetException, __BaseException>) {
-    super({
-      name: "WorkUnitsNotReadyYetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, WorkUnitsNotReadyYetException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3170,20 +2593,6 @@ export interface ListLFTagExpressionsResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceShareType = {
-  ALL: "ALL",
-  FOREIGN: "FOREIGN",
-} as const;
-
-/**
- * @public
- */
-export type ResourceShareType = (typeof ResourceShareType)[keyof typeof ResourceShareType];
-
-/**
- * @public
  */
 export interface ListLFTagsRequest {
   /**
@@ -3227,27 +2636,6 @@ export interface ListLFTagsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataLakeResourceType = {
-  CATALOG: "CATALOG",
-  DATABASE: "DATABASE",
-  DATA_LOCATION: "DATA_LOCATION",
-  LF_NAMED_TAG_EXPRESSION: "LF_NAMED_TAG_EXPRESSION",
-  LF_TAG: "LF_TAG",
-  LF_TAG_POLICY: "LF_TAG_POLICY",
-  LF_TAG_POLICY_DATABASE: "LF_TAG_POLICY_DATABASE",
-  LF_TAG_POLICY_TABLE: "LF_TAG_POLICY_TABLE",
-  TABLE: "TABLE",
-} as const;
-
-/**
- * @public
- */
-export type DataLakeResourceType = (typeof DataLakeResourceType)[keyof typeof DataLakeResourceType];
 
 /**
  * @public
@@ -3315,44 +2703,6 @@ export interface ListPermissionsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  BEGINS_WITH: "BEGINS_WITH",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  EQ: "EQ",
-  GE: "GE",
-  GT: "GT",
-  IN: "IN",
-  LE: "LE",
-  LT: "LT",
-  NE: "NE",
-  NOT_CONTAINS: "NOT_CONTAINS",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const FieldNameString = {
-  LAST_MODIFIED: "LAST_MODIFIED",
-  RESOURCE_ARN: "RESOURCE_ARN",
-  ROLE_ARN: "ROLE_ARN",
-} as const;
-
-/**
- * @public
- */
-export type FieldNameString = (typeof FieldNameString)[keyof typeof FieldNameString];
-
-/**
  * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
  * @public
  */
@@ -3415,21 +2765,6 @@ export interface ListResourcesResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OptimizerType = {
-  COMPACTION: "COMPACTION",
-  GARBAGE_COLLECTION: "GARBAGE_COLLECTION",
-  GENERIC: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type OptimizerType = (typeof OptimizerType)[keyof typeof OptimizerType];
 
 /**
  * @public
@@ -3526,23 +2861,6 @@ export interface ListTableStorageOptimizersResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TransactionStatusFilter = {
-  ABORTED: "ABORTED",
-  ACTIVE: "ACTIVE",
-  ALL: "ALL",
-  COMMITTED: "COMMITTED",
-  COMPLETED: "COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type TransactionStatusFilter = (typeof TransactionStatusFilter)[keyof typeof TransactionStatusFilter];
 
 /**
  * @public
@@ -3946,20 +3264,6 @@ export interface StartQueryPlanningResponse {
    */
   QueryId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TransactionType = {
-  READ_AND_WRITE: "READ_AND_WRITE",
-  READ_ONLY: "READ_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type TransactionType = (typeof TransactionType)[keyof typeof TransactionType];
 
 /**
  * @public

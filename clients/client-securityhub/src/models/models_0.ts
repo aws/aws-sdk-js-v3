@@ -1,7 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+import {
+  ActorSessionMfaStatus,
+  AdminStatus,
+  AssociationType,
+  AutomationRulesActionType,
+  AutomationRulesActionTypeV2,
+  ConfigurationPolicyAssociationStatus,
+  DateRangeUnit,
+  MapFilterComparison,
+  RuleStatus,
+  RuleStatusV2,
+  SeverityLabel,
+  StringFilterComparison,
+  VerificationState,
+  WorkflowStatus,
+} from "./enums";
 
 /**
  * @public
@@ -26,128 +39,6 @@ export interface AcceptAdministratorInvitationRequest {
 export interface AcceptAdministratorInvitationResponse {}
 
 /**
- * <p>Internal server error.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The account doesn't have permission to perform this action.</p>
- * @public
- */
-export class InvalidAccessException extends __BaseException {
-  readonly name: "InvalidAccessException" = "InvalidAccessException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAccessException, __BaseException>) {
-    super({
-      name: "InvalidAccessException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAccessException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The request was rejected because we can't find the specified resource.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
  * @public
  */
 export interface AcceptInvitationRequest {
@@ -168,30 +59,6 @@ export interface AcceptInvitationRequest {
  * @public
  */
 export interface AcceptInvitationResponse {}
-
-/**
- * <p>You don't have permission to perform the action specified in the request.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
 
 /**
  * <p>The details of an Amazon Web Services account.</p>
@@ -690,23 +557,6 @@ export interface RelatedFinding {
 }
 
 /**
- * @public
- * @enum
- */
-export const SeverityLabel = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type SeverityLabel = (typeof SeverityLabel)[keyof typeof SeverityLabel];
-
-/**
  * <p>Updates to the severity information for a finding.</p>
  * @public
  */
@@ -778,38 +628,6 @@ export interface SeverityUpdate {
    */
   Label?: SeverityLabel | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerificationState = {
-  BENIGN_POSITIVE: "BENIGN_POSITIVE",
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  TRUE_POSITIVE: "TRUE_POSITIVE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStatus = {
-  NEW: "NEW",
-  NOTIFIED: "NOTIFIED",
-  RESOLVED: "RESOLVED",
-  SUPPRESSED: "SUPPRESSED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
 /**
  * <p>Used to update information about the investigation into the finding.</p>
@@ -933,19 +751,6 @@ export interface AutomationRulesFindingFieldsUpdate {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomationRulesActionType = {
-  FINDING_FIELDS_UPDATE: "FINDING_FIELDS_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type AutomationRulesActionType = (typeof AutomationRulesActionType)[keyof typeof AutomationRulesActionType];
-
-/**
  * <p>
  *          One or more actions that Security Hub takes when a finding matches the defined criteria
  *          of a rule.
@@ -993,20 +798,6 @@ export interface ActionTarget {
    */
   Description: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ActorSessionMfaStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ActorSessionMfaStatus = (typeof ActorSessionMfaStatus)[keyof typeof ActorSessionMfaStatus];
 
 /**
  * <p>
@@ -1175,20 +966,6 @@ export interface Adjustment {
 }
 
 /**
- * @public
- * @enum
- */
-export const AdminStatus = {
-  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
-
-/**
  * <p>Represents a Security Hub administrator account designated by an organization management
  *          account.</p>
  * @public
@@ -1221,20 +998,6 @@ export interface AggregatorV2 {
 }
 
 /**
- * @public
- * @enum
- */
-export const AllowedOperators = {
-  AND: "AND",
-  OR: "OR",
-} as const;
-
-/**
- * @public
- */
-export type AllowedOperators = (typeof AllowedOperators)[keyof typeof AllowedOperators];
-
-/**
  * <p>
  *          Information about an enabled security standard in which a security control is enabled.
  *       </p>
@@ -1249,36 +1012,6 @@ export interface AssociatedStandard {
    */
   StandardsId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationPolicyAssociationStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationPolicyAssociationStatus =
-  (typeof ConfigurationPolicyAssociationStatus)[keyof typeof ConfigurationPolicyAssociationStatus];
-
-/**
- * @public
- * @enum
- */
-export const AssociationType = {
-  APPLIED: "APPLIED",
-  INHERITED: "INHERITED",
-} as const;
-
-/**
- * @public
- */
-export type AssociationType = (typeof AssociationType)[keyof typeof AssociationType];
 
 /**
  * <p>
@@ -1395,34 +1128,6 @@ export interface AssociationSetDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const AssociationStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
-
-/**
- * @public
- * @enum
- */
-export const AutoEnableStandards = {
-  DEFAULT: "DEFAULT",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AutoEnableStandards = (typeof AutoEnableStandards)[keyof typeof AutoEnableStandards];
-
-/**
  * <p>Defines the settings and parameters required for integrating external security tools and services.</p>
  * @public
  */
@@ -1459,21 +1164,6 @@ export interface AutomationRulesFindingFieldsUpdateV2 {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutomationRulesActionTypeV2 = {
-  EXTERNAL_INTEGRATION: "EXTERNAL_INTEGRATION",
-  FINDING_FIELDS_UPDATE: "FINDING_FIELDS_UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type AutomationRulesActionTypeV2 =
-  (typeof AutomationRulesActionTypeV2)[keyof typeof AutomationRulesActionTypeV2];
-
-/**
  * <p>Allows you to configure automated responses.</p>
  * @public
  */
@@ -1508,25 +1198,6 @@ export interface AutomationRulesActionTypeObjectV2 {
    */
   Type?: AutomationRulesActionTypeV2 | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StringFilterComparison = {
-  CONTAINS: "CONTAINS",
-  CONTAINS_WORD: "CONTAINS_WORD",
-  EQUALS: "EQUALS",
-  NOT_CONTAINS: "NOT_CONTAINS",
-  NOT_EQUALS: "NOT_EQUALS",
-  PREFIX: "PREFIX",
-  PREFIX_NOT_EQUALS: "PREFIX_NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type StringFilterComparison = (typeof StringFilterComparison)[keyof typeof StringFilterComparison];
 
 /**
  * <p>A string filter for filtering Security Hub findings.</p>
@@ -1675,19 +1346,6 @@ export interface NumberFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const DateRangeUnit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type DateRangeUnit = (typeof DateRangeUnit)[keyof typeof DateRangeUnit];
-
-/**
  * <p>A date range for the date filter.</p>
  * @public
  */
@@ -1730,22 +1388,6 @@ export interface DateFilter {
    */
   DateRange?: DateRange | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MapFilterComparison = {
-  CONTAINS: "CONTAINS",
-  EQUALS: "EQUALS",
-  NOT_CONTAINS: "NOT_CONTAINS",
-  NOT_EQUALS: "NOT_EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type MapFilterComparison = (typeof MapFilterComparison)[keyof typeof MapFilterComparison];
 
 /**
  * <p>A map filter for filtering Security Hub findings. Each map filter provides the field to check for, the
@@ -2266,20 +1908,6 @@ export interface AutomationRulesFindingFilters {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
-
-/**
  * <p>
  *          Defines the configuration of an automation rule.
  *       </p>
@@ -2472,20 +2100,6 @@ export interface AutomationRulesMetadata {
    */
   CreatedBy?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleStatusV2 = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RuleStatusV2 = (typeof RuleStatusV2)[keyof typeof RuleStatusV2];
 
 /**
  * <p>Includes essential metadata information about automation rules.</p>
@@ -12420,4 +12034,1011 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
    * @public
    */
   Type?: string | undefined;
+}
+
+/**
+ * <p>The container health check command and associated configuration parameters for the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
+  /**
+   * <p>The command that the container runs to determine whether it is healthy.</p>
+   * @public
+   */
+  Command?: string[] | undefined;
+
+  /**
+   * <p>The time period in seconds between each health check execution. The default value is 30 seconds.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The number of times to retry a failed health check before the container is considered unhealthy. The default value is 3.</p>
+   * @public
+   */
+  Retries?: number | undefined;
+
+  /**
+   * <p>The optional grace period in seconds that allows containers time to bootstrap before failed health checks count towards the maximum number of retries.</p>
+   * @public
+   */
+  StartPeriod?: number | undefined;
+
+  /**
+   * <p>The time period in seconds to wait for a health check to succeed before it is considered a failure. The default value is 5.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+}
+
+/**
+ * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
+  /**
+   * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:</p>
+   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
+   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
+   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
+   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
+   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
+   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
+   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
+   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
+   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
+   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
+   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
+   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
+   *          </p>
+   * @public
+   */
+  Add?: string[] | undefined;
+
+  /**
+   * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
+   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
+   *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
+   *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
+   *    		<code>"LEASE"</code> | <code>"LINUX_IMMUTABLE"</code> | <code>"MAC_ADMIN"</code> |<code>
+   *    			"MAC_OVERRIDE"</code> | <code>"MKNOD"</code> | <code>"NET_ADMIN"</code> |
+   *    		<code>"NET_BIND_SERVICE"</code> | <code>"NET_BROADCAST"</code> | <code>"NET_RAW"</code> |
+   *    		<code>"SETFCAP"</code> | <code>"SETGID"</code> | <code>"SETPCAP"</code> |
+   *    		<code>"SETUID"</code> | <code>"SYS_ADMIN"</code> | <code>"SYS_BOOT"</code> |
+   *    		<code>"SYS_CHROOT"</code> | <code>"SYS_MODULE"</code> | <code>"SYS_NICE"</code> |
+   *    		<code>"SYS_PACCT"</code> | <code>"SYS_PTRACE"</code> | <code>"SYS_RAWIO"</code> |
+   *    		<code>"SYS_RESOURCE"</code> | <code>"SYS_TIME"</code> | <code>"SYS_TTY_CONFIG"</code> |
+   *    		<code>"SYSLOG"</code> | <code>"WAKE_ALARM"</code>
+   *          </p>
+   * @public
+   */
+  Drop?: string[] | undefined;
+}
+
+/**
+ * <p>A host device to expose to the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
+  /**
+   * <p>The path inside the container at which to expose the host device.</p>
+   * @public
+   */
+  ContainerPath?: string | undefined;
+
+  /**
+   * <p>The path for the device on the host container instance.</p>
+   * @public
+   */
+  HostPath?: string | undefined;
+
+  /**
+   * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for read, write, and <code>mknod</code> for the device.</p>
+   * @public
+   */
+  Permissions?: string[] | undefined;
+}
+
+/**
+ * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
+  /**
+   * <p>The absolute file path where the tmpfs volume is to be mounted.</p>
+   * @public
+   */
+  ContainerPath?: string | undefined;
+
+  /**
+   * <p>The list of tmpfs volume mount options.</p>
+   *          <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
+   *    		<code>"nosuid"</code> | <code>"dev"</code> | <code>"nodev"</code> |<code> "exec"</code> |
+   *    		<code>"noexec"</code> | <code>"sync"</code> | <code>"async"</code> | <code>"dirsync"</code>
+   *    		| <code>"remount"</code> | <code>"mand"</code> | <code>"nomand"</code> | <code>"atime"</code>
+   *    		| <code>"noatime"</code> | <code>"diratime"</code> | <code>"nodiratime"</code> |
+   *    		<code>"bind"</code> | <code>"rbind"</code> | <code>"unbindable"</code> |
+   *    		<code>"runbindable"</code> | <code>"private"</code> | <code>"rprivate"</code> |
+   *    		<code>"shared"</code> | <code>"rshared"</code> | <code>"slave"</code> |
+   *    		<code>"rslave"</code> | <code>"relatime"</code> | <code>"norelatime"</code> |
+   *    		<code>"strictatime"</code> | <code>"nostrictatime"</code> |<code> "mode"</code> |
+   *    		<code>"uid"</code> | <code>"gid"</code> | <code>"nr_inodes"</code> |<code>
+   *    			"nr_blocks"</code> | <code>"mpol"</code>
+   *          </p>
+   * @public
+   */
+  MountOptions?: string[] | undefined;
+
+  /**
+   * <p>The maximum size (in MiB) of the tmpfs volume.</p>
+   * @public
+   */
+  Size?: number | undefined;
+}
+
+/**
+ * <p>>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
+  /**
+   * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
+   * @public
+   */
+  Capabilities?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails | undefined;
+
+  /**
+   * <p>The host devices to expose to the container.</p>
+   * @public
+   */
+  Devices?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails[] | undefined;
+
+  /**
+   * <p>Whether to run an <code>init</code> process inside the container that forwards signals and reaps processes. </p>
+   * @public
+   */
+  InitProcessEnabled?: boolean | undefined;
+
+  /**
+   * <p>The total amount of swap memory (in MiB) that a container can use.</p>
+   * @public
+   */
+  MaxSwap?: number | undefined;
+
+  /**
+   * <p>The value for the size (in MiB) of the <b>/dev/shm</b> volume.</p>
+   * @public
+   */
+  SharedMemorySize?: number | undefined;
+
+  /**
+   * <p>Configures the container's memory swappiness behavior. Determines how aggressively pages are swapped. The higher the value, the more aggressive the swappiness. The default is 60.</p>
+   * @public
+   */
+  Swappiness?: number | undefined;
+
+  /**
+   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount.</p>
+   * @public
+   */
+  Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[] | undefined;
+}
+
+/**
+ * <p>A secret to pass to the log configuration.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
+  /**
+   * <p>The name of the secret.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The secret to expose to the container.</p>
+   *          <p>The value is either the full ARN of the Secrets Manager secret or the full ARN of the
+   *          parameter in the Systems Manager Parameter Store.</p>
+   * @public
+   */
+  ValueFrom?: string | undefined;
+}
+
+/**
+ * <p>The log configuration specification for the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
+  /**
+   * <p>The log driver to use for the container.</p>
+   *          <p>Valid values on Fargate are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsfirelens</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awslogs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>splunk</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid values on Amazon EC2 are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>awsfirelens</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awslogs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fluentd</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>gelf</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>journald</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>json-file</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>logentries</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>splunk</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>syslog</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogDriver?: string | undefined;
+
+  /**
+   * <p>The configuration options to send to the log driver. Requires version 1.19 of the Docker Remote API or greater on your container instance.</p>
+   * @public
+   */
+  Options?: Record<string, string> | undefined;
+
+  /**
+   * <p>The secrets to pass to the log configuration.</p>
+   * @public
+   */
+  SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[] | undefined;
+}
+
+/**
+ * <p>A mount point for the data volumes in the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
+  /**
+   * <p>The path on the container to mount the host volume at.</p>
+   * @public
+   */
+  ContainerPath?: string | undefined;
+
+  /**
+   * <p>Whether the container has read-only access to the volume.</p>
+   * @public
+   */
+  ReadOnly?: boolean | undefined;
+
+  /**
+   * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
+   * @public
+   */
+  SourceVolume?: string | undefined;
+}
+
+/**
+ * <p>A port mapping for the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
+  /**
+   * <p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>
+   * @public
+   */
+  ContainerPort?: number | undefined;
+
+  /**
+   * <p>The port number on the container instance to reserve for the container.</p>
+   * @public
+   */
+  HostPort?: number | undefined;
+
+  /**
+   * <p>The protocol used for the port mapping. The default is <code>tcp</code>.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+}
+
+/**
+ * <p>The private repository authentication credentials to use.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
+  /**
+   * <p>The ARN of the secret that contains the private repository credentials.</p>
+   * @public
+   */
+  CredentialsParameter?: string | undefined;
+}
+
+/**
+ * <p>A resource to assign to a container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
+  /**
+   * <p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The value for the specified resource type.</p>
+   *          <p>For <code>GPU</code>, the value is the number of physical GPUs the Amazon ECS container agent
+   *          reserves for the container.</p>
+   *          <p>For <code>InferenceAccelerator</code>, the value should match the <code>DeviceName</code>
+   *          attribute of an entry in <code>InferenceAccelerators</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A secret to pass to the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
+  /**
+   * <p>The name of the secret.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The secret to expose to the container. The value is either the full ARN of the Secrets Manager
+   *          secret or the full ARN of the parameter in the Systems Manager Parameter Store.</p>
+   * @public
+   */
+  ValueFrom?: string | undefined;
+}
+
+/**
+ * <p>A namespaced kernel parameter to set in the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
+  /**
+   * <p>The namespaced kernel parameter for which to set a value.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+
+  /**
+   * <p>The value of the parameter.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A ulimit to set in the container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
+  /**
+   * <p>The hard limit for the ulimit type.</p>
+   * @public
+   */
+  HardLimit?: number | undefined;
+
+  /**
+   * <p>The type of the ulimit. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>core</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cpu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>data</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fsize</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>locks</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memlock</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>msgqueue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nice</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nofile</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nproc</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rss</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rtprio</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rttime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sigpending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>stack</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The soft limit for the ulimit type.</p>
+   * @public
+   */
+  SoftLimit?: number | undefined;
+}
+
+/**
+ * <p>A data volume to mount from another container.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
+  /**
+   * <p>Whether the container has read-only access to the volume.</p>
+   * @public
+   */
+  ReadOnly?: boolean | undefined;
+
+  /**
+   * <p>The name of another container within the same task definition from which to mount volumes.</p>
+   * @public
+   */
+  SourceContainer?: string | undefined;
+}
+
+/**
+ * <p>A container definition that describes a container in the task.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
+  /**
+   * <p>The command that is passed to the container.</p>
+   * @public
+   */
+  Command?: string[] | undefined;
+
+  /**
+   * <p>The number of CPU units reserved for the container.</p>
+   * @public
+   */
+  Cpu?: number | undefined;
+
+  /**
+   * <p>The dependencies that are defined for container startup and shutdown.</p>
+   * @public
+   */
+  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[] | undefined;
+
+  /**
+   * <p>Whether to disable networking within the container.</p>
+   * @public
+   */
+  DisableNetworking?: boolean | undefined;
+
+  /**
+   * <p>A list of DNS search domains that are presented to the container.</p>
+   * @public
+   */
+  DnsSearchDomains?: string[] | undefined;
+
+  /**
+   * <p>A list of DNS servers that are presented to the container.</p>
+   * @public
+   */
+  DnsServers?: string[] | undefined;
+
+  /**
+   * <p>A key-value map of labels to add to the container.</p>
+   * @public
+   */
+  DockerLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
+   * @public
+   */
+  DockerSecurityOptions?: string[] | undefined;
+
+  /**
+   * <p>The entry point that is passed to the container.</p>
+   * @public
+   */
+  EntryPoint?: string[] | undefined;
+
+  /**
+   * <p>The environment variables to pass to a container.</p>
+   * @public
+   */
+  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[] | undefined;
+
+  /**
+   * <p>A list of files containing the environment variables to pass to a container.</p>
+   * @public
+   */
+  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[] | undefined;
+
+  /**
+   * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
+   * @public
+   */
+  Essential?: boolean | undefined;
+
+  /**
+   * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
+   * @public
+   */
+  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[] | undefined;
+
+  /**
+   * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
+   * @public
+   */
+  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails | undefined;
+
+  /**
+   * <p>The container health check command and associated configuration parameters for the container.</p>
+   * @public
+   */
+  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails | undefined;
+
+  /**
+   * <p>The hostname to use for the container.</p>
+   * @public
+   */
+  Hostname?: string | undefined;
+
+  /**
+   * <p>The image used to start the container.</p>
+   * @public
+   */
+  Image?: string | undefined;
+
+  /**
+   * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
+   * @public
+   */
+  Interactive?: boolean | undefined;
+
+  /**
+   * <p>A list of links for the container in the form <code>
+   *                <i>container_name</i>:<i>alias</i>
+   *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
+   * @public
+   */
+  Links?: string[] | undefined;
+
+  /**
+   * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+   * @public
+   */
+  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails | undefined;
+
+  /**
+   * <p>The log configuration specification for the container.</p>
+   * @public
+   */
+  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails | undefined;
+
+  /**
+   * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
+   * @public
+   */
+  Memory?: number | undefined;
+
+  /**
+   * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
+   * @public
+   */
+  MemoryReservation?: number | undefined;
+
+  /**
+   * <p>The mount points for the data volumes in the container.</p>
+   * @public
+   */
+  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[] | undefined;
+
+  /**
+   * <p>The name of the container.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The list of port mappings for the container.</p>
+   * @public
+   */
+  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[] | undefined;
+
+  /**
+   * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
+   * @public
+   */
+  Privileged?: boolean | undefined;
+
+  /**
+   * <p>Whether to allocate a TTY to the container.</p>
+   * @public
+   */
+  PseudoTerminal?: boolean | undefined;
+
+  /**
+   * <p>Whether the container is given read-only access to its root file system.</p>
+   * @public
+   */
+  ReadonlyRootFilesystem?: boolean | undefined;
+
+  /**
+   * <p>The private repository authentication credentials to use.</p>
+   * @public
+   */
+  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails | undefined;
+
+  /**
+   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
+   * @public
+   */
+  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[] | undefined;
+
+  /**
+   * <p>The secrets to pass to the container.</p>
+   * @public
+   */
+  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[] | undefined;
+
+  /**
+   * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
+   * @public
+   */
+  StartTimeout?: number | undefined;
+
+  /**
+   * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
+   * @public
+   */
+  StopTimeout?: number | undefined;
+
+  /**
+   * <p>A list of namespaced kernel parameters to set in the container.</p>
+   * @public
+   */
+  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[] | undefined;
+
+  /**
+   * <p>A list of ulimits to set in the container. </p>
+   * @public
+   */
+  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[] | undefined;
+
+  /**
+   * <p>The user to use inside the container.</p>
+   *          <p>The value can use one of the following formats.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>:<code>
+   *                      <i>group</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>:<code>
+   *                      <i>gid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>:<code>
+   *                      <i>gid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>:<code>
+   *                      <i>group</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  User?: string | undefined;
+
+  /**
+   * <p>Data volumes to mount from another container.</p>
+   * @public
+   */
+  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[] | undefined;
+
+  /**
+   * <p>The working directory in which to run commands inside the container.</p>
+   * @public
+   */
+  WorkingDirectory?: string | undefined;
+}
+
+/**
+ * <p>An Elastic Inference accelerator to use
+ *          for the containers in the task.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
+  /**
+   * <p>The Elastic Inference accelerator device name.</p>
+   * @public
+   */
+  DeviceName?: string | undefined;
+
+  /**
+   * <p>The Elastic Inference accelerator type to use.</p>
+   * @public
+   */
+  DeviceType?: string | undefined;
+}
+
+/**
+ * <p>A placement constraint object to use for tasks.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
+  /**
+   * <p>A cluster query language expression to apply to the constraint.</p>
+   * @public
+   */
+  Expression?: string | undefined;
+
+  /**
+   * <p>The type of constraint.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
+  /**
+   * <p>The name of the property.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The value of the property.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The configuration details for the App Mesh
+ *          proxy.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
+  /**
+   * <p>The name of the container that will serve as the App Mesh proxy.</p>
+   * @public
+   */
+  ContainerName?: string | undefined;
+
+  /**
+   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
+   * @public
+   */
+  ProxyConfigurationProperties?:
+    | AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[]
+    | undefined;
+
+  /**
+   * <p>The proxy type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Information about a Docker volume.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
+  /**
+   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
+   * @public
+   */
+  Autoprovision?: boolean | undefined;
+
+  /**
+   * <p>The Docker volume driver to use.</p>
+   * @public
+   */
+  Driver?: string | undefined;
+
+  /**
+   * <p>A map of Docker driver-specific options that are passed through.</p>
+   * @public
+   */
+  DriverOpts?: Record<string, string> | undefined;
+
+  /**
+   * <p>Custom metadata to add to the Docker volume.</p>
+   * @public
+   */
+  Labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
+   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
+  /**
+   * <p>The Amazon EFS access point identifier to use.</p>
+   * @public
+   */
+  AccessPointId?: string | undefined;
+
+  /**
+   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
+   * @public
+   */
+  Iam?: string | undefined;
+}
+
+/**
+ * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
+  /**
+   * <p>The authorization configuration details for the Amazon EFS file system.</p>
+   * @public
+   */
+  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails | undefined;
+
+  /**
+   * <p>The Amazon EFS file system identifier to use.</p>
+   * @public
+   */
+  FilesystemId?: string | undefined;
+
+  /**
+   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
+   * @public
+   */
+  RootDirectory?: string | undefined;
+
+  /**
+   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
+   * @public
+   */
+  TransitEncryption?: string | undefined;
+
+  /**
+   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
+   * @public
+   */
+  TransitEncryptionPort?: number | undefined;
 }

@@ -1,43 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { RepostspaceServiceException as __BaseException } from "./RepostspaceServiceException";
-
-/**
- * <p>User does not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ChannelRole = {
-  ASKER: "ASKER",
-  EXPERT: "EXPERT",
-  MODERATOR: "MODERATOR",
-  SUPPORTREQUESTOR: "SUPPORTREQUESTOR",
-} as const;
-
-/**
- * @public
- */
-export type ChannelRole = (typeof ChannelRole)[keyof typeof ChannelRole];
+import {
+  ChannelRole,
+  ChannelStatus,
+  ConfigurationStatus,
+  FeatureEnableParameter,
+  FeatureEnableStatus,
+  Role,
+  TierLevel,
+  VanityDomainStatus,
+} from "./enums";
 
 /**
  * @public
@@ -110,112 +81,6 @@ export interface BatchAddChannelRoleToAccessorsOutput {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The code to identify the service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The code to identify the quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p> Advice to clients on when the call can be safely retried.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>Stores information about a field that’s passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -232,72 +97,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason why the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field that caused the error, if applicable.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Role = {
-  ADMINISTRATOR: "ADMINISTRATOR",
-  EXPERT: "EXPERT",
-  MODERATOR: "MODERATOR",
-  SUPPORTREQUESTOR: "SUPPORTREQUESTOR",
-} as const;
-
-/**
- * @public
- */
-export type Role = (typeof Role)[keyof typeof Role];
 
 /**
  * @public
@@ -426,24 +225,6 @@ export interface BatchRemoveRoleOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChannelStatus = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
-
-/**
  * <p>A structure that contains some information about a channel in a private re:Post.</p>
  * @public
  */
@@ -505,54 +286,6 @@ export interface ChannelData {
 
 /**
  * @public
- * @enum
- */
-export const ConfigurationStatus = {
-  CONFIGURED: "CONFIGURED",
-  UNCONFIGURED: "UNCONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
  */
 export interface CreateChannelInput {
   /**
@@ -586,68 +319,6 @@ export interface CreateChannelOutput {
 }
 
 /**
- * <p>Request would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The id of the resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The code to identify the service.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The code to identify the quota.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FeatureEnableParameter = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureEnableParameter = (typeof FeatureEnableParameter)[keyof typeof FeatureEnableParameter];
-
-/**
  * <p/>
  * @public
  */
@@ -664,20 +335,6 @@ export interface SupportedEmailDomainsParameters {
    */
   allowedDomains?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TierLevel = {
-  BASIC: "BASIC",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type TierLevel = (typeof TierLevel)[keyof typeof TierLevel];
 
 /**
  * @public
@@ -770,21 +427,6 @@ export interface DeregisterAdminInput {
    */
   adminId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeatureEnableStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  NOT_ALLOWED: "NOT_ALLOWED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureEnableStatus = (typeof FeatureEnableStatus)[keyof typeof FeatureEnableStatus];
 
 /**
  * @public
@@ -884,21 +526,6 @@ export interface SupportedEmailDomainsStatus {
    */
   allowedDomains?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VanityDomainStatus = {
-  APPROVED: "APPROVED",
-  PENDING: "PENDING",
-  UNAPPROVED: "UNAPPROVED",
-} as const;
-
-/**
- * @public
- */
-export type VanityDomainStatus = (typeof VanityDomainStatus)[keyof typeof VanityDomainStatus];
 
 /**
  * @public

@@ -429,7 +429,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ForecastServiceException as __ForecastServiceException } from "../models/ForecastServiceException";
 import {
   InvalidInputException as __InvalidInputException,
   InvalidNextTokenException as __InvalidNextTokenException,
@@ -437,7 +436,8 @@ import {
   ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
+import { ForecastServiceException as __ForecastServiceException } from "../models/ForecastServiceException";
 
 /* eslint no-var: 0 */
 

@@ -1,29 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
-
-import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
-
-/**
- * <p>Access is denied.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
 
 /**
  * <p>An object that uniquely identifies an entity property.</p>
@@ -78,86 +54,6 @@ export interface RelationshipValue {
    * @public
    */
   targetComponentName?: string | undefined;
-}
-
-/**
- * <p>An unexpected error has occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The resource wasn't found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The rate exceeds the limit.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Failed</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -315,26 +211,6 @@ export interface CancelMetadataTransferJobResponse {
    * @public
    */
   progress?: MetadataTransferJobProgress | undefined;
-}
-
-/**
- * <p>A conflict occurred.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -525,26 +401,6 @@ export interface CreateComponentTypeResponse {
    * @public
    */
   state: State | undefined;
-}
-
-/**
- * <p>The service quota was exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -1454,27 +1310,6 @@ export interface ExecuteQueryResponse {
 }
 
 /**
- * <p>The query timeout exception.</p>
- * @public
- */
-export class QueryTimeoutException extends __BaseException {
-  readonly name: "QueryTimeoutException" = "QueryTimeoutException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<QueryTimeoutException, __BaseException>) {
-    super({
-      name: "QueryTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, QueryTimeoutException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetComponentTypeRequest {
@@ -1889,46 +1724,6 @@ export interface GetPricingPlanResponse {
    * @public
    */
   pendingPricingPlan?: PricingPlan | undefined;
-}
-
-/**
- * <p>The connector failed.</p>
- * @public
- */
-export class ConnectorFailureException extends __BaseException {
-  readonly name: "ConnectorFailureException" = "ConnectorFailureException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConnectorFailureException, __BaseException>) {
-    super({
-      name: "ConnectorFailureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConnectorFailureException.prototype);
-  }
-}
-
-/**
- * <p>The connector timed out.</p>
- * @public
- */
-export class ConnectorTimeoutException extends __BaseException {
-  readonly name: "ConnectorTimeoutException" = "ConnectorTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConnectorTimeoutException, __BaseException>) {
-    super({
-      name: "ConnectorTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConnectorTimeoutException.prototype);
-  }
 }
 
 /**
@@ -3425,26 +3220,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>The number of tags exceeds the limit.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
 
 /**
  * @public

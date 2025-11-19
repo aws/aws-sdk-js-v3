@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListMulticastGroupsByFuotaTaskRequest } from "../models/models_0";
-import { ListMulticastGroupsByFuotaTaskResponse } from "../models/models_1";
+import { ListMulticastGroupsByFuotaTaskRequest, ListMulticastGroupsByFuotaTaskResponse } from "../models/models_0";
 import { ListMulticastGroupsByFuotaTask } from "../schemas/schemas_0";
 
 /**

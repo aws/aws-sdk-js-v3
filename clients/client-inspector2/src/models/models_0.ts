@@ -1,29 +1,34 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { Inspector2ServiceException as __BaseException } from "./Inspector2ServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
- *          unsupported Amazon Web Services Region. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  AssociationResultStatusCode,
+  CisFindingStatus,
+  CisFindingStatusComparison,
+  CisReportFormat,
+  CisReportStatus,
+  CisResultStatus,
+  CisResultStatusComparison,
+  CisRuleStatus,
+  CisScanResultDetailsSortBy,
+  CisScanStatus,
+  CisScanStatusComparison,
+  CisSecurityLevel,
+  CisSecurityLevelComparison,
+  CisSortOrder,
+  CisStringComparison,
+  CisTargetStatus,
+  CisTargetStatusComparison,
+  CisTargetStatusReason,
+  CodeScanStatus,
+  ConfigurationLevel,
+  ContinuousIntegrationScanEvent,
+  Day,
+  IntegrationStatus,
+  IntegrationType,
+  PeriodicScanFrequency,
+  ProjectSelectionScope,
+  RuleSetCategory,
+  TagComparison,
+} from "./enums";
 
 /**
  * @public
@@ -254,21 +259,6 @@ export interface AccountAggregationResponse {
    */
   fixAvailableCount?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CisStringComparison = {
-  EQUALS: "EQUALS",
-  NOT_EQUALS: "NOT_EQUALS",
-  PREFIX: "PREFIX",
-} as const;
-
-/**
- * @public
- */
-export type CisStringComparison = (typeof CisStringComparison)[keyof typeof CisStringComparison];
 
 /**
  * <p>The CIS string filter.</p>
@@ -2251,92 +2241,6 @@ export interface AssociateMemberResponse {
 }
 
 /**
- * <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The number of seconds to wait before retrying the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>You have exceeded your service quota. To perform the requested action, remove some of
- *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that exceeds a service quota.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-  }
-}
-
-/**
- * <p>The limit on the number of requests per second was exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The number of seconds to wait before retrying the request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>An object that describes a validation exception.</p>
  * @public
  */
@@ -2368,60 +2272,6 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The request has failed validation due to missing required fields or having invalid
- *          inputs.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the validation failure.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The fields that failed validation.</p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AssociationResultStatusCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_INPUT: "INVALID_INPUT",
-  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
-  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
-  SCAN_CONFIGURATION_NOT_FOUND: "SCAN_CONFIGURATION_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type AssociationResultStatusCode =
-  (typeof AssociationResultStatusCode)[keyof typeof AssociationResultStatusCode];
 
 /**
  * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific
@@ -2831,26 +2681,6 @@ export interface AwsLambdaFunctionDetails {
 }
 
 /**
- * <p>One or more tags submitted as part of the request is not valid.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchAssociateCodeSecurityScanConfigurationRequest {
@@ -2930,62 +2760,6 @@ export interface BatchAssociateCodeSecurityScanConfigurationResponse {
    * @public
    */
   successfulAssociations?: SuccessfulAssociationResult[] | undefined;
-}
-
-/**
- * <p>A conflict occurred. This exception occurs when the same resource is being modified by
- *          concurrent requests.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * The ID of the conflicting resource.
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * The type of the conflicting resource.
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The operation tried to access an invalid resource. Make sure the resource is specified
- *          correctly.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -3797,20 +3571,6 @@ export interface CancelSbomExportResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisSecurityLevel = {
-  LEVEL_1: "LEVEL_1",
-  LEVEL_2: "LEVEL_2",
-} as const;
-
-/**
- * @public
- */
-export type CisSecurityLevel = (typeof CisSecurityLevel)[keyof typeof CisSecurityLevel];
-
-/**
  * <p>The status counts.</p>
  * @public
  */
@@ -3907,34 +3667,6 @@ export interface CisDateFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisFindingStatus = {
-  FAILED: "FAILED",
-  PASSED: "PASSED",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type CisFindingStatus = (typeof CisFindingStatus)[keyof typeof CisFindingStatus];
-
-/**
- * @public
- * @enum
- */
-export const CisFindingStatusComparison = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type CisFindingStatusComparison = (typeof CisFindingStatusComparison)[keyof typeof CisFindingStatusComparison];
-
-/**
  * <p>The CIS finding status filter.</p>
  * @public
  */
@@ -3971,63 +3703,6 @@ export interface CisNumberFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisReportFormat = {
-  CSV: "CSV",
-  PDF: "PDF",
-} as const;
-
-/**
- * @public
- */
-export type CisReportFormat = (typeof CisReportFormat)[keyof typeof CisReportFormat];
-
-/**
- * @public
- * @enum
- */
-export const CisReportStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type CisReportStatus = (typeof CisReportStatus)[keyof typeof CisReportStatus];
-
-/**
- * @public
- * @enum
- */
-export const CisResultStatus = {
-  FAILED: "FAILED",
-  PASSED: "PASSED",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type CisResultStatus = (typeof CisResultStatus)[keyof typeof CisResultStatus];
-
-/**
- * @public
- * @enum
- */
-export const CisResultStatusComparison = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type CisResultStatusComparison = (typeof CisResultStatusComparison)[keyof typeof CisResultStatusComparison];
-
-/**
  * <p>The CIS result status filter.</p>
  * @public
  */
@@ -4044,41 +3719,6 @@ export interface CisResultStatusFilter {
    */
   value: CisResultStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CisRuleStatus = {
-  ERROR: "ERROR",
-  FAILED: "FAILED",
-  INFORMATIONAL: "INFORMATIONAL",
-  NOT_APPLICABLE: "NOT_APPLICABLE",
-  NOT_EVALUATED: "NOT_EVALUATED",
-  PASSED: "PASSED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type CisRuleStatus = (typeof CisRuleStatus)[keyof typeof CisRuleStatus];
-
-/**
- * @public
- * @enum
- */
-export const CisScanStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type CisScanStatus = (typeof CisScanStatus)[keyof typeof CisScanStatus];
 
 /**
  * <p>The CIS targets.</p>
@@ -4194,25 +3834,6 @@ export interface DailySchedule {
    */
   startTime: Time | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Day = {
-  FRI: "FRI",
-  MON: "MON",
-  SAT: "SAT",
-  SUN: "SUN",
-  THU: "THU",
-  TUE: "TUE",
-  WED: "WED",
-} as const;
-
-/**
- * @public
- */
-export type Day = (typeof Day)[keyof typeof Day];
 
 /**
  * <p>A monthly schedule.</p>
@@ -4392,21 +4013,6 @@ export interface CisScanConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisScanConfigurationsSortBy = {
-  SCAN_CONFIGURATION_ARN: "SCAN_CONFIGURATION_ARN",
-  SCAN_NAME: "SCAN_NAME",
-} as const;
-
-/**
- * @public
- */
-export type CisScanConfigurationsSortBy =
-  (typeof CisScanConfigurationsSortBy)[keyof typeof CisScanConfigurationsSortBy];
-
-/**
  * <p>The CIS scan result details.</p>
  * @public
  */
@@ -4485,19 +4091,6 @@ export interface CisScanResultDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisSecurityLevelComparison = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type CisSecurityLevelComparison = (typeof CisSecurityLevelComparison)[keyof typeof CisSecurityLevelComparison];
-
-/**
  * <p> The CIS security level filter. Security level refers to the Benchmark levels that CIS
  *          assigns to a profile. </p>
  * @public
@@ -4554,20 +4147,6 @@ export interface CisScanResultDetailsFilterCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisScanResultDetailsSortBy = {
-  CHECK_ID: "CHECK_ID",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type CisScanResultDetailsSortBy = (typeof CisScanResultDetailsSortBy)[keyof typeof CisScanResultDetailsSortBy];
-
-/**
  * <p>The scan results aggregated by checks filter criteria.</p>
  * @public
  */
@@ -4610,37 +4189,6 @@ export interface CisScanResultsAggregatedByChecksFilterCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisScanResultsAggregatedByChecksSortBy = {
-  CHECK_ID: "CHECK_ID",
-  FAILED_COUNTS: "FAILED_COUNTS",
-  PLATFORM: "PLATFORM",
-  SECURITY_LEVEL: "SECURITY_LEVEL",
-  TITLE: "TITLE",
-} as const;
-
-/**
- * @public
- */
-export type CisScanResultsAggregatedByChecksSortBy =
-  (typeof CisScanResultsAggregatedByChecksSortBy)[keyof typeof CisScanResultsAggregatedByChecksSortBy];
-
-/**
- * @public
- * @enum
- */
-export const TagComparison = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type TagComparison = (typeof TagComparison)[keyof typeof TagComparison];
-
-/**
  * <p>The tag filter.</p>
  * @public
  */
@@ -4665,34 +4213,6 @@ export interface TagFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisTargetStatusComparison = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type CisTargetStatusComparison = (typeof CisTargetStatusComparison)[keyof typeof CisTargetStatusComparison];
-
-/**
- * @public
- * @enum
- */
-export const CisTargetStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type CisTargetStatus = (typeof CisTargetStatus)[keyof typeof CisTargetStatus];
-
-/**
  * <p>The CIS target status filter.</p>
  * @public
  */
@@ -4709,21 +4229,6 @@ export interface CisTargetStatusFilter {
    */
   value: CisTargetStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CisTargetStatusReason = {
-  SCAN_IN_PROGRESS: "SCAN_IN_PROGRESS",
-  SSM_UNMANAGED: "SSM_UNMANAGED",
-  UNSUPPORTED_OS: "UNSUPPORTED_OS",
-} as const;
-
-/**
- * @public
- */
-export type CisTargetStatusReason = (typeof CisTargetStatusReason)[keyof typeof CisTargetStatusReason];
 
 /**
  * <p>The CIS target status reason filter.</p>
@@ -4804,38 +4309,6 @@ export interface CisScanResultsAggregatedByTargetResourceFilterCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const CisScanResultsAggregatedByTargetResourceSortBy = {
-  ACCOUNT_ID: "ACCOUNT_ID",
-  FAILED_COUNTS: "FAILED_COUNTS",
-  PLATFORM: "PLATFORM",
-  RESOURCE_ID: "RESOURCE_ID",
-  TARGET_STATUS: "TARGET_STATUS",
-  TARGET_STATUS_REASON: "TARGET_STATUS_REASON",
-} as const;
-
-/**
- * @public
- */
-export type CisScanResultsAggregatedByTargetResourceSortBy =
-  (typeof CisScanResultsAggregatedByTargetResourceSortBy)[keyof typeof CisScanResultsAggregatedByTargetResourceSortBy];
-
-/**
- * @public
- * @enum
- */
-export const CisScanStatusComparison = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type CisScanStatusComparison = (typeof CisScanStatusComparison)[keyof typeof CisScanStatusComparison];
-
-/**
  * <p>The CIS scan status filter.</p>
  * @public
  */
@@ -4876,20 +4349,6 @@ export interface CisSessionMessage {
    */
   cisRuleDetails: Uint8Array | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CisSortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type CisSortOrder = (typeof CisSortOrder)[keyof typeof CisSortOrder];
 
 /**
  * <p>The CIS target resource aggregation.</p>
@@ -5330,36 +4789,6 @@ export interface CodeRepositoryOnDemandScan {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleSetCategory = {
-  IAC: "IAC",
-  SAST: "SAST",
-  SCA: "SCA",
-} as const;
-
-/**
- * @public
- */
-export type RuleSetCategory = (typeof RuleSetCategory)[keyof typeof RuleSetCategory];
-
-/**
- * @public
- * @enum
- */
-export const ContinuousIntegrationScanEvent = {
-  PULL_REQUEST: "PULL_REQUEST",
-  PUSH: "PUSH",
-} as const;
-
-/**
- * @public
- */
-export type ContinuousIntegrationScanEvent =
-  (typeof ContinuousIntegrationScanEvent)[keyof typeof ContinuousIntegrationScanEvent];
-
-/**
  * <p>Contains the continuous integration scan configuration settings applied to a specific
  *          project.</p>
  * @public
@@ -5468,53 +4897,6 @@ export interface CodeRepositoryMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const CodeScanStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SKIPPED: "SKIPPED",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type CodeScanStatus = (typeof CodeScanStatus)[keyof typeof CodeScanStatus];
-
-/**
- * @public
- * @enum
- */
-export const IntegrationStatus = {
-  ACTIVE: "ACTIVE",
-  DISABLING: "DISABLING",
-  INACTIVE: "INACTIVE",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
-
-/**
- * @public
- * @enum
- */
-export const IntegrationType = {
-  GITHUB: "GITHUB",
-  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
-
-/**
  * <p>A summary of information about a code security integration.</p>
  * @public
  */
@@ -5583,21 +4965,6 @@ export interface ContinuousIntegrationScanConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PeriodicScanFrequency = {
-  MONTHLY: "MONTHLY",
-  NEVER: "NEVER",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type PeriodicScanFrequency = (typeof PeriodicScanFrequency)[keyof typeof PeriodicScanFrequency];
-
-/**
  * <p>Configuration settings for periodic scans that run on a scheduled basis.</p>
  * @public
  */
@@ -5654,19 +5021,6 @@ export interface CodeSecurityScanConfigurationAssociationSummary {
    */
   resource?: CodeSecurityResource | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProjectSelectionScope = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type ProjectSelectionScope = (typeof ProjectSelectionScope)[keyof typeof ProjectSelectionScope];
 
 /**
  * <p>Defines the scope of repositories to be included in code security scans.</p>
@@ -5830,20 +5184,6 @@ export interface ComputePlatform {
    */
   version?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationLevel = {
-  ACCOUNT: "ACCOUNT",
-  ORGANIZATION: "ORGANIZATION",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationLevel = (typeof ConfigurationLevel)[keyof typeof ConfigurationLevel];
 
 /**
  * @public
@@ -8033,4 +7373,1137 @@ export interface EnableDelegatedAdminAccountResponse {
    * @public
    */
   delegatedAdminAccountId: string | undefined;
+}
+
+/**
+ * <p>Details about the Exploit Prediction Scoring System (EPSS) score.</p>
+ * @public
+ */
+export interface Epss {
+  /**
+   * <p>The Exploit Prediction Scoring System (EPSS) score.</p>
+   * @public
+   */
+  score?: number | undefined;
+}
+
+/**
+ * <p>Details about the Exploit Prediction Scoring System (EPSS) score for a finding.</p>
+ * @public
+ */
+export interface EpssDetails {
+  /**
+   * <p>The EPSS score.</p>
+   * @public
+   */
+  score?: number | undefined;
+}
+
+/**
+ * <p>The details of an exploit available for a finding discovered in your environment.</p>
+ * @public
+ */
+export interface ExploitabilityDetails {
+  /**
+   * <p>The date and time of the last exploit associated with a finding discovered in your
+   *          environment.</p>
+   * @public
+   */
+  lastKnownExploitAt?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExploitAvailable = {
+  NO: "NO",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type ExploitAvailable = (typeof ExploitAvailable)[keyof typeof ExploitAvailable];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalReportStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalReportStatus = (typeof ExternalReportStatus)[keyof typeof ExternalReportStatus];
+
+/**
+ * <p>Details about a filter.</p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>The Amazon Resource Number (ARN) associated with this filter.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account that created the filter.</p>
+   * @public
+   */
+  ownerId: string | undefined;
+
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Details on the filter criteria associated with this filter.</p>
+   * @public
+   */
+  criteria: FilterCriteria | undefined;
+
+  /**
+   * <p>The action that is to be applied to the findings that match the filter.</p>
+   * @public
+   */
+  action: FilterAction | undefined;
+
+  /**
+   * <p>The date and time this filter was created at.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the filter was last updated at.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>A description of the filter.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The reason for the filter.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The tags attached to the filter.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type FixAvailable = (typeof FixAvailable)[keyof typeof FixAvailable];
+
+/**
+ * <p>Information about the Amazon Inspector score given to a finding.</p>
+ * @public
+ */
+export interface InspectorScoreDetails {
+  /**
+   * <p>An object that contains details about the CVSS score given to a finding.</p>
+   * @public
+   */
+  adjustedCvss?: CvssScoreDetails | undefined;
+}
+
+/**
+ * <p>Details about the step associated with a finding.</p>
+ * @public
+ */
+export interface Step {
+  /**
+   * <p>The component ID.</p>
+   * @public
+   */
+  componentId: string | undefined;
+
+  /**
+   * <p>The component type.</p>
+   * @public
+   */
+  componentType: string | undefined;
+
+  /**
+   * <p>The component ARN. The ARN can be null and is not displayed in the Amazon Web Services
+   *          console.</p>
+   * @public
+   */
+  componentArn?: string | undefined;
+}
+
+/**
+ * <p>Information on the network path associated with a finding.</p>
+ * @public
+ */
+export interface NetworkPath {
+  /**
+   * <p>The details on the steps in the network path.</p>
+   * @public
+   */
+  steps?: Step[] | undefined;
+}
+
+/**
+ * <p>Details about the port range associated with a finding.</p>
+ * @public
+ */
+export interface PortRange {
+  /**
+   * <p>The beginning port in a port range.</p>
+   * @public
+   */
+  begin: number | undefined;
+
+  /**
+   * <p>The ending port in a port range.</p>
+   * @public
+   */
+  end: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
+
+/**
+ * <p>Contains the details of a network reachability finding.</p>
+ * @public
+ */
+export interface NetworkReachabilityDetails {
+  /**
+   * <p>An object that contains details about the open port range associated with a
+   *          finding.</p>
+   * @public
+   */
+  openPortRange: PortRange | undefined;
+
+  /**
+   * <p>The protocol associated with a finding.</p>
+   * @public
+   */
+  protocol: NetworkProtocol | undefined;
+
+  /**
+   * <p>An object that contains details about a network path associated with a finding.</p>
+   * @public
+   */
+  networkPath: NetworkPath | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageManager = {
+  BUNDLER: "BUNDLER",
+  CARGO: "CARGO",
+  COMPOSER: "COMPOSER",
+  DOTNET_CORE: "DOTNET_CORE",
+  GEMSPEC: "GEMSPEC",
+  GOBINARY: "GOBINARY",
+  GOMOD: "GOMOD",
+  JAR: "JAR",
+  NODEPKG: "NODEPKG",
+  NPM: "NPM",
+  NUGET: "NUGET",
+  OS: "OS",
+  PIP: "PIP",
+  PIPENV: "PIPENV",
+  POETRY: "POETRY",
+  POM: "POM",
+  PYTHONPKG: "PYTHONPKG",
+  YARN: "YARN",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
+
+/**
+ * <p>Information on the vulnerable package identified by a finding.</p>
+ * @public
+ */
+export interface VulnerablePackage {
+  /**
+   * <p>The name of the vulnerable package.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The version of the vulnerable package.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The source layer hash of the vulnerable package.</p>
+   * @public
+   */
+  sourceLayerHash?: string | undefined;
+
+  /**
+   * <p>The epoch of the vulnerable package.</p>
+   * @public
+   */
+  epoch?: number | undefined;
+
+  /**
+   * <p>The release of the vulnerable package.</p>
+   * @public
+   */
+  release?: string | undefined;
+
+  /**
+   * <p>The architecture of the vulnerable package.</p>
+   * @public
+   */
+  arch?: string | undefined;
+
+  /**
+   * <p>The package manager of the vulnerable package.</p>
+   * @public
+   */
+  packageManager?: PackageManager | undefined;
+
+  /**
+   * <p>The file path of the vulnerable package.</p>
+   * @public
+   */
+  filePath?: string | undefined;
+
+  /**
+   * <p>The version of the package that contains the vulnerability fix.</p>
+   * @public
+   */
+  fixedInVersion?: string | undefined;
+
+  /**
+   * <p>The code to run in your environment to update packages with a fix available.</p>
+   * @public
+   */
+  remediation?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the Amazon Web Services Lambda function affected by a
+   *          finding.</p>
+   * @public
+   */
+  sourceLambdaLayerArn?: string | undefined;
+}
+
+/**
+ * <p>Information about a package vulnerability finding.</p>
+ * @public
+ */
+export interface PackageVulnerabilityDetails {
+  /**
+   * <p>The ID given to this vulnerability.</p>
+   * @public
+   */
+  vulnerabilityId: string | undefined;
+
+  /**
+   * <p>The packages impacted by this vulnerability.</p>
+   * @public
+   */
+  vulnerablePackages?: VulnerablePackage[] | undefined;
+
+  /**
+   * <p>The source of the vulnerability information.</p>
+   * @public
+   */
+  source: string | undefined;
+
+  /**
+   * <p>An object that contains details about the CVSS score of a finding.</p>
+   * @public
+   */
+  cvss?: CvssScore[] | undefined;
+
+  /**
+   * <p>One or more vulnerabilities related to the one identified in this finding.</p>
+   * @public
+   */
+  relatedVulnerabilities?: string[] | undefined;
+
+  /**
+   * <p>A URL to the source of the vulnerability information.</p>
+   * @public
+   */
+  sourceUrl?: string | undefined;
+
+  /**
+   * <p>The severity the vendor has given to this vulnerability type.</p>
+   * @public
+   */
+  vendorSeverity?: string | undefined;
+
+  /**
+   * <p>The date and time that this vulnerability was first added to the vendor's
+   *          database.</p>
+   * @public
+   */
+  vendorCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the vendor last updated this vulnerability in their database.</p>
+   * @public
+   */
+  vendorUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>One or more URLs that contain details about this vulnerability type.</p>
+   * @public
+   */
+  referenceUrls?: string[] | undefined;
+}
+
+/**
+ * <p>Details about the recommended course of action to remediate the finding.</p>
+ * @public
+ */
+export interface Recommendation {
+  /**
+   * <p>The recommended course of action to remediate the finding.</p>
+   * @public
+   */
+  text?: string | undefined;
+
+  /**
+   * <p>The URL address to the CVE remediation recommendations.</p>
+   * @public
+   */
+  Url?: string | undefined;
+}
+
+/**
+ * <p>Information on how to remediate a finding.</p>
+ * @public
+ */
+export interface Remediation {
+  /**
+   * <p>An object that contains information about the recommended course of action to remediate
+   *          the finding.</p>
+   * @public
+   */
+  recommendation?: Recommendation | undefined;
+}
+
+/**
+ * <p>Contains details about the resource involved in the finding.</p>
+ * @public
+ */
+export interface ResourceDetails {
+  /**
+   * <p>An object that contains details about the Amazon EC2 instance involved in the finding.</p>
+   * @public
+   */
+  awsEc2Instance?: AwsEc2InstanceDetails | undefined;
+
+  /**
+   * <p>An object that contains details about the Amazon ECR container image involved in the
+   *          finding.</p>
+   * @public
+   */
+  awsEcrContainerImage?: AwsEcrContainerImageDetails | undefined;
+
+  /**
+   * <p>A summary of the information about an Amazon Web Services Lambda function affected by a
+   *          finding.</p>
+   * @public
+   */
+  awsLambdaFunction?: AwsLambdaFunctionDetails | undefined;
+
+  /**
+   * <p>Contains details about a code repository resource associated with a finding.</p>
+   * @public
+   */
+  codeRepository?: CodeRepositoryDetails | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  CODE_REPOSITORY: "CODE_REPOSITORY",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * <p>Details about the resource involved in a finding.</p>
+ * @public
+ */
+export interface Resource {
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  type: ResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The partition of the resource.</p>
+   * @public
+   */
+  partition?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region the impacted resource is located in.</p>
+   * @public
+   */
+  region?: string | undefined;
+
+  /**
+   * <p>The tags attached to the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>An object that contains details about the resource involved in a finding.</p>
+   * @public
+   */
+  details?: ResourceDetails | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Severity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNTRIAGED: "UNTRIAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatus = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  SUPPRESSED: "SUPPRESSED",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingType = {
+  CODE_VULNERABILITY: "CODE_VULNERABILITY",
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingType = (typeof FindingType)[keyof typeof FindingType];
+
+/**
+ * <p>Details about an Amazon Inspector finding.</p>
+ * @public
+ */
+export interface Finding {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the finding.</p>
+   * @public
+   */
+  findingArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the finding.</p>
+   * @public
+   */
+  awsAccountId: string | undefined;
+
+  /**
+   * <p>The type of the finding. The <code>type</code> value determines the valid values for
+   *             <code>resource</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding
+   *             types</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  type: FindingType | undefined;
+
+  /**
+   * <p>The description of the finding.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The title of the finding.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>An object that contains the details about how to remediate a finding.</p>
+   * @public
+   */
+  remediation: Remediation | undefined;
+
+  /**
+   * <p>The severity of the finding. <code>UNTRIAGED</code> applies to
+   *             <code>PACKAGE_VULNERABILITY</code> type findings that the vendor has not assigned a
+   *          severity yet. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for findings</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  severity: Severity | undefined;
+
+  /**
+   * <p>The date and time that the finding was first observed.</p>
+   * @public
+   */
+  firstObservedAt: Date | undefined;
+
+  /**
+   * <p> The date and time the finding was last observed. This timestamp for this field remains
+   *          unchanged until a finding is updated. </p>
+   * @public
+   */
+  lastObservedAt: Date | undefined;
+
+  /**
+   * <p>The date and time the finding was last updated at.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The status of the finding.</p>
+   * @public
+   */
+  status: FindingStatus | undefined;
+
+  /**
+   * <p>Contains information on the resources involved in a finding. The <code>resource</code>
+   *          value determines the valid values for <code>type</code> in your request. For more
+   *          information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding
+   *             types</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  resources: Resource[] | undefined;
+
+  /**
+   * <p>The Amazon Inspector score given to the finding.</p>
+   * @public
+   */
+  inspectorScore?: number | undefined;
+
+  /**
+   * <p>An object that contains details of the Amazon Inspector score.</p>
+   * @public
+   */
+  inspectorScoreDetails?: InspectorScoreDetails | undefined;
+
+  /**
+   * <p>An object that contains the details of a network reachability finding.</p>
+   * @public
+   */
+  networkReachabilityDetails?: NetworkReachabilityDetails | undefined;
+
+  /**
+   * <p>An object that contains the details of a package vulnerability finding.</p>
+   * @public
+   */
+  packageVulnerabilityDetails?: PackageVulnerabilityDetails | undefined;
+
+  /**
+   * <p>Details on whether a fix is available through a version update. This value can be
+   *             <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code> fix
+   *          means that some, but not all, of the packages identified in the finding have fixes
+   *          available through updated versions.</p>
+   * @public
+   */
+  fixAvailable?: FixAvailable | undefined;
+
+  /**
+   * <p>If a finding discovered in your environment has an exploit available.</p>
+   * @public
+   */
+  exploitAvailable?: ExploitAvailable | undefined;
+
+  /**
+   * <p>The details of an exploit available for a finding discovered in your environment.</p>
+   * @public
+   */
+  exploitabilityDetails?: ExploitabilityDetails | undefined;
+
+  /**
+   * <p>Details about the code vulnerability identified in a Lambda function used to filter
+   *          findings.</p>
+   * @public
+   */
+  codeVulnerabilityDetails?: CodeVulnerabilityDetails | undefined;
+
+  /**
+   * <p>The finding's EPSS score.</p>
+   * @public
+   */
+  epss?: EpssDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanReportRequest {
+  /**
+   * <p>The scan ARN.</p>
+   * @public
+   */
+  scanArn: string | undefined;
+
+  /**
+   * <p>The target accounts.</p>
+   * @public
+   */
+  targetAccounts?: string[] | undefined;
+
+  /**
+   * <p> The format of the report. Valid values are <code>PDF</code> and <code>CSV</code>. If no
+   *          value is specified, the report format defaults to <code>PDF</code>. </p>
+   * @public
+   */
+  reportFormat?: CisReportFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanReportResponse {
+  /**
+   * <p> The URL where a PDF or CSV of the CIS scan report can be downloaded. </p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  status?: CisReportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanResultDetailsRequest {
+  /**
+   * <p>The scan ARN.</p>
+   * @public
+   */
+  scanArn: string | undefined;
+
+  /**
+   * <p>The target resource ID.</p>
+   * @public
+   */
+  targetResourceId: string | undefined;
+
+  /**
+   * <p>The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: CisScanResultDetailsFilterCriteria | undefined;
+
+  /**
+   * <p>The sort by order.</p>
+   * @public
+   */
+  sortBy?: CisScanResultDetailsSortBy | undefined;
+
+  /**
+   * <p>The sort order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of CIS scan result details to be returned in a single page of
+   *          results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanResultDetailsResponse {
+  /**
+   * <p>The scan result details.</p>
+   * @public
+   */
+  scanResultDetails?: CisScanResultDetails[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClustersForImageRequest {
+  /**
+   * <p>The resource Id for the Amazon ECR image.</p>
+   * @public
+   */
+  filter: ClusterForImageFilterCriteria | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous request used to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClustersForImageResponse {
+  /**
+   * <p>A unit of work inside of a cluster, which can include metadata about the cluster.</p>
+   * @public
+   */
+  cluster: ClusterInformation[] | undefined;
+
+  /**
+   * <p>The pagination token from a previous request used to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSecurityIntegrationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the code security integration to retrieve.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+
+  /**
+   * <p>The tags associated with the code security integration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSecurityIntegrationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the code security integration.</p>
+   * @public
+   */
+  integrationArn: string | undefined;
+
+  /**
+   * <p>The name of the code security integration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of repository provider for the integration.</p>
+   * @public
+   */
+  type: IntegrationType | undefined;
+
+  /**
+   * <p>The current status of the code security integration.</p>
+   * @public
+   */
+  status: IntegrationStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the code security integration.</p>
+   * @public
+   */
+  statusReason: string | undefined;
+
+  /**
+   * <p>The timestamp when the code security integration was created.</p>
+   * @public
+   */
+  createdOn: Date | undefined;
+
+  /**
+   * <p>The timestamp when the code security integration was last updated.</p>
+   * @public
+   */
+  lastUpdateOn: Date | undefined;
+
+  /**
+   * <p>The tags associated with the code security integration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The URL used to authorize the integration with the repository provider. This is only
+   *          returned if reauthorization is required to fix a connection issue. Otherwise, it is
+   *          null.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSecurityScanRequest {
+  /**
+   * <p>The resource identifier for the code repository that was scanned.</p>
+   * @public
+   */
+  resource: CodeSecurityResource | undefined;
+
+  /**
+   * <p>The unique identifier of the scan to retrieve.</p>
+   * @public
+   */
+  scanId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSecurityScanResponse {
+  /**
+   * <p>The unique identifier of the scan.</p>
+   * @public
+   */
+  scanId?: string | undefined;
+
+  /**
+   * <p>The resource identifier for the code repository that was scanned.</p>
+   * @public
+   */
+  resource?: CodeSecurityResource | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the scan.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The current status of the scan.</p>
+   * @public
+   */
+  status?: CodeScanStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the scan.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp when the scan was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the scan was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the last commit that was scanned. This is only returned if the scan
+   *          was successful or skipped.</p>
+   * @public
+   */
+  lastCommitId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSecurityScanConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration to retrieve.</p>
+   * @public
+   */
+  scanConfigurationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSecurityScanConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scan configuration.</p>
+   * @public
+   */
+  scanConfigurationArn?: string | undefined;
+
+  /**
+   * <p>The name of the scan configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The configuration settings for the code security scan.</p>
+   * @public
+   */
+  configuration?: CodeSecurityScanConfiguration | undefined;
+
+  /**
+   * <p>The security level for the scan configuration.</p>
+   * @public
+   */
+  level?: ConfigurationLevel | undefined;
+
+  /**
+   * <p>The scope settings that define which repositories will be scanned. If the
+   *             <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies
+   *          to all existing and future projects imported into Amazon Inspector.</p>
+   * @public
+   */
+  scopeSettings?: ScopeSettings | undefined;
+
+  /**
+   * <p>The timestamp when the scan configuration was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the scan configuration was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags associated with the scan configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface GetConfigurationResponse {
+  /**
+   * <p>Specifies how the ECR automated re-scan duration is currently configured for your
+   *          environment.</p>
+   * @public
+   */
+  ecrConfiguration?: EcrConfigurationState | undefined;
+
+  /**
+   * <p>Specifies how the Amazon EC2 automated scan mode is currently configured for your
+   *          environment.</p>
+   * @public
+   */
+  ec2Configuration?: Ec2ConfigurationState | undefined;
 }

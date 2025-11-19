@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateChatControlsConfigurationRequest, UpdateChatControlsConfigurationResponse } from "../models/models_1";
+import { UpdateChatControlsConfigurationRequest } from "../models/models_0";
+import { UpdateChatControlsConfigurationResponse } from "../models/models_1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { UpdateChatControlsConfiguration } from "../schemas/schemas_0";
 

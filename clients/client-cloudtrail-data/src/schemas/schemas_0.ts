@@ -44,7 +44,7 @@ import {
   DuplicatedAuditEventId as __DuplicatedAuditEventId,
   InvalidChannelARN as __InvalidChannelARN,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

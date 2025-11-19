@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { SendDataToMulticastGroupRequest, SendDataToMulticastGroupResponse } from "../models/models_1";
+import { SendDataToMulticastGroupRequest, SendDataToMulticastGroupResponse } from "../models/models_0";
 import { SendDataToMulticastGroup } from "../schemas/schemas_0";
 
 /**

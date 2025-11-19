@@ -1,27 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { EventBridgeServiceException as __BaseException } from "./EventBridgeServiceException";
-
-/**
- * <p>You do not have the necessary permissions for this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  ApiDestinationHttpMethod,
+  ApiDestinationState,
+  ArchiveState,
+  AssignPublicIp,
+  ConnectionAuthorizationType,
+  ConnectionOAuthHttpMethod,
+  ConnectionState,
+  EndpointState,
+  EventSourceState,
+  IncludeDetail,
+  LaunchType,
+  Level,
+  PlacementConstraintType,
+  PlacementStrategyType,
+  PropagateTags,
+  ReplayState,
+  ReplicationState,
+  RuleState,
+} from "./enums";
 
 /**
  * @public
@@ -33,139 +30,6 @@ export interface ActivateEventSourceRequest {
    */
   Name: string | undefined;
 }
-
-/**
- * <p>There is concurrent modification on a rule, target, archive, or replay.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
- * <p>This exception occurs due to unexpected causes.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-  }
-}
-
-/**
- * <p>The specified state is not a valid state for an event source.</p>
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name: "InvalidStateException" = "InvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-  }
-}
-
-/**
- * <p>The operation you are attempting is not available in this region.</p>
- * @public
- */
-export class OperationDisabledException extends __BaseException {
-  readonly name: "OperationDisabledException" = "OperationDisabledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationDisabledException, __BaseException>) {
-    super({
-      name: "OperationDisabledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationDisabledException.prototype);
-  }
-}
-
-/**
- * <p>An entity that you specified does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApiDestinationState = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ApiDestinationState = (typeof ApiDestinationState)[keyof typeof ApiDestinationState];
-
-/**
- * @public
- * @enum
- */
-export const ApiDestinationHttpMethod = {
-  DELETE: "DELETE",
-  GET: "GET",
-  HEAD: "HEAD",
-  OPTIONS: "OPTIONS",
-  PATCH: "PATCH",
-  POST: "POST",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type ApiDestinationHttpMethod = (typeof ApiDestinationHttpMethod)[keyof typeof ApiDestinationHttpMethod];
 
 /**
  * <p>Contains details about an API destination.</p>
@@ -243,24 +107,6 @@ export interface AppSyncParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const ArchiveState = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ArchiveState = (typeof ArchiveState)[keyof typeof ArchiveState];
-
-/**
  * <p>An <code>Archive</code> object that contains details about an archive.</p>
  * @public
  */
@@ -317,20 +163,6 @@ export interface Archive {
 
 /**
  * @public
- * @enum
- */
-export const AssignPublicIp = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp];
-
-/**
- * @public
  */
 export interface CancelReplayRequest {
   /**
@@ -339,24 +171,6 @@ export interface CancelReplayRequest {
    */
   ReplayName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplayState = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-} as const;
-
-/**
- * @public
- */
-export type ReplayState = (typeof ReplayState)[keyof typeof ReplayState];
 
 /**
  * @public
@@ -379,27 +193,6 @@ export interface CancelReplayResponse {
    * @public
    */
   StateReason?: string | undefined;
-}
-
-/**
- * <p>An error occurred because a replay can be canceled only when the state is Running or
- *       Starting.</p>
- * @public
- */
-export class IllegalStatusException extends __BaseException {
-  readonly name: "IllegalStatusException" = "IllegalStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalStatusException, __BaseException>) {
-    super({
-      name: "IllegalStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalStatusException.prototype);
-  }
 }
 
 /**
@@ -471,47 +264,6 @@ export interface CreateApiDestinationResponse {
    * @public
    */
   LastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The resource you are trying to create already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
 }
 
 /**
@@ -595,42 +347,6 @@ export interface CreateArchiveResponse {
    */
   CreationTime?: Date | undefined;
 }
-
-/**
- * <p>The event pattern is not valid.</p>
- * @public
- */
-export class InvalidEventPatternException extends __BaseException {
-  readonly name: "InvalidEventPatternException" = "InvalidEventPatternException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEventPatternException, __BaseException>) {
-    super({
-      name: "InvalidEventPatternException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEventPatternException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConnectionAuthorizationType = {
-  API_KEY: "API_KEY",
-  BASIC: "BASIC",
-  OAUTH_CLIENT_CREDENTIALS: "OAUTH_CLIENT_CREDENTIALS",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionAuthorizationType =
-  (typeof ConnectionAuthorizationType)[keyof typeof ConnectionAuthorizationType];
 
 /**
  * <p>The API key authorization parameters for the connection.</p>
@@ -812,21 +528,6 @@ export interface CreateConnectionOAuthClientRequestParameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectionOAuthHttpMethod = {
-  GET: "GET",
-  POST: "POST",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionOAuthHttpMethod = (typeof ConnectionOAuthHttpMethod)[keyof typeof ConnectionOAuthHttpMethod];
-
-/**
  * <p>Contains the OAuth authorization parameters to use for the connection.</p>
  * @public
  */
@@ -961,27 +662,6 @@ export interface CreateConnectionRequest {
 
 /**
  * @public
- * @enum
- */
-export const ConnectionState = {
-  ACTIVE: "ACTIVE",
-  AUTHORIZED: "AUTHORIZED",
-  AUTHORIZING: "AUTHORIZING",
-  CREATING: "CREATING",
-  DEAUTHORIZED: "DEAUTHORIZED",
-  DEAUTHORIZING: "DEAUTHORIZING",
-  DELETING: "DELETING",
-  FAILED_CONNECTIVITY: "FAILED_CONNECTIVITY",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
-
-/**
- * @public
  */
 export interface CreateConnectionResponse {
   /**
@@ -1010,26 +690,6 @@ export interface CreateConnectionResponse {
 }
 
 /**
- * <p>This request cannot be completed due to throttling issues.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>The event buses the endpoint is associated with.</p>
  * @public
  */
@@ -1040,20 +700,6 @@ export interface EndpointEventBus {
    */
   EventBusArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationState = (typeof ReplicationState)[keyof typeof ReplicationState];
 
 /**
  * <p>Endpoints can replicate all events to the secondary Region.</p>
@@ -1175,25 +821,6 @@ export interface CreateEndpointRequest {
 
 /**
  * @public
- * @enum
- */
-export const EndpointState = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
-
-/**
- * @public
  */
 export interface CreateEndpointResponse {
   /**
@@ -1253,36 +880,6 @@ export interface DeadLetterConfig {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IncludeDetail = {
-  FULL: "FULL",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type IncludeDetail = (typeof IncludeDetail)[keyof typeof IncludeDetail];
-
-/**
- * @public
- * @enum
- */
-export const Level = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  OFF: "OFF",
-  TRACE: "TRACE",
-} as const;
-
-/**
- * @public
- */
-export type Level = (typeof Level)[keyof typeof Level];
 
 /**
  * <p>The logging configuration settings for the event bus.</p>
@@ -1697,31 +1294,6 @@ export interface DeleteRuleRequest {
    * @public
    */
   Force?: boolean | undefined;
-}
-
-/**
- * <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
- *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
- *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
- *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
- *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
- *         <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
- * @public
- */
-export class ManagedRuleException extends __BaseException {
-  readonly name: "ManagedRuleException" = "ManagedRuleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ManagedRuleException, __BaseException>) {
-    super({
-      name: "ManagedRuleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ManagedRuleException.prototype);
-  }
 }
 
 /**
@@ -2336,21 +1908,6 @@ export interface DescribeEventSourceRequest {
 
 /**
  * @public
- * @enum
- */
-export const EventSourceState = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type EventSourceState = (typeof EventSourceState)[keyof typeof EventSourceState];
-
-/**
- * @public
  */
 export interface DescribeEventSourceResponse {
   /**
@@ -2546,21 +2103,6 @@ export interface DescribeRuleRequest {
    */
   EventBusName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS: "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS",
-} as const;
-
-/**
- * @public
- */
-export type RuleState = (typeof RuleState)[keyof typeof RuleState];
 
 /**
  * @public
@@ -3863,21 +3405,6 @@ export interface CapacityProviderStrategyItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const LaunchType = {
-  EC2: "EC2",
-  EXTERNAL: "EXTERNAL",
-  FARGATE: "FARGATE",
-} as const;
-
-/**
- * @public
- */
-export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
-
-/**
  * <p>This structure specifies the VPC subnets and security groups for the task, and whether a
  *       public IP address is to be used. This structure is relevant only for ECS tasks that use the
  *         <code>awsvpc</code> network mode.</p>
@@ -3923,20 +3450,6 @@ export interface NetworkConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PlacementConstraintType = {
-  DISTINCT_INSTANCE: "distinctInstance",
-  MEMBER_OF: "memberOf",
-} as const;
-
-/**
- * @public
- */
-export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
-
-/**
  * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer Guide.</p>
  * @public
  */
@@ -3956,21 +3469,6 @@ export interface PlacementConstraint {
    */
   expression?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PlacementStrategyType = {
-  BINPACK: "binpack",
-  RANDOM: "random",
-  SPREAD: "spread",
-} as const;
-
-/**
- * @public
- */
-export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof PlacementStrategyType];
 
 /**
  * <p>The task placement strategy for a task or service. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the Amazon Elastic Container Service Service Developer
@@ -3999,19 +3497,6 @@ export interface PlacementStrategy {
    */
   field?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PropagateTags = {
-  TASK_DEFINITION: "TASK_DEFINITION",
-} as const;
-
-/**
- * @public
- */
-export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
 
 /**
  * <p>The custom parameters to be used when the target is an Amazon ECS task.</p>
@@ -4938,26 +4423,6 @@ export interface PutPartnerEventsResponse {
    * @public
    */
   Entries?: PutPartnerEventsResultEntry[] | undefined;
-}
-
-/**
- * <p>The event bus policy is too long. For more information, see the limits.</p>
- * @public
- */
-export class PolicyLengthExceededException extends __BaseException {
-  readonly name: "PolicyLengthExceededException" = "PolicyLengthExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyLengthExceededException, __BaseException>) {
-    super({
-      name: "PolicyLengthExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyLengthExceededException.prototype);
-  }
 }
 
 /**

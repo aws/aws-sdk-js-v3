@@ -1,7 +1,19 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DetectiveServiceException as __BaseException } from "./DetectiveServiceException";
+import {
+  DatasourcePackage,
+  DatasourcePackageIngestState,
+  EntityType,
+  Field,
+  IndicatorType,
+  InvitationType,
+  MemberDisabledReason,
+  MemberStatus,
+  Reason,
+  Severity,
+  SortOrder,
+  State,
+  Status,
+} from "./enums";
 
 /**
  * @public
@@ -14,172 +26,6 @@ export interface AcceptInvitationRequest {
    * @public
    */
   GraphArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  InternalError: "INTERNAL_ERROR",
-  InvalidGraphArn: "INVALID_GRAPH_ARN",
-  InvalidRequestBody: "INVALID_REQUEST_BODY",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
- * <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The SDK default error code associated with the access denied exception.</p>
-   * @public
-   */
-  ErrorCode?: ErrorCode | undefined;
-
-  /**
-   * <p>The SDK default explanation of why access was denied.</p>
-   * @public
-   */
-  ErrorCodeReason?: string | undefined;
-
-  /**
-   * <p>The error code associated with the access denied exception.</p>
-   * @public
-   */
-  SubErrorCode?: ErrorCode | undefined;
-
-  /**
-   * <p> An explanation of why access was denied.</p>
-   * @public
-   */
-  SubErrorCodeReason?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.ErrorCode = opts.ErrorCode;
-    this.ErrorCodeReason = opts.ErrorCodeReason;
-    this.SubErrorCode = opts.SubErrorCode;
-    this.SubErrorCodeReason = opts.SubErrorCodeReason;
-  }
-}
-
-/**
- * <p>The request attempted an invalid action.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was valid but failed because of a problem with the service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request refers to a nonexistent resource.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request parameters are invalid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The error code associated with the validation failure.</p>
-   * @public
-   */
-  ErrorCode?: ErrorCode | undefined;
-
-  /**
-   * <p> An explanation of why validation failed.</p>
-   * @public
-   */
-  ErrorCodeReason?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.ErrorCode = opts.ErrorCode;
-    this.ErrorCodeReason = opts.ErrorCodeReason;
-  }
 }
 
 /**
@@ -247,37 +93,6 @@ export interface BatchGetGraphMemberDatasourcesRequest {
    */
   AccountIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatasourcePackage = {
-  ASFF_SECURITYHUB_FINDING: "ASFF_SECURITYHUB_FINDING",
-  DETECTIVE_CORE: "DETECTIVE_CORE",
-  EKS_AUDIT: "EKS_AUDIT",
-} as const;
-
-/**
- * @public
- */
-export type DatasourcePackage = (typeof DatasourcePackage)[keyof typeof DatasourcePackage];
-
-/**
- * @public
- * @enum
- */
-export const DatasourcePackageIngestState = {
-  DISABLED: "DISABLED",
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type DatasourcePackageIngestState =
-  (typeof DatasourcePackageIngestState)[keyof typeof DatasourcePackageIngestState];
 
 /**
  * <p>Details on when data collection began for a source package.</p>
@@ -427,44 +242,6 @@ export interface CreateGraphResponse {
 }
 
 /**
- * <p>This request cannot be completed for one of the following reasons.</p>
- *          <ul>
- *             <li>
- *                <p>This request cannot be completed if it would cause the number of member accounts in the
- *             behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200
- *             member accounts.</p>
- *             </li>
- *             <li>
- *                <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The type of resource that has exceeded the service quota.</p>
-   * @public
-   */
-  Resources?: string[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.Resources = opts.Resources;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateMembersRequest {
@@ -501,51 +278,6 @@ export interface CreateMembersRequest {
    */
   Accounts: Account[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MemberDisabledReason = {
-  VOLUME_TOO_HIGH: "VOLUME_TOO_HIGH",
-  VOLUME_UNKNOWN: "VOLUME_UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type MemberDisabledReason = (typeof MemberDisabledReason)[keyof typeof MemberDisabledReason];
-
-/**
- * @public
- * @enum
- */
-export const InvitationType = {
-  INVITATION: "INVITATION",
-  ORGANIZATION: "ORGANIZATION",
-} as const;
-
-/**
- * @public
- */
-export type InvitationType = (typeof InvitationType)[keyof typeof InvitationType];
-
-/**
- * @public
- * @enum
- */
-export const MemberStatus = {
-  ACCEPTED_BUT_DISABLED: "ACCEPTED_BUT_DISABLED",
-  ENABLED: "ENABLED",
-  INVITED: "INVITED",
-  VERIFICATION_FAILED: "VERIFICATION_FAILED",
-  VERIFICATION_IN_PROGRESS: "VERIFICATION_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
 
 /**
  * <p>Information on the usage of a data source package in the behavior graph.</p>
@@ -845,29 +577,6 @@ export interface DescribeOrganizationConfigurationResponse {
 }
 
 /**
- * <p>The request cannot be completed because too many other requests are occurring at the
- *          same time.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DisassociateMembershipRequest {
@@ -907,66 +616,6 @@ export interface GetInvestigationRequest {
    */
   InvestigationId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  IAM_ROLE: "IAM_ROLE",
-  IAM_USER: "IAM_USER",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
-
-/**
- * @public
- * @enum
- */
-export const Severity = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type Severity = (typeof Severity)[keyof typeof Severity];
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -1199,26 +848,6 @@ export interface ListGraphsResponse {
 
 /**
  * @public
- * @enum
- */
-export const IndicatorType = {
-  FLAGGED_IP_ADDRESS: "FLAGGED_IP_ADDRESS",
-  IMPOSSIBLE_TRAVEL: "IMPOSSIBLE_TRAVEL",
-  NEW_ASO: "NEW_ASO",
-  NEW_GEOLOCATION: "NEW_GEOLOCATION",
-  NEW_USER_AGENT: "NEW_USER_AGENT",
-  RELATED_FINDING: "RELATED_FINDING",
-  RELATED_FINDING_GROUP: "RELATED_FINDING_GROUP",
-  TTP_OBSERVED: "TTP_OBSERVED",
-} as const;
-
-/**
- * @public
- */
-export type IndicatorType = (typeof IndicatorType)[keyof typeof IndicatorType];
-
-/**
- * @public
  */
 export interface ListIndicatorsRequest {
   /**
@@ -1252,19 +881,6 @@ export interface ListIndicatorsRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Reason = {
-  AWS_THREAT_INTELLIGENCE: "AWS_THREAT_INTELLIGENCE",
-} as const;
-
-/**
- * @public
- */
-export type Reason = (typeof Reason)[keyof typeof Reason];
 
 /**
  * <p>Contains information on suspicious IP addresses identified as indicators of compromise. This indicator is derived from Amazon Web Services threat intelligence.</p>
@@ -1636,35 +1252,6 @@ export interface FilterCriteria {
    */
   CreatedTime?: DateFilter | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Field = {
-  CREATED_TIME: "CREATED_TIME",
-  SEVERITY: "SEVERITY",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type Field = (typeof Field)[keyof typeof Field];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * <p>Details about the criteria used for sorting investigations.</p>

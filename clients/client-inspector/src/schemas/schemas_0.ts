@@ -342,7 +342,7 @@ import {
   PreviewGenerationInProgressException as __PreviewGenerationInProgressException,
   ServiceTemporarilyUnavailableException as __ServiceTemporarilyUnavailableException,
   UnsupportedFeatureException as __UnsupportedFeatureException,
-} from "../models/index";
+} from "../models/errors";
 import { InspectorServiceException as __InspectorServiceException } from "../models/InspectorServiceException";
 
 /* eslint no-var: 0 */

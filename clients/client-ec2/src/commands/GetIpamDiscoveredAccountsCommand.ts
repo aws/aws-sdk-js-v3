@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIpamDiscoveredAccountsRequest, GetIpamDiscoveredAccountsResult } from "../models/models_7";
+import { GetIpamDiscoveredAccountsRequest, GetIpamDiscoveredAccountsResult } from "../models/models_5";
 import { GetIpamDiscoveredAccounts } from "../schemas/schemas_0";
 
 /**

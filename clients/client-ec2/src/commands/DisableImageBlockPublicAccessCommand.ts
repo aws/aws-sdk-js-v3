@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableImageBlockPublicAccessRequest, DisableImageBlockPublicAccessResult } from "../models/models_6";
+import { DisableImageBlockPublicAccessRequest, DisableImageBlockPublicAccessResult } from "../models/models_5";
 import { DisableImageBlockPublicAccess } from "../schemas/schemas_0";
 
 /**

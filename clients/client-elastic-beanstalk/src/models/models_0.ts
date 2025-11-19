@@ -1,7 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ElasticBeanstalkSyntheticServiceException as __BaseException } from "./ElasticBeanstalkSyntheticServiceException";
+import {
+  ActionHistoryStatus,
+  ActionStatus,
+  ActionType,
+  ApplicationVersionStatus,
+  ComputeType,
+  ConfigurationDeploymentStatus,
+  ConfigurationOptionValueType,
+  EnvironmentHealth,
+  EnvironmentHealthAttribute,
+  EnvironmentHealthStatus,
+  EnvironmentInfoType,
+  EnvironmentStatus,
+  EventSeverity,
+  FailureType,
+  InstancesHealthAttribute,
+  PlatformStatus,
+  SourceRepository,
+  SourceType,
+  ValidationSeverity,
+} from "./enums";
 
 /**
  * <p></p>
@@ -22,73 +40,6 @@ export interface AbortEnvironmentUpdateMessage {
    */
   EnvironmentName?: string | undefined;
 }
-
-/**
- * <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
- * @public
- */
-export class InsufficientPrivilegesException extends __BaseException {
-  readonly name: "InsufficientPrivilegesException" = "InsufficientPrivilegesException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientPrivilegesException, __BaseException>) {
-    super({
-      name: "InsufficientPrivilegesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientPrivilegesException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionHistoryStatus = {
-  Completed: "Completed",
-  Failed: "Failed",
-  Unknown: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type ActionHistoryStatus = (typeof ActionHistoryStatus)[keyof typeof ActionHistoryStatus];
-
-/**
- * @public
- * @enum
- */
-export const ActionStatus = {
-  Pending: "Pending",
-  Running: "Running",
-  Scheduled: "Scheduled",
-  Unknown: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
-
-/**
- * @public
- * @enum
- */
-export const ActionType = {
-  InstanceRefresh: "InstanceRefresh",
-  PlatformUpdate: "PlatformUpdate",
-  Unknown: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * <p>A lifecycle rule that deletes application versions after the specified number of
@@ -428,34 +379,6 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceRepository = {
-  CodeCommit: "CodeCommit",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type SourceRepository = (typeof SourceRepository)[keyof typeof SourceRepository];
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  Git: "Git",
-  Zip: "Zip",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
-
-/**
  * <p>Location of the source code for an application version.</p>
  * @public
  */
@@ -535,23 +458,6 @@ export interface S3Location {
    */
   S3Key?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationVersionStatus = {
-  Building: "Building",
-  Failed: "Failed",
-  Processed: "Processed",
-  Processing: "Processing",
-  Unprocessed: "Unprocessed",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationVersionStatus = (typeof ApplicationVersionStatus)[keyof typeof ApplicationVersionStatus];
 
 /**
  * <p>Describes the properties of an application version.</p>
@@ -737,46 +643,6 @@ export interface ApplyEnvironmentManagedActionResult {
 }
 
 /**
- * <p>A generic service exception has occurred.</p>
- * @public
- */
-export class ElasticBeanstalkServiceException extends __BaseException {
-  readonly name: "ElasticBeanstalkServiceException" = "ElasticBeanstalkServiceException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ElasticBeanstalkServiceException, __BaseException>) {
-    super({
-      name: "ElasticBeanstalkServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ElasticBeanstalkServiceException.prototype);
-  }
-}
-
-/**
- * <p>Cannot modify the managed action in its current state.</p>
- * @public
- */
-export class ManagedActionInvalidStateException extends __BaseException {
-  readonly name: "ManagedActionInvalidStateException" = "ManagedActionInvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ManagedActionInvalidStateException, __BaseException>) {
-    super({
-      name: "ManagedActionInvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ManagedActionInvalidStateException.prototype);
-  }
-}
-
-/**
  * <p>Request to add or change the operations role used by an environment.</p>
  * @public
  */
@@ -918,43 +784,6 @@ export interface EnvironmentLink {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnvironmentHealth = {
-  Green: "Green",
-  Grey: "Grey",
-  Red: "Red",
-  Yellow: "Yellow",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentHealth = (typeof EnvironmentHealth)[keyof typeof EnvironmentHealth];
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentHealthStatus = {
-  Degraded: "Degraded",
-  Info: "Info",
-  NoData: "NoData",
-  Ok: "Ok",
-  Pending: "Pending",
-  Severe: "Severe",
-  Suspended: "Suspended",
-  Unknown: "Unknown",
-  Warning: "Warning",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentHealthStatus = (typeof EnvironmentHealthStatus)[keyof typeof EnvironmentHealthStatus];
-
-/**
  * <p>Describes the properties of a Listener for the LoadBalancer.</p>
  * @public
  */
@@ -1008,26 +837,6 @@ export interface EnvironmentResourcesDescription {
    */
   LoadBalancer?: LoadBalancerDescription | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentStatus = {
-  Aborting: "Aborting",
-  Launching: "Launching",
-  LinkingFrom: "LinkingFrom",
-  LinkingTo: "LinkingTo",
-  Ready: "Ready",
-  Terminated: "Terminated",
-  Terminating: "Terminating",
-  Updating: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
 /**
  * <p>Describes the properties of an environment tier</p>
@@ -1291,26 +1100,6 @@ export interface EnvironmentDescriptionsMessage {
 }
 
 /**
- * <p>The specified account has reached its limit of environments.</p>
- * @public
- */
-export class TooManyEnvironmentsException extends __BaseException {
-  readonly name: "TooManyEnvironmentsException" = "TooManyEnvironmentsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyEnvironmentsException, __BaseException>) {
-    super({
-      name: "TooManyEnvironmentsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyEnvironmentsException.prototype);
-  }
-}
-
-/**
  * <p>Describes a tag applied to a resource in an environment.</p>
  * @public
  */
@@ -1360,61 +1149,6 @@ export interface CreateApplicationMessage {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * <p>The specified account has reached its limit of applications.</p>
- * @public
- */
-export class TooManyApplicationsException extends __BaseException {
-  readonly name: "TooManyApplicationsException" = "TooManyApplicationsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyApplicationsException, __BaseException>) {
-    super({
-      name: "TooManyApplicationsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyApplicationsException.prototype);
-  }
-}
-
-/**
- * <p>AWS CodeBuild is not available in the specified region.</p>
- * @public
- */
-export class CodeBuildNotInServiceRegionException extends __BaseException {
-  readonly name: "CodeBuildNotInServiceRegionException" = "CodeBuildNotInServiceRegionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CodeBuildNotInServiceRegionException, __BaseException>) {
-    super({
-      name: "CodeBuildNotInServiceRegionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CodeBuildNotInServiceRegionException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ComputeType = {
-  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
-} as const;
-
-/**
- * @public
- */
-export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * <p>Settings for an AWS CodeBuild build.</p>
@@ -1562,74 +1296,6 @@ export interface CreateApplicationVersionMessage {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * <p>The specified S3 bucket does not belong to the S3 region in which the service is
- *       running. The following regions are supported:</p>
- *          <ul>
- *             <li>
- *                <p>IAD/us-east-1</p>
- *             </li>
- *             <li>
- *                <p>PDX/us-west-2</p>
- *             </li>
- *             <li>
- *                <p>DUB/eu-west-1</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class S3LocationNotInServiceRegionException extends __BaseException {
-  readonly name: "S3LocationNotInServiceRegionException" = "S3LocationNotInServiceRegionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<S3LocationNotInServiceRegionException, __BaseException>) {
-    super({
-      name: "S3LocationNotInServiceRegionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, S3LocationNotInServiceRegionException.prototype);
-  }
-}
-
-/**
- * <p>The specified account has reached its limit of application versions.</p>
- * @public
- */
-export class TooManyApplicationVersionsException extends __BaseException {
-  readonly name: "TooManyApplicationVersionsException" = "TooManyApplicationVersionsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyApplicationVersionsException, __BaseException>) {
-    super({
-      name: "TooManyApplicationVersionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyApplicationVersionsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationDeploymentStatus = {
-  deployed: "deployed",
-  failed: "failed",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationDeploymentStatus =
-  (typeof ConfigurationDeploymentStatus)[keyof typeof ConfigurationDeploymentStatus];
 
 /**
  * <p>A specification identifying an individual configuration option along with its current
@@ -1869,46 +1535,6 @@ export interface CreateConfigurationTemplateMessage {
 }
 
 /**
- * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
- * @public
- */
-export class TooManyBucketsException extends __BaseException {
-  readonly name: "TooManyBucketsException" = "TooManyBucketsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyBucketsException, __BaseException>) {
-    super({
-      name: "TooManyBucketsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyBucketsException.prototype);
-  }
-}
-
-/**
- * <p>The specified account has reached its limit of configuration templates.</p>
- * @public
- */
-export class TooManyConfigurationTemplatesException extends __BaseException {
-  readonly name: "TooManyConfigurationTemplatesException" = "TooManyConfigurationTemplatesException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyConfigurationTemplatesException, __BaseException>) {
-    super({
-      name: "TooManyConfigurationTemplatesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyConfigurationTemplatesException.prototype);
-  }
-}
-
-/**
  * <p>A specification identifying an individual configuration option.</p>
  * @public
  */
@@ -2118,23 +1744,6 @@ export interface Builder {
 }
 
 /**
- * @public
- * @enum
- */
-export const PlatformStatus = {
-  Creating: "Creating",
-  Deleted: "Deleted",
-  Deleting: "Deleting",
-  Failed: "Failed",
-  Ready: "Ready",
-} as const;
-
-/**
- * @public
- */
-export type PlatformStatus = (typeof PlatformStatus)[keyof typeof PlatformStatus];
-
-/**
  * <p>Summary information about a platform version.</p>
  * @public
  */
@@ -2237,26 +1846,6 @@ export interface CreatePlatformVersionResult {
 }
 
 /**
- * <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
- * @public
- */
-export class TooManyPlatformsException extends __BaseException {
-  readonly name: "TooManyPlatformsException" = "TooManyPlatformsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyPlatformsException, __BaseException>) {
-    super({
-      name: "TooManyPlatformsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyPlatformsException.prototype);
-  }
-}
-
-/**
  * <p>Results of a <a>CreateStorageLocationResult</a> call.</p>
  * @public
  */
@@ -2266,26 +1855,6 @@ export interface CreateStorageLocationResultMessage {
    * @public
    */
   S3Bucket?: string | undefined;
-}
-
-/**
- * <p>The specified account does not have a subscription to Amazon S3.</p>
- * @public
- */
-export class S3SubscriptionRequiredException extends __BaseException {
-  readonly name: "S3SubscriptionRequiredException" = "S3SubscriptionRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<S3SubscriptionRequiredException, __BaseException>) {
-    super({
-      name: "S3SubscriptionRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, S3SubscriptionRequiredException.prototype);
-  }
 }
 
 /**
@@ -2305,27 +1874,6 @@ export interface DeleteApplicationMessage {
    * @public
    */
   TerminateEnvByForce?: boolean | undefined;
-}
-
-/**
- * <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
- * @public
- */
-export class OperationInProgressException extends __BaseException {
-  readonly name: "OperationInProgressException" = "OperationInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationInProgressException, __BaseException>) {
-    super({
-      name: "OperationInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationInProgressException.prototype);
-  }
 }
 
 /**
@@ -2352,27 +1900,6 @@ export interface DeleteApplicationVersionMessage {
    * @public
    */
   DeleteSourceBundle?: boolean | undefined;
-}
-
-/**
- * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
- *       The application version was deleted successfully.</p>
- * @public
- */
-export class SourceBundleDeletionException extends __BaseException {
-  readonly name: "SourceBundleDeletionException" = "SourceBundleDeletionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceBundleDeletionException, __BaseException>) {
-    super({
-      name: "SourceBundleDeletionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceBundleDeletionException.prototype);
-  }
 }
 
 /**
@@ -2431,26 +1958,6 @@ export interface DeletePlatformVersionResult {
    * @public
    */
   PlatformSummary?: PlatformSummary | undefined;
-}
-
-/**
- * <p>You cannot delete the platform version because there are still environments running on it.</p>
- * @public
- */
-export class PlatformVersionStillReferencedException extends __BaseException {
-  readonly name: "PlatformVersionStillReferencedException" = "PlatformVersionStillReferencedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PlatformVersionStillReferencedException, __BaseException>) {
-    super({
-      name: "PlatformVersionStillReferencedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PlatformVersionStillReferencedException.prototype);
-  }
 }
 
 /**
@@ -2583,21 +2090,6 @@ export interface OptionRestrictionRegex {
    */
   Label?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationOptionValueType = {
-  List: "List",
-  Scalar: "Scalar",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationOptionValueType =
-  (typeof ConfigurationOptionValueType)[keyof typeof ConfigurationOptionValueType];
 
 /**
  * <p>Describes the possible values for a configuration option.</p>
@@ -2852,26 +2344,6 @@ export interface DescribeConfigurationSettingsMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnvironmentHealthAttribute = {
-  All: "All",
-  ApplicationMetrics: "ApplicationMetrics",
-  Causes: "Causes",
-  Color: "Color",
-  HealthStatus: "HealthStatus",
-  InstancesHealth: "InstancesHealth",
-  RefreshedAt: "RefreshedAt",
-  Status: "Status",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentHealthAttribute = (typeof EnvironmentHealthAttribute)[keyof typeof EnvironmentHealthAttribute];
-
-/**
  * <p>See the example below to learn how to create a request body.</p>
  * @public
  */
@@ -3028,27 +2500,6 @@ export interface DescribeEnvironmentHealthResult {
 }
 
 /**
- * <p>One or more input parameters is not valid. Please correct the input parameters and try
- *       the operation again.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
  * <p>Request to list completed and failed managed actions.</p>
  * @public
  */
@@ -3077,25 +2528,6 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
    */
   MaxItems?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FailureType = {
-  CancellationFailed: "CancellationFailed",
-  InternalFailure: "InternalFailure",
-  InvalidEnvironmentState: "InvalidEnvironmentState",
-  PermissionsError: "PermissionsError",
-  RollbackFailed: "RollbackFailed",
-  RollbackSuccessful: "RollbackSuccessful",
-  UpdateCancelled: "UpdateCancelled",
-} as const;
-
-/**
- * @public
- */
-export type FailureType = (typeof FailureType)[keyof typeof FailureType];
 
 /**
  * <p>The record of a completed or failed managed action.</p>
@@ -3482,24 +2914,6 @@ export interface DescribeEnvironmentsMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventSeverity = {
-  DEBUG: "DEBUG",
-  ERROR: "ERROR",
-  FATAL: "FATAL",
-  INFO: "INFO",
-  TRACE: "TRACE",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type EventSeverity = (typeof EventSeverity)[keyof typeof EventSeverity];
-
-/**
  * <p>Request to retrieve a list of events for an environment.</p>
  * @public
  */
@@ -3666,29 +3080,6 @@ export interface EventDescriptionsMessage {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstancesHealthAttribute = {
-  All: "All",
-  ApplicationMetrics: "ApplicationMetrics",
-  AvailabilityZone: "AvailabilityZone",
-  Causes: "Causes",
-  Color: "Color",
-  Deployment: "Deployment",
-  HealthStatus: "HealthStatus",
-  InstanceType: "InstanceType",
-  LaunchedAt: "LaunchedAt",
-  RefreshedAt: "RefreshedAt",
-  System: "System",
-} as const;
-
-/**
- * @public
- */
-export type InstancesHealthAttribute = (typeof InstancesHealthAttribute)[keyof typeof InstancesHealthAttribute];
 
 /**
  * <p>Parameters for a call to <code>DescribeInstancesHealth</code>.</p>
@@ -4521,26 +3912,6 @@ export interface ListTagsForResourceMessage {
 }
 
 /**
- * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ResourceTagsDescriptionMessage {
@@ -4555,26 +3926,6 @@ export interface ResourceTagsDescriptionMessage {
    * @public
    */
   ResourceTags?: Tag[] | undefined;
-}
-
-/**
- * <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
- * @public
- */
-export class ResourceTypeNotSupportedException extends __BaseException {
-  readonly name: "ResourceTypeNotSupportedException" = "ResourceTypeNotSupportedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceTypeNotSupportedException, __BaseException>) {
-    super({
-      name: "ResourceTypeNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceTypeNotSupportedException.prototype);
-  }
 }
 
 /**
@@ -4600,20 +3951,6 @@ export interface RebuildEnvironmentMessage {
    */
   EnvironmentName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentInfoType = {
-  bundle: "bundle",
-  tail: "tail",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentInfoType = (typeof EnvironmentInfoType)[keyof typeof EnvironmentInfoType];
 
 /**
  * <p>Request to retrieve logs from an environment and store them in your Elastic Beanstalk
@@ -5067,29 +4404,6 @@ export interface UpdateEnvironmentMessage {
 }
 
 /**
- * <p>The number of tags in the resource would exceed the number of tags that each resource
- *       can have.</p>
- *          <p>To calculate this, the operation considers both the number of tags the resource already has
- *       and the tags this operation would add if it succeeded.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface UpdateTagsForResourceMessage {
@@ -5117,20 +4431,6 @@ export interface UpdateTagsForResourceMessage {
    */
   TagsToRemove?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationSeverity = {
-  error: "error",
-  warning: "warning",
-} as const;
-
-/**
- * @public
- */
-export type ValidationSeverity = (typeof ValidationSeverity)[keyof typeof ValidationSeverity];
 
 /**
  * <p>An error or warning for a desired configuration option value.</p>

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetCustomEntityTypeRequest, GetCustomEntityTypeResponse } from "../models/models_2";
+import { GetCustomEntityTypeRequest, GetCustomEntityTypeResponse } from "../models/models_1";
 import { GetCustomEntityType } from "../schemas/schemas_0";
 
 /**

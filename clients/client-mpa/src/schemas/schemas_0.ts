@@ -208,7 +208,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MPAServiceException as __MPAServiceException } from "../models/MPAServiceException";
 
 /* eslint no-var: 0 */

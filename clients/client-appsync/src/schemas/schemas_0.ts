@@ -547,7 +547,7 @@ import {
   NotFoundException as __NotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

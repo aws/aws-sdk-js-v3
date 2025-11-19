@@ -1,42 +1,86 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { BedrockAgentRuntimeServiceException as __BaseException } from "./BedrockAgentRuntimeServiceException";
+import {
+  ActionGroupSignature,
+  ActionInvocationType,
+  AgentCollaboration,
+  AttributeType,
+  ConfirmationState,
+  ConversationRole,
+  CreationMode,
+  CustomControlMethod,
+  ExecutionType,
+  ExternalSourceType,
+  FileSourceType,
+  FileUseCase,
+  FlowCompletionReason,
+  FlowControlNodeType,
+  FlowErrorCode,
+  FlowExecutionErrorType,
+  FlowExecutionEventType,
+  FlowExecutionStatus,
+  FlowNodeInputCategory,
+  FlowNodeIODataType,
+  GeneratedQueryType,
+  GuadrailAction,
+  GuardrailAction,
+  GuardrailContentFilterConfidence,
+  GuardrailContentFilterType,
+  GuardrailContentPolicyAction,
+  GuardrailManagedWordType,
+  GuardrailPiiEntityType,
+  GuardrailSensitiveInformationPolicyAction,
+  GuardrailTopicPolicyAction,
+  GuardrailTopicType,
+  GuardrailWordPolicyAction,
+  ImageFormat,
+  ImageInputFormat,
+  InputQueryType,
+  InvocationType,
+  MemoryType,
+  NodeErrorCode,
+  NodeType,
+  OrchestrationType,
+  ParameterType,
+  PayloadType,
+  PerformanceConfigLatency,
+  PromptState,
+  PromptType,
+  QueryTransformationMode,
+  QueryTransformationType,
+  RelayConversationHistory,
+  RequireConfirmation,
+  RerankDocumentType,
+  RerankingConfigurationType,
+  RerankingMetadataSelectionMode,
+  RerankQueryContentType,
+  RerankSourceType,
+  ResponseState,
+  RetrievalResultContentColumnType,
+  RetrievalResultContentType,
+  RetrievalResultLocationType,
+  RetrieveAndGenerateType,
+  SearchType,
+  SessionStatus,
+  Source,
+  TextToSqlConfigurationType,
+  Type,
+  VectorSearchRerankingConfigurationType,
+} from "./enums";
 
-/**
- * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CustomControlMethod = {
-  RETURN_CONTROL: "RETURN_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type CustomControlMethod = (typeof CustomControlMethod)[keyof typeof CustomControlMethod];
+import {
+  AccessDeniedException,
+  BadGatewayException,
+  ConflictException,
+  DependencyFailedException,
+  InternalServerException,
+  ModelNotReadyException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
+} from "./errors";
 
 /**
  * <p> Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user. </p>
@@ -90,20 +134,6 @@ export namespace ActionGroupExecutor {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionType = {
-  LAMBDA: "LAMBDA",
-  RETURN_CONTROL: "RETURN_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
 
 /**
  * <p>A parameter for the API request or function.</p>
@@ -274,38 +304,6 @@ export interface ActionGroupInvocationOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActionGroupSignature = {
-  AMAZON_CODEINTERPRETER: "AMAZON.CodeInterpreter",
-  AMAZON_USERINPUT: "AMAZON.UserInput",
-  ANTHROPIC_BASH: "ANTHROPIC.Bash",
-  ANTHROPIC_COMPUTER: "ANTHROPIC.Computer",
-  ANTHROPIC_TEXTEDITOR: "ANTHROPIC.TextEditor",
-} as const;
-
-/**
- * @public
- */
-export type ActionGroupSignature = (typeof ActionGroupSignature)[keyof typeof ActionGroupSignature];
-
-/**
- * @public
- * @enum
- */
-export const ActionInvocationType = {
-  RESULT: "RESULT",
-  USER_CONFIRMATION: "USER_CONFIRMATION",
-  USER_CONFIRMATION_AND_RESULT: "USER_CONFIRMATION_AND_RESULT",
-} as const;
-
-/**
- * @public
- */
-export type ActionInvocationType = (typeof ActionInvocationType)[keyof typeof ActionInvocationType];
-
-/**
  * <p> The identifier information for an Amazon S3 bucket. </p>
  * @public
  */
@@ -374,23 +372,6 @@ export namespace APISchema {
 }
 
 /**
- * @public
- * @enum
- */
-export const ParameterType = {
-  ARRAY: "array",
-  BOOLEAN: "boolean",
-  INTEGER: "integer",
-  NUMBER: "number",
-  STRING: "string",
-} as const;
-
-/**
- * @public
- */
-export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
-
-/**
  * <p> Contains details about a parameter in a function for an action group. </p>
  * @public
  */
@@ -413,20 +394,6 @@ export interface ParameterDetail {
    */
   required?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RequireConfirmation = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type RequireConfirmation = (typeof RequireConfirmation)[keyof typeof RequireConfirmation];
 
 /**
  * <p> Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group. </p>
@@ -544,51 +511,6 @@ export interface AgentActionGroup {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentCollaboration = {
-  DISABLED: "DISABLED",
-  SUPERVISOR: "SUPERVISOR",
-  SUPERVISOR_ROUTER: "SUPERVISOR_ROUTER",
-} as const;
-
-/**
- * @public
- */
-export type AgentCollaboration = (typeof AgentCollaboration)[keyof typeof AgentCollaboration];
-
-/**
- * @public
- * @enum
- */
-export const ConfirmationState = {
-  CONFIRM: "CONFIRM",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type ConfirmationState = (typeof ConfirmationState)[keyof typeof ConfirmationState];
-
-/**
- * @public
- * @enum
- */
-export const ImageInputFormat = {
-  GIF: "gif",
-  JPEG: "jpeg",
-  PNG: "png",
-  WEBP: "webp",
-} as const;
-
-/**
- * @public
- */
-export type ImageInputFormat = (typeof ImageInputFormat)[keyof typeof ImageInputFormat];
-
-/**
  * <p>Details about the source of an input image in the result from a function in the action group invocation.</p>
  * @public
  */
@@ -660,20 +582,6 @@ export interface ContentBody {
    */
   images?: ImageInput[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResponseState = {
-  FAILURE: "FAILURE",
-  REPROMPT: "REPROMPT",
-} as const;
-
-/**
- * @public
- */
-export type ResponseState = (typeof ResponseState)[keyof typeof ResponseState];
 
 /**
  * <p>Contains information about the API operation that was called from the action group and the response body that was returned.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a> </p> </li> </ul>
@@ -841,20 +749,6 @@ export interface ReturnControlResults {
    */
   returnControlInvocationResults?: InvocationResultMember[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PayloadType = {
-  RETURN_CONTROL: "RETURN_CONTROL",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
 
 /**
  * <p>Input for an agent collaborator. The input can be text or an action invocation result.</p>
@@ -1295,69 +1189,6 @@ export interface FailureTrace {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailAction = {
-  INTERVENED: "INTERVENED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentPolicyAction = {
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentPolicyAction =
-  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterConfidence = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterConfidence =
-  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailContentFilterType = {
-  HATE: "HATE",
-  INSULTS: "INSULTS",
-  MISCONDUCT: "MISCONDUCT",
-  PROMPT_ATTACK: "PROMPT_ATTACK",
-  SEXUAL: "SEXUAL",
-  VIOLENCE: "VIOLENCE",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
-
-/**
  * <p>Details of the content filter used in the Guardrail.</p>
  * @public
  */
@@ -1392,64 +1223,6 @@ export interface GuardrailContentPolicyAssessment {
    */
   filters?: GuardrailContentFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailSensitiveInformationPolicyAction = {
-  ANONYMIZED: "ANONYMIZED",
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailSensitiveInformationPolicyAction =
-  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailPiiEntityType = {
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY: "AWS_SECRET_KEY",
-  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
-  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
-  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
-  DRIVER_ID: "DRIVER_ID",
-  EMAIL: "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IP_ADDRESS: "IP_ADDRESS",
-  LICENSE_PLATE: "LICENSE_PLATE",
-  MAC_ADDRESS: "MAC_ADDRESS",
-  NAME: "NAME",
-  PASSWORD: "PASSWORD",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SWIFT_CODE: "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL: "URL",
-  USERNAME: "USERNAME",
-  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
-  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
-  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
 
 /**
  * <p>The Guardrail filter to identify and remove personally identifiable information (PII).</p>
@@ -1524,32 +1297,6 @@ export interface GuardrailSensitiveInformationPolicyAssessment {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailTopicPolicyAction = {
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
-
-/**
- * @public
- * @enum
- */
-export const GuardrailTopicType = {
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
-
-/**
  * <p>The details for a specific topic defined in the Guardrail.</p>
  * @public
  */
@@ -1586,19 +1333,6 @@ export interface GuardrailTopicPolicyAssessment {
 }
 
 /**
- * @public
- * @enum
- */
-export const GuardrailWordPolicyAction = {
-  BLOCKED: "BLOCKED",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
-
-/**
  * <p>The custom word details for the filter in the Guardrail.</p>
  * @public
  */
@@ -1615,19 +1349,6 @@ export interface GuardrailCustomWord {
    */
   action?: GuardrailWordPolicyAction | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GuardrailManagedWordType = {
-  PROFANITY: "PROFANITY",
-} as const;
-
-/**
- * @public
- */
-export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
 
 /**
  * <p>The managed word details for the filter in the Guardrail.</p>
@@ -1756,23 +1477,6 @@ export interface CodeInterpreterInvocationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const InvocationType = {
-  ACTION_GROUP: "ACTION_GROUP",
-  ACTION_GROUP_CODE_INTERPRETER: "ACTION_GROUP_CODE_INTERPRETER",
-  AGENT_COLLABORATOR: "AGENT_COLLABORATOR",
-  FINISH: "FINISH",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
-
-/**
  * <p>Contains details about the knowledge base to look up and the query to be made.</p>
  * @public
  */
@@ -1867,37 +1571,6 @@ export interface InferenceConfiguration {
    */
   stopSequences?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CreationMode = {
-  DEFAULT: "DEFAULT",
-  OVERRIDDEN: "OVERRIDDEN",
-} as const;
-
-/**
- * @public
- */
-export type CreationMode = (typeof CreationMode)[keyof typeof CreationMode];
-
-/**
- * @public
- * @enum
- */
-export const PromptType = {
-  KNOWLEDGE_BASE_RESPONSE_GENERATION: "KNOWLEDGE_BASE_RESPONSE_GENERATION",
-  ORCHESTRATION: "ORCHESTRATION",
-  POST_PROCESSING: "POST_PROCESSING",
-  PRE_PROCESSING: "PRE_PROCESSING",
-  ROUTING_CLASSIFIER: "ROUTING_CLASSIFIER",
-} as const;
-
-/**
- * @public
- */
-export type PromptType = (typeof PromptType)[keyof typeof PromptType];
 
 /**
  * <p>The input for the pre-processing step.</p> <ul> <li> <p>The <code>type</code> matches the agent step.</p> </li> <li> <p>The <code>text</code> contains the prompt.</p> </li> <li> <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p> </li> </ul>
@@ -2121,25 +1794,6 @@ export interface FinalResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const RetrievalResultContentColumnType = {
-  BLOB: "BLOB",
-  BOOLEAN: "BOOLEAN",
-  DOUBLE: "DOUBLE",
-  LONG: "LONG",
-  NULL: "NULL",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalResultContentColumnType =
-  (typeof RetrievalResultContentColumnType)[keyof typeof RetrievalResultContentColumnType];
-
-/**
  * <p>Contains information about a column with a cell to return in retrieval.</p>
  * @public
  */
@@ -2162,21 +1816,6 @@ export interface RetrievalResultContentColumn {
    */
   type?: RetrievalResultContentColumnType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetrievalResultContentType = {
-  IMAGE: "IMAGE",
-  ROW: "ROW",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalResultContentType = (typeof RetrievalResultContentType)[keyof typeof RetrievalResultContentType];
 
 /**
  * <p>Contains information about a chunk of text from a data source in the knowledge base. If the result is from a structured data source, the cell in the database and the type of the value is also identified.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>content</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>content</code> field</p> </li> </ul>
@@ -2293,27 +1932,6 @@ export interface RetrievalResultSqlLocation {
 }
 
 /**
- * @public
- * @enum
- */
-export const RetrievalResultLocationType = {
-  CONFLUENCE: "CONFLUENCE",
-  CUSTOM: "CUSTOM",
-  KENDRA: "KENDRA",
-  S3: "S3",
-  SALESFORCE: "SALESFORCE",
-  SHAREPOINT: "SHAREPOINT",
-  SQL: "SQL",
-  WEB: "WEB",
-} as const;
-
-/**
- * @public
- */
-export type RetrievalResultLocationType =
-  (typeof RetrievalResultLocationType)[keyof typeof RetrievalResultLocationType];
-
-/**
  * <p>The web URL/URLs data source location.</p>
  * @public
  */
@@ -2428,21 +2046,6 @@ export interface KnowledgeBaseLookupOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const Source = {
-  ACTION_GROUP: "ACTION_GROUP",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-  PARSER: "PARSER",
-} as const;
-
-/**
- * @public
- */
-export type Source = (typeof Source)[keyof typeof Source];
-
-/**
  * <p>Contains details about the agent's response to reprompt the input.</p>
  * @public
  */
@@ -2459,24 +2062,6 @@ export interface RepromptResponse {
    */
   source?: Source | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  ACTION_GROUP: "ACTION_GROUP",
-  AGENT_COLLABORATOR: "AGENT_COLLABORATOR",
-  ASK_USER: "ASK_USER",
-  FINISH: "FINISH",
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-  REPROMPT: "REPROMPT",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * <p>Contains the result or output of an action group or knowledge base, or the response to the user.</p>
@@ -3248,93 +2833,6 @@ export interface GetExecutionFlowSnapshotResponse {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The reason for the exception. If the reason is <code>BEDROCK_MODEL_INVOCATION_SERVICE_UNAVAILABLE</code>, the model invocation service is unavailable. Retry your request.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetFlowExecutionRequest {
@@ -3356,19 +2854,6 @@ export interface GetFlowExecutionRequest {
    */
   executionIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowExecutionErrorType = {
-  TIMED_OUT: "ExecutionTimedOut",
-} as const;
-
-/**
- * @public
- */
-export type FlowExecutionErrorType = (typeof FlowExecutionErrorType)[keyof typeof FlowExecutionErrorType];
 
 /**
  * <p>Contains information about an error that occurred during an flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
@@ -3393,23 +2878,6 @@ export interface FlowExecutionError {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowExecutionStatus = {
-  ABORTED: "Aborted",
-  FAILED: "Failed",
-  RUNNING: "Running",
-  SUCCEEDED: "Succeeded",
-  TIMED_OUT: "TimedOut",
-} as const;
-
-/**
- * @public
- */
-export type FlowExecutionStatus = (typeof FlowExecutionStatus)[keyof typeof FlowExecutionStatus];
 
 /**
  * @public
@@ -3463,20 +2931,6 @@ export interface GetFlowExecutionResponse {
    */
   flowVersion: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowExecutionEventType = {
-  FLOW: "Flow",
-  NODE: "Node",
-} as const;
-
-/**
- * @public
- */
-export type FlowExecutionEventType = (typeof FlowExecutionEventType)[keyof typeof FlowExecutionEventType];
 
 /**
  * @public
@@ -3554,21 +3008,6 @@ export interface ConditionResultEvent {
    */
   satisfiedConditions: SatisfiedCondition[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowErrorCode = {
-  INTERNAL_SERVER: "INTERNAL_SERVER",
-  NODE_EXECUTION_FAILED: "NODE_EXECUTION_FAILED",
-  VALIDATION: "VALIDATION",
-} as const;
-
-/**
- * @public
- */
-export type FlowErrorCode = (typeof FlowErrorCode)[keyof typeof FlowErrorCode];
 
 /**
  * <p>Contains information about a failure that occurred at the flow level during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
@@ -3825,22 +3264,6 @@ export interface NodeDependencyEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const NodeErrorCode = {
-  BAD_GATEWAY: "BAD_GATEWAY",
-  DEPENDENCY_FAILED: "DEPENDENCY_FAILED",
-  INTERNAL_SERVER: "INTERNAL_SERVER",
-  VALIDATION: "VALIDATION",
-} as const;
-
-/**
- * @public
- */
-export type NodeErrorCode = (typeof NodeErrorCode)[keyof typeof NodeErrorCode];
-
-/**
  * <p>Contains information about a failure that occurred at a specific node during a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
  * @public
  */
@@ -3869,21 +3292,6 @@ export interface NodeFailureEvent {
    */
   errorMessage: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowNodeInputCategory = {
-  EXIT_LOOP: "ExitLoop",
-  LOOP_CONDITION: "LoopCondition",
-  RETURN_VALUE_TO_LOOP_START: "ReturnValueToLoopStart",
-} as const;
-
-/**
- * @public
- */
-export type FlowNodeInputCategory = (typeof FlowNodeInputCategory)[keyof typeof FlowNodeInputCategory];
 
 /**
  * <p>Contains the content of a flow node's input or output field for a flow execution.</p> <note> <p>Flow executions is in preview release for Amazon Bedrock and is subject to change.</p> </note>
@@ -3921,20 +3329,6 @@ export namespace NodeExecutionContent {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowControlNodeType = {
-  ITERATOR: "Iterator",
-  LOOP: "Loop",
-} as const;
-
-/**
- * @public
- */
-export type FlowControlNodeType = (typeof FlowControlNodeType)[keyof typeof FlowControlNodeType];
 
 /**
  * <p>Represents an item in the execution chain for node input tracking.</p>
@@ -3983,23 +3377,6 @@ export interface NodeInputSource {
    */
   expression: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlowNodeIODataType = {
-  ARRAY: "Array",
-  BOOLEAN: "Boolean",
-  NUMBER: "Number",
-  OBJECT: "Object",
-  STRING: "String",
-} as const;
-
-/**
- * @public
- */
-export type FlowNodeIODataType = (typeof FlowNodeIODataType)[keyof typeof FlowNodeIODataType];
 
 /**
  * <p>Represents an input field provided to a node during a flow execution.</p>
@@ -4458,100 +3835,6 @@ export interface ListFlowExecutionsResponse {
 }
 
 /**
- * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
- * @public
- */
-export class BadGatewayException extends __BaseException {
-  readonly name: "BadGatewayException" = "BadGatewayException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadGatewayException, __BaseException>) {
-    super({
-      name: "BadGatewayException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadGatewayException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
- * @public
- */
-export class DependencyFailedException extends __BaseException {
-  readonly name: "DependencyFailedException" = "DependencyFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyFailedException, __BaseException>) {
-    super({
-      name: "DependencyFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyFailedException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
  * <p>Contains information about an input into the flow.</p>
  * @public
  */
@@ -4617,20 +3900,6 @@ export interface FlowInput {
    */
   nodeInputName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PerformanceConfigLatency = {
-  OPTIMIZED: "optimized",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type PerformanceConfigLatency = (typeof PerformanceConfigLatency)[keyof typeof PerformanceConfigLatency];
 
 /**
  * <p>Performance settings for a model.</p>
@@ -4784,20 +4053,6 @@ export interface InvokeFlowRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FlowCompletionReason = {
-  INPUT_REQUIRED: "INPUT_REQUIRED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type FlowCompletionReason = (typeof FlowCompletionReason)[keyof typeof FlowCompletionReason];
-
-/**
  * <p>Contains information about why a flow completed.</p>
  * @public
  */
@@ -4847,25 +4102,6 @@ export namespace FlowMultiTurnInputContent {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const NodeType = {
-  CONDITION_NODE: "ConditionNode",
-  FLOW_INPUT_NODE: "FlowInputNode",
-  FLOW_OUTPUT_NODE: "FlowOutputNode",
-  KNOWLEDGE_BASE_NODE: "KnowledgeBaseNode",
-  LAMBDA_FUNCTION_NODE: "LambdaFunctionNode",
-  LEX_NODE: "LexNode",
-  PROMPT_NODE: "PromptNode",
-} as const;
-
-/**
- * @public
- */
-export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
  * <p>Response object from the flow multi-turn node requesting additional information.</p>
@@ -5837,19 +5073,6 @@ export interface InvokeFlowResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputQueryType = {
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type InputQueryType = (typeof InputQueryType)[keyof typeof InputQueryType];
-
-/**
  * <p>Contains information about a natural language query to transform into SQL.</p>
  * @public
  */
@@ -5868,19 +5091,6 @@ export interface QueryGenerationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const QueryTransformationMode = {
-  TEXT_TO_SQL: "TEXT_TO_SQL",
-} as const;
-
-/**
- * @public
- */
-export type QueryTransformationMode = (typeof QueryTransformationMode)[keyof typeof QueryTransformationMode];
-
-/**
  * <p>Contains configurations for a knowledge base to use in transformation.</p>
  * @public
  */
@@ -5891,19 +5101,6 @@ export interface TextToSqlKnowledgeBaseConfiguration {
    */
   knowledgeBaseArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TextToSqlConfigurationType = {
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
-
-/**
- * @public
- */
-export type TextToSqlConfigurationType = (typeof TextToSqlConfigurationType)[keyof typeof TextToSqlConfigurationType];
 
 /**
  * <p>Contains configurations for transforming text to SQL.</p>
@@ -5957,19 +5154,6 @@ export interface GenerateQueryRequest {
    */
   transformationConfiguration: TransformationConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GeneratedQueryType = {
-  REDSHIFT_SQL: "REDSHIFT_SQL",
-} as const;
-
-/**
- * @public
- */
-export type GeneratedQueryType = (typeof GeneratedQueryType)[keyof typeof GeneratedQueryType];
 
 /**
  * <p>Contains information about a query generated for a natural language query.</p>
@@ -6068,20 +5252,6 @@ export namespace ContentBlock {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConversationRole = {
-  ASSISTANT: "assistant",
-  USER: "user",
-} as const;
-
-/**
- * @public
- */
-export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
-
-/**
  * <p>Details about a message.</p>
  * @public
  */
@@ -6142,20 +5312,6 @@ export interface S3ObjectFile {
 }
 
 /**
- * @public
- * @enum
- */
-export const FileSourceType = {
-  BYTE_CONTENT: "BYTE_CONTENT",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type FileSourceType = (typeof FileSourceType)[keyof typeof FileSourceType];
-
-/**
  * <p>The source file of the content contained in the wrapper object.</p>
  * @public
  */
@@ -6178,20 +5334,6 @@ export interface FileSource {
    */
   byteContent?: ByteContentFile | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileUseCase = {
-  CHAT: "CHAT",
-  CODE_INTERPRETER: "CODE_INTERPRETER",
-} as const;
-
-/**
- * @public
- */
-export type FileUseCase = (typeof FileUseCase)[keyof typeof FileUseCase];
 
 /**
  * <p>Contains details of the source files.</p>
@@ -6236,22 +5378,6 @@ export interface FilterAttribute {
 }
 
 /**
- * @public
- * @enum
- */
-export const AttributeType = {
-  BOOLEAN: "BOOLEAN",
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-  STRING_LIST: "STRING_LIST",
-} as const;
-
-/**
- * @public
- */
-export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
-
-/**
  * <p>Details about a metadata attribute.</p>
  * @public
  */
@@ -6292,35 +5418,6 @@ export interface ImplicitFilterConfiguration {
    */
   modelArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SearchType = {
-  HYBRID: "HYBRID",
-  SEMANTIC: "SEMANTIC",
-} as const;
-
-/**
- * @public
- */
-export type SearchType = (typeof SearchType)[keyof typeof SearchType];
-
-/**
- * @public
- * @enum
- */
-export const RerankingMetadataSelectionMode = {
-  ALL: "ALL",
-  SELECTIVE: "SELECTIVE",
-} as const;
-
-/**
- * @public
- */
-export type RerankingMetadataSelectionMode =
-  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
 
 /**
  * <p>Contains information for a metadata field to include in or exclude from consideration when reranking.</p>
@@ -6446,20 +5543,6 @@ export interface VectorSearchBedrockRerankingConfiguration {
    */
   metadataConfiguration?: MetadataConfigurationForReranking | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VectorSearchRerankingConfigurationType = {
-  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type VectorSearchRerankingConfigurationType =
-  (typeof VectorSearchRerankingConfigurationType)[keyof typeof VectorSearchRerankingConfigurationType];
 
 /**
  * <p>Contains configurations for reranking the retrieved results.</p>
@@ -6627,26 +5710,6 @@ export interface FilePart {
    * @public
    */
   files?: OutputFile[] | undefined;
-}
-
-/**
- * <p> The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide. </p>
- * @public
- */
-export class ModelNotReadyException extends __BaseException {
-  readonly name: "ModelNotReadyException" = "ModelNotReadyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ModelNotReadyException, __BaseException>) {
-    super({
-      name: "ModelNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ModelNotReadyException.prototype);
-  }
 }
 
 /**
@@ -7068,20 +6131,6 @@ export interface InlineBedrockModelConfigurations {
 }
 
 /**
- * @public
- * @enum
- */
-export const RelayConversationHistory = {
-  DISABLED: "DISABLED",
-  TO_COLLABORATOR: "TO_COLLABORATOR",
-} as const;
-
-/**
- * @public
- */
-export type RelayConversationHistory = (typeof RelayConversationHistory)[keyof typeof RelayConversationHistory];
-
-/**
  * <p> Settings of an inline collaborator agent. </p>
  * @public
  */
@@ -7128,20 +6177,6 @@ export interface GuardrailConfigurationWithArn {
    */
   guardrailVersion: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PromptState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PromptState = (typeof PromptState)[keyof typeof PromptState];
 
 /**
  * <p> Contains configurations to override a prompt template in one part of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>. </p>
@@ -7305,20 +6340,6 @@ export interface InlineSessionState {
    */
   conversationHistory?: ConversationHistory | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OrchestrationType = {
-  CUSTOM_ORCHESTRATION: "CUSTOM_ORCHESTRATION",
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type OrchestrationType = (typeof OrchestrationType)[keyof typeof OrchestrationType];
 
 /**
  * <p>Contains a part of an agent response and citations for it. </p>
@@ -7802,19 +6823,6 @@ export interface DeleteAgentMemoryResponse {}
 
 /**
  * @public
- * @enum
- */
-export const MemoryType = {
-  SESSION_SUMMARY: "SESSION_SUMMARY",
-} as const;
-
-/**
- * @public
- */
-export type MemoryType = (typeof MemoryType)[keyof typeof MemoryType];
-
-/**
- * @public
  */
 export interface GetAgentMemoryRequest {
   /**
@@ -8274,19 +7282,6 @@ export interface RerankTextDocument {
 }
 
 /**
- * @public
- * @enum
- */
-export const RerankQueryContentType = {
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type RerankQueryContentType = (typeof RerankQueryContentType)[keyof typeof RerankQueryContentType];
-
-/**
  * <p>Contains information about a query to submit to the reranker model.</p>
  * @public
  */
@@ -8341,19 +7336,6 @@ export interface BedrockRerankingConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const RerankingConfigurationType = {
-  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type RerankingConfigurationType = (typeof RerankingConfigurationType)[keyof typeof RerankingConfigurationType];
-
-/**
  * <p>Contains configurations for reranking.</p>
  * @public
  */
@@ -8370,20 +7352,6 @@ export interface RerankingConfiguration {
    */
   bedrockRerankingConfiguration: BedrockRerankingConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RerankDocumentType = {
-  JSON: "JSON",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type RerankDocumentType = (typeof RerankDocumentType)[keyof typeof RerankDocumentType];
 
 /**
  * <p>Contains information about a document to rerank. Choose the <code>type</code> to define and include the field that corresponds to the type.</p>
@@ -8408,19 +7376,6 @@ export interface RerankDocument {
    */
   jsonDocument?: __DocumentType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RerankSourceType = {
-  INLINE: "INLINE",
-} as const;
-
-/**
- * @public
- */
-export type RerankSourceType = (typeof RerankSourceType)[keyof typeof RerankSourceType];
 
 /**
  * <p>Contains information about a source for reranking.</p>
@@ -8664,4 +7619,2360 @@ export interface S3ObjectDoc {
    * @public
    */
   uri: string | undefined;
+}
+
+/**
+ * <p>The unique external source of the content contained in the wrapper object.</p>
+ * @public
+ */
+export interface ExternalSource {
+  /**
+   * <p>The source type of the external source wrapper object.</p>
+   * @public
+   */
+  sourceType: ExternalSourceType | undefined;
+
+  /**
+   * <p>The S3 location of the external source wrapper object.</p>
+   * @public
+   */
+  s3Location?: S3ObjectDoc | undefined;
+
+  /**
+   * <p>The identifier, contentType, and data of the external source wrapper object.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc | undefined;
+}
+
+/**
+ * <p>The configurations of the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+ * @public
+ */
+export interface ExternalSourcesRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The model Amazon Resource Name (ARN) for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  sources: ExternalSource[] | undefined;
+
+  /**
+   * <p>The prompt used with the external source wrapper object with the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  generationConfiguration?: ExternalSourcesGenerationConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for response generation based on the knowledge base query results.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> </p> </li> </ul>
+ * @public
+ */
+export interface GenerationConfiguration {
+  /**
+   * <p>Contains the template for the prompt that's sent to the model for response generation. Generation prompts must include the <code>$search_results$</code> variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate | undefined;
+
+  /**
+   * <p>The configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig | undefined;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
+ * @public
+ */
+export interface QueryTransformationConfiguration {
+  /**
+   * <p>The type of transformation to apply to the prompt.</p>
+   * @public
+   */
+  type: QueryTransformationType | undefined;
+}
+
+/**
+ * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
+ * @public
+ */
+export interface OrchestrationConfiguration {
+  /**
+   * <p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate | undefined;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig | undefined;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+
+  /**
+   * <p>To split up the prompt and retrieve multiple sources, set the transformation type to <code>QUERY_DECOMPOSITION</code>.</p>
+   * @public
+   */
+  queryTransformationConfiguration?: QueryTransformationConfiguration | undefined;
+
+  /**
+   * <p>The latency configuration for the model.</p>
+   * @public
+   */
+  performanceConfig?: PerformanceConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configuration about the session with the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateSessionConfiguration {
+  /**
+   * <p>The ARN of the KMS key encrypting the session.</p>
+   * @public
+   */
+  kmsKeyArn: string | undefined;
+}
+
+/**
+ * <p>Contains the response generated from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateOutput {
+  /**
+   * <p>The response generated from querying the knowledge base.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateResponse {
+  /**
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Contains the response generated from querying the knowledge base.</p>
+   * @public
+   */
+  output: RetrieveAndGenerateOutput | undefined;
+
+  /**
+   * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
+   * @public
+   */
+  citations?: Citation[] | undefined;
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction | undefined;
+}
+
+/**
+ * <p>A citation event.</p>
+ * @public
+ */
+export interface CitationEvent {
+  /**
+   * <p>The citation.</p>
+   *
+   * @deprecated Citation is deprecated. Please use GeneratedResponsePart and RetrievedReferences for citation event.
+   * @public
+   */
+  citation?: Citation | undefined;
+
+  /**
+   * <p>The generated response to the citation event.</p>
+   * @public
+   */
+  generatedResponsePart?: GeneratedResponsePart | undefined;
+
+  /**
+   * <p>The retrieved references of the citation event.</p>
+   * @public
+   */
+  retrievedReferences?: RetrievedReference[] | undefined;
+}
+
+/**
+ * <p>A guardrail event.</p>
+ * @public
+ */
+export interface GuardrailEvent {
+  /**
+   * <p>The guardrail action.</p>
+   * @public
+   */
+  action?: GuadrailAction | undefined;
+}
+
+/**
+ * <p>A retrieve and generate output event.</p>
+ * @public
+ */
+export interface RetrieveAndGenerateOutputEvent {
+  /**
+   * <p>A text response.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>A retrieve and generate stream response output.</p>
+ * @public
+ */
+export type RetrieveAndGenerateStreamResponseOutput =
+  | RetrieveAndGenerateStreamResponseOutput.AccessDeniedExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.BadGatewayExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.CitationMember
+  | RetrieveAndGenerateStreamResponseOutput.ConflictExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.DependencyFailedExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.GuardrailMember
+  | RetrieveAndGenerateStreamResponseOutput.InternalServerExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.OutputMember
+  | RetrieveAndGenerateStreamResponseOutput.ResourceNotFoundExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.ServiceQuotaExceededExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.ThrottlingExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.ValidationExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetrieveAndGenerateStreamResponseOutput {
+  /**
+   * <p>An output event.</p>
+   * @public
+   */
+  export interface OutputMember {
+    output: RetrieveAndGenerateOutputEvent;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A citation event.</p>
+   * @public
+   */
+  export interface CitationMember {
+    output?: never;
+    citation: CitationEvent;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A guardrail event.</p>
+   * @public
+   */
+  export interface GuardrailMember {
+    output?: never;
+    citation?: never;
+    guardrail: GuardrailEvent;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An internal server error occurred. Retry your request.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException: InternalServerException;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException: ValidationException;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface ResourceNotFoundExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException: ResourceNotFoundException;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
+   * @public
+   */
+  export interface ServiceQuotaExceededExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException: ServiceQuotaExceededException;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException: ThrottlingException;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface AccessDeniedExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException: AccessDeniedException;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Error occurred because of a conflict while performing an operation.</p>
+   * @public
+   */
+  export interface ConflictExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException: ConflictException;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request failed due to a dependency error.</p>
+   * @public
+   */
+  export interface DependencyFailedExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException: DependencyFailedException;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request failed due to a bad gateway error.</p>
+   * @public
+   */
+  export interface BadGatewayExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException: BadGatewayException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    output: (value: RetrieveAndGenerateOutputEvent) => T;
+    citation: (value: CitationEvent) => T;
+    guardrail: (value: GuardrailEvent) => T;
+    internalServerException: (value: InternalServerException) => T;
+    validationException: (value: ValidationException) => T;
+    resourceNotFoundException: (value: ResourceNotFoundException) => T;
+    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    accessDeniedException: (value: AccessDeniedException) => T;
+    conflictException: (value: ConflictException) => T;
+    dependencyFailedException: (value: DependencyFailedException) => T;
+    badGatewayException: (value: BadGatewayException) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateStreamResponse {
+  /**
+   * <p>A stream of events from the model.</p>
+   * @public
+   */
+  stream: AsyncIterable<RetrieveAndGenerateStreamResponseOutput> | undefined;
+
+  /**
+   * <p>The session ID.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * <p>Contains the query made to the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalQuery</code> field</p> </li> </ul>
+ * @public
+ */
+export interface KnowledgeBaseQuery {
+  /**
+   * <p>The text of the query made to the knowledge base.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>Details about a result from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievalResults</code> field</p> </li> </ul>
+ * @public
+ */
+export interface KnowledgeBaseRetrievalResult {
+  /**
+   * <p>Contains information about the content of the chunk.</p>
+   * @public
+   */
+  content: RetrievalResultContent | undefined;
+
+  /**
+   * <p>Contains information about the location of the data source.</p>
+   * @public
+   */
+  location?: RetrievalResultLocation | undefined;
+
+  /**
+   * <p>The level of relevance of the result to the query.</p>
+   * @public
+   */
+  score?: number | undefined;
+
+  /**
+   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
+   * @public
+   */
+  metadata?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveResponse {
+  /**
+   * <p>A list of results from querying the knowledge base.</p>
+   * @public
+   */
+  retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction | undefined;
+
+  /**
+   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSessionRequest {
+  /**
+   * <p>A map of key-value pairs containing attributes to be persisted across the session. For example, the user's ID, their language preference, and the type of device they are using.</p>
+   * @public
+   */
+  sessionMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data. The user or role creating the session must have permission to use the key. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>. </p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Specify the key-value pairs for the tags that you want to attach to the session.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSessionResponse {
+  /**
+   * <p>The unique identifier for the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSessionRequest {
+  /**
+   * <p>The unique identifier for the session to be deleted. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSessionResponse {}
+
+/**
+ * @public
+ */
+export interface EndSessionRequest {
+  /**
+   * <p>The unique identifier for the session to end. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EndSessionResponse {
+  /**
+   * <p>The unique identifier of the session you ended.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session you ended.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session you ended.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionRequest {
+  /**
+   * <p>A unique identifier for the session to retrieve. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionResponse {
+  /**
+   * <p>The unique identifier for the session in UUID format.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the session was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>A map of key-value pairs containing attributes persisted across the session.</p>
+   * @public
+   */
+  sessionMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the session data. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInvocationRequest {
+  /**
+   * <p>A unique identifier for the invocation in UUID format.</p>
+   * @public
+   */
+  invocationId?: string | undefined;
+
+  /**
+   * <p>A description for the interactions in the invocation. For example, "User asking about weather in Seattle".</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the associated session for the invocation. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN). </p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInvocationResponse {
+  /**
+   * <p>The unique identifier for the session associated with the invocation.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the invocation.</p>
+   * @public
+   */
+  invocationId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the invocation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvocationsRequest {
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier for the session to list invocations for. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains details about an invocation in a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * @public
+ */
+export interface InvocationSummary {
+  /**
+   * <p>The unique identifier for the session associated with the invocation.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the invocation in UUID format.</p>
+   * @public
+   */
+  invocationId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the invocation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvocationsResponse {
+  /**
+   * <p>A list of invocation summaries associated with the session.</p>
+   * @public
+   */
+  invocationSummaries: InvocationSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvocationStepRequest {
+  /**
+   * <p>The unique identifier for the invocation in UUID format.</p>
+   * @public
+   */
+  invocationIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier (in UUID format) for the specific invocation step to retrieve.</p>
+   * @public
+   */
+  invocationStepId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the invocation step's associated session. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * <p>Information about the Amazon S3 bucket where the image is stored.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>The path to the Amazon S3 bucket where the image is stored.</p>
+   * @public
+   */
+  uri: string | undefined;
+}
+
+/**
+ * <p>The source for an image.</p>
+ * @public
+ */
+export type ImageSource = ImageSource.BytesMember | ImageSource.S3LocationMember | ImageSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImageSource {
+  /**
+   * <p> The raw image bytes for the image. If you use an Amazon Web Services SDK, you don't need to encode the image bytes in base64.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The path to the Amazon S3 bucket where the image is stored.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    bytes?: never;
+    s3Location: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    s3Location?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    s3Location: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Image content for an invocation step.</p>
+ * @public
+ */
+export interface ImageBlock {
+  /**
+   * <p>The format of the image.</p>
+   * @public
+   */
+  format: ImageFormat | undefined;
+
+  /**
+   * <p>The source for the image.</p>
+   * @public
+   */
+  source: ImageSource | undefined;
+}
+
+/**
+ * <p>A block of content that you pass to, or receive from, a Amazon Bedrock session in an invocation step. You pass the content to a session in the <code>payLoad</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_PutInvocationStep.html">PutInvocationStep</a> API operation. You retrieve the content with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetInvocationStep.html">GetInvocationStep</a> API operation.</p> <p>For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * @public
+ */
+export type BedrockSessionContentBlock =
+  | BedrockSessionContentBlock.ImageMember
+  | BedrockSessionContentBlock.TextMember
+  | BedrockSessionContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BedrockSessionContentBlock {
+  /**
+   * <p>The text in the invocation step.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    image?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The image in the invocation step.</p>
+   * @public
+   */
+  export interface ImageMember {
+    text?: never;
+    image: ImageBlock;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    image?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    image: (value: ImageBlock) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Payload content, such as text and images, for the invocation step.</p>
+ * @public
+ */
+export type InvocationStepPayload = InvocationStepPayload.ContentBlocksMember | InvocationStepPayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvocationStepPayload {
+  /**
+   * <p>The content for the invocation step.</p>
+   * @public
+   */
+  export interface ContentBlocksMember {
+    contentBlocks: BedrockSessionContentBlock[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    contentBlocks?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    contentBlocks: (value: BedrockSessionContentBlock[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Stores fine-grained state checkpoints, including text and images, for each interaction in an invocation in a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>. </p>
+ * @public
+ */
+export interface InvocationStep {
+  /**
+   * <p>The unique identifier of the session containing the invocation step.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The unique identifier (in UUID format) for the invocation that includes the invocation step.</p>
+   * @public
+   */
+  invocationId: string | undefined;
+
+  /**
+   * <p>The unique identifier (in UUID format) for the invocation step.</p>
+   * @public
+   */
+  invocationStepId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the invocation step was created.</p>
+   * @public
+   */
+  invocationStepTime: Date | undefined;
+
+  /**
+   * <p>Payload content, such as text and images, for the invocation step.</p>
+   * @public
+   */
+  payload: InvocationStepPayload | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvocationStepResponse {
+  /**
+   * <p>The complete details of the requested invocation step.</p>
+   * @public
+   */
+  invocationStep: InvocationStep | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvocationStepsRequest {
+  /**
+   * <p>The unique identifier (in UUID format) for the invocation to list invocation steps for.</p>
+   * @public
+   */
+  invocationIdentifier?: string | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier for the session associated with the invocation steps. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * <p>Contains details about an invocation step within an invocation in a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * @public
+ */
+export interface InvocationStepSummary {
+  /**
+   * <p>The unique identifier for the session associated with the invocation step.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the invocation in UUID format.</p>
+   * @public
+   */
+  invocationId: string | undefined;
+
+  /**
+   * <p>The unique identifier (in UUID format) for the invocation step.</p>
+   * @public
+   */
+  invocationStepId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the invocation step was created.</p>
+   * @public
+   */
+  invocationStepTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvocationStepsResponse {
+  /**
+   * <p>A list of summaries for each invocation step associated with a session and if you specified it, an invocation within the session.</p>
+   * @public
+   */
+  invocationStepSummaries: InvocationStepSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutInvocationStepRequest {
+  /**
+   * <p>The unique identifier for the session to add the invocation step to. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier (in UUID format) of the invocation to add the invocation step to.</p>
+   * @public
+   */
+  invocationIdentifier: string | undefined;
+
+  /**
+   * <p>The timestamp for when the invocation step occurred.</p>
+   * @public
+   */
+  invocationStepTime: Date | undefined;
+
+  /**
+   * <p>The payload for the invocation step, including text and images for the interaction.</p>
+   * @public
+   */
+  payload: InvocationStepPayload | undefined;
+
+  /**
+   * <p>The unique identifier of the invocation step in UUID format.</p>
+   * @public
+   */
+  invocationStepId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutInvocationStepResponse {
+  /**
+   * <p>The unique identifier of the invocation step in UUID format.</p>
+   * @public
+   */
+  invocationStepId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a session. For more information about sessions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html">Store and retrieve conversation history and context with Amazon Bedrock sessions</a>.</p>
+ * @public
+ */
+export interface SessionSummary {
+  /**
+   * <p>The unique identifier for the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the session was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsResponse {
+  /**
+   * <p>A list of summaries for each session in your Amazon Web Services account.</p>
+   * @public
+   */
+  sessionSummaries: SessionSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionRequest {
+  /**
+   * <p>A map of key-value pairs containing attributes to be persisted across the session. For example the user's ID, their language preference, and the type of device they are using.</p>
+   * @public
+   */
+  sessionMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The unique identifier of the session to modify. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionResponse {
+  /**
+   * <p>The unique identifier of the session you updated.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session that was updated.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The status of the session you updated.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the session was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The key-value pairs for the tags associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of keys of the tags to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>filter</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>filter</code> field</p> </li> </ul>
+ * @public
+ */
+export type RetrievalFilter =
+  | RetrievalFilter.AndAllMember
+  | RetrievalFilter.EqualsMember
+  | RetrievalFilter.GreaterThanMember
+  | RetrievalFilter.GreaterThanOrEqualsMember
+  | RetrievalFilter.InMember
+  | RetrievalFilter.LessThanMember
+  | RetrievalFilter.LessThanOrEqualsMember
+  | RetrievalFilter.ListContainsMember
+  | RetrievalFilter.NotEqualsMember
+  | RetrievalFilter.NotInMember
+  | RetrievalFilter.OrAllMember
+  | RetrievalFilter.StartsWithMember
+  | RetrievalFilter.StringContainsMember
+  | RetrievalFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetrievalFilter {
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>animal</code> attribute whose value is <code>cat</code>:</p> <p> <code>"equals": \{ "key": "animal", "value": "cat" \}</code> </p>
+   * @public
+   */
+  export interface EqualsMember {
+    equals: FilterAttribute;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned when:</p> <ul> <li> <p>It contains a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code> in this object.</p> </li> <li> <p>The key is not present in the document.</p> </li> </ul> <p>The following example would return data sources that don't contain an <code>animal</code> attribute whose value is <code>cat</code>.</p> <p> <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code> </p>
+   * @public
+   */
+  export interface NotEqualsMember {
+    equals?: never;
+    notEquals: FilterAttribute;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than <code>1989</code>:</p> <p> <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code> </p>
+   * @public
+   */
+  export interface GreaterThanMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan: FilterAttribute;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than or equal to <code>1989</code>:</p> <p> <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
+   * @public
+   */
+  export interface GreaterThanOrEqualsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals: FilterAttribute;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is less than to <code>1989</code>.</p> <p> <code>"lessThan": \{ "key": "year", "value": 1989 \}</code> </p>
+   * @public
+   */
+  export interface LessThanMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan: FilterAttribute;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>year</code> attribute whose value is less than or equal to <code>1989</code>.</p> <p> <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code> </p>
+   * @public
+   */
+  export interface LessThanOrEqualsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals: FilterAttribute;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object.</p> <p>The following example would return data sources with an <code>animal</code> attribute that is either <code>cat</code> or <code>dog</code>:</p> <p> <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
+   * @public
+   */
+  export interface InMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in: FilterAttribute;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object.</p> <p>The following example would return data sources whose <code>animal</code> attribute is neither <code>cat</code> nor <code>dog</code>.</p> <p> <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code> </p>
+   * @public
+   */
+  export interface NotInMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn: FilterAttribute;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p> <p>The following example would return data sources with an <code>animal</code> attribute starts with <code>ca</code> (for example, <code>cat</code> or <code>camel</code>).</p> <p> <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code> </p>
+   * @public
+   */
+  export interface StartsWithMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith: FilterAttribute;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is a list that contains the <code>value</code> as one of its members.</p> <p>The following example would return data sources with an <code>animals</code> attribute that is a list containing a <code>cat</code> member (for example <code>["dog", "cat"]</code>).</p> <p> <code>"listContains": \{ "key": "animals", "value": "cat" \}</code> </p>
+   * @public
+   */
+  export interface ListContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains: FilterAttribute;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is one of the following:</p> <ul> <li> <p>A string that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animal</code> attribute that contains the substring <code>at</code> (for example <code>cat</code>).</p> <p> <code>"stringContains": \{ "key": "animal", "value": "at" \}</code> </p> </li> <li> <p>A list with a member that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animals</code> attribute that is a list containing a member that contains the substring <code>at</code> (for example <code>["dog", "cat"]</code>).</p> <p> <code>"stringContains": \{ "key": "animals", "value": "at" \}</code> </p> </li> </ul>
+   * @public
+   */
+  export interface StringContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains: FilterAttribute;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the filter conditions inside this list.</p>
+   * @public
+   */
+  export interface AndAllMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll: RetrievalFilter[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter conditions inside this list.</p>
+   * @public
+   */
+  export interface OrAllMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll: RetrievalFilter[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    equals: (value: FilterAttribute) => T;
+    notEquals: (value: FilterAttribute) => T;
+    greaterThan: (value: FilterAttribute) => T;
+    greaterThanOrEquals: (value: FilterAttribute) => T;
+    lessThan: (value: FilterAttribute) => T;
+    lessThanOrEquals: (value: FilterAttribute) => T;
+    in: (value: FilterAttribute) => T;
+    notIn: (value: FilterAttribute) => T;
+    startsWith: (value: FilterAttribute) => T;
+    listContains: (value: FilterAttribute) => T;
+    stringContains: (value: FilterAttribute) => T;
+    andAll: (value: RetrievalFilter[]) => T;
+    orAll: (value: RetrievalFilter[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configurations for how to perform the search query and return results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>vectorSearchConfiguration</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>vectorSearchConfiguration</code> field</p> </li> </ul>
+ * @public
+ */
+export interface KnowledgeBaseVectorSearchConfiguration {
+  /**
+   * <p>The number of source chunks to retrieve.</p>
+   * @public
+   */
+  numberOfResults?: number | undefined;
+
+  /**
+   * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html">Test a knowledge base</a>.</p>
+   * @public
+   */
+  overrideSearchType?: SearchType | undefined;
+
+  /**
+   * <p>Specifies the filters to use on the metadata in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  filter?: RetrievalFilter | undefined;
+
+  /**
+   * <p>Contains configurations for reranking the retrieved results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html">Improve the relevance of query responses with a reranker model</a>.</p>
+   * @public
+   */
+  rerankingConfiguration?: VectorSearchRerankingConfiguration | undefined;
+
+  /**
+   * <p>Settings for implicit filtering.</p>
+   * @public
+   */
+  implicitFilterConfiguration?: ImplicitFilterConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for knowledge base query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalConfiguration</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrievalConfiguration</code> field</p> </li> </ul>
+ * @public
+ */
+export interface KnowledgeBaseRetrievalConfiguration {
+  /**
+   * <p>Contains details about how the results from the vector search should be returned. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
+}
+
+/**
+ * <p> Details of the knowledge base associated withe inline agent. </p>
+ * @public
+ */
+export interface KnowledgeBase {
+  /**
+   * <p> The unique identifier for a knowledge base associated with the inline agent. </p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p> The description of the knowledge base associated with the inline agent. </p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p> The configurations to apply to the knowledge base during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. </p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+}
+
+/**
+ * <p>Configurations to apply to a knowledge base attached to the agent during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html#session-state-kb">Knowledge base retrieval configurations</a>.</p>
+ * @public
+ */
+export interface KnowledgeBaseConfiguration {
+  /**
+   * <p>The unique identifier for a knowledge base attached to the agent.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The configurations to apply to the knowledge base during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrievalConfiguration: KnowledgeBaseRetrievalConfiguration | undefined;
+}
+
+/**
+ * <p>Contains details about the resource being queried.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>knowledgeBaseConfiguration</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>knowledgeBaseConfiguration</code> field</p> </li> </ul>
+ * @public
+ */
+export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The unique identifier of the knowledge base that is queried.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate a response.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>Contains configurations for how to retrieve and return the knowledge base query.</p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+
+  /**
+   * <p>Contains configurations for response generation based on the knowledge base query results.</p>
+   * @public
+   */
+  generationConfiguration?: GenerationConfiguration | undefined;
+
+  /**
+   * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
+   * @public
+   */
+  orchestrationConfiguration?: OrchestrationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to query.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>Contains the query to send the knowledge base.</p>
+   * @public
+   */
+  retrievalQuery: KnowledgeBaseQuery | undefined;
+
+  /**
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+
+  /**
+   * <p>Guardrail settings.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
+
+  /**
+   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about the resource being queried.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrieveAndGenerateConfiguration</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateConfiguration {
+  /**
+   * <p>The type of resource that contains your data for retrieving information and generating responses.</p> <note> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Anthropic Claude 3 Sonnet models for knowledge bases are supported.</p> </note>
+   * @public
+   */
+  type: RetrieveAndGenerateType | undefined;
+
+  /**
+   * <p>Contains details about the knowledge base for retrieving information and generating responses.</p>
+   * @public
+   */
+  knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration | undefined;
+
+  /**
+   * <p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * @public
+   */
+  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
+}
+
+/**
+ * <p> List of inline collaborators. </p>
+ * @public
+ */
+export interface Collaborator {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the AWS KMS key that encrypts the inline collaborator. </p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p> The foundation model used by the inline collaborator agent. </p>
+   * @public
+   */
+  foundationModel: string | undefined;
+
+  /**
+   * <p> Instruction that tell the inline collaborator agent what it should do and how it should interact with users. </p>
+   * @public
+   */
+  instruction: string | undefined;
+
+  /**
+   * <p> The number of seconds for which the Amazon Bedrock keeps information about the user's conversation with the inline collaborator agent.</p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout. </p>
+   * @public
+   */
+  idleSessionTTLInSeconds?: number | undefined;
+
+  /**
+   * <p> List of action groups with each action group defining tasks the inline collaborator agent needs to carry out. </p>
+   * @public
+   */
+  actionGroups?: AgentActionGroup[] | undefined;
+
+  /**
+   * <p> Knowledge base associated with the inline collaborator agent. </p>
+   * @public
+   */
+  knowledgeBases?: KnowledgeBase[] | undefined;
+
+  /**
+   * <p> Details of the guardwrail associated with the inline collaborator. </p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfigurationWithArn | undefined;
+
+  /**
+   * <p> Contains configurations to override prompt templates in different parts of an inline collaborator sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>. </p>
+   * @public
+   */
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
+
+  /**
+   * <p> Defines how the inline supervisor agent handles information across multiple collaborator agents to coordinate a final response. </p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
+
+  /**
+   * <p> Settings of the collaborator agent. </p>
+   * @public
+   */
+  collaboratorConfigurations?: CollaboratorConfiguration[] | undefined;
+
+  /**
+   * <p> Name of the inline collaborator agent which must be the same name as specified for <code>collaboratorName</code>. </p>
+   * @public
+   */
+  agentName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateRequest {
+  /**
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>Contains the query to be made to the knowledge base.</p>
+   * @public
+   */
+  input: RetrieveAndGenerateInput | undefined;
+
+  /**
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the session with the knowledge base.</p>
+   * @public
+   */
+  sessionConfiguration?: RetrieveAndGenerateSessionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateStreamRequest {
+  /**
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>Contains the query to be made to the knowledge base.</p>
+   * @public
+   */
+  input: RetrieveAndGenerateInput | undefined;
+
+  /**
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the session with the knowledge base.</p>
+   * @public
+   */
+  sessionConfiguration?: RetrieveAndGenerateSessionConfiguration | undefined;
+}
+
+/**
+ * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+ * @public
+ */
+export interface SessionState {
+  /**
+   * <p>Contains attributes that persist across a session and the values of those attributes. If <code>sessionAttributes</code> are passed to a supervisor agent in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent collaboration</a>, it will be forwarded to all agent collaborators.</p>
+   * @public
+   */
+  sessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Contains attributes that persist across a prompt and the values of those attributes. </p> <ul> <li> <p>In orchestration prompt template, these attributes replace the $prompt_session_attributes$ placeholder variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p> </li> <li> <p>In <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent collaboration</a>, the <code>promptSessionAttributes</code> will only be used by supervisor agent when $prompt_session_attributes$ is present in prompt template. </p> </li> </ul>
+   * @public
+   */
+  promptSessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p> <note> <p>If you include this field, the <code>inputText</code> field will be ignored.</p> </note>
+   * @public
+   */
+  returnControlInvocationResults?: InvocationResultMember[] | undefined;
+
+  /**
+   * <p>The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeAgent</code> response for the action whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   * @public
+   */
+  invocationId?: string | undefined;
+
+  /**
+   * <p>Contains information about the files used by code interpreter.</p>
+   * @public
+   */
+  files?: InputFile[] | undefined;
+
+  /**
+   * <p>An array of configurations, each of which applies to a knowledge base attached to the agent.</p>
+   * @public
+   */
+  knowledgeBaseConfigurations?: KnowledgeBaseConfiguration[] | undefined;
+
+  /**
+   * <p>The state's conversation history.</p>
+   * @public
+   */
+  conversationHistory?: ConversationHistory | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeAgentRequest {
+  /**
+   * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
+   * @public
+   */
+  sessionState?: SessionState | undefined;
+
+  /**
+   * <p>The unique identifier of the agent to use.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The alias of the agent to use.</p>
+   * @public
+   */
+  agentAliasId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the session. Use the same value across requests to continue the same conversation.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Specifies whether to end the session with the agent or not.</p>
+   * @public
+   */
+  endSession?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
+   * @public
+   */
+  enableTrace?: boolean | undefined;
+
+  /**
+   * <p>The prompt text to send the agent.</p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
+   * @public
+   */
+  inputText?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent memory.</p>
+   * @public
+   */
+  memoryId?: string | undefined;
+
+  /**
+   * <p>Model performance settings for the request.</p>
+   * @public
+   */
+  bedrockModelConfigurations?: BedrockModelConfigurations | undefined;
+
+  /**
+   * <p> Specifies the configurations for streaming. </p> <note> <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p> </note>
+   * @public
+   */
+  streamingConfigurations?: StreamingConfigurations | undefined;
+
+  /**
+   * <p>Specifies parameters that control how the service populates the agent prompt for an <code>InvokeAgent</code> request. You can control which aspects of previous invocations in the same agent session the service uses to populate the agent prompt. This gives you more granular control over the contextual history that is used to process the current request.</p>
+   * @public
+   */
+  promptCreationConfigurations?: PromptCreationConfigurations | undefined;
+
+  /**
+   * <p>The ARN of the resource making the request.</p>
+   * @public
+   */
+  sourceArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeInlineAgentRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Amazon Web Services KMS key to use to encrypt your inline agent. </p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p> The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">model identifier (ID)</a> of the model to use for orchestration by the inline agent. For example, <code>meta.llama3-1-70b-instruct-v1:0</code>. </p>
+   * @public
+   */
+  foundationModel: string | undefined;
+
+  /**
+   * <p> The instructions that tell the inline agent what it should do and how it should interact with users. </p>
+   * @public
+   */
+  instruction: string | undefined;
+
+  /**
+   * <p> The number of seconds for which the inline agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session. </p> <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and the data provided before the timeout is deleted.</p>
+   * @public
+   */
+  idleSessionTTLInSeconds?: number | undefined;
+
+  /**
+   * <p> A list of action groups with each action group defining the action the inline agent needs to carry out. </p>
+   * @public
+   */
+  actionGroups?: AgentActionGroup[] | undefined;
+
+  /**
+   * <p> Contains information of the knowledge bases to associate with. </p>
+   * @public
+   */
+  knowledgeBases?: KnowledgeBase[] | undefined;
+
+  /**
+   * <p> The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrails</a> to assign to the inline agent. </p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfigurationWithArn | undefined;
+
+  /**
+   * <p> Configurations for advanced prompts used to override the default prompts to enhance the accuracy of the inline agent. </p>
+   * @public
+   */
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
+
+  /**
+   * <p> Defines how the inline collaborator agent handles information across multiple collaborator agents to coordinate a final response. The inline collaborator agent can also be the supervisor. </p>
+   * @public
+   */
+  agentCollaboration?: AgentCollaboration | undefined;
+
+  /**
+   * <p> Settings for an inline agent collaborator called with <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html">InvokeInlineAgent</a>. </p>
+   * @public
+   */
+  collaboratorConfigurations?: CollaboratorConfiguration[] | undefined;
+
+  /**
+   * <p>The name for the agent.</p>
+   * @public
+   */
+  agentName?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the session. Use the same value across requests to continue the same conversation. </p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p> Specifies whether to end the session with the inline agent or not. </p>
+   * @public
+   */
+  endSession?: boolean | undefined;
+
+  /**
+   * <p> Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using trace</a>. </p>
+   * @public
+   */
+  enableTrace?: boolean | undefined;
+
+  /**
+   * <p> The prompt text to send to the agent. </p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
+   * @public
+   */
+  inputText?: string | undefined;
+
+  /**
+   * <p> Specifies the configurations for streaming. </p> <note> <p>To use agent streaming, you need permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action.</p> </note>
+   * @public
+   */
+  streamingConfigurations?: StreamingConfigurations | undefined;
+
+  /**
+   * <p>Specifies parameters that control how the service populates the agent prompt for an <code>InvokeInlineAgent</code> request. You can control which aspects of previous invocations in the same agent session the service uses to populate the agent prompt. This gives you more granular control over the contextual history that is used to process the current request.</p>
+   * @public
+   */
+  promptCreationConfigurations?: PromptCreationConfigurations | undefined;
+
+  /**
+   * <p> Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>. </p> <note> <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p> </note>
+   * @public
+   */
+  inlineSessionState?: InlineSessionState | undefined;
+
+  /**
+   * <p> List of collaborator inline agents. </p>
+   * @public
+   */
+  collaborators?: Collaborator[] | undefined;
+
+  /**
+   * <p>Model settings for the request.</p>
+   * @public
+   */
+  bedrockModelConfigurations?: InlineBedrockModelConfigurations | undefined;
+
+  /**
+   * <p>Specifies the type of orchestration strategy for the agent. This is set to DEFAULT orchestration type, by default. </p>
+   * @public
+   */
+  orchestrationType?: OrchestrationType | undefined;
+
+  /**
+   * <p>Contains details of the custom orchestration configured for the agent. </p>
+   * @public
+   */
+  customOrchestration?: CustomOrchestration | undefined;
 }

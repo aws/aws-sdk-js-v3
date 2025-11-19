@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DescribeFileSystemsRequest } from "../models/models_0";
-import { DescribeFileSystemsResponse } from "../models/models_1";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
 import { DescribeFileSystems } from "../schemas/schemas_0";
 
 /**

@@ -254,7 +254,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SupplyChainServiceException as __SupplyChainServiceException } from "../models/SupplyChainServiceException";
 
 /* eslint no-var: 0 */

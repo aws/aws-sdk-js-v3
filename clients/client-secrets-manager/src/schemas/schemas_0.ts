@@ -206,7 +206,7 @@ import {
   PublicPolicyException as __PublicPolicyException,
   ResourceExistsException as __ResourceExistsException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { SecretsManagerServiceException as __SecretsManagerServiceException } from "../models/SecretsManagerServiceException";
 
 /* eslint no-var: 0 */

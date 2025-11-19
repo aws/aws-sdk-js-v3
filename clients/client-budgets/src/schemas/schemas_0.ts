@@ -244,7 +244,7 @@ import {
   ResourceLockedException as __ResourceLockedException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

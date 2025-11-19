@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceMessage, ListTagsForResourceResponse } from "../models/models_1";
+import { ListTagsForResourceMessage, ListTagsForResourceResponse } from "../models/models_0";
 import { ListTagsForResource } from "../schemas/schemas_0";
 
 /**

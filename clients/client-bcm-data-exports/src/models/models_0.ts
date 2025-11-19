@@ -1,7 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BCMDataExportsServiceException as __BaseException } from "./BCMDataExportsServiceException";
+import {
+  CompressionOption,
+  ExecutionStatusCode,
+  ExecutionStatusReason,
+  ExportStatusCode,
+  FormatOption,
+  FrequencyOption,
+  OverwriteOption,
+  S3OutputType,
+} from "./enums";
 
 /**
  * <p>The SQL query of column selections and row filters from the data table you want.</p>
@@ -20,61 +27,6 @@ export interface DataQuery {
    */
   TableConfigurations?: Record<string, Record<string, string>> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CompressionOption = {
-  GZIP: "GZIP",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type CompressionOption = (typeof CompressionOption)[keyof typeof CompressionOption];
-
-/**
- * @public
- * @enum
- */
-export const FormatOption = {
-  PARQUET: "PARQUET",
-  TEXT_OR_CSV: "TEXT_OR_CSV",
-} as const;
-
-/**
- * @public
- */
-export type FormatOption = (typeof FormatOption)[keyof typeof FormatOption];
-
-/**
- * @public
- * @enum
- */
-export const S3OutputType = {
-  CUSTOM: "CUSTOM",
-} as const;
-
-/**
- * @public
- */
-export type S3OutputType = (typeof S3OutputType)[keyof typeof S3OutputType];
-
-/**
- * @public
- * @enum
- */
-export const OverwriteOption = {
-  CREATE_NEW_REPORT: "CREATE_NEW_REPORT",
-  OVERWRITE_REPORT: "OVERWRITE_REPORT",
-} as const;
-
-/**
- * @public
- */
-export type OverwriteOption = (typeof OverwriteOption)[keyof typeof OverwriteOption];
 
 /**
  * <p>The compression type, file format, and overwrite preference for the data export.</p>
@@ -151,19 +103,6 @@ export interface DestinationConfigurations {
    */
   S3Destination: S3Destination | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FrequencyOption = {
-  SYNCHRONOUS: "SYNCHRONOUS",
-} as const;
-
-/**
- * @public
- */
-export type FrequencyOption = (typeof FrequencyOption)[keyof typeof FrequencyOption];
 
 /**
  * <p>The cadence for Amazon Web Services to update the data export in your S3 bucket.</p>
@@ -269,116 +208,6 @@ export interface CreateExportResponse {
 }
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've reached the limit on the number of resources you can create, or exceeded the size
- *       of an individual resource.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The identifier of the resource that exceeded quota.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that exceeded quota.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The quota code that was exceeded.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-
-  /**
-   * <p>The service code that exceeded quota. It will always be
-   *       “AWSBillingAndCostManagementDataExports”.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The quota code that exceeded the throttling limit.</p>
-   * @public
-   */
-  QuotaCode?: string | undefined;
-
-  /**
-   * <p>The service code that exceeded the throttling limit. It will always be
-   *       “AWSBillingAndCostManagementDataExports”.</p>
-   * @public
-   */
-  ServiceCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
-  }
-}
-
-/**
  * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a
  *       specified field.</p>
  * @public
@@ -395,58 +224,6 @@ export interface ValidationExceptionField {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The reason for the validation exception.</p>
-   * @public
-   */
-  Reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The list of fields that are invalid.</p>
-   * @public
-   */
-  Fields?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Fields = opts.Fields;
-  }
 }
 
 /**
@@ -472,41 +249,6 @@ export interface DeleteExportResponse {
 }
 
 /**
- * <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * <p>The identifier of the resource that was not found.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that was not found.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
  * @public
  */
 export interface GetExecutionRequest {
@@ -523,40 +265,6 @@ export interface GetExecutionRequest {
    */
   ExecutionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatusCode = {
-  DELIVERY_FAILURE: "DELIVERY_FAILURE",
-  DELIVERY_IN_PROCESS: "DELIVERY_IN_PROCESS",
-  DELIVERY_SUCCESS: "DELIVERY_SUCCESS",
-  INITIATION_IN_PROCESS: "INITIATION_IN_PROCESS",
-  QUERY_FAILURE: "QUERY_FAILURE",
-  QUERY_IN_PROCESS: "QUERY_IN_PROCESS",
-  QUERY_QUEUED: "QUERY_QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatusCode = (typeof ExecutionStatusCode)[keyof typeof ExecutionStatusCode];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatusReason = {
-  BILL_OWNER_CHANGED: "BILL_OWNER_CHANGED",
-  INSUFFICIENT_PERMISSION: "INSUFFICIENT_PERMISSION",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatusReason = (typeof ExecutionStatusReason)[keyof typeof ExecutionStatusReason];
 
 /**
  * <p>The status of the execution.</p>
@@ -629,20 +337,6 @@ export interface GetExportRequest {
    */
   ExportArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportStatusCode = {
-  HEALTHY: "HEALTHY",
-  UNHEALTHY: "UNHEALTHY",
-} as const;
-
-/**
- * @public
- */
-export type ExportStatusCode = (typeof ExportStatusCode)[keyof typeof ExportStatusCode];
 
 /**
  * <p>The status of the data export.</p>

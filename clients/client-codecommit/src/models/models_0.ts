@@ -1,41 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
-
-/**
- * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
- * @public
- */
-export class ActorDoesNotExistException extends __BaseException {
-  readonly name: "ActorDoesNotExistException" = "ActorDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActorDoesNotExistException, __BaseException>) {
-    super({
-      name: "ActorDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActorDoesNotExistException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApprovalState = {
-  APPROVE: "APPROVE",
-  REVOKE: "REVOKE",
-} as const;
-
-/**
- * @public
- */
-export type ApprovalState = (typeof ApprovalState)[keyof typeof ApprovalState];
+import {
+  ApprovalState,
+  BatchGetRepositoriesErrorCodeEnum,
+  ChangeTypeEnum,
+  ConflictDetailLevelTypeEnum,
+  ConflictResolutionStrategyTypeEnum,
+  FileModeTypeEnum,
+  MergeOptionTypeEnum,
+  ObjectTypeEnum,
+  OrderEnum,
+  OverrideStatus,
+  PullRequestEventType,
+  PullRequestStatusEnum,
+  RelativeFileVersionEnum,
+  ReplacementTypeEnum,
+  RepositoryTriggerEventEnum,
+  SortByEnum,
+} from "./enums";
 
 /**
  * <p>Returns information about a specific approval on a pull request.</p>
@@ -128,46 +109,6 @@ export interface ApprovalRule {
 }
 
 /**
- * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
- * @public
- */
-export class ApprovalRuleContentRequiredException extends __BaseException {
-  readonly name: "ApprovalRuleContentRequiredException" = "ApprovalRuleContentRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleContentRequiredException, __BaseException>) {
-    super({
-      name: "ApprovalRuleContentRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleContentRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified approval rule does not exist.</p>
- * @public
- */
-export class ApprovalRuleDoesNotExistException extends __BaseException {
-  readonly name: "ApprovalRuleDoesNotExistException" = "ApprovalRuleDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleDoesNotExistException, __BaseException>) {
-    super({
-      name: "ApprovalRuleDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleDoesNotExistException.prototype);
-  }
-}
-
-/**
  * <p>Returns information about an event for an approval rule.</p>
  * @public
  */
@@ -190,61 +131,6 @@ export interface ApprovalRuleEventMetadata {
    */
   approvalRuleContent?: string | undefined;
 }
-
-/**
- * <p>An approval rule with that name already exists. Approval rule names must be unique
- *             within the scope of a pull request.</p>
- * @public
- */
-export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
-  readonly name: "ApprovalRuleNameAlreadyExistsException" = "ApprovalRuleNameAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleNameAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ApprovalRuleNameAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleNameAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>An approval rule name is required, but was not specified.</p>
- * @public
- */
-export class ApprovalRuleNameRequiredException extends __BaseException {
-  readonly name: "ApprovalRuleNameRequiredException" = "ApprovalRuleNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleNameRequiredException, __BaseException>) {
-    super({
-      name: "ApprovalRuleNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleNameRequiredException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const OverrideStatus = {
-  OVERRIDE: "OVERRIDE",
-  REVOKE: "REVOKE",
-} as const;
-
-/**
- * @public
- */
-export type OverrideStatus = (typeof OverrideStatus)[keyof typeof OverrideStatus];
 
 /**
  * <p>Returns information about an override event for approval rules for a pull request.</p>
@@ -319,110 +205,6 @@ export interface ApprovalRuleTemplate {
 }
 
 /**
- * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
- * @public
- */
-export class ApprovalRuleTemplateContentRequiredException extends __BaseException {
-  readonly name: "ApprovalRuleTemplateContentRequiredException" = "ApprovalRuleTemplateContentRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateContentRequiredException, __BaseException>) {
-    super({
-      name: "ApprovalRuleTemplateContentRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleTemplateContentRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
- *         was created, and then try again.</p>
- * @public
- */
-export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
-  readonly name: "ApprovalRuleTemplateDoesNotExistException" = "ApprovalRuleTemplateDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateDoesNotExistException, __BaseException>) {
-    super({
-      name: "ApprovalRuleTemplateDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleTemplateDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
- *         all associations, and then try again.</p>
- * @public
- */
-export class ApprovalRuleTemplateInUseException extends __BaseException {
-  readonly name: "ApprovalRuleTemplateInUseException" = "ApprovalRuleTemplateInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateInUseException, __BaseException>) {
-    super({
-      name: "ApprovalRuleTemplateInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleTemplateInUseException.prototype);
-  }
-}
-
-/**
- * <p>You cannot create an approval rule template with that name because a template with
- *             that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template
- *             names must be unique.</p>
- * @public
- */
-export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseException {
-  readonly name: "ApprovalRuleTemplateNameAlreadyExistsException" = "ApprovalRuleTemplateNameAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateNameAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ApprovalRuleTemplateNameAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleTemplateNameAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>An approval rule template name is required, but was not specified.</p>
- * @public
- */
-export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
-  readonly name: "ApprovalRuleTemplateNameRequiredException" = "ApprovalRuleTemplateNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateNameRequiredException, __BaseException>) {
-    super({
-      name: "ApprovalRuleTemplateNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalRuleTemplateNameRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Returns information about a change in the approval state for a pull request.</p>
  * @public
  */
@@ -441,26 +223,6 @@ export interface ApprovalStateChangedEventMetadata {
 }
 
 /**
- * <p>An approval state is required, but was not specified.</p>
- * @public
- */
-export class ApprovalStateRequiredException extends __BaseException {
-  readonly name: "ApprovalStateRequiredException" = "ApprovalStateRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ApprovalStateRequiredException, __BaseException>) {
-    super({
-      name: "ApprovalStateRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ApprovalStateRequiredException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
@@ -475,235 +237,6 @@ export interface AssociateApprovalRuleTemplateWithRepositoryInput {
    * @public
    */
   repositoryName: string | undefined;
-}
-
-/**
- * <p>An encryption integrity check failed.</p>
- * @public
- */
-export class EncryptionIntegrityChecksFailedException extends __BaseException {
-  readonly name: "EncryptionIntegrityChecksFailedException" = "EncryptionIntegrityChecksFailedException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionIntegrityChecksFailedException, __BaseException>) {
-    super({
-      name: "EncryptionIntegrityChecksFailedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionIntegrityChecksFailedException.prototype);
-  }
-}
-
-/**
- * <p>An encryption key could not be accessed.</p>
- * @public
- */
-export class EncryptionKeyAccessDeniedException extends __BaseException {
-  readonly name: "EncryptionKeyAccessDeniedException" = "EncryptionKeyAccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionKeyAccessDeniedException, __BaseException>) {
-    super({
-      name: "EncryptionKeyAccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionKeyAccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The encryption key is disabled.</p>
- * @public
- */
-export class EncryptionKeyDisabledException extends __BaseException {
-  readonly name: "EncryptionKeyDisabledException" = "EncryptionKeyDisabledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionKeyDisabledException, __BaseException>) {
-    super({
-      name: "EncryptionKeyDisabledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionKeyDisabledException.prototype);
-  }
-}
-
-/**
- * <p>No encryption key was found.</p>
- * @public
- */
-export class EncryptionKeyNotFoundException extends __BaseException {
-  readonly name: "EncryptionKeyNotFoundException" = "EncryptionKeyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionKeyNotFoundException, __BaseException>) {
-    super({
-      name: "EncryptionKeyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionKeyNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The encryption key is not available.</p>
- * @public
- */
-export class EncryptionKeyUnavailableException extends __BaseException {
-  readonly name: "EncryptionKeyUnavailableException" = "EncryptionKeyUnavailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionKeyUnavailableException, __BaseException>) {
-    super({
-      name: "EncryptionKeyUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionKeyUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
- * @public
- */
-export class InvalidApprovalRuleTemplateNameException extends __BaseException {
-  readonly name: "InvalidApprovalRuleTemplateNameException" = "InvalidApprovalRuleTemplateNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleTemplateNameException, __BaseException>) {
-    super({
-      name: "InvalidApprovalRuleTemplateNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApprovalRuleTemplateNameException.prototype);
-  }
-}
-
-/**
- * <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
- * @public
- */
-export class InvalidRepositoryNameException extends __BaseException {
-  readonly name: "InvalidRepositoryNameException" = "InvalidRepositoryNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRepositoryNameException, __BaseException>) {
-    super({
-      name: "InvalidRepositoryNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRepositoryNameException.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
- *         approval rule templates with a repository.</p>
- * @public
- */
-export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __BaseException {
-  readonly name: "MaximumRuleTemplatesAssociatedWithRepositoryException" =
-    "MaximumRuleTemplatesAssociatedWithRepositoryException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumRuleTemplatesAssociatedWithRepositoryException, __BaseException>) {
-    super({
-      name: "MaximumRuleTemplatesAssociatedWithRepositoryException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumRuleTemplatesAssociatedWithRepositoryException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository does not exist.</p>
- * @public
- */
-export class RepositoryDoesNotExistException extends __BaseException {
-  readonly name: "RepositoryDoesNotExistException" = "RepositoryDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryDoesNotExistException, __BaseException>) {
-    super({
-      name: "RepositoryDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>A repository name is required, but was not specified.</p>
- * @public
- */
-export class RepositoryNameRequiredException extends __BaseException {
-  readonly name: "RepositoryNameRequiredException" = "RepositoryNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNameRequiredException, __BaseException>) {
-    super({
-      name: "RepositoryNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
- * @public
- */
-export class AuthorDoesNotExistException extends __BaseException {
-  readonly name: "AuthorDoesNotExistException" = "AuthorDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorDoesNotExistException, __BaseException>) {
-    super({
-      name: "AuthorDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorDoesNotExistException.prototype);
-  }
 }
 
 /**
@@ -766,93 +299,6 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
    */
   errors: BatchAssociateApprovalRuleTemplateWithRepositoriesError[] | undefined;
 }
-
-/**
- * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
- * @public
- */
-export class MaximumRepositoryNamesExceededException extends __BaseException {
-  readonly name: "MaximumRepositoryNamesExceededException" = "MaximumRepositoryNamesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumRepositoryNamesExceededException, __BaseException>) {
-    super({
-      name: "MaximumRepositoryNamesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumRepositoryNamesExceededException.prototype);
-  }
-}
-
-/**
- * <p>At least one repository name object is required, but was not specified.</p>
- * @public
- */
-export class RepositoryNamesRequiredException extends __BaseException {
-  readonly name: "RepositoryNamesRequiredException" = "RepositoryNamesRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNamesRequiredException, __BaseException>) {
-    super({
-      name: "RepositoryNamesRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNamesRequiredException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConflictDetailLevelTypeEnum = {
-  FILE_LEVEL: "FILE_LEVEL",
-  LINE_LEVEL: "LINE_LEVEL",
-} as const;
-
-/**
- * @public
- */
-export type ConflictDetailLevelTypeEnum =
-  (typeof ConflictDetailLevelTypeEnum)[keyof typeof ConflictDetailLevelTypeEnum];
-
-/**
- * @public
- * @enum
- */
-export const ConflictResolutionStrategyTypeEnum = {
-  ACCEPT_DESTINATION: "ACCEPT_DESTINATION",
-  ACCEPT_SOURCE: "ACCEPT_SOURCE",
-  AUTOMERGE: "AUTOMERGE",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ConflictResolutionStrategyTypeEnum =
-  (typeof ConflictResolutionStrategyTypeEnum)[keyof typeof ConflictResolutionStrategyTypeEnum];
-
-/**
- * @public
- * @enum
- */
-export const MergeOptionTypeEnum = {
-  FAST_FORWARD_MERGE: "FAST_FORWARD_MERGE",
-  SQUASH_MERGE: "SQUASH_MERGE",
-  THREE_WAY_MERGE: "THREE_WAY_MERGE",
-} as const;
-
-/**
- * @public
- */
-export type MergeOptionTypeEnum = (typeof MergeOptionTypeEnum)[keyof typeof MergeOptionTypeEnum];
 
 /**
  * @public
@@ -928,21 +374,6 @@ export interface BatchDescribeMergeConflictsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const FileModeTypeEnum = {
-  EXECUTABLE: "EXECUTABLE",
-  NORMAL: "NORMAL",
-  SYMLINK: "SYMLINK",
-} as const;
-
-/**
- * @public
- */
-export type FileModeTypeEnum = (typeof FileModeTypeEnum)[keyof typeof FileModeTypeEnum];
-
-/**
  * <p>Information about file modes in a merge or pull request.</p>
  * @public
  */
@@ -1015,21 +446,6 @@ export interface IsBinaryFile {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeTypeEnum = {
-  ADDED: "A",
-  DELETED: "D",
-  MODIFIED: "M",
-} as const;
-
-/**
- * @public
- */
-export type ChangeTypeEnum = (typeof ChangeTypeEnum)[keyof typeof ChangeTypeEnum];
-
-/**
  * <p>Information about the file operation conflicts in a merge operation.</p>
  * @public
  */
@@ -1047,22 +463,6 @@ export interface MergeOperations {
    */
   destination?: ChangeTypeEnum | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ObjectTypeEnum = {
-  DIRECTORY: "DIRECTORY",
-  FILE: "FILE",
-  GIT_LINK: "GIT_LINK",
-  SYMBOLIC_LINK: "SYMBOLIC_LINK",
-} as const;
-
-/**
- * @public
- */
-export type ObjectTypeEnum = (typeof ObjectTypeEnum)[keyof typeof ObjectTypeEnum];
 
 /**
  * <p>Information about the type of an object in a merge operation.</p>
@@ -1297,267 +697,6 @@ export interface BatchDescribeMergeConflictsOutput {
 }
 
 /**
- * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
- * @public
- */
-export class CommitDoesNotExistException extends __BaseException {
-  readonly name: "CommitDoesNotExistException" = "CommitDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitDoesNotExistException, __BaseException>) {
-    super({
-      name: "CommitDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>A commit was not specified.</p>
- * @public
- */
-export class CommitRequiredException extends __BaseException {
-  readonly name: "CommitRequiredException" = "CommitRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitRequiredException, __BaseException>) {
-    super({
-      name: "CommitRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified commit is not valid.</p>
- * @public
- */
-export class InvalidCommitException extends __BaseException {
-  readonly name: "InvalidCommitException" = "InvalidCommitException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCommitException, __BaseException>) {
-    super({
-      name: "InvalidCommitException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCommitException.prototype);
-  }
-}
-
-/**
- * <p>The specified conflict detail level is not valid.</p>
- * @public
- */
-export class InvalidConflictDetailLevelException extends __BaseException {
-  readonly name: "InvalidConflictDetailLevelException" = "InvalidConflictDetailLevelException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConflictDetailLevelException, __BaseException>) {
-    super({
-      name: "InvalidConflictDetailLevelException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConflictDetailLevelException.prototype);
-  }
-}
-
-/**
- * <p>The specified conflict resolution strategy is not valid.</p>
- * @public
- */
-export class InvalidConflictResolutionStrategyException extends __BaseException {
-  readonly name: "InvalidConflictResolutionStrategyException" = "InvalidConflictResolutionStrategyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConflictResolutionStrategyException, __BaseException>) {
-    super({
-      name: "InvalidConflictResolutionStrategyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConflictResolutionStrategyException.prototype);
-  }
-}
-
-/**
- * <p>The specified continuation token is not valid.</p>
- * @public
- */
-export class InvalidContinuationTokenException extends __BaseException {
-  readonly name: "InvalidContinuationTokenException" = "InvalidContinuationTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidContinuationTokenException, __BaseException>) {
-    super({
-      name: "InvalidContinuationTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidContinuationTokenException.prototype);
-  }
-}
-
-/**
- * <p>The specified value for the number of conflict files to return is not valid.</p>
- * @public
- */
-export class InvalidMaxConflictFilesException extends __BaseException {
-  readonly name: "InvalidMaxConflictFilesException" = "InvalidMaxConflictFilesException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidMaxConflictFilesException, __BaseException>) {
-    super({
-      name: "InvalidMaxConflictFilesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidMaxConflictFilesException.prototype);
-  }
-}
-
-/**
- * <p>The specified value for the number of merge hunks to return is not valid.</p>
- * @public
- */
-export class InvalidMaxMergeHunksException extends __BaseException {
-  readonly name: "InvalidMaxMergeHunksException" = "InvalidMaxMergeHunksException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidMaxMergeHunksException, __BaseException>) {
-    super({
-      name: "InvalidMaxMergeHunksException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidMaxMergeHunksException.prototype);
-  }
-}
-
-/**
- * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
- * @public
- */
-export class InvalidMergeOptionException extends __BaseException {
-  readonly name: "InvalidMergeOptionException" = "InvalidMergeOptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidMergeOptionException, __BaseException>) {
-    super({
-      name: "InvalidMergeOptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidMergeOptionException.prototype);
-  }
-}
-
-/**
- * <p>The number of files to load exceeds the allowed limit.</p>
- * @public
- */
-export class MaximumFileContentToLoadExceededException extends __BaseException {
-  readonly name: "MaximumFileContentToLoadExceededException" = "MaximumFileContentToLoadExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumFileContentToLoadExceededException, __BaseException>) {
-    super({
-      name: "MaximumFileContentToLoadExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumFileContentToLoadExceededException.prototype);
-  }
-}
-
-/**
- * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
- * @public
- */
-export class MaximumItemsToCompareExceededException extends __BaseException {
-  readonly name: "MaximumItemsToCompareExceededException" = "MaximumItemsToCompareExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumItemsToCompareExceededException, __BaseException>) {
-    super({
-      name: "MaximumItemsToCompareExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumItemsToCompareExceededException.prototype);
-  }
-}
-
-/**
- * <p>A merge option or stategy is required, and none was provided.</p>
- * @public
- */
-export class MergeOptionRequiredException extends __BaseException {
-  readonly name: "MergeOptionRequiredException" = "MergeOptionRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MergeOptionRequiredException, __BaseException>) {
-    super({
-      name: "MergeOptionRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MergeOptionRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
- *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
- * @public
- */
-export class TipsDivergenceExceededException extends __BaseException {
-  readonly name: "TipsDivergenceExceededException" = "TipsDivergenceExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TipsDivergenceExceededException, __BaseException>) {
-    super({
-      name: "TipsDivergenceExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TipsDivergenceExceededException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
@@ -1765,46 +904,6 @@ export interface BatchGetCommitsOutput {
 }
 
 /**
- * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
- * @public
- */
-export class CommitIdsLimitExceededException extends __BaseException {
-  readonly name: "CommitIdsLimitExceededException" = "CommitIdsLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitIdsLimitExceededException, __BaseException>) {
-    super({
-      name: "CommitIdsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitIdsLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
- * @public
- */
-export class CommitIdsListRequiredException extends __BaseException {
-  readonly name: "CommitIdsListRequiredException" = "CommitIdsListRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitIdsListRequiredException, __BaseException>) {
-    super({
-      name: "CommitIdsListRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitIdsListRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a batch get repositories operation.</p>
  * @public
  */
@@ -1818,25 +917,6 @@ export interface BatchGetRepositoriesInput {
    */
   repositoryNames: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchGetRepositoriesErrorCodeEnum = {
-  ENCRYPTION_INTEGRITY_CHECKS_FAILED_EXCEPTION: "EncryptionIntegrityChecksFailedException",
-  ENCRYPTION_KEY_ACCESS_DENIED_EXCEPTION: "EncryptionKeyAccessDeniedException",
-  ENCRYPTION_KEY_DISABLED_EXCEPTION: "EncryptionKeyDisabledException",
-  ENCRYPTION_KEY_NOT_FOUND_EXCEPTION: "EncryptionKeyNotFoundException",
-  ENCRYPTION_KEY_UNAVAILABLE_EXCEPTION: "EncryptionKeyUnavailableException",
-  REPOSITORY_DOES_NOT_EXIST_EXCEPTION: "RepositoryDoesNotExistException",
-} as const;
-
-/**
- * @public
- */
-export type BatchGetRepositoriesErrorCodeEnum =
-  (typeof BatchGetRepositoriesErrorCodeEnum)[keyof typeof BatchGetRepositoriesErrorCodeEnum];
 
 /**
  * <p>Returns information about errors in a BatchGetRepositories operation.</p>
@@ -1965,66 +1045,6 @@ export interface BatchGetRepositoriesOutput {
 }
 
 /**
- * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
- * @public
- */
-export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseException {
-  readonly name: "BeforeCommitIdAndAfterCommitIdAreSameException" = "BeforeCommitIdAndAfterCommitIdAreSameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BeforeCommitIdAndAfterCommitIdAreSameException, __BaseException>) {
-    super({
-      name: "BeforeCommitIdAndAfterCommitIdAreSameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BeforeCommitIdAndAfterCommitIdAreSameException.prototype);
-  }
-}
-
-/**
- * <p>The specified blob does not exist.</p>
- * @public
- */
-export class BlobIdDoesNotExistException extends __BaseException {
-  readonly name: "BlobIdDoesNotExistException" = "BlobIdDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BlobIdDoesNotExistException, __BaseException>) {
-    super({
-      name: "BlobIdDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BlobIdDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>A blob ID is required, but was not specified.</p>
- * @public
- */
-export class BlobIdRequiredException extends __BaseException {
-  readonly name: "BlobIdRequiredException" = "BlobIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BlobIdRequiredException, __BaseException>) {
-    super({
-      name: "BlobIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BlobIdRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Returns information about a specific Git blob object.</p>
  * @public
  */
@@ -2067,26 +1087,6 @@ export interface BlobMetadata {
 }
 
 /**
- * <p>The specified branch does not exist.</p>
- * @public
- */
-export class BranchDoesNotExistException extends __BaseException {
-  readonly name: "BranchDoesNotExistException" = "BranchDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BranchDoesNotExistException, __BaseException>) {
-    super({
-      name: "BranchDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BranchDoesNotExistException.prototype);
-  }
-}
-
-/**
  * <p>Returns information about a branch.</p>
  * @public
  */
@@ -2102,135 +1102,6 @@ export interface BranchInfo {
    * @public
    */
   commitId?: string | undefined;
-}
-
-/**
- * <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
- *
- *             Branch names must be unique.</p>
- * @public
- */
-export class BranchNameExistsException extends __BaseException {
-  readonly name: "BranchNameExistsException" = "BranchNameExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BranchNameExistsException, __BaseException>) {
-    super({
-      name: "BranchNameExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BranchNameExistsException.prototype);
-  }
-}
-
-/**
- * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
- *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
- * @public
- */
-export class BranchNameIsTagNameException extends __BaseException {
-  readonly name: "BranchNameIsTagNameException" = "BranchNameIsTagNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BranchNameIsTagNameException, __BaseException>) {
-    super({
-      name: "BranchNameIsTagNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BranchNameIsTagNameException.prototype);
-  }
-}
-
-/**
- * <p>A branch name is required, but was not specified.</p>
- * @public
- */
-export class BranchNameRequiredException extends __BaseException {
-  readonly name: "BranchNameRequiredException" = "BranchNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BranchNameRequiredException, __BaseException>) {
-    super({
-      name: "BranchNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BranchNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The approval rule cannot be deleted from the pull request because it was created by an
- *             approval rule template and applied to the pull request automatically.</p>
- * @public
- */
-export class CannotDeleteApprovalRuleFromTemplateException extends __BaseException {
-  readonly name: "CannotDeleteApprovalRuleFromTemplateException" = "CannotDeleteApprovalRuleFromTemplateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CannotDeleteApprovalRuleFromTemplateException, __BaseException>) {
-    super({
-      name: "CannotDeleteApprovalRuleFromTemplateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CannotDeleteApprovalRuleFromTemplateException.prototype);
-  }
-}
-
-/**
- * <p>The approval rule cannot be modified for the pull request because it was created by an
- *             approval rule template and applied to the pull request automatically.</p>
- * @public
- */
-export class CannotModifyApprovalRuleFromTemplateException extends __BaseException {
-  readonly name: "CannotModifyApprovalRuleFromTemplateException" = "CannotModifyApprovalRuleFromTemplateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CannotModifyApprovalRuleFromTemplateException, __BaseException>) {
-    super({
-      name: "CannotModifyApprovalRuleFromTemplateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CannotModifyApprovalRuleFromTemplateException.prototype);
-  }
-}
-
-/**
- * <p>A client request token is required. A client request token is an unique,
- *             client-generated idempotency token that, when provided in a request, ensures the request
- *             cannot be repeated with a changed parameter. If a request is received with the same
- *             parameters and a token is included, the request returns information about the initial
- *             request that used that token.</p>
- * @public
- */
-export class ClientRequestTokenRequiredException extends __BaseException {
-  readonly name: "ClientRequestTokenRequiredException" = "ClientRequestTokenRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClientRequestTokenRequiredException, __BaseException>) {
-    super({
-      name: "ClientRequestTokenRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClientRequestTokenRequiredException.prototype);
-  }
 }
 
 /**
@@ -2314,88 +1185,6 @@ export interface CreateApprovalRuleTemplateOutput {
 }
 
 /**
- * <p>The content of the approval rule template is not valid.</p>
- * @public
- */
-export class InvalidApprovalRuleTemplateContentException extends __BaseException {
-  readonly name: "InvalidApprovalRuleTemplateContentException" = "InvalidApprovalRuleTemplateContentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleTemplateContentException, __BaseException>) {
-    super({
-      name: "InvalidApprovalRuleTemplateContentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApprovalRuleTemplateContentException.prototype);
-  }
-}
-
-/**
- * <p>The description for the approval rule template is not valid because it exceeds the
- *             maximum characters allowed for a description. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
- * @public
- */
-export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
-  readonly name: "InvalidApprovalRuleTemplateDescriptionException" = "InvalidApprovalRuleTemplateDescriptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleTemplateDescriptionException, __BaseException>) {
-    super({
-      name: "InvalidApprovalRuleTemplateDescriptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApprovalRuleTemplateDescriptionException.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>
- * @public
- */
-export class NumberOfRuleTemplatesExceededException extends __BaseException {
-  readonly name: "NumberOfRuleTemplatesExceededException" = "NumberOfRuleTemplatesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NumberOfRuleTemplatesExceededException, __BaseException>) {
-    super({
-      name: "NumberOfRuleTemplatesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NumberOfRuleTemplatesExceededException.prototype);
-  }
-}
-
-/**
- * <p>A commit ID was not specified.</p>
- * @public
- */
-export class CommitIdRequiredException extends __BaseException {
-  readonly name: "CommitIdRequiredException" = "CommitIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitIdRequiredException, __BaseException>) {
-    super({
-      name: "CommitIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitIdRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a create branch operation.</p>
  * @public
  */
@@ -2417,66 +1206,6 @@ export interface CreateBranchInput {
    * @public
    */
   commitId: string | undefined;
-}
-
-/**
- * <p>The specified reference name is not valid.</p>
- * @public
- */
-export class InvalidBranchNameException extends __BaseException {
-  readonly name: "InvalidBranchNameException" = "InvalidBranchNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidBranchNameException, __BaseException>) {
-    super({
-      name: "InvalidBranchNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidBranchNameException.prototype);
-  }
-}
-
-/**
- * <p>The specified commit ID is not valid.</p>
- * @public
- */
-export class InvalidCommitIdException extends __BaseException {
-  readonly name: "InvalidCommitIdException" = "InvalidCommitIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCommitIdException, __BaseException>) {
-    super({
-      name: "InvalidCommitIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCommitIdException.prototype);
-  }
-}
-
-/**
- * <p>The commit message is too long. Provide a shorter string. </p>
- * @public
- */
-export class CommitMessageLengthExceededException extends __BaseException {
-  readonly name: "CommitMessageLengthExceededException" = "CommitMessageLengthExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitMessageLengthExceededException, __BaseException>) {
-    super({
-      name: "CommitMessageLengthExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitMessageLengthExceededException.prototype);
-  }
 }
 
 /**
@@ -2689,524 +1418,6 @@ export interface CreateCommitOutput {
 }
 
 /**
- * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
- *         Either provide a different name for the file, or specify a different path for the file.</p>
- * @public
- */
-export class DirectoryNameConflictsWithFileNameException extends __BaseException {
-  readonly name: "DirectoryNameConflictsWithFileNameException" = "DirectoryNameConflictsWithFileNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DirectoryNameConflictsWithFileNameException, __BaseException>) {
-    super({
-      name: "DirectoryNameConflictsWithFileNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DirectoryNameConflictsWithFileNameException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because both a source file and file content have been
- *             specified for the same file. You cannot provide both. Either specify a source file or
- *             provide the file content directly.</p>
- * @public
- */
-export class FileContentAndSourceFileSpecifiedException extends __BaseException {
-  readonly name: "FileContentAndSourceFileSpecifiedException" = "FileContentAndSourceFileSpecifiedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileContentAndSourceFileSpecifiedException, __BaseException>) {
-    super({
-      name: "FileContentAndSourceFileSpecifiedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileContentAndSourceFileSpecifiedException.prototype);
-  }
-}
-
-/**
- * <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
- *             the combined file content change size is 7 MB. Consider making these changes using a Git
- *             client.</p>
- * @public
- */
-export class FileContentSizeLimitExceededException extends __BaseException {
-  readonly name: "FileContentSizeLimitExceededException" = "FileContentSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileContentSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "FileContentSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileContentSizeLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified file does not exist. Verify that you have used the correct file name,
- *             full path, and extension.</p>
- * @public
- */
-export class FileDoesNotExistException extends __BaseException {
-  readonly name: "FileDoesNotExistException" = "FileDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileDoesNotExistException, __BaseException>) {
-    super({
-      name: "FileDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
- * @public
- */
-export class FileEntryRequiredException extends __BaseException {
-  readonly name: "FileEntryRequiredException" = "FileEntryRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileEntryRequiredException, __BaseException>) {
-    super({
-      name: "FileEntryRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileEntryRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because no file mode has been specified. A file mode is
- *             required to update mode permissions for a file.</p>
- * @public
- */
-export class FileModeRequiredException extends __BaseException {
-  readonly name: "FileModeRequiredException" = "FileModeRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileModeRequiredException, __BaseException>) {
-    super({
-      name: "FileModeRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileModeRequiredException.prototype);
-  }
-}
-
-/**
- * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
- *         another name for the file, or add the file in a directory that does not match the file name.</p>
- * @public
- */
-export class FileNameConflictsWithDirectoryNameException extends __BaseException {
-  readonly name: "FileNameConflictsWithDirectoryNameException" = "FileNameConflictsWithDirectoryNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileNameConflictsWithDirectoryNameException, __BaseException>) {
-    super({
-      name: "FileNameConflictsWithDirectoryNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileNameConflictsWithDirectoryNameException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
- *         have valid file paths that do not point to a submodule.</p>
- * @public
- */
-export class FilePathConflictsWithSubmodulePathException extends __BaseException {
-  readonly name: "FilePathConflictsWithSubmodulePathException" = "FilePathConflictsWithSubmodulePathException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FilePathConflictsWithSubmodulePathException, __BaseException>) {
-    super({
-      name: "FilePathConflictsWithSubmodulePathException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FilePathConflictsWithSubmodulePathException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because at least one of the overall changes in the commit results in a
- *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
- *         or split the changes across multiple folders.</p>
- * @public
- */
-export class FolderContentSizeLimitExceededException extends __BaseException {
-  readonly name: "FolderContentSizeLimitExceededException" = "FolderContentSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FolderContentSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "FolderContentSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FolderContentSizeLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified deletion parameter is not valid.</p>
- * @public
- */
-export class InvalidDeletionParameterException extends __BaseException {
-  readonly name: "InvalidDeletionParameterException" = "InvalidDeletionParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeletionParameterException, __BaseException>) {
-    super({
-      name: "InvalidDeletionParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeletionParameterException.prototype);
-  }
-}
-
-/**
- * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
- *         allowed for an email address.</p>
- * @public
- */
-export class InvalidEmailException extends __BaseException {
-  readonly name: "InvalidEmailException" = "InvalidEmailException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEmailException, __BaseException>) {
-    super({
-      name: "InvalidEmailException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEmailException.prototype);
-  }
-}
-
-/**
- * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
- * @public
- */
-export class InvalidFileModeException extends __BaseException {
-  readonly name: "InvalidFileModeException" = "InvalidFileModeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFileModeException, __BaseException>) {
-    super({
-      name: "InvalidFileModeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFileModeException.prototype);
-  }
-}
-
-/**
- * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
- *         want to add or update a file.</p>
- * @public
- */
-export class InvalidParentCommitIdException extends __BaseException {
-  readonly name: "InvalidParentCommitIdException" = "InvalidParentCommitIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParentCommitIdException, __BaseException>) {
-    super({
-      name: "InvalidParentCommitIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParentCommitIdException.prototype);
-  }
-}
-
-/**
- * <p>The specified path is not valid.</p>
- * @public
- */
-export class InvalidPathException extends __BaseException {
-  readonly name: "InvalidPathException" = "InvalidPathException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPathException, __BaseException>) {
-    super({
-      name: "InvalidPathException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPathException.prototype);
-  }
-}
-
-/**
- * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
- *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
- * @public
- */
-export class MaximumFileEntriesExceededException extends __BaseException {
-  readonly name: "MaximumFileEntriesExceededException" = "MaximumFileEntriesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumFileEntriesExceededException, __BaseException>) {
-    super({
-      name: "MaximumFileEntriesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumFileEntriesExceededException.prototype);
-  }
-}
-
-/**
- * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
- * @public
- */
-export class NameLengthExceededException extends __BaseException {
-  readonly name: "NameLengthExceededException" = "NameLengthExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NameLengthExceededException, __BaseException>) {
-    super({
-      name: "NameLengthExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NameLengthExceededException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
- * @public
- */
-export class NoChangeException extends __BaseException {
-  readonly name: "NoChangeException" = "NoChangeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoChangeException, __BaseException>) {
-    super({
-      name: "NoChangeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoChangeException.prototype);
-  }
-}
-
-/**
- * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
- * @public
- */
-export class ParentCommitDoesNotExistException extends __BaseException {
-  readonly name: "ParentCommitDoesNotExistException" = "ParentCommitDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ParentCommitDoesNotExistException, __BaseException>) {
-    super({
-      name: "ParentCommitDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ParentCommitDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
- *         of the branch, use <a>GetBranch</a>.</p>
- * @public
- */
-export class ParentCommitIdOutdatedException extends __BaseException {
-  readonly name: "ParentCommitIdOutdatedException" = "ParentCommitIdOutdatedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ParentCommitIdOutdatedException, __BaseException>) {
-    super({
-      name: "ParentCommitIdOutdatedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ParentCommitIdOutdatedException.prototype);
-  }
-}
-
-/**
- * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
- *         (for example, git pull or git log).</p>
- * @public
- */
-export class ParentCommitIdRequiredException extends __BaseException {
-  readonly name: "ParentCommitIdRequiredException" = "ParentCommitIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ParentCommitIdRequiredException, __BaseException>) {
-    super({
-      name: "ParentCommitIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ParentCommitIdRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The folderPath for a location cannot be null.</p>
- * @public
- */
-export class PathRequiredException extends __BaseException {
-  readonly name: "PathRequiredException" = "PathRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PathRequiredException, __BaseException>) {
-    super({
-      name: "PathRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PathRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
- * @public
- */
-export class PutFileEntryConflictException extends __BaseException {
-  readonly name: "PutFileEntryConflictException" = "PutFileEntryConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PutFileEntryConflictException, __BaseException>) {
-    super({
-      name: "PutFileEntryConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PutFileEntryConflictException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
- * @public
- */
-export class RestrictedSourceFileException extends __BaseException {
-  readonly name: "RestrictedSourceFileException" = "RestrictedSourceFileException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RestrictedSourceFileException, __BaseException>) {
-    super({
-      name: "RestrictedSourceFileException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RestrictedSourceFileException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
- *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
- *         file as part of the same commit.</p>
- * @public
- */
-export class SamePathRequestException extends __BaseException {
-  readonly name: "SamePathRequestException" = "SamePathRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SamePathRequestException, __BaseException>) {
-    super({
-      name: "SamePathRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SamePathRequestException.prototype);
-  }
-}
-
-/**
- * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
- * @public
- */
-export class SourceFileOrContentRequiredException extends __BaseException {
-  readonly name: "SourceFileOrContentRequiredException" = "SourceFileOrContentRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceFileOrContentRequiredException, __BaseException>) {
-    super({
-      name: "SourceFileOrContentRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceFileOrContentRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Returns information about a target for a pull request.</p>
  * @public
  */
@@ -3269,20 +1480,6 @@ export interface CreatePullRequestInput {
    */
   clientRequestToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PullRequestStatusEnum = {
-  CLOSED: "CLOSED",
-  OPEN: "OPEN",
-} as const;
-
-/**
- * @public
- */
-export type PullRequestStatusEnum = (typeof PullRequestStatusEnum)[keyof typeof PullRequestStatusEnum];
 
 /**
  * <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
@@ -3453,333 +1650,6 @@ export interface CreatePullRequestOutput {
 }
 
 /**
- * <p>The client request token is not valid. Either the token is not in a valid format, or
- *             the token has been used in a previous request and cannot be reused.</p>
- * @public
- */
-export class IdempotencyParameterMismatchException extends __BaseException {
-  readonly name: "IdempotencyParameterMismatchException" = "IdempotencyParameterMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotencyParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotencyParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotencyParameterMismatchException.prototype);
-  }
-}
-
-/**
- * <p>The client request token is not valid.</p>
- * @public
- */
-export class InvalidClientRequestTokenException extends __BaseException {
-  readonly name: "InvalidClientRequestTokenException" = "InvalidClientRequestTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClientRequestTokenException, __BaseException>) {
-    super({
-      name: "InvalidClientRequestTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClientRequestTokenException.prototype);
-  }
-}
-
-/**
- * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
- *             characters.</p>
- * @public
- */
-export class InvalidDescriptionException extends __BaseException {
-  readonly name: "InvalidDescriptionException" = "InvalidDescriptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDescriptionException, __BaseException>) {
-    super({
-      name: "InvalidDescriptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDescriptionException.prototype);
-  }
-}
-
-/**
- * <p>The specified reference name format is not valid. Reference names must conform to the
- *             Git references format (for example, refs/heads/main). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
- *                 Git References</a> or consult your Git documentation.</p>
- * @public
- */
-export class InvalidReferenceNameException extends __BaseException {
-  readonly name: "InvalidReferenceNameException" = "InvalidReferenceNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReferenceNameException, __BaseException>) {
-    super({
-      name: "InvalidReferenceNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReferenceNameException.prototype);
-  }
-}
-
-/**
- * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
- * @public
- */
-export class InvalidTargetException extends __BaseException {
-  readonly name: "InvalidTargetException" = "InvalidTargetException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
-    super({
-      name: "InvalidTargetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetException.prototype);
-  }
-}
-
-/**
- * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
- *             the repository name, source branch, and destination branch for a pull request.</p>
- * @public
- */
-export class InvalidTargetsException extends __BaseException {
-  readonly name: "InvalidTargetsException" = "InvalidTargetsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTargetsException, __BaseException>) {
-    super({
-      name: "InvalidTargetsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTargetsException.prototype);
-  }
-}
-
-/**
- * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
- * @public
- */
-export class InvalidTitleException extends __BaseException {
-  readonly name: "InvalidTitleException" = "InvalidTitleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTitleException, __BaseException>) {
-    super({
-      name: "InvalidTitleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTitleException.prototype);
-  }
-}
-
-/**
- * <p>You cannot create the pull request because the repository has too many open pull requests.
- *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
- * @public
- */
-export class MaximumOpenPullRequestsExceededException extends __BaseException {
-  readonly name: "MaximumOpenPullRequestsExceededException" = "MaximumOpenPullRequestsExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumOpenPullRequestsExceededException, __BaseException>) {
-    super({
-      name: "MaximumOpenPullRequestsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumOpenPullRequestsExceededException.prototype);
-  }
-}
-
-/**
- * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
- * @public
- */
-export class MultipleRepositoriesInPullRequestException extends __BaseException {
-  readonly name: "MultipleRepositoriesInPullRequestException" = "MultipleRepositoriesInPullRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MultipleRepositoriesInPullRequestException, __BaseException>) {
-    super({
-      name: "MultipleRepositoriesInPullRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MultipleRepositoriesInPullRequestException.prototype);
-  }
-}
-
-/**
- * <p>The specified reference does not exist. You must provide a full commit ID.</p>
- * @public
- */
-export class ReferenceDoesNotExistException extends __BaseException {
-  readonly name: "ReferenceDoesNotExistException" = "ReferenceDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReferenceDoesNotExistException, __BaseException>) {
-    super({
-      name: "ReferenceDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReferenceDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>A reference name is required, but none was provided.</p>
- * @public
- */
-export class ReferenceNameRequiredException extends __BaseException {
-  readonly name: "ReferenceNameRequiredException" = "ReferenceNameRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReferenceNameRequiredException, __BaseException>) {
-    super({
-      name: "ReferenceNameRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReferenceNameRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The specified reference is not a supported type. </p>
- * @public
- */
-export class ReferenceTypeNotSupportedException extends __BaseException {
-  readonly name: "ReferenceTypeNotSupportedException" = "ReferenceTypeNotSupportedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReferenceTypeNotSupportedException, __BaseException>) {
-    super({
-      name: "ReferenceTypeNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReferenceTypeNotSupportedException.prototype);
-  }
-}
-
-/**
- * <p>The source branch and destination branch for the pull request are the same. You must
- *             specify different branches for the source and destination.</p>
- * @public
- */
-export class SourceAndDestinationAreSameException extends __BaseException {
-  readonly name: "SourceAndDestinationAreSameException" = "SourceAndDestinationAreSameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceAndDestinationAreSameException, __BaseException>) {
-    super({
-      name: "SourceAndDestinationAreSameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceAndDestinationAreSameException.prototype);
-  }
-}
-
-/**
- * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
- * @public
- */
-export class TargetRequiredException extends __BaseException {
-  readonly name: "TargetRequiredException" = "TargetRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TargetRequiredException, __BaseException>) {
-    super({
-      name: "TargetRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TargetRequiredException.prototype);
-  }
-}
-
-/**
- * <p>An array of target objects is required. It cannot be empty or null.</p>
- * @public
- */
-export class TargetsRequiredException extends __BaseException {
-  readonly name: "TargetsRequiredException" = "TargetsRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TargetsRequiredException, __BaseException>) {
-    super({
-      name: "TargetsRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TargetsRequiredException.prototype);
-  }
-}
-
-/**
- * <p>A pull request title is required. It cannot be empty or null.</p>
- * @public
- */
-export class TitleRequiredException extends __BaseException {
-  readonly name: "TitleRequiredException" = "TitleRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TitleRequiredException, __BaseException>) {
-    super({
-      name: "TitleRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TitleRequiredException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreatePullRequestApprovalRuleInput {
@@ -3855,146 +1725,6 @@ export interface CreatePullRequestApprovalRuleOutput {
 }
 
 /**
- * <p>The content for the approval rule is not valid.</p>
- * @public
- */
-export class InvalidApprovalRuleContentException extends __BaseException {
-  readonly name: "InvalidApprovalRuleContentException" = "InvalidApprovalRuleContentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleContentException, __BaseException>) {
-    super({
-      name: "InvalidApprovalRuleContentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApprovalRuleContentException.prototype);
-  }
-}
-
-/**
- * <p>The name for the approval rule is not valid.</p>
- * @public
- */
-export class InvalidApprovalRuleNameException extends __BaseException {
-  readonly name: "InvalidApprovalRuleNameException" = "InvalidApprovalRuleNameException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleNameException, __BaseException>) {
-    super({
-      name: "InvalidApprovalRuleNameException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApprovalRuleNameException.prototype);
-  }
-}
-
-/**
- * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
- * @public
- */
-export class InvalidPullRequestIdException extends __BaseException {
-  readonly name: "InvalidPullRequestIdException" = "InvalidPullRequestIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPullRequestIdException, __BaseException>) {
-    super({
-      name: "InvalidPullRequestIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPullRequestIdException.prototype);
-  }
-}
-
-/**
- * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
- * @public
- */
-export class NumberOfRulesExceededException extends __BaseException {
-  readonly name: "NumberOfRulesExceededException" = "NumberOfRulesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NumberOfRulesExceededException, __BaseException>) {
-    super({
-      name: "NumberOfRulesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NumberOfRulesExceededException.prototype);
-  }
-}
-
-/**
- * <p>The pull request status cannot be updated because it is already closed.</p>
- * @public
- */
-export class PullRequestAlreadyClosedException extends __BaseException {
-  readonly name: "PullRequestAlreadyClosedException" = "PullRequestAlreadyClosedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PullRequestAlreadyClosedException, __BaseException>) {
-    super({
-      name: "PullRequestAlreadyClosedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PullRequestAlreadyClosedException.prototype);
-  }
-}
-
-/**
- * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
- * @public
- */
-export class PullRequestDoesNotExistException extends __BaseException {
-  readonly name: "PullRequestDoesNotExistException" = "PullRequestDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PullRequestDoesNotExistException, __BaseException>) {
-    super({
-      name: "PullRequestDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PullRequestDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>A pull request ID is required, but none was provided.</p>
- * @public
- */
-export class PullRequestIdRequiredException extends __BaseException {
-  readonly name: "PullRequestIdRequiredException" = "PullRequestIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PullRequestIdRequiredException, __BaseException>) {
-    super({
-      name: "PullRequestIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PullRequestIdRequiredException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a create repository operation.</p>
  * @public
  */
@@ -4053,243 +1783,6 @@ export interface CreateRepositoryOutput {
    */
   repositoryMetadata?: RepositoryMetadata | undefined;
 }
-
-/**
- * <p>The Key Management Service encryption key is not valid.</p>
- * @public
- */
-export class EncryptionKeyInvalidIdException extends __BaseException {
-  readonly name: "EncryptionKeyInvalidIdException" = "EncryptionKeyInvalidIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionKeyInvalidIdException, __BaseException>) {
-    super({
-      name: "EncryptionKeyInvalidIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionKeyInvalidIdException.prototype);
-  }
-}
-
-/**
- * <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not
- *         in a valid state to support the operation.</p>
- * @public
- */
-export class EncryptionKeyInvalidUsageException extends __BaseException {
-  readonly name: "EncryptionKeyInvalidUsageException" = "EncryptionKeyInvalidUsageException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionKeyInvalidUsageException, __BaseException>) {
-    super({
-      name: "EncryptionKeyInvalidUsageException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionKeyInvalidUsageException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository description is not valid.</p>
- * @public
- */
-export class InvalidRepositoryDescriptionException extends __BaseException {
-  readonly name: "InvalidRepositoryDescriptionException" = "InvalidRepositoryDescriptionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRepositoryDescriptionException, __BaseException>) {
-    super({
-      name: "InvalidRepositoryDescriptionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRepositoryDescriptionException.prototype);
-  }
-}
-
-/**
- * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
- * @public
- */
-export class InvalidSystemTagUsageException extends __BaseException {
-  readonly name: "InvalidSystemTagUsageException" = "InvalidSystemTagUsageException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSystemTagUsageException, __BaseException>) {
-    super({
-      name: "InvalidSystemTagUsageException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSystemTagUsageException.prototype);
-  }
-}
-
-/**
- * <p>The map of tags is not valid.</p>
- * @public
- */
-export class InvalidTagsMapException extends __BaseException {
-  readonly name: "InvalidTagsMapException" = "InvalidTagsMapException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagsMapException, __BaseException>) {
-    super({
-      name: "InvalidTagsMapException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagsMapException.prototype);
-  }
-}
-
-/**
- * <p>The requested action is not allowed.</p>
- * @public
- */
-export class OperationNotAllowedException extends __BaseException {
-  readonly name: "OperationNotAllowedException" = "OperationNotAllowedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationNotAllowedException, __BaseException>) {
-    super({
-      name: "OperationNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationNotAllowedException.prototype);
-  }
-}
-
-/**
- * <p>A repository resource limit was exceeded.</p>
- * @public
- */
-export class RepositoryLimitExceededException extends __BaseException {
-  readonly name: "RepositoryLimitExceededException" = "RepositoryLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryLimitExceededException, __BaseException>) {
-    super({
-      name: "RepositoryLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository name already exists.</p>
- * @public
- */
-export class RepositoryNameExistsException extends __BaseException {
-  readonly name: "RepositoryNameExistsException" = "RepositoryNameExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNameExistsException, __BaseException>) {
-    super({
-      name: "RepositoryNameExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNameExistsException.prototype);
-  }
-}
-
-/**
- * <p>The tag policy is not valid.</p>
- * @public
- */
-export class TagPolicyException extends __BaseException {
-  readonly name: "TagPolicyException" = "TagPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagPolicyException, __BaseException>) {
-    super({
-      name: "TagPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagPolicyException.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
- * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
- * @public
- */
-export class ConcurrentReferenceUpdateException extends __BaseException {
-  readonly name: "ConcurrentReferenceUpdateException" = "ConcurrentReferenceUpdateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentReferenceUpdateException, __BaseException>) {
-    super({
-      name: "ConcurrentReferenceUpdateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentReferenceUpdateException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ReplacementTypeEnum = {
-  KEEP_BASE: "KEEP_BASE",
-  KEEP_DESTINATION: "KEEP_DESTINATION",
-  KEEP_SOURCE: "KEEP_SOURCE",
-  USE_NEW_CONTENT: "USE_NEW_CONTENT",
-} as const;
-
-/**
- * @public
- */
-export type ReplacementTypeEnum = (typeof ReplacementTypeEnum)[keyof typeof ReplacementTypeEnum];
 
 /**
  * <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
@@ -4446,167 +1939,6 @@ export interface CreateUnreferencedMergeCommitOutput {
 }
 
 /**
- * <p>The specified conflict resolution list is not valid.</p>
- * @public
- */
-export class InvalidConflictResolutionException extends __BaseException {
-  readonly name: "InvalidConflictResolutionException" = "InvalidConflictResolutionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConflictResolutionException, __BaseException>) {
-    super({
-      name: "InvalidConflictResolutionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConflictResolutionException.prototype);
-  }
-}
-
-/**
- * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
- * @public
- */
-export class InvalidReplacementContentException extends __BaseException {
-  readonly name: "InvalidReplacementContentException" = "InvalidReplacementContentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReplacementContentException, __BaseException>) {
-    super({
-      name: "InvalidReplacementContentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReplacementContentException.prototype);
-  }
-}
-
-/**
- * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
- * @public
- */
-export class InvalidReplacementTypeException extends __BaseException {
-  readonly name: "InvalidReplacementTypeException" = "InvalidReplacementTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReplacementTypeException, __BaseException>) {
-    super({
-      name: "InvalidReplacementTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReplacementTypeException.prototype);
-  }
-}
-
-/**
- * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
- * @public
- */
-export class ManualMergeRequiredException extends __BaseException {
-  readonly name: "ManualMergeRequiredException" = "ManualMergeRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ManualMergeRequiredException, __BaseException>) {
-    super({
-      name: "ManualMergeRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ManualMergeRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The number of allowed conflict resolution entries was exceeded.</p>
- * @public
- */
-export class MaximumConflictResolutionEntriesExceededException extends __BaseException {
-  readonly name: "MaximumConflictResolutionEntriesExceededException" =
-    "MaximumConflictResolutionEntriesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumConflictResolutionEntriesExceededException, __BaseException>) {
-    super({
-      name: "MaximumConflictResolutionEntriesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumConflictResolutionEntriesExceededException.prototype);
-  }
-}
-
-/**
- * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
- * @public
- */
-export class MultipleConflictResolutionEntriesException extends __BaseException {
-  readonly name: "MultipleConflictResolutionEntriesException" = "MultipleConflictResolutionEntriesException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MultipleConflictResolutionEntriesException, __BaseException>) {
-    super({
-      name: "MultipleConflictResolutionEntriesException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MultipleConflictResolutionEntriesException.prototype);
-  }
-}
-
-/**
- * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
- * @public
- */
-export class ReplacementContentRequiredException extends __BaseException {
-  readonly name: "ReplacementContentRequiredException" = "ReplacementContentRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplacementContentRequiredException, __BaseException>) {
-    super({
-      name: "ReplacementContentRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplacementContentRequiredException.prototype);
-  }
-}
-
-/**
- * <p>A replacement type is required.</p>
- * @public
- */
-export class ReplacementTypeRequiredException extends __BaseException {
-  readonly name: "ReplacementTypeRequiredException" = "ReplacementTypeRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplacementTypeRequiredException, __BaseException>) {
-    super({
-      name: "ReplacementTypeRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplacementTypeRequiredException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteApprovalRuleTemplateInput {
@@ -4627,26 +1959,6 @@ export interface DeleteApprovalRuleTemplateOutput {
    * @public
    */
   approvalRuleTemplateId: string | undefined;
-}
-
-/**
- * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
- * @public
- */
-export class DefaultBranchCannotBeDeletedException extends __BaseException {
-  readonly name: "DefaultBranchCannotBeDeletedException" = "DefaultBranchCannotBeDeletedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DefaultBranchCannotBeDeletedException, __BaseException>) {
-    super({
-      name: "DefaultBranchCannotBeDeletedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DefaultBranchCannotBeDeletedException.prototype);
-  }
 }
 
 /**
@@ -4677,67 +1989,6 @@ export interface DeleteBranchOutput {
    * @public
    */
   deletedBranch?: BranchInfo | undefined;
-}
-
-/**
- * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
- * @public
- */
-export class CommentDeletedException extends __BaseException {
-  readonly name: "CommentDeletedException" = "CommentDeletedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommentDeletedException, __BaseException>) {
-    super({
-      name: "CommentDeletedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommentDeletedException.prototype);
-  }
-}
-
-/**
- * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
- * @public
- */
-export class CommentDoesNotExistException extends __BaseException {
-  readonly name: "CommentDoesNotExistException" = "CommentDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommentDoesNotExistException, __BaseException>) {
-    super({
-      name: "CommentDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommentDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>The comment ID is missing or null. A comment ID is required.</p>
- * @public
- */
-export class CommentIdRequiredException extends __BaseException {
-  readonly name: "CommentIdRequiredException" = "CommentIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommentIdRequiredException, __BaseException>) {
-    super({
-      name: "CommentIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommentIdRequiredException.prototype);
-  }
 }
 
 /**
@@ -4830,26 +2081,6 @@ export interface DeleteCommentContentOutput {
    * @public
    */
   comment?: Comment | undefined;
-}
-
-/**
- * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
- * @public
- */
-export class InvalidCommentIdException extends __BaseException {
-  readonly name: "InvalidCommentIdException" = "InvalidCommentIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCommentIdException, __BaseException>) {
-    super({
-      name: "InvalidCommentIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCommentIdException.prototype);
-  }
 }
 
 /**
@@ -5112,27 +2343,6 @@ export interface DescribeMergeConflictsOutput {
 
 /**
  * @public
- * @enum
- */
-export const PullRequestEventType = {
-  PULL_REQUEST_APPROVAL_RULE_CREATED: "PULL_REQUEST_APPROVAL_RULE_CREATED",
-  PULL_REQUEST_APPROVAL_RULE_DELETED: "PULL_REQUEST_APPROVAL_RULE_DELETED",
-  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN: "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
-  PULL_REQUEST_APPROVAL_RULE_UPDATED: "PULL_REQUEST_APPROVAL_RULE_UPDATED",
-  PULL_REQUEST_APPROVAL_STATE_CHANGED: "PULL_REQUEST_APPROVAL_STATE_CHANGED",
-  PULL_REQUEST_CREATED: "PULL_REQUEST_CREATED",
-  PULL_REQUEST_MERGE_STATE_CHANGED: "PULL_REQUEST_MERGE_STATE_CHANGED",
-  PULL_REQUEST_SOURCE_REFERENCE_UPDATED: "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
-  PULL_REQUEST_STATUS_CHANGED: "PULL_REQUEST_STATUS_CHANGED",
-} as const;
-
-/**
- * @public
- */
-export type PullRequestEventType = (typeof PullRequestEventType)[keyof typeof PullRequestEventType];
-
-/**
- * @public
  */
 export interface DescribePullRequestEventsInput {
   /**
@@ -5360,67 +2570,6 @@ export interface DescribePullRequestEventsOutput {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
- *             and then try again.</p>
- * @public
- */
-export class InvalidActorArnException extends __BaseException {
-  readonly name: "InvalidActorArnException" = "InvalidActorArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidActorArnException, __BaseException>) {
-    super({
-      name: "InvalidActorArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidActorArnException.prototype);
-  }
-}
-
-/**
- * <p>The specified number of maximum results is not valid.</p>
- * @public
- */
-export class InvalidMaxResultsException extends __BaseException {
-  readonly name: "InvalidMaxResultsException" = "InvalidMaxResultsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidMaxResultsException, __BaseException>) {
-    super({
-      name: "InvalidMaxResultsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidMaxResultsException.prototype);
-  }
-}
-
-/**
- * <p>The pull request event type is not valid. </p>
- * @public
- */
-export class InvalidPullRequestEventTypeException extends __BaseException {
-  readonly name: "InvalidPullRequestEventTypeException" = "InvalidPullRequestEventTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPullRequestEventTypeException, __BaseException>) {
-    super({
-      name: "InvalidPullRequestEventTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPullRequestEventTypeException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
@@ -5499,66 +2648,6 @@ export interface EvaluatePullRequestApprovalRulesOutput {
 }
 
 /**
- * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
- * @public
- */
-export class InvalidRevisionIdException extends __BaseException {
-  readonly name: "InvalidRevisionIdException" = "InvalidRevisionIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRevisionIdException, __BaseException>) {
-    super({
-      name: "InvalidRevisionIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRevisionIdException.prototype);
-  }
-}
-
-/**
- * <p>A revision ID is required, but was not provided.</p>
- * @public
- */
-export class RevisionIdRequiredException extends __BaseException {
-  readonly name: "RevisionIdRequiredException" = "RevisionIdRequiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RevisionIdRequiredException, __BaseException>) {
-    super({
-      name: "RevisionIdRequiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RevisionIdRequiredException.prototype);
-  }
-}
-
-/**
- * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
- * @public
- */
-export class RevisionNotCurrentException extends __BaseException {
-  readonly name: "RevisionNotCurrentException" = "RevisionNotCurrentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RevisionNotCurrentException, __BaseException>) {
-    super({
-      name: "RevisionNotCurrentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RevisionNotCurrentException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetApprovalRuleTemplateInput {
@@ -5578,27 +2667,6 @@ export interface GetApprovalRuleTemplateOutput {
    * @public
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-/**
- * <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
- * @public
- */
-export class FileTooLargeException extends __BaseException {
-  readonly name: "FileTooLargeException" = "FileTooLargeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileTooLargeException, __BaseException>) {
-    super({
-      name: "FileTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileTooLargeException.prototype);
-  }
 }
 
 /**
@@ -5629,26 +2697,6 @@ export interface GetBlobOutput {
    * @public
    */
   content: Uint8Array | undefined;
-}
-
-/**
- * <p>The specified blob is not valid.</p>
- * @public
- */
-export class InvalidBlobIdException extends __BaseException {
-  readonly name: "InvalidBlobIdException" = "InvalidBlobIdException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidBlobIdException, __BaseException>) {
-    super({
-      name: "InvalidBlobIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidBlobIdException.prototype);
-  }
 }
 
 /**
@@ -5800,26 +2848,6 @@ export interface GetCommentReactionsOutput {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
- * @public
- */
-export class InvalidReactionUserArnException extends __BaseException {
-  readonly name: "InvalidReactionUserArnException" = "InvalidReactionUserArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReactionUserArnException, __BaseException>) {
-    super({
-      name: "InvalidReactionUserArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReactionUserArnException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetCommentsForComparedCommitInput {
@@ -5856,20 +2884,6 @@ export interface GetCommentsForComparedCommitInput {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RelativeFileVersionEnum = {
-  AFTER: "AFTER",
-  BEFORE: "BEFORE",
-} as const;
-
-/**
- * @public
- */
-export type RelativeFileVersionEnum = (typeof RelativeFileVersionEnum)[keyof typeof RelativeFileVersionEnum];
 
 /**
  * <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
@@ -6088,46 +3102,6 @@ export interface GetCommentsForPullRequestOutput {
 }
 
 /**
- * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
- * @public
- */
-export class RepositoryNotAssociatedWithPullRequestException extends __BaseException {
-  readonly name: "RepositoryNotAssociatedWithPullRequestException" = "RepositoryNotAssociatedWithPullRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNotAssociatedWithPullRequestException, __BaseException>) {
-    super({
-      name: "RepositoryNotAssociatedWithPullRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNotAssociatedWithPullRequestException.prototype);
-  }
-}
-
-/**
- * <p>The specified commit ID does not exist.</p>
- * @public
- */
-export class CommitIdDoesNotExistException extends __BaseException {
-  readonly name: "CommitIdDoesNotExistException" = "CommitIdDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CommitIdDoesNotExistException, __BaseException>) {
-    super({
-      name: "CommitIdDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CommitIdDoesNotExistException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input of a get commit operation.</p>
  * @public
  */
@@ -6259,26 +3233,6 @@ export interface GetDifferencesOutput {
 }
 
 /**
- * <p>The specified path does not exist.</p>
- * @public
- */
-export class PathDoesNotExistException extends __BaseException {
-  readonly name: "PathDoesNotExistException" = "PathDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PathDoesNotExistException, __BaseException>) {
-    super({
-      name: "PathDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PathDoesNotExistException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetFileInput {
@@ -6350,27 +3304,6 @@ export interface GetFileOutput {
    * @public
    */
   fileContent: Uint8Array | undefined;
-}
-
-/**
- * <p>The specified folder does not exist. Either the folder name is not correct, or you did
- *             not enter the full path to the folder.</p>
- * @public
- */
-export class FolderDoesNotExistException extends __BaseException {
-  readonly name: "FolderDoesNotExistException" = "FolderDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FolderDoesNotExistException, __BaseException>) {
-    super({
-      name: "FolderDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FolderDoesNotExistException.prototype);
-  }
 }
 
 /**
@@ -6735,46 +3668,6 @@ export interface GetMergeConflictsOutput {
 }
 
 /**
- * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
- * @public
- */
-export class InvalidDestinationCommitSpecifierException extends __BaseException {
-  readonly name: "InvalidDestinationCommitSpecifierException" = "InvalidDestinationCommitSpecifierException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDestinationCommitSpecifierException, __BaseException>) {
-    super({
-      name: "InvalidDestinationCommitSpecifierException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDestinationCommitSpecifierException.prototype);
-  }
-}
-
-/**
- * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
- * @public
- */
-export class InvalidSourceCommitSpecifierException extends __BaseException {
-  readonly name: "InvalidSourceCommitSpecifierException" = "InvalidSourceCommitSpecifierException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSourceCommitSpecifierException, __BaseException>) {
-    super({
-      name: "InvalidSourceCommitSpecifierException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSourceCommitSpecifierException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetMergeOptionsInput {
@@ -6966,22 +3859,6 @@ export interface GetRepositoryTriggersInput {
    */
   repositoryName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RepositoryTriggerEventEnum = {
-  ALL: "all",
-  CREATE_REFERENCE: "createReference",
-  DELETE_REFERENCE: "deleteReference",
-  UPDATE_REFERENCE: "updateReference",
-} as const;
-
-/**
- * @public
- */
-export type RepositoryTriggerEventEnum = (typeof RepositoryTriggerEventEnum)[keyof typeof RepositoryTriggerEventEnum];
 
 /**
  * <p>Information about a trigger for a repository. </p>
@@ -7201,4 +4078,1610 @@ export interface ListFileCommitHistoryRequest {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a version of a file.</p>
+ * @public
+ */
+export interface FileVersion {
+  /**
+   * <p>Returns information about a specific commit.</p>
+   * @public
+   */
+  commit?: Commit | undefined;
+
+  /**
+   * <p>The blob ID of the object that represents the content of the file in this version.</p>
+   * @public
+   */
+  blobId?: string | undefined;
+
+  /**
+   * <p>The name and path of the file at which this blob is indexed which contains the data for this version of the file. This value will
+   *         vary between file versions if a file is renamed or if its path changes.</p>
+   * @public
+   */
+  path?: string | undefined;
+
+  /**
+   * <p>An array of commit IDs that contain more recent versions of this file. If there are no additional versions of the file, this array will be empty.</p>
+   * @public
+   */
+  revisionChildren?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFileCommitHistoryResponse {
+  /**
+   * <p>An array of FileVersion objects that form a directed acyclic graph (DAG) of the changes to the file made by the commits that changed the file.</p>
+   * @public
+   */
+  revisionDag: FileVersion[] | undefined;
+
+  /**
+   * <p>An enumeration token that can be used to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPullRequestsInput {
+  /**
+   * <p>The name of the repository for which you want to list pull requests.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results
+   *         to pull requests created by that user.</p>
+   * @public
+   */
+  authorArn?: string | undefined;
+
+  /**
+   * <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
+   * @public
+   */
+  pullRequestStatus?: PullRequestStatusEnum | undefined;
+
+  /**
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
+   *             results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPullRequestsOutput {
+  /**
+   * <p>The system-generated IDs of the pull requests.</p>
+   * @public
+   */
+  pullRequestIds: string[] | undefined;
+
+  /**
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the input of a list repositories operation.</p>
+ * @public
+ */
+export interface ListRepositoriesInput {
+  /**
+   * <p>An enumeration token that allows the operation to batch the results of the operation.
+   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit,
+   *             another page of 1,000 records is retrieved.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The criteria used to sort the results of a list repositories operation.</p>
+   * @public
+   */
+  sortBy?: SortByEnum | undefined;
+
+  /**
+   * <p>The order in which to sort the results of a list repositories operation.</p>
+   * @public
+   */
+  order?: OrderEnum | undefined;
+}
+
+/**
+ * <p>Information about a repository name and ID.</p>
+ * @public
+ */
+export interface RepositoryNameIdPair {
+  /**
+   * <p>The name associated with the repository.</p>
+   * @public
+   */
+  repositoryName?: string | undefined;
+
+  /**
+   * <p>The ID associated with the repository.</p>
+   * @public
+   */
+  repositoryId?: string | undefined;
+}
+
+/**
+ * <p>Represents the output of a list repositories operation.</p>
+ * @public
+ */
+export interface ListRepositoriesOutput {
+  /**
+   * <p>Lists the repositories called by the list repositories operation.</p>
+   * @public
+   */
+  repositories?: RepositoryNameIdPair[] | undefined;
+
+  /**
+   * <p>An enumeration token that allows the operation to batch the results of the operation.
+   *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit,
+   *             another page of 1,000 records is retrieved.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRepositoriesForApprovalRuleTemplateInput {
+  /**
+   * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
+   * @public
+   */
+  approvalRuleTemplateName: string | undefined;
+
+  /**
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
+   *             results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRepositoriesForApprovalRuleTemplateOutput {
+  /**
+   * <p>A list of repository names that are associated with the specified approval rule template.</p>
+   * @public
+   */
+  repositoryNames?: string[] | undefined;
+
+  /**
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
+   *             about tags, if any.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
+   *             results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>A list of tag key and value pairs associated with the specified resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeBranchesByFastForwardInput {
+  /**
+   * <p>The name of the repository where you want to merge two branches.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   * @public
+   */
+  sourceCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   * @public
+   */
+  destinationCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch where the merge is applied.</p>
+   * @public
+   */
+  targetBranch?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeBranchesByFastForwardOutput {
+  /**
+   * <p>The commit ID of the merge in the destination or target branch.</p>
+   * @public
+   */
+  commitId?: string | undefined;
+
+  /**
+   * <p>The tree ID of the merge in the destination or target branch.</p>
+   * @public
+   */
+  treeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeBranchesBySquashInput {
+  /**
+   * <p>The name of the repository where you want to merge two branches.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   * @public
+   */
+  sourceCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   * @public
+   */
+  destinationCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch where the merge is applied. </p>
+   * @public
+   */
+  targetBranch?: string | undefined;
+
+  /**
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   *             which returns a not-mergeable result if the same file has differences in both branches.
+   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
+   *             both branches has differences on the same line.</p>
+   * @public
+   */
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
+
+  /**
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   *             automatically merging two versions of a file. The default is NONE, which requires any
+   *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
+   */
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
+
+  /**
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
+   * @public
+   */
+  authorName?: string | undefined;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   * @public
+   */
+  email?: string | undefined;
+
+  /**
+   * <p>The commit message for the merge.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
+   *             created for empty folders. The default is false.</p>
+   * @public
+   */
+  keepEmptyFolders?: boolean | undefined;
+
+  /**
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   *             resolving conflicts during a merge.</p>
+   * @public
+   */
+  conflictResolution?: ConflictResolution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeBranchesBySquashOutput {
+  /**
+   * <p>The commit ID of the merge in the destination or target branch.</p>
+   * @public
+   */
+  commitId?: string | undefined;
+
+  /**
+   * <p>The tree ID of the merge in the destination or target branch.</p>
+   * @public
+   */
+  treeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeBranchesByThreeWayInput {
+  /**
+   * <p>The name of the repository where you want to merge two branches.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   * @public
+   */
+  sourceCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+   *             (for example, a branch name or a full commit ID).</p>
+   * @public
+   */
+  destinationCommitSpecifier: string | undefined;
+
+  /**
+   * <p>The branch where the merge is applied. </p>
+   * @public
+   */
+  targetBranch?: string | undefined;
+
+  /**
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   *             which returns a not-mergeable result if the same file has differences in both branches.
+   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
+   *             both branches has differences on the same line.</p>
+   * @public
+   */
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
+
+  /**
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   *             automatically merging two versions of a file. The default is NONE, which requires any
+   *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
+   */
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
+
+  /**
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
+   * @public
+   */
+  authorName?: string | undefined;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   * @public
+   */
+  email?: string | undefined;
+
+  /**
+   * <p>The commit message to include in the commit information for the merge.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
+   *             The default is false.</p>
+   * @public
+   */
+  keepEmptyFolders?: boolean | undefined;
+
+  /**
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   *             resolving conflicts during a merge.</p>
+   * @public
+   */
+  conflictResolution?: ConflictResolution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeBranchesByThreeWayOutput {
+  /**
+   * <p>The commit ID of the merge in the destination or target branch.</p>
+   * @public
+   */
+  commitId?: string | undefined;
+
+  /**
+   * <p>The tree ID of the merge in the destination or target branch.</p>
+   * @public
+   */
+  treeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergePullRequestByFastForwardInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The name of the repository where the pull request was created.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   *         exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
+   * @public
+   */
+  sourceCommitId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergePullRequestByFastForwardOutput {
+  /**
+   * <p>Information about the specified pull request, including the merge.</p>
+   * @public
+   */
+  pullRequest?: PullRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergePullRequestBySquashInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The name of the repository where the pull request was created.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
+   * @public
+   */
+  sourceCommitId?: string | undefined;
+
+  /**
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   *             which returns a not-mergeable result if the same file has differences in both branches.
+   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
+   *             both branches has differences on the same line.</p>
+   * @public
+   */
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
+
+  /**
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   *             automatically merging two versions of a file. The default is NONE, which requires any
+   *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
+   */
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
+
+  /**
+   * <p>The commit message to include in the commit information for the merge.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
+   * @public
+   */
+  authorName?: string | undefined;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   * @public
+   */
+  email?: string | undefined;
+
+  /**
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
+   *             The default is false.</p>
+   * @public
+   */
+  keepEmptyFolders?: boolean | undefined;
+
+  /**
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   *             resolving conflicts during a merge.</p>
+   * @public
+   */
+  conflictResolution?: ConflictResolution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergePullRequestBySquashOutput {
+  /**
+   * <p>Returns information about a pull request.</p>
+   * @public
+   */
+  pullRequest?: PullRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergePullRequestByThreeWayInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The name of the repository where the pull request was created.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
+   *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
+   * @public
+   */
+  sourceCommitId?: string | undefined;
+
+  /**
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
+   *             which returns a not-mergeable result if the same file has differences in both branches.
+   *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
+   *             both branches has differences on the same line.</p>
+   * @public
+   */
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
+
+  /**
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
+   *             automatically merging two versions of a file. The default is NONE, which requires any
+   *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
+   */
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
+
+  /**
+   * <p>The commit message to include in the commit information for the merge.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>The name of the author who created the commit. This information is used as both the
+   *             author and committer for the commit.</p>
+   * @public
+   */
+  authorName?: string | undefined;
+
+  /**
+   * <p>The email address of the person merging the branches. This information is used in the
+   *             commit information for the merge.</p>
+   * @public
+   */
+  email?: string | undefined;
+
+  /**
+   * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
+   *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
+   *             The default is false.</p>
+   * @public
+   */
+  keepEmptyFolders?: boolean | undefined;
+
+  /**
+   * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
+   *             resolving conflicts during a merge.</p>
+   * @public
+   */
+  conflictResolution?: ConflictResolution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergePullRequestByThreeWayOutput {
+  /**
+   * <p>Returns information about a pull request.</p>
+   * @public
+   */
+  pullRequest?: PullRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface OverridePullRequestApprovalRulesInput {
+  /**
+   * <p>The system-generated ID of the pull request for which you want to override all
+   *             approval rule requirements. To get this information, use
+   *             <a>GetPullRequest</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
+   *             To get the revision ID, use GetPullRequest.</p>
+   * @public
+   */
+  revisionId: string | undefined;
+
+  /**
+   * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
+   *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
+   * @public
+   */
+  overrideStatus: OverrideStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostCommentForComparedCommitInput {
+  /**
+   * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>To establish the directionality of the comparison, the full commit ID of the before
+   *             commit. Required for commenting on any commit unless that commit is the initial
+   *             commit.</p>
+   * @public
+   */
+  beforeCommitId?: string | undefined;
+
+  /**
+   * <p>To establish the directionality of the comparison, the full commit ID of the after
+   *             commit.</p>
+   * @public
+   */
+  afterCommitId: string | undefined;
+
+  /**
+   * <p>The location of the comparison where you want to comment.</p>
+   * @public
+   */
+  location?: Location | undefined;
+
+  /**
+   * <p>The content of the comment you want to make.</p>
+   * @public
+   */
+  content: string | undefined;
+
+  /**
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   *             the request cannot be repeated with a changed parameter. If a request is received with
+   *             the same parameters and a token is included, the request returns information about the
+   *             initial request that used that token.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostCommentForComparedCommitOutput {
+  /**
+   * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
+   * @public
+   */
+  repositoryName?: string | undefined;
+
+  /**
+   * <p>In the directionality you established, the full commit ID of the before commit.</p>
+   * @public
+   */
+  beforeCommitId?: string | undefined;
+
+  /**
+   * <p>In the directionality you established, the full commit ID of the after commit.</p>
+   * @public
+   */
+  afterCommitId?: string | undefined;
+
+  /**
+   * <p>In the directionality you established, the blob ID of the before blob.</p>
+   * @public
+   */
+  beforeBlobId?: string | undefined;
+
+  /**
+   * <p>In the directionality you established, the blob ID of the after blob.</p>
+   * @public
+   */
+  afterBlobId?: string | undefined;
+
+  /**
+   * <p>The location of the comment in the comparison between the two commits.</p>
+   * @public
+   */
+  location?: Location | undefined;
+
+  /**
+   * <p>The content of the comment you posted.</p>
+   * @public
+   */
+  comment?: Comment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostCommentForPullRequestInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The name of the repository where you want to post a comment on a pull request.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
+   * @public
+   */
+  beforeCommitId: string | undefined;
+
+  /**
+   * <p>The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.</p>
+   * @public
+   */
+  afterCommitId: string | undefined;
+
+  /**
+   * <p>The location of the change where you want to post your comment. If no location is
+   *             provided, the comment is posted as a general comment on the pull request difference
+   *             between the before commit ID and the after commit ID.</p>
+   * @public
+   */
+  location?: Location | undefined;
+
+  /**
+   * <p>The content of your comment on the change.</p>
+   * @public
+   */
+  content: string | undefined;
+
+  /**
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   *             the request cannot be repeated with a changed parameter. If a request is received with
+   *             the same parameters and a token is included, the request returns information about the
+   *             initial request that used that token.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostCommentForPullRequestOutput {
+  /**
+   * <p>The name of the repository where you posted a comment on a pull request.</p>
+   * @public
+   */
+  repositoryName?: string | undefined;
+
+  /**
+   * <p>The system-generated ID of the pull request. </p>
+   * @public
+   */
+  pullRequestId?: string | undefined;
+
+  /**
+   * <p>The full commit ID of the commit in the source branch used to create the pull request,
+   *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
+   * @public
+   */
+  beforeCommitId?: string | undefined;
+
+  /**
+   * <p>The full commit ID of the commit in the destination branch where the pull request is
+   *             merged.</p>
+   * @public
+   */
+  afterCommitId?: string | undefined;
+
+  /**
+   * <p>In the directionality of the pull request, the blob ID of the before blob.</p>
+   * @public
+   */
+  beforeBlobId?: string | undefined;
+
+  /**
+   * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
+   * @public
+   */
+  afterBlobId?: string | undefined;
+
+  /**
+   * <p>The location of the change where you posted your comment.</p>
+   * @public
+   */
+  location?: Location | undefined;
+
+  /**
+   * <p>The content of the comment you posted.</p>
+   * @public
+   */
+  comment?: Comment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostCommentReplyInput {
+  /**
+   * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
+   *         or <a>GetCommentsForPullRequest</a>.</p>
+   * @public
+   */
+  inReplyTo: string | undefined;
+
+  /**
+   * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
+   *             the request cannot be repeated with a changed parameter. If a request is received with
+   *             the same parameters and a token is included, the request returns information about the
+   *             initial request that used that token.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The contents of your reply to a comment.</p>
+   * @public
+   */
+  content: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostCommentReplyOutput {
+  /**
+   * <p>Information about the reply to a comment.</p>
+   * @public
+   */
+  comment?: Comment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutCommentReactionInput {
+  /**
+   * <p>The ID of the comment to which you want to add or update a reaction.</p>
+   * @public
+   */
+  commentId: string | undefined;
+
+  /**
+   * <p>The emoji reaction you want to add or update. To remove a reaction, provide a value of blank or null. You can also provide the value of none.
+   *             For information about emoji reaction values supported in CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">CodeCommit User Guide</a>.</p>
+   * @public
+   */
+  reactionValue: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFileInput {
+  /**
+   * <p>The name of the repository where you want to add or update the file.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The name of the branch where you want to add or update the file. If this is an empty
+   *             repository, this branch is created.</p>
+   * @public
+   */
+  branchName: string | undefined;
+
+  /**
+   * <p>The content of the file, in binary object format. </p>
+   * @public
+   */
+  fileContent: Uint8Array | undefined;
+
+  /**
+   * <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
+   *          <note>
+   *             <p>If the path does not currently exist in the repository, the path is created as part of adding
+   *                 the file.</p>
+   *          </note>
+   * @public
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The file mode permissions of the blob. Valid file mode permissions are listed
+   *             here.</p>
+   * @public
+   */
+  fileMode?: FileModeTypeEnum | undefined;
+
+  /**
+   * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
+   *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
+   *          <p>The commit ID must match the ID of the head commit at the time of the operation.
+   *             Otherwise, an error occurs, and the file is not added or updated.</p>
+   * @public
+   */
+  parentCommitId?: string | undefined;
+
+  /**
+   * <p>A message about why this file was added or updated. Although it is optional, a message
+   *             makes the commit history for your repository more useful.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>The name of the person adding or updating the file. Although it is optional, a name
+   *             makes the commit history for your repository more useful.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>An email address for the person adding or updating the file.</p>
+   * @public
+   */
+  email?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFileOutput {
+  /**
+   * <p>The full SHA ID of the commit that contains this file change.</p>
+   * @public
+   */
+  commitId: string | undefined;
+
+  /**
+   * <p>The ID of the blob, which is its SHA-1 pointer.</p>
+   * @public
+   */
+  blobId: string | undefined;
+
+  /**
+   * <p>The full SHA-1 pointer of the tree information for the commit that contains this file change.</p>
+   * @public
+   */
+  treeId: string | undefined;
+}
+
+/**
+ * <p>Represents the input of a put repository triggers operation.</p>
+ * @public
+ */
+export interface PutRepositoryTriggersInput {
+  /**
+   * <p>The name of the repository where you want to create or update the trigger.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The JSON block of configuration information for each trigger.</p>
+   * @public
+   */
+  triggers: RepositoryTrigger[] | undefined;
+}
+
+/**
+ * <p>Represents the output of a put repository triggers operation.</p>
+ * @public
+ */
+export interface PutRepositoryTriggersOutput {
+  /**
+   * <p>The system-generated unique ID for the create or update operation.</p>
+   * @public
+   */
+  configurationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The key-value pair to use when tagging this repository.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Represents the input of a test repository triggers operation.</p>
+ * @public
+ */
+export interface TestRepositoryTriggersInput {
+  /**
+   * <p>The name of the repository in which to test the triggers.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The list of triggers to test.</p>
+   * @public
+   */
+  triggers: RepositoryTrigger[] | undefined;
+}
+
+/**
+ * <p>A trigger failed to run.</p>
+ * @public
+ */
+export interface RepositoryTriggerExecutionFailure {
+  /**
+   * <p>The name of the trigger that did not run.</p>
+   * @public
+   */
+  trigger?: string | undefined;
+
+  /**
+   * <p>Message information about the trigger that did not run.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+}
+
+/**
+ * <p>Represents the output of a test repository triggers operation.</p>
+ * @public
+ */
+export interface TestRepositoryTriggersOutput {
+  /**
+   * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
+   * @public
+   */
+  successfulExecutions?: string[] | undefined;
+
+  /**
+   * <p>The list of triggers that were not tested. This list provides the names of the
+   *             triggers that could not be tested, separated by commas.</p>
+   * @public
+   */
+  failedExecutions?: RepositoryTriggerExecutionFailure[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The tag key for each tag that you want to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalRuleTemplateContentInput {
+  /**
+   * <p>The name of the approval rule template where you want to update the content of the rule. </p>
+   * @public
+   */
+  approvalRuleTemplateName: string | undefined;
+
+  /**
+   * <p>The content that replaces the existing content of the rule. Content statements must be
+   *             complete. You cannot provide only the changes.</p>
+   * @public
+   */
+  newRuleContent: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
+   *             information by using
+   *             <a>GetPullRequest</a>.</p>
+   * @public
+   */
+  existingRuleContentSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalRuleTemplateContentOutput {
+  /**
+   * <p>Returns information about an approval rule template.</p>
+   * @public
+   */
+  approvalRuleTemplate: ApprovalRuleTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalRuleTemplateDescriptionInput {
+  /**
+   * <p>The name of the template for which you want to update the description.</p>
+   * @public
+   */
+  approvalRuleTemplateName: string | undefined;
+
+  /**
+   * <p>The updated description of the approval rule template.</p>
+   * @public
+   */
+  approvalRuleTemplateDescription: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalRuleTemplateDescriptionOutput {
+  /**
+   * <p>The structure and content of the updated approval rule template.</p>
+   * @public
+   */
+  approvalRuleTemplate: ApprovalRuleTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalRuleTemplateNameInput {
+  /**
+   * <p>The current name of the approval rule template.</p>
+   * @public
+   */
+  oldApprovalRuleTemplateName: string | undefined;
+
+  /**
+   * <p>The new name you want to apply to the approval rule template.</p>
+   * @public
+   */
+  newApprovalRuleTemplateName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalRuleTemplateNameOutput {
+  /**
+   * <p>The structure and content of the updated approval rule template.</p>
+   * @public
+   */
+  approvalRuleTemplate: ApprovalRuleTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCommentInput {
+  /**
+   * <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a>
+   *             or <a>GetCommentsForPullRequest</a>.</p>
+   * @public
+   */
+  commentId: string | undefined;
+
+  /**
+   * <p>The updated content to replace the existing content of the comment.</p>
+   * @public
+   */
+  content: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCommentOutput {
+  /**
+   * <p>Information about the updated comment.</p>
+   * @public
+   */
+  comment?: Comment | undefined;
+}
+
+/**
+ * <p>Represents the input of an update default branch operation.</p>
+ * @public
+ */
+export interface UpdateDefaultBranchInput {
+  /**
+   * <p>The name of the repository for which you want to set or change the default branch.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The name of the branch to set as the default branch.</p>
+   * @public
+   */
+  defaultBranchName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestApprovalRuleContentInput {
+  /**
+   * <p>The system-generated ID of the pull request.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The name of the approval rule you want to update.</p>
+   * @public
+   */
+  approvalRuleName: string | undefined;
+
+  /**
+   * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
+   *             information by using
+   *             <a>GetPullRequest</a>.</p>
+   * @public
+   */
+  existingRuleContentSha256?: string | undefined;
+
+  /**
+   * <p>The updated content for the approval rule.</p>
+   *          <note>
+   *             <p>When you update the content of the approval rule, you can specify approvers in an
+   *                 approval pool in one of two ways:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <b>CodeCommitApprovers</b>: This option only
+   *                         requires an Amazon Web Services account and a resource. It can be used for both IAM users
+   *                         and federated access users whose name matches the provided resource name.
+   *                         This is a very powerful option that offers a great deal of flexibility. For
+   *                         example, if you specify the Amazon Web Services account <i>123456789012</i>
+   *                         and <i>Mary_Major</i>, all of the following are counted as
+   *                         approvals coming from that user:</p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>An IAM user in the account
+   *                                 (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>A federated user identified in IAM as Mary_Major
+   *                                 (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p>
+   *                      </li>
+   *                   </ul>
+   *                   <p>This option does not recognize an active session of someone assuming the
+   *                         role of CodeCommitReview with a role session name of
+   *                             <i>Mary_Major</i>
+   *                             (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>)
+   *                         unless you include a wildcard (*Mary_Major).</p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <b>Fully qualified ARN</b>: This option allows
+   *                         you to specify the fully qualified Amazon Resource Name (ARN) of the IAM
+   *                         user or role. </p>
+   *                </li>
+   *             </ul>
+   *             <p>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
+   *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  newRuleContent: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestApprovalRuleContentOutput {
+  /**
+   * <p>Information about the updated approval rule.</p>
+   * @public
+   */
+  approvalRule: ApprovalRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestApprovalStateInput {
+  /**
+   * <p>The system-generated ID of the pull request.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The system-generated ID of the revision.</p>
+   * @public
+   */
+  revisionId: string | undefined;
+
+  /**
+   * <p>The approval state to associate with the user on the pull request.</p>
+   * @public
+   */
+  approvalState: ApprovalState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestDescriptionInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The updated content of the description for the pull request. This content replaces the
+   *             existing description.</p>
+   * @public
+   */
+  description: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestDescriptionOutput {
+  /**
+   * <p>Information about the updated pull request.</p>
+   * @public
+   */
+  pullRequest: PullRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestStatusInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The status of the pull request. The only valid operations are to update the status
+   *             from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or
+   *             from <code>CLOSED</code> to <code>CLOSED</code>.</p>
+   * @public
+   */
+  pullRequestStatus: PullRequestStatusEnum | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestStatusOutput {
+  /**
+   * <p>Information about the pull request.</p>
+   * @public
+   */
+  pullRequest: PullRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestTitleInput {
+  /**
+   * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
+   */
+  pullRequestId: string | undefined;
+
+  /**
+   * <p>The updated title of the pull request. This replaces the existing title.</p>
+   * @public
+   */
+  title: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullRequestTitleOutput {
+  /**
+   * <p>Information about the updated pull request.</p>
+   * @public
+   */
+  pullRequest: PullRequest | undefined;
+}
+
+/**
+ * <p>Represents the input of an update repository description operation.</p>
+ * @public
+ */
+export interface UpdateRepositoryDescriptionInput {
+  /**
+   * <p>The name of the repository to set or change the comment or description for.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
+   * @public
+   */
+  repositoryDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRepositoryEncryptionKeyInput {
+  /**
+   * <p>The name of the repository for which you want to update the KMS encryption key used to encrypt and decrypt the repository.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
+   *             programmatically retrieve a key ID. For more information about acceptable values for keyID, see
+   *             <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
+   *         the <i>Key Management Service API Reference</i>.</p>
+   * @public
+   */
+  kmsKeyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRepositoryEncryptionKeyOutput {
+  /**
+   * <p>The ID of the repository.</p>
+   * @public
+   */
+  repositoryId?: string | undefined;
+
+  /**
+   * <p>The ID of the encryption key.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The ID of the encryption key formerly used to encrypt and decrypt the repository.</p>
+   * @public
+   */
+  originalKmsKeyId?: string | undefined;
+}
+
+/**
+ * <p>Represents the input of an update repository description operation.</p>
+ * @public
+ */
+export interface UpdateRepositoryNameInput {
+  /**
+   * <p>The current name of the repository.</p>
+   * @public
+   */
+  oldName: string | undefined;
+
+  /**
+   * <p>The new name for the repository.</p>
+   * @public
+   */
+  newName: string | undefined;
 }

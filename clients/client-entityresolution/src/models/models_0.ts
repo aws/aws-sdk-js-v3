@@ -1,43 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { EntityResolutionServiceException as __BaseException } from "./EntityResolutionServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const StatementEffect = {
-  Allow: "Allow",
-  Deny: "Deny",
-} as const;
-
-/**
- * @public
- */
-export type StatementEffect = (typeof StatementEffect)[keyof typeof StatementEffect];
+import {
+  AttributeMatchingModel,
+  DeleteUniqueIdErrorType,
+  DeleteUniqueIdStatus,
+  IdMappingIncrementalRunType,
+  IdMappingType,
+  IdMappingWorkflowRuleDefinitionType,
+  IdNamespaceType,
+  IncrementalRunType,
+  JobStatus,
+  JobType,
+  MatchPurpose,
+  ProcessingType,
+  RecordMatchingModel,
+  ResolutionType,
+  SchemaAttributeType,
+  ServiceType,
+  StatementEffect,
+} from "./enums";
 
 /**
  * @public
@@ -104,124 +86,6 @@ export interface AddPolicyStatementOutput {
 }
 
 /**
- * <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The resource couldn't be found. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AttributeMatchingModel = {
-  MANY_TO_MANY: "MANY_TO_MANY",
-  ONE_TO_ONE: "ONE_TO_ONE",
-} as const;
-
-/**
- * @public
- */
-export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeof AttributeMatchingModel];
-
-/**
  * @public
  */
 export interface BatchDeleteUniqueIdInput {
@@ -257,20 +121,6 @@ export interface DeletedUniqueId {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeleteUniqueIdErrorType = {
-  SERVICE_ERROR: "SERVICE_ERROR",
-  VALIDATION_ERROR: "VALIDATION_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type DeleteUniqueIdErrorType = (typeof DeleteUniqueIdErrorType)[keyof typeof DeleteUniqueIdErrorType];
-
-/**
  * <p>The error information provided when the delete unique ID operation doesn't complete.</p>
  * @public
  */
@@ -287,20 +137,6 @@ export interface DeleteUniqueIdError {
    */
   errorType: DeleteUniqueIdErrorType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeleteUniqueIdStatus = {
-  ACCEPTED: "ACCEPTED",
-  COMPLETED: "COMPLETED",
-} as const;
-
-/**
- * @public
- */
-export type DeleteUniqueIdStatus = (typeof DeleteUniqueIdStatus)[keyof typeof DeleteUniqueIdStatus];
 
 /**
  * @public
@@ -330,20 +166,6 @@ export interface BatchDeleteUniqueIdOutput {
    */
   disconnectedUniqueIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdMappingType = {
-  PROVIDER: "PROVIDER",
-  RULE_BASED: "RULE_BASED",
-} as const;
-
-/**
- * @public
- */
-export type IdMappingType = (typeof IdMappingType)[keyof typeof IdMappingType];
 
 /**
  * <p>The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.</p>
@@ -380,35 +202,6 @@ export interface ProviderProperties {
    */
   intermediateSourceConfiguration?: IntermediateSourceConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordMatchingModel = {
-  MANY_SOURCE_TO_ONE_TARGET: "MANY_SOURCE_TO_ONE_TARGET",
-  ONE_SOURCE_TO_ONE_TARGET: "ONE_SOURCE_TO_ONE_TARGET",
-} as const;
-
-/**
- * @public
- */
-export type RecordMatchingModel = (typeof RecordMatchingModel)[keyof typeof RecordMatchingModel];
-
-/**
- * @public
- * @enum
- */
-export const IdMappingWorkflowRuleDefinitionType = {
-  SOURCE: "SOURCE",
-  TARGET: "TARGET",
-} as const;
-
-/**
- * @public
- */
-export type IdMappingWorkflowRuleDefinitionType =
-  (typeof IdMappingWorkflowRuleDefinitionType)[keyof typeof IdMappingWorkflowRuleDefinitionType];
 
 /**
  * <p>An object containing the <code>ruleName</code> and <code>matchingKeys</code>.</p>
@@ -483,20 +276,6 @@ export interface IdMappingTechniques {
 }
 
 /**
- * @public
- * @enum
- */
-export const IdMappingIncrementalRunType = {
-  ON_DEMAND: "ON_DEMAND",
-} as const;
-
-/**
- * @public
- */
-export type IdMappingIncrementalRunType =
-  (typeof IdMappingIncrementalRunType)[keyof typeof IdMappingIncrementalRunType];
-
-/**
  * <p> Incremental run configuration for an ID mapping workflow.</p>
  * @public
  */
@@ -507,20 +286,6 @@ export interface IdMappingIncrementalRunConfig {
    */
   incrementalRunType?: IdMappingIncrementalRunType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdNamespaceType = {
-  SOURCE: "SOURCE",
-  TARGET: "TARGET",
-} as const;
-
-/**
- * @public
- */
-export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
 
 /**
  * <p>An object containing <code>inputSourceARN</code>, <code>schemaName</code>, and <code>type</code>.</p>
@@ -668,40 +433,6 @@ export interface CreateIdMappingWorkflowOutput {
    * @public
    */
   roleArn?: string | undefined;
-}
-
-/**
- * <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
- * @public
- */
-export class ExceedsLimitException extends __BaseException {
-  readonly name: "ExceedsLimitException" = "ExceedsLimitException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the quota that has been breached.</p>
-   * @public
-   */
-  quotaName?: string | undefined;
-
-  /**
-   * <p>The current quota value for the customers.</p>
-   * @public
-   */
-  quotaValue?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExceedsLimitException, __BaseException>) {
-    super({
-      name: "ExceedsLimitException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExceedsLimitException.prototype);
-    this.quotaName = opts.quotaName;
-    this.quotaValue = opts.quotaValue;
-  }
 }
 
 /**
@@ -907,19 +638,6 @@ export interface CreateIdNamespaceOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const IncrementalRunType = {
-  IMMEDIATE: "IMMEDIATE",
-} as const;
-
-/**
- * @public
- */
-export type IncrementalRunType = (typeof IncrementalRunType)[keyof typeof IncrementalRunType];
-
-/**
  * <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as "Automatic" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
  * @public
  */
@@ -1002,35 +720,6 @@ export interface OutputSource {
    */
   applyNormalization?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResolutionType = {
-  ML_MATCHING: "ML_MATCHING",
-  PROVIDER: "PROVIDER",
-  RULE_MATCHING: "RULE_MATCHING",
-} as const;
-
-/**
- * @public
- */
-export type ResolutionType = (typeof ResolutionType)[keyof typeof ResolutionType];
-
-/**
- * @public
- * @enum
- */
-export const MatchPurpose = {
-  IDENTIFIER_GENERATION: "IDENTIFIER_GENERATION",
-  INDEXING: "INDEXING",
-} as const;
-
-/**
- * @public
- */
-export type MatchPurpose = (typeof MatchPurpose)[keyof typeof MatchPurpose];
 
 /**
  * <p>An object which defines the list of matching rules to run in a matching workflow. </p>
@@ -1221,41 +910,6 @@ export interface CreateMatchingWorkflowOutput {
    */
   roleArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SchemaAttributeType = {
-  ADDRESS: "ADDRESS",
-  ADDRESS_CITY: "ADDRESS_CITY",
-  ADDRESS_COUNTRY: "ADDRESS_COUNTRY",
-  ADDRESS_POSTALCODE: "ADDRESS_POSTALCODE",
-  ADDRESS_STATE: "ADDRESS_STATE",
-  ADDRESS_STREET1: "ADDRESS_STREET1",
-  ADDRESS_STREET2: "ADDRESS_STREET2",
-  ADDRESS_STREET3: "ADDRESS_STREET3",
-  DATE: "DATE",
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-  MAID: "MAID",
-  NAME: "NAME",
-  NAME_FIRST: "NAME_FIRST",
-  NAME_LAST: "NAME_LAST",
-  NAME_MIDDLE: "NAME_MIDDLE",
-  PHONE: "PHONE",
-  PHONE_COUNTRYCODE: "PHONE_COUNTRYCODE",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  PROVIDER_ID: "PROVIDER_ID",
-  STRING: "STRING",
-  UNIQUE_ID: "UNIQUE_ID",
-} as const;
-
-/**
- * @public
- */
-export type SchemaAttributeType = (typeof SchemaAttributeType)[keyof typeof SchemaAttributeType];
 
 /**
  * <p>A configuration object for defining input data fields in Entity Resolution. The <code>SchemaInputAttribute</code> specifies how individual fields in your input data should be processed and matched.</p>
@@ -1486,21 +1140,6 @@ export interface DeleteSchemaMappingOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProcessingType = {
-  CONSISTENT: "CONSISTENT",
-  EVENTUAL: "EVENTUAL",
-  EVENTUAL_NO_LOOKUP: "EVENTUAL_NO_LOOKUP",
-} as const;
-
-/**
- * @public
- */
-export type ProcessingType = (typeof ProcessingType)[keyof typeof ProcessingType];
-
-/**
  * <p> The record.</p>
  * @public
  */
@@ -1660,21 +1299,6 @@ export interface ErrorDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobType = {
-  BATCH: "BATCH",
-  DELETE_ONLY: "DELETE_ONLY",
-  INCREMENTAL: "INCREMENTAL",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
-
-/**
  * <p>An object that contains metrics about an ID mapping job, including counts of input records, processed records, and mapped records between source and target identifiers. </p>
  * @public
  */
@@ -1793,22 +1417,6 @@ export interface IdMappingJobOutputSource {
    */
   KMSArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  FAILED: "FAILED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * @public
@@ -2476,20 +2084,6 @@ export interface ProviderIntermediateDataAccessConfiguration {
    */
   requiredBucketActions?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceType = {
-  ASSIGNMENT: "ASSIGNMENT",
-  ID_MAPPING: "ID_MAPPING",
-} as const;
-
-/**
- * @public
- */
-export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * @public

@@ -1,29 +1,23 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { PaymentCryptographyDataServiceException as __BaseException } from "./PaymentCryptographyDataServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  DukptDerivationType,
+  DukptEncryptionMode,
+  DukptKeyVariant,
+  EmvEncryptionMode,
+  EmvMajorKeyDerivationMode,
+  EncryptionMode,
+  KeyDerivationFunction,
+  KeyDerivationHashAlgorithm,
+  MacAlgorithm,
+  MajorKeyDerivationMode,
+  PaddingType,
+  PinBlockFormatForEmvPinChange,
+  PinBlockFormatForPinData,
+  PinBlockLengthPosition,
+  PinBlockPaddingType,
+  SessionKeyDerivationMode,
+  SymmetricKeyAlgorithm,
+} from "./enums";
 
 /**
  * <p>The parameter values of the current PIN to be changed on the EMV chip card.</p>
@@ -42,20 +36,6 @@ export interface CurrentPinAttributes {
    */
   CurrentEncryptedPinBlock: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MajorKeyDerivationMode = {
-  EMV_OPTION_A: "EMV_OPTION_A",
-  EMV_OPTION_B: "EMV_OPTION_B",
-} as const;
-
-/**
- * @public
- */
-export type MajorKeyDerivationMode = (typeof MajorKeyDerivationMode)[keyof typeof MajorKeyDerivationMode];
 
 /**
  * <p>Parameters to derive the confidentiality and integrity keys for a payment card using Amex derivation method.</p>
@@ -128,22 +108,6 @@ export interface AmexCardSecurityCodeVersion2 {
    */
   ServiceCode: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PaddingType = {
-  OAEP_SHA1: "OAEP_SHA1",
-  OAEP_SHA256: "OAEP_SHA256",
-  OAEP_SHA512: "OAEP_SHA512",
-  PKCS1: "PKCS1",
-} as const;
-
-/**
- * @public
- */
-export type PaddingType = (typeof PaddingType)[keyof typeof PaddingType];
 
 /**
  * <p>Parameters for plaintext encryption using asymmetric keys.</p>
@@ -711,52 +675,6 @@ export namespace CryptogramAuthResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DukptDerivationType = {
-  AES_128: "AES_128",
-  AES_192: "AES_192",
-  AES_256: "AES_256",
-  TDES_2KEY: "TDES_2KEY",
-  TDES_3KEY: "TDES_3KEY",
-} as const;
-
-/**
- * @public
- */
-export type DukptDerivationType = (typeof DukptDerivationType)[keyof typeof DukptDerivationType];
-
-/**
- * @public
- * @enum
- */
-export const DukptKeyVariant = {
-  BIDIRECTIONAL: "BIDIRECTIONAL",
-  REQUEST: "REQUEST",
-  RESPONSE: "RESPONSE",
-} as const;
-
-/**
- * @public
- */
-export type DukptKeyVariant = (typeof DukptKeyVariant)[keyof typeof DukptKeyVariant];
-
-/**
- * @public
- * @enum
- */
-export const DukptEncryptionMode = {
-  CBC: "CBC",
-  ECB: "ECB",
-} as const;
-
-/**
- * @public
- */
-export type DukptEncryptionMode = (typeof DukptEncryptionMode)[keyof typeof DukptEncryptionMode];
-
-/**
  * <p>Parameters that are required to encrypt plaintext data using DUKPT.</p>
  * @public
  */
@@ -791,34 +709,6 @@ export interface DukptEncryptionAttributes {
    */
   InitializationVector?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EmvMajorKeyDerivationMode = {
-  EMV_OPTION_A: "EMV_OPTION_A",
-  EMV_OPTION_B: "EMV_OPTION_B",
-} as const;
-
-/**
- * @public
- */
-export type EmvMajorKeyDerivationMode = (typeof EmvMajorKeyDerivationMode)[keyof typeof EmvMajorKeyDerivationMode];
-
-/**
- * @public
- * @enum
- */
-export const EmvEncryptionMode = {
-  CBC: "CBC",
-  ECB: "ECB",
-} as const;
-
-/**
- * @public
- */
-export type EmvEncryptionMode = (typeof EmvEncryptionMode)[keyof typeof EmvEncryptionMode];
 
 /**
  * <p>Parameters for plaintext encryption using EMV keys.</p>
@@ -861,26 +751,6 @@ export interface EmvEncryptionAttributes {
    */
   InitializationVector?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionMode = {
-  CBC: "CBC",
-  CFB: "CFB",
-  CFB1: "CFB1",
-  CFB128: "CFB128",
-  CFB64: "CFB64",
-  CFB8: "CFB8",
-  ECB: "ECB",
-  OFB: "OFB",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode];
 
 /**
  * <p>Parameters requried to encrypt plaintext data using symmetric keys.</p>
@@ -1008,56 +878,6 @@ export const KeyCheckValueAlgorithm = {
  * @public
  */
 export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const SymmetricKeyAlgorithm = {
-  AES_128: "AES_128",
-  AES_192: "AES_192",
-  AES_256: "AES_256",
-  HMAC_SHA224: "HMAC_SHA224",
-  HMAC_SHA256: "HMAC_SHA256",
-  HMAC_SHA384: "HMAC_SHA384",
-  HMAC_SHA512: "HMAC_SHA512",
-  TDES_2KEY: "TDES_2KEY",
-  TDES_3KEY: "TDES_3KEY",
-} as const;
-
-/**
- * @public
- */
-export type SymmetricKeyAlgorithm = (typeof SymmetricKeyAlgorithm)[keyof typeof SymmetricKeyAlgorithm];
-
-/**
- * @public
- * @enum
- */
-export const KeyDerivationFunction = {
-  ANSI_X963: "ANSI_X963",
-  NIST_SP800: "NIST_SP800",
-} as const;
-
-/**
- * @public
- */
-export type KeyDerivationFunction = (typeof KeyDerivationFunction)[keyof typeof KeyDerivationFunction];
-
-/**
- * @public
- * @enum
- */
-export const KeyDerivationHashAlgorithm = {
-  SHA_256: "SHA_256",
-  SHA_384: "SHA_384",
-  SHA_512: "SHA_512",
-} as const;
-
-/**
- * @public
- */
-export type KeyDerivationHashAlgorithm = (typeof KeyDerivationHashAlgorithm)[keyof typeof KeyDerivationHashAlgorithm];
 
 /**
  * <p>Parameters required to establish ECDH based key exchange.</p>
@@ -1225,76 +1045,6 @@ export interface DecryptDataOutput {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to an invalid resource error.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource that is missing.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ResourceId = opts.ResourceId;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The request was denied due to an invalid request error.</p>
  * @public
  */
@@ -1310,33 +1060,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * <p>The request was denied due to an invalid request error.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The request was denied due to an invalid request error.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -1368,34 +1091,6 @@ export interface Emv2000Attributes {
    */
   ApplicationTransactionCounter: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PinBlockLengthPosition = {
-  FRONT_OF_PIN_BLOCK: "FRONT_OF_PIN_BLOCK",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type PinBlockLengthPosition = (typeof PinBlockLengthPosition)[keyof typeof PinBlockLengthPosition];
-
-/**
- * @public
- * @enum
- */
-export const PinBlockPaddingType = {
-  ISO_IEC_7816_4: "ISO_IEC_7816_4",
-  NO_PADDING: "NO_PADDING",
-} as const;
-
-/**
- * @public
- */
-export type PinBlockPaddingType = (typeof PinBlockPaddingType)[keyof typeof PinBlockPaddingType];
 
 /**
  * <p>Parameters to derive the confidentiality and integrity keys for an Emv common payment card.</p>
@@ -1810,26 +1505,6 @@ export interface GenerateCardValidationDataOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MacAlgorithm = {
-  CMAC: "CMAC",
-  HMAC: "HMAC",
-  HMAC_SHA224: "HMAC_SHA224",
-  HMAC_SHA256: "HMAC_SHA256",
-  HMAC_SHA384: "HMAC_SHA384",
-  HMAC_SHA512: "HMAC_SHA512",
-  ISO9797_ALGORITHM1: "ISO9797_ALGORITHM1",
-  ISO9797_ALGORITHM3: "ISO9797_ALGORITHM3",
-} as const;
-
-/**
- * @public
- */
-export type MacAlgorithm = (typeof MacAlgorithm)[keyof typeof MacAlgorithm];
-
-/**
  * <p>Parameters required for DUKPT MAC generation and verification.</p>
  * @public
  */
@@ -1852,23 +1527,6 @@ export interface MacAlgorithmDukpt {
    */
   DukptDerivationType?: DukptDerivationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SessionKeyDerivationMode = {
-  AMEX: "AMEX",
-  EMV2000: "EMV2000",
-  EMV_COMMON_SESSION_KEY: "EMV_COMMON_SESSION_KEY",
-  MASTERCARD_SESSION_KEY: "MASTERCARD_SESSION_KEY",
-  VISA: "VISA",
-} as const;
-
-/**
- * @public
- */
-export type SessionKeyDerivationMode = (typeof SessionKeyDerivationMode)[keyof typeof SessionKeyDerivationMode];
 
 /**
  * <p>Parameters to derive session key value using a MAC EMV algorithm.</p>
@@ -2117,22 +1775,6 @@ export interface GenerateMacOutput {
    */
   Mac: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PinBlockFormatForEmvPinChange = {
-  ISO_FORMAT_0: "ISO_FORMAT_0",
-  ISO_FORMAT_1: "ISO_FORMAT_1",
-  ISO_FORMAT_3: "ISO_FORMAT_3",
-} as const;
-
-/**
- * @public
- */
-export type PinBlockFormatForEmvPinChange =
-  (typeof PinBlockFormatForEmvPinChange)[keyof typeof PinBlockFormatForEmvPinChange];
 
 /**
  * @public
@@ -2536,22 +2178,6 @@ export namespace PinGenerationAttributes {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const PinBlockFormatForPinData = {
-  ISO_FORMAT_0: "ISO_FORMAT_0",
-  ISO_FORMAT_1: "ISO_FORMAT_1",
-  ISO_FORMAT_3: "ISO_FORMAT_3",
-  ISO_FORMAT_4: "ISO_FORMAT_4",
-} as const;
-
-/**
- * @public
- */
-export type PinBlockFormatForPinData = (typeof PinBlockFormatForPinData)[keyof typeof PinBlockFormatForPinData];
 
 /**
  * @public
@@ -3261,35 +2887,6 @@ export const VerificationFailedReason = {
  * @public
  */
 export type VerificationFailedReason = (typeof VerificationFailedReason)[keyof typeof VerificationFailedReason];
-
-/**
- * <p>This request failed verification.</p>
- * @public
- */
-export class VerificationFailedException extends __BaseException {
-  readonly name: "VerificationFailedException" = "VerificationFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  Reason: VerificationFailedReason | undefined;
-
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<VerificationFailedException, __BaseException>) {
-    super({
-      name: "VerificationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, VerificationFailedException.prototype);
-    this.Reason = opts.Reason;
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * <p>Parameters to derive session key for an Amex payment card.</p>

@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/models_1";
+import { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/models_0";
 import { StopUserImportJob } from "../schemas/schemas_0";
 
 /**

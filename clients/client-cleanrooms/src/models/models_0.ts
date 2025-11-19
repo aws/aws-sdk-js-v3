@@ -1,39 +1,47 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AutoRefreshMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutoRefreshMode = (typeof AutoRefreshMode)[keyof typeof AutoRefreshMode];
-
-/**
- * @public
- * @enum
- */
-export const AccessBudgetType = {
-  CALENDAR_DAY: "CALENDAR_DAY",
-  CALENDAR_MONTH: "CALENDAR_MONTH",
-  CALENDAR_WEEK: "CALENDAR_WEEK",
-  LIFETIME: "LIFETIME",
-} as const;
-
-/**
- * @public
- */
-export type AccessBudgetType = (typeof AccessBudgetType)[keyof typeof AccessBudgetType];
+import {
+  AccessBudgetType,
+  AdditionalAnalyses,
+  AnalysisFormat,
+  AnalysisMethod,
+  AnalysisRuleType,
+  AnalysisTemplateValidationStatus,
+  AnalysisTemplateValidationType,
+  AnalysisType,
+  AnalyticsEngine,
+  AutoApprovedChangeType,
+  AutoRefreshMode,
+  ChangeRequestStatus,
+  ChangeSpecificationType,
+  ChangeType,
+  CollaborationJobLogStatus,
+  CollaborationQueryLogStatus,
+  CommercialRegion,
+  ConfiguredTableAnalysisRuleType,
+  ConfiguredTableAssociationAnalysisRuleType,
+  CustomMLMemberAbility,
+  DifferentialPrivacyAggregationType,
+  ErrorMessageType,
+  IdNamespaceType,
+  JobType,
+  MemberAbility,
+  MembershipJobLogStatus,
+  MembershipQueryLogStatus,
+  ParameterType,
+  PrivacyBudgetTemplateAutoRefresh,
+  PrivacyBudgetType,
+  ProtectedJobStatus,
+  ProtectedJobWorkerComputeType,
+  SchemaConfiguration,
+  SchemaStatus,
+  SchemaStatusReasonCode,
+  SchemaType,
+  SelectedAnalysisMethod,
+  SupportedS3Region,
+  WorkerComputeType,
+} from "./enums";
 
 /**
  * <p>Detailed information about an access budget including time bounds, budget allocation, and configuration settings.</p>
@@ -188,48 +196,6 @@ export type AccessDeniedExceptionReason =
   (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
 
 /**
- * <p>Caller does not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A reason code for the exception.</p>
-   * @public
-   */
-  reason?: AccessDeniedExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AdditionalAnalyses = {
-  ALLOWED: "ALLOWED",
-  NOT_ALLOWED: "NOT_ALLOWED",
-  REQUIRED: "REQUIRED",
-} as const;
-
-/**
- * @public
- */
-export type AdditionalAnalyses = (typeof AdditionalAnalyses)[keyof typeof AdditionalAnalyses];
-
-/**
  * @public
  * @enum
  */
@@ -300,120 +266,6 @@ export interface AggregationConstraint {
    */
   type: AggregationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SupportedS3Region = {
-  AF_SOUTH_1: "af-south-1",
-  AP_EAST_1: "ap-east-1",
-  AP_EAST_2: "ap-east-2",
-  AP_NORTHEAST_1: "ap-northeast-1",
-  AP_NORTHEAST_2: "ap-northeast-2",
-  AP_NORTHEAST_3: "ap-northeast-3",
-  AP_SOUTHEAST_1: "ap-southeast-1",
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  AP_SOUTHEAST_3: "ap-southeast-3",
-  AP_SOUTHEAST_4: "ap-southeast-4",
-  AP_SOUTHEAST_5: "ap-southeast-5",
-  AP_SOUTHEAST_7: "ap-southeast-7",
-  AP_SOUTH_1: "ap-south-1",
-  AP_SOUTH_2: "ap-south-2",
-  CA_CENTRAL_1: "ca-central-1",
-  CA_WEST_1: "ca-west-1",
-  EU_CENTRAL_1: "eu-central-1",
-  EU_CENTRAL_2: "eu-central-2",
-  EU_NORTH_1: "eu-north-1",
-  EU_SOUTH_1: "eu-south-1",
-  EU_SOUTH_2: "eu-south-2",
-  EU_WEST_1: "eu-west-1",
-  EU_WEST_2: "eu-west-2",
-  EU_WEST_3: "eu-west-3",
-  IL_CENTRAL_1: "il-central-1",
-  ME_CENTRAL_1: "me-central-1",
-  ME_SOUTH_1: "me-south-1",
-  MX_CENTRAL_1: "mx-central-1",
-  SA_EAST_1: "sa-east-1",
-  US_EAST_1: "us-east-1",
-  US_EAST_2: "us-east-2",
-  US_WEST_1: "us-west-1",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type SupportedS3Region = (typeof SupportedS3Region)[keyof typeof SupportedS3Region];
-
-/**
- * @public
- * @enum
- */
-export const AnalysisFormat = {
-  PYSPARK_1_0: "PYSPARK_1_0",
-  SQL: "SQL",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisFormat = (typeof AnalysisFormat)[keyof typeof AnalysisFormat];
-
-/**
- * @public
- * @enum
- */
-export const AnalysisMethod = {
-  DIRECT_JOB: "DIRECT_JOB",
-  DIRECT_QUERY: "DIRECT_QUERY",
-  MULTIPLE: "MULTIPLE",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisMethod = (typeof AnalysisMethod)[keyof typeof AnalysisMethod];
-
-/**
- * @public
- * @enum
- */
-export const ParameterType = {
-  BIGINT: "BIGINT",
-  BINARY: "BINARY",
-  BOOLEAN: "BOOLEAN",
-  BYTE: "BYTE",
-  CHAR: "CHAR",
-  CHARACTER: "CHARACTER",
-  DATE: "DATE",
-  DECIMAL: "DECIMAL",
-  DOUBLE: "DOUBLE",
-  DOUBLE_PRECISION: "DOUBLE_PRECISION",
-  FLOAT: "FLOAT",
-  INT: "INT",
-  INTEGER: "INTEGER",
-  LONG: "LONG",
-  NUMERIC: "NUMERIC",
-  REAL: "REAL",
-  SHORT: "SHORT",
-  SMALLINT: "SMALLINT",
-  STRING: "STRING",
-  TIME: "TIME",
-  TIMESTAMP: "TIMESTAMP",
-  TIMESTAMPTZ: "TIMESTAMPTZ",
-  TIMESTAMP_LTZ: "TIMESTAMP_LTZ",
-  TIMESTAMP_NTZ: "TIMESTAMP_NTZ",
-  TIMETZ: "TIMETZ",
-  TINYINT: "TINYINT",
-  VARBYTE: "VARBYTE",
-  VARCHAR: "VARCHAR",
-} as const;
-
-/**
- * @public
- */
-export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 /**
  * <p>Optional. The member who can query can provide this placeholder for a literal data value in an analysis template.</p>
@@ -1268,22 +1120,6 @@ export namespace AnalysisRulePolicy {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnalysisRuleType = {
-  AGGREGATION: "AGGREGATION",
-  CUSTOM: "CUSTOM",
-  ID_MAPPING_TABLE: "ID_MAPPING_TABLE",
-  LIST: "LIST",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisRuleType = (typeof AnalysisRuleType)[keyof typeof AnalysisRuleType];
-
-/**
  * <p>A specification about how data from the configured table can be used in a query.</p>
  * @public
  */
@@ -1521,19 +1357,6 @@ export namespace AnalysisSourceMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorMessageType = {
-  DETAILED: "DETAILED",
-} as const;
-
-/**
- * @public
- */
-export type ErrorMessageType = (typeof ErrorMessageType)[keyof typeof ErrorMessageType];
-
-/**
  * <p>A structure that defines the level of detail included in error messages returned by PySpark jobs. This configuration allows you to control the verbosity of error messages to help with troubleshooting PySpark jobs while maintaining appropriate security controls.</p>
  * @public
  */
@@ -1556,36 +1379,6 @@ export interface AnalysisTemplateValidationStatusReason {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnalysisTemplateValidationStatus = {
-  INVALID: "INVALID",
-  UNABLE_TO_VALIDATE: "UNABLE_TO_VALIDATE",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisTemplateValidationStatus =
-  (typeof AnalysisTemplateValidationStatus)[keyof typeof AnalysisTemplateValidationStatus];
-
-/**
- * @public
- * @enum
- */
-export const AnalysisTemplateValidationType = {
-  DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisTemplateValidationType =
-  (typeof AnalysisTemplateValidationType)[keyof typeof AnalysisTemplateValidationType];
 
 /**
  * <p>The status details of the analysis template validation. Clean Rooms Differential Privacy uses a general-purpose query structure to support complex SQL queries and validates whether an analysis template fits that general-purpose query structure. Validation is performed when analysis templates are created and fetched. Because analysis templates are immutable by design, we recommend that you create analysis templates after you associate the configured tables with their analysis rule to your collaboration.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy">https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy</a>.</p>
@@ -1751,47 +1544,6 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the conflicting resource.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the conflicting resource.</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * <p>A reason code for the exception.</p>
-   * @public
-   */
-  reason?: ConflictExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.reason = opts.reason;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateAnalysisTemplateInput {
@@ -1862,114 +1614,6 @@ export interface CreateAnalysisTemplateOutput {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Request references a resource which does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The Id of the missing resource.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the missing resource.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>Request denied because service quota has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the quota.</p>
-   * @public
-   */
-  quotaName: string | undefined;
-
-  /**
-   * <p>The value of the quota.</p>
-   * @public
-   */
-  quotaValue: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.quotaName = opts.quotaName;
-    this.quotaValue = opts.quotaValue;
-  }
-}
-
-/**
- * <p>Request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>Describes validation errors for specific input parameters.</p>
  * @public
  */
@@ -2002,40 +1646,6 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the specified constraints.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A reason code for the exception.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>Validation errors for specific input parameters.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
 
 /**
  * @public
@@ -2228,79 +1838,6 @@ export interface UpdateAnalysisTemplateOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnalysisType = {
-  ADDITIONAL_ANALYSIS: "ADDITIONAL_ANALYSIS",
-  DIRECT_ANALYSIS: "DIRECT_ANALYSIS",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
-
-/**
- * @public
- * @enum
- */
-export const AnalyticsEngine = {
-  CLEAN_ROOMS_SQL: "CLEAN_ROOMS_SQL",
-  SPARK: "SPARK",
-} as const;
-
-/**
- * @public
- */
-export type AnalyticsEngine = (typeof AnalyticsEngine)[keyof typeof AnalyticsEngine];
-
-/**
- * @public
- * @enum
- */
-export const CommercialRegion = {
-  AF_SOUTH_1: "af-south-1",
-  AP_EAST_1: "ap-east-1",
-  AP_EAST_2: "ap-east-2",
-  AP_NORTHEAST_1: "ap-northeast-1",
-  AP_NORTHEAST_2: "ap-northeast-2",
-  AP_NORTHEAST_3: "ap-northeast-3",
-  AP_SOUTHEAST_1: "ap-southeast-1",
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  AP_SOUTHEAST_3: "ap-southeast-3",
-  AP_SOUTHEAST_4: "ap-southeast-4",
-  AP_SOUTHEAST_5: "ap-southeast-5",
-  AP_SOUTHEAST_7: "ap-southeast-7",
-  AP_SOUTH_1: "ap-south-1",
-  AP_SOUTH_2: "ap-south-2",
-  CA_CENTRAL_1: "ca-central-1",
-  CA_WEST_1: "ca-west-1",
-  EU_CENTRAL_1: "eu-central-1",
-  EU_CENTRAL_2: "eu-central-2",
-  EU_NORTH_1: "eu-north-1",
-  EU_SOUTH_1: "eu-south-1",
-  EU_SOUTH_2: "eu-south-2",
-  EU_WEST_1: "eu-west-1",
-  EU_WEST_2: "eu-west-2",
-  EU_WEST_3: "eu-west-3",
-  IL_CENTRAL_1: "il-central-1",
-  ME_CENTRAL_1: "me-central-1",
-  ME_SOUTH_1: "me-south-1",
-  MX_CENTRAL_1: "mx-central-1",
-  SA_EAST_1: "sa-east-1",
-  US_EAST_1: "us-east-1",
-  US_EAST_2: "us-east-2",
-  US_WEST_1: "us-west-1",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type CommercialRegion = (typeof CommercialRegion)[keyof typeof CommercialRegion];
-
-/**
  * <p> A reference to a table within Athena.</p>
  * @public
  */
@@ -2335,19 +1872,6 @@ export interface AthenaTableReference {
    */
   tableName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AutoApprovedChangeType = {
-  ADD_MEMBER: "ADD_MEMBER",
-} as const;
-
-/**
- * @public
- */
-export type AutoApprovedChangeType = (typeof AutoApprovedChangeType)[keyof typeof AutoApprovedChangeType];
 
 /**
  * @public
@@ -2569,42 +2093,6 @@ export interface Column {
 }
 
 /**
- * @public
- * @enum
- */
-export const SchemaConfiguration = {
-  DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
-} as const;
-
-/**
- * @public
- */
-export type SchemaConfiguration = (typeof SchemaConfiguration)[keyof typeof SchemaConfiguration];
-
-/**
- * @public
- * @enum
- */
-export const SchemaStatusReasonCode = {
-  ADDITIONAL_ANALYSES_NOT_ALLOWED: "ADDITIONAL_ANALYSES_NOT_ALLOWED",
-  ADDITIONAL_ANALYSES_NOT_CONFIGURED: "ADDITIONAL_ANALYSES_NOT_CONFIGURED",
-  ANALYSIS_PROVIDERS_NOT_CONFIGURED: "ANALYSIS_PROVIDERS_NOT_CONFIGURED",
-  ANALYSIS_RULE_MISSING: "ANALYSIS_RULE_MISSING",
-  ANALYSIS_RULE_TYPES_NOT_COMPATIBLE: "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE",
-  ANALYSIS_TEMPLATES_NOT_CONFIGURED: "ANALYSIS_TEMPLATES_NOT_CONFIGURED",
-  COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED: "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED",
-  DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED: "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED",
-  ID_MAPPING_TABLE_NOT_POPULATED: "ID_MAPPING_TABLE_NOT_POPULATED",
-  RESULT_RECEIVERS_NOT_ALLOWED: "RESULT_RECEIVERS_NOT_ALLOWED",
-  RESULT_RECEIVERS_NOT_CONFIGURED: "RESULT_RECEIVERS_NOT_CONFIGURED",
-} as const;
-
-/**
- * @public
- */
-export type SchemaStatusReasonCode = (typeof SchemaStatusReasonCode)[keyof typeof SchemaStatusReasonCode];
-
-/**
  * <p>A reason why the schema status is set to its current value.</p>
  * @public
  */
@@ -2621,20 +2109,6 @@ export interface SchemaStatusReason {
    */
   message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SchemaStatus = {
-  NOT_READY: "NOT_READY",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
 
 /**
  * <p>Information about the schema status.</p> <p>A status of <code>READY</code> means that based on the schema analysis rule, queries of the given analysis rule type are properly configured to run queries on this schema.</p>
@@ -2671,20 +2145,6 @@ export interface SchemaStatusDetail {
    */
   analysisType: AnalysisType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdNamespaceType = {
-  SOURCE: "SOURCE",
-  TARGET: "TARGET",
-} as const;
-
-/**
- * @public
- */
-export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
 
 /**
  * <p>The input source of the ID mapping table.</p>
@@ -2752,34 +2212,6 @@ export namespace SchemaTypeProperties {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const SelectedAnalysisMethod = {
-  DIRECT_JOB: "DIRECT_JOB",
-  DIRECT_QUERY: "DIRECT_QUERY",
-} as const;
-
-/**
- * @public
- */
-export type SelectedAnalysisMethod = (typeof SelectedAnalysisMethod)[keyof typeof SelectedAnalysisMethod];
-
-/**
- * @public
- * @enum
- */
-export const SchemaType = {
-  ID_MAPPING_TABLE: "ID_MAPPING_TABLE",
-  TABLE: "TABLE",
-} as const;
-
-/**
- * @public
- */
-export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 
 /**
  * <p>A schema is a relation within a collaboration.</p>
@@ -2983,35 +2415,6 @@ export interface BatchGetSchemaAnalysisRuleOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MemberAbility = {
-  CAN_QUERY: "CAN_QUERY",
-  CAN_RECEIVE_RESULTS: "CAN_RECEIVE_RESULTS",
-  CAN_RUN_JOB: "CAN_RUN_JOB",
-} as const;
-
-/**
- * @public
- */
-export type MemberAbility = (typeof MemberAbility)[keyof typeof MemberAbility];
-
-/**
- * @public
- * @enum
- */
-export const CustomMLMemberAbility = {
-  CAN_RECEIVE_INFERENCE_OUTPUT: "CAN_RECEIVE_INFERENCE_OUTPUT",
-  CAN_RECEIVE_MODEL_OUTPUT: "CAN_RECEIVE_MODEL_OUTPUT",
-} as const;
-
-/**
- * @public
- */
-export type CustomMLMemberAbility = (typeof CustomMLMemberAbility)[keyof typeof CustomMLMemberAbility];
-
-/**
  * <p>The ML member abilities for a collaboration member.</p>
  * @public
  */
@@ -3144,20 +2547,6 @@ export interface DataEncryptionMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const CollaborationJobLogStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CollaborationJobLogStatus = (typeof CollaborationJobLogStatus)[keyof typeof CollaborationJobLogStatus];
-
-/**
  * <p>Basic metadata used to construct a new member.</p>
  * @public
  */
@@ -3192,21 +2581,6 @@ export interface MemberSpecification {
    */
   paymentConfiguration?: PaymentConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CollaborationQueryLogStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CollaborationQueryLogStatus =
-  (typeof CollaborationQueryLogStatus)[keyof typeof CollaborationQueryLogStatus];
 
 /**
  * @public
@@ -3494,19 +2868,6 @@ export namespace ChangeSpecification {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeSpecificationType = {
-  MEMBER: "MEMBER",
-} as const;
-
-/**
- * @public
- */
-export type ChangeSpecificationType = (typeof ChangeSpecificationType)[keyof typeof ChangeSpecificationType];
-
-/**
  * <p>Specifies a change to apply to a collaboration.</p>
  * @public
  */
@@ -3542,19 +2903,6 @@ export interface CreateCollaborationChangeRequestInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChangeType = {
-  ADD_MEMBER: "ADD_MEMBER",
-} as const;
-
-/**
- * @public
- */
-export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
-
-/**
  * <p>Represents a single change within a collaboration change request, containing the change identifier and specification.</p>
  * @public
  */
@@ -3577,23 +2925,6 @@ export interface Change {
    */
   types: ChangeType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChangeRequestStatus = {
-  APPROVED: "APPROVED",
-  CANCELLED: "CANCELLED",
-  COMMITTED: "COMMITTED",
-  DENIED: "DENIED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ChangeRequestStatus = (typeof ChangeRequestStatus)[keyof typeof ChangeRequestStatus];
 
 /**
  * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
@@ -4036,21 +3367,6 @@ export interface GetCollaborationPrivacyBudgetTemplateInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const PrivacyBudgetTemplateAutoRefresh = {
-  CALENDAR_MONTH: "CALENDAR_MONTH",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type PrivacyBudgetTemplateAutoRefresh =
-  (typeof PrivacyBudgetTemplateAutoRefresh)[keyof typeof PrivacyBudgetTemplateAutoRefresh];
-
-/**
  * <p>The epsilon and noise parameter values that were used for the differential privacy template.</p>
  * @public
  */
@@ -4120,20 +3436,6 @@ export namespace PrivacyBudgetTemplateParametersOutput {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const PrivacyBudgetType = {
-  ACCESS_BUDGET: "ACCESS_BUDGET",
-  DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
-} as const;
-
-/**
- * @public
- */
-export type PrivacyBudgetType = (typeof PrivacyBudgetType)[keyof typeof PrivacyBudgetType];
 
 /**
  * <p>An array that specifies the information for a collaboration's privacy budget template.</p>
@@ -4728,24 +4030,6 @@ export interface ListCollaborationPrivacyBudgetsInput {
    */
   accessBudgetResourceArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DifferentialPrivacyAggregationType = {
-  AVG: "AVG",
-  COUNT: "COUNT",
-  COUNT_DISTINCT: "COUNT_DISTINCT",
-  STDDEV: "STDDEV",
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type DifferentialPrivacyAggregationType =
-  (typeof DifferentialPrivacyAggregationType)[keyof typeof DifferentialPrivacyAggregationType];
 
 /**
  * <p>Information about the total number of aggregations, as well as the remaining aggregations.</p>
@@ -5783,22 +5067,6 @@ export interface CreateConfiguredTableAssociationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfiguredTableAssociationAnalysisRuleType = {
-  AGGREGATION: "AGGREGATION",
-  CUSTOM: "CUSTOM",
-  LIST: "LIST",
-} as const;
-
-/**
- * @public
- */
-export type ConfiguredTableAssociationAnalysisRuleType =
-  (typeof ConfiguredTableAssociationAnalysisRuleType)[keyof typeof ConfiguredTableAssociationAnalysisRuleType];
-
-/**
  * <p>A configured table association links a configured table to a collaboration.</p>
  * @public
  */
@@ -6503,22 +5771,6 @@ export interface CreateConfiguredTableInput {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfiguredTableAnalysisRuleType = {
-  AGGREGATION: "AGGREGATION",
-  CUSTOM: "CUSTOM",
-  LIST: "LIST",
-} as const;
-
-/**
- * @public
- */
-export type ConfiguredTableAnalysisRuleType =
-  (typeof ConfiguredTableAnalysisRuleType)[keyof typeof ConfiguredTableAnalysisRuleType];
 
 /**
  * <p>A table that has been configured for use in a collaboration.</p>
@@ -7387,21 +6639,6 @@ export interface ListIdMappingTablesOutput {
 
 /**
  * @public
- * @enum
- */
-export const JobType = {
-  BATCH: "BATCH",
-  DELETE_ONLY: "DELETE_ONLY",
-  INCREMENTAL: "INCREMENTAL",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
-
-/**
- * @public
  */
 export interface PopulateIdMappingTableInput {
   /**
@@ -7934,3 +7171,983 @@ export const ResultFormat = {
  * @public
  */
 export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
+
+/**
+ * <p>Contains the configuration to write the query results to S3.</p>
+ * @public
+ */
+export interface ProtectedQueryS3OutputConfiguration {
+  /**
+   * <p>Intended file format of the result.</p>
+   * @public
+   */
+  resultFormat: ResultFormat | undefined;
+
+  /**
+   * <p>The S3 bucket to unload the protected query results.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected query results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+
+  /**
+   * <p>Indicates whether files should be output as a single file (<code>TRUE</code>) or output as multiple files (<code>FALSE</code>). This parameter is only supported for analyses with the Spark analytics engine.</p>
+   * @public
+   */
+  singleFileOutput?: boolean | undefined;
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export type MembershipProtectedQueryOutputConfiguration =
+  | MembershipProtectedQueryOutputConfiguration.S3Member
+  | MembershipProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MembershipProtectedQueryOutputConfiguration {
+  /**
+   * <p>Contains the configuration to write the query results to S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export interface MembershipProtectedQueryResultConfiguration {
+  /**
+   * <p>Configuration for protected query results.</p>
+   * @public
+   */
+  outputConfiguration: MembershipProtectedQueryOutputConfiguration | undefined;
+
+  /**
+   * <p>The unique ARN for an IAM role that is used by Clean Rooms to write protected query results to the result location, given by the member who can receive results.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member for query and job compute costs.</p>
+ * @public
+ */
+export interface MembershipJobComputePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for job compute costs (<code>TRUE</code>) or has not accepted to pay for query and job compute costs (<code>FALSE</code>).</p> <p>There is only one member who pays for queries and jobs. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query and job compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query and job compute costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelInferencePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model inference costs (<code>TRUE</code>) or has not accepted to pay for model inference costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model inference costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model inference costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipModelTrainingPaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for model training costs (<code>TRUE</code>) or has not accepted to pay for model training costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for model training costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for model training costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
+ * @public
+ */
+export interface MembershipMLPaymentConfig {
+  /**
+   * <p>The payment responsibilities accepted by the member for model training.</p>
+   * @public
+   */
+  modelTraining?: MembershipModelTrainingPaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the member for model inference.</p>
+   * @public
+   */
+  modelInference?: MembershipModelInferencePaymentConfig | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member for query compute costs.</p>
+ * @public
+ */
+export interface MembershipQueryComputePaymentConfig {
+  /**
+   * <p>Indicates whether the collaboration member has accepted to pay for query compute costs (<code>TRUE</code>) or has not accepted to pay for query compute costs (<code>FALSE</code>).</p> <p>If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer. </p> <p>An error message is returned for the following reasons: </p> <ul> <li> <p>If you set the value to <code>FALSE</code> but you are responsible to pay for query compute costs. </p> </li> <li> <p>If you set the value to <code>TRUE</code> but you are not responsible to pay for query compute costs. </p> </li> </ul>
+   * @public
+   */
+  isResponsible: boolean | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities accepted by the collaboration member.</p>
+ * @public
+ */
+export interface MembershipPaymentConfiguration {
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for query compute costs.</p>
+   * @public
+   */
+  queryCompute: MembershipQueryComputePaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for machine learning costs.</p>
+   * @public
+   */
+  machineLearning?: MembershipMLPaymentConfig | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member for job compute costs.</p>
+   * @public
+   */
+  jobCompute?: MembershipJobComputePaymentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembershipInput {
+  /**
+   * <p>The unique ID for the associated collaboration.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  queryLogStatus: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
+   * @public
+   */
+  paymentConfiguration?: MembershipPaymentConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MembershipStatus = {
+  ACTIVE: "ACTIVE",
+  COLLABORATION_DELETED: "COLLABORATION_DELETED",
+  REMOVED: "REMOVED",
+} as const;
+
+/**
+ * @public
+ */
+export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
+
+/**
+ * <p>The membership object.</p>
+ * @public
+ */
+export interface Membership {
+  /**
+   * <p>The unique ID of the membership.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership's associated collaboration.</p>
+   * @public
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The unique ID for the membership's collaboration.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * @public
+   */
+  collaborationCreatorAccountId: string | undefined;
+
+  /**
+   * <p>The display name of the collaboration creator.</p>
+   * @public
+   */
+  collaborationCreatorDisplayName: string | undefined;
+
+  /**
+   * <p>The name of the membership's collaboration.</p>
+   * @public
+   */
+  collaborationName: string | undefined;
+
+  /**
+   * <p>The time when the membership was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the membership metadata was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The status of the membership.</p>
+   * @public
+   */
+  status: MembershipStatus | undefined;
+
+  /**
+   * <p>The abilities granted to the collaboration member.</p>
+   * @public
+   */
+  memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Specifies the ML member abilities that are granted to a collaboration member.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities | undefined;
+
+  /**
+   * <p>An indicator as to whether query logging has been enabled or disabled for the membership.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  queryLogStatus: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
+
+  /**
+   * <p>The default protected query result configuration as specified by the member who can receive results.</p>
+   * @public
+   */
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p> The default job result configuration for the membership.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p>
+   * @public
+   */
+  paymentConfiguration: MembershipPaymentConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembershipOutput {
+  /**
+   * <p>The membership that was created.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMembershipInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMembershipOutput {}
+
+/**
+ * @public
+ */
+export interface GetMembershipInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMembershipOutput {
+  /**
+   * <p>The membership retrieved for the provided identifier.</p>
+   * @public
+   */
+  membership: Membership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedJobInput {
+  /**
+   * <p> The identifier for a membership in a protected job instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p> The identifier for the protected job instance.</p>
+   * @public
+   */
+  protectedJobIdentifier: string | undefined;
+}
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export interface ProtectedJobWorkerComputeConfiguration {
+  /**
+   * <p>The worker compute configuration type.</p>
+   * @public
+   */
+  type: ProtectedJobWorkerComputeType | undefined;
+
+  /**
+   * <p>The number of workers for a PySpark job.</p>
+   * @public
+   */
+  number: number | undefined;
+}
+
+/**
+ * <p>The configuration of the compute resources for a PySpark job.</p>
+ * @public
+ */
+export type ProtectedJobComputeConfiguration =
+  | ProtectedJobComputeConfiguration.WorkerMember
+  | ProtectedJobComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobComputeConfiguration {
+  /**
+   * <p>The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: ProtectedJobWorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The protected job error.</p>
+ * @public
+ */
+export interface ProtectedJobError {
+  /**
+   * <p> The message for the protected job error.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p> The error code for the protected job.</p>
+   * @public
+   */
+  code: string | undefined;
+}
+
+/**
+ * <p>The parameters for the protected job.</p>
+ * @public
+ */
+export interface ProtectedJobParameters {
+  /**
+   * <p> The ARN of the analysis template.</p>
+   * @public
+   */
+  analysisTemplateArn?: string | undefined;
+}
+
+/**
+ * <p>Details about the member who received the job result.</p>
+ * @public
+ */
+export interface ProtectedJobSingleMemberOutput {
+  /**
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results from analyses.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains output information for protected jobs with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedJobS3Output {
+  /**
+   * <p> The S3 location for the protected job output.</p>
+   * @public
+   */
+  location: string | undefined;
+}
+
+/**
+ * <p>Contains details about the protected job output.</p>
+ * @public
+ */
+export type ProtectedJobOutput =
+  | ProtectedJobOutput.MemberListMember
+  | ProtectedJobOutput.S3Member
+  | ProtectedJobOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutput {
+  /**
+   * <p>If present, the output for a protected job with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3Output;
+    memberList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The list of member Amazon Web Services account(s) that received the results of the job. </p>
+   * @public
+   */
+  export interface MemberListMember {
+    s3?: never;
+    memberList: ProtectedJobSingleMemberOutput[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    memberList?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3Output) => T;
+    memberList: (value: ProtectedJobSingleMemberOutput[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details about the job results.</p>
+ * @public
+ */
+export interface ProtectedJobResult {
+  /**
+   * <p> The output of the protected job.</p>
+   * @public
+   */
+  output: ProtectedJobOutput | undefined;
+}
+
+/**
+ * <p> The protected job member output configuration output.</p>
+ * @public
+ */
+export interface ProtectedJobMemberOutputConfigurationOutput {
+  /**
+   * <p> The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p> The output configuration for a protected job's S3 output.</p>
+ * @public
+ */
+export interface ProtectedJobS3OutputConfigurationOutput {
+  /**
+   * <p> The S3 bucket for job output.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 prefix to unload the protected job results.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p> The protected job output configuration output.</p>
+ * @public
+ */
+export type ProtectedJobOutputConfigurationOutput =
+  | ProtectedJobOutputConfigurationOutput.MemberMember
+  | ProtectedJobOutputConfigurationOutput.S3Member
+  | ProtectedJobOutputConfigurationOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutputConfigurationOutput {
+  /**
+   * <p>If present, the output for a protected job with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedJobS3OutputConfigurationOutput;
+    member?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The member output configuration for a protected job.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedJobMemberOutputConfigurationOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
+    member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The output configuration for a protected job result.</p>
+ * @public
+ */
+export interface ProtectedJobResultConfigurationOutput {
+  /**
+   * <p>The output configuration.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedJobOutputConfigurationOutput | undefined;
+}
+
+/**
+ * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected job.</p>
+ * @public
+ */
+export interface BilledJobResourceUtilization {
+  /**
+   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
+   * @public
+   */
+  units: number | undefined;
+}
+
+/**
+ * <p>Contains statistics about the execution of the protected job.</p>
+ * @public
+ */
+export interface ProtectedJobStatistics {
+  /**
+   * <p>The duration of the protected job, from creation until job completion, in milliseconds.</p>
+   * @public
+   */
+  totalDurationInMillis?: number | undefined;
+
+  /**
+   * <p> The billed resource utilization for the protected job.</p>
+   * @public
+   */
+  billedResourceUtilization?: BilledJobResourceUtilization | undefined;
+}
+
+/**
+ * <p>The parameters for an Clean Rooms protected job.</p>
+ * @public
+ */
+export interface ProtectedJob {
+  /**
+   * <p>The identifier for a protected job instance.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>he identifier for the membership.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The ARN of the membership.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p> The creation time of the protected job.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p> The job parameters for the protected job.</p>
+   * @public
+   */
+  jobParameters?: ProtectedJobParameters | undefined;
+
+  /**
+   * <p> The status of the protected job.</p>
+   * @public
+   */
+  status: ProtectedJobStatus | undefined;
+
+  /**
+   * <p>Contains any details needed to write the job results.</p>
+   * @public
+   */
+  resultConfiguration?: ProtectedJobResultConfigurationOutput | undefined;
+
+  /**
+   * <p> The statistics of the protected job.</p>
+   * @public
+   */
+  statistics?: ProtectedJobStatistics | undefined;
+
+  /**
+   * <p> The result of the protected job.</p>
+   * @public
+   */
+  result?: ProtectedJobResult | undefined;
+
+  /**
+   * <p> The error from the protected job.</p>
+   * @public
+   */
+  error?: ProtectedJobError | undefined;
+
+  /**
+   * <p>The compute configuration for the protected job.</p>
+   * @public
+   */
+  computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedJobOutput {
+  /**
+   * <p> The protected job metadata.</p>
+   * @public
+   */
+  protectedJob: ProtectedJob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedQueryInput {
+  /**
+   * <p>The identifier for a membership in a protected query instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for a protected query instance.</p>
+   * @public
+   */
+  protectedQueryIdentifier: string | undefined;
+}
+
+/**
+ * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>
+ * @public
+ */
+export type WorkerComputeConfigurationProperties =
+  | WorkerComputeConfigurationProperties.SparkMember
+  | WorkerComputeConfigurationProperties.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WorkerComputeConfigurationProperties {
+  /**
+   * <p>The Spark configuration properties for SQL workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
+   * @public
+   */
+  export interface SparkMember {
+    spark: Record<string, string>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spark?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spark: (value: Record<string, string>) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
+ * @public
+ */
+export interface WorkerComputeConfiguration {
+  /**
+   * <p> The worker compute configuration type.</p>
+   * @public
+   */
+  type?: WorkerComputeType | undefined;
+
+  /**
+   * <p> The number of workers.</p> <p>SQL queries support a minimum value of 2 and a maximum value of 400. </p> <p>PySpark jobs support a minimum value of 4 and a maximum value of 128.</p>
+   * @public
+   */
+  number?: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
+}
+
+/**
+ * <p> The configuration of the compute resources for an analysis with the Spark analytics engine.</p>
+ * @public
+ */
+export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ComputeConfiguration {
+  /**
+   * <p> The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: WorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    worker: (value: WorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Provides the sensitivity parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacySensitivityParameters {
+  /**
+   * <p>The type of aggregation function that was run.</p>
+   * @public
+   */
+  aggregationType: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * <p>The aggregation expression that was run.</p>
+   * @public
+   */
+  aggregationExpression: string | undefined;
+
+  /**
+   * <p>The maximum number of rows contributed by a user in a SQL query.</p>
+   * @public
+   */
+  userContributionLimit: number | undefined;
+
+  /**
+   * <p>The lower bound of the aggregation expression.</p>
+   * @public
+   */
+  minColumnValue?: number | undefined;
+
+  /**
+   * <p>The upper bound of the aggregation expression.</p>
+   * @public
+   */
+  maxColumnValue?: number | undefined;
+}
+
+/**
+ * <p>An array that contains the sensitivity parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacyParameters {
+  /**
+   * <p>Provides the sensitivity parameters that you can use to better understand the total amount of noise in query results.</p>
+   * @public
+   */
+  sensitivityParameters: DifferentialPrivacySensitivityParameters[] | undefined;
+}
+
+/**
+ * <p>Details of errors thrown by the protected query.</p>
+ * @public
+ */
+export interface ProtectedQueryError {
+  /**
+   * <p>A description of why the query failed.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>An error code for the error.</p>
+   * @public
+   */
+  code: string | undefined;
+}

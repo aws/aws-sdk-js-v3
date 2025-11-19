@@ -32,6 +32,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MarketplaceAgreementExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { MarketplaceAgreementServiceException } from "./models/MarketplaceAgreementServiceException";

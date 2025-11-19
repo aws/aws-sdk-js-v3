@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeregisterNamespaceInputMessage } from "../models/models_0";
-import { DeregisterNamespaceOutputMessage } from "../models/models_1";
+import { DeregisterNamespaceInputMessage, DeregisterNamespaceOutputMessage } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DeregisterNamespace } from "../schemas/schemas_0";
 

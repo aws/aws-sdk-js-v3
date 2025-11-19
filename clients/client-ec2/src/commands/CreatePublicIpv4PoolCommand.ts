@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePublicIpv4PoolRequest, CreatePublicIpv4PoolResult } from "../models/models_2";
+import { CreatePublicIpv4PoolRequest, CreatePublicIpv4PoolResult } from "../models/models_1";
 import { CreatePublicIpv4Pool } from "../schemas/schemas_0";
 
 /**

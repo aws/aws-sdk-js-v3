@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAutomationRulesRequest, ListAutomationRulesResponse } from "../models/models_3";
+import { ListAutomationRulesRequest, ListAutomationRulesResponse } from "../models/models_2";
 import { ListAutomationRules } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

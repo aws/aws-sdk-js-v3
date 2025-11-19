@@ -1,51 +1,17 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ObservabilityAdminServiceException as __BaseException } from "./ObservabilityAdminServiceException";
-
-/**
- * <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p> The name of the exception. </p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CentralizationFailureReason = {
-  DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION: "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  TRUSTED_ACCESS_NOT_ENABLED: "TRUSTED_ACCESS_NOT_ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type CentralizationFailureReason =
-  (typeof CentralizationFailureReason)[keyof typeof CentralizationFailureReason];
+import {
+  CentralizationFailureReason,
+  DestinationType,
+  EncryptedLogGroupStrategy,
+  EncryptionConflictResolutionStrategy,
+  EncryptionStrategy,
+  ResourceType,
+  RuleHealth,
+  Status,
+  TelemetryEnrichmentStatus,
+  TelemetryState,
+  TelemetryType,
+} from "./enums";
 
 /**
  * <p>Configuration for backing up centralized log data to a secondary region.</p>
@@ -64,35 +30,6 @@ export interface LogsBackupConfiguration {
    */
   KmsKeyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncryptionConflictResolutionStrategy = {
-  ALLOW: "ALLOW",
-  SKIP: "SKIP",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionConflictResolutionStrategy =
-  (typeof EncryptionConflictResolutionStrategy)[keyof typeof EncryptionConflictResolutionStrategy];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionStrategy = {
-  AWS_OWNED: "AWS_OWNED",
-  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionStrategy = (typeof EncryptionStrategy)[keyof typeof EncryptionStrategy];
 
 /**
  * <p>Configuration for encrypting centralized log groups. This configuration is only applied to destination log groups for which the corresponding source log groups are encrypted using Customer Managed KMS Keys.</p>
@@ -161,20 +98,6 @@ export interface CentralizationRuleDestination {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptedLogGroupStrategy = {
-  ALLOW: "ALLOW",
-  SKIP: "SKIP",
-} as const;
-
-/**
- * @public
- */
-export type EncryptedLogGroupStrategy = (typeof EncryptedLogGroupStrategy)[keyof typeof EncryptedLogGroupStrategy];
-
-/**
  * <p>Configuration for selecting and handling source log groups for centralization.</p>
  * @public
  */
@@ -233,21 +156,6 @@ export interface CentralizationRule {
    */
   Destination: CentralizationRuleDestination | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RuleHealth = {
-  HEALTHY: "Healthy",
-  PROVISIONING: "Provisioning",
-  UNHEALTHY: "Unhealthy",
-} as const;
-
-/**
- * @public
- */
-export type RuleHealth = (typeof RuleHealth)[keyof typeof RuleHealth];
 
 /**
  * <p>A summary of a centralization rule's key properties and status.</p>
@@ -316,28 +224,6 @@ export interface CentralizationRuleSummary {
 }
 
 /**
- * <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateCentralizationRuleForOrganizationInput {
@@ -370,119 +256,6 @@ export interface CreateCentralizationRuleForOrganizationOutput {
    */
   RuleArn?: string | undefined;
 }
-
-/**
- * <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * <p> The name of the exception. </p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p> The name of the exception. </p>
-   * @public
-   */
-  amznErrorType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.amznErrorType = opts.amznErrorType;
-  }
-}
-
-/**
- * <p> The request throughput limit was exceeded. </p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DestinationType = {
-  CLOUDWATCH_LOGS: "cloud-watch-logs",
-} as const;
-
-/**
- * @public
- */
-export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
 
 /**
  * <p> Configuration parameters specific to VPC Flow Logs. </p>
@@ -537,36 +310,6 @@ export interface TelemetryDestinationConfiguration {
    */
   VPCFlowLogParameters?: VPCFlowLogParameters | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  AWS_EC2_INSTANCE: "AWS::EC2::Instance",
-  AWS_EC2_VPC: "AWS::EC2::VPC",
-  AWS_LAMDBA_FUNCTION: "AWS::Lambda::Function",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const TelemetryType = {
-  LOGS: "Logs",
-  METRICS: "Metrics",
-  TRACES: "Traces",
-} as const;
-
-/**
- * @public
- */
-export type TelemetryType = (typeof TelemetryType)[keyof typeof TelemetryType];
 
 /**
  * <p> Defines how telemetry should be configured for specific Amazon Web Services resources. </p>
@@ -684,28 +427,6 @@ export interface DeleteCentralizationRuleForOrganizationInput {
 }
 
 /**
- * <p> The specified resource (such as a telemetry rule) could not be found. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteTelemetryRuleInput {
@@ -799,21 +520,6 @@ export interface GetCentralizationRuleForOrganizationOutput {
 
 /**
  * @public
- * @enum
- */
-export const TelemetryEnrichmentStatus = {
-  IMPAIRED: "Impaired",
-  RUNNING: "Running",
-  STOPPED: "Stopped",
-} as const;
-
-/**
- * @public
- */
-export type TelemetryEnrichmentStatus = (typeof TelemetryEnrichmentStatus)[keyof typeof TelemetryEnrichmentStatus];
-
-/**
- * @public
  */
 export interface GetTelemetryEnrichmentStatusOutput {
   /**
@@ -828,25 +534,6 @@ export interface GetTelemetryEnrichmentStatusOutput {
    */
   AwsResourceExplorerManagedViewArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  FAILED_START: "FAILED_START",
-  FAILED_STOP: "FAILED_STOP",
-  NOT_STARTED: "NOT_STARTED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -1019,21 +706,6 @@ export interface ListCentralizationRulesForOrganizationOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TelemetryState = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-  NOT_APPLICABLE: "NotApplicable",
-} as const;
-
-/**
- * @public
- */
-export type TelemetryState = (typeof TelemetryState)[keyof typeof TelemetryState];
 
 /**
  * @public

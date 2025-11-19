@@ -1,21 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SnowballServiceException as __BaseException } from "./SnowballServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AddressType = {
-  AWS_SHIP: "AWS_SHIP",
-  CUST_PICKUP: "CUST_PICKUP",
-} as const;
-
-/**
- * @public
- */
-export type AddressType = (typeof AddressType)[keyof typeof AddressType];
+import {
+  AddressType,
+  ClusterState,
+  DeviceServiceName,
+  ImpactLevel,
+  JobState,
+  JobType,
+  LongTermPricingType,
+  RemoteManagement,
+  ServiceName,
+  ShipmentState,
+  ShippingLabelStatus,
+  ShippingOption,
+  SnowballCapacity,
+  SnowballType,
+  StorageUnit,
+  TransferOption,
+} from "./enums";
 
 /**
  * <p>The address that you want the Snow device(s) associated with a specific job to be
@@ -140,81 +141,6 @@ export interface CancelClusterRequest {
 export interface CancelClusterResult {}
 
 /**
- * <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
- * @public
- */
-export class InvalidJobStateException extends __BaseException {
-  readonly name: "InvalidJobStateException" = "InvalidJobStateException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidJobStateException, __BaseException>) {
-    super({
-      name: "InvalidJobStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidJobStateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
- * @public
- */
-export class InvalidResourceException extends __BaseException {
-  readonly name: "InvalidResourceException" = "InvalidResourceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The provided resource value is invalid.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidResourceException, __BaseException>) {
-    super({
-      name: "InvalidResourceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidResourceException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
- * @public
- */
-export class KMSRequestFailedException extends __BaseException {
-  readonly name: "KMSRequestFailedException" = "KMSRequestFailedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSRequestFailedException, __BaseException>) {
-    super({
-      name: "KMSRequestFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSRequestFailedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CancelJobRequest {
@@ -254,93 +180,6 @@ export interface CreateAddressResult {
    */
   AddressId?: string | undefined;
 }
-
-/**
- * <p>The address provided was invalid. Check the address with your region's carrier, and try
- *       again.</p>
- * @public
- */
-export class InvalidAddressException extends __BaseException {
-  readonly name: "InvalidAddressException" = "InvalidAddressException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAddressException, __BaseException>) {
-    super({
-      name: "InvalidAddressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAddressException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The address is either outside the serviceable area for your region, or an error
- *       occurred. Check the address with your region's carrier and try again. If the issue persists,
- *       contact Amazon Web Services Support.</p>
- * @public
- */
-export class UnsupportedAddressException extends __BaseException {
-  readonly name: "UnsupportedAddressException" = "UnsupportedAddressException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedAddressException, __BaseException>) {
-    super({
-      name: "UnsupportedAddressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedAddressException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const JobType = {
-  EXPORT: "EXPORT",
-  IMPORT: "IMPORT",
-  LOCAL_USE: "LOCAL_USE",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
-
-/**
- * @public
- * @enum
- */
-export const JobState = {
-  CANCELLED: "Cancelled",
-  COMPLETE: "Complete",
-  IN_PROGRESS: "InProgress",
-  IN_TRANSIT_TO_AWS: "InTransitToAWS",
-  IN_TRANSIT_TO_CUSTOMER: "InTransitToCustomer",
-  LISTING: "Listing",
-  NEW: "New",
-  PENDING: "Pending",
-  PREPARING_APPLIANCE: "PreparingAppliance",
-  PREPARING_SHIPMENT: "PreparingShipment",
-  WITH_AWS: "WithAWS",
-  WITH_AWS_SORTING_FACILITY: "WithAWSSortingFacility",
-  WITH_CUSTOMER: "WithCustomer",
-} as const;
-
-/**
- * @public
- */
-export type JobState = (typeof JobState)[keyof typeof JobState];
 
 /**
  * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
@@ -400,19 +239,6 @@ export interface EKSOnDeviceServiceConfiguration {
    */
   EKSAnywhereVersion?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageUnit = {
-  TB: "TB",
-} as const;
-
-/**
- * @public
- */
-export type StorageUnit = (typeof StorageUnit)[keyof typeof StorageUnit];
 
 /**
  * <p>An object that represents the metadata and configuration settings for the NFS (Network
@@ -518,21 +344,6 @@ export interface OnDeviceServiceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const RemoteManagement = {
-  INSTALLED_AUTOSTART: "INSTALLED_AUTOSTART",
-  INSTALLED_ONLY: "INSTALLED_ONLY",
-  NOT_INSTALLED: "NOT_INSTALLED",
-} as const;
-
-/**
- * @public
- */
-export type RemoteManagement = (typeof RemoteManagement)[keyof typeof RemoteManagement];
-
-/**
  * <p>A JSON-formatted object that contains the IDs for an Amazon Machine Image (AMI),
  *       including the Amazon EC2-compatible AMI ID and the Snow device AMI ID. Each AMI has these two IDs to
  *       simplify identifying the AMI in both the Amazon Web Services Cloud and on the device.</p>
@@ -605,35 +416,6 @@ export interface KeyRange {
    */
   EndMarker?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeviceServiceName = {
-  NFS_ON_DEVICE_SERVICE: "NFS_ON_DEVICE_SERVICE",
-  S3_ON_DEVICE_SERVICE: "S3_ON_DEVICE_SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type DeviceServiceName = (typeof DeviceServiceName)[keyof typeof DeviceServiceName];
-
-/**
- * @public
- * @enum
- */
-export const TransferOption = {
-  EXPORT: "EXPORT",
-  IMPORT: "IMPORT",
-  LOCAL_USE: "LOCAL_USE",
-} as const;
-
-/**
- * @public
- */
-export type TransferOption = (typeof TransferOption)[keyof typeof TransferOption];
 
 /**
  * <p>An object that represents the service or services on the Snow Family device that your
@@ -715,67 +497,6 @@ export interface JobResource {
    */
   Ec2AmiResources?: Ec2AmiResource[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShippingOption = {
-  EXPRESS: "EXPRESS",
-  NEXT_DAY: "NEXT_DAY",
-  SECOND_DAY: "SECOND_DAY",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ShippingOption = (typeof ShippingOption)[keyof typeof ShippingOption];
-
-/**
- * @public
- * @enum
- */
-export const SnowballCapacity = {
-  NO_PREFERENCE: "NoPreference",
-  T100: "T100",
-  T13: "T13",
-  T14: "T14",
-  T240: "T240",
-  T32: "T32",
-  T42: "T42",
-  T50: "T50",
-  T8: "T8",
-  T80: "T80",
-  T98: "T98",
-} as const;
-
-/**
- * @public
- */
-export type SnowballCapacity = (typeof SnowballCapacity)[keyof typeof SnowballCapacity];
-
-/**
- * @public
- * @enum
- */
-export const SnowballType = {
-  EDGE: "EDGE",
-  EDGE_C: "EDGE_C",
-  EDGE_CG: "EDGE_CG",
-  EDGE_S: "EDGE_S",
-  RACK_5U_C: "RACK_5U_C",
-  SNC1_HDD: "SNC1_HDD",
-  SNC1_SSD: "SNC1_SSD",
-  STANDARD: "STANDARD",
-  V3_5C: "V3_5C",
-  V3_5S: "V3_5S",
-} as const;
-
-/**
- * @public
- */
-export type SnowballType = (typeof SnowballType)[keyof typeof SnowballType];
 
 /**
  * <p>The tax documents required in Amazon Web Services Region in India.</p>
@@ -1056,75 +777,6 @@ export interface CreateClusterResult {
 }
 
 /**
- * <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
- *       action.</p>
- * @public
- */
-export class Ec2RequestFailedException extends __BaseException {
-  readonly name: "Ec2RequestFailedException" = "Ec2RequestFailedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<Ec2RequestFailedException, __BaseException>) {
-    super({
-      name: "Ec2RequestFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, Ec2RequestFailedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
- * @public
- */
-export class InvalidInputCombinationException extends __BaseException {
-  readonly name: "InvalidInputCombinationException" = "InvalidInputCombinationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputCombinationException, __BaseException>) {
-    super({
-      name: "InvalidInputCombinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputCombinationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
- *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
- *       create jobs until your cluster has exactly five nodes.</p>
- * @public
- */
-export class ClusterLimitExceededException extends __BaseException {
-  readonly name: "ClusterLimitExceededException" = "ClusterLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterLimitExceededException, __BaseException>) {
-    super({
-      name: "ClusterLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>Configures the wireless connection on an Snowball Edge device.</p>
  * @public
  */
@@ -1160,23 +812,6 @@ export interface DeviceConfiguration {
    */
   SnowconeDeviceConfiguration?: SnowconeDeviceConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImpactLevel = {
-  IL2: "IL2",
-  IL4: "IL4",
-  IL5: "IL5",
-  IL6: "IL6",
-  IL99: "IL99",
-} as const;
-
-/**
- * @public
- */
-export type ImpactLevel = (typeof ImpactLevel)[keyof typeof ImpactLevel];
 
 /**
  * <p>Information identifying the person picking up the device.</p>
@@ -1427,21 +1062,6 @@ export interface CreateJobResult {
 
 /**
  * @public
- * @enum
- */
-export const LongTermPricingType = {
-  ONE_MONTH: "OneMonth",
-  ONE_YEAR: "OneYear",
-  THREE_YEAR: "ThreeYear",
-} as const;
-
-/**
- * @public
- */
-export type LongTermPricingType = (typeof LongTermPricingType)[keyof typeof LongTermPricingType];
-
-/**
- * @public
  */
 export interface CreateLongTermPricingRequest {
   /**
@@ -1477,36 +1097,6 @@ export interface CreateLongTermPricingResult {
 }
 
 /**
- * <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
- *       when other requests are not completed.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>You get this resource when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed. .</p>
-   * @public
-   */
-  ConflictResource?: string | undefined;
-
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.ConflictResource = opts.ConflictResource;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateReturnShippingLabelRequest {
@@ -1528,22 +1118,6 @@ export interface CreateReturnShippingLabelRequest {
 
 /**
  * @public
- * @enum
- */
-export const ShippingLabelStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  SUCCEEDED: "Succeeded",
-  TIMED_OUT: "TimedOut",
-} as const;
-
-/**
- * @public
- */
-export type ShippingLabelStatus = (typeof ShippingLabelStatus)[keyof typeof ShippingLabelStatus];
-
-/**
- * @public
  */
 export interface CreateReturnShippingLabelResult {
   /**
@@ -1551,30 +1125,6 @@ export interface CreateReturnShippingLabelResult {
    * @public
    */
   Status?: ShippingLabelStatus | undefined;
-}
-
-/**
- * <p>You get this exception if you call <code>CreateReturnShippingLabel</code> and a valid
- *       return shipping label already exists. In this case, use
- *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
- * @public
- */
-export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
-  readonly name: "ReturnShippingLabelAlreadyExistsException" = "ReturnShippingLabelAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReturnShippingLabelAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ReturnShippingLabelAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReturnShippingLabelAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1639,30 +1189,6 @@ export interface DescribeAddressesResult {
 }
 
 /**
- * <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeClusterRequest {
@@ -1672,23 +1198,6 @@ export interface DescribeClusterRequest {
    */
   ClusterId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterState = {
-  AWAITING_QUORUM: "AwaitingQuorum",
-  CANCELLED: "Cancelled",
-  COMPLETE: "Complete",
-  IN_USE: "InUse",
-  PENDING: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * <p>Contains metadata about a specific cluster.</p>
@@ -2679,20 +2188,6 @@ export interface ListPickupLocationsResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const ServiceName = {
-  EKS_ANYWHERE: "EKS_ANYWHERE",
-  KUBERNETES: "KUBERNETES",
-} as const;
-
-/**
- * @public
- */
-export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
-
-/**
  * <p>The version of the requested service.</p>
  * @public
  */
@@ -2941,20 +2436,6 @@ export interface UpdateJobRequest {
  * @public
  */
 export interface UpdateJobResult {}
-
-/**
- * @public
- * @enum
- */
-export const ShipmentState = {
-  RECEIVED: "RECEIVED",
-  RETURNED: "RETURNED",
-} as const;
-
-/**
- * @public
- */
-export type ShipmentState = (typeof ShipmentState)[keyof typeof ShipmentState];
 
 /**
  * @public

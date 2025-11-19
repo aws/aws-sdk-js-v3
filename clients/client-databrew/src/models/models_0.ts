@@ -1,29 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DataBrewServiceException as __BaseException } from "./DataBrewServiceException";
-
-/**
- * <p>Access to the specified resource was denied.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  AnalyticsMode,
+  CompressionFormat,
+  DatabaseOutputMode,
+  EncryptionMode,
+  InputFormat,
+  JobRunState,
+  JobType,
+  LogSubscription,
+  Order,
+  OrderedBy,
+  OutputFormat,
+  ParameterType,
+  SampleMode,
+  SampleType,
+  SessionStatus,
+  Source,
+  ThresholdType,
+  ThresholdUnit,
+  ValidationMode,
+} from "./enums";
 
 /**
  * <p>Configuration of statistics that are allowed to be run on columns that
@@ -38,20 +34,6 @@ export interface AllowedStatistics {
    */
   Statistics: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnalyticsMode = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-} as const;
-
-/**
- * @public
- */
-export type AnalyticsMode = (typeof AnalyticsMode)[keyof typeof AnalyticsMode];
 
 /**
  * @public
@@ -113,89 +95,6 @@ export interface BatchDeleteRecipeVersionResponse {
    */
   Errors?: RecipeVersionErrorDetail[] | undefined;
 }
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more resources can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The input parameters for this request failed validation.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InputFormat = {
-  CSV: "CSV",
-  EXCEL: "EXCEL",
-  JSON: "JSON",
-  ORC: "ORC",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type InputFormat = (typeof InputFormat)[keyof typeof InputFormat];
 
 /**
  * <p>Represents a set of options that define how DataBrew will read a
@@ -418,33 +317,6 @@ export interface Input {
 }
 
 /**
- * @public
- * @enum
- */
-export const Order = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type Order = (typeof Order)[keyof typeof Order];
-
-/**
- * @public
- * @enum
- */
-export const OrderedBy = {
-  LAST_MODIFIED_DATE: "LAST_MODIFIED_DATE",
-} as const;
-
-/**
- * @public
- */
-export type OrderedBy = (typeof OrderedBy)[keyof typeof OrderedBy];
-
-/**
  * <p>Represents a limit imposed on number of Amazon S3 files that should be selected for a
  *             dataset from a connected Amazon S3 path.</p>
  * @public
@@ -523,21 +395,6 @@ export interface DatetimeOptions {
    */
   LocaleCode?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParameterType = {
-  Datetime: "Datetime",
-  Number: "Number",
-  String: "String",
-} as const;
-
-/**
- * @public
- */
-export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 /**
  * <p>Represents a dataset parameter that defines type and conditions for a parameter in the
@@ -656,28 +513,6 @@ export interface CreateDatasetResponse {
    * @public
    */
   Name: string | undefined;
-}
-
-/**
- * <p>A service quota is exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -887,34 +722,6 @@ export interface ProfileConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionMode = {
-  SSEKMS: "SSE-KMS",
-  SSES3: "SSE-S3",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode];
-
-/**
- * @public
- * @enum
- */
-export const SampleMode = {
-  CUSTOM_ROWS: "CUSTOM_ROWS",
-  FULL_DATASET: "FULL_DATASET",
-} as const;
-
-/**
- * @public
- */
-export type SampleMode = (typeof SampleMode)[keyof typeof SampleMode];
-
-/**
  * <p>A sample configuration for profile jobs only, which determines the number of rows on which the
  *             profile job is run. If a <code>JobSample</code> value isn't provided, the
  *             default is used. The default value is CUSTOM_ROWS for the mode parameter and
@@ -947,33 +754,6 @@ export interface JobSample {
    */
   Size?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogSubscription = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-} as const;
-
-/**
- * @public
- */
-export type LogSubscription = (typeof LogSubscription)[keyof typeof LogSubscription];
-
-/**
- * @public
- * @enum
- */
-export const ValidationMode = {
-  CHECK_ALL: "CHECK_ALL",
-} as const;
-
-/**
- * @public
- */
-export type ValidationMode = (typeof ValidationMode)[keyof typeof ValidationMode];
 
 /**
  * <p>Configuration for data quality validation. Used to select the Rulesets and Validation Mode
@@ -1121,21 +901,6 @@ export interface CreateProfileJobResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SampleType = {
-  FIRST_N: "FIRST_N",
-  LAST_N: "LAST_N",
-  RANDOM: "RANDOM",
-} as const;
-
-/**
- * @public
- */
-export type SampleType = (typeof SampleType)[keyof typeof SampleType];
-
-/**
  * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
  *             analysis.</p>
  * @public
@@ -1207,28 +972,6 @@ export interface CreateProjectResponse {
    * @public
    */
   Name: string | undefined;
-}
-
-/**
- * <p>An internal service failure occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1367,19 +1110,6 @@ export interface DatabaseTableOutputOptions {
 }
 
 /**
- * @public
- * @enum
- */
-export const DatabaseOutputMode = {
-  NEW_TABLE: "NEW_TABLE",
-} as const;
-
-/**
- * @public
- */
-export type DatabaseOutputMode = (typeof DatabaseOutputMode)[keyof typeof DatabaseOutputMode];
-
-/**
  * <p>Represents a JDBC database output object which defines the output destination for
  *             a DataBrew recipe job to write into.</p>
  * @public
@@ -1466,47 +1196,6 @@ export interface DataCatalogOutput {
    */
   Overwrite?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CompressionFormat = {
-  BROTLI: "BROTLI",
-  BZIP2: "BZIP2",
-  DEFLATE: "DEFLATE",
-  GZIP: "GZIP",
-  LZ4: "LZ4",
-  LZO: "LZO",
-  SNAPPY: "SNAPPY",
-  ZLIB: "ZLIB",
-  ZSTD: "ZSTD",
-} as const;
-
-/**
- * @public
- */
-export type CompressionFormat = (typeof CompressionFormat)[keyof typeof CompressionFormat];
-
-/**
- * @public
- * @enum
- */
-export const OutputFormat = {
-  AVRO: "AVRO",
-  CSV: "CSV",
-  GLUEPARQUET: "GLUEPARQUET",
-  JSON: "JSON",
-  ORC: "ORC",
-  PARQUET: "PARQUET",
-  TABLEAUHYPER: "TABLEAUHYPER",
-  XML: "XML",
-} as const;
-
-/**
- * @public
- */
-export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
 
 /**
  * <p>Represents a set of options that define how DataBrew will write a
@@ -1726,36 +1415,6 @@ export interface CreateRecipeJobResponse {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ThresholdType = {
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
-
-/**
- * @public
- * @enum
- */
-export const ThresholdUnit = {
-  COUNT: "COUNT",
-  PERCENTAGE: "PERCENTAGE",
-} as const;
-
-/**
- * @public
- */
-export type ThresholdUnit = (typeof ThresholdUnit)[keyof typeof ThresholdUnit];
 
 /**
  * <p>The threshold used with a non-aggregate check expression. The non-aggregate check expression
@@ -2100,21 +1759,6 @@ export interface DescribeDatasetRequest {
 
 /**
  * @public
- * @enum
- */
-export const Source = {
-  DATABASE: "DATABASE",
-  DATACATALOG: "DATA-CATALOG",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type Source = (typeof Source)[keyof typeof Source];
-
-/**
- * @public
  */
 export interface DescribeDatasetResponse {
   /**
@@ -2205,20 +1849,6 @@ export interface DescribeJobRequest {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobType = {
-  PROFILE: "PROFILE",
-  RECIPE: "RECIPE",
-} as const;
-
-/**
- * @public
- */
-export type JobType = (typeof JobType)[keyof typeof JobType];
 
 /**
  * @public
@@ -2419,25 +2049,6 @@ export interface DescribeJobRunRequest {
 
 /**
  * @public
- * @enum
- */
-export const JobRunState = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  SUCCEEDED: "SUCCEEDED",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
-
-/**
- * @public
  */
 export interface DescribeJobRunResponse {
   /**
@@ -2572,28 +2183,6 @@ export interface DescribeProjectRequest {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SessionStatus = {
-  ASSIGNED: "ASSIGNED",
-  FAILED: "FAILED",
-  INITIALIZING: "INITIALIZING",
-  PROVISIONING: "PROVISIONING",
-  READY: "READY",
-  RECYCLING: "RECYCLING",
-  ROTATING: "ROTATING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
 
 /**
  * @public

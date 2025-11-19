@@ -9,16 +9,14 @@ import {
   MultiConstraintValidator as __MultiConstraintValidator,
   NoOpValidator as __NoOpValidator,
   RequiredValidator as __RequiredValidator,
-  ServiceException as __BaseException,
   UniqueItemsValidator as __UniqueItemsValidator,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 import { Readable } from "stream";
+
+import { FooEnum, IntegerEnum, StringEnum, TestEnum, TestIntEnum } from "./enums";
 
 /**
  * @public
@@ -50,28 +48,6 @@ export namespace GreetingStruct {
     }
     return [...getMemberValidator("hi").validate(obj.hi, `${path}/hi`)];
   };
-}
-
-/**
- * @public
- * @enum
- */
-export const FooEnum = {
-  BAR: "Bar",
-  BAZ: "Baz",
-  FOO: "Foo",
-  ONE: "1",
-  ZERO: "0",
-} as const;
-/**
- * @public
- */
-export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
-
-export enum IntegerEnum {
-  A = 1,
-  B = 2,
-  C = 3,
 }
 
 /**
@@ -353,29 +329,6 @@ export namespace ComplexNestedErrorData {
 }
 
 /**
- * This error is thrown when a request is invalid.
- * @public
- */
-export class ComplexError extends __BaseException {
-  readonly name: "ComplexError" = "ComplexError";
-  readonly $fault: "client" = "client";
-  Header?: string | undefined;
-  TopLevel?: string | undefined;
-  Nested?: ComplexNestedErrorData | undefined;
-  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
-    super({
-      name: "ComplexError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ComplexError.prototype);
-    this.Header = opts.Header;
-    this.TopLevel = opts.TopLevel;
-    this.Nested = opts.Nested;
-  }
-}
-
-/**
  * @public
  */
 export interface ConstantAndVariableQueryStringInput {
@@ -534,25 +487,6 @@ export namespace DatetimeOffsetsOutput {
     }
     return [...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`)];
   };
-}
-
-/**
- * @public
- * @enum
- */
-export const TestEnum = {
-  BAR: "BAR",
-  BAZ: "BAZ",
-  FOO: "FOO",
-} as const;
-/**
- * @public
- */
-export type TestEnum = (typeof TestEnum)[keyof typeof TestEnum];
-
-export enum TestIntEnum {
-  ONE = 1,
-  TWO = 2,
 }
 
 /**
@@ -1067,18 +1001,6 @@ export namespace HostLabelInput {
 
 /**
  * @public
- * @enum
- */
-export const StringEnum = {
-  V: "enumvalue",
-} as const;
-/**
- * @public
- */
-export type StringEnum = (typeof StringEnum)[keyof typeof StringEnum];
-
-/**
- * @public
  */
 export interface EnumPayloadInput {
   payload?: StringEnum | undefined;
@@ -1109,24 +1031,6 @@ export namespace EnumPayloadInput {
     }
     return [...getMemberValidator("payload").validate(obj.payload, `${path}/payload`)];
   };
-}
-
-/**
- * This error has test cases that test some of the dark corners of Amazon service
- * framework history. It should only be implemented by clients.
- * @public
- */
-export class FooError extends __BaseException {
-  readonly name: "FooError" = "FooError";
-  readonly $fault: "server" = "server";
-  constructor(opts: __ExceptionOptionType<FooError, __BaseException>) {
-    super({
-      name: "FooError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FooError.prototype);
-  }
 }
 
 /**
@@ -1191,25 +1095,6 @@ export namespace GreetingWithErrorsOutput {
     }
     return [...getMemberValidator("greeting").validate(obj.greeting, `${path}/greeting`)];
   };
-}
-
-/**
- * This error is thrown when an invalid greeting value is provided.
- * @public
- */
-export class InvalidGreeting extends __BaseException {
-  readonly name: "InvalidGreeting" = "InvalidGreeting";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
-    super({
-      name: "InvalidGreeting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGreeting.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

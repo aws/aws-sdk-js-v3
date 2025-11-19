@@ -797,7 +797,7 @@ import {
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 import { S3ControlServiceException as __S3ControlServiceException } from "../models/S3ControlServiceException";
 
 /* eslint no-var: 0 */

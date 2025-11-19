@@ -580,7 +580,7 @@ import {
   InternalServerError as __InternalServerError,
   InvalidGatewayRequestException as __InvalidGatewayRequestException,
   ServiceUnavailableError as __ServiceUnavailableError,
-} from "../models/index";
+} from "../models/errors";
 import { StorageGatewayServiceException as __StorageGatewayServiceException } from "../models/StorageGatewayServiceException";
 
 /* eslint no-var: 0 */

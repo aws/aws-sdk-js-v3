@@ -43,7 +43,7 @@ import {
   InternalServiceErrorException as __InternalServiceErrorException,
   InvalidParameterException as __InvalidParameterException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { MarketplaceEntitlementServiceServiceException as __MarketplaceEntitlementServiceServiceException } from "../models/MarketplaceEntitlementServiceServiceException";
 
 /* eslint no-var: 0 */

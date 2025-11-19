@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_1";
+import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_0";
 import { PutAccountSettingDefault } from "../schemas/schemas_0";
 
 /**

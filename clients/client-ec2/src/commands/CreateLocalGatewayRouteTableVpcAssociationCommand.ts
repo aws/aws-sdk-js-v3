@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
-} from "../models/models_2";
+} from "../models/models_1";
 import { CreateLocalGatewayRouteTableVpcAssociation } from "../schemas/schemas_0";
 
 /**

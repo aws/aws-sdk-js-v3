@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ECRPUBLICServiceException as __BaseException } from "./ECRPUBLICServiceException";
+import { ImageFailureCode, LayerAvailability, LayerFailureCode, RegistryAliasStatus } from "./enums";
 
 /**
  * <p>An authorization token data object that corresponds to a public registry.</p>
@@ -49,20 +47,6 @@ export interface BatchCheckLayerAvailabilityRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const LayerFailureCode = {
-  InvalidLayerDigest: "InvalidLayerDigest",
-  MissingLayerDigest: "MissingLayerDigest",
-} as const;
-
-/**
- * @public
- */
-export type LayerFailureCode = (typeof LayerFailureCode)[keyof typeof LayerFailureCode];
-
-/**
  * <p>An object that represents an Amazon ECR image layer failure.</p>
  * @public
  */
@@ -85,20 +69,6 @@ export interface LayerFailure {
    */
   failureReason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LayerAvailability = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type LayerAvailability = (typeof LayerAvailability)[keyof typeof LayerAvailability];
 
 /**
  * <p>An object that represents an Amazon ECR image layer.</p>
@@ -151,108 +121,6 @@ export interface BatchCheckLayerAvailabilityResponse {
 }
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
-}
-
-/**
- * <p>The registry doesn't exist.</p>
- * @public
- */
-export class RegistryNotFoundException extends __BaseException {
-  readonly name: "RegistryNotFoundException" = "RegistryNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RegistryNotFoundException, __BaseException>) {
-    super({
-      name: "RegistryNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RegistryNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository can't be found. Check the spelling of the specified repository
- *          and ensure that you're performing operations on the correct registry.</p>
- * @public
- */
-export class RepositoryNotFoundException extends __BaseException {
-  readonly name: "RepositoryNotFoundException" = "RepositoryNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNotFoundException, __BaseException>) {
-    super({
-      name: "RepositoryNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>These errors are usually caused by a server-side issue.</p>
- * @public
- */
-export class ServerException extends __BaseException {
-  readonly name: "ServerException" = "ServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
-    super({
-      name: "ServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerException.prototype);
-  }
-}
-
-/**
- * <p>The action isn't supported in this Region.</p>
- * @public
- */
-export class UnsupportedCommandException extends __BaseException {
-  readonly name: "UnsupportedCommandException" = "UnsupportedCommandException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedCommandException, __BaseException>) {
-    super({
-      name: "UnsupportedCommandException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedCommandException.prototype);
-  }
-}
-
-/**
  * <p>An object with identifying information for an Amazon ECR image.</p>
  * @public
  */
@@ -295,25 +163,6 @@ export interface BatchDeleteImageRequest {
    */
   imageIds: ImageIdentifier[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageFailureCode = {
-  ImageNotFound: "ImageNotFound",
-  ImageReferencedByManifestList: "ImageReferencedByManifestList",
-  ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest: "InvalidImageDigest",
-  InvalidImageTag: "InvalidImageTag",
-  KmsError: "KmsError",
-  MissingDigestAndTag: "MissingDigestAndTag",
-} as const;
-
-/**
- * @public
- */
-export type ImageFailureCode = (typeof ImageFailureCode)[keyof typeof ImageFailureCode];
 
 /**
  * <p>An object that represents an Amazon ECR image failure.</p>
@@ -415,108 +264,6 @@ export interface CompleteLayerUploadResponse {
    * @public
    */
   layerDigest?: string | undefined;
-}
-
-/**
- * <p>The specified layer upload doesn't contain any layer parts.</p>
- * @public
- */
-export class EmptyUploadException extends __BaseException {
-  readonly name: "EmptyUploadException" = "EmptyUploadException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EmptyUploadException, __BaseException>) {
-    super({
-      name: "EmptyUploadException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EmptyUploadException.prototype);
-  }
-}
-
-/**
- * <p>The layer digest calculation performed by Amazon ECR when the image layer doesn't match the
- *          digest specified.</p>
- * @public
- */
-export class InvalidLayerException extends __BaseException {
-  readonly name: "InvalidLayerException" = "InvalidLayerException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLayerException, __BaseException>) {
-    super({
-      name: "InvalidLayerException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLayerException.prototype);
-  }
-}
-
-/**
- * <p>The image layer already exists in the associated repository.</p>
- * @public
- */
-export class LayerAlreadyExistsException extends __BaseException {
-  readonly name: "LayerAlreadyExistsException" = "LayerAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayerAlreadyExistsException, __BaseException>) {
-    super({
-      name: "LayerAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayerAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>Layer parts must be at least 5 MiB in size.</p>
- * @public
- */
-export class LayerPartTooSmallException extends __BaseException {
-  readonly name: "LayerPartTooSmallException" = "LayerPartTooSmallException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayerPartTooSmallException, __BaseException>) {
-    super({
-      name: "LayerPartTooSmallException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayerPartTooSmallException.prototype);
-  }
-}
-
-/**
- * <p>The upload can't be found, or the specified upload ID isn't valid for this
- *          repository.</p>
- * @public
- */
-export class UploadNotFoundException extends __BaseException {
-  readonly name: "UploadNotFoundException" = "UploadNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UploadNotFoundException, __BaseException>) {
-    super({
-      name: "UploadNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UploadNotFoundException.prototype);
-  }
 }
 
 /**
@@ -785,89 +532,6 @@ export interface CreateRepositoryResponse {
 }
 
 /**
- * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
- * @public
- */
-export class InvalidTagParameterException extends __BaseException {
-  readonly name: "InvalidTagParameterException" = "InvalidTagParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
-    super({
-      name: "InvalidTagParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
-  }
-}
-
-/**
- * <p>The operation didn't succeed because it would have exceeded a service limit for your
- *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
- *          Amazon Elastic Container Registry User Guide.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository already exists in the specified registry.</p>
- * @public
- */
-export class RepositoryAlreadyExistsException extends __BaseException {
-  readonly name: "RepositoryAlreadyExistsException" = "RepositoryAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryAlreadyExistsException, __BaseException>) {
-    super({
-      name: "RepositoryAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *          can be applied to a repository is 50.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteRepositoryRequest {
@@ -901,27 +565,6 @@ export interface DeleteRepositoryResponse {
    * @public
    */
   repository?: Repository | undefined;
-}
-
-/**
- * <p>The specified repository contains images. To delete a repository that contains images,
- *          you must force the deletion with the <code>force</code> parameter.</p>
- * @public
- */
-export class RepositoryNotEmptyException extends __BaseException {
-  readonly name: "RepositoryNotEmptyException" = "RepositoryNotEmptyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNotEmptyException, __BaseException>) {
-    super({
-      name: "RepositoryNotEmptyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNotEmptyException.prototype);
-  }
 }
 
 /**
@@ -964,27 +607,6 @@ export interface DeleteRepositoryPolicyResponse {
    * @public
    */
   policyText?: string | undefined;
-}
-
-/**
- * <p>The specified repository and registry combination doesn't have an associated repository
- *          policy.</p>
- * @public
- */
-export class RepositoryPolicyNotFoundException extends __BaseException {
-  readonly name: "RepositoryPolicyNotFoundException" = "RepositoryPolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryPolicyNotFoundException, __BaseException>) {
-    super({
-      name: "RepositoryPolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryPolicyNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1120,26 +742,6 @@ export interface DescribeImagesResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>The image requested doesn't exist in the specified repository.</p>
- * @public
- */
-export class ImageNotFoundException extends __BaseException {
-  readonly name: "ImageNotFoundException" = "ImageNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageNotFoundException, __BaseException>) {
-    super({
-      name: "ImageNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1306,21 +908,6 @@ export interface DescribeRegistriesRequest {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RegistryAliasStatus = {
-  ACTIVE: "ACTIVE",
-  PENDING: "PENDING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type RegistryAliasStatus = (typeof RegistryAliasStatus)[keyof typeof RegistryAliasStatus];
 
 /**
  * <p>An object representing the aliases for a public registry. A public registry is given an
@@ -1571,26 +1158,6 @@ export interface GetRepositoryCatalogDataResponse {
 }
 
 /**
- * <p>The repository catalog data doesn't exist.</p>
- * @public
- */
-export class RepositoryCatalogDataNotFoundException extends __BaseException {
-  readonly name: "RepositoryCatalogDataNotFoundException" = "RepositoryCatalogDataNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryCatalogDataNotFoundException, __BaseException>) {
-    super({
-      name: "RepositoryCatalogDataNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryCatalogDataNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetRepositoryPolicyRequest {
@@ -1669,69 +1236,6 @@ export interface Image {
 }
 
 /**
- * <p>The specified image has already been pushed, and there were no changes to the manifest
- *          or image tag after the last push.</p>
- * @public
- */
-export class ImageAlreadyExistsException extends __BaseException {
-  readonly name: "ImageAlreadyExistsException" = "ImageAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ImageAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The specified image digest doesn't match the digest that Amazon ECR calculated for the
- *          image.</p>
- * @public
- */
-export class ImageDigestDoesNotMatchException extends __BaseException {
-  readonly name: "ImageDigestDoesNotMatchException" = "ImageDigestDoesNotMatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageDigestDoesNotMatchException, __BaseException>) {
-    super({
-      name: "ImageDigestDoesNotMatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageDigestDoesNotMatchException.prototype);
-  }
-}
-
-/**
- * <p>The specified image is tagged with a tag that already exists. The repository is
- *          configured for tag immutability.</p>
- * @public
- */
-export class ImageTagAlreadyExistsException extends __BaseException {
-  readonly name: "ImageTagAlreadyExistsException" = "ImageTagAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageTagAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ImageTagAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageTagAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface InitiateLayerUploadRequest {
@@ -1764,76 +1268,6 @@ export interface InitiateLayerUploadResponse {
    * @public
    */
   partSize?: number | undefined;
-}
-
-/**
- * <p>The layer part size isn't valid, or the first byte specified isn't consecutive to the
- *          last byte of a previous layer part upload.</p>
- * @public
- */
-export class InvalidLayerPartException extends __BaseException {
-  readonly name: "InvalidLayerPartException" = "InvalidLayerPartException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The Amazon Web Services account ID that's associated with the layer part.</p>
-   * @public
-   */
-  registryId?: string | undefined;
-
-  /**
-   * <p>The name of the repository.</p>
-   * @public
-   */
-  repositoryName?: string | undefined;
-
-  /**
-   * <p>The upload ID that's associated with the layer part.</p>
-   * @public
-   */
-  uploadId?: string | undefined;
-
-  /**
-   * <p>The position of the last byte of the layer part.</p>
-   * @public
-   */
-  lastValidByteReceived?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLayerPartException, __BaseException>) {
-    super({
-      name: "InvalidLayerPartException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLayerPartException.prototype);
-    this.registryId = opts.registryId;
-    this.repositoryName = opts.repositoryName;
-    this.uploadId = opts.uploadId;
-    this.lastValidByteReceived = opts.lastValidByteReceived;
-  }
-}
-
-/**
- * <p>The specified layers can't be found, or the specified layer isn't valid for this
- *          repository.</p>
- * @public
- */
-export class LayersNotFoundException extends __BaseException {
-  readonly name: "LayersNotFoundException" = "LayersNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayersNotFoundException, __BaseException>) {
-    super({
-      name: "LayersNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayersNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1913,26 +1347,6 @@ export interface PutImageResponse {
    * @public
    */
   image?: Image | undefined;
-}
-
-/**
- * <p>The manifest list is referencing an image that doesn't exist.</p>
- * @public
- */
-export class ReferencedImagesNotFoundException extends __BaseException {
-  readonly name: "ReferencedImagesNotFoundException" = "ReferencedImagesNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReferencedImagesNotFoundException, __BaseException>) {
-    super({
-      name: "ReferencedImagesNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReferencedImagesNotFoundException.prototype);
-  }
 }
 
 /**

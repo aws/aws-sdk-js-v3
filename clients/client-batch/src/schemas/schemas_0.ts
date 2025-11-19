@@ -579,7 +579,7 @@ import {
 } from "@smithy/types";
 
 import { BatchServiceException as __BatchServiceException } from "../models/BatchServiceException";
-import { ClientException as __ClientException, ServerException as __ServerException } from "../models/index";
+import { ClientException as __ClientException, ServerException as __ServerException } from "../models/errors";
 
 /* eslint no-var: 0 */
 

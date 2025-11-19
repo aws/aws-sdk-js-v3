@@ -78,7 +78,7 @@ import {
   InvalidInputException as __InvalidInputException,
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { PersonalizeEventsServiceException as __PersonalizeEventsServiceException } from "../models/PersonalizeEventsServiceException";
 
 /* eslint no-var: 0 */

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeCapacityReservationBillingRequestsRequest,
   DescribeCapacityReservationBillingRequestsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeCapacityReservationBillingRequests } from "../schemas/schemas_0";
 
 /**

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
-} from "../models/models_8";
+} from "../models/models_7";
 import { UpdateSecurityGroupRuleDescriptionsIngress } from "../schemas/schemas_0";
 
 /**

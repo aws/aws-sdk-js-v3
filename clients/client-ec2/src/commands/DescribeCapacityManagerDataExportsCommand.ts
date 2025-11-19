@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeCapacityManagerDataExportsRequest,
   DescribeCapacityManagerDataExportsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeCapacityManagerDataExports } from "../schemas/schemas_0";
 
 /**

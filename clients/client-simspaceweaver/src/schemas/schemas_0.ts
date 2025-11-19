@@ -145,7 +145,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { SimSpaceWeaverServiceException as __SimSpaceWeaverServiceException } from "../models/SimSpaceWeaverServiceException";
 
 /* eslint no-var: 0 */

@@ -82,7 +82,7 @@ import {
 import {
   LimitExceededException as __LimitExceededException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTSecureTunnelingServiceException as __IoTSecureTunnelingServiceException } from "../models/IoTSecureTunnelingServiceException";
 
 /* eslint no-var: 0 */

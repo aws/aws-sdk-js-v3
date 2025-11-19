@@ -206,7 +206,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { RUMServiceException as __RUMServiceException } from "../models/RUMServiceException";
 
 /* eslint no-var: 0 */

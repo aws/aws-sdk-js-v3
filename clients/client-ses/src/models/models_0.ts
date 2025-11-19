@@ -1,28 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SESServiceException as __BaseException } from "./SESServiceException";
-
-/**
- * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
- *          <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
- * @public
- */
-export class AccountSendingPausedException extends __BaseException {
-  readonly name: "AccountSendingPausedException" = "AccountSendingPausedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountSendingPausedException, __BaseException>) {
-    super({
-      name: "AccountSendingPausedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountSendingPausedException.prototype);
-  }
-}
+import {
+  BehaviorOnMXFailure,
+  BounceType,
+  BulkEmailStatus,
+  ConfigurationSetAttribute,
+  CustomMailFromStatus,
+  DimensionValueSource,
+  DsnAction,
+  EventType,
+  IdentityType,
+  InvocationType,
+  NotificationType,
+  ReceiptFilterPolicy,
+  SNSActionEncoding,
+  StopScope,
+  TlsPolicy,
+  VerificationStatus,
+} from "./enums";
 
 /**
  * <p>When included in a receipt rule, this action adds a header to the received
@@ -47,48 +41,6 @@ export interface AddHeaderAction {
    */
   HeaderValue: string | undefined;
 }
-
-/**
- * <p>Indicates that a resource could not be created because of a naming conflict.</p>
- * @public
- */
-export class AlreadyExistsException extends __BaseException {
-  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that a resource could not be created because the resource name already
-   *             exists.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
-    super({
-      name: "AlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
-    this.Name = opts.Name;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const BehaviorOnMXFailure = {
-  RejectMessage: "RejectMessage",
-  UseDefaultValue: "UseDefaultValue",
-} as const;
-
-/**
- * @public
- */
-export type BehaviorOnMXFailure = (typeof BehaviorOnMXFailure)[keyof typeof BehaviorOnMXFailure];
 
 /**
  * <p>Represents textual data, plus an optional character set specification.</p>
@@ -177,41 +129,6 @@ export interface BounceAction {
    */
   Sender: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BounceType = {
-  ContentRejected: "ContentRejected",
-  DoesNotExist: "DoesNotExist",
-  ExceededQuota: "ExceededQuota",
-  MessageTooLarge: "MessageTooLarge",
-  TemporaryFailure: "TemporaryFailure",
-  Undefined: "Undefined",
-} as const;
-
-/**
- * @public
- */
-export type BounceType = (typeof BounceType)[keyof typeof BounceType];
-
-/**
- * @public
- * @enum
- */
-export const DsnAction = {
-  DELAYED: "delayed",
-  DELIVERED: "delivered",
-  EXPANDED: "expanded",
-  FAILED: "failed",
-  RELAYED: "relayed",
-} as const;
-
-/**
- * @public
- */
-export type DsnAction = (typeof DsnAction)[keyof typeof DsnAction];
 
 /**
  * <p>Additional X-headers to include in the Delivery Status Notification (DSN) when an
@@ -457,32 +374,6 @@ export interface BulkEmailDestination {
 }
 
 /**
- * @public
- * @enum
- */
-export const BulkEmailStatus = {
-  AccountDailyQuotaExceeded: "AccountDailyQuotaExceeded",
-  AccountSendingPaused: "AccountSendingPaused",
-  AccountSuspended: "AccountSuspended",
-  AccountThrottled: "AccountThrottled",
-  ConfigurationSetDoesNotExist: "ConfigurationSetDoesNotExist",
-  ConfigurationSetSendingPaused: "ConfigurationSetSendingPaused",
-  Failed: "Failed",
-  InvalidParameterValue: "InvalidParameterValue",
-  InvalidSendingPoolName: "InvalidSendingPoolName",
-  MailFromDomainNotVerified: "MailFromDomainNotVerified",
-  MessageRejected: "MessageRejected",
-  Success: "Success",
-  TemplateDoesNotExist: "TemplateDoesNotExist",
-  TransientFailure: "TransientFailure",
-} as const;
-
-/**
- * @public
- */
-export type BulkEmailStatus = (typeof BulkEmailStatus)[keyof typeof BulkEmailStatus];
-
-/**
  * <p>An object that contains the response from the <code>SendBulkTemplatedEmail</code>
  *             operation.</p>
  * @public
@@ -587,34 +478,6 @@ export interface BulkEmailDestinationStatus {
 }
 
 /**
- * <p>Indicates that the delete operation could not be completed.</p>
- * @public
- */
-export class CannotDeleteException extends __BaseException {
-  readonly name: "CannotDeleteException" = "CannotDeleteException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that a resource could not be deleted because no resource with the specified
-   *             name exists.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CannotDeleteException, __BaseException>) {
-    super({
-      name: "CannotDeleteException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CannotDeleteException.prototype);
-    this.Name = opts.Name;
-  }
-}
-
-/**
  * <p>Represents a request to create a receipt rule set by cloning an existing one. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -652,70 +515,6 @@ export interface CloneReceiptRuleSetRequest {
  * @public
  */
 export interface CloneReceiptRuleSetResponse {}
-
-/**
- * <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>Indicates that the provided receipt rule set does not exist.</p>
- * @public
- */
-export class RuleSetDoesNotExistException extends __BaseException {
-  readonly name: "RuleSetDoesNotExistException" = "RuleSetDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the named receipt rule set does not exist.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RuleSetDoesNotExistException, __BaseException>) {
-    super({
-      name: "RuleSetDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RuleSetDoesNotExistException.prototype);
-    this.Name = opts.Name;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DimensionValueSource = {
-  EMAIL_HEADER: "emailHeader",
-  LINK_TAG: "linkTag",
-  MESSAGE_TAG: "messageTag",
-} as const;
-
-/**
- * @public
- */
-export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
 
 /**
  * <p>Contains the dimension configuration to use when you publish email sending events to
@@ -814,105 +613,6 @@ export interface ConfigurationSet {
 }
 
 /**
- * <p>Indicates that the configuration set could not be created because of a naming
- *             conflict.</p>
- * @public
- */
-export class ConfigurationSetAlreadyExistsException extends __BaseException {
-  readonly name: "ConfigurationSetAlreadyExistsException" = "ConfigurationSetAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConfigurationSetAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ConfigurationSetAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConfigurationSetAlreadyExistsException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationSetAttribute = {
-  DELIVERY_OPTIONS: "deliveryOptions",
-  EVENT_DESTINATIONS: "eventDestinations",
-  REPUTATION_OPTIONS: "reputationOptions",
-  TRACKING_OPTIONS: "trackingOptions",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationSetAttribute = (typeof ConfigurationSetAttribute)[keyof typeof ConfigurationSetAttribute];
-
-/**
- * <p>Indicates that the configuration set does not exist.</p>
- * @public
- */
-export class ConfigurationSetDoesNotExistException extends __BaseException {
-  readonly name: "ConfigurationSetDoesNotExistException" = "ConfigurationSetDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConfigurationSetDoesNotExistException, __BaseException>) {
-    super({
-      name: "ConfigurationSetDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConfigurationSetDoesNotExistException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-  }
-}
-
-/**
- * <p>Indicates that email sending is disabled for the configuration set.</p>
- *          <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
- * @public
- */
-export class ConfigurationSetSendingPausedException extends __BaseException {
-  readonly name: "ConfigurationSetSendingPausedException" = "ConfigurationSetSendingPausedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the configuration set for which email sending is disabled.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConfigurationSetSendingPausedException, __BaseException>) {
-    super({
-      name: "ConfigurationSetSendingPausedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConfigurationSetSendingPausedException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-  }
-}
-
-/**
  * <p>When included in a receipt rule, this action parses the received message and
  *             starts an email contact in Amazon Connect on your behalf.</p>
  *          <note>
@@ -964,27 +664,6 @@ export interface CreateConfigurationSetRequest {
 export interface CreateConfigurationSetResponse {}
 
 /**
- * <p>Indicates that the configuration set is invalid. See the error message for
- *             details.</p>
- * @public
- */
-export class InvalidConfigurationSetException extends __BaseException {
-  readonly name: "InvalidConfigurationSetException" = "InvalidConfigurationSetException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidConfigurationSetException, __BaseException>) {
-    super({
-      name: "InvalidConfigurationSetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidConfigurationSetException.prototype);
-  }
-}
-
-/**
  * <p>Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event
  *             destination.</p>
  *          <p>Event destinations, such as Amazon Kinesis Firehose, are associated with configuration sets, which enable
@@ -1007,26 +686,6 @@ export interface KinesisFirehoseDestination {
    */
   DeliveryStreamARN: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  BOUNCE: "bounce",
-  CLICK: "click",
-  COMPLAINT: "complaint",
-  DELIVERY: "delivery",
-  OPEN: "open",
-  REJECT: "reject",
-  RENDERING_FAILURE: "renderingFailure",
-  SEND: "send",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * <p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p>
@@ -1184,146 +843,6 @@ export interface CreateConfigurationSetEventDestinationRequest {
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 /**
- * <p>Indicates that the event destination could not be created because of a naming
- *             conflict.</p>
- * @public
- */
-export class EventDestinationAlreadyExistsException extends __BaseException {
-  readonly name: "EventDestinationAlreadyExistsException" = "EventDestinationAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>Indicates that the event destination does not exist.</p>
-   * @public
-   */
-  EventDestinationName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EventDestinationAlreadyExistsException, __BaseException>) {
-    super({
-      name: "EventDestinationAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EventDestinationAlreadyExistsException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-    this.EventDestinationName = opts.EventDestinationName;
-  }
-}
-
-/**
- * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
- *             details.</p>
- * @public
- */
-export class InvalidCloudWatchDestinationException extends __BaseException {
-  readonly name: "InvalidCloudWatchDestinationException" = "InvalidCloudWatchDestinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>Indicates that the event destination does not exist.</p>
-   * @public
-   */
-  EventDestinationName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCloudWatchDestinationException, __BaseException>) {
-    super({
-      name: "InvalidCloudWatchDestinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCloudWatchDestinationException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-    this.EventDestinationName = opts.EventDestinationName;
-  }
-}
-
-/**
- * <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
- *             message for details.</p>
- * @public
- */
-export class InvalidFirehoseDestinationException extends __BaseException {
-  readonly name: "InvalidFirehoseDestinationException" = "InvalidFirehoseDestinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>Indicates that the event destination does not exist.</p>
-   * @public
-   */
-  EventDestinationName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFirehoseDestinationException, __BaseException>) {
-    super({
-      name: "InvalidFirehoseDestinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFirehoseDestinationException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-    this.EventDestinationName = opts.EventDestinationName;
-  }
-}
-
-/**
- * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
- *             invalid. See the error message for details.</p>
- * @public
- */
-export class InvalidSNSDestinationException extends __BaseException {
-  readonly name: "InvalidSNSDestinationException" = "InvalidSNSDestinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>Indicates that the event destination does not exist.</p>
-   * @public
-   */
-  EventDestinationName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSNSDestinationException, __BaseException>) {
-    super({
-      name: "InvalidSNSDestinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSNSDestinationException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-    this.EventDestinationName = opts.EventDestinationName;
-  }
-}
-
-/**
  * <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This
  *             domain captures open and click events generated by Amazon SES emails.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html">Configuring Custom
@@ -1369,65 +888,6 @@ export interface CreateConfigurationSetTrackingOptionsRequest {
  * @public
  */
 export interface CreateConfigurationSetTrackingOptionsResponse {}
-
-/**
- * <p>Indicates that the custom domain to be used for open and click tracking redirects is
- *             invalid. This error appears most often in the following situations:</p>
- *          <ul>
- *             <li>
- *                <p>When the tracking domain you specified is not verified in Amazon SES.</p>
- *             </li>
- *             <li>
- *                <p>When the tracking domain you specified is not a valid domain or
- *                     subdomain.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export class InvalidTrackingOptionsException extends __BaseException {
-  readonly name: "InvalidTrackingOptionsException" = "InvalidTrackingOptionsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTrackingOptionsException, __BaseException>) {
-    super({
-      name: "InvalidTrackingOptionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTrackingOptionsException.prototype);
-  }
-}
-
-/**
- * <p>Indicates that the configuration set you specified already contains a TrackingOptions
- *             object.</p>
- * @public
- */
-export class TrackingOptionsAlreadyExistsException extends __BaseException {
-  readonly name: "TrackingOptionsAlreadyExistsException" = "TrackingOptionsAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that a TrackingOptions object already exists in the specified configuration
-   *             set.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TrackingOptionsAlreadyExistsException, __BaseException>) {
-    super({
-      name: "TrackingOptionsAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TrackingOptionsAlreadyExistsException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-  }
-}
 
 /**
  * <p>Represents a request to create a custom verification email template.</p>
@@ -1476,99 +936,6 @@ export interface CreateCustomVerificationEmailTemplateRequest {
    */
   FailureRedirectionURL: string | undefined;
 }
-
-/**
- * <p>Indicates that custom verification email template provided content is invalid.</p>
- * @public
- */
-export class CustomVerificationEmailInvalidContentException extends __BaseException {
-  readonly name: "CustomVerificationEmailInvalidContentException" = "CustomVerificationEmailInvalidContentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomVerificationEmailInvalidContentException, __BaseException>) {
-    super({
-      name: "CustomVerificationEmailInvalidContentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomVerificationEmailInvalidContentException.prototype);
-  }
-}
-
-/**
- * <p>Indicates that a custom verification email template with the name you specified
- *             already exists.</p>
- * @public
- */
-export class CustomVerificationEmailTemplateAlreadyExistsException extends __BaseException {
-  readonly name: "CustomVerificationEmailTemplateAlreadyExistsException" =
-    "CustomVerificationEmailTemplateAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the provided custom verification email template with the specified
-   *             template name already exists.</p>
-   * @public
-   */
-  CustomVerificationEmailTemplateName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomVerificationEmailTemplateAlreadyExistsException, __BaseException>) {
-    super({
-      name: "CustomVerificationEmailTemplateAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomVerificationEmailTemplateAlreadyExistsException.prototype);
-    this.CustomVerificationEmailTemplateName = opts.CustomVerificationEmailTemplateName;
-  }
-}
-
-/**
- * <p>Indicates that the sender address specified for a custom verification email is not
- *             verified, and is therefore not eligible to send the custom verification email. </p>
- * @public
- */
-export class FromEmailAddressNotVerifiedException extends __BaseException {
-  readonly name: "FromEmailAddressNotVerifiedException" = "FromEmailAddressNotVerifiedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the from email address associated with the custom verification email
-   *             template is not verified.</p>
-   * @public
-   */
-  FromEmailAddress?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FromEmailAddressNotVerifiedException, __BaseException>) {
-    super({
-      name: "FromEmailAddressNotVerifiedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FromEmailAddressNotVerifiedException.prototype);
-    this.FromEmailAddress = opts.FromEmailAddress;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ReceiptFilterPolicy = {
-  Allow: "Allow",
-  Block: "Block",
-} as const;
-
-/**
- * @public
- */
-export type ReceiptFilterPolicy = (typeof ReceiptFilterPolicy)[keyof typeof ReceiptFilterPolicy];
 
 /**
  * <p>A receipt IP address filter enables you to specify whether to accept or reject mail
@@ -1651,20 +1018,6 @@ export interface CreateReceiptFilterRequest {
  * @public
  */
 export interface CreateReceiptFilterResponse {}
-
-/**
- * @public
- * @enum
- */
-export const InvocationType = {
-  Event: "Event",
-  RequestResponse: "RequestResponse",
-} as const;
-
-/**
- * @public
- */
-export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
 
 /**
  * <p>When included in a receipt rule, this action calls an Amazon Web Services Lambda function and,
@@ -1820,20 +1173,6 @@ export interface S3Action {
 }
 
 /**
- * @public
- * @enum
- */
-export const SNSActionEncoding = {
-  Base64: "Base64",
-  UTF8: "UTF-8",
-} as const;
-
-/**
- * @public
- */
-export type SNSActionEncoding = (typeof SNSActionEncoding)[keyof typeof SNSActionEncoding];
-
-/**
  * <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service
  *             (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS
  *             notifications. Amazon SNS notifications for all other actions simply provide information
@@ -1870,19 +1209,6 @@ export interface SNSAction {
    */
   Encoding?: SNSActionEncoding | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StopScope = {
-  RULE_SET: "RuleSet",
-} as const;
-
-/**
- * @public
- */
-export type StopScope = (typeof StopScope)[keyof typeof StopScope];
 
 /**
  * <p>When included in a receipt rule, this action terminates the evaluation of the receipt
@@ -2004,20 +1330,6 @@ export interface ReceiptAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const TlsPolicy = {
-  Optional: "Optional",
-  Require: "Require",
-} as const;
-
-/**
- * @public
- */
-export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
-
-/**
  * <p>Receipt rules enable you to specify which actions Amazon SES should take when it receives
  *             mail on behalf of one or more email addresses or domains that you own.</p>
  *          <p>Each receipt rule defines a set of email addresses or domains that it applies to. If
@@ -2119,123 +1431,6 @@ export interface CreateReceiptRuleRequest {
 export interface CreateReceiptRuleResponse {}
 
 /**
- * <p>Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could
- *             not execute the provided function, possibly due to permissions issues. For information
- *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
- * @public
- */
-export class InvalidLambdaFunctionException extends __BaseException {
-  readonly name: "InvalidLambdaFunctionException" = "InvalidLambdaFunctionException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the ARN of the function was not found.</p>
-   * @public
-   */
-  FunctionArn?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLambdaFunctionException, __BaseException>) {
-    super({
-      name: "InvalidLambdaFunctionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLambdaFunctionException.prototype);
-    this.FunctionArn = opts.FunctionArn;
-  }
-}
-
-/**
- * <p>Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid,
- *             or that Amazon SES could not publish to the bucket, possibly due to permissions issues.
- *             For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
- * @public
- */
-export class InvalidS3ConfigurationException extends __BaseException {
-  readonly name: "InvalidS3ConfigurationException" = "InvalidS3ConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicated that the S3 Bucket was not found.</p>
-   * @public
-   */
-  Bucket?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidS3ConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidS3ConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidS3ConfigurationException.prototype);
-    this.Bucket = opts.Bucket;
-  }
-}
-
-/**
- * <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not
- *             publish to the topic, possibly due to permissions issues. For information about giving
- *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
- *                 Developer Guide</a>.</p>
- * @public
- */
-export class InvalidSnsTopicException extends __BaseException {
-  readonly name: "InvalidSnsTopicException" = "InvalidSnsTopicException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the topic does not exist.</p>
-   * @public
-   */
-  Topic?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSnsTopicException, __BaseException>) {
-    super({
-      name: "InvalidSnsTopicException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSnsTopicException.prototype);
-    this.Topic = opts.Topic;
-  }
-}
-
-/**
- * <p>Indicates that the provided receipt rule does not exist.</p>
- * @public
- */
-export class RuleDoesNotExistException extends __BaseException {
-  readonly name: "RuleDoesNotExistException" = "RuleDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the named receipt rule does not exist.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RuleDoesNotExistException, __BaseException>) {
-    super({
-      name: "RuleDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RuleDoesNotExistException.prototype);
-    this.Name = opts.Name;
-  }
-}
-
-/**
  * <p>Represents a request to create an empty receipt rule set. You use receipt rule sets to
  *             receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html">Amazon SES Developer
  *             Guide</a>.</p>
@@ -2322,45 +1517,6 @@ export interface CreateTemplateRequest {
 export interface CreateTemplateResponse {}
 
 /**
- * <p>Indicates that the template that you specified could not be rendered. This issue may
- *             occur when a template refers to a partial that does not exist.</p>
- * @public
- */
-export class InvalidTemplateException extends __BaseException {
-  readonly name: "InvalidTemplateException" = "InvalidTemplateException";
-  readonly $fault: "client" = "client";
-  TemplateName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTemplateException, __BaseException>) {
-    super({
-      name: "InvalidTemplateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTemplateException.prototype);
-    this.TemplateName = opts.TemplateName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CustomMailFromStatus = {
-  Failed: "Failed",
-  Pending: "Pending",
-  Success: "Success",
-  TemporaryFailure: "TemporaryFailure",
-} as const;
-
-/**
- * @public
- */
-export type CustomMailFromStatus = (typeof CustomMailFromStatus)[keyof typeof CustomMailFromStatus];
-
-/**
  * <p>Contains information about a custom verification email template.</p>
  * @public
  */
@@ -2396,35 +1552,6 @@ export interface CustomVerificationEmailTemplate {
    * @public
    */
   FailureRedirectionURL?: string | undefined;
-}
-
-/**
- * <p>Indicates that a custom verification email template with the name you specified does
- *             not exist.</p>
- * @public
- */
-export class CustomVerificationEmailTemplateDoesNotExistException extends __BaseException {
-  readonly name: "CustomVerificationEmailTemplateDoesNotExistException" =
-    "CustomVerificationEmailTemplateDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the provided custom verification email template does not exist.</p>
-   * @public
-   */
-  CustomVerificationEmailTemplateName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomVerificationEmailTemplateDoesNotExistException, __BaseException>) {
-    super({
-      name: "CustomVerificationEmailTemplateDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomVerificationEmailTemplateDoesNotExistException.prototype);
-    this.CustomVerificationEmailTemplateName = opts.CustomVerificationEmailTemplateName;
-  }
 }
 
 /**
@@ -2477,40 +1604,6 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 /**
- * <p>Indicates that the event destination does not exist.</p>
- * @public
- */
-export class EventDestinationDoesNotExistException extends __BaseException {
-  readonly name: "EventDestinationDoesNotExistException" = "EventDestinationDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that the configuration set does not exist.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * <p>Indicates that the event destination does not exist.</p>
-   * @public
-   */
-  EventDestinationName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EventDestinationDoesNotExistException, __BaseException>) {
-    super({
-      name: "EventDestinationDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EventDestinationDoesNotExistException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-    this.EventDestinationName = opts.EventDestinationName;
-  }
-}
-
-/**
  * <p>Represents a request to delete open and click tracking options in a configuration set.
  *         </p>
  * @public
@@ -2528,34 +1621,6 @@ export interface DeleteConfigurationSetTrackingOptionsRequest {
  * @public
  */
 export interface DeleteConfigurationSetTrackingOptionsResponse {}
-
-/**
- * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
- * @public
- */
-export class TrackingOptionsDoesNotExistException extends __BaseException {
-  readonly name: "TrackingOptionsDoesNotExistException" = "TrackingOptionsDoesNotExistException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Indicates that a TrackingOptions object does not exist in the specified configuration
-   *             set.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TrackingOptionsDoesNotExistException, __BaseException>) {
-    super({
-      name: "TrackingOptionsDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TrackingOptionsDoesNotExistException.prototype);
-    this.ConfigurationSetName = opts.ConfigurationSetName;
-  }
-}
 
 /**
  * <p>Represents a request to delete an existing custom verification email template.</p>
@@ -2959,23 +2024,6 @@ export interface DescribeReceiptRuleSetResponse {
    */
   Rules?: ReceiptRule[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerificationStatus = {
-  Failed: "Failed",
-  NotStarted: "NotStarted",
-  Pending: "Pending",
-  Success: "Success",
-  TemporaryFailure: "TemporaryFailure",
-} as const;
-
-/**
- * @public
- */
-export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
 
 /**
  * <p>Represents the DKIM attributes of a verified email address or a domain.</p>
@@ -3459,107 +2507,6 @@ export interface GetTemplateResponse {
 }
 
 /**
- * <p>Indicates that the Template object you specified does not exist in your Amazon SES
- *             account.</p>
- * @public
- */
-export class TemplateDoesNotExistException extends __BaseException {
-  readonly name: "TemplateDoesNotExistException" = "TemplateDoesNotExistException";
-  readonly $fault: "client" = "client";
-  TemplateName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TemplateDoesNotExistException, __BaseException>) {
-    super({
-      name: "TemplateDoesNotExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TemplateDoesNotExistException.prototype);
-    this.TemplateName = opts.TemplateName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const IdentityType = {
-  Domain: "Domain",
-  EmailAddress: "EmailAddress",
-} as const;
-
-/**
- * @public
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
-/**
- * <p>Indicates that provided delivery option is invalid.</p>
- * @public
- */
-export class InvalidDeliveryOptionsException extends __BaseException {
-  readonly name: "InvalidDeliveryOptionsException" = "InvalidDeliveryOptionsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDeliveryOptionsException, __BaseException>) {
-    super({
-      name: "InvalidDeliveryOptionsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDeliveryOptionsException.prototype);
-  }
-}
-
-/**
- * <p>Indicates that the provided policy is invalid. Check the error stack for more
- *             information about what caused the error.</p>
- * @public
- */
-export class InvalidPolicyException extends __BaseException {
-  readonly name: "InvalidPolicyException" = "InvalidPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPolicyException, __BaseException>) {
-    super({
-      name: "InvalidPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPolicyException.prototype);
-  }
-}
-
-/**
- * <p>Indicates that one or more of the replacement values you provided is invalid. This
- *             error may occur when the TemplateData object contains invalid JSON.</p>
- * @public
- */
-export class InvalidRenderingParameterException extends __BaseException {
-  readonly name: "InvalidRenderingParameterException" = "InvalidRenderingParameterException";
-  readonly $fault: "client" = "client";
-  TemplateName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRenderingParameterException, __BaseException>) {
-    super({
-      name: "InvalidRenderingParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRenderingParameterException.prototype);
-    this.TemplateName = opts.TemplateName;
-  }
-}
-
-/**
  * <p>Represents a request to list the configuration sets associated with your
  *             Amazon Web Services account. Configuration sets enable you to publish email sending events. For
  *             information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
@@ -3860,29 +2807,6 @@ export interface ListVerifiedEmailAddressesResponse {
 }
 
 /**
- * <p> Indicates that the message could not be sent because Amazon SES could not read the MX
- *             record required to use the specified MAIL FROM domain. For information about editing the
- *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
- *                 Guide</a>.</p>
- * @public
- */
-export class MailFromDomainNotVerifiedException extends __BaseException {
-  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
-    super({
-      name: "MailFromDomainNotVerifiedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
-  }
-}
-
-/**
  * <p>Represents the message to be sent, composed of a subject and a body.</p>
  * @public
  */
@@ -3929,86 +2853,6 @@ export interface MessageDsn {
    * @public
    */
   ExtensionFields?: ExtensionField[] | undefined;
-}
-
-/**
- * <p>Indicates that the action failed, and the message could not be sent. Check the error
- *             stack for more information about what caused the error.</p>
- * @public
- */
-export class MessageRejected extends __BaseException {
-  readonly name: "MessageRejected" = "MessageRejected";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
-    super({
-      name: "MessageRejected",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MessageRejected.prototype);
-  }
-}
-
-/**
- * <p>Indicates that one or more of the replacement values for the specified template was
- *             not specified. Ensure that the TemplateData object contains references to all of the
- *             replacement tags in the specified template.</p>
- * @public
- */
-export class MissingRenderingAttributeException extends __BaseException {
-  readonly name: "MissingRenderingAttributeException" = "MissingRenderingAttributeException";
-  readonly $fault: "client" = "client";
-  TemplateName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingRenderingAttributeException, __BaseException>) {
-    super({
-      name: "MissingRenderingAttributeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingRenderingAttributeException.prototype);
-    this.TemplateName = opts.TemplateName;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const NotificationType = {
-  Bounce: "Bounce",
-  Complaint: "Complaint",
-  Delivery: "Delivery",
-} as const;
-
-/**
- * @public
- */
-export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
-
-/**
- * <p>Indicates that the account has not been granted production access.</p>
- * @public
- */
-export class ProductionAccessNotGrantedException extends __BaseException {
-  readonly name: "ProductionAccessNotGrantedException" = "ProductionAccessNotGrantedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProductionAccessNotGrantedException, __BaseException>) {
-    super({
-      name: "ProductionAccessNotGrantedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProductionAccessNotGrantedException.prototype);
-  }
 }
 
 /**

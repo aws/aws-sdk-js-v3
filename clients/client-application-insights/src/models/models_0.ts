@@ -1,64 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ApplicationInsightsServiceException as __BaseException } from "./ApplicationInsightsServiceException";
-
-/**
- * <p> User does not have permissions to perform this action. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Tier = {
-  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
-  CUSTOM: "CUSTOM",
-  DEFAULT: "DEFAULT",
-  DOT_NET_CORE: "DOT_NET_CORE",
-  DOT_NET_WEB: "DOT_NET_WEB",
-  DOT_NET_WEB_TIER: "DOT_NET_WEB_TIER",
-  DOT_NET_WORKER: "DOT_NET_WORKER",
-  JAVA_JMX: "JAVA_JMX",
-  MYSQL: "MYSQL",
-  ORACLE: "ORACLE",
-  POSTGRESQL: "POSTGRESQL",
-  SAP_ASE_HIGH_AVAILABILITY: "SAP_ASE_HIGH_AVAILABILITY",
-  SAP_ASE_SINGLE_NODE: "SAP_ASE_SINGLE_NODE",
-  SAP_HANA_HIGH_AVAILABILITY: "SAP_HANA_HIGH_AVAILABILITY",
-  SAP_HANA_MULTI_NODE: "SAP_HANA_MULTI_NODE",
-  SAP_HANA_SINGLE_NODE: "SAP_HANA_SINGLE_NODE",
-  SAP_NETWEAVER_DISTRIBUTED: "SAP_NETWEAVER_DISTRIBUTED",
-  SAP_NETWEAVER_HIGH_AVAILABILITY: "SAP_NETWEAVER_HIGH_AVAILABILITY",
-  SAP_NETWEAVER_STANDARD: "SAP_NETWEAVER_STANDARD",
-  SHAREPOINT: "SHAREPOINT",
-  SQL_SERVER: "SQL_SERVER",
-  SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP: "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP",
-  SQL_SERVER_FAILOVER_CLUSTER_INSTANCE: "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE",
-} as const;
-
-/**
- * @public
- */
-export type Tier = (typeof Tier)[keyof typeof Tier];
+import {
+  CloudWatchEventSource,
+  ConfigurationEventResourceType,
+  ConfigurationEventStatus,
+  DiscoveryType,
+  FeedbackKey,
+  FeedbackValue,
+  GroupingType,
+  LogFilter,
+  OsType,
+  RecommendationType,
+  ResolutionMethod,
+  SeverityLevel,
+  Status,
+  Tier,
+  UpdateStatus,
+  Visibility,
+} from "./enums";
 
 /**
  * <p>The configuration of the workload.</p>
@@ -125,108 +83,6 @@ export interface AddWorkloadResponse {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource is already created or in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource does not exist in the customer account.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The parameter is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const OsType = {
-  LINUX: "LINUX",
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type OsType = (typeof OsType)[keyof typeof OsType];
-
-/**
  * <p>Describes a standalone resource or similarly grouped resources that the application is
  *          made up of.</p>
  * @public
@@ -276,20 +132,6 @@ export interface ApplicationComponent {
    */
   DetectedWorkload?: Partial<Record<Tier, Record<string, string>>> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DiscoveryType = {
-  ACCOUNT_BASED: "ACCOUNT_BASED",
-  RESOURCE_GROUP_BASED: "RESOURCE_GROUP_BASED",
-} as const;
-
-/**
- * @public
- */
-export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
 
 /**
  * <p>Describes the status of the application.</p>
@@ -379,76 +221,6 @@ export interface ApplicationInfo {
 }
 
 /**
- * <p>The request is not understood by the server.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CloudWatchEventSource = {
-  CODE_DEPLOY: "CODE_DEPLOY",
-  EC2: "EC2",
-  HEALTH: "HEALTH",
-  RDS: "RDS",
-} as const;
-
-/**
- * @public
- */
-export type CloudWatchEventSource = (typeof CloudWatchEventSource)[keyof typeof CloudWatchEventSource];
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationEventResourceType = {
-  CLOUDFORMATION: "CLOUDFORMATION",
-  CLOUDWATCH_ALARM: "CLOUDWATCH_ALARM",
-  CLOUDWATCH_LOG: "CLOUDWATCH_LOG",
-  SSM_ASSOCIATION: "SSM_ASSOCIATION",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationEventResourceType =
-  (typeof ConfigurationEventResourceType)[keyof typeof ConfigurationEventResourceType];
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationEventStatus = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationEventStatus = (typeof ConfigurationEventStatus)[keyof typeof ConfigurationEventStatus];
-
-/**
  * <p> The event information. </p>
  * @public
  */
@@ -503,19 +275,6 @@ export interface ConfigurationEvent {
    */
   EventResourceName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupingType = {
-  ACCOUNT_BASED: "ACCOUNT_BASED",
-} as const;
-
-/**
- * @public
- */
-export type GroupingType = (typeof GroupingType)[keyof typeof GroupingType];
 
 /**
  * <p>An object that defines the tags associated with an application. A
@@ -648,28 +407,6 @@ export interface CreateApplicationResponse {
    * @public
    */
   ApplicationInfo?: ApplicationInfo | undefined;
-}
-
-/**
- * <p>Tags are already registered for the specified application ARN.</p>
- * @public
- */
-export class TagsAlreadyExistException extends __BaseException {
-  readonly name: "TagsAlreadyExistException" = "TagsAlreadyExistException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagsAlreadyExistException, __BaseException>) {
-    super({
-      name: "TagsAlreadyExistException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagsAlreadyExistException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -995,21 +732,6 @@ export interface DescribeComponentConfigurationResponse {
 
 /**
  * @public
- * @enum
- */
-export const RecommendationType = {
-  ALL: "ALL",
-  INFRA_ONLY: "INFRA_ONLY",
-  WORKLOAD_ONLY: "WORKLOAD_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
-
-/**
- * @public
  */
 export interface DescribeComponentConfigurationRecommendationRequest {
   /**
@@ -1124,21 +846,6 @@ export interface DescribeObservationRequest {
    */
   AccountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogFilter = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type LogFilter = (typeof LogFilter)[keyof typeof LogFilter];
 
 /**
  * <p>Describes an anomaly or error with the application.</p>
@@ -1454,96 +1161,6 @@ export interface DescribeProblemRequest {
    */
   AccountId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeedbackKey = {
-  INSIGHTS_FEEDBACK: "INSIGHTS_FEEDBACK",
-} as const;
-
-/**
- * @public
- */
-export type FeedbackKey = (typeof FeedbackKey)[keyof typeof FeedbackKey];
-
-/**
- * @public
- * @enum
- */
-export const FeedbackValue = {
-  NOT_SPECIFIED: "NOT_SPECIFIED",
-  NOT_USEFUL: "NOT_USEFUL",
-  USEFUL: "USEFUL",
-} as const;
-
-/**
- * @public
- */
-export type FeedbackValue = (typeof FeedbackValue)[keyof typeof FeedbackValue];
-
-/**
- * @public
- * @enum
- */
-export const ResolutionMethod = {
-  AUTOMATIC: "AUTOMATIC",
-  MANUAL: "MANUAL",
-  UNRESOLVED: "UNRESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type ResolutionMethod = (typeof ResolutionMethod)[keyof typeof ResolutionMethod];
-
-/**
- * @public
- * @enum
- */
-export const SeverityLevel = {
-  High: "High",
-  Informative: "Informative",
-  Low: "Low",
-  Medium: "Medium",
-} as const;
-
-/**
- * @public
- */
-export type SeverityLevel = (typeof SeverityLevel)[keyof typeof SeverityLevel];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  IGNORE: "IGNORE",
-  PENDING: "PENDING",
-  RECOVERING: "RECOVERING",
-  RECURRING: "RECURRING",
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * @public
- * @enum
- */
-export const Visibility = {
-  IGNORED: "IGNORED",
-  VISIBLE: "VISIBLE",
-} as const;
-
-/**
- * @public
- */
-export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * <p>Describes a problem that is detected by correlating observations.</p>
@@ -2319,35 +1936,6 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * <p>The number of the provided tags is beyond the limit, or the number of total tags you are
- *          trying to attach to the specified resource exceeds the limit.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the resource with too many tags.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-/**
  * @public
  */
 export interface UntagResourceRequest {
@@ -2590,19 +2178,6 @@ export interface UpdateLogPatternResponse {
    */
   LogPattern?: LogPattern | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  RESOLVED: "RESOLVED",
-} as const;
-
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * @public

@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PredictQAResultsRequest, PredictQAResultsResponse } from "../models/models_5";
+import { PredictQAResultsRequest, PredictQAResultsResponse } from "../models/models_4";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { PredictQAResults } from "../schemas/schemas_0";
 

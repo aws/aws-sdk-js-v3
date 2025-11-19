@@ -1,0 +1,358 @@
+// smithy-typescript generated code
+/**
+ * @public
+ * @enum
+ */
+export const AccessRight = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+/**
+ * @public
+ */
+export type AccessRight = (typeof AccessRight)[keyof typeof AccessRight];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationPolicyType = {
+  ALL_APPLICATION_POLICIES: "ALL_APPLICATION_POLICIES",
+  ANY_PURPOSE: "ANY_PURPOSE",
+  ATTESTATION_IDENTITY_KEY_CERTIFICATE: "ATTESTATION_IDENTITY_KEY_CERTIFICATE",
+  CERTIFICATE_REQUEST_AGENT: "CERTIFICATE_REQUEST_AGENT",
+  CLIENT_AUTHENTICATION: "CLIENT_AUTHENTICATION",
+  CODE_SIGNING: "CODE_SIGNING",
+  CTL_USAGE: "CTL_USAGE",
+  DIGITAL_RIGHTS: "DIGITAL_RIGHTS",
+  DIRECTORY_SERVICE_EMAIL_REPLICATION: "DIRECTORY_SERVICE_EMAIL_REPLICATION",
+  DISALLOWED_LIST: "DISALLOWED_LIST",
+  DNS_SERVER_TRUST: "DNS_SERVER_TRUST",
+  DOCUMENT_ENCRYPTION: "DOCUMENT_ENCRYPTION",
+  DOCUMENT_SIGNING: "DOCUMENT_SIGNING",
+  DYNAMIC_CODE_GENERATOR: "DYNAMIC_CODE_GENERATOR",
+  EARLY_LAUNCH_ANTIMALWARE_DRIVER: "EARLY_LAUNCH_ANTIMALWARE_DRIVER",
+  EMBEDDED_WINDOWS_SYSTEM_COMPONENT_VERIFICATION: "EMBEDDED_WINDOWS_SYSTEM_COMPONENT_VERIFICATION",
+  ENCLAVE: "ENCLAVE",
+  ENCRYPTING_FILE_SYSTEM: "ENCRYPTING_FILE_SYSTEM",
+  ENDORSEMENT_KEY_CERTIFICATE: "ENDORSEMENT_KEY_CERTIFICATE",
+  FILE_RECOVERY: "FILE_RECOVERY",
+  HAL_EXTENSION: "HAL_EXTENSION",
+  IP_SECURITY_END_SYSTEM: "IP_SECURITY_END_SYSTEM",
+  IP_SECURITY_IKE_INTERMEDIATE: "IP_SECURITY_IKE_INTERMEDIATE",
+  IP_SECURITY_TUNNEL_TERMINATION: "IP_SECURITY_TUNNEL_TERMINATION",
+  IP_SECURITY_USER: "IP_SECURITY_USER",
+  ISOLATED_USER_MODE: "ISOLATED_USER_MODE",
+  KDC_AUTHENTICATION: "KDC_AUTHENTICATION",
+  KERNEL_MODE_CODE_SIGNING: "KERNEL_MODE_CODE_SIGNING",
+  KEY_PACK_LICENSES: "KEY_PACK_LICENSES",
+  KEY_RECOVERY: "KEY_RECOVERY",
+  KEY_RECOVERY_AGENT: "KEY_RECOVERY_AGENT",
+  LICENSE_SERVER_VERIFICATION: "LICENSE_SERVER_VERIFICATION",
+  LIFETIME_SIGNING: "LIFETIME_SIGNING",
+  MICROSOFT_PUBLISHER: "MICROSOFT_PUBLISHER",
+  MICROSOFT_TIME_STAMPING: "MICROSOFT_TIME_STAMPING",
+  MICROSOFT_TRUST_LIST_SIGNING: "MICROSOFT_TRUST_LIST_SIGNING",
+  OCSP_SIGNING: "OCSP_SIGNING",
+  OEM_WINDOWS_SYSTEM_COMPONENT_VERIFICATION: "OEM_WINDOWS_SYSTEM_COMPONENT_VERIFICATION",
+  PLATFORM_CERTIFICATE: "PLATFORM_CERTIFICATE",
+  PREVIEW_BUILD_SIGNING: "PREVIEW_BUILD_SIGNING",
+  PRIVATE_KEY_ARCHIVAL: "PRIVATE_KEY_ARCHIVAL",
+  PROTECTED_PROCESS_LIGHT_VERIFICATION: "PROTECTED_PROCESS_LIGHT_VERIFICATION",
+  PROTECTED_PROCESS_VERIFICATION: "PROTECTED_PROCESS_VERIFICATION",
+  QUALIFIED_SUBORDINATION: "QUALIFIED_SUBORDINATION",
+  REVOKED_LIST_SIGNER: "REVOKED_LIST_SIGNER",
+  ROOT_LIST_SIGNER: "ROOT_LIST_SIGNER",
+  ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION: "ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION",
+  ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION: "ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION",
+  ROOT_PROGRAM_NO_OSCP_FAILOVER_TO_CRL: "ROOT_PROGRAM_NO_OSCP_FAILOVER_TO_CRL",
+  SECURE_EMAIL: "SECURE_EMAIL",
+  SERVER_AUTHENTICATION: "SERVER_AUTHENTICATION",
+  SMART_CARD_LOGIN: "SMART_CARD_LOGIN",
+  SPC_ENCRYPTED_DIGEST_RETRY_COUNT: "SPC_ENCRYPTED_DIGEST_RETRY_COUNT",
+  SPC_RELAXED_PE_MARKER_CHECK: "SPC_RELAXED_PE_MARKER_CHECK",
+  TIME_STAMPING: "TIME_STAMPING",
+  WINDOWS_HARDWARE_DRIVER_ATTESTED_VERIFICATION: "WINDOWS_HARDWARE_DRIVER_ATTESTED_VERIFICATION",
+  WINDOWS_HARDWARE_DRIVER_EXTENDED_VERIFICATION: "WINDOWS_HARDWARE_DRIVER_EXTENDED_VERIFICATION",
+  WINDOWS_HARDWARE_DRIVER_VERIFICATION: "WINDOWS_HARDWARE_DRIVER_VERIFICATION",
+  WINDOWS_HELLO_RECOVERY_KEY_ENCRYPTION: "WINDOWS_HELLO_RECOVERY_KEY_ENCRYPTION",
+  WINDOWS_KITS_COMPONENT: "WINDOWS_KITS_COMPONENT",
+  WINDOWS_RT_VERIFICATION: "WINDOWS_RT_VERIFICATION",
+  WINDOWS_SOFTWARE_EXTENSION_VERIFICATION: "WINDOWS_SOFTWARE_EXTENSION_VERIFICATION",
+  WINDOWS_STORE: "WINDOWS_STORE",
+  WINDOWS_SYSTEM_COMPONENT_VERIFICATION: "WINDOWS_SYSTEM_COMPONENT_VERIFICATION",
+  WINDOWS_TCB_COMPONENT: "WINDOWS_TCB_COMPONENT",
+  WINDOWS_THIRD_PARTY_APPLICATION_COMPONENT: "WINDOWS_THIRD_PARTY_APPLICATION_COMPONENT",
+  WINDOWS_UPDATE: "WINDOWS_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationPolicyType = (typeof ApplicationPolicyType)[keyof typeof ApplicationPolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidityPeriodType = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+  MONTHS: "MONTHS",
+  WEEKS: "WEEKS",
+  YEARS: "YEARS",
+} as const;
+/**
+ * @public
+ */
+export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof ValidityPeriodType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCompatibilityV2 = {
+  WINDOWS_SERVER_2003: "WINDOWS_SERVER_2003",
+  WINDOWS_SERVER_2008: "WINDOWS_SERVER_2008",
+  WINDOWS_SERVER_2008_R2: "WINDOWS_SERVER_2008_R2",
+  WINDOWS_SERVER_2012: "WINDOWS_SERVER_2012",
+  WINDOWS_SERVER_2012_R2: "WINDOWS_SERVER_2012_R2",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+} as const;
+/**
+ * @public
+ */
+export type ClientCompatibilityV2 = (typeof ClientCompatibilityV2)[keyof typeof ClientCompatibilityV2];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCompatibilityV3 = {
+  WINDOWS_SERVER_2008: "WINDOWS_SERVER_2008",
+  WINDOWS_SERVER_2008_R2: "WINDOWS_SERVER_2008_R2",
+  WINDOWS_SERVER_2012: "WINDOWS_SERVER_2012",
+  WINDOWS_SERVER_2012_R2: "WINDOWS_SERVER_2012_R2",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+} as const;
+/**
+ * @public
+ */
+export type ClientCompatibilityV3 = (typeof ClientCompatibilityV3)[keyof typeof ClientCompatibilityV3];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCompatibilityV4 = {
+  WINDOWS_SERVER_2012: "WINDOWS_SERVER_2012",
+  WINDOWS_SERVER_2012_R2: "WINDOWS_SERVER_2012_R2",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+} as const;
+/**
+ * @public
+ */
+export type ClientCompatibilityV4 = (typeof ClientCompatibilityV4)[keyof typeof ClientCompatibilityV4];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorStatusReason = {
+  CA_CERTIFICATE_REGISTRATION_FAILED: "CA_CERTIFICATE_REGISTRATION_FAILED",
+  DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
+  INSUFFICIENT_FREE_ADDRESSES: "INSUFFICIENT_FREE_ADDRESSES",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  INVALID_SUBNET_IP_PROTOCOL: "INVALID_SUBNET_IP_PROTOCOL",
+  PRIVATECA_ACCESS_DENIED: "PRIVATECA_ACCESS_DENIED",
+  PRIVATECA_RESOURCE_NOT_FOUND: "PRIVATECA_RESOURCE_NOT_FOUND",
+  SECURITY_GROUP_NOT_IN_VPC: "SECURITY_GROUP_NOT_IN_VPC",
+  VPC_ACCESS_DENIED: "VPC_ACCESS_DENIED",
+  VPC_ENDPOINT_LIMIT_EXCEEDED: "VPC_ENDPOINT_LIMIT_EXCEEDED",
+  VPC_RESOURCE_NOT_FOUND: "VPC_RESOURCE_NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorStatusReason = (typeof ConnectorStatusReason)[keyof typeof ConnectorStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_CA_SUBJECT: "INVALID_CA_SUBJECT",
+  INVALID_PERMISSION: "INVALID_PERMISSION",
+  INVALID_STATE: "INVALID_STATE",
+  MISMATCHED_CONNECTOR: "MISMATCHED_CONNECTOR",
+  MISMATCHED_VPC: "MISMATCHED_VPC",
+  NO_CLIENT_TOKEN: "NO_CLIENT_TOKEN",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeySpec = {
+  KEY_EXCHANGE: "KEY_EXCHANGE",
+  SIGNATURE: "SIGNATURE",
+} as const;
+/**
+ * @public
+ */
+export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
+
+/**
+ * @public
+ * @enum
+ */
+export const HashAlgorithm = {
+  SHA256: "SHA256",
+  SHA384: "SHA384",
+  SHA512: "SHA512",
+} as const;
+/**
+ * @public
+ */
+export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrivateKeyAlgorithm = {
+  ECDH_P256: "ECDH_P256",
+  ECDH_P384: "ECDH_P384",
+  ECDH_P521: "ECDH_P521",
+  RSA: "RSA",
+} as const;
+/**
+ * @public
+ */
+export type PrivateKeyAlgorithm = (typeof PrivateKeyAlgorithm)[keyof typeof PrivateKeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyUsagePropertyType = {
+  ALL: "ALL",
+} as const;
+/**
+ * @public
+ */
+export type KeyUsagePropertyType = (typeof KeyUsagePropertyType)[keyof typeof KeyUsagePropertyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DirectoryRegistrationStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type DirectoryRegistrationStatus =
+  (typeof DirectoryRegistrationStatus)[keyof typeof DirectoryRegistrationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DirectoryRegistrationStatusReason = {
+  DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
+  DIRECTORY_NOT_ACTIVE: "DIRECTORY_NOT_ACTIVE",
+  DIRECTORY_NOT_REACHABLE: "DIRECTORY_NOT_REACHABLE",
+  DIRECTORY_RESOURCE_NOT_FOUND: "DIRECTORY_RESOURCE_NOT_FOUND",
+  DIRECTORY_TYPE_NOT_SUPPORTED: "DIRECTORY_TYPE_NOT_SUPPORTED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+/**
+ * @public
+ */
+export type DirectoryRegistrationStatusReason =
+  (typeof DirectoryRegistrationStatusReason)[keyof typeof DirectoryRegistrationStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServicePrincipalNameStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ServicePrincipalNameStatus = (typeof ServicePrincipalNameStatus)[keyof typeof ServicePrincipalNameStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServicePrincipalNameStatusReason = {
+  DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
+  DIRECTORY_NOT_REACHABLE: "DIRECTORY_NOT_REACHABLE",
+  DIRECTORY_RESOURCE_NOT_FOUND: "DIRECTORY_RESOURCE_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SPN_EXISTS_ON_DIFFERENT_AD_OBJECT: "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT",
+  SPN_LIMIT_EXCEEDED: "SPN_LIMIT_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type ServicePrincipalNameStatusReason =
+  (typeof ServicePrincipalNameStatusReason)[keyof typeof ServicePrincipalNameStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const TemplateStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];

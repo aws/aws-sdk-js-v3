@@ -393,7 +393,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { FinspaceServiceException as __FinspaceServiceException } from "../models/FinspaceServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
@@ -405,7 +404,8 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { FinspaceServiceException as __FinspaceServiceException } from "../models/FinspaceServiceException";
 
 /* eslint no-var: 0 */
 

@@ -1,75 +1,30 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MediaTailorServiceException as __BaseException } from "./MediaTailorServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AdsInteractionExcludeEventType = {
-  AD_MARKER_FOUND: "AD_MARKER_FOUND",
-  BEACON_FIRED: "BEACON_FIRED",
-  EMPTY_VAST_RESPONSE: "EMPTY_VAST_RESPONSE",
-  EMPTY_VMAP_RESPONSE: "EMPTY_VMAP_RESPONSE",
-  ERROR_ADS_INVALID_RESPONSE: "ERROR_ADS_INVALID_RESPONSE",
-  ERROR_ADS_IO: "ERROR_ADS_IO",
-  ERROR_ADS_RESPONSE_PARSE: "ERROR_ADS_RESPONSE_PARSE",
-  ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT: "ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT",
-  ERROR_ADS_TIMEOUT: "ERROR_ADS_TIMEOUT",
-  ERROR_DISALLOWED_HOST: "ERROR_DISALLOWED_HOST",
-  ERROR_FIRING_BEACON_FAILED: "ERROR_FIRING_BEACON_FAILED",
-  ERROR_PERSONALIZATION_DISABLED: "ERROR_PERSONALIZATION_DISABLED",
-  ERROR_UNKNOWN: "ERROR_UNKNOWN",
-  ERROR_UNKNOWN_HOST: "ERROR_UNKNOWN_HOST",
-  ERROR_VAST_INVALID_MEDIA_FILE: "ERROR_VAST_INVALID_MEDIA_FILE",
-  ERROR_VAST_INVALID_VAST_AD_TAG_URI: "ERROR_VAST_INVALID_VAST_AD_TAG_URI",
-  ERROR_VAST_MISSING_CREATIVES: "ERROR_VAST_MISSING_CREATIVES",
-  ERROR_VAST_MISSING_IMPRESSION: "ERROR_VAST_MISSING_IMPRESSION",
-  ERROR_VAST_MISSING_MEDIAFILES: "ERROR_VAST_MISSING_MEDIAFILES",
-  ERROR_VAST_MISSING_OVERLAYS: "ERROR_VAST_MISSING_OVERLAYS",
-  ERROR_VAST_MULTIPLE_LINEAR: "ERROR_VAST_MULTIPLE_LINEAR",
-  ERROR_VAST_MULTIPLE_TRACKING_EVENTS: "ERROR_VAST_MULTIPLE_TRACKING_EVENTS",
-  ERROR_VAST_REDIRECT_EMPTY_RESPONSE: "ERROR_VAST_REDIRECT_EMPTY_RESPONSE",
-  ERROR_VAST_REDIRECT_FAILED: "ERROR_VAST_REDIRECT_FAILED",
-  ERROR_VAST_REDIRECT_MULTIPLE_VAST: "ERROR_VAST_REDIRECT_MULTIPLE_VAST",
-  FILLED_AVAIL: "FILLED_AVAIL",
-  FILLED_OVERLAY_AVAIL: "FILLED_OVERLAY_AVAIL",
-  INTERSTITIAL_VOD_FAILURE: "INTERSTITIAL_VOD_FAILURE",
-  INTERSTITIAL_VOD_SUCCESS: "INTERSTITIAL_VOD_SUCCESS",
-  MAKING_ADS_REQUEST: "MAKING_ADS_REQUEST",
-  MODIFIED_TARGET_URL: "MODIFIED_TARGET_URL",
-  NON_AD_MARKER_FOUND: "NON_AD_MARKER_FOUND",
-  REDIRECTED_VAST_RESPONSE: "REDIRECTED_VAST_RESPONSE",
-  VAST_REDIRECT: "VAST_REDIRECT",
-  VAST_RESPONSE: "VAST_RESPONSE",
-  VOD_TIME_BASED_AVAIL_PLAN_SUCCESS: "VOD_TIME_BASED_AVAIL_PLAN_SUCCESS",
-  VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET: "VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET",
-  VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS: "VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS",
-  WARNING_NO_ADVERTISEMENTS: "WARNING_NO_ADVERTISEMENTS",
-  WARNING_URL_VARIABLE_SUBSTITUTION_FAILED: "WARNING_URL_VARIABLE_SUBSTITUTION_FAILED",
-  WARNING_VPAID_AD_DROPPED: "WARNING_VPAID_AD_DROPPED",
-} as const;
-
-/**
- * @public
- */
-export type AdsInteractionExcludeEventType =
-  (typeof AdsInteractionExcludeEventType)[keyof typeof AdsInteractionExcludeEventType];
-
-/**
- * @public
- * @enum
- */
-export const AdsInteractionPublishOptInEventType = {
-  RAW_ADS_RESPONSE: "RAW_ADS_RESPONSE",
-} as const;
-
-/**
- * @public
- */
-export type AdsInteractionPublishOptInEventType =
-  (typeof AdsInteractionPublishOptInEventType)[keyof typeof AdsInteractionPublishOptInEventType];
+import {
+  AccessType,
+  AdMarkupType,
+  AdsInteractionExcludeEventType,
+  AdsInteractionPublishOptInEventType,
+  AlertCategory,
+  ChannelState,
+  FillPolicy,
+  InsertionMode,
+  ListPrefetchScheduleType,
+  LoggingStrategy,
+  LogType,
+  ManifestServiceExcludeEventType,
+  MessageType,
+  Mode,
+  Operator,
+  OriginManifestType,
+  PlaybackMode,
+  PrefetchScheduleType,
+  RelativePosition,
+  ScheduleEntryType,
+  StreamingMediaFileConditioning,
+  Tier,
+  TrafficShapingType,
+  Type,
+} from "./enums";
 
 /**
  * <p>For <code>SCTE35_ENHANCED</code> output, defines a key and corresponding value. MediaTailor generates these pairs within the <code>EXT-X-ASSET</code>tag.</p>
@@ -88,20 +43,6 @@ export interface KeyValuePair {
    */
   Value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MessageType = {
-  SPLICE_INSERT: "SPLICE_INSERT",
-  TIME_SIGNAL: "TIME_SIGNAL",
-} as const;
-
-/**
- * @public
- */
-export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
  * <p>Slate VOD source configuration.</p>
@@ -260,21 +201,6 @@ export interface AdBreak {
 }
 
 /**
- * @public
- * @enum
- */
-export const AlertCategory = {
-  INFO: "INFO",
-  PLAYBACK_WARNING: "PLAYBACK_WARNING",
-  SCHEDULING_ERROR: "SCHEDULING_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type AlertCategory = (typeof AlertCategory)[keyof typeof AlertCategory];
-
-/**
  * <p>Alert configuration parameters.</p>
  * @public
  */
@@ -401,19 +327,6 @@ export interface AudienceMedia {
 }
 
 /**
- * @public
- * @enum
- */
-export const Operator = {
-  EQUALS: "EQUALS",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
-
-/**
  * <p>MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.</p> <p>As an example, let's say that you set <code>DynamicVariable</code> to <code>scte.event_id</code> and <code>Operator</code> to <code>EQUALS</code>, and your playback configuration has an ADS URL of <code>https://my.ads.server.com/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs]</code>. And the prefetch request to the ADS contains these values <code>https://my.ads.server.com/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30</code>. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of <code>my-awesome-event</code>, since it must match the event id that MediaTailor uses to query the ADS.</p> <p>You can specify up to five <code>AvailMatchingCriteria</code>. If you specify multiple <code>AvailMatchingCriteria</code>, MediaTailor combines them to match using a logical <code>AND</code>. You can model logical <code>OR</code> combinations by creating multiple prefetch schedules.</p>
  * @public
  */
@@ -430,19 +343,6 @@ export interface AvailMatchingCriteria {
    */
   Operator: Operator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  AS_RUN: "AS_RUN",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * <p>The log configuration for the channel.</p>
@@ -485,20 +385,6 @@ export interface DashPlaylistSettings {
    */
   SuggestedPresentationDelaySeconds?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AdMarkupType = {
-  DATERANGE: "DATERANGE",
-  SCTE35_ENHANCED: "SCTE35_ENHANCED",
-} as const;
-
-/**
- * @public
- */
-export type AdMarkupType = (typeof AdMarkupType)[keyof typeof AdMarkupType];
 
 /**
  * <p>HLS playlist configuration parameters.</p>
@@ -633,20 +519,6 @@ export interface Channel {
 }
 
 /**
- * @public
- * @enum
- */
-export const Type = {
-  DASH: "DASH",
-  HLS: "HLS",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
  * <p>The HTTP package configuration properties for the requested VOD source.</p>
  * @public
  */
@@ -719,35 +591,6 @@ export interface LiveSource {
 }
 
 /**
- * @public
- * @enum
- */
-export const LoggingStrategy = {
-  LEGACY_CLOUDWATCH: "LEGACY_CLOUDWATCH",
-  VENDED_LOGS: "VENDED_LOGS",
-} as const;
-
-/**
- * @public
- */
-export type LoggingStrategy = (typeof LoggingStrategy)[keyof typeof LoggingStrategy];
-
-/**
- * @public
- * @enum
- */
-export const StreamingMediaFileConditioning = {
-  NONE: "NONE",
-  TRANSCODE: "TRANSCODE",
-} as const;
-
-/**
- * @public
- */
-export type StreamingMediaFileConditioning =
-  (typeof StreamingMediaFileConditioning)[keyof typeof StreamingMediaFileConditioning];
-
-/**
  * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
  * @public
  */
@@ -758,35 +601,6 @@ export interface AdConditioningConfiguration {
    */
   StreamingMediaFileConditioning: StreamingMediaFileConditioning | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FillPolicy = {
-  FULL_AVAIL_ONLY: "FULL_AVAIL_ONLY",
-  PARTIAL_AVAIL: "PARTIAL_AVAIL",
-} as const;
-
-/**
- * @public
- */
-export type FillPolicy = (typeof FillPolicy)[keyof typeof FillPolicy];
-
-/**
- * @public
- * @enum
- */
-export const Mode = {
-  AFTER_LIVE_EDGE: "AFTER_LIVE_EDGE",
-  BEHIND_LIVE_EDGE: "BEHIND_LIVE_EDGE",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type Mode = (typeof Mode)[keyof typeof Mode];
 
 /**
  * <p>The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad Suppression</a>.</p>
@@ -849,20 +663,6 @@ export interface CdnConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OriginManifestType = {
-  MULTI_PERIOD: "MULTI_PERIOD",
-  SINGLE_PERIOD: "SINGLE_PERIOD",
-} as const;
-
-/**
- * @public
- */
-export type OriginManifestType = (typeof OriginManifestType)[keyof typeof OriginManifestType];
-
-/**
  * <p>The configuration for DASH content.</p>
  * @public
  */
@@ -899,20 +699,6 @@ export interface HlsConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const InsertionMode = {
-  PLAYER_SELECT: "PLAYER_SELECT",
-  STITCHED_ONLY: "STITCHED_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type InsertionMode = (typeof InsertionMode)[keyof typeof InsertionMode];
-
-/**
  * <p>The configuration for pre-roll ad insertion.</p>
  * @public
  */
@@ -947,51 +733,6 @@ export interface AdsInteractionLog {
    */
   ExcludeEventTypes?: AdsInteractionExcludeEventType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManifestServiceExcludeEventType = {
-  CONFIG_SECURITY_ERROR: "CONFIG_SECURITY_ERROR",
-  CONFIG_SYNTAX_ERROR: "CONFIG_SYNTAX_ERROR",
-  CONNECTION_ERROR: "CONNECTION_ERROR",
-  ERROR_ADS_INTERPOLATION: "ERROR_ADS_INTERPOLATION",
-  ERROR_BUMPER_END_INTERPOLATION: "ERROR_BUMPER_END_INTERPOLATION",
-  ERROR_BUMPER_START_INTERPOLATION: "ERROR_BUMPER_START_INTERPOLATION",
-  ERROR_CDN_AD_SEGMENT_INTERPOLATION: "ERROR_CDN_AD_SEGMENT_INTERPOLATION",
-  ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION: "ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION",
-  ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION: "ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION",
-  ERROR_ORIGIN_PREFIX_INTERPOLATION: "ERROR_ORIGIN_PREFIX_INTERPOLATION",
-  ERROR_PROFILE_NAME_INTERPOLATION: "ERROR_PROFILE_NAME_INTERPOLATION",
-  ERROR_SLATE_AD_URL_INTERPOLATION: "ERROR_SLATE_AD_URL_INTERPOLATION",
-  GENERATED_MANIFEST: "GENERATED_MANIFEST",
-  HOST_DISALLOWED: "HOST_DISALLOWED",
-  INCOMPATIBLE_HLS_VERSION: "INCOMPATIBLE_HLS_VERSION",
-  INVALID_SINGLE_PERIOD_DASH_MANIFEST: "INVALID_SINGLE_PERIOD_DASH_MANIFEST",
-  IO_ERROR: "IO_ERROR",
-  LAST_PERIOD_MISSING_AUDIO: "LAST_PERIOD_MISSING_AUDIO",
-  LAST_PERIOD_MISSING_AUDIO_WARNING: "LAST_PERIOD_MISSING_AUDIO_WARNING",
-  MANIFEST_ERROR: "MANIFEST_ERROR",
-  NO_MASTER_OR_MEDIA_PLAYLIST: "NO_MASTER_OR_MEDIA_PLAYLIST",
-  NO_MASTER_PLAYLIST: "NO_MASTER_PLAYLIST",
-  NO_MEDIA_PLAYLIST: "NO_MEDIA_PLAYLIST",
-  ORIGIN_MANIFEST: "ORIGIN_MANIFEST",
-  PARSING_ERROR: "PARSING_ERROR",
-  SCTE35_PARSING_ERROR: "SCTE35_PARSING_ERROR",
-  SESSION_INITIALIZED: "SESSION_INITIALIZED",
-  TIMEOUT_ERROR: "TIMEOUT_ERROR",
-  TRACKING_RESPONSE: "TRACKING_RESPONSE",
-  UNKNOWN_ERROR: "UNKNOWN_ERROR",
-  UNKNOWN_HOST: "UNKNOWN_HOST",
-  UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST: "UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST",
-} as const;
-
-/**
- * @public
- */
-export type ManifestServiceExcludeEventType =
-  (typeof ManifestServiceExcludeEventType)[keyof typeof ManifestServiceExcludeEventType];
 
 /**
  * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p> <p>For more information about manifest service logs, including descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/log-types.html">MediaTailor manifest logs description and event types</a> in Elemental MediaTailor User Guide.</p>
@@ -1264,20 +1005,6 @@ export interface TrafficShapingTpsConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const TrafficShapingType = {
-  RETRIEVAL_WINDOW: "RETRIEVAL_WINDOW",
-  TPS: "TPS",
-} as const;
-
-/**
- * @public
- */
-export type TrafficShapingType = (typeof TrafficShapingType)[keyof typeof TrafficShapingType];
-
-/**
  * <p>With recurring prefetch, MediaTailor automatically prefetches ads for every avail that occurs during the retrieval window. The following configurations describe the MediaTailor behavior when prefetching ads for a live event.</p>
  * @public
  */
@@ -1386,20 +1113,6 @@ export interface PrefetchRetrieval {
 }
 
 /**
- * @public
- * @enum
- */
-export const PrefetchScheduleType = {
-  RECURRING: "RECURRING",
-  SINGLE: "SINGLE",
-} as const;
-
-/**
- * @public
- */
-export type PrefetchScheduleType = (typeof PrefetchScheduleType)[keyof typeof PrefetchScheduleType];
-
-/**
  * <p>A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
@@ -1482,21 +1195,6 @@ export interface ScheduleAdBreak {
    */
   VodSourceName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScheduleEntryType = {
-  ALTERNATE_MEDIA: "ALTERNATE_MEDIA",
-  FILLER_SLATE: "FILLER_SLATE",
-  PROGRAM: "PROGRAM",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleEntryType = (typeof ScheduleEntryType)[keyof typeof ScheduleEntryType];
 
 /**
  * <p>The properties for a schedule.</p>
@@ -1587,21 +1285,6 @@ export interface SegmentDeliveryConfiguration {
    */
   Name?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AccessType = {
-  AUTODETECT_SIGV4: "AUTODETECT_SIGV4",
-  S3_SIGV4: "S3_SIGV4",
-  SECRETS_MANAGER_ACCESS_TOKEN: "SECRETS_MANAGER_ACCESS_TOKEN",
-} as const;
-
-/**
- * @public
- */
-export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 
 /**
  * <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
@@ -1790,28 +1473,6 @@ export interface AdBreakOpportunity {
 }
 
 /**
- * <p>A request contains unexpected data.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteChannelPolicyRequest {
@@ -1936,34 +1597,6 @@ export interface RequestOutputItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const PlaybackMode = {
-  LINEAR: "LINEAR",
-  LOOP: "LOOP",
-} as const;
-
-/**
- * @public
- */
-export type PlaybackMode = (typeof PlaybackMode)[keyof typeof PlaybackMode];
-
-/**
- * @public
- * @enum
- */
-export const Tier = {
-  BASIC: "BASIC",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type Tier = (typeof Tier)[keyof typeof Tier];
-
-/**
  * <p> The configuration for time-shifted viewing. </p>
  * @public
  */
@@ -2027,20 +1660,6 @@ export interface CreateChannelRequest {
    */
   Audiences?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelState = {
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type ChannelState = (typeof ChannelState)[keyof typeof ChannelState];
 
 /**
  * @public
@@ -2314,20 +1933,6 @@ export interface ListChannelsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RelativePosition = {
-  AFTER_PROGRAM: "AFTER_PROGRAM",
-  BEFORE_PROGRAM: "BEFORE_PROGRAM",
-} as const;
-
-/**
- * @public
- */
-export type RelativePosition = (typeof RelativePosition)[keyof typeof RelativePosition];
 
 /**
  * <p>Program transition configuration.</p>
@@ -3989,21 +3594,6 @@ export interface ListPlaybackConfigurationsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListPrefetchScheduleType = {
-  ALL: "ALL",
-  RECURRING: "RECURRING",
-  SINGLE: "SINGLE",
-} as const;
-
-/**
- * @public
- */
-export type ListPrefetchScheduleType = (typeof ListPrefetchScheduleType)[keyof typeof ListPrefetchScheduleType];
 
 /**
  * @public

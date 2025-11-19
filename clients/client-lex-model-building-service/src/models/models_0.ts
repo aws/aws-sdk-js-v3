@@ -1,71 +1,29 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { LexModelBuildingServiceServiceException as __BaseException } from "./LexModelBuildingServiceServiceException";
-
-/**
- * <p>Your IAM user or role does not have permission to call the Amazon Lex V2 APIs
- *       required to migrate your bot.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * <p> There was a conflict processing the request. Try your request
- *       again. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
+import {
+  ChannelStatus,
+  ChannelType,
+  ContentType,
+  Destination,
+  ExportStatus,
+  ExportType,
+  FulfillmentActivityType,
+  ImportStatus,
+  Locale,
+  LogType,
+  MergeStrategy,
+  MigrationAlertType,
+  MigrationSortAttribute,
+  MigrationStatus,
+  MigrationStrategy,
+  ObfuscationSetting,
+  ProcessBehavior,
+  ResourceType,
+  SlotConstraint,
+  SlotValueSelectionStrategy,
+  SortOrder,
+  Status,
+  StatusType,
+} from "./enums";
 
 /**
  * @public
@@ -89,21 +47,6 @@ export interface CreateBotVersionRequest {
    */
   checksum?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentType = {
-  CUSTOM_PAYLOAD: "CustomPayload",
-  PLAIN_TEXT: "PlainText",
-  SSML: "SSML",
-} as const;
-
-/**
- * @public
- */
-export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 /**
  * <p>The message object that provides the message text and its
@@ -202,48 +145,6 @@ export interface Intent {
    */
   intentVersion: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Locale = {
-  DE_DE: "de-DE",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_IN: "en-IN",
-  EN_US: "en-US",
-  ES_419: "es-419",
-  ES_ES: "es-ES",
-  ES_US: "es-US",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  IT_IT: "it-IT",
-  JA_JP: "ja-JP",
-  KO_KR: "ko-KR",
-} as const;
-
-/**
- * @public
- */
-export type Locale = (typeof Locale)[keyof typeof Locale];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  BUILDING: "BUILDING",
-  FAILED: "FAILED",
-  NOT_BUILT: "NOT_BUILT",
-  READY: "READY",
-  READY_BASIC_TESTING: "READY_BASIC_TESTING",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -394,91 +295,6 @@ export interface CreateBotVersionResponse {
 }
 
 /**
- * <p>An internal Amazon Lex error occurred. Try your request again.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>The request exceeded a limit. Try your request again.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  retryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p> The checksum of the resource that you are trying to change does
- *       not match the checksum in the request. Check the resource's checksum and
- *       try again.</p>
- * @public
- */
-export class PreconditionFailedException extends __BaseException {
-  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
-    super({
-      name: "PreconditionFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateIntentVersionRequest {
@@ -543,20 +359,6 @@ export interface FollowUpPrompt {
    */
   rejectionStatement: Statement | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FulfillmentActivityType = {
-  CODE_HOOK: "CodeHook",
-  RETURN_INTENT: "ReturnIntent",
-} as const;
-
-/**
- * @public
- */
-export type FulfillmentActivityType = (typeof FulfillmentActivityType)[keyof typeof FulfillmentActivityType];
 
 /**
  * <p> Describes how the intent is fulfilled after the user provides all
@@ -730,34 +532,6 @@ export interface SlotDefaultValueSpec {
    */
   defaultValueList: SlotDefaultValue[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ObfuscationSetting = {
-  DEFAULT_OBFUSCATION: "DEFAULT_OBFUSCATION",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ObfuscationSetting = (typeof ObfuscationSetting)[keyof typeof ObfuscationSetting];
-
-/**
- * @public
- * @enum
- */
-export const SlotConstraint = {
-  OPTIONAL: "Optional",
-  REQUIRED: "Required",
-} as const;
-
-/**
- * @public
- */
-export type SlotConstraint = (typeof SlotConstraint)[keyof typeof SlotConstraint];
 
 /**
  * <p>Identifies the version of a specific slot.</p>
@@ -1082,20 +856,6 @@ export interface SlotTypeConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const SlotValueSelectionStrategy = {
-  ORIGINAL_VALUE: "ORIGINAL_VALUE",
-  TOP_RESOLUTION: "TOP_RESOLUTION",
-} as const;
-
-/**
- * @public
- */
-export type SlotValueSelectionStrategy = (typeof SlotValueSelectionStrategy)[keyof typeof SlotValueSelectionStrategy];
-
-/**
- * @public
  */
 export interface CreateSlotTypeVersionResponse {
   /**
@@ -1195,67 +955,6 @@ export interface ResourceReference {
    * @public
    */
   version?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReferenceType = {
-  BOT: "Bot",
-  BOTALIAS: "BotAlias",
-  BOTCHANNEL: "BotChannel",
-  INTENT: "Intent",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
-
-/**
- * <p>The resource that you are attempting to delete is referred to by
- *       another resource. Use this information to remove references to the
- *       resource that you are trying to delete.</p>
- *          <p>The body of the exception contains a JSON object that describes the
- *       resource.</p>
- *          <p>
- *             <code>\{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
- *         INTENT,</code>
- *          </p>
- *          <p>
- *             <code>"resourceReference": \{</code>
- *          </p>
- *          <p>
- *             <code>"name": <i>string</i>, "version":
- *           <i>string</i> \} \}</code>
- *          </p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  referenceType?: ReferenceType | undefined;
-  /**
-   * <p>Describes the resource that refers to the resource that you are
-   *       attempting to delete. This object is returned as part of the
-   *         <code>ResourceInUseException</code> exception. </p>
-   * @public
-   */
-  exampleReference?: ResourceReference | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.referenceType = opts.referenceType;
-    this.exampleReference = opts.exampleReference;
-  }
 }
 
 /**
@@ -1605,34 +1304,6 @@ export interface GetBotAliasRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const Destination = {
-  CLOUDWATCH_LOGS: "CLOUDWATCH_LOGS",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type Destination = (typeof Destination)[keyof typeof Destination];
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  AUDIO: "AUDIO",
-  TEXT: "TEXT",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
-
-/**
  * <p>The settings for conversation logs.</p>
  * @public
  */
@@ -1885,37 +1556,6 @@ export interface GetBotChannelAssociationRequest {
    */
   botAlias: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelStatus = {
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
-
-/**
- * @public
- * @enum
- */
-export const ChannelType = {
-  FACEBOOK: "Facebook",
-  KIK: "Kik",
-  SLACK: "Slack",
-  TWILIO_SMS: "Twilio-Sms",
-} as const;
-
-/**
- * @public
- */
-export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
  * @public
@@ -2505,35 +2145,6 @@ export interface GetBuiltinSlotTypesResponse {
 
 /**
  * @public
- * @enum
- */
-export const ExportType = {
-  ALEXA_SKILLS_KIT: "ALEXA_SKILLS_KIT",
-  LEX: "LEX",
-} as const;
-
-/**
- * @public
- */
-export type ExportType = (typeof ExportType)[keyof typeof ExportType];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  BOT: "BOT",
-  INTENT: "INTENT",
-  SLOT_TYPE: "SLOT_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
  */
 export interface GetExportRequest {
   /**
@@ -2560,21 +2171,6 @@ export interface GetExportRequest {
    */
   exportType: ExportType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
  * @public
@@ -2652,35 +2248,6 @@ export interface GetImportRequest {
    */
   importId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImportStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
-
-/**
- * @public
- * @enum
- */
-export const MergeStrategy = {
-  FAIL_ON_CONFLICT: "FAIL_ON_CONFLICT",
-  OVERWRITE_LATEST: "OVERWRITE_LATEST",
-} as const;
-
-/**
- * @public
- */
-export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
 
 /**
  * @public
@@ -3027,20 +2594,6 @@ export interface GetMigrationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MigrationAlertType = {
-  ERROR: "ERROR",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type MigrationAlertType = (typeof MigrationAlertType)[keyof typeof MigrationAlertType];
-
-/**
  * <p>Provides information about alerts and warnings that Amazon Lex sends during
  *       a migration. The alerts include information about how to resolve the
  *       issue.</p>
@@ -3085,35 +2638,6 @@ export interface MigrationAlert {
    */
   referenceURLs?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MigrationStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type MigrationStatus = (typeof MigrationStatus)[keyof typeof MigrationStatus];
-
-/**
- * @public
- * @enum
- */
-export const MigrationStrategy = {
-  CREATE_NEW: "CREATE_NEW",
-  UPDATE_EXISTING: "UPDATE_EXISTING",
-} as const;
-
-/**
- * @public
- */
-export type MigrationStrategy = (typeof MigrationStrategy)[keyof typeof MigrationStrategy];
 
 /**
  * @public
@@ -3203,34 +2727,6 @@ export interface GetMigrationResponse {
    */
   alerts?: MigrationAlert[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MigrationSortAttribute = {
-  MIGRATION_DATE_TIME: "MIGRATION_DATE_TIME",
-  V1_BOT_NAME: "V1_BOT_NAME",
-} as const;
-
-/**
- * @public
- */
-export type MigrationSortAttribute = (typeof MigrationSortAttribute)[keyof typeof MigrationSortAttribute];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -3590,20 +3086,6 @@ export interface GetSlotTypeVersionsResponse {
 
 /**
  * @public
- * @enum
- */
-export const StatusType = {
-  DETECTED: "Detected",
-  MISSED: "Missed",
-} as const;
-
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
-
-/**
- * @public
  */
 export interface GetUtterancesViewRequest {
   /**
@@ -3756,20 +3238,6 @@ export interface ListTagsForResourceResponse {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProcessBehavior = {
-  BUILD: "BUILD",
-  SAVE: "SAVE",
-} as const;
-
-/**
- * @public
- */
-export type ProcessBehavior = (typeof ProcessBehavior)[keyof typeof ProcessBehavior];
 
 /**
  * @public

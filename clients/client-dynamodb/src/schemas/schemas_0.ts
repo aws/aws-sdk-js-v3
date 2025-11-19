@@ -700,7 +700,7 @@ import {
   TransactionCanceledException as __TransactionCanceledException,
   TransactionConflictException as __TransactionConflictException,
   TransactionInProgressException as __TransactionInProgressException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

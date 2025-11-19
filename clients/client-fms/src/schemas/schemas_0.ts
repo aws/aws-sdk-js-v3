@@ -467,7 +467,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { FMSServiceException as __FMSServiceException } from "../models/FMSServiceException";
 import {
   InternalErrorException as __InternalErrorException,
   InvalidInputException as __InvalidInputException,
@@ -475,7 +474,8 @@ import {
   InvalidTypeException as __InvalidTypeException,
   LimitExceededException as __LimitExceededException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
+import { FMSServiceException as __FMSServiceException } from "../models/FMSServiceException";
 
 /* eslint no-var: 0 */
 

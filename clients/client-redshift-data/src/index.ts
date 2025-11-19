@@ -16,6 +16,8 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { RedshiftDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { RedshiftDataServiceException } from "./models/RedshiftDataServiceException";

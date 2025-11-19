@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
-} from "../models/models_5";
+} from "../models/models_4";
 import { DescribeLocalGatewayVirtualInterfaces } from "../schemas/schemas_0";
 
 /**

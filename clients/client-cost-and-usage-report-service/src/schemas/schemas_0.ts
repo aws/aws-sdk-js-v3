@@ -69,7 +69,7 @@ import {
   ReportLimitReachedException as __ReportLimitReachedException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

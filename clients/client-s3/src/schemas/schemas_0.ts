@@ -1022,7 +1022,7 @@ import {
   ObjectAlreadyInActiveTierError as __ObjectAlreadyInActiveTierError,
   ObjectNotInActiveTierError as __ObjectNotInActiveTierError,
   TooManyParts as __TooManyParts,
-} from "../models/index";
+} from "../models/errors";
 import { S3ServiceException as __S3ServiceException } from "../models/S3ServiceException";
 
 /* eslint no-var: 0 */

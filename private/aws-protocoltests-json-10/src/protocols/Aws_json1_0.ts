@@ -86,10 +86,10 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
+import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import { JSONRPC10ServiceException as __BaseException } from "../models/JSONRPC10ServiceException";
 import {
   ClientOptionalDefaults,
-  ComplexError,
   ComplexNestedErrorData,
   ContentTypeParametersInput,
   Defaults,
@@ -97,10 +97,8 @@ import {
   EmptyInputAndEmptyOutputInput,
   EndpointWithHostLabelOperationInput,
   Farewell,
-  FooError,
   GreetingStruct,
   GreetingWithErrorsInput,
-  InvalidGreeting,
   JsonUnionsInput,
   JsonUnionsOutput,
   MyUnion,

@@ -1,35 +1,19 @@
 // smithy-typescript generated code
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
+
 import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
-
-import { TextractServiceException as __BaseException } from "./TextractServiceException";
-
-/**
- * <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
+  AdapterVersionStatus,
+  AutoUpdate,
+  BlockType,
+  ContentClassifier,
+  EntityType,
+  FeatureType,
+  JobStatus,
+  RelationshipType,
+  SelectionStatus,
+  TextType,
+  ValueType,
+} from "./enums";
 
 /**
  * <p>An adapter selected for use when analyzing documents. Contains an adapter ID and a version number.
@@ -75,23 +59,6 @@ export interface Adapter {
    */
   Version: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeatureType = {
-  FORMS: "FORMS",
-  LAYOUT: "LAYOUT",
-  QUERIES: "QUERIES",
-  SIGNATURES: "SIGNATURES",
-  TABLES: "TABLES",
-} as const;
-
-/**
- * @public
- */
-export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
 
 /**
  * <p>Contains information on the adapter, including the adapter ID, Name, Creation time, and feature types.</p>
@@ -236,23 +203,6 @@ export interface AdapterVersionEvaluationMetric {
 }
 
 /**
- * @public
- * @enum
- */
-export const AdapterVersionStatus = {
-  ACTIVE: "ACTIVE",
-  AT_RISK: "AT_RISK",
-  CREATION_ERROR: "CREATION_ERROR",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  DEPRECATED: "DEPRECATED",
-} as const;
-
-/**
- * @public
- */
-export type AdapterVersionStatus = (typeof AdapterVersionStatus)[keyof typeof AdapterVersionStatus];
-
-/**
  * <p>Summary info for an adapter version. Contains information on the AdapterId, AdapterVersion, CreationTime, FeatureTypes, and Status.</p>
  * @public
  */
@@ -330,20 +280,6 @@ export interface Document {
    */
   S3Object?: S3Object | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentClassifier = {
-  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
-} as const;
-
-/**
- * @public
- */
-export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentClassifier];
 
 /**
  * <p>Allows you to set attributes of the image. Currently, you can declare an image as free
@@ -486,63 +422,6 @@ export interface AnalyzeDocumentRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const BlockType = {
-  CELL: "CELL",
-  KEY_VALUE_SET: "KEY_VALUE_SET",
-  LAYOUT_FIGURE: "LAYOUT_FIGURE",
-  LAYOUT_FOOTER: "LAYOUT_FOOTER",
-  LAYOUT_HEADER: "LAYOUT_HEADER",
-  LAYOUT_KEY_VALUE: "LAYOUT_KEY_VALUE",
-  LAYOUT_LIST: "LAYOUT_LIST",
-  LAYOUT_PAGE_NUMBER: "LAYOUT_PAGE_NUMBER",
-  LAYOUT_SECTION_HEADER: "LAYOUT_SECTION_HEADER",
-  LAYOUT_TABLE: "LAYOUT_TABLE",
-  LAYOUT_TEXT: "LAYOUT_TEXT",
-  LAYOUT_TITLE: "LAYOUT_TITLE",
-  LINE: "LINE",
-  MERGED_CELL: "MERGED_CELL",
-  PAGE: "PAGE",
-  QUERY: "QUERY",
-  QUERY_RESULT: "QUERY_RESULT",
-  SELECTION_ELEMENT: "SELECTION_ELEMENT",
-  SIGNATURE: "SIGNATURE",
-  TABLE: "TABLE",
-  TABLE_FOOTER: "TABLE_FOOTER",
-  TABLE_TITLE: "TABLE_TITLE",
-  TITLE: "TITLE",
-  WORD: "WORD",
-} as const;
-
-/**
- * @public
- */
-export type BlockType = (typeof BlockType)[keyof typeof BlockType];
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  COLUMN_HEADER: "COLUMN_HEADER",
-  KEY: "KEY",
-  SEMI_STRUCTURED_TABLE: "SEMI_STRUCTURED_TABLE",
-  STRUCTURED_TABLE: "STRUCTURED_TABLE",
-  TABLE_FOOTER: "TABLE_FOOTER",
-  TABLE_SECTION_TITLE: "TABLE_SECTION_TITLE",
-  TABLE_SUMMARY: "TABLE_SUMMARY",
-  TABLE_TITLE: "TABLE_TITLE",
-  VALUE: "VALUE",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
-
-/**
  * <p>The bounding box around the detected page, text, key-value pair, table, table cell, or
  *          selection element on a document page. The <code>left</code> (x-coordinate) and
  *             <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of
@@ -639,27 +518,6 @@ export interface Geometry {
 }
 
 /**
- * @public
- * @enum
- */
-export const RelationshipType = {
-  ANSWER: "ANSWER",
-  CHILD: "CHILD",
-  COMPLEX_FEATURES: "COMPLEX_FEATURES",
-  MERGED_CELL: "MERGED_CELL",
-  TABLE: "TABLE",
-  TABLE_FOOTER: "TABLE_FOOTER",
-  TABLE_TITLE: "TABLE_TITLE",
-  TITLE: "TITLE",
-  VALUE: "VALUE",
-} as const;
-
-/**
- * @public
- */
-export type RelationshipType = (typeof RelationshipType)[keyof typeof RelationshipType];
-
-/**
  * <p>Information about how blocks are related to each other. A <code>Block</code> object
  *          contains 0 or more <code>Relation</code> objects in a list, <code>Relationships</code>. For
  *          more information, see <a>Block</a>.</p>
@@ -721,34 +579,6 @@ export interface Relationship {
    */
   Ids?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SelectionStatus = {
-  NOT_SELECTED: "NOT_SELECTED",
-  SELECTED: "SELECTED",
-} as const;
-
-/**
- * @public
- */
-export type SelectionStatus = (typeof SelectionStatus)[keyof typeof SelectionStatus];
-
-/**
- * @public
- * @enum
- */
-export const TextType = {
-  HANDWRITING: "HANDWRITING",
-  PRINTED: "PRINTED",
-} as const;
-
-/**
- * @public
- */
-export type TextType = (typeof TextType)[keyof typeof TextType];
 
 /**
  * <p>A <code>Block</code> represents items that are recognized in a document within a group
@@ -1133,255 +963,6 @@ export interface AnalyzeDocumentResponse {
 }
 
 /**
- * <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a>limits</a>.</p>
- * @public
- */
-export class BadDocumentException extends __BaseException {
-  readonly name: "BadDocumentException" = "BadDocumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadDocumentException, __BaseException>) {
-    super({
-      name: "BadDocumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadDocumentException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The document can't be processed because it's too large. The maximum document size for
- *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
- *          MB for PDF files.</p>
- * @public
- */
-export class DocumentTooLargeException extends __BaseException {
-  readonly name: "DocumentTooLargeException" = "DocumentTooLargeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DocumentTooLargeException, __BaseException>) {
-    super({
-      name: "DocumentTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DocumentTooLargeException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
- * @public
- */
-export class HumanLoopQuotaExceededException extends __BaseException {
-  readonly name: "HumanLoopQuotaExceededException" = "HumanLoopQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The quota code.</p>
-   * @public
-   */
-  QuotaCode?: string | undefined;
-
-  /**
-   * <p>The service code.</p>
-   * @public
-   */
-  ServiceCode?: string | undefined;
-
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HumanLoopQuotaExceededException, __BaseException>) {
-    super({
-      name: "HumanLoopQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HumanLoopQuotaExceededException.prototype);
-    this.ResourceType = opts.ResourceType;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Amazon Textract experienced a service issue. Try your call again.</p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
- * @public
- */
-export class InvalidS3ObjectException extends __BaseException {
-  readonly name: "InvalidS3ObjectException" = "InvalidS3ObjectException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidS3ObjectException, __BaseException>) {
-    super({
-      name: "InvalidS3ObjectException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidS3ObjectException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
- * @public
- */
-export class ProvisionedThroughputExceededException extends __BaseException {
-  readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProvisionedThroughputExceededException, __BaseException>) {
-    super({
-      name: "ProvisionedThroughputExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>The format of the input document isn't supported. Documents for operations can be in
- *          PNG, JPEG, PDF, or TIFF format.</p>
- * @public
- */
-export class UnsupportedDocumentException extends __BaseException {
-  readonly name: "UnsupportedDocumentException" = "UnsupportedDocumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedDocumentException, __BaseException>) {
-    super({
-      name: "UnsupportedDocumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedDocumentException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
  * @public
  */
 export interface AnalyzeExpenseRequest {
@@ -1662,19 +1243,6 @@ export interface AnalyzeIDRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValueType = {
-  DATE: "DATE",
-} as const;
-
-/**
- * @public
- */
-export type ValueType = (typeof ValueType)[keyof typeof ValueType];
-
-/**
  * <p>Contains information relating to dates in a document, including the type
  *          of value, and the value.</p>
  * @public
@@ -1789,44 +1357,6 @@ export interface AnalyzeIDResponse {
 
 /**
  * @public
- * @enum
- */
-export const AutoUpdate = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutoUpdate = (typeof AutoUpdate)[keyof typeof AutoUpdate];
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * @public
  */
 export interface CreateAdapterRequest {
   /**
@@ -1879,108 +1409,6 @@ export interface CreateAdapterResponse {
    * @public
    */
   AdapterId?: string | undefined;
-}
-
-/**
- * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
- *          least one of the other input parameters is different from the previous call to the
- *          operation. </p>
- * @public
- */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
- *          asynchronous jobs concurrently, calls to start operations
- *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
- *          exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *          the Amazon Textract service limit. </p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p>  Indicates that a request was not valid. Check request for proper formatting. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**
@@ -2093,55 +1521,6 @@ export interface CreateAdapterVersionResponse {
    * @public
    */
   AdapterVersion?: string | undefined;
-}
-
-/**
- * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
- * @public
- */
-export class InvalidKMSKeyException extends __BaseException {
-  readonly name: "InvalidKMSKeyException" = "InvalidKMSKeyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidKMSKeyException, __BaseException>) {
-    super({
-      name: "InvalidKMSKeyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidKMSKeyException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * <p> Returned when an operation tried to access a nonexistent resource. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**
@@ -2619,22 +1998,6 @@ export interface GetDocumentAnalysisRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
  * <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document text detection (<a>StartDocumentTextDetection</a>). </p>
  * @public
  */
@@ -2701,30 +2064,6 @@ export interface GetDocumentAnalysisResponse {
    * @public
    */
   AnalyzeDocumentModelVersion?: string | undefined;
-}
-
-/**
- * <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
- * @public
- */
-export class InvalidJobIdException extends __BaseException {
-  readonly name: "InvalidJobIdException" = "InvalidJobIdException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Code?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidJobIdException, __BaseException>) {
-    super({
-      name: "InvalidJobIdException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidJobIdException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
 }
 
 /**

@@ -62,7 +62,7 @@ import {
   SlowDownException as __SlowDownException,
   UnauthorizedClientException as __UnauthorizedClientException,
   UnsupportedGrantTypeException as __UnsupportedGrantTypeException,
-} from "../models/index";
+} from "../models/errors";
 import { SSOOIDCServiceException as __SSOOIDCServiceException } from "../models/SSOOIDCServiceException";
 
 /* eslint no-var: 0 */

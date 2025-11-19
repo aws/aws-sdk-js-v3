@@ -194,7 +194,7 @@ import {
   TemplatesNotAvailableInRegionException as __TemplatesNotAvailableInRegionException,
   TooManyRequestsException as __TooManyRequestsException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 import { ServiceQuotasServiceException as __ServiceQuotasServiceException } from "../models/ServiceQuotasServiceException";
 
 /* eslint no-var: 0 */

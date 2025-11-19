@@ -818,7 +818,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnrecognizedClientException as __UnrecognizedClientException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { UpdateQueueRequest, UpdateQueueResponse } from "../models/models_2";
+import { UpdateQueueRequest, UpdateQueueResponse } from "../models/models_0";
 import { UpdateQueue } from "../schemas/schemas_0";
 
 /**

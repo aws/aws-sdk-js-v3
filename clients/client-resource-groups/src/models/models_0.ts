@@ -1,38 +1,18 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ResourceGroupsServiceException as __BaseException } from "./ResourceGroupsServiceException";
-
-/**
- * @public
- * @enum
- */
-export const GroupLifecycleEventsDesiredStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type GroupLifecycleEventsDesiredStatus =
-  (typeof GroupLifecycleEventsDesiredStatus)[keyof typeof GroupLifecycleEventsDesiredStatus];
-
-/**
- * @public
- * @enum
- */
-export const GroupLifecycleEventsStatus = {
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-  INACTIVE: "INACTIVE",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type GroupLifecycleEventsStatus = (typeof GroupLifecycleEventsStatus)[keyof typeof GroupLifecycleEventsStatus];
+import {
+  GroupConfigurationStatus,
+  GroupFilterName,
+  GroupingStatus,
+  GroupingType,
+  GroupLifecycleEventsDesiredStatus,
+  GroupLifecycleEventsStatus,
+  ListGroupingStatusesFilterName,
+  QueryErrorCode,
+  QueryType,
+  ResourceFilterName,
+  ResourceStatusValue,
+  TagSyncTaskStatus,
+} from "./enums";
 
 /**
  * <p>The Resource Groups settings for this Amazon Web Services account.</p>
@@ -59,28 +39,6 @@ export interface AccountSettings {
 }
 
 /**
- * <p>The request includes one or more parameters that violate validation rules.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CancelTagSyncTaskInput {
@@ -89,118 +47,6 @@ export interface CancelTagSyncTaskInput {
    * @public
    */
   TaskArn: string | undefined;
-}
-
-/**
- * <p>The caller isn't authorized to make the request. Check permissions.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An internal error occurred while processing the request. Try again later.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
- * @public
- */
-export class MethodNotAllowedException extends __BaseException {
-  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
-    super({
-      name: "MethodNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because it doesn't have valid credentials for the target
- *             resource.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -251,20 +97,6 @@ export interface GroupConfigurationItem {
    */
   Parameters?: GroupConfigurationParameter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryType = {
-  CLOUDFORMATION_STACK_1_0: "CLOUDFORMATION_STACK_1_0",
-  TAG_FILTERS_1_0: "TAG_FILTERS_1_0",
-} as const;
-
-/**
- * @public
- */
-export type QueryType = (typeof QueryType)[keyof typeof QueryType];
 
 /**
  * <p>The query you can use to define a resource group or a search for resources. A
@@ -564,21 +396,6 @@ export interface Group {
 }
 
 /**
- * @public
- * @enum
- */
-export const GroupConfigurationStatus = {
-  UPDATE_COMPLETE: "UPDATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type GroupConfigurationStatus = (typeof GroupConfigurationStatus)[keyof typeof GroupConfigurationStatus];
-
-/**
  * <p>A service configuration associated with a resource group. The configuration options
  *             are determined by the Amazon Web Services service that defines the <code>Type</code>, and specifies
  *             which resources can be included in the group. You can add a service configuration when
@@ -674,28 +491,6 @@ export interface DeleteGroupOutput {
    * @public
    */
   Group?: Group | undefined;
-}
-
-/**
- * <p>One or more of the specified resources don't exist.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -857,20 +652,6 @@ export interface GetTagSyncTaskInput {
    */
   TaskArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TagSyncTaskStatus = {
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type TagSyncTaskStatus = (typeof TagSyncTaskStatus)[keyof typeof TagSyncTaskStatus];
 
 /**
  * @public
@@ -1069,21 +850,6 @@ export interface GroupResourcesOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ListGroupingStatusesFilterName = {
-  ResourceArn: "resource-arn",
-  Status: "status",
-} as const;
-
-/**
- * @public
- */
-export type ListGroupingStatusesFilterName =
-  (typeof ListGroupingStatusesFilterName)[keyof typeof ListGroupingStatusesFilterName];
-
-/**
  * <p>A filter name and value pair that is used to obtain more specific results from the list of grouping statuses. </p>
  * @public
  */
@@ -1135,36 +901,6 @@ export interface ListGroupingStatusesInput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupingType = {
-  GROUP: "GROUP",
-  UNGROUP: "UNGROUP",
-} as const;
-
-/**
- * @public
- */
-export type GroupingType = (typeof GroupingType)[keyof typeof GroupingType];
-
-/**
- * @public
- * @enum
- */
-export const GroupingStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SKIPPED: "SKIPPED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type GroupingStatus = (typeof GroupingStatus)[keyof typeof GroupingStatus];
 
 /**
  * <p>The information about a grouping or ungrouping resource action. </p>
@@ -1236,19 +972,6 @@ export interface ListGroupingStatusesOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceFilterName = {
-  ResourceType: "resource-type",
-} as const;
-
-/**
- * @public
- */
-export type ResourceFilterName = (typeof ResourceFilterName)[keyof typeof ResourceFilterName];
 
 /**
  * <p>A filter name and value pair that is used to obtain more specific results from a list
@@ -1353,22 +1076,6 @@ export interface ListGroupResourcesInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const QueryErrorCode = {
-  CLOUDFORMATION_STACK_INACTIVE: "CLOUDFORMATION_STACK_INACTIVE",
-  CLOUDFORMATION_STACK_NOT_EXISTING: "CLOUDFORMATION_STACK_NOT_EXISTING",
-  CLOUDFORMATION_STACK_UNASSUMABLE_ROLE: "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
-  RESOURCE_TYPE_NOT_SUPPORTED: "RESOURCE_TYPE_NOT_SUPPORTED",
-} as const;
-
-/**
- * @public
- */
-export type QueryErrorCode = (typeof QueryErrorCode)[keyof typeof QueryErrorCode];
-
-/**
  * <p>A two-part error structure that can occur in <code>ListGroupResources</code> or
  *                 <code>SearchResources</code>. </p>
  * @public
@@ -1404,19 +1111,6 @@ export interface ResourceIdentifier {
    */
   ResourceType?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceStatusValue = {
-  Pending: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatusValue = (typeof ResourceStatusValue)[keyof typeof ResourceStatusValue];
 
 /**
  * <p>A structure that identifies the current group membership status for a resource. Adding
@@ -1503,23 +1197,6 @@ export interface ListGroupResourcesOutput {
    */
   QueryErrors?: QueryError[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GroupFilterName = {
-  ConfigurationType: "configuration-type",
-  Criticality: "criticality",
-  DisplayName: "display-name",
-  Owner: "owner",
-  ResourceType: "resource-type",
-} as const;
-
-/**
- * @public
- */
-export type GroupFilterName = (typeof GroupFilterName)[keyof typeof GroupFilterName];
 
 /**
  * <p>A filter collection that you can use to restrict the results from a <code>List</code>

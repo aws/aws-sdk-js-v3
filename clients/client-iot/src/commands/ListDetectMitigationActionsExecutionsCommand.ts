@@ -8,7 +8,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ListDetectMitigationActionsExecutionsRequest,
   ListDetectMitigationActionsExecutionsResponse,
-} from "../models/models_2";
+} from "../models/models_1";
 import { ListDetectMitigationActionsExecutions } from "../schemas/schemas_0";
 
 /**

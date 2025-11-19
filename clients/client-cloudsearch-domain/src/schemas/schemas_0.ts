@@ -102,7 +102,7 @@ import { CloudSearchDomainServiceException as __CloudSearchDomainServiceExceptio
 import {
   DocumentServiceException as __DocumentServiceException,
   SearchException as __SearchException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

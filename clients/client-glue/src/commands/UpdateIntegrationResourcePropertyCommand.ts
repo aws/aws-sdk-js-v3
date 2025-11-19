@@ -8,7 +8,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   UpdateIntegrationResourcePropertyRequest,
   UpdateIntegrationResourcePropertyResponse,
-} from "../models/models_3";
+} from "../models/models_2";
 import { UpdateIntegrationResourceProperty } from "../schemas/schemas_0";
 
 /**

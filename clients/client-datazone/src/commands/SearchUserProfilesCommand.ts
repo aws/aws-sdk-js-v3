@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchUserProfilesInput, SearchUserProfilesOutput } from "../models/models_2";
+import { SearchUserProfilesInput, SearchUserProfilesOutput } from "../models/models_1";
 import { SearchUserProfiles } from "../schemas/schemas_0";
 
 /**

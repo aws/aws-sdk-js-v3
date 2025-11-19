@@ -265,7 +265,7 @@ import {
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisServiceException as __KinesisServiceException } from "../models/KinesisServiceException";
 
 /* eslint no-var: 0 */

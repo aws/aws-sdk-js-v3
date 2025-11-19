@@ -151,7 +151,7 @@ import {
   StatementTimeoutException as __StatementTimeoutException,
   TransactionNotFoundException as __TransactionNotFoundException,
   UnsupportedResultException as __UnsupportedResultException,
-} from "../models/index";
+} from "../models/errors";
 import { RDSDataServiceException as __RDSDataServiceException } from "../models/RDSDataServiceException";
 
 /* eslint no-var: 0 */

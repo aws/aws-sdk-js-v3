@@ -1,27 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { VerifiedPermissionsServiceException as __BaseException } from "./VerifiedPermissionsServiceException";
-
-/**
- * <p>You don't have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  BatchGetPolicyErrorCode,
+  CedarVersion,
+  Decision,
+  DeletionProtection,
+  OpenIdIssuer,
+  PolicyEffect,
+  PolicyType,
+  ResourceType,
+  ValidationMode,
+} from "./enums";
 
 /**
  * <p>Contains information about an action for a request for which an authorization decision is made.</p> <p>This data type is used as a request parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p> <p>Example: <code>\{ "actionId": "&lt;action name&gt;", "actionType": "Action" \}</code> </p>
@@ -87,20 +75,6 @@ export interface BatchGetPolicyInput {
    */
   requests: BatchGetPolicyInputItem[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchGetPolicyErrorCode = {
-  POLICY_NOT_FOUND: "POLICY_NOT_FOUND",
-  POLICY_STORE_NOT_FOUND: "POLICY_STORE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type BatchGetPolicyErrorCode = (typeof BatchGetPolicyErrorCode)[keyof typeof BatchGetPolicyErrorCode];
 
 /**
  * <p>Contains the information about an error resulting from a <code>BatchGetPolicy</code> API call.</p>
@@ -228,20 +202,6 @@ export namespace PolicyDefinitionDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const PolicyType = {
-  STATIC: "STATIC",
-  TEMPLATE_LINKED: "TEMPLATE_LINKED",
-} as const;
-
-/**
- * @public
- */
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
-
-/**
  * <p>Contains information about a policy returned from a <code>BatchGetPolicy</code> API request.</p>
  * @public
  */
@@ -301,64 +261,6 @@ export interface BatchGetPolicyOutput {
 }
 
 /**
- * <p>The request failed because of an internal error. Try your request again later</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request failed because it exceeded a throttling quota.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * <p>Details about a field that failed policy validation.</p>
  * @public
  */
@@ -375,47 +277,6 @@ export interface ValidationExceptionField {
    */
   message: string | undefined;
 }
-
-/**
- * <p>The request failed because one or more input parameters don't satisfy their constraint requirements. The output is provided as a list of fields and a reason for each field that isn't valid.</p> <p>The possible reasons include the following:</p> <ul> <li> <p> <b>UnrecognizedEntityType</b> </p> <p>The policy includes an entity type that isn't found in the schema.</p> </li> <li> <p> <b>UnrecognizedActionId</b> </p> <p>The policy includes an action id that isn't found in the schema.</p> </li> <li> <p> <b>InvalidActionApplication</b> </p> <p>The policy includes an action that, according to the schema, doesn't support the specified principal and resource.</p> </li> <li> <p> <b>UnexpectedType</b> </p> <p>The policy included an operand that isn't a valid type for the specified operation.</p> </li> <li> <p> <b>IncompatibleTypes</b> </p> <p>The types of elements included in a <code>set</code>, or the types of expressions used in an <code>if...then...else</code> clause aren't compatible in this context.</p> </li> <li> <p> <b>MissingAttribute</b> </p> <p>The policy attempts to access a record or entity attribute that isn't specified in the schema. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>UnsafeOptionalAttributeAccess</b> </p> <p>The policy attempts to access a record or entity attribute that is optional and isn't guaranteed to be present. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>ImpossiblePolicy</b> </p> <p>Cedar has determined that a policy condition always evaluates to false. If the policy is always false, it can never apply to any query, and so it can never affect an authorization decision.</p> </li> <li> <p> <b>WrongNumberArguments</b> </p> <p>The policy references an extension type with the wrong number of arguments.</p> </li> <li> <p> <b>FunctionArgumentValidationError</b> </p> <p>Cedar couldn't parse the argument passed to an extension type. For example, a string that is to be parsed as an IPv4 address can contain only digits and the period character.</p> </li> </ul>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The list of fields that aren't valid.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Decision = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type Decision = (typeof Decision)[keyof typeof Decision];
 
 /**
  * <p>Contains information about one of the policies that determined an authorization decision.</p> <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p> <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code> </p>
@@ -440,71 +301,6 @@ export interface EvaluationErrorItem {
    */
   errorDescription: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  IDENTITY_SOURCE: "IDENTITY_SOURCE",
-  POLICY: "POLICY",
-  POLICY_STORE: "POLICY_STORE",
-  POLICY_TEMPLATE: "POLICY_TEMPLATE",
-  SCHEMA: "SCHEMA",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>The request failed because it references a resource that doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CedarVersion = {
-  CEDAR_2: "CEDAR_2",
-  CEDAR_4: "CEDAR_4",
-} as const;
-
-/**
- * @public
- */
-export type CedarVersion = (typeof CedarVersion)[keyof typeof CedarVersion];
 
 /**
  * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.</p> <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html">CognitoUserPoolConfiguration</a> structure and is a request parameter in <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
@@ -1215,33 +1011,6 @@ export interface ResourceConflict {
 }
 
 /**
- * <p>The request failed because another request to modify a resource occurred at the same.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The list of resources referenced with this failed request.</p>
-   * @public
-   */
-  resources: ResourceConflict[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resources = opts.resources;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateIdentitySourceInput {
@@ -1297,54 +1066,6 @@ export interface CreateIdentitySourceOutput {
    * @public
    */
   policyStoreId: string | undefined;
-}
-
-/**
- * <p>The request failed because it would cause a service quota to be exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-
-  /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 /**
@@ -1467,20 +1188,6 @@ export interface CreatePolicyInput {
 
 /**
  * @public
- * @enum
- */
-export const PolicyEffect = {
-  FORBID: "Forbid",
-  PERMIT: "Permit",
-} as const;
-
-/**
- * @public
- */
-export type PolicyEffect = (typeof PolicyEffect)[keyof typeof PolicyEffect];
-
-/**
- * @public
  */
 export interface CreatePolicyOutput {
   /**
@@ -1537,34 +1244,6 @@ export interface CreatePolicyOutput {
    */
   effect?: PolicyEffect | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeletionProtection = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DeletionProtection = (typeof DeletionProtection)[keyof typeof DeletionProtection];
-
-/**
- * @public
- * @enum
- */
-export const ValidationMode = {
-  OFF: "OFF",
-  STRICT: "STRICT",
-} as const;
-
-/**
- * @public
- */
-export type ValidationMode = (typeof ValidationMode)[keyof typeof ValidationMode];
 
 /**
  * <p>A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template. </p> <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicyStore.html">CreatePolicyStore</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore.html">UpdatePolicyStore</a> operations.</p>
@@ -1761,26 +1440,6 @@ export interface DeletePolicyStoreInput {
 export interface DeletePolicyStoreOutput {}
 
 /**
- * <p>The policy store can't be deleted because deletion protection is enabled. To delete this policy store, disable deletion protection.</p>
- * @public
- */
-export class InvalidStateException extends __BaseException {
-  readonly name: "InvalidStateException" = "InvalidStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
-    super({
-      name: "InvalidStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeletePolicyTemplateInput {
@@ -1871,19 +1530,6 @@ export interface GetIdentitySourceInput {
    */
   identitySourceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OpenIdIssuer = {
-  COGNITO: "COGNITO",
-} as const;
-
-/**
- * @public
- */
-export type OpenIdIssuer = (typeof OpenIdIssuer)[keyof typeof OpenIdIssuer];
 
 /**
  * <p>A structure that contains configuration of the identity source.</p> <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a> operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
@@ -3476,33 +3122,6 @@ export interface TagResourceInput {
  * @public
  */
 export interface TagResourceOutput {}
-
-/**
- * <p>No more tags be added because the limit (50) has been reached. To add new tags, use <code>UntagResource</code> to remove existing tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * An Amazon Resource Name (ARN) uniquely identifies an AWS resource.
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
 
 /**
  * @public

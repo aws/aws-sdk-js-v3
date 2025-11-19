@@ -1,7 +1,36 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AutoScalingServiceException as __BaseException } from "./AutoScalingServiceException";
+import {
+  AcceleratorManufacturer,
+  AcceleratorName,
+  AcceleratorType,
+  BareMetal,
+  BurstablePerformance,
+  CapacityDistributionStrategy,
+  CapacityReservationPreference,
+  CpuManufacturer,
+  ImpairedZoneHealthCheckBehavior,
+  InstanceGeneration,
+  InstanceMetadataEndpointState,
+  InstanceMetadataHttpTokensState,
+  InstanceRefreshStatus,
+  LifecycleState,
+  LocalStorage,
+  LocalStorageType,
+  MetricStatistic,
+  MetricType,
+  PredefinedLoadMetricType,
+  PredefinedMetricPairType,
+  PredefinedScalingMetricType,
+  PredictiveScalingMaxCapacityBreachBehavior,
+  PredictiveScalingMode,
+  RefreshStrategy,
+  RetryStrategy,
+  ScaleInProtectedInstances,
+  ScalingActivityStatusCode,
+  StandbyInstances,
+  WarmPoolState,
+  WarmPoolStatus,
+} from "./enums";
 
 /**
  * <p>Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when
@@ -23,41 +52,6 @@ export interface AcceleratorCountRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const AcceleratorManufacturer = {
-  AMAZON_WEB_SERVICES: "amazon-web-services",
-  AMD: "amd",
-  NVIDIA: "nvidia",
-  XILINX: "xilinx",
-} as const;
-
-/**
- * @public
- */
-export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typeof AcceleratorManufacturer];
-
-/**
- * @public
- * @enum
- */
-export const AcceleratorName = {
-  A100: "a100",
-  K80: "k80",
-  M60: "m60",
-  RADEON_PRO_V520: "radeon-pro-v520",
-  T4: "t4",
-  V100: "v100",
-  VU9P: "vu9p",
-} as const;
-
-/**
- * @public
- */
-export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
-
-/**
  * <p>Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code>
  *             object when you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
@@ -75,67 +69,6 @@ export interface AcceleratorTotalMemoryMiBRequest {
    */
   Max?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AcceleratorType = {
-  FPGA: "fpga",
-  GPU: "gpu",
-  INFERENCE: "inference",
-} as const;
-
-/**
- * @public
- */
-export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorType];
-
-/**
- * <p>The request failed because an active instance refresh or rollback for the specified
- *             Auto Scaling group was not found.</p>
- * @public
- */
-export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
-  readonly name: "ActiveInstanceRefreshNotFoundFault" = "ActiveInstanceRefreshNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActiveInstanceRefreshNotFoundFault, __BaseException>) {
-    super({
-      name: "ActiveInstanceRefreshNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActiveInstanceRefreshNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ScalingActivityStatusCode = {
-  Cancelled: "Cancelled",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  MidLifecycleAction: "MidLifecycleAction",
-  PendingSpotBidPlacement: "PendingSpotBidPlacement",
-  PreInService: "PreInService",
-  Successful: "Successful",
-  WaitingForConnectionDraining: "WaitingForConnectionDraining",
-  WaitingForELBConnectionDraining: "WaitingForELBConnectionDraining",
-  WaitingForInstanceId: "WaitingForInstanceId",
-  WaitingForInstanceWarmup: "WaitingForInstanceWarmup",
-  WaitingForSpotInstanceId: "WaitingForSpotInstanceId",
-  WaitingForSpotInstanceRequestId: "WaitingForSpotInstanceRequestId",
-} as const;
-
-/**
- * @public
- */
-export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
 
 /**
  * <p>Describes scaling activity, which is a long-running process that represents a change
@@ -294,26 +227,6 @@ export interface AlarmSpecification {
 }
 
 /**
- * <p>You already have an Auto Scaling group or launch configuration with this name.</p>
- * @public
- */
-export class AlreadyExistsFault extends __BaseException {
-  readonly name: "AlreadyExistsFault" = "AlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlreadyExistsFault, __BaseException>) {
-    super({
-      name: "AlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlreadyExistsFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface AttachInstancesQuery {
@@ -328,47 +241,6 @@ export interface AttachInstancesQuery {
    * @public
    */
   AutoScalingGroupName: string | undefined;
-}
-
-/**
- * <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
- * @public
- */
-export class ResourceContentionFault extends __BaseException {
-  readonly name: "ResourceContentionFault" = "ResourceContentionFault";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceContentionFault, __BaseException>) {
-    super({
-      name: "ResourceContentionFault",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceContentionFault.prototype);
-  }
-}
-
-/**
- * <p>The service-linked role is not yet ready for use.</p>
- * @public
- */
-export class ServiceLinkedRoleFailure extends __BaseException {
-  readonly name: "ServiceLinkedRoleFailure" = "ServiceLinkedRoleFailure";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceLinkedRoleFailure, __BaseException>) {
-    super({
-      name: "ServiceLinkedRoleFailure",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceLinkedRoleFailure.prototype);
-  }
 }
 
 /**
@@ -665,29 +537,6 @@ export interface BatchPutScheduledUpdateGroupActionType {
 }
 
 /**
- * <p>You have already reached a limit for your Amazon EC2 Auto Scaling
- *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
- *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
- *             Reference</i>.</p>
- * @public
- */
-export class LimitExceededFault extends __BaseException {
-  readonly name: "LimitExceededFault" = "LimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededFault, __BaseException>) {
-    super({
-      name: "LimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CancelInstanceRefreshAnswer {
@@ -763,21 +612,6 @@ export interface CompleteLifecycleActionType {
 }
 
 /**
- * @public
- * @enum
- */
-export const CapacityDistributionStrategy = {
-  BALANCED_BEST_EFFORT: "balanced-best-effort",
-  BALANCED_ONLY: "balanced-only",
-} as const;
-
-/**
- * @public
- */
-export type CapacityDistributionStrategy =
-  (typeof CapacityDistributionStrategy)[keyof typeof CapacityDistributionStrategy];
-
-/**
  * <p>
  *             Describes an Availability Zone distribution.
  *         </p>
@@ -801,21 +635,6 @@ export interface AvailabilityZoneDistribution {
    */
   CapacityDistributionStrategy?: CapacityDistributionStrategy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImpairedZoneHealthCheckBehavior = {
-  IgnoreUnhealthy: "IgnoreUnhealthy",
-  ReplaceUnhealthy: "ReplaceUnhealthy",
-} as const;
-
-/**
- * @public
- */
-export type ImpairedZoneHealthCheckBehavior =
-  (typeof ImpairedZoneHealthCheckBehavior)[keyof typeof ImpairedZoneHealthCheckBehavior];
 
 /**
  * <p>
@@ -843,23 +662,6 @@ export interface AvailabilityZoneImpairmentPolicy {
    */
   ImpairedZoneHealthCheckBehavior?: ImpairedZoneHealthCheckBehavior | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationPreference = {
-  CapacityReservationsFirst: "capacity-reservations-first",
-  CapacityReservationsOnly: "capacity-reservations-only",
-  Default: "default",
-  None: "none",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationPreference =
-  (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
 
 /**
  * <p>
@@ -1198,21 +1000,6 @@ export interface InstancesDistribution {
 }
 
 /**
- * @public
- * @enum
- */
-export const BareMetal = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-  REQUIRED: "required",
-} as const;
-
-/**
- * @public
- */
-export type BareMetal = (typeof BareMetal)[keyof typeof BareMetal];
-
-/**
  * <p>Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object
  *             when you specify <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_InstanceRequirements.html">InstanceRequirements</a> for an Auto Scaling group.</p>
  * @public
@@ -1339,80 +1126,6 @@ export interface BaselinePerformanceFactorsRequest {
    */
   Cpu?: CpuPerformanceFactorRequest | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BurstablePerformance = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-  REQUIRED: "required",
-} as const;
-
-/**
- * @public
- */
-export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof BurstablePerformance];
-
-/**
- * @public
- * @enum
- */
-export const CpuManufacturer = {
-  AMAZON_WEB_SERVICES: "amazon-web-services",
-  AMD: "amd",
-  APPLE: "apple",
-  INTEL: "intel",
-} as const;
-
-/**
- * @public
- */
-export type CpuManufacturer = (typeof CpuManufacturer)[keyof typeof CpuManufacturer];
-
-/**
- * @public
- * @enum
- */
-export const InstanceGeneration = {
-  CURRENT: "current",
-  PREVIOUS: "previous",
-} as const;
-
-/**
- * @public
- */
-export type InstanceGeneration = (typeof InstanceGeneration)[keyof typeof InstanceGeneration];
-
-/**
- * @public
- * @enum
- */
-export const LocalStorage = {
-  EXCLUDED: "excluded",
-  INCLUDED: "included",
-  REQUIRED: "required",
-} as const;
-
-/**
- * @public
- */
-export type LocalStorage = (typeof LocalStorage)[keyof typeof LocalStorage];
-
-/**
- * @public
- * @enum
- */
-export const LocalStorageType = {
-  HDD: "hdd",
-  SSD: "ssd",
-} as const;
-
-/**
- * @public
- */
-export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStorageType];
 
 /**
  * <p>Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when
@@ -2609,36 +2322,6 @@ export interface InstanceMonitoring {
 }
 
 /**
- * @public
- * @enum
- */
-export const InstanceMetadataEndpointState = {
-  Disabled: "disabled",
-  Enabled: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataEndpointState =
-  (typeof InstanceMetadataEndpointState)[keyof typeof InstanceMetadataEndpointState];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMetadataHttpTokensState = {
-  Optional: "optional",
-  Required: "required",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataHttpTokensState =
-  (typeof InstanceMetadataHttpTokensState)[keyof typeof InstanceMetadataHttpTokensState];
-
-/**
  * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configure the instance metadata options</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @public
@@ -2896,26 +2579,6 @@ export interface CreateOrUpdateTagsType {
 }
 
 /**
- * <p>The operation can't be performed because the resource is in use.</p>
- * @public
- */
-export class ResourceInUseFault extends __BaseException {
-  readonly name: "ResourceInUseFault" = "ResourceInUseFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseFault, __BaseException>) {
-    super({
-      name: "ResourceInUseFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteAutoScalingGroupType {
@@ -2932,27 +2595,6 @@ export interface DeleteAutoScalingGroupType {
    * @public
    */
   ForceDelete?: boolean | undefined;
-}
-
-/**
- * <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
- * @public
- */
-export class ScalingActivityInProgressFault extends __BaseException {
-  readonly name: "ScalingActivityInProgressFault" = "ScalingActivityInProgressFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScalingActivityInProgressFault, __BaseException>) {
-    super({
-      name: "ScalingActivityInProgressFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScalingActivityInProgressFault.prototype);
-  }
 }
 
 /**
@@ -3365,41 +3007,6 @@ export interface EnabledMetric {
 }
 
 /**
- * @public
- * @enum
- */
-export const LifecycleState = {
-  DETACHED: "Detached",
-  DETACHING: "Detaching",
-  ENTERING_STANDBY: "EnteringStandby",
-  IN_SERVICE: "InService",
-  PENDING: "Pending",
-  PENDING_PROCEED: "Pending:Proceed",
-  PENDING_WAIT: "Pending:Wait",
-  QUARANTINED: "Quarantined",
-  STANDBY: "Standby",
-  TERMINATED: "Terminated",
-  TERMINATING: "Terminating",
-  TERMINATING_PROCEED: "Terminating:Proceed",
-  TERMINATING_WAIT: "Terminating:Wait",
-  WARMED_HIBERNATED: "Warmed:Hibernated",
-  WARMED_PENDING: "Warmed:Pending",
-  WARMED_PENDING_PROCEED: "Warmed:Pending:Proceed",
-  WARMED_PENDING_WAIT: "Warmed:Pending:Wait",
-  WARMED_RUNNING: "Warmed:Running",
-  WARMED_STOPPED: "Warmed:Stopped",
-  WARMED_TERMINATED: "Warmed:Terminated",
-  WARMED_TERMINATING: "Warmed:Terminating",
-  WARMED_TERMINATING_PROCEED: "Warmed:Terminating:Proceed",
-  WARMED_TERMINATING_WAIT: "Warmed:Terminating:Wait",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleState = (typeof LifecycleState)[keyof typeof LifecycleState];
-
-/**
  * <p>Describes an EC2 instance.</p>
  * @public
  */
@@ -3538,34 +3145,6 @@ export interface InstanceReusePolicy {
    */
   ReuseOnScaleIn?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WarmPoolState = {
-  Hibernated: "Hibernated",
-  Running: "Running",
-  Stopped: "Stopped",
-} as const;
-
-/**
- * @public
- */
-export type WarmPoolState = (typeof WarmPoolState)[keyof typeof WarmPoolState];
-
-/**
- * @public
- * @enum
- */
-export const WarmPoolStatus = {
-  PendingDelete: "PendingDelete",
-} as const;
-
-/**
- * @public
- */
-export type WarmPoolStatus = (typeof WarmPoolStatus)[keyof typeof WarmPoolStatus];
 
 /**
  * <p>Describes a warm pool configuration. </p>
@@ -3872,26 +3451,6 @@ export interface AutoScalingGroupsType {
 }
 
 /**
- * <p>The <code>NextToken</code> value is not valid.</p>
- * @public
- */
-export class InvalidNextToken extends __BaseException {
-  readonly name: "InvalidNextToken" = "InvalidNextToken";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextToken, __BaseException>) {
-    super({
-      name: "InvalidNextToken",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextToken.prototype);
-  }
-}
-
-/**
  * <p>Describes an EC2 instance associated with an Auto Scaling group.</p>
  * @public
  */
@@ -4060,36 +3619,6 @@ export interface DesiredConfiguration {
    */
   MixedInstancesPolicy?: MixedInstancesPolicy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScaleInProtectedInstances = {
-  Ignore: "Ignore",
-  Refresh: "Refresh",
-  Wait: "Wait",
-} as const;
-
-/**
- * @public
- */
-export type ScaleInProtectedInstances = (typeof ScaleInProtectedInstances)[keyof typeof ScaleInProtectedInstances];
-
-/**
- * @public
- * @enum
- */
-export const StandbyInstances = {
-  Ignore: "Ignore",
-  Terminate: "Terminate",
-  Wait: "Wait",
-} as const;
-
-/**
- * @public
- */
-export type StandbyInstances = (typeof StandbyInstances)[keyof typeof StandbyInstances];
 
 /**
  * <p>Describes the preferences for an instance refresh.</p>
@@ -4362,28 +3891,6 @@ export interface RollbackDetails {
    */
   ProgressDetailsOnRollback?: InstanceRefreshProgressDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceRefreshStatus = {
-  Baking: "Baking",
-  Cancelled: "Cancelled",
-  Cancelling: "Cancelling",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Pending: "Pending",
-  RollbackFailed: "RollbackFailed",
-  RollbackInProgress: "RollbackInProgress",
-  RollbackSuccessful: "RollbackSuccessful",
-  Successful: "Successful",
-} as const;
-
-/**
- * @public
- */
-export type InstanceRefreshStatus = (typeof InstanceRefreshStatus)[keyof typeof InstanceRefreshStatus];
 
 /**
  * <p>Describes an instance refresh for an Auto Scaling group. </p>
@@ -5368,21 +4875,6 @@ export interface DescribePoliciesType {
 }
 
 /**
- * @public
- * @enum
- */
-export const PredictiveScalingMaxCapacityBreachBehavior = {
-  HonorMaxCapacity: "HonorMaxCapacity",
-  IncreaseMaxCapacity: "IncreaseMaxCapacity",
-} as const;
-
-/**
- * @public
- */
-export type PredictiveScalingMaxCapacityBreachBehavior =
-  (typeof PredictiveScalingMaxCapacityBreachBehavior)[keyof typeof PredictiveScalingMaxCapacityBreachBehavior];
-
-/**
  * <p>Describes the dimension of a metric.</p>
  * @public
  */
@@ -5568,22 +5060,6 @@ export interface PredictiveScalingCustomizedScalingMetric {
 }
 
 /**
- * @public
- * @enum
- */
-export const PredefinedLoadMetricType = {
-  ALBTargetGroupRequestCount: "ALBTargetGroupRequestCount",
-  ASGTotalCPUUtilization: "ASGTotalCPUUtilization",
-  ASGTotalNetworkIn: "ASGTotalNetworkIn",
-  ASGTotalNetworkOut: "ASGTotalNetworkOut",
-} as const;
-
-/**
- * @public
- */
-export type PredefinedLoadMetricType = (typeof PredefinedLoadMetricType)[keyof typeof PredefinedLoadMetricType];
-
-/**
  * <p>Describes a load metric for a predictive scaling policy.</p>
  *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
  *             predictive scaling policy uses individually specified load and scaling metrics instead
@@ -5625,22 +5101,6 @@ export interface PredictiveScalingPredefinedLoadMetric {
 }
 
 /**
- * @public
- * @enum
- */
-export const PredefinedMetricPairType = {
-  ALBRequestCount: "ALBRequestCount",
-  ASGCPUUtilization: "ASGCPUUtilization",
-  ASGNetworkIn: "ASGNetworkIn",
-  ASGNetworkOut: "ASGNetworkOut",
-} as const;
-
-/**
- * @public
- */
-export type PredefinedMetricPairType = (typeof PredefinedMetricPairType)[keyof typeof PredefinedMetricPairType];
-
-/**
  * <p>Represents a metric pair for a predictive scaling policy. </p>
  * @public
  */
@@ -5680,23 +5140,6 @@ export interface PredictiveScalingPredefinedMetricPair {
    */
   ResourceLabel?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PredefinedScalingMetricType = {
-  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn: "ASGAverageNetworkIn",
-  ASGAverageNetworkOut: "ASGAverageNetworkOut",
-} as const;
-
-/**
- * @public
- */
-export type PredefinedScalingMetricType =
-  (typeof PredefinedScalingMetricType)[keyof typeof PredefinedScalingMetricType];
 
 /**
  * <p>Describes a scaling metric for a predictive scaling policy.</p>
@@ -5837,20 +5280,6 @@ export interface PredictiveScalingMetricSpecification {
    */
   CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedCapacityMetric | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PredictiveScalingMode = {
-  ForecastAndScale: "ForecastAndScale",
-  ForecastOnly: "ForecastOnly",
-} as const;
-
-/**
- * @public
- */
-export type PredictiveScalingMode = (typeof PredictiveScalingMode)[keyof typeof PredictiveScalingMode];
 
 /**
  * <p>Represents a predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
@@ -6112,23 +5541,6 @@ export interface TargetTrackingMetricDataQuery {
 }
 
 /**
- * @public
- * @enum
- */
-export const MetricStatistic = {
-  Average: "Average",
-  Maximum: "Maximum",
-  Minimum: "Minimum",
-  SampleCount: "SampleCount",
-  Sum: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
-
-/**
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *             with Amazon EC2 Auto Scaling.</p>
  *          <p>To create your customized metric specification:</p>
@@ -6209,22 +5621,6 @@ export interface CustomizedMetricSpecification {
    */
   Metrics?: TargetTrackingMetricDataQuery[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricType = {
-  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn: "ASGAverageNetworkIn",
-  ASGAverageNetworkOut: "ASGAverageNetworkOut",
-} as const;
-
-/**
- * @public
- */
-export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
@@ -7579,44 +6975,6 @@ export interface GetPredictiveScalingForecastType {
 }
 
 /**
- * <p>
- *             Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
- *         </p>
- * @public
- */
-export class IdempotentParameterMismatchError extends __BaseException {
-  readonly name: "IdempotentParameterMismatchError" = "IdempotentParameterMismatchError";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchError, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RetryStrategy = {
-  NONE: "none",
-  RETRY_WITH_GROUP_CONFIGURATION: "retry-with-group-configuration",
-} as const;
-
-/**
- * @public
- */
-export type RetryStrategy = (typeof RetryStrategy)[keyof typeof RetryStrategy];
-
-/**
  * @public
  */
 export interface LaunchInstancesRequest {
@@ -8413,29 +7771,6 @@ export interface ScalingProcessQuery {
 }
 
 /**
- * <p>The request failed because a desired configuration was not found or an incompatible
- *             launch template (uses a Systems Manager parameter instead of an AMI ID) or launch
- *             template version (<code>$Latest</code> or <code>$Default</code>) is present on the Auto Scaling
- *             group.</p>
- * @public
- */
-export class IrreversibleInstanceRefreshFault extends __BaseException {
-  readonly name: "IrreversibleInstanceRefreshFault" = "IrreversibleInstanceRefreshFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IrreversibleInstanceRefreshFault, __BaseException>) {
-    super({
-      name: "IrreversibleInstanceRefreshFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IrreversibleInstanceRefreshFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface RollbackInstanceRefreshAnswer {
@@ -8544,27 +7879,6 @@ export interface SetInstanceProtectionQuery {
 }
 
 /**
- * <p>The request failed because an active instance refresh already exists for the specified
- *             Auto Scaling group.</p>
- * @public
- */
-export class InstanceRefreshInProgressFault extends __BaseException {
-  readonly name: "InstanceRefreshInProgressFault" = "InstanceRefreshInProgressFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceRefreshInProgressFault, __BaseException>) {
-    super({
-      name: "InstanceRefreshInProgressFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceRefreshInProgressFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface StartInstanceRefreshAnswer {
@@ -8574,19 +7888,6 @@ export interface StartInstanceRefreshAnswer {
    */
   InstanceRefreshId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RefreshStrategy = {
-  Rolling: "Rolling",
-} as const;
-
-/**
- * @public
- */
-export type RefreshStrategy = (typeof RefreshStrategy)[keyof typeof RefreshStrategy];
 
 /**
  * @public

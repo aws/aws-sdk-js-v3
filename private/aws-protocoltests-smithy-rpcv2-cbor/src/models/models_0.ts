@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { RpcV2ProtocolServiceException as __BaseException } from "./RpcV2ProtocolServiceException";
+import { FooEnum, IntegerEnum, TestEnum, TestIntEnum } from "./enums";
 
 /**
  * Describes one specific validation failure for an input member.
@@ -22,36 +20,6 @@ export interface ValidationExceptionField {
 }
 
 /**
- * A standard error for input validation failures.
- * This should be thrown by services when a member of the input structure
- * falls outside of the modeled or documented constraints.
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * A list of specific failures encountered while validating the input.
-   * A member can appear in this list more than once if it failed to satisfy multiple constraints.
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
  * @public
  */
 export interface ClientOptionalDefaults {
@@ -63,49 +31,6 @@ export interface ClientOptionalDefaults {
  */
 export interface ComplexNestedErrorData {
   Foo?: string | undefined;
-}
-
-/**
- * This error is thrown when a request is invalid.
- * @public
- */
-export class ComplexError extends __BaseException {
-  readonly name: "ComplexError" = "ComplexError";
-  readonly $fault: "client" = "client";
-  TopLevel?: string | undefined;
-  Nested?: ComplexNestedErrorData | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
-    super({
-      name: "ComplexError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ComplexError.prototype);
-    this.TopLevel = opts.TopLevel;
-    this.Nested = opts.Nested;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TestEnum = {
-  BAR: "BAR",
-  BAZ: "BAZ",
-  FOO: "FOO",
-} as const;
-/**
- * @public
- */
-export type TestEnum = (typeof TestEnum)[keyof typeof TestEnum];
-
-export enum TestIntEnum {
-  ONE = 1,
-  TWO = 2,
 }
 
 /**
@@ -171,28 +96,6 @@ export interface GreetingWithErrorsOutput {
 }
 
 /**
- * This error is thrown when an invalid greeting value is provided.
- * @public
- */
-export class InvalidGreeting extends __BaseException {
-  readonly name: "InvalidGreeting" = "InvalidGreeting";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
-    super({
-      name: "InvalidGreeting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGreeting.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface OperationWithDefaultsInput {
@@ -247,28 +150,6 @@ export interface RpcV2CborDenseMapsInputOutput {
   denseBooleanMap?: Record<string, boolean> | undefined;
   denseStringMap?: Record<string, string> | undefined;
   denseSetMap?: Record<string, string[]> | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FooEnum = {
-  BAR: "Bar",
-  BAZ: "Baz",
-  FOO: "Foo",
-  ONE: "1",
-  ZERO: "0",
-} as const;
-/**
- * @public
- */
-export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
-
-export enum IntegerEnum {
-  A = 1,
-  B = 2,
-  C = 3,
 }
 
 /**

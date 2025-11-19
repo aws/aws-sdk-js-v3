@@ -12,6 +12,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ApiGatewayV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { ApiGatewayV2ServiceException } from "./models/ApiGatewayV2ServiceException";

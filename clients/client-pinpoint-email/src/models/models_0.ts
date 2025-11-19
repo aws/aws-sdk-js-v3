@@ -1,102 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { PinpointEmailServiceException as __BaseException } from "./PinpointEmailServiceException";
-
-/**
- * <p>The message can't be sent because the account's ability to send email has been
- *             permanently restricted.</p>
- * @public
- */
-export class AccountSuspendedException extends __BaseException {
-  readonly name: "AccountSuspendedException" = "AccountSuspendedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountSuspendedException, __BaseException>) {
-    super({
-      name: "AccountSuspendedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountSuspendedException.prototype);
-  }
-}
-
-/**
- * <p>The resource specified in your request already exists.</p>
- * @public
- */
-export class AlreadyExistsException extends __BaseException {
-  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
-    super({
-      name: "AlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The input you provided is invalid.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-  }
-}
-
-/**
- * <p>The resource is being modified by another operation or thread.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TlsPolicy = {
-  OPTIONAL: "OPTIONAL",
-  REQUIRE: "REQUIRE",
-} as const;
-
-/**
- * @public
- */
-export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
+import {
+  BehaviorOnMxFailure,
+  DeliverabilityDashboardAccountStatus,
+  DeliverabilityTestStatus,
+  DimensionValueSource,
+  DkimStatus,
+  EventType,
+  IdentityType,
+  MailFromDomainStatus,
+  TlsPolicy,
+  WarmupStatus,
+} from "./enums";
 
 /**
  * <p>Used to associate a configuration set with a dedicated IP pool.</p>
@@ -284,81 +198,6 @@ export interface CreateConfigurationSetRequest {
 export interface CreateConfigurationSetResponse {}
 
 /**
- * <p>There are too many instances of the specified resource type.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The resource you attempted to access doesn't exist.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Too many requests have been made to the operation.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DimensionValueSource = {
-  EMAIL_HEADER: "EMAIL_HEADER",
-  LINK_TAG: "LINK_TAG",
-  MESSAGE_TAG: "MESSAGE_TAG",
-} as const;
-
-/**
- * @public
- */
-export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
-
-/**
  * <p>An object that defines the dimension configuration to use when you send Amazon Pinpoint email
  *             events to Amazon CloudWatch.</p>
  * @public
@@ -442,26 +281,6 @@ export interface KinesisFirehoseDestination {
    */
   DeliveryStreamArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  BOUNCE: "BOUNCE",
-  CLICK: "CLICK",
-  COMPLAINT: "COMPLAINT",
-  DELIVERY: "DELIVERY",
-  OPEN: "OPEN",
-  REJECT: "REJECT",
-  RENDERING_FAILURE: "RENDERING_FAILURE",
-  SEND: "SEND",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
@@ -823,20 +642,6 @@ export interface CreateDeliverabilityTestReportRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeliverabilityTestStatus = {
-  COMPLETED: "COMPLETED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type DeliverabilityTestStatus = (typeof DeliverabilityTestStatus)[keyof typeof DeliverabilityTestStatus];
-
-/**
  * <p>Information about the predictive inbox placement test that you created.</p>
  * @public
  */
@@ -858,67 +663,6 @@ export interface CreateDeliverabilityTestReportResponse {
 }
 
 /**
- * <p>The message can't be sent because the sending domain isn't verified.</p>
- * @public
- */
-export class MailFromDomainNotVerifiedException extends __BaseException {
-  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
-    super({
-      name: "MailFromDomainNotVerifiedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
-  }
-}
-
-/**
- * <p>The message can't be sent because it contains invalid content.</p>
- * @public
- */
-export class MessageRejected extends __BaseException {
-  readonly name: "MessageRejected" = "MessageRejected";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
-    super({
-      name: "MessageRejected",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MessageRejected.prototype);
-  }
-}
-
-/**
- * <p>The message can't be sent because the account's ability to send email is currently
- *             paused.</p>
- * @public
- */
-export class SendingPausedException extends __BaseException {
-  readonly name: "SendingPausedException" = "SendingPausedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SendingPausedException, __BaseException>) {
-    super({
-      name: "SendingPausedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SendingPausedException.prototype);
-  }
-}
-
-/**
  * <p>A request to begin the verification process for an email identity (an email address or
  *             domain).</p>
  * @public
@@ -937,23 +681,6 @@ export interface CreateEmailIdentityRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DkimStatus = {
-  FAILED: "FAILED",
-  NOT_STARTED: "NOT_STARTED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type DkimStatus = (typeof DkimStatus)[keyof typeof DkimStatus];
 
 /**
  * <p>An object that contains information about the DKIM configuration for an email
@@ -1015,21 +742,6 @@ export interface DkimAttributes {
    */
   Tokens?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentityType = {
-  DOMAIN: "DOMAIN",
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  MANAGED_DOMAIN: "MANAGED_DOMAIN",
-} as const;
-
-/**
- * @public
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 /**
  * <p>If the email identity is a domain, this object contains tokens that you can use to
@@ -1470,20 +1182,6 @@ export interface GetDedicatedIpRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const WarmupStatus = {
-  DONE: "DONE",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type WarmupStatus = (typeof WarmupStatus)[keyof typeof WarmupStatus];
-
-/**
  * <p>Contains information about a dedicated IP address that is associated with your Amazon Pinpoint
  *             account.</p>
  *         <p></p>
@@ -1602,22 +1300,6 @@ export interface GetDedicatedIpsResponse {
  * @public
  */
 export interface GetDeliverabilityDashboardOptionsRequest {}
-
-/**
- * @public
- * @enum
- */
-export const DeliverabilityDashboardAccountStatus = {
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-  PENDING_EXPIRATION: "PENDING_EXPIRATION",
-} as const;
-
-/**
- * @public
- */
-export type DeliverabilityDashboardAccountStatus =
-  (typeof DeliverabilityDashboardAccountStatus)[keyof typeof DeliverabilityDashboardAccountStatus];
 
 /**
  * <p>An object that contains information about the inbox placement data settings for a
@@ -2206,36 +1888,6 @@ export interface GetEmailIdentityRequest {
    */
   EmailIdentity: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BehaviorOnMxFailure = {
-  REJECT_MESSAGE: "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type BehaviorOnMxFailure = (typeof BehaviorOnMxFailure)[keyof typeof BehaviorOnMxFailure];
-
-/**
- * @public
- * @enum
- */
-export const MailFromDomainStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type MailFromDomainStatus = (typeof MailFromDomainStatus)[keyof typeof MailFromDomainStatus];
 
 /**
  * <p>A list of attributes that are associated with a MAIL FROM domain.</p>

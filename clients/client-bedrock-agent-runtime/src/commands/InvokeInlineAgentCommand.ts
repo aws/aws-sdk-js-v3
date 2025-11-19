@@ -9,8 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InvokeInlineAgentResponse } from "../models/models_0";
-import { InvokeInlineAgentRequest } from "../models/models_1";
+import { InvokeInlineAgentRequest, InvokeInlineAgentResponse } from "../models/models_0";
 import { InvokeInlineAgent } from "../schemas/schemas_0";
 
 /**

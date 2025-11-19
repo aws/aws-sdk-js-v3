@@ -8,7 +8,7 @@ import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   PutFindingsPublicationConfigurationRequest,
   PutFindingsPublicationConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { PutFindingsPublicationConfiguration } from "../schemas/schemas_0";
 
 /**

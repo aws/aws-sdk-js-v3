@@ -1,22 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MarketplaceEntitlementServiceServiceException as __BaseException } from "./MarketplaceEntitlementServiceServiceException";
-
-/**
- * @public
- * @enum
- */
-export const GetEntitlementFilterName = {
-  CUSTOMER_AWS_ACCOUNT_ID: "CUSTOMER_AWS_ACCOUNT_ID",
-  CUSTOMER_IDENTIFIER: "CUSTOMER_IDENTIFIER",
-  DIMENSION: "DIMENSION",
-} as const;
-
-/**
- * @public
- */
-export type GetEntitlementFilterName = (typeof GetEntitlementFilterName)[keyof typeof GetEntitlementFilterName];
+import { GetEntitlementFilterName } from "./enums";
 
 /**
  * <p>The GetEntitlementsRequest contains parameters for the GetEntitlements
@@ -168,65 +151,4 @@ export interface GetEntitlementsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *    message with details on the AWS forums.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-  }
-}
-
-/**
- * <p>One or more parameters in your request was invalid.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
-}
-
-/**
- * <p>The calls to the GetEntitlements API are throttled.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }

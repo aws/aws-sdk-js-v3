@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateDistributionWithStagingConfigRequest,
   UpdateDistributionWithStagingConfigResult,
-} from "../models/models_2";
+} from "../models/models_1";
 import { UpdateDistributionWithStagingConfig } from "../schemas/schemas_0";
 
 /**

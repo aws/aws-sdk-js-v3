@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateIdentityProviderRequest, UpdateIdentityProviderResponse } from "../models/models_1";
+import { UpdateIdentityProviderRequest, UpdateIdentityProviderResponse } from "../models/models_0";
 import { UpdateIdentityProvider } from "../schemas/schemas_0";
 
 /**

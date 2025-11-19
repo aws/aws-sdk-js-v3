@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_1";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
 import { GetInvitationsCount } from "../schemas/schemas_0";
 
 /**

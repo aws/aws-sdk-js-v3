@@ -1,7 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTEventsServiceException as __BaseException } from "./IoTEventsServiceException";
+import {
+  AlarmModelVersionStatus,
+  AnalysisResultLevel,
+  AnalysisStatus,
+  ComparisonOperator,
+  DetectorModelVersionStatus,
+  EvaluationMethod,
+  InputStatus,
+  LoggingLevel,
+  PayloadType,
+} from "./enums";
 
 /**
  * <p>Specifies whether to get notified for alarm state changes.</p>
@@ -30,20 +38,6 @@ export interface ClearTimerAction {
    */
   timerName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PayloadType = {
-  JSON: "JSON",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
 
 /**
  * <p>Information needed to configure the payload.</p>
@@ -1106,22 +1100,6 @@ export interface AlarmModelSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const AlarmModelVersionStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AlarmModelVersionStatus = (typeof AlarmModelVersionStatus)[keyof typeof AlarmModelVersionStatus];
-
-/**
  * <p>Contains a summary of an alarm model version.</p>
  * @public
  */
@@ -1375,24 +1353,6 @@ export interface AlarmNotification {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  EQUAL: "EQUAL",
-  GREATER: "GREATER",
-  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
-  LESS: "LESS",
-  LESS_OR_EQUAL: "LESS_OR_EQUAL",
-  NOT_EQUAL: "NOT_EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
  * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
  * @public
  */
@@ -1429,21 +1389,6 @@ export interface AlarmRule {
    */
   simpleRule?: SimpleRule | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnalysisResultLevel = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARNING: "WARNING",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisResultLevel = (typeof AnalysisResultLevel)[keyof typeof AnalysisResultLevel];
 
 /**
  * <p>Contains information that you can use to locate the field in your detector model that the
@@ -1550,21 +1495,6 @@ export interface AnalysisResult {
    */
   locations?: AnalysisResultLocation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AnalysisStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
 
 /**
  * <p>The attributes from the JSON payload that are made available by the input. Inputs are
@@ -1733,160 +1663,6 @@ export interface CreateAlarmModelResponse {
 }
 
 /**
- * <p>An internal failure occurred.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>The request was invalid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p>A limit was exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The resource already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The ARN of the resource.</p>
-   * @public
-   */
-  resourceArn?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceArn = opts.resourceArn;
-  }
-}
-
-/**
- * <p>The resource is in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>The request could not be completed due to throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>Specifies the <code>actions</code> to be performed when the <code>condition</code>
  *       evaluates to TRUE.</p>
  * @public
@@ -2045,20 +1821,6 @@ export interface DetectorModelDefinition {
 
 /**
  * @public
- * @enum
- */
-export const EvaluationMethod = {
-  BATCH: "BATCH",
-  SERIAL: "SERIAL",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationMethod = (typeof EvaluationMethod)[keyof typeof EvaluationMethod];
-
-/**
- * @public
  */
 export interface CreateDetectorModelRequest {
   /**
@@ -2108,25 +1870,6 @@ export interface CreateDetectorModelRequest {
    */
   evaluationMethod?: EvaluationMethod | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DetectorModelVersionStatus = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  DEPRECATED: "DEPRECATED",
-  DRAFT: "DRAFT",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-  PAUSED: "PAUSED",
-} as const;
-
-/**
- * @public
- */
-export type DetectorModelVersionStatus = (typeof DetectorModelVersionStatus)[keyof typeof DetectorModelVersionStatus];
 
 /**
  * <p>Information about how the detector model is configured.</p>
@@ -2258,22 +2001,6 @@ export interface CreateInputRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type InputStatus = (typeof InputStatus)[keyof typeof InputStatus];
-
-/**
  * <p>Information about the configuration of an input.</p>
  * @public
  */
@@ -2341,26 +2068,6 @@ export interface DeleteAlarmModelRequest {
  * @public
  */
 export interface DeleteAlarmModelResponse {}
-
-/**
- * <p>The resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * @public
@@ -2681,21 +2388,6 @@ export interface DetectorDebugOption {
 }
 
 /**
- * @public
- * @enum
- */
-export const LoggingLevel = {
-  DEBUG: "DEBUG",
-  ERROR: "ERROR",
-  INFO: "INFO",
-} as const;
-
-/**
- * @public
- */
-export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
-
-/**
  * <p>The values of the AWS IoT Events logging options.</p>
  * @public
  */
@@ -2735,26 +2427,6 @@ export interface DescribeLoggingOptionsResponse {
    * @public
    */
   loggingOptions?: LoggingOptions | undefined;
-}
-
-/**
- * <p>The requested operation is not supported.</p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-  }
 }
 
 /**

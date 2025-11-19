@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { EvsServiceException as __BaseException } from "./EvsServiceException";
+import { _InstanceType, CheckResult, CheckType, EnvironmentState, HostState, VcfVersion, VlanState } from "./enums";
 
 /**
  * @public
@@ -55,23 +53,6 @@ export interface EipAssociation {
    */
   ipAddress?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VlanState = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type VlanState = (typeof VlanState)[keyof typeof VlanState];
 
 /**
  * <p>The VLANs that Amazon EVS creates during environment creation.</p>
@@ -163,68 +144,6 @@ export interface AssociateEipToVlanResponse {
 }
 
 /**
- * <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that could not be found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that is associated with the error.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The operation couldn't be performed because the service is throttling requests. This exception is thrown when there are too many requests accepted concurrently from the service endpoint.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * <p>The seconds to wait to retry.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -243,56 +162,6 @@ export interface ValidationExceptionField {
 }
 
 /**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>A list of fields that didn't validate.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
  * <p>The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.</p>
  * @public
  */
@@ -303,19 +172,6 @@ export interface ConnectivityInfo {
    */
   privateRouteServerPeerings: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const _InstanceType = {
-  I4I_METAL: "i4i.metal",
-} as const;
-
-/**
- * @public
- */
-export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
 
 /**
  * <p>An object that represents a host.</p> <note> <p>You cannot use <code>dedicatedHostId</code> and <code>placementGroupId</code> together in the same <code>HostInfoForCreate</code>object. This results in a <code>ValidationException</code> response.</p> </note>
@@ -535,19 +391,6 @@ export interface VcfHostnames {
 
 /**
  * @public
- * @enum
- */
-export const VcfVersion = {
-  VCF_5_2_1: "VCF-5.2.1",
-} as const;
-
-/**
- * @public
- */
-export type VcfVersion = (typeof VcfVersion)[keyof typeof VcfVersion];
-
-/**
- * @public
  */
 export interface CreateEnvironmentRequest {
   /**
@@ -642,37 +485,6 @@ export interface CreateEnvironmentRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CheckResult = {
-  FAILED: "FAILED",
-  PASSED: "PASSED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type CheckResult = (typeof CheckResult)[keyof typeof CheckResult];
-
-/**
- * @public
- * @enum
- */
-export const CheckType = {
-  HOST_COUNT: "HOST_COUNT",
-  KEY_COVERAGE: "KEY_COVERAGE",
-  KEY_REUSE: "KEY_REUSE",
-  REACHABILITY: "REACHABILITY",
-} as const;
-
-/**
- * @public
- */
-export type CheckType = (typeof CheckType)[keyof typeof CheckType];
-
-/**
  * <p>A check on the environment to identify environment health and validate VMware VCF licensing compliance.</p>
  * @public
  */
@@ -707,23 +519,6 @@ export interface Secret {
    */
   secretArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentState = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentState = (typeof EnvironmentState)[keyof typeof EnvironmentState];
 
 /**
  * <p>An object that represents an Amazon EVS environment.</p>
@@ -938,25 +733,6 @@ export interface EnvironmentSummary {
    */
   environmentArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HostState = {
-  CREATED: "CREATED",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type HostState = (typeof HostState)[keyof typeof HostState];
 
 /**
  * <p>An elastic network interface (ENI) that connects hosts to the VLAN subnets. Amazon EVS provisions two identically configured ENIs in the VMkernel management subnet during host creation. One ENI is active, and the other is in standby mode for automatic switchover during a failure scenario.</p>
@@ -1338,46 +1114,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>The number of one or more Amazon EVS resources exceeds the maximum allowed. For a list of Amazon EVS quotas, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/service-quotas-evs.html">Amazon EVS endpoints and quotas</a> in the <i>Amazon EVS User Guide</i>. Delete some resources or request an increase in your service quota. To request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Web Services Service Quotas</a> in the <i>Amazon Web Services General Reference Guide</i>. </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <note> <p> <code>TagPolicyException</code> is deprecated. See <a href="https://docs.aws.amazon.com/evs/latest/APIReference/API_ValidationException.html"> <code>ValidationException</code> </a> instead.</p> </note> <p>The request doesn't comply with IAM tag policy. Correct your request and then retry it.</p>
- * @public
- */
-export class TagPolicyException extends __BaseException {
-  readonly name: "TagPolicyException" = "TagPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagPolicyException, __BaseException>) {
-    super({
-      name: "TagPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagPolicyException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface TagResourceRequest {
@@ -1398,26 +1134,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <note> <p> <code>TooManyTagsException</code> is deprecated. See <a href="https://docs.aws.amazon.com/evs/latest/APIReference/API_ServiceQuotaExceededException.html"> <code>ServiceQuotaExceededException</code> </a> instead.</p> </note> <p>A service resource associated with the request has more than 200 tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
 
 /**
  * @public

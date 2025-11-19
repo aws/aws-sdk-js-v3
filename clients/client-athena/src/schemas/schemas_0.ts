@@ -505,7 +505,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   SessionAlreadyExistsException as __SessionAlreadyExistsException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

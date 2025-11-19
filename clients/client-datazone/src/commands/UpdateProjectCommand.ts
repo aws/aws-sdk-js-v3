@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateProjectInput, UpdateProjectOutput } from "../models/models_2";
+import { UpdateProjectInput } from "../models/models_1";
+import { UpdateProjectOutput } from "../models/models_2";
 import { UpdateProject } from "../schemas/schemas_0";
 
 /**

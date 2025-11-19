@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyFpgaImageAttributeRequest, ModifyFpgaImageAttributeResult } from "../models/models_7";
+import { ModifyFpgaImageAttributeRequest, ModifyFpgaImageAttributeResult } from "../models/models_6";
 import { ModifyFpgaImageAttribute } from "../schemas/schemas_0";
 
 /**

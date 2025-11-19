@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_1";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_0";
 import { ListDiscoveredResources } from "../schemas/schemas_0";
 
 /**

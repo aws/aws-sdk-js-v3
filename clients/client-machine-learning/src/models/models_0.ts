@@ -1,23 +1,17 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MachineLearningServiceException as __BaseException } from "./MachineLearningServiceException";
-
-/**
- * @public
- * @enum
- */
-export const TaggableResourceType = {
-  BATCH_PREDICTION: "BatchPrediction",
-  DATASOURCE: "DataSource",
-  EVALUATION: "Evaluation",
-  ML_MODEL: "MLModel",
-} as const;
-
-/**
- * @public
- */
-export type TaggableResourceType = (typeof TaggableResourceType)[keyof typeof TaggableResourceType];
+import {
+  Algorithm,
+  BatchPredictionFilterVariable,
+  DataSourceFilterVariable,
+  DetailsAttributes,
+  EntityStatus,
+  EvaluationFilterVariable,
+  MLModelFilterVariable,
+  MLModelType,
+  RealtimeEndpointStatus,
+  SortOrder,
+  TaggableResourceType,
+} from "./enums";
 
 /**
  * <p>A custom key-value pair associated with an ML object, such as an ML model.</p>
@@ -79,123 +73,6 @@ export interface AddTagsOutput {
 }
 
 /**
- * <p>An error on the server occurred when trying to process a request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * @public
- */
-export class InvalidTagException extends __BaseException {
-  readonly name: "InvalidTagException" = "InvalidTagException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
-    super({
-      name: "InvalidTagException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagException.prototype);
-  }
-}
-
-/**
- * <p>A specified resource cannot be located.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
- * @public
- */
-export class TagLimitExceededException extends __BaseException {
-  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
-    super({
-      name: "TagLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Algorithm = {
-  SGD: "sgd",
-} as const;
-
-/**
- * @public
- */
-export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
-
-/**
  * @public
  */
 export interface CreateBatchPredictionInput {
@@ -246,28 +123,6 @@ export interface CreateBatchPredictionOutput {
    * @public
    */
   BatchPredictionId?: string | undefined;
-}
-
-/**
- * <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
- * @public
- */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-    this.code = opts.code;
-  }
 }
 
 /**
@@ -1129,21 +984,6 @@ export interface CreateEvaluationOutput {
 
 /**
  * @public
- * @enum
- */
-export const MLModelType = {
-  BINARY: "BINARY",
-  MULTICLASS: "MULTICLASS",
-  REGRESSION: "REGRESSION",
-} as const;
-
-/**
- * @public
- */
-export type MLModelType = (typeof MLModelType)[keyof typeof MLModelType];
-
-/**
- * @public
  */
 export interface CreateMLModelInput {
   /**
@@ -1273,22 +1113,6 @@ export interface CreateRealtimeEndpointInput {
    */
   MLModelId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RealtimeEndpointStatus = {
-  FAILED: "FAILED",
-  NONE: "NONE",
-  READY: "READY",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type RealtimeEndpointStatus = (typeof RealtimeEndpointStatus)[keyof typeof RealtimeEndpointStatus];
 
 /**
  * <p> Describes the real-time endpoint information for an <code>MLModel</code>.</p>
@@ -1532,41 +1356,6 @@ export interface DeleteTagsOutput {
 
 /**
  * @public
- * @enum
- */
-export const BatchPredictionFilterVariable = {
-  CREATED_AT: "CreatedAt",
-  DATASOURCE_ID: "DataSourceId",
-  DATA_URI: "DataURI",
-  IAM_USER: "IAMUser",
-  LAST_UPDATED_AT: "LastUpdatedAt",
-  ML_MODEL_ID: "MLModelId",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type BatchPredictionFilterVariable =
-  (typeof BatchPredictionFilterVariable)[keyof typeof BatchPredictionFilterVariable];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASC: "asc",
-  DSC: "dsc",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * @public
  */
 export interface DescribeBatchPredictionsInput {
   /**
@@ -1699,23 +1488,6 @@ export interface DescribeBatchPredictionsInput {
    */
   Limit?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityStatus = {
-  COMPLETED: "COMPLETED",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  INPROGRESS: "INPROGRESS",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
 
 /**
  * <p> Represents the output of a <code>GetBatchPrediction</code> operation.</p>
@@ -1863,24 +1635,6 @@ export interface DescribeBatchPredictionsOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataSourceFilterVariable = {
-  CREATED_AT: "CreatedAt",
-  DATA_URI: "DataLocationS3",
-  IAM_USER: "IAMUser",
-  LAST_UPDATED_AT: "LastUpdatedAt",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceFilterVariable = (typeof DataSourceFilterVariable)[keyof typeof DataSourceFilterVariable];
 
 /**
  * @public
@@ -2233,26 +1987,6 @@ export interface DescribeDataSourcesOutput {
 
 /**
  * @public
- * @enum
- */
-export const EvaluationFilterVariable = {
-  CREATED_AT: "CreatedAt",
-  DATASOURCE_ID: "DataSourceId",
-  DATA_URI: "DataURI",
-  IAM_USER: "IAMUser",
-  LAST_UPDATED_AT: "LastUpdatedAt",
-  ML_MODEL_ID: "MLModelId",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFilterVariable = (typeof EvaluationFilterVariable)[keyof typeof EvaluationFilterVariable];
-
-/**
- * @public
  */
 export interface DescribeEvaluationsInput {
   /**
@@ -2557,28 +2291,6 @@ export interface DescribeEvaluationsOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MLModelFilterVariable = {
-  ALGORITHM: "Algorithm",
-  CREATED_AT: "CreatedAt",
-  IAM_USER: "IAMUser",
-  LAST_UPDATED_AT: "LastUpdatedAt",
-  ML_MODEL_TYPE: "MLModelType",
-  NAME: "Name",
-  REAL_TIME_ENDPOINT_STATUS: "RealtimeEndpointStatus",
-  STATUS: "Status",
-  TRAINING_DATASOURCE_ID: "TrainingDataSourceId",
-  TRAINING_DATA_URI: "TrainingDataURI",
-} as const;
-
-/**
- * @public
- */
-export type MLModelFilterVariable = (typeof MLModelFilterVariable)[keyof typeof MLModelFilterVariable];
 
 /**
  * @public
@@ -3692,28 +3404,6 @@ export interface GetMLModelOutput {
 }
 
 /**
- * <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  code?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.code = opts.code;
-  }
-}
-
-/**
  * @public
  */
 export interface PredictInput {
@@ -3731,40 +3421,6 @@ export interface PredictInput {
 
   PredictEndpoint: string | undefined;
 }
-
-/**
- * <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>
- * @public
- */
-export class PredictorNotMountedException extends __BaseException {
-  readonly name: "PredictorNotMountedException" = "PredictorNotMountedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PredictorNotMountedException, __BaseException>) {
-    super({
-      name: "PredictorNotMountedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PredictorNotMountedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DetailsAttributes = {
-  ALGORITHM: "Algorithm",
-  PREDICTIVE_MODEL_TYPE: "PredictiveModelType",
-} as const;
-
-/**
- * @public
- */
-export type DetailsAttributes = (typeof DetailsAttributes)[keyof typeof DetailsAttributes];
 
 /**
  * <p>The output from a <code>Predict</code> operation: </p>

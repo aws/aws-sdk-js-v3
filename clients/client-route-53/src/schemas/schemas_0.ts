@@ -625,7 +625,7 @@ import {
   TrafficPolicyInUse as __TrafficPolicyInUse,
   VPCAssociationAuthorizationNotFound as __VPCAssociationAuthorizationNotFound,
   VPCAssociationNotFound as __VPCAssociationNotFound,
-} from "../models/index";
+} from "../models/errors";
 import { Route53ServiceException as __Route53ServiceException } from "../models/Route53ServiceException";
 
 /* eslint no-var: 0 */

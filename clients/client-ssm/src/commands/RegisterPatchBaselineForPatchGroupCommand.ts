@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RegisterPatchBaselineForPatchGroupRequest,
   RegisterPatchBaselineForPatchGroupResult,
-} from "../models/models_2";
+} from "../models/models_1";
 import { RegisterPatchBaselineForPatchGroup } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

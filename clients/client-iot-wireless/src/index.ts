@@ -30,6 +30,10 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { IoTWirelessExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
+export type * from "./models/models_1";
 
 export { IoTWirelessServiceException } from "./models/IoTWirelessServiceException";

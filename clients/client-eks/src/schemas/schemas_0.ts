@@ -607,7 +607,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   UnsupportedAvailabilityZoneException as __UnsupportedAvailabilityZoneException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

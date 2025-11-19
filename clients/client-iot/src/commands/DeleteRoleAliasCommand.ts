@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/models_1";
+import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/models_0";
 import { DeleteRoleAlias } from "../schemas/schemas_0";
 
 /**

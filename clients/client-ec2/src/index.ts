@@ -15,6 +15,15 @@ export type { EC2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
-export * from "./models";
+
+export * from "./models/enums";
+export type * from "./models/models_0";
+export type * from "./models/models_1";
+export type * from "./models/models_2";
+export type * from "./models/models_3";
+export type * from "./models/models_4";
+export type * from "./models/models_5";
+export type * from "./models/models_6";
+export type * from "./models/models_7";
 
 export { EC2ServiceException } from "./models/EC2ServiceException";

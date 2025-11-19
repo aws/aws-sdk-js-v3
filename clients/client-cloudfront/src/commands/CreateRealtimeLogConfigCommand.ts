@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRealtimeLogConfigRequest, CreateRealtimeLogConfigResult } from "../models/models_1";
+import { CreateRealtimeLogConfigRequest, CreateRealtimeLogConfigResult } from "../models/models_0";
 import { CreateRealtimeLogConfig } from "../schemas/schemas_0";
 
 /**

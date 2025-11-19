@@ -692,7 +692,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ImagebuilderServiceException as __ImagebuilderServiceException } from "../models/ImagebuilderServiceException";
 import {
   CallRateLimitExceededException as __CallRateLimitExceededException,
   ClientException as __ClientException,
@@ -711,7 +710,8 @@ import {
   ServiceException as __ServiceException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ServiceUnavailableException as __ServiceUnavailableException,
-} from "../models/index";
+} from "../models/errors";
+import { ImagebuilderServiceException as __ImagebuilderServiceException } from "../models/ImagebuilderServiceException";
 
 /* eslint no-var: 0 */
 

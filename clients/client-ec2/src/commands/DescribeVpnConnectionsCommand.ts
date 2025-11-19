@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_6";
+import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_5";
 import { DescribeVpnConnections } from "../schemas/schemas_0";
 
 /**

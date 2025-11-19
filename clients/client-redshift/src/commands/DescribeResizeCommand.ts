@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResizeProgressMessage } from "../models/models_0";
-import { DescribeResizeMessage } from "../models/models_1";
+import { DescribeResizeMessage, ResizeProgressMessage } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeResize } from "../schemas/schemas_0";
 

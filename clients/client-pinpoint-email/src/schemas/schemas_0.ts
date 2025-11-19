@@ -333,7 +333,7 @@ import {
   NotFoundException as __NotFoundException,
   SendingPausedException as __SendingPausedException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { PinpointEmailServiceException as __PinpointEmailServiceException } from "../models/PinpointEmailServiceException";
 
 /* eslint no-var: 0 */

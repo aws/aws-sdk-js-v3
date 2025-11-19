@@ -8,7 +8,7 @@ import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 import {
   StopColumnStatisticsTaskRunScheduleRequest,
   StopColumnStatisticsTaskRunScheduleResponse,
-} from "../models/models_3";
+} from "../models/models_2";
 import { StopColumnStatisticsTaskRunSchedule } from "../schemas/schemas_0";
 
 /**

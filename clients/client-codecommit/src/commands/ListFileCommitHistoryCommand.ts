@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFileCommitHistoryRequest } from "../models/models_0";
-import { ListFileCommitHistoryResponse } from "../models/models_1";
+import { ListFileCommitHistoryRequest, ListFileCommitHistoryResponse } from "../models/models_0";
 import { ListFileCommitHistory } from "../schemas/schemas_0";
 
 /**

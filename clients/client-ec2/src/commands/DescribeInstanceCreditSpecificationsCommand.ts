@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeInstanceCreditSpecifications } from "../schemas/schemas_0";
 
 /**

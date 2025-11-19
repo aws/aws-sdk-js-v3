@@ -8,7 +8,7 @@ import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import {
   UpdateInfrastructureConfigurationRequest,
   UpdateInfrastructureConfigurationResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { UpdateInfrastructureConfiguration } from "../schemas/schemas_0";
 
 /**

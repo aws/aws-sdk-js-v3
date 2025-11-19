@@ -90,7 +90,7 @@ import {
   ModelStreamError as __ModelStreamError,
   ServiceUnavailable as __ServiceUnavailable,
   ValidationError as __ValidationError,
-} from "../models/index";
+} from "../models/errors";
 import { SageMakerRuntimeServiceException as __SageMakerRuntimeServiceException } from "../models/SageMakerRuntimeServiceException";
 
 /* eslint no-var: 0 */

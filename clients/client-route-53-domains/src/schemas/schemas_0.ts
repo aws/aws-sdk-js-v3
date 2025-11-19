@@ -270,7 +270,7 @@ import {
   OperationLimitExceeded as __OperationLimitExceeded,
   TLDRulesViolation as __TLDRulesViolation,
   UnsupportedTLD as __UnsupportedTLD,
-} from "../models/index";
+} from "../models/errors";
 import { Route53DomainsServiceException as __Route53DomainsServiceException } from "../models/Route53DomainsServiceException";
 
 /* eslint no-var: 0 */

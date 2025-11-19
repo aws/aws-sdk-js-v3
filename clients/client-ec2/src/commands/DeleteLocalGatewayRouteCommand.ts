@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/models_3";
+import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/models_2";
 import { DeleteLocalGatewayRoute } from "../schemas/schemas_0";
 
 /**

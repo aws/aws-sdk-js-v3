@@ -1,27 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BCMDashboardsServiceException as __BaseException } from "./BCMDashboardsServiceException";
-
-/**
- * <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  DashboardType,
+  DateTimeType,
+  Dimension,
+  Granularity,
+  GroupDefinitionType,
+  MatchOption,
+  MetricName,
+  VisualType,
+} from "./enums";
 
 /**
  * <p>A key-value pair that can be attached to a dashboard for organization and management purposes.</p>
@@ -40,21 +27,6 @@ export interface ResourceTag {
    */
   value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VisualType = {
-  BAR: "BAR",
-  LINE: "LINE",
-  STACK: "STACK",
-} as const;
-
-/**
- * @public
- */
-export type VisualType = (typeof VisualType)[keyof typeof VisualType];
 
 /**
  * <p>Defines the visual representation settings for widget data, including the visualization type, styling options, and display preferences for different metric types.</p>
@@ -125,26 +97,6 @@ export namespace DisplayConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const MatchOption = {
-  ABSENT: "ABSENT",
-  CASE_INSENSITIVE: "CASE_INSENSITIVE",
-  CASE_SENSITIVE: "CASE_SENSITIVE",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUALS: "EQUALS",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
-
-/**
  * <p>Specifies the values and match options for cost category-based filtering in cost and usage queries.</p>
  * @public
  */
@@ -167,44 +119,6 @@ export interface CostCategoryValues {
    */
   matchOptions?: MatchOption[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Dimension = {
-  AZ: "AZ",
-  BILLING_ENTITY: "BILLING_ENTITY",
-  CACHE_ENGINE: "CACHE_ENGINE",
-  COST_CATEGORY_NAME: "COST_CATEGORY_NAME",
-  DATABASE_ENGINE: "DATABASE_ENGINE",
-  DEPLOYMENT_OPTION: "DEPLOYMENT_OPTION",
-  INSTANCE_TYPE: "INSTANCE_TYPE",
-  INSTANCE_TYPE_FAMILY: "INSTANCE_TYPE_FAMILY",
-  LEGAL_ENTITY_NAME: "LEGAL_ENTITY_NAME",
-  LINKED_ACCOUNT: "LINKED_ACCOUNT",
-  OPERATING_SYSTEM: "OPERATING_SYSTEM",
-  OPERATION: "OPERATION",
-  PLATFORM: "PLATFORM",
-  PURCHASE_TYPE: "PURCHASE_TYPE",
-  RECORD_TYPE: "RECORD_TYPE",
-  REGION: "REGION",
-  RESERVATION_ID: "RESERVATION_ID",
-  RESOURCE_ID: "RESOURCE_ID",
-  SAVINGS_PLANS_TYPE: "SAVINGS_PLANS_TYPE",
-  SCOPE: "SCOPE",
-  SERVICE: "SERVICE",
-  SUBSCRIPTION_ID: "SUBSCRIPTION_ID",
-  TAG_KEY: "TAG_KEY",
-  TENANCY: "TENANCY",
-  USAGE_TYPE: "USAGE_TYPE",
-  USAGE_TYPE_GROUP: "USAGE_TYPE_GROUP",
-} as const;
-
-/**
- * @public
- */
-export type Dimension = (typeof Dimension)[keyof typeof Dimension];
 
 /**
  * <p>Specifies the values and match options for dimension-based filtering in cost and usage queries.</p>
@@ -255,36 +169,6 @@ export interface TagValues {
 }
 
 /**
- * @public
- * @enum
- */
-export const Granularity = {
-  DAILY: "DAILY",
-  HOURLY: "HOURLY",
-  MONTHLY: "MONTHLY",
-} as const;
-
-/**
- * @public
- */
-export type Granularity = (typeof Granularity)[keyof typeof Granularity];
-
-/**
- * @public
- * @enum
- */
-export const GroupDefinitionType = {
-  COST_CATEGORY: "COST_CATEGORY",
-  DIMENSION: "DIMENSION",
-  TAG: "TAG",
-} as const;
-
-/**
- * @public
- */
-export type GroupDefinitionType = (typeof GroupDefinitionType)[keyof typeof GroupDefinitionType];
-
-/**
  * <p>Specifies how to group cost and usage data.</p>
  * @public
  */
@@ -301,43 +185,6 @@ export interface GroupDefinition {
    */
   type?: GroupDefinitionType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricName = {
-  AmortizedCost: "AmortizedCost",
-  BlendedCost: "BlendedCost",
-  Cost: "Cost",
-  Hour: "Hour",
-  NetAmortizedCost: "NetAmortizedCost",
-  NetUnblendedCost: "NetUnblendedCost",
-  NormalizedUsageAmount: "NormalizedUsageAmount",
-  SpendCoveredBySavingsPlans: "SpendCoveredBySavingsPlans",
-  UnblendedCost: "UnblendedCost",
-  Unit: "Unit",
-  UsageQuantity: "UsageQuantity",
-} as const;
-
-/**
- * @public
- */
-export type MetricName = (typeof MetricName)[keyof typeof MetricName];
-
-/**
- * @public
- * @enum
- */
-export const DateTimeType = {
-  ABSOLUTE: "ABSOLUTE",
-  RELATIVE: "RELATIVE",
-} as const;
-
-/**
- * @public
- */
-export type DateTimeType = (typeof DateTimeType)[keyof typeof DateTimeType];
 
 /**
  * <p>Represents a point in time that can be specified as either an absolute date (for example, "2025-07-01") or a relative time period using ISO 8601 duration format (for example, "-P3M" for three months ago).</p>
@@ -387,86 +234,6 @@ export interface CreateDashboardResponse {
 }
 
 /**
- * <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request would exceed service quotas. For example, attempting to create more than 20 widgets in a dashboard or exceeding the maximum number of dashboards per account.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteDashboardRequest {
@@ -497,39 +264,6 @@ export interface GetDashboardRequest {
    * @public
    */
   arn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DashboardType = {
-  CUSTOM: "CUSTOM",
-} as const;
-
-/**
- * @public
- */
-export type DashboardType = (typeof DashboardType)[keyof typeof DashboardType];
-
-/**
- * <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**

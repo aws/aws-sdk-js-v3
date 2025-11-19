@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopTaskRequest, StopTaskResponse } from "../models/models_1";
+import { StopTaskRequest, StopTaskResponse } from "../models/models_0";
 import { StopTask } from "../schemas/schemas_0";
 
 /**

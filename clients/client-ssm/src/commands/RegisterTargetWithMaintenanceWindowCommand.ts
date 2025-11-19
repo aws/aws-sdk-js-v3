@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTargetWithMaintenanceWindowResult,
-} from "../models/models_2";
+} from "../models/models_1";
 import { RegisterTargetWithMaintenanceWindow } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

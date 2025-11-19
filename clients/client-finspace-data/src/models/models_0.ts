@@ -1,60 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FinspaceDataServiceException as __BaseException } from "./FinspaceDataServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ApiAccess = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ApiAccess = (typeof ApiAccess)[keyof typeof ApiAccess];
-
-/**
- * @public
- * @enum
- */
-export const ApplicationPermission = {
-  AccessNotebooks: "AccessNotebooks",
-  CreateDataset: "CreateDataset",
-  GetTemporaryCredentials: "GetTemporaryCredentials",
-  ManageAttributeSets: "ManageAttributeSets",
-  ManageClusters: "ManageClusters",
-  ManageUsersAndGroups: "ManageUsersAndGroups",
-  ViewAuditData: "ViewAuditData",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationPermission = (typeof ApplicationPermission)[keyof typeof ApplicationPermission];
+import {
+  ApiAccess,
+  ApplicationPermission,
+  ChangeType,
+  ColumnDataType,
+  DatasetKind,
+  DatasetStatus,
+  DataViewStatus,
+  ErrorCategory,
+  ExportFileFormat,
+  IngestionStatus,
+  LocationType,
+  PermissionGroupMembershipStatus,
+  UserStatus,
+  UserType,
+} from "./enums";
 
 /**
  * @public
@@ -91,113 +51,6 @@ export interface AssociateUserToPermissionGroupResponse {
 }
 
 /**
- * <p>The request conflicts with an existing resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  reason?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>One or more resources can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  reason?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  reason?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
  * <p> The credentials required to access the external Dataview from the S3 location.</p>
  * @public
  */
@@ -226,21 +79,6 @@ export interface AwsCredentials {
    */
   expiration?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChangeType = {
-  APPEND: "APPEND",
-  MODIFY: "MODIFY",
-  REPLACE: "REPLACE",
-} as const;
-
-/**
- * @public
- */
-export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
 
 /**
  * The request for a CreateChangeset operation.
@@ -370,40 +208,6 @@ export interface CreateChangesetResponse {
 }
 
 /**
- * <p>A limit has exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DatasetKind = {
-  NON_TABULAR: "NON_TABULAR",
-  TABULAR: "TABULAR",
-} as const;
-
-/**
- * @public
- */
-export type DatasetKind = (typeof DatasetKind)[keyof typeof DatasetKind];
-
-/**
  * <p>A structure for Dataset owner info.</p>
  * @public
  */
@@ -506,30 +310,6 @@ export interface PermissionGroupParams {
    */
   datasetPermissions?: ResourcePermission[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ColumnDataType = {
-  BIGINT: "BIGINT",
-  BINARY: "BINARY",
-  BOOLEAN: "BOOLEAN",
-  CHAR: "CHAR",
-  DATE: "DATE",
-  DATETIME: "DATETIME",
-  DOUBLE: "DOUBLE",
-  FLOAT: "FLOAT",
-  INTEGER: "INTEGER",
-  SMALLINT: "SMALLINT",
-  STRING: "STRING",
-  TINYINT: "TINYINT",
-} as const;
-
-/**
- * @public
- */
-export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
 
 /**
  * <p>The definition of a column in a tabular Dataset.</p>
@@ -688,20 +468,6 @@ export interface CreateDatasetResponse {
    */
   datasetId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportFileFormat = {
-  DELIMITED_TEXT: "DELIMITED_TEXT",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type ExportFileFormat = (typeof ExportFileFormat)[keyof typeof ExportFileFormat];
 
 /**
  * <p>Structure for the Dataview destination type parameters.</p>
@@ -895,20 +661,6 @@ export interface CreatePermissionGroupResponse {
    */
   permissionGroupId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UserType = {
-  APP_USER: "APP_USER",
-  SUPER_USER: "SUPER_USER",
-} as const;
-
-/**
- * @public
- */
-export type UserType = (typeof UserType)[keyof typeof UserType];
 
 /**
  * @public
@@ -1155,26 +907,6 @@ export interface GetChangesetRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorCategory = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  CANCELLED: "CANCELLED",
-  INTERNAL_SERVICE_EXCEPTION: "INTERNAL_SERVICE_EXCEPTION",
-  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
-  SERVICE_QUOTA_EXCEEDED: "SERVICE_QUOTA_EXCEEDED",
-  THROTTLING: "THROTTLING",
-  USER_RECOVERABLE: "USER_RECOVERABLE",
-  VALIDATION: "VALIDATION",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
-
-/**
  * <p>The structure with error messages.</p>
  * @public
  */
@@ -1230,23 +962,6 @@ export interface ChangesetErrorInfo {
    */
   errorCategory?: ErrorCategory | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngestionStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STOP_REQUESTED: "STOP_REQUESTED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
 
 /**
  * The response from a describe changeset operation
@@ -1357,22 +1072,6 @@ export interface GetDatasetRequest {
    */
   datasetId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatasetStatus = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
 
 /**
  * Response for the GetDataset operation
@@ -1542,26 +1241,6 @@ export interface DataViewErrorInfo {
    */
   errorCategory?: ErrorCategory | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataViewStatus = {
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  FAILED_CLEANUP_FAILED: "FAILED_CLEANUP_FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  SUCCESS: "SUCCESS",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type DataViewStatus = (typeof DataViewStatus)[keyof typeof DataViewStatus];
 
 /**
  * Response from retrieving a dataview, which includes details on the target database and table name
@@ -1737,22 +1416,6 @@ export interface GetPermissionGroupRequest {
    */
   permissionGroupId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PermissionGroupMembershipStatus = {
-  ADDITION_IN_PROGRESS: "ADDITION_IN_PROGRESS",
-  ADDITION_SUCCESS: "ADDITION_SUCCESS",
-  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type PermissionGroupMembershipStatus =
-  (typeof PermissionGroupMembershipStatus)[keyof typeof PermissionGroupMembershipStatus];
 
 /**
  * <p>The structure for a permission group.</p>
@@ -1935,21 +1598,6 @@ export interface GetUserRequest {
 
 /**
  * @public
- * @enum
- */
-export const UserStatus = {
-  CREATING: "CREATING",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
-
-/**
- * @public
  */
 export interface GetUserResponse {
   /**
@@ -2066,20 +1714,6 @@ export interface GetUserResponse {
    */
   lastLoginTime?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LocationType = {
-  INGESTION: "INGESTION",
-  SAGEMAKER: "SAGEMAKER",
-} as const;
-
-/**
- * @public
- */
-export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 
 /**
  * @public

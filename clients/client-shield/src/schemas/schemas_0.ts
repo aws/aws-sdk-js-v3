@@ -269,7 +269,7 @@ import {
   OptimisticLockException as __OptimisticLockException,
   ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { ShieldServiceException as __ShieldServiceException } from "../models/ShieldServiceException";
 
 /* eslint no-var: 0 */

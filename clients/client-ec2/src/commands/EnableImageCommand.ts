@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableImageRequest, EnableImageResult } from "../models/models_6";
+import { EnableImageRequest, EnableImageResult } from "../models/models_5";
 import { EnableImage } from "../schemas/schemas_0";
 
 /**

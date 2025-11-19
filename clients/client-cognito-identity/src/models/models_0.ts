@@ -1,22 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CognitoIdentityServiceException as __BaseException } from "./CognitoIdentityServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AmbiguousRoleResolutionType = {
-  AUTHENTICATED_ROLE: "AuthenticatedRole",
-  DENY: "Deny",
-} as const;
-
-/**
- * @public
- */
-export type AmbiguousRoleResolutionType =
-  (typeof AmbiguousRoleResolutionType)[keyof typeof AmbiguousRoleResolutionType];
+import { AmbiguousRoleResolutionType, ErrorCode, MappingRuleMatchType, RoleMappingType } from "./enums";
 
 /**
  * <p>A provider representing an Amazon Cognito user pool and its client ID.</p>
@@ -193,127 +176,6 @@ export interface IdentityPool {
 }
 
 /**
- * <p>Thrown when the service encounters an error during processing the request.</p>
- * @public
- */
-export class InternalErrorException extends __BaseException {
-  readonly name: "InternalErrorException" = "InternalErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
-    super({
-      name: "InternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalErrorException.prototype);
-  }
-}
-
-/**
- * <p>Thrown for missing or bad input parameter(s).</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
-}
-
-/**
- * <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>Thrown when a user is not authorized to access the requested resource.</p>
- * @public
- */
-export class NotAuthorizedException extends __BaseException {
-  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
-    super({
-      name: "NotAuthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
-  }
-}
-
-/**
- * <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
- * @public
- */
-export class ResourceConflictException extends __BaseException {
-  readonly name: "ResourceConflictException" = "ResourceConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
-    super({
-      name: "ResourceConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceConflictException.prototype);
-  }
-}
-
-/**
- * <p>Thrown when a request is throttled.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-  }
-}
-
-/**
  * <p>Input to the <code>DeleteIdentities</code> action.</p>
  * @public
  */
@@ -324,20 +186,6 @@ export interface DeleteIdentitiesInput {
    */
   IdentityIdsToDelete: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  ACCESS_DENIED: "AccessDenied",
-  INTERNAL_SERVER_ERROR: "InternalServerError",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and
@@ -382,27 +230,6 @@ export interface DeleteIdentityPoolInput {
    * @public
    */
   IdentityPoolId: string | undefined;
-}
-
-/**
- * <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -457,27 +284,6 @@ export interface DescribeIdentityPoolInput {
    * @public
    */
   IdentityPoolId: string | undefined;
-}
-
-/**
- * <p>An exception thrown when a dependent service such as Facebook or Twitter is not
- *          responding</p>
- * @public
- */
-export class ExternalServiceException extends __BaseException {
-  readonly name: "ExternalServiceException" = "ExternalServiceException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExternalServiceException, __BaseException>) {
-    super({
-      name: "ExternalServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExternalServiceException.prototype);
-  }
 }
 
 /**
@@ -565,32 +371,6 @@ export interface GetCredentialsForIdentityResponse {
 }
 
 /**
- * <p>If you provided authentication information in the request, the identity pool has no
- *          authenticated role configured, or STS returned an error response to the
- *          request to assume the authenticated role from the identity pool. If you provided no
- *          authentication information in the request, the identity pool has no unauthenticated role
- *          configured, or STS returned an error response to the request to assume the
- *          unauthenticated role from the identity pool.</p>
- *          <p>Your role trust policy must grant <code>AssumeRoleWithWebIdentity</code> permissions to <code>cognito-identity.amazonaws.com</code>.</p>
- * @public
- */
-export class InvalidIdentityPoolConfigurationException extends __BaseException {
-  readonly name: "InvalidIdentityPoolConfigurationException" = "InvalidIdentityPoolConfigurationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIdentityPoolConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidIdentityPoolConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIdentityPoolConfigurationException.prototype);
-  }
-}
-
-/**
  * <p>Input to the GetId action.</p>
  * @public
  */
@@ -668,22 +448,6 @@ export interface GetIdentityPoolRolesInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MappingRuleMatchType = {
-  CONTAINS: "Contains",
-  EQUALS: "Equals",
-  NOT_EQUAL: "NotEqual",
-  STARTS_WITH: "StartsWith",
-} as const;
-
-/**
- * @public
- */
-export type MappingRuleMatchType = (typeof MappingRuleMatchType)[keyof typeof MappingRuleMatchType];
-
-/**
  * <p>A rule that maps a claim name, a claim value, and a match type to a role
  *          ARN.</p>
  * @public
@@ -728,20 +492,6 @@ export interface RulesConfigurationType {
    */
   Rules: MappingRule[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RoleMappingType = {
-  RULES: "Rules",
-  TOKEN: "Token",
-} as const;
-
-/**
- * @public
- */
-export type RoleMappingType = (typeof RoleMappingType)[keyof typeof RoleMappingType];
 
 /**
  * <p>A role mapping.</p>
@@ -844,27 +594,6 @@ export interface GetOpenIdTokenResponse {
    * @public
    */
   Token?: string | undefined;
-}
-
-/**
- * <p>The provided developer user identifier is already registered with Cognito under a
- *          different identity ID.</p>
- * @public
- */
-export class DeveloperUserAlreadyRegisteredException extends __BaseException {
-  readonly name: "DeveloperUserAlreadyRegisteredException" = "DeveloperUserAlreadyRegisteredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeveloperUserAlreadyRegisteredException, __BaseException>) {
-    super({
-      name: "DeveloperUserAlreadyRegisteredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeveloperUserAlreadyRegisteredException.prototype);
-  }
 }
 
 /**
@@ -1243,26 +972,6 @@ export interface MergeDeveloperIdentitiesResponse {
    * @public
    */
   IdentityId?: string | undefined;
-}
-
-/**
- * <p>Thrown if there are parallel requests to modify a resource.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
 }
 
 /**

@@ -1,7 +1,35 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { TranscribeServiceException as __BaseException } from "./TranscribeServiceException";
+import {
+  BaseModelName,
+  CallAnalyticsFeature,
+  CallAnalyticsJobStatus,
+  CallAnalyticsSkippedReasonCode,
+  CLMLanguageCode,
+  InputType,
+  LanguageCode,
+  MediaFormat,
+  MedicalContentIdentificationType,
+  MedicalScribeJobStatus,
+  MedicalScribeLanguageCode,
+  MedicalScribeNoteTemplate,
+  MedicalScribeParticipantRole,
+  ModelStatus,
+  OutputLocationType,
+  ParticipantRole,
+  PiiEntityType,
+  Pronouns,
+  RedactionOutput,
+  RedactionType,
+  SentimentValue,
+  Specialty,
+  SubtitleFormat,
+  ToxicityCategory,
+  TranscriptFilterType,
+  TranscriptionJobStatus,
+  Type,
+  VocabularyFilterMethod,
+  VocabularyState,
+} from "./enums";
 
 /**
  * <p>A time range, in milliseconds, between two points in your media file.</p>
@@ -53,73 +81,6 @@ export interface AbsoluteTimeRange {
 }
 
 /**
- * <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const BaseModelName = {
-  NARROW_BAND: "NarrowBand",
-  WIDE_BAND: "WideBand",
-} as const;
-
-/**
- * @public
- */
-export type BaseModelName = (typeof BaseModelName)[keyof typeof BaseModelName];
-
-/**
- * @public
- * @enum
- */
-export const CallAnalyticsFeature = {
-  GENERATIVE_SUMMARIZATION: "GENERATIVE_SUMMARIZATION",
-} as const;
-
-/**
- * @public
- */
-export type CallAnalyticsFeature = (typeof CallAnalyticsFeature)[keyof typeof CallAnalyticsFeature];
-
-/**
- * @public
- * @enum
- */
-export const CallAnalyticsSkippedReasonCode = {
-  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
-  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
-} as const;
-
-/**
- * @public
- */
-export type CallAnalyticsSkippedReasonCode =
-  (typeof CallAnalyticsSkippedReasonCode)[keyof typeof CallAnalyticsSkippedReasonCode];
-
-/**
  * <p>Represents a skipped analytics feature during the analysis of a call analytics job.</p>
  *          <p>The <code>Feature</code> field indicates the type of analytics feature that was skipped.</p>
  *          <p>The <code>Message</code> field contains additional information or a message explaining why the analytics feature was skipped.</p>
@@ -160,36 +121,6 @@ export interface CallAnalyticsJobDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const CallAnalyticsJobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type CallAnalyticsJobStatus = (typeof CallAnalyticsJobStatus)[keyof typeof CallAnalyticsJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const ParticipantRole = {
-  AGENT: "AGENT",
-  CUSTOMER: "CUSTOMER",
-} as const;
-
-/**
- * @public
- */
-export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
-
-/**
  * <p>Makes it possible to specify which speaker is on which channel. For example, if your
  *             agent is the first participant to speak, you would set <code>ChannelId</code> to
  *                 <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -210,123 +141,6 @@ export interface ChannelDefinition {
    */
   ParticipantRole?: ParticipantRole | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  AB_GE: "ab-GE",
-  AF_ZA: "af-ZA",
-  AR_AE: "ar-AE",
-  AR_SA: "ar-SA",
-  AST_ES: "ast-ES",
-  AZ_AZ: "az-AZ",
-  BA_RU: "ba-RU",
-  BE_BY: "be-BY",
-  BG_BG: "bg-BG",
-  BN_IN: "bn-IN",
-  BS_BA: "bs-BA",
-  CA_ES: "ca-ES",
-  CKB_IQ: "ckb-IQ",
-  CKB_IR: "ckb-IR",
-  CS_CZ: "cs-CZ",
-  CY_WL: "cy-WL",
-  DA_DK: "da-DK",
-  DE_CH: "de-CH",
-  DE_DE: "de-DE",
-  EL_GR: "el-GR",
-  EN_AB: "en-AB",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_IE: "en-IE",
-  EN_IN: "en-IN",
-  EN_NZ: "en-NZ",
-  EN_US: "en-US",
-  EN_WL: "en-WL",
-  EN_ZA: "en-ZA",
-  ES_ES: "es-ES",
-  ES_US: "es-US",
-  ET_EE: "et-EE",
-  ET_ET: "et-ET",
-  EU_ES: "eu-ES",
-  FA_IR: "fa-IR",
-  FI_FI: "fi-FI",
-  FR_CA: "fr-CA",
-  FR_FR: "fr-FR",
-  GL_ES: "gl-ES",
-  GU_IN: "gu-IN",
-  HA_NG: "ha-NG",
-  HE_IL: "he-IL",
-  HI_IN: "hi-IN",
-  HR_HR: "hr-HR",
-  HU_HU: "hu-HU",
-  HY_AM: "hy-AM",
-  ID_ID: "id-ID",
-  IS_IS: "is-IS",
-  IT_IT: "it-IT",
-  JA_JP: "ja-JP",
-  KAB_DZ: "kab-DZ",
-  KA_GE: "ka-GE",
-  KK_KZ: "kk-KZ",
-  KN_IN: "kn-IN",
-  KO_KR: "ko-KR",
-  KY_KG: "ky-KG",
-  LG_IN: "lg-IN",
-  LT_LT: "lt-LT",
-  LV_LV: "lv-LV",
-  MHR_RU: "mhr-RU",
-  MI_NZ: "mi-NZ",
-  MK_MK: "mk-MK",
-  ML_IN: "ml-IN",
-  MN_MN: "mn-MN",
-  MR_IN: "mr-IN",
-  MS_MY: "ms-MY",
-  MT_MT: "mt-MT",
-  NL_NL: "nl-NL",
-  NO_NO: "no-NO",
-  OR_IN: "or-IN",
-  PA_IN: "pa-IN",
-  PL_PL: "pl-PL",
-  PS_AF: "ps-AF",
-  PT_BR: "pt-BR",
-  PT_PT: "pt-PT",
-  RO_RO: "ro-RO",
-  RU_RU: "ru-RU",
-  RW_RW: "rw-RW",
-  SI_LK: "si-LK",
-  SK_SK: "sk-SK",
-  SL_SI: "sl-SI",
-  SO_SO: "so-SO",
-  SR_RS: "sr-RS",
-  SU_ID: "su-ID",
-  SV_SE: "sv-SE",
-  SW_BI: "sw-BI",
-  SW_KE: "sw-KE",
-  SW_RW: "sw-RW",
-  SW_TZ: "sw-TZ",
-  SW_UG: "sw-UG",
-  TA_IN: "ta-IN",
-  TE_IN: "te-IN",
-  TH_TH: "th-TH",
-  TL_PH: "tl-PH",
-  TR_TR: "tr-TR",
-  TT_RU: "tt-RU",
-  UG_CN: "ug-CN",
-  UK_UA: "uk-UA",
-  UZ_UZ: "uz-UZ",
-  VI_VN: "vi-VN",
-  WO_SN: "wo-SN",
-  ZH_CN: "zh-CN",
-  ZH_HK: "zh-HK",
-  ZH_TW: "zh-TW",
-  ZU_ZA: "zu-ZA",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * <p>Describes the Amazon S3 location of the media file you want to use in your
@@ -387,77 +201,6 @@ export interface Media {
    */
   RedactedMediaFileUri?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MediaFormat = {
-  AMR: "amr",
-  FLAC: "flac",
-  M4A: "m4a",
-  MP3: "mp3",
-  MP4: "mp4",
-  OGG: "ogg",
-  WAV: "wav",
-  WEBM: "webm",
-} as const;
-
-/**
- * @public
- */
-export type MediaFormat = (typeof MediaFormat)[keyof typeof MediaFormat];
-
-/**
- * @public
- * @enum
- */
-export const PiiEntityType = {
-  ADDRESS: "ADDRESS",
-  ALL: "ALL",
-  BANK_ACCOUNT_NUMBER: "BANK_ACCOUNT_NUMBER",
-  BANK_ROUTING: "BANK_ROUTING",
-  CREDIT_DEBIT_CVV: "CREDIT_DEBIT_CVV",
-  CREDIT_DEBIT_EXPIRY: "CREDIT_DEBIT_EXPIRY",
-  CREDIT_DEBIT_NUMBER: "CREDIT_DEBIT_NUMBER",
-  EMAIL: "EMAIL",
-  NAME: "NAME",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SSN: "SSN",
-} as const;
-
-/**
- * @public
- */
-export type PiiEntityType = (typeof PiiEntityType)[keyof typeof PiiEntityType];
-
-/**
- * @public
- * @enum
- */
-export const RedactionOutput = {
-  REDACTED: "redacted",
-  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
-} as const;
-
-/**
- * @public
- */
-export type RedactionOutput = (typeof RedactionOutput)[keyof typeof RedactionOutput];
-
-/**
- * @public
- * @enum
- */
-export const RedactionType = {
-  PII: "PII",
-} as const;
-
-/**
- * @public
- */
-export type RedactionType = (typeof RedactionType)[keyof typeof RedactionType];
 
 /**
  * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
@@ -583,21 +326,6 @@ export interface Summarization {
    */
   GenerateAbstractiveSummary: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VocabularyFilterMethod = {
-  MASK: "mask",
-  REMOVE: "remove",
-  TAG: "tag",
-} as const;
-
-/**
- * @public
- */
-export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
  * <p>Provides additional optional settings for your  request, including content redaction,
@@ -1046,20 +774,6 @@ export interface CallAnalyticsJobSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputType = {
-  POST_CALL: "POST_CALL",
-  REAL_TIME: "REAL_TIME",
-} as const;
-
-/**
- * @public
- */
-export type InputType = (typeof InputType)[keyof typeof InputType];
-
-/**
  * <p>A time range, in percentage, between two points in your media file.</p>
  *          <p>You can use <code>StartPercentage</code> and <code>EndPercentage</code> to search a
  *             custom segment. For example, setting <code>StartPercentage</code> to 10 and
@@ -1212,22 +926,6 @@ export interface NonTalkTimeFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const SentimentValue = {
-  MIXED: "MIXED",
-  NEGATIVE: "NEGATIVE",
-  NEUTRAL: "NEUTRAL",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue];
-
-/**
  * <p>Flag the presence or absence of specific sentiments detected in your Call Analytics
  *             transcription output.</p>
  *          <p>Rules using <code>SentimentFilter</code> are designed to match:</p>
@@ -1289,19 +987,6 @@ export interface SentimentFilter {
    */
   Negate?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TranscriptFilterType = {
-  EXACT: "EXACT",
-} as const;
-
-/**
- * @public
- */
-export type TranscriptFilterType = (typeof TranscriptFilterType)[keyof typeof TranscriptFilterType];
 
 /**
  * <p>Flag the presence or absence of specific words or phrases detected in your Call
@@ -1528,25 +1213,6 @@ export interface CategoryProperties {
 }
 
 /**
- * @public
- * @enum
- */
-export const MedicalScribeNoteTemplate = {
-  BEHAVIORAL_SOAP: "BEHAVIORAL_SOAP",
-  BIRP: "BIRP",
-  DAP: "DAP",
-  GIRPP: "GIRPP",
-  HISTORY_AND_PHYSICAL: "HISTORY_AND_PHYSICAL",
-  PHYSICAL_SOAP: "PHYSICAL_SOAP",
-  SIRP: "SIRP",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeNoteTemplate = (typeof MedicalScribeNoteTemplate)[keyof typeof MedicalScribeNoteTemplate];
-
-/**
  * <p>The output configuration for clinical note generation.</p>
  * @public
  */
@@ -1581,48 +1247,6 @@ export interface ClinicalNoteGenerationSettings {
    * @public
    */
   NoteTemplate?: MedicalScribeNoteTemplate | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CLMLanguageCode = {
-  DE_DE: "de-DE",
-  EN_AU: "en-AU",
-  EN_GB: "en-GB",
-  EN_US: "en-US",
-  ES_US: "es-US",
-  HI_IN: "hi-IN",
-  JA_JP: "ja-JP",
-} as const;
-
-/**
- * @public
- */
-export type CLMLanguageCode = (typeof CLMLanguageCode)[keyof typeof CLMLanguageCode];
-
-/**
- * <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1682,52 +1306,6 @@ export interface CreateCallAnalyticsCategoryResponse {
    * @public
    */
   CategoryProperties?: CategoryProperties | undefined;
-}
-
-/**
- * <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1840,21 +1418,6 @@ export interface CreateLanguageModelRequest {
 
 /**
  * @public
- * @enum
- */
-export const ModelStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
-
-/**
- * @public
  */
 export interface CreateLanguageModelResponse {
   /**
@@ -1933,21 +1496,6 @@ export interface CreateMedicalVocabularyRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VocabularyState = {
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularyState];
 
 /**
  * @public
@@ -2237,29 +1785,6 @@ export interface DeleteCallAnalyticsCategoryRequest {
  * @public
  */
 export interface DeleteCallAnalyticsCategoryResponse {}
-
-/**
- * <p>We can't find the requested resource. Check that the specified name is correct and try
- *             your request again.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -2565,21 +2090,6 @@ export interface GetMedicalScribeJobRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MedicalScribeParticipantRole = {
-  CLINICIAN: "CLINICIAN",
-  PATIENT: "PATIENT",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeParticipantRole =
-  (typeof MedicalScribeParticipantRole)[keyof typeof MedicalScribeParticipantRole];
-
-/**
  * <p>Indicates which speaker is on which channel. The options are
  *       <code>CLINICIAN</code> and <code>PATIENT</code>
  *          </p>
@@ -2600,35 +2110,6 @@ export interface MedicalScribeChannelDefinition {
    */
   ParticipantRole: MedicalScribeParticipantRole | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeLanguageCode = {
-  EN_US: "en-US",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeLanguageCode = (typeof MedicalScribeLanguageCode)[keyof typeof MedicalScribeLanguageCode];
-
-/**
- * @public
- * @enum
- */
-export const MedicalScribeJobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type MedicalScribeJobStatus = (typeof MedicalScribeJobStatus)[keyof typeof MedicalScribeJobStatus];
 
 /**
  * <p>The location of the output of your Medical Scribe job.
@@ -2893,20 +2374,6 @@ export interface GetMedicalTranscriptionJobRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MedicalContentIdentificationType = {
-  PHI: "PHI",
-} as const;
-
-/**
- * @public
- */
-export type MedicalContentIdentificationType =
-  (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
-
-/**
  * <p>Allows additional optional settings in your  request, including channel
  *             identification, alternative transcriptions, and speaker partitioning. You can use that to
  *             apply custom vocabularies to your medical transcription job.</p>
@@ -2986,19 +2453,6 @@ export interface MedicalTranscriptionSetting {
 }
 
 /**
- * @public
- * @enum
- */
-export const Specialty = {
-  PRIMARYCARE: "PRIMARYCARE",
-} as const;
-
-/**
- * @public
- */
-export type Specialty = (typeof Specialty)[keyof typeof Specialty];
-
-/**
  * <p>Provides you with the Amazon S3 URI you can use to access your
  *             transcript.</p>
  * @public
@@ -3013,36 +2467,6 @@ export interface MedicalTranscript {
    */
   TranscriptFileUri?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TranscriptionJobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type TranscriptionJobStatus = (typeof TranscriptionJobStatus)[keyof typeof TranscriptionJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const Type = {
-  CONVERSATION: "CONVERSATION",
-  DICTATION: "DICTATION",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 /**
  * <p>Provides detailed information about a medical transcription job.</p>
@@ -3493,20 +2917,6 @@ export interface Settings {
 }
 
 /**
- * @public
- * @enum
- */
-export const SubtitleFormat = {
-  SRT: "srt",
-  VTT: "vtt",
-} as const;
-
-/**
- * @public
- */
-export type SubtitleFormat = (typeof SubtitleFormat)[keyof typeof SubtitleFormat];
-
-/**
  * <p>Provides information about your subtitle file, including format, start index, and
  *                 Amazon S3 location.</p>
  * @public
@@ -3549,19 +2959,6 @@ export interface SubtitlesOutput {
    */
   OutputStartIndex?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ToxicityCategory = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type ToxicityCategory = (typeof ToxicityCategory)[keyof typeof ToxicityCategory];
 
 /**
  * <p>Contains <code>ToxicityCategories</code>, which is a required parameter if you
@@ -4276,20 +3673,6 @@ export interface ListMedicalTranscriptionJobsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OutputLocationType = {
-  CUSTOMER_BUCKET: "CUSTOMER_BUCKET",
-  SERVICE_BUCKET: "SERVICE_BUCKET",
-} as const;
-
-/**
- * @public
- */
-export type OutputLocationType = (typeof OutputLocationType)[keyof typeof OutputLocationType];
-
-/**
  * <p>Provides detailed information about a specific medical transcription job.</p>
  * @public
  */
@@ -4917,21 +4300,6 @@ export interface ListVocabularyFiltersResponse {
    */
   VocabularyFilters?: VocabularyFilterInfo[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Pronouns = {
-  HE_HIM: "HE_HIM",
-  SHE_HER: "SHE_HER",
-  THEY_THEM: "THEY_THEM",
-} as const;
-
-/**
- * @public
- */
-export type Pronouns = (typeof Pronouns)[keyof typeof Pronouns];
 
 /**
  * <p>Contains patient-specific information used to customize the clinical note generation.</p>

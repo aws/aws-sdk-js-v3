@@ -387,7 +387,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnknownResourceException as __UnknownResourceException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { Route53ResolverServiceException as __Route53ResolverServiceException } from "../models/Route53ResolverServiceException";
 
 /* eslint no-var: 0 */

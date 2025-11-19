@@ -1,36 +1,56 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTServiceException as __BaseException } from "./IoTServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AbortAction = {
-  CANCEL: "CANCEL",
-} as const;
-
-/**
- * @public
- */
-export type AbortAction = (typeof AbortAction)[keyof typeof AbortAction];
-
-/**
- * @public
- * @enum
- */
-export const JobExecutionFailureType = {
-  ALL: "ALL",
-  FAILED: "FAILED",
-  REJECTED: "REJECTED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type JobExecutionFailureType = (typeof JobExecutionFailureType)[keyof typeof JobExecutionFailureType];
+import {
+  AbortAction,
+  ActionType,
+  AggregationTypeName,
+  AlertTargetType,
+  ApplicationProtocol,
+  AuditCheckRunStatus,
+  AuditFindingSeverity,
+  AuditFrequency,
+  AuditMitigationActionsExecutionStatus,
+  AuditMitigationActionsTaskStatus,
+  AuditNotificationType,
+  AuditTaskStatus,
+  AuditTaskType,
+  AuthDecision,
+  AuthenticationType,
+  AuthorizerStatus,
+  AwsJobAbortCriteriaAbortAction,
+  AwsJobAbortCriteriaFailureType,
+  CACertificateUpdateAction,
+  CannedAccessControlList,
+  CertificateProviderOperation,
+  CommandNamespace,
+  ComparisonOperator,
+  ConfidenceLevel,
+  ConfigName,
+  CustomMetricType,
+  DayOfWeek,
+  DeviceCertificateUpdateAction,
+  DimensionType,
+  DimensionValueOperator,
+  DynamoKeyType,
+  FleetMetricUnit,
+  JobEndBehavior,
+  JobExecutionFailureType,
+  LogLevel,
+  LogTargetType,
+  MessageFormat,
+  OTAUpdateStatus,
+  PackageVersionStatus,
+  PolicyTemplateName,
+  Protocol,
+  ResourceType,
+  RetryableFailureType,
+  SbomValidationStatus,
+  ServiceType,
+  TargetSelection,
+  TemplateType,
+  ThingPrincipalType,
+  TopicRuleDestinationStatus,
+  VerificationState,
+} from "./enums";
 
 /**
  * <p>The criteria that determine when and how a job abort takes place.</p>
@@ -95,147 +115,6 @@ export interface AcceptCertificateTransferRequest {
    * @public
    */
   setAsActive?: boolean | undefined;
-}
-
-/**
- * <p>An unexpected error has occurred.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>The request is not valid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The service is temporarily unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>The rate exceeds the limit.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>You can't revert the certificate transfer because the transfer is already
- *          complete.</p>
- * @public
- */
-export class TransferAlreadyCompletedException extends __BaseException {
-  readonly name: "TransferAlreadyCompletedException" = "TransferAlreadyCompletedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TransferAlreadyCompletedException, __BaseException>) {
-    super({
-      name: "TransferAlreadyCompletedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TransferAlreadyCompletedException.prototype);
-  }
-}
-
-/**
- * <p>You are not authorized to perform this operation.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
 }
 
 /**
@@ -336,20 +215,6 @@ export interface CloudwatchMetricAction {
    */
   metricTimestamp?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DynamoKeyType = {
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type DynamoKeyType = (typeof DynamoKeyType)[keyof typeof DynamoKeyType];
 
 /**
  * <p>Describes an action to write to a DynamoDB table.</p>
@@ -1264,26 +1129,6 @@ export interface RepublishAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const CannedAccessControlList = {
-  AuthenticatedRead: "authenticated-read",
-  AwsExecRead: "aws-exec-read",
-  BucketOwnerFullControl: "bucket-owner-full-control",
-  BucketOwnerRead: "bucket-owner-read",
-  LogDeliveryWrite: "log-delivery-write",
-  Private: "private",
-  PublicRead: "public-read",
-  PublicReadWrite: "public-read-write",
-} as const;
-
-/**
- * @public
- */
-export type CannedAccessControlList = (typeof CannedAccessControlList)[keyof typeof CannedAccessControlList];
-
-/**
  * <p>Describes an action to write data to an Amazon S3 bucket.</p>
  * @public
  */
@@ -1335,20 +1180,6 @@ export interface SalesforceAction {
    */
   url: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MessageFormat = {
-  JSON: "JSON",
-  RAW: "RAW",
-} as const;
-
-/**
- * @public
- */
-export type MessageFormat = (typeof MessageFormat)[keyof typeof MessageFormat];
 
 /**
  * <p>Describes an action to publish to an Amazon SNS topic.</p>
@@ -1678,59 +1509,6 @@ export interface Action {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActionType = {
-  CONNECT: "CONNECT",
-  PUBLISH: "PUBLISH",
-  RECEIVE: "RECEIVE",
-  SUBSCRIBE: "SUBSCRIBE",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
-
-/**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  GREATER_THAN: "greater-than",
-  GREATER_THAN_EQUALS: "greater-than-equals",
-  IN_CIDR_SET: "in-cidr-set",
-  IN_PORT_SET: "in-port-set",
-  IN_SET: "in-set",
-  LESS_THAN: "less-than",
-  LESS_THAN_EQUALS: "less-than-equals",
-  NOT_IN_CIDR_SET: "not-in-cidr-set",
-  NOT_IN_PORT_SET: "not-in-port-set",
-  NOT_IN_SET: "not-in-set",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const ConfidenceLevel = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
-
-/**
  * <p>
  *             The configuration of an ML Detect Security Profile.
  *         </p>
@@ -1902,20 +1680,6 @@ export interface BehaviorCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const DimensionValueOperator = {
-  IN: "IN",
-  NOT_IN: "NOT_IN",
-} as const;
-
-/**
- * @public
- */
-export type DimensionValueOperator = (typeof DimensionValueOperator)[keyof typeof DimensionValueOperator];
-
-/**
  * <p>The dimension of a metric.</p>
  * @public
  */
@@ -1981,22 +1745,6 @@ export interface Behavior {
    */
   exportMetric?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VerificationState = {
-  BENIGN_POSITIVE: "BENIGN_POSITIVE",
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  TRUE_POSITIVE: "TRUE_POSITIVE",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type VerificationState = (typeof VerificationState)[keyof typeof VerificationState];
 
 /**
  * <p>
@@ -2205,21 +1953,6 @@ export interface AddThingToThingGroupRequest {
 export interface AddThingToThingGroupResponse {}
 
 /**
- * @public
- * @enum
- */
-export const AggregationTypeName = {
-  CARDINALITY: "Cardinality",
-  PERCENTILES: "Percentiles",
-  STATISTICS: "Statistics",
-} as const;
-
-/**
- * @public
- */
-export type AggregationTypeName = (typeof AggregationTypeName)[keyof typeof AggregationTypeName];
-
-/**
  * <p>The type of aggregation queries.</p>
  * @public
  */
@@ -2257,19 +1990,6 @@ export interface AlertTarget {
 }
 
 /**
- * @public
- * @enum
- */
-export const AlertTargetType = {
-  SNS: "SNS",
-} as const;
-
-/**
- * @public
- */
-export type AlertTargetType = (typeof AlertTargetType)[keyof typeof AlertTargetType];
-
-/**
  * <p>Describes an IoT policy.</p>
  * @public
  */
@@ -2298,22 +2018,6 @@ export interface Allowed {
    */
   policies?: Policy[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationProtocol = {
-  DEFAULT: "DEFAULT",
-  HTTPS: "HTTPS",
-  MQTT_WSS: "MQTT_WSS",
-  SECURE_MQTT: "SECURE_MQTT",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationProtocol = (typeof ApplicationProtocol)[keyof typeof ApplicationProtocol];
 
 /**
  * <p>The S3 location.</p>
@@ -2384,21 +2088,6 @@ export interface AssociateSbomWithPackageVersionRequest {
 
 /**
  * @public
- * @enum
- */
-export const SbomValidationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type SbomValidationStatus = (typeof SbomValidationStatus)[keyof typeof SbomValidationStatus];
-
-/**
- * @public
  */
 export interface AssociateSbomWithPackageVersionResponse {
   /**
@@ -2425,94 +2114,6 @@ export interface AssociateSbomWithPackageVersionResponse {
    * @public
    */
   sbomValidationStatus?: SbomValidationStatus | undefined;
-}
-
-/**
- * <p>The request conflicts with the current state of the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A resource with the same name already exists.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-  }
-}
-
-/**
- * <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Service quota has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -2579,26 +2180,6 @@ export interface AssociateTargetsWithJobResponse {
 }
 
 /**
- * <p>A limit has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface AttachPolicyRequest {
@@ -2655,42 +2236,6 @@ export interface AttachSecurityProfileRequest {
  * @public
  */
 export interface AttachSecurityProfileResponse {}
-
-/**
- * <p>An exception thrown when the version of an entity specified with the
- *             <code>expectedVersion</code> parameter does not match the latest version in the
- *          system.</p>
- * @public
- */
-export class VersionConflictException extends __BaseException {
-  readonly name: "VersionConflictException" = "VersionConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<VersionConflictException, __BaseException>) {
-    super({
-      name: "VersionConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, VersionConflictException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ThingPrincipalType = {
-  EXCLUSIVE_THING: "EXCLUSIVE_THING",
-  NON_EXCLUSIVE_THING: "NON_EXCLUSIVE_THING",
-} as const;
-
-/**
- * @public
- */
-export type ThingPrincipalType = (typeof ThingPrincipalType)[keyof typeof ThingPrincipalType];
 
 /**
  * <p>The input for the AttachThingPrincipal operation.</p>
@@ -2764,20 +2309,6 @@ export interface AttributePayload {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConfigName = {
-  CERT_AGE_THRESHOLD_IN_DAYS: "CERT_AGE_THRESHOLD_IN_DAYS",
-  CERT_EXPIRATION_THRESHOLD_IN_DAYS: "CERT_EXPIRATION_THRESHOLD_IN_DAYS",
-} as const;
-
-/**
- * @public
- */
-export type ConfigName = (typeof ConfigName)[keyof typeof ConfigName];
-
-/**
  * <p>Which audit checks are enabled and disabled for this account.</p>
  * @public
  */
@@ -2794,24 +2325,6 @@ export interface AuditCheckConfiguration {
    */
   configuration?: Partial<Record<ConfigName, string>> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuditCheckRunStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED_COMPLIANT: "COMPLETED_COMPLIANT",
-  COMPLETED_NON_COMPLIANT: "COMPLETED_NON_COMPLIANT",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  WAITING_FOR_DATA_COLLECTION: "WAITING_FOR_DATA_COLLECTION",
-} as const;
-
-/**
- * @public
- */
-export type AuditCheckRunStatus = (typeof AuditCheckRunStatus)[keyof typeof AuditCheckRunStatus];
 
 /**
  * <p>Information about the audit check.</p>
@@ -2974,27 +2487,6 @@ export interface ResourceIdentifier {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceType = {
-  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
-  CA_CERTIFICATE: "CA_CERTIFICATE",
-  CLIENT_ID: "CLIENT_ID",
-  COGNITO_IDENTITY_POOL: "COGNITO_IDENTITY_POOL",
-  DEVICE_CERTIFICATE: "DEVICE_CERTIFICATE",
-  IAM_ROLE: "IAM_ROLE",
-  IOT_POLICY: "IOT_POLICY",
-  ISSUER_CERTIFICATE: "ISSUER_CERTIFICATE",
-  ROLE_ALIAS: "ROLE_ALIAS",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * <p>Information about the resource that was noncompliant with the audit check.</p>
  * @public
  */
@@ -3041,22 +2533,6 @@ export interface RelatedResource {
    */
   additionalInfo?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuditFindingSeverity = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type AuditFindingSeverity = (typeof AuditFindingSeverity)[keyof typeof AuditFindingSeverity];
 
 /**
  * <p>The findings (results) of the audit.</p>
@@ -3135,41 +2611,6 @@ export interface AuditFinding {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuditFrequency = {
-  BIWEEKLY: "BIWEEKLY",
-  DAILY: "DAILY",
-  MONTHLY: "MONTHLY",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type AuditFrequency = (typeof AuditFrequency)[keyof typeof AuditFrequency];
-
-/**
- * @public
- * @enum
- */
-export const AuditMitigationActionsExecutionStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type AuditMitigationActionsExecutionStatus =
-  (typeof AuditMitigationActionsExecutionStatus)[keyof typeof AuditMitigationActionsExecutionStatus];
-
-/**
  * <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
  * @public
  */
@@ -3228,23 +2669,6 @@ export interface AuditMitigationActionExecutionMetadata {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuditMitigationActionsTaskStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type AuditMitigationActionsTaskStatus =
-  (typeof AuditMitigationActionsTaskStatus)[keyof typeof AuditMitigationActionsTaskStatus];
 
 /**
  * <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
@@ -3355,19 +2779,6 @@ export interface AuditNotificationTarget {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuditNotificationType = {
-  SNS: "SNS",
-} as const;
-
-/**
- * @public
- */
-export type AuditNotificationType = (typeof AuditNotificationType)[keyof typeof AuditNotificationType];
-
-/**
  * <p> Filters out specific findings of a Device Defender audit. </p>
  * @public
  */
@@ -3413,36 +2824,6 @@ export interface AuditSuppression {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuditTaskStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type AuditTaskStatus = (typeof AuditTaskStatus)[keyof typeof AuditTaskStatus];
-
-/**
- * @public
- * @enum
- */
-export const AuditTaskType = {
-  ON_DEMAND_AUDIT_TASK: "ON_DEMAND_AUDIT_TASK",
-  SCHEDULED_AUDIT_TASK: "SCHEDULED_AUDIT_TASK",
-} as const;
-
-/**
- * @public
- */
-export type AuditTaskType = (typeof AuditTaskType)[keyof typeof AuditTaskType];
-
-/**
  * <p>The audits that were performed.</p>
  * @public
  */
@@ -3466,38 +2847,6 @@ export interface AuditTaskMetadata {
    */
   taskType?: AuditTaskType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthDecision = {
-  ALLOWED: "ALLOWED",
-  EXPLICIT_DENY: "EXPLICIT_DENY",
-  IMPLICIT_DENY: "IMPLICIT_DENY",
-} as const;
-
-/**
- * @public
- */
-export type AuthDecision = (typeof AuthDecision)[keyof typeof AuthDecision];
-
-/**
- * @public
- * @enum
- */
-export const AuthenticationType = {
-  AWS_SIGV4: "AWS_SIGV4",
-  AWS_X509: "AWS_X509",
-  CUSTOM_AUTH: "CUSTOM_AUTH",
-  CUSTOM_AUTH_X509: "CUSTOM_AUTH_X509",
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
  * <p>A collection of authorization information.</p>
@@ -3535,20 +2884,6 @@ export interface AuthorizerConfig {
    */
   allowAuthorizerOverride?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthorizerStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizerStatus = (typeof AuthorizerStatus)[keyof typeof AuthorizerStatus];
 
 /**
  * <p>The authorizer description.</p>
@@ -3723,20 +3058,6 @@ export interface AuthResult {
 
 /**
  * @public
- * @enum
- */
-export const AutoRegistrationStatus = {
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-} as const;
-
-/**
- * @public
- */
-export type AutoRegistrationStatus = (typeof AutoRegistrationStatus)[keyof typeof AutoRegistrationStatus];
-
-/**
- * @public
  */
 export interface CancelAuditMitigationActionsTaskRequest {
   /**
@@ -3907,28 +3228,6 @@ export interface CancelJobExecutionRequest {
 }
 
 /**
- * <p>An attempt was made to change to an invalid state, for example by deleting a job or a
- *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
- *          parameter.</p>
- * @public
- */
-export class InvalidStateTransitionException extends __BaseException {
-  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
-    super({
-      name: "InvalidStateTransitionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ClearDefaultAuthorizerRequest {}
@@ -3953,47 +3252,6 @@ export interface ConfirmTopicRuleDestinationRequest {
  * @public
  */
 export interface ConfirmTopicRuleDestinationResponse {}
-
-/**
- * <p>A conflicting resource update exception. This exception is thrown when two pending
- *          updates cause a conflict.</p>
- * @public
- */
-export class ConflictingResourceUpdateException extends __BaseException {
-  readonly name: "ConflictingResourceUpdateException" = "ConflictingResourceUpdateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictingResourceUpdateException, __BaseException>) {
-    super({
-      name: "ConflictingResourceUpdateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictingResourceUpdateException.prototype);
-  }
-}
-
-/**
- * <p>An unexpected error has occurred.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-  }
-}
 
 /**
  * @public
@@ -4052,40 +3310,6 @@ export interface CreateAuditSuppressionRequest {
  * @public
  */
 export interface CreateAuditSuppressionResponse {}
-
-/**
- * <p>The resource already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that caused the exception.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The ARN of the resource that caused the exception.</p>
-   * @public
-   */
-  resourceArn?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceArn = opts.resourceArn;
-  }
-}
 
 /**
  * <p>A set of key/value pairs that are used to manage the resource.</p>
@@ -4291,20 +3515,6 @@ export interface CreateCertificateFromCsrResponse {
 
 /**
  * @public
- * @enum
- */
-export const CertificateProviderOperation = {
-  CreateCertificateFromCsr: "CreateCertificateFromCsr",
-} as const;
-
-/**
- * @public
- */
-export type CertificateProviderOperation =
-  (typeof CertificateProviderOperation)[keyof typeof CertificateProviderOperation];
-
-/**
- * @public
  */
 export interface CreateCertificateProviderRequest {
   /**
@@ -4452,20 +3662,6 @@ export interface CommandParameter {
 }
 
 /**
- * @public
- * @enum
- */
-export const CommandNamespace = {
-  AWSIoT: "AWS-IoT",
-  AWSIoTFleetWise: "AWS-IoT-FleetWise",
-} as const;
-
-/**
- * @public
- */
-export type CommandNamespace = (typeof CommandNamespace)[keyof typeof CommandNamespace];
-
-/**
  * <p>The command payload object that contains the instructions for the device
  *         to process.</p>
  * @public
@@ -4574,22 +3770,6 @@ export interface CreateCommandResponse {
 
 /**
  * @public
- * @enum
- */
-export const CustomMetricType = {
-  IP_ADDRESS_LIST: "ip-address-list",
-  NUMBER: "number",
-  NUMBER_LIST: "number-list",
-  STRING_LIST: "string-list",
-} as const;
-
-/**
- * @public
- */
-export type CustomMetricType = (typeof CustomMetricType)[keyof typeof CustomMetricType];
-
-/**
- * @public
  */
 export interface CreateCustomMetricRequest {
   /**
@@ -4662,19 +3842,6 @@ export interface CreateCustomMetricResponse {
 
 /**
  * @public
- * @enum
- */
-export const DimensionType = {
-  TOPIC_FILTER: "TOPIC_FILTER",
-} as const;
-
-/**
- * @public
- */
-export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
-
-/**
- * @public
  */
 export interface CreateDimensionRequest {
   /**
@@ -4731,26 +3898,6 @@ export interface CreateDimensionResponse {
 }
 
 /**
- * <p>The certificate is invalid.</p>
- * @public
- */
-export class CertificateValidationException extends __BaseException {
-  readonly name: "CertificateValidationException" = "CertificateValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CertificateValidationException, __BaseException>) {
-    super({
-      name: "CertificateValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CertificateValidationException.prototype);
-  }
-}
-
-/**
  * <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
  * @public
  */
@@ -4800,21 +3947,6 @@ export interface ServerCertificateConfig {
    */
   ocspAuthorizedResponderArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServiceType = {
-  CREDENTIAL_PROVIDER: "CREDENTIAL_PROVIDER",
-  DATA: "DATA",
-  JOBS: "JOBS",
-} as const;
-
-/**
- * @public
- */
-export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * <p>An object that specifies the TLS configuration for a domain.</p>
@@ -5103,65 +4235,6 @@ export interface CreateDynamicThingGroupResponse {
 }
 
 /**
- * <p>The query is invalid.</p>
- * @public
- */
-export class InvalidQueryException extends __BaseException {
-  readonly name: "InvalidQueryException" = "InvalidQueryException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidQueryException, __BaseException>) {
-    super({
-      name: "InvalidQueryException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidQueryException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FleetMetricUnit = {
-  Bits: "Bits",
-  BitsSecond: "Bits/Second",
-  Bytes: "Bytes",
-  BytesSecond: "Bytes/Second",
-  Count: "Count",
-  CountSecond: "Count/Second",
-  Gigabits: "Gigabits",
-  GigabitsSecond: "Gigabits/Second",
-  Gigabytes: "Gigabytes",
-  GigabytesSecond: "Gigabytes/Second",
-  Kilobits: "Kilobits",
-  KilobitsSecond: "Kilobits/Second",
-  Kilobytes: "Kilobytes",
-  KilobytesSecond: "Kilobytes/Second",
-  Megabits: "Megabits",
-  MegabitsSecond: "Megabits/Second",
-  Megabytes: "Megabytes",
-  MegabytesSecond: "Megabytes/Second",
-  Microseconds: "Microseconds",
-  Milliseconds: "Milliseconds",
-  None: "None",
-  Percent: "Percent",
-  Seconds: "Seconds",
-  Terabits: "Terabits",
-  TerabitsSecond: "Terabits/Second",
-  Terabytes: "Terabytes",
-  TerabytesSecond: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type FleetMetricUnit = (typeof FleetMetricUnit)[keyof typeof FleetMetricUnit];
-
-/**
  * @public
  */
 export interface CreateFleetMetricRequest {
@@ -5243,61 +4316,6 @@ export interface CreateFleetMetricResponse {
    */
   metricArn?: string | undefined;
 }
-
-/**
- * <p>The index is not ready.</p>
- * @public
- */
-export class IndexNotReadyException extends __BaseException {
-  readonly name: "IndexNotReadyException" = "IndexNotReadyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IndexNotReadyException, __BaseException>) {
-    super({
-      name: "IndexNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IndexNotReadyException.prototype);
-  }
-}
-
-/**
- * <p>The aggregation is invalid.</p>
- * @public
- */
-export class InvalidAggregationException extends __BaseException {
-  readonly name: "InvalidAggregationException" = "InvalidAggregationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAggregationException, __BaseException>) {
-    super({
-      name: "InvalidAggregationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAggregationException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RetryableFailureType = {
-  ALL: "ALL",
-  FAILED: "FAILED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type RetryableFailureType = (typeof RetryableFailureType)[keyof typeof RetryableFailureType];
 
 /**
  * <p>The criteria that determines how many retries are allowed for each failure type for a
@@ -5428,21 +4446,6 @@ export interface PresignedUrlConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobEndBehavior = {
-  CANCEL: "CANCEL",
-  FORCE_CANCEL: "FORCE_CANCEL",
-  STOP_ROLLOUT: "STOP_ROLLOUT",
-} as const;
-
-/**
- * @public
- */
-export type JobEndBehavior = (typeof JobEndBehavior)[keyof typeof JobEndBehavior];
-
-/**
  * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a
  *             recurring maintenance window with a predetermined start time and duration for the
  *             rollout of a job document to all devices in a target group for a job.</p>
@@ -5511,20 +4514,6 @@ export interface SchedulingConfig {
    */
   maintenanceWindows?: MaintenanceWindow[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetSelection = {
-  CONTINUOUS: "CONTINUOUS",
-  SNAPSHOT: "SNAPSHOT",
-} as const;
-
-/**
- * @public
- */
-export type TargetSelection = (typeof TargetSelection)[keyof typeof TargetSelection];
 
 /**
  * <p>Specifies the amount of time each device has to finish its execution of the job. A
@@ -5899,23 +4888,6 @@ export interface CreateKeysAndCertificateResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const LogLevel = {
-  DEBUG: "DEBUG",
-  DISABLED: "DISABLED",
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-/**
  * <p>Parameters used when defining a mitigation action that enable Amazon Web Services IoT Core logging.</p>
  * @public
  */
@@ -5946,19 +4918,6 @@ export interface PublishFindingToSnsParams {
 }
 
 /**
- * @public
- * @enum
- */
-export const PolicyTemplateName = {
-  BLANK_POLICY: "BLANK_POLICY",
-} as const;
-
-/**
- * @public
- */
-export type PolicyTemplateName = (typeof PolicyTemplateName)[keyof typeof PolicyTemplateName];
-
-/**
  * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
  * @public
  */
@@ -5971,19 +4930,6 @@ export interface ReplaceDefaultPolicyVersionParams {
 }
 
 /**
- * @public
- * @enum
- */
-export const CACertificateUpdateAction = {
-  DEACTIVATE: "DEACTIVATE",
-} as const;
-
-/**
- * @public
- */
-export type CACertificateUpdateAction = (typeof CACertificateUpdateAction)[keyof typeof CACertificateUpdateAction];
-
-/**
  * <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
  * @public
  */
@@ -5994,20 +4940,6 @@ export interface UpdateCACertificateParams {
    */
   action: CACertificateUpdateAction | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeviceCertificateUpdateAction = {
-  DEACTIVATE: "DEACTIVATE",
-} as const;
-
-/**
- * @public
- */
-export type DeviceCertificateUpdateAction =
-  (typeof DeviceCertificateUpdateAction)[keyof typeof DeviceCertificateUpdateAction];
 
 /**
  * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
@@ -6108,37 +5040,6 @@ export interface CreateMitigationActionResponse {
    */
   actionId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AwsJobAbortCriteriaAbortAction = {
-  CANCEL: "CANCEL",
-} as const;
-
-/**
- * @public
- */
-export type AwsJobAbortCriteriaAbortAction =
-  (typeof AwsJobAbortCriteriaAbortAction)[keyof typeof AwsJobAbortCriteriaAbortAction];
-
-/**
- * @public
- * @enum
- */
-export const AwsJobAbortCriteriaFailureType = {
-  ALL: "ALL",
-  FAILED: "FAILED",
-  REJECTED: "REJECTED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type AwsJobAbortCriteriaFailureType =
-  (typeof AwsJobAbortCriteriaFailureType)[keyof typeof AwsJobAbortCriteriaFailureType];
 
 /**
  * <p>The criteria that determine when and how a job abort takes place.</p>
@@ -6527,20 +5428,6 @@ export interface OTAUpdateFile {
 
 /**
  * @public
- * @enum
- */
-export const Protocol = {
-  HTTP: "HTTP",
-  MQTT: "MQTT",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
-/**
- * @public
  */
 export interface CreateOTAUpdateRequest {
   /**
@@ -6631,24 +5518,6 @@ export interface CreateOTAUpdateRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OTAUpdateStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  CREATE_PENDING: "CREATE_PENDING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type OTAUpdateStatus = (typeof OTAUpdateStatus)[keyof typeof OTAUpdateStatus];
 
 /**
  * @public
@@ -6809,21 +5678,6 @@ export interface CreatePackageVersionRequest {
 
 /**
  * @public
- * @enum
- */
-export const PackageVersionStatus = {
-  DEPRECATED: "DEPRECATED",
-  DRAFT: "DRAFT",
-  PUBLISHED: "PUBLISHED",
-} as const;
-
-/**
- * @public
- */
-export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
-
-/**
- * @public
  */
 export interface CreatePackageVersionResponse {
   /**
@@ -6932,26 +5786,6 @@ export interface CreatePolicyResponse {
 }
 
 /**
- * <p>The policy documentation is not valid.</p>
- * @public
- */
-export class MalformedPolicyException extends __BaseException {
-  readonly name: "MalformedPolicyException" = "MalformedPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedPolicyException, __BaseException>) {
-    super({
-      name: "MalformedPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedPolicyException.prototype);
-  }
-}
-
-/**
  * <p>The input for the CreatePolicyVersion operation.</p>
  * @public
  */
@@ -7006,26 +5840,6 @@ export interface CreatePolicyVersionResponse {
    * @public
    */
   isDefaultVersion?: boolean | undefined;
-}
-
-/**
- * <p>The number of policy versions exceeds the limit.</p>
- * @public
- */
-export class VersionsLimitExceededException extends __BaseException {
-  readonly name: "VersionsLimitExceededException" = "VersionsLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<VersionsLimitExceededException, __BaseException>) {
-    super({
-      name: "VersionsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, VersionsLimitExceededException.prototype);
-  }
 }
 
 /**
@@ -7090,20 +5904,6 @@ export interface ProvisioningHook {
    */
   targetArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TemplateType = {
-  FLEET_PROVISIONING: "FLEET_PROVISIONING",
-  JITP: "JITP",
-} as const;
-
-/**
- * @public
- */
-export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
 
 /**
  * @public
@@ -7302,25 +6102,6 @@ export interface CreateRoleAliasResponse {
    */
   roleAliasArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRI: "FRI",
-  MON: "MON",
-  SAT: "SAT",
-  SUN: "SUN",
-  THU: "THU",
-  TUE: "TUE",
-  WED: "WED",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public
@@ -7871,26 +6652,6 @@ export interface CreateTopicRuleRequest {
 }
 
 /**
- * <p>The Rule-SQL expression can't be parsed correctly.</p>
- * @public
- */
-export class SqlParseException extends __BaseException {
-  readonly name: "SqlParseException" = "SqlParseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SqlParseException, __BaseException>) {
-    super({
-      name: "SqlParseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SqlParseException.prototype);
-  }
-}
-
-/**
  * <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
  * @public
  */
@@ -7975,18 +6736,1005 @@ export interface HttpUrlDestinationProperties {
 }
 
 /**
+ * <p>The properties of a virtual private cloud (VPC) destination.</p>
  * @public
- * @enum
  */
-export const TopicRuleDestinationStatus = {
-  DELETING: "DELETING",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  ERROR: "ERROR",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
+export interface VpcDestinationProperties {
+  /**
+   * <p>The subnet IDs of the VPC destination.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security groups of the VPC destination.</p>
+   * @public
+   */
+  securityGroups?: string[] | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+}
+
+/**
+ * <p>A topic rule destination.</p>
+ * @public
+ */
+export interface TopicRuleDestination {
+  /**
+   * <p>The topic rule destination URL.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  status?: TopicRuleDestinationStatus | undefined;
+
+  /**
+   * <p>The date and time when the topic rule destination was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the topic rule destination was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Additional details or reason why the topic rule destination is in the current
+   *          status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Properties of the HTTP URL.</p>
+   * @public
+   */
+  httpUrlProperties?: HttpUrlDestinationProperties | undefined;
+
+  /**
+   * <p>Properties of the virtual private cloud (VPC) connection.</p>
+   * @public
+   */
+  vpcProperties?: VpcDestinationProperties | undefined;
+}
 
 /**
  * @public
  */
-export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];
+export interface CreateTopicRuleDestinationResponse {
+  /**
+   * <p>The topic rule destination.</p>
+   * @public
+   */
+  topicRuleDestination?: TopicRuleDestination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountAuditConfigurationRequest {
+  /**
+   * <p>If true, all scheduled audits are deleted.</p>
+   * @public
+   */
+  deleteScheduledAudits?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountAuditConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAuditSuppressionRequest {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   * @public
+   */
+  checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   * @public
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAuditSuppressionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAuthorizerRequest {
+  /**
+   * <p>The name of the authorizer to delete.</p>
+   * @public
+   */
+  authorizerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAuthorizerResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   * @public
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   * <p>The expected version of the billing group. If the version of the billing group does
+   * 			not match the expected version specified in the request, the
+   * 				<code>DeleteBillingGroup</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   * @public
+   */
+  expectedVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBillingGroupResponse {}
+
+/**
+ * <p>Input for the DeleteCACertificate operation.</p>
+ * @public
+ */
+export interface DeleteCACertificateRequest {
+  /**
+   * <p>The ID of the certificate to delete. (The last part of the certificate ARN contains
+   *          the certificate ID.)</p>
+   * @public
+   */
+  certificateId: string | undefined;
+}
+
+/**
+ * <p>The output for the DeleteCACertificate operation.</p>
+ * @public
+ */
+export interface DeleteCACertificateResponse {}
+
+/**
+ * <p>The input for the DeleteCertificate operation.</p>
+ * @public
+ */
+export interface DeleteCertificateRequest {
+  /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   * @public
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT
+   *          thing.</p>
+   * @public
+   */
+  forceDelete?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateProviderRequest {
+  /**
+   * <p>The name of the certificate provider.</p>
+   * @public
+   */
+  certificateProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateProviderResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteCommandRequest {
+  /**
+   * <p>The unique identifier of the command to be deleted.</p>
+   * @public
+   */
+  commandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCommandResponse {
+  /**
+   * <p>The status code for the command deletion request. The status code is in the 200 range
+   *         for a successful request.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the command hasn't been deprecated, or has been deprecated for a duration that
+   *             is shorter than the maximum time out duration of 12 hours, when calling the
+   *             <code>DeleteCommand</code> request, the deletion will be scheduled and a 202 status code
+   *             will be returned. While the command is being deleted, it will be in a
+   *             <code>pendingDeletion</code> state. Once the time out duration has been reached,
+   *             the command will be permanently removed from your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the command has been deprecated for a duration that is longer than the
+   *             maximum time out duration of 12 hours, when calling the <code>DeleteCommand</code> request,
+   *             the command will be deleted immediately and a 204 status code will be returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  statusCode?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCommandExecutionRequest {
+  /**
+   * <p>The unique identifier of the command execution that you want to delete from your
+   *       account.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the target device for which you want to delete
+   *       command executions.</p>
+   * @public
+   */
+  targetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCommandExecutionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteCustomMetricRequest {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   * @public
+   */
+  metricName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomMetricResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDimensionRequest {
+  /**
+   * <p>The unique identifier for the dimension that you want to delete.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDimensionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDomainConfigurationRequest {
+  /**
+   * <p>The name of the domain configuration to be deleted.</p>
+   * @public
+   */
+  domainConfigurationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDynamicThingGroupRequest {
+  /**
+   * <p>The name of the dynamic thing group to delete.</p>
+   * @public
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>The expected version of the dynamic thing group to delete.</p>
+   * @public
+   */
+  expectedVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDynamicThingGroupResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteFleetMetricRequest {
+  /**
+   * <p>The name of the fleet metric to delete.</p>
+   * @public
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The expected version of the fleet metric to delete.</p>
+   * @public
+   */
+  expectedVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobRequest {
+  /**
+   * <p>The ID of the job to be deleted.</p>
+   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new
+   *             job. However, this is not recommended, and you must ensure that your devices are not
+   *             using the jobId to refer to the deleted job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you
+   *             can only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an
+   *             exception will occur. The default is false.</p>
+   *          <note>
+   *             <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
+   *                 the job to be unable to access job information or update the job execution status.
+   *                 Use caution and ensure that each device executing a job which is deleted is able to
+   *                 recover to a valid state.</p>
+   *          </note>
+   * @public
+   */
+  force?: boolean | undefined;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
+   *          <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *          <note>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  namespaceId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobExecutionRequest {
+  /**
+   * <p>The ID of the job whose execution on a particular device will be deleted.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the thing whose job execution will be deleted.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers
+   *             to the execution of a particular job on a particular device.</p>
+   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be
+   *             reused by IoT, so be sure you get and use the correct value here.</p>
+   * @public
+   */
+  executionNumber: number | undefined;
+
+  /**
+   * <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS".
+   *             Otherwise, you can only delete a job execution which is in a terminal state
+   *             ("SUCCEEDED", "FAILED", "REJECTED", "REMOVED" or "CANCELED") or an exception will occur.
+   *             The default is false.</p>
+   *          <note>
+   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device to be
+   *                 unable to access job information or update the job execution status. Use caution and
+   *                 ensure that the device is able to recover to a valid state.</p>
+   *          </note>
+   * @public
+   */
+  force?: boolean | undefined;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
+   *          <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *          <note>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  namespaceId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteJobTemplateRequest {
+  /**
+   * <p>The unique identifier of the job template to delete.</p>
+   * @public
+   */
+  jobTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMitigationActionRequest {
+  /**
+   * <p>The name of the mitigation action that you want to delete.</p>
+   * @public
+   */
+  actionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMitigationActionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteOTAUpdateRequest {
+  /**
+   * <p>The ID of the OTA update to delete.</p>
+   * @public
+   */
+  otaUpdateId: string | undefined;
+
+  /**
+   * <p>When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.
+   *             Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>
+   * @public
+   */
+  deleteStream?: boolean | undefined;
+
+  /**
+   * <p>When true, deletes the IoT job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
+   *             job is not in a terminal state ("COMPLETED" or "CANCELED") an exception will occur. The default is false.</p>
+   * @public
+   */
+  forceDeleteAWSJob?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOTAUpdateResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePackageRequest {
+  /**
+   * <p>The name of the target software package.</p>
+   * @public
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePackageResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePackageVersionRequest {
+  /**
+   * <p>The name of the associated software package.</p>
+   * @public
+   */
+  packageName: string | undefined;
+
+  /**
+   * <p>The name of the target package version.</p>
+   * @public
+   */
+  versionName: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
+   *       Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePackageVersionResponse {}
+
+/**
+ * <p>The input for the DeletePolicy operation.</p>
+ * @public
+ */
+export interface DeletePolicyRequest {
+  /**
+   * <p>The name of the policy to delete.</p>
+   * @public
+   */
+  policyName: string | undefined;
+}
+
+/**
+ * <p>The input for the DeletePolicyVersion operation.</p>
+ * @public
+ */
+export interface DeletePolicyVersionRequest {
+  /**
+   * <p>The name of the policy.</p>
+   * @public
+   */
+  policyName: string | undefined;
+
+  /**
+   * <p>The policy version ID.</p>
+   * @public
+   */
+  policyVersionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProvisioningTemplateRequest {
+  /**
+   * <p>The name of the fleet provision template to delete.</p>
+   * @public
+   */
+  templateName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProvisioningTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteProvisioningTemplateVersionRequest {
+  /**
+   * <p>The name of the provisioning template version to delete.</p>
+   * @public
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The provisioning template version ID to delete.</p>
+   * @public
+   */
+  versionId: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProvisioningTemplateVersionResponse {}
+
+/**
+ * <p>The input for the DeleteRegistrationCode operation.</p>
+ * @public
+ */
+export interface DeleteRegistrationCodeRequest {}
+
+/**
+ * <p>The output for the DeleteRegistrationCode operation.</p>
+ * @public
+ */
+export interface DeleteRegistrationCodeResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteRoleAliasRequest {
+  /**
+   * <p>The role alias to delete.</p>
+   * @public
+   */
+  roleAlias: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleAliasResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteScheduledAuditRequest {
+  /**
+   * <p>The name of the scheduled audit you want to delete.</p>
+   * @public
+   */
+  scheduledAuditName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduledAuditResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityProfileRequest {
+  /**
+   * <p>The name of the security profile to be deleted.</p>
+   * @public
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   * @public
+   */
+  expectedVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityProfileResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteStreamRequest {
+  /**
+   * <p>The stream ID.</p>
+   * @public
+   */
+  streamId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStreamResponse {}
+
+/**
+ * <p>The input for the DeleteThing operation.</p>
+ * @public
+ */
+export interface DeleteThingRequest {
+  /**
+   * <p>The name of the thing to delete.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>DeleteThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   * @public
+   */
+  expectedVersion?: number | undefined;
+}
+
+/**
+ * <p>The output of the DeleteThing operation.</p>
+ * @public
+ */
+export interface DeleteThingResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteThingGroupRequest {
+  /**
+   * <p>The name of the thing group to delete.</p>
+   * @public
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * <p>The expected version of the thing group to delete.</p>
+   * @public
+   */
+  expectedVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThingGroupResponse {}
+
+/**
+ * <p>The input for the DeleteThingType operation.</p>
+ * @public
+ */
+export interface DeleteThingTypeRequest {
+  /**
+   * <p>The name of the thing type.</p>
+   * @public
+   */
+  thingTypeName: string | undefined;
+}
+
+/**
+ * <p>The output for the DeleteThingType operation.</p>
+ * @public
+ */
+export interface DeleteThingTypeResponse {}
+
+/**
+ * <p>The input for the DeleteTopicRule operation.</p>
+ * @public
+ */
+export interface DeleteTopicRuleRequest {
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  ruleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRuleDestinationRequest {
+  /**
+   * <p>The ARN of the topic rule destination to delete.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRuleDestinationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteV2LoggingLevelRequest {
+  /**
+   * <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
+   * @public
+   */
+  targetType: LogTargetType | undefined;
+
+  /**
+   * <p>The name of the resource for which you are configuring logging.</p>
+   * @public
+   */
+  targetName: string | undefined;
+}
+
+/**
+ * <p>The input for the DeprecateThingType operation.</p>
+ * @public
+ */
+export interface DeprecateThingTypeRequest {
+  /**
+   * <p>The name of the thing type to deprecate.</p>
+   * @public
+   */
+  thingTypeName: string | undefined;
+
+  /**
+   * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
+   * 			associate it with things.</p>
+   * @public
+   */
+  undoDeprecate?: boolean | undefined;
+}
+
+/**
+ * <p>The output for the DeprecateThingType operation.</p>
+ * @public
+ */
+export interface DeprecateThingTypeResponse {}
+
+/**
+ * @public
+ */
+export interface DescribeAccountAuditConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DescribeAccountAuditConfigurationResponse {
+  /**
+   * <p>The ARN of the role that grants permission to IoT to access information
+   *             about your devices, policies, certificates, and other items as required when
+   *             performing an audit.</p>
+   *          <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Information about the targets to which audit notifications are sent for
+   *             this account.</p>
+   * @public
+   */
+  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>> | undefined;
+
+  /**
+   * <p>Which audit checks are enabled and disabled for this account.</p>
+   * @public
+   */
+  auditCheckConfigurations?: Record<string, AuditCheckConfiguration> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuditFindingRequest {
+  /**
+   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
+   * @public
+   */
+  findingId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuditFindingResponse {
+  /**
+   * <p>The findings (results) of the audit.</p>
+   * @public
+   */
+  finding?: AuditFinding | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuditMitigationActionsTaskRequest {
+  /**
+   * <p>The unique identifier for the audit mitigation task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+}
+
+/**
+ * <p>Describes which changes should be applied as part of a mitigation action.</p>
+ * @public
+ */
+export interface MitigationAction {
+  /**
+   * <p>A user-friendly name for the mitigation action.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the mitigation action.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The IAM role ARN used to apply this mitigation action.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
+   * @public
+   */
+  actionParams?: MitigationActionParams | undefined;
+}

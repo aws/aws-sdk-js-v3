@@ -72,7 +72,7 @@ import {
   InternalServerError as __InternalServerError,
   ObjectNotFoundException as __ObjectNotFoundException,
   RequestedRangeNotSatisfiableException as __RequestedRangeNotSatisfiableException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaStoreDataServiceException as __MediaStoreDataServiceException } from "../models/MediaStoreDataServiceException";
 
 /* eslint no-var: 0 */

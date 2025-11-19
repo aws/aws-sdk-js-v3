@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetScalingConfigurationRecommendationRequest,
   GetScalingConfigurationRecommendationResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { GetScalingConfigurationRecommendation } from "../schemas/schemas_0";
 

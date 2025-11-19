@@ -104,7 +104,7 @@ import {
   LimitExceededException as __LimitExceededException,
   ResourceNotFoundException as __ResourceNotFoundException,
   TrimmedDataAccessException as __TrimmedDataAccessException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

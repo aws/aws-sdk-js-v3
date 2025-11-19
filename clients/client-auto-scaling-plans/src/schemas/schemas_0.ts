@@ -111,7 +111,7 @@ import {
   LimitExceededException as __LimitExceededException,
   ObjectNotFoundException as __ObjectNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

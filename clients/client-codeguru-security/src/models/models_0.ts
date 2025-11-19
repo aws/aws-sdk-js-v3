@@ -1,48 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodeGuruSecurityServiceException as __BaseException } from "./CodeGuruSecurityServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier for the error.</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * <p>The identifier for the resource you don't have access to.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource you don't have access to.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.errorCode = opts.errorCode;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
+import { AnalysisType, ErrorCode, ScanState, ScanType, Severity, Status } from "./enums";
 
 /**
  * <p>A numeric value corresponding to the severity of a finding, such as the number of open findings or the average time it takes to close findings of a given severity.</p>
@@ -117,20 +74,6 @@ export interface AccountFindingsMetric {
 }
 
 /**
- * @public
- * @enum
- */
-export const AnalysisType = {
-  ALL: "All",
-  SECURITY: "Security",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
-
-/**
  * <p>An object that contains information about a finding and the scan that generated it. </p>
  * @public
  */
@@ -158,23 +101,6 @@ export interface BatchGetFindingsRequest {
    */
   findingIdentifiers: FindingIdentifier[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  DUPLICATE_IDENTIFIER: "DUPLICATE_IDENTIFIER",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_FINDING_ID: "INVALID_FINDING_ID",
-  INVALID_SCAN_NAME: "INVALID_SCAN_NAME",
-  ITEM_DOES_NOT_EXIST: "ITEM_DOES_NOT_EXIST",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
  * <p>Contains information about the error that caused a finding to fail to be retrieved.</p>
@@ -277,38 +203,6 @@ export interface Resource {
    */
   subResourceId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Severity = {
-  CRITICAL: "Critical",
-  HIGH: "High",
-  INFO: "Info",
-  LOW: "Low",
-  MEDIUM: "Medium",
-} as const;
-
-/**
- * @public
- */
-export type Severity = (typeof Severity)[keyof typeof Severity];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  ALL: "All",
-  CLOSED: "Closed",
-  OPEN: "Open",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * <p>The line of code where a finding was detected.</p>
@@ -522,78 +416,6 @@ export interface BatchGetFindingsResponse {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The internal error encountered by the server.</p>
-   * @public
-   */
-  error?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.error = opts.error;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The identifier for the error.</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * <p>The identifier for the originating service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The identifier for the originating quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.errorCode = opts.errorCode;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * <p>Information about a validation exception.</p>
  * @public
  */
@@ -609,105 +431,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  LAMBDA_CODE_SHA_MISMATCH: "lambdaCodeShaMisMatch",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the specified constraints.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier for the error.</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * <p>The reason the request failed validation.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field that caused the error, if applicable.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.errorCode = opts.errorCode;
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier for the error.</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * <p>The identifier for the service resource associated with the request.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource associated with the request.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.errorCode = opts.errorCode;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -746,20 +469,6 @@ export namespace ResourceId {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ScanType = {
-  EXPRESS: "Express",
-  STANDARD: "Standard",
-} as const;
-
-/**
- * @public
- */
-export type ScanType = (typeof ScanType)[keyof typeof ScanType];
 
 /**
  * @public
@@ -804,21 +513,6 @@ export interface CreateScanRequest {
 
 /**
  * @public
- * @enum
- */
-export const ScanState = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  SUCCESSFUL: "Successful",
-} as const;
-
-/**
- * @public
- */
-export type ScanState = (typeof ScanState)[keyof typeof ScanState];
-
-/**
- * @public
  */
 export interface CreateScanResponse {
   /**
@@ -850,47 +544,6 @@ export interface CreateScanResponse {
    * @public
    */
   scanNameArn?: string | undefined;
-}
-
-/**
- * <p>The resource specified in the request was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier for the error.</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * <p>The identifier for the resource that was not found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource that was not found.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.errorCode = opts.errorCode;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**

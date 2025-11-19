@@ -1,7 +1,22 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ApiGatewayV2ServiceException as __BaseException } from "./ApiGatewayV2ServiceException";
+import {
+  AuthorizationType,
+  AuthorizerType,
+  ConnectionType,
+  ContentHandlingStrategy,
+  DeploymentStatus,
+  DomainNameStatus,
+  EndpointType,
+  IntegrationType,
+  IpAddressType,
+  LoggingLevel,
+  PassthroughBehavior,
+  ProtocolType,
+  RoutingMode,
+  SecurityPolicy,
+  VpcLinkStatus,
+  VpcLinkVersion,
+} from "./enums";
 
 /**
  * <p>Represents a CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>
@@ -44,34 +59,6 @@ export interface Cors {
    */
   MaxAge?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  dualstack: "dualstack",
-  ipv4: "ipv4",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
-
-/**
- * @public
- * @enum
- */
-export const ProtocolType = {
-  HTTP: "HTTP",
-  WEBSOCKET: "WEBSOCKET",
-} as const;
-
-/**
- * @public
- */
-export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
 
 /**
  * <p>Represents an API.</p>
@@ -212,20 +199,6 @@ export interface ApiMapping {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthorizerType = {
-  JWT: "JWT",
-  REQUEST: "REQUEST",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizerType = (typeof AuthorizerType)[keyof typeof AuthorizerType];
-
-/**
  * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
  * @public
  */
@@ -318,21 +291,6 @@ export interface Authorizer {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  DEPLOYED: "DEPLOYED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
-
-/**
  * <p>An immutable representation of an API that can be called by users. A Deployment must be associated with a Stage for it to be callable over the internet.</p>
  * @public
  */
@@ -373,50 +331,6 @@ export interface Deployment {
    */
   Description?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DomainNameStatus = {
-  AVAILABLE: "AVAILABLE",
-  PENDING_CERTIFICATE_REIMPORT: "PENDING_CERTIFICATE_REIMPORT",
-  PENDING_OWNERSHIP_VERIFICATION: "PENDING_OWNERSHIP_VERIFICATION",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DomainNameStatus = (typeof DomainNameStatus)[keyof typeof DomainNameStatus];
-
-/**
- * @public
- * @enum
- */
-export const EndpointType = {
-  EDGE: "EDGE",
-  REGIONAL: "REGIONAL",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-/**
- * @public
- * @enum
- */
-export const SecurityPolicy = {
-  TLS_1_0: "TLS_1_0",
-  TLS_1_2: "TLS_1_2",
-} as const;
-
-/**
- * @public
- */
-export type SecurityPolicy = (typeof SecurityPolicy)[keyof typeof SecurityPolicy];
 
 /**
  * <p>The domain name configuration.</p>
@@ -514,21 +428,6 @@ export interface MutualTlsAuthentication {
 }
 
 /**
- * @public
- * @enum
- */
-export const RoutingMode = {
-  API_MAPPING_ONLY: "API_MAPPING_ONLY",
-  ROUTING_RULE_ONLY: "ROUTING_RULE_ONLY",
-  ROUTING_RULE_THEN_API_MAPPING: "ROUTING_RULE_THEN_API_MAPPING",
-} as const;
-
-/**
- * @public
- */
-export type RoutingMode = (typeof RoutingMode)[keyof typeof RoutingMode];
-
-/**
  * <p>Represents a domain name.</p>
  * @public
  */
@@ -575,66 +474,6 @@ export interface DomainName {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectionType = {
-  INTERNET: "INTERNET",
-  VPC_LINK: "VPC_LINK",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
-
-/**
- * @public
- * @enum
- */
-export const ContentHandlingStrategy = {
-  CONVERT_TO_BINARY: "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT: "CONVERT_TO_TEXT",
-} as const;
-
-/**
- * @public
- */
-export type ContentHandlingStrategy = (typeof ContentHandlingStrategy)[keyof typeof ContentHandlingStrategy];
-
-/**
- * @public
- * @enum
- */
-export const IntegrationType = {
-  AWS: "AWS",
-  AWS_PROXY: "AWS_PROXY",
-  HTTP: "HTTP",
-  HTTP_PROXY: "HTTP_PROXY",
-  MOCK: "MOCK",
-} as const;
-
-/**
- * @public
- */
-export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
-
-/**
- * @public
- * @enum
- */
-export const PassthroughBehavior = {
-  NEVER: "NEVER",
-  WHEN_NO_MATCH: "WHEN_NO_MATCH",
-  WHEN_NO_TEMPLATES: "WHEN_NO_TEMPLATES",
-} as const;
-
-/**
- * @public
- */
-export type PassthroughBehavior = (typeof PassthroughBehavior)[keyof typeof PassthroughBehavior];
 
 /**
  * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
@@ -856,22 +695,6 @@ export interface Model {
    */
   Schema?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthorizationType = {
-  AWS_IAM: "AWS_IAM",
-  CUSTOM: "CUSTOM",
-  JWT: "JWT",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizationType = (typeof AuthorizationType)[keyof typeof AuthorizationType];
 
 /**
  * <p>Validation constraints imposed on parameters of a request (path, query string, headers).</p>
@@ -1156,21 +979,6 @@ export interface AccessLogSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const LoggingLevel = {
-  ERROR: "ERROR",
-  INFO: "INFO",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
-
-/**
  * <p>Represents a collection of route settings.</p>
  * @public
  */
@@ -1297,36 +1105,6 @@ export interface Stage {
 }
 
 /**
- * @public
- * @enum
- */
-export const VpcLinkStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type VpcLinkStatus = (typeof VpcLinkStatus)[keyof typeof VpcLinkStatus];
-
-/**
- * @public
- * @enum
- */
-export const VpcLinkVersion = {
-  V2: "V2",
-} as const;
-
-/**
- * @public
- */
-export type VpcLinkVersion = (typeof VpcLinkVersion)[keyof typeof VpcLinkVersion];
-
-/**
  * <p>Represents a VPC link.</p>
  * @public
  */
@@ -1384,79 +1162,6 @@ export interface VpcLink {
    * @public
    */
   VpcLinkVersion?: VpcLinkVersion | undefined;
-}
-
-/**
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Describes the error encountered.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Describes the error encountered.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1654,72 +1359,6 @@ export interface CreateApiResponse {
    * @public
    */
   Warnings?: string[] | undefined;
-}
-
-/**
- * <p>The resource specified in the request was not found. See the message field for more information.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Describes the error encountered.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>A limit has been exceeded. See the accompanying error message for details.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The limit type.</p>
-   * @public
-   */
-  LimitType?: string | undefined;
-
-  /**
-   * <p>Describes the error encountered.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.LimitType = opts.LimitType;
-    this.Message = opts.Message;
-  }
 }
 
 /**

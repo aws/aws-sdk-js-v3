@@ -201,7 +201,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MigrationHubRefactorSpacesServiceException as __MigrationHubRefactorSpacesServiceException } from "../models/MigrationHubRefactorSpacesServiceException";
 
 /* eslint no-var: 0 */

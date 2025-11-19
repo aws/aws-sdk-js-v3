@@ -402,7 +402,7 @@ import {
   ServerInternalException as __ServerInternalException,
   UnsupportedDigitalSignatureMethodException as __UnsupportedDigitalSignatureMethodException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LicenseManagerServiceException as __LicenseManagerServiceException } from "../models/LicenseManagerServiceException";
 
 /* eslint no-var: 0 */

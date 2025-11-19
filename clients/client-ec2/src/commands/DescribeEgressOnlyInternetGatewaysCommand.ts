@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeEgressOnlyInternetGatewaysRequest,
   DescribeEgressOnlyInternetGatewaysResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeEgressOnlyInternetGateways } from "../schemas/schemas_0";
 
 /**

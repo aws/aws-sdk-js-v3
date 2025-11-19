@@ -385,7 +385,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { M2ServiceException as __M2ServiceException } from "../models/M2ServiceException";
 
 /* eslint no-var: 0 */

@@ -1,24 +1,7 @@
 // smithy-typescript generated code
-import {
-  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
-  ExceptionOptionType as __ExceptionOptionType,
-} from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
 
-import { SchemasServiceException as __BaseException } from "./SchemasServiceException";
-
-/**
- * @public
- * @enum
- */
-export const DiscovererState = {
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type DiscovererState = (typeof DiscovererState)[keyof typeof DiscovererState];
+import { CodeGenerationStatus, DiscovererState, Type } from "./enums";
 
 /**
  * @public
@@ -122,20 +105,6 @@ export interface SchemaSummary {
 
 /**
  * @public
- * @enum
- */
-export const Type = {
-  JSONSchemaDraft4: "JSONSchemaDraft4",
-  OpenApi3: "OpenApi3",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
- * @public
  */
 export interface SchemaVersionSummary {
   /**
@@ -218,85 +187,6 @@ export interface SearchSchemaSummary {
 /**
  * @public
  */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const CodeGenerationStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type CodeGenerationStatus = (typeof CodeGenerationStatus)[keyof typeof CodeGenerationStatus];
-
-/**
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
 export interface CreateDiscovererRequest {
   /**
    * <p>A description for the discoverer.</p>
@@ -368,134 +258,6 @@ export interface CreateDiscovererResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -658,38 +420,6 @@ export interface DeleteDiscovererRequest {
 /**
  * @public
  */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
 export interface DeleteRegistryRequest {
   /**
    * <p>The name of the registry.</p>
@@ -805,38 +535,6 @@ export interface DescribeCodeBindingResponse {
    * @public
    */
   Status?: CodeGenerationStatus | undefined;
-}
-
-/**
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1150,38 +848,6 @@ export interface GetResourcePolicyResponse {
 /**
  * @public
  */
-export class GoneException extends __BaseException {
-  readonly name: "GoneException" = "GoneException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GoneException, __BaseException>) {
-    super({
-      name: "GoneException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GoneException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
 export interface ListDiscoverersRequest {
   /**
    * <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
@@ -1363,38 +1029,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export class PreconditionFailedException extends __BaseException {
-  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The message string of the error output.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
-    super({
-      name: "PreconditionFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**

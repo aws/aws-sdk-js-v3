@@ -1,7 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { GreengrassServiceException as __BaseException } from "./GreengrassServiceException";
+import {
+  BulkDeploymentStatus,
+  ConfigurationSyncStatus,
+  DeploymentType,
+  EncodingType,
+  FunctionIsolationMode,
+  LoggerComponent,
+  LoggerLevel,
+  LoggerType,
+  Permission,
+  SoftwareToUpdate,
+  Telemetry,
+  UpdateAgentLogLevel,
+  UpdateTargetsArchitecture,
+  UpdateTargetsOperatingSystem,
+} from "./enums";
 
 /**
  * Information about a Greengrass core's connectivity.
@@ -172,34 +185,6 @@ export interface Device {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncodingType = {
-  binary: "binary",
-  json: "json",
-} as const;
-
-/**
- * @public
- */
-export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
-
-/**
- * @public
- * @enum
- */
-export const FunctionIsolationMode = {
-  GreengrassContainer: "GreengrassContainer",
-  NoContainer: "NoContainer",
-} as const;
-
-/**
- * @public
- */
-export type FunctionIsolationMode = (typeof FunctionIsolationMode)[keyof typeof FunctionIsolationMode];
-
-/**
  * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
  * @public
  */
@@ -234,20 +219,6 @@ export interface FunctionExecutionConfig {
    */
   RunAs?: FunctionRunAsConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Permission = {
-  ro: "ro",
-  rw: "rw",
-} as const;
-
-/**
- * @public
- */
-export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
  * A policy used by the function to access a resource.
@@ -440,51 +411,6 @@ export interface GroupInformation {
    */
   Name?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LoggerComponent = {
-  GreengrassSystem: "GreengrassSystem",
-  Lambda: "Lambda",
-} as const;
-
-/**
- * @public
- */
-export type LoggerComponent = (typeof LoggerComponent)[keyof typeof LoggerComponent];
-
-/**
- * @public
- * @enum
- */
-export const LoggerLevel = {
-  DEBUG: "DEBUG",
-  ERROR: "ERROR",
-  FATAL: "FATAL",
-  INFO: "INFO",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type LoggerLevel = (typeof LoggerLevel)[keyof typeof LoggerLevel];
-
-/**
- * @public
- * @enum
- */
-export const LoggerType = {
-  AWSCloudWatch: "AWSCloudWatch",
-  FileSystem: "FileSystem",
-} as const;
-
-/**
- * @public
- */
-export type LoggerType = (typeof LoggerType)[keyof typeof LoggerType];
 
 /**
  * Information about a logger
@@ -833,72 +759,6 @@ export interface ErrorDetail {
 }
 
 /**
- * General error information.
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * Details about the error.
-   * @public
-   */
-  ErrorDetails?: ErrorDetail[] | undefined;
-
-  /**
-   * A message containing information about the error.
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.ErrorDetails = opts.ErrorDetails;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * General error information.
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * Details about the error.
-   * @public
-   */
-  ErrorDetails?: ErrorDetail[] | undefined;
-
-  /**
-   * A message containing information about the error.
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.ErrorDetails = opts.ErrorDetails;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociateServiceRoleToAccountRequest {
@@ -969,22 +829,6 @@ export interface BulkDeploymentMetrics {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeploymentType = {
-  ForceResetDeployment: "ForceResetDeployment",
-  NewDeployment: "NewDeployment",
-  Redeployment: "Redeployment",
-  ResetDeployment: "ResetDeployment",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
-
-/**
  * Information about an individual group deployment in a bulk deployment operation.
  * @public
  */
@@ -1037,38 +881,6 @@ export interface BulkDeploymentResult {
    */
   GroupArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BulkDeploymentStatus = {
-  Completed: "Completed",
-  Failed: "Failed",
-  Initializing: "Initializing",
-  Running: "Running",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type BulkDeploymentStatus = (typeof BulkDeploymentStatus)[keyof typeof BulkDeploymentStatus];
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationSyncStatus = {
-  InSync: "InSync",
-  OutOfSync: "OutOfSync",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationSyncStatus = (typeof ConfigurationSyncStatus)[keyof typeof ConfigurationSyncStatus];
 
 /**
  * Information about the connector definition version, which is a container for connectors.
@@ -2245,73 +2057,6 @@ export interface CreateResourceDefinitionVersionResponse {
    */
   Version?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SoftwareToUpdate = {
-  core: "core",
-  ota_agent: "ota_agent",
-} as const;
-
-/**
- * @public
- */
-export type SoftwareToUpdate = (typeof SoftwareToUpdate)[keyof typeof SoftwareToUpdate];
-
-/**
- * @public
- * @enum
- */
-export const UpdateAgentLogLevel = {
-  DEBUG: "DEBUG",
-  ERROR: "ERROR",
-  FATAL: "FATAL",
-  INFO: "INFO",
-  NONE: "NONE",
-  TRACE: "TRACE",
-  VERBOSE: "VERBOSE",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type UpdateAgentLogLevel = (typeof UpdateAgentLogLevel)[keyof typeof UpdateAgentLogLevel];
-
-/**
- * @public
- * @enum
- */
-export const UpdateTargetsArchitecture = {
-  aarch64: "aarch64",
-  armv6l: "armv6l",
-  armv7l: "armv7l",
-  x86_64: "x86_64",
-} as const;
-
-/**
- * @public
- */
-export type UpdateTargetsArchitecture = (typeof UpdateTargetsArchitecture)[keyof typeof UpdateTargetsArchitecture];
-
-/**
- * @public
- * @enum
- */
-export const UpdateTargetsOperatingSystem = {
-  amazon_linux: "amazon_linux",
-  openwrt: "openwrt",
-  raspbian: "raspbian",
-  ubuntu: "ubuntu",
-} as const;
-
-/**
- * @public
- */
-export type UpdateTargetsOperatingSystem =
-  (typeof UpdateTargetsOperatingSystem)[keyof typeof UpdateTargetsOperatingSystem];
 
 /**
  * @public
@@ -3979,20 +3724,6 @@ export interface GetThingRuntimeConfigurationRequest {
    */
   ThingName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Telemetry = {
-  Off: "Off",
-  On: "On",
-} as const;
-
-/**
- * @public
- */
-export type Telemetry = (typeof Telemetry)[keyof typeof Telemetry];
 
 /**
  * Configuration settings for running telemetry.

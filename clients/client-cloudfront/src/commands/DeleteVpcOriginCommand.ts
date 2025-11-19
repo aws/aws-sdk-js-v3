@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteVpcOriginRequest, DeleteVpcOriginResult } from "../models/models_1";
+import { DeleteVpcOriginRequest, DeleteVpcOriginResult } from "../models/models_0";
 import { DeleteVpcOrigin } from "../schemas/schemas_0";
 
 /**

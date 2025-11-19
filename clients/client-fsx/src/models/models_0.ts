@@ -1,40 +1,73 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { FSxServiceException as __BaseException } from "./FSxServiceException";
-
-/**
- * <p>An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
- * @public
- */
-export class AccessPointAlreadyOwnedByYou extends __BaseException {
-  readonly name: "AccessPointAlreadyOwnedByYou" = "AccessPointAlreadyOwnedByYou";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error code indicating that an access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessPointAlreadyOwnedByYou, __BaseException>) {
-    super({
-      name: "AccessPointAlreadyOwnedByYou",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessPointAlreadyOwnedByYou.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
+import {
+  AdministrativeActionType,
+  AliasLifecycle,
+  AutocommitPeriodType,
+  AutoImportPolicyType,
+  BackupLifecycle,
+  BackupType,
+  DataCompressionType,
+  DataRepositoryLifecycle,
+  DataRepositoryTaskFilterName,
+  DataRepositoryTaskLifecycle,
+  DataRepositoryTaskType,
+  DeleteFileSystemOpenZFSOption,
+  DeleteOpenZFSVolumeOption,
+  DiskIopsConfigurationMode,
+  DriveCacheType,
+  EventType,
+  FileCacheLifecycle,
+  FileCacheLustreDeploymentType,
+  FileCacheType,
+  FileSystemLifecycle,
+  FileSystemMaintenanceOperation,
+  FileSystemType,
+  FilterName,
+  FlexCacheEndpointType,
+  InputOntapVolumeType,
+  LustreAccessAuditLogLevel,
+  LustreDeploymentType,
+  LustreReadCacheSizingMode,
+  MetadataConfigurationMode,
+  NetworkType,
+  NfsVersion,
+  OntapDeploymentType,
+  OntapVolumeType,
+  OpenZFSCopyStrategy,
+  OpenZFSDataCompressionType,
+  OpenZFSDeploymentType,
+  OpenZFSFileSystemUserType,
+  OpenZFSQuotaType,
+  OpenZFSReadCacheSizingMode,
+  PrivilegedDelete,
+  ReportFormat,
+  ReportScope,
+  ResourceType,
+  RestoreOpenZFSVolumeOption,
+  RetentionPeriodType,
+  S3AccessPointAttachmentLifecycle,
+  S3AccessPointAttachmentsFilterName,
+  S3AccessPointAttachmentType,
+  SecurityStyle,
+  SnaplockType,
+  SnapshotFilterName,
+  SnapshotLifecycle,
+  Status,
+  StorageType,
+  StorageVirtualMachineFilterName,
+  StorageVirtualMachineLifecycle,
+  StorageVirtualMachineRootVolumeSecurityStyle,
+  StorageVirtualMachineSubtype,
+  TieringPolicyName,
+  Unit,
+  UpdateOpenZFSVolumeOption,
+  VolumeFilterName,
+  VolumeLifecycle,
+  VolumeStyle,
+  VolumeType,
+  WindowsAccessAuditLogLevel,
+  WindowsDeploymentType,
+} from "./enums";
 
 /**
  * <p>The Microsoft Active Directory attributes of the Amazon FSx for Windows File
@@ -65,90 +98,6 @@ export interface ActiveDirectoryBackupAttributes {
 }
 
 /**
- * @public
- * @enum
- */
-export const ActiveDirectoryErrorType = {
-  DOMAIN_NOT_FOUND: "DOMAIN_NOT_FOUND",
-  INCOMPATIBLE_DOMAIN_MODE: "INCOMPATIBLE_DOMAIN_MODE",
-  INVALID_DOMAIN_STAGE: "INVALID_DOMAIN_STAGE",
-  INVALID_NETWORK_TYPE: "INVALID_NETWORK_TYPE",
-  WRONG_VPC: "WRONG_VPC",
-} as const;
-
-/**
- * @public
- */
-export type ActiveDirectoryErrorType = (typeof ActiveDirectoryErrorType)[keyof typeof ActiveDirectoryErrorType];
-
-/**
- * <p>An Active Directory error.</p>
- * @public
- */
-export class ActiveDirectoryError extends __BaseException {
-  readonly name: "ActiveDirectoryError" = "ActiveDirectoryError";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The directory ID of the directory that an error pertains to.</p>
-   * @public
-   */
-  ActiveDirectoryId: string | undefined;
-
-  /**
-   * <p>The type of Active Directory error.</p>
-   * @public
-   */
-  Type?: ActiveDirectoryErrorType | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ActiveDirectoryError, __BaseException>) {
-    super({
-      name: "ActiveDirectoryError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ActiveDirectoryError.prototype);
-    this.ActiveDirectoryId = opts.ActiveDirectoryId;
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AdministrativeActionType = {
-  DOWNLOAD_DATA_FROM_BACKUP: "DOWNLOAD_DATA_FROM_BACKUP",
-  FILE_SYSTEM_ALIAS_ASSOCIATION: "FILE_SYSTEM_ALIAS_ASSOCIATION",
-  FILE_SYSTEM_ALIAS_DISASSOCIATION: "FILE_SYSTEM_ALIAS_DISASSOCIATION",
-  FILE_SYSTEM_UPDATE: "FILE_SYSTEM_UPDATE",
-  IOPS_OPTIMIZATION: "IOPS_OPTIMIZATION",
-  MISCONFIGURED_STATE_RECOVERY: "MISCONFIGURED_STATE_RECOVERY",
-  RELEASE_NFS_V3_LOCKS: "RELEASE_NFS_V3_LOCKS",
-  SNAPSHOT_UPDATE: "SNAPSHOT_UPDATE",
-  STORAGE_OPTIMIZATION: "STORAGE_OPTIMIZATION",
-  STORAGE_TYPE_OPTIMIZATION: "STORAGE_TYPE_OPTIMIZATION",
-  THROUGHPUT_OPTIMIZATION: "THROUGHPUT_OPTIMIZATION",
-  VOLUME_INITIALIZE_WITH_SNAPSHOT: "VOLUME_INITIALIZE_WITH_SNAPSHOT",
-  VOLUME_RESTORE: "VOLUME_RESTORE",
-  VOLUME_UPDATE: "VOLUME_UPDATE",
-  VOLUME_UPDATE_WITH_SNAPSHOT: "VOLUME_UPDATE_WITH_SNAPSHOT",
-} as const;
-
-/**
- * @public
- */
-export type AdministrativeActionType = (typeof AdministrativeActionType)[keyof typeof AdministrativeActionType];
-
-/**
  * <p>Provides information about a failed administrative action.</p>
  * @public
  */
@@ -161,26 +110,6 @@ export interface AdministrativeActionFailureDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const Status = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  OPTIMIZING: "OPTIMIZING",
-  PAUSED: "PAUSED",
-  PENDING: "PENDING",
-  UPDATED_OPTIMIZING: "UPDATED_OPTIMIZING",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
  * <p>A structure providing details of any failures that occurred.</p>
  * @public
  */
@@ -191,70 +120,6 @@ export interface FileSystemFailureDetails {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileSystemType = {
-  LUSTRE: "LUSTRE",
-  ONTAP: "ONTAP",
-  OPENZFS: "OPENZFS",
-  WINDOWS: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type FileSystemType = (typeof FileSystemType)[keyof typeof FileSystemType];
-
-/**
- * @public
- * @enum
- */
-export const FileSystemLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  MISCONFIGURED: "MISCONFIGURED",
-  MISCONFIGURED_UNAVAILABLE: "MISCONFIGURED_UNAVAILABLE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FileSystemLifecycle = (typeof FileSystemLifecycle)[keyof typeof FileSystemLifecycle];
-
-/**
- * @public
- * @enum
- */
-export const DataCompressionType = {
-  LZ4: "LZ4",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type DataCompressionType = (typeof DataCompressionType)[keyof typeof DataCompressionType];
-
-/**
- * @public
- * @enum
- */
-export const LustreReadCacheSizingMode = {
-  NO_CACHE: "NO_CACHE",
-  PROPORTIONAL_TO_THROUGHPUT_CAPACITY: "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
-  USER_PROVISIONED: "USER_PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type LustreReadCacheSizingMode = (typeof LustreReadCacheSizingMode)[keyof typeof LustreReadCacheSizingMode];
 
 /**
  * <p>
@@ -298,22 +163,6 @@ export interface LustreReadCacheConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutoImportPolicyType = {
-  NEW: "NEW",
-  NEW_CHANGED: "NEW_CHANGED",
-  NEW_CHANGED_DELETED: "NEW_CHANGED_DELETED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AutoImportPolicyType = (typeof AutoImportPolicyType)[keyof typeof AutoImportPolicyType];
-
-/**
  * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
  *             set to <code>MISCONFIGURED</code> or <code>FAILED</code>.</p>
  * @public
@@ -325,24 +174,6 @@ export interface DataRepositoryFailureDetails {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataRepositoryLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  MISCONFIGURED: "MISCONFIGURED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type DataRepositoryLifecycle = (typeof DataRepositoryLifecycle)[keyof typeof DataRepositoryLifecycle];
 
 /**
  * <p>The data repository configuration object for Lustre file systems returned in the response of
@@ -462,52 +293,6 @@ export interface DataRepositoryConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const LustreDeploymentType = {
-  PERSISTENT_1: "PERSISTENT_1",
-  PERSISTENT_2: "PERSISTENT_2",
-  SCRATCH_1: "SCRATCH_1",
-  SCRATCH_2: "SCRATCH_2",
-} as const;
-
-/**
- * @public
- */
-export type LustreDeploymentType = (typeof LustreDeploymentType)[keyof typeof LustreDeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const DriveCacheType = {
-  NONE: "NONE",
-  READ: "READ",
-} as const;
-
-/**
- * @public
- */
-export type DriveCacheType = (typeof DriveCacheType)[keyof typeof DriveCacheType];
-
-/**
- * @public
- * @enum
- */
-export const LustreAccessAuditLogLevel = {
-  DISABLED: "DISABLED",
-  ERROR_ONLY: "ERROR_ONLY",
-  WARN_ERROR: "WARN_ERROR",
-  WARN_ONLY: "WARN_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type LustreAccessAuditLogLevel = (typeof LustreAccessAuditLogLevel)[keyof typeof LustreAccessAuditLogLevel];
-
-/**
  * <p>The configuration for Lustre logging used to write the enabled
  *             logging events for your Amazon FSx for Lustre file system or
  *             Amazon File Cache resource to Amazon CloudWatch Logs.</p>
@@ -551,20 +336,6 @@ export interface LustreLogConfiguration {
    */
   Destination?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetadataConfigurationMode = {
-  AUTOMATIC: "AUTOMATIC",
-  USER_PROVISIONED: "USER_PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type MetadataConfigurationMode = (typeof MetadataConfigurationMode)[keyof typeof MetadataConfigurationMode];
 
 /**
  * <p>The Lustre metadata performance configuration of an Amazon FSx for Lustre
@@ -841,50 +612,6 @@ export interface LustreFileSystemConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL: "DUAL",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
-
-/**
- * @public
- * @enum
- */
-export const OntapDeploymentType = {
-  MULTI_AZ_1: "MULTI_AZ_1",
-  MULTI_AZ_2: "MULTI_AZ_2",
-  SINGLE_AZ_1: "SINGLE_AZ_1",
-  SINGLE_AZ_2: "SINGLE_AZ_2",
-} as const;
-
-/**
- * @public
- */
-export type OntapDeploymentType = (typeof OntapDeploymentType)[keyof typeof OntapDeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const DiskIopsConfigurationMode = {
-  AUTOMATIC: "AUTOMATIC",
-  USER_PROVISIONED: "USER_PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type DiskIopsConfigurationMode = (typeof DiskIopsConfigurationMode)[keyof typeof DiskIopsConfigurationMode];
-
-/**
  * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP, Amazon FSx for Windows File Server, or FSx for OpenZFS file system. By default, Amazon FSx
  *             automatically provisions 3 IOPS per GB of storage capacity. You can provision additional IOPS per
  *             GB of storage. The configuration consists of the total number of provisioned SSD IOPS
@@ -1137,38 +864,6 @@ export interface OntapFileSystemConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OpenZFSDeploymentType = {
-  MULTI_AZ_1: "MULTI_AZ_1",
-  SINGLE_AZ_1: "SINGLE_AZ_1",
-  SINGLE_AZ_2: "SINGLE_AZ_2",
-  SINGLE_AZ_HA_1: "SINGLE_AZ_HA_1",
-  SINGLE_AZ_HA_2: "SINGLE_AZ_HA_2",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSDeploymentType = (typeof OpenZFSDeploymentType)[keyof typeof OpenZFSDeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const OpenZFSReadCacheSizingMode = {
-  NO_CACHE: "NO_CACHE",
-  PROPORTIONAL_TO_THROUGHPUT_CAPACITY: "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
-  USER_PROVISIONED: "USER_PROVISIONED",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSReadCacheSizingMode = (typeof OpenZFSReadCacheSizingMode)[keyof typeof OpenZFSReadCacheSizingMode];
-
-/**
  * <p>
  *             The configuration for the optional provisioned SSD read cache on Amazon FSx for OpenZFS file systems that use the Intelligent-Tiering storage class.
  *         </p>
@@ -1339,21 +1034,6 @@ export interface OpenZFSFileSystemConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const StorageType = {
-  HDD: "HDD",
-  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
-  SSD: "SSD",
-} as const;
-
-/**
- * @public
- */
-export type StorageType = (typeof StorageType)[keyof typeof StorageType];
-
-/**
  * <p>Specifies a key-value pair for a resource tag.</p>
  * @public
  */
@@ -1374,23 +1054,6 @@ export interface Tag {
    */
   Value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AliasLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type AliasLifecycle = (typeof AliasLifecycle)[keyof typeof AliasLifecycle];
 
 /**
  * <p>A DNS alias that is associated with the file system. You can use a DNS alias to access a file system using
@@ -1446,22 +1109,6 @@ export interface Alias {
    */
   Lifecycle?: AliasLifecycle | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WindowsAccessAuditLogLevel = {
-  DISABLED: "DISABLED",
-  FAILURE_ONLY: "FAILURE_ONLY",
-  SUCCESS_AND_FAILURE: "SUCCESS_AND_FAILURE",
-  SUCCESS_ONLY: "SUCCESS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type WindowsAccessAuditLogLevel = (typeof WindowsAccessAuditLogLevel)[keyof typeof WindowsAccessAuditLogLevel];
 
 /**
  * <p>The configuration that Amazon FSx for Windows File Server uses to audit and log
@@ -1540,36 +1187,6 @@ export interface WindowsAuditLogConfiguration {
    */
   AuditLogDestination?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WindowsDeploymentType = {
-  MULTI_AZ_1: "MULTI_AZ_1",
-  SINGLE_AZ_1: "SINGLE_AZ_1",
-  SINGLE_AZ_2: "SINGLE_AZ_2",
-} as const;
-
-/**
- * @public
- */
-export type WindowsDeploymentType = (typeof WindowsDeploymentType)[keyof typeof WindowsDeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const FileSystemMaintenanceOperation = {
-  BACKING_UP: "BACKING_UP",
-  PATCHING: "PATCHING",
-} as const;
-
-/**
- * @public
- */
-export type FileSystemMaintenanceOperation =
-  (typeof FileSystemMaintenanceOperation)[keyof typeof FileSystemMaintenanceOperation];
 
 /**
  * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
@@ -1781,22 +1398,6 @@ export interface WindowsFileSystemConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const SnapshotLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotLifecycle = (typeof SnapshotLifecycle)[keyof typeof SnapshotLifecycle];
-
-/**
  * <p>Describes why a resource lifecycle state changed.</p>
  * @public
  */
@@ -1807,25 +1408,6 @@ export interface LifecycleTransitionReason {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VolumeLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  MISCONFIGURED: "MISCONFIGURED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type VolumeLifecycle = (typeof VolumeLifecycle)[keyof typeof VolumeLifecycle];
 
 /**
  * <p>Used to specify configuration options for a volume’s storage aggregate or aggregates.</p>
@@ -1856,69 +1438,6 @@ export interface AggregateConfiguration {
    */
   TotalConstituents?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlexCacheEndpointType = {
-  CACHE: "CACHE",
-  NONE: "NONE",
-  ORIGIN: "ORIGIN",
-} as const;
-
-/**
- * @public
- */
-export type FlexCacheEndpointType = (typeof FlexCacheEndpointType)[keyof typeof FlexCacheEndpointType];
-
-/**
- * @public
- * @enum
- */
-export const OntapVolumeType = {
-  DP: "DP",
-  LS: "LS",
-  RW: "RW",
-} as const;
-
-/**
- * @public
- */
-export type OntapVolumeType = (typeof OntapVolumeType)[keyof typeof OntapVolumeType];
-
-/**
- * @public
- * @enum
- */
-export const SecurityStyle = {
-  MIXED: "MIXED",
-  NTFS: "NTFS",
-  UNIX: "UNIX",
-} as const;
-
-/**
- * @public
- */
-export type SecurityStyle = (typeof SecurityStyle)[keyof typeof SecurityStyle];
-
-/**
- * @public
- * @enum
- */
-export const AutocommitPeriodType = {
-  DAYS: "DAYS",
-  HOURS: "HOURS",
-  MINUTES: "MINUTES",
-  MONTHS: "MONTHS",
-  NONE: "NONE",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type AutocommitPeriodType = (typeof AutocommitPeriodType)[keyof typeof AutocommitPeriodType];
 
 /**
  * <p>Sets the autocommit period of files in an FSx for ONTAP SnapLock volume, which determines
@@ -1966,41 +1485,6 @@ export interface AutocommitPeriod {
    */
   Value?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PrivilegedDelete = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  PERMANENTLY_DISABLED: "PERMANENTLY_DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type PrivilegedDelete = (typeof PrivilegedDelete)[keyof typeof PrivilegedDelete];
-
-/**
- * @public
- * @enum
- */
-export const RetentionPeriodType = {
-  DAYS: "DAYS",
-  HOURS: "HOURS",
-  INFINITE: "INFINITE",
-  MINUTES: "MINUTES",
-  MONTHS: "MONTHS",
-  SECONDS: "SECONDS",
-  UNSPECIFIED: "UNSPECIFIED",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type RetentionPeriodType = (typeof RetentionPeriodType)[keyof typeof RetentionPeriodType];
 
 /**
  * <p>Specifies the retention period of an FSx for ONTAP SnapLock volume.  After it is set, it can't be changed.
@@ -2087,20 +1571,6 @@ export interface SnaplockRetentionPeriod {
 }
 
 /**
- * @public
- * @enum
- */
-export const SnaplockType = {
-  COMPLIANCE: "COMPLIANCE",
-  ENTERPRISE: "ENTERPRISE",
-} as const;
-
-/**
- * @public
- */
-export type SnaplockType = (typeof SnaplockType)[keyof typeof SnaplockType];
-
-/**
  * <p>Specifies the SnapLock configuration for an FSx for ONTAP SnapLock volume. </p>
  * @public
  */
@@ -2175,22 +1645,6 @@ export interface SnaplockConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const TieringPolicyName = {
-  ALL: "ALL",
-  AUTO: "AUTO",
-  NONE: "NONE",
-  SNAPSHOT_ONLY: "SNAPSHOT_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type TieringPolicyName = (typeof TieringPolicyName)[keyof typeof TieringPolicyName];
-
-/**
  * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
  *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
  *             pool storage based on your access patterns.</p>
@@ -2258,20 +1712,6 @@ export interface TieringPolicy {
    */
   Name?: TieringPolicyName | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VolumeStyle = {
-  FLEXGROUP: "FLEXGROUP",
-  FLEXVOL: "FLEXVOL",
-} as const;
-
-/**
- * @public
- */
-export type VolumeStyle = (typeof VolumeStyle)[keyof typeof VolumeStyle];
 
 /**
  * <p>The configuration of an Amazon FSx for NetApp ONTAP volume.</p>
@@ -2448,36 +1888,6 @@ export interface OntapVolumeConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OpenZFSCopyStrategy = {
-  CLONE: "CLONE",
-  FULL_COPY: "FULL_COPY",
-  INCREMENTAL_COPY: "INCREMENTAL_COPY",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSCopyStrategy = (typeof OpenZFSCopyStrategy)[keyof typeof OpenZFSCopyStrategy];
-
-/**
- * @public
- * @enum
- */
-export const OpenZFSDataCompressionType = {
-  LZ4: "LZ4",
-  NONE: "NONE",
-  ZSTD: "ZSTD",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSDataCompressionType = (typeof OpenZFSDataCompressionType)[keyof typeof OpenZFSDataCompressionType];
-
-/**
  * <p>Specifies who can mount an OpenZFS file system and the options available while
  *             mounting the file system.</p>
  * @public
@@ -2570,20 +1980,6 @@ export interface OpenZFSOriginSnapshotConfiguration {
    */
   CopyStrategy?: OpenZFSCopyStrategy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OpenZFSQuotaType = {
-  GROUP: "GROUP",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSQuotaType = (typeof OpenZFSQuotaType)[keyof typeof OpenZFSQuotaType];
 
 /**
  * <p>Used to configure quotas that define how much storage a user or group can use on an
@@ -2790,20 +2186,6 @@ export interface OpenZFSVolumeConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const VolumeType = {
-  ONTAP: "ONTAP",
-  OPENZFS: "OPENZFS",
-} as const;
-
-/**
- * @public
- */
-export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
-
-/**
  * <p>The request object specifying one or more DNS alias names to associate with an Amazon FSx for Windows File Server file system.</p>
  * @public
  */
@@ -2865,99 +2247,6 @@ export interface AssociateFileSystemAliasesResponse {
    */
   Aliases?: Alias[] | undefined;
 }
-
-/**
- * <p>A generic error indicating a failure with a client request.</p>
- * @public
- */
-export class BadRequest extends __BaseException {
-  readonly name: "BadRequest" = "BadRequest";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequest, __BaseException>) {
-    super({
-      name: "BadRequest",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequest.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
- * @public
- */
-export class FileSystemNotFound extends __BaseException {
-  readonly name: "FileSystemNotFound" = "FileSystemNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileSystemNotFound, __BaseException>) {
-    super({
-      name: "FileSystemNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileSystemNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A generic error indicating a server-side failure.</p>
- * @public
- */
-export class InternalServerError extends __BaseException {
-  readonly name: "InternalServerError" = "InternalServerError";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
-    super({
-      name: "InternalServerError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  CHANGED: "CHANGED",
-  DELETED: "DELETED",
-  NEW: "NEW",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * <p>Describes a data repository association's automatic export policy. The
@@ -3047,25 +2336,6 @@ export interface CancelDataRepositoryTaskRequest {
 
 /**
  * @public
- * @enum
- */
-export const DataRepositoryTaskLifecycle = {
-  CANCELED: "CANCELED",
-  CANCELING: "CANCELING",
-  EXECUTING: "EXECUTING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type DataRepositoryTaskLifecycle =
-  (typeof DataRepositoryTaskLifecycle)[keyof typeof DataRepositoryTaskLifecycle];
-
-/**
- * @public
  */
 export interface CancelDataRepositoryTaskResponse {
   /**
@@ -3106,110 +2376,6 @@ export interface CancelDataRepositoryTaskResponse {
    * @public
    */
   TaskId?: string | undefined;
-}
-
-/**
- * <p>The data repository task could not be canceled because the task has already ended.</p>
- * @public
- */
-export class DataRepositoryTaskEnded extends __BaseException {
-  readonly name: "DataRepositoryTaskEnded" = "DataRepositoryTaskEnded";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataRepositoryTaskEnded, __BaseException>) {
-    super({
-      name: "DataRepositoryTaskEnded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataRepositoryTaskEnded.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The data repository task or tasks you specified could not be found.</p>
- * @public
- */
-export class DataRepositoryTaskNotFound extends __BaseException {
-  readonly name: "DataRepositoryTaskNotFound" = "DataRepositoryTaskNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataRepositoryTaskNotFound, __BaseException>) {
-    super({
-      name: "DataRepositoryTaskNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataRepositoryTaskNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested operation is not supported for this resource or API.</p>
- * @public
- */
-export class UnsupportedOperation extends __BaseException {
-  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
-    super({
-      name: "UnsupportedOperation",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
- * @public
- */
-export class BackupNotFound extends __BaseException {
-  readonly name: "BackupNotFound" = "BackupNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupNotFound, __BaseException>) {
-    super({
-      name: "BackupNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupNotFound.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3298,302 +2464,6 @@ export interface BackupFailureDetails {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BackupLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  COPYING: "COPYING",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  TRANSFERRING: "TRANSFERRING",
-} as const;
-
-/**
- * @public
- */
-export type BackupLifecycle = (typeof BackupLifecycle)[keyof typeof BackupLifecycle];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  FILE_SYSTEM: "FILE_SYSTEM",
-  VOLUME: "VOLUME",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * @enum
- */
-export const BackupType = {
-  AUTOMATIC: "AUTOMATIC",
-  AWS_BACKUP: "AWS_BACKUP",
-  USER_INITIATED: "USER_INITIATED",
-} as const;
-
-/**
- * @public
- */
-export type BackupType = (typeof BackupType)[keyof typeof BackupType];
-
-/**
- * <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
- * @public
- */
-export class IncompatibleParameterError extends __BaseException {
-  readonly name: "IncompatibleParameterError" = "IncompatibleParameterError";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A parameter that is incompatible with the earlier request.</p>
-   * @public
-   */
-  Parameter: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IncompatibleParameterError, __BaseException>) {
-    super({
-      name: "IncompatibleParameterError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IncompatibleParameterError.prototype);
-    this.Parameter = opts.Parameter;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
- *          destination Region, so the copied backup can't be restored.</p>
- * @public
- */
-export class IncompatibleRegionForMultiAZ extends __BaseException {
-  readonly name: "IncompatibleRegionForMultiAZ" = "IncompatibleRegionForMultiAZ";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IncompatibleRegionForMultiAZ, __BaseException>) {
-    super({
-      name: "IncompatibleRegionForMultiAZ",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IncompatibleRegionForMultiAZ.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Key Management Service (KMS) key of the destination backup is not
- *          valid.</p>
- * @public
- */
-export class InvalidDestinationKmsKey extends __BaseException {
-  readonly name: "InvalidDestinationKmsKey" = "InvalidDestinationKmsKey";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDestinationKmsKey, __BaseException>) {
-    super({
-      name: "InvalidDestinationKmsKey",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDestinationKmsKey.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
- *             Amazon Web Services partition.</p>
- * @public
- */
-export class InvalidRegion extends __BaseException {
-  readonly name: "InvalidRegion" = "InvalidRegion";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRegion, __BaseException>) {
-    super({
-      name: "InvalidRegion",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRegion.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Key Management Service (KMS) key of the source backup is not
- *          valid.</p>
- * @public
- */
-export class InvalidSourceKmsKey extends __BaseException {
-  readonly name: "InvalidSourceKmsKey" = "InvalidSourceKmsKey";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSourceKmsKey, __BaseException>) {
-    super({
-      name: "InvalidSourceKmsKey",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSourceKmsKey.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceLimit = {
-  FILE_CACHE_COUNT: "FILE_CACHE_COUNT",
-  FILE_SYSTEM_COUNT: "FILE_SYSTEM_COUNT",
-  STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM: "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
-  TOTAL_IN_PROGRESS_COPY_BACKUPS: "TOTAL_IN_PROGRESS_COPY_BACKUPS",
-  TOTAL_SSD_IOPS: "TOTAL_SSD_IOPS",
-  TOTAL_STORAGE: "TOTAL_STORAGE",
-  TOTAL_THROUGHPUT_CAPACITY: "TOTAL_THROUGHPUT_CAPACITY",
-  TOTAL_USER_INITIATED_BACKUPS: "TOTAL_USER_INITIATED_BACKUPS",
-  TOTAL_USER_TAGS: "TOTAL_USER_TAGS",
-  VOLUMES_PER_FILE_SYSTEM: "VOLUMES_PER_FILE_SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type ServiceLimit = (typeof ServiceLimit)[keyof typeof ServiceLimit];
-
-/**
- * <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
- * @public
- */
-export class ServiceLimitExceeded extends __BaseException {
-  readonly name: "ServiceLimitExceeded" = "ServiceLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Enumeration of the service limit that was exceeded. </p>
-   * @public
-   */
-  Limit: ServiceLimit | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceLimitExceeded, __BaseException>) {
-    super({
-      name: "ServiceLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceLimitExceeded.prototype);
-    this.Limit = opts.Limit;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because the lifecycle status of the source backup isn't
- *             <code>AVAILABLE</code>.</p>
- * @public
- */
-export class SourceBackupUnavailable extends __BaseException {
-  readonly name: "SourceBackupUnavailable" = "SourceBackupUnavailable";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
-   * @public
-   */
-  BackupId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceBackupUnavailable, __BaseException>) {
-    super({
-      name: "SourceBackupUnavailable",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceBackupUnavailable.prototype);
-    this.Message = opts.Message;
-    this.BackupId = opts.BackupId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const UpdateOpenZFSVolumeOption = {
-  DELETE_CLONED_VOLUMES: "DELETE_CLONED_VOLUMES",
-  DELETE_INTERMEDIATE_DATA: "DELETE_INTERMEDIATE_DATA",
-  DELETE_INTERMEDIATE_SNAPSHOTS: "DELETE_INTERMEDIATE_SNAPSHOTS",
-} as const;
-
-/**
- * @public
- */
-export type UpdateOpenZFSVolumeOption = (typeof UpdateOpenZFSVolumeOption)[keyof typeof UpdateOpenZFSVolumeOption];
 
 /**
  * @public
@@ -3700,19 +2570,6 @@ export interface OpenZFSPosixFileSystemUser {
 }
 
 /**
- * @public
- * @enum
- */
-export const OpenZFSFileSystemUserType = {
-  POSIX: "POSIX",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSFileSystemUserType = (typeof OpenZFSFileSystemUserType)[keyof typeof OpenZFSFileSystemUserType];
-
-/**
  * <p>Specifies the file system user identity that will be used for authorizing all file access requests that are made using the S3 access point.</p>
  * @public
  */
@@ -3782,20 +2639,6 @@ export interface CreateAndAttachS3AccessPointS3Configuration {
 
 /**
  * @public
- * @enum
- */
-export const S3AccessPointAttachmentType = {
-  OPENZFS: "OPENZFS",
-} as const;
-
-/**
- * @public
- */
-export type S3AccessPointAttachmentType =
-  (typeof S3AccessPointAttachmentType)[keyof typeof S3AccessPointAttachmentType];
-
-/**
- * @public
  */
 export interface CreateAndAttachS3AccessPointRequest {
   /**
@@ -3831,24 +2674,6 @@ export interface CreateAndAttachS3AccessPointRequest {
    */
   S3AccessPoint?: CreateAndAttachS3AccessPointS3Configuration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const S3AccessPointAttachmentLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type S3AccessPointAttachmentLifecycle =
-  (typeof S3AccessPointAttachmentLifecycle)[keyof typeof S3AccessPointAttachmentLifecycle];
 
 /**
  * <p>Describes the FSx for OpenZFS attachment configuration of an S3 access point attachment.</p>
@@ -3968,159 +2793,6 @@ export interface CreateAndAttachS3AccessPointResponse {
    * @public
    */
   S3AccessPointAttachment?: S3AccessPointAttachment | undefined;
-}
-
-/**
- * <p>The access point specified doesn't exist.</p>
- * @public
- */
-export class InvalidAccessPoint extends __BaseException {
-  readonly name: "InvalidAccessPoint" = "InvalidAccessPoint";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error code indicating that the access point specified doesn't exist.</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAccessPoint, __BaseException>) {
-    super({
-      name: "InvalidAccessPoint",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAccessPoint.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
- * @public
- */
-export class InvalidRequest extends __BaseException {
-  readonly name: "InvalidRequest" = "InvalidRequest";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error code indicating that the action or operation requested is invalid.</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequest, __BaseException>) {
-    super({
-      name: "InvalidRequest",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequest.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase,
- *          see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html">Service quotas on FSx resources</a> in the FSx for OpenZFS User Guide.</p>
- * @public
- */
-export class TooManyAccessPoints extends __BaseException {
-  readonly name: "TooManyAccessPoints" = "TooManyAccessPoints";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>An error code indicating that you have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system.</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyAccessPoints, __BaseException>) {
-    super({
-      name: "TooManyAccessPoints",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyAccessPoints.prototype);
-    this.ErrorCode = opts.ErrorCode;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
- * @public
- */
-export class VolumeNotFound extends __BaseException {
-  readonly name: "VolumeNotFound" = "VolumeNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<VolumeNotFound, __BaseException>) {
-    super({
-      name: "VolumeNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, VolumeNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Another backup is already under way. Wait for completion before initiating
- *             additional backups of this file system.</p>
- * @public
- */
-export class BackupInProgress extends __BaseException {
-  readonly name: "BackupInProgress" = "BackupInProgress";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupInProgress, __BaseException>) {
-    super({
-      name: "BackupInProgress",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupInProgress.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -4278,19 +2950,6 @@ export interface CreateDataRepositoryAssociationRequest {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NfsVersion = {
-  NFS3: "NFS3",
-} as const;
-
-/**
- * @public
- */
-export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];
 
 /**
  * <p>The configuration for a data repository association that
@@ -4586,19 +3245,6 @@ export interface CreateDataRepositoryAssociationResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const Unit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
-
-/**
  * <p>Defines the minimum amount of time since last access for a
  *             file to be eligible for release. Only files that have been
  *             exported to S3 and that were last accessed or modified before
@@ -4669,32 +3315,6 @@ export interface ReleaseConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReportFormat = {
-  REPORT_CSV_20191124: "REPORT_CSV_20191124",
-} as const;
-
-/**
- * @public
- */
-export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
-
-/**
- * @public
- * @enum
- */
-export const ReportScope = {
-  FAILED_FILES_ONLY: "FAILED_FILES_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type ReportScope = (typeof ReportScope)[keyof typeof ReportScope];
-
-/**
  * <p>Provides a report detailing the data repository task results of the files processed that match the criteria specified in the report <code>Scope</code> parameter.
  *             FSx delivers the report to the file system's linked data repository in Amazon S3,
  *             using the path specified in the report <code>Path</code> parameter.
@@ -4737,22 +3357,6 @@ export interface CompletionReport {
    */
   Scope?: ReportScope | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataRepositoryTaskType = {
-  AUTO_TRIGGERED_EVICTION: "AUTO_RELEASE_DATA",
-  EVICTION: "RELEASE_DATA_FROM_FILESYSTEM",
-  EXPORT: "EXPORT_TO_REPOSITORY",
-  IMPORT: "IMPORT_METADATA_FROM_REPOSITORY",
-} as const;
-
-/**
- * @public
- */
-export type DataRepositoryTaskType = (typeof DataRepositoryTaskType)[keyof typeof DataRepositoryTaskType];
 
 /**
  * @public
@@ -5121,33 +3725,6 @@ export interface CreateDataRepositoryTaskResponse {
 }
 
 /**
- * <p>An existing data repository task is currently executing on the file system.
- *         Wait until the existing task has completed, then create the new task.</p>
- * @public
- */
-export class DataRepositoryTaskExecuting extends __BaseException {
-  readonly name: "DataRepositoryTaskExecuting" = "DataRepositoryTaskExecuting";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataRepositoryTaskExecuting, __BaseException>) {
-    super({
-      name: "DataRepositoryTaskExecuting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataRepositoryTaskExecuting.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The configuration for an NFS data repository association (DRA)
  *             created during the creation of the Amazon File Cache resource.</p>
  * @public
@@ -5256,33 +3833,6 @@ export interface FileCacheDataRepositoryAssociation {
    */
   NFS?: FileCacheNFSConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileCacheType = {
-  LUSTRE: "LUSTRE",
-} as const;
-
-/**
- * @public
- */
-export type FileCacheType = (typeof FileCacheType)[keyof typeof FileCacheType];
-
-/**
- * @public
- * @enum
- */
-export const FileCacheLustreDeploymentType = {
-  CACHE_1: "CACHE_1",
-} as const;
-
-/**
- * @public
- */
-export type FileCacheLustreDeploymentType =
-  (typeof FileCacheLustreDeploymentType)[keyof typeof FileCacheLustreDeploymentType];
 
 /**
  * <p>The configuration for a Lustre MDT (Metadata Target) storage volume.
@@ -5449,23 +3999,6 @@ export interface FileCacheFailureDetails {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileCacheLifecycle = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FileCacheLifecycle = (typeof FileCacheLifecycle)[keyof typeof FileCacheLifecycle];
 
 /**
  * <p>The configuration for the Amazon File Cache resource.</p>
@@ -5678,105 +4211,6 @@ export interface CreateFileCacheResponse {
    * @public
    */
   FileCache?: FileCacheCreating | undefined;
-}
-
-/**
- * <p>One or more network settings specified in the request are invalid.</p>
- * @public
- */
-export class InvalidNetworkSettings extends __BaseException {
-  readonly name: "InvalidNetworkSettings" = "InvalidNetworkSettings";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Error message explaining what's wrong with network settings.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The subnet ID that is either invalid or not part of the VPC specified.</p>
-   * @public
-   */
-  InvalidSubnetId?: string | undefined;
-
-  /**
-   * <p>The security group ID is either invalid or not part of the VPC specified.</p>
-   * @public
-   */
-  InvalidSecurityGroupId?: string | undefined;
-
-  /**
-   * <p>The route table ID is either invalid or not part of the VPC specified.</p>
-   * @public
-   */
-  InvalidRouteTableId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNetworkSettings, __BaseException>) {
-    super({
-      name: "InvalidNetworkSettings",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNetworkSettings.prototype);
-    this.Message = opts.Message;
-    this.InvalidSubnetId = opts.InvalidSubnetId;
-    this.InvalidSecurityGroupId = opts.InvalidSecurityGroupId;
-    this.InvalidRouteTableId = opts.InvalidRouteTableId;
-  }
-}
-
-/**
- * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
- * @public
- */
-export class InvalidPerUnitStorageThroughput extends __BaseException {
-  readonly name: "InvalidPerUnitStorageThroughput" = "InvalidPerUnitStorageThroughput";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPerUnitStorageThroughput, __BaseException>) {
-    super({
-      name: "InvalidPerUnitStorageThroughput",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPerUnitStorageThroughput.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A cache configuration is required for this operation.</p>
- * @public
- */
-export class MissingFileCacheConfiguration extends __BaseException {
-  readonly name: "MissingFileCacheConfiguration" = "MissingFileCacheConfiguration";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingFileCacheConfiguration, __BaseException>) {
-    super({
-      name: "MissingFileCacheConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingFileCacheConfiguration.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -7228,84 +5662,6 @@ export interface CreateFileSystemRequest {
 }
 
 /**
- * <p>The path provided for data repository export isn't valid.</p>
- * @public
- */
-export class InvalidExportPath extends __BaseException {
-  readonly name: "InvalidExportPath" = "InvalidExportPath";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidExportPath, __BaseException>) {
-    super({
-      name: "InvalidExportPath",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidExportPath.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The path provided for data repository import isn't valid.</p>
- * @public
- */
-export class InvalidImportPath extends __BaseException {
-  readonly name: "InvalidImportPath" = "InvalidImportPath";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidImportPath, __BaseException>) {
-    super({
-      name: "InvalidImportPath",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidImportPath.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A file system configuration is required for this operation.</p>
- * @public
- */
-export class MissingFileSystemConfiguration extends __BaseException {
-  readonly name: "MissingFileSystemConfiguration" = "MissingFileSystemConfiguration";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingFileSystemConfiguration, __BaseException>) {
-    super({
-      name: "MissingFileSystemConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingFileSystemConfiguration.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The request object for the <code>CreateFileSystemFromBackup</code>
  *             operation.</p>
  * @public
@@ -7544,22 +5900,6 @@ export interface CreateSvmActiveDirectoryConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const StorageVirtualMachineRootVolumeSecurityStyle = {
-  MIXED: "MIXED",
-  NTFS: "NTFS",
-  UNIX: "UNIX",
-} as const;
-
-/**
- * @public
- */
-export type StorageVirtualMachineRootVolumeSecurityStyle =
-  (typeof StorageVirtualMachineRootVolumeSecurityStyle)[keyof typeof StorageVirtualMachineRootVolumeSecurityStyle];
-
-/**
- * @public
  */
 export interface CreateStorageVirtualMachineRequest {
   /**
@@ -7714,42 +6054,6 @@ export interface SvmEndpoints {
 }
 
 /**
- * @public
- * @enum
- */
-export const StorageVirtualMachineLifecycle = {
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  MISCONFIGURED: "MISCONFIGURED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type StorageVirtualMachineLifecycle =
-  (typeof StorageVirtualMachineLifecycle)[keyof typeof StorageVirtualMachineLifecycle];
-
-/**
- * @public
- * @enum
- */
-export const StorageVirtualMachineSubtype = {
-  DEFAULT: "DEFAULT",
-  DP_DESTINATION: "DP_DESTINATION",
-  SYNC_DESTINATION: "SYNC_DESTINATION",
-  SYNC_SOURCE: "SYNC_SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type StorageVirtualMachineSubtype =
-  (typeof StorageVirtualMachineSubtype)[keyof typeof StorageVirtualMachineSubtype];
-
-/**
  * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuration.</p>
  * @public
  */
@@ -7894,20 +6198,6 @@ export interface CreateAggregateConfiguration {
    */
   ConstituentsPerAggregate?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputOntapVolumeType = {
-  DP: "DP",
-  RW: "RW",
-} as const;
-
-/**
- * @public
- */
-export type InputOntapVolumeType = (typeof InputOntapVolumeType)[keyof typeof InputOntapVolumeType];
 
 /**
  * <p>Defines the SnapLock configuration when creating an FSx for ONTAP SnapLock volume. </p>
@@ -8366,58 +6656,6 @@ export interface CreateVolumeRequest {
 }
 
 /**
- * <p>A volume configuration is required for this operation.</p>
- * @public
- */
-export class MissingVolumeConfiguration extends __BaseException {
-  readonly name: "MissingVolumeConfiguration" = "MissingVolumeConfiguration";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingVolumeConfiguration, __BaseException>) {
-    super({
-      name: "MissingVolumeConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingVolumeConfiguration.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
- * @public
- */
-export class StorageVirtualMachineNotFound extends __BaseException {
-  readonly name: "StorageVirtualMachineNotFound" = "StorageVirtualMachineNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StorageVirtualMachineNotFound, __BaseException>) {
-    super({
-      name: "StorageVirtualMachineNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StorageVirtualMachineNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateVolumeFromBackupRequest {
@@ -8452,73 +6690,6 @@ export interface CreateVolumeFromBackupRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>You can't delete a backup while it's being copied.</p>
- * @public
- */
-export class BackupBeingCopied extends __BaseException {
-  readonly name: "BackupBeingCopied" = "BackupBeingCopied";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
-   * @public
-   */
-  BackupId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupBeingCopied, __BaseException>) {
-    super({
-      name: "BackupBeingCopied",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupBeingCopied.prototype);
-    this.Message = opts.Message;
-    this.BackupId = opts.BackupId;
-  }
-}
-
-/**
- * <p>You can't delete a backup while it's being used to restore a file
- *             system.</p>
- * @public
- */
-export class BackupRestoring extends __BaseException {
-  readonly name: "BackupRestoring" = "BackupRestoring";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>The ID of a file system being restored from the backup.</p>
-   * @public
-   */
-  FileSystemId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BackupRestoring, __BaseException>) {
-    super({
-      name: "BackupRestoring",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BackupRestoring.prototype);
-    this.Message = opts.Message;
-    this.FileSystemId = opts.FileSystemId;
-  }
 }
 
 /**
@@ -8558,32 +6729,6 @@ export interface DeleteBackupResponse {
    * @public
    */
   Lifecycle?: BackupLifecycle | undefined;
-}
-
-/**
- * <p>No data repository associations were found based upon the supplied parameters.</p>
- * @public
- */
-export class DataRepositoryAssociationNotFound extends __BaseException {
-  readonly name: "DataRepositoryAssociationNotFound" = "DataRepositoryAssociationNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataRepositoryAssociationNotFound, __BaseException>) {
-    super({
-      name: "DataRepositoryAssociationNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataRepositoryAssociationNotFound.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -8675,32 +6820,6 @@ export interface DeleteFileCacheResponse {
 }
 
 /**
- * <p>No caches were found based upon supplied parameters.</p>
- * @public
- */
-export class FileCacheNotFound extends __BaseException {
-  readonly name: "FileCacheNotFound" = "FileCacheNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FileCacheNotFound, __BaseException>) {
-    super({
-      name: "FileCacheNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FileCacheNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The configuration object for the Amazon FSx for Lustre file system being deleted in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  * @public
@@ -8726,20 +6845,6 @@ export interface DeleteFileSystemLustreConfiguration {
    */
   FinalBackupTags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeleteFileSystemOpenZFSOption = {
-  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
-} as const;
-
-/**
- * @public
- */
-export type DeleteFileSystemOpenZFSOption =
-  (typeof DeleteFileSystemOpenZFSOption)[keyof typeof DeleteFileSystemOpenZFSOption];
 
 /**
  * <p>The configuration object for the Amazon FSx for OpenZFS file system used in the
@@ -8970,32 +7075,6 @@ export interface DeleteSnapshotResponse {
 }
 
 /**
- * <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
- * @public
- */
-export class SnapshotNotFound extends __BaseException {
-  readonly name: "SnapshotNotFound" = "SnapshotNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotNotFound, __BaseException>) {
-    super({
-      name: "SnapshotNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteStorageVirtualMachineRequest {
@@ -9062,19 +7141,6 @@ export interface DeleteVolumeOntapConfiguration {
    */
   BypassSnaplockEnterpriseRetention?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeleteOpenZFSVolumeOption = {
-  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
-} as const;
-
-/**
- * @public
- */
-export type DeleteOpenZFSVolumeOption = (typeof DeleteOpenZFSVolumeOption)[keyof typeof DeleteOpenZFSVolumeOption];
 
 /**
  * <p>A value that specifies whether to delete all child volumes and snapshots. </p>
@@ -9166,25 +7232,6 @@ export interface DeleteVolumeResponse {
    */
   OntapResponse?: DeleteVolumeOntapResponse | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterName = {
-  BACKUP_TYPE: "backup-type",
-  DATA_REPOSITORY_TYPE: "data-repository-type",
-  FILE_CACHE_ID: "file-cache-id",
-  FILE_CACHE_TYPE: "file-cache-type",
-  FILE_SYSTEM_ID: "file-system-id",
-  FILE_SYSTEM_TYPE: "file-system-type",
-  VOLUME_ID: "volume-id",
-} as const;
-
-/**
- * @public
- */
-export type FilterName = (typeof FilterName)[keyof typeof FilterName];
 
 /**
  * <p>A filter used to restrict the results of describe calls. You can use multiple
@@ -9295,49 +7342,6 @@ export interface DescribeDataRepositoryAssociationsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * <p>You have filtered the response to a data repository type that is not supported.</p>
- * @public
- */
-export class InvalidDataRepositoryType extends __BaseException {
-  readonly name: "InvalidDataRepositoryType" = "InvalidDataRepositoryType";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDataRepositoryType, __BaseException>) {
-    super({
-      name: "InvalidDataRepositoryType",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDataRepositoryType.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DataRepositoryTaskFilterName = {
-  DATA_REPO_ASSOCIATION_ID: "data-repository-association-id",
-  FILE_CACHE_ID: "file-cache-id",
-  FILE_SYSTEM_ID: "file-system-id",
-  TASK_LIFECYCLE: "task-lifecycle",
-} as const;
-
-/**
- * @public
- */
-export type DataRepositoryTaskFilterName =
-  (typeof DataRepositoryTaskFilterName)[keyof typeof DataRepositoryTaskFilterName];
 
 /**
  * <p>(Optional) An array of filter objects you can use to filter the response of data repository tasks you will see in the response.
@@ -9694,22 +7698,6 @@ export interface DescribeFileSystemsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const S3AccessPointAttachmentsFilterName = {
-  FILE_SYSTEM_ID: "file-system-id",
-  TYPE: "type",
-  VOLUME_ID: "volume-id",
-} as const;
-
-/**
- * @public
- */
-export type S3AccessPointAttachmentsFilterName =
-  (typeof S3AccessPointAttachmentsFilterName)[keyof typeof S3AccessPointAttachmentsFilterName];
-
-/**
  * <p>A set of Name and Values pairs used to view a select set of S3 access point attachments.</p>
  * @public
  */
@@ -9779,32 +7767,6 @@ export interface DescribeS3AccessPointAttachmentsResponse {
 }
 
 /**
- * <p>The access point specified was not found.</p>
- * @public
- */
-export class S3AccessPointAttachmentNotFound extends __BaseException {
-  readonly name: "S3AccessPointAttachmentNotFound" = "S3AccessPointAttachmentNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<S3AccessPointAttachmentNotFound, __BaseException>) {
-    super({
-      name: "S3AccessPointAttachmentNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, S3AccessPointAttachmentNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeSharedVpcConfigurationRequest {}
@@ -9819,20 +7781,6 @@ export interface DescribeSharedVpcConfigurationResponse {
    */
   EnableFsxRouteTableUpdatesFromParticipantAccounts?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnapshotFilterName = {
-  FILE_SYSTEM_ID: "file-system-id",
-  VOLUME_ID: "volume-id",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotFilterName = (typeof SnapshotFilterName)[keyof typeof SnapshotFilterName];
 
 /**
  * <p>A filter used to restrict the results of <code>DescribeSnapshots</code> calls. You can
@@ -9896,20 +7844,6 @@ export interface DescribeSnapshotsRequest {
    */
   IncludeShared?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageVirtualMachineFilterName = {
-  FILE_SYSTEM_ID: "file-system-id",
-} as const;
-
-/**
- * @public
- */
-export type StorageVirtualMachineFilterName =
-  (typeof StorageVirtualMachineFilterName)[keyof typeof StorageVirtualMachineFilterName];
 
 /**
  * <p>A filter used to restrict the results of describe calls for
@@ -9982,20 +7916,6 @@ export interface DescribeStorageVirtualMachinesResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VolumeFilterName = {
-  FILE_SYSTEM_ID: "file-system-id",
-  STORAGE_VIRTUAL_MACHINE_ID: "storage-virtual-machine-id",
-} as const;
-
-/**
- * @public
- */
-export type VolumeFilterName = (typeof VolumeFilterName)[keyof typeof VolumeFilterName];
 
 /**
  * <p>A filter used to restrict the results of describe calls for Amazon FSx for
@@ -10176,107 +8096,6 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p>The resource specified for the tagging operation is not a resource type owned by
- *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
- * @public
- */
-export class NotServiceResourceError extends __BaseException {
-  readonly name: "NotServiceResourceError" = "NotServiceResourceError";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the non-Amazon FSx resource.</p>
-   * @public
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotServiceResourceError, __BaseException>) {
-    super({
-      name: "NotServiceResourceError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotServiceResourceError.prototype);
-    this.ResourceARN = opts.ResourceARN;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource specified does not support tagging. </p>
- * @public
- */
-export class ResourceDoesNotSupportTagging extends __BaseException {
-  readonly name: "ResourceDoesNotSupportTagging" = "ResourceDoesNotSupportTagging";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that doesn't support
-   *             tagging.</p>
-   * @public
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceDoesNotSupportTagging, __BaseException>) {
-    super({
-      name: "ResourceDoesNotSupportTagging",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceDoesNotSupportTagging.prototype);
-    this.ResourceARN = opts.ResourceARN;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
- * @public
- */
-export class ResourceNotFound extends __BaseException {
-  readonly name: "ResourceNotFound" = "ResourceNotFound";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource ARN of the resource that can't be found.</p>
-   * @public
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
-    super({
-      name: "ResourceNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFound.prototype);
-    this.ResourceARN = opts.ResourceARN;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ReleaseFileSystemNfsV3LocksRequest {
@@ -10294,20 +8113,6 @@ export interface ReleaseFileSystemNfsV3LocksRequest {
    */
   ClientRequestToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RestoreOpenZFSVolumeOption = {
-  DELETE_CLONED_VOLUMES: "DELETE_CLONED_VOLUMES",
-  DELETE_INTERMEDIATE_SNAPSHOTS: "DELETE_INTERMEDIATE_SNAPSHOTS",
-} as const;
-
-/**
- * @public
- */
-export type RestoreOpenZFSVolumeOption = (typeof RestoreOpenZFSVolumeOption)[keyof typeof RestoreOpenZFSVolumeOption];
 
 /**
  * @public
@@ -12324,4 +10129,372 @@ export interface RestoreVolumeFromSnapshotResponse {
    * @public
    */
   AdministrativeActions?: AdministrativeAction[] | undefined;
+}
+
+/**
+ * <p>The response object for the <code>CreateFileSystemFromBackup</code>
+ *             operation.</p>
+ * @public
+ */
+export interface CreateFileSystemFromBackupResponse {
+  /**
+   * <p>A description of the file system.</p>
+   * @public
+   */
+  FileSystem?: FileSystem | undefined;
+}
+
+/**
+ * <p>The response object returned after the file system is created.</p>
+ * @public
+ */
+export interface CreateFileSystemResponse {
+  /**
+   * <p>The configuration of the file system that was created.</p>
+   * @public
+   */
+  FileSystem?: FileSystem | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotResponse {
+  /**
+   * <p>A description of the snapshot.</p>
+   * @public
+   */
+  Snapshot?: Snapshot | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVolumeFromBackupResponse {
+  /**
+   * <p>Returned after a successful <code>CreateVolumeFromBackup</code> API operation,
+   *             describing the volume just created.</p>
+   * @public
+   */
+  Volume?: Volume | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVolumeResponse {
+  /**
+   * <p>Returned after a successful <code>CreateVolume</code> API operation, describing the volume just created.</p>
+   * @public
+   */
+  Volume?: Volume | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReleaseFileSystemNfsV3LocksResponse {
+  /**
+   * <p>A description of a specific Amazon FSx file system.</p>
+   * @public
+   */
+  FileSystem?: FileSystem | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMisconfiguredStateRecoveryResponse {
+  /**
+   * <p>A description of a specific Amazon FSx file system.</p>
+   * @public
+   */
+  FileSystem?: FileSystem | undefined;
+}
+
+/**
+ * <p>The response object for the <code>UpdateFileSystem</code> operation.</p>
+ * @public
+ */
+export interface UpdateFileSystemResponse {
+  /**
+   * <p>A description of the file system that was updated.</p>
+   * @public
+   */
+  FileSystem?: FileSystem | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapshotResponse {
+  /**
+   * <p>Returned after a successful <code>UpdateSnapshot</code> operation, describing the
+   *             snapshot that you updated.</p>
+   * @public
+   */
+  Snapshot?: Snapshot | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVolumeResponse {
+  /**
+   * <p>A description of the volume just updated. Returned after a successful
+   *                 <code>UpdateVolume</code> API operation.</p>
+   * @public
+   */
+  Volume?: Volume | undefined;
+}
+
+/**
+ * <p>The response object for <code>DescribeFileSystems</code> operation.</p>
+ * @public
+ */
+export interface DescribeFileSystemsResponse {
+  /**
+   * <p>An array of file system descriptions.</p>
+   * @public
+   */
+  FileSystems?: FileSystem[] | undefined;
+
+  /**
+   * <p>Present if there are more file systems than returned in the response (String). You
+   *             can use the <code>NextToken</code> value in the later request to fetch the
+   *             descriptions. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotsResponse {
+  /**
+   * <p>An array of snapshots.</p>
+   * @public
+   */
+  Snapshots?: Snapshot[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesResponse {
+  /**
+   * <p>Returned after a successful <code>DescribeVolumes</code> operation, describing each volume.</p>
+   * @public
+   */
+  Volumes?: Volume[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
+ *             Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx
+ *             for OpenZFS file system.</p>
+ * @public
+ */
+export interface Backup {
+  /**
+   * <p>The ID of the backup.</p>
+   * @public
+   */
+  BackupId: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the backup.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - The backup is fully available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx hasn't started creating the backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - Amazon FSx is creating the backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRANSFERRING</code> - For user-initiated backups on Lustre file systems only; Amazon FSx is transferring the backup to Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COPYING</code> - Amazon FSx is copying the backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - Amazon FSx deleted the backup and it's no longer
+   *                     available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Amazon FSx couldn't finish the backup.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle: BackupLifecycle | undefined;
+
+  /**
+   * <p>Details explaining any failures that occurred when creating a backup.</p>
+   * @public
+   */
+  FailureDetails?: BackupFailureDetails | undefined;
+
+  /**
+   * <p>The type of the file-system backup.</p>
+   * @public
+   */
+  Type: BackupType | undefined;
+
+  /**
+   * <p>Displays the current percent of progress of an asynchronous task.</p>
+   * @public
+   */
+  ProgressPercent?: number | undefined;
+
+  /**
+   * <p>The time when a particular backup was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt the
+   *             backup of the Amazon FSx file system's data at rest. </p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the backup resource.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The tags associated with a particular file system.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The metadata of the file system associated with the backup. This metadata is persisted
+   *             even if the file system is deleted.</p>
+   * @public
+   */
+  FileSystem: FileSystem | undefined;
+
+  /**
+   * <p>The configuration of the self-managed Microsoft Active Directory directory to which
+   *             the Windows File Server instance is joined.</p>
+   * @public
+   */
+  DirectoryInformation?: ActiveDirectoryBackupAttributes | undefined;
+
+  /**
+   * <p>An Amazon Web Services account ID. This ID is a 12-digit number that you use to construct Amazon
+   *             Resource Names (ARNs) for resources.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
+   * @public
+   */
+  SourceBackupId?: string | undefined;
+
+  /**
+   * <p>The source Region of the backup. Specifies the Region from where this backup
+   *             is copied.</p>
+   * @public
+   */
+  SourceBackupRegion?: string | undefined;
+
+  /**
+   * <p>Specifies the resource type that's backed up.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+
+  /**
+   * <p>Describes an Amazon FSx volume.</p>
+   * @public
+   */
+  Volume?: Volume | undefined;
+
+  /**
+   * <p>
+   *             The size of the backup in bytes. This represents the amount of data that the file system would contain if you restore this backup.
+   *         </p>
+   * @public
+   */
+  SizeInBytes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CopyBackupResponse {
+  /**
+   * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
+   *             Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon FSx
+   *             for OpenZFS file system.</p>
+   * @public
+   */
+  Backup?: Backup | undefined;
+}
+
+/**
+ * <p>The response object for the <code>CreateBackup</code> operation.</p>
+ * @public
+ */
+export interface CreateBackupResponse {
+  /**
+   * <p>A description of the backup.</p>
+   * @public
+   */
+  Backup?: Backup | undefined;
+}
+
+/**
+ * <p>Response object for the <code>DescribeBackups</code> operation.</p>
+ * @public
+ */
+export interface DescribeBackupsResponse {
+  /**
+   * <p>An array of backups.</p>
+   * @public
+   */
+  Backups?: Backup[] | undefined;
+
+  /**
+   * <p>A <code>NextToken</code> value is present if there are more backups than returned in
+   *             the response. You can use the <code>NextToken</code> value in the subsequent request to
+   *             fetch the backups. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }

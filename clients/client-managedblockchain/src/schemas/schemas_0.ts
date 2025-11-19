@@ -250,7 +250,7 @@ import {
   ResourceNotReadyException as __ResourceNotReadyException,
   ThrottlingException as __ThrottlingException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 import { ManagedBlockchainServiceException as __ManagedBlockchainServiceException } from "../models/ManagedBlockchainServiceException";
 
 /* eslint no-var: 0 */

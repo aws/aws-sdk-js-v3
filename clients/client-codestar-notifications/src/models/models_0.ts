@@ -1,103 +1,12 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodestarNotificationsServiceException as __BaseException } from "./CodestarNotificationsServiceException";
-
-/**
- * <p>CodeStar Notifications can't create the notification rule because you do not have sufficient
- *       permissions.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>CodeStar Notifications can't complete the request because the resource is being modified by
- *       another process. Wait a few minutes and try again.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
- * @public
- */
-export class ConfigurationException extends __BaseException {
-  readonly name: "ConfigurationException" = "ConfigurationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConfigurationException, __BaseException>) {
-    super({
-      name: "ConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConfigurationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DetailType = {
-  BASIC: "BASIC",
-  FULL: "FULL",
-} as const;
-
-/**
- * @public
- */
-export type DetailType = (typeof DetailType)[keyof typeof DetailType];
-
-/**
- * @public
- * @enum
- */
-export const NotificationRuleStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NotificationRuleStatus = (typeof NotificationRuleStatus)[keyof typeof NotificationRuleStatus];
+import {
+  DetailType,
+  ListEventTypesFilterName,
+  ListNotificationRulesFilterName,
+  ListTargetsFilterName,
+  NotificationRuleStatus,
+  TargetStatus,
+} from "./enums";
 
 /**
  * <p>Information about the Amazon Q Developer in chat applications topics or Amazon Q Developer in chat applications clients associated with a  notification rule.</p>
@@ -203,75 +112,6 @@ export interface CreateNotificationRuleResult {
 }
 
 /**
- * <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to
- *             accounts, notification rules, notifications, resources, and targets. For more
- *             information, see Limits.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A resource with the same name or ID already exists. Notification rule names must be
- *             unique in your Amazon Web Services account.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more parameter values are not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteNotificationRuleRequest {
@@ -359,23 +199,6 @@ export interface EventTypeSummary {
    */
   ResourceType?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetStatus = {
-  ACTIVE: "ACTIVE",
-  DEACTIVATED: "DEACTIVATED",
-  INACTIVE: "INACTIVE",
-  PENDING: "PENDING",
-  UNREACHABLE: "UNREACHABLE",
-} as const;
-
-/**
- * @public
- */
-export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
 
 /**
  * <p>Information about the targets specified for a notification rule.</p>
@@ -486,64 +309,6 @@ export interface DescribeNotificationRuleResult {
 }
 
 /**
- * <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ListEventTypesFilterName = {
-  RESOURCE_TYPE: "RESOURCE_TYPE",
-  SERVICE_NAME: "SERVICE_NAME",
-} as const;
-
-/**
- * @public
- */
-export type ListEventTypesFilterName = (typeof ListEventTypesFilterName)[keyof typeof ListEventTypesFilterName];
-
-/**
  * <p>Information about a filter to apply to the list of returned event types. You can filter
  *       by resource type or service name.</p>
  * @public
@@ -605,23 +370,6 @@ export interface ListEventTypesResult {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListNotificationRulesFilterName = {
-  CREATED_BY: "CREATED_BY",
-  EVENT_TYPE_ID: "EVENT_TYPE_ID",
-  RESOURCE: "RESOURCE",
-  TARGET_ADDRESS: "TARGET_ADDRESS",
-} as const;
-
-/**
- * @public
- */
-export type ListNotificationRulesFilterName =
-  (typeof ListNotificationRulesFilterName)[keyof typeof ListNotificationRulesFilterName];
 
 /**
  * <p>Information about a filter to apply to the list of returned notification rules. You can
@@ -728,21 +476,6 @@ export interface ListTagsForResourceResult {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListTargetsFilterName = {
-  TARGET_ADDRESS: "TARGET_ADDRESS",
-  TARGET_STATUS: "TARGET_STATUS",
-  TARGET_TYPE: "TARGET_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ListTargetsFilterName = (typeof ListTargetsFilterName)[keyof typeof ListTargetsFilterName];
 
 /**
  * <p>Information about a filter to apply to the list of returned targets. You can filter by

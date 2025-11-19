@@ -1,68 +1,38 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTFleetWiseServiceException as __BaseException } from "./IoTFleetWiseServiceException";
-
-/**
- * <p>You don't have sufficient permission to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const NodeDataType = {
-  BOOLEAN: "BOOLEAN",
-  BOOLEAN_ARRAY: "BOOLEAN_ARRAY",
-  DOUBLE: "DOUBLE",
-  DOUBLE_ARRAY: "DOUBLE_ARRAY",
-  FLOAT: "FLOAT",
-  FLOAT_ARRAY: "FLOAT_ARRAY",
-  INT16: "INT16",
-  INT16_ARRAY: "INT16_ARRAY",
-  INT32: "INT32",
-  INT32_ARRAY: "INT32_ARRAY",
-  INT64: "INT64",
-  INT64_ARRAY: "INT64_ARRAY",
-  INT8: "INT8",
-  INT8_ARRAY: "INT8_ARRAY",
-  STRING: "STRING",
-  STRING_ARRAY: "STRING_ARRAY",
-  STRUCT: "STRUCT",
-  STRUCT_ARRAY: "STRUCT_ARRAY",
-  UINT16: "UINT16",
-  UINT16_ARRAY: "UINT16_ARRAY",
-  UINT32: "UINT32",
-  UINT32_ARRAY: "UINT32_ARRAY",
-  UINT64: "UINT64",
-  UINT64_ARRAY: "UINT64_ARRAY",
-  UINT8: "UINT8",
-  UINT8_ARRAY: "UINT8_ARRAY",
-  UNIX_TIMESTAMP: "UNIX_TIMESTAMP",
-  UNIX_TIMESTAMP_ARRAY: "UNIX_TIMESTAMP_ARRAY",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type NodeDataType = (typeof NodeDataType)[keyof typeof NodeDataType];
+import {
+  CampaignStatus,
+  Compression,
+  DataFormat,
+  DefaultForUnmappedSignalsType,
+  DiagnosticsMode,
+  EncryptionStatus,
+  EncryptionType,
+  ListResponseScope,
+  LogType,
+  ManifestStatus,
+  NetworkInterfaceFailureReason,
+  NetworkInterfaceType,
+  NodeDataEncoding,
+  NodeDataType,
+  RegistrationStatus,
+  ROS2PrimitiveType,
+  SignalDecoderFailureReason,
+  SignalDecoderType,
+  SignalNodeType,
+  SignalValueType,
+  SpoolingMode,
+  StorageCompressionFormat,
+  StorageMaximumSizeUnit,
+  StorageMinimumTimeToLiveUnit,
+  StructuredMessageListType,
+  TimeUnit,
+  TriggerMode,
+  UpdateCampaignAction,
+  UpdateMode,
+  VehicleAssociationBehavior,
+  VehicleMiddlewareProtocol,
+  VehicleState,
+} from "./enums";
 
 /**
  * <p>A signal that represents a vehicle device such as the engine, heater, and door locks.
@@ -170,142 +140,6 @@ export interface AssociateVehicleFleetRequest {
 export interface AssociateVehicleFleetResponse {}
 
 /**
- * <p>The request couldn't be completed because the server temporarily failed.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The number of seconds to wait before retrying the command.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>A service quota was exceeded. </p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that was exceeded.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource that was exceeded.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The resource wasn't found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that wasn't found.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of resource that wasn't found.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request couldn't be completed due to throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The quota identifier of the applied throttling rules for this request.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The code for the service that couldn't be completed due to throttling.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The number of seconds to wait before retrying the command.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.quotaCode = opts.quotaCode;
-    this.serviceCode = opts.serviceCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>A validation error due to mismatch between the expected data type, length, or pattern
  *             of the parameter and the input.</p>
  * @public
@@ -322,58 +156,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services
-   *             service.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The list of fields that fail to satisfy the constraints specified by an Amazon Web Services
-   *             service.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -453,40 +235,10 @@ export interface Attribute {
 }
 
 /**
- * @public
- * @enum
- */
-export const VehicleAssociationBehavior = {
-  CREATE_IOT_THING: "CreateIotThing",
-  VALIDATE_IOT_THING_EXISTS: "ValidateIotThingExists",
-} as const;
-
-/**
- * @public
- */
-export type VehicleAssociationBehavior = (typeof VehicleAssociationBehavior)[keyof typeof VehicleAssociationBehavior];
-
-/**
  * <p>Vehicles associated with the state template will stream telemetry data when there is a change.</p>
  * @public
  */
 export interface OnChangeStateTemplateUpdateStrategy {}
-
-/**
- * @public
- * @enum
- */
-export const TimeUnit = {
-  HOUR: "HOUR",
-  MILLISECOND: "MILLISECOND",
-  MINUTE: "MINUTE",
-  SECOND: "SECOND",
-} as const;
-
-/**
- * @public
- */
-export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 
 /**
  * <p>The length of time between state template updates.</p>
@@ -748,20 +500,6 @@ export interface BatchCreateVehicleResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const UpdateMode = {
-  MERGE: "Merge",
-  OVERWRITE: "Overwrite",
-} as const;
-
-/**
- * @public
- */
-export type UpdateMode = (typeof UpdateMode)[keyof typeof UpdateMode];
-
-/**
  * <p>Information about the vehicle to update.</p>
  *          <important>
  *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
@@ -932,55 +670,6 @@ export interface Branch {
 }
 
 /**
- * <p>The request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource on which there are conflicting operations.</p>
-   * @public
-   */
-  resource: string | undefined;
-
-  /**
-   * <p>The type of resource on which there are conflicting operations..</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resource = opts.resource;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TriggerMode = {
-  ALWAYS: "ALWAYS",
-  RISING_EDGE: "RISING_EDGE",
-} as const;
-
-/**
- * @public
- */
-export type TriggerMode = (typeof TriggerMode)[keyof typeof TriggerMode];
-
-/**
  * <p>Information about a collection scheme that uses a simple logical expression to
  *             recognize what data to collect.</p>
  * @public
@@ -1090,20 +779,6 @@ export namespace CollectionScheme {
 }
 
 /**
- * @public
- * @enum
- */
-export const Compression = {
-  OFF: "OFF",
-  SNAPPY: "SNAPPY",
-} as const;
-
-/**
- * @public
- */
-export type Compression = (typeof Compression)[keyof typeof Compression];
-
-/**
  * <p>The MQTT topic to which the Amazon Web Services IoT FleetWise campaign routes data. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device communication
  *           protocols</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
  *          <important>
@@ -1125,34 +800,6 @@ export interface MqttTopicConfig {
    */
   executionRoleArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataFormat = {
-  JSON: "JSON",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
-
-/**
- * @public
- * @enum
- */
-export const StorageCompressionFormat = {
-  GZIP: "GZIP",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type StorageCompressionFormat = (typeof StorageCompressionFormat)[keyof typeof StorageCompressionFormat];
 
 /**
  * <p>The Amazon S3 bucket where the Amazon Web Services IoT FleetWise campaign sends data. Amazon S3 is an object storage
@@ -1302,21 +949,6 @@ export namespace DataDestinationConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const StorageMaximumSizeUnit = {
-  GB: "GB",
-  MB: "MB",
-  TB: "TB",
-} as const;
-
-/**
- * @public
- */
-export type StorageMaximumSizeUnit = (typeof StorageMaximumSizeUnit)[keyof typeof StorageMaximumSizeUnit];
-
-/**
  * <p>The maximum storage size for the data partition.</p>
  *          <important>
  *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
@@ -1336,22 +968,6 @@ export interface StorageMaximumSize {
    */
   value: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StorageMinimumTimeToLiveUnit = {
-  DAYS: "DAYS",
-  HOURS: "HOURS",
-  WEEKS: "WEEKS",
-} as const;
-
-/**
- * @public
- */
-export type StorageMinimumTimeToLiveUnit =
-  (typeof StorageMinimumTimeToLiveUnit)[keyof typeof StorageMinimumTimeToLiveUnit];
 
 /**
  * <p>Information about the minimum amount of time that data will be kept.</p>
@@ -1468,20 +1084,6 @@ export interface DataPartition {
    */
   uploadOptions?: DataPartitionUploadOptions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DiagnosticsMode = {
-  OFF: "OFF",
-  SEND_ACTIVE_DTCS: "SEND_ACTIVE_DTCS",
-} as const;
-
-/**
- * @public
- */
-export type DiagnosticsMode = (typeof DiagnosticsMode)[keyof typeof DiagnosticsMode];
 
 /**
  * <p>Information about a signal.</p>
@@ -1646,20 +1248,6 @@ export interface SignalFetchInformation {
    */
   actions: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SpoolingMode = {
-  OFF: "OFF",
-  TO_DISK: "TO_DISK",
-} as const;
-
-/**
- * @public
- */
-export type SpoolingMode = (typeof SpoolingMode)[keyof typeof SpoolingMode];
 
 /**
  * @public
@@ -1882,22 +1470,6 @@ export interface GetCampaignRequest {
 
 /**
  * @public
- * @enum
- */
-export const CampaignStatus = {
-  CREATING: "CREATING",
-  RUNNING: "RUNNING",
-  SUSPENDED: "SUSPENDED",
-  WAITING_FOR_APPROVAL: "WAITING_FOR_APPROVAL",
-} as const;
-
-/**
- * @public
- */
-export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
-
-/**
- * @public
  */
 export interface GetCampaignResponse {
   /**
@@ -2047,19 +1619,6 @@ export interface GetCampaignResponse {
 
 /**
  * @public
- * @enum
- */
-export const ListResponseScope = {
-  METADATA_ONLY: "METADATA_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type ListResponseScope = (typeof ListResponseScope)[keyof typeof ListResponseScope];
-
-/**
- * @public
  */
 export interface ListCampaignsRequest {
   /**
@@ -2186,22 +1745,6 @@ export interface ListCampaignsResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateCampaignAction = {
-  APPROVE: "APPROVE",
-  RESUME: "RESUME",
-  SUSPEND: "SUSPEND",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type UpdateCampaignAction = (typeof UpdateCampaignAction)[keyof typeof UpdateCampaignAction];
 
 /**
  * @public
@@ -2351,20 +1894,6 @@ export interface CanInterface {
 }
 
 /**
- * @public
- * @enum
- */
-export const SignalValueType = {
-  FLOATING_POINT: "FLOATING_POINT",
-  INTEGER: "INTEGER",
-} as const;
-
-/**
- * @public
- */
-export type SignalValueType = (typeof SignalValueType)[keyof typeof SignalValueType];
-
-/**
  * <p>Information about a single controller area network (CAN) signal and the messages it
  *             receives and transmits.</p>
  * @public
@@ -2432,20 +1961,6 @@ export interface CanSignal {
 }
 
 /**
- * @public
- * @enum
- */
-export const LogType = {
-  ERROR: "ERROR",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
-
-/**
  * <p>The log delivery option to send data to Amazon CloudWatch Logs.</p>
  * @public
  */
@@ -2462,20 +1977,6 @@ export interface CloudWatchLogDeliveryOptions {
    */
   logGroupName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DefaultForUnmappedSignalsType = {
-  CUSTOM_DECODING: "CUSTOM_DECODING",
-} as const;
-
-/**
- * @public
- */
-export type DefaultForUnmappedSignalsType =
-  (typeof DefaultForUnmappedSignalsType)[keyof typeof DefaultForUnmappedSignalsType];
 
 /**
  * <p>Represents a custom network interface as defined by the customer.</p>
@@ -2540,35 +2041,6 @@ export interface ObdInterface {
    */
   hasTransmissionEcu?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfaceType = {
-  CAN_INTERFACE: "CAN_INTERFACE",
-  CUSTOM_DECODING_INTERFACE: "CUSTOM_DECODING_INTERFACE",
-  OBD_INTERFACE: "OBD_INTERFACE",
-  VEHICLE_MIDDLEWARE: "VEHICLE_MIDDLEWARE",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
-
-/**
- * @public
- * @enum
- */
-export const VehicleMiddlewareProtocol = {
-  ROS_2: "ROS_2",
-} as const;
-
-/**
- * @public
- */
-export type VehicleMiddlewareProtocol = (typeof VehicleMiddlewareProtocol)[keyof typeof VehicleMiddlewareProtocol];
 
 /**
  * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle
@@ -2658,33 +2130,6 @@ export interface CustomDecodingSignal {
 }
 
 /**
- * @public
- * @enum
- */
-export const ROS2PrimitiveType = {
-  BOOL: "BOOL",
-  BYTE: "BYTE",
-  CHAR: "CHAR",
-  FLOAT32: "FLOAT32",
-  FLOAT64: "FLOAT64",
-  INT16: "INT16",
-  INT32: "INT32",
-  INT64: "INT64",
-  INT8: "INT8",
-  STRING: "STRING",
-  UINT16: "UINT16",
-  UINT32: "UINT32",
-  UINT64: "UINT64",
-  UINT8: "UINT8",
-  WSTRING: "WSTRING",
-} as const;
-
-/**
- * @public
- */
-export type ROS2PrimitiveType = (typeof ROS2PrimitiveType)[keyof typeof ROS2PrimitiveType];
-
-/**
  * <p>Represents a ROS 2 compliant primitive type message of the complex data
  *             structure.</p>
  * @public
@@ -2757,21 +2202,6 @@ export namespace PrimitiveMessageDefinition {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const StructuredMessageListType = {
-  DYNAMIC_BOUNDED_CAPACITY: "DYNAMIC_BOUNDED_CAPACITY",
-  DYNAMIC_UNBOUNDED_CAPACITY: "DYNAMIC_UNBOUNDED_CAPACITY",
-  FIXED_CAPACITY: "FIXED_CAPACITY",
-} as const;
-
-/**
- * @public
- */
-export type StructuredMessageListType = (typeof StructuredMessageListType)[keyof typeof StructuredMessageListType];
 
 /**
  * <p>Information about signal messages using the on-board diagnostics (OBD) II protocol in
@@ -2849,22 +2279,6 @@ export interface ObdSignal {
 
 /**
  * @public
- * @enum
- */
-export const SignalDecoderType = {
-  CAN_SIGNAL: "CAN_SIGNAL",
-  CUSTOM_DECODING_SIGNAL: "CUSTOM_DECODING_SIGNAL",
-  MESSAGE_SIGNAL: "MESSAGE_SIGNAL",
-  OBD_SIGNAL: "OBD_SIGNAL",
-} as const;
-
-/**
- * @public
- */
-export type SignalDecoderType = (typeof SignalDecoderType)[keyof typeof SignalDecoderType];
-
-/**
- * @public
  */
 export interface CreateDecoderManifestResponse {
   /**
@@ -2879,27 +2293,6 @@ export interface CreateDecoderManifestResponse {
    */
   arn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfaceFailureReason = {
-  CAN_NETWORK_INTERFACE_INFO_IS_NULL: "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
-  CONFLICTING_NETWORK_INTERFACE: "CONFLICTING_NETWORK_INTERFACE",
-  CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL: "CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL",
-  DUPLICATE_INTERFACE: "DUPLICATE_NETWORK_INTERFACE",
-  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS: "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
-  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS: "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
-  OBD_NETWORK_INTERFACE_INFO_IS_NULL: "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
-  VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL: "VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceFailureReason =
-  (typeof NetworkInterfaceFailureReason)[keyof typeof NetworkInterfaceFailureReason];
 
 /**
  * <p>A reason a vehicle network interface isn't valid.</p>
@@ -2918,36 +2311,6 @@ export interface InvalidNetworkInterface {
    */
   reason?: NetworkInterfaceFailureReason | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SignalDecoderFailureReason = {
-  CAN_SIGNAL_INFO_IS_NULL: "CAN_SIGNAL_INFO_IS_NULL",
-  CONFLICTING_SIGNAL: "CONFLICTING_SIGNAL",
-  CUSTOM_DECODING_SIGNAL_INFO_IS_NULL: "CUSTOM_DECODING_SIGNAL_INFO_IS_NULL",
-  DUPLICATE_SIGNAL: "DUPLICATE_SIGNAL",
-  EMPTY_MESSAGE_SIGNAL: "EMPTY_MESSAGE_SIGNAL",
-  MESSAGE_SIGNAL_INFO_IS_NULL: "MESSAGE_SIGNAL_INFO_IS_NULL",
-  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE:
-    "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
-  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL: "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
-  NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL: "NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL",
-  OBD_SIGNAL_INFO_IS_NULL: "OBD_SIGNAL_INFO_IS_NULL",
-  SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG: "SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG",
-  SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE:
-    "SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE",
-  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE: "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
-  SIGNAL_NOT_IN_MODEL: "SIGNAL_NOT_IN_MODEL",
-  SIGNAL_TO_ADD_ALREADY_EXISTS: "SIGNAL_TO_ADD_ALREADY_EXISTS",
-  STRUCT_SIZE_MISMATCH: "STRUCT_SIZE_MISMATCH",
-} as const;
-
-/**
- * @public
- */
-export type SignalDecoderFailureReason = (typeof SignalDecoderFailureReason)[keyof typeof SignalDecoderFailureReason];
 
 /**
  * <p>A reason that a signal decoder isn't valid.</p>
@@ -2971,42 +2334,6 @@ export interface InvalidSignalDecoder {
    * @public
    */
   hint?: string | undefined;
-}
-
-/**
- * <p>The request couldn't be completed because it contains signal decoders with one or more
- *             validation errors.</p>
- * @public
- */
-export class DecoderManifestValidationException extends __BaseException {
-  readonly name: "DecoderManifestValidationException" = "DecoderManifestValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The request couldn't be completed because of invalid signals in the request.</p>
-   * @public
-   */
-  invalidSignals?: InvalidSignalDecoder[] | undefined;
-
-  /**
-   * <p>The request couldn't be completed because of invalid network interfaces in the
-   *             request.</p>
-   * @public
-   */
-  invalidNetworkInterfaces?: InvalidNetworkInterface[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DecoderManifestValidationException, __BaseException>) {
-    super({
-      name: "DecoderManifestValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DecoderManifestValidationException.prototype);
-    this.invalidSignals = opts.invalidSignals;
-    this.invalidNetworkInterfaces = opts.invalidNetworkInterfaces;
-  }
 }
 
 /**
@@ -3124,48 +2451,6 @@ export interface InvalidSignal {
    */
   reason?: string | undefined;
 }
-
-/**
- * <p>The request couldn't be completed because it contains signals that aren't
- *             valid.</p>
- * @public
- */
-export class InvalidSignalsException extends __BaseException {
-  readonly name: "InvalidSignalsException" = "InvalidSignalsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The signals which caused the exception.</p>
-   * @public
-   */
-  invalidSignals?: InvalidSignal[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSignalsException, __BaseException>) {
-    super({
-      name: "InvalidSignalsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSignalsException.prototype);
-    this.invalidSignals = opts.invalidSignals;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const NodeDataEncoding = {
-  BINARY: "BINARY",
-  TYPED: "TYPED",
-} as const;
-
-/**
- * @public
- */
-export type NodeDataEncoding = (typeof NodeDataEncoding)[keyof typeof NodeDataEncoding];
 
 /**
  * <p>Represents a member of the complex data structure. The data type of the property can
@@ -3516,41 +2801,6 @@ export interface CreateSignalCatalogResponse {
 }
 
 /**
- * <p>The specified node type doesn't match the expected node type for a node. You can
- *             specify the node type as branch, sensor, actuator, or attribute.</p>
- * @public
- */
-export class InvalidNodeException extends __BaseException {
-  readonly name: "InvalidNodeException" = "InvalidNodeException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The specified node type isn't valid.</p>
-   * @public
-   */
-  invalidNodes?: Node[] | undefined;
-
-  /**
-   * <p>The reason the node validation failed.</p>
-   * @public
-   */
-  reason?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNodeException, __BaseException>) {
-    super({
-      name: "InvalidNodeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNodeException.prototype);
-    this.invalidNodes = opts.invalidNodes;
-    this.reason = opts.reason;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateStateTemplateRequest {
@@ -3746,22 +2996,6 @@ export interface GetDecoderManifestRequest {
    */
   name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManifestStatus = {
-  ACTIVE: "ACTIVE",
-  DRAFT: "DRAFT",
-  INVALID: "INVALID",
-  VALIDATING: "VALIDATING",
-} as const;
-
-/**
- * @public
- */
-export type ManifestStatus = (typeof ManifestStatus)[keyof typeof ManifestStatus];
 
 /**
  * @public
@@ -4256,35 +3490,6 @@ export interface DisassociateVehicleFleetResponse {}
 
 /**
  * @public
- * @enum
- */
-export const EncryptionStatus = {
-  FAILURE: "FAILURE",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  FLEETWISE_DEFAULT_ENCRYPTION: "FLEETWISE_DEFAULT_ENCRYPTION",
-  KMS_BASED_ENCRYPTION: "KMS_BASED_ENCRYPTION",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
- * @public
  */
 export interface ListFleetsForVehicleRequest {
   /**
@@ -4714,21 +3919,6 @@ export interface GetModelManifestResponse {
 export interface GetRegisterAccountStatusRequest {}
 
 /**
- * @public
- * @enum
- */
-export const RegistrationStatus = {
-  REGISTRATION_FAILURE: "REGISTRATION_FAILURE",
-  REGISTRATION_PENDING: "REGISTRATION_PENDING",
-  REGISTRATION_SUCCESS: "REGISTRATION_SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
-
-/**
  * <p>Information about registering an Identity and Access Management (IAM) resource so Amazon Web Services IoT FleetWise edge agent
  *             software can transfer your vehicle data to Amazon Timestream.</p>
  * @public
@@ -5135,24 +4325,6 @@ export interface GetVehicleStatusRequest {
    */
   vehicleName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VehicleState = {
-  CREATED: "CREATED",
-  DELETING: "DELETING",
-  HEALTHY: "HEALTHY",
-  READY: "READY",
-  READY_FOR_CHECKIN: "READY_FOR_CHECKIN",
-  SUSPENDED: "SUSPENDED",
-} as const;
-
-/**
- * @public
- */
-export type VehicleState = (typeof VehicleState)[keyof typeof VehicleState];
 
 /**
  * <p>Information about a campaign associated with a vehicle.</p>
@@ -5643,24 +4815,6 @@ export interface RegisterAccountResponse {
    */
   lastModificationTime: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SignalNodeType = {
-  ACTUATOR: "ACTUATOR",
-  ATTRIBUTE: "ATTRIBUTE",
-  BRANCH: "BRANCH",
-  CUSTOM_PROPERTY: "CUSTOM_PROPERTY",
-  CUSTOM_STRUCT: "CUSTOM_STRUCT",
-  SENSOR: "SENSOR",
-} as const;
-
-/**
- * @public
- */
-export type SignalNodeType = (typeof SignalNodeType)[keyof typeof SignalNodeType];
 
 /**
  * @public

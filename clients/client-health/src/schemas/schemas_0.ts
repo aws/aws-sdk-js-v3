@@ -158,12 +158,12 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { HealthServiceException as __HealthServiceException } from "../models/HealthServiceException";
 import {
   ConcurrentModificationException as __ConcurrentModificationException,
   InvalidPaginationToken as __InvalidPaginationToken,
   UnsupportedLocale as __UnsupportedLocale,
-} from "../models/index";
+} from "../models/errors";
+import { HealthServiceException as __HealthServiceException } from "../models/HealthServiceException";
 
 /* eslint no-var: 0 */
 

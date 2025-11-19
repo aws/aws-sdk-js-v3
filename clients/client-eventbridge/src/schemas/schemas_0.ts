@@ -457,7 +457,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { EventBridgeServiceException as __EventBridgeServiceException } from "../models/EventBridgeServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   ConcurrentModificationException as __ConcurrentModificationException,
@@ -472,7 +471,8 @@ import {
   ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
+import { EventBridgeServiceException as __EventBridgeServiceException } from "../models/EventBridgeServiceException";
 
 /* eslint no-var: 0 */
 

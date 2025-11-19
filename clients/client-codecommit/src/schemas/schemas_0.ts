@@ -933,7 +933,7 @@ import {
   TipsDivergenceExceededException as __TipsDivergenceExceededException,
   TitleRequiredException as __TitleRequiredException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

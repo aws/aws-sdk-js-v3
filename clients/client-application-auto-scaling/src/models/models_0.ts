@@ -1,22 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ApplicationAutoScalingServiceException as __BaseException } from "./ApplicationAutoScalingServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AdjustmentType = {
-  ChangeInCapacity: "ChangeInCapacity",
-  ExactCapacity: "ExactCapacity",
-  PercentChangeInCapacity: "PercentChangeInCapacity",
-} as const;
-
-/**
- * @public
- */
-export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
+import {
+  AdjustmentType,
+  MetricAggregationType,
+  MetricStatistic,
+  MetricType,
+  PolicyType,
+  PredictiveScalingMaxCapacityBreachBehavior,
+  PredictiveScalingMode,
+  ScalableDimension,
+  ScalingActivityStatusCode,
+  ServiceNamespace,
+} from "./enums";
 
 /**
  * <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
@@ -35,92 +29,6 @@ export interface Alarm {
    */
   AlarmARN: string | undefined;
 }
-
-/**
- * <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
- * @public
- */
-export class ConcurrentUpdateException extends __BaseException {
-  readonly name: "ConcurrentUpdateException" = "ConcurrentUpdateException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentUpdateException, __BaseException>) {
-    super({
-      name: "ConcurrentUpdateException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentUpdateException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ScalableDimension = {
-  AppstreamFleetDesiredCapacity: "appstream:fleet:DesiredCapacity",
-  CassandraTableReadCapacityUnits: "cassandra:table:ReadCapacityUnits",
-  CassandraTableWriteCapacityUnits: "cassandra:table:WriteCapacityUnits",
-  ComprehendDocClassifierEndpointInferenceUnits: "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-  ComprehendEntityRecognizerEndpointInferenceUnits: "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-  CustomResourceScalableDimension: "custom-resource:ResourceType:Property",
-  DynamoDBIndexReadCapacityUnits: "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits: "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits: "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits: "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity: "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount: "ecs:service:DesiredCount",
-  EMRInstanceGroupInstanceCount: "elasticmapreduce:instancegroup:InstanceCount",
-  ElastiCacheCacheClusterNodes: "elasticache:cache-cluster:Nodes",
-  ElastiCacheReplicationGroupNodeGroups: "elasticache:replication-group:NodeGroups",
-  ElastiCacheReplicationGroupReplicas: "elasticache:replication-group:Replicas",
-  KafkaBrokerStorageVolumeSize: "kafka:broker-storage:VolumeSize",
-  LambdaFunctionProvisionedConcurrency: "lambda:function:ProvisionedConcurrency",
-  NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
-  RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
-  SageMakerInferenceComponentDesiredCopyCount: "sagemaker:inference-component:DesiredCopyCount",
-  SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
-  SageMakerVariantDesiredProvisionedConcurrency: "sagemaker:variant:DesiredProvisionedConcurrency",
-  WorkSpacesWorkSpacesPoolDesiredUserSessions: "workspaces:workspacespool:DesiredUserSessions",
-} as const;
-
-/**
- * @public
- */
-export type ScalableDimension = (typeof ScalableDimension)[keyof typeof ScalableDimension];
-
-/**
- * @public
- * @enum
- */
-export const ServiceNamespace = {
-  APPSTREAM: "appstream",
-  CASSANDRA: "cassandra",
-  COMPREHEND: "comprehend",
-  CUSTOM_RESOURCE: "custom-resource",
-  DYNAMODB: "dynamodb",
-  EC2: "ec2",
-  ECS: "ecs",
-  ELASTICACHE: "elasticache",
-  EMR: "elasticmapreduce",
-  KAFKA: "kafka",
-  LAMBDA: "lambda",
-  NEPTUNE: "neptune",
-  RDS: "rds",
-  SAGEMAKER: "sagemaker",
-  WORKSPACES: "workspaces",
-} as const;
-
-/**
- * @public
- */
-export type ServiceNamespace = (typeof ServiceNamespace)[keyof typeof ServiceNamespace];
 
 /**
  * @public
@@ -335,77 +243,6 @@ export interface DeleteScalingPolicyRequest {
  * @public
  */
 export interface DeleteScalingPolicyResponse {}
-
-/**
- * <p>The service encountered an internal error.</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified object could not be found. For any operation that depends on the existence
- *          of a scalable target, this exception is thrown if the scalable target with the specified
- *          service namespace, resource ID, and scalable dimension does not exist. For any operation
- *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
- *          found.</p>
- * @public
- */
-export class ObjectNotFoundException extends __BaseException {
-  readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ObjectNotFoundException, __BaseException>) {
-    super({
-      name: "ObjectNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ObjectNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * @public
@@ -1353,28 +1190,6 @@ export interface DescribeScalableTargetsResponse {
 }
 
 /**
- * <p>The next token supplied was invalid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeScalingActivitiesRequest {
@@ -1655,24 +1470,6 @@ export interface NotScaledReason {
    */
   CurrentCapacity?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScalingActivityStatusCode = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Overridden: "Overridden",
-  Pending: "Pending",
-  Successful: "Successful",
-  Unfulfilled: "Unfulfilled",
-} as const;
-
-/**
- * @public
- */
-export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
 
 /**
  * <p>Represents a scaling activity.</p>
@@ -2180,36 +1977,6 @@ export interface DescribeScalingPoliciesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PolicyType = {
-  PredictiveScaling: "PredictiveScaling",
-  StepScaling: "StepScaling",
-  TargetTrackingScaling: "TargetTrackingScaling",
-} as const;
-
-/**
- * @public
- */
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
-
-/**
- * @public
- * @enum
- */
-export const PredictiveScalingMaxCapacityBreachBehavior = {
-  HonorMaxCapacity: "HonorMaxCapacity",
-  IncreaseMaxCapacity: "IncreaseMaxCapacity",
-} as const;
-
-/**
- * @public
- */
-export type PredictiveScalingMaxCapacityBreachBehavior =
-  (typeof PredictiveScalingMaxCapacityBreachBehavior)[keyof typeof PredictiveScalingMaxCapacityBreachBehavior];
-
-/**
  * <p>
  *          Describes the dimension of a metric.
  *       </p>
@@ -2686,20 +2453,6 @@ export interface PredictiveScalingMetricSpecification {
 }
 
 /**
- * @public
- * @enum
- */
-export const PredictiveScalingMode = {
-  ForecastAndScale: "ForecastAndScale",
-  ForecastOnly: "ForecastOnly",
-} as const;
-
-/**
- * @public
- */
-export type PredictiveScalingMode = (typeof PredictiveScalingMode)[keyof typeof PredictiveScalingMode];
-
-/**
  * <p>
  *          Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
  *       </p>
@@ -2759,21 +2512,6 @@ export interface PredictiveScalingPolicyConfiguration {
    */
   MaxCapacityBuffer?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricAggregationType = {
-  Average: "Average",
-  Maximum: "Maximum",
-  Minimum: "Minimum",
-} as const;
-
-/**
- * @public
- */
-export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof MetricAggregationType];
 
 /**
  * <p>Represents a step adjustment for a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html">StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference
@@ -3062,23 +2800,6 @@ export interface TargetTrackingMetricDataQuery {
 }
 
 /**
- * @public
- * @enum
- */
-export const MetricStatistic = {
-  Average: "Average",
-  Maximum: "Maximum",
-  Minimum: "Minimum",
-  SampleCount: "SampleCount",
-  Sum: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
-
-/**
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *          with Application Auto Scaling.</p>
  *          <p>For information about the available metrics for a service, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
@@ -3146,49 +2867,6 @@ export interface CustomizedMetricSpecification {
    */
   Metrics?: TargetTrackingMetricDataQuery[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricType = {
-  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
-  AppStreamAverageCapacityUtilization: "AppStreamAverageCapacityUtilization",
-  CassandraReadCapacityUtilization: "CassandraReadCapacityUtilization",
-  CassandraWriteCapacityUtilization: "CassandraWriteCapacityUtilization",
-  ComprehendInferenceUtilization: "ComprehendInferenceUtilization",
-  DynamoDBReadCapacityUtilization: "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization: "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization: "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn: "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
-  ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage:
-    "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage",
-  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
-  ElastiCacheDatabaseMemoryUsagePercentage: "ElastiCacheDatabaseMemoryUsagePercentage",
-  ElastiCacheEngineCPUUtilization: "ElastiCacheEngineCPUUtilization",
-  ElastiCachePrimaryEngineCPUUtilization: "ElastiCachePrimaryEngineCPUUtilization",
-  ElastiCacheReplicaEngineCPUUtilization: "ElastiCacheReplicaEngineCPUUtilization",
-  KafkaBrokerStorageUtilization: "KafkaBrokerStorageUtilization",
-  LambdaProvisionedConcurrencyUtilization: "LambdaProvisionedConcurrencyUtilization",
-  NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
-  RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
-  SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution:
-    "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution",
-  SageMakerInferenceComponentInvocationsPerCopy: "SageMakerInferenceComponentInvocationsPerCopy",
-  SageMakerVariantConcurrentRequestsPerModelHighResolution: "SageMakerVariantConcurrentRequestsPerModelHighResolution",
-  SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
-  SageMakerVariantProvisionedConcurrencyUtilization: "SageMakerVariantProvisionedConcurrencyUtilization",
-  WorkSpacesAverageUserSessionsCapacityUtilization: "WorkSpacesAverageUserSessionsCapacityUtilization",
-} as const;
-
-/**
- * @public
- */
-export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
@@ -3575,31 +3253,6 @@ export interface DescribeScalingPoliciesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
- *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
- *          for example, if the role ARN specified for a scalable target does not have permission to
- *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
- * @public
- */
-export class FailedResourceAccessException extends __BaseException {
-  readonly name: "FailedResourceAccessException" = "FailedResourceAccessException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FailedResourceAccessException, __BaseException>) {
-    super({
-      name: "FailedResourceAccessException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FailedResourceAccessException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -4319,56 +3972,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The specified resource doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-/**
- * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -5273,34 +4876,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>The request contains too many tags. Try the request again with fewer tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
 
 /**
  * @public

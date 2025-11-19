@@ -228,7 +228,7 @@ import {
   ComplexError as __ComplexError,
   CustomCodeError as __CustomCodeError,
   InvalidGreeting as __InvalidGreeting,
-} from "../models/index";
+} from "../models/errors";
 import { QueryProtocolServiceException as __QueryProtocolServiceException } from "../models/QueryProtocolServiceException";
 
 /* eslint no-var: 0 */

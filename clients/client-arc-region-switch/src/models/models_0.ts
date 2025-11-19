@@ -1,58 +1,29 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ARCRegionSwitchServiceException as __BaseException } from "./ARCRegionSwitchServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ExecutionAction = {
-  ACTIVATE: "activate",
-  DEACTIVATE: "deactivate",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionAction = (typeof ExecutionAction)[keyof typeof ExecutionAction];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionState = {
-  CANCELLED: "canceled",
-  COMPLETED: "completed",
-  COMPLETED_MONITORING_APPLICATION_HEALTH: "completedMonitoringApplicationHealth",
-  COMPLETED_WITH_EXCEPTIONS: "completedWithExceptions",
-  FAILED: "failed",
-  IN_PROGRESS: "inProgress",
-  PAUSED_BY_FAILED_STEP: "pausedByFailedStep",
-  PAUSED_BY_OPERATOR: "pausedByOperator",
-  PENDING: "pending",
-  PENDING_MANUAL_APPROVAL: "pendingManualApproval",
-  PLAN_EXECUTION_TIMED_OUT: "planExecutionTimedOut",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionState = (typeof ExecutionState)[keyof typeof ExecutionState];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionMode = {
-  GRACEFUL: "graceful",
-  UNGRACEFUL: "ungraceful",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionMode = (typeof ExecutionMode)[keyof typeof ExecutionMode];
+import {
+  AlarmCondition,
+  AlarmType,
+  Approval,
+  Ec2AsgCapacityMonitoringApproach,
+  EcsCapacityMonitoringApproach,
+  EksCapacityMonitoringApproach,
+  EvaluationStatus,
+  ExecutionAction,
+  ExecutionBlockType,
+  ExecutionEventType,
+  ExecutionMode,
+  ExecutionState,
+  GlobalAuroraDefaultBehavior,
+  GlobalAuroraUngracefulBehavior,
+  LambdaUngracefulBehavior,
+  RecoveryApproach,
+  RegionToRunIn,
+  ResourceWarningStatus,
+  RoutingControlStateChange,
+  StepStatus,
+  UpdatePlanExecutionAction,
+  UpdatePlanExecutionStepAction,
+  WorkflowTargetAction,
+} from "./enums";
 
 /**
  * <p>A summarized representation of a plan execution. This structure contains key information about an execution without all the detailed step data.</p>
@@ -133,20 +104,6 @@ export interface AbbreviatedExecution {
 }
 
 /**
- * @public
- * @enum
- */
-export const RecoveryApproach = {
-  ACTIVE_ACTIVE: "activeActive",
-  ACTIVE_PASSIVE: "activePassive",
-} as const;
-
-/**
- * @public
- */
-export type RecoveryApproach = (typeof RecoveryApproach)[keyof typeof RecoveryApproach];
-
-/**
  * <p>A summarized representation of a Region switch plan. This structure contains key information about a plan without all the detailed workflow and step data.</p>
  * @public
  */
@@ -225,68 +182,6 @@ export interface AbbreviatedPlan {
 }
 
 /**
- * <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AlarmCondition = {
-  GREEN: "green",
-  RED: "red",
-} as const;
-
-/**
- * @public
- */
-export type AlarmCondition = (typeof AlarmCondition)[keyof typeof AlarmCondition];
-
-/**
- * @public
- * @enum
- */
-export const AlarmType = {
-  APPLICATION_HEALTH: "applicationHealth",
-  TRIGGER: "trigger",
-} as const;
-
-/**
- * @public
- */
-export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
-
-/**
- * @public
- * @enum
- */
-export const Approval = {
-  APPROVE: "approve",
-  DECLINE: "decline",
-} as const;
-
-/**
- * @public
- */
-export type Approval = (typeof Approval)[keyof typeof Approval];
-
-/**
  * @public
  */
 export interface ApprovePlanExecutionStepRequest {
@@ -325,26 +220,6 @@ export interface ApprovePlanExecutionStepRequest {
  * @public
  */
 export interface ApprovePlanExecutionStepResponse {}
-
-/**
- * <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * @public
@@ -396,36 +271,6 @@ export interface GetPlanEvaluationStatusRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EvaluationStatus = {
-  ACTION_REQUIRED: "actionRequired",
-  PASSED: "passed",
-  PENDING_EVALUATION: "pendingEvaluation",
-  UNKNOWN: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationStatus = (typeof EvaluationStatus)[keyof typeof EvaluationStatus];
-
-/**
- * @public
- * @enum
- */
-export const ResourceWarningStatus = {
-  ACTIVE: "active",
-  RESOLVED: "resolved",
-} as const;
-
-/**
- * @public
- */
-export type ResourceWarningStatus = (typeof ResourceWarningStatus)[keyof typeof ResourceWarningStatus];
 
 /**
  * <p>A simplified representation of a workflow in a Region switch plan.</p>
@@ -600,20 +445,6 @@ export interface AssociatedAlarm {
 }
 
 /**
- * @public
- * @enum
- */
-export const WorkflowTargetAction = {
-  ACTIVATE: "activate",
-  DEACTIVATE: "deactivate",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowTargetAction = (typeof WorkflowTargetAction)[keyof typeof WorkflowTargetAction];
-
-/**
  * <p>Defines a condition that must be met for a trigger to fire.</p>
  * @public
  */
@@ -666,20 +497,6 @@ export interface Trigger {
    */
   minDelayMinutesBetweenExecutions: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RoutingControlStateChange = {
-  OFF: "Off",
-  ON: "On",
-} as const;
-
-/**
- * @public
- */
-export type RoutingControlStateChange = (typeof RoutingControlStateChange)[keyof typeof RoutingControlStateChange];
 
 /**
  * <p>Represents the state of an ARC routing control.</p>
@@ -754,33 +571,6 @@ export interface Lambdas {
 }
 
 /**
- * @public
- * @enum
- */
-export const RegionToRunIn = {
-  ACTIVATING_REGION: "activatingRegion",
-  DEACTIVATING_REGION: "deactivatingRegion",
-} as const;
-
-/**
- * @public
- */
-export type RegionToRunIn = (typeof RegionToRunIn)[keyof typeof RegionToRunIn];
-
-/**
- * @public
- * @enum
- */
-export const LambdaUngracefulBehavior = {
-  SKIP: "skip",
-} as const;
-
-/**
- * @public
- */
-export type LambdaUngracefulBehavior = (typeof LambdaUngracefulBehavior)[keyof typeof LambdaUngracefulBehavior];
-
-/**
  * <p>Configuration for handling failures when invoking Lambda functions.</p>
  * @public
  */
@@ -853,21 +643,6 @@ export interface Asg {
 }
 
 /**
- * @public
- * @enum
- */
-export const Ec2AsgCapacityMonitoringApproach = {
-  AUTOSCALING_MAX_IN_LAST_24_HOURS: "autoscalingMaxInLast24Hours",
-  SAMPLED_MAX_IN_LAST_24_HOURS: "sampledMaxInLast24Hours",
-} as const;
-
-/**
- * @public
- */
-export type Ec2AsgCapacityMonitoringApproach =
-  (typeof Ec2AsgCapacityMonitoringApproach)[keyof typeof Ec2AsgCapacityMonitoringApproach];
-
-/**
  * <p>Configuration for handling failures when performing operations on EC2 resources.</p>
  * @public
  */
@@ -914,21 +689,6 @@ export interface Ec2AsgCapacityIncreaseConfiguration {
    */
   capacityMonitoringApproach?: Ec2AsgCapacityMonitoringApproach | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EcsCapacityMonitoringApproach = {
-  CONTAINER_INSIGHTS_MAX_IN_LAST_24_HOURS: "containerInsightsMaxInLast24Hours",
-  SAMPLED_MAX_IN_LAST_24_HOURS: "sampledMaxInLast24Hours",
-} as const;
-
-/**
- * @public
- */
-export type EcsCapacityMonitoringApproach =
-  (typeof EcsCapacityMonitoringApproach)[keyof typeof EcsCapacityMonitoringApproach];
 
 /**
  * <p>The service for a cross account role.</p>
@@ -1007,20 +767,6 @@ export interface EcsCapacityIncreaseConfiguration {
    */
   capacityMonitoringApproach?: EcsCapacityMonitoringApproach | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EksCapacityMonitoringApproach = {
-  SAMPLED_MAX_IN_LAST_24_HOURS: "sampledMaxInLast24Hours",
-} as const;
-
-/**
- * @public
- */
-export type EksCapacityMonitoringApproach =
-  (typeof EksCapacityMonitoringApproach)[keyof typeof EksCapacityMonitoringApproach];
 
 /**
  * <p>The Amazon Web Services EKS cluster execution block configuration.</p>
@@ -1167,35 +913,6 @@ export interface ExecutionApprovalConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const GlobalAuroraDefaultBehavior = {
-  FAILOVER: "failover",
-  SWITCHOVER_ONLY: "switchoverOnly",
-} as const;
-
-/**
- * @public
- */
-export type GlobalAuroraDefaultBehavior =
-  (typeof GlobalAuroraDefaultBehavior)[keyof typeof GlobalAuroraDefaultBehavior];
-
-/**
- * @public
- * @enum
- */
-export const GlobalAuroraUngracefulBehavior = {
-  FAILOVER: "failover",
-} as const;
-
-/**
- * @public
- */
-export type GlobalAuroraUngracefulBehavior =
-  (typeof GlobalAuroraUngracefulBehavior)[keyof typeof GlobalAuroraUngracefulBehavior];
-
-/**
  * <p>Configuration for handling failures when performing operations on Aurora global databases.</p>
  * @public
  */
@@ -1340,47 +1057,6 @@ export interface Route53HealthCheckConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExecutionBlockType = {
-  AURORA: "AuroraGlobalDatabase",
-  CUSTOM_ACTION_LAMBDA: "CustomActionLambda",
-  EC2_ASG: "EC2AutoScaling",
-  ECS: "ECSServiceScaling",
-  EKS_RESOURCE_SCALING: "EKSResourceScaling",
-  EXECUTION_APPROVAL: "ManualApproval",
-  PARALLEL: "Parallel",
-  REGION_SWITCH: "ARCRegionSwitchPlan",
-  ROUTE53_HEALTH_CHECK: "Route53HealthCheck",
-  ROUTING_CONTROL: "ARCRoutingControl",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionBlockType = (typeof ExecutionBlockType)[keyof typeof ExecutionBlockType];
-
-/**
- * @public
- * @enum
- */
-export const StepStatus = {
-  CANCELLED: "canceled",
-  COMPLETED: "completed",
-  FAILED: "failed",
-  NOT_STARTED: "notStarted",
-  PENDING_APPROVAL: "pendingApproval",
-  RUNNING: "running",
-  SKIPPED: "skipped",
-} as const;
-
-/**
- * @public
- */
-export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
-
-/**
  * <p>Represents the state of a step in a plan execution.</p>
  * @public
  */
@@ -1461,43 +1137,6 @@ export interface ListPlanExecutionEventsRequest {
    */
   name?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionEventType = {
-  EXECUTION_BEHAVIOR_CHANGED_TO_GRACEFUL: "executionBehaviorChangedToGraceful",
-  EXECUTION_BEHAVIOR_CHANGED_TO_UNGRACEFUL: "executionBehaviorChangedToUngraceful",
-  EXECUTION_CANCELED: "executionCanceled",
-  EXECUTION_CANCELING: "executionCanceling",
-  EXECUTION_FAILED: "executionFailed",
-  EXECUTION_PAUSED: "executionPaused",
-  EXECUTION_PAUSING: "executionPausing",
-  EXECUTION_PENDING: "executionPending",
-  EXECUTION_PENDING_APPROVAL: "executionPendingApproval",
-  EXECUTION_PENDING_CHILD_PLAN_MANUAL_APPROVAL: "executionPendingChildPlanManualApproval",
-  EXECUTION_STARTED: "executionStarted",
-  EXECUTION_SUCCEEDED: "executionSucceeded",
-  EXECUTION_SUCCESS_MONITORING_APPLICATION_HEALTH: "executionSuccessMonitoringApplicationHealth",
-  STEP_CANCELED: "stepCanceled",
-  STEP_EXECUTION_BEHAVIOR_CHANGED_TO_UNGRACEFUL: "stepExecutionBehaviorChangedToUngraceful",
-  STEP_FAILED: "stepFailed",
-  STEP_PAUSED_BY_ERROR: "stepPausedByError",
-  STEP_PAUSED_BY_OPERATOR: "stepPausedByOperator",
-  STEP_PENDING_APPLICATION_HEALTH_MONITOR: "stepPendingApplicationHealthMonitor",
-  STEP_PENDING_APPROVAL: "stepPendingApproval",
-  STEP_SKIPPED: "stepSkipped",
-  STEP_STARTED: "stepStarted",
-  STEP_SUCCEEDED: "stepSucceeded",
-  STEP_UPDATE: "stepUpdate",
-  UNKNOWN: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionEventType = (typeof ExecutionEventType)[keyof typeof ExecutionEventType];
 
 /**
  * <p>Represents an event that occurred during a plan execution. These events provide a detailed timeline of the execution process.</p>
@@ -1657,26 +1296,6 @@ export interface ListPlansInRegionResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListRoute53HealthChecksRequest {
@@ -1773,26 +1392,6 @@ export interface DeletePlanRequest {
  * @public
  */
 export interface DeletePlanResponse {}
-
-/**
- * <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
- * @public
- */
-export class IllegalStateException extends __BaseException {
-  readonly name: "IllegalStateException" = "IllegalStateException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalStateException, __BaseException>) {
-    super({
-      name: "IllegalStateException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalStateException.prototype);
-  }
-}
 
 /**
  * @public
@@ -1906,26 +1505,6 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>The request processing has an invalid argument.</p>
- * @public
- */
-export class IllegalArgumentException extends __BaseException {
-  readonly name: "IllegalArgumentException" = "IllegalArgumentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalArgumentException, __BaseException>) {
-    super({
-      name: "IllegalArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalArgumentException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface StartPlanExecutionRequest {
@@ -2003,22 +1582,6 @@ export interface StartPlanExecutionResponse {
 
 /**
  * @public
- * @enum
- */
-export const UpdatePlanExecutionAction = {
-  PAUSE: "pause",
-  RESUME: "resume",
-  SWITCH_TO_GRACEFUL: "switchToGraceful",
-  SWITCH_TO_UNGRACEFUL: "switchToUngraceful",
-} as const;
-
-/**
- * @public
- */
-export type UpdatePlanExecutionAction = (typeof UpdatePlanExecutionAction)[keyof typeof UpdatePlanExecutionAction];
-
-/**
- * @public
  */
 export interface UpdatePlanExecutionRequest {
   /**
@@ -2050,21 +1613,6 @@ export interface UpdatePlanExecutionRequest {
  * @public
  */
 export interface UpdatePlanExecutionResponse {}
-
-/**
- * @public
- * @enum
- */
-export const UpdatePlanExecutionStepAction = {
-  SKIP: "skip",
-  SWITCH_TO_UNGRACEFUL: "switchToUngraceful",
-} as const;
-
-/**
- * @public
- */
-export type UpdatePlanExecutionStepAction =
-  (typeof UpdatePlanExecutionStepAction)[keyof typeof UpdatePlanExecutionStepAction];
 
 /**
  * @public

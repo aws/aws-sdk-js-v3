@@ -1186,7 +1186,7 @@ import {
   StorageQuotaExceededFault as __StorageQuotaExceededFault,
   SubnetAlreadyInUse as __SubnetAlreadyInUse,
   UpgradeDependencyFailureFault as __UpgradeDependencyFailureFault,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

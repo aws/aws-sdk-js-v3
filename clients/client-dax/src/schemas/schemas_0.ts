@@ -233,7 +233,7 @@ import {
   SubnetQuotaExceededFault as __SubnetQuotaExceededFault,
   TagNotFoundFault as __TagNotFoundFault,
   TagQuotaPerResourceExceeded as __TagQuotaPerResourceExceeded,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -1,7 +1,17 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { TranslateServiceException as __BaseException } from "./TranslateServiceException";
+import {
+  Brevity,
+  Directionality,
+  DisplayLanguageCode,
+  EncryptionKeyType,
+  Formality,
+  JobStatus,
+  MergeStrategy,
+  ParallelDataFormat,
+  ParallelDataStatus,
+  Profanity,
+  TerminologyDataFormat,
+} from "./enums";
 
 /**
  * <p>The term being translated by the custom terminology.</p>
@@ -46,64 +56,6 @@ export interface AppliedTerminology {
 }
 
 /**
- * <p>Another modification is being made. That modification must complete before you can make
- *       your change.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>There was a conflict processing the request. Try your request again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EncryptionKeyType = {
-  KMS: "KMS",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
-
-/**
  * <p>The encryption key used to encrypt this object.</p>
  * @public
  */
@@ -120,21 +72,6 @@ export interface EncryptionKey {
    */
   Id: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ParallelDataFormat = {
-  CSV: "CSV",
-  TMX: "TMX",
-  TSV: "TSV",
-} as const;
-
-/**
- * @public
- */
-export type ParallelDataFormat = (typeof ParallelDataFormat)[keyof typeof ParallelDataFormat];
 
 /**
  * <p>Specifies the format and S3 location of the parallel data input file.</p>
@@ -222,23 +159,6 @@ export interface CreateParallelDataRequest {
 
 /**
  * @public
- * @enum
- */
-export const ParallelDataStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ParallelDataStatus = (typeof ParallelDataStatus)[keyof typeof ParallelDataStatus];
-
-/**
- * @public
  */
 export interface CreateParallelDataResponse {
   /**
@@ -253,142 +173,6 @@ export interface CreateParallelDataResponse {
    * @public
    */
   Status?: ParallelDataStatus | undefined;
-}
-
-/**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> The request that you made is not valid. Check your request to determine why it's not
- *       valid and then retry the request. </p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
- *       below the stated limit.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  ResourceArn?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.ResourceArn = opts.ResourceArn;
-  }
 }
 
 /**
@@ -417,30 +201,6 @@ export interface DeleteParallelDataResponse {
    * @public
    */
   Status?: ParallelDataStatus | undefined;
-}
-
-/**
- * <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -553,25 +313,6 @@ export interface JobDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const JobStatus = {
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_ERROR: "COMPLETED_WITH_ERROR",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  STOPPED: "STOPPED",
-  STOP_REQUESTED: "STOP_REQUESTED",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
-
-/**
  * <p>The output configuration properties for a batch translation job.</p>
  * @public
  */
@@ -589,46 +330,6 @@ export interface OutputDataConfig {
    */
   EncryptionKey?: EncryptionKey | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Brevity = {
-  ON: "ON",
-} as const;
-
-/**
- * @public
- */
-export type Brevity = (typeof Brevity)[keyof typeof Brevity];
-
-/**
- * @public
- * @enum
- */
-export const Formality = {
-  FORMAL: "FORMAL",
-  INFORMAL: "INFORMAL",
-} as const;
-
-/**
- * @public
- */
-export type Formality = (typeof Formality)[keyof typeof Formality];
-
-/**
- * @public
- * @enum
- */
-export const Profanity = {
-  MASK: "MASK",
-} as const;
-
-/**
- * @public
- */
-export type Profanity = (typeof Profanity)[keyof typeof Profanity];
 
 /**
  * <p>Settings to configure your translation output. You can configure the following options:</p>
@@ -1012,21 +713,6 @@ export interface GetParallelDataResponse {
 
 /**
  * @public
- * @enum
- */
-export const TerminologyDataFormat = {
-  CSV: "CSV",
-  TMX: "TMX",
-  TSV: "TSV",
-} as const;
-
-/**
- * @public
- */
-export type TerminologyDataFormat = (typeof TerminologyDataFormat)[keyof typeof TerminologyDataFormat];
-
-/**
- * @public
  */
 export interface GetTerminologyRequest {
   /**
@@ -1076,20 +762,6 @@ export interface TerminologyDataLocation {
    */
   Location: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Directionality = {
-  MULTI: "MULTI",
-  UNI: "UNI",
-} as const;
-
-/**
- * @public
- */
-export type Directionality = (typeof Directionality)[keyof typeof Directionality];
 
 /**
  * <p>The properties of the custom terminology.</p>
@@ -1235,19 +907,6 @@ export interface GetTerminologyResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MergeStrategy = {
-  OVERWRITE: "OVERWRITE",
-} as const;
-
-/**
- * @public
- */
-export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
-
-/**
  * <p>The data associated with the custom terminology. For information about the custom terminology file, see
  *       <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html">
  *       Creating a Custom Terminology</a>.</p>
@@ -1361,28 +1020,6 @@ export interface ImportTerminologyResponse {
 
 /**
  * @public
- * @enum
- */
-export const DisplayLanguageCode = {
-  DE: "de",
-  EN: "en",
-  ES: "es",
-  FR: "fr",
-  IT: "it",
-  JA: "ja",
-  KO: "ko",
-  PT: "pt",
-  ZH: "zh",
-  ZH_TW: "zh-TW",
-} as const;
-
-/**
- * @public
- */
-export type DisplayLanguageCode = (typeof DisplayLanguageCode)[keyof typeof DisplayLanguageCode];
-
-/**
- * @public
  */
 export interface ListLanguagesRequest {
   /**
@@ -1445,34 +1082,6 @@ export interface ListLanguagesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Requested display language code is not supported.</p>
- * @public
- */
-export class UnsupportedDisplayLanguageCodeException extends __BaseException {
-  readonly name: "UnsupportedDisplayLanguageCodeException" = "UnsupportedDisplayLanguageCodeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>Language code passed in with the request.</p>
-   * @public
-   */
-  DisplayLanguageCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedDisplayLanguageCodeException, __BaseException>) {
-    super({
-      name: "UnsupportedDisplayLanguageCodeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedDisplayLanguageCodeException.prototype);
-    this.Message = opts.Message;
-    this.DisplayLanguageCode = opts.DisplayLanguageCode;
-  }
 }
 
 /**
@@ -1570,28 +1179,6 @@ export interface ListTerminologiesResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The filter specified for the operation is not valid. Specify a different filter.</p>
- * @public
- */
-export class InvalidFilterException extends __BaseException {
-  readonly name: "InvalidFilterException" = "InvalidFilterException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFilterException, __BaseException>) {
-    super({
-      name: "InvalidFilterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFilterException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1832,42 +1419,6 @@ export interface StartTextTranslationJobResponse {
 }
 
 /**
- * <p>Amazon Translate does not support translation from the language of the source text into the requested
- *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>. </p>
- * @public
- */
-export class UnsupportedLanguagePairException extends __BaseException {
-  readonly name: "UnsupportedLanguagePairException" = "UnsupportedLanguagePairException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The language code for the language of the input text. </p>
-   * @public
-   */
-  SourceLanguageCode?: string | undefined;
-
-  /**
-   * <p>The language code for the language of the translated text. </p>
-   * @public
-   */
-  TargetLanguageCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedLanguagePairException, __BaseException>) {
-    super({
-      name: "UnsupportedLanguagePairException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedLanguagePairException.prototype);
-    this.Message = opts.Message;
-    this.SourceLanguageCode = opts.SourceLanguageCode;
-    this.TargetLanguageCode = opts.TargetLanguageCode;
-  }
-}
-
-/**
  * @public
  */
 export interface StopTextTranslationJobRequest {
@@ -1919,29 +1470,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
- *       request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * <p>The content and content type of a document.</p>
@@ -2103,60 +1631,6 @@ export interface TranslateDocumentResponse {
    * @public
    */
   AppliedSettings?: TranslationSettings | undefined;
-}
-
-/**
- * <p>The confidence that Amazon Comprehend accurately detected the source language is low. If a
- *       low confidence level is acceptable for your application, you can use the language in the
- *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
- *         Guide</i>. </p>
- * @public
- */
-export class DetectedLanguageLowConfidenceException extends __BaseException {
-  readonly name: "DetectedLanguageLowConfidenceException" = "DetectedLanguageLowConfidenceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The language code of the auto-detected language from Amazon Comprehend.</p>
-   * @public
-   */
-  DetectedLanguageCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DetectedLanguageLowConfidenceException, __BaseException>) {
-    super({
-      name: "DetectedLanguageLowConfidenceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DetectedLanguageLowConfidenceException.prototype);
-    this.Message = opts.Message;
-    this.DetectedLanguageCode = opts.DetectedLanguageCode;
-  }
-}
-
-/**
- * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
- *       use a smaller document and then retry your request. </p>
- * @public
- */
-export class TextSizeLimitExceededException extends __BaseException {
-  readonly name: "TextSizeLimitExceededException" = "TextSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TextSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "TextSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TextSizeLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

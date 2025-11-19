@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdgeServiceException";
+import { ChecksumType, DeploymentStatus, DeploymentType, FailureHandlingPolicy, ModelState } from "./enums";
 
 /**
  * @public
@@ -21,19 +19,6 @@ export interface GetDeploymentsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChecksumType = {
-  Sha1: "SHA1",
-} as const;
-
-/**
- * @public
- */
-export type ChecksumType = (typeof ChecksumType)[keyof typeof ChecksumType];
-
-/**
  * <p>Information about the checksum of a model deployed on a device.</p>
  * @public
  */
@@ -50,20 +35,6 @@ export interface Checksum {
    */
   Sum?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelState = {
-  Deploy: "DEPLOY",
-  Undeploy: "UNDEPLOY",
-} as const;
-
-/**
- * @public
- */
-export type ModelState = (typeof ModelState)[keyof typeof ModelState];
 
 /**
  * <p></p>
@@ -94,33 +65,6 @@ export interface Definition {
    */
   State?: ModelState | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FailureHandlingPolicy = {
-  DoNothing: "DO_NOTHING",
-  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type FailureHandlingPolicy = (typeof FailureHandlingPolicy)[keyof typeof FailureHandlingPolicy];
-
-/**
- * @public
- * @enum
- */
-export const DeploymentType = {
-  Model: "Model",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
 
 /**
  * <p>Information about a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
@@ -161,29 +105,6 @@ export interface GetDeploymentsResult {
    * @public
    */
   Deployments?: EdgeDeployment[] | undefined;
-}
-
-/**
- * <p>An internal failure occurred. Try your request again. If the problem
- *       persists, contact Amazon Web Services customer support.</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -249,20 +170,6 @@ export interface EdgeMetric {
    */
   Timestamp?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentStatus = {
-  Fail: "FAIL",
-  Success: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
  * <p></p>

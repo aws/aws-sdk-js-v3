@@ -1,48 +1,68 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
-
-/**
- * <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AccessDirection = {
-  inbound: "inbound",
-  outbound: "outbound",
-} as const;
-
-/**
- * @public
- */
-export type AccessDirection = (typeof AccessDirection)[keyof typeof AccessDirection];
+import {
+  AccessDirection,
+  AccessType,
+  AccountLevelBpaSyncStatus,
+  AddOnType,
+  AlarmState,
+  AppCategory,
+  AutoMountStatus,
+  AutoSnapshotStatus,
+  BehaviorEnum,
+  BlueprintType,
+  BPAStatusMessage,
+  BucketMetricName,
+  CertificateDomainValidationStatus,
+  CertificateStatus,
+  CloudFormationStackRecordSourceType,
+  ComparisonOperator,
+  ContactMethodStatus,
+  ContactProtocol,
+  ContainerServiceDeploymentState,
+  ContainerServiceMetricName,
+  ContainerServicePowerName,
+  ContainerServiceProtocol,
+  ContainerServiceState,
+  ContainerServiceStateDetailCode,
+  Currency,
+  DiskSnapshotState,
+  DiskState,
+  DistributionMetricName,
+  DnsRecordCreationStateCode,
+  ExportSnapshotRecordSourceType,
+  ForwardValues,
+  HeaderEnum,
+  HttpEndpoint,
+  HttpProtocolIpv6,
+  HttpTokens,
+  InstanceAccessProtocol,
+  InstanceMetadataState,
+  InstanceMetricName,
+  InstancePlatform,
+  InstanceSnapshotState,
+  IpAddressType,
+  MetricName,
+  MetricStatistic,
+  MetricUnit,
+  NameServersUpdateStateCode,
+  NetworkProtocol,
+  OperationStatus,
+  OperationType,
+  OriginProtocolPolicyEnum,
+  PortAccessType,
+  PortInfoSourceType,
+  PortState,
+  PricingUnit,
+  R53HostedZoneDeletionStateCode,
+  RecordState,
+  RegionName,
+  RenewalStatus,
+  ResourceType,
+  Status,
+  StatusType,
+  TreatMissingData,
+  ViewerMinimumTlsProtocolVersionEnum,
+} from "./enums";
 
 /**
  * <p>Describes the last time an access key was used.</p>
@@ -74,20 +94,6 @@ export interface AccessKeyLastUsed {
    */
   serviceName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatusType = {
-  Active: "Active",
-  Inactive: "Inactive",
-} as const;
-
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * <p>Describes an access key for an Amazon Lightsail bucket.</p>
@@ -163,20 +169,6 @@ export interface ResourceReceivingAccess {
 }
 
 /**
- * @public
- * @enum
- */
-export const AccessType = {
-  Private: "private",
-  Public: "public",
-} as const;
-
-/**
- * @public
- */
-export type AccessType = (typeof AccessType)[keyof typeof AccessType];
-
-/**
  * <p>Describes the anonymous access permissions for an Amazon Lightsail bucket and its
  *       objects.</p>
  *          <p>For more information about bucket access permissions, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-understanding-bucket-permissions">Understanding bucket permissions in Amazon Lightsail</a> in the </p>
@@ -223,38 +215,6 @@ export interface AccessRules {
    */
   allowPublicOverrides?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BPAStatusMessage = {
-  DEFAULTED_FOR_SLR_MISSING: "DEFAULTED_FOR_SLR_MISSING",
-  DEFAULTED_FOR_SLR_MISSING_ON_HOLD: "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
-  SYNC_ON_HOLD: "SYNC_ON_HOLD",
-  Unknown: "Unknown",
-} as const;
-
-/**
- * @public
- */
-export type BPAStatusMessage = (typeof BPAStatusMessage)[keyof typeof BPAStatusMessage];
-
-/**
- * @public
- * @enum
- */
-export const AccountLevelBpaSyncStatus = {
-  Defaulted: "Defaulted",
-  Failed: "Failed",
-  InSync: "InSync",
-  NeverSynced: "NeverSynced",
-} as const;
-
-/**
- * @public
- */
-export type AccountLevelBpaSyncStatus = (typeof AccountLevelBpaSyncStatus)[keyof typeof AccountLevelBpaSyncStatus];
 
 /**
  * <p>Describes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
@@ -363,33 +323,6 @@ export interface AccountLevelBpaSync {
 }
 
 /**
- * <p>Lightsail throws this exception when an account is still in the setup in progress
- *       state.</p>
- * @public
- */
-export class AccountSetupInProgressException extends __BaseException {
-  readonly name: "AccountSetupInProgressException" = "AccountSetupInProgressException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountSetupInProgressException, __BaseException>) {
-    super({
-      name: "AccountSetupInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountSetupInProgressException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
  * <p>Describes an add-on that is enabled for an Amazon Lightsail resource.</p>
  * @public
  */
@@ -445,20 +378,6 @@ export interface AddOn {
    */
   duration?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AddOnType = {
-  AutoSnapshot: "AutoSnapshot",
-  StopInstanceOnIdle: "StopInstanceOnIdle",
-} as const;
-
-/**
- * @public
- */
-export type AddOnType = (typeof AddOnType)[keyof typeof AddOnType];
 
 /**
  * <p>Describes a request to enable or modify the automatic snapshot add-on for an
@@ -575,64 +494,6 @@ export interface AddOnRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold: "GreaterThanThreshold",
-  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
-  LessThanThreshold: "LessThanThreshold",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const ContactProtocol = {
-  Email: "Email",
-  SMS: "SMS",
-} as const;
-
-/**
- * @public
- */
-export type ContactProtocol = (typeof ContactProtocol)[keyof typeof ContactProtocol];
-
-/**
- * @public
- * @enum
- */
-export const RegionName = {
-  AP_NORTHEAST_1: "ap-northeast-1",
-  AP_NORTHEAST_2: "ap-northeast-2",
-  AP_SOUTHEAST_1: "ap-southeast-1",
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  AP_SOUTHEAST_3: "ap-southeast-3",
-  AP_SOUTH_1: "ap-south-1",
-  CA_CENTRAL_1: "ca-central-1",
-  EU_CENTRAL_1: "eu-central-1",
-  EU_NORTH_1: "eu-north-1",
-  EU_WEST_1: "eu-west-1",
-  EU_WEST_2: "eu-west-2",
-  EU_WEST_3: "eu-west-3",
-  US_EAST_1: "us-east-1",
-  US_EAST_2: "us-east-2",
-  US_WEST_1: "us-west-1",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type RegionName = (typeof RegionName)[keyof typeof RegionName];
-
-/**
  * <p>Describes the resource location.</p>
  * @public
  */
@@ -649,75 +510,6 @@ export interface ResourceLocation {
    */
   regionName?: RegionName | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricName = {
-  BurstCapacityPercentage: "BurstCapacityPercentage",
-  BurstCapacityTime: "BurstCapacityTime",
-  CPUUtilization: "CPUUtilization",
-  ClientTLSNegotiationErrorCount: "ClientTLSNegotiationErrorCount",
-  DatabaseConnections: "DatabaseConnections",
-  DiskQueueDepth: "DiskQueueDepth",
-  FreeStorageSpace: "FreeStorageSpace",
-  HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count: "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count: "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count: "HTTPCode_LB_5XX_Count",
-  HealthyHostCount: "HealthyHostCount",
-  InstanceResponseTime: "InstanceResponseTime",
-  NetworkIn: "NetworkIn",
-  NetworkOut: "NetworkOut",
-  NetworkReceiveThroughput: "NetworkReceiveThroughput",
-  NetworkTransmitThroughput: "NetworkTransmitThroughput",
-  RejectedConnectionCount: "RejectedConnectionCount",
-  RequestCount: "RequestCount",
-  StatusCheckFailed: "StatusCheckFailed",
-  StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
-  StatusCheckFailed_System: "StatusCheckFailed_System",
-  UnhealthyHostCount: "UnhealthyHostCount",
-} as const;
-
-/**
- * @public
- */
-export type MetricName = (typeof MetricName)[keyof typeof MetricName];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  Alarm: "Alarm",
-  Bucket: "Bucket",
-  Certificate: "Certificate",
-  CloudFormationStackRecord: "CloudFormationStackRecord",
-  ContactMethod: "ContactMethod",
-  ContainerService: "ContainerService",
-  Disk: "Disk",
-  DiskSnapshot: "DiskSnapshot",
-  Distribution: "Distribution",
-  Domain: "Domain",
-  ExportSnapshotRecord: "ExportSnapshotRecord",
-  Instance: "Instance",
-  InstanceSnapshot: "InstanceSnapshot",
-  KeyPair: "KeyPair",
-  LoadBalancer: "LoadBalancer",
-  LoadBalancerTlsCertificate: "LoadBalancerTlsCertificate",
-  PeeredVpc: "PeeredVpc",
-  RelationalDatabase: "RelationalDatabase",
-  RelationalDatabaseSnapshot: "RelationalDatabaseSnapshot",
-  StaticIp: "StaticIp",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * <p>Describes resource being monitored by an alarm.</p>
@@ -747,93 +539,6 @@ export interface MonitoredResourceInfo {
    */
   resourceType?: ResourceType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AlarmState = {
-  ALARM: "ALARM",
-  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
-  OK: "OK",
-} as const;
-
-/**
- * @public
- */
-export type AlarmState = (typeof AlarmState)[keyof typeof AlarmState];
-
-/**
- * @public
- * @enum
- */
-export const MetricStatistic = {
-  Average: "Average",
-  Maximum: "Maximum",
-  Minimum: "Minimum",
-  SampleCount: "SampleCount",
-  Sum: "Sum",
-} as const;
-
-/**
- * @public
- */
-export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
-
-/**
- * @public
- * @enum
- */
-export const TreatMissingData = {
-  Breaching: "breaching",
-  Ignore: "ignore",
-  Missing: "missing",
-  NotBreaching: "notBreaching",
-} as const;
-
-/**
- * @public
- */
-export type TreatMissingData = (typeof TreatMissingData)[keyof typeof TreatMissingData];
-
-/**
- * @public
- * @enum
- */
-export const MetricUnit = {
-  Bits: "Bits",
-  BitsSecond: "Bits/Second",
-  Bytes: "Bytes",
-  BytesSecond: "Bytes/Second",
-  Count: "Count",
-  CountSecond: "Count/Second",
-  Gigabits: "Gigabits",
-  GigabitsSecond: "Gigabits/Second",
-  Gigabytes: "Gigabytes",
-  GigabytesSecond: "Gigabytes/Second",
-  Kilobits: "Kilobits",
-  KilobitsSecond: "Kilobits/Second",
-  Kilobytes: "Kilobytes",
-  KilobytesSecond: "Kilobytes/Second",
-  Megabits: "Megabits",
-  MegabitsSecond: "Megabits/Second",
-  Megabytes: "Megabytes",
-  MegabytesSecond: "Megabytes/Second",
-  Microseconds: "Microseconds",
-  Milliseconds: "Milliseconds",
-  None: "None",
-  Percent: "Percent",
-  Seconds: "Seconds",
-  Terabits: "Terabits",
-  TerabitsSecond: "Terabits/Second",
-  Terabytes: "Terabytes",
-  TerabytesSecond: "Terabytes/Second",
-} as const;
-
-/**
- * @public
- */
-export type MetricUnit = (typeof MetricUnit)[keyof typeof MetricUnit];
 
 /**
  * <p>Describes an alarm.</p>
@@ -1049,118 +754,6 @@ export interface AllocateStaticIpRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OperationType = {
-  AllocateStaticIp: "AllocateStaticIp",
-  AttachCertificateToDistribution: "AttachCertificateToDistribution",
-  AttachDisk: "AttachDisk",
-  AttachInstancesToLoadBalancer: "AttachInstancesToLoadBalancer",
-  AttachLoadBalancerTlsCertificate: "AttachLoadBalancerTlsCertificate",
-  AttachStaticIp: "AttachStaticIp",
-  CloseInstancePublicPorts: "CloseInstancePublicPorts",
-  CreateBucket: "CreateBucket",
-  CreateBucketAccessKey: "CreateBucketAccessKey",
-  CreateCertificate: "CreateCertificate",
-  CreateContactMethod: "CreateContactMethod",
-  CreateContainerService: "CreateContainerService",
-  CreateContainerServiceDeployment: "CreateContainerServiceDeployment",
-  CreateContainerServiceRegistryLogin: "CreateContainerServiceRegistryLogin",
-  CreateDisk: "CreateDisk",
-  CreateDiskFromSnapshot: "CreateDiskFromSnapshot",
-  CreateDiskSnapshot: "CreateDiskSnapshot",
-  CreateDistribution: "CreateDistribution",
-  CreateDomain: "CreateDomain",
-  CreateInstance: "CreateInstance",
-  CreateInstanceSnapshot: "CreateInstanceSnapshot",
-  CreateInstancesFromSnapshot: "CreateInstancesFromSnapshot",
-  CreateLoadBalancer: "CreateLoadBalancer",
-  CreateLoadBalancerTlsCertificate: "CreateLoadBalancerTlsCertificate",
-  CreateRelationalDatabase: "CreateRelationalDatabase",
-  CreateRelationalDatabaseFromSnapshot: "CreateRelationalDatabaseFromSnapshot",
-  CreateRelationalDatabaseSnapshot: "CreateRelationalDatabaseSnapshot",
-  DeleteAlarm: "DeleteAlarm",
-  DeleteBucket: "DeleteBucket",
-  DeleteBucketAccessKey: "DeleteBucketAccessKey",
-  DeleteCertificate: "DeleteCertificate",
-  DeleteContactMethod: "DeleteContactMethod",
-  DeleteContainerImage: "DeleteContainerImage",
-  DeleteContainerService: "DeleteContainerService",
-  DeleteDisk: "DeleteDisk",
-  DeleteDiskSnapshot: "DeleteDiskSnapshot",
-  DeleteDistribution: "DeleteDistribution",
-  DeleteDomain: "DeleteDomain",
-  DeleteDomainEntry: "DeleteDomainEntry",
-  DeleteInstance: "DeleteInstance",
-  DeleteInstanceSnapshot: "DeleteInstanceSnapshot",
-  DeleteKnownHostKeys: "DeleteKnownHostKeys",
-  DeleteLoadBalancer: "DeleteLoadBalancer",
-  DeleteLoadBalancerTlsCertificate: "DeleteLoadBalancerTlsCertificate",
-  DeleteRelationalDatabase: "DeleteRelationalDatabase",
-  DeleteRelationalDatabaseSnapshot: "DeleteRelationalDatabaseSnapshot",
-  DetachCertificateFromDistribution: "DetachCertificateFromDistribution",
-  DetachDisk: "DetachDisk",
-  DetachInstancesFromLoadBalancer: "DetachInstancesFromLoadBalancer",
-  DetachStaticIp: "DetachStaticIp",
-  DisableAddOn: "DisableAddOn",
-  EnableAddOn: "EnableAddOn",
-  GetAlarms: "GetAlarms",
-  GetContactMethods: "GetContactMethods",
-  OpenInstancePublicPorts: "OpenInstancePublicPorts",
-  PutAlarm: "PutAlarm",
-  PutInstancePublicPorts: "PutInstancePublicPorts",
-  RebootInstance: "RebootInstance",
-  RebootRelationalDatabase: "RebootRelationalDatabase",
-  RegisterContainerImage: "RegisterContainerImage",
-  ReleaseStaticIp: "ReleaseStaticIp",
-  ResetDistributionCache: "ResetDistributionCache",
-  SendContactMethodVerification: "SendContactMethodVerification",
-  SetIpAddressType: "SetIpAddressType",
-  SetResourceAccessForBucket: "SetResourceAccessForBucket",
-  SetupInstanceHttps: "SetupInstanceHttps",
-  StartGUISession: "StartGUISession",
-  StartInstance: "StartInstance",
-  StartRelationalDatabase: "StartRelationalDatabase",
-  StopGUISession: "StopGUISession",
-  StopInstance: "StopInstance",
-  StopRelationalDatabase: "StopRelationalDatabase",
-  TestAlarm: "TestAlarm",
-  UpdateBucket: "UpdateBucket",
-  UpdateBucketBundle: "UpdateBucketBundle",
-  UpdateContainerService: "UpdateContainerService",
-  UpdateDistribution: "UpdateDistribution",
-  UpdateDistributionBundle: "UpdateDistributionBundle",
-  UpdateDomainEntry: "UpdateDomainEntry",
-  UpdateInstanceMetadataOptions: "UpdateInstanceMetadataOptions",
-  UpdateLoadBalancerAttribute: "UpdateLoadBalancerAttribute",
-  UpdateRelationalDatabase: "UpdateRelationalDatabase",
-  UpdateRelationalDatabaseParameters: "UpdateRelationalDatabaseParameters",
-} as const;
-
-/**
- * @public
- */
-export type OperationType = (typeof OperationType)[keyof typeof OperationType];
-
-/**
- * @public
- * @enum
- */
-export const OperationStatus = {
-  Completed: "Completed",
-  Failed: "Failed",
-  NotStarted: "NotStarted",
-  Started: "Started",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
-
-/**
  * <p>Describes the API operation.</p>
  * @public
  */
@@ -1249,196 +842,6 @@ export interface AllocateStaticIpResult {
    */
   operations?: Operation[] | undefined;
 }
-
-/**
- * <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * <p>Lightsail throws this exception when it cannot find a resource.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * <p>Lightsail throws this exception when an operation fails to execute.</p>
- * @public
- */
-export class OperationFailureException extends __BaseException {
-  readonly name: "OperationFailureException" = "OperationFailureException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationFailureException, __BaseException>) {
-    super({
-      name: "OperationFailureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationFailureException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
- * @public
- */
-export class RegionSetupInProgressException extends __BaseException {
-  readonly name: "RegionSetupInProgressException" = "RegionSetupInProgressException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  /**
-   * <p>
-   *             <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-regions-and-availability-zones-in-amazon-lightsail.html">Regions
-   *       and Availability Zones for Lightsail</a>
-   *          </p>
-   * @public
-   */
-  docs?: string | undefined;
-
-  /**
-   * <p>Opt-in Regions typically take a few minutes to finish setting up before you can work with them. Wait a few minutes and try again.</p>
-   * @public
-   */
-  tip?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RegionSetupInProgressException, __BaseException>) {
-    super({
-      name: "RegionSetupInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RegionSetupInProgressException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * <p>A general service exception.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * <p>Lightsail throws this exception when the user has not been authenticated.</p>
- * @public
- */
-export class UnauthenticatedException extends __BaseException {
-  readonly name: "UnauthenticatedException" = "UnauthenticatedException";
-  readonly $fault: "client" = "client";
-  code?: string | undefined;
-  docs?: string | undefined;
-  tip?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthenticatedException, __BaseException>) {
-    super({
-      name: "UnauthenticatedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthenticatedException.prototype);
-    this.code = opts.code;
-    this.docs = opts.docs;
-    this.tip = opts.tip;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AppCategory = {
-  LfR: "LfR",
-} as const;
-
-/**
- * @public
- */
-export type AppCategory = (typeof AppCategory)[keyof typeof AppCategory];
 
 /**
  * @public
@@ -1662,38 +1065,6 @@ export interface AttachStaticIpResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const AutoMountStatus = {
-  Failed: "Failed",
-  Mounted: "Mounted",
-  NotMounted: "NotMounted",
-  Pending: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type AutoMountStatus = (typeof AutoMountStatus)[keyof typeof AutoMountStatus];
-
-/**
- * @public
- * @enum
- */
-export const AutoSnapshotStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  NOT_FOUND: "NotFound",
-  SUCCESS: "Success",
-} as const;
-
-/**
- * @public
- */
-export type AutoSnapshotStatus = (typeof AutoSnapshotStatus)[keyof typeof AutoSnapshotStatus];
-
-/**
  * <p>Describes an automatic snapshot.</p>
  * @public
  */
@@ -1743,48 +1114,6 @@ export interface AvailabilityZone {
    */
   state?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BehaviorEnum = {
-  CacheSetting: "cache",
-  DontCacheSetting: "dont-cache",
-} as const;
-
-/**
- * @public
- */
-export type BehaviorEnum = (typeof BehaviorEnum)[keyof typeof BehaviorEnum];
-
-/**
- * @public
- * @enum
- */
-export const InstancePlatform = {
-  LinuxUnix: "LINUX_UNIX",
-  Windows: "WINDOWS",
-} as const;
-
-/**
- * @public
- */
-export type InstancePlatform = (typeof InstancePlatform)[keyof typeof InstancePlatform];
-
-/**
- * @public
- * @enum
- */
-export const BlueprintType = {
-  app: "app",
-  os: "os",
-} as const;
-
-/**
- * @public
- */
-export type BlueprintType = (typeof BlueprintType)[keyof typeof BlueprintType];
 
 /**
  * <p>Describes a blueprint (a virtual private server image).</p>
@@ -2242,20 +1571,6 @@ export interface BucketBundle {
 }
 
 /**
- * @public
- * @enum
- */
-export const BucketMetricName = {
-  BucketSizeBytes: "BucketSizeBytes",
-  NumberOfObjects: "NumberOfObjects",
-} as const;
-
-/**
- * @public
- */
-export type BucketMetricName = (typeof BucketMetricName)[keyof typeof BucketMetricName];
-
-/**
  * <p>Describes a bundle, which is a set of specs describing your virtual private server (or
  *         <i>instance</i>).</p>
  * @public
@@ -2475,21 +1790,6 @@ export interface CacheBehaviorPerPath {
 }
 
 /**
- * @public
- * @enum
- */
-export const ForwardValues = {
-  all: "all",
-  allowList: "allow-list",
-  none: "none",
-} as const;
-
-/**
- * @public
- */
-export type ForwardValues = (typeof ForwardValues)[keyof typeof ForwardValues];
-
-/**
  * <p>Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards
  *       cookies to the origin and, if so, which ones.</p>
  *          <p>For the cookies that you specify, your distribution caches separate versions of the
@@ -2512,33 +1812,6 @@ export interface CookieObject {
    */
   cookiesAllowList?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HeaderEnum = {
-  accept: "Accept",
-  acceptCharset: "Accept-Charset",
-  acceptDatetime: "Accept-Datetime",
-  acceptEncoding: "Accept-Encoding",
-  acceptLanguage: "Accept-Language",
-  authorization: "Authorization",
-  cloudFrontForwardedProto: "CloudFront-Forwarded-Proto",
-  cloudFrontIsDesktopViewer: "CloudFront-Is-Desktop-Viewer",
-  cloudFrontIsMobileViewer: "CloudFront-Is-Mobile-Viewer",
-  cloudFrontIsSmartTVViewer: "CloudFront-Is-SmartTV-Viewer",
-  cloudFrontIsTabletViewer: "CloudFront-Is-Tablet-Viewer",
-  cloudFrontViewerCountry: "CloudFront-Viewer-Country",
-  host: "Host",
-  origin: "Origin",
-  referer: "Referer",
-} as const;
-
-/**
- * @public
- */
-export type HeaderEnum = (typeof HeaderEnum)[keyof typeof HeaderEnum];
 
 /**
  * <p>Describes the request headers that a Lightsail distribution bases caching on.</p>
@@ -2730,21 +2003,6 @@ export interface CacheSettings {
 }
 
 /**
- * @public
- * @enum
- */
-export const DnsRecordCreationStateCode = {
-  Failed: "FAILED",
-  Started: "STARTED",
-  Succeeded: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type DnsRecordCreationStateCode = (typeof DnsRecordCreationStateCode)[keyof typeof DnsRecordCreationStateCode];
-
-/**
  * <p>Describes the creation state of the canonical name (CNAME) records that are automatically
  *       added by Amazon Lightsail to the DNS of a domain to validate domain ownership for
  *       an SSL/TLS certificate.</p>
@@ -2814,22 +2072,6 @@ export interface ResourceRecord {
 }
 
 /**
- * @public
- * @enum
- */
-export const CertificateDomainValidationStatus = {
-  Failed: "FAILED",
-  PendingValidation: "PENDING_VALIDATION",
-  Success: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type CertificateDomainValidationStatus =
-  (typeof CertificateDomainValidationStatus)[keyof typeof CertificateDomainValidationStatus];
-
-/**
  * <p>Describes the domain name system (DNS) records that you must add to the DNS of your
  *       registered domain to validate ownership for an Amazon Lightsail SSL/TLS certificate.</p>
  * @public
@@ -2863,22 +2105,6 @@ export interface DomainValidationRecord {
    */
   validationStatus?: CertificateDomainValidationStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RenewalStatus = {
-  Failed: "Failed",
-  PendingAutoRenewal: "PendingAutoRenewal",
-  PendingValidation: "PendingValidation",
-  Success: "Success",
-} as const;
-
-/**
- * @public
- */
-export type RenewalStatus = (typeof RenewalStatus)[keyof typeof RenewalStatus];
 
 /**
  * <p>Describes the status of a SSL/TLS certificate renewal managed by Amazon Lightsail.</p>
@@ -2947,25 +2173,6 @@ export interface RenewalSummary {
    */
   updatedAt?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CertificateStatus = {
-  Expired: "EXPIRED",
-  Failed: "FAILED",
-  Inactive: "INACTIVE",
-  Issued: "ISSUED",
-  PendingValidation: "PENDING_VALIDATION",
-  Revoked: "REVOKED",
-  ValidationTimedOut: "VALIDATION_TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
 
 /**
  * <p>Describes the full details of an Amazon Lightsail SSL/TLS certificate.</p>
@@ -3175,19 +2382,6 @@ export interface Certificate {
 }
 
 /**
- * @public
- * @enum
- */
-export const CertificateProvider = {
-  LetsEncrypt: "LetsEncrypt",
-} as const;
-
-/**
- * @public
- */
-export type CertificateProvider = (typeof CertificateProvider)[keyof typeof CertificateProvider];
-
-/**
  * <p>Describes an Amazon Lightsail SSL/TLS certificate.</p>
  * @public
  */
@@ -3223,23 +2417,6 @@ export interface CertificateSummary {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NetworkProtocol = {
-  ALL: "all",
-  ICMP: "icmp",
-  ICMPV6: "icmpv6",
-  TCP: "tcp",
-  UDP: "udp",
-} as const;
-
-/**
- * @public
- */
-export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
 
 /**
  * <p>Describes ports to open on an instance, the IP addresses allowed to connect to the
@@ -3438,20 +2615,6 @@ export interface DestinationInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const CloudFormationStackRecordSourceType = {
-  ExportSnapshotRecord: "ExportSnapshotRecord",
-} as const;
-
-/**
- * @public
- */
-export type CloudFormationStackRecordSourceType =
-  (typeof CloudFormationStackRecordSourceType)[keyof typeof CloudFormationStackRecordSourceType];
-
-/**
  * <p>Describes the source of a CloudFormation stack record (i.e., the export snapshot
  *       record).</p>
  * @public
@@ -3475,21 +2638,6 @@ export interface CloudFormationStackRecordSourceInfo {
    */
   arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordState = {
-  Failed: "Failed",
-  Started: "Started",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type RecordState = (typeof RecordState)[keyof typeof RecordState];
 
 /**
  * <p>Describes a CloudFormation stack record created as a result of the <code>create cloud
@@ -3550,21 +2698,6 @@ export interface CloudFormationStackRecord {
    */
   destinationInfo?: DestinationInfo | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContactMethodStatus = {
-  Invalid: "Invalid",
-  PendingVerification: "PendingVerification",
-  Valid: "Valid",
-} as const;
-
-/**
- * @public
- */
-export type ContactMethodStatus = (typeof ContactMethodStatus)[keyof typeof ContactMethodStatus];
 
 /**
  * <p>Describes a contact method.</p>
@@ -3646,36 +2779,6 @@ export interface ContactMethod {
    */
   supportCode?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContactMethodVerificationProtocol = {
-  Email: "Email",
-} as const;
-
-/**
- * @public
- */
-export type ContactMethodVerificationProtocol =
-  (typeof ContactMethodVerificationProtocol)[keyof typeof ContactMethodVerificationProtocol];
-
-/**
- * @public
- * @enum
- */
-export const ContainerServiceProtocol = {
-  HTTP: "HTTP",
-  HTTPS: "HTTPS",
-  TCP: "TCP",
-  UDP: "UDP",
-} as const;
-
-/**
- * @public
- */
-export type ContainerServiceProtocol = (typeof ContainerServiceProtocol)[keyof typeof ContainerServiceProtocol];
 
 /**
  * <p>Describes the settings of a container that will be launched, or that is launched, to an
@@ -3821,23 +2924,6 @@ export interface ContainerServiceEndpoint {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerServiceDeploymentState = {
-  ACTIVATING: "ACTIVATING",
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type ContainerServiceDeploymentState =
-  (typeof ContainerServiceDeploymentState)[keyof typeof ContainerServiceDeploymentState];
-
-/**
  * <p>Describes a container deployment configuration of an Amazon Lightsail container
  *       service.</p>
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
@@ -3901,24 +2987,6 @@ export interface ContainerServiceDeployment {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerServicePowerName = {
-  large: "large",
-  medium: "medium",
-  micro: "micro",
-  nano: "nano",
-  small: "small",
-  xlarge: "xlarge",
-} as const;
-
-/**
- * @public
- */
-export type ContainerServicePowerName = (typeof ContainerServicePowerName)[keyof typeof ContainerServicePowerName];
-
-/**
  * <p>Describes the activation status of the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR)
  *       private repositories.</p>
  *          <p>When activated, Lightsail creates an Identity and Access Management (IAM) role
@@ -3958,47 +3026,6 @@ export interface PrivateRegistryAccess {
    */
   ecrImagePullerRole?: ContainerServiceECRImagePullerRole | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContainerServiceState = {
-  DELETING: "DELETING",
-  DEPLOYING: "DEPLOYING",
-  DISABLED: "DISABLED",
-  PENDING: "PENDING",
-  READY: "READY",
-  RUNNING: "RUNNING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ContainerServiceState = (typeof ContainerServiceState)[keyof typeof ContainerServiceState];
-
-/**
- * @public
- * @enum
- */
-export const ContainerServiceStateDetailCode = {
-  ACTIVATING_DEPLOYMENT: "ACTIVATING_DEPLOYMENT",
-  CERTIFICATE_LIMIT_EXCEEDED: "CERTIFICATE_LIMIT_EXCEEDED",
-  CREATING_DEPLOYMENT: "CREATING_DEPLOYMENT",
-  CREATING_NETWORK_INFRASTRUCTURE: "CREATING_NETWORK_INFRASTRUCTURE",
-  CREATING_SYSTEM_RESOURCES: "CREATING_SYSTEM_RESOURCES",
-  EVALUATING_HEALTH_CHECK: "EVALUATING_HEALTH_CHECK",
-  PROVISIONING_CERTIFICATE: "PROVISIONING_CERTIFICATE",
-  PROVISIONING_SERVICE: "PROVISIONING_SERVICE",
-  UNKNOWN_ERROR: "UNKNOWN_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ContainerServiceStateDetailCode =
-  (typeof ContainerServiceStateDetailCode)[keyof typeof ContainerServiceStateDetailCode];
 
 /**
  * <p>Describes the current state of a container service.</p>
@@ -4354,20 +3381,6 @@ export interface ContainerServiceLogEvent {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerServiceMetricName = {
-  CPUUtilization: "CPUUtilization",
-  MemoryUtilization: "MemoryUtilization",
-} as const;
-
-/**
- * @public
- */
-export type ContainerServiceMetricName = (typeof ContainerServiceMetricName)[keyof typeof ContainerServiceMetricName];
-
-/**
  * <p>Describes the powers that can be specified for an Amazon Lightsail container
  *       service.</p>
  *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
@@ -4558,36 +3571,6 @@ export interface CopySnapshotResult {
    */
   operations?: Operation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Currency = {
-  USD: "USD",
-} as const;
-
-/**
- * @public
- */
-export type Currency = (typeof Currency)[keyof typeof Currency];
-
-/**
- * @public
- * @enum
- */
-export const PricingUnit = {
-  Bundles: "Bundles",
-  GB: "GB",
-  GBMo: "GB-Mo",
-  Hrs: "Hrs",
-  Queries: "Queries",
-} as const;
-
-/**
- * @public
- */
-export type PricingUnit = (typeof PricingUnit)[keyof typeof PricingUnit];
 
 /**
  * <p>Sets the start date and end date for retrieving a cost estimate. The start date is
@@ -4813,22 +3796,6 @@ export interface CreateCertificateResult {
    */
   operations?: Operation[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PortInfoSourceType = {
-  Closed: "CLOSED",
-  Default: "DEFAULT",
-  Instance: "INSTANCE",
-  None: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type PortInfoSourceType = (typeof PortInfoSourceType)[keyof typeof PortInfoSourceType];
 
 /**
  * <p>Describes the Amazon Elastic Compute Cloud instance and related resources to be created using the
@@ -5417,35 +4384,6 @@ export interface CreateDiskSnapshotResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  DUALSTACK: "dualstack",
-  IPV4: "ipv4",
-  IPV6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
-
-/**
- * @public
- * @enum
- */
-export const OriginProtocolPolicyEnum = {
-  HTTPOnly: "http-only",
-  HTTPSOnly: "https-only",
-} as const;
-
-/**
- * @public
- */
-export type OriginProtocolPolicyEnum = (typeof OriginProtocolPolicyEnum)[keyof typeof OriginProtocolPolicyEnum];
-
-/**
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>An origin can be a Lightsail instance, bucket, container service, or load balancer. A
@@ -5481,23 +4419,6 @@ export interface InputOrigin {
    */
   responseTimeout?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ViewerMinimumTlsProtocolVersionEnum = {
-  TLSv11_2016: "TLSv1.1_2016",
-  TLSv12_2018: "TLSv1.2_2018",
-  TLSv12_2019: "TLSv1.2_2019",
-  TLSv12_2021: "TLSv1.2_2021",
-} as const;
-
-/**
- * @public
- */
-export type ViewerMinimumTlsProtocolVersionEnum =
-  (typeof ViewerMinimumTlsProtocolVersionEnum)[keyof typeof ViewerMinimumTlsProtocolVersionEnum];
 
 /**
  * @public
@@ -5986,28 +4907,6 @@ export interface Session {
    */
   isPrimary?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  FailedInstanceCreation: "failedInstanceCreation",
-  FailedStartingGUISession: "failedStartingGUISession",
-  FailedStoppingGUISession: "failedStoppingGUISession",
-  NotStarted: "notStarted",
-  SettingUpInstance: "settingUpInstance",
-  StartExpired: "startExpired",
-  Started: "started",
-  Starting: "starting",
-  Stopped: "stopped",
-  Stopping: "stopping",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public
@@ -7753,23 +6652,6 @@ export interface DisableAddOnResult {
 }
 
 /**
- * @public
- * @enum
- */
-export const DiskState = {
-  Available: "available",
-  Error: "error",
-  InUse: "in-use",
-  Pending: "pending",
-  Unknown: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type DiskState = (typeof DiskState)[keyof typeof DiskState];
-
-/**
  * <p>Describes a block storage disk.</p>
  * @public
  */
@@ -7935,22 +6817,6 @@ export interface DiskInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const DiskSnapshotState = {
-  Completed: "completed",
-  Error: "error",
-  Pending: "pending",
-  Unknown: "unknown",
-} as const;
-
-/**
- * @public
- */
-export type DiskSnapshotState = (typeof DiskSnapshotState)[keyof typeof DiskSnapshotState];
-
-/**
  * <p>Describes a block storage disk snapshot.</p>
  * @public
  */
@@ -8103,40 +6969,6 @@ export interface DistributionBundle {
 }
 
 /**
- * @public
- * @enum
- */
-export const DistributionMetricName = {
-  BytesDownloaded: "BytesDownloaded",
-  BytesUploaded: "BytesUploaded",
-  Http4xxErrorRate: "Http4xxErrorRate",
-  Http5xxErrorRate: "Http5xxErrorRate",
-  Requests: "Requests",
-  TotalErrorRate: "TotalErrorRate",
-} as const;
-
-/**
- * @public
- */
-export type DistributionMetricName = (typeof DistributionMetricName)[keyof typeof DistributionMetricName];
-
-/**
- * @public
- * @enum
- */
-export const NameServersUpdateStateCode = {
-  Failed: "FAILED",
-  Pending: "PENDING",
-  Started: "STARTED",
-  Succeeded: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type NameServersUpdateStateCode = (typeof NameServersUpdateStateCode)[keyof typeof NameServersUpdateStateCode];
-
-/**
  * <p>Describes the state of the name server records update made by Amazon Lightsail
  *       to an Amazon Route 53 registered domain.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-dns-in-amazon-lightsail">DNS in Amazon Lightsail</a> in the <i>Amazon Lightsail
@@ -8175,23 +7007,6 @@ export interface NameServersUpdateState {
    */
   message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const R53HostedZoneDeletionStateCode = {
-  Failed: "FAILED",
-  Pending: "PENDING",
-  Started: "STARTED",
-  Succeeded: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type R53HostedZoneDeletionStateCode =
-  (typeof R53HostedZoneDeletionStateCode)[keyof typeof R53HostedZoneDeletionStateCode];
 
 /**
  * <p>Describes the deletion state of an Amazon Route 53 hosted zone for a domain that is
@@ -8443,21 +7258,6 @@ export interface InstanceSnapshotInfo {
    */
   fromDiskInfo?: DiskInfo[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportSnapshotRecordSourceType = {
-  DiskSnapshot: "DiskSnapshot",
-  InstanceSnapshot: "InstanceSnapshot",
-} as const;
-
-/**
- * @public
- */
-export type ExportSnapshotRecordSourceType =
-  (typeof ExportSnapshotRecordSourceType)[keyof typeof ExportSnapshotRecordSourceType];
 
 /**
  * <p>Describes the source of an export snapshot record.</p>
@@ -9372,4 +8172,2147 @@ export interface GetContainerServiceDeploymentsResult {
    * @public
    */
   deployments?: ContainerServiceDeployment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContainerServiceMetricDataRequest {
+  /**
+   * <p>The name of the container service for which to get metric data.</p>
+   * @public
+   */
+  serviceName: string | undefined;
+
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid container service metric names are listed below, along with the most useful
+   *       statistics to include in your request, and the published unit value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CPUUtilization</code> - The average percentage of compute units that are
+   *           currently in use across all nodes of the container service. This metric identifies the
+   *           processing power required to run containers on each node of the container service.</p>
+   *                <p>Statistics: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>Unit: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MemoryUtilization</code> - The average percentage of available memory that is
+   *           currently in use across all nodes of the container service. This metric identifies the
+   *           memory required to run containers on each node of the container service.</p>
+   *                <p>Statistics: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>Unit: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  metricName: ContainerServiceMetricName | undefined;
+
+  /**
+   * <p>The start time of the time period.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time of the time period.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points.</p>
+   *          <p>All container service metric data is available in 5-minute (300 seconds)
+   *       granularity.</p>
+   * @public
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of <code>Sum</code> / <code>SampleCount</code> during
+   *           the specified period. By comparing this statistic with the <code>Minimum</code> and
+   *             <code>Maximum</code> values, you can determine the full scope of a metric and how close
+   *           the average use is to the <code>Minimum</code> and <code>Maximum</code> values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  statistics: MetricStatistic[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContainerServiceMetricDataResult {
+  /**
+   * <p>The name of the metric returned. </p>
+   * @public
+   */
+  metricName?: ContainerServiceMetricName | undefined;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   * @public
+   */
+  metricData?: MetricDatapoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContainerServicePowersRequest {}
+
+/**
+ * @public
+ */
+export interface GetContainerServicePowersResult {
+  /**
+   * <p>An array of objects that describe the powers that can be specified for a container
+   *       service.</p>
+   * @public
+   */
+  powers?: ContainerServicePower[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContainerServicesRequest {
+  /**
+   * <p>The name of the container service for which to return information.</p>
+   *          <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
+   * @public
+   */
+  serviceName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCostEstimateRequest {
+  /**
+   * <p>The resource name.</p>
+   * @public
+   */
+  resourceName: string | undefined;
+
+  /**
+   * <p>The cost estimate start time.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you want to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The cost estimate end time.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you want to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * <p>Describes the estimated cost or usage that a budget tracks.</p>
+ * @public
+ */
+export interface ResourceBudgetEstimate {
+  /**
+   * <p>The resource name.</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * <p>The type of resource the budget will track.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The cost estimate for the specified budget.</p>
+   * @public
+   */
+  costEstimates?: CostEstimate[] | undefined;
+
+  /**
+   * <p>The estimate start time.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The estimate end time.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCostEstimateResult {
+  /**
+   * <p>Returns the estimate's forecasted cost or usage.</p>
+   * @public
+   */
+  resourcesBudgetEstimate?: ResourceBudgetEstimate[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskRequest {
+  /**
+   * <p>The name of the disk (<code>my-disk</code>).</p>
+   * @public
+   */
+  diskName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskResult {
+  /**
+   * <p>An object containing information about the disk.</p>
+   * @public
+   */
+  disk?: Disk | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDisksRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are
+   *       paginated, the response will return a next page token that you can specify as the page token
+   *       in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDisksResult {
+  /**
+   * <p>An array of objects containing information about all block storage disks.</p>
+   * @public
+   */
+  disks?: Disk[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDisks</code> request and specify
+   *       the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotRequest {
+  /**
+   * <p>The name of the disk snapshot (<code>my-disk-snapshot</code>).</p>
+   * @public
+   */
+  diskSnapshotName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotResult {
+  /**
+   * <p>An object containing information about the disk snapshot.</p>
+   * @public
+   */
+  diskSnapshot?: DiskSnapshot | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDiskSnapshotsResult {
+  /**
+   * <p>An array of objects containing information about all block storage disk snapshots.</p>
+   * @public
+   */
+  diskSnapshots?: DiskSnapshot[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDiskSnapshots</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionBundlesRequest {}
+
+/**
+ * @public
+ */
+export interface GetDistributionBundlesResult {
+  /**
+   * <p>An object that describes a distribution bundle.</p>
+   * @public
+   */
+  bundles?: DistributionBundle[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionLatestCacheResetRequest {
+  /**
+   * <p>The name of the distribution for which to return the timestamp of the last cache
+   *       reset.</p>
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   *          <p>When omitted, the response includes the latest cache reset timestamp of all your
+   *       distributions.</p>
+   * @public
+   */
+  distributionName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionLatestCacheResetResult {
+  /**
+   * <p>The status of the last cache reset.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The timestamp of the last cache reset (<code>1479734909.17</code>) in Unix time
+   *       format.</p>
+   * @public
+   */
+  createTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionMetricDataRequest {
+  /**
+   * <p>The name of the distribution for which to get metric data.</p>
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   * @public
+   */
+  distributionName: string | undefined;
+
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid distribution metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Requests</code>
+   *                   </b> - The total number of viewer
+   *           requests received by your Lightsail distribution, for all HTTP methods, and for both
+   *           HTTP and HTTPS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesDownloaded</code>
+   *                   </b> - The number of bytes
+   *           downloaded by viewers for GET, HEAD, and OPTIONS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesUploaded </code>
+   *                   </b> - The number of bytes
+   *           uploaded to your origin by your Lightsail distribution, using POST and PUT
+   *           requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TotalErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 4xx or 5xx.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>4xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status cod was 4xx. In these cases, the
+   *           client or client viewer may have made an error. For example, a status code of 404 (Not
+   *           Found) means that the client requested an object that could not be found.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>5xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 5xx. In these cases, the
+   *           origin server did not satisfy the requests. For example, a status code of 503 (Service
+   *           Unavailable) means that the origin server is currently unavailable.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  metricName: DistributionMetricName | undefined;
+
+  /**
+   * <p>The start of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The granularity, in seconds, for the metric data points that will be returned.</p>
+   * @public
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The unit for the metric data request.</p>
+   *          <p>Valid units depend on the metric data being requested. For the valid units with each
+   *       available metric, see the <code>metricName</code> parameter.</p>
+   * @public
+   */
+  unit: MetricUnit | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  statistics: MetricStatistic[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionMetricDataResult {
+  /**
+   * <p>The name of the metric returned.</p>
+   * @public
+   */
+  metricName?: DistributionMetricName | undefined;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   * @public
+   */
+  metricData?: MetricDatapoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionsRequest {
+  /**
+   * <p>The name of the distribution for which to return information.</p>
+   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
+   *       Region where the request is made.</p>
+   * @public
+   */
+  distributionName?: string | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDistributionsResult {
+  /**
+   * <p>An array of objects that describe your distributions.</p>
+   * @public
+   */
+  distributions?: LightsailDistribution[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDistributions</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainRequest {
+  /**
+   * <p>The domain name for which your want to return information about.</p>
+   * @public
+   */
+  domainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainResult {
+  /**
+   * <p>An array of key-value pairs containing information about your get domain request.</p>
+   * @public
+   */
+  domain?: Domain | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainsResult {
+  /**
+   * <p>An array of key-value pairs containing information about each of the domain entries in the
+   *       user's account.</p>
+   * @public
+   */
+  domains?: Domain[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDomains</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportSnapshotRecordsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If
+   *       your results are paginated, the response will return a next page token that you can specify as
+   *       the page token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportSnapshotRecordsResult {
+  /**
+   * <p>A list of objects describing the export snapshot records.</p>
+   * @public
+   */
+  exportSnapshotRecords?: ExportSnapshotRecord[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetExportSnapshotRecords</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceRequest {
+  /**
+   * <p>The name of the instance.</p>
+   * @public
+   */
+  instanceName: string | undefined;
+}
+
+/**
+ * <p>Describes the hardware for the instance.</p>
+ * @public
+ */
+export interface InstanceHardware {
+  /**
+   * <p>The number of vCPUs the instance has.</p>
+   * @public
+   */
+  cpuCount?: number | undefined;
+
+  /**
+   * <p>The disks attached to the instance.</p>
+   * @public
+   */
+  disks?: Disk[] | undefined;
+
+  /**
+   * <p>The amount of RAM in GB on the instance (<code>1.0</code>).</p>
+   * @public
+   */
+  ramSizeInGb?: number | undefined;
+}
+
+/**
+ * <p>The metadata options for the instance.</p>
+ * @public
+ */
+export interface InstanceMetadataOptions {
+  /**
+   * <p>The state of the metadata option changes.</p>
+   *          <p>The following states are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The metadata options are being updated. The instance is not yet
+   *           ready to process metadata traffic with the new selection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>applied</code> - The metadata options have been successfully applied to the
+   *           instance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  state?: InstanceMetadataState | undefined;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests.</p>
+   *          <p>If the state is <code>optional</code>, you can choose whether to retrieve instance
+   *       metadata with a signed token header on your request. If you retrieve the IAM role credentials
+   *       without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role
+   *       credentials by using a valid signed token, the version 2.0 role credentials are
+   *       returned.</p>
+   *          <p>If the state is <code>required</code>, you must send a signed token header with all
+   *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
+   *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
+   *          <important>
+   *             <p>Not all instance blueprints in Lightsail support version 2.0 credentials.
+   *         Use the <code>MetadataNoToken</code> instance metric to track the number of calls to the
+   *         instance metadata service that are using version 1.0 credentials. For more information, see
+   *           <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  httpTokens?: HttpTokens | undefined;
+
+  /**
+   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
+   *       disabled.</p>
+   *          <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
+   * @public
+   */
+  httpEndpoint?: HttpEndpoint | undefined;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
+   *       means that the instance metadata requests can travel farther.</p>
+   * @public
+   */
+  httpPutResponseHopLimit?: number | undefined;
+
+  /**
+   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
+   *       disabled.</p>
+   * @public
+   */
+  httpProtocolIpv6?: HttpProtocolIpv6 | undefined;
+}
+
+/**
+ * <p>Describes the monthly data transfer in and out of your virtual private server (or
+ *         <i>instance</i>).</p>
+ * @public
+ */
+export interface MonthlyTransfer {
+  /**
+   * <p>The amount allocated per month (in GB).</p>
+   * @public
+   */
+  gbPerMonthAllocated?: number | undefined;
+}
+
+/**
+ * <p>Describes information about ports for an Amazon Lightsail instance.</p>
+ * @public
+ */
+export interface InstancePortInfo {
+  /**
+   * <p>The first port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  fromPort?: number | undefined;
+
+  /**
+   * <p>The last port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  toPort?: number | undefined;
+
+  /**
+   * <p>The IP protocol name.</p>
+   *          <p>The name can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+   *           error-checked delivery of streamed data between applications running on hosts
+   *           communicating by an IP network. If you have an application that doesn't require reliable
+   *           data stream service, use UDP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>all</code> - All transport layer protocol types. For more general information,
+   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
+   *             <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
+   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
+   *           communications are not required to set up transmission channels or data paths.
+   *           Applications that don't require reliable data stream service can use UDP, which provides a
+   *           connectionless datagram service that emphasizes reduced latency over reliability. If you
+   *           do require reliable data stream service, use TCP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
+   *           messages and operational information indicating success or failure when communicating with
+   *           an instance. For example, an error is indicated when an instance could not be reached.
+   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
+   *           type using the <code>fromPort</code> parameter, and ICMP code using the
+   *             <code>toPort</code> parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp6</code> - Internet Control Message Protocol (ICMP) for IPv6. When you
+   *           specify <code>icmp6</code> as the <code>protocol</code>, you must specify the ICMP type
+   *           using the <code>fromPort</code> parameter, and ICMP code using the <code>toPort</code>
+   *           parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  protocol?: NetworkProtocol | undefined;
+
+  /**
+   * <p>The location from which access is allowed. For example, <code>Anywhere (0.0.0.0/0)</code>,
+   *       or <code>Custom</code> if a specific IP address or range of IP addresses is allowed.</p>
+   * @public
+   */
+  accessFrom?: string | undefined;
+
+  /**
+   * <p>The type of access (<code>Public</code> or <code>Private</code>).</p>
+   * @public
+   */
+  accessType?: PortAccessType | undefined;
+
+  /**
+   * <p>The common name of the port information.</p>
+   * @public
+   */
+  commonName?: string | undefined;
+
+  /**
+   * <p>The access direction (<code>inbound</code> or <code>outbound</code>).</p>
+   *          <note>
+   *             <p>Lightsail currently supports only <code>inbound</code> access direction.</p>
+   *          </note>
+   * @public
+   */
+  accessDirection?: AccessDirection | undefined;
+
+  /**
+   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol.</p>
+   *          <note>
+   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+   *         connect to an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
+   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
+   *          <note>
+   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
+   *         an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   * @public
+   */
+  ipv6Cidrs?: string[] | undefined;
+
+  /**
+   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
+   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
+   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
+   *       instance.</p>
+   * @public
+   */
+  cidrListAliases?: string[] | undefined;
+}
+
+/**
+ * <p>Describes monthly data transfer rates and port information for an instance.</p>
+ * @public
+ */
+export interface InstanceNetworking {
+  /**
+   * <p>The amount of data in GB allocated for monthly data transfers.</p>
+   * @public
+   */
+  monthlyTransfer?: MonthlyTransfer | undefined;
+
+  /**
+   * <p>An array of key-value pairs containing information about the ports on the instance.</p>
+   * @public
+   */
+  ports?: InstancePortInfo[] | undefined;
+}
+
+/**
+ * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
+ * @public
+ */
+export interface InstanceState {
+  /**
+   * <p>The status code for the instance.</p>
+   * @public
+   */
+  code?: number | undefined;
+
+  /**
+   * <p>The state of the instance (<code>running</code> or <code>pending</code>).</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * <p>Describes an instance (a virtual private server).</p>
+ * @public
+ */
+export interface Instance {
+  /**
+   * <p>The name the user gave the instance (<code>Amazon_Linux_2023-1</code>).</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
+   * @public
+   */
+  supportCode?: string | undefined;
+
+  /**
+   * <p>The timestamp when the instance was created (<code>1479734909.17</code>) in Unix time
+   *       format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The region name and Availability Zone where the instance is located.</p>
+   * @public
+   */
+  location?: ResourceLocation | undefined;
+
+  /**
+   * <p>The type of resource (usually <code>Instance</code>).</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The blueprint ID (<code>amazon_linux_2023</code>).</p>
+   * @public
+   */
+  blueprintId?: string | undefined;
+
+  /**
+   * <p>The friendly name of the blueprint (<code>Amazon Linux 2023</code>).</p>
+   * @public
+   */
+  blueprintName?: string | undefined;
+
+  /**
+   * <p>The bundle for the instance (<code>micro_x_x</code>).</p>
+   * @public
+   */
+  bundleId?: string | undefined;
+
+  /**
+   * <p>An array of objects representing the add-ons enabled on the instance.</p>
+   * @public
+   */
+  addOns?: AddOn[] | undefined;
+
+  /**
+   * <p>A Boolean value indicating whether this instance has a static IP assigned to it.</p>
+   * @public
+   */
+  isStaticIp?: boolean | undefined;
+
+  /**
+   * <p>The private IP address of the instance.</p>
+   * @public
+   */
+  privateIpAddress?: string | undefined;
+
+  /**
+   * <p>The public IP address of the instance.</p>
+   * @public
+   */
+  publicIpAddress?: string | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the instance.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IP address type of the instance.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
+   * @public
+   */
+  ipAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The size of the vCPU and the amount of RAM for the instance.</p>
+   * @public
+   */
+  hardware?: InstanceHardware | undefined;
+
+  /**
+   * <p>Information about the public ports and monthly data transfer rates for the
+   *       instance.</p>
+   * @public
+   */
+  networking?: InstanceNetworking | undefined;
+
+  /**
+   * <p>The status code and the state (<code>running</code>) for the instance.</p>
+   * @public
+   */
+  state?: InstanceState | undefined;
+
+  /**
+   * <p>The user name for connecting to the instance (<code>ec2-user</code>).</p>
+   * @public
+   */
+  username?: string | undefined;
+
+  /**
+   * <p>The name of the SSH key being used to connect to the instance
+   *         (<code>LightsailDefaultKeyPair</code>).</p>
+   * @public
+   */
+  sshKeyName?: string | undefined;
+
+  /**
+   * <p>The metadata options for the Amazon Lightsail instance.</p>
+   * @public
+   */
+  metadataOptions?: InstanceMetadataOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceResult {
+  /**
+   * <p>An array of key-value pairs containing information about the specified instance.</p>
+   * @public
+   */
+  instance?: Instance | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceAccessDetailsRequest {
+  /**
+   * <p>The name of the instance to access.</p>
+   * @public
+   */
+  instanceName: string | undefined;
+
+  /**
+   * <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
+   * @public
+   */
+  protocol?: InstanceAccessProtocol | undefined;
+}
+
+/**
+ * <p>Describes the public SSH host keys or the RDP certificate.</p>
+ * @public
+ */
+export interface HostKeyAttributes {
+  /**
+   * <p>The SSH host key algorithm or the RDP certificate format.</p>
+   *          <p>For SSH host keys, the algorithm may be <code>ssh-rsa</code>,
+   *         <code>ecdsa-sha2-nistp256</code>, <code>ssh-ed25519</code>, etc. For RDP certificates, the
+   *       algorithm is always <code>x509-cert</code>.</p>
+   * @public
+   */
+  algorithm?: string | undefined;
+
+  /**
+   * <p>The public SSH host key or the RDP certificate.</p>
+   * @public
+   */
+  publicKey?: string | undefined;
+
+  /**
+   * <p>The time that the SSH host key or RDP certificate was recorded by Lightsail.</p>
+   * @public
+   */
+  witnessedAt?: Date | undefined;
+
+  /**
+   * <p>The SHA-1 fingerprint of the returned SSH host key or RDP certificate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example of an SHA-1 SSH fingerprint:</p>
+   *                <p>
+   *                   <code>SHA1:1CHH6FaAaXjtFOsR/t83vf91SR0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Example of an SHA-1 RDP fingerprint:</p>
+   *                <p>
+   *                   <code>af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  fingerprintSHA1?: string | undefined;
+
+  /**
+   * <p>The SHA-256 fingerprint of the returned SSH host key or RDP certificate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example of an SHA-256 SSH fingerprint:</p>
+   *                <p>
+   *                   <code>SHA256:KTsMnRBh1IhD17HpdfsbzeGA4jOijm5tyXsMjKVbB8o</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Example of an SHA-256 RDP fingerprint:</p>
+   *                <p>
+   *                   <code>03:9b:36:9f:4b:de:4e:61:70:fc:7c:c9:78:e7:d2:1a:1c:25:a8:0c:91:f6:7c:e4:d6:a0:85:c8:b4:53:99:68</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  fingerprintSHA256?: string | undefined;
+
+  /**
+   * <p>The returned RDP certificate is valid after this point in time.</p>
+   *          <p>This value is listed only for RDP certificates.</p>
+   * @public
+   */
+  notValidBefore?: Date | undefined;
+
+  /**
+   * <p>The returned RDP certificate is not valid after this point in time.</p>
+   *          <p>This value is listed only for RDP certificates.</p>
+   * @public
+   */
+  notValidAfter?: Date | undefined;
+}
+
+/**
+ * <p>The password data for the Windows Server-based instance, including the ciphertext and the
+ *       key pair name.</p>
+ * @public
+ */
+export interface PasswordData {
+  /**
+   * <p>The encrypted password. Ciphertext will be an empty string if access to your new instance
+   *       is not ready yet. When you create an instance, it can take up to 15 minutes for the instance
+   *       to be ready.</p>
+   *          <note>
+   *             <p>If you use the default key pair (<code>LightsailDefaultKeyPair</code>), the decrypted
+   *         password will be available in the password field.</p>
+   *             <p>If you are using a custom key pair, you need to use your own means of decryption.</p>
+   *             <p>If you change the Administrator password on the instance, Lightsail will continue to
+   *         return the original ciphertext value. When accessing the instance using RDP, you need to
+   *         manually enter the Administrator password after changing it from the default.</p>
+   *          </note>
+   * @public
+   */
+  ciphertext?: string | undefined;
+
+  /**
+   * <p>The name of the key pair that you used when creating your instance. If no key pair name
+   *       was specified when creating the instance, Lightsail uses the default key pair
+   *         (<code>LightsailDefaultKeyPair</code>).</p>
+   *          <p>If you are using a custom key pair, you need to use your own means of decrypting your
+   *       password using the <code>ciphertext</code>. Lightsail creates the ciphertext by encrypting
+   *       your password with the public key part of this key pair.</p>
+   * @public
+   */
+  keyPairName?: string | undefined;
+}
+
+/**
+ * <p>The parameters for gaining temporary access to one of your Amazon Lightsail
+ *       instances.</p>
+ * @public
+ */
+export interface InstanceAccessDetails {
+  /**
+   * <p>For SSH access, the public key to use when accessing your instance For OpenSSH clients
+   *       (command line SSH), you should save this value to <code>tempkey-cert.pub</code>.</p>
+   * @public
+   */
+  certKey?: string | undefined;
+
+  /**
+   * <p>For SSH access, the date on which the temporary keys expire.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+
+  /**
+   * <p>The public IP address of the Amazon Lightsail instance.</p>
+   * @public
+   */
+  ipAddress?: string | undefined;
+
+  /**
+   * <p>The IPv6 address of the Amazon Lightsail instance.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>For RDP access, the password for your Amazon Lightsail instance. Password will be an empty
+   *       string if the password for your new instance is not ready yet. When you create an instance, it
+   *       can take up to 15 minutes for the instance to be ready.</p>
+   *          <note>
+   *             <p>If you create an instance using any key pair other than the default
+   *           (<code>LightsailDefaultKeyPair</code>), <code>password</code> will always be an empty
+   *         string.</p>
+   *             <p>If you change the Administrator password on the instance, Lightsail will continue to
+   *         return the original password value. When accessing the instance using RDP, you need to
+   *         manually enter the Administrator password after changing it from the default.</p>
+   *          </note>
+   * @public
+   */
+  password?: string | undefined;
+
+  /**
+   * <p>For a Windows Server-based instance, an object with the data you can use to retrieve your
+   *       password. This is only needed if <code>password</code> is empty and the instance is not new
+   *       (and therefore the password is not ready yet). When you create an instance, it can take up to
+   *       15 minutes for the instance to be ready.</p>
+   * @public
+   */
+  passwordData?: PasswordData | undefined;
+
+  /**
+   * <p>For SSH access, the temporary private key. For OpenSSH clients (command line SSH), you
+   *       should save this value to <code>tempkey</code>).</p>
+   * @public
+   */
+  privateKey?: string | undefined;
+
+  /**
+   * <p>The protocol for these Amazon Lightsail instance access details.</p>
+   * @public
+   */
+  protocol?: InstanceAccessProtocol | undefined;
+
+  /**
+   * <p>The name of this Amazon Lightsail instance.</p>
+   * @public
+   */
+  instanceName?: string | undefined;
+
+  /**
+   * <p>The user name to use when logging in to the Amazon Lightsail instance.</p>
+   * @public
+   */
+  username?: string | undefined;
+
+  /**
+   * <p>Describes the public SSH host keys or the RDP certificate.</p>
+   * @public
+   */
+  hostKeys?: HostKeyAttributes[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceAccessDetailsResult {
+  /**
+   * <p>An array of key-value pairs containing information about a get instance access
+   *       request.</p>
+   * @public
+   */
+  accessDetails?: InstanceAccessDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceMetricDataRequest {
+  /**
+   * <p>The name of the instance for which you want to get metrics data.</p>
+   * @public
+   */
+  instanceName: string | undefined;
+
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid instance metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BurstCapacityPercentage</code>
+   *                   </b> - The percentage
+   *           of CPU performance available for your instance to burst above its baseline. Your instance
+   *           continuously accrues and consumes burst capacity. Burst capacity stops accruing when your
+   *           instance's <code>BurstCapacityPercentage</code> reaches 100%. For more information, see
+   *             <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BurstCapacityTime</code>
+   *                   </b> - The available amount
+   *           of time for your instance to burst at 100% CPU utilization. Your instance continuously
+   *           accrues and consumes burst capacity. Burst capacity time stops accruing when your
+   *           instance's <code>BurstCapacityPercentage</code> metric reaches 100%.</p>
+   *                <p>Burst capacity time is consumed at the full rate only when your instance operates at
+   *           100% CPU utilization. For example, if your instance operates at 50% CPU utilization in the
+   *           burstable zone for a 5-minute period, then it consumes CPU burst capacity minutes at a 50%
+   *           rate in that period. Your instance consumed 2 minutes and 30 seconds of CPU burst capacity
+   *           minutes in the 5-minute period. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-burst-capacity">Viewing instance burst capacity in Amazon Lightsail</a>.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Seconds</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>CPUUtilization</code>
+   *                   </b> - The percentage of
+   *           allocated compute units that are currently in use on the instance. This metric identifies
+   *           the processing power to run the applications on the instance. Tools in your operating
+   *           system can show a lower percentage than Lightsail when the instance is not allocated a
+   *           full processor core.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NetworkIn</code>
+   *                   </b> - The number of bytes received
+   *           on all network interfaces by the instance. This metric identifies the volume of incoming
+   *           network traffic to the instance. The number reported is the number of bytes received
+   *           during the period. Because this metric is reported in 5-minute intervals, divide the
+   *           reported number by 300 to find Bytes/second.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>NetworkOut</code>
+   *                   </b> - The number of bytes sent
+   *           out on all network interfaces by the instance. This metric identifies the volume of
+   *           outgoing network traffic from the instance. The number reported is the number of bytes
+   *           sent during the period. Because this metric is reported in 5-minute intervals, divide the
+   *           reported number by 300 to find Bytes/second.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Bytes</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>StatusCheckFailed</code>
+   *                   </b> - Reports whether the
+   *           instance passed or failed both the instance status check and the system status check. This
+   *           metric can be either 0 (passed) or 1 (failed). This metric data is available in 1-minute
+   *           (60 seconds) granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>StatusCheckFailed_Instance</code>
+   *                   </b> - Reports
+   *           whether the instance passed or failed the instance status check. This metric can be either
+   *           0 (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds)
+   *           granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>StatusCheckFailed_System</code>
+   *                   </b> - Reports
+   *           whether the instance passed or failed the system status check. This metric can be either 0
+   *           (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds)
+   *           granularity.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>MetadataNoToken</code>
+   *                   </b> - Reports the number of
+   *           times that the instance metadata service was successfully accessed without a token. This
+   *           metric determines if there are any processes accessing instance metadata by using Instance
+   *           Metadata Service Version 1, which doesn't use a token. If all requests use token-backed
+   *           sessions, such as Instance Metadata Service Version 2, then the value is 0.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Count</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  metricName: InstanceMetricName | undefined;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points.</p>
+   *          <p>The <code>StatusCheckFailed</code>, <code>StatusCheckFailed_Instance</code>, and
+   *         <code>StatusCheckFailed_System</code> instance metric data is available in 1-minute (60
+   *       seconds) granularity. All other instance metric data is available in 5-minute (300 seconds)
+   *       granularity.</p>
+   * @public
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The start time of the time period.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time of the time period.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The unit for the metric data request. Valid units depend on the metric data being
+   *       requested. For the valid units to specify with each available metric, see the
+   *         <code>metricName</code> parameter.</p>
+   * @public
+   */
+  unit: MetricUnit | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  statistics: MetricStatistic[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceMetricDataResult {
+  /**
+   * <p>The name of the metric returned.</p>
+   * @public
+   */
+  metricName?: InstanceMetricName | undefined;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   * @public
+   */
+  metricData?: MetricDatapoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstancePortStatesRequest {
+  /**
+   * <p>The name of the instance for which to return firewall port states.</p>
+   * @public
+   */
+  instanceName: string | undefined;
+}
+
+/**
+ * <p>Describes open ports on an instance, the IP addresses allowed to connect to the instance
+ *       through the ports, and the protocol.</p>
+ * @public
+ */
+export interface InstancePortState {
+  /**
+   * <p>The first port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  fromPort?: number | undefined;
+
+  /**
+   * <p>The last port in a range of open ports on an instance.</p>
+   *          <p>Allowed ports:</p>
+   *          <ul>
+   *             <li>
+   *                <p>TCP and UDP - <code>0</code> to <code>65535</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  toPort?: number | undefined;
+
+  /**
+   * <p>The IP protocol name.</p>
+   *          <p>The name can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and
+   *           error-checked delivery of streamed data between applications running on hosts
+   *           communicating by an IP network. If you have an application that doesn't require reliable
+   *           data stream service, use UDP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>all</code> - All transport layer protocol types. For more general information,
+   *           see <a href="https://en.wikipedia.org/wiki/Transport_layer">Transport layer</a> on
+   *             <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send
+   *           messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior
+   *           communications are not required to set up transmission channels or data paths.
+   *           Applications that don't require reliable data stream service can use UDP, which provides a
+   *           connectionless datagram service that emphasizes reduced latency over reliability. If you
+   *           do require reliable data stream service, use TCP instead.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp</code> - Internet Control Message Protocol (ICMP) is used to send error
+   *           messages and operational information indicating success or failure when communicating with
+   *           an instance. For example, an error is indicated when an instance could not be reached.
+   *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
+   *           type using the <code>fromPort</code> parameter, and ICMP code using the
+   *             <code>toPort</code> parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp6</code> - Internet Control Message Protocol (ICMP) for IPv6. When you
+   *           specify <code>icmp6</code> as the <code>protocol</code>, you must specify the ICMP type
+   *           using the <code>fromPort</code> parameter, and ICMP code using the <code>toPort</code>
+   *           parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  protocol?: NetworkProtocol | undefined;
+
+  /**
+   * <p>Specifies whether the instance port is <code>open</code> or <code>closed</code>.</p>
+   *          <note>
+   *             <p>The port state for Lightsail instances is always <code>open</code>.</p>
+   *          </note>
+   * @public
+   */
+  state?: PortState | undefined;
+
+  /**
+   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol.</p>
+   *          <note>
+   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+   *         connect to an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
+   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
+   *          <note>
+   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
+   *         an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   * @public
+   */
+  ipv6Cidrs?: string[] | undefined;
+
+  /**
+   * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
+   *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
+   *       addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your
+   *       instance.</p>
+   * @public
+   */
+  cidrListAliases?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstancePortStatesResult {
+  /**
+   * <p>An array of objects that describe the firewall port states for the specified
+   *       instance.</p>
+   * @public
+   */
+  portStates?: InstancePortState[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstancesRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetInstances</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstancesResult {
+  /**
+   * <p>An array of key-value pairs containing information about your instances.</p>
+   * @public
+   */
+  instances?: Instance[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetInstances</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotRequest {
+  /**
+   * <p>The name of the snapshot for which you are requesting information.</p>
+   * @public
+   */
+  instanceSnapshotName: string | undefined;
+}
+
+/**
+ * <p>Describes an instance snapshot.</p>
+ * @public
+ */
+export interface InstanceSnapshot {
+  /**
+   * <p>The name of the snapshot.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The support code. Include this code in your email to support when you have questions about
+   *       an instance or another resource in Lightsail. This code enables our support team to look up
+   *       your Lightsail information more easily.</p>
+   * @public
+   */
+  supportCode?: string | undefined;
+
+  /**
+   * <p>The timestamp when the snapshot was created (<code>1479907467.024</code>).</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The region name and Availability Zone where you created the snapshot.</p>
+   * @public
+   */
+  location?: ResourceLocation | undefined;
+
+  /**
+   * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The state the snapshot is in.</p>
+   * @public
+   */
+  state?: InstanceSnapshotState | undefined;
+
+  /**
+   * <p>The progress of the snapshot.</p>
+   *          <note>
+   *             <p>This is populated only for disk snapshots, and is <code>null</code> for instance
+   *         snapshots.</p>
+   *          </note>
+   * @public
+   */
+  progress?: string | undefined;
+
+  /**
+   * <p>An array of disk objects containing information about all block storage disks.</p>
+   * @public
+   */
+  fromAttachedDisks?: Disk[] | undefined;
+
+  /**
+   * <p>The instance from which the snapshot was created.</p>
+   * @public
+   */
+  fromInstanceName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
+   * @public
+   */
+  fromInstanceArn?: string | undefined;
+
+  /**
+   * <p>The blueprint ID from which you created the snapshot (<code>amazon_linux_2023</code>). A
+   *       blueprint is a virtual private server (or <i>instance</i>) image used to create
+   *       instances quickly.</p>
+   * @public
+   */
+  fromBlueprintId?: string | undefined;
+
+  /**
+   * <p>The bundle ID from which you created the snapshot (<code>micro_x_x</code>).</p>
+   * @public
+   */
+  fromBundleId?: string | undefined;
+
+  /**
+   * <p>A Boolean value indicating whether the snapshot was created from an automatic
+   *       snapshot.</p>
+   * @public
+   */
+  isFromAutoSnapshot?: boolean | undefined;
+
+  /**
+   * <p>The size in GB of the SSD.</p>
+   * @public
+   */
+  sizeInGb?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotResult {
+  /**
+   * <p>An array of key-value pairs containing information about the results of your get instance
+   *       snapshot request.</p>
+   * @public
+   */
+  instanceSnapshot?: InstanceSnapshot | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetInstanceSnapshots</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceSnapshotsResult {
+  /**
+   * <p>An array of key-value pairs containing information about the results of your get instance
+   *       snapshots request.</p>
+   * @public
+   */
+  instanceSnapshots?: InstanceSnapshot[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetInstanceSnapshots</code> request
+   *       and specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceStateRequest {
+  /**
+   * <p>The name of the instance to get state information about.</p>
+   * @public
+   */
+  instanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceStateResult {
+  /**
+   * <p>The state of the instance.</p>
+   * @public
+   */
+  state?: InstanceState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairRequest {
+  /**
+   * <p>The name of the key pair for which you are requesting information.</p>
+   * @public
+   */
+  keyPairName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairResult {
+  /**
+   * <p>An array of key-value pairs containing information about the key pair.</p>
+   * @public
+   */
+  keyPair?: KeyPair | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   * @public
+   */
+  pageToken?: string | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether to include the default key pair in the response of
+   *       your request.</p>
+   * @public
+   */
+  includeDefaultKeyPair?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyPairsResult {
+  /**
+   * <p>An array of key-value pairs containing information about the key pairs.</p>
+   * @public
+   */
+  keyPairs?: KeyPair[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetKeyPairs</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   * @public
+   */
+  nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLoadBalancerRequest {
+  /**
+   * <p>The name of the load balancer.</p>
+   * @public
+   */
+  loadBalancerName: string | undefined;
 }

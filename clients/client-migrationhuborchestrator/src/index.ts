@@ -16,6 +16,8 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MigrationHubOrchestratorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { MigrationHubOrchestratorServiceException } from "./models/MigrationHubOrchestratorServiceException";

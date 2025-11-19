@@ -347,7 +347,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { FirehoseServiceException as __FirehoseServiceException } from "../models/FirehoseServiceException";
 import {
   ConcurrentModificationException as __ConcurrentModificationException,
   InvalidArgumentException as __InvalidArgumentException,
@@ -357,7 +356,8 @@ import {
   ResourceInUseException as __ResourceInUseException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
-} from "../models/index";
+} from "../models/errors";
+import { FirehoseServiceException as __FirehoseServiceException } from "../models/FirehoseServiceException";
 
 /* eslint no-var: 0 */
 

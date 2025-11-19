@@ -42,7 +42,7 @@ import {
   NotAuthorizedException as __NotAuthorizedException,
   ResourceNotFoundException as __ResourceNotFoundException,
   SessionExpiredException as __SessionExpiredException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisVideoSignalingServiceException as __KinesisVideoSignalingServiceException } from "../models/KinesisVideoSignalingServiceException";
 
 /* eslint no-var: 0 */

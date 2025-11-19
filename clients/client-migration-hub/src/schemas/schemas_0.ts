@@ -141,7 +141,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   UnauthorizedOperation as __UnauthorizedOperation,
-} from "../models/index";
+} from "../models/errors";
 import { MigrationHubServiceException as __MigrationHubServiceException } from "../models/MigrationHubServiceException";
 
 /* eslint no-var: 0 */

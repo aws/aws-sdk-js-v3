@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateTopicRuleDestinationRequest } from "../models/models_0";
-import { CreateTopicRuleDestinationResponse } from "../models/models_1";
+import { CreateTopicRuleDestinationRequest, CreateTopicRuleDestinationResponse } from "../models/models_0";
 import { CreateTopicRuleDestination } from "../schemas/schemas_0";
 
 /**

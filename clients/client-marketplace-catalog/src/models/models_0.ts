@@ -1,32 +1,28 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { MarketplaceCatalogServiceException as __BaseException } from "./MarketplaceCatalogServiceException";
-
-/**
- * <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  AmiProductSortBy,
+  AmiProductVisibilityString,
+  ChangeStatus,
+  ContainerProductSortBy,
+  ContainerProductVisibilityString,
+  DataProductSortBy,
+  DataProductVisibilityString,
+  FailureCode,
+  Intent,
+  MachineLearningProductSortBy,
+  MachineLearningProductVisibilityString,
+  OfferSortBy,
+  OfferStateString,
+  OfferTargetingString,
+  OwnershipType,
+  ResaleAuthorizationSortBy,
+  ResaleAuthorizationStatusString,
+  SaaSProductSortBy,
+  SaaSProductVisibilityString,
+  SortOrder,
+} from "./enums";
 
 /**
  * <p>Object that allows filtering on entity id of an AMI product.</p>
@@ -89,22 +85,6 @@ export interface AmiProductTitleFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const AmiProductVisibilityString = {
-  Draft: "Draft",
-  Limited: "Limited",
-  Public: "Public",
-  Restricted: "Restricted",
-} as const;
-
-/**
- * @public
- */
-export type AmiProductVisibilityString = (typeof AmiProductVisibilityString)[keyof typeof AmiProductVisibilityString];
-
-/**
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
  * @public
  */
@@ -146,36 +126,6 @@ export interface AmiProductFilters {
    */
   Visibility?: AmiProductVisibilityFilter | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AmiProductSortBy = {
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  ProductTitle: "ProductTitle",
-  Visibility: "Visibility",
-} as const;
-
-/**
- * @public
- */
-export type AmiProductSortBy = (typeof AmiProductSortBy)[keyof typeof AmiProductSortBy];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * <p>Objects that allows sorting on AMI products based on certain fields and sorting order.</p>
@@ -317,75 +267,6 @@ export interface BatchDescribeEntitiesResponse {
 }
 
 /**
- * <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CancelChangeSetRequest {
@@ -419,51 +300,6 @@ export interface CancelChangeSetResponse {
    * @public
    */
   ChangeSetArn?: string | undefined;
-}
-
-/**
- * <p>The resource is currently in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -585,51 +421,6 @@ export interface ChangeSummary {
    */
   ChangeName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FailureCode = {
-  ClientError: "CLIENT_ERROR",
-  ServerFault: "SERVER_FAULT",
-} as const;
-
-/**
- * @public
- */
-export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
-
-/**
- * @public
- * @enum
- */
-export const Intent = {
-  APPLY: "APPLY",
-  VALIDATE: "VALIDATE",
-} as const;
-
-/**
- * @public
- */
-export type Intent = (typeof Intent)[keyof typeof Intent];
-
-/**
- * @public
- * @enum
- */
-export const ChangeStatus = {
-  APPLYING: "APPLYING",
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  PREPARING: "PREPARING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
 
 /**
  * @public
@@ -769,28 +560,6 @@ export interface DescribeEntityResponse {
    * @public
    */
   DetailsDocument?: __DocumentType | undefined;
-}
-
-/**
- * <p>Currently, the specified resource is not supported.</p>
- * @public
- */
-export class ResourceNotSupportedException extends __BaseException {
-  readonly name: "ResourceNotSupportedException" = "ResourceNotSupportedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotSupportedException, __BaseException>) {
-    super({
-      name: "ResourceNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotSupportedException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1085,23 +854,6 @@ export interface ContainerProductTitleFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerProductVisibilityString = {
-  Draft: "Draft",
-  Limited: "Limited",
-  Public: "Public",
-  Restricted: "Restricted",
-} as const;
-
-/**
- * @public
- */
-export type ContainerProductVisibilityString =
-  (typeof ContainerProductVisibilityString)[keyof typeof ContainerProductVisibilityString];
-
-/**
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
  * @public
  */
@@ -1204,24 +956,6 @@ export interface DataProductTitleFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataProductVisibilityString = {
-  Draft: "Draft",
-  Limited: "Limited",
-  Public: "Public",
-  Restricted: "Restricted",
-  Unavailable: "Unavailable",
-} as const;
-
-/**
- * @public
- */
-export type DataProductVisibilityString =
-  (typeof DataProductVisibilityString)[keyof typeof DataProductVisibilityString];
-
-/**
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
  * @public
  */
@@ -1322,23 +1056,6 @@ export interface MachineLearningProductTitleFilter {
    */
   WildCardValue?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MachineLearningProductVisibilityString = {
-  Draft: "Draft",
-  Limited: "Limited",
-  Public: "Public",
-  Restricted: "Restricted",
-} as const;
-
-/**
- * @public
- */
-export type MachineLearningProductVisibilityString =
-  (typeof MachineLearningProductVisibilityString)[keyof typeof MachineLearningProductVisibilityString];
 
 /**
  * <p>The filter for machine learning product visibility status.</p>
@@ -1544,20 +1261,6 @@ export interface OfferResaleAuthorizationIdFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const OfferStateString = {
-  Draft: "Draft",
-  Released: "Released",
-} as const;
-
-/**
- * @public
- */
-export type OfferStateString = (typeof OfferStateString)[keyof typeof OfferStateString];
-
-/**
  * <p>Allows filtering on the <code>State</code> of an offer.</p>
  * @public
  */
@@ -1568,22 +1271,6 @@ export interface OfferStateFilter {
    */
   ValueList?: OfferStateString[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OfferTargetingString = {
-  BuyerAccounts: "BuyerAccounts",
-  CountryCodes: "CountryCodes",
-  None: "None",
-  ParticipatingPrograms: "ParticipatingPrograms",
-} as const;
-
-/**
- * @public
- */
-export type OfferTargetingString = (typeof OfferTargetingString)[keyof typeof OfferTargetingString];
 
 /**
  * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
@@ -1920,22 +1607,6 @@ export interface ResaleAuthorizationResellerLegalNameFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResaleAuthorizationStatusString = {
-  Active: "Active",
-  Draft: "Draft",
-  Restricted: "Restricted",
-} as const;
-
-/**
- * @public
- */
-export type ResaleAuthorizationStatusString =
-  (typeof ResaleAuthorizationStatusString)[keyof typeof ResaleAuthorizationStatusString];
-
-/**
  * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
  * @public
  */
@@ -2090,23 +1761,6 @@ export interface SaaSProductTitleFilter {
    */
   WildCardValue?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SaaSProductVisibilityString = {
-  Draft: "Draft",
-  Limited: "Limited",
-  Public: "Public",
-  Restricted: "Restricted",
-} as const;
-
-/**
- * @public
- */
-export type SaaSProductVisibilityString =
-  (typeof SaaSProductVisibilityString)[keyof typeof SaaSProductVisibilityString];
 
 /**
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
@@ -2305,23 +1959,6 @@ export namespace EntityTypeFilters {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerProductSortBy = {
-  CompatibleAWSServices: "CompatibleAWSServices",
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  ProductTitle: "ProductTitle",
-  Visibility: "Visibility",
-} as const;
-
-/**
- * @public
- */
-export type ContainerProductSortBy = (typeof ContainerProductSortBy)[keyof typeof ContainerProductSortBy];
-
-/**
  * <p>Objects that allows sorting on container products based on certain fields and sorting order.</p>
  * @public
  */
@@ -2338,22 +1975,6 @@ export interface ContainerProductSort {
    */
   SortOrder?: SortOrder | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataProductSortBy = {
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  ProductTitle: "ProductTitle",
-  Visibility: "Visibility",
-} as const;
-
-/**
- * @public
- */
-export type DataProductSortBy = (typeof DataProductSortBy)[keyof typeof DataProductSortBy];
 
 /**
  * <p>Objects that allows sorting on data products based on certain fields and sorting order.</p>
@@ -2374,23 +1995,6 @@ export interface DataProductSort {
 }
 
 /**
- * @public
- * @enum
- */
-export const MachineLearningProductSortBy = {
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  ProductTitle: "ProductTitle",
-  Visibility: "Visibility",
-} as const;
-
-/**
- * @public
- */
-export type MachineLearningProductSortBy =
-  (typeof MachineLearningProductSortBy)[keyof typeof MachineLearningProductSortBy];
-
-/**
  * <p>The sort options for machine learning products.</p>
  * @public
  */
@@ -2407,28 +2011,6 @@ export interface MachineLearningProductSort {
    */
   SortOrder?: SortOrder | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OfferSortBy = {
-  AvailabilityEndDate: "AvailabilityEndDate",
-  BuyerAccounts: "BuyerAccounts",
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  Name: "Name",
-  ProductId: "ProductId",
-  ReleaseDate: "ReleaseDate",
-  ResaleAuthorizationId: "ResaleAuthorizationId",
-  State: "State",
-  Targeting: "Targeting",
-} as const;
-
-/**
- * @public
- */
-export type OfferSortBy = (typeof OfferSortBy)[keyof typeof OfferSortBy];
 
 /**
  * <p>Allows to sort offers.</p>
@@ -2449,31 +2031,6 @@ export interface OfferSort {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResaleAuthorizationSortBy = {
-  AvailabilityEndDate: "AvailabilityEndDate",
-  CreatedDate: "CreatedDate",
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  ManufacturerAccountId: "ManufacturerAccountId",
-  ManufacturerLegalName: "ManufacturerLegalName",
-  Name: "Name",
-  OfferExtendedStatus: "OfferExtendedStatus",
-  ProductId: "ProductId",
-  ProductName: "ProductName",
-  ResellerAccountID: "ResellerAccountID",
-  ResellerLegalName: "ResellerLegalName",
-  Status: "Status",
-} as const;
-
-/**
- * @public
- */
-export type ResaleAuthorizationSortBy = (typeof ResaleAuthorizationSortBy)[keyof typeof ResaleAuthorizationSortBy];
-
-/**
  * <p>Allows to sort ResaleAuthorization.</p>
  * @public
  */
@@ -2490,23 +2047,6 @@ export interface ResaleAuthorizationSort {
    */
   SortOrder?: SortOrder | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SaaSProductSortBy = {
-  DeliveryOptionTypes: "DeliveryOptionTypes",
-  EntityId: "EntityId",
-  LastModifiedDate: "LastModifiedDate",
-  ProductTitle: "ProductTitle",
-  Visibility: "Visibility",
-} as const;
-
-/**
- * @public
- */
-export type SaaSProductSortBy = (typeof SaaSProductSortBy)[keyof typeof SaaSProductSortBy];
 
 /**
  * <p>Objects that allows sorting on SaaS products based on certain fields and sorting order.</p>
@@ -2678,20 +2218,6 @@ export namespace EntityTypeSort {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const OwnershipType = {
-  SELF: "SELF",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type OwnershipType = (typeof OwnershipType)[keyof typeof OwnershipType];
 
 /**
  * @public
@@ -3146,28 +2672,6 @@ export interface PutResourcePolicyRequest {
  * @public
  */
 export interface PutResourcePolicyResponse {}
-
-/**
- * <p>The maximum number of open requests per account has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and

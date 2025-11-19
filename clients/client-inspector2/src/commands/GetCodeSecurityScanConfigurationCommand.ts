@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { GetCodeSecurityScanConfigurationRequest, GetCodeSecurityScanConfigurationResponse } from "../models/models_1";
+import { GetCodeSecurityScanConfigurationRequest, GetCodeSecurityScanConfigurationResponse } from "../models/models_0";
 import { GetCodeSecurityScanConfiguration } from "../schemas/schemas_0";
 
 /**

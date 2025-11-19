@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteIpamPrefixListResolverTargetRequest,
   DeleteIpamPrefixListResolverTargetResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteIpamPrefixListResolverTarget } from "../schemas/schemas_0";
 
 /**

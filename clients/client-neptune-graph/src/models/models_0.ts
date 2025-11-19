@@ -1,29 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
-import { NeptuneGraphServiceException as __BaseException } from "./NeptuneGraphServiceException";
-
-/**
- * <p>Raised in case of an authentication or authorization failure.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  BlankNodeHandling,
+  ExplainMode,
+  ExportFormat,
+  ExportTaskStatus,
+  Format,
+  GraphStatus,
+  GraphSummaryMode,
+  ImportTaskStatus,
+  MultiValueHandlingType,
+  ParquetType,
+  PlanCacheType,
+  PrivateGraphEndpointStatus,
+  QueryLanguage,
+  QueryState,
+  QueryStateInput,
+  SnapshotStatus,
+} from "./enums";
 
 /**
  * @public
@@ -41,198 +36,6 @@ export interface CancelQueryInput {
    */
   queryId: string | undefined;
 }
-
-/**
- * <p>A failure occurred on the server.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>A specified resource could not be located.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The exception was interrupted by throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONSTRAINT_VIOLATION: "CONSTRAINT_VIOLATION",
-  ILLEGAL_ARGUMENT: "ILLEGAL_ARGUMENT",
-  MALFORMED_QUERY: "MALFORMED_QUERY",
-  QUERY_CANCELLED: "QUERY_CANCELLED",
-  QUERY_TOO_LARGE: "QUERY_TOO_LARGE",
-  UNSUPPORTED_OPERATION: "UNSUPPORTED_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>A resource could not be validated.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason that the resource could not be validated.</p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  CONCURRENT_MODIFICATION: "CONCURRENT_MODIFICATION",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * <p>Raised when a conflict is encountered.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the conflict exception.</p>
-   * @public
-   */
-  reason?: ConflictExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ExplainMode = {
-  DETAILS: "DETAILS",
-  STATIC: "STATIC",
-} as const;
-
-/**
- * @public
- */
-export type ExplainMode = (typeof ExplainMode)[keyof typeof ExplainMode];
-
-/**
- * @public
- * @enum
- */
-export const QueryLanguage = {
-  OPEN_CYPHER: "OPEN_CYPHER",
-} as const;
-
-/**
- * @public
- */
-export type QueryLanguage = (typeof QueryLanguage)[keyof typeof QueryLanguage];
-
-/**
- * @public
- * @enum
- */
-export const PlanCacheType = {
-  AUTO: "AUTO",
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PlanCacheType = (typeof PlanCacheType)[keyof typeof PlanCacheType];
 
 /**
  * @public
@@ -291,65 +94,6 @@ export interface ExecuteQueryOutput {
    */
   payload: StreamingBlobTypes | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UnprocessableExceptionReason = {
-  INTERNAL_LIMIT_EXCEEDED: "INTERNAL_LIMIT_EXCEEDED",
-  MEMORY_LIMIT_EXCEEDED: "MEMORY_LIMIT_EXCEEDED",
-  PARTITION_FULL: "PARTITION_FULL",
-  QUERY_TIMEOUT: "QUERY_TIMEOUT",
-  STORAGE_LIMIT_EXCEEDED: "STORAGE_LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type UnprocessableExceptionReason =
-  (typeof UnprocessableExceptionReason)[keyof typeof UnprocessableExceptionReason];
-
-/**
- * <p>Request cannot be processed due to known reasons. Eg. partition full.</p>
- * @public
- */
-export class UnprocessableException extends __BaseException {
-  readonly name: "UnprocessableException" = "UnprocessableException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the unprocessable exception.</p>
-   * @public
-   */
-  reason: UnprocessableExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableException, __BaseException>) {
-    super({
-      name: "UnprocessableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableException.prototype);
-    this.reason = opts.reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const GraphSummaryMode = {
-  BASIC: "BASIC",
-  DETAILED: "DETAILED",
-} as const;
-
-/**
- * @public
- */
-export type GraphSummaryMode = (typeof GraphSummaryMode)[keyof typeof GraphSummaryMode];
 
 /**
  * @public
@@ -542,21 +286,6 @@ export interface GetQueryInput {
 
 /**
  * @public
- * @enum
- */
-export const QueryState = {
-  CANCELLING: "CANCELLING",
-  RUNNING: "RUNNING",
-  WAITING: "WAITING",
-} as const;
-
-/**
- * @public
- */
-export type QueryState = (typeof QueryState)[keyof typeof QueryState];
-
-/**
- * @public
  */
 export interface GetQueryOutput {
   /**
@@ -657,29 +386,6 @@ export interface CreateGraphInput {
 
 /**
  * @public
- * @enum
- */
-export const GraphStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  IMPORTING: "IMPORTING",
-  RESETTING: "RESETTING",
-  SNAPSHOTTING: "SNAPSHOTTING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type GraphStatus = (typeof GraphStatus)[keyof typeof GraphStatus];
-
-/**
- * @public
  */
 export interface CreateGraphOutput {
   /**
@@ -771,54 +477,6 @@ export interface CreateGraphOutput {
    * @public
    */
   buildNumber?: string | undefined;
-}
-
-/**
- * <p>A service quota was exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that exceeded quota.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that exceeded quota. Ex: Graph, Snapshot</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * <p>The service code that exceeded quota.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>Service quota code of the resource for which quota was exceeded.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
 }
 
 /**
@@ -1731,22 +1389,6 @@ export interface UpdateGraphOutput {
 
 /**
  * @public
- * @enum
- */
-export const QueryStateInput = {
-  ALL: "ALL",
-  CANCELLING: "CANCELLING",
-  RUNNING: "RUNNING",
-  WAITING: "WAITING",
-} as const;
-
-/**
- * @public
- */
-export type QueryStateInput = (typeof QueryStateInput)[keyof typeof QueryStateInput];
-
-/**
- * @public
  */
 export interface ListQueriesInput {
   /**
@@ -1865,22 +1507,6 @@ export interface CreatePrivateGraphEndpointInput {
    */
   vpcSecurityGroupIds?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PrivateGraphEndpointStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type PrivateGraphEndpointStatus = (typeof PrivateGraphEndpointStatus)[keyof typeof PrivateGraphEndpointStatus];
 
 /**
  * @public
@@ -2095,22 +1721,6 @@ export interface CreateGraphSnapshotInput {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnapshotStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
 
 /**
  * @public
@@ -2398,52 +2008,6 @@ export interface CancelExportTaskInput {
 
 /**
  * @public
- * @enum
- */
-export const ExportFormat = {
-  CSV: "CSV",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type ExportFormat = (typeof ExportFormat)[keyof typeof ExportFormat];
-
-/**
- * @public
- * @enum
- */
-export const ParquetType = {
-  COLUMNAR: "COLUMNAR",
-} as const;
-
-/**
- * @public
- */
-export type ParquetType = (typeof ParquetType)[keyof typeof ParquetType];
-
-/**
- * @public
- * @enum
- */
-export const ExportTaskStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  DELETED: "DELETED",
-  EXPORTING: "EXPORTING",
-  FAILED: "FAILED",
-  INITIALIZING: "INITIALIZING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ExportTaskStatus = (typeof ExportTaskStatus)[keyof typeof ExportTaskStatus];
-
-/**
- * @public
  */
 export interface CancelExportTaskOutput {
   /**
@@ -2514,45 +2078,6 @@ export interface CancelImportTaskInput {
 
 /**
  * @public
- * @enum
- */
-export const Format = {
-  CSV: "CSV",
-  NTRIPLES: "NTRIPLES",
-  OPEN_CYPHER: "OPEN_CYPHER",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type Format = (typeof Format)[keyof typeof Format];
-
-/**
- * @public
- * @enum
- */
-export const ImportTaskStatus = {
-  ANALYZING_DATA: "ANALYZING_DATA",
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  DELETED: "DELETED",
-  EXPORTING: "EXPORTING",
-  FAILED: "FAILED",
-  IMPORTING: "IMPORTING",
-  INITIALIZING: "INITIALIZING",
-  REPROVISIONING: "REPROVISIONING",
-  ROLLING_BACK: "ROLLING_BACK",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ImportTaskStatus = (typeof ImportTaskStatus)[keyof typeof ImportTaskStatus];
-
-/**
- * @public
  */
 export interface CancelImportTaskOutput {
   /**
@@ -2597,19 +2122,6 @@ export interface CancelImportTaskOutput {
    */
   status: ImportTaskStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BlankNodeHandling = {
-  CONVERT_TO_IRI: "convertToIri",
-} as const;
-
-/**
- * @public
- */
-export type BlankNodeHandling = (typeof BlankNodeHandling)[keyof typeof BlankNodeHandling];
 
 /**
  * <p>Options for how to import Neptune data.</p>
@@ -2842,20 +2354,6 @@ export interface GetExportTaskInput {
    */
   taskIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MultiValueHandlingType = {
-  PICK_FIRST: "PICK_FIRST",
-  TO_LIST: "TO_LIST",
-} as const;
-
-/**
- * @public
- */
-export type MultiValueHandlingType = (typeof MultiValueHandlingType)[keyof typeof MultiValueHandlingType];
 
 /**
  * <p>A structure representing a property's attributes. It is a map object of outputType, sourcePropertyName and multiValueHandling.</p>

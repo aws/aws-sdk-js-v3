@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSecurityGroupRequest, DeleteSecurityGroupResult } from "../models/models_3";
+import { DeleteSecurityGroupRequest, DeleteSecurityGroupResult } from "../models/models_2";
 import { DeleteSecurityGroup } from "../schemas/schemas_0";
 
 /**

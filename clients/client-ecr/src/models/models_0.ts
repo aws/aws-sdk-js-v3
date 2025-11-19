@@ -1,7 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ECRServiceException as __BaseException } from "./ECRServiceException";
+import {
+  EncryptionType,
+  FindingSeverity,
+  ImageActionType,
+  ImageFailureCode,
+  ImageTagMutability,
+  ImageTagMutabilityExclusionFilterType,
+  LayerAvailability,
+  LayerFailureCode,
+  LifecyclePolicyPreviewStatus,
+  RCTAppliedFor,
+  ReplicationStatus,
+  RepositoryFilterType,
+  ScanFrequency,
+  ScanningConfigurationFailureCode,
+  ScanningRepositoryFilterType,
+  ScanStatus,
+  ScanType,
+  TagStatus,
+  UpstreamRegistry,
+} from "./enums";
 
 /**
  * @public
@@ -28,20 +46,6 @@ export interface BatchCheckLayerAvailabilityRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const LayerFailureCode = {
-  InvalidLayerDigest: "InvalidLayerDigest",
-  MissingLayerDigest: "MissingLayerDigest",
-} as const;
-
-/**
- * @public
- */
-export type LayerFailureCode = (typeof LayerFailureCode)[keyof typeof LayerFailureCode];
-
-/**
  * <p>An object representing an Amazon ECR image layer failure.</p>
  * @public
  */
@@ -64,20 +68,6 @@ export interface LayerFailure {
    */
   failureReason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LayerAvailability = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type LayerAvailability = (typeof LayerAvailability)[keyof typeof LayerAvailability];
 
 /**
  * <p>An object representing an Amazon ECR image layer.</p>
@@ -130,68 +120,6 @@ export interface BatchCheckLayerAvailabilityResponse {
 }
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
- * @public
- */
-export class RepositoryNotFoundException extends __BaseException {
-  readonly name: "RepositoryNotFoundException" = "RepositoryNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNotFoundException, __BaseException>) {
-    super({
-      name: "RepositoryNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>These errors are usually caused by a server-side issue.</p>
- * @public
- */
-export class ServerException extends __BaseException {
-  readonly name: "ServerException" = "ServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
-    super({
-      name: "ServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerException.prototype);
-  }
-}
-
-/**
  * <p>An object with identifying information for an image in an Amazon ECR repository.</p>
  * @public
  */
@@ -236,28 +164,6 @@ export interface BatchDeleteImageRequest {
    */
   imageIds: ImageIdentifier[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageFailureCode = {
-  ImageNotFound: "ImageNotFound",
-  ImageReferencedByManifestList: "ImageReferencedByManifestList",
-  ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest: "InvalidImageDigest",
-  InvalidImageTag: "InvalidImageTag",
-  KmsError: "KmsError",
-  MissingDigestAndTag: "MissingDigestAndTag",
-  UpstreamAccessDenied: "UpstreamAccessDenied",
-  UpstreamTooManyRequests: "UpstreamTooManyRequests",
-  UpstreamUnavailable: "UpstreamUnavailable",
-} as const;
-
-/**
- * @public
- */
-export type ImageFailureCode = (typeof ImageFailureCode)[keyof typeof ImageFailureCode];
 
 /**
  * <p>An object representing an Amazon ECR image failure.</p>
@@ -390,50 +296,6 @@ export interface BatchGetImageResponse {
 }
 
 /**
- * <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The image or images were unable to be pulled using the pull through cache rule. This
- *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
- *             for the upstream registry.</p>
- * @public
- */
-export class UnableToGetUpstreamImageException extends __BaseException {
-  readonly name: "UnableToGetUpstreamImageException" = "UnableToGetUpstreamImageException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToGetUpstreamImageException, __BaseException>) {
-    super({
-      name: "UnableToGetUpstreamImageException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToGetUpstreamImageException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchGetRepositoryScanningConfigurationRequest {
@@ -443,20 +305,6 @@ export interface BatchGetRepositoryScanningConfigurationRequest {
    */
   repositoryNames: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScanningConfigurationFailureCode = {
-  REPOSITORY_NOT_FOUND: "REPOSITORY_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type ScanningConfigurationFailureCode =
-  (typeof ScanningConfigurationFailureCode)[keyof typeof ScanningConfigurationFailureCode];
 
 /**
  * <p>The details about any failures associated with the scanning configuration of a
@@ -484,20 +332,6 @@ export interface RepositoryScanningConfigurationFailure {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScanningRepositoryFilterType = {
-  WILDCARD: "WILDCARD",
-} as const;
-
-/**
- * @public
- */
-export type ScanningRepositoryFilterType =
-  (typeof ScanningRepositoryFilterType)[keyof typeof ScanningRepositoryFilterType];
-
-/**
  * <p>The details of a scanning repository filter. For more information on how to use
  *             filters, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters">Using
  *                 filters</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -516,21 +350,6 @@ export interface ScanningRepositoryFilter {
    */
   filterType: ScanningRepositoryFilterType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScanFrequency = {
-  CONTINUOUS_SCAN: "CONTINUOUS_SCAN",
-  MANUAL: "MANUAL",
-  SCAN_ON_PUSH: "SCAN_ON_PUSH",
-} as const;
-
-/**
- * @public
- */
-export type ScanFrequency = (typeof ScanFrequency)[keyof typeof ScanFrequency];
 
 /**
  * <p>The details of the scanning configuration for a repository.</p>
@@ -583,26 +402,6 @@ export interface BatchGetRepositoryScanningConfigurationResponse {
    * @public
    */
   failures?: RepositoryScanningConfigurationFailure[] | undefined;
-}
-
-/**
- * <p>There was an exception validating this request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -664,155 +463,6 @@ export interface CompleteLayerUploadResponse {
    */
   layerDigest?: string | undefined;
 }
-
-/**
- * <p>The specified layer upload does not contain any layer parts.</p>
- * @public
- */
-export class EmptyUploadException extends __BaseException {
-  readonly name: "EmptyUploadException" = "EmptyUploadException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EmptyUploadException, __BaseException>) {
-    super({
-      name: "EmptyUploadException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EmptyUploadException.prototype);
-  }
-}
-
-/**
- * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
- *             not match the digest specified.</p>
- * @public
- */
-export class InvalidLayerException extends __BaseException {
-  readonly name: "InvalidLayerException" = "InvalidLayerException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLayerException, __BaseException>) {
-    super({
-      name: "InvalidLayerException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLayerException.prototype);
-  }
-}
-
-/**
- * <p>The operation failed due to a KMS exception.</p>
- * @public
- */
-export class KmsException extends __BaseException {
-  readonly name: "KmsException" = "KmsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error code returned by KMS.</p>
-   * @public
-   */
-  kmsError?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsException, __BaseException>) {
-    super({
-      name: "KmsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsException.prototype);
-    this.kmsError = opts.kmsError;
-  }
-}
-
-/**
- * <p>The image layer already exists in the associated repository.</p>
- * @public
- */
-export class LayerAlreadyExistsException extends __BaseException {
-  readonly name: "LayerAlreadyExistsException" = "LayerAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayerAlreadyExistsException, __BaseException>) {
-    super({
-      name: "LayerAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayerAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>Layer parts must be at least 5 MiB in size.</p>
- * @public
- */
-export class LayerPartTooSmallException extends __BaseException {
-  readonly name: "LayerPartTooSmallException" = "LayerPartTooSmallException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayerPartTooSmallException, __BaseException>) {
-    super({
-      name: "LayerPartTooSmallException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayerPartTooSmallException.prototype);
-  }
-}
-
-/**
- * <p>The upload could not be found, or the specified upload ID is not valid for this
- *             repository.</p>
- * @public
- */
-export class UploadNotFoundException extends __BaseException {
-  readonly name: "UploadNotFoundException" = "UploadNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UploadNotFoundException, __BaseException>) {
-    super({
-      name: "UploadNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UploadNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const UpstreamRegistry = {
-  AzureContainerRegistry: "azure-container-registry",
-  DockerHub: "docker-hub",
-  Ecr: "ecr",
-  EcrPublic: "ecr-public",
-  GitHubContainerRegistry: "github-container-registry",
-  GitLabContainerRegistry: "gitlab-container-registry",
-  K8s: "k8s",
-  Quay: "quay",
-} as const;
-
-/**
- * @public
- */
-export type UpstreamRegistry = (typeof UpstreamRegistry)[keyof typeof UpstreamRegistry];
 
 /**
  * @public
@@ -969,125 +619,6 @@ export interface CreatePullThroughCacheRuleResponse {
 }
 
 /**
- * <p>A pull through cache rule with these settings already exists for the private
- *             registry.</p>
- * @public
- */
-export class PullThroughCacheRuleAlreadyExistsException extends __BaseException {
-  readonly name: "PullThroughCacheRuleAlreadyExistsException" = "PullThroughCacheRuleAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PullThroughCacheRuleAlreadyExistsException, __BaseException>) {
-    super({
-      name: "PullThroughCacheRuleAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PullThroughCacheRuleAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The ARN of the secret specified in the pull through cache rule was not found. Update
- *             the pull through cache rule with a valid secret ARN and try again.</p>
- * @public
- */
-export class SecretNotFoundException extends __BaseException {
-  readonly name: "SecretNotFoundException" = "SecretNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SecretNotFoundException, __BaseException>) {
-    super({
-      name: "SecretNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SecretNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The secret is unable to be accessed. Verify the resource permissions for the secret
- *             and try again.</p>
- * @public
- */
-export class UnableToAccessSecretException extends __BaseException {
-  readonly name: "UnableToAccessSecretException" = "UnableToAccessSecretException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToAccessSecretException, __BaseException>) {
-    super({
-      name: "UnableToAccessSecretException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToAccessSecretException.prototype);
-  }
-}
-
-/**
- * <p>The secret is accessible but is unable to be decrypted. Verify the resource
- *             permisisons and try again.</p>
- * @public
- */
-export class UnableToDecryptSecretValueException extends __BaseException {
-  readonly name: "UnableToDecryptSecretValueException" = "UnableToDecryptSecretValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToDecryptSecretValueException, __BaseException>) {
-    super({
-      name: "UnableToDecryptSecretValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToDecryptSecretValueException.prototype);
-  }
-}
-
-/**
- * <p>The specified upstream registry isn't supported.</p>
- * @public
- */
-export class UnsupportedUpstreamRegistryException extends __BaseException {
-  readonly name: "UnsupportedUpstreamRegistryException" = "UnsupportedUpstreamRegistryException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedUpstreamRegistryException, __BaseException>) {
-    super({
-      name: "UnsupportedUpstreamRegistryException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedUpstreamRegistryException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  AES256: "AES256",
-  KMS: "KMS",
-  KMS_DSSE: "KMS_DSSE",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>The encryption configuration for the repository. This determines how the contents of
  *             your repository are encrypted at rest.</p>
  *          <p>By default, when no encryption configuration is set or the <code>AES256</code>
@@ -1145,36 +676,6 @@ export interface ImageScanningConfiguration {
    */
   scanOnPush?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageTagMutability = {
-  IMMUTABLE: "IMMUTABLE",
-  IMMUTABLE_WITH_EXCLUSION: "IMMUTABLE_WITH_EXCLUSION",
-  MUTABLE: "MUTABLE",
-  MUTABLE_WITH_EXCLUSION: "MUTABLE_WITH_EXCLUSION",
-} as const;
-
-/**
- * @public
- */
-export type ImageTagMutability = (typeof ImageTagMutability)[keyof typeof ImageTagMutability];
-
-/**
- * @public
- * @enum
- */
-export const ImageTagMutabilityExclusionFilterType = {
-  WILDCARD: "WILDCARD",
-} as const;
-
-/**
- * @public
- */
-export type ImageTagMutabilityExclusionFilterType =
-  (typeof ImageTagMutabilityExclusionFilterType)[keyof typeof ImageTagMutabilityExclusionFilterType];
 
 /**
  * <p>Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.</p>
@@ -1349,82 +850,6 @@ export interface CreateRepositoryResponse {
    */
   repository?: Repository | undefined;
 }
-
-/**
- * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
- *             a maximum length of 256 characters.</p>
- * @public
- */
-export class InvalidTagParameterException extends __BaseException {
-  readonly name: "InvalidTagParameterException" = "InvalidTagParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
-    super({
-      name: "InvalidTagParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
-  }
-}
-
-/**
- * <p>The specified repository already exists in the specified registry.</p>
- * @public
- */
-export class RepositoryAlreadyExistsException extends __BaseException {
-  readonly name: "RepositoryAlreadyExistsException" = "RepositoryAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryAlreadyExistsException, __BaseException>) {
-    super({
-      name: "RepositoryAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *             can be applied to a repository is 50.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RCTAppliedFor = {
-  PULL_THROUGH_CACHE: "PULL_THROUGH_CACHE",
-  REPLICATION: "REPLICATION",
-} as const;
-
-/**
- * @public
- */
-export type RCTAppliedFor = (typeof RCTAppliedFor)[keyof typeof RCTAppliedFor];
 
 /**
  * <p>The encryption configuration to associate with the repository creation
@@ -1662,27 +1087,6 @@ export interface CreateRepositoryCreationTemplateResponse {
 }
 
 /**
- * <p>The repository creation template already exists. Specify a unique prefix and try
- *             again.</p>
- * @public
- */
-export class TemplateAlreadyExistsException extends __BaseException {
-  readonly name: "TemplateAlreadyExistsException" = "TemplateAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TemplateAlreadyExistsException, __BaseException>) {
-    super({
-      name: "TemplateAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TemplateAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteLifecyclePolicyRequest {
@@ -1727,27 +1131,6 @@ export interface DeleteLifecyclePolicyResponse {
    * @public
    */
   lastEvaluatedAt?: Date | undefined;
-}
-
-/**
- * <p>The lifecycle policy could not be found, and no policy is set to the
- *             repository.</p>
- * @public
- */
-export class LifecyclePolicyNotFoundException extends __BaseException {
-  readonly name: "LifecyclePolicyNotFoundException" = "LifecyclePolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LifecyclePolicyNotFoundException, __BaseException>) {
-    super({
-      name: "LifecyclePolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LifecyclePolicyNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1818,27 +1201,6 @@ export interface DeletePullThroughCacheRuleResponse {
 }
 
 /**
- * <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
- *             try again.</p>
- * @public
- */
-export class PullThroughCacheRuleNotFoundException extends __BaseException {
-  readonly name: "PullThroughCacheRuleNotFoundException" = "PullThroughCacheRuleNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PullThroughCacheRuleNotFoundException, __BaseException>) {
-    super({
-      name: "PullThroughCacheRuleNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PullThroughCacheRuleNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteRegistryPolicyRequest {}
@@ -1858,26 +1220,6 @@ export interface DeleteRegistryPolicyResponse {
    * @public
    */
   policyText?: string | undefined;
-}
-
-/**
- * <p>The registry doesn't have an associated registry policy.</p>
- * @public
- */
-export class RegistryPolicyNotFoundException extends __BaseException {
-  readonly name: "RegistryPolicyNotFoundException" = "RegistryPolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RegistryPolicyNotFoundException, __BaseException>) {
-    super({
-      name: "RegistryPolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RegistryPolicyNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1917,27 +1259,6 @@ export interface DeleteRepositoryResponse {
 }
 
 /**
- * <p>The specified repository contains images. To delete a repository that contains images,
- *             you must force the deletion with the <code>force</code> parameter.</p>
- * @public
- */
-export class RepositoryNotEmptyException extends __BaseException {
-  readonly name: "RepositoryNotEmptyException" = "RepositoryNotEmptyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryNotEmptyException, __BaseException>) {
-    super({
-      name: "RepositoryNotEmptyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryNotEmptyException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteRepositoryCreationTemplateRequest {
@@ -1964,27 +1285,6 @@ export interface DeleteRepositoryCreationTemplateResponse {
    * @public
    */
   repositoryCreationTemplate?: RepositoryCreationTemplate | undefined;
-}
-
-/**
- * <p>The specified repository creation template can't be found. Verify the registry ID and
- *             prefix and try again.</p>
- * @public
- */
-export class TemplateNotFoundException extends __BaseException {
-  readonly name: "TemplateNotFoundException" = "TemplateNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TemplateNotFoundException, __BaseException>) {
-    super({
-      name: "TemplateNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TemplateNotFoundException.prototype);
-  }
 }
 
 /**
@@ -2030,27 +1330,6 @@ export interface DeleteRepositoryPolicyResponse {
 }
 
 /**
- * <p>The specified repository and registry combination does not have an associated
- *             repository policy.</p>
- * @public
- */
-export class RepositoryPolicyNotFoundException extends __BaseException {
-  readonly name: "RepositoryPolicyNotFoundException" = "RepositoryPolicyNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RepositoryPolicyNotFoundException, __BaseException>) {
-    super({
-      name: "RepositoryPolicyNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RepositoryPolicyNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeImageReplicationStatusRequest {
@@ -2072,21 +1351,6 @@ export interface DescribeImageReplicationStatusRequest {
    */
   registryId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReplicationStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
 
 /**
  * <p>The status of the replication process for an image.</p>
@@ -2140,41 +1404,6 @@ export interface DescribeImageReplicationStatusResponse {
    */
   replicationStatuses?: ImageReplicationStatus[] | undefined;
 }
-
-/**
- * <p>The image requested does not exist in the specified repository.</p>
- * @public
- */
-export class ImageNotFoundException extends __BaseException {
-  readonly name: "ImageNotFoundException" = "ImageNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageNotFoundException, __BaseException>) {
-    super({
-      name: "ImageNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const TagStatus = {
-  ANY: "ANY",
-  TAGGED: "TAGGED",
-  UNTAGGED: "UNTAGGED",
-} as const;
-
-/**
- * @public
- */
-export type TagStatus = (typeof TagStatus)[keyof typeof TagStatus];
 
 /**
  * <p>An object representing a filter on a <a>DescribeImages</a>
@@ -2248,24 +1477,6 @@ export interface DescribeImagesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FindingSeverity = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNDEFINED: "UNDEFINED",
-} as const;
-
-/**
- * @public
- */
-export type FindingSeverity = (typeof FindingSeverity)[keyof typeof FindingSeverity];
-
-/**
  * <p>A summary of the last completed image scan.</p>
  * @public
  */
@@ -2288,27 +1499,6 @@ export interface ImageScanFindingsSummary {
    */
   findingSeverityCounts?: Partial<Record<FindingSeverity, number>> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScanStatus = {
-  ACTIVE: "ACTIVE",
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  FINDINGS_UNAVAILABLE: "FINDINGS_UNAVAILABLE",
-  IN_PROGRESS: "IN_PROGRESS",
-  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
-  PENDING: "PENDING",
-  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
-  UNSUPPORTED_IMAGE: "UNSUPPORTED_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type ScanStatus = (typeof ScanStatus)[keyof typeof ScanStatus];
 
 /**
  * <p>The current status of an image scan.</p>
@@ -3101,27 +2291,6 @@ export interface DescribeImageScanFindingsResponse {
 }
 
 /**
- * <p>The specified image scan could not be found. Ensure that image scanning is enabled on
- *             the repository and try again.</p>
- * @public
- */
-export class ScanNotFoundException extends __BaseException {
-  readonly name: "ScanNotFoundException" = "ScanNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScanNotFoundException, __BaseException>) {
-    super({
-      name: "ScanNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScanNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribePullThroughCacheRulesRequest {
@@ -3273,19 +2442,6 @@ export interface ReplicationDestination {
    */
   registryId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RepositoryFilterType = {
-  PREFIX_MATCH: "PREFIX_MATCH",
-} as const;
-
-/**
- * @public
- */
-export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof RepositoryFilterType];
 
 /**
  * <p>The filter settings used with image replication. Specifying a repository filter to a
@@ -3640,69 +2796,6 @@ export interface GetDownloadUrlForLayerResponse {
 }
 
 /**
- * <p>The specified layer is not available because it is not associated with an image.
- *             Unassociated image layers may be cleaned up at any time.</p>
- * @public
- */
-export class LayerInaccessibleException extends __BaseException {
-  readonly name: "LayerInaccessibleException" = "LayerInaccessibleException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayerInaccessibleException, __BaseException>) {
-    super({
-      name: "LayerInaccessibleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayerInaccessibleException.prototype);
-  }
-}
-
-/**
- * <p>The specified layers could not be found, or the specified layer is not valid for this
- *             repository.</p>
- * @public
- */
-export class LayersNotFoundException extends __BaseException {
-  readonly name: "LayersNotFoundException" = "LayersNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LayersNotFoundException, __BaseException>) {
-    super({
-      name: "LayersNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LayersNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>There was an issue getting the upstream layer matching the pull through cache
- *             rule.</p>
- * @public
- */
-export class UnableToGetUpstreamLayerException extends __BaseException {
-  readonly name: "UnableToGetUpstreamLayerException" = "UnableToGetUpstreamLayerException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToGetUpstreamLayerException, __BaseException>) {
-    super({
-      name: "UnableToGetUpstreamLayerException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToGetUpstreamLayerException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetLifecyclePolicyRequest {
@@ -3820,19 +2913,6 @@ export interface GetLifecyclePolicyPreviewRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ImageActionType = {
-  EXPIRE: "EXPIRE",
-} as const;
-
-/**
- * @public
- */
-export type ImageActionType = (typeof ImageActionType)[keyof typeof ImageActionType];
-
-/**
  * <p>The type of action to be taken.</p>
  * @public
  */
@@ -3880,23 +2960,6 @@ export interface LifecyclePolicyPreviewResult {
    */
   appliedRulePriority?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LifecyclePolicyPreviewStatus = {
-  COMPLETE: "COMPLETE",
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type LifecyclePolicyPreviewStatus =
-  (typeof LifecyclePolicyPreviewStatus)[keyof typeof LifecyclePolicyPreviewStatus];
 
 /**
  * <p>The summary of the lifecycle policy preview request.</p>
@@ -3962,26 +3025,6 @@ export interface GetLifecyclePolicyPreviewResponse {
 }
 
 /**
- * <p>There is no dry run for this repository.</p>
- * @public
- */
-export class LifecyclePolicyPreviewNotFoundException extends __BaseException {
-  readonly name: "LifecyclePolicyPreviewNotFoundException" = "LifecyclePolicyPreviewNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LifecyclePolicyPreviewNotFoundException, __BaseException>) {
-    super({
-      name: "LifecyclePolicyPreviewNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LifecyclePolicyPreviewNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetRegistryPolicyRequest {}
@@ -4031,20 +3074,6 @@ export interface RegistryScanningRule {
    */
   repositoryFilters: ScanningRepositoryFilter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScanType = {
-  BASIC: "BASIC",
-  ENHANCED: "ENHANCED",
-} as const;
-
-/**
- * @public
- */
-export type ScanType = (typeof ScanType)[keyof typeof ScanType];
 
 /**
  * <p>The scanning configuration for a private registry.</p>
@@ -4307,69 +3336,6 @@ export interface PutAccountSettingResponse {
 }
 
 /**
- * <p>The specified image has already been pushed, and there were no changes to the manifest
- *             or image tag after the last push.</p>
- * @public
- */
-export class ImageAlreadyExistsException extends __BaseException {
-  readonly name: "ImageAlreadyExistsException" = "ImageAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ImageAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The specified image digest does not match the digest that Amazon ECR calculated for the
- *             image.</p>
- * @public
- */
-export class ImageDigestDoesNotMatchException extends __BaseException {
-  readonly name: "ImageDigestDoesNotMatchException" = "ImageDigestDoesNotMatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageDigestDoesNotMatchException, __BaseException>) {
-    super({
-      name: "ImageDigestDoesNotMatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageDigestDoesNotMatchException.prototype);
-  }
-}
-
-/**
- * <p>The specified image is tagged with a tag that already exists. The repository is
- *             configured for tag immutability.</p>
- * @public
- */
-export class ImageTagAlreadyExistsException extends __BaseException {
-  readonly name: "ImageTagAlreadyExistsException" = "ImageTagAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ImageTagAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ImageTagAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ImageTagAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PutImageRequest {
@@ -4423,26 +3389,6 @@ export interface PutImageResponse {
    * @public
    */
   image?: Image | undefined;
-}
-
-/**
- * <p>The manifest list is referencing an image that does not exist.</p>
- * @public
- */
-export class ReferencedImagesNotFoundException extends __BaseException {
-  readonly name: "ReferencedImagesNotFoundException" = "ReferencedImagesNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReferencedImagesNotFoundException, __BaseException>) {
-    super({
-      name: "ReferencedImagesNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReferencedImagesNotFoundException.prototype);
-  }
 }
 
 /**
@@ -4807,47 +3753,6 @@ export interface StartImageScanResponse {
 }
 
 /**
- * <p>The image is of a type that cannot be scanned.</p>
- * @public
- */
-export class UnsupportedImageTypeException extends __BaseException {
-  readonly name: "UnsupportedImageTypeException" = "UnsupportedImageTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedImageTypeException, __BaseException>) {
-    super({
-      name: "UnsupportedImageTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedImageTypeException.prototype);
-  }
-}
-
-/**
- * <p>The previous lifecycle policy preview request has not completed. Wait and try
- *             again.</p>
- * @public
- */
-export class LifecyclePolicyPreviewInProgressException extends __BaseException {
-  readonly name: "LifecyclePolicyPreviewInProgressException" = "LifecyclePolicyPreviewInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LifecyclePolicyPreviewInProgressException, __BaseException>) {
-    super({
-      name: "LifecyclePolicyPreviewInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LifecyclePolicyPreviewInProgressException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface StartLifecyclePolicyPreviewRequest {
@@ -5126,56 +4031,6 @@ export interface UpdateRepositoryCreationTemplateResponse {
    * @public
    */
   repositoryCreationTemplate?: RepositoryCreationTemplate | undefined;
-}
-
-/**
- * <p>The layer part size is not valid, or the first byte specified is not consecutive to
- *             the last byte of a previous layer part upload.</p>
- * @public
- */
-export class InvalidLayerPartException extends __BaseException {
-  readonly name: "InvalidLayerPartException" = "InvalidLayerPartException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The registry ID associated with the exception.</p>
-   * @public
-   */
-  registryId?: string | undefined;
-
-  /**
-   * <p>The repository name associated with the exception.</p>
-   * @public
-   */
-  repositoryName?: string | undefined;
-
-  /**
-   * <p>The upload ID associated with the exception.</p>
-   * @public
-   */
-  uploadId?: string | undefined;
-
-  /**
-   * <p>The last valid byte received from the layer part upload that is associated with the
-   *             exception.</p>
-   * @public
-   */
-  lastValidByteReceived?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidLayerPartException, __BaseException>) {
-    super({
-      name: "InvalidLayerPartException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidLayerPartException.prototype);
-    this.registryId = opts.registryId;
-    this.repositoryName = opts.repositoryName;
-    this.uploadId = opts.uploadId;
-    this.lastValidByteReceived = opts.lastValidByteReceived;
-  }
 }
 
 /**

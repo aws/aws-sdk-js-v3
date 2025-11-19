@@ -28,6 +28,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DataPipelineExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { DataPipelineServiceException } from "./models/DataPipelineServiceException";

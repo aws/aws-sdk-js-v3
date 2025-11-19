@@ -345,7 +345,7 @@ import {
   NotFoundException as __NotFoundException,
   PreconditionFailedException as __PreconditionFailedException,
   ResourceInUseException as __ResourceInUseException,
-} from "../models/index";
+} from "../models/errors";
 import { LexModelBuildingServiceServiceException as __LexModelBuildingServiceServiceException } from "../models/LexModelBuildingServiceServiceException";
 
 /* eslint no-var: 0 */

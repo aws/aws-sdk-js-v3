@@ -144,7 +144,7 @@ import {
   ComplexError as __ComplexError,
   InvalidGreeting as __InvalidGreeting,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { RpcV2ProtocolServiceException as __RpcV2ProtocolServiceException } from "../models/RpcV2ProtocolServiceException";
 
 /* eslint no-var: 0 */

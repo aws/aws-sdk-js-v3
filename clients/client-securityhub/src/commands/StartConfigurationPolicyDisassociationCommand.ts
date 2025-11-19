@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartConfigurationPolicyDisassociationRequest,
   StartConfigurationPolicyDisassociationResponse,
-} from "../models/models_3";
+} from "../models/models_2";
 import { StartConfigurationPolicyDisassociation } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

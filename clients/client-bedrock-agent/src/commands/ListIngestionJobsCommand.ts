@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListIngestionJobsRequest, ListIngestionJobsResponse } from "../models/models_1";
+import { ListIngestionJobsRequest, ListIngestionJobsResponse } from "../models/models_0";
 import { ListIngestionJobs } from "../schemas/schemas_0";
 
 /**

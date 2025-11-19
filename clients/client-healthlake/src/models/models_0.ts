@@ -1,94 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { HealthLakeServiceException as __BaseException } from "./HealthLakeServiceException";
-
-/**
- * <p>Access is denied. Your account is not authorized to perform this operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AuthorizationStrategy = {
-  AWS_AUTH: "AWS_AUTH",
-  SMARTV1: "SMART_ON_FHIR_V1",
-  SMART_ON_FHIR: "SMART_ON_FHIR",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizationStrategy = (typeof AuthorizationStrategy)[keyof typeof AuthorizationStrategy];
-
-/**
- * @public
- * @enum
- */
-export const CmkType = {
-  AO_CMK: "AWS_OWNED_KMS_KEY",
-  CM_CMK: "CUSTOMER_MANAGED_KMS_KEY",
-} as const;
-
-/**
- * @public
- */
-export type CmkType = (typeof CmkType)[keyof typeof CmkType];
-
-/**
- * <p>The data store is in a transition state and the user requested action cannot be
- *          performed.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FHIRVersion = {
-  R4: "R4",
-} as const;
-
-/**
- * @public
- */
-export type FHIRVersion = (typeof FHIRVersion)[keyof typeof FHIRVersion];
+import {
+  AuthorizationStrategy,
+  CmkType,
+  DatastoreStatus,
+  ErrorCategory,
+  FHIRVersion,
+  JobStatus,
+  PreloadDataType,
+  ValidationLevel,
+} from "./enums";
 
 /**
  * <p>The identity provider configuration selected when the data store was created.</p>
@@ -161,19 +81,6 @@ export interface IdentityProviderConfiguration {
    */
   IdpLambdaArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PreloadDataType = {
-  SYNTHEA: "SYNTHEA",
-} as const;
-
-/**
- * @public
- */
-export type PreloadDataType = (typeof PreloadDataType)[keyof typeof PreloadDataType];
 
 /**
  * <p>The input properties for the preloaded (Synthea) data store.</p>
@@ -292,23 +199,6 @@ export interface CreateFHIRDatastoreRequest {
 
 /**
  * @public
- * @enum
- */
-export const DatastoreStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type DatastoreStatus = (typeof DatastoreStatus)[keyof typeof DatastoreStatus];
-
-/**
- * @public
  */
 export interface CreateFHIRDatastoreResponse {
   /**
@@ -334,72 +224,6 @@ export interface CreateFHIRDatastoreResponse {
    * @public
    */
   DatastoreEndpoint: string | undefined;
-}
-
-/**
- * <p>An unknown internal error occurred in the service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The user input parameter was invalid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -433,20 +257,6 @@ export interface DatastoreFilter {
    */
   CreatedAfter?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ErrorCategory = {
-  NON_RETRYABLE_ERROR: "NON_RETRYABLE_ERROR",
-  RETRYABLE_ERROR: "RETRYABLE_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
 
 /**
  * <p>The error information for <code>CreateFHIRDatastore</code> and
@@ -582,28 +392,6 @@ export interface DeleteFHIRDatastoreResponse {
 }
 
 /**
- * <p>The requested data store was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeFHIRDatastoreRequest {
@@ -641,28 +429,6 @@ export interface DescribeFHIRExportJobRequest {
    */
   JobId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  CANCEL_COMPLETED: "CANCEL_COMPLETED",
-  CANCEL_FAILED: "CANCEL_FAILED",
-  CANCEL_IN_PROGRESS: "CANCEL_IN_PROGRESS",
-  CANCEL_SUBMITTED: "CANCEL_SUBMITTED",
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * <p>The configuration of the S3 bucket for either an import or export job. This includes
@@ -901,21 +667,6 @@ export interface JobProgressReport {
    */
   Throughput?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationLevel = {
-  MINIMAL: "minimal",
-  STRICT: "strict",
-  STRUCTURE_ONLY: "structure-only",
-} as const;
-
-/**
- * @public
- */
-export type ValidationLevel = (typeof ValidationLevel)[keyof typeof ValidationLevel];
 
 /**
  * <p>The import job properties.</p>

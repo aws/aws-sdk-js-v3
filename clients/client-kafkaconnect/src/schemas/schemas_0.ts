@@ -241,7 +241,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   TooManyRequestsException as __TooManyRequestsException,
   UnauthorizedException as __UnauthorizedException,
-} from "../models/index";
+} from "../models/errors";
 import { KafkaConnectServiceException as __KafkaConnectServiceException } from "../models/KafkaConnectServiceException";
 
 /* eslint no-var: 0 */

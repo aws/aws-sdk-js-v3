@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeVpcBlockPublicAccessOptionsRequest,
   DescribeVpcBlockPublicAccessOptionsResult,
-} from "../models/models_6";
+} from "../models/models_4";
 import { DescribeVpcBlockPublicAccessOptions } from "../schemas/schemas_0";
 
 /**

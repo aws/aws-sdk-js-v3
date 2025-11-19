@@ -1,7 +1,41 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
+import {
+  ActionType,
+  AquaConfigurationStatus,
+  AquaStatus,
+  AuthorizationStatus,
+  DataShareStatus,
+  DataShareStatusForConsumer,
+  DataShareStatusForProducer,
+  DataShareType,
+  DescribeIntegrationsFilterName,
+  ImpactRankingType,
+  LogDestinationType,
+  Mode,
+  NamespaceRegistrationStatus,
+  NodeConfigurationOptionsFilterName,
+  OperatorType,
+  ParameterApplyType,
+  PartnerIntegrationStatus,
+  RecommendedActionType,
+  ReservedNodeExchangeActionType,
+  ReservedNodeExchangeStatusType,
+  ReservedNodeOfferingType,
+  ScheduledActionFilterName,
+  ScheduledActionState,
+  ScheduledActionTypeValues,
+  ScheduleState,
+  ServiceAuthorization,
+  SnapshotAttributeToSortBy,
+  SortByOrder,
+  SourceType,
+  TableRestoreStatusType,
+  UsageLimitBreachAction,
+  UsageLimitFeatureType,
+  UsageLimitLimitType,
+  UsageLimitPeriod,
+  ZeroETLIntegrationStatus,
+} from "./enums";
 
 /**
  * @public
@@ -41,20 +75,6 @@ export interface RecurringCharge {
    */
   RecurringChargeFrequency?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReservedNodeOfferingType = {
-  Regular: "Regular",
-  Upgradable: "Upgradable",
-} as const;
-
-/**
- * @public
- */
-export type ReservedNodeOfferingType = (typeof ReservedNodeOfferingType)[keyof typeof ReservedNodeOfferingType];
 
 /**
  * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
@@ -176,188 +196,6 @@ export interface AcceptReservedNodeExchangeOutputMessage {
 }
 
 /**
- * <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
- * @public
- */
-export class DependentServiceUnavailableFault extends __BaseException {
-  readonly name: "DependentServiceUnavailableFault" = "DependentServiceUnavailableFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependentServiceUnavailableFault, __BaseException>) {
-    super({
-      name: "DependentServiceUnavailableFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependentServiceUnavailableFault.prototype);
-  }
-}
-
-/**
- * <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
- * @public
- */
-export class InvalidReservedNodeStateFault extends __BaseException {
-  readonly name: "InvalidReservedNodeStateFault" = "InvalidReservedNodeStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidReservedNodeStateFault, __BaseException>) {
-    super({
-      name: "InvalidReservedNodeStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidReservedNodeStateFault.prototype);
-  }
-}
-
-/**
- * <p>User already has a reservation with the given identifier.</p>
- * @public
- */
-export class ReservedNodeAlreadyExistsFault extends __BaseException {
-  readonly name: "ReservedNodeAlreadyExistsFault" = "ReservedNodeAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedNodeAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ReservedNodeAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedNodeAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>Indicates that the reserved node has already been exchanged.</p>
- * @public
- */
-export class ReservedNodeAlreadyMigratedFault extends __BaseException {
-  readonly name: "ReservedNodeAlreadyMigratedFault" = "ReservedNodeAlreadyMigratedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedNodeAlreadyMigratedFault, __BaseException>) {
-    super({
-      name: "ReservedNodeAlreadyMigratedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedNodeAlreadyMigratedFault.prototype);
-  }
-}
-
-/**
- * <p>The specified reserved compute node not found.</p>
- * @public
- */
-export class ReservedNodeNotFoundFault extends __BaseException {
-  readonly name: "ReservedNodeNotFoundFault" = "ReservedNodeNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedNodeNotFoundFault, __BaseException>) {
-    super({
-      name: "ReservedNodeNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedNodeNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>Specified offering does not exist.</p>
- * @public
- */
-export class ReservedNodeOfferingNotFoundFault extends __BaseException {
-  readonly name: "ReservedNodeOfferingNotFoundFault" = "ReservedNodeOfferingNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReservedNodeOfferingNotFoundFault, __BaseException>) {
-    super({
-      name: "ReservedNodeOfferingNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReservedNodeOfferingNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The requested operation isn't supported.</p>
- * @public
- */
-export class UnsupportedOperationFault extends __BaseException {
-  readonly name: "UnsupportedOperationFault" = "UnsupportedOperationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationFault, __BaseException>) {
-    super({
-      name: "UnsupportedOperationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationFault.prototype);
-  }
-}
-
-/**
- * <p>You are not authorized to access the cluster.</p>
- * @public
- */
-export class AccessToClusterDeniedFault extends __BaseException {
-  readonly name: "AccessToClusterDeniedFault" = "AccessToClusterDeniedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessToClusterDeniedFault, __BaseException>) {
-    super({
-      name: "AccessToClusterDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessToClusterDeniedFault.prototype);
-  }
-}
-
-/**
- * <p>The owner of the specified snapshot has not authorized your account to access the
- *             snapshot.</p>
- * @public
- */
-export class AccessToSnapshotDeniedFault extends __BaseException {
-  readonly name: "AccessToSnapshotDeniedFault" = "AccessToSnapshotDeniedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessToSnapshotDeniedFault, __BaseException>) {
-    super({
-      name: "AccessToSnapshotDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessToSnapshotDeniedFault.prototype);
-  }
-}
-
-/**
  * <p>Describes an attribute value.</p>
  * @public
  */
@@ -420,42 +258,6 @@ export interface AccountWithRestoreAccess {
 
 /**
  * @public
- * @enum
- */
-export const ActionType = {
-  RECOMMEND_NODE_CONFIG: "recommend-node-config",
-  RESIZE_CLUSTER: "resize-cluster",
-  RESTORE_CLUSTER: "restore-cluster",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
-
-/**
- * <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
- * @public
- */
-export class ClusterNotFoundFault extends __BaseException {
-  readonly name: "ClusterNotFoundFault" = "ClusterNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterNotFoundFault, __BaseException>) {
-    super({
-      name: "ClusterNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
  */
 export interface PartnerIntegrationInputMessage {
   /**
@@ -499,76 +301,6 @@ export interface PartnerIntegrationOutputMessage {
    */
   PartnerName?: string | undefined;
 }
-
-/**
- * <p>The name of the partner was not found.</p>
- * @public
- */
-export class PartnerNotFoundFault extends __BaseException {
-  readonly name: "PartnerNotFoundFault" = "PartnerNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PartnerNotFoundFault, __BaseException>) {
-    super({
-      name: "PartnerNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PartnerNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The partner integration is not authorized.</p>
- * @public
- */
-export class UnauthorizedPartnerIntegrationFault extends __BaseException {
-  readonly name: "UnauthorizedPartnerIntegrationFault" = "UnauthorizedPartnerIntegrationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedPartnerIntegrationFault, __BaseException>) {
-    super({
-      name: "UnauthorizedPartnerIntegrationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedPartnerIntegrationFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AquaConfigurationStatus = {
-  AUTO: "auto",
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type AquaConfigurationStatus = (typeof AquaConfigurationStatus)[keyof typeof AquaConfigurationStatus];
-
-/**
- * @public
- * @enum
- */
-export const AquaStatus = {
-  APPLYING: "applying",
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type AquaStatus = (typeof AquaStatus)[keyof typeof AquaStatus];
 
 /**
  * <p>The operation that uses this structure is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
@@ -625,24 +357,6 @@ export interface AssociateDataShareConsumerMessage {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataShareStatus = {
-  ACTIVE: "ACTIVE",
-  AUTHORIZED: "AUTHORIZED",
-  AVAILABLE: "AVAILABLE",
-  DEAUTHORIZED: "DEAUTHORIZED",
-  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type DataShareStatus = (typeof DataShareStatus)[keyof typeof DataShareStatus];
-
-/**
  * <p>The association of a datashare from a producer account with a data consumer.
  * </p>
  * @public
@@ -694,19 +408,6 @@ export interface DataShareAssociation {
 
 /**
  * @public
- * @enum
- */
-export const DataShareType = {
-  INTERNAL: "INTERNAL",
-} as const;
-
-/**
- * @public
- */
-export type DataShareType = (typeof DataShareType)[keyof typeof DataShareType];
-
-/**
- * @public
  */
 export interface DataShare {
   /**
@@ -746,61 +447,6 @@ export interface DataShare {
    */
   DataShareType?: DataShareType | undefined;
 }
-
-/**
- * <p>There is an error with the datashare.</p>
- * @public
- */
-export class InvalidDataShareFault extends __BaseException {
-  readonly name: "InvalidDataShareFault" = "InvalidDataShareFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDataShareFault, __BaseException>) {
-    super({
-      name: "InvalidDataShareFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDataShareFault.prototype);
-  }
-}
-
-/**
- * <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
- * @public
- */
-export class InvalidNamespaceFault extends __BaseException {
-  readonly name: "InvalidNamespaceFault" = "InvalidNamespaceFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNamespaceFault, __BaseException>) {
-    super({
-      name: "InvalidNamespaceFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNamespaceFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ScheduleState = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  MODIFYING: "MODIFYING",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
 
 /**
  * <p></p>
@@ -881,143 +527,6 @@ export interface AuthenticationProfile {
    */
   AuthenticationProfileContent?: string | undefined;
 }
-
-/**
- * <p>The authentication profile already exists.</p>
- * @public
- */
-export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
-  readonly name: "AuthenticationProfileAlreadyExistsFault" = "AuthenticationProfileAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthenticationProfileAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "AuthenticationProfileAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthenticationProfileAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The authentication profile can't be found.</p>
- * @public
- */
-export class AuthenticationProfileNotFoundFault extends __BaseException {
-  readonly name: "AuthenticationProfileNotFoundFault" = "AuthenticationProfileNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthenticationProfileNotFoundFault, __BaseException>) {
-    super({
-      name: "AuthenticationProfileNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthenticationProfileNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The size or number of authentication profiles has exceeded the quota.
- *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
- * @public
- */
-export class AuthenticationProfileQuotaExceededFault extends __BaseException {
-  readonly name: "AuthenticationProfileQuotaExceededFault" = "AuthenticationProfileQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthenticationProfileQuotaExceededFault, __BaseException>) {
-    super({
-      name: "AuthenticationProfileQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthenticationProfileQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The specified CIDR block or EC2 security group is already authorized for the
- *             specified cluster security group.</p>
- * @public
- */
-export class AuthorizationAlreadyExistsFault extends __BaseException {
-  readonly name: "AuthorizationAlreadyExistsFault" = "AuthorizationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "AuthorizationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The specified CIDR IP range or EC2 security group is not authorized for the
- *             specified cluster security group.</p>
- * @public
- */
-export class AuthorizationNotFoundFault extends __BaseException {
-  readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationNotFoundFault, __BaseException>) {
-    super({
-      name: "AuthorizationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The authorization quota for the cluster security group has been reached.</p>
- * @public
- */
-export class AuthorizationQuotaExceededFault extends __BaseException {
-  readonly name: "AuthorizationQuotaExceededFault" = "AuthorizationQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationQuotaExceededFault, __BaseException>) {
-    super({
-      name: "AuthorizationQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AuthorizationStatus = {
-  AUTHORIZED: "Authorized",
-  REVOKING: "Revoking",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
 
 /**
  * <p></p>
@@ -1177,47 +686,6 @@ export interface AuthorizeClusterSecurityGroupIngressResult {
 }
 
 /**
- * <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
- * @public
- */
-export class ClusterSecurityGroupNotFoundFault extends __BaseException {
-  readonly name: "ClusterSecurityGroupNotFoundFault" = "ClusterSecurityGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSecurityGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "ClusterSecurityGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSecurityGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The state of the cluster security group is not <code>available</code>. </p>
- * @public
- */
-export class InvalidClusterSecurityGroupStateFault extends __BaseException {
-  readonly name: "InvalidClusterSecurityGroupStateFault" = "InvalidClusterSecurityGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterSecurityGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterSecurityGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterSecurityGroupStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface AuthorizeDataShareMessage {
@@ -1341,87 +809,6 @@ export interface EndpointAuthorization {
    * @public
    */
   EndpointCount?: number | undefined;
-}
-
-/**
- * <p>The authorization already exists for this endpoint.</p>
- * @public
- */
-export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
-  readonly name: "EndpointAuthorizationAlreadyExistsFault" = "EndpointAuthorizationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EndpointAuthorizationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "EndpointAuthorizationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EndpointAuthorizationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
- * @public
- */
-export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseException {
-  readonly name: "EndpointAuthorizationsPerClusterLimitExceededFault" =
-    "EndpointAuthorizationsPerClusterLimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EndpointAuthorizationsPerClusterLimitExceededFault, __BaseException>) {
-    super({
-      name: "EndpointAuthorizationsPerClusterLimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EndpointAuthorizationsPerClusterLimitExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The status of the authorization is not valid.</p>
- * @public
- */
-export class InvalidAuthorizationStateFault extends __BaseException {
-  readonly name: "InvalidAuthorizationStateFault" = "InvalidAuthorizationStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAuthorizationStateFault, __BaseException>) {
-    super({
-      name: "InvalidAuthorizationStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAuthorizationStateFault.prototype);
-  }
-}
-
-/**
- * <p>The specified cluster is not in the <code>available</code> state. </p>
- * @public
- */
-export class InvalidClusterStateFault extends __BaseException {
-  readonly name: "InvalidClusterStateFault" = "InvalidClusterStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterStateFault.prototype);
-  }
 }
 
 /**
@@ -1746,88 +1133,6 @@ export interface AuthorizeSnapshotAccessResult {
 }
 
 /**
- * <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
- * @public
- */
-export class ClusterSnapshotNotFoundFault extends __BaseException {
-  readonly name: "ClusterSnapshotNotFoundFault" = "ClusterSnapshotNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSnapshotNotFoundFault, __BaseException>) {
-    super({
-      name: "ClusterSnapshotNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSnapshotNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
- * @public
- */
-export class DependentServiceRequestThrottlingFault extends __BaseException {
-  readonly name: "DependentServiceRequestThrottlingFault" = "DependentServiceRequestThrottlingFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependentServiceRequestThrottlingFault, __BaseException>) {
-    super({
-      name: "DependentServiceRequestThrottlingFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependentServiceRequestThrottlingFault.prototype);
-  }
-}
-
-/**
- * <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
- * @public
- */
-export class InvalidClusterSnapshotStateFault extends __BaseException {
-  readonly name: "InvalidClusterSnapshotStateFault" = "InvalidClusterSnapshotStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterSnapshotStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterSnapshotStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterSnapshotStateFault.prototype);
-  }
-}
-
-/**
- * <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
- * @public
- */
-export class LimitExceededFault extends __BaseException {
-  readonly name: "LimitExceededFault" = "LimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededFault, __BaseException>) {
-    super({
-      name: "LimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededFault.prototype);
-  }
-}
-
-/**
  * <p>A list of supported platforms for orderable clusters.</p>
  * @public
  */
@@ -1940,48 +1245,6 @@ export interface BatchDeleteClusterSnapshotsResult {
 }
 
 /**
- * <p>The maximum number for a batch delete of snapshots has been reached. The limit is
- *             100. </p>
- * @public
- */
-export class BatchDeleteRequestSizeExceededFault extends __BaseException {
-  readonly name: "BatchDeleteRequestSizeExceededFault" = "BatchDeleteRequestSizeExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BatchDeleteRequestSizeExceededFault, __BaseException>) {
-    super({
-      name: "BatchDeleteRequestSizeExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BatchDeleteRequestSizeExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
- *         </p>
- * @public
- */
-export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseException {
-  readonly name: "BatchModifyClusterSnapshotsLimitExceededFault" = "BatchModifyClusterSnapshotsLimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BatchModifyClusterSnapshotsLimitExceededFault, __BaseException>) {
-    super({
-      name: "BatchModifyClusterSnapshotsLimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BatchModifyClusterSnapshotsLimitExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchModifyClusterSnapshotsMessage {
@@ -2028,47 +1291,6 @@ export interface BatchModifyClusterSnapshotsOutputMessage {
 }
 
 /**
- * <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
- * @public
- */
-export class InvalidRetentionPeriodFault extends __BaseException {
-  readonly name: "InvalidRetentionPeriodFault" = "InvalidRetentionPeriodFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRetentionPeriodFault, __BaseException>) {
-    super({
-      name: "InvalidRetentionPeriodFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRetentionPeriodFault.prototype);
-  }
-}
-
-/**
- * <p>Could not find the specified S3 bucket.</p>
- * @public
- */
-export class BucketNotFoundFault extends __BaseException {
-  readonly name: "BucketNotFoundFault" = "BucketNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BucketNotFoundFault, __BaseException>) {
-    super({
-      name: "BucketNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BucketNotFoundFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CancelResizeMessage {
@@ -2078,26 +1300,6 @@ export interface CancelResizeMessage {
    * @public
    */
   ClusterIdentifier: string | undefined;
-}
-
-/**
- * <p>A resize operation for the specified cluster is not found.</p>
- * @public
- */
-export class ResizeNotFoundFault extends __BaseException {
-  readonly name: "ResizeNotFoundFault" = "ResizeNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResizeNotFoundFault, __BaseException>) {
-    super({
-      name: "ResizeNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResizeNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -2733,25 +1935,6 @@ export interface PendingModifiedValues {
    */
   EncryptionType?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReservedNodeExchangeStatusType = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  REQUESTED: "REQUESTED",
-  RETRYING: "RETRYING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ReservedNodeExchangeStatusType =
-  (typeof ReservedNodeExchangeStatusType)[keyof typeof ReservedNodeExchangeStatusType];
 
 /**
  * <p>Reserved-node status details, such as the source reserved-node
@@ -3442,26 +2625,6 @@ export interface Cluster {
 }
 
 /**
- * <p>The account already has a cluster with the given identifier.</p>
- * @public
- */
-export class ClusterAlreadyExistsFault extends __BaseException {
-  readonly name: "ClusterAlreadyExistsFault" = "ClusterAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ClusterAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterAlreadyExistsFault.prototype);
-  }
-}
-
-/**
  * <p>Temporary credentials with authorization to log on to an Amazon Redshift database.
  *         </p>
  * @public
@@ -3599,26 +2762,6 @@ export interface ClusterExtendedCredentials {
 }
 
 /**
- * <p>Cluster is already on the latest database revision.</p>
- * @public
- */
-export class ClusterOnLatestRevisionFault extends __BaseException {
-  readonly name: "ClusterOnLatestRevisionFault" = "ClusterOnLatestRevisionFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterOnLatestRevisionFault, __BaseException>) {
-    super({
-      name: "ClusterOnLatestRevisionFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterOnLatestRevisionFault.prototype);
-  }
-}
-
-/**
  * <p>Describes a parameter group.</p>
  * @public
  */
@@ -3648,40 +2791,6 @@ export interface ClusterParameterGroup {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * <p>A cluster parameter group with the same name already exists.</p>
- * @public
- */
-export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "ClusterParameterGroupAlreadyExistsFault" = "ClusterParameterGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterParameterGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ClusterParameterGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterParameterGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ParameterApplyType = {
-  dynamic: "dynamic",
-  static: "static",
-} as const;
-
-/**
- * @public
- */
-export type ParameterApplyType = (typeof ParameterApplyType)[keyof typeof ParameterApplyType];
 
 /**
  * <p>Describes a parameter in a cluster parameter group.</p>
@@ -3795,50 +2904,6 @@ export interface ClusterParameterGroupNameMessage {
 }
 
 /**
- * <p>The parameter group name does not refer to an existing parameter group.</p>
- * @public
- */
-export class ClusterParameterGroupNotFoundFault extends __BaseException {
-  readonly name: "ClusterParameterGroupNotFoundFault" = "ClusterParameterGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterParameterGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "ClusterParameterGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterParameterGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of cluster
- *             parameter groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
-  readonly name: "ClusterParameterGroupQuotaExceededFault" = "ClusterParameterGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterParameterGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ClusterParameterGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterParameterGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Contains the output from the <a>DescribeClusterParameterGroups</a>
  *             action. </p>
  * @public
@@ -3860,50 +2925,6 @@ export interface ClusterParameterGroupsMessage {
    * @public
    */
   ParameterGroups?: ClusterParameterGroup[] | undefined;
-}
-
-/**
- * <p>The request would exceed the allowed number of cluster instances for this account.
- *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class ClusterQuotaExceededFault extends __BaseException {
-  readonly name: "ClusterQuotaExceededFault" = "ClusterQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ClusterQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>A cluster security group with the same name already exists.</p>
- * @public
- */
-export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "ClusterSecurityGroupAlreadyExistsFault" = "ClusterSecurityGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSecurityGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ClusterSecurityGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSecurityGroupAlreadyExistsFault.prototype);
-  }
 }
 
 /**
@@ -3929,30 +2950,6 @@ export interface ClusterSecurityGroupMessage {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of cluster
- *             security groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
-  readonly name: "ClusterSecurityGroupQuotaExceededFault" = "ClusterSecurityGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSecurityGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ClusterSecurityGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSecurityGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Contains the output from the <a>DescribeClusters</a> action. </p>
  * @public
  */
@@ -3973,48 +2970,6 @@ export interface ClustersMessage {
    * @public
    */
   Clusters?: Cluster[] | undefined;
-}
-
-/**
- * <p>The value specified as a snapshot identifier is already used by an existing
- *             snapshot.</p>
- * @public
- */
-export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
-  readonly name: "ClusterSnapshotAlreadyExistsFault" = "ClusterSnapshotAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSnapshotAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ClusterSnapshotAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSnapshotAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of cluster
- *             snapshots.</p>
- * @public
- */
-export class ClusterSnapshotQuotaExceededFault extends __BaseException {
-  readonly name: "ClusterSnapshotQuotaExceededFault" = "ClusterSnapshotQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSnapshotQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ClusterSnapshotQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSnapshotQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -4091,27 +3046,6 @@ export interface ClusterSubnetGroup {
 }
 
 /**
- * <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
- *             cluster subnet group. </p>
- * @public
- */
-export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
-  readonly name: "ClusterSubnetGroupAlreadyExistsFault" = "ClusterSubnetGroupAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSubnetGroupAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ClusterSubnetGroupAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSubnetGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
  * <p>Contains the output from the <a>DescribeClusterSubnetGroups</a> action.
  *         </p>
  * @public
@@ -4132,75 +3066,6 @@ export interface ClusterSubnetGroupMessage {
    * @public
    */
   ClusterSubnetGroups?: ClusterSubnetGroup[] | undefined;
-}
-
-/**
- * <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
- * @public
- */
-export class ClusterSubnetGroupNotFoundFault extends __BaseException {
-  readonly name: "ClusterSubnetGroupNotFoundFault" = "ClusterSubnetGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSubnetGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "ClusterSubnetGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSubnetGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in user exceeding the allowed number of cluster subnet
- *             groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
-  readonly name: "ClusterSubnetGroupQuotaExceededFault" = "ClusterSubnetGroupQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSubnetGroupQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ClusterSubnetGroupQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSubnetGroupQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in user exceeding the allowed number of subnets in a
- *             cluster subnet groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class ClusterSubnetQuotaExceededFault extends __BaseException {
-  readonly name: "ClusterSubnetQuotaExceededFault" = "ClusterSubnetQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClusterSubnetQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ClusterSubnetQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClusterSubnetQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -4249,26 +3114,6 @@ export interface ClusterVersionsMessage {
    * @public
    */
   ClusterVersions?: ClusterVersion[] | undefined;
-}
-
-/**
- * <p>There is a conflict while updating the resource policy.</p>
- * @public
- */
-export class ConflictPolicyUpdateFault extends __BaseException {
-  readonly name: "ConflictPolicyUpdateFault" = "ConflictPolicyUpdateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictPolicyUpdateFault, __BaseException>) {
-    super({
-      name: "ConflictPolicyUpdateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictPolicyUpdateFault.prototype);
-  }
 }
 
 /**
@@ -4349,27 +3194,6 @@ export interface CopyClusterSnapshotResult {
 }
 
 /**
- * <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
- * @public
- */
-export class CopyToRegionDisabledFault extends __BaseException {
-  readonly name: "CopyToRegionDisabledFault" = "CopyToRegionDisabledFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CopyToRegionDisabledFault, __BaseException>) {
-    super({
-      name: "CopyToRegionDisabledFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CopyToRegionDisabledFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateAuthenticationProfileMessage {
@@ -4402,27 +3226,6 @@ export interface CreateAuthenticationProfileResult {
    * @public
    */
   AuthenticationProfileContent?: string | undefined;
-}
-
-/**
- * <p>The authentication profile request is not valid. The profile name can't be null or empty.
- *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
- * @public
- */
-export class InvalidAuthenticationProfileRequestFault extends __BaseException {
-  readonly name: "InvalidAuthenticationProfileRequestFault" = "InvalidAuthenticationProfileRequestFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAuthenticationProfileRequestFault, __BaseException>) {
-    super({
-      name: "InvalidAuthenticationProfileRequestFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAuthenticationProfileRequestFault.prototype);
-  }
 }
 
 /**
@@ -4895,334 +3698,6 @@ export interface CreateClusterResult {
 }
 
 /**
- * <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
- * @public
- */
-export class HsmClientCertificateNotFoundFault extends __BaseException {
-  readonly name: "HsmClientCertificateNotFoundFault" = "HsmClientCertificateNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HsmClientCertificateNotFoundFault, __BaseException>) {
-    super({
-      name: "HsmClientCertificateNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HsmClientCertificateNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
- * @public
- */
-export class HsmConfigurationNotFoundFault extends __BaseException {
-  readonly name: "HsmConfigurationNotFoundFault" = "HsmConfigurationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HsmConfigurationNotFoundFault, __BaseException>) {
-    super({
-      name: "HsmConfigurationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HsmConfigurationNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
- * @public
- */
-export class InsufficientClusterCapacityFault extends __BaseException {
-  readonly name: "InsufficientClusterCapacityFault" = "InsufficientClusterCapacityFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientClusterCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientClusterCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientClusterCapacityFault.prototype);
-  }
-}
-
-/**
- * <p>The cluster subnet group cannot be deleted because it is in use.</p>
- * @public
- */
-export class InvalidClusterSubnetGroupStateFault extends __BaseException {
-  readonly name: "InvalidClusterSubnetGroupStateFault" = "InvalidClusterSubnetGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterSubnetGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterSubnetGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterSubnetGroupStateFault.prototype);
-  }
-}
-
-/**
- * <p>The provided cluster track name is not valid.</p>
- * @public
- */
-export class InvalidClusterTrackFault extends __BaseException {
-  readonly name: "InvalidClusterTrackFault" = "InvalidClusterTrackFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterTrackFault, __BaseException>) {
-    super({
-      name: "InvalidClusterTrackFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterTrackFault.prototype);
-  }
-}
-
-/**
- * <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
- * @public
- */
-export class InvalidElasticIpFault extends __BaseException {
-  readonly name: "InvalidElasticIpFault" = "InvalidElasticIpFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidElasticIpFault, __BaseException>) {
-    super({
-      name: "InvalidElasticIpFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidElasticIpFault.prototype);
-  }
-}
-
-/**
- * <p>The requested subnet is not valid, or not all of the subnets are in the same
- *             VPC.</p>
- * @public
- */
-export class InvalidSubnet extends __BaseException {
-  readonly name: "InvalidSubnet" = "InvalidSubnet";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
-    super({
-      name: "InvalidSubnet",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnet.prototype);
-  }
-}
-
-/**
- * <p>The tag is invalid.</p>
- * @public
- */
-export class InvalidTagFault extends __BaseException {
-  readonly name: "InvalidTagFault" = "InvalidTagFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagFault, __BaseException>) {
-    super({
-      name: "InvalidTagFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagFault.prototype);
-  }
-}
-
-/**
- * <p>The cluster subnet group does not cover all Availability Zones.</p>
- * @public
- */
-export class InvalidVPCNetworkStateFault extends __BaseException {
-  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
-    super({
-      name: "InvalidVPCNetworkStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
-  }
-}
-
-/**
- * <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
- *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
- * @public
- */
-export class Ipv6CidrBlockNotFoundFault extends __BaseException {
-  readonly name: "Ipv6CidrBlockNotFoundFault" = "Ipv6CidrBlockNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<Ipv6CidrBlockNotFoundFault, __BaseException>) {
-    super({
-      name: "Ipv6CidrBlockNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, Ipv6CidrBlockNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
- * @public
- */
-export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
-  readonly name: "NumberOfNodesPerClusterLimitExceededFault" = "NumberOfNodesPerClusterLimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NumberOfNodesPerClusterLimitExceededFault, __BaseException>) {
-    super({
-      name: "NumberOfNodesPerClusterLimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NumberOfNodesPerClusterLimitExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The operation would exceed the number of nodes allotted to the account.
- *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class NumberOfNodesQuotaExceededFault extends __BaseException {
-  readonly name: "NumberOfNodesQuotaExceededFault" = "NumberOfNodesQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NumberOfNodesQuotaExceededFault, __BaseException>) {
-    super({
-      name: "NumberOfNodesQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NumberOfNodesQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The application you attempted to find doesn't exist.</p>
- * @public
- */
-export class RedshiftIdcApplicationNotExistsFault extends __BaseException {
-  readonly name: "RedshiftIdcApplicationNotExistsFault" = "RedshiftIdcApplicationNotExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RedshiftIdcApplicationNotExistsFault, __BaseException>) {
-    super({
-      name: "RedshiftIdcApplicationNotExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RedshiftIdcApplicationNotExistsFault.prototype);
-  }
-}
-
-/**
- * <p>We could not find the specified snapshot schedule. </p>
- * @public
- */
-export class SnapshotScheduleNotFoundFault extends __BaseException {
-  readonly name: "SnapshotScheduleNotFoundFault" = "SnapshotScheduleNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotScheduleNotFoundFault, __BaseException>) {
-    super({
-      name: "SnapshotScheduleNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotScheduleNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded the number of tags allowed.</p>
- * @public
- */
-export class TagLimitExceededFault extends __BaseException {
-  readonly name: "TagLimitExceededFault" = "TagLimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagLimitExceededFault, __BaseException>) {
-    super({
-      name: "TagLimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagLimitExceededFault.prototype);
-  }
-}
-
-/**
- * <p>Your account is not authorized to perform the requested operation.</p>
- * @public
- */
-export class UnauthorizedOperation extends __BaseException {
-  readonly name: "UnauthorizedOperation" = "UnauthorizedOperation";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedOperation, __BaseException>) {
-    super({
-      name: "UnauthorizedOperation",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedOperation.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -5509,26 +3984,6 @@ export interface CreateCustomDomainAssociationResult {
 }
 
 /**
- * <p>An error occurred when an attempt was made to change the custom domain association.</p>
- * @public
- */
-export class CustomCnameAssociationFault extends __BaseException {
-  readonly name: "CustomCnameAssociationFault" = "CustomCnameAssociationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomCnameAssociationFault, __BaseException>) {
-    super({
-      name: "CustomCnameAssociationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomCnameAssociationFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateEndpointAccessMessage {
@@ -5631,66 +4086,6 @@ export interface EndpointAccess {
    * @public
    */
   VpcEndpoint?: VpcEndpoint | undefined;
-}
-
-/**
- * <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
- * @public
- */
-export class EndpointAlreadyExistsFault extends __BaseException {
-  readonly name: "EndpointAlreadyExistsFault" = "EndpointAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EndpointAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "EndpointAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EndpointAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
- * @public
- */
-export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException {
-  readonly name: "EndpointsPerAuthorizationLimitExceededFault" = "EndpointsPerAuthorizationLimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EndpointsPerAuthorizationLimitExceededFault, __BaseException>) {
-    super({
-      name: "EndpointsPerAuthorizationLimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EndpointsPerAuthorizationLimitExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
- * @public
- */
-export class EndpointsPerClusterLimitExceededFault extends __BaseException {
-  readonly name: "EndpointsPerClusterLimitExceededFault" = "EndpointsPerClusterLimitExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EndpointsPerClusterLimitExceededFault, __BaseException>) {
-    super({
-      name: "EndpointsPerClusterLimitExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EndpointsPerClusterLimitExceededFault.prototype);
-  }
 }
 
 /**
@@ -5886,197 +4281,6 @@ export interface CreateEventSubscriptionResult {
 }
 
 /**
- * <p>The request would exceed the allowed number of event subscriptions for this
- *             account.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class EventSubscriptionQuotaExceededFault extends __BaseException {
-  readonly name: "EventSubscriptionQuotaExceededFault" = "EventSubscriptionQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EventSubscriptionQuotaExceededFault, __BaseException>) {
-    super({
-      name: "EventSubscriptionQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EventSubscriptionQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
- *             topic.</p>
- * @public
- */
-export class SNSInvalidTopicFault extends __BaseException {
-  readonly name: "SNSInvalidTopicFault" = "SNSInvalidTopicFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSInvalidTopicFault, __BaseException>) {
-    super({
-      name: "SNSInvalidTopicFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSInvalidTopicFault.prototype);
-  }
-}
-
-/**
- * <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
- * @public
- */
-export class SNSNoAuthorizationFault extends __BaseException {
-  readonly name: "SNSNoAuthorizationFault" = "SNSNoAuthorizationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSNoAuthorizationFault, __BaseException>) {
-    super({
-      name: "SNSNoAuthorizationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
-  }
-}
-
-/**
- * <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
- *             exist.</p>
- * @public
- */
-export class SNSTopicArnNotFoundFault extends __BaseException {
-  readonly name: "SNSTopicArnNotFoundFault" = "SNSTopicArnNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SNSTopicArnNotFoundFault, __BaseException>) {
-    super({
-      name: "SNSTopicArnNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SNSTopicArnNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon Redshift event source could not be found.</p>
- * @public
- */
-export class SourceNotFoundFault extends __BaseException {
-  readonly name: "SourceNotFoundFault" = "SourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SourceNotFoundFault, __BaseException>) {
-    super({
-      name: "SourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SourceNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>There is already an existing event notification subscription with the specified
- *             name.</p>
- * @public
- */
-export class SubscriptionAlreadyExistFault extends __BaseException {
-  readonly name: "SubscriptionAlreadyExistFault" = "SubscriptionAlreadyExistFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionAlreadyExistFault, __BaseException>) {
-    super({
-      name: "SubscriptionAlreadyExistFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionAlreadyExistFault.prototype);
-  }
-}
-
-/**
- * <p>The value specified for the event category was not one of the allowed values, or it
- *             specified a category that does not apply to the specified source type. The allowed
- *             values are Configuration, Management, Monitoring, and Security.</p>
- * @public
- */
-export class SubscriptionCategoryNotFoundFault extends __BaseException {
-  readonly name: "SubscriptionCategoryNotFoundFault" = "SubscriptionCategoryNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionCategoryNotFoundFault, __BaseException>) {
-    super({
-      name: "SubscriptionCategoryNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionCategoryNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>An Amazon Redshift event with the specified event ID does not exist.</p>
- * @public
- */
-export class SubscriptionEventIdNotFoundFault extends __BaseException {
-  readonly name: "SubscriptionEventIdNotFoundFault" = "SubscriptionEventIdNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionEventIdNotFoundFault, __BaseException>) {
-    super({
-      name: "SubscriptionEventIdNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionEventIdNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The value specified for the event severity was not one of the allowed values, or it
- *             specified a severity that does not apply to the specified source type. The allowed
- *             values are ERROR and INFO.</p>
- * @public
- */
-export class SubscriptionSeverityNotFoundFault extends __BaseException {
-  readonly name: "SubscriptionSeverityNotFoundFault" = "SubscriptionSeverityNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionSeverityNotFoundFault, __BaseException>) {
-    super({
-      name: "SubscriptionSeverityNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionSeverityNotFoundFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -6133,50 +4337,6 @@ export interface CreateHsmClientCertificateResult {
    * @public
    */
   HsmClientCertificate?: HsmClientCertificate | undefined;
-}
-
-/**
- * <p>There is already an existing Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
- * @public
- */
-export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
-  readonly name: "HsmClientCertificateAlreadyExistsFault" = "HsmClientCertificateAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HsmClientCertificateAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "HsmClientCertificateAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HsmClientCertificateAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The quota for HSM client certificates has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class HsmClientCertificateQuotaExceededFault extends __BaseException {
-  readonly name: "HsmClientCertificateQuotaExceededFault" = "HsmClientCertificateQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HsmClientCertificateQuotaExceededFault, __BaseException>) {
-    super({
-      name: "HsmClientCertificateQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HsmClientCertificateQuotaExceededFault.prototype);
-  }
 }
 
 /**
@@ -6282,50 +4442,6 @@ export interface CreateHsmConfigurationResult {
 }
 
 /**
- * <p>There is already an existing Amazon Redshift HSM configuration with the specified
- *             identifier.</p>
- * @public
- */
-export class HsmConfigurationAlreadyExistsFault extends __BaseException {
-  readonly name: "HsmConfigurationAlreadyExistsFault" = "HsmConfigurationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HsmConfigurationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "HsmConfigurationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HsmConfigurationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The quota for HSM configurations has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- * @public
- */
-export class HsmConfigurationQuotaExceededFault extends __BaseException {
-  readonly name: "HsmConfigurationQuotaExceededFault" = "HsmConfigurationQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HsmConfigurationQuotaExceededFault, __BaseException>) {
-    super({
-      name: "HsmConfigurationQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HsmConfigurationQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateIntegrationMessage {
@@ -6395,25 +4511,6 @@ export interface IntegrationError {
    */
   ErrorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ZeroETLIntegrationStatus = {
-  ACTIVE: "active",
-  CREATING: "creating",
-  DELETING: "deleting",
-  FAILED: "failed",
-  MODIFYING: "modifying",
-  NEEDS_ATTENTION: "needs_attention",
-  SYNCING: "syncing",
-} as const;
-
-/**
- * @public
- */
-export type ZeroETLIntegrationStatus = (typeof ZeroETLIntegrationStatus)[keyof typeof ZeroETLIntegrationStatus];
 
 /**
  * @public
@@ -6489,122 +4586,6 @@ export interface Integration {
    */
   Tags?: Tag[] | undefined;
 }
-
-/**
- * <p>The integration you are trying to create already exists.</p>
- * @public
- */
-export class IntegrationAlreadyExistsFault extends __BaseException {
-  readonly name: "IntegrationAlreadyExistsFault" = "IntegrationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "IntegrationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>A conflicting conditional operation is currently in progress against this resource.
- *             This typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
- * @public
- */
-export class IntegrationConflictOperationFault extends __BaseException {
-  readonly name: "IntegrationConflictOperationFault" = "IntegrationConflictOperationFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationConflictOperationFault, __BaseException>) {
-    super({
-      name: "IntegrationConflictOperationFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationConflictOperationFault.prototype);
-  }
-}
-
-/**
- * <p>You can't create any more zero-ETL or S3 event integrations because the quota has been reached.</p>
- * @public
- */
-export class IntegrationQuotaExceededFault extends __BaseException {
-  readonly name: "IntegrationQuotaExceededFault" = "IntegrationQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationQuotaExceededFault, __BaseException>) {
-    super({
-      name: "IntegrationQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The specified integration source can't be found.</p>
- * @public
- */
-export class IntegrationSourceNotFoundFault extends __BaseException {
-  readonly name: "IntegrationSourceNotFoundFault" = "IntegrationSourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationSourceNotFoundFault, __BaseException>) {
-    super({
-      name: "IntegrationSourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationSourceNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The specified integration target can't be found.</p>
- * @public
- */
-export class IntegrationTargetNotFoundFault extends __BaseException {
-  readonly name: "IntegrationTargetNotFoundFault" = "IntegrationTargetNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationTargetNotFoundFault, __BaseException>) {
-    super({
-      name: "IntegrationTargetNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationTargetNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ServiceAuthorization = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type ServiceAuthorization = (typeof ServiceAuthorization)[keyof typeof ServiceAuthorization];
 
 /**
  * <p>The Lake Formation scope.</p>
@@ -6916,66 +4897,6 @@ export interface CreateRedshiftIdcApplicationResult {
 }
 
 /**
- * <p>A dependent service denied access for the integration.</p>
- * @public
- */
-export class DependentServiceAccessDeniedFault extends __BaseException {
-  readonly name: "DependentServiceAccessDeniedFault" = "DependentServiceAccessDeniedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependentServiceAccessDeniedFault, __BaseException>) {
-    super({
-      name: "DependentServiceAccessDeniedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependentServiceAccessDeniedFault.prototype);
-  }
-}
-
-/**
- * <p>The application you attempted to add already exists.</p>
- * @public
- */
-export class RedshiftIdcApplicationAlreadyExistsFault extends __BaseException {
-  readonly name: "RedshiftIdcApplicationAlreadyExistsFault" = "RedshiftIdcApplicationAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RedshiftIdcApplicationAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "RedshiftIdcApplicationAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RedshiftIdcApplicationAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The maximum number of Redshift IAM Identity Center applications was exceeded.</p>
- * @public
- */
-export class RedshiftIdcApplicationQuotaExceededFault extends __BaseException {
-  readonly name: "RedshiftIdcApplicationQuotaExceededFault" = "RedshiftIdcApplicationQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RedshiftIdcApplicationQuotaExceededFault, __BaseException>) {
-    super({
-      name: "RedshiftIdcApplicationQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RedshiftIdcApplicationQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Describes a pause cluster operation. For example, a scheduled action to run the <code>PauseCluster</code> API operation. </p>
  * @public
  */
@@ -7136,60 +5057,6 @@ export interface CreateScheduledActionMessage {
 }
 
 /**
- * <p>The scheduled action is not valid. </p>
- * @public
- */
-export class InvalidScheduledActionFault extends __BaseException {
-  readonly name: "InvalidScheduledActionFault" = "InvalidScheduledActionFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidScheduledActionFault, __BaseException>) {
-    super({
-      name: "InvalidScheduledActionFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidScheduledActionFault.prototype);
-  }
-}
-
-/**
- * <p>The schedule you submitted isn't valid.</p>
- * @public
- */
-export class InvalidScheduleFault extends __BaseException {
-  readonly name: "InvalidScheduleFault" = "InvalidScheduleFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidScheduleFault, __BaseException>) {
-    super({
-      name: "InvalidScheduleFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidScheduleFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ScheduledActionState = {
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type ScheduledActionState = (typeof ScheduledActionState)[keyof typeof ScheduledActionState];
-
-/**
  * <p>Describes a scheduled action. You can use a scheduled action to trigger some Amazon Redshift API operations on a schedule.
  *             For information about which API operations can be scheduled, see  <a>ScheduledActionType</a>. </p>
  * @public
@@ -7262,66 +5129,6 @@ export interface ScheduledAction {
    * @public
    */
   EndTime?: Date | undefined;
-}
-
-/**
- * <p>The scheduled action already exists. </p>
- * @public
- */
-export class ScheduledActionAlreadyExistsFault extends __BaseException {
-  readonly name: "ScheduledActionAlreadyExistsFault" = "ScheduledActionAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScheduledActionAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "ScheduledActionAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScheduledActionAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The quota for scheduled actions exceeded. </p>
- * @public
- */
-export class ScheduledActionQuotaExceededFault extends __BaseException {
-  readonly name: "ScheduledActionQuotaExceededFault" = "ScheduledActionQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScheduledActionQuotaExceededFault, __BaseException>) {
-    super({
-      name: "ScheduledActionQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScheduledActionQuotaExceededFault.prototype);
-  }
-}
-
-/**
- * <p>The action type specified for a scheduled action is not supported. </p>
- * @public
- */
-export class ScheduledActionTypeUnsupportedFault extends __BaseException {
-  readonly name: "ScheduledActionTypeUnsupportedFault" = "ScheduledActionTypeUnsupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScheduledActionTypeUnsupportedFault, __BaseException>) {
-    super({
-      name: "ScheduledActionTypeUnsupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScheduledActionTypeUnsupportedFault.prototype);
-  }
 }
 
 /**
@@ -7419,48 +5226,6 @@ export interface CreateSnapshotCopyGrantResult {
 }
 
 /**
- * <p>The snapshot copy grant can't be created because a grant with the same name already
- *             exists.</p>
- * @public
- */
-export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
-  readonly name: "SnapshotCopyGrantAlreadyExistsFault" = "SnapshotCopyGrantAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotCopyGrantAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "SnapshotCopyGrantAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotCopyGrantAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
- *             region.</p>
- * @public
- */
-export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
-  readonly name: "SnapshotCopyGrantQuotaExceededFault" = "SnapshotCopyGrantQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotCopyGrantQuotaExceededFault, __BaseException>) {
-    super({
-      name: "SnapshotCopyGrantQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotCopyGrantQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateSnapshotScheduleMessage {
@@ -7501,26 +5266,6 @@ export interface CreateSnapshotScheduleMessage {
    * @public
    */
   NextInvocations?: number | undefined;
-}
-
-/**
- * <p>The definition you submitted is not supported.</p>
- * @public
- */
-export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
-  readonly name: "ScheduleDefinitionTypeUnsupportedFault" = "ScheduleDefinitionTypeUnsupportedFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScheduleDefinitionTypeUnsupportedFault, __BaseException>) {
-    super({
-      name: "ScheduleDefinitionTypeUnsupportedFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScheduleDefinitionTypeUnsupportedFault.prototype);
-  }
 }
 
 /**
@@ -7573,46 +5318,6 @@ export interface SnapshotSchedule {
 }
 
 /**
- * <p>The specified snapshot schedule already exists. </p>
- * @public
- */
-export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
-  readonly name: "SnapshotScheduleAlreadyExistsFault" = "SnapshotScheduleAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotScheduleAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "SnapshotScheduleAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotScheduleAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded the quota of snapshot schedules. </p>
- * @public
- */
-export class SnapshotScheduleQuotaExceededFault extends __BaseException {
-  readonly name: "SnapshotScheduleQuotaExceededFault" = "SnapshotScheduleQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotScheduleQuotaExceededFault, __BaseException>) {
-    super({
-      name: "SnapshotScheduleQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotScheduleQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Contains the output from the <code>CreateTags</code> action. </p>
  * @public
  */
@@ -7635,85 +5340,6 @@ export interface CreateTagsMessage {
    */
   Tags: Tag[] | undefined;
 }
-
-/**
- * <p>The resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundFault extends __BaseException {
-  readonly name: "ResourceNotFoundFault" = "ResourceNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundFault, __BaseException>) {
-    super({
-      name: "ResourceNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const UsageLimitBreachAction = {
-  DISABLE: "disable",
-  EMIT_METRIC: "emit-metric",
-  LOG: "log",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeof UsageLimitBreachAction];
-
-/**
- * @public
- * @enum
- */
-export const UsageLimitFeatureType = {
-  CONCURRENCY_SCALING: "concurrency-scaling",
-  CROSS_REGION_DATASHARING: "cross-region-datasharing",
-  SPECTRUM: "spectrum",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitFeatureType = (typeof UsageLimitFeatureType)[keyof typeof UsageLimitFeatureType];
-
-/**
- * @public
- * @enum
- */
-export const UsageLimitLimitType = {
-  DATA_SCANNED: "data-scanned",
-  TIME: "time",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitLimitType = (typeof UsageLimitLimitType)[keyof typeof UsageLimitLimitType];
-
-/**
- * @public
- * @enum
- */
-export const UsageLimitPeriod = {
-  DAILY: "daily",
-  MONTHLY: "monthly",
-  WEEKLY: "weekly",
-} as const;
-
-/**
- * @public
- */
-export type UsageLimitPeriod = (typeof UsageLimitPeriod)[keyof typeof UsageLimitPeriod];
 
 /**
  * @public
@@ -7768,26 +5394,6 @@ export interface CreateUsageLimitMessage {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>The usage limit is not valid.</p>
- * @public
- */
-export class InvalidUsageLimitFault extends __BaseException {
-  readonly name: "InvalidUsageLimitFault" = "InvalidUsageLimitFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidUsageLimitFault, __BaseException>) {
-    super({
-      name: "InvalidUsageLimitFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidUsageLimitFault.prototype);
-  }
 }
 
 /**
@@ -7859,46 +5465,6 @@ export interface UsageLimit {
 }
 
 /**
- * <p>The usage limit already exists. </p>
- * @public
- */
-export class UsageLimitAlreadyExistsFault extends __BaseException {
-  readonly name: "UsageLimitAlreadyExistsFault" = "UsageLimitAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UsageLimitAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "UsageLimitAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UsageLimitAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>An error occurred. The custom domain name couldn't be found.</p>
- * @public
- */
-export class CustomDomainAssociationNotFoundFault extends __BaseException {
-  readonly name: "CustomDomainAssociationNotFoundFault" = "CustomDomainAssociationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomDomainAssociationNotFoundFault, __BaseException>) {
-    super({
-      name: "CustomDomainAssociationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomDomainAssociationNotFoundFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CustomDomainAssociationsMessage {
@@ -7931,37 +5497,6 @@ export interface CustomerStorageMessage {
    */
   TotalProvisionedStorageInMegaBytes?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataShareStatusForConsumer = {
-  ACTIVE: "ACTIVE",
-  AVAILABLE: "AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type DataShareStatusForConsumer = (typeof DataShareStatusForConsumer)[keyof typeof DataShareStatusForConsumer];
-
-/**
- * @public
- * @enum
- */
-export const DataShareStatusForProducer = {
-  ACTIVE: "ACTIVE",
-  AUTHORIZED: "AUTHORIZED",
-  DEAUTHORIZED: "DEAUTHORIZED",
-  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type DataShareStatusForProducer = (typeof DataShareStatusForProducer)[keyof typeof DataShareStatusForProducer];
 
 /**
  * @public
@@ -8137,28 +5672,6 @@ export interface DeleteClusterParameterGroupMessage {
 }
 
 /**
- * <p>The cluster parameter group action can not be completed because another task is in
- *             progress that involves the parameter group. Wait a few moments and try the operation
- *             again.</p>
- * @public
- */
-export class InvalidClusterParameterGroupStateFault extends __BaseException {
-  readonly name: "InvalidClusterParameterGroupStateFault" = "InvalidClusterParameterGroupStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterParameterGroupStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterParameterGroupStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterParameterGroupStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -8194,26 +5707,6 @@ export interface DeleteClusterSubnetGroupMessage {
 }
 
 /**
- * <p>The state of the subnet is invalid.</p>
- * @public
- */
-export class InvalidClusterSubnetStateFault extends __BaseException {
-  readonly name: "InvalidClusterSubnetStateFault" = "InvalidClusterSubnetStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterSubnetStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterSubnetStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterSubnetStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteCustomDomainAssociationMessage {
@@ -8242,46 +5735,6 @@ export interface DeleteEndpointAccessMessage {
 }
 
 /**
- * <p>The endpoint name doesn't refer to an existing endpoint.</p>
- * @public
- */
-export class EndpointNotFoundFault extends __BaseException {
-  readonly name: "EndpointNotFoundFault" = "EndpointNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EndpointNotFoundFault, __BaseException>) {
-    super({
-      name: "EndpointNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EndpointNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The status of the endpoint is not valid.</p>
- * @public
- */
-export class InvalidEndpointStateFault extends __BaseException {
-  readonly name: "InvalidEndpointStateFault" = "InvalidEndpointStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEndpointStateFault, __BaseException>) {
-    super({
-      name: "InvalidEndpointStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEndpointStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -8291,48 +5744,6 @@ export interface DeleteEventSubscriptionMessage {
    * @public
    */
   SubscriptionName: string | undefined;
-}
-
-/**
- * <p>The subscription request is invalid because it is a duplicate request. This
- *             subscription request is already in progress.</p>
- * @public
- */
-export class InvalidSubscriptionStateFault extends __BaseException {
-  readonly name: "InvalidSubscriptionStateFault" = "InvalidSubscriptionStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubscriptionStateFault, __BaseException>) {
-    super({
-      name: "InvalidSubscriptionStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubscriptionStateFault.prototype);
-  }
-}
-
-/**
- * <p>An Amazon Redshift event notification subscription with the specified name does not
- *             exist.</p>
- * @public
- */
-export class SubscriptionNotFoundFault extends __BaseException {
-  readonly name: "SubscriptionNotFoundFault" = "SubscriptionNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubscriptionNotFoundFault, __BaseException>) {
-    super({
-      name: "SubscriptionNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubscriptionNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -8348,27 +5759,6 @@ export interface DeleteHsmClientCertificateMessage {
 }
 
 /**
- * <p>The specified HSM client certificate is not in the <code>available</code> state, or
- *             it is still in use by one or more Amazon Redshift clusters.</p>
- * @public
- */
-export class InvalidHsmClientCertificateStateFault extends __BaseException {
-  readonly name: "InvalidHsmClientCertificateStateFault" = "InvalidHsmClientCertificateStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidHsmClientCertificateStateFault, __BaseException>) {
-    super({
-      name: "InvalidHsmClientCertificateStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidHsmClientCertificateStateFault.prototype);
-  }
-}
-
-/**
  * <p></p>
  * @public
  */
@@ -8381,27 +5771,6 @@ export interface DeleteHsmConfigurationMessage {
 }
 
 /**
- * <p>The specified HSM configuration is not in the <code>available</code> state, or it
- *             is still in use by one or more Amazon Redshift clusters.</p>
- * @public
- */
-export class InvalidHsmConfigurationStateFault extends __BaseException {
-  readonly name: "InvalidHsmConfigurationStateFault" = "InvalidHsmConfigurationStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidHsmConfigurationStateFault, __BaseException>) {
-    super({
-      name: "InvalidHsmConfigurationStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidHsmConfigurationStateFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteIntegrationMessage {
@@ -8410,46 +5779,6 @@ export interface DeleteIntegrationMessage {
    * @public
    */
   IntegrationArn: string | undefined;
-}
-
-/**
- * <p>The integration is in an invalid state and can't perform the requested operation.</p>
- * @public
- */
-export class IntegrationConflictStateFault extends __BaseException {
-  readonly name: "IntegrationConflictStateFault" = "IntegrationConflictStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationConflictStateFault, __BaseException>) {
-    super({
-      name: "IntegrationConflictStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationConflictStateFault.prototype);
-  }
-}
-
-/**
- * <p>The integration can't be found.</p>
- * @public
- */
-export class IntegrationNotFoundFault extends __BaseException {
-  readonly name: "IntegrationNotFoundFault" = "IntegrationNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IntegrationNotFoundFault, __BaseException>) {
-    super({
-      name: "IntegrationNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -8486,26 +5815,6 @@ export interface DeleteScheduledActionMessage {
 }
 
 /**
- * <p>The scheduled action cannot be found. </p>
- * @public
- */
-export class ScheduledActionNotFoundFault extends __BaseException {
-  readonly name: "ScheduledActionNotFoundFault" = "ScheduledActionNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ScheduledActionNotFoundFault, __BaseException>) {
-    super({
-      name: "ScheduledActionNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ScheduledActionNotFoundFault.prototype);
-  }
-}
-
-/**
  * <p>The result of the <code>DeleteSnapshotCopyGrant</code> action.</p>
  * @public
  */
@@ -8518,48 +5827,6 @@ export interface DeleteSnapshotCopyGrantMessage {
 }
 
 /**
- * <p>The snapshot copy grant can't be deleted because it is used by one or more
- *             clusters.</p>
- * @public
- */
-export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
-  readonly name: "InvalidSnapshotCopyGrantStateFault" = "InvalidSnapshotCopyGrantStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSnapshotCopyGrantStateFault, __BaseException>) {
-    super({
-      name: "InvalidSnapshotCopyGrantStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSnapshotCopyGrantStateFault.prototype);
-  }
-}
-
-/**
- * <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
- *             correctly and that the grant exists in the destination region.</p>
- * @public
- */
-export class SnapshotCopyGrantNotFoundFault extends __BaseException {
-  readonly name: "SnapshotCopyGrantNotFoundFault" = "SnapshotCopyGrantNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapshotCopyGrantNotFoundFault, __BaseException>) {
-    super({
-      name: "SnapshotCopyGrantNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapshotCopyGrantNotFoundFault.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteSnapshotScheduleMessage {
@@ -8568,26 +5835,6 @@ export interface DeleteSnapshotScheduleMessage {
    * @public
    */
   ScheduleIdentifier: string | undefined;
-}
-
-/**
- * <p>The cluster snapshot schedule state is not valid.</p>
- * @public
- */
-export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
-  readonly name: "InvalidClusterSnapshotScheduleStateFault" = "InvalidClusterSnapshotScheduleStateFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidClusterSnapshotScheduleStateFault, __BaseException>) {
-    super({
-      name: "InvalidClusterSnapshotScheduleStateFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidClusterSnapshotScheduleStateFault.prototype);
-  }
 }
 
 /**
@@ -8618,26 +5865,6 @@ export interface DeleteUsageLimitMessage {
    * @public
    */
   UsageLimitId: string | undefined;
-}
-
-/**
- * <p>The usage limit identifier can't be found.</p>
- * @public
- */
-export class UsageLimitNotFoundFault extends __BaseException {
-  readonly name: "UsageLimitNotFoundFault" = "UsageLimitNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UsageLimitNotFoundFault, __BaseException>) {
-    super({
-      name: "UsageLimitNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UsageLimitNotFoundFault.prototype);
-  }
 }
 
 /**
@@ -8742,4 +5969,4904 @@ export interface DeregisterNamespaceInputMessage {
    * @public
    */
   ConsumerIdentifiers: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterNamespaceOutputMessage {
+  /**
+   * <p>The registration status of the cluster or
+   *             serverless namespace.</p>
+   * @public
+   */
+  Status?: NamespaceRegistrationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountAttributesMessage {
+  /**
+   * <p>A list of attribute names.</p>
+   * @public
+   */
+  AttributeNames?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfilesMessage {
+  /**
+   * <p>The name of the authentication profile to describe. If not specified then all authentication profiles owned by the account are listed.</p>
+   * @public
+   */
+  AuthenticationProfileName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfilesResult {
+  /**
+   * <p>The list of authentication profiles.</p>
+   * @public
+   */
+  AuthenticationProfiles?: AuthenticationProfile[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterDbRevisionsMessage {
+  /**
+   * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
+   *             requesting. This parameter is case sensitive. All clusters defined for an account are
+   *             returned by default.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified MaxRecords value, a value is returned
+   *             in the <code>marker</code> field of the response. You can retrieve the next set of
+   *             response records by providing the returned <code>marker</code> value in the
+   *                 <code>marker</code> parameter and retrying the request. </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point for returning a set of
+   *             response records. When the results of a <code>DescribeClusterDbRevisions</code> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Redshift returns a value
+   *             in the <code>marker</code> field of the response. You can retrieve the next set of
+   *             response records by providing the returned <code>marker</code> value in the
+   *                 <code>marker</code> parameter and retrying the request. </p>
+   *          <p>Constraints: You can specify either the <code>ClusterIdentifier</code> parameter, or
+   *             the <code>marker</code> parameter, but not both.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterParameterGroupsMessage {
+  /**
+   * <p>The name of a specific parameter group for which to return details. By default,
+   *             details about all parameter groups and the default parameter group are
+   *             returned.</p>
+   * @public
+   */
+  ParameterGroupName?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterParameterGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching cluster parameter
+   *             groups that are associated with the specified key or keys. For example, suppose that you
+   *             have parameter groups that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the parameter groups that have either or both of these
+   *             tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching cluster parameter
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have parameter groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the parameter groups that have either or both of these tag
+   *             values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterParametersMessage {
+  /**
+   * <p>The name of a cluster parameter group for which to return details.</p>
+   * @public
+   */
+  ParameterGroupName: string | undefined;
+
+  /**
+   * <p>The parameter types to return. Specify <code>user</code> to show parameters that
+   *             are different form the default. Similarly, specify <code>engine-default</code> to show
+   *             parameters that are the same as the default parameter group. </p>
+   *          <p>Default: All parameter types returned.</p>
+   *          <p>Valid Values: <code>user</code> | <code>engine-default</code>
+   *          </p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterParameters</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClustersMessage {
+  /**
+   * <p>The unique identifier of a cluster whose properties you are requesting. This
+   *             parameter is case sensitive.</p>
+   *          <p>The default is that all clusters defined for an account are returned.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusters</a> request exceed the
+   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *          <p>Constraints: You can specify either the <b>ClusterIdentifier</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching clusters that are
+   *             associated with the specified key or keys. For example, suppose that you have clusters
+   *             that are tagged with keys called <code>owner</code> and <code>environment</code>. If you
+   *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
+   *             clusters that have either or both of these tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching clusters that are
+   *             associated with the specified tag value or values. For example, suppose that you have
+   *             clusters that are tagged with values called <code>admin</code> and <code>test</code>. If
+   *             you specify both of these tag values in the request, Amazon Redshift returns a response with
+   *             the clusters that have either or both of these tag values associated with
+   *             them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterSecurityGroupsMessage {
+  /**
+   * <p>The name of a cluster security group for which you are requesting details. You must
+   *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
+   *          <p> Example: <code>securitygroup1</code>
+   *          </p>
+   * @public
+   */
+  ClusterSecurityGroupName?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSecurityGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *          <p>Constraints: You must specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching cluster security groups
+   *             that are associated with the specified key or keys. For example, suppose that you have
+   *             security groups that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the security groups that have either or both of these
+   *             tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching cluster security
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have security groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the security groups that have either or both of these tag values
+   *             associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p>Describes a sorting entity</p>
+ * @public
+ */
+export interface SnapshotSortingEntity {
+  /**
+   * <p>The category for sorting the snapshots.</p>
+   * @public
+   */
+  Attribute: SnapshotAttributeToSortBy | undefined;
+
+  /**
+   * <p>The order for listing the attributes.</p>
+   * @public
+   */
+  SortOrder?: SortByOrder | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterSnapshotsMessage {
+  /**
+   * <p>The identifier of the cluster which generated the requested snapshots.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The snapshot identifier of the snapshot about which to return
+   *             information.</p>
+   * @public
+   */
+  SnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to describe cluster snapshots.</p>
+   * @public
+   */
+  SnapshotArn?: string | undefined;
+
+  /**
+   * <p>The type of snapshots for which you are requesting information. By default,
+   *             snapshots of all types are returned.</p>
+   *          <p>Valid Values: <code>automated</code> | <code>manual</code>
+   *          </p>
+   * @public
+   */
+  SnapshotType?: string | undefined;
+
+  /**
+   * <p>A value that requests only snapshots created at or after the specified time. The
+   *             time value is specified in ISO 8601 format. For more information about ISO 8601, go to
+   *             the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: <code>2012-07-16T18:00:00Z</code>
+   *          </p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>A time value that requests only snapshots created at or before the specified time.
+   *             The time value is specified in ISO 8601 format. For more information about ISO 8601, go
+   *             to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia
+   *                 page.</a>
+   *          </p>
+   *          <p>Example: <code>2012-07-16T18:00:00Z</code>
+   *          </p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSnapshots</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account used to create or copy the snapshot. Use this field to
+   *             filter the results to snapshots owned by a particular account. To describe snapshots you
+   *             own, either specify your Amazon Web Services account, or do not specify the
+   *             parameter.</p>
+   * @public
+   */
+  OwnerAccount?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching cluster snapshots that
+   *             are associated with the specified key or keys. For example, suppose that you have
+   *             snapshots that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the snapshots that have either or both of these tag
+   *             keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching cluster snapshots
+   *             that are associated with the specified tag value or values. For example, suppose that
+   *             you have snapshots that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the snapshots that have either or both of these tag values
+   *             associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+
+  /**
+   * <p>A value that indicates whether to return snapshots only for an existing cluster.
+   *             You can perform table-level restore only by using a snapshot of an existing cluster,
+   *             that is, a cluster that has not been deleted. Values for this parameter work as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>ClusterExists</code> is set to <code>true</code>,
+   *                         <code>ClusterIdentifier</code> is required.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>ClusterExists</code> is set to <code>false</code> and
+   *                         <code>ClusterIdentifier</code> isn't specified, all snapshots
+   *                     associated with deleted clusters (orphaned snapshots) are returned. </p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>ClusterExists</code> is set to <code>false</code> and
+   *                         <code>ClusterIdentifier</code> is specified for a deleted cluster, snapshots
+   *                     associated with that cluster are returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>ClusterExists</code> is set to <code>false</code> and
+   *                         <code>ClusterIdentifier</code> is specified for an existing cluster, no
+   *                     snapshots are returned. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ClusterExists?: boolean | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  SortingEntities?: SnapshotSortingEntity[] | undefined;
+}
+
+/**
+ * <p>Contains the output from the <a>DescribeClusterSnapshots</a> action.
+ *         </p>
+ * @public
+ */
+export interface SnapshotMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <a>Snapshot</a> instances. </p>
+   * @public
+   */
+  Snapshots?: Snapshot[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterSubnetGroupsMessage {
+  /**
+   * <p>The name of the cluster subnet group for which information is requested.</p>
+   * @public
+   */
+  ClusterSubnetGroupName?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching cluster subnet groups
+   *             that are associated with the specified key or keys. For example, suppose that you have
+   *             subnet groups that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the subnet groups that have either or both of these
+   *             tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching cluster subnet
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have subnet groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the subnet groups that have either or both of these tag values
+   *             associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterTracksMessage {
+  /**
+   * <p>The name of the maintenance track. </p>
+   * @public
+   */
+  MaintenanceTrackName?: string | undefined;
+
+  /**
+   * <p>An integer value for the maximum number of maintenance tracks to return.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <code>DescribeClusterTracks</code> request exceed the
+   *             value specified in <code>MaxRecords</code>, Amazon Redshift returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Describes the operations that are allowed on a maintenance track.</p>
+ * @public
+ */
+export interface SupportedOperation {
+  /**
+   * <p>A list of the supported operations.</p>
+   * @public
+   */
+  OperationName?: string | undefined;
+}
+
+/**
+ * <p>A maintenance track that you can switch the current track to.</p>
+ * @public
+ */
+export interface UpdateTarget {
+  /**
+   * <p>The name of the new maintenance track.</p>
+   * @public
+   */
+  MaintenanceTrackName?: string | undefined;
+
+  /**
+   * <p>The cluster version for the new maintenance track.</p>
+   * @public
+   */
+  DatabaseVersion?: string | undefined;
+
+  /**
+   * <p>A list of operations supported by the maintenance track.</p>
+   * @public
+   */
+  SupportedOperations?: SupportedOperation[] | undefined;
+}
+
+/**
+ * <p>Defines a maintenance track that determines which Amazon Redshift version to apply
+ *             during a maintenance window. If the value for <code>MaintenanceTrack</code> is
+ *                 <code>current</code>, the cluster is updated to the most recently certified
+ *             maintenance release. If the value is <code>trailing</code>, the cluster is updated to
+ *             the previously certified maintenance release. </p>
+ * @public
+ */
+export interface MaintenanceTrack {
+  /**
+   * <p>The name of the maintenance track. Possible values are <code>current</code> and
+   *                 <code>trailing</code>.</p>
+   * @public
+   */
+  MaintenanceTrackName?: string | undefined;
+
+  /**
+   * <p>The version number for the cluster release.</p>
+   * @public
+   */
+  DatabaseVersion?: string | undefined;
+
+  /**
+   * <p>An array of <a>UpdateTarget</a> objects to update with the maintenance
+   *             track. </p>
+   * @public
+   */
+  UpdateTargets?: UpdateTarget[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TrackListMessage {
+  /**
+   * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
+   *             operation. </p>
+   * @public
+   */
+  MaintenanceTracks?: MaintenanceTrack[] | undefined;
+
+  /**
+   * <p>The starting point to return a set of response tracklist records. You can retrieve the
+   *             next set of response records by providing the returned marker value in the
+   *                 <code>Marker</code> parameter and retrying the request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeClusterVersionsMessage {
+  /**
+   * <p>The specific cluster version to return.</p>
+   *          <p>Example: <code>1.0</code>
+   *          </p>
+   * @public
+   */
+  ClusterVersion?: string | undefined;
+
+  /**
+   * <p>The name of a specific cluster parameter group family to return details
+   *             for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 255 alphanumeric characters</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ClusterParameterGroupFamily?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterVersions</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomDomainAssociationsMessage {
+  /**
+   * <p>The custom domain name for the custom domain association.</p>
+   * @public
+   */
+  CustomDomainName?: string | undefined;
+
+  /**
+   * <p>The certificate Amazon Resource Name (ARN) for the custom domain association.</p>
+   * @public
+   */
+  CustomDomainCertificateArn?: string | undefined;
+
+  /**
+   * <p>The maximum records setting for the associated custom domain.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The marker for the custom domain association.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesMessage {
+  /**
+   * <p>The Amazon resource name (ARN) of the datashare to describe details of.</p>
+   * @public
+   */
+  DataShareArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesResult {
+  /**
+   * <p>The results returned from describing datashares.</p>
+   * @public
+   */
+  DataShares?: DataShare[] | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForConsumerMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumer namespace that returns in the list of datashares.</p>
+   * @public
+   */
+  ConsumerArn?: string | undefined;
+
+  /**
+   * <p>An identifier giving the status of a datashare in the consumer cluster. If this field is specified, Amazon
+   *             Redshift returns the list of datashares that have the specified status.</p>
+   * @public
+   */
+  Status?: DataShareStatusForConsumer | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForConsumerResult {
+  /**
+   * <p>Shows the results of datashares available for consumers.</p>
+   * @public
+   */
+  DataShares?: DataShare[] | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForProducerMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.</p>
+   * @public
+   */
+  ProducerArn?: string | undefined;
+
+  /**
+   * <p>An identifier giving the status of a datashare in the producer. If this field is specified, Amazon
+   *             Redshift returns the list of datashares that have the specified status.</p>
+   * @public
+   */
+  Status?: DataShareStatusForProducer | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSharesForProducerResult {
+  /**
+   * <p>Shows the results of datashares available for producers.</p>
+   * @public
+   */
+  DataShares?: DataShare[] | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeDefaultClusterParametersMessage {
+  /**
+   * <p>The name of the cluster parameter group family.</p>
+   * @public
+   */
+  ParameterGroupFamily: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
+   *             request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in
+   *             the <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDefaultClusterParametersResult {
+  /**
+   * <p>Describes the default cluster parameters for a parameter group family.</p>
+   * @public
+   */
+  DefaultClusterParameters?: DefaultClusterParameters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointAccessMessage {
+  /**
+   * <p>The cluster identifier associated with the described endpoint.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the cluster.</p>
+   * @public
+   */
+  ResourceOwner?: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to be described.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The virtual private cloud (VPC) identifier with access to the cluster.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAccess</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EndpointAccessList {
+  /**
+   * <p>The list of endpoints with access to the cluster.</p>
+   * @public
+   */
+  EndpointAccessList?: EndpointAccess[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAccess</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointAuthorizationMessage {
+  /**
+   * <p>The cluster identifier of the cluster to access.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of either the cluster owner (grantor) or grantee.
+   *        If <code>Grantee</code> parameter is true, then the <code>Account</code> value is of the grantor.</p>
+   * @public
+   */
+  Account?: string | undefined;
+
+  /**
+   * <p>Indicates whether to check authorization from a grantor or grantee point of view.
+   *            If true, Amazon Redshift returns endpoint authorizations that you've been granted.
+   *            If false (default), checks authorization from a grantor point of view.</p>
+   * @public
+   */
+  Grantee?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EndpointAuthorizationList {
+  /**
+   * <p>The authorizations to an endpoint.</p>
+   * @public
+   */
+  EndpointAuthorizationList?: EndpointAuthorization[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *             <code>MaxRecords</code> parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEventCategoriesMessage {
+  /**
+   * <p>The source type, such as cluster or parameter group, to which the described event
+   *             categories apply.</p>
+   *          <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+}
+
+/**
+ * <p>Describes event information.</p>
+ * @public
+ */
+export interface EventInfoMap {
+  /**
+   * <p>The identifier of an Amazon Redshift event.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The category of an Amazon Redshift event.</p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+
+  /**
+   * <p>The description of an Amazon Redshift event.</p>
+   * @public
+   */
+  EventDescription?: string | undefined;
+
+  /**
+   * <p>The severity of the event.</p>
+   *          <p>Values: ERROR, INFO</p>
+   * @public
+   */
+  Severity?: string | undefined;
+}
+
+/**
+ * <p>Describes event categories.</p>
+ * @public
+ */
+export interface EventCategoriesMap {
+  /**
+   * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
+   *             belong to.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>The events in the event category.</p>
+   * @public
+   */
+  Events?: EventInfoMap[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface EventCategoriesMessage {
+  /**
+   * <p>A list of event categories descriptions.</p>
+   * @public
+   */
+  EventCategoriesMapList?: EventCategoriesMap[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEventsMessage {
+  /**
+   * <p>The identifier of the event source for which events will be returned. If this
+   *             parameter is not specified, then all sources are included in the response.</p>
+   *          <p>Constraints:</p>
+   *          <p>If <i>SourceIdentifier</i> is supplied,
+   *                 <i>SourceType</i> must also be provided.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specify a cluster identifier when <i>SourceType</i> is
+   *                         <code>cluster</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify a cluster security group name when <i>SourceType</i>
+   *                     is <code>cluster-security-group</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify a cluster parameter group name when <i>SourceType</i>
+   *                     is <code>cluster-parameter-group</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify a cluster snapshot identifier when <i>SourceType</i>
+   *                     is <code>cluster-snapshot</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SourceIdentifier?: string | undefined;
+
+  /**
+   * <p>The event source to retrieve events for. If no value is specified, all events are
+   *             returned.</p>
+   *          <p>Constraints:</p>
+   *          <p>If <i>SourceType</i> is supplied,
+   *                 <i>SourceIdentifier</i> must also be provided.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specify <code>cluster</code> when <i>SourceIdentifier</i> is
+   *                     a cluster identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>cluster-security-group</code> when
+   *                         <i>SourceIdentifier</i> is a cluster security group
+   *                     name.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>cluster-parameter-group</code> when
+   *                         <i>SourceIdentifier</i> is a cluster parameter group
+   *                     name.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specify <code>cluster-snapshot</code> when
+   *                         <i>SourceIdentifier</i> is a cluster snapshot
+   *                     identifier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SourceType?: SourceType | undefined;
+
+  /**
+   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: <code>2009-07-08T18:00Z</code>
+   *          </p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: <code>2009-07-08T18:00Z</code>
+   *          </p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The number of minutes prior to the time of the request for which to retrieve
+   *             events. For example, if the request is sent at 18:00 and you specify a duration of 60,
+   *             then only events which have occurred after 17:00 will be returned.</p>
+   *          <p>Default: <code>60</code>
+   *          </p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeEvents</a> request exceed the value
+   *             specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
+   *             field of the response. You can retrieve the next set of response records by providing
+   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Describes an event.</p>
+ * @public
+ */
+export interface Event {
+  /**
+   * <p>The identifier for the source of the event.</p>
+   * @public
+   */
+  SourceIdentifier?: string | undefined;
+
+  /**
+   * <p>The source type for this event.</p>
+   * @public
+   */
+  SourceType?: SourceType | undefined;
+
+  /**
+   * <p>The text of this event.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>A list of the event categories.</p>
+   *          <p>Values: Configuration, Management, Monitoring, Security, Pending</p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+
+  /**
+   * <p>The severity of the event.</p>
+   *          <p>Values: ERROR, INFO</p>
+   * @public
+   */
+  Severity?: string | undefined;
+
+  /**
+   * <p>The date and time of the event.</p>
+   * @public
+   */
+  Date?: Date | undefined;
+
+  /**
+   * <p>The identifier of the event.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface EventsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>Event</code> instances. </p>
+   * @public
+   */
+  Events?: Event[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeEventSubscriptionsMessage {
+  /**
+   * <p>The name of the Amazon Redshift event notification subscription to be
+   *             described.</p>
+   * @public
+   */
+  SubscriptionName?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a DescribeEventSubscriptions request exceed the value
+   *             specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code>
+   *             field of the response. You can retrieve the next set of response records by providing
+   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching event notification
+   *             subscriptions that are associated with the specified key or keys. For example, suppose
+   *             that you have subscriptions that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the subscriptions that have either or both of these
+   *             tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching event notification
+   *             subscriptions that are associated with the specified tag value or values. For example,
+   *             suppose that you have subscriptions that are tagged with values called
+   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
+   *             the request, Amazon Redshift returns a response with the subscriptions that have either or
+   *             both of these tag values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface EventSubscriptionsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of event subscriptions.</p>
+   * @public
+   */
+  EventSubscriptionsList?: EventSubscription[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeHsmClientCertificatesMessage {
+  /**
+   * <p>The identifier of a specific HSM client certificate for which you want information.
+   *             If no identifier is specified, information is returned for all HSM client certificates
+   *             owned by your Amazon Web Services account.</p>
+   * @public
+   */
+  HsmClientCertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching HSM client certificates
+   *             that are associated with the specified key or keys. For example, suppose that you have
+   *             HSM client certificates that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the HSM client certificates that have either or both
+   *             of these tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching HSM client
+   *             certificates that are associated with the specified tag value or values. For example,
+   *             suppose that you have HSM client certificates that are tagged with values called
+   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
+   *             the request, Amazon Redshift returns a response with the HSM client certificates that have
+   *             either or both of these tag values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface HsmClientCertificateMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
+   *             clusters to store and retrieve database encryption keys in an HSM.</p>
+   * @public
+   */
+  HsmClientCertificates?: HsmClientCertificate[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeHsmConfigurationsMessage {
+  /**
+   * <p>The identifier of a specific Amazon Redshift HSM configuration to be described. If no
+   *             identifier is specified, information is returned for all HSM configurations owned by
+   *             your Amazon Web Services account.</p>
+   * @public
+   */
+  HsmConfigurationIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeHsmConfigurations</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching HSM configurations that
+   *             are associated with the specified key or keys. For example, suppose that you have HSM
+   *             configurations that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the HSM configurations that have either or both of
+   *             these tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching HSM configurations
+   *             that are associated with the specified tag value or values. For example, suppose that
+   *             you have HSM configurations that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the HSM configurations that have either or both of these tag
+   *             values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface HsmConfigurationMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>HsmConfiguration</code> objects.</p>
+   * @public
+   */
+  HsmConfigurations?: HsmConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInboundIntegrationsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inbound integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target of an inbound integration.</p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeInboundIntegrations</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>The content of an inbound integration.</p>
+ * @public
+ */
+export interface InboundIntegration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an inbound integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source of an inbound integration.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target of an inbound integration.</p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The status of an inbound integration.</p>
+   * @public
+   */
+  Status?: ZeroETLIntegrationStatus | undefined;
+
+  /**
+   * <p>The outstanding errors of an inbound  integration. Each item is an "IntegrationError". This is null if there is no error.</p>
+   * @public
+   */
+  Errors?: IntegrationError[] | undefined;
+
+  /**
+   * <p>The creation time of an inbound integration.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InboundIntegrationsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <a>InboundIntegration</a> instances.</p>
+   * @public
+   */
+  InboundIntegrations?: InboundIntegration[] | undefined;
+}
+
+/**
+ * <p>A set of elements to filter the returned integrations.</p>
+ * @public
+ */
+export interface DescribeIntegrationsFilter {
+  /**
+   * <p>Specifies the type of integration filter.</p>
+   * @public
+   */
+  Name: DescribeIntegrationsFilterName | undefined;
+
+  /**
+   * <p>Specifies the values to filter on.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIntegrationsMessage {
+  /**
+   * <p>The unique identifier of the integration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeIntegrations</code>
+   *             request. If this parameter is specified, the response includes only records beyond the
+   *             marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more resources to return.</p>
+   * @public
+   */
+  Filters?: DescribeIntegrationsFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IntegrationsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request.
+   *             If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command.
+   *             If the <code>Marker</code> field is empty, all response records have been retrieved for the request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>List of integrations that are described.</p>
+   * @public
+   */
+  Integrations?: Integration[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeLoggingStatusMessage {
+  /**
+   * <p>The identifier of the cluster from which to get the logging status.</p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * <p>Describes the status of logging for a cluster.</p>
+ * @public
+ */
+export interface LoggingStatus {
+  /**
+   * <p>
+   *             <code>true</code> if logging is on, <code>false</code> if logging is off.</p>
+   * @public
+   */
+  LoggingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The name of the S3 bucket where the log files are stored.</p>
+   * @public
+   */
+  BucketName?: string | undefined;
+
+  /**
+   * <p>The prefix applied to the log file names.</p>
+   * @public
+   */
+  S3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The last time that logs were delivered.</p>
+   * @public
+   */
+  LastSuccessfulDeliveryTime?: Date | undefined;
+
+  /**
+   * <p>The last time when logs failed to be delivered.</p>
+   * @public
+   */
+  LastFailureTime?: Date | undefined;
+
+  /**
+   * <p>The message indicating that logs failed to be delivered.</p>
+   * @public
+   */
+  LastFailureMessage?: string | undefined;
+
+  /**
+   * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
+   * @public
+   */
+  LogDestinationType?: LogDestinationType | undefined;
+
+  /**
+   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and
+   *             <code>userlog</code>.</p>
+   * @public
+   */
+  LogExports?: string[] | undefined;
+}
+
+/**
+ * <p>A set of elements to filter the returned node configurations.</p>
+ * @public
+ */
+export interface NodeConfigurationOptionsFilter {
+  /**
+   * <p>The name of the element to filter.</p>
+   * @public
+   */
+  Name?: NodeConfigurationOptionsFilterName | undefined;
+
+  /**
+   * <p>The filter operator.
+   *             If filter Name is NodeType only the 'in' operator is supported.
+   *             Provide one value to evaluate for 'eq', 'lt', 'le', 'gt', and 'ge'.
+   *             Provide two values to evaluate for 'between'.
+   *             Provide a list of values for 'in'.</p>
+   * @public
+   */
+  Operator?: OperatorType | undefined;
+
+  /**
+   * <p>List of values. Compare Name using Operator to Values.
+   *             If filter Name is NumberOfNodes, then values can range from 0 to 200.
+   *             If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
+   *             For example, filter NumberOfNodes (name) GT (operator) 3 (values).</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNodeConfigurationOptionsMessage {
+  /**
+   * <p>The action type to evaluate for possible node configurations.
+   *             Specify "restore-cluster" to get configuration combinations based on an existing snapshot.
+   *             Specify "recommend-node-config" to get configuration recommendations based on an existing cluster or snapshot.
+   *             Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
+   *         </p>
+   * @public
+   */
+  ActionType: ActionType | undefined;
+
+  /**
+   * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The identifier of the snapshot to evaluate for possible node configurations.</p>
+   * @public
+   */
+  SnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to describe node configuration.</p>
+   * @public
+   */
+  SnapshotArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account used to create or copy the snapshot.
+   *             Required if you are restoring a snapshot you do not own,
+   *             optional if you own the snapshot.</p>
+   * @public
+   */
+  OwnerAccount?: string | undefined;
+
+  /**
+   * <p>A set of name, operator, and value items to filter the results.</p>
+   * @public
+   */
+  Filters?: NodeConfigurationOptionsFilter[] | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeNodeConfigurationOptions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>500</code>
+   *          </p>
+   *          <p>Constraints: minimum 100, maximum 500.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>A list of node configurations.</p>
+ * @public
+ */
+export interface NodeConfigurationOption {
+  /**
+   * <p>The node type, such as, "ra3.4xlarge".</p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>The number of nodes.</p>
+   * @public
+   */
+  NumberOfNodes?: number | undefined;
+
+  /**
+   * <p>The estimated disk utilizaton percentage.</p>
+   * @public
+   */
+  EstimatedDiskUtilizationPercent?: number | undefined;
+
+  /**
+   * <p>The category of the node configuration recommendation.</p>
+   * @public
+   */
+  Mode?: Mode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface NodeConfigurationOptionsMessage {
+  /**
+   * <p>A list of valid node configurations.</p>
+   * @public
+   */
+  NodeConfigurationOptionList?: NodeConfigurationOption[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeOrderableClusterOptionsMessage {
+  /**
+   * <p>The version filter value. Specify this parameter to show only the available
+   *             offerings matching the specified version.</p>
+   *          <p>Default: All versions.</p>
+   *          <p>Constraints: Must be one of the version returned from <a>DescribeClusterVersions</a>.</p>
+   * @public
+   */
+  ClusterVersion?: string | undefined;
+
+  /**
+   * <p>The node type filter value. Specify this parameter to show only the available
+   *             offerings matching the specified node type.</p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeOrderableClusterOptions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Describes an orderable cluster option.</p>
+ * @public
+ */
+export interface OrderableClusterOption {
+  /**
+   * <p>The version of the orderable cluster.</p>
+   * @public
+   */
+  ClusterVersion?: string | undefined;
+
+  /**
+   * <p>The cluster type, for example <code>multi-node</code>. </p>
+   * @public
+   */
+  ClusterType?: string | undefined;
+
+  /**
+   * <p>The node type for the orderable cluster.</p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>A list of availability zones for the orderable cluster.</p>
+   * @public
+   */
+  AvailabilityZones?: AvailabilityZone[] | undefined;
+}
+
+/**
+ * <p>Contains the output from the <a>DescribeOrderableClusterOptions</a>
+ *             action. </p>
+ * @public
+ */
+export interface OrderableClusterOptionsMessage {
+  /**
+   * <p>An <code>OrderableClusterOption</code> structure containing information about
+   *             orderable options for the cluster.</p>
+   * @public
+   */
+  OrderableClusterOptions?: OrderableClusterOption[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePartnersInputMessage {
+  /**
+   * <p>The Amazon Web Services account ID that owns the cluster.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The cluster identifier of the cluster whose partner integration is being described.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the database whose partner integration is being described. If database name is not specified, then all databases in the cluster are described.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the partner that is being described. If partner name is not specified, then all partner integrations are described.</p>
+   * @public
+   */
+  PartnerName?: string | undefined;
+}
+
+/**
+ * <p>Describes a partner integration.</p>
+ * @public
+ */
+export interface PartnerIntegrationInfo {
+  /**
+   * <p>The name of the database that receives data from a partner.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the partner.</p>
+   * @public
+   */
+  PartnerName?: string | undefined;
+
+  /**
+   * <p>The partner integration status.</p>
+   * @public
+   */
+  Status?: PartnerIntegrationStatus | undefined;
+
+  /**
+   * <p>The status message provided by the partner.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The date (UTC) that the partner integration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date (UTC) that the partner integration status was last updated by the partner.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePartnersOutputMessage {
+  /**
+   * <p>A list of partner integrations.</p>
+   * @public
+   */
+  PartnerIntegrationInfoList?: PartnerIntegrationInfo[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRedshiftIdcApplicationsMessage {
+  /**
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   * @public
+   */
+  RedshiftIdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of remaining response records
+   *             exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve
+   *             the next set of records by retrying the command with the returned marker value.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a
+   *             value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRedshiftIdcApplicationsResult {
+  /**
+   * <p>The list of Amazon Redshift IAM Identity Center applications.</p>
+   * @public
+   */
+  RedshiftIdcApplications?: RedshiftIdcApplication[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent
+   *             request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservedNodeExchangeStatusInputMessage {
+  /**
+   * <p>The identifier of the source reserved node in a reserved-node exchange request.</p>
+   * @public
+   */
+  ReservedNodeId?: string | undefined;
+
+  /**
+   * <p>The identifier of the reserved-node exchange request.</p>
+   * @public
+   */
+  ReservedNodeExchangeRequestId?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>Marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeReservedNodeExchangeStatus</code> request. If this
+   *             parameter is specified, the response includes only records beyond the marker, up to the value
+   *             specified by the <code>MaxRecords</code> parameter. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReservedNodeExchangeStatusOutputMessage {
+  /**
+   * <p>The details of the reserved-node exchange request, including the status, request
+   *             time, source reserved-node identifier, and additional details.</p>
+   * @public
+   */
+  ReservedNodeExchangeStatusDetails?: ReservedNodeExchangeStatus[] | undefined;
+
+  /**
+   * <p>A pagination token provided by a previous <code>DescribeReservedNodeExchangeStatus</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReservedNodeOfferingsMessage {
+  /**
+   * <p>The unique identifier for the offering.</p>
+   * @public
+   */
+  ReservedNodeOfferingId?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeReservedNodeOfferings</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Describes a reserved node offering.</p>
+ * @public
+ */
+export interface ReservedNodeOffering {
+  /**
+   * <p>The offering identifier.</p>
+   * @public
+   */
+  ReservedNodeOfferingId?: string | undefined;
+
+  /**
+   * <p>The node type offered by the reserved node offering.</p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, for which the offering will reserve the node.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
+   *             offering.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The rate you are charged for each hour the cluster that is using the offering is
+   *             running.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The currency code for the compute nodes offering.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The anticipated utilization of the reserved node, as defined in the reserved node
+   *             offering.</p>
+   * @public
+   */
+  OfferingType?: string | undefined;
+
+  /**
+   * <p>The charge to your account regardless of whether you are creating any clusters
+   *             using the node offering. Recurring charges are only in effect for heavy-utilization
+   *             reserved nodes.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  ReservedNodeOfferingType?: ReservedNodeOfferingType | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ReservedNodeOfferingsMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
+   * @public
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeReservedNodesMessage {
+  /**
+   * <p>Identifier for the node reservation.</p>
+   * @public
+   */
+  ReservedNodeId?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeReservedNodes</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ReservedNodesMessage {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The list of <code>ReservedNode</code> objects.</p>
+   * @public
+   */
+  ReservedNodes?: ReservedNode[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeResizeMessage {
+  /**
+   * <p>The unique identifier of a cluster whose resize progress you are requesting. This
+   *             parameter is case-sensitive.</p>
+   *          <p>By default, resize operations for all clusters defined for an Amazon Web Services account are
+   *             returned.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * <p>A set of elements to filter the returned scheduled actions. </p>
+ * @public
+ */
+export interface ScheduledActionFilter {
+  /**
+   * <p>The type of element to filter. </p>
+   * @public
+   */
+  Name: ScheduledActionFilterName | undefined;
+
+  /**
+   * <p>List of values. Compare if the value (of type defined by <code>Name</code>) equals an item in the list of scheduled actions. </p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeScheduledActionsMessage {
+  /**
+   * <p>The name of the scheduled action to retrieve. </p>
+   * @public
+   */
+  ScheduledActionName?: string | undefined;
+
+  /**
+   * <p>The type of the scheduled actions to retrieve. </p>
+   * @public
+   */
+  TargetActionType?: ScheduledActionTypeValues | undefined;
+
+  /**
+   * <p>The start time in UTC of the scheduled actions to retrieve.
+   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time in UTC of the scheduled action to retrieve.
+   *             Only active scheduled actions that have invocations before this time are retrieved.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>If true, retrieve only active scheduled actions.
+   *            If false, retrieve only disabled scheduled actions. </p>
+   * @public
+   */
+  Active?: boolean | undefined;
+
+  /**
+   * <p>List of scheduled action filters. </p>
+   * @public
+   */
+  Filters?: ScheduledActionFilter[] | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeScheduledActions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ScheduledActionsMessage {
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeScheduledActions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>List of retrieved scheduled actions. </p>
+   * @public
+   */
+  ScheduledActions?: ScheduledAction[] | undefined;
+}
+
+/**
+ * <p>The result of the <code>DescribeSnapshotCopyGrants</code> action.</p>
+ * @public
+ */
+export interface DescribeSnapshotCopyGrantsMessage {
+  /**
+   * <p>The name of the snapshot copy grant.</p>
+   * @public
+   */
+  SnapshotCopyGrantName?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
+   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *          <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching resources that are
+   *             associated with the specified key or keys. For example, suppose that you have resources
+   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
+   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
+   *             that have either or both of these tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface SnapshotCopyGrantMessage {
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
+   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *          <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The list of <code>SnapshotCopyGrant</code> objects.</p>
+   * @public
+   */
+  SnapshotCopyGrants?: SnapshotCopyGrant[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotSchedulesMessage {
+  /**
+   * <p>The unique identifier for the cluster whose snapshot schedules you want to
+   *             view.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>A unique identifier for a snapshot schedule.</p>
+   * @public
+   */
+  ScheduleIdentifier?: string | undefined;
+
+  /**
+   * <p>The key value for a snapshot schedule tag.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>The value corresponding to the key of the snapshot schedule tag.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number or response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned <code>marker</code>
+   *             value.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotSchedulesOutputMessage {
+  /**
+   * <p>A list of SnapshotSchedules.</p>
+   * @public
+   */
+  SnapshotSchedules?: SnapshotSchedule[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeTableRestoreStatusMessage {
+  /**
+   * <p>The Amazon Redshift cluster that the table is being restored to.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The identifier of the table restore request to return status for. If you don't
+   *             specify a <code>TableRestoreRequestId</code> value, then
+   *                 <code>DescribeTableRestoreStatus</code> returns the status of all in-progress table
+   *             restore requests.</p>
+   * @public
+   */
+  TableRestoreRequestId?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *                 <code>MaxRecords</code> parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
+ *             operation.</p>
+ * @public
+ */
+export interface TableRestoreStatus {
+  /**
+   * <p>The unique identifier for the table restore request.</p>
+   * @public
+   */
+  TableRestoreRequestId?: string | undefined;
+
+  /**
+   * <p>A value that describes the current state of the table restore request.</p>
+   *          <p>Valid Values: <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>
+   *          </p>
+   * @public
+   */
+  Status?: TableRestoreStatusType | undefined;
+
+  /**
+   * <p>A description of the status of the table restore request. Status values include
+   *                 <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The time that the table restore request was made, in Universal Coordinated Time
+   *             (UTC).</p>
+   * @public
+   */
+  RequestTime?: Date | undefined;
+
+  /**
+   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
+   * @public
+   */
+  ProgressInMegaBytes?: number | undefined;
+
+  /**
+   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
+   * @public
+   */
+  TotalDataInMegaBytes?: number | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Redshift cluster that the table is being restored
+   *             to.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The identifier of the snapshot that the table is being restored from.</p>
+   * @public
+   */
+  SnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the source database that contains the table being restored.</p>
+   * @public
+   */
+  SourceDatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the source schema that contains the table being restored.</p>
+   * @public
+   */
+  SourceSchemaName?: string | undefined;
+
+  /**
+   * <p>The name of the source table being restored.</p>
+   * @public
+   */
+  SourceTableName?: string | undefined;
+
+  /**
+   * <p>The name of the database to restore the table to.</p>
+   * @public
+   */
+  TargetDatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the schema to restore the table to.</p>
+   * @public
+   */
+  TargetSchemaName?: string | undefined;
+
+  /**
+   * <p>The name of the table to create as a result of the table restore request.</p>
+   * @public
+   */
+  NewTableName?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface TableRestoreStatusMessage {
+  /**
+   * <p>A list of status details for one or more table restore requests.</p>
+   * @public
+   */
+  TableRestoreStatusDetails?: TableRestoreStatus[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DescribeTagsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
+   *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The type of resource with which you want to view tags. Valid resource types are: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Cluster</p>
+   *             </li>
+   *             <li>
+   *                <p>CIDR/IP</p>
+   *             </li>
+   *             <li>
+   *                <p>EC2 security group</p>
+   *             </li>
+   *             <li>
+   *                <p>Snapshot</p>
+   *             </li>
+   *             <li>
+   *                <p>Cluster security group</p>
+   *             </li>
+   *             <li>
+   *                <p>Subnet group</p>
+   *             </li>
+   *             <li>
+   *                <p>HSM connection</p>
+   *             </li>
+   *             <li>
+   *                <p>HSM certificate</p>
+   *             </li>
+   *             <li>
+   *                <p>Parameter group</p>
+   *             </li>
+   *             <li>
+   *                <p>Snapshot copy grant</p>
+   *             </li>
+   *             <li>
+   *                <p>Integration (zero-ETL integration or S3 event integration)</p>
+   *                <note>
+   *                   <p>To describe the tags associated with an <code>integration</code>, don't specify <code>ResourceType</code>,
+   *                     instead specify the <code>ResourceName</code> of the integration.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
+   *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Specifying Policy Elements: Actions, Effects, Resources, and Principals</a> in
+   *             the Amazon Redshift Cluster Management Guide. </p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The maximum number or response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned <code>marker</code> value.
+   *         </p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching resources that are
+   *             associated with the specified key or keys. For example, suppose that you have resources
+   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
+   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
+   *             that have either or both of these tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * <p>A tag and its associated resource.</p>
+ * @public
+ */
+export interface TaggedResource {
+  /**
+   * <p>The tag for the resource.</p>
+   * @public
+   */
+  Tag?: Tag | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) with which the tag is associated, for example:
+   *                 <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The type of resource with which the tag is associated. Valid resource types are: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Cluster</p>
+   *             </li>
+   *             <li>
+   *                <p>CIDR/IP</p>
+   *             </li>
+   *             <li>
+   *                <p>EC2 security group</p>
+   *             </li>
+   *             <li>
+   *                <p>Snapshot</p>
+   *             </li>
+   *             <li>
+   *                <p>Cluster security group</p>
+   *             </li>
+   *             <li>
+   *                <p>Subnet group</p>
+   *             </li>
+   *             <li>
+   *                <p>HSM connection</p>
+   *             </li>
+   *             <li>
+   *                <p>HSM certificate</p>
+   *             </li>
+   *             <li>
+   *                <p>Parameter group</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
+   *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Constructing an Amazon Redshift Amazon Resource Name (ARN)</a> in the
+   *             Amazon Redshift Cluster Management Guide. </p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface TaggedResourceListMessage {
+  /**
+   * <p>A list of tags with their associated resources.</p>
+   * @public
+   */
+  TaggedResources?: TaggedResource[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUsageLimitsMessage {
+  /**
+   * <p>The identifier of the usage limit to describe.</p>
+   * @public
+   */
+  UsageLimitId?: string | undefined;
+
+  /**
+   * <p>The identifier of the cluster for which you want to describe usage limits.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The feature type for which you want to describe usage limits.</p>
+   * @public
+   */
+  FeatureType?: UsageLimitFeatureType | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   *          <p>Constraints: minimum 20, maximum 100.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeUsageLimits</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching usage limit objects
+   *             that are associated with the specified key or keys. For example, suppose that you
+   *             have parameter groups that are tagged with keys called <code>owner</code> and
+   *             <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the usage limit objects have either or both of these
+   *             tag keys associated with them.</p>
+   * @public
+   */
+  TagKeys?: string[] | undefined;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching usage limit objects
+   *             that are associated with the specified tag value or values. For example, suppose
+   *             that you have parameter groups that are tagged with values called <code>admin</code> and
+   *             <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the usage limit objects that have either or both of these tag
+   *             values associated with them.</p>
+   * @public
+   */
+  TagValues?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UsageLimitList {
+  /**
+   * <p>Contains the output from the <a>DescribeUsageLimits</a>
+   *             action. </p>
+   * @public
+   */
+  UsageLimits?: UsageLimit[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DisableLoggingMessage {
+  /**
+   * <p>The identifier of the cluster on which logging is to be stopped.</p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface DisableSnapshotCopyMessage {
+  /**
+   * <p>The unique identifier of the source cluster that you want to disable copying of
+   *             snapshots to a destination region.</p>
+   *          <p>Constraints: Must be the valid name of an existing cluster that has cross-region
+   *             snapshot copy enabled.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSnapshotCopyResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateDataShareConsumerMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the datashare to remove association for.</p>
+   * @public
+   */
+  DataShareArn: string | undefined;
+
+  /**
+   * <p>A value that specifies whether association for the datashare is removed from the
+   *             entire account.</p>
+   * @public
+   */
+  DisassociateEntireAccount?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consumer namespace that association for
+   *             the datashare is removed from.</p>
+   * @public
+   */
+  ConsumerArn?: string | undefined;
+
+  /**
+   * <p>From a datashare consumer account, removes association of a datashare from all the existing and future namespaces in the specified Amazon Web Services Region.</p>
+   * @public
+   */
+  ConsumerRegion?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface EnableLoggingMessage {
+  /**
+   * <p>The identifier of the cluster on which logging is to be started.</p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the same region as the cluster</p>
+   *             </li>
+   *             <li>
+   *                <p>The cluster must have read bucket and put object permissions</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  BucketName?: string | undefined;
+
+  /**
+   * <p>The prefix applied to the log file names.</p>
+   *          <p>Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters:
+   *             underscore (<code>_</code>), period (<code>.</code>), colon (<code>:</code>), slash (<code>/</code>), equal (<code>=</code>), plus (<code>+</code>), backslash (<code>\</code>),
+   *             hyphen (<code>-</code>), at symbol (<code>@</code>).</p>
+   * @public
+   */
+  S3KeyPrefix?: string | undefined;
+
+  /**
+   * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
+   * @public
+   */
+  LogDestinationType?: LogDestinationType | undefined;
+
+  /**
+   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>.</p>
+   * @public
+   */
+  LogExports?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface EnableSnapshotCopyMessage {
+  /**
+   * <p>The unique identifier of the source cluster to copy snapshots from.</p>
+   *          <p>Constraints: Must be the valid name of an existing cluster that does not already
+   *             have cross-region snapshot copy enabled.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The destination Amazon Web Services Region that you want to copy snapshots to.</p>
+   *          <p>Constraints: Must be the name of a valid Amazon Web Services Region. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
+   *         </p>
+   * @public
+   */
+  DestinationRegion: string | undefined;
+
+  /**
+   * <p>The number of days to retain automated snapshots in the destination region after
+   *             they are copied from the source region.</p>
+   *          <p>Default: 7.</p>
+   *          <p>Constraints: Must be at least 1 and no more than 35.</p>
+   * @public
+   */
+  RetentionPeriod?: number | undefined;
+
+  /**
+   * <p>The name of the snapshot copy grant to use when snapshots of an Amazon Web Services KMS-encrypted
+   *             cluster are copied to the destination region.</p>
+   * @public
+   */
+  SnapshotCopyGrantName?: string | undefined;
+
+  /**
+   * <p>The number of days to retain newly copied snapshots in the destination Amazon Web Services Region
+   *             after they are copied from the source Amazon Web Services Region. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   * @public
+   */
+  ManualSnapshotRetentionPeriod?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableSnapshotCopyResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FailoverPrimaryComputeInputMessage {
+  /**
+   * <p>The unique identifier of the cluster for which the primary compute unit will be failed over to another Availability Zone.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface FailoverPrimaryComputeResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * <p>The request parameters to get cluster credentials.</p>
+ * @public
+ */
+export interface GetClusterCredentialsMessage {
+  /**
+   * <p>The name of a database user. If a user name matching <code>DbUser</code> exists in
+   *             the database, the temporary user credentials have the same permissions as the existing
+   *             user. If <code>DbUser</code> doesn't exist in the database and <code>Autocreate</code>
+   *             is <code>True</code>, a new user is created using the value for <code>DbUser</code> with
+   *             PUBLIC permissions. If a database user matching the value for <code>DbUser</code>
+   *             doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command
+   *             succeeds but the connection attempt will fail because the user doesn't exist in the
+   *             database.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE USER</a> in the Amazon
+   *             Redshift Database Developer Guide. </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be
+   *                         <code>PUBLIC</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
+   *                     (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                     Redshift Database Developer Guide.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DbUser: string | undefined;
+
+  /**
+   * <p>The name of a database that <code>DbUser</code> is authorized to log on to. If
+   *                 <code>DbName</code> is not specified, <code>DbUser</code> can log on to any existing
+   *             database.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
+   *                     (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                     Redshift Database Developer Guide.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DbName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the cluster that contains the database for which you are
+   *             requesting credentials. This parameter is case sensitive.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The number of seconds until the returned temporary password expires.</p>
+   *          <p>Constraint: minimum 900, maximum 3600.</p>
+   *          <p>Default: 900</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+
+  /**
+   * <p>Create a database user with the name specified for the user named in
+   *                 <code>DbUser</code> if one does not exist.</p>
+   * @public
+   */
+  AutoCreate?: boolean | undefined;
+
+  /**
+   * <p>A list of the names of existing database groups that the user named in
+   *                 <code>DbUser</code> will join for the current session, in addition to any group
+   *             memberships for an existing user. If not specified, a new user is added only to
+   *             PUBLIC.</p>
+   *          <p>Database group name constraints</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                     (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                     Redshift Database Developer Guide.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DbGroups?: string[] | undefined;
+
+  /**
+   * <p>The custom domain name for the cluster credentials.</p>
+   * @public
+   */
+  CustomDomainName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterCredentialsWithIAMMessage {
+  /**
+   * <p>The name of the database for which you are requesting credentials.
+   *             If the database name is specified, the IAM policy must allow access to the resource <code>dbname</code> for the specified database name.
+   *             If the database name is not specified, access to all databases is allowed.</p>
+   * @public
+   */
+  DbName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the cluster that contains the database for which you are
+   *             requesting credentials. </p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The number of seconds until the returned temporary password expires.</p>
+   *          <p>Range: 900-3600. Default: 900.</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+
+  /**
+   * <p>The custom domain name for the IAM message cluster credentials.</p>
+   * @public
+   */
+  CustomDomainName?: string | undefined;
+}
+
+/**
+ * <p>The request parameters for <code>GetIdentityCenterAuthToken</code>.</p>
+ * @public
+ */
+export interface GetIdentityCenterAuthTokenRequest {
+  /**
+   * <p>A list of cluster identifiers that the generated token can be used with.
+   *             The token will be scoped to only allow authentication to the specified clusters.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ClusterIds</code> must contain at least 1 cluster identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ClusterIds</code> can hold a maximum of 20 cluster identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cluster identifiers must be 1 to 63 characters in length.</p>
+   *             </li>
+   *             <li>
+   *                <p>The characters accepted for cluster identifiers are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Alphanumeric characters</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Hyphens</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Cluster identifiers must start with a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cluster identifiers can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ClusterIds: string[] | undefined;
+}
+
+/**
+ * <p>The response from GetIdentityCenterAuthToken containing the encrypted authentication token and expiration time.</p>
+ * @public
+ */
+export interface GetIdentityCenterAuthTokenResponse {
+  /**
+   * <p>The encrypted authentication token containing the caller's Amazon Web Services IAM Identity Center identity information.
+   *             This token is encrypted using Key Management Service and can only be decrypted by the specified Amazon Redshift clusters.
+   *             Use this token with Amazon Redshift drivers to authenticate using your Amazon Web Services IAM Identity Center identity.</p>
+   * @public
+   */
+  Token?: string | undefined;
+
+  /**
+   * <p>The time (UTC) when the token expires. After this timestamp,
+   *             the token will no longer be valid for authentication.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
+  /**
+   * <p>The action type of the reserved-node configuration. The action type can be an exchange initiated from either a snapshot or a resize.</p>
+   * @public
+   */
+  ActionType: ReservedNodeExchangeActionType | undefined;
+
+  /**
+   * <p>The identifier for the cluster that is the source for a reserved-node exchange.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The identifier for the snapshot that is the source for the reserved-node exchange.</p>
+   * @public
+   */
+  SnapshotIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>Marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request. If this
+   *             parameter is specified, the response includes only records beyond the marker, up to the value
+   *             specified by the <code>MaxRecords</code> parameter. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Details for a reserved-node exchange. Examples include the node type for a
+ *             reserved node, the price for a node, the node's state, and other details.</p>
+ * @public
+ */
+export interface ReservedNodeConfigurationOption {
+  /**
+   * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
+   *             offerings. </p>
+   * @public
+   */
+  SourceReservedNode?: ReservedNode | undefined;
+
+  /**
+   * <p>The target reserved-node count.</p>
+   * @public
+   */
+  TargetReservedNodeCount?: number | undefined;
+
+  /**
+   * <p>Describes a reserved node offering.</p>
+   * @public
+   */
+  TargetReservedNodeOffering?: ReservedNodeOffering | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReservedNodeExchangeConfigurationOptionsOutputMessage {
+  /**
+   * <p>A pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>the configuration options for the reserved-node
+   *             exchange. These options include information about the source reserved node and target reserved
+   *             node. Details include the node type, the price, the node count, and the offering
+   *             type.</p>
+   * @public
+   */
+  ReservedNodeConfigurationOptionList?: ReservedNodeConfigurationOption[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface GetReservedNodeExchangeOfferingsInputMessage {
+  /**
+   * <p>A string representing the node identifier for the DC1 Reserved Node to be
+   *             exchanged.</p>
+   * @public
+   */
+  ReservedNodeId: string | undefined;
+
+  /**
+   * <p>An integer setting the maximum number of ReservedNodeOfferings to
+   *             retrieve.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of
+   *             ReservedNodeOfferings.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetReservedNodeExchangeOfferingsOutputMessage {
+  /**
+   * <p>An optional parameter that specifies the starting point for returning a set of
+   *             response records. When the results of a <code>GetReservedNodeExchangeOfferings</code>
+   *             request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the
+   *             marker field of the response. You can retrieve the next set of response records by
+   *             providing the returned marker value in the marker parameter and retrying the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Returns an array of <a>ReservedNodeOffering</a> objects.</p>
+   * @public
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is fetched.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * <p>The policy that is attached to a resource.</p>
+ * @public
+ */
+export interface ResourcePolicy {
+  /**
+   * <p>The resources that a policy is attached to.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The content of a resource policy.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResult {
+  /**
+   * <p>The content of the resource policy.</p>
+   * @public
+   */
+  ResourcePolicy?: ResourcePolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsMessage {
+  /**
+   * <p>The unique identifier of the Amazon Redshift cluster for which the list of Advisor recommendations is returned.
+   *           If the neither the cluster identifier and the cluster namespace ARN parameters are specified, then recommendations for all clusters in the account are returned.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Redshift cluster namespace Amazon Resource Name (ARN) for which the list of Advisor recommendations is returned.
+   *             If the neither the cluster identifier and the cluster namespace ARN parameters are specified, then recommendations for all clusters in the account are returned.</p>
+   * @public
+   */
+  NamespaceArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of remaining response records
+   *             exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve
+   *             the next set of records by retrying the command with the returned marker value.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a
+   *             value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>The recommended action from the Amazon Redshift Advisor recommendation.</p>
+ * @public
+ */
+export interface RecommendedAction {
+  /**
+   * <p>The specific instruction about the command.</p>
+   * @public
+   */
+  Text?: string | undefined;
+
+  /**
+   * <p>The database name to perform the action on. Only applicable if the type of command is SQL.</p>
+   * @public
+   */
+  Database?: string | undefined;
+
+  /**
+   * <p>The command to run.</p>
+   * @public
+   */
+  Command?: string | undefined;
+
+  /**
+   * <p>The type of command.</p>
+   * @public
+   */
+  Type?: RecommendedActionType | undefined;
+}
+
+/**
+ * <p>A link to an Amazon Redshift Advisor reference for more information about a recommendation.</p>
+ * @public
+ */
+export interface ReferenceLink {
+  /**
+   * <p>The hyperlink text that describes the link to more information.</p>
+   * @public
+   */
+  Text?: string | undefined;
+
+  /**
+   * <p>The URL address to find more information.</p>
+   * @public
+   */
+  Link?: string | undefined;
+}
+
+/**
+ * <p>An Amazon Redshift Advisor recommended action on the Amazon Redshift cluster.</p>
+ * @public
+ */
+export interface Recommendation {
+  /**
+   * <p>A unique identifier of the Advisor recommendation.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the cluster for which the recommendation is returned.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The Amazon Redshift cluster namespace ARN for which the recommendations is returned.</p>
+   * @public
+   */
+  NamespaceArn?: string | undefined;
+
+  /**
+   * <p>The date and time (UTC) that the recommendation was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The type of Advisor recommendation.</p>
+   * @public
+   */
+  RecommendationType?: string | undefined;
+
+  /**
+   * <p>The title of the recommendation.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The description of the recommendation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The description of what was observed about your cluster.</p>
+   * @public
+   */
+  Observation?: string | undefined;
+
+  /**
+   * <p>The scale of the impact that the Advisor recommendation has to the performance and cost of the cluster.</p>
+   * @public
+   */
+  ImpactRanking?: ImpactRankingType | undefined;
+
+  /**
+   * <p>The description of the recommendation.</p>
+   * @public
+   */
+  RecommendationText?: string | undefined;
+
+  /**
+   * <p>List of Amazon Redshift recommended actions.</p>
+   * @public
+   */
+  RecommendedActions?: RecommendedAction[] | undefined;
+
+  /**
+   * <p>List of helpful links for more information about the Advisor recommendation.</p>
+   * @public
+   */
+  ReferenceLinks?: ReferenceLink[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsResult {
+  /**
+   * <p>The Advisor recommendations for action on the Amazon Redshift cluster.</p>
+   * @public
+   */
+  Recommendations?: Recommendation[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent
+   *             request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAquaInputMessage {
+  /**
+   * <p>The identifier of the cluster to be modified.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>This parameter is retired. Amazon Redshift automatically  determines whether to use AQUA (Advanced Query Accelerator).</p>
+   * @public
+   */
+  AquaConfigurationStatus?: AquaConfigurationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAquaOutputMessage {
+  /**
+   * <p>This parameter is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
+   * @public
+   */
+  AquaConfiguration?: AquaConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAuthenticationProfileMessage {
+  /**
+   * <p>The name of the authentication profile to replace.</p>
+   * @public
+   */
+  AuthenticationProfileName: string | undefined;
+
+  /**
+   * <p>The new content of the authentication profile in JSON format.
+   *             The maximum length of the JSON string is determined by a quota for your account.</p>
+   * @public
+   */
+  AuthenticationProfileContent: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAuthenticationProfileResult {
+  /**
+   * <p>The name of the authentication profile that was replaced.</p>
+   * @public
+   */
+  AuthenticationProfileName?: string | undefined;
+
+  /**
+   * <p>The updated content of the authentication profile in JSON format.</p>
+   * @public
+   */
+  AuthenticationProfileContent?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyClusterMessage {
+  /**
+   * <p>The unique identifier of the cluster to be modified.</p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The new cluster type.</p>
+   *          <p>When you submit your cluster resize request, your existing cluster goes into a
+   *             read-only mode. After Amazon Redshift provisions a new cluster based on your resize
+   *             requirements, there will be outage for a period while the old cluster is deleted and
+   *             your connection is switched to the new cluster. You can use <a>DescribeResize</a> to track the progress of the resize request. </p>
+   *          <p>Valid Values: <code> multi-node | single-node </code>
+   *          </p>
+   * @public
+   */
+  ClusterType?: string | undefined;
+
+  /**
+   * <p>The new node type of the cluster. If you specify a new node type, you must also
+   *             specify the number of nodes parameter.</p>
+   *          <p>
+   * For more information about resizing clusters, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   *          <p>Valid Values:
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
+   *             <code>ra3.large</code> |  <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *          </p>
+   * @public
+   */
+  NodeType?: string | undefined;
+
+  /**
+   * <p>The new number of nodes of the cluster. If you specify a new number of nodes, you
+   *             must also specify the node type parameter.</p>
+   *          <p>
+   * For more information about resizing clusters, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   *          <p>Valid Values: Integer greater than <code>0</code>.</p>
+   * @public
+   */
+  NumberOfNodes?: number | undefined;
+
+  /**
+   * <p>A list of cluster security groups to be authorized on this cluster. This change is
+   *             asynchronously applied as soon as possible.</p>
+   *          <p>Security groups currently associated with the cluster, and not in the list of
+   *             groups to apply, will be revoked from the cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ClusterSecurityGroups?: string[] | undefined;
+
+  /**
+   * <p>A list of virtual private cloud (VPC) security groups to be associated with the
+   *             cluster. This change is asynchronously applied as soon as possible.</p>
+   * @public
+   */
+  VpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The new password for the cluster admin user. This change is asynchronously applied
+   *             as soon as possible. Between the time of the request and the completion of the request,
+   *             the <code>MasterUserPassword</code> element exists in the
+   *                 <code>PendingModifiedValues</code> element of the operation response. </p>
+   *          <p>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is <code>true</code>.</p>
+   *          <note>
+   *             <p>Operations never return the password, so this operation provides a way to
+   *                 regain access to the admin user account for a cluster if the password is
+   *                 lost.</p>
+   *          </note>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be between 8 and 64 characters in length.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain at least one uppercase letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain at least one lowercase letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain one number.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code>
+   *                     (single quote), <code>"</code> (double quote), <code>\</code>, <code>/</code>, or <code>@</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MasterUserPassword?: string | undefined;
+
+  /**
+   * <p>The name of the cluster parameter group to apply to this cluster. This change is
+   *             applied only after the cluster is rebooted. To reboot a cluster use <a>RebootCluster</a>. </p>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Constraints: The cluster parameter group must be in the same parameter group family
+   *             that matches the cluster version.</p>
+   * @public
+   */
+  ClusterParameterGroupName?: string | undefined;
+
+  /**
+   * <p>The number of days that automated snapshots are retained. If the value is 0,
+   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
+   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *          <p>If you decrease the automated snapshot retention period from its current value,
+   *             existing automated snapshots that fall outside of the new retention period will be
+   *             immediately deleted.</p>
+   *          <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Constraints: Must be a value from 0 to 35.</p>
+   * @public
+   */
+  AutomatedSnapshotRetentionPeriod?: number | undefined;
+
+  /**
+   * <p>The default for number of days that a newly created manual snapshot is retained. If
+   *             the value is -1, the manual snapshot is retained indefinitely. This value doesn't
+   *             retroactively change the retention periods of existing manual snapshots.</p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *          <p>The default value is -1.</p>
+   * @public
+   */
+  ManualSnapshotRetentionPeriod?: number | undefined;
+
+  /**
+   * <p>The weekly time range (in UTC) during which system maintenance can occur, if
+   *             necessary. If system maintenance is necessary during the window, it may result in an
+   *             outage.</p>
+   *          <p>This maintenance window change is made immediately. If the new maintenance window
+   *             indicates the current time, there must be at least 120 minutes between the current time
+   *             and end of the window in order to ensure that pending changes are applied.</p>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi, for example
+   *             <code>wed:07:30-wed:08:00</code>.</p>
+   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *          <p>Constraints: Must be at least 30 minutes.</p>
+   * @public
+   */
+  PreferredMaintenanceWindow?: string | undefined;
+
+  /**
+   * <p>The new version number of the Amazon Redshift engine to upgrade to.</p>
+   *          <p>For major version upgrades, if a non-default cluster parameter group is currently
+   *             in use, a new cluster parameter group in the cluster parameter group family for the new
+   *             version must be specified. The new cluster parameter group can be the default for that
+   *             cluster parameter group family.
+   * For more information about parameters and parameter groups, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   *          <p>Example: <code>1.0</code>
+   *          </p>
+   * @public
+   */
+  ClusterVersion?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, major version upgrades will be applied automatically to the
+   *             cluster during the maintenance window. </p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  AllowVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
+   * @public
+   */
+  HsmClientCertificateIdentifier?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the HSM configuration that contains the information the
+   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   * @public
+   */
+  HsmConfigurationIdentifier?: string | undefined;
+
+  /**
+   * <p>The new identifier for the cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>Alphabetic characters must be lowercase.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be unique for all clusters within an Amazon Web Services account.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
+   * @public
+   */
+  NewClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. Only
+   *             clusters in VPCs can be set to be publicly available.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  PubliclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>The Elastic IP (EIP) address for the cluster.</p>
+   *          <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
+   *             through an Internet gateway. For more information about provisioning clusters in
+   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
+   * @public
+   */
+  ElasticIp?: string | undefined;
+
+  /**
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *          <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  EnhancedVpcRouting?: boolean | undefined;
+
+  /**
+   * <p>The name for the maintenance track that you want to assign for the cluster. This name
+   *             change is asynchronous. The new track name stays in the
+   *                 <code>PendingModifiedValues</code> for the cluster until the next maintenance
+   *             window. When the maintenance track changes, the cluster is switched to the latest
+   *             cluster release available for the maintenance track. At this point, the maintenance
+   *             track name is applied.</p>
+   * @public
+   */
+  MaintenanceTrackName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the cluster is encrypted. If the value is encrypted (true) and you
+   *             provide a value for the <code>KmsKeyId</code> parameter, we encrypt the cluster
+   *             with the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
+   *             we encrypt with the default key. </p>
+   *          <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The Key Management Service (KMS) key ID of the encryption key that you want to use
+   *             to encrypt data in the cluster.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.</p>
+   * @public
+   */
+  AvailabilityZoneRelocation?: boolean | undefined;
+
+  /**
+   * <p>The option to initiate relocation for an Amazon Redshift cluster to the target Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The option to change the port of an Amazon Redshift cluster.</p>
+   *          <p>Valid Values:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>For clusters with ra3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
+   *                 with ra3 nodes, it isn't required that you change the port to these ranges.)</p>
+   *             </li>
+   *             <li>
+   *                <p>For clusters with dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage this cluster's admin credentials.
+   *             You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is true.
+   *             If <code>ManageMasterPassword</code> is false or not set, Amazon Redshift uses
+   *             <code>MasterUserPassword</code> for the admin user account's password.
+   *         </p>
+   * @public
+   */
+  ManageMasterPassword?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
+   *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
+   * @public
+   */
+  MasterPasswordSecretKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   * @public
+   */
+  IpAddressType?: string | undefined;
+
+  /**
+   * <p>If true and the cluster is currently only deployed in a single Availability Zone, the cluster will be modified to be deployed in two Availability Zones.</p>
+   * @public
+   */
+  MultiAZ?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterDbRevisionMessage {
+  /**
+   * <p>The unique identifier of a cluster whose database revision you want to modify. </p>
+   *          <p>Example: <code>examplecluster</code>
+   *          </p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the database revision. You can retrieve this value from the
+   *             response to the <a>DescribeClusterDbRevisions</a> request.</p>
+   * @public
+   */
+  RevisionTarget: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterDbRevisionResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyClusterIamRolesMessage {
+  /**
+   * <p>The unique identifier of the cluster for which you want to associate or
+   *             disassociate IAM roles.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Zero or more IAM roles to associate with the cluster. The roles must be in their
+   *             Amazon Resource Name (ARN) format. </p>
+   * @public
+   */
+  AddIamRoles?: string[] | undefined;
+
+  /**
+   * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. </p>
+   * @public
+   */
+  RemoveIamRoles?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was last modified.</p>
+   * @public
+   */
+  DefaultIamRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterIamRolesResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterMaintenanceMessage {
+  /**
+   * <p>A unique identifier for the cluster.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>A boolean indicating whether to enable the deferred maintenance window. </p>
+   * @public
+   */
+  DeferMaintenance?: boolean | undefined;
+
+  /**
+   * <p>A unique identifier for the deferred maintenance window.</p>
+   * @public
+   */
+  DeferMaintenanceIdentifier?: string | undefined;
+
+  /**
+   * <p>A timestamp indicating the start time for the deferred maintenance window.</p>
+   * @public
+   */
+  DeferMaintenanceStartTime?: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating end time for the deferred maintenance window. If you specify an
+   *             end time, you can't specify a duration.</p>
+   * @public
+   */
+  DeferMaintenanceEndTime?: Date | undefined;
+
+  /**
+   * <p>An integer indicating the duration of the maintenance window in days. If you specify a
+   *             duration, you can't specify an end time. The duration must be 45 days or less.</p>
+   * @public
+   */
+  DeferMaintenanceDuration?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterMaintenanceResult {
+  /**
+   * <p>Describes a cluster.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
+
+/**
+ * <p>Describes a modify cluster parameter group operation. </p>
+ * @public
+ */
+export interface ModifyClusterParameterGroupMessage {
+  /**
+   * <p>The name of the parameter group to be modified.</p>
+   * @public
+   */
+  ParameterGroupName: string | undefined;
+
+  /**
+   * <p>An array of parameters to be modified. A maximum of 20 parameters can be modified
+   *             in a single request.</p>
+   *          <p>For each parameter to be modified, you must supply at least the parameter name and
+   *             parameter value; other name-value pairs of the parameter are optional.</p>
+   *          <p>For the workload management (WLM) configuration, you must supply all the name-value
+   *             pairs in the wlm_json_configuration parameter.</p>
+   * @public
+   */
+  Parameters: Parameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterSnapshotMessage {
+  /**
+   * <p>The identifier of the snapshot whose setting you want to modify.</p>
+   * @public
+   */
+  SnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
+   *             snapshot is retained indefinitely.</p>
+   *          <p>If the manual snapshot falls outside of the new retention period, you can specify the
+   *             force option to immediately delete the snapshot.</p>
+   *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   * @public
+   */
+  ManualSnapshotRetentionPeriod?: number | undefined;
+
+  /**
+   * <p>A Boolean option to override an exception if the retention period has already
+   *             passed.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterSnapshotResult {
+  /**
+   * <p>Describes a snapshot.</p>
+   * @public
+   */
+  Snapshot?: Snapshot | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterSnapshotScheduleMessage {
+  /**
+   * <p>A unique identifier for the cluster whose snapshot schedule you want to modify.
+   *         </p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>A unique alphanumeric identifier for the schedule that you want to associate with the
+   *             cluster.</p>
+   * @public
+   */
+  ScheduleIdentifier?: string | undefined;
+
+  /**
+   * <p>A boolean to indicate whether to remove the assoiciation between the cluster and the
+   *             schedule.</p>
+   * @public
+   */
+  DisassociateSchedule?: boolean | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyClusterSubnetGroupMessage {
+  /**
+   * <p>The name of the subnet group to be modified.</p>
+   * @public
+   */
+  ClusterSubnetGroupName: string | undefined;
+
+  /**
+   * <p>A text description of the subnet group to be modified.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
+   *             request.</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterSubnetGroupResult {
+  /**
+   * <p>Describes a subnet group.</p>
+   * @public
+   */
+  ClusterSubnetGroup?: ClusterSubnetGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCustomDomainAssociationMessage {
+  /**
+   * <p>The custom domain name for a changed custom domain association.</p>
+   * @public
+   */
+  CustomDomainName: string | undefined;
+
+  /**
+   * <p>The certificate Amazon Resource Name (ARN) for the changed custom domain association.</p>
+   * @public
+   */
+  CustomDomainCertificateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the cluster to change a custom domain association for.</p>
+   * @public
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCustomDomainAssociationResult {
+  /**
+   * <p>The custom domain name associated with the result for the changed custom domain association.</p>
+   * @public
+   */
+  CustomDomainName?: string | undefined;
+
+  /**
+   * <p>The certificate Amazon Resource Name (ARN) associated with the result for the changed custom domain association.</p>
+   * @public
+   */
+  CustomDomainCertificateArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the cluster associated with the result for the changed custom domain association.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The certificate expiration time associated with the result for the changed custom domain association.</p>
+   * @public
+   */
+  CustomDomainCertExpiryTime?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyEndpointAccessMessage {
+  /**
+   * <p>The endpoint to be modified.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The complete list of VPC security groups associated with the endpoint after the endpoint is modified.</p>
+   * @public
+   */
+  VpcSecurityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyEventSubscriptionMessage {
+  /**
+   * <p>The name of the modified Amazon Redshift event notification subscription.</p>
+   * @public
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to be used by the event
+   *             notification subscription.</p>
+   * @public
+   */
+  SnsTopicArn?: string | undefined;
+
+  /**
+   * <p>The type of source that will be generating the events. For example, if you want to
+   *             be notified of events generated by a cluster, you would set this parameter to cluster.
+   *             If this value is not specified, events are returned for all Amazon Redshift objects in your
+   *             Amazon Web Services account. You must specify a source type in order to specify source IDs.</p>
+   *          <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+
+  /**
+   * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
+   *             must be of the same type as was specified in the source type parameter. The event
+   *             subscription will return only events generated by the specified objects. If not
+   *             specified, then events are returned for all objects within the source type
+   *             specified.</p>
+   *          <p>Example: my-cluster-1, my-cluster-2</p>
+   *          <p>Example: my-snapshot-20131010</p>
+   * @public
+   */
+  SourceIds?: string[] | undefined;
+
+  /**
+   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
+   *             subscription.</p>
+   *          <p>Values: configuration, management, monitoring, security, pending</p>
+   * @public
+   */
+  EventCategories?: string[] | undefined;
+
+  /**
+   * <p>Specifies the Amazon Redshift event severity to be published by the event notification
+   *             subscription.</p>
+   *          <p>Values: ERROR, INFO</p>
+   * @public
+   */
+  Severity?: string | undefined;
+
+  /**
+   * <p>A Boolean value indicating if the subscription is enabled. <code>true</code>
+   *             indicates the subscription is enabled </p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyEventSubscriptionResult {
+  /**
+   * <p>Describes event subscriptions.</p>
+   * @public
+   */
+  EventSubscription?: EventSubscription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIntegrationMessage {
+  /**
+   * <p>The unique identifier of the integration to modify.</p>
+   * @public
+   */
+  IntegrationArn: string | undefined;
+
+  /**
+   * <p>A new description for the integration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A new name for the integration.</p>
+   * @public
+   */
+  IntegrationName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyRedshiftIdcApplicationMessage {
+  /**
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   * @public
+   */
+  RedshiftIdcApplicationArn: string | undefined;
+
+  /**
+   * <p>The namespace for the Amazon Redshift IAM Identity Center application to change. It determines which managed application
+   *             verifies the connection token.</p>
+   * @public
+   */
+  IdentityNamespace?: string | undefined;
+
+  /**
+   * <p>The IAM role ARN associated with the Amazon Redshift IAM Identity Center application to change. It has the required permissions
+   *             to be assumed and invoke the IDC Identity Center API.</p>
+   * @public
+   */
+  IamRoleArn?: string | undefined;
+
+  /**
+   * <p>The display name for the Amazon Redshift IAM Identity Center application to change. It appears on the console.</p>
+   * @public
+   */
+  IdcDisplayName?: string | undefined;
+
+  /**
+   * <p>The authorized token issuer list for the Amazon Redshift IAM Identity Center application to change.</p>
+   * @public
+   */
+  AuthorizedTokenIssuerList?: AuthorizedTokenIssuer[] | undefined;
+
+  /**
+   * <p>A collection of service integrations associated with the application.</p>
+   * @public
+   */
+  ServiceIntegrations?: ServiceIntegrationsUnion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyRedshiftIdcApplicationResult {
+  /**
+   * <p>Contains properties for the Redshift IDC application.</p>
+   * @public
+   */
+  RedshiftIdcApplication?: RedshiftIdcApplication | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyScheduledActionMessage {
+  /**
+   * <p>The name of the scheduled action to modify. </p>
+   * @public
+   */
+  ScheduledActionName: string | undefined;
+
+  /**
+   * <p>A modified JSON format of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   * @public
+   */
+  TargetAction?: ScheduledActionType | undefined;
+
+  /**
+   * <p>A modified schedule in either <code>at( )</code> or <code>cron( )</code> format.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>A different IAM role to assume to run the target action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   * @public
+   */
+  IamRole?: string | undefined;
+
+  /**
+   * <p>A modified description of the scheduled action. </p>
+   * @public
+   */
+  ScheduledActionDescription?: string | undefined;
+
+  /**
+   * <p>A modified start time of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>A modified end time of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
+   * @public
+   */
+  Enable?: boolean | undefined;
 }

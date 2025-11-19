@@ -1,29 +1,31 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
-import { BedrockAgentCoreServiceException as __BaseException } from "./BedrockAgentCoreServiceException";
+import {
+  AutomationStreamStatus,
+  BrowserSessionStatus,
+  CodeInterpreterSessionStatus,
+  ContentBlockType,
+  MemoryRecordStatus,
+  Oauth2FlowType,
+  OperatorType,
+  ProgrammingLanguage,
+  ResourceContentType,
+  Role,
+  SessionStatus,
+  TaskStatus,
+  ToolName,
+} from "./enums";
 
-/**
- * <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
+} from "./errors";
 
 /**
  * <p>Contains summary information about an actor in an AgentCore Memory resource.</p>
@@ -84,106 +86,6 @@ export interface GetAgentCardResponse {
 }
 
 /**
- * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
- * @public
- */
-export class RuntimeClientError extends __BaseException {
-  readonly name: "RuntimeClientError" = "RuntimeClientError";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RuntimeClientError, __BaseException>) {
-    super({
-      name: "RuntimeClientError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RuntimeClientError.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -199,47 +101,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CannotParse",
-  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
-  IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION: "IdempotentParameterMismatchException",
-  RESOURCE_CONFLICT: "ResourceConflict",
-  ROOT_EVENT_IN_OTHER_SESSION: "EventInOtherSession",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  reason: ValidationExceptionReason | undefined;
-  fieldList?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -397,26 +258,6 @@ export interface InvokeAgentRuntimeResponse {
 }
 
 /**
- * <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface StopRuntimeSessionRequest {
@@ -463,26 +304,6 @@ export interface StopRuntimeSessionResponse {
 }
 
 /**
- * <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetBrowserSessionRequest {
@@ -498,34 +319,6 @@ export interface GetBrowserSessionRequest {
    */
   sessionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BrowserSessionStatus = {
-  READY: "READY",
-  TERMINATED: "TERMINATED",
-} as const;
-
-/**
- * @public
- */
-export type BrowserSessionStatus = (typeof BrowserSessionStatus)[keyof typeof BrowserSessionStatus];
-
-/**
- * @public
- * @enum
- */
-export const AutomationStreamStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type AutomationStreamStatus = (typeof AutomationStreamStatus)[keyof typeof AutomationStreamStatus];
 
 /**
  * <p>The configuration for a stream that enables programmatic control of a browser session in Amazon Bedrock. This stream provides a bidirectional communication channel for sending commands to the browser and receiving responses, allowing agents to automate web interactions such as navigation, form filling, and element clicking.</p>
@@ -1006,21 +799,6 @@ export interface GetCodeInterpreterSessionRequest {
 
 /**
  * @public
- * @enum
- */
-export const CodeInterpreterSessionStatus = {
-  READY: "READY",
-  TERMINATED: "TERMINATED",
-} as const;
-
-/**
- * @public
- */
-export type CodeInterpreterSessionStatus =
-  (typeof CodeInterpreterSessionStatus)[keyof typeof CodeInterpreterSessionStatus];
-
-/**
- * @public
  */
 export interface GetCodeInterpreterSessionResponse {
   /**
@@ -1375,20 +1153,6 @@ export interface GetResourceApiKeyResponse {
 
 /**
  * @public
- * @enum
- */
-export const Oauth2FlowType = {
-  M2M: "M2M",
-  USER_FEDERATION: "USER_FEDERATION",
-} as const;
-
-/**
- * @public
- */
-export type Oauth2FlowType = (typeof Oauth2FlowType)[keyof typeof Oauth2FlowType];
-
-/**
- * @public
  */
 export interface GetResourceOauth2TokenRequest {
   /**
@@ -1445,20 +1209,6 @@ export interface GetResourceOauth2TokenRequest {
    */
   customState?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SessionStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
 
 /**
  * @public
@@ -1592,21 +1342,6 @@ export interface InputContentBlock {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProgrammingLanguage = {
-  JAVASCRIPT: "javascript",
-  PYTHON: "python",
-  TYPESCRIPT: "typescript",
-} as const;
-
-/**
- * @public
- */
-export type ProgrammingLanguage = (typeof ProgrammingLanguage)[keyof typeof ProgrammingLanguage];
-
-/**
  * <p>The collection of arguments that specify the operation to perform and its parameters when invoking a tool in Amazon Bedrock. Different tools require different arguments, and this structure provides a flexible way to pass the appropriate arguments to each tool type.</p>
  * @public
  */
@@ -1668,27 +1403,6 @@ export interface ToolArguments {
 
 /**
  * @public
- * @enum
- */
-export const ToolName = {
-  EXECUTE_CODE: "executeCode",
-  EXECUTE_COMMAND: "executeCommand",
-  GET_TASK: "getTask",
-  LIST_FILES: "listFiles",
-  READ_FILES: "readFiles",
-  REMOVE_FILES: "removeFiles",
-  START_COMMAND_EXECUTION: "startCommandExecution",
-  STOP_TASK: "stopTask",
-  WRITE_FILES: "writeFiles",
-} as const;
-
-/**
- * @public
- */
-export type ToolName = (typeof ToolName)[keyof typeof ToolName];
-
-/**
- * @public
  */
 export interface InvokeCodeInterpreterRequest {
   /**
@@ -1729,20 +1443,6 @@ export interface InvokeCodeInterpreterRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ResourceContentType = {
-  BLOB: "blob",
-  TEXT: "text",
-} as const;
-
-/**
- * @public
- */
-export type ResourceContentType = (typeof ResourceContentType)[keyof typeof ResourceContentType];
-
-/**
  * <p>Contains information about resource content.</p>
  * @public
  */
@@ -1777,22 +1477,6 @@ export interface ResourceContent {
    */
   blob?: Uint8Array | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContentBlockType = {
-  EMBEDDED_RESOURCE: "resource",
-  IMAGE: "image",
-  RESOURCE_LINK: "resource_link",
-  TEXT: "text",
-} as const;
-
-/**
- * @public
- */
-export type ContentBlockType = (typeof ContentBlockType)[keyof typeof ContentBlockType];
 
 /**
  * <p>A block of content in a response.</p>
@@ -1853,23 +1537,6 @@ export interface ContentBlock {
    */
   resource?: ResourceContent | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskStatus = {
-  CANCELED: "canceled",
-  COMPLETED: "completed",
-  FAILED: "failed",
-  SUBMITTED: "submitted",
-  WORKING: "working",
-} as const;
-
-/**
- * @public
- */
-export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 /**
  * <p>Contains structured content from a tool result.</p>
@@ -2230,20 +1897,6 @@ export interface BatchCreateMemoryRecordsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MemoryRecordStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type MemoryRecordStatus = (typeof MemoryRecordStatus)[keyof typeof MemoryRecordStatus];
-
-/**
  * <p>Output information returned after processing a memory record operation.</p>
  * @public
  */
@@ -2294,46 +1947,6 @@ export interface BatchCreateMemoryRecordsOutput {
    * @public
    */
   failedRecords: MemoryRecordOutput[] | undefined;
-}
-
-/**
- * <p>The service encountered an internal error. Try your request again later.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
- * @public
- */
-export class ThrottledException extends __BaseException {
-  readonly name: "ThrottledException" = "ThrottledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
-    super({
-      name: "ThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledException.prototype);
-  }
 }
 
 /**
@@ -2545,22 +2158,6 @@ export namespace Content {
 }
 
 /**
- * @public
- * @enum
- */
-export const Role = {
-  ASSISTANT: "ASSISTANT",
-  OTHER: "OTHER",
-  TOOL: "TOOL",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type Role = (typeof Role)[keyof typeof Role];
-
-/**
  * <p>Contains conversational content for an event payload.</p>
  * @public
  */
@@ -2744,26 +2341,6 @@ export interface CreateEventOutput {
    * @public
    */
   event: Event | undefined;
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
 }
 
 /**
@@ -3032,21 +2609,6 @@ export namespace LeftExpression {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const OperatorType = {
-  EQUALS_TO: "EQUALS_TO",
-  EXISTS: "EXISTS",
-  NOT_EXISTS: "NOT_EXISTS",
-} as const;
-
-/**
- * @public
- */
-export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 /**
  * <p>Right expression of the <code>eventMetadata</code>filter.</p>

@@ -377,7 +377,7 @@ import {
   MissingRequiredParameterException as __MissingRequiredParameterException,
   ResourceNotFound as __ResourceNotFound,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

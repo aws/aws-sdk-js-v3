@@ -96,7 +96,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnauthorizedException as __UnauthorizedException,
   UnsupportedDocumentEncodingException as __UnsupportedDocumentEncodingException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTDataPlaneServiceException as __IoTDataPlaneServiceException } from "../models/IoTDataPlaneServiceException";
 
 /* eslint no-var: 0 */

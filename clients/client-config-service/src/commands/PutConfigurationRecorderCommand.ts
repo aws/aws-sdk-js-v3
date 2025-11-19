@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutConfigurationRecorderRequest } from "../models/models_1";
+import { PutConfigurationRecorderRequest } from "../models/models_0";
 import { PutConfigurationRecorder } from "../schemas/schemas_0";
 
 /**

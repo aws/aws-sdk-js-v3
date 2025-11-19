@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_1";
+import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeUsageLimits } from "../schemas/schemas_0";
 

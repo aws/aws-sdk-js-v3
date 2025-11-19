@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteTransitGatewayRouteTableAnnouncementRequest,
   DeleteTransitGatewayRouteTableAnnouncementResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteTransitGatewayRouteTableAnnouncement } from "../schemas/schemas_0";
 
 /**

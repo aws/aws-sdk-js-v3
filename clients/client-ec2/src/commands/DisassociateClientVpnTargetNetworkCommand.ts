@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisassociateClientVpnTargetNetworkRequest,
   DisassociateClientVpnTargetNetworkResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { DisassociateClientVpnTargetNetwork } from "../schemas/schemas_0";
 
 /**

@@ -23,7 +23,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@s
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { ComplexError, FooError, GreetingWithErrorsOutput, InvalidGreeting } from "../../models/models_0";
+import { ComplexError, FooError, InvalidGreeting } from "../../models/errors";
+import { GreetingWithErrorsOutput } from "../../models/models_0";
 import {
   deserializeGreetingWithErrorsRequest,
   serializeComplexErrorError,

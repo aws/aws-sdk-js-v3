@@ -493,7 +493,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnprocessableEntityException as __UnprocessableEntityException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

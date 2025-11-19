@@ -1,7 +1,42 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ImagebuilderServiceException as __BaseException } from "./ImagebuilderServiceException";
+import {
+  BuildType,
+  ComponentFormat,
+  ComponentStatus,
+  ComponentType,
+  ContainerRepositoryService,
+  ContainerType,
+  DiskImageFormat,
+  EbsVolumeType,
+  ImageScanStatus,
+  ImageSource,
+  ImageStatus,
+  ImageType,
+  LifecycleExecutionResourceActionName,
+  LifecycleExecutionResourceStatus,
+  LifecycleExecutionStatus,
+  LifecyclePolicyDetailActionType,
+  LifecyclePolicyDetailFilterType,
+  LifecyclePolicyResourceType,
+  LifecyclePolicyStatus,
+  LifecyclePolicyTimeUnit,
+  MarketplaceResourceType,
+  OnWorkflowFailure,
+  Ownership,
+  PipelineExecutionStartCondition,
+  PipelineStatus,
+  Platform,
+  ProductCodeType,
+  ResourceStatus,
+  SsmParameterDataType,
+  TenancyType,
+  WorkflowExecutionStatus,
+  WorkflowStatus,
+  WorkflowStepActionType,
+  WorkflowStepExecutionRollbackStatus,
+  WorkflowStepExecutionStatus,
+  WorkflowType,
+} from "./enums";
 
 /**
  * <p>Includes counts by severity level for medium severity and higher level findings, plus a total
@@ -111,30 +146,6 @@ export interface AdditionalInstanceConfiguration {
    */
   userDataOverride?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageStatus = {
-  AVAILABLE: "AVAILABLE",
-  BUILDING: "BUILDING",
-  CANCELLED: "CANCELLED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DEPRECATED: "DEPRECATED",
-  DISABLED: "DISABLED",
-  DISTRIBUTING: "DISTRIBUTING",
-  FAILED: "FAILED",
-  INTEGRATING: "INTEGRATING",
-  PENDING: "PENDING",
-  TESTING: "TESTING",
-} as const;
-
-/**
- * @public
- */
-export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
 
 /**
  * <p>Image status and the reason for that status.</p>
@@ -297,42 +308,6 @@ export interface AutoDisablePolicy {
 
 /**
  * @public
- * @enum
- */
-export const BuildType = {
-  IMPORT: "IMPORT",
-  IMPORT_ISO: "IMPORT_ISO",
-  SCHEDULED: "SCHEDULED",
-  USER_INITIATED: "USER_INITIATED",
-} as const;
-
-/**
- * @public
- */
-export type BuildType = (typeof BuildType)[keyof typeof BuildType];
-
-/**
- * <p>You have exceeded the permitted request rate for the specific operation.</p>
- * @public
- */
-export class CallRateLimitExceededException extends __BaseException {
-  readonly name: "CallRateLimitExceededException" = "CallRateLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CallRateLimitExceededException, __BaseException>) {
-    super({
-      name: "CallRateLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CallRateLimitExceededException.prototype);
-  }
-}
-
-/**
- * @public
  */
 export interface CancelImageCreationRequest {
   /**
@@ -372,151 +347,6 @@ export interface CancelImageCreationResponse {
    * @public
    */
   imageBuildVersionArn?: string | undefined;
-}
-
-/**
- * <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
- * @public
- */
-export class ClientException extends __BaseException {
-  readonly name: "ClientException" = "ClientException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
-    super({
-      name: "ClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ClientException.prototype);
-  }
-}
-
-/**
- * <p>You are not authorized to perform the requested operation.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-  }
-}
-
-/**
- * <p>You have specified a client token for an operation using parameter values that differ
- * 			from a previous request that used the same client token.</p>
- * @public
- */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-  }
-}
-
-/**
- * <p>You have requested an action that that the service doesn't support.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p>The resource that you are trying to operate on is currently in use. Review the message
- * 			details and retry later.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-  }
-}
-
-/**
- * <p>The service is unable to process your request at this time.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
 }
 
 /**
@@ -582,34 +412,6 @@ export interface ComponentParameterDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const Platform = {
-  LINUX: "Linux",
-  MACOS: "macOS",
-  WINDOWS: "Windows",
-} as const;
-
-/**
- * @public
- */
-export type Platform = (typeof Platform)[keyof typeof Platform];
-
-/**
- * @public
- * @enum
- */
-export const ProductCodeType = {
-  MARKETPLACE: "marketplace",
-} as const;
-
-/**
- * @public
- */
-export type ProductCodeType = (typeof ProductCodeType)[keyof typeof ProductCodeType];
-
-/**
  * <p>Information about a single product code.</p>
  * @public
  */
@@ -631,21 +433,6 @@ export interface ProductCodeListItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComponentStatus = {
-  ACTIVE: "ACTIVE",
-  DEPRECATED: "DEPRECATED",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentStatus];
-
-/**
  * <p>A group of fields that describe the current status of components.</p>
  * @public
  */
@@ -662,20 +449,6 @@ export interface ComponentState {
    */
   reason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComponentType = {
-  BUILD: "BUILD",
-  TEST: "TEST",
-} as const;
-
-/**
- * @public
- */
-export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
 
 /**
  * <p>A detailed view of a component.</p>
@@ -841,19 +614,6 @@ export interface ComponentConfiguration {
    */
   parameters?: ComponentParameter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComponentFormat = {
-  SHELL: "SHELL",
-} as const;
-
-/**
- * @public
- */
-export type ComponentFormat = (typeof ComponentFormat)[keyof typeof ComponentFormat];
 
 /**
  * <p>A high-level summary of a component.</p>
@@ -1078,19 +838,6 @@ export interface Container {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContainerRepositoryService = {
-  ECR: "ECR",
-} as const;
-
-/**
- * @public
- */
-export type ContainerRepositoryService = (typeof ContainerRepositoryService)[keyof typeof ContainerRepositoryService];
-
-/**
  * <p>The container repository where the output container image is stored.</p>
  * @public
  */
@@ -1134,38 +881,6 @@ export interface ContainerDistributionConfiguration {
    */
   targetRepository: TargetContainerRepository | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ContainerType = {
-  DOCKER: "DOCKER",
-} as const;
-
-/**
- * @public
- */
-export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
-
-/**
- * @public
- * @enum
- */
-export const EbsVolumeType = {
-  GP2: "gp2",
-  GP3: "gp3",
-  IO1: "io1",
-  IO2: "io2",
-  SC1: "sc1",
-  ST1: "st1",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type EbsVolumeType = (typeof EbsVolumeType)[keyof typeof EbsVolumeType];
 
 /**
  * <p>Amazon EBS-specific block device mapping specifications.</p>
@@ -1614,69 +1329,6 @@ export interface CreateComponentResponse {
 }
 
 /**
- * <p>You have specified two or more mutually exclusive parameters. Review the error message
- * 			for details.</p>
- * @public
- */
-export class InvalidParameterCombinationException extends __BaseException {
-  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
-    super({
-      name: "InvalidParameterCombinationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
-  }
-}
-
-/**
- * <p>Your version number is out of bounds or does not follow the required syntax.</p>
- * @public
- */
-export class InvalidVersionNumberException extends __BaseException {
-  readonly name: "InvalidVersionNumberException" = "InvalidVersionNumberException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidVersionNumberException, __BaseException>) {
-    super({
-      name: "InvalidVersionNumberException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidVersionNumberException.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded the number of permitted resources or operations for this service.
- * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
- * 				quotas</a>.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateContainerRecipeRequest {
@@ -1821,26 +1473,6 @@ export interface CreateContainerRecipeResponse {
 }
 
 /**
- * <p>The resource that you are trying to create already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * <p>Identifies the launch template that the associated Windows AMI uses for launching an
  * 			instance when faster launching is enabled.</p>
  *          <note>
@@ -1951,21 +1583,6 @@ export interface LaunchTemplateConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const DiskImageFormat = {
-  RAW: "RAW",
-  VHD: "VHD",
-  VMDK: "VMDK",
-} as const;
-
-/**
- * @public
- */
-export type DiskImageFormat = (typeof DiskImageFormat)[keyof typeof DiskImageFormat];
-
-/**
  * <p>Properties that configure export from your build instance to a compatible file format
  * 			for your VM.</p>
  * @public
@@ -2014,20 +1631,6 @@ export interface S3ExportConfiguration {
    */
   s3Prefix?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SsmParameterDataType = {
-  AWS_EC2_IMAGE: "aws:ec2:image",
-  TEXT: "text",
-} as const;
-
-/**
- * @public
- */
-export type SsmParameterDataType = (typeof SsmParameterDataType)[keyof typeof SsmParameterDataType];
 
 /**
  * <p>Configuration for a single Parameter in the Amazon Web Services Systems Manager (SSM) Parameter Store in
@@ -2261,20 +1864,6 @@ export interface ImageLoggingConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OnWorkflowFailure = {
-  ABORT: "ABORT",
-  CONTINUE: "CONTINUE",
-} as const;
-
-/**
- * @public
- */
-export type OnWorkflowFailure = (typeof OnWorkflowFailure)[keyof typeof OnWorkflowFailure];
-
-/**
  * <p>Contains a key/value pair that sets the named workflow parameter.</p>
  * @public
  */
@@ -2460,21 +2049,6 @@ export interface PipelineLoggingConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const PipelineExecutionStartCondition = {
-  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE: "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
-  EXPRESSION_MATCH_ONLY: "EXPRESSION_MATCH_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type PipelineExecutionStartCondition =
-  (typeof PipelineExecutionStartCondition)[keyof typeof PipelineExecutionStartCondition];
-
-/**
  * <p>A schedule configures when and how often a pipeline will automatically create a new
  * 			image.</p>
  * @public
@@ -2528,20 +2102,6 @@ export interface Schedule {
    */
   autoDisablePolicy?: AutoDisablePolicy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PipelineStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
 
 /**
  * @public
@@ -2881,21 +2441,6 @@ export interface Logging {
 }
 
 /**
- * @public
- * @enum
- */
-export const TenancyType = {
-  DEDICATED: "dedicated",
-  DEFAULT: "default",
-  HOST: "host",
-} as const;
-
-/**
- * @public
- */
-export type TenancyType = (typeof TenancyType)[keyof typeof TenancyType];
-
-/**
  * <p>By default, EC2 instances run on shared tenancy hardware. This means that multiple
  * 			Amazon Web Services accounts might share the same physical hardware. When you use dedicated hardware,
  * 			the physical server that hosts your instances is dedicated to your Amazon Web Services account.
@@ -3102,22 +2647,6 @@ export interface LifecyclePolicyDetailActionIncludeResources {
 }
 
 /**
- * @public
- * @enum
- */
-export const LifecyclePolicyDetailActionType = {
-  DELETE: "DELETE",
-  DEPRECATE: "DEPRECATE",
-  DISABLE: "DISABLE",
-} as const;
-
-/**
- * @public
- */
-export type LifecyclePolicyDetailActionType =
-  (typeof LifecyclePolicyDetailActionType)[keyof typeof LifecyclePolicyDetailActionType];
-
-/**
  * <p>Contains selection criteria for the lifecycle policy.</p>
  * @public
  */
@@ -3134,22 +2663,6 @@ export interface LifecyclePolicyDetailAction {
    */
   includeResources?: LifecyclePolicyDetailActionIncludeResources | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LifecyclePolicyTimeUnit = {
-  DAYS: "DAYS",
-  MONTHS: "MONTHS",
-  WEEKS: "WEEKS",
-  YEARS: "YEARS",
-} as const;
-
-/**
- * @public
- */
-export type LifecyclePolicyTimeUnit = (typeof LifecyclePolicyTimeUnit)[keyof typeof LifecyclePolicyTimeUnit];
 
 /**
  * <p>Defines criteria to exclude AMIs from lifecycle actions based on the last
@@ -3227,21 +2740,6 @@ export interface LifecyclePolicyDetailExclusionRules {
    */
   amis?: LifecyclePolicyDetailExclusionRulesAmis | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LifecyclePolicyDetailFilterType = {
-  AGE: "AGE",
-  COUNT: "COUNT",
-} as const;
-
-/**
- * @public
- */
-export type LifecyclePolicyDetailFilterType =
-  (typeof LifecyclePolicyDetailFilterType)[keyof typeof LifecyclePolicyDetailFilterType];
 
 /**
  * <p>Defines filters that the lifecycle policy uses to determine impacted resource.</p>
@@ -3347,35 +2845,6 @@ export interface LifecyclePolicyResourceSelection {
 
 /**
  * @public
- * @enum
- */
-export const LifecyclePolicyResourceType = {
-  AMI_IMAGE: "AMI_IMAGE",
-  CONTAINER_IMAGE: "CONTAINER_IMAGE",
-} as const;
-
-/**
- * @public
- */
-export type LifecyclePolicyResourceType =
-  (typeof LifecyclePolicyResourceType)[keyof typeof LifecyclePolicyResourceType];
-
-/**
- * @public
- * @enum
- */
-export const LifecyclePolicyStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type LifecyclePolicyStatus = (typeof LifecyclePolicyStatus)[keyof typeof LifecyclePolicyStatus];
-
-/**
- * @public
  */
 export interface CreateLifecyclePolicyRequest {
   /**
@@ -3452,21 +2921,6 @@ export interface CreateLifecyclePolicyResponse {
    */
   lifecyclePolicyArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowType = {
-  BUILD: "BUILD",
-  DISTRIBUTION: "DISTRIBUTION",
-  TEST: "TEST",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -3699,27 +3153,6 @@ export interface DeleteComponentResponse {
    * @public
    */
   componentBuildVersionArn?: string | undefined;
-}
-
-/**
- * <p>You have attempted to mutate or delete a resource with a dependency that prohibits
- * 			this action. See the error message for more details.</p>
- * @public
- */
-export class ResourceDependencyException extends __BaseException {
-  readonly name: "ResourceDependencyException" = "ResourceDependencyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceDependencyException, __BaseException>) {
-    super({
-      name: "ResourceDependencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceDependencyException.prototype);
-  }
 }
 
 /**
@@ -4118,26 +3551,6 @@ export interface GetComponentPolicyResponse {
 }
 
 /**
- * <p>At least one of the resources referenced by your request does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface GetContainerRecipeRequest {
@@ -4233,20 +3646,6 @@ export interface GetImageRequest {
    */
   imageBuildVersionArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageType = {
-  AMI: "AMI",
-  DOCKER: "DOCKER",
-} as const;
-
-/**
- * @public
- */
-export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
 /**
  * <p>An image recipe.</p>
@@ -4365,22 +3764,6 @@ export interface ImageRecipe {
    */
   amiTags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageSource = {
-  AMAZON_MANAGED: "AMAZON_MANAGED",
-  AWS_MARKETPLACE: "AWS_MARKETPLACE",
-  CUSTOM: "CUSTOM",
-  IMPORTED: "IMPORTED",
-} as const;
-
-/**
- * @public
- */
-export type ImageSource = (typeof ImageSource)[keyof typeof ImageSource];
 
 /**
  * <p>Details of the infrastructure configuration.</p>
@@ -4516,25 +3899,6 @@ export interface OutputResources {
    */
   containers?: Container[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImageScanStatus = {
-  ABANDONED: "ABANDONED",
-  COLLECTING: "COLLECTING",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SCANNING: "SCANNING",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type ImageScanStatus = (typeof ImageScanStatus)[keyof typeof ImageScanStatus];
 
 /**
  * <p>Shows the vulnerability scan status for a specific image, and the reason for that
@@ -5151,24 +4515,6 @@ export interface LifecycleExecutionResourcesImpactedSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const LifecycleExecutionStatus = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleExecutionStatus = (typeof LifecycleExecutionStatus)[keyof typeof LifecycleExecutionStatus];
-
-/**
  * <p>The current state of the runtime instance of the lifecycle policy.</p>
  * @public
  */
@@ -5346,20 +4692,6 @@ export interface GetLifecyclePolicyResponse {
 
 /**
  * @public
- * @enum
- */
-export const MarketplaceResourceType = {
-  COMPONENT_ARTIFACT: "COMPONENT_ARTIFACT",
-  COMPONENT_DATA: "COMPONENT_DATA",
-} as const;
-
-/**
- * @public
- */
-export type MarketplaceResourceType = (typeof MarketplaceResourceType)[keyof typeof MarketplaceResourceType];
-
-/**
- * @public
  */
 export interface GetMarketplaceResourceRequest {
   /**
@@ -5446,19 +4778,6 @@ export interface WorkflowParameterDetail {
    */
   description?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStatus = {
-  DEPRECATED: "DEPRECATED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
 /**
  * <p>A group of fields that describe the current status of workflow.</p>
@@ -5594,26 +4913,6 @@ export interface GetWorkflowExecutionRequest {
 
 /**
  * @public
- * @enum
- */
-export const WorkflowExecutionStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  ROLLBACK_COMPLETED: "ROLLBACK_COMPLETED",
-  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-  RUNNING: "RUNNING",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowExecutionStatus = (typeof WorkflowExecutionStatus)[keyof typeof WorkflowExecutionStatus];
-
-/**
- * @public
  */
 export interface GetWorkflowExecutionResponse {
   /**
@@ -5721,42 +5020,6 @@ export interface GetWorkflowStepExecutionRequest {
    */
   stepExecutionId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStepExecutionRollbackStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStepExecutionRollbackStatus =
-  (typeof WorkflowStepExecutionRollbackStatus)[keyof typeof WorkflowStepExecutionRollbackStatus];
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStepExecutionStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  SKIPPED: "SKIPPED",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStepExecutionStatus =
-  (typeof WorkflowStepExecutionStatus)[keyof typeof WorkflowStepExecutionStatus];
 
 /**
  * @public
@@ -6206,26 +5469,6 @@ export interface ImportVmImageResponse {
 }
 
 /**
- * <p>You have provided an invalid pagination token in your request.</p>
- * @public
- */
-export class InvalidPaginationTokenException extends __BaseException {
-  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
-    super({
-      name: "InvalidPaginationTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface ListComponentBuildVersionsRequest {
@@ -6274,23 +5517,6 @@ export interface ListComponentBuildVersionsResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Ownership = {
-  AMAZON: "Amazon",
-  AWS_MARKETPLACE: "AWSMarketplace",
-  SELF: "Self",
-  SHARED: "Shared",
-  THIRDPARTY: "ThirdParty",
-} as const;
-
-/**
- * @public
- */
-export type Ownership = (typeof Ownership)[keyof typeof Ownership];
 
 /**
  * @public
@@ -7965,23 +7191,6 @@ export interface ListLifecycleExecutionResourcesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const LifecycleExecutionResourceActionName = {
-  AVAILABLE: "AVAILABLE",
-  DELETE: "DELETE",
-  DEPRECATE: "DEPRECATE",
-  DISABLE: "DISABLE",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleExecutionResourceActionName =
-  (typeof LifecycleExecutionResourceActionName)[keyof typeof LifecycleExecutionResourceActionName];
-
-/**
  * <p>The lifecycle policy action that was identified for the impacted resource.</p>
  * @public
  */
@@ -7998,23 +7207,6 @@ export interface LifecycleExecutionResourceAction {
    */
   reason?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LifecycleExecutionResourceStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SKIPPED: "SKIPPED",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type LifecycleExecutionResourceStatus =
-  (typeof LifecycleExecutionResourceStatus)[keyof typeof LifecycleExecutionResourceStatus];
 
 /**
  * <p>Contains the state of an impacted resource that the runtime instance
@@ -8315,27 +7507,6 @@ export interface ListLifecyclePoliciesResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- * 			request.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
 }
 
 /**
@@ -8959,26 +8130,6 @@ export interface ListWorkflowStepExecutionsResponse {
 }
 
 /**
- * <p>The value that you provided for the specified parameter is invalid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface PutComponentPolicyRequest {
@@ -9120,20 +8271,6 @@ export interface PutImageRecipePolicyResponse {
    */
   imageRecipeArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowStepActionType = {
-  RESUME: "RESUME",
-  STOP: "STOP",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStepActionType = (typeof WorkflowStepActionType)[keyof typeof WorkflowStepActionType];
 
 /**
  * @public
@@ -9282,22 +8419,6 @@ export interface ResourceStateUpdateIncludeResources {
    */
   containers?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETED: "DELETED",
-  DEPRECATED: "DEPRECATED",
-  DISABLED: "DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
  * <p>The current state of an impacted resource.</p>
@@ -9606,4 +8727,219 @@ export interface UpdateImagePipelineResponse {
    * @public
    */
   imagePipelineArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInfrastructureConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
+   * 			update.</p>
+   * @public
+   */
+  infrastructureConfigurationArn: string | undefined;
+
+  /**
+   * <p>The description of the infrastructure configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The instance types of the infrastructure configuration. You can specify one or more
+   * 			instance types to use for this build. The service will pick one of these instance types
+   * 			based on availability.</p>
+   * @public
+   */
+  instanceTypes?: string[] | undefined;
+
+  /**
+   * <p>The instance profile to associate with the instance used to customize your Amazon EC2
+   * 			AMI.</p>
+   * @public
+   */
+  instanceProfileName: string | undefined;
+
+  /**
+   * <p>The security group IDs to associate with the instance used to customize your Amazon EC2
+   * 			AMI.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The subnet ID to place the instance used to customize your Amazon EC2 AMI in.</p>
+   * @public
+   */
+  subnetId?: string | undefined;
+
+  /**
+   * <p>The logging configuration of the infrastructure configuration.</p>
+   * @public
+   */
+  logging?: Logging | undefined;
+
+  /**
+   * <p>The key pair of the infrastructure configuration. You can use this to log on to and
+   * 			debug the instance used to create your image.</p>
+   * @public
+   */
+  keyPair?: string | undefined;
+
+  /**
+   * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
+   * 			false if you want Image Builder to retain the instance used to configure your AMI if the build or
+   * 			test phase of your workflow fails.</p>
+   * @public
+   */
+  terminateInstanceOnFailure?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
+   * 			notifications.</p>
+   *          <note>
+   *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
+   * 				account that the Image Builder service runs under.</p>
+   *          </note>
+   * @public
+   */
+  snsTopicArn?: string | undefined;
+
+  /**
+   * <p>The tags attached to the resource created by Image Builder.</p>
+   * @public
+   */
+  resourceTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The instance metadata options that you can set for the HTTP requests that pipeline
+   * 			builds use to launch EC2 build and test instances. For more information about instance
+   * 			metadata options, see one of the following links:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 						<i>
+   *                      <i>Amazon EC2 User Guide</i>
+   *                   </i> for Linux instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 						<i>
+   *                      <i>Amazon EC2 Windows Guide</i>
+   *                   </i> for Windows instances.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  instanceMetadataOptions?: InstanceMetadataOptions | undefined;
+
+  /**
+   * <p>The instance placement settings that define where the instances that are launched
+   * 			from your image will run.</p>
+   * @public
+   */
+  placement?: Placement | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInfrastructureConfigurationResponse {
+  /**
+   * <p>The request ID that uniquely identifies this request.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>The client token that uniquely identifies the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was updated by
+   * 			this request.</p>
+   * @public
+   */
+  infrastructureConfigurationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLifecyclePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy resource.</p>
+   * @public
+   */
+  lifecyclePolicyArn: string | undefined;
+
+  /**
+   * <p>Optional description for the lifecycle policy.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   * @public
+   */
+  status?: LifecyclePolicyStatus | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to update the
+   * 			lifecycle policy.</p>
+   * @public
+   */
+  executionRole: string | undefined;
+
+  /**
+   * <p>The type of image resource that the lifecycle policy applies to.</p>
+   * @public
+   */
+  resourceType: LifecyclePolicyResourceType | undefined;
+
+  /**
+   * <p>The configuration details for a lifecycle policy resource.</p>
+   * @public
+   */
+  policyDetails: LifecyclePolicyDetail[] | undefined;
+
+  /**
+   * <p>Selection criteria for resources that the lifecycle policy applies to.</p>
+   * @public
+   */
+  resourceSelection: LifecyclePolicyResourceSelection | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLifecyclePolicyResponse {
+  /**
+   * <p>The ARN of the image lifecycle policy resource that was updated.</p>
+   * @public
+   */
+  lifecyclePolicyArn?: string | undefined;
 }

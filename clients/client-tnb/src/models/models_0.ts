@@ -1,29 +1,23 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { TnbServiceException as __BaseException } from "./TnbServiceException";
-
-/**
- * <p>Insufficient permissions to make request.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  DescriptorContentType,
+  LcmOperationType,
+  NsdOnboardingState,
+  NsdOperationalState,
+  NsdUsageState,
+  NsLcmOperationState,
+  NsState,
+  OnboardingState,
+  OperationalState,
+  PackageContentType,
+  TaskStatus,
+  UpdateSolNetworkType,
+  UsageState,
+  VnfInstantiationState,
+  VnfOperationalState,
+} from "./enums";
 
 /**
  * @public
@@ -37,87 +31,6 @@ export interface CancelSolNetworkOperationInput {
 }
 
 /**
- * <p>Unexpected error occurred. Problem on the server.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>Request references a resource that doesn't exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Exception caused by throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Unable to process the request because the client provided input failed to satisfy
- *          request constraints.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateSolFunctionPackageInput {
@@ -127,49 +40,6 @@ export interface CreateSolFunctionPackageInput {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OnboardingState = {
-  CREATED: "CREATED",
-  ERROR: "ERROR",
-  ONBOARDED: "ONBOARDED",
-} as const;
-
-/**
- * @public
- */
-export type OnboardingState = (typeof OnboardingState)[keyof typeof OnboardingState];
-
-/**
- * @public
- * @enum
- */
-export const OperationalState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type OperationalState = (typeof OperationalState)[keyof typeof OperationalState];
-
-/**
- * @public
- * @enum
- */
-export const UsageState = {
-  IN_USE: "IN_USE",
-  NOT_IN_USE: "NOT_IN_USE",
-} as const;
-
-/**
- * @public
- */
-export type UsageState = (typeof UsageState)[keyof typeof UsageState];
 
 /**
  * @public
@@ -210,26 +80,6 @@ export interface CreateSolFunctionPackageOutput {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Service quotas have been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -309,49 +159,6 @@ export interface CreateSolNetworkPackageInput {
 
 /**
  * @public
- * @enum
- */
-export const NsdOnboardingState = {
-  CREATED: "CREATED",
-  ERROR: "ERROR",
-  ONBOARDED: "ONBOARDED",
-} as const;
-
-/**
- * @public
- */
-export type NsdOnboardingState = (typeof NsdOnboardingState)[keyof typeof NsdOnboardingState];
-
-/**
- * @public
- * @enum
- */
-export const NsdOperationalState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NsdOperationalState = (typeof NsdOperationalState)[keyof typeof NsdOperationalState];
-
-/**
- * @public
- * @enum
- */
-export const NsdUsageState = {
-  IN_USE: "IN_USE",
-  NOT_IN_USE: "NOT_IN_USE",
-} as const;
-
-/**
- * @public
- */
-export type NsdUsageState = (typeof NsdUsageState)[keyof typeof NsdUsageState];
-
-/**
- * @public
  */
 export interface CreateSolNetworkPackageOutput {
   /**
@@ -423,19 +230,6 @@ export interface DeleteSolNetworkPackageInput {
    */
   nsdInfoId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DescriptorContentType = {
-  TEXT_PLAIN: "text/plain",
-} as const;
-
-/**
- * @public
- */
-export type DescriptorContentType = (typeof DescriptorContentType)[keyof typeof DescriptorContentType];
 
 /**
  * <p>Provides error information.</p>
@@ -536,20 +330,6 @@ export interface GetSolVnfcResourceInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const VnfOperationalState = {
-  STARTED: "STARTED",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type VnfOperationalState = (typeof VnfOperationalState)[keyof typeof VnfOperationalState];
-
-/**
  * <p>Information about the network function.</p>
  *          <p>A network function instance is a function in a function package .</p>
  * @public
@@ -567,20 +347,6 @@ export interface GetSolVnfInfo {
    */
   vnfcResourceInfo?: GetSolVnfcResourceInfo[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VnfInstantiationState = {
-  INSTANTIATED: "INSTANTIATED",
-  NOT_INSTANTIATED: "NOT_INSTANTIATED",
-} as const;
-
-/**
- * @public
- */
-export type VnfInstantiationState = (typeof VnfInstantiationState)[keyof typeof VnfInstantiationState];
 
 /**
  * <p>The metadata of a network function instance.</p>
@@ -790,19 +556,6 @@ export interface GetSolFunctionPackageOutput {
 
 /**
  * @public
- * @enum
- */
-export const PackageContentType = {
-  APPLICATION_ZIP: "application/zip",
-} as const;
-
-/**
- * @public
- */
-export type PackageContentType = (typeof PackageContentType)[keyof typeof PackageContentType];
-
-/**
- * @public
  */
 export interface GetSolFunctionPackageContentInput {
   /**
@@ -928,29 +681,6 @@ export interface GetSolNetworkInstanceMetadata {
 
 /**
  * @public
- * @enum
- */
-export const NsState = {
-  DELETED: "DELETED",
-  IMPAIRED: "IMPAIRED",
-  INSTANTIATED: "INSTANTIATED",
-  INSTANTIATE_IN_PROGRESS: "INSTANTIATE_IN_PROGRESS",
-  INTENT_TO_UPDATE_IN_PROGRESS: "INTENT_TO_UPDATE_IN_PROGRESS",
-  NOT_INSTANTIATED: "NOT_INSTANTIATED",
-  STOPPED: "STOPPED",
-  TERMINATE_IN_PROGRESS: "TERMINATE_IN_PROGRESS",
-  UPDATED: "UPDATED",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type NsState = (typeof NsState)[keyof typeof NsState];
-
-/**
- * @public
  */
 export interface GetSolNetworkInstanceOutput {
   /**
@@ -1044,21 +774,6 @@ export interface ProblemDetails {
    */
   title?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LcmOperationType = {
-  INSTANTIATE: "INSTANTIATE",
-  TERMINATE: "TERMINATE",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type LcmOperationType = (typeof LcmOperationType)[keyof typeof LcmOperationType];
 
 /**
  * <p>Metadata related to the configuration properties used during instantiation of the network instance.</p>
@@ -1158,42 +873,6 @@ export interface GetSolNetworkOperationMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const NsLcmOperationState = {
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type NsLcmOperationState = (typeof NsLcmOperationState)[keyof typeof NsLcmOperationState];
-
-/**
- * @public
- * @enum
- */
-export const TaskStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  ERROR: "ERROR",
-  IN_PROGRESS: "IN_PROGRESS",
-  SCHEDULED: "SCHEDULED",
-  SKIPPED: "SKIPPED",
-  STARTED: "STARTED",
-} as const;
-
-/**
- * @public
- */
-export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
-
-/**
  * <p>Gets the details of a network operation.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @public
@@ -1235,20 +914,6 @@ export interface GetSolNetworkOperationTaskDetails {
    */
   taskEndTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UpdateSolNetworkType = {
-  MODIFY_VNF_INFORMATION: "MODIFY_VNF_INFORMATION",
-  UPDATE_NS: "UPDATE_NS",
-} as const;
-
-/**
- * @public
- */
-export type UpdateSolNetworkType = (typeof UpdateSolNetworkType)[keyof typeof UpdateSolNetworkType];
 
 /**
  * @public

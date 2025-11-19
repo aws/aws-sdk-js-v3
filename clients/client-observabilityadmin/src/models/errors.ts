@@ -1,0 +1,176 @@
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { ObservabilityAdminServiceException as __BaseException } from "./ObservabilityAdminServiceException";
+
+/**
+ * <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name = "AccessDeniedException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * <p> The name of the exception. </p>
+   * @public
+   */
+  amznErrorType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+    this.amznErrorType = opts.amznErrorType;
+  }
+}
+
+/**
+ * <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name = "InternalServerException" as const;
+  readonly $fault = "server" as const;
+  Message?: string | undefined;
+  /**
+   * <p> The name of the exception. </p>
+   * @public
+   */
+  amznErrorType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+    this.amznErrorType = opts.amznErrorType;
+  }
+}
+
+/**
+ * <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * <p> The name of the exception. </p>
+   * @public
+   */
+  amznErrorType?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.amznErrorType = opts.amznErrorType;
+  }
+}
+
+/**
+ * <p> The request throughput limit was exceeded. </p>
+ * @public
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name = "TooManyRequestsException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p> The specified resource (such as a telemetry rule) could not be found. </p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}

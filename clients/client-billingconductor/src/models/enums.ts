@@ -1,0 +1,251 @@
+// smithy-typescript generated code
+/**
+ * @public
+ * @enum
+ */
+export const ConflictExceptionReason = {
+  PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT: "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT",
+  PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT: "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT",
+  PRICING_RULE_IN_PRICING_PLAN_CONFLICT: "PRICING_RULE_IN_PRICING_PLAN_CONFLICT",
+  RESOURCE_NAME_CONFLICT: "RESOURCE_NAME_CONFLICT",
+  WRITE_CONFLICT_RETRY: "WRITE_CONFLICT_RETRY",
+} as const;
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  ACCOUNTS_ALREADY_ASSOCIATED: "ACCOUNTS_ALREADY_ASSOCIATED",
+  ACCOUNTS_NOT_ASSOCIATED: "ACCOUNTS_NOT_ASSOCIATED",
+  BILLING_GROUP_ALREADY_EXIST_IN_CURRENT_BILLING_PERIOD: "BILLING_GROUP_ALREADY_EXIST_IN_CURRENT_BILLING_PERIOD",
+  CANNOT_DELETE_AUTO_ASSOCIATE_BILLING_GROUP: "CANNOT_DELETE_AUTO_ASSOCIATE_BILLING_GROUP",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS: "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS",
+  DUPLICATE_ACCOUNT: "DUPLICATE_ACCOUNT",
+  DUPLICATE_PRICINGRULE_ARNS: "DUPLICATE_PRICINGRULE_ARNS",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
+  ILLEGAL_ACCOUNT_ID: "ILLEGAL_ACCOUNT_ID",
+  ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
+  ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
+  ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
+  ILLEGAL_CHARGE_DETAILS: "ILLEGAL_CHARGE_DETAILS",
+  ILLEGAL_CHILD_ASSOCIATE_RESOURCE: "ILLEGAL_CHILD_ASSOCIATE_RESOURCE",
+  ILLEGAL_COMPUTATION_RULE: "ILLEGAL_COMPUTATION_RULE",
+  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
+  ILLEGAL_CUSTOMLINEITEM_MODIFICATION: "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
+  ILLEGAL_CUSTOMLINEITEM_UPDATE: "ILLEGAL_CUSTOMLINEITEM_UPDATE",
+  ILLEGAL_ENDED_BILLINGGROUP: "ILLEGAL_ENDED_BILLINGGROUP",
+  ILLEGAL_EXPRESSION: "ILLEGAL_EXPRESSION",
+  ILLEGAL_LINE_ITEM_FILTER: "ILLEGAL_LINE_ITEM_FILTER",
+  ILLEGAL_MODIFIER_PERCENTAGE: "ILLEGAL_MODIFIER_PERCENTAGE",
+  ILLEGAL_OPERATION: "ILLEGAL_OPERATION",
+  ILLEGAL_PRIMARY_ACCOUNT: "ILLEGAL_PRIMARY_ACCOUNT",
+  ILLEGAL_RESOURCE_ARNS: "ILLEGAL_RESOURCE_ARNS",
+  ILLEGAL_SCOPE: "ILLEGAL_SCOPE",
+  ILLEGAL_SERVICE: "ILLEGAL_SERVICE",
+  ILLEGAL_TIERING_INPUT: "ILLEGAL_TIERING_INPUT",
+  ILLEGAL_TYPE: "ILLEGAL_TYPE",
+  ILLEGAL_UPDATE_CHARGE_DETAILS: "ILLEGAL_UPDATE_CHARGE_DETAILS",
+  ILLEGAL_USAGE_TYPE: "ILLEGAL_USAGE_TYPE",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_BILLINGVIEW_ARN: "INVALID_BILLINGVIEW_ARN",
+  INVALID_BILLING_GROUP: "INVALID_BILLING_GROUP",
+  INVALID_BILLING_GROUP_STATUS: "INVALID_BILLING_GROUP_STATUS",
+  INVALID_BILLING_PERIOD_FOR_OPERATION: "INVALID_BILLING_PERIOD_FOR_OPERATION",
+  INVALID_FILTER: "INVALID_FILTER",
+  INVALID_SKU_COMBO: "INVALID_SKU_COMBO",
+  INVALID_TIME_RANGE: "INVALID_TIME_RANGE",
+  MISMATCHED_BILLINGGROUP_ARN: "MISMATCHED_BILLINGGROUP_ARN",
+  MISMATCHED_BILLINGVIEW_ARN: "MISMATCHED_BILLINGVIEW_ARN",
+  MISMATCHED_CUSTOMLINEITEM_ARN: "MISMATCHED_CUSTOMLINEITEM_ARN",
+  MISMATCHED_PRICINGPLAN_ARN: "MISMATCHED_PRICINGPLAN_ARN",
+  MISMATCHED_PRICINGRULE_ARN: "MISMATCHED_PRICINGRULE_ARN",
+  MISSING_BILLINGGROUP: "MISSING_BILLINGGROUP",
+  MISSING_COSTCATEGORY: "MISSING_COSTCATEGORY",
+  MISSING_CUSTOMLINEITEM: "MISSING_CUSTOMLINEITEM",
+  MISSING_LINKED_ACCOUNT_IDS: "MISSING_LINKED_ACCOUNT_IDS",
+  MISSING_PRICINGPLAN: "MISSING_PRICINGPLAN",
+  MISSING_PRICING_PLAN_ARN: "MISSING_PRICING_PLAN_ARN",
+  MULTIPLE_LINKED_ACCOUNT_IDS: "MULTIPLE_LINKED_ACCOUNT_IDS",
+  MULTIPLE_PRICING_PLAN_ARN: "MULTIPLE_PRICING_PLAN_ARN",
+  OTHER: "OTHER",
+  PRICINGRULES_ALREADY_ASSOCIATED: "PRICINGRULES_ALREADY_ASSOCIATED",
+  PRICINGRULES_NOT_ASSOCIATED: "PRICINGRULES_NOT_ASSOCIATED",
+  PRICINGRULES_NOT_EXIST: "PRICINGRULES_NOT_EXIST",
+  PRIMARY_CANNOT_DISASSOCIATE: "PRIMARY_CANNOT_DISASSOCIATE",
+  PRIMARY_NOT_ASSOCIATED: "PRIMARY_NOT_ASSOCIATED",
+  TOO_MANY_ACCOUNTS_IN_REQUEST: "TOO_MANY_ACCOUNTS_IN_REQUEST",
+  TOO_MANY_AUTO_ASSOCIATE_BILLING_GROUPS: "TOO_MANY_AUTO_ASSOCIATE_BILLING_GROUPS",
+  TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST: "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociateResourceErrorReason = {
+  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_BILLING_PERIOD_RANGE: "INVALID_BILLING_PERIOD_RANGE",
+  SERVICE_LIMIT_EXCEEDED: "SERVICE_LIMIT_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type AssociateResourceErrorReason =
+  (typeof AssociateResourceErrorReason)[keyof typeof AssociateResourceErrorReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingGroupStatus = {
+  ACTIVE: "ACTIVE",
+  PRIMARY_ACCOUNT_MISSING: "PRIMARY_ACCOUNT_MISSING",
+} as const;
+/**
+ * @public
+ */
+export type BillingGroupStatus = (typeof BillingGroupStatus)[keyof typeof BillingGroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineItemFilterAttributeName = {
+  LINE_ITEM_TYPE: "LINE_ITEM_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type LineItemFilterAttributeName =
+  (typeof LineItemFilterAttributeName)[keyof typeof LineItemFilterAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MatchOption = {
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
+/**
+ * @public
+ */
+export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineItemFilterValue = {
+  SAVINGS_PLAN_NEGATION: "SAVINGS_PLAN_NEGATION",
+} as const;
+/**
+ * @public
+ */
+export type LineItemFilterValue = (typeof LineItemFilterValue)[keyof typeof LineItemFilterValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomLineItemType = {
+  CREDIT: "CREDIT",
+  FEE: "FEE",
+} as const;
+/**
+ * @public
+ */
+export type CustomLineItemType = (typeof CustomLineItemType)[keyof typeof CustomLineItemType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputationRuleEnum = {
+  CONSOLIDATED: "CONSOLIDATED",
+} as const;
+/**
+ * @public
+ */
+export type ComputationRuleEnum = (typeof ComputationRuleEnum)[keyof typeof ComputationRuleEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const CurrencyCode = {
+  CNY: "CNY",
+  USD: "USD",
+} as const;
+/**
+ * @public
+ */
+export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomLineItemRelationship = {
+  CHILD: "CHILD",
+  PARENT: "PARENT",
+} as const;
+/**
+ * @public
+ */
+export type CustomLineItemRelationship = (typeof CustomLineItemRelationship)[keyof typeof CustomLineItemRelationship];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupByAttributeName = {
+  BILLING_PERIOD: "BILLING_PERIOD",
+  PRODUCT_NAME: "PRODUCT_NAME",
+} as const;
+/**
+ * @public
+ */
+export type GroupByAttributeName = (typeof GroupByAttributeName)[keyof typeof GroupByAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const PricingRuleScope = {
+  BILLING_ENTITY: "BILLING_ENTITY",
+  GLOBAL: "GLOBAL",
+  SERVICE: "SERVICE",
+  SKU: "SKU",
+} as const;
+/**
+ * @public
+ */
+export type PricingRuleScope = (typeof PricingRuleScope)[keyof typeof PricingRuleScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const PricingRuleType = {
+  DISCOUNT: "DISCOUNT",
+  MARKUP: "MARKUP",
+  TIERING: "TIERING",
+} as const;
+/**
+ * @public
+ */
+export type PricingRuleType = (typeof PricingRuleType)[keyof typeof PricingRuleType];

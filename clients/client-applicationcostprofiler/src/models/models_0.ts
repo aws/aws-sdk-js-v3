@@ -1,27 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ApplicationCostProfilerServiceException as __BaseException } from "./ApplicationCostProfilerServiceException";
-
-/**
- * <p>You do not have permission to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import { Format, ReportFrequency, S3BucketRegion } from "./enums";
 
 /**
  * @public
@@ -43,66 +21,6 @@ export interface DeleteReportDefinitionResult {
    * @public
    */
   reportId?: string | undefined;
-}
-
-/**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints for the API.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -134,35 +52,6 @@ export interface S3Location {
    */
   prefix: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Format = {
-  CSV: "CSV",
-  PARQUET: "PARQUET",
-} as const;
-
-/**
- * @public
- */
-export type Format = (typeof Format)[keyof typeof Format];
-
-/**
- * @public
- * @enum
- */
-export const ReportFrequency = {
-  ALL: "ALL",
-  DAILY: "DAILY",
-  MONTHLY: "MONTHLY",
-} as const;
-
-/**
- * @public
- */
-export type ReportFrequency = (typeof ReportFrequency)[keyof typeof ReportFrequency];
 
 /**
  * @public
@@ -210,22 +99,6 @@ export interface GetReportDefinitionResult {
    */
   lastUpdated: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const S3BucketRegion = {
-  AF_SOUTH_1: "af-south-1",
-  AP_EAST_1: "ap-east-1",
-  EU_SOUTH_1: "eu-south-1",
-  ME_SOUTH_1: "me-south-1",
-} as const;
-
-/**
- * @public
- */
-export type S3BucketRegion = (typeof S3BucketRegion)[keyof typeof S3BucketRegion];
 
 /**
  * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where usage data is read
@@ -404,26 +277,6 @@ export interface PutReportDefinitionResult {
    * @public
    */
   reportId?: string | undefined;
-}
-
-/**
- * <p>Your request exceeds one or more of the service quotas.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**

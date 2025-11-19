@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEventTriggerRequest, UpdateEventTriggerResponse } from "../models/models_1";
+import { UpdateEventTriggerRequest, UpdateEventTriggerResponse } from "../models/models_0";
 import { UpdateEventTrigger } from "../schemas/schemas_0";
 
 /**

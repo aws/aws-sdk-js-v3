@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CopyVolumesRequest, CopyVolumesResult } from "../models/models_1";
+import { CopyVolumesRequest, CopyVolumesResult } from "../models/models_0";
 import { CopyVolumes } from "../schemas/schemas_0";
 
 /**

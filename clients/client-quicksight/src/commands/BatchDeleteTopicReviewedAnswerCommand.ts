@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchDeleteTopicReviewedAnswerRequest, BatchDeleteTopicReviewedAnswerResponse } from "../models/models_3";
+import { BatchDeleteTopicReviewedAnswerRequest, BatchDeleteTopicReviewedAnswerResponse } from "../models/models_2";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { BatchDeleteTopicReviewedAnswer } from "../schemas/schemas_0";
 

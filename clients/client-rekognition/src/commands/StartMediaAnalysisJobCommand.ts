@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartMediaAnalysisJobRequest, StartMediaAnalysisJobResponse } from "../models/models_1";
+import { StartMediaAnalysisJobRequest, StartMediaAnalysisJobResponse } from "../models/models_0";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { StartMediaAnalysisJob } from "../schemas/schemas_0";
 

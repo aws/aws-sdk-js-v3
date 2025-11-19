@@ -1,124 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { TimestreamInfluxDBServiceException as __BaseException } from "./TimestreamInfluxDBServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of Timestream for InfluxDB resource associated with the request.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DbInstanceType = {
-  DB_INFLUX_12XLARGE: "db.influx.12xlarge",
-  DB_INFLUX_16XLARGE: "db.influx.16xlarge",
-  DB_INFLUX_24XLARGE: "db.influx.24xlarge",
-  DB_INFLUX_2XLARGE: "db.influx.2xlarge",
-  DB_INFLUX_4XLARGE: "db.influx.4xlarge",
-  DB_INFLUX_8XLARGE: "db.influx.8xlarge",
-  DB_INFLUX_LARGE: "db.influx.large",
-  DB_INFLUX_MEDIUM: "db.influx.medium",
-  DB_INFLUX_XLARGE: "db.influx.xlarge",
-} as const;
-
-/**
- * @public
- */
-export type DbInstanceType = (typeof DbInstanceType)[keyof typeof DbInstanceType];
-
-/**
- * @public
- * @enum
- */
-export const DbStorageType = {
-  INFLUX_IO_INCLUDED_T1: "InfluxIOIncludedT1",
-  INFLUX_IO_INCLUDED_T2: "InfluxIOIncludedT2",
-  INFLUX_IO_INCLUDED_T3: "InfluxIOIncludedT3",
-} as const;
-
-/**
- * @public
- */
-export type DbStorageType = (typeof DbStorageType)[keyof typeof DbStorageType];
-
-/**
- * @public
- * @enum
- */
-export const ClusterDeploymentType = {
-  MULTI_NODE_READ_REPLICAS: "MULTI_NODE_READ_REPLICAS",
-} as const;
-
-/**
- * @public
- */
-export type ClusterDeploymentType = (typeof ClusterDeploymentType)[keyof typeof ClusterDeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const FailoverMode = {
-  AUTOMATIC: "AUTOMATIC",
-  NO_FAILOVER: "NO_FAILOVER",
-} as const;
-
-/**
- * @public
- */
-export type FailoverMode = (typeof FailoverMode)[keyof typeof FailoverMode];
+import {
+  ClusterDeploymentType,
+  ClusterStatus,
+  DataFusionRuntimeType,
+  DbInstanceType,
+  DbStorageType,
+  DeploymentType,
+  DurationType,
+  EngineType,
+  FailoverMode,
+  InstanceMode,
+  LogFormats,
+  LogLevel,
+  NetworkType,
+  Status,
+  TracingType,
+} from "./enums";
 
 /**
  * <p>Configuration for S3 bucket log delivery.</p>
@@ -149,20 +46,6 @@ export interface LogDeliveryConfiguration {
    */
   s3Configuration: S3Configuration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL: "DUAL",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
 
 /**
  * @public
@@ -296,25 +179,6 @@ export interface CreateDbClusterInput {
 
 /**
  * @public
- * @enum
- */
-export const ClusterStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  MAINTENANCE: "MAINTENANCE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
-
-/**
- * @public
  */
 export interface CreateDbClusterOutput {
   /**
@@ -328,150 +192,6 @@ export interface CreateDbClusterOutput {
    * @public
    */
   dbClusterStatus?: ClusterStatus | undefined;
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The requested resource was not found or does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of Timestream for InfluxDB resource associated with the request.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request exceeds the service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason that validation failed.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-  }
 }
 
 /**
@@ -506,21 +226,6 @@ export interface GetDbClusterInput {
    */
   dbClusterId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EngineType = {
-  INFLUXDB_V2: "INFLUXDB_V2",
-  INFLUXDB_V3_CORE: "INFLUXDB_V3_CORE",
-  INFLUXDB_V3_ENTERPRISE: "INFLUXDB_V3_ENTERPRISE",
-} as const;
-
-/**
- * @public
- */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * @public
@@ -788,61 +493,6 @@ export interface ListDbInstancesForClusterInput {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeploymentType = {
-  SINGLE_AZ: "SINGLE_AZ",
-  WITH_MULTIAZ_STANDBY: "WITH_MULTIAZ_STANDBY",
-} as const;
-
-/**
- * @public
- */
-export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMode = {
-  COMPACT: "COMPACT",
-  INGEST: "INGEST",
-  PRIMARY: "PRIMARY",
-  PROCESS: "PROCESS",
-  QUERY: "QUERY",
-  REPLICA: "REPLICA",
-  STANDBY: "STANDBY",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMode = (typeof InstanceMode)[keyof typeof InstanceMode];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  MAINTENANCE: "MAINTENANCE",
-  MODIFYING: "MODIFYING",
-  UPDATING: "UPDATING",
-  UPDATING_DEPLOYMENT_TYPE: "UPDATING_DEPLOYMENT_TYPE",
-  UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * <p>Contains a summary of a DB instance belonging to a DB cluster.</p>
@@ -1860,23 +1510,6 @@ export interface UpdateDbInstanceOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DurationType = {
-  DAYS: "days",
-  HOURS: "hours",
-  MILLISECONDS: "milliseconds",
-  MINUTES: "minutes",
-  SECONDS: "seconds",
-} as const;
-
-/**
- * @public
- */
-export type DurationType = (typeof DurationType)[keyof typeof DurationType];
-
-/**
  * <p>Duration for InfluxDB parameters in Timestream for InfluxDB.</p>
  * @public
  */
@@ -1893,36 +1526,6 @@ export interface Duration {
    */
   value: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogLevel = {
-  DEBUG: "debug",
-  ERROR: "error",
-  INFO: "info",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-/**
- * @public
- * @enum
- */
-export const TracingType = {
-  DISABLED: "disabled",
-  JAEGER: "jaeger",
-  LOG: "log",
-} as const;
-
-/**
- * @public
- */
-export type TracingType = (typeof TracingType)[keyof typeof TracingType];
 
 /**
  * <p>All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.</p>
@@ -2168,20 +1771,6 @@ export interface InfluxDBv2Parameters {
 }
 
 /**
- * @public
- * @enum
- */
-export const DataFusionRuntimeType = {
-  MULTI_THREAD: "multi-thread",
-  MULTI_THREAD_ALT: "multi-thread-alt",
-} as const;
-
-/**
- * @public
- */
-export type DataFusionRuntimeType = (typeof DataFusionRuntimeType)[keyof typeof DataFusionRuntimeType];
-
-/**
  * <p>Percent or Absolute Long for InfluxDB parameters</p>
  * @public
  */
@@ -2233,19 +1822,6 @@ export namespace PercentOrAbsoluteLong {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const LogFormats = {
-  FULL: "full",
-} as const;
-
-/**
- * @public
- */
-export type LogFormats = (typeof LogFormats)[keyof typeof LogFormats];
 
 /**
  * <p>All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.</p>

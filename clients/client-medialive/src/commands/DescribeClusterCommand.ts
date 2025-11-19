@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_2";
+import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_1";
 import { DescribeCluster } from "../schemas/schemas_0";
 
 /**

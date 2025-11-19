@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TransactWriteItemsOutput } from "../models/models_0";
-import { TransactWriteItemsInput } from "../models/models_1";
+import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
 import { TransactWriteItems } from "../schemas/schemas_0";
 
 /**

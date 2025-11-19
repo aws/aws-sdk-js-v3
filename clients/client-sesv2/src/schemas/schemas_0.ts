@@ -797,7 +797,7 @@ import {
   NotFoundException as __NotFoundException,
   SendingPausedException as __SendingPausedException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { SESv2ServiceException as __SESv2ServiceException } from "../models/SESv2ServiceException";
 
 /* eslint no-var: 0 */

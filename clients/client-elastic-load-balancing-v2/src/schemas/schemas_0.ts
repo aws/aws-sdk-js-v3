@@ -532,7 +532,7 @@ import {
   TrustStoreNotFoundException as __TrustStoreNotFoundException,
   TrustStoreNotReadyException as __TrustStoreNotReadyException,
   UnsupportedProtocolException as __UnsupportedProtocolException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

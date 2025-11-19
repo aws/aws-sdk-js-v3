@@ -8,7 +8,7 @@ import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import {
   ListContainerGroupDefinitionVersionsInput,
   ListContainerGroupDefinitionVersionsOutput,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListContainerGroupDefinitionVersions } from "../schemas/schemas_0";
 
 /**

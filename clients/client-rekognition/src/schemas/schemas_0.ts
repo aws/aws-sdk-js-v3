@@ -763,7 +763,7 @@ import {
   SessionNotFoundException as __SessionNotFoundException,
   ThrottlingException as __ThrottlingException,
   VideoTooLargeException as __VideoTooLargeException,
-} from "../models/index";
+} from "../models/errors";
 import { RekognitionServiceException as __RekognitionServiceException } from "../models/RekognitionServiceException";
 
 /* eslint no-var: 0 */

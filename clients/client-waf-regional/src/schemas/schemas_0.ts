@@ -469,7 +469,7 @@ import {
   WAFTagOperationException as __WAFTagOperationException,
   WAFTagOperationInternalErrorException as __WAFTagOperationInternalErrorException,
   WAFUnavailableEntityException as __WAFUnavailableEntityException,
-} from "../models/index";
+} from "../models/errors";
 import { WAFRegionalServiceException as __WAFRegionalServiceException } from "../models/WAFRegionalServiceException";
 
 /* eslint no-var: 0 */

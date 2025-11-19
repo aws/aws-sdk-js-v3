@@ -140,7 +140,7 @@ import {
   TextLengthExceededException as __TextLengthExceededException,
   UnsupportedPlsAlphabetException as __UnsupportedPlsAlphabetException,
   UnsupportedPlsLanguageException as __UnsupportedPlsLanguageException,
-} from "../models/index";
+} from "../models/errors";
 import { PollyServiceException as __PollyServiceException } from "../models/PollyServiceException";
 
 /* eslint no-var: 0 */

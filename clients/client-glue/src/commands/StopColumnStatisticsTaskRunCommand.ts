@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StopColumnStatisticsTaskRunRequest, StopColumnStatisticsTaskRunResponse } from "../models/models_3";
+import { StopColumnStatisticsTaskRunRequest, StopColumnStatisticsTaskRunResponse } from "../models/models_2";
 import { StopColumnStatisticsTaskRun } from "../schemas/schemas_0";
 
 /**

@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeMaintenanceWindowsForTargetRequest,
   DescribeMaintenanceWindowsForTargetResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { DescribeMaintenanceWindowsForTarget } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

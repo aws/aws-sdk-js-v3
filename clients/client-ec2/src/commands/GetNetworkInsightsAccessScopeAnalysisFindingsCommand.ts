@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
-} from "../models/models_7";
+} from "../models/models_6";
 import { GetNetworkInsightsAccessScopeAnalysisFindings } from "../schemas/schemas_0";
 
 /**

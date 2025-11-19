@@ -33,7 +33,7 @@ import {
   InternalServerException as __InternalServerException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { InspectorScanServiceException as __InspectorScanServiceException } from "../models/InspectorScanServiceException";
 
 /* eslint no-var: 0 */

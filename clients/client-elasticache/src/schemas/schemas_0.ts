@@ -804,7 +804,7 @@ import {
   UserGroupQuotaExceededFault as __UserGroupQuotaExceededFault,
   UserNotFoundFault as __UserNotFoundFault,
   UserQuotaExceededFault as __UserQuotaExceededFault,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

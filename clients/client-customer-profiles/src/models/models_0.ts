@@ -1,50 +1,57 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CustomerProfilesServiceException as __BaseException } from "./CustomerProfilesServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ActionType = {
-  ADDED_PROFILE_KEY: "ADDED_PROFILE_KEY",
-  CREATED: "CREATED",
-  DELETED_BY_CUSTOMER: "DELETED_BY_CUSTOMER",
-  DELETED_BY_MERGE: "DELETED_BY_MERGE",
-  DELETED_PROFILE_KEY: "DELETED_PROFILE_KEY",
-  EXPIRED: "EXPIRED",
-  INGESTED: "INGESTED",
-  MERGED: "MERGED",
-  UPDATED: "UPDATED",
-} as const;
-
-/**
- * @public
- */
-export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+import {
+  ActionType,
+  AttributeDimensionType,
+  AttributeMatchingModel,
+  ComparisonOperator,
+  ConflictResolvingModel,
+  ContactType,
+  DataFormat,
+  DataPullMode,
+  DateDimensionType,
+  EstimateStatus,
+  EventStreamDestinationStatus,
+  EventStreamState,
+  EventTriggerLogicalOperator,
+  FieldContentType,
+  FilterDimensionType,
+  Gender,
+  IdentityResolutionJobStatus,
+  Include,
+  IncludeOptions,
+  JobScheduleDayOfTheWeek,
+  LayoutType,
+  LogicalOperator,
+  MarketoConnectorOperator,
+  MatchType,
+  Operator,
+  OperatorPropertiesKeys,
+  PartyType,
+  PeriodUnit,
+  ProfileType,
+  ProfileTypeDimensionType,
+  QueryResult,
+  RangeUnit,
+  ReadinessStatus,
+  RuleBasedMatchingStatus,
+  S3ConnectorOperator,
+  SalesforceConnectorOperator,
+  SegmentSnapshotStatus,
+  ServiceNowConnectorOperator,
+  SourceConnectorType,
+  StandardIdentifier,
+  Statistic,
+  Status,
+  StatusReason,
+  StringDimensionType,
+  TaskType,
+  TriggerType,
+  Type,
+  Unit,
+  UploadJobStatus,
+  WorkflowType,
+  ZendeskConnectorOperator,
+} from "./enums";
 
 /**
  * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list
@@ -117,94 +124,6 @@ export interface AddProfileKeyResponse {
 }
 
 /**
- * <p>The input you provided is invalid.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An internal service error occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested resource does not exist, or access was denied.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You exceeded the maximum number of requests.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A generic address associated with the customer that is not mailing, shipping, or
  *          billing.</p>
  * @public
@@ -270,23 +189,6 @@ export interface Address {
    */
   PostalCode?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StringDimensionType = {
-  BEGINS_WITH: "BEGINS_WITH",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EXCLUSIVE: "EXCLUSIVE",
-  INCLUSIVE: "INCLUSIVE",
-} as const;
-
-/**
- * @public
- */
-export type StringDimensionType = (typeof StringDimensionType)[keyof typeof StringDimensionType];
 
 /**
  * <p>Object to hold the dimensions of a profile's fields to segment on.</p>
@@ -367,23 +269,6 @@ export interface Batch {
    */
   EndTime: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceConnectorType = {
-  MARKETO: "Marketo",
-  S3: "S3",
-  SALESFORCE: "Salesforce",
-  SERVICENOW: "Servicenow",
-  ZENDESK: "Zendesk",
-} as const;
-
-/**
- * @public
- */
-export type SourceConnectorType = (typeof SourceConnectorType)[keyof typeof SourceConnectorType];
 
 /**
  * <p>Specifies the configuration used when importing incremental records from the
@@ -551,160 +436,6 @@ export interface SourceFlowConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const MarketoConnectorOperator = {
-  ADDITION: "ADDITION",
-  BETWEEN: "BETWEEN",
-  DIVISION: "DIVISION",
-  GREATER_THAN: "GREATER_THAN",
-  LESS_THAN: "LESS_THAN",
-  MASK_ALL: "MASK_ALL",
-  MASK_FIRST_N: "MASK_FIRST_N",
-  MASK_LAST_N: "MASK_LAST_N",
-  MULTIPLICATION: "MULTIPLICATION",
-  NO_OP: "NO_OP",
-  PROJECTION: "PROJECTION",
-  SUBTRACTION: "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
-} as const;
-
-/**
- * @public
- */
-export type MarketoConnectorOperator = (typeof MarketoConnectorOperator)[keyof typeof MarketoConnectorOperator];
-
-/**
- * @public
- * @enum
- */
-export const S3ConnectorOperator = {
-  ADDITION: "ADDITION",
-  BETWEEN: "BETWEEN",
-  DIVISION: "DIVISION",
-  EQUAL_TO: "EQUAL_TO",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL: "MASK_ALL",
-  MASK_FIRST_N: "MASK_FIRST_N",
-  MASK_LAST_N: "MASK_LAST_N",
-  MULTIPLICATION: "MULTIPLICATION",
-  NOT_EQUAL_TO: "NOT_EQUAL_TO",
-  NO_OP: "NO_OP",
-  PROJECTION: "PROJECTION",
-  SUBTRACTION: "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
-} as const;
-
-/**
- * @public
- */
-export type S3ConnectorOperator = (typeof S3ConnectorOperator)[keyof typeof S3ConnectorOperator];
-
-/**
- * @public
- * @enum
- */
-export const SalesforceConnectorOperator = {
-  ADDITION: "ADDITION",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  DIVISION: "DIVISION",
-  EQUAL_TO: "EQUAL_TO",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL: "MASK_ALL",
-  MASK_FIRST_N: "MASK_FIRST_N",
-  MASK_LAST_N: "MASK_LAST_N",
-  MULTIPLICATION: "MULTIPLICATION",
-  NOT_EQUAL_TO: "NOT_EQUAL_TO",
-  NO_OP: "NO_OP",
-  PROJECTION: "PROJECTION",
-  SUBTRACTION: "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
-} as const;
-
-/**
- * @public
- */
-export type SalesforceConnectorOperator =
-  (typeof SalesforceConnectorOperator)[keyof typeof SalesforceConnectorOperator];
-
-/**
- * @public
- * @enum
- */
-export const ServiceNowConnectorOperator = {
-  ADDITION: "ADDITION",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  DIVISION: "DIVISION",
-  EQUAL_TO: "EQUAL_TO",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL: "MASK_ALL",
-  MASK_FIRST_N: "MASK_FIRST_N",
-  MASK_LAST_N: "MASK_LAST_N",
-  MULTIPLICATION: "MULTIPLICATION",
-  NOT_EQUAL_TO: "NOT_EQUAL_TO",
-  NO_OP: "NO_OP",
-  PROJECTION: "PROJECTION",
-  SUBTRACTION: "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
-} as const;
-
-/**
- * @public
- */
-export type ServiceNowConnectorOperator =
-  (typeof ServiceNowConnectorOperator)[keyof typeof ServiceNowConnectorOperator];
-
-/**
- * @public
- * @enum
- */
-export const ZendeskConnectorOperator = {
-  ADDITION: "ADDITION",
-  DIVISION: "DIVISION",
-  GREATER_THAN: "GREATER_THAN",
-  MASK_ALL: "MASK_ALL",
-  MASK_FIRST_N: "MASK_FIRST_N",
-  MASK_LAST_N: "MASK_LAST_N",
-  MULTIPLICATION: "MULTIPLICATION",
-  NO_OP: "NO_OP",
-  PROJECTION: "PROJECTION",
-  SUBTRACTION: "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
-} as const;
-
-/**
- * @public
- */
-export type ZendeskConnectorOperator = (typeof ZendeskConnectorOperator)[keyof typeof ZendeskConnectorOperator];
-
-/**
  * <p>The operation to be performed on the provided source fields.</p>
  * @public
  */
@@ -739,51 +470,6 @@ export interface ConnectorOperator {
    */
   Zendesk?: ZendeskConnectorOperator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OperatorPropertiesKeys = {
-  CONCAT_FORMAT: "CONCAT_FORMAT",
-  DATA_TYPE: "DATA_TYPE",
-  DESTINATION_DATA_TYPE: "DESTINATION_DATA_TYPE",
-  LOWER_BOUND: "LOWER_BOUND",
-  MASK_LENGTH: "MASK_LENGTH",
-  MASK_VALUE: "MASK_VALUE",
-  MATH_OPERATION_FIELDS_ORDER: "MATH_OPERATION_FIELDS_ORDER",
-  SOURCE_DATA_TYPE: "SOURCE_DATA_TYPE",
-  SUBFIELD_CATEGORY_MAP: "SUBFIELD_CATEGORY_MAP",
-  TRUNCATE_LENGTH: "TRUNCATE_LENGTH",
-  UPPER_BOUND: "UPPER_BOUND",
-  VALIDATION_ACTION: "VALIDATION_ACTION",
-  VALUE: "VALUE",
-  VALUES: "VALUES",
-} as const;
-
-/**
- * @public
- */
-export type OperatorPropertiesKeys = (typeof OperatorPropertiesKeys)[keyof typeof OperatorPropertiesKeys];
-
-/**
- * @public
- * @enum
- */
-export const TaskType = {
-  ARITHMETIC: "Arithmetic",
-  FILTER: "Filter",
-  MAP: "Map",
-  MASK: "Mask",
-  MERGE: "Merge",
-  TRUNCATE: "Truncate",
-  VALIDATE: "Validate",
-} as const;
-
-/**
- * @public
- */
-export type TaskType = (typeof TaskType)[keyof typeof TaskType];
 
 /**
  * <p>A class for modeling different type of tasks. Task implementation varies based on the
@@ -823,20 +509,6 @@ export interface Task {
    */
   TaskType: TaskType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataPullMode = {
-  COMPLETE: "Complete",
-  INCREMENTAL: "Incremental",
-} as const;
-
-/**
- * @public
- */
-export type DataPullMode = (typeof DataPullMode)[keyof typeof DataPullMode];
 
 /**
  * <p>Specifies the configuration details of a scheduled-trigger flow that you define.
@@ -904,21 +576,6 @@ export interface TriggerProperties {
    */
   Scheduled?: ScheduledTriggerProperties | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TriggerType = {
-  EVENT: "Event",
-  ONDEMAND: "OnDemand",
-  SCHEDULED: "Scheduled",
-} as const;
-
-/**
- * @public
- */
-export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * <p>The trigger settings that determine how and when Amazon AppFlow runs the specified
@@ -1059,25 +716,6 @@ export interface AppflowIntegrationWorkflowMetrics {
 }
 
 /**
- * @public
- * @enum
- */
-export const Status = {
-  CANCELLED: "CANCELLED",
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-  RETRY: "RETRY",
-  SPLIT: "SPLIT",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
  * <p>Workflow step details for <code>APPFLOW_INTEGRATION</code> workflow.</p>
  * @public
  */
@@ -1173,33 +811,6 @@ export interface AttributeDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const AttributeDimensionType = {
-  AFTER: "AFTER",
-  BEFORE: "BEFORE",
-  BEGINS_WITH: "BEGINS_WITH",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUAL: "EQUAL",
-  EXCLUSIVE: "EXCLUSIVE",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  INCLUSIVE: "INCLUSIVE",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
-  NOT_BETWEEN: "NOT_BETWEEN",
-  ON: "ON",
-} as const;
-
-/**
- * @public
- */
-export type AttributeDimensionType = (typeof AttributeDimensionType)[keyof typeof AttributeDimensionType];
-
-/**
  * <p>Object that segments on various Customer Profile's fields.</p>
  * @public
  */
@@ -1216,33 +827,6 @@ export interface AttributeDimension {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FilterDimensionType = {
-  AFTER: "AFTER",
-  BEFORE: "BEFORE",
-  BEGINS_WITH: "BEGINS_WITH",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUAL: "EQUAL",
-  EXCLUSIVE: "EXCLUSIVE",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  INCLUSIVE: "INCLUSIVE",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
-  NOT_BETWEEN: "NOT_BETWEEN",
-  ON: "ON",
-} as const;
-
-/**
- * @public
- */
-export type FilterDimensionType = (typeof FilterDimensionType)[keyof typeof FilterDimensionType];
 
 /**
  * <p>Object that defines how to filter the incoming objects for the calculated
@@ -1262,20 +846,6 @@ export interface FilterAttributeDimension {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttributeMatchingModel = {
-  MANY_TO_MANY: "MANY_TO_MANY",
-  ONE_TO_ONE: "ONE_TO_ONE",
-} as const;
-
-/**
- * @public
- */
-export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeof AttributeMatchingModel];
 
 /**
  * <p>Configuration information about the <code>AttributeTypesSelector </code>where the
@@ -1385,20 +955,6 @@ export interface AttributeValueItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConflictResolvingModel = {
-  RECENCY: "RECENCY",
-  SOURCE: "SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type ConflictResolvingModel = (typeof ConflictResolvingModel)[keyof typeof ConflictResolvingModel];
-
-/**
  * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
  * @public
  */
@@ -1477,19 +1033,6 @@ export interface AutoMerging {
    */
   MinAllowedConfidenceScoreForMerging?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RangeUnit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type RangeUnit = (typeof RangeUnit)[keyof typeof RangeUnit];
 
 /**
  * <p>Overrides the original range on a calculated attribute definition.</p>
@@ -1692,25 +1235,6 @@ export interface BatchGetProfileError {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContactType = {
-  BUSINESS_EMAIL_ADDRESS: "BusinessEmailAddress",
-  BUSINESS_PHONE_NUMBER: "BusinessPhoneNumber",
-  EMAIL_ADDRESS: "EmailAddress",
-  HOME_PHONE_NUMBER: "HomePhoneNumber",
-  MOBILE_PHONE_NUMBER: "MobilePhoneNumber",
-  PERSONAL_EMAIL_ADDRESS: "PersonalEmailAddress",
-  PHONE_NUMBER: "PhoneNumber",
-} as const;
-
-/**
- * @public
- */
-export type ContactType = (typeof ContactType)[keyof typeof ContactType];
-
-/**
  * <p>Object that defines users contact preference.</p>
  * @public
  */
@@ -1778,50 +1302,6 @@ export interface FoundByKeyValue {
    */
   Values?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Gender = {
-  FEMALE: "FEMALE",
-  MALE: "MALE",
-  UNSPECIFIED: "UNSPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type Gender = (typeof Gender)[keyof typeof Gender];
-
-/**
- * @public
- * @enum
- */
-export const PartyType = {
-  BUSINESS: "BUSINESS",
-  INDIVIDUAL: "INDIVIDUAL",
-  OTHER: "OTHER",
-} as const;
-
-/**
- * @public
- */
-export type PartyType = (typeof PartyType)[keyof typeof PartyType];
-
-/**
- * @public
- * @enum
- */
-export const ProfileType = {
-  ACCOUNT_PROFILE: "ACCOUNT_PROFILE",
-  PROFILE: "PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
 
 /**
  * <p>The standard profile of a customer.</p>
@@ -2039,22 +1519,6 @@ export interface BatchGetProfileResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReadinessStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PREPARING: "PREPARING",
-} as const;
-
-/**
- * @public
- */
-export type ReadinessStatus = (typeof ReadinessStatus)[keyof typeof ReadinessStatus];
-
-/**
  * <p>The details of a single calculated attribute definition.</p>
  * @public
  */
@@ -2174,46 +1638,6 @@ export interface ListCalculatedAttributeForProfileItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  AFTER: "AFTER",
-  BEFORE: "BEFORE",
-  BEGINS_WITH: "BEGINS_WITH",
-  BETWEEN: "BETWEEN",
-  CONTAINS: "CONTAINS",
-  ENDS_WITH: "ENDS_WITH",
-  EQUAL: "EQUAL",
-  EXCLUSIVE: "EXCLUSIVE",
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
-  INCLUSIVE: "INCLUSIVE",
-  LESS_THAN: "LESS_THAN",
-  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
-  NOT_BETWEEN: "NOT_BETWEEN",
-  ON: "ON",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
- * @public
- * @enum
- */
-export const Unit = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
-
-/**
  * <p>A structure letting customers specify a relative time window over which over which data
  *          is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint
  *          is in the past, and negative numbers to indicate it is in the future. ValueRange overrides
@@ -2285,22 +1709,6 @@ export interface Range {
 }
 
 /**
- * @public
- * @enum
- */
-export const Operator = {
-  EQUAL_TO: "EQUAL_TO",
-  GREATER_THAN: "GREATER_THAN",
-  LESS_THAN: "LESS_THAN",
-  NOT_EQUAL_TO: "NOT_EQUAL_TO",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
-
-/**
  * <p>The threshold for the calculated attribute.</p>
  * @public
  */
@@ -2356,21 +1764,6 @@ export interface FilterDimension {
 }
 
 /**
- * @public
- * @enum
- */
-export const Type = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
-/**
  * <p>Object that holds the dimensions to filter on.</p>
  * @public
  */
@@ -2387,21 +1780,6 @@ export interface FilterGroup {
    */
   Dimensions: FilterDimension[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Include = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Include = (typeof Include)[keyof typeof Include];
 
 /**
  * <p>Defines how to filter the objects coming in for calculated attributes.</p>
@@ -2421,26 +1799,6 @@ export interface Filter {
    */
   Groups: FilterGroup[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Statistic = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  FIRST_OCCURRENCE: "FIRST_OCCURRENCE",
-  LAST_OCCURRENCE: "LAST_OCCURRENCE",
-  MAXIMUM: "MAXIMUM",
-  MAX_OCCURRENCE: "MAX_OCCURRENCE",
-  MINIMUM: "MINIMUM",
-  SUM: "SUM",
-} as const;
-
-/**
- * @public
- */
-export type Statistic = (typeof Statistic)[keyof typeof Statistic];
 
 /**
  * @public
@@ -2653,25 +2011,6 @@ export interface ExportingConfig {
    */
   S3Exporting?: S3ExportingConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobScheduleDayOfTheWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type JobScheduleDayOfTheWeek = (typeof JobScheduleDayOfTheWeek)[keyof typeof JobScheduleDayOfTheWeek];
 
 /**
  * <p>The day and time when do you want to start the Identity Resolution Job every week.</p>
@@ -2944,21 +2283,6 @@ export interface MatchingResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const RuleBasedMatchingStatus = {
-  ACTIVE: "ACTIVE",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type RuleBasedMatchingStatus = (typeof RuleBasedMatchingStatus)[keyof typeof RuleBasedMatchingStatus];
-
-/**
  * <p>The response of the Rule-based matching request.</p>
  * @public
  */
@@ -3117,19 +2441,6 @@ export interface CreateDomainResponse {
    */
   Tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LayoutType = {
-  PROFILE_EXPLORER: "PROFILE_EXPLORER",
-} as const;
-
-/**
- * @public
- */
-export type LayoutType = (typeof LayoutType)[keyof typeof LayoutType];
 
 /**
  * @public
@@ -3345,22 +2656,6 @@ export interface EventTriggerDimension {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventTriggerLogicalOperator = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type EventTriggerLogicalOperator =
-  (typeof EventTriggerLogicalOperator)[keyof typeof EventTriggerLogicalOperator];
-
-/**
  * <p>Specifies the circumstances under which the event should trigger the destination.</p>
  * @public
  */
@@ -3377,22 +2672,6 @@ export interface EventTriggerCondition {
    */
   LogicalOperator: EventTriggerLogicalOperator | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PeriodUnit = {
-  DAYS: "DAYS",
-  HOURS: "HOURS",
-  MONTHS: "MONTHS",
-  WEEKS: "WEEKS",
-} as const;
-
-/**
- * @public
- */
-export type PeriodUnit = (typeof PeriodUnit)[keyof typeof PeriodUnit];
 
 /**
  * <p>Defines a limit and the time period during which it is enforced.</p>
@@ -3572,19 +2851,6 @@ export interface IntegrationConfig {
    */
   AppflowIntegration?: AppflowIntegration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkflowType = {
-  APPFLOW_INTEGRATION: "APPFLOW_INTEGRATION",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -3843,23 +3109,6 @@ export interface ExtraLengthValueProfileDimension {
 }
 
 /**
- * @public
- * @enum
- */
-export const DateDimensionType = {
-  AFTER: "AFTER",
-  BEFORE: "BEFORE",
-  BETWEEN: "BETWEEN",
-  NOT_BETWEEN: "NOT_BETWEEN",
-  ON: "ON",
-} as const;
-
-/**
- * @public
- */
-export type DateDimensionType = (typeof DateDimensionType)[keyof typeof DateDimensionType];
-
-/**
  * <p>Object that segments on various Customer Profile's date fields.</p>
  * @public
  */
@@ -3876,20 +3125,6 @@ export interface DateDimension {
    */
   Values: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProfileTypeDimensionType = {
-  EXCLUSIVE: "EXCLUSIVE",
-  INCLUSIVE: "INCLUSIVE",
-} as const;
-
-/**
- * @public
- */
-export type ProfileTypeDimensionType = (typeof ProfileTypeDimensionType)[keyof typeof ProfileTypeDimensionType];
 
 /**
  * <p>Object to hold the dimension of a profile type field to segment on.</p>
@@ -4113,21 +3348,6 @@ export interface SourceSegment {
 }
 
 /**
- * @public
- * @enum
- */
-export const IncludeOptions = {
-  ALL: "ALL",
-  ANY: "ANY",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type IncludeOptions = (typeof IncludeOptions)[keyof typeof IncludeOptions];
-
-/**
  * <p>Contains dimensions that determine what to segment on.</p>
  * @public
  */
@@ -4320,21 +3540,6 @@ export interface CreateSegmentEstimateResponse {
 
 /**
  * @public
- * @enum
- */
-export const DataFormat = {
-  CSV: "CSV",
-  JSONL: "JSONL",
-  ORC: "ORC",
-} as const;
-
-/**
- * @public
- */
-export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
-
-/**
- * @public
  */
 export interface CreateSegmentSnapshotRequest {
   /**
@@ -4387,23 +3592,6 @@ export interface CreateSegmentSnapshotResponse {
    */
   SnapshotId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FieldContentType = {
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  NAME: "NAME",
-  NUMBER: "NUMBER",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type FieldContentType = (typeof FieldContentType)[keyof typeof FieldContentType];
 
 /**
  * <p>Represents a field in a ProfileObjectType.</p>
@@ -4834,36 +4022,6 @@ export interface DetectProfileObjectTypeRequest {
    */
   DomainName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StandardIdentifier = {
-  AIR_BOOKING: "AIR_BOOKING",
-  AIR_PREFERENCE: "AIR_PREFERENCE",
-  AIR_SEGMENT: "AIR_SEGMENT",
-  ASSET: "ASSET",
-  CASE: "CASE",
-  COMMUNICATION_RECORD: "COMMUNICATION_RECORD",
-  HOTEL_PREFERENCE: "HOTEL_PREFERENCE",
-  HOTEL_RESERVATION: "HOTEL_RESERVATION",
-  HOTEL_STAY_REVENUE: "HOTEL_STAY_REVENUE",
-  LOOKUP_ONLY: "LOOKUP_ONLY",
-  LOYALTY: "LOYALTY",
-  LOYALTY_PROMOTION: "LOYALTY_PROMOTION",
-  LOYALTY_TRANSACTION: "LOYALTY_TRANSACTION",
-  NEW_ONLY: "NEW_ONLY",
-  ORDER: "ORDER",
-  PROFILE: "PROFILE",
-  SECONDARY: "SECONDARY",
-  UNIQUE: "UNIQUE",
-} as const;
-
-/**
- * @public
- */
-export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof StandardIdentifier];
 
 /**
  * <p>An object that defines the Key element of a ProfileObject. A Key is a special element
@@ -5380,21 +4538,6 @@ export interface GetEventStreamRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EventStreamDestinationStatus = {
-  HEALTHY: "HEALTHY",
-  UNHEALTHY: "UNHEALTHY",
-} as const;
-
-/**
- * @public
- */
-export type EventStreamDestinationStatus =
-  (typeof EventStreamDestinationStatus)[keyof typeof EventStreamDestinationStatus];
-
-/**
  * <p>Details of the destination being used for the EventStream.</p>
  * @public
  */
@@ -5425,20 +4568,6 @@ export interface EventStreamDestinationDetails {
    */
   Message?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventStreamState = {
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-} as const;
-
-/**
- * @public
- */
-export type EventStreamState = (typeof EventStreamState)[keyof typeof EventStreamState];
 
 /**
  * @public
@@ -5635,26 +4764,6 @@ export interface JobStats {
    */
   NumberOfMergesDone?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IdentityResolutionJobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  FIND_MATCHING: "FIND_MATCHING",
-  MERGING: "MERGING",
-  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
-  PENDING: "PENDING",
-  PREPROCESSING: "PREPROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type IdentityResolutionJobStatus =
-  (typeof IdentityResolutionJobStatus)[keyof typeof IdentityResolutionJobStatus];
 
 /**
  * @public
@@ -6273,21 +5382,6 @@ export interface GetSegmentEstimateRequest {
 
 /**
  * @public
- * @enum
- */
-export const EstimateStatus = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type EstimateStatus = (typeof EstimateStatus)[keyof typeof EstimateStatus];
-
-/**
- * @public
  */
 export interface GetSegmentEstimateResponse {
   /**
@@ -6376,20 +5470,6 @@ export interface ProfileQueryFailures {
 }
 
 /**
- * @public
- * @enum
- */
-export const QueryResult = {
-  ABSENT: "ABSENT",
-  PRESENT: "PRESENT",
-} as const;
-
-/**
- * @public
- */
-export type QueryResult = (typeof QueryResult)[keyof typeof QueryResult];
-
-/**
  * <p>Object that holds the results for membership.</p>
  * @public
  */
@@ -6462,21 +5542,6 @@ export interface GetSegmentSnapshotRequest {
 
 /**
  * @public
- * @enum
- */
-export const SegmentSnapshotStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type SegmentSnapshotStatus = (typeof SegmentSnapshotStatus)[keyof typeof SegmentSnapshotStatus];
-
-/**
- * @public
  */
 export interface GetSegmentSnapshotResponse {
   /**
@@ -6524,20 +5589,6 @@ export interface GetSegmentSnapshotResponse {
    */
   DestinationUri?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MatchType = {
-  ML_BASED_MATCHING: "ML_BASED_MATCHING",
-  RULE_BASED_MATCHING: "RULE_BASED_MATCHING",
-} as const;
-
-/**
- * @public
- */
-export type MatchType = (typeof MatchType)[keyof typeof MatchType];
 
 /**
  * @public
@@ -6669,38 +5720,6 @@ export interface ResultsSummary {
    */
   FailedRecords?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UploadJobStatus = {
-  CREATED: "CREATED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PARTIALLY_SUCCEEDED: "PARTIALLY_SUCCEEDED",
-  STOPPED: "STOPPED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type UploadJobStatus = (typeof UploadJobStatus)[keyof typeof UploadJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const StatusReason = {
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  VALIDATION_FAILURE: "VALIDATION_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
 
 /**
  * @public
@@ -8740,4 +7759,1316 @@ export interface FieldSourceProfileIds {
    * @public
    */
   EngagementPreferences?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeProfilesRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be taken.</p>
+   * @public
+   */
+  MainProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be merged into MainProfileId.</p>
+   * @public
+   */
+  ProfileIdsToBeMerged: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the fields in the profile that has the information you want to apply
+   *          to the merge. For example, say you want to merge EmailAddress from Profile1 into
+   *          MainProfile. This would be the identifier of the EmailAddress field in Profile1. </p>
+   * @public
+   */
+  FieldSourceProfileIds?: FieldSourceProfileIds | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeProfilesResponse {
+  /**
+   * <p>A message that indicates the merge request is complete.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * @public
+   */
+  Uri?: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration that controls how Customer Profiles retrieves data from the
+   *          source.</p>
+   * @public
+   */
+  FlowDefinition?: FlowDefinition | undefined;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * @public
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   * @public
+   */
+  WorkflowId?: string | undefined;
+
+  /**
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
+   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
+   *          flowDefinition.</p>
+   * @public
+   */
+  IsUnstructured?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration. This
+   *          list would be empty if no Event Trigger is associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectRequest {
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>A string that is serialized from a JSON object.</p>
+   * @public
+   */
+  Object: string | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectResponse {
+  /**
+   * <p>The unique identifier of the profile object generated by the service.</p>
+   * @public
+   */
+  ProfileObjectUniqueKey?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectTypeRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>Description of the profile object type.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A unique identifier for the object template. For some attributes in the request, the
+   *          service will use the default value from the object template when TemplateId is present. If
+   *          these attributes are present in the request, the service may return a
+   *             <code>BadRequestException</code>. These attributes include: AllowProfileCreation,
+   *          SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if AllowProfileCreation is
+   *          set to true when TemplateId is set, the service may return a
+   *             <code>BadRequestException</code>.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The number of days until the data in the object expires.</p>
+   * @public
+   */
+  ExpirationDays?: number | undefined;
+
+  /**
+   * <p>The customer-provided key to encrypt the profile object that will be created in this
+   *          profile object type.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
+   * @public
+   */
+  AllowProfileCreation?: boolean | undefined;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up.
+   *       </p>
+   * @public
+   */
+  SourceLastUpdatedTimestampFormat?: string | undefined;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>A map of the name and ObjectType field.</p>
+   * @public
+   */
+  Fields?: Record<string, ObjectTypeField> | undefined;
+
+  /**
+   * <p>A list of unique keys that can be used to map data to the profile.</p>
+   * @public
+   */
+  Keys?: Record<string, ObjectTypeKey[]> | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectTypeResponse {
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>Description of the profile object type.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The number of days until the data in the object expires.</p>
+   * @public
+   */
+  ExpirationDays?: number | undefined;
+
+  /**
+   * <p>The customer-provided key to encrypt the profile object that will be created in this
+   *          profile object type.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
+   * @public
+   */
+  AllowProfileCreation?: boolean | undefined;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up in
+   *          fields that were parsed using <a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>. If you have <code>sourceLastUpdatedTimestamp</code> in your
+   *          field, you must set up <code>sourceLastUpdatedTimestampFormat</code>.</p>
+   * @public
+   */
+  SourceLastUpdatedTimestampFormat?: string | undefined;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type.</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>The amount of provisioned profile object max count available.</p>
+   * @public
+   */
+  MaxAvailableProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>A map of the name and ObjectType field.</p>
+   * @public
+   */
+  Fields?: Record<string, ObjectTypeField> | undefined;
+
+  /**
+   * <p>A list of unique keys that can be used to map data to the profile.</p>
+   * @public
+   */
+  Keys?: Record<string, ObjectTypeKey[]> | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchProfilesRequest {
+  /**
+   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   *          <p>The default is 20 if this parameter is not included in the request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId,
+   *          _assetId, _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+   *          _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId,
+   *          _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId,
+   *          _segmentUserId, _shopifyCustomerId, _shopifyOrderId.</p>
+   * @public
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>A list of key values.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers
+   *          of a profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code>
+   *          and a list of <code>Values</code> associated with that specific key (i.e., a key-value(s)
+   *          pair). These additional search keys will be used in conjunction with the
+   *             <code>LogicalOperator</code> and the required <code>KeyName</code> and
+   *             <code>Values</code> parameters to search for profiles that satisfy the search criteria.
+   *       </p>
+   * @public
+   */
+  AdditionalSearchKeys?: AdditionalSearchKey[] | undefined;
+
+  /**
+   * <p>Relationship between all specified search keys that will be used to search for profiles.
+   *          This includes the required <code>KeyName</code> and <code>Values</code> parameters as well
+   *          as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>
+   *          <p>This parameter influences which profiles will be returned in the response in the
+   *          following manner:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code> - The response only includes profiles that match all of the
+   *                search keys.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code> - The response includes profiles that match at least one of the
+   *                search keys.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not
+   *          included in the request.</p>
+   * @public
+   */
+  LogicalOperator?: LogicalOperator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchProfilesResponse {
+  /**
+   * <p>The list of Profiles matching the search criteria.</p>
+   * @public
+   */
+  Items?: Profile[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartUploadJobRequest {
+  /**
+   * <p>The unique name of the domain containing the upload job to start. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upload job to start. </p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartUploadJobResponse {}
+
+/**
+ * @public
+ */
+export interface StopUploadJobRequest {
+  /**
+   * <p>The unique name of the domain containing the upload job to stop. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upload job to stop. </p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopUploadJobResponse {}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource that you're adding tags to.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource from which you are removing tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateCalculatedAttributeDefinitionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the calculated attribute.</p>
+   * @public
+   */
+  CalculatedAttributeName: string | undefined;
+
+  /**
+   * <p>The display name of the calculated attribute.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the calculated attribute.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
+   * @public
+   */
+  Conditions?: Conditions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCalculatedAttributeDefinitionResponse {
+  /**
+   * <p>The unique name of the calculated attribute.</p>
+   * @public
+   */
+  CalculatedAttributeName?: string | undefined;
+
+  /**
+   * <p>The display name of the calculated attribute.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the calculated attribute.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the calculated attribute definition was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the calculated attribute definition was most recently
+   *          edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The aggregation operation to perform for the calculated attribute.</p>
+   * @public
+   */
+  Statistic?: Statistic | undefined;
+
+  /**
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
+   * @public
+   */
+  Conditions?: Conditions | undefined;
+
+  /**
+   * <p>The mathematical expression and a list of attribute items specified in that
+   *          expression.</p>
+   * @public
+   */
+  AttributeDetails?: AttributeDetails | undefined;
+
+  /**
+   * <p>Whether historical data ingested before the Calculated Attribute was created should be
+   *          included in calculations.</p>
+   * @public
+   */
+  UseHistoricalData?: boolean | undefined;
+
+  /**
+   * <p>Status of the Calculated Attribute creation (whether all historical data has been
+   *          indexed.)</p>
+   * @public
+   */
+  Status?: ReadinessStatus | undefined;
+
+  /**
+   * <p>Information indicating if the Calculated Attribute is ready for use by confirming all
+   *          historical data has been processed and reflected.</p>
+   * @public
+   */
+  Readiness?: Readiness | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The default number of days until the data within the domain expires.</p>
+   * @public
+   */
+  DefaultExpirationDays?: number | undefined;
+
+  /**
+   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
+   *          of encryption key is specified. It is used to encrypt all data before it is placed in
+   *          permanent or semi-permanent storage. If specified as an empty string, it will clear any
+   *          existing value.</p>
+   * @public
+   */
+  DefaultEncryptionKey?: string | undefined;
+
+  /**
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications. If specified as an empty string, it will
+   *          clear any existing value. You must set up a policy on the DeadLetterQueue for the
+   *          SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the
+   *          DeadLetterQueue.</p>
+   * @public
+   */
+  DeadLetterQueueUrl?: string | undefined;
+
+  /**
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
+   * @public
+   */
+  Matching?: MatchingRequest | undefined;
+
+  /**
+   * <p>The process of matching duplicate profiles using the rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
+   * @public
+   */
+  RuleBasedMatching?: RuleBasedMatchingRequest | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The default number of days until the data within the domain expires.</p>
+   * @public
+   */
+  DefaultExpirationDays?: number | undefined;
+
+  /**
+   * <p>The default encryption key, which is an AWS managed key, is used when no specific type
+   *          of encryption key is specified. It is used to encrypt all data before it is placed in
+   *          permanent or semi-permanent storage.</p>
+   * @public
+   */
+  DefaultEncryptionKey?: string | undefined;
+
+  /**
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications.</p>
+   * @public
+   */
+  DeadLetterQueueUrl?: string | undefined;
+
+  /**
+   * <p>The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>, Amazon Connect Customer Profiles starts a weekly
+   * batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every
+   * Saturday at 12AM UTC to detect duplicate profiles in your domains. </p>
+   *          <p>After the Identity Resolution Job completes, use the
+   * <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+   * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
+   * S3.</p>
+   * @public
+   */
+  Matching?: MatchingResponse | undefined;
+
+  /**
+   * <p>The process of matching duplicate profiles using the rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
+   * @public
+   */
+  RuleBasedMatching?: RuleBasedMatchingResponse | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainLayoutRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  LayoutType?: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  Layout?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainLayoutResponse {
+  /**
+   * <p>The unique name of the layout.</p>
+   * @public
+   */
+  LayoutDefinitionName?: string | undefined;
+
+  /**
+   * <p>The description of the layout</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name of the layout</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>If set to true for a layout, this layout will be used by default to view data. If set to
+   *          false, then the layout will not be used by default, but it can be used to view data by
+   *          explicitly selecting it in the console.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  LayoutType?: LayoutType | undefined;
+
+  /**
+   * <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
+   * @public
+   */
+  Layout?: string | undefined;
+
+  /**
+   * <p>The version used to create layout.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the layout was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEventTriggerRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions?: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEventTriggerResponse {
+  /**
+   * <p>The unique name of the event trigger.</p>
+   * @public
+   */
+  EventTriggerName?: string | undefined;
+
+  /**
+   * <p>The unique name of the object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the event trigger.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of conditions that determine when an event should trigger the destination.</p>
+   * @public
+   */
+  EventTriggerConditions?: EventTriggerCondition[] | undefined;
+
+  /**
+   * <p>The destination is triggered only for profiles that meet the criteria of a segment
+   *          definition.</p>
+   * @public
+   */
+  SegmentFilter?: string | undefined;
+
+  /**
+   * <p>Defines limits controlling whether an event triggers the destination, based on ingestion
+   *          latency and the number of invocations per profile over specific time periods.</p>
+   * @public
+   */
+  EventTriggerLimits?: EventTriggerLimits | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the event trigger was most recently updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Updates associated with the address properties of a customer profile.</p>
+ * @public
+ */
+export interface UpdateAddress {
+  /**
+   * <p>The first line of a customer address.</p>
+   * @public
+   */
+  Address1?: string | undefined;
+
+  /**
+   * <p>The second line of a customer address.</p>
+   * @public
+   */
+  Address2?: string | undefined;
+
+  /**
+   * <p>The third line of a customer address.</p>
+   * @public
+   */
+  Address3?: string | undefined;
+
+  /**
+   * <p>The fourth line of a customer address.</p>
+   * @public
+   */
+  Address4?: string | undefined;
+
+  /**
+   * <p>The city in which a customer lives.</p>
+   * @public
+   */
+  City?: string | undefined;
+
+  /**
+   * <p>The county in which a customer lives.</p>
+   * @public
+   */
+  County?: string | undefined;
+
+  /**
+   * <p>The state in which a customer lives.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The province in which a customer lives.</p>
+   * @public
+   */
+  Province?: string | undefined;
+
+  /**
+   * <p>The country in which a customer lives.</p>
+   * @public
+   */
+  Country?: string | undefined;
+
+  /**
+   * <p>The postal code of a customer address.</p>
+   * @public
+   */
+  PostalCode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProfileRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>Any additional information relevant to the customer’s profile.</p>
+   * @public
+   */
+  AdditionalInformation?: string | undefined;
+
+  /**
+   * <p>An account number that you have assigned to the customer.</p>
+   * @public
+   */
+  AccountNumber?: string | undefined;
+
+  /**
+   * <p>The type of profile used to describe the customer.</p>
+   *
+   * @deprecated deprecated
+   * @public
+   */
+  PartyType?: PartyType | undefined;
+
+  /**
+   * <p>The name of the customer’s business.</p>
+   * @public
+   */
+  BusinessName?: string | undefined;
+
+  /**
+   * <p>The customer’s first name.</p>
+   * @public
+   */
+  FirstName?: string | undefined;
+
+  /**
+   * <p>The customer’s middle name.</p>
+   * @public
+   */
+  MiddleName?: string | undefined;
+
+  /**
+   * <p>The customer’s last name.</p>
+   * @public
+   */
+  LastName?: string | undefined;
+
+  /**
+   * <p>The customer’s birth date. </p>
+   * @public
+   */
+  BirthDate?: string | undefined;
+
+  /**
+   * <p>The gender with which the customer identifies. </p>
+   *
+   * @deprecated deprecated
+   * @public
+   */
+  Gender?: Gender | undefined;
+
+  /**
+   * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
+   *          number. </p>
+   * @public
+   */
+  PhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s mobile phone number.</p>
+   * @public
+   */
+  MobilePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s home phone number.</p>
+   * @public
+   */
+  HomePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s business phone number.</p>
+   * @public
+   */
+  BusinessPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s email address, which has not been specified as a personal or business
+   *          address. </p>
+   * @public
+   */
+  EmailAddress?: string | undefined;
+
+  /**
+   * <p>The customer’s personal email address.</p>
+   * @public
+   */
+  PersonalEmailAddress?: string | undefined;
+
+  /**
+   * <p>The customer’s business email address.</p>
+   * @public
+   */
+  BusinessEmailAddress?: string | undefined;
+
+  /**
+   * <p>A generic address associated with the customer that is not mailing, shipping, or
+   *          billing.</p>
+   * @public
+   */
+  Address?: UpdateAddress | undefined;
+
+  /**
+   * <p>The customer’s shipping address.</p>
+   * @public
+   */
+  ShippingAddress?: UpdateAddress | undefined;
+
+  /**
+   * <p>The customer’s mailing address.</p>
+   * @public
+   */
+  MailingAddress?: UpdateAddress | undefined;
+
+  /**
+   * <p>The customer’s billing address.</p>
+   * @public
+   */
+  BillingAddress?: UpdateAddress | undefined;
+
+  /**
+   * <p>A key value pair of attributes of a customer profile.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>An alternative to <code>PartyType</code> which accepts any string as input.</p>
+   * @public
+   */
+  PartyTypeString?: string | undefined;
+
+  /**
+   * <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
+   * @public
+   */
+  GenderString?: string | undefined;
+
+  /**
+   * <p>Determines the type of the profile.</p>
+   * @public
+   */
+  ProfileType?: ProfileType | undefined;
+
+  /**
+   * <p>Object that defines users preferred methods of engagement.</p>
+   * @public
+   */
+  EngagementPreferences?: EngagementPreferences | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProfileResponse {
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
 }

@@ -1,7 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { KinesisAnalyticsV2ServiceException as __BaseException } from "./KinesisAnalyticsV2ServiceException";
+import {
+  ApplicationMode,
+  ApplicationRestoreType,
+  ApplicationStatus,
+  ArtifactType,
+  CodeContentType,
+  ConfigurationType,
+  InputStartingPosition,
+  KeyType,
+  LogLevel,
+  MetricsLevel,
+  OperationStatus,
+  RecordFormatType,
+  RuntimeEnvironment,
+  SnapshotStatus,
+  UrlType,
+} from "./enums";
 
 /**
  * <p>Provides a description of Amazon CloudWatch logging options, including the log stream
@@ -111,140 +125,6 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
    * @public
    */
   OperationId?: string | undefined;
-}
-
-/**
- * <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The user-provided application configuration is not valid.</p>
- * @public
- */
-export class InvalidApplicationConfigurationException extends __BaseException {
-  readonly name: "InvalidApplicationConfigurationException" = "InvalidApplicationConfigurationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidApplicationConfigurationException, __BaseException>) {
-    super({
-      name: "InvalidApplicationConfigurationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidApplicationConfigurationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified input parameter value is not valid.</p>
- * @public
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request JSON is not valid for the operation.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The application is not available for this operation.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Specified application can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -384,20 +264,6 @@ export interface MappingParameters {
    */
   CSVMappingParameters?: CSVMappingParameters | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecordFormatType = {
-  CSV: "CSV",
-  JSON: "JSON",
-} as const;
-
-/**
- * @public
- */
-export type RecordFormatType = (typeof RecordFormatType)[keyof typeof RecordFormatType];
 
 /**
  * <p> For a SQL-based Kinesis Data Analytics application, describes the record format
@@ -596,21 +462,6 @@ export interface InputProcessingConfigurationDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputStartingPosition = {
-  LAST_STOPPED_POINT: "LAST_STOPPED_POINT",
-  NOW: "NOW",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type InputStartingPosition = (typeof InputStartingPosition)[keyof typeof InputStartingPosition];
-
-/**
  * <p>Describes the point at which the application reads from
  *       the streaming source.</p>
  * @public
@@ -776,29 +627,6 @@ export interface AddApplicationInputResponse {
    * @public
    */
   InputDescriptions?: InputDescription[] | undefined;
-}
-
-/**
- * <p>The user-provided application code (query) is not valid. This can be a simple syntax
- *       error.</p>
- * @public
- */
-export class CodeValidationException extends __BaseException {
-  readonly name: "CodeValidationException" = "CodeValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CodeValidationException, __BaseException>) {
-    super({
-      name: "CodeValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CodeValidationException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1491,20 +1319,6 @@ export interface CodeContent {
 }
 
 /**
- * @public
- * @enum
- */
-export const CodeContentType = {
-  PLAINTEXT: "PLAINTEXT",
-  ZIPFILE: "ZIPFILE",
-} as const;
-
-/**
- * @public
- */
-export type CodeContentType = (typeof CodeContentType)[keyof typeof CodeContentType];
-
-/**
  * <p>Describes code configuration for an application.</p>
  * @public
  */
@@ -1662,20 +1476,6 @@ export interface ApplicationCodeConfigurationUpdate {
 }
 
 /**
- * @public
- * @enum
- */
-export const KeyType = {
-  AWS_OWNED_KEY: "AWS_OWNED_KEY",
-  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
-} as const;
-
-/**
- * @public
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
-
-/**
  * <p>Specifies the configuration to manage encryption at rest.</p>
  * @public
  */
@@ -1746,20 +1546,6 @@ export interface EnvironmentProperties {
    */
   PropertyGroups: PropertyGroup[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationType = {
-  CUSTOM: "CUSTOM",
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 /**
  * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault
@@ -1834,38 +1620,6 @@ export interface CheckpointConfiguration {
    */
   MinPauseBetweenCheckpoints?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogLevel = {
-  DEBUG: "DEBUG",
-  ERROR: "ERROR",
-  INFO: "INFO",
-  WARN: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-/**
- * @public
- * @enum
- */
-export const MetricsLevel = {
-  APPLICATION: "APPLICATION",
-  OPERATOR: "OPERATOR",
-  PARALLELISM: "PARALLELISM",
-  TASK: "TASK",
-} as const;
-
-/**
- * @public
- */
-export type MetricsLevel = (typeof MetricsLevel)[keyof typeof MetricsLevel];
 
 /**
  * <p>Describes configuration parameters for Amazon CloudWatch logging for an application. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
@@ -2017,20 +1771,6 @@ export interface CatalogConfiguration {
    */
   GlueDataCatalogConfiguration: GlueDataCatalogConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ArtifactType = {
-  DEPENDENCY_JAR: "DEPENDENCY_JAR",
-  UDF: "UDF",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
 
 /**
  * <p>The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.</p>
@@ -2441,21 +2181,6 @@ export interface FlinkApplicationConfigurationDescription {
    */
   JobPlanDescription?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationRestoreType = {
-  RESTORE_FROM_CUSTOM_SNAPSHOT: "RESTORE_FROM_CUSTOM_SNAPSHOT",
-  RESTORE_FROM_LATEST_SNAPSHOT: "RESTORE_FROM_LATEST_SNAPSHOT",
-  SKIP_RESTORE_FROM_SNAPSHOT: "SKIP_RESTORE_FROM_SNAPSHOT",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationRestoreType = (typeof ApplicationRestoreType)[keyof typeof ApplicationRestoreType];
 
 /**
  * <p>Specifies the method and snapshot to use when restarting an application using previously saved application state.</p>
@@ -3479,67 +3204,6 @@ export interface ApplicationMaintenanceConfigurationDescription {
 }
 
 /**
- * @public
- * @enum
- */
-export const ApplicationMode = {
-  INTERACTIVE: "INTERACTIVE",
-  STREAMING: "STREAMING",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationMode = (typeof ApplicationMode)[keyof typeof ApplicationMode];
-
-/**
- * @public
- * @enum
- */
-export const ApplicationStatus = {
-  AUTOSCALING: "AUTOSCALING",
-  DELETING: "DELETING",
-  FORCE_STOPPING: "FORCE_STOPPING",
-  MAINTENANCE: "MAINTENANCE",
-  READY: "READY",
-  ROLLED_BACK: "ROLLED_BACK",
-  ROLLING_BACK: "ROLLING_BACK",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
-
-/**
- * @public
- * @enum
- */
-export const RuntimeEnvironment = {
-  FLINK_1_11: "FLINK-1_11",
-  FLINK_1_13: "FLINK-1_13",
-  FLINK_1_15: "FLINK-1_15",
-  FLINK_1_18: "FLINK-1_18",
-  FLINK_1_19: "FLINK-1_19",
-  FLINK_1_20: "FLINK-1_20",
-  FLINK_1_6: "FLINK-1_6",
-  FLINK_1_8: "FLINK-1_8",
-  SQL_1_0: "SQL-1_0",
-  ZEPPELIN_FLINK_1_0: "ZEPPELIN-FLINK-1_0",
-  ZEPPELIN_FLINK_2_0: "ZEPPELIN-FLINK-2_0",
-  ZEPPELIN_FLINK_3_0: "ZEPPELIN-FLINK-3_0",
-} as const;
-
-/**
- * @public
- */
-export type RuntimeEnvironment = (typeof RuntimeEnvironment)[keyof typeof RuntimeEnvironment];
-
-/**
  * <p>Describes the application, including the application Amazon Resource Name (ARN), status,
  *       latest version, and input and output configurations.</p>
  * @public
@@ -3668,22 +3332,6 @@ export interface ApplicationMaintenanceConfigurationUpdate {
    */
   ApplicationMaintenanceWindowStartTimeUpdate: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OperationStatus = {
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
  * <p>A description of the aplication operation that provides information about the updates that were made to the application.</p>
@@ -3986,86 +3634,6 @@ export interface CreateApplicationResponse {
    */
   ApplicationDetail: ApplicationDetail | undefined;
 }
-
-/**
- * <p>The number of allowed resources has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum
- *         number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const UrlType = {
-  FLINK_DASHBOARD_URL: "FLINK_DASHBOARD_URL",
-  ZEPPELIN_UI_URL: "ZEPPELIN_UI_URL",
-} as const;
-
-/**
- * @public
- */
-export type UrlType = (typeof UrlType)[keyof typeof UrlType];
 
 /**
  * @public
@@ -4520,22 +4088,6 @@ export interface DescribeApplicationSnapshotRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SnapshotStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
-
-/**
  * <p>Provides details about a snapshot of application state.</p>
  * @public
  */
@@ -4706,87 +4258,6 @@ export interface DiscoverInputSchemaResponse {
    * @public
    */
   RawInputRecords?: string[] | undefined;
-}
-
-/**
- * <p>Discovery failed to get a record from the streaming source because of the Kinesis
- *       Streams <code>ProvisionedThroughputExceededException</code>. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
- * @public
- */
-export class ResourceProvisionedThroughputExceededException extends __BaseException {
-  readonly name: "ResourceProvisionedThroughputExceededException" = "ResourceProvisionedThroughputExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceProvisionedThroughputExceededException, __BaseException>) {
-    super({
-      name: "ResourceProvisionedThroughputExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceProvisionedThroughputExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service cannot complete the request.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The data format is not valid. Kinesis Data Analytics cannot detect the schema for
- *       the given streaming source.</p>
- * @public
- */
-export class UnableToDetectSchemaException extends __BaseException {
-  readonly name: "UnableToDetectSchemaException" = "UnableToDetectSchemaException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>Raw stream data that was sampled to infer the schema.</p>
-   * @public
-   */
-  RawInputRecords?: string[] | undefined;
-
-  /**
-   * <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter. </p>
-   * @public
-   */
-  ProcessedInputRecords?: string[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnableToDetectSchemaException, __BaseException>) {
-    super({
-      name: "UnableToDetectSchemaException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnableToDetectSchemaException.prototype);
-    this.Message = opts.Message;
-    this.RawInputRecords = opts.RawInputRecords;
-    this.ProcessedInputRecords = opts.ProcessedInputRecords;
-  }
 }
 
 /**

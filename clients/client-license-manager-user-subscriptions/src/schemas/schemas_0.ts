@@ -167,7 +167,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LicenseManagerUserSubscriptionsServiceException as __LicenseManagerUserSubscriptionsServiceException } from "../models/LicenseManagerUserSubscriptionsServiceException";
 
 /* eslint no-var: 0 */

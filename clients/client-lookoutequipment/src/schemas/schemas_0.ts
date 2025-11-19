@@ -367,7 +367,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { LookoutEquipmentServiceException as __LookoutEquipmentServiceException } from "../models/LookoutEquipmentServiceException";
 
 /* eslint no-var: 0 */

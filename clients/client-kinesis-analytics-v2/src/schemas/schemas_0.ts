@@ -446,7 +446,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnableToDetectSchemaException as __UnableToDetectSchemaException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 import { KinesisAnalyticsV2ServiceException as __KinesisAnalyticsV2ServiceException } from "../models/KinesisAnalyticsV2ServiceException";
 
 /* eslint no-var: 0 */

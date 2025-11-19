@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutConfigurationSetReputationOptionsRequest,
   PutConfigurationSetReputationOptionsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { PutConfigurationSetReputationOptions } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 

@@ -125,7 +125,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { Route53ProfilesServiceException as __Route53ProfilesServiceException } from "../models/Route53ProfilesServiceException";
 
 /* eslint no-var: 0 */

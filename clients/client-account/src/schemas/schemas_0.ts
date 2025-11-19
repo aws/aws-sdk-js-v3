@@ -111,7 +111,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

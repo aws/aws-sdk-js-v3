@@ -1,31 +1,38 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MediaConnectServiceException as __BaseException } from "./MediaConnectServiceException";
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  cdi: "cdi",
-  fujitsu_qos: "fujitsu-qos",
-  ndi_speed_hq: "ndi-speed-hq",
-  rist: "rist",
-  rtp: "rtp",
-  rtp_fec: "rtp-fec",
-  srt_caller: "srt-caller",
-  srt_listener: "srt-listener",
-  st2110_jpegxs: "st2110-jpegxs",
-  udp: "udp",
-  zixi_pull: "zixi-pull",
-  zixi_push: "zixi-push",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+import {
+  Algorithm,
+  BridgePlacement,
+  BridgeState,
+  Colorimetry,
+  ConnectionStatus,
+  ContentQualityAnalysisState,
+  DesiredState,
+  DurationUnits,
+  EncoderProfile,
+  EncodingName,
+  EntitlementStatus,
+  FailoverMode,
+  FlowSize,
+  GatewayState,
+  InstanceState,
+  KeyType,
+  MaintenanceDay,
+  MediaStreamType,
+  NdiState,
+  NetworkInterfaceType,
+  OutputStatus,
+  PriceUnits,
+  Protocol,
+  Range,
+  ReservationState,
+  ResourceType,
+  ScanMode,
+  SourceType,
+  State,
+  Status,
+  Tcs,
+  ThumbnailState,
+} from "./enums";
 
 /**
  * <p>Add a network output to an existing bridge. </p>
@@ -190,76 +197,6 @@ export interface AddBridgeSourceRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const Colorimetry = {
-  BT2020: "BT2020",
-  BT2100: "BT2100",
-  BT601: "BT601",
-  BT709: "BT709",
-  ST2065_1: "ST2065-1",
-  ST2065_3: "ST2065-3",
-  XYZ: "XYZ",
-} as const;
-
-/**
- * @public
- */
-export type Colorimetry = (typeof Colorimetry)[keyof typeof Colorimetry];
-
-/**
- * @public
- * @enum
- */
-export const Range = {
-  FULL: "FULL",
-  FULLPROTECT: "FULLPROTECT",
-  NARROW: "NARROW",
-} as const;
-
-/**
- * @public
- */
-export type Range = (typeof Range)[keyof typeof Range];
-
-/**
- * @public
- * @enum
- */
-export const ScanMode = {
-  interlace: "interlace",
-  progressive: "progressive",
-  progressive_segmented_frame: "progressive-segmented-frame",
-} as const;
-
-/**
- * @public
- */
-export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
-
-/**
- * @public
- * @enum
- */
-export const Tcs = {
-  BT2100LINHLG: "BT2100LINHLG",
-  BT2100LINPQ: "BT2100LINPQ",
-  DENSITY: "DENSITY",
-  HLG: "HLG",
-  LINEAR: "LINEAR",
-  PQ: "PQ",
-  SDR: "SDR",
-  ST2065_1: "ST2065-1",
-  ST428_1: "ST428-1",
-} as const;
-
-/**
- * @public
- */
-export type Tcs = (typeof Tcs)[keyof typeof Tcs];
-
-/**
  * <p> The settings that you want to use to define the media stream.</p>
  * @public
  */
@@ -326,21 +263,6 @@ export interface MediaStreamAttributesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MediaStreamType = {
-  ancillary_data: "ancillary-data",
-  audio: "audio",
-  video: "video",
-} as const;
-
-/**
- * @public
- */
-export type MediaStreamType = (typeof MediaStreamType)[keyof typeof MediaStreamType];
-
-/**
  * <p> The media stream that you want to add to the flow. </p>
  * @public
  */
@@ -393,36 +315,6 @@ export interface AddMediaStreamRequest {
    */
   MediaStreamTags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Algorithm = {
-  aes128: "aes128",
-  aes192: "aes192",
-  aes256: "aes256",
-} as const;
-
-/**
- * @public
- */
-export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
-
-/**
- * @public
- * @enum
- */
-export const KeyType = {
-  speke: "speke",
-  srt_password: "srt-password",
-  static_key: "static-key",
-} as const;
-
-/**
- * @public
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * <p> Information about the encryption of the flow.</p>
@@ -521,36 +413,6 @@ export interface DestinationConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncodingName = {
-  jxsv: "jxsv",
-  pcm: "pcm",
-  raw: "raw",
-  smpte291: "smpte291",
-} as const;
-
-/**
- * @public
- */
-export type EncodingName = (typeof EncodingName)[keyof typeof EncodingName];
-
-/**
- * @public
- * @enum
- */
-export const EncoderProfile = {
-  high: "high",
-  main: "main",
-} as const;
-
-/**
- * @public
- */
-export type EncoderProfile = (typeof EncoderProfile)[keyof typeof EncoderProfile];
-
-/**
  * <p> A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.</p>
  * @public
  */
@@ -597,20 +459,6 @@ export interface MediaStreamOutputConfigurationRequest {
    */
   MediaStreamName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OutputStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type OutputStatus = (typeof OutputStatus)[keyof typeof OutputStatus];
 
 /**
  * <p> A request to add an output to a flow.</p>
@@ -731,20 +579,6 @@ export interface AddOutputRequest {
    */
   OutputTags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
 
 /**
  * <p>Configures settings for the <code>SilentAudio</code> metric. </p>
@@ -993,20 +827,6 @@ export interface DestinationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const EntitlementStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EntitlementStatus = (typeof EntitlementStatus)[keyof typeof EntitlementStatus];
-
-/**
  * <p> The settings for a flow entitlement.</p>
  * @public
  */
@@ -1163,30 +983,6 @@ export interface InputConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const BridgeState = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  DEPLOYING: "DEPLOYING",
-  STANDBY: "STANDBY",
-  STARTING: "STARTING",
-  START_FAILED: "START_FAILED",
-  START_PENDING: "START_PENDING",
-  STOPPING: "STOPPING",
-  STOP_FAILED: "STOP_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type BridgeState = (typeof BridgeState)[keyof typeof BridgeState];
-
-/**
  * <p> Displays details of the selected bridge.</p>
  * @public
  */
@@ -1247,25 +1043,6 @@ export interface ListedEntitlement {
 }
 
 /**
- * @public
- * @enum
- */
-export const MaintenanceDay = {
-  Friday: "Friday",
-  Monday: "Monday",
-  Saturday: "Saturday",
-  Sunday: "Sunday",
-  Thursday: "Thursday",
-  Tuesday: "Tuesday",
-  Wednesday: "Wednesday",
-} as const;
-
-/**
- * @public
- */
-export type MaintenanceDay = (typeof MaintenanceDay)[keyof typeof MaintenanceDay];
-
-/**
  * <p> The maintenance setting of a flow.</p>
  * @public
  */
@@ -1294,39 +1071,6 @@ export interface Maintenance {
    */
   MaintenanceStartHour?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  ENTITLED: "ENTITLED",
-  OWNED: "OWNED",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  STANDBY: "STANDBY",
-  STARTING: "STARTING",
-  STOPPING: "STOPPING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * <p> A summary of a flow, including its ARN, Availability Zone, and source type.</p>
@@ -1377,24 +1121,6 @@ export interface ListedFlow {
 }
 
 /**
- * @public
- * @enum
- */
-export const GatewayState = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  ERROR: "ERROR",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type GatewayState = (typeof GatewayState)[keyof typeof GatewayState];
-
-/**
  * <p> A summary of a gateway, including its name, ARN, and status.</p>
  * @public
  */
@@ -1417,24 +1143,6 @@ export interface ListedGateway {
    */
   Name: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InstanceState = {
-  ACTIVE: "ACTIVE",
-  DEREGISTERED: "DEREGISTERED",
-  DEREGISTERING: "DEREGISTERING",
-  DEREGISTRATION_ERROR: "DEREGISTRATION_ERROR",
-  REGISTERING: "REGISTERING",
-  REGISTRATION_ERROR: "REGISTRATION_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
 
 /**
  * <p> A summary of an instance. </p>
@@ -1731,45 +1439,6 @@ export interface NdiDiscoveryServerConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const DurationUnits = {
-  MONTHS: "MONTHS",
-} as const;
-
-/**
- * @public
- */
-export type DurationUnits = (typeof DurationUnits)[keyof typeof DurationUnits];
-
-/**
- * @public
- * @enum
- */
-export const PriceUnits = {
-  HOURLY: "HOURLY",
-} as const;
-
-/**
- * @public
- */
-export type PriceUnits = (typeof PriceUnits)[keyof typeof PriceUnits];
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  Mbps_Outbound_Bandwidth: "Mbps_Outbound_Bandwidth",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
  * <p> A definition of what is being billed for, including the type and amount.</p>
  * @public
  */
@@ -2044,22 +1713,6 @@ export interface Output {
    */
   PeerIpAddress?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReservationState = {
-  ACTIVE: "ACTIVE",
-  CANCELED: "CANCELED",
-  EXPIRED: "EXPIRED",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
 
 /**
  * <p> A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.</p>
@@ -2572,20 +2225,6 @@ export interface VideoMonitoringSetting {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkInterfaceType = {
-  efa: "efa",
-  ena: "ena",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
-
-/**
  * <p> The settings for a VPC source.</p>
  * @public
  */
@@ -2704,164 +2343,6 @@ export interface AddBridgeOutputsResponse {
 }
 
 /**
- * <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You do not have sufficient access to perform this action. </p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The server encountered an internal error and is unable to complete the request. </p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more of the resources in the request does not exist in the system. </p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service is currently unavailable or busy. </p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. </p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AddBridgeSourcesRequest {
@@ -2939,28 +2420,6 @@ export interface AddFlowMediaStreamsResponse {
    * @public
    */
   MediaStreams?: MediaStream[] | undefined;
-}
-
-/**
- * <p>Exception raised by Elemental MediaConnect when adding the flow output. See the error message for the operation for more information on the cause of this exception. </p>
- * @public
- */
-export class AddFlowOutputs420Exception extends __BaseException {
-  readonly name: "AddFlowOutputs420Exception" = "AddFlowOutputs420Exception";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AddFlowOutputs420Exception, __BaseException>) {
-    super({
-      name: "AddFlowOutputs420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AddFlowOutputs420Exception.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3144,20 +2603,6 @@ export interface IngressGatewayBridge {
 }
 
 /**
- * @public
- * @enum
- */
-export const FailoverMode = {
-  FAILOVER: "FAILOVER",
-  MERGE: "MERGE",
-} as const;
-
-/**
- * @public
- */
-export type FailoverMode = (typeof FailoverMode)[keyof typeof FailoverMode];
-
-/**
  * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams. </p>
  * @public
  */
@@ -3263,42 +2708,6 @@ export interface Bridge {
    * @public
    */
   Sources?: BridgeSource[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const BridgePlacement = {
-  AVAILABLE: "AVAILABLE",
-  LOCKED: "LOCKED",
-} as const;
-
-/**
- * @public
- */
-export type BridgePlacement = (typeof BridgePlacement)[keyof typeof BridgePlacement];
-
-/**
- * <p>Exception raised by Elemental MediaConnect when creating the bridge. See the error message for the operation for more information on the cause of this exception. </p>
- * @public
- */
-export class CreateBridge420Exception extends __BaseException {
-  readonly name: "CreateBridge420Exception" = "CreateBridge420Exception";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CreateBridge420Exception, __BaseException>) {
-    super({
-      name: "CreateBridge420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreateBridge420Exception.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3789,21 +3198,6 @@ export interface UpdateBridgeSourceResponse {
 
 /**
  * @public
- * @enum
- */
-export const DesiredState = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  STANDBY: "STANDBY",
-} as const;
-
-/**
- * @public
- */
-export type DesiredState = (typeof DesiredState)[keyof typeof DesiredState];
-
-/**
- * @public
  */
 export interface UpdateBridgeStateRequest {
   /**
@@ -3837,85 +3231,6 @@ export interface UpdateBridgeStateResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ConnectionStatus = {
-  CONNECTED: "CONNECTED",
-  DISCONNECTED: "DISCONNECTED",
-} as const;
-
-/**
- * @public
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
-/**
- * @public
- * @enum
- */
-export const ContentQualityAnalysisState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ContentQualityAnalysisState =
-  (typeof ContentQualityAnalysisState)[keyof typeof ContentQualityAnalysisState];
-
-/**
- * <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception. </p>
- * @public
- */
-export class CreateFlow420Exception extends __BaseException {
-  readonly name: "CreateFlow420Exception" = "CreateFlow420Exception";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CreateFlow420Exception, __BaseException>) {
-    super({
-      name: "CreateFlow420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreateFlow420Exception.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FlowSize = {
-  LARGE: "LARGE",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type FlowSize = (typeof FlowSize)[keyof typeof FlowSize];
-
-/**
- * @public
- * @enum
- */
-export const NdiState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NdiState = (typeof NdiState)[keyof typeof NdiState];
-
-/**
  * <p>Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs. </p>
  * @public
  */
@@ -3938,20 +3253,6 @@ export interface NdiConfig {
    */
   NdiDiscoveryServers?: NdiDiscoveryServerConfig[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ThumbnailState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
 
 /**
  * <p> The settings for source monitoring. </p>
@@ -4189,28 +3490,6 @@ export interface CreateFlowResponse {
    * @public
    */
   Flow?: Flow | undefined;
-}
-
-/**
- * <p>Exception raised by Elemental MediaConnect when creating the gateway. See the error message for the operation for more information on the cause of this exception. </p>
- * @public
- */
-export class CreateGateway420Exception extends __BaseException {
-  readonly name: "CreateGateway420Exception" = "CreateGateway420Exception";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CreateGateway420Exception, __BaseException>) {
-    super({
-      name: "CreateGateway420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreateGateway420Exception.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -4663,28 +3942,6 @@ export interface DescribeReservationResponse {
    * @public
    */
   Reservation?: Reservation | undefined;
-}
-
-/**
- * <p>Exception raised by Elemental MediaConnect when granting the entitlement. See the error message for the operation for more information on the cause of this exception. </p>
- * @public
- */
-export class GrantFlowEntitlements420Exception extends __BaseException {
-  readonly name: "GrantFlowEntitlements420Exception" = "GrantFlowEntitlements420Exception";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GrantFlowEntitlements420Exception, __BaseException>) {
-    super({
-      name: "GrantFlowEntitlements420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GrantFlowEntitlements420Exception.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

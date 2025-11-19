@@ -2225,7 +2225,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyRequestsException as __TooManyRequestsException,
   UserNotFoundException as __UserNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

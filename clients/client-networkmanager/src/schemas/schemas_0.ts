@@ -654,7 +654,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { NetworkManagerServiceException as __NetworkManagerServiceException } from "../models/NetworkManagerServiceException";
 
 /* eslint no-var: 0 */

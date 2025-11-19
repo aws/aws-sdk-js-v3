@@ -279,7 +279,7 @@ import {
   PayloadTooLargeException as __PayloadTooLargeException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

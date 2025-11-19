@@ -281,7 +281,7 @@ import {
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { TaxSettingsServiceException as __TaxSettingsServiceException } from "../models/TaxSettingsServiceException";
 
 /* eslint no-var: 0 */

@@ -467,7 +467,7 @@ import {
   TooManyEnvironmentsException as __TooManyEnvironmentsException,
   TooManyPlatformsException as __TooManyPlatformsException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -224,7 +224,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnsupportedCommandException as __UnsupportedCommandException,
   UploadNotFoundException as __UploadNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

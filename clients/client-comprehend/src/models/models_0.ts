@@ -1,36 +1,41 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AugmentedManifestsDocumentTypeFormat = {
-  PLAIN_TEXT_DOCUMENT: "PLAIN_TEXT_DOCUMENT",
-  SEMI_STRUCTURED_DOCUMENT: "SEMI_STRUCTURED_DOCUMENT",
-} as const;
-
-/**
- * @public
- */
-export type AugmentedManifestsDocumentTypeFormat =
-  (typeof AugmentedManifestsDocumentTypeFormat)[keyof typeof AugmentedManifestsDocumentTypeFormat];
-
-/**
- * @public
- * @enum
- */
-export const Split = {
-  TEST: "TEST",
-  TRAIN: "TRAIN",
-} as const;
-
-/**
- * @public
- */
-export type Split = (typeof Split)[keyof typeof Split];
+import {
+  AugmentedManifestsDocumentTypeFormat,
+  BlockType,
+  DatasetDataFormat,
+  DatasetStatus,
+  DatasetType,
+  DocumentClassifierDataFormat,
+  DocumentClassifierDocumentTypeFormat,
+  DocumentClassifierMode,
+  DocumentReadAction,
+  DocumentReadFeatureTypes,
+  DocumentReadMode,
+  DocumentType,
+  EndpointStatus,
+  EntityRecognizerDataFormat,
+  EntityType,
+  FlywheelIterationStatus,
+  FlywheelStatus,
+  InputFormat,
+  InvalidRequestDetailReason,
+  JobStatus,
+  LanguageCode,
+  ModelStatus,
+  ModelType,
+  PageBasedErrorCode,
+  PageBasedWarningCode,
+  PartOfSpeechTagType,
+  PiiEntitiesDetectionMaskMode,
+  PiiEntitiesDetectionMode,
+  PiiEntityType,
+  RelationshipType,
+  SentimentType,
+  Split,
+  SyntaxLanguageCode,
+  TargetedSentimentEntityType,
+  ToxicContentType,
+} from "./enums";
 
 /**
  * <p>An augmented manifest file that provides training data for your custom model. An augmented
@@ -208,67 +213,6 @@ export interface BatchDetectDominantLanguageResponse {
 }
 
 /**
- * <p>The number of documents in the request exceeds the limit of 25. Try your request again
- *       with fewer documents.</p>
- * @public
- */
-export class BatchSizeLimitExceededException extends __BaseException {
-  readonly name: "BatchSizeLimitExceededException" = "BatchSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BatchSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "BatchSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BatchSizeLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An internal server error occurred. Retry your request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InvalidRequestDetailReason = {
-  DOCUMENT_SIZE_EXCEEDED: "DOCUMENT_SIZE_EXCEEDED",
-  PAGE_LIMIT_EXCEEDED: "PAGE_LIMIT_EXCEEDED",
-  TEXTRACT_ACCESS_DENIED: "TEXTRACT_ACCESS_DENIED",
-  UNSUPPORTED_DOC_TYPE: "UNSUPPORTED_DOC_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type InvalidRequestDetailReason = (typeof InvalidRequestDetailReason)[keyof typeof InvalidRequestDetailReason];
-
-/**
  * <p>Provides additional detail about why the request failed.</p>
  * @public
  */
@@ -302,95 +246,6 @@ export interface InvalidRequestDetail {
    */
   Reason?: InvalidRequestDetailReason | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InvalidRequestReason = {
-  INVALID_DOCUMENT: "INVALID_DOCUMENT",
-} as const;
-
-/**
- * @public
- */
-export type InvalidRequestReason = (typeof InvalidRequestReason)[keyof typeof InvalidRequestReason];
-
-/**
- * <p>The request is invalid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  Reason?: InvalidRequestReason | undefined;
-  /**
-   * <p>Provides additional detail about why the request failed.</p>
-   * @public
-   */
-  Detail?: InvalidRequestDetail | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.Detail = opts.Detail;
-  }
-}
-
-/**
- * <p>The size of the input text exceeds the limit. Use a smaller document.</p>
- * @public
- */
-export class TextSizeLimitExceededException extends __BaseException {
-  readonly name: "TextSizeLimitExceededException" = "TextSizeLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TextSizeLimitExceededException, __BaseException>) {
-    super({
-      name: "TextSizeLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TextSizeLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  AR: "ar",
-  DE: "de",
-  EN: "en",
-  ES: "es",
-  FR: "fr",
-  HI: "hi",
-  IT: "it",
-  JA: "ja",
-  KO: "ko",
-  PT: "pt",
-  ZH: "zh",
-  ZH_TW: "zh-TW",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public
@@ -464,27 +319,6 @@ export interface BlockReference {
    */
   ChildBlocks?: ChildBlock[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  COMMERCIAL_ITEM: "COMMERCIAL_ITEM",
-  DATE: "DATE",
-  EVENT: "EVENT",
-  LOCATION: "LOCATION",
-  ORGANIZATION: "ORGANIZATION",
-  OTHER: "OTHER",
-  PERSON: "PERSON",
-  QUANTITY: "QUANTITY",
-  TITLE: "TITLE",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * <p>Provides information about an entity. </p>
@@ -579,30 +413,6 @@ export interface BatchDetectEntitiesResponse {
    * @public
    */
   ErrorList: BatchItemError[] | undefined;
-}
-
-/**
- * <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
- * @public
- */
-export class UnsupportedLanguageException extends __BaseException {
-  readonly name: "UnsupportedLanguageException" = "UnsupportedLanguageException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedLanguageException, __BaseException>) {
-    super({
-      name: "UnsupportedLanguageException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedLanguageException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -721,22 +531,6 @@ export interface BatchDetectSentimentRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const SentimentType = {
-  MIXED: "MIXED",
-  NEGATIVE: "NEGATIVE",
-  NEUTRAL: "NEUTRAL",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type SentimentType = (typeof SentimentType)[keyof typeof SentimentType];
-
-/**
  * <p>Describes the level of confidence that Amazon Comprehend has in the accuracy of its
  *       detection of sentiments.</p>
  * @public
@@ -823,24 +617,6 @@ export interface BatchDetectSentimentResponse {
 
 /**
  * @public
- * @enum
- */
-export const SyntaxLanguageCode = {
-  DE: "de",
-  EN: "en",
-  ES: "es",
-  FR: "fr",
-  IT: "it",
-  PT: "pt",
-} as const;
-
-/**
- * @public
- */
-export type SyntaxLanguageCode = (typeof SyntaxLanguageCode)[keyof typeof SyntaxLanguageCode];
-
-/**
- * @public
  */
 export interface BatchDetectSyntaxRequest {
   /**
@@ -858,36 +634,6 @@ export interface BatchDetectSyntaxRequest {
    */
   LanguageCode: SyntaxLanguageCode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PartOfSpeechTagType = {
-  ADJ: "ADJ",
-  ADP: "ADP",
-  ADV: "ADV",
-  AUX: "AUX",
-  CCONJ: "CCONJ",
-  CONJ: "CONJ",
-  DET: "DET",
-  INTJ: "INTJ",
-  NOUN: "NOUN",
-  NUM: "NUM",
-  O: "O",
-  PART: "PART",
-  PRON: "PRON",
-  PROPN: "PROPN",
-  PUNCT: "PUNCT",
-  SCONJ: "SCONJ",
-  SYM: "SYM",
-  VERB: "VERB",
-} as const;
-
-/**
- * @public
- */
-export type PartOfSpeechTagType = (typeof PartOfSpeechTagType)[keyof typeof PartOfSpeechTagType];
 
 /**
  * <p>Identifies the part of speech represented by the token and gives the confidence that
@@ -1035,36 +781,6 @@ export interface MentionSentiment {
 }
 
 /**
- * @public
- * @enum
- */
-export const TargetedSentimentEntityType = {
-  ATTRIBUTE: "ATTRIBUTE",
-  BOOK: "BOOK",
-  BRAND: "BRAND",
-  COMMERCIAL_ITEM: "COMMERCIAL_ITEM",
-  DATE: "DATE",
-  EVENT: "EVENT",
-  FACILITY: "FACILITY",
-  GAME: "GAME",
-  LOCATION: "LOCATION",
-  MOVIE: "MOVIE",
-  MUSIC: "MUSIC",
-  ORGANIZATION: "ORGANIZATION",
-  OTHER: "OTHER",
-  PERSON: "PERSON",
-  PERSONAL_TITLE: "PERSONAL_TITLE",
-  QUANTITY: "QUANTITY",
-  SOFTWARE: "SOFTWARE",
-} as const;
-
-/**
- * @public
- */
-export type TargetedSentimentEntityType =
-  (typeof TargetedSentimentEntityType)[keyof typeof TargetedSentimentEntityType];
-
-/**
  * <p>Information about one mention of an entity. The mention information includes the location of the mention
  *       in the text and the sentiment of the mention.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -1173,20 +889,6 @@ export interface BatchDetectTargetedSentimentResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const BlockType = {
-  LINE: "LINE",
-  WORD: "WORD",
-} as const;
-
-/**
- * @public
- */
-export type BlockType = (typeof BlockType)[keyof typeof BlockType];
-
-/**
  * <p>The bounding box around the detected page
  *      or around an element on a document page.
  *     The left (x-coordinate) and top (y-coordinate) are coordinates that
@@ -1259,19 +961,6 @@ export interface Geometry {
    */
   Polygon?: Point[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RelationshipType = {
-  CHILD: "CHILD",
-} as const;
-
-/**
- * @public
- */
-export type RelationshipType = (typeof RelationshipType)[keyof typeof RelationshipType];
 
 /**
  * <p>List of child blocks for the current block.</p>
@@ -1452,48 +1141,6 @@ export interface ClassifierMetadata {
    */
   EvaluationMetrics?: ClassifierEvaluationMetrics | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DocumentReadAction = {
-  TEXTRACT_ANALYZE_DOCUMENT: "TEXTRACT_ANALYZE_DOCUMENT",
-  TEXTRACT_DETECT_DOCUMENT_TEXT: "TEXTRACT_DETECT_DOCUMENT_TEXT",
-} as const;
-
-/**
- * @public
- */
-export type DocumentReadAction = (typeof DocumentReadAction)[keyof typeof DocumentReadAction];
-
-/**
- * @public
- * @enum
- */
-export const DocumentReadMode = {
-  FORCE_DOCUMENT_READ_ACTION: "FORCE_DOCUMENT_READ_ACTION",
-  SERVICE_DEFAULT: "SERVICE_DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type DocumentReadMode = (typeof DocumentReadMode)[keyof typeof DocumentReadMode];
-
-/**
- * @public
- * @enum
- */
-export const DocumentReadFeatureTypes = {
-  FORMS: "FORMS",
-  TABLES: "TABLES",
-} as const;
-
-/**
- * @public
- */
-export type DocumentReadFeatureTypes = (typeof DocumentReadFeatureTypes)[keyof typeof DocumentReadFeatureTypes];
 
 /**
  * <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p>
@@ -1684,25 +1331,6 @@ export interface DocumentMetadata {
 }
 
 /**
- * @public
- * @enum
- */
-export const DocumentType = {
-  IMAGE: "IMAGE",
-  MS_WORD: "MS_WORD",
-  NATIVE_PDF: "NATIVE_PDF",
-  PLAIN_TEXT: "PLAIN_TEXT",
-  SCANNED_PDF: "SCANNED_PDF",
-  TEXTRACT_ANALYZE_DOCUMENT_JSON: "TEXTRACT_ANALYZE_DOCUMENT_JSON",
-  TEXTRACT_DETECT_DOCUMENT_TEXT_JSON: "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON",
-} as const;
-
-/**
- * @public
- */
-export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType];
-
-/**
  * <p>Document type for each page in the document.</p>
  * @public
  */
@@ -1719,23 +1347,6 @@ export interface DocumentTypeListItem {
    */
   Type?: DocumentType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PageBasedErrorCode = {
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  PAGE_CHARACTERS_EXCEEDED: "PAGE_CHARACTERS_EXCEEDED",
-  PAGE_SIZE_EXCEEDED: "PAGE_SIZE_EXCEEDED",
-  TEXTRACT_BAD_PAGE: "TEXTRACT_BAD_PAGE",
-  TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED: "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type PageBasedErrorCode = (typeof PageBasedErrorCode)[keyof typeof PageBasedErrorCode];
 
 /**
  * <p>Text extraction encountered one or more page-level errors in the input document.</p>
@@ -1807,20 +1418,6 @@ export interface DocumentLabel {
    */
   Page?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PageBasedWarningCode = {
-  INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL: "INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL",
-  INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL: "INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL",
-} as const;
-
-/**
- * @public
- */
-export type PageBasedWarningCode = (typeof PageBasedWarningCode)[keyof typeof PageBasedWarningCode];
 
 /**
  * <p>The system identified one of the following warnings while processing the input document:</p>
@@ -1911,29 +1508,6 @@ export interface ClassifyDocumentResponse {
 }
 
 /**
- * <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
- * @public
- */
-export class ResourceUnavailableException extends __BaseException {
-  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
-    super({
-      name: "ResourceUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface ContainsPiiEntitiesRequest {
@@ -1949,55 +1523,6 @@ export interface ContainsPiiEntitiesRequest {
    */
   LanguageCode: LanguageCode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PiiEntityType = {
-  ADDRESS: "ADDRESS",
-  AGE: "AGE",
-  ALL: "ALL",
-  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY: "AWS_SECRET_KEY",
-  BANK_ACCOUNT_NUMBER: "BANK_ACCOUNT_NUMBER",
-  BANK_ROUTING: "BANK_ROUTING",
-  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CVV: "CREDIT_DEBIT_CVV",
-  CREDIT_DEBIT_EXPIRY: "CREDIT_DEBIT_EXPIRY",
-  CREDIT_DEBIT_NUMBER: "CREDIT_DEBIT_NUMBER",
-  DATE_TIME: "DATE_TIME",
-  DRIVER_ID: "DRIVER_ID",
-  EMAIL: "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IN_AADHAAR: "IN_AADHAAR",
-  IN_NREGA: "IN_NREGA",
-  IN_PERMANENT_ACCOUNT_NUMBER: "IN_PERMANENT_ACCOUNT_NUMBER",
-  IN_VOTER_NUMBER: "IN_VOTER_NUMBER",
-  IP_ADDRESS: "IP_ADDRESS",
-  LICENSE_PLATE: "LICENSE_PLATE",
-  MAC_ADDRESS: "MAC_ADDRESS",
-  NAME: "NAME",
-  PASSPORT_NUMBER: "PASSPORT_NUMBER",
-  PASSWORD: "PASSWORD",
-  PHONE: "PHONE",
-  PIN: "PIN",
-  SSN: "SSN",
-  SWIFT_CODE: "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL: "URL",
-  USERNAME: "USERNAME",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
-} as const;
-
-/**
- * @public
- */
-export type PiiEntityType = (typeof PiiEntityType)[keyof typeof PiiEntityType];
 
 /**
  * <p>Specifies one of the label or labels that categorize the personally identifiable
@@ -2030,20 +1555,6 @@ export interface ContainsPiiEntitiesResponse {
    */
   Labels?: EntityLabel[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DatasetType = {
-  TEST: "TEST",
-  TRAIN: "TRAIN",
-} as const;
-
-/**
- * @public
- */
-export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
 
 /**
  * <p>An augmented manifest file that provides training data for your custom model.
@@ -2095,20 +1606,6 @@ export interface DatasetAugmentedManifestsListItem {
 }
 
 /**
- * @public
- * @enum
- */
-export const DatasetDataFormat = {
-  AUGMENTED_MANIFEST: "AUGMENTED_MANIFEST",
-  COMPREHEND_CSV: "COMPREHEND_CSV",
-} as const;
-
-/**
- * @public
- */
-export type DatasetDataFormat = (typeof DatasetDataFormat)[keyof typeof DatasetDataFormat];
-
-/**
  * <p>Describes the dataset input data configuration for a document classifier model.</p>
  *          <p>For more information on how the input file is formatted, see  <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a>
  *       in the Comprehend Developer Guide. </p>
@@ -2153,20 +1650,6 @@ export interface DatasetEntityRecognizerAnnotations {
    */
   S3Uri: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InputFormat = {
-  ONE_DOC_PER_FILE: "ONE_DOC_PER_FILE",
-  ONE_DOC_PER_LINE: "ONE_DOC_PER_LINE",
-} as const;
-
-/**
- * @public
- */
-export type InputFormat = (typeof InputFormat)[keyof typeof InputFormat];
 
 /**
  * <p>Describes the documents submitted with a dataset for an entity recognizer model.</p>
@@ -2357,135 +1840,6 @@ export interface CreateDatasetResponse {
 }
 
 /**
- * <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The maximum number of resources per account has been exceeded. Review the resources, and
- *       then try your request again.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const DocumentClassifierDataFormat = {
-  AUGMENTED_MANIFEST: "AUGMENTED_MANIFEST",
-  COMPREHEND_CSV: "COMPREHEND_CSV",
-} as const;
-
-/**
- * @public
- */
-export type DocumentClassifierDataFormat =
-  (typeof DocumentClassifierDataFormat)[keyof typeof DocumentClassifierDataFormat];
-
-/**
  * <p>The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.</p>
  * @public
  */
@@ -2503,21 +1857,6 @@ export interface DocumentClassifierDocuments {
    */
   TestS3Uri?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DocumentClassifierDocumentTypeFormat = {
-  PLAIN_TEXT_DOCUMENT: "PLAIN_TEXT_DOCUMENT",
-  SEMI_STRUCTURED_DOCUMENT: "SEMI_STRUCTURED_DOCUMENT",
-} as const;
-
-/**
- * @public
- */
-export type DocumentClassifierDocumentTypeFormat =
-  (typeof DocumentClassifierDocumentTypeFormat)[keyof typeof DocumentClassifierDocumentTypeFormat];
 
 /**
  * <p>The input properties for training a document classifier. </p>
@@ -2635,20 +1974,6 @@ export interface DocumentClassifierInputDataConfig {
    */
   DocumentReaderConfig?: DocumentReaderConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DocumentClassifierMode = {
-  MULTI_CLASS: "MULTI_CLASS",
-  MULTI_LABEL: "MULTI_LABEL",
-} as const;
-
-/**
- * @public
- */
-export type DocumentClassifierMode = (typeof DocumentClassifierMode)[keyof typeof DocumentClassifierMode];
 
 /**
  * <p>Provide the location for output data from a custom classifier job. This field is mandatory
@@ -2881,29 +2206,6 @@ export interface CreateDocumentClassifierResponse {
 }
 
 /**
- * <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
- * @public
- */
-export class KmsKeyValidationException extends __BaseException {
-  readonly name: "KmsKeyValidationException" = "KmsKeyValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KmsKeyValidationException, __BaseException>) {
-    super({
-      name: "KmsKeyValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KmsKeyValidationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateEndpointRequest {
@@ -2998,20 +2300,6 @@ export interface EntityRecognizerAnnotations {
    */
   TestS3Uri?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityRecognizerDataFormat = {
-  AUGMENTED_MANIFEST: "AUGMENTED_MANIFEST",
-  COMPREHEND_CSV: "COMPREHEND_CSV",
-} as const;
-
-/**
- * @public
- */
-export type EntityRecognizerDataFormat = (typeof EntityRecognizerDataFormat)[keyof typeof EntityRecognizerDataFormat];
 
 /**
  * <p>Describes the training documents submitted with an entity recognizer.</p>
@@ -3335,20 +2623,6 @@ export interface DataSecurityConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const ModelType = {
-  DOCUMENT_CLASSIFIER: "DOCUMENT_CLASSIFIER",
-  ENTITY_RECOGNIZER: "ENTITY_RECOGNIZER",
-} as const;
-
-/**
- * @public
- */
-export type ModelType = (typeof ModelType)[keyof typeof ModelType];
-
-/**
  * <p>Configuration required for a document classification model.</p>
  * @public
  */
@@ -3581,21 +2855,6 @@ export interface DescribeDatasetRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DatasetStatus = {
-  COMPLETED: "COMPLETED",
-  CREATING: "CREATING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
-
-/**
  * <p>Properties associated with the dataset.</p>
  * @public
  */
@@ -3729,24 +2988,6 @@ export interface InputDataConfig {
    */
   DocumentReaderConfig?: DocumentReaderConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  STOPPED: "STOPPED",
-  STOP_REQUESTED: "STOP_REQUESTED",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
  * <p>Provides configuration parameters for the output of inference jobs.</p>
@@ -3932,28 +3173,6 @@ export interface DescribeDocumentClassificationJobResponse {
 }
 
 /**
- * <p>The specified job was not found. Check the job ID and try again.</p>
- * @public
- */
-export class JobNotFoundException extends __BaseException {
-  readonly name: "JobNotFoundException" = "JobNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<JobNotFoundException, __BaseException>) {
-    super({
-      name: "JobNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, JobNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeDocumentClassifierRequest {
@@ -3964,26 +3183,6 @@ export interface DescribeDocumentClassifierRequest {
    */
   DocumentClassifierArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelStatus = {
-  DELETING: "DELETING",
-  IN_ERROR: "IN_ERROR",
-  STOPPED: "STOPPED",
-  STOP_REQUESTED: "STOP_REQUESTED",
-  SUBMITTED: "SUBMITTED",
-  TRAINED: "TRAINED",
-  TRAINED_WITH_WARNING: "TRAINED_WITH_WARNING",
-  TRAINING: "TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
 
 /**
  * <p>Provides information about a document classifier.</p>
@@ -4300,23 +3499,6 @@ export interface DescribeEndpointRequest {
    */
   EndpointArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  IN_SERVICE: "IN_SERVICE",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
 
 /**
  * <p>Specifies information about the specified endpoint.
@@ -4987,23 +4169,6 @@ export interface DescribeFlywheelRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FlywheelStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FlywheelStatus = (typeof FlywheelStatus)[keyof typeof FlywheelStatus];
-
-/**
  * <p>The flywheel properties.</p>
  * @public
  */
@@ -5139,24 +4304,6 @@ export interface FlywheelModelEvaluationMetrics {
    */
   AverageAccuracy?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FlywheelIterationStatus = {
-  COMPLETED: "COMPLETED",
-  EVALUATING: "EVALUATING",
-  FAILED: "FAILED",
-  STOPPED: "STOPPED",
-  STOP_REQUESTED: "STOP_REQUESTED",
-  TRAINING: "TRAINING",
-} as const;
-
-/**
- * @public
- */
-export type FlywheelIterationStatus = (typeof FlywheelIterationStatus)[keyof typeof FlywheelIterationStatus];
 
 /**
  * <p>The configuration properties of a flywheel iteration.</p>
@@ -5391,20 +4538,6 @@ export interface DescribePiiEntitiesDetectionJobRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PiiEntitiesDetectionMode = {
-  ONLY_OFFSETS: "ONLY_OFFSETS",
-  ONLY_REDACTION: "ONLY_REDACTION",
-} as const;
-
-/**
- * @public
- */
-export type PiiEntitiesDetectionMode = (typeof PiiEntitiesDetectionMode)[keyof typeof PiiEntitiesDetectionMode];
-
-/**
  * <p>Provides configuration parameters for the output of PII entity detection jobs.</p>
  * @public
  */
@@ -5427,21 +4560,6 @@ export interface PiiOutputDataConfig {
    */
   KmsKeyId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PiiEntitiesDetectionMaskMode = {
-  MASK: "MASK",
-  REPLACE_WITH_PII_ENTITY_TYPE: "REPLACE_WITH_PII_ENTITY_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type PiiEntitiesDetectionMaskMode =
-  (typeof PiiEntitiesDetectionMaskMode)[keyof typeof PiiEntitiesDetectionMaskMode];
 
 /**
  * <p>Provides configuration parameters for PII entity redaction.</p>
@@ -6392,25 +5510,6 @@ export interface DetectToxicContentRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ToxicContentType = {
-  GRAPHIC: "GRAPHIC",
-  HARASSMENT_OR_ABUSE: "HARASSMENT_OR_ABUSE",
-  HATE_SPEECH: "HATE_SPEECH",
-  INSULT: "INSULT",
-  PROFANITY: "PROFANITY",
-  SEXUAL: "SEXUAL",
-  VIOLENCE_OR_THREAT: "VIOLENCE_OR_THREAT",
-} as const;
-
-/**
- * @public
- */
-export type ToxicContentType = (typeof ToxicContentType)[keyof typeof ToxicContentType];
-
-/**
  * <p>Toxic content analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
  *          </p>
  * @public
@@ -6534,29 +5633,6 @@ export interface ImportModelResponse {
    * @public
    */
   ModelArn?: string | undefined;
-}
-
-/**
- * <p>The filter specified for the operation is invalid. Specify a different
- *       filter.</p>
- * @public
- */
-export class InvalidFilterException extends __BaseException {
-  readonly name: "InvalidFilterException" = "InvalidFilterException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidFilterException, __BaseException>) {
-    super({
-      name: "InvalidFilterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidFilterException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -9153,4 +8229,391 @@ export interface StopDominantLanguageDetectionJobResponse {
    * @public
    */
   JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEntitiesDetectionJobRequest {
+  /**
+   * <p>The identifier of the entities detection job to stop.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEntitiesDetectionJobResponse {
+  /**
+   * <p>The identifier of the entities detection job to stop.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *         <code>STOPPED</code> if the job was previously stopped with the
+   *         <code>StopEntitiesDetectionJob</code> operation.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEventsDetectionJobRequest {
+  /**
+   * <p>The identifier of the events detection job to stop.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEventsDetectionJobResponse {
+  /**
+   * <p>The identifier of the events detection job to stop.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>The status of the events detection job.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopKeyPhrasesDetectionJobRequest {
+  /**
+   * <p>The identifier of the key phrases detection job to stop.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopKeyPhrasesDetectionJobResponse {
+  /**
+   * <p>The identifier of the key phrases detection job to stop.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *         <code>STOPPED</code> if the job was previously stopped with the
+   *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopPiiEntitiesDetectionJobRequest {
+  /**
+   * <p>The identifier of the PII entities detection job to stop.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopPiiEntitiesDetectionJobResponse {
+  /**
+   * <p>The identifier of the PII entities detection job to stop.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>The status of the PII entities detection job.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopSentimentDetectionJobRequest {
+  /**
+   * <p>The identifier of the sentiment detection job to stop.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopSentimentDetectionJobResponse {
+  /**
+   * <p>The identifier of the sentiment detection job to stop.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *         <code>STOPPED</code> if the job was previously stopped with the
+   *         <code>StopSentimentDetectionJob</code> operation.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTargetedSentimentDetectionJobRequest {
+  /**
+   * <p>The identifier of the targeted sentiment detection job to stop.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTargetedSentimentDetectionJobResponse {
+  /**
+   * <p>The identifier of the targeted sentiment detection job to stop.</p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *       <code>STOPPED</code> if the job was previously stopped with the
+   *       <code>StopSentimentDetectionJob</code> operation.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingDocumentClassifierRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being
+   *       trained.</p>
+   * @public
+   */
+  DocumentClassifierArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingDocumentClassifierResponse {}
+
+/**
+ * @public
+ */
+export interface StopTrainingEntityRecognizerRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being
+   *       trained.</p>
+   * @public
+   */
+  EntityRecognizerArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTrainingEntityRecognizerResponse {}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want
+   *       to associate the tags. </p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum
+   *       of 50 tags (both existing and pending) associated with a specific resource. </p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you
+   *       want to remove the tags. </p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The initial part of a key-value pair that forms a tag being removed from a given resource.
+   *       For example, a tag with "Sales" as the key might be added to a resource to indicate its use by
+   *       the sales department. Keys must be unique and cannot be duplicated for a particular resource.
+   *     </p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointRequest {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The ARN of the new model to use when updating an existing endpoint.</p>
+   * @public
+   */
+  DesiredModelArn?: string | undefined;
+
+  /**
+   * <p> The desired number of inference units to be used by the model using this endpoint.
+   *
+   *       Each inference unit represents of a throughput of 100 characters per second.</p>
+   * @public
+   */
+  DesiredInferenceUnits?: number | undefined;
+
+  /**
+   * <p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>
+   * @public
+   */
+  DesiredDataAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the flywheel</p>
+   * @public
+   */
+  FlywheelArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the new model.</p>
+   * @public
+   */
+  DesiredModelArn?: string | undefined;
+}
+
+/**
+ * <p>Data security configuration.</p>
+ * @public
+ */
+export interface UpdateDataSecurityConfig {
+  /**
+   * <p>ID for the KMS key that Amazon Comprehend uses to encrypt
+   *       trained custom models. The ModelKmsKeyId can be either of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelKmsKeyId?: string | undefined;
+
+  /**
+   * <p>ID for the KMS key that Amazon Comprehend uses to encrypt the volume.</p>
+   * @public
+   */
+  VolumeKmsKeyId?: string | undefined;
+
+  /**
+   * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
+   *       the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *         VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFlywheelRequest {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the flywheel to update.</p>
+   * @public
+   */
+  FlywheelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the active model version.</p>
+   * @public
+   */
+  ActiveModelArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that
+   *       grants Amazon Comprehend permission to access the flywheel data.</p>
+   * @public
+   */
+  DataAccessRoleArn?: string | undefined;
+
+  /**
+   * <p>Flywheel data security configuration.</p>
+   * @public
+   */
+  DataSecurityConfig?: UpdateDataSecurityConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFlywheelResponse {
+  /**
+   * <p>The flywheel properties.</p>
+   * @public
+   */
+  FlywheelProperties?: FlywheelProperties | undefined;
 }

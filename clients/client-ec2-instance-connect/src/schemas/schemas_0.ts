@@ -50,7 +50,7 @@ import {
   SerialConsoleSessionUnsupportedException as __SerialConsoleSessionUnsupportedException,
   ServiceException as __ServiceException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

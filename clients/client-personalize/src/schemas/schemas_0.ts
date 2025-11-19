@@ -500,7 +500,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   TooManyTagKeysException as __TooManyTagKeysException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 import { PersonalizeServiceException as __PersonalizeServiceException } from "../models/PersonalizeServiceException";
 
 /* eslint no-var: 0 */

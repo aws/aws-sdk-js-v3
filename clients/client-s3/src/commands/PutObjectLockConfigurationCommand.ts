@@ -6,7 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_1";
+import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_0";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutObjectLockConfiguration } from "../schemas/schemas_0";
 

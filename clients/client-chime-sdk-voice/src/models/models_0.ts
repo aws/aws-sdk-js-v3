@@ -1,59 +1,30 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ChimeSDKVoiceServiceException as __BaseException } from "./ChimeSDKVoiceServiceException";
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  AccessDenied: "AccessDenied",
-  BadRequest: "BadRequest",
-  Conflict: "Conflict",
-  Forbidden: "Forbidden",
-  Gone: "Gone",
-  NotFound: "NotFound",
-  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
-  PreconditionFailed: "PreconditionFailed",
-  ResourceLimitExceeded: "ResourceLimitExceeded",
-  ServiceFailure: "ServiceFailure",
-  ServiceUnavailable: "ServiceUnavailable",
-  Throttled: "Throttled",
-  Throttling: "Throttling",
-  Unauthorized: "Unauthorized",
-  Unprocessable: "Unprocessable",
-  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
- * <p>You don't have the permissions needed to run this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
+import {
+  AlexaSkillStatus,
+  CallingNameStatus,
+  CallLegType,
+  Capability,
+  ContactCenterSystemType,
+  ErrorCode,
+  GeoMatchLevel,
+  LanguageCode,
+  NetworkType,
+  NotificationTarget,
+  NumberSelectionBehavior,
+  OrderedPhoneNumberStatus,
+  OriginationRouteProtocol,
+  PhoneNumberAssociationName,
+  PhoneNumberOrderStatus,
+  PhoneNumberOrderType,
+  PhoneNumberProductType,
+  PhoneNumberStatus,
+  PhoneNumberType,
+  ProxySessionStatus,
+  SessionBorderControllerType,
+  SipRuleTriggerType,
+  VoiceConnectorAwsRegion,
+  VoiceConnectorIntegrationType,
+} from "./enums";
 
 /**
  * <p>A validated address.</p>
@@ -125,20 +96,6 @@ export interface Address {
 
 /**
  * @public
- * @enum
- */
-export const AlexaSkillStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AlexaSkillStatus = (typeof AlexaSkillStatus)[keyof typeof AlexaSkillStatus];
-
-/**
- * @public
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   /**
@@ -198,174 +155,6 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
 }
 
 /**
- * <p>The input parameters don't match the service's restrictions.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The client is permanently forbidden from making the request.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested resource couldn't be found.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service encountered an unexpected error.</p>
- * @public
- */
-export class ServiceFailureException extends __BaseException {
-  readonly name: "ServiceFailureException" = "ServiceFailureException";
-  readonly $fault: "server" = "server";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
-    super({
-      name: "ServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of customer requests exceeds the request rate limit.</p>
- * @public
- */
-export class ThrottledClientException extends __BaseException {
-  readonly name: "ThrottledClientException" = "ThrottledClientException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledClientException, __BaseException>) {
-    super({
-      name: "ThrottledClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledClientException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The client isn't authorized to request a resource.</p>
- * @public
- */
-export class UnauthorizedClientException extends __BaseException {
-  readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedClientException, __BaseException>) {
-    super({
-      name: "UnauthorizedClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedClientException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
@@ -421,20 +210,6 @@ export interface BatchDeletePhoneNumberResponse {
    */
   PhoneNumberErrors?: PhoneNumberError[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberProductType = {
-  SipMediaApplicationDialIn: "SipMediaApplicationDialIn",
-  VoiceConnector: "VoiceConnector",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberProductType = (typeof PhoneNumberProductType)[keyof typeof PhoneNumberProductType];
 
 /**
  * <p>The phone number ID, product type, or calling name fields to update,
@@ -514,36 +289,6 @@ export interface CallDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const CallingNameStatus = {
-  Unassigned: "Unassigned",
-  UpdateFailed: "UpdateFailed",
-  UpdateInProgress: "UpdateInProgress",
-  UpdateSucceeded: "UpdateSucceeded",
-} as const;
-
-/**
- * @public
- */
-export type CallingNameStatus = (typeof CallingNameStatus)[keyof typeof CallingNameStatus];
-
-/**
- * @public
- * @enum
- */
-export const CallLegType = {
-  CALLEE: "Callee",
-  CALLER: "Caller",
-} as const;
-
-/**
- * @public
- */
-export type CallLegType = (typeof CallLegType)[keyof typeof CallLegType];
-
-/**
  * <p>A suggested address.</p>
  * @public
  */
@@ -593,20 +338,6 @@ export interface CandidateAddress {
 
 /**
  * @public
- * @enum
- */
-export const Capability = {
-  SMS: "SMS",
-  Voice: "Voice",
-} as const;
-
-/**
- * @public
- */
-export type Capability = (typeof Capability)[keyof typeof Capability];
-
-/**
- * @public
  */
 export interface CreatePhoneNumberOrderRequest {
   /**
@@ -629,21 +360,6 @@ export interface CreatePhoneNumberOrderRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrderedPhoneNumberStatus = {
-  Acquired: "Acquired",
-  Failed: "Failed",
-  Processing: "Processing",
-} as const;
-
-/**
- * @public
- */
-export type OrderedPhoneNumberStatus = (typeof OrderedPhoneNumberStatus)[keyof typeof OrderedPhoneNumberStatus];
-
-/**
  * <p>A phone number for which an order has been placed.</p>
  * @public
  */
@@ -660,43 +376,6 @@ export interface OrderedPhoneNumber {
    */
   Status?: OrderedPhoneNumberStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberOrderType = {
-  New: "New",
-  Porting: "Porting",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberOrderType = (typeof PhoneNumberOrderType)[keyof typeof PhoneNumberOrderType];
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberOrderStatus = {
-  CancelRequested: "CancelRequested",
-  Cancelled: "Cancelled",
-  ChangeRequested: "ChangeRequested",
-  Exception: "Exception",
-  FOC: "FOC",
-  Failed: "Failed",
-  Partial: "Partial",
-  PendingDocuments: "PendingDocuments",
-  Processing: "Processing",
-  Submitted: "Submitted",
-  Successful: "Successful",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberOrderStatus = (typeof PhoneNumberOrderStatus)[keyof typeof PhoneNumberOrderStatus];
 
 /**
  * <p>The details of an Amazon Chime SDK phone number order.</p>
@@ -766,44 +445,6 @@ export interface CreatePhoneNumberOrderResponse {
 }
 
 /**
- * <p>The request exceeds the resource limit.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const GeoMatchLevel = {
-  AreaCode: "AreaCode",
-  Country: "Country",
-} as const;
-
-/**
- * @public
- */
-export type GeoMatchLevel = (typeof GeoMatchLevel)[keyof typeof GeoMatchLevel];
-
-/**
  * <p>The country and area code for a proxy phone number in a proxy phone session.</p>
  * @public
  */
@@ -820,20 +461,6 @@ export interface GeoMatchParams {
    */
   AreaCode: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NumberSelectionBehavior = {
-  AvoidSticky: "AvoidSticky",
-  PreferSticky: "PreferSticky",
-} as const;
-
-/**
- * @public
- */
-export type NumberSelectionBehavior = (typeof NumberSelectionBehavior)[keyof typeof NumberSelectionBehavior];
 
 /**
  * @public
@@ -906,21 +533,6 @@ export interface Participant {
    */
   ProxyPhoneNumber?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProxySessionStatus = {
-  Closed: "Closed",
-  InProgress: "InProgress",
-  Open: "Open",
-} as const;
-
-/**
- * @public
- */
-export type ProxySessionStatus = (typeof ProxySessionStatus)[keyof typeof ProxySessionStatus];
 
 /**
  * <p>The proxy session for an Amazon Chime SDK Voice Connector.</p>
@@ -1015,30 +627,6 @@ export interface CreateProxySessionResponse {
    * @public
    */
   ProxySession?: ProxySession | undefined;
-}
-
-/**
- * <p>Multiple instances of the same request were made simultaneously.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1250,20 +838,6 @@ export interface SipRuleTargetApplication {
 
 /**
  * @public
- * @enum
- */
-export const SipRuleTriggerType = {
-  RequestUriHostname: "RequestUriHostname",
-  ToPhoneNumber: "ToPhoneNumber",
-} as const;
-
-/**
- * @public
- */
-export type SipRuleTriggerType = (typeof SipRuleTriggerType)[keyof typeof SipRuleTriggerType];
-
-/**
- * @public
  */
 export interface CreateSipRuleRequest {
   /**
@@ -1373,57 +947,6 @@ export interface CreateSipRuleResponse {
    */
   SipRule?: SipRule | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VoiceConnectorAwsRegion = {
-  AP_NORTHEAST_1: "ap-northeast-1",
-  AP_NORTHEAST_2: "ap-northeast-2",
-  AP_SOUTHEAST_1: "ap-southeast-1",
-  AP_SOUTHEAST_2: "ap-southeast-2",
-  CA_CENTRAL_1: "ca-central-1",
-  EU_CENTRAL_1: "eu-central-1",
-  EU_WEST_1: "eu-west-1",
-  EU_WEST_2: "eu-west-2",
-  US_EAST_1: "us-east-1",
-  US_WEST_2: "us-west-2",
-} as const;
-
-/**
- * @public
- */
-export type VoiceConnectorAwsRegion = (typeof VoiceConnectorAwsRegion)[keyof typeof VoiceConnectorAwsRegion];
-
-/**
- * @public
- * @enum
- */
-export const VoiceConnectorIntegrationType = {
-  CONNECT_ANALYTICS_CONNECTOR: "CONNECT_ANALYTICS_CONNECTOR",
-  CONNECT_CALL_TRANSFER_CONNECTOR: "CONNECT_CALL_TRANSFER_CONNECTOR",
-} as const;
-
-/**
- * @public
- */
-export type VoiceConnectorIntegrationType =
-  (typeof VoiceConnectorIntegrationType)[keyof typeof VoiceConnectorIntegrationType];
-
-/**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL_STACK: "DUAL_STACK",
-  IPV4_ONLY: "IPV4_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
 
 /**
  * @public
@@ -1732,30 +1255,6 @@ export interface CreateVoiceProfileResponse {
    * @public
    */
   VoiceProfile?: VoiceProfile | undefined;
-}
-
-/**
- * <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
- * @public
- */
-export class GoneException extends __BaseException {
-  readonly name: "GoneException" = "GoneException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GoneException, __BaseException>) {
-    super({
-      name: "GoneException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GoneException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -2141,21 +1640,6 @@ export interface GetPhoneNumberRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PhoneNumberAssociationName = {
-  SipRuleId: "SipRuleId",
-  VoiceConnectorGroupId: "VoiceConnectorGroupId",
-  VoiceConnectorId: "VoiceConnectorId",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberAssociationName = (typeof PhoneNumberAssociationName)[keyof typeof PhoneNumberAssociationName];
-
-/**
  * <p>The phone number associations, such as an Amazon Chime SDK account ID, user ID,
  *          Voice Connector ID, or Voice Connector group ID.</p>
  * @public
@@ -2222,43 +1706,6 @@ export interface PhoneNumberCapabilities {
    */
   OutboundMMS?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberStatus = {
-  AcquireFailed: "AcquireFailed",
-  AcquireInProgress: "AcquireInProgress",
-  Assigned: "Assigned",
-  Cancelled: "Cancelled",
-  DeleteFailed: "DeleteFailed",
-  DeleteInProgress: "DeleteInProgress",
-  PortinCancelRequested: "PortinCancelRequested",
-  PortinInProgress: "PortinInProgress",
-  ReleaseFailed: "ReleaseFailed",
-  ReleaseInProgress: "ReleaseInProgress",
-  Unassigned: "Unassigned",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberStatus = (typeof PhoneNumberStatus)[keyof typeof PhoneNumberStatus];
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberType = {
-  Local: "Local",
-  TollFree: "TollFree",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
 
 /**
  * <p>A phone number used to call an Amazon
@@ -2774,40 +2221,6 @@ export interface GetVoiceConnectorExternalSystemsConfigurationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContactCenterSystemType = {
-  AVAYA_AURA_CALL_CENTER_ELITE: "AVAYA_AURA_CALL_CENTER_ELITE",
-  AVAYA_AURA_CONTACT_CENTER: "AVAYA_AURA_CONTACT_CENTER",
-  CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE: "CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE",
-  GENESYS_ENGAGE_ON_PREMISES: "GENESYS_ENGAGE_ON_PREMISES",
-} as const;
-
-/**
- * @public
- */
-export type ContactCenterSystemType = (typeof ContactCenterSystemType)[keyof typeof ContactCenterSystemType];
-
-/**
- * @public
- * @enum
- */
-export const SessionBorderControllerType = {
-  AUDIOCODES_MEDIANT_SBC: "AUDIOCODES_MEDIANT_SBC",
-  AVAYA_SBCE: "AVAYA_SBCE",
-  CISCO_UNIFIED_BORDER_ELEMENT: "CISCO_UNIFIED_BORDER_ELEMENT",
-  ORACLE_ACME_PACKET_SBC: "ORACLE_ACME_PACKET_SBC",
-  RIBBON_SBC: "RIBBON_SBC",
-} as const;
-
-/**
- * @public
- */
-export type SessionBorderControllerType =
-  (typeof SessionBorderControllerType)[keyof typeof SessionBorderControllerType];
-
-/**
  * <p>Contains information about an external systems configuration for a Voice
  *          Connector.</p>
  * @public
@@ -2910,20 +2323,6 @@ export interface GetVoiceConnectorOriginationRequest {
    */
   VoiceConnectorId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OriginationRouteProtocol = {
-  TCP: "TCP",
-  UDP: "UDP",
-} as const;
-
-/**
- * @public
- */
-export type OriginationRouteProtocol = (typeof OriginationRouteProtocol)[keyof typeof OriginationRouteProtocol];
 
 /**
  * <p>Origination routes define call distribution properties for your SIP hosts to
@@ -3088,21 +2487,6 @@ export interface MediaInsightsConfiguration {
    */
   ConfigurationArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NotificationTarget = {
-  EventBridge: "EventBridge",
-  SNS: "SNS",
-  SQS: "SQS",
-} as const;
-
-/**
- * @public
- */
-export type NotificationTarget = (typeof NotificationTarget)[keyof typeof NotificationTarget];
 
 /**
  * <p>The target recipient for a streaming configuration notification.</p>
@@ -4367,43 +3751,6 @@ export interface StartSpeakerSearchTaskResponse {
    */
   SpeakerSearchTask?: SpeakerSearchTask | undefined;
 }
-
-/**
- * <p>A well-formed request couldn't be followed due to semantic errors.</p>
- * @public
- */
-export class UnprocessableEntityException extends __BaseException {
-  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
-    super({
-      name: "UnprocessableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LanguageCode = {
-  EN_US: "en-US",
-} as const;
-
-/**
- * @public
- */
-export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
  * @public

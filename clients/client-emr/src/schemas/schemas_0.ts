@@ -634,7 +634,7 @@ import {
   InternalServerError as __InternalServerError,
   InternalServerException as __InternalServerException,
   InvalidRequestException as __InvalidRequestException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

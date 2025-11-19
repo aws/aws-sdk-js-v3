@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CopyBackupRequest } from "../models/models_0";
-import { CopyBackupResponse } from "../models/models_1";
+import { CopyBackupRequest, CopyBackupResponse } from "../models/models_0";
 import { CopyBackup } from "../schemas/schemas_0";
 
 /**

@@ -597,7 +597,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnsupportedOperationException as __UnsupportedOperationException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

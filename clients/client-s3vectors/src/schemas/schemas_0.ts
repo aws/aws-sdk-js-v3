@@ -143,7 +143,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   TooManyRequestsException as __TooManyRequestsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { S3VectorsServiceException as __S3VectorsServiceException } from "../models/S3VectorsServiceException";
 
 /* eslint no-var: 0 */

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteLocalGatewayRouteTableVpcAssociation } from "../schemas/schemas_0";
 
 /**

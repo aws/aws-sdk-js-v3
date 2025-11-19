@@ -49,7 +49,7 @@ import {
   InvalidInputException as __InvalidInputException,
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 import { MigrationHubConfigServiceException as __MigrationHubConfigServiceException } from "../models/MigrationHubConfigServiceException";
 
 /* eslint no-var: 0 */

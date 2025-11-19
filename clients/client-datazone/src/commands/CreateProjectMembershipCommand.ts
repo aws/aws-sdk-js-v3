@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateProjectMembershipInput, CreateProjectMembershipOutput } from "../models/models_1";
+import { CreateProjectMembershipInput, CreateProjectMembershipOutput } from "../models/models_0";
 import { CreateProjectMembership } from "../schemas/schemas_0";
 
 /**

@@ -1,107 +1,59 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CodeBuildServiceException as __BaseException } from "./CodeBuildServiceException";
-
-/**
- * <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
- * @public
- */
-export class AccountLimitExceededException extends __BaseException {
-  readonly name: "AccountLimitExceededException" = "AccountLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountLimitExceededException, __BaseException>) {
-    super({
-      name: "AccountLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The CodeBuild access has been suspended for the calling Amazon Web Services account.</p>
- * @public
- */
-export class AccountSuspendedException extends __BaseException {
-  readonly name: "AccountSuspendedException" = "AccountSuspendedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountSuspendedException, __BaseException>) {
-    super({
-      name: "AccountSuspendedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountSuspendedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ArtifactNamespace = {
-  BUILD_ID: "BUILD_ID",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactNamespace = (typeof ArtifactNamespace)[keyof typeof ArtifactNamespace];
-
-/**
- * @public
- * @enum
- */
-export const ArtifactPackaging = {
-  NONE: "NONE",
-  ZIP: "ZIP",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactPackaging = (typeof ArtifactPackaging)[keyof typeof ArtifactPackaging];
-
-/**
- * @public
- * @enum
- */
-export const ArtifactsType = {
-  CODEPIPELINE: "CODEPIPELINE",
-  NO_ARTIFACTS: "NO_ARTIFACTS",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ArtifactsType = (typeof ArtifactsType)[keyof typeof ArtifactsType];
-
-/**
- * @public
- * @enum
- */
-export const AuthType = {
-  BASIC_AUTH: "BASIC_AUTH",
-  CODECONNECTIONS: "CODECONNECTIONS",
-  OAUTH: "OAUTH",
-  PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
-  SECRETS_MANAGER: "SECRETS_MANAGER",
-} as const;
-
-/**
- * @public
- */
-export type AuthType = (typeof AuthType)[keyof typeof AuthType];
+import {
+  ArtifactNamespace,
+  ArtifactPackaging,
+  ArtifactsType,
+  AuthType,
+  BatchReportModeType,
+  BucketOwnerAccess,
+  BuildBatchPhaseType,
+  BuildPhaseType,
+  CacheMode,
+  CacheType,
+  CommandType,
+  ComputeType,
+  CredentialProviderType,
+  EnvironmentType,
+  EnvironmentVariableType,
+  FileSystemType,
+  FleetContextCode,
+  FleetOverflowBehavior,
+  FleetProxyRuleBehavior,
+  FleetProxyRuleEffectType,
+  FleetProxyRuleType,
+  FleetScalingMetricType,
+  FleetScalingType,
+  FleetSortByType,
+  FleetStatusCode,
+  ImagePullCredentialsType,
+  LanguageType,
+  LogsConfigStatusType,
+  MachineType,
+  PlatformType,
+  ProjectSortByType,
+  ProjectVisibilityType,
+  PullRequestBuildApproverRole,
+  PullRequestBuildCommentApproval,
+  ReportCodeCoverageSortByType,
+  ReportExportConfigType,
+  ReportGroupSortByType,
+  ReportGroupStatusType,
+  ReportGroupTrendFieldType,
+  ReportPackagingType,
+  ReportStatusType,
+  ReportType,
+  RetryBuildBatchType,
+  ServerType,
+  SharedResourceSortByType,
+  SortOrderType,
+  SourceAuthType,
+  SourceType,
+  StatusType,
+  WebhookBuildType,
+  WebhookFilterType,
+  WebhookScopeType,
+  WebhookStatus,
+} from "./enums";
 
 /**
  * <p>Information about the auto-retry configuration for the build.</p>
@@ -184,26 +136,6 @@ export interface BatchDeleteBuildsOutput {
 }
 
 /**
- * <p>The input value that was provided is not valid.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface BatchGetBuildBatchesInput {
@@ -213,21 +145,6 @@ export interface BatchGetBuildBatchesInput {
    */
   ids: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BucketOwnerAccess = {
-  FULL: "FULL",
-  NONE: "NONE",
-  READ_ONLY: "READ_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type BucketOwnerAccess = (typeof BucketOwnerAccess)[keyof typeof BucketOwnerAccess];
 
 /**
  * <p>Information about build output artifacts.</p>
@@ -334,20 +251,6 @@ export interface BuildArtifacts {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchReportModeType = {
-  REPORT_AGGREGATED_BATCH: "REPORT_AGGREGATED_BATCH",
-  REPORT_INDIVIDUAL_BUILDS: "REPORT_INDIVIDUAL_BUILDS",
-} as const;
-
-/**
- * @public
- */
-export type BatchReportModeType = (typeof BatchReportModeType)[keyof typeof BatchReportModeType];
-
-/**
  * <p>Specifies restrictions for the batch build.</p>
  * @public
  */
@@ -425,24 +328,6 @@ export interface ProjectBuildBatchConfig {
    */
   batchReportMode?: BatchReportModeType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatusType = {
-  FAILED: "FAILED",
-  FAULT: "FAULT",
-  IN_PROGRESS: "IN_PROGRESS",
-  STOPPED: "STOPPED",
-  SUCCEEDED: "SUCCEEDED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * <p>Represents a resolved build artifact. A resolved artifact is an artifact that is built and
@@ -575,36 +460,6 @@ export interface BuildGroup {
 }
 
 /**
- * @public
- * @enum
- */
-export const CacheMode = {
-  LOCAL_CUSTOM_CACHE: "LOCAL_CUSTOM_CACHE",
-  LOCAL_DOCKER_LAYER_CACHE: "LOCAL_DOCKER_LAYER_CACHE",
-  LOCAL_SOURCE_CACHE: "LOCAL_SOURCE_CACHE",
-} as const;
-
-/**
- * @public
- */
-export type CacheMode = (typeof CacheMode)[keyof typeof CacheMode];
-
-/**
- * @public
- * @enum
- */
-export const CacheType = {
-  LOCAL: "LOCAL",
-  NO_CACHE: "NO_CACHE",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type CacheType = (typeof CacheType)[keyof typeof CacheType];
-
-/**
  * <p>Information about the cache for the build project.</p>
  * @public
  */
@@ -719,20 +574,6 @@ export interface ProjectCache {
 }
 
 /**
- * @public
- * @enum
- */
-export const MachineType = {
-  GENERAL: "GENERAL",
-  NVME: "NVME",
-} as const;
-
-/**
- * @public
- */
-export type MachineType = (typeof MachineType)[keyof typeof MachineType];
-
-/**
  * <p>Contains compute attributes. These attributes only need be specified when your project's or fleet's <code>computeType</code> is set to <code>ATTRIBUTE_BASED_COMPUTE</code> or <code>CUSTOM_INSTANCE_TYPE</code>.</p>
  * @public
  */
@@ -767,30 +608,6 @@ export interface ComputeConfiguration {
    */
   instanceType?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ComputeType = {
-  ATTRIBUTE_BASED_COMPUTE: "ATTRIBUTE_BASED_COMPUTE",
-  BUILD_GENERAL1_2XLARGE: "BUILD_GENERAL1_2XLARGE",
-  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
-  BUILD_GENERAL1_XLARGE: "BUILD_GENERAL1_XLARGE",
-  BUILD_LAMBDA_10GB: "BUILD_LAMBDA_10GB",
-  BUILD_LAMBDA_1GB: "BUILD_LAMBDA_1GB",
-  BUILD_LAMBDA_2GB: "BUILD_LAMBDA_2GB",
-  BUILD_LAMBDA_4GB: "BUILD_LAMBDA_4GB",
-  BUILD_LAMBDA_8GB: "BUILD_LAMBDA_8GB",
-  CUSTOM_INSTANCE_TYPE: "CUSTOM_INSTANCE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * <p>Contains information about the status of the docker server.</p>
@@ -866,21 +683,6 @@ export interface DockerServer {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnvironmentVariableType = {
-  PARAMETER_STORE: "PARAMETER_STORE",
-  PLAINTEXT: "PLAINTEXT",
-  SECRETS_MANAGER: "SECRETS_MANAGER",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
-
-/**
  * <p>Information about an environment variable for a build project or a build.</p>
  * @public
  */
@@ -951,33 +753,6 @@ export interface ProjectFleet {
 }
 
 /**
- * @public
- * @enum
- */
-export const ImagePullCredentialsType = {
-  CODEBUILD: "CODEBUILD",
-  SERVICE_ROLE: "SERVICE_ROLE",
-} as const;
-
-/**
- * @public
- */
-export type ImagePullCredentialsType = (typeof ImagePullCredentialsType)[keyof typeof ImagePullCredentialsType];
-
-/**
- * @public
- * @enum
- */
-export const CredentialProviderType = {
-  SECRETS_MANAGER: "SECRETS_MANAGER",
-} as const;
-
-/**
- * @public
- */
-export type CredentialProviderType = (typeof CredentialProviderType)[keyof typeof CredentialProviderType];
-
-/**
  * <p> Information about credentials that provide access to a private Docker registry. When
  *             this is set: </p>
  *          <ul>
@@ -1012,30 +787,6 @@ export interface RegistryCredential {
    */
   credentialProvider: CredentialProviderType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnvironmentType = {
-  ARM_CONTAINER: "ARM_CONTAINER",
-  ARM_EC2: "ARM_EC2",
-  ARM_LAMBDA_CONTAINER: "ARM_LAMBDA_CONTAINER",
-  LINUX_CONTAINER: "LINUX_CONTAINER",
-  LINUX_EC2: "LINUX_EC2",
-  LINUX_GPU_CONTAINER: "LINUX_GPU_CONTAINER",
-  LINUX_LAMBDA_CONTAINER: "LINUX_LAMBDA_CONTAINER",
-  MAC_ARM: "MAC_ARM",
-  WINDOWS_CONTAINER: "WINDOWS_CONTAINER",
-  WINDOWS_EC2: "WINDOWS_EC2",
-  WINDOWS_SERVER_2019_CONTAINER: "WINDOWS_SERVER_2019_CONTAINER",
-  WINDOWS_SERVER_2022_CONTAINER: "WINDOWS_SERVER_2022_CONTAINER",
-} as const;
-
-/**
- * @public
- */
-export type EnvironmentType = (typeof EnvironmentType)[keyof typeof EnvironmentType];
 
 /**
  * <p>Information about the build environment of the build project.</p>
@@ -1266,19 +1017,6 @@ export interface ProjectEnvironment {
 }
 
 /**
- * @public
- * @enum
- */
-export const FileSystemType = {
-  EFS: "EFS",
-} as const;
-
-/**
- * @public
- */
-export type FileSystemType = (typeof FileSystemType)[keyof typeof FileSystemType];
-
-/**
  * <p> Information about a file system created by Amazon Elastic File System (EFS). For more
  *             information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">What Is
  *                 Amazon Elastic File System?</a>
@@ -1334,20 +1072,6 @@ export interface ProjectFileSystemLocation {
    */
   mountOptions?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LogsConfigStatusType = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type LogsConfigStatusType = (typeof LogsConfigStatusType)[keyof typeof LogsConfigStatusType];
 
 /**
  * <p> Information about CloudWatch Logs for a build project. </p>
@@ -1512,25 +1236,6 @@ export interface PhaseContext {
 }
 
 /**
- * @public
- * @enum
- */
-export const BuildBatchPhaseType = {
-  COMBINE_ARTIFACTS: "COMBINE_ARTIFACTS",
-  DOWNLOAD_BATCHSPEC: "DOWNLOAD_BATCHSPEC",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  STOPPED: "STOPPED",
-  SUBMITTED: "SUBMITTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type BuildBatchPhaseType = (typeof BuildBatchPhaseType)[keyof typeof BuildBatchPhaseType];
-
-/**
  * <p>Contains information about a stage for a batch build.</p>
  * @public
  */
@@ -1632,21 +1337,6 @@ export interface BuildBatchPhase {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceAuthType = {
-  CODECONNECTIONS: "CODECONNECTIONS",
-  OAUTH: "OAUTH",
-  SECRETS_MANAGER: "SECRETS_MANAGER",
-} as const;
-
-/**
- * @public
- */
-export type SourceAuthType = (typeof SourceAuthType)[keyof typeof SourceAuthType];
-
-/**
  * <p>Information about the authorization settings for CodeBuild to access the source code to be
  *             built.</p>
  * @public
@@ -1722,27 +1412,6 @@ export interface GitSubmodulesConfig {
    */
   fetchSubmodules: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  BITBUCKET: "BITBUCKET",
-  CODECOMMIT: "CODECOMMIT",
-  CODEPIPELINE: "CODEPIPELINE",
-  GITHUB: "GITHUB",
-  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
-  GITLAB: "GITLAB",
-  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
-  NO_SOURCE: "NO_SOURCE",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * <p>Information about the build input source code for the build project.</p>
@@ -2433,29 +2102,6 @@ export interface NetworkInterface {
 }
 
 /**
- * @public
- * @enum
- */
-export const BuildPhaseType = {
-  BUILD: "BUILD",
-  COMPLETED: "COMPLETED",
-  DOWNLOAD_SOURCE: "DOWNLOAD_SOURCE",
-  FINALIZING: "FINALIZING",
-  INSTALL: "INSTALL",
-  POST_BUILD: "POST_BUILD",
-  PRE_BUILD: "PRE_BUILD",
-  PROVISIONING: "PROVISIONING",
-  QUEUED: "QUEUED",
-  SUBMITTED: "SUBMITTED",
-  UPLOAD_ARTIFACTS: "UPLOAD_ARTIFACTS",
-} as const;
-
-/**
- * @public
- */
-export type BuildPhaseType = (typeof BuildPhaseType)[keyof typeof BuildPhaseType];
-
-/**
  * <p>Information about a stage for a build.</p>
  * @public
  */
@@ -2912,19 +2558,6 @@ export interface BatchGetCommandExecutionsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const CommandType = {
-  SHELL: "SHELL",
-} as const;
-
-/**
- * @public
- */
-export type CommandType = (typeof CommandType)[keyof typeof CommandType];
-
-/**
  * <p>Contains command execution information.</p>
  * @public
  */
@@ -3037,62 +2670,6 @@ export interface BatchGetFleetsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const FleetOverflowBehavior = {
-  ON_DEMAND: "ON_DEMAND",
-  QUEUE: "QUEUE",
-} as const;
-
-/**
- * @public
- */
-export type FleetOverflowBehavior = (typeof FleetOverflowBehavior)[keyof typeof FleetOverflowBehavior];
-
-/**
- * @public
- * @enum
- */
-export const FleetProxyRuleBehavior = {
-  ALLOW_ALL: "ALLOW_ALL",
-  DENY_ALL: "DENY_ALL",
-} as const;
-
-/**
- * @public
- */
-export type FleetProxyRuleBehavior = (typeof FleetProxyRuleBehavior)[keyof typeof FleetProxyRuleBehavior];
-
-/**
- * @public
- * @enum
- */
-export const FleetProxyRuleEffectType = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type FleetProxyRuleEffectType = (typeof FleetProxyRuleEffectType)[keyof typeof FleetProxyRuleEffectType];
-
-/**
- * @public
- * @enum
- */
-export const FleetProxyRuleType = {
-  DOMAIN: "DOMAIN",
-  IP: "IP",
-} as const;
-
-/**
- * @public
- */
-export type FleetProxyRuleType = (typeof FleetProxyRuleType)[keyof typeof FleetProxyRuleType];
-
-/**
  * <p>Information about the proxy rule for your reserved capacity instances.</p>
  * @public
  */
@@ -3133,32 +2710,6 @@ export interface ProxyConfiguration {
    */
   orderedProxyRules?: FleetProxyRule[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FleetScalingType = {
-  TARGET_TRACKING_SCALING: "TARGET_TRACKING_SCALING",
-} as const;
-
-/**
- * @public
- */
-export type FleetScalingType = (typeof FleetScalingType)[keyof typeof FleetScalingType];
-
-/**
- * @public
- * @enum
- */
-export const FleetScalingMetricType = {
-  FLEET_UTILIZATION_RATE: "FLEET_UTILIZATION_RATE",
-} as const;
-
-/**
- * @public
- */
-export type FleetScalingMetricType = (typeof FleetScalingMetricType)[keyof typeof FleetScalingMetricType];
 
 /**
  * <p>Defines when a new instance is auto-scaled into the compute fleet.</p>
@@ -3207,43 +2758,6 @@ export interface ScalingConfigurationOutput {
    */
   desiredCapacity?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FleetContextCode = {
-  ACTION_REQUIRED: "ACTION_REQUIRED",
-  CREATE_FAILED: "CREATE_FAILED",
-  INSUFFICIENT_CAPACITY: "INSUFFICIENT_CAPACITY",
-  PENDING_DELETION: "PENDING_DELETION",
-  UPDATE_FAILED: "UPDATE_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type FleetContextCode = (typeof FleetContextCode)[keyof typeof FleetContextCode];
-
-/**
- * @public
- * @enum
- */
-export const FleetStatusCode = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  PENDING_DELETION: "PENDING_DELETION",
-  ROTATING: "ROTATING",
-  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type FleetStatusCode = (typeof FleetStatusCode)[keyof typeof FleetStatusCode];
 
 /**
  * <p>The status of the compute fleet.</p>
@@ -3937,58 +3451,6 @@ export interface ProjectBadge {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProjectVisibilityType = {
-  PRIVATE: "PRIVATE",
-  PUBLIC_READ: "PUBLIC_READ",
-} as const;
-
-/**
- * @public
- */
-export type ProjectVisibilityType = (typeof ProjectVisibilityType)[keyof typeof ProjectVisibilityType];
-
-/**
- * @public
- * @enum
- */
-export const WebhookBuildType = {
-  BUILD: "BUILD",
-  BUILD_BATCH: "BUILD_BATCH",
-  RUNNER_BUILDKITE_BUILD: "RUNNER_BUILDKITE_BUILD",
-} as const;
-
-/**
- * @public
- */
-export type WebhookBuildType = (typeof WebhookBuildType)[keyof typeof WebhookBuildType];
-
-/**
- * @public
- * @enum
- */
-export const WebhookFilterType = {
-  ACTOR_ACCOUNT_ID: "ACTOR_ACCOUNT_ID",
-  BASE_REF: "BASE_REF",
-  COMMIT_MESSAGE: "COMMIT_MESSAGE",
-  EVENT: "EVENT",
-  FILE_PATH: "FILE_PATH",
-  HEAD_REF: "HEAD_REF",
-  ORGANIZATION_NAME: "ORGANIZATION_NAME",
-  RELEASE_NAME: "RELEASE_NAME",
-  REPOSITORY_NAME: "REPOSITORY_NAME",
-  TAG_NAME: "TAG_NAME",
-  WORKFLOW_NAME: "WORKFLOW_NAME",
-} as const;
-
-/**
- * @public
- */
-export type WebhookFilterType = (typeof WebhookFilterType)[keyof typeof WebhookFilterType];
-
-/**
  * <p>A filter used to determine which webhooks trigger a build. </p>
  * @public
  */
@@ -4178,49 +3640,6 @@ export interface WebhookFilter {
 }
 
 /**
- * @public
- * @enum
- */
-export const PullRequestBuildApproverRole = {
-  BITBUCKET_ADMIN: "BITBUCKET_ADMIN",
-  BITBUCKET_READ: "BITBUCKET_READ",
-  BITBUCKET_WRITE: "BITBUCKET_WRITE",
-  GITHUB_ADMIN: "GITHUB_ADMIN",
-  GITHUB_MAINTAIN: "GITHUB_MAINTAIN",
-  GITHUB_READ: "GITHUB_READ",
-  GITHUB_TRIAGE: "GITHUB_TRIAGE",
-  GITHUB_WRITE: "GITHUB_WRITE",
-  GITLAB_DEVELOPER: "GITLAB_DEVELOPER",
-  GITLAB_GUEST: "GITLAB_GUEST",
-  GITLAB_MAINTAINER: "GITLAB_MAINTAINER",
-  GITLAB_OWNER: "GITLAB_OWNER",
-  GITLAB_PLANNER: "GITLAB_PLANNER",
-  GITLAB_REPORTER: "GITLAB_REPORTER",
-} as const;
-
-/**
- * @public
- */
-export type PullRequestBuildApproverRole =
-  (typeof PullRequestBuildApproverRole)[keyof typeof PullRequestBuildApproverRole];
-
-/**
- * @public
- * @enum
- */
-export const PullRequestBuildCommentApproval = {
-  ALL_PULL_REQUESTS: "ALL_PULL_REQUESTS",
-  DISABLED: "DISABLED",
-  FORK_PULL_REQUESTS: "FORK_PULL_REQUESTS",
-} as const;
-
-/**
- * @public
- */
-export type PullRequestBuildCommentApproval =
-  (typeof PullRequestBuildCommentApproval)[keyof typeof PullRequestBuildCommentApproval];
-
-/**
  * <p>A PullRequestBuildPolicy object that defines comment-based approval requirements for triggering builds on pull requests. This policy helps control when automated builds are executed based on contributor permissions and approval workflows.</p>
  * @public
  */
@@ -4253,21 +3672,6 @@ export interface PullRequestBuildPolicy {
 }
 
 /**
- * @public
- * @enum
- */
-export const WebhookScopeType = {
-  GITHUB_GLOBAL: "GITHUB_GLOBAL",
-  GITHUB_ORGANIZATION: "GITHUB_ORGANIZATION",
-  GITLAB_GROUP: "GITLAB_GROUP",
-} as const;
-
-/**
- * @public
- */
-export type WebhookScopeType = (typeof WebhookScopeType)[keyof typeof WebhookScopeType];
-
-/**
  * <p>Contains configuration information about the scope for a webhook. </p>
  * @public
  */
@@ -4290,22 +3694,6 @@ export interface ScopeConfiguration {
    */
   scope: WebhookScopeType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WebhookStatus = {
-  ACTIVE: "ACTIVE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
 
 /**
  * <p>Information about a webhook that connects repository events to a build project in
@@ -4715,34 +4103,6 @@ export interface BatchGetReportGroupsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReportExportConfigType = {
-  NO_EXPORT: "NO_EXPORT",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ReportExportConfigType = (typeof ReportExportConfigType)[keyof typeof ReportExportConfigType];
-
-/**
- * @public
- * @enum
- */
-export const ReportPackagingType = {
-  NONE: "NONE",
-  ZIP: "ZIP",
-} as const;
-
-/**
- * @public
- */
-export type ReportPackagingType = (typeof ReportPackagingType)[keyof typeof ReportPackagingType];
-
-/**
  * <p> Information about the S3 bucket where the raw data of a report are exported. </p>
  * @public
  */
@@ -4825,34 +4185,6 @@ export interface ReportExportConfig {
    */
   s3Destination?: S3ReportExportConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReportGroupStatusType = {
-  ACTIVE: "ACTIVE",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type ReportGroupStatusType = (typeof ReportGroupStatusType)[keyof typeof ReportGroupStatusType];
-
-/**
- * @public
- * @enum
- */
-export const ReportType = {
-  CODE_COVERAGE: "CODE_COVERAGE",
-  TEST: "TEST",
-} as const;
-
-/**
- * @public
- */
-export type ReportType = (typeof ReportType)[keyof typeof ReportType];
 
 /**
  * <p>A series of reports. Each report contains information about the results from running a
@@ -5016,23 +4348,6 @@ export interface CodeCoverageReportSummary {
    */
   branchesMissed?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReportStatusType = {
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  GENERATING: "GENERATING",
-  INCOMPLETE: "INCOMPLETE",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ReportStatusType = (typeof ReportStatusType)[keyof typeof ReportStatusType];
 
 /**
  * <p> Information about a test report. </p>
@@ -5777,27 +5092,6 @@ export interface CreateFleetOutput {
 }
 
 /**
- * <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
- *             settings already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateProjectInput {
@@ -6146,46 +5440,6 @@ export interface CreateWebhookOutput {
 }
 
 /**
- * <p>There was a problem with the underlying OAuth provider.</p>
- * @public
- */
-export class OAuthProviderException extends __BaseException {
-  readonly name: "OAuthProviderException" = "OAuthProviderException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OAuthProviderException, __BaseException>) {
-    super({
-      name: "OAuthProviderException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OAuthProviderException.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon Web Services resource cannot be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteBuildBatchInput {
@@ -6349,35 +5603,6 @@ export interface DeleteWebhookInput {
  * @public
  */
 export interface DeleteWebhookOutput {}
-
-/**
- * @public
- * @enum
- */
-export const ReportCodeCoverageSortByType = {
-  FILE_PATH: "FILE_PATH",
-  LINE_COVERAGE_PERCENTAGE: "LINE_COVERAGE_PERCENTAGE",
-} as const;
-
-/**
- * @public
- */
-export type ReportCodeCoverageSortByType =
-  (typeof ReportCodeCoverageSortByType)[keyof typeof ReportCodeCoverageSortByType];
-
-/**
- * @public
- * @enum
- */
-export const SortOrderType = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrderType = (typeof SortOrderType)[keyof typeof SortOrderType];
 
 /**
  * @public
@@ -6712,27 +5937,6 @@ export interface DescribeTestCasesOutput {
 
 /**
  * @public
- * @enum
- */
-export const ReportGroupTrendFieldType = {
-  BRANCHES_COVERED: "BRANCHES_COVERED",
-  BRANCHES_MISSED: "BRANCHES_MISSED",
-  BRANCH_COVERAGE: "BRANCH_COVERAGE",
-  DURATION: "DURATION",
-  LINES_COVERED: "LINES_COVERED",
-  LINES_MISSED: "LINES_MISSED",
-  LINE_COVERAGE: "LINE_COVERAGE",
-  PASS_RATE: "PASS_RATE",
-  TOTAL: "TOTAL",
-} as const;
-
-/**
- * @public
- */
-export type ReportGroupTrendFieldType = (typeof ReportGroupTrendFieldType)[keyof typeof ReportGroupTrendFieldType];
-
-/**
- * @public
  */
 export interface GetReportGroupTrendInput {
   /**
@@ -6896,23 +6100,6 @@ export interface GetResourcePolicyOutput {
    */
   policy?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServerType = {
-  BITBUCKET: "BITBUCKET",
-  GITHUB: "GITHUB",
-  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
-  GITLAB: "GITLAB",
-  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type ServerType = (typeof ServerType)[keyof typeof ServerType];
 
 /**
  * @public
@@ -7303,28 +6490,6 @@ export interface EnvironmentImage {
 }
 
 /**
- * @public
- * @enum
- */
-export const LanguageType = {
-  ANDROID: "ANDROID",
-  BASE: "BASE",
-  DOCKER: "DOCKER",
-  DOTNET: "DOTNET",
-  GOLANG: "GOLANG",
-  JAVA: "JAVA",
-  NODE_JS: "NODE_JS",
-  PHP: "PHP",
-  PYTHON: "PYTHON",
-  RUBY: "RUBY",
-} as const;
-
-/**
- * @public
- */
-export type LanguageType = (typeof LanguageType)[keyof typeof LanguageType];
-
-/**
  * <p>A set of Docker images that are related by programming language and are managed by
  *             CodeBuild.</p>
  * @public
@@ -7343,22 +6508,6 @@ export interface EnvironmentLanguage {
    */
   images?: EnvironmentImage[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PlatformType = {
-  AMAZON_LINUX: "AMAZON_LINUX",
-  DEBIAN: "DEBIAN",
-  UBUNTU: "UBUNTU",
-  WINDOWS_SERVER: "WINDOWS_SERVER",
-} as const;
-
-/**
- * @public
- */
-export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
 
 /**
  * <p>A set of Docker images that are related by platform and are managed by CodeBuild.</p>
@@ -7390,21 +6539,6 @@ export interface ListCuratedEnvironmentImagesOutput {
    */
   platforms?: EnvironmentPlatform[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FleetSortByType = {
-  CREATED_TIME: "CREATED_TIME",
-  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type FleetSortByType = (typeof FleetSortByType)[keyof typeof FleetSortByType];
 
 /**
  * @public
@@ -7493,21 +6627,6 @@ export interface ListFleetsOutput {
 
 /**
  * @public
- * @enum
- */
-export const ProjectSortByType = {
-  CREATED_TIME: "CREATED_TIME",
-  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type ProjectSortByType = (typeof ProjectSortByType)[keyof typeof ProjectSortByType];
-
-/**
- * @public
  */
 export interface ListProjectsInput {
   /**
@@ -7584,21 +6703,6 @@ export interface ListProjectsOutput {
    */
   projects?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReportGroupSortByType = {
-  CREATED_TIME: "CREATED_TIME",
-  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
-  NAME: "NAME",
-} as const;
-
-/**
- * @public
- */
-export type ReportGroupSortByType = (typeof ReportGroupSortByType)[keyof typeof ReportGroupSortByType];
 
 /**
  * @public
@@ -7938,20 +7042,6 @@ export interface ListSandboxesForProjectOutput {
 
 /**
  * @public
- * @enum
- */
-export const SharedResourceSortByType = {
-  ARN: "ARN",
-  MODIFIED_TIME: "MODIFIED_TIME",
-} as const;
-
-/**
- * @public
- */
-export type SharedResourceSortByType = (typeof SharedResourceSortByType)[keyof typeof SharedResourceSortByType];
-
-/**
- * @public
  */
 export interface ListSharedProjectsInput {
   /**
@@ -8226,20 +7316,6 @@ export interface RetryBuildOutput {
    */
   build?: Build | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RetryBuildBatchType = {
-  RETRY_ALL_BUILDS: "RETRY_ALL_BUILDS",
-  RETRY_FAILED_BUILDS: "RETRY_FAILED_BUILDS",
-} as const;
-
-/**
- * @public
- */
-export type RetryBuildBatchType = (typeof RetryBuildBatchType)[keyof typeof RetryBuildBatchType];
 
 /**
  * @public

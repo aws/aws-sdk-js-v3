@@ -200,7 +200,7 @@ import {
   ResourceQuotaExceededException as __ResourceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   UnsupportedOperationException as __UnsupportedOperationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

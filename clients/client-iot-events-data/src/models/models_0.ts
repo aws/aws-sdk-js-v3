@@ -1,7 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IoTEventsDataServiceException as __BaseException } from "./IoTEventsDataServiceException";
+import { AlarmStateName, ComparisonOperator, CustomerActionName, ErrorCode, EventType, TriggerType } from "./enums";
 
 /**
  * <p>Contains the configuration information of an acknowledge action.</p>
@@ -45,23 +43,6 @@ export interface AcknowledgeAlarmActionRequest {
    */
   note?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomerActionName = {
-  ACKNOWLEDGE: "ACKNOWLEDGE",
-  DISABLE: "DISABLE",
-  ENABLE: "ENABLE",
-  RESET: "RESET",
-  SNOOZE: "SNOOZE",
-} as const;
-
-/**
- * @public
- */
-export type CustomerActionName = (typeof CustomerActionName)[keyof typeof CustomerActionName];
 
 /**
  * <p>Contains the configuration information of a disable action.</p>
@@ -183,24 +164,6 @@ export interface CustomerAction {
 }
 
 /**
- * @public
- * @enum
- */
-export const ComparisonOperator = {
-  EQUAL: "EQUAL",
-  GREATER: "GREATER",
-  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
-  LESS: "LESS",
-  LESS_OR_EQUAL: "LESS_OR_EQUAL",
-  NOT_EQUAL: "NOT_EQUAL",
-} as const;
-
-/**
- * @public
- */
-export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
-
-/**
  * <p>Information needed to compare two values with a comparison operator.</p>
  * @public
  */
@@ -235,50 +198,6 @@ export interface RuleEvaluation {
    */
   simpleRuleEvaluation?: SimpleRuleEvaluation | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AlarmStateName = {
-  ACKNOWLEDGED: "ACKNOWLEDGED",
-  ACTIVE: "ACTIVE",
-  DISABLED: "DISABLED",
-  LATCHED: "LATCHED",
-  NORMAL: "NORMAL",
-  SNOOZE_DISABLED: "SNOOZE_DISABLED",
-} as const;
-
-/**
- * @public
- */
-export type AlarmStateName = (typeof AlarmStateName)[keyof typeof AlarmStateName];
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  STATE_CHANGE: "STATE_CHANGE",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
-
-/**
- * @public
- * @enum
- */
-export const TriggerType = {
-  SNOOZE_TIMEOUT: "SNOOZE_TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
  * <p>Contains the configuration information of alarm state changes.</p>
@@ -516,23 +435,6 @@ export interface BatchAcknowledgeAlarmRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  InternalFailureException: "InternalFailureException",
-  InvalidRequestException: "InvalidRequestException",
-  ResourceNotFoundException: "ResourceNotFoundException",
-  ServiceUnavailableException: "ServiceUnavailableException",
-  ThrottlingException: "ThrottlingException",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
  * <p>Contains error messages associated with one of the following requests:</p>
  *          <ul>
  *             <li>
@@ -593,86 +495,6 @@ export interface BatchAcknowledgeAlarmResponse {
    * @public
    */
   errorEntries?: BatchAlarmActionErrorEntry[] | undefined;
-}
-
-/**
- * <p>An internal failure occurred.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
- * <p>The request was invalid.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-  }
-}
-
-/**
- * <p>The request could not be completed due to throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }
 
 /**
@@ -1229,26 +1051,6 @@ export interface DescribeAlarmResponse {
    * @public
    */
   alarm?: Alarm | undefined;
-}
-
-/**
- * <p>The resource was not found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**

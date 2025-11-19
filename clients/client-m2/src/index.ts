@@ -16,6 +16,8 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { M2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { M2ServiceException } from "./models/M2ServiceException";

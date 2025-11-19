@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
-} from "../models/models_8";
+} from "../models/models_6";
 import { ModifyVpcEndpointServicePayerResponsibility } from "../schemas/schemas_0";
 
 /**

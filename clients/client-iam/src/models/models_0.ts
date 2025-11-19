@@ -1,7 +1,33 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { IAMServiceException as __BaseException } from "./IAMServiceException";
+import {
+  AccessAdvisorUsageGranularityType,
+  AssertionEncryptionModeType,
+  AssignmentStatusType,
+  ContextKeyTypeEnum,
+  DeletionTaskStatusType,
+  EncodingType,
+  EntityType,
+  FeatureType,
+  GlobalEndpointTokenVersion,
+  JobStatusType,
+  PermissionCheckResultType,
+  PermissionCheckStatusType,
+  PermissionsBoundaryAttachmentType,
+  PolicyEvaluationDecisionType,
+  PolicyOwnerEntityType,
+  PolicyParameterTypeEnum,
+  PolicyScopeType,
+  PolicySourceType,
+  PolicyType,
+  PolicyUsageType,
+  ReportFormatType,
+  ReportStateType,
+  SortKeyType,
+  StateType,
+  StatusType,
+  SummaryKeyType,
+  SummaryStateType,
+} from "./enums";
 
 /**
  * @public
@@ -13,84 +39,6 @@ export interface AcceptDelegationRequestRequest {
    */
   DelegationRequestId: string | undefined;
 }
-
-/**
- * <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
- * @public
- */
-export class NoSuchEntityException extends __BaseException {
-  readonly name: "NoSuchEntityException" = "NoSuchEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchEntityException, __BaseException>) {
-    super({
-      name: "NoSuchEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchEntityException.prototype);
-  }
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
- * @public
- */
-export class ServiceFailureException extends __BaseException {
-  readonly name: "ServiceFailureException" = "ServiceFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
-    super({
-      name: "ServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AccessAdvisorUsageGranularityType = {
-  ACTION_LEVEL: "ACTION_LEVEL",
-  SERVICE_LEVEL: "SERVICE_LEVEL",
-} as const;
-
-/**
- * @public
- */
-export type AccessAdvisorUsageGranularityType =
-  (typeof AccessAdvisorUsageGranularityType)[keyof typeof AccessAdvisorUsageGranularityType];
 
 /**
  * <p>An object that contains details about when a principal in the reported Organizations entity
@@ -153,21 +101,6 @@ export interface AccessDetail {
    */
   TotalAuthenticatedEntities?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StatusType = {
-  Active: "Active",
-  Expired: "Expired",
-  Inactive: "Inactive",
-} as const;
-
-/**
- * @public
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
  * <p>Contains information about an Amazon Web Services access key.</p>
@@ -316,31 +249,6 @@ export interface AccessKeyMetadata {
 }
 
 /**
- * <p>The request was rejected because the account making the request is not the management
- *       account or delegated administrator account for <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management">centralized root
- *         access</a>.</p>
- * @public
- */
-export class AccountNotManagementOrDelegatedAdministratorException extends __BaseException {
-  readonly name: "AccountNotManagementOrDelegatedAdministratorException" =
-    "AccountNotManagementOrDelegatedAdministratorException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccountNotManagementOrDelegatedAdministratorException, __BaseException>) {
-    super({
-      name: "AccountNotManagementOrDelegatedAdministratorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccountNotManagementOrDelegatedAdministratorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface AddClientIDToOpenIDConnectProviderRequest {
@@ -357,48 +265,6 @@ export interface AddClientIDToOpenIDConnectProviderRequest {
    * @public
    */
   ClientID: string | undefined;
-}
-
-/**
- * <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
 }
 
 /**
@@ -420,50 +286,6 @@ export interface AddRoleToInstanceProfileRequest {
    * @public
    */
   RoleName: string | undefined;
-}
-
-/**
- * <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
- * @public
- */
-export class EntityAlreadyExistsException extends __BaseException {
-  readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
-    super({
-      name: "EntityAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
- *       the service that depends on the service-linked role can modify or delete the role on your
- *       behalf. The error message includes the name of the service that depends on this service-linked
- *       role. You must request the change through that service.</p>
- * @public
- */
-export class UnmodifiableEntityException extends __BaseException {
-  readonly name: "UnmodifiableEntityException" = "UnmodifiableEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnmodifiableEntityException, __BaseException>) {
-    super({
-      name: "UnmodifiableEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnmodifiableEntityException.prototype);
-  }
 }
 
 /**
@@ -489,36 +311,6 @@ export interface AddUserToGroupRequest {
 
 /**
  * @public
- * @enum
- */
-export const AssertionEncryptionModeType = {
-  Allowed: "Allowed",
-  Required: "Required",
-} as const;
-
-/**
- * @public
- */
-export type AssertionEncryptionModeType =
-  (typeof AssertionEncryptionModeType)[keyof typeof AssertionEncryptionModeType];
-
-/**
- * @public
- * @enum
- */
-export const AssignmentStatusType = {
-  Any: "Any",
-  Assigned: "Assigned",
-  Unassigned: "Unassigned",
-} as const;
-
-/**
- * @public
- */
-export type AssignmentStatusType = (typeof AssignmentStatusType)[keyof typeof AssignmentStatusType];
-
-/**
- * @public
  */
 export interface AssociateDelegationRequestRequest {
   /**
@@ -527,20 +319,6 @@ export interface AssociateDelegationRequestRequest {
    */
   DelegationRequestId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PermissionsBoundaryAttachmentType = {
-  Policy: "PermissionsBoundaryPolicy",
-} as const;
-
-/**
- * @public
- */
-export type PermissionsBoundaryAttachmentType =
-  (typeof PermissionsBoundaryAttachmentType)[keyof typeof PermissionsBoundaryAttachmentType];
 
 /**
  * <p>Contains information about an attached permissions boundary.</p>
@@ -611,27 +389,6 @@ export interface AttachGroupPolicyRequest {
 }
 
 /**
- * <p>The request failed because Amazon Web Services service role policies can only be attached to the
- *       service-linked role for that service.</p>
- * @public
- */
-export class PolicyNotAttachableException extends __BaseException {
-  readonly name: "PolicyNotAttachableException" = "PolicyNotAttachableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyNotAttachableException, __BaseException>) {
-    super({
-      name: "PolicyNotAttachableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyNotAttachableException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface AttachRolePolicyRequest {
@@ -697,71 +454,6 @@ export interface ChangePasswordRequest {
 }
 
 /**
- * <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
- *       such as a user name that was deleted and then recreated. The error indicates that the request
- *       is likely to succeed if you try again after waiting several minutes. The error message
- *       describes the entity.</p>
- * @public
- */
-export class EntityTemporarilyUnmodifiableException extends __BaseException {
-  readonly name: "EntityTemporarilyUnmodifiableException" = "EntityTemporarilyUnmodifiableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityTemporarilyUnmodifiableException, __BaseException>) {
-    super({
-      name: "EntityTemporarilyUnmodifiableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityTemporarilyUnmodifiableException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the type of user for the transaction was
- *       incorrect.</p>
- * @public
- */
-export class InvalidUserTypeException extends __BaseException {
-  readonly name: "InvalidUserTypeException" = "InvalidUserTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidUserTypeException, __BaseException>) {
-    super({
-      name: "InvalidUserTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidUserTypeException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the provided password did not meet the requirements
- *       imposed by the account password policy.</p>
- * @public
- */
-export class PasswordPolicyViolationException extends __BaseException {
-  readonly name: "PasswordPolicyViolationException" = "PasswordPolicyViolationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PasswordPolicyViolationException, __BaseException>) {
-    super({
-      name: "PasswordPolicyViolationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PasswordPolicyViolationException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateAccessKeyRequest {
@@ -800,20 +492,6 @@ export interface CreateAccountAliasRequest {
    */
   AccountAlias: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PolicyParameterTypeEnum = {
-  STRING: "string",
-  STRING_LIST: "stringList",
-} as const;
-
-/**
- * @public
- */
-export type PolicyParameterTypeEnum = (typeof PolicyParameterTypeEnum)[keyof typeof PolicyParameterTypeEnum];
 
 /**
  * <p>Contains information about a policy parameter used to customize delegated permissions.</p>
@@ -1493,27 +1171,6 @@ export interface CreateOpenIDConnectProviderResponse {
 }
 
 /**
- * <p>The request failed because IAM cannot connect to the OpenID Connect identity provider
- *       URL.</p>
- * @public
- */
-export class OpenIdIdpCommunicationErrorException extends __BaseException {
-  readonly name: "OpenIdIdpCommunicationErrorException" = "OpenIdIdpCommunicationErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OpenIdIdpCommunicationErrorException, __BaseException>) {
-    super({
-      name: "OpenIdIdpCommunicationErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OpenIdIdpCommunicationErrorException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreatePolicyRequest {
@@ -1705,27 +1362,6 @@ export interface CreatePolicyResponse {
    * @public
    */
   Policy?: Policy | undefined;
-}
-
-/**
- * <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
- * @public
- */
-export class MalformedPolicyDocumentException extends __BaseException {
-  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
-    super({
-      name: "MalformedPolicyDocumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
-  }
 }
 
 /**
@@ -2203,26 +1839,6 @@ export interface CreateServiceSpecificCredentialResponse {
 }
 
 /**
- * <p>The specified service does not support service-specific credentials.</p>
- * @public
- */
-export class ServiceNotSupportedException extends __BaseException {
-  readonly name: "ServiceNotSupportedException" = "ServiceNotSupportedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceNotSupportedException, __BaseException>) {
-    super({
-      name: "ServiceNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceNotSupportedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateUserRequest {
@@ -2546,27 +2162,6 @@ export interface DeleteAccountAliasRequest {
    * @public
    */
   AccountAlias: string | undefined;
-}
-
-/**
- * <p>The request was rejected because it attempted to delete a resource that has attached
- *       subordinate entities. The error message describes these entities.</p>
- * @public
- */
-export class DeleteConflictException extends __BaseException {
-  readonly name: "DeleteConflictException" = "DeleteConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeleteConflictException, __BaseException>) {
-    super({
-      name: "DeleteConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeleteConflictException.prototype);
-  }
 }
 
 /**
@@ -2971,20 +2566,6 @@ export interface DisableOrganizationsRootCredentialsManagementRequest {}
 
 /**
  * @public
- * @enum
- */
-export const FeatureType = {
-  ROOT_CREDENTIALS_MANAGEMENT: "RootCredentialsManagement",
-  ROOT_SESSIONS: "RootSessions",
-} as const;
-
-/**
- * @public
- */
-export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
-
-/**
- * @public
  */
 export interface DisableOrganizationsRootCredentialsManagementResponse {
   /**
@@ -2999,74 +2580,6 @@ export interface DisableOrganizationsRootCredentialsManagementResponse {
    * @public
    */
   EnabledFeatures?: FeatureType[] | undefined;
-}
-
-/**
- * <p>The request was rejected because no organization is associated with your account.</p>
- * @public
- */
-export class OrganizationNotFoundException extends __BaseException {
-  readonly name: "OrganizationNotFoundException" = "OrganizationNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationNotFoundException, __BaseException>) {
-    super({
-      name: "OrganizationNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because your organization does not have All features enabled. For
- *       more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User
- *       Guide</i>.</p>
- * @public
- */
-export class OrganizationNotInAllFeaturesModeException extends __BaseException {
-  readonly name: "OrganizationNotInAllFeaturesModeException" = "OrganizationNotInAllFeaturesModeException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationNotInAllFeaturesModeException, __BaseException>) {
-    super({
-      name: "OrganizationNotInAllFeaturesModeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationNotInAllFeaturesModeException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
- * @public
- */
-export class ServiceAccessNotEnabledException extends __BaseException {
-  readonly name: "ServiceAccessNotEnabledException" = "ServiceAccessNotEnabledException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceAccessNotEnabledException, __BaseException>) {
-    super({
-      name: "ServiceAccessNotEnabledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceAccessNotEnabledException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3146,50 +2659,6 @@ export interface EnableMFADeviceRequest {
 }
 
 /**
- * <p>The request was rejected because the authentication code was not recognized. The error
- *       message describes the specific error.</p>
- * @public
- */
-export class InvalidAuthenticationCodeException extends __BaseException {
-  readonly name: "InvalidAuthenticationCodeException" = "InvalidAuthenticationCodeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAuthenticationCodeException, __BaseException>) {
-    super({
-      name: "InvalidAuthenticationCodeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAuthenticationCodeException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the account making the request is not the management
- *       account for the organization.</p>
- * @public
- */
-export class CallerIsNotManagementAccountException extends __BaseException {
-  readonly name: "CallerIsNotManagementAccountException" = "CallerIsNotManagementAccountException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CallerIsNotManagementAccountException, __BaseException>) {
-    super({
-      name: "CallerIsNotManagementAccountException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CallerIsNotManagementAccountException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface EnableOrganizationsRootCredentialsManagementRequest {}
@@ -3232,21 +2701,6 @@ export interface EnableOrganizationsRootSessionsResponse {
    */
   EnabledFeatures?: FeatureType[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReportStateType = {
-  COMPLETE: "COMPLETE",
-  INPROGRESS: "INPROGRESS",
-  STARTED: "STARTED",
-} as const;
-
-/**
- * @public
- */
-export type ReportStateType = (typeof ReportStateType)[keyof typeof ReportStateType];
 
 /**
  * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a> request. </p>
@@ -3300,27 +2754,6 @@ export interface GenerateOrganizationsAccessReportResponse {
    * @public
    */
   JobId?: string | undefined;
-}
-
-/**
- * <p>The request failed because the maximum number of concurrent requests for this account are
- *       already running.</p>
- * @public
- */
-export class ReportGenerationLimitExceededException extends __BaseException {
-  readonly name: "ReportGenerationLimitExceededException" = "ReportGenerationLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReportGenerationLimitExceededException, __BaseException>) {
-    super({
-      name: "ReportGenerationLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReportGenerationLimitExceededException.prototype);
-  }
 }
 
 /**
@@ -3393,23 +2826,6 @@ export interface GetAccessKeyLastUsedResponse {
    */
   AccessKeyLastUsed?: AccessKeyLastUsed | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityType = {
-  AWSManagedPolicy: "AWSManagedPolicy",
-  Group: "Group",
-  LocalManagedPolicy: "LocalManagedPolicy",
-  Role: "Role",
-  User: "User",
-} as const;
-
-/**
- * @public
- */
-export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 /**
  * @public
@@ -3940,52 +3356,6 @@ export interface GetAccountPasswordPolicyResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const SummaryKeyType = {
-  AccessKeysPerUserQuota: "AccessKeysPerUserQuota",
-  AccountAccessKeysPresent: "AccountAccessKeysPresent",
-  AccountMFAEnabled: "AccountMFAEnabled",
-  AccountPasswordPresent: "AccountPasswordPresent",
-  AccountSigningCertificatesPresent: "AccountSigningCertificatesPresent",
-  AssumeRolePolicySizeQuota: "AssumeRolePolicySizeQuota",
-  AttachedPoliciesPerGroupQuota: "AttachedPoliciesPerGroupQuota",
-  AttachedPoliciesPerRoleQuota: "AttachedPoliciesPerRoleQuota",
-  AttachedPoliciesPerUserQuota: "AttachedPoliciesPerUserQuota",
-  GlobalEndpointTokenVersion: "GlobalEndpointTokenVersion",
-  GroupPolicySizeQuota: "GroupPolicySizeQuota",
-  Groups: "Groups",
-  GroupsPerUserQuota: "GroupsPerUserQuota",
-  GroupsQuota: "GroupsQuota",
-  InstanceProfiles: "InstanceProfiles",
-  InstanceProfilesQuota: "InstanceProfilesQuota",
-  MFADevices: "MFADevices",
-  MFADevicesInUse: "MFADevicesInUse",
-  Policies: "Policies",
-  PoliciesQuota: "PoliciesQuota",
-  PolicySizeQuota: "PolicySizeQuota",
-  PolicyVersionsInUse: "PolicyVersionsInUse",
-  PolicyVersionsInUseQuota: "PolicyVersionsInUseQuota",
-  Providers: "Providers",
-  RolePolicySizeQuota: "RolePolicySizeQuota",
-  Roles: "Roles",
-  RolesQuota: "RolesQuota",
-  ServerCertificates: "ServerCertificates",
-  ServerCertificatesQuota: "ServerCertificatesQuota",
-  SigningCertificatesPerUserQuota: "SigningCertificatesPerUserQuota",
-  UserPolicySizeQuota: "UserPolicySizeQuota",
-  Users: "Users",
-  UsersQuota: "UsersQuota",
-  VersionsPerPolicyQuota: "VersionsPerPolicyQuota",
-} as const;
-
-/**
- * @public
- */
-export type SummaryKeyType = (typeof SummaryKeyType)[keyof typeof SummaryKeyType];
-
-/**
  * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html">GetAccountSummary</a> request.
  *     </p>
  * @public
@@ -4082,83 +3452,6 @@ export interface GetContextKeysForPrincipalPolicyRequest {
 }
 
 /**
- * <p>The request was rejected because the most recent credential report has expired. To
- *       generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration,
- *       see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
- *         credential reports</a> in the <i>IAM User Guide</i>.</p>
- * @public
- */
-export class CredentialReportExpiredException extends __BaseException {
-  readonly name: "CredentialReportExpiredException" = "CredentialReportExpiredException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CredentialReportExpiredException, __BaseException>) {
-    super({
-      name: "CredentialReportExpiredException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CredentialReportExpiredException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the credential report does not exist. To generate a
- *       credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
- * @public
- */
-export class CredentialReportNotPresentException extends __BaseException {
-  readonly name: "CredentialReportNotPresentException" = "CredentialReportNotPresentException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CredentialReportNotPresentException, __BaseException>) {
-    super({
-      name: "CredentialReportNotPresentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CredentialReportNotPresentException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the credential report is still being generated.</p>
- * @public
- */
-export class CredentialReportNotReadyException extends __BaseException {
-  readonly name: "CredentialReportNotReadyException" = "CredentialReportNotReadyException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CredentialReportNotReadyException, __BaseException>) {
-    super({
-      name: "CredentialReportNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CredentialReportNotReadyException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ReportFormatType = {
-  text_csv: "text/csv",
-} as const;
-
-/**
- * @public
- */
-export type ReportFormatType = (typeof ReportFormatType)[keyof typeof ReportFormatType];
-
-/**
  * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html">GetCredentialReport</a>
  *       request. </p>
  * @public
@@ -4203,25 +3496,6 @@ export interface GetDelegationRequestRequest {
    */
   DelegationPermissionCheck?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StateType = {
-  ACCEPTED: "ACCEPTED",
-  ASSIGNED: "ASSIGNED",
-  EXPIRED: "EXPIRED",
-  FINALIZED: "FINALIZED",
-  PENDING_APPROVAL: "PENDING_APPROVAL",
-  REJECTED: "REJECTED",
-  UNASSIGNED: "UNASSIGNED",
-} as const;
-
-/**
- * @public
- */
-export type StateType = (typeof StateType)[keyof typeof StateType];
 
 /**
  * <p>Contains information about a delegation request, including its status, permissions, and associated metadata.</p>
@@ -4362,36 +3636,6 @@ export interface DelegationRequest {
    */
   UpdatedTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PermissionCheckResultType = {
-  ALLOWED: "ALLOWED",
-  DENIED: "DENIED",
-  UNSURE: "UNSURE",
-} as const;
-
-/**
- * @public
- */
-export type PermissionCheckResultType = (typeof PermissionCheckResultType)[keyof typeof PermissionCheckResultType];
-
-/**
- * @public
- * @enum
- */
-export const PermissionCheckStatusType = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type PermissionCheckStatusType = (typeof PermissionCheckStatusType)[keyof typeof PermissionCheckStatusType];
 
 /**
  * @public
@@ -4593,22 +3837,6 @@ export interface GetHumanReadableSummaryRequest {
 
 /**
  * @public
- * @enum
- */
-export const SummaryStateType = {
-  AVAILABLE: "AVAILABLE",
-  FAILED: "FAILED",
-  NOT_AVAILABLE: "NOT_AVAILABLE",
-  NOT_SUPPORTED: "NOT_SUPPORTED",
-} as const;
-
-/**
- * @public
- */
-export type SummaryStateType = (typeof SummaryStateType)[keyof typeof SummaryStateType];
-
-/**
- * @public
  */
 export interface GetHumanReadableSummaryResponse {
   /**
@@ -4795,22 +4023,6 @@ export interface GetOpenIDConnectProviderResponse {
 
 /**
  * @public
- * @enum
- */
-export const SortKeyType = {
-  LAST_AUTHENTICATED_TIME_ASCENDING: "LAST_AUTHENTICATED_TIME_ASCENDING",
-  LAST_AUTHENTICATED_TIME_DESCENDING: "LAST_AUTHENTICATED_TIME_DESCENDING",
-  SERVICE_NAMESPACE_ASCENDING: "SERVICE_NAMESPACE_ASCENDING",
-  SERVICE_NAMESPACE_DESCENDING: "SERVICE_NAMESPACE_DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortKeyType = (typeof SortKeyType)[keyof typeof SortKeyType];
-
-/**
- * @public
  */
 export interface GetOrganizationsAccessReportRequest {
   /**
@@ -4868,21 +4080,6 @@ export interface ErrorDetails {
    */
   Code: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const JobStatusType = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type JobStatusType = (typeof JobStatusType)[keyof typeof JobStatusType];
 
 /**
  * @public
@@ -5549,21 +4746,6 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const PolicyOwnerEntityType = {
-  GROUP: "GROUP",
-  ROLE: "ROLE",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type PolicyOwnerEntityType = (typeof PolicyOwnerEntityType)[keyof typeof PolicyOwnerEntityType];
-
-/**
  * <p>Contains details about the specified entity (user or role).</p>
  *          <p>This data type is an element of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EntityDetails.html">EntityDetails</a>
  *          object.</p>
@@ -5747,22 +4929,6 @@ export interface DeletionTaskFailureReasonType {
 
 /**
  * @public
- * @enum
- */
-export const DeletionTaskStatusType = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type DeletionTaskStatusType = (typeof DeletionTaskStatusType)[keyof typeof DeletionTaskStatusType];
-
-/**
- * @public
  */
 export interface GetServiceLinkedRoleDeletionStatusResponse {
   /**
@@ -5777,20 +4943,6 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
    */
   Reason?: DeletionTaskFailureReasonType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EncodingType = {
-  PEM: "PEM",
-  SSH: "SSH",
-} as const;
-
-/**
- * @public
- */
-export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
 
 /**
  * @public
@@ -5879,27 +5031,6 @@ export interface GetSSHPublicKeyResponse {
    * @public
    */
   SSHPublicKey?: SSHPublicKey | undefined;
-}
-
-/**
- * <p>The request was rejected because the public key encoding format is unsupported or
- *       unrecognized.</p>
- * @public
- */
-export class UnrecognizedPublicKeyEncodingException extends __BaseException {
-  readonly name: "UnrecognizedPublicKeyEncodingException" = "UnrecognizedPublicKeyEncodingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnrecognizedPublicKeyEncodingException, __BaseException>) {
-    super({
-      name: "UnrecognizedPublicKeyEncodingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnrecognizedPublicKeyEncodingException.prototype);
-  }
 }
 
 /**
@@ -6411,20 +5542,6 @@ export interface ListDelegationRequestsResponse {
    */
   isTruncated?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PolicyUsageType = {
-  PermissionsBoundary: "PermissionsBoundary",
-  PermissionsPolicy: "PermissionsPolicy",
-} as const;
-
-/**
- * @public
- */
-export type PolicyUsageType = (typeof PolicyUsageType)[keyof typeof PolicyUsageType];
 
 /**
  * @public
@@ -7298,21 +6415,6 @@ export interface ListOrganizationsFeaturesResponse {
 
 /**
  * @public
- * @enum
- */
-export const PolicyScopeType = {
-  AWS: "AWS",
-  All: "All",
-  Local: "Local",
-} as const;
-
-/**
- * @public
- */
-export type PolicyScopeType = (typeof PolicyScopeType)[keyof typeof PolicyScopeType];
-
-/**
- * @public
  */
 export interface ListPoliciesRequest {
   /**
@@ -7443,20 +6545,6 @@ export interface ListPoliciesGrantingServiceAccessRequest {
    */
   ServiceNamespaces: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PolicyType = {
-  INLINE: "INLINE",
-  MANAGED: "MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 /**
  * <p>Contains details about the permissions policies that are attached to the specified
@@ -8761,4 +7849,1809 @@ export interface ListVirtualMFADevicesResponse {
    * @public
    */
   Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutGroupPolicyRequest {
+  /**
+   * <p>The name of the group to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates
+   *             formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always
+   *             converts a YAML policy to JSON format before submitting it to IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRolePermissionsBoundaryRequest {
+  /**
+   * <p>The name (friendly name, not ARN) of the IAM role for which you want to set the
+   *             permissions boundary.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The ARN of the managed policy that is used to set the permissions boundary for the
+   *             role.</p>
+   *          <p>A permissions boundary policy defines the maximum permissions that identity-based
+   *             policies can grant to an entity, but does not grant permissions. Permissions boundaries
+   *             do not define the maximum permissions that a resource-based policy can grant to an
+   *             entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
+   *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
+   *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  PermissionsBoundary: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRolePolicyRequest {
+  /**
+   * <p>The name of the role to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutUserPermissionsBoundaryRequest {
+  /**
+   * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
+   *             permissions boundary.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ARN of the managed policy that is used to set the permissions boundary for the
+   *             user.</p>
+   *          <p>A permissions boundary policy defines the maximum permissions that identity-based
+   *             policies can grant to an entity, but does not grant permissions. Permissions boundaries
+   *             do not define the maximum permissions that a resource-based policy can grant to an
+   *             entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
+   *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
+   *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  PermissionsBoundary: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutUserPolicyRequest {
+  /**
+   * <p>The name of the user to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to reject.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+
+  /**
+   * <p>Optional notes explaining the reason for rejecting the delegation request.</p>
+   * @public
+   */
+  Notes?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveClientIDFromOpenIDConnectProviderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the
+   *             client ID from. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>The client ID (also known as audience) to remove from the IAM OIDC provider
+   *             resource. For more information about client IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
+   * @public
+   */
+  ClientID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveRoleFromInstanceProfileRequest {
+  /**
+   * <p>The name of the instance profile to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  InstanceProfileName: string | undefined;
+
+  /**
+   * <p>The name of the role to remove.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveUserFromGroupRequest {
+  /**
+   * <p>The name of the group to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The name of the user to remove.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetServiceSpecificCredentialRequest {
+  /**
+   * <p>The name of the IAM user associated with the service-specific credential. If this
+   *             value is not specified, then the operation assumes the user whose credentials are used
+   *             to call the operation.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the service-specific credential.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   * @public
+   */
+  ServiceSpecificCredentialId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetServiceSpecificCredentialResponse {
+  /**
+   * <p>A structure with details about the updated service-specific credential, including the
+   *             new password.</p>
+   *          <important>
+   *             <p>This is the <b>only</b> time that you can access the
+   *                 password. You cannot recover the password later, but you can reset it again.</p>
+   *          </important>
+   * @public
+   */
+  ServiceSpecificCredential?: ServiceSpecificCredential | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResyncMFADeviceRequest {
+  /**
+   * <p>The name of the user whose MFA device you want to resynchronize.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>Serial number that uniquely identifies the MFA device.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>An authentication code emitted by the device.</p>
+   *          <p>The format for this parameter is a sequence of six digits.</p>
+   * @public
+   */
+  AuthenticationCode1: string | undefined;
+
+  /**
+   * <p>A subsequent authentication code emitted by the device.</p>
+   *          <p>The format for this parameter is a sequence of six digits.</p>
+   * @public
+   */
+  AuthenticationCode2: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendDelegationTokenRequest {
+  /**
+   * <p>The unique identifier of the delegation request for which to send the token.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetDefaultPolicyVersionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
+   *             set.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>The version of the policy to set as the default (operative) version.</p>
+   *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
+   *                 policies</a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  VersionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetSecurityTokenServicePreferencesRequest {
+  /**
+   * <p>The version of the global endpoint token. Version 1 tokens are valid only in Amazon Web Services Regions that are available by default. These tokens do not work in
+   *             manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid
+   *             in all Regions. However, version 2 tokens are longer and might affect systems where you
+   *             temporarily store tokens.</p>
+   *          <p>For information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+   *                 deactivating STS in an Amazon Web Services Region</a> in the
+   *                 <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  GlobalEndpointTokenVersion: GlobalEndpointTokenVersion | undefined;
+}
+
+/**
+ * <p>Contains information about a condition context key. It includes the name of the key and
+ *          specifies the value (or values, if the context key supports multiple values) to use in the
+ *          simulation. This information is used when evaluating the <code>Condition</code> elements of
+ *          the input policies.</p>
+ *          <p>This data type is used as an input parameter to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+ *          and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
+ * @public
+ */
+export interface ContextEntry {
+  /**
+   * <p>The full name of a condition context key, including the service prefix. For example,
+   *             <code>aws:SourceIp</code> or <code>s3:VersionId</code>.</p>
+   * @public
+   */
+  ContextKeyName?: string | undefined;
+
+  /**
+   * <p>The value (or values, if the condition context key supports multiple values) to provide
+   *          to the simulation when the key is referenced by a <code>Condition</code> element in an
+   *          input policy.</p>
+   * @public
+   */
+  ContextKeyValues?: string[] | undefined;
+
+  /**
+   * <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code>
+   *          parameter.</p>
+   * @public
+   */
+  ContextKeyType?: ContextKeyTypeEnum | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SimulateCustomPolicyRequest {
+  /**
+   * <p>A list of policy documents to include in the simulation. Each document is specified as
+   *             a string containing the complete, valid JSON text of an IAM policy. Do not include any
+   *             resource-based policies in this parameter. Any resource-based policy must be submitted
+   *             with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
+   *             policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of
+   *             the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to
+   *             restrict what a user can do while using the temporary credentials.</p>
+   *          <p>The maximum length of the policy document that you can pass in this operation,
+   *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyInputList: string[] | undefined;
+
+  /**
+   * <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the
+   *             maximum permissions that an IAM entity can have. You can input only one permissions
+   *             boundary when you pass a policy to this operation. For more information about
+   *             permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
+   *                 entities</a> in the <i>IAM User Guide</i>. The policy input is
+   *             specified as a string that contains the complete, valid JSON text of a permissions
+   *             boundary policy.</p>
+   *          <p>The maximum length of the policy document that you can pass in this operation,
+   *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PermissionsBoundaryPolicyInputList?: string[] | undefined;
+
+  /**
+   * <p>A list of names of API operations to evaluate in the simulation. Each operation is
+   *             evaluated against each resource. Each operation must include the service identifier,
+   *             such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*)
+   *             in an action name.</p>
+   * @public
+   */
+  ActionNames: string[] | undefined;
+
+  /**
+   * <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is
+   *             not provided, then the value defaults to <code>*</code> (all resources). Each API in the
+   *                 <code>ActionNames</code> parameter is evaluated for each resource in this list. The
+   *             simulation determines the access result (allowed or denied) of each combination and
+   *             reports it in the response. You can simulate resources that don't exist in your
+   *             account.</p>
+   *          <p>The simulation does not automatically retrieve policies for the specified resources.
+   *             If you want to include a resource policy in the simulation, then you must include the
+   *             policy as a string in the <code>ResourcePolicy</code> parameter.</p>
+   *          <p>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of the
+   *             resources included in the simulation or you receive an invalid input error.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *          <note>
+   *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
+   *          </note>
+   * @public
+   */
+  ResourceArns?: string[] | undefined;
+
+  /**
+   * <p>A resource-based policy to include in the simulation provided as a string. Each
+   *             resource in the simulation is treated as if it had this policy attached. You can include
+   *             only one resource-based policy in a simulation.</p>
+   *          <p>The maximum length of the policy document that you can pass in this operation,
+   *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
+   *          </note>
+   * @public
+   */
+  ResourcePolicy?: string | undefined;
+
+  /**
+   * <p>An ARN representing the Amazon Web Services account ID that specifies the owner of any simulated
+   *             resource that does not identify its owner in the resource ARN. Examples of resource ARNs
+   *             include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also
+   *             used as the account owner of any <code>ResourcePolicy</code> included in the simulation.
+   *             If the <code>ResourceOwner</code> parameter is not specified, then the owner of the
+   *             resources and the resource policy defaults to the account of the identity provided in
+   *                 <code>CallerArn</code>. This parameter is required only if you specify a
+   *             resource-based policy and account that owns the resource is different from the account
+   *             that owns the simulated calling user <code>CallerArn</code>.</p>
+   *          <p>The ARN for an account uses the following syntax:
+   *                     <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For example,
+   *             to represent the account with the 112233445566 ID, use the following ARN:
+   *                 <code>arn:aws:iam::112233445566-ID:root</code>. </p>
+   * @public
+   */
+  ResourceOwner?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM user that you want to use as the simulated caller of the API
+   *             operations. <code>CallerArn</code> is required if you include a
+   *                 <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has
+   *             a value to use in evaluating the policy.</p>
+   *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an
+   *             assumed role, federated user, or a service principal.</p>
+   * @public
+   */
+  CallerArn?: string | undefined;
+
+  /**
+   * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
+   *             context key is evaluated in one of the simulated IAM permissions policies, the
+   *             corresponding value is supplied.</p>
+   * @public
+   */
+  ContextEntries?: ContextEntry[] | undefined;
+
+  /**
+   * <p>Specifies the type of simulation to run. Different API operations that support
+   *             resource-based policies require different combinations of resources. By specifying the
+   *             type of simulation to run, you enable the policy simulator to enforce the presence of
+   *             the required resources to ensure reliable simulation results. If your simulation does
+   *             not match one of the following scenarios, then you can omit this parameter. The
+   *             following list shows each of the supported scenario values and the resources that you
+   *             must define to run the simulation.</p>
+   *          <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security
+   *             group resources. If your scenario includes an EBS volume, then you must specify that
+   *             volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the
+   *             network interface resource. If it includes an IP subnet, then you must specify the
+   *             subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-InstanceStore</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-InstanceStore-Subnet</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface, subnet</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-EBS</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface, volume</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-EBS-Subnet</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface, subnet, volume</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceHandlingOption?: string | undefined;
+
+  /**
+   * <p>Use this only when paginating results to indicate the
+   *     maximum number of items you want in the response. If additional items exist beyond the maximum
+   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *     IAM might return fewer results, even when there are more results available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>Contains the row and column of a location of a <code>Statement</code> element in a
+ *          policy document.</p>
+ *          <p>This data type is used as a member of the <code>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Statement.html">Statement</a>
+ *             </code> type.</p>
+ * @public
+ */
+export interface Position {
+  /**
+   * <p>The line containing the specified position in the document.</p>
+   * @public
+   */
+  Line?: number | undefined;
+
+  /**
+   * <p>The column in the line containing the specified position in the document.</p>
+   * @public
+   */
+  Column?: number | undefined;
+}
+
+/**
+ * <p>Contains a reference to a <code>Statement</code> element in a policy document that
+ *          determines the result of the simulation.</p>
+ *          <p>This data type is used by the <code>MatchedStatements</code> member of the <code>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EvaluationResult.html">EvaluationResult</a>
+ *             </code> type.</p>
+ * @public
+ */
+export interface Statement {
+  /**
+   * <p>The identifier of the policy that was provided as an input.</p>
+   * @public
+   */
+  SourcePolicyId?: string | undefined;
+
+  /**
+   * <p>The type of the policy.</p>
+   * @public
+   */
+  SourcePolicyType?: PolicySourceType | undefined;
+
+  /**
+   * <p>The row and column of the beginning of the <code>Statement</code> in an IAM
+   *          policy.</p>
+   * @public
+   */
+  StartPosition?: Position | undefined;
+
+  /**
+   * <p>The row and column of the end of a <code>Statement</code> in an IAM policy.</p>
+   * @public
+   */
+  EndPosition?: Position | undefined;
+}
+
+/**
+ * <p>Contains information about the effect that Organizations has on a policy simulation.</p>
+ * @public
+ */
+export interface OrganizationsDecisionDetail {
+  /**
+   * <p>Specifies whether the simulated operation is allowed by the Organizations service control
+   *          policies that impact the simulated user's account.</p>
+   * @public
+   */
+  AllowedByOrganizations?: boolean | undefined;
+}
+
+/**
+ * <p>Contains information about the effect that a permissions boundary has on a policy
+ *          simulation when the boundary is applied to an IAM entity.</p>
+ * @public
+ */
+export interface PermissionsBoundaryDecisionDetail {
+  /**
+   * <p>Specifies whether an action is allowed by a permissions boundary that is applied to an
+   *          IAM entity (user or role). A value of <code>true</code> means that the permissions
+   *          boundary does not deny the action. This means that the policy includes an
+   *             <code>Allow</code> statement that matches the request. In this case, if an
+   *          identity-based policy also allows the action, the request is allowed. A value of
+   *             <code>false</code> means that either the requested action is not allowed (implicitly
+   *          denied) or that the action is explicitly denied by the permissions boundary. In both of
+   *          these cases, the action is not allowed, regardless of the identity-based policy.</p>
+   * @public
+   */
+  AllowedByPermissionsBoundary?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of the simulation of a single API operation call on a single
+ *          resource.</p>
+ *          <p>This data type is used by a member of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EvaluationResult.html">EvaluationResult</a> data
+ *          type.</p>
+ * @public
+ */
+export interface ResourceSpecificResult {
+  /**
+   * <p>The name of the simulated resource, in Amazon Resource Name (ARN) format.</p>
+   * @public
+   */
+  EvalResourceName: string | undefined;
+
+  /**
+   * <p>The result of the simulation of the simulated API operation on the resource specified in
+   *             <code>EvalResourceName</code>.</p>
+   * @public
+   */
+  EvalResourceDecision: PolicyEvaluationDecisionType | undefined;
+
+  /**
+   * <p>A list of the statements in the input policies that determine the result for this part
+   *          of the simulation. Remember that even if multiple statements allow the operation on the
+   *          resource, if <i>any</i> statement denies that operation, then the explicit
+   *          deny overrides any allow. In addition, the deny statement is the only entry included in the
+   *          result.</p>
+   * @public
+   */
+  MatchedStatements?: Statement[] | undefined;
+
+  /**
+   * <p>A list of context keys that are required by the included input policies but that were
+   *          not provided by one of the input parameters. This list is used when a list of ARNs is
+   *          included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify
+   *          individual resources, by setting <code>ResourceArns</code> to "*" or by not including the
+   *             <code>ResourceArns</code> parameter, then any missing context values are instead
+   *          included under the <code>EvaluationResults</code> section. To discover the context keys
+   *          used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+   * @public
+   */
+  MissingContextValues?: string[] | undefined;
+
+  /**
+   * <p>Additional details about the results of the evaluation decision on a single resource.
+   *          This parameter is returned only for cross-account simulations. This parameter explains how
+   *          each policy type contributes to the resource-specific evaluation decision.</p>
+   * @public
+   */
+  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType> | undefined;
+
+  /**
+   * <p>Contains information about the effect that a permissions boundary has on a policy
+   *          simulation when that boundary is applied to an IAM entity.</p>
+   * @public
+   */
+  PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail | undefined;
+}
+
+/**
+ * <p>Contains the results of a simulation.</p>
+ *          <p>This data type is used by the return parameter of <code>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+ *             </code> and <code>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>
+ *             </code>.</p>
+ * @public
+ */
+export interface EvaluationResult {
+  /**
+   * <p>The name of the API operation tested on the indicated resource.</p>
+   * @public
+   */
+  EvalActionName: string | undefined;
+
+  /**
+   * <p>The ARN of the resource that the indicated API operation was tested on.</p>
+   * @public
+   */
+  EvalResourceName?: string | undefined;
+
+  /**
+   * <p>The result of the simulation.</p>
+   * @public
+   */
+  EvalDecision: PolicyEvaluationDecisionType | undefined;
+
+  /**
+   * <p>A list of the statements in the input policies that determine the result for this
+   *          scenario. Remember that even if multiple statements allow the operation on the resource, if
+   *          only one statement denies that operation, then the explicit deny overrides any allow. In
+   *          addition, the deny statement is the only entry included in the result.</p>
+   * @public
+   */
+  MatchedStatements?: Statement[] | undefined;
+
+  /**
+   * <p>A list of context keys that are required by the included input policies but that were
+   *          not provided by one of the input parameters. This list is used when the resource in a
+   *          simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter
+   *          blank. If you include a list of resources, then any missing context values are instead
+   *          included under the <code>ResourceSpecificResults</code> section. To discover the context
+   *          keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+   * @public
+   */
+  MissingContextValues?: string[] | undefined;
+
+  /**
+   * <p>A structure that details how Organizations and its service control policies affect the results of
+   *          the simulation. Only applies if the simulated user's account is part of an
+   *          organization.</p>
+   * @public
+   */
+  OrganizationsDecisionDetail?: OrganizationsDecisionDetail | undefined;
+
+  /**
+   * <p>Contains information about the effect that a permissions boundary has on a policy
+   *          simulation when the boundary is applied to an IAM entity.</p>
+   * @public
+   */
+  PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail | undefined;
+
+  /**
+   * <p>Additional details about the results of the cross-account evaluation decision. This
+   *          parameter is populated for only cross-account simulations. It contains a brief summary of
+   *          how each policy type contributes to the final evaluation decision.</p>
+   *          <p>If the simulation evaluates policies within the same account and includes a resource
+   *          ARN, then the parameter is present but the response is empty. If the simulation evaluates
+   *          policies within the same account and specifies all resources (<code>*</code>), then the
+   *          parameter is not returned.</p>
+   *          <p>When you make a cross-account request, Amazon Web Services evaluates the request in the trusting
+   *          account and the trusted account. The request is allowed only if both evaluations return
+   *             <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies within a single account</a>.</p>
+   *          <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In
+   *          this case, policy evaluation does not proceed any further and this parameter is not
+   *          returned.</p>
+   * @public
+   */
+  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType> | undefined;
+
+  /**
+   * <p>The individual results of the simulation of the API operation specified in
+   *          EvalActionName on each resource.</p>
+   * @public
+   */
+  ResourceSpecificResults?: ResourceSpecificResult[] | undefined;
+}
+
+/**
+ * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
+ *       request.</p>
+ * @public
+ */
+export interface SimulatePolicyResponse {
+  /**
+   * <p>The results of the simulation.</p>
+   * @public
+   */
+  EvaluationResults?: EvaluationResult[] | undefined;
+
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
+   * @public
+   */
+  IsTruncated?: boolean | undefined;
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SimulatePrincipalPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
+   *             include in the simulation. If you specify a user, group, or role, the simulation
+   *             includes all policies that are associated with that entity. If you specify a user, the
+   *             simulation also includes all policies that are attached to any groups the user belongs
+   *             to.</p>
+   *          <p>The maximum length of the policy document that you can pass in this operation,
+   *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  PolicySourceArn: string | undefined;
+
+  /**
+   * <p>An optional list of additional policy documents to include in the simulation. Each
+   *             document is specified as a string containing the complete, valid JSON text of an IAM
+   *             policy.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyInputList?: string[] | undefined;
+
+  /**
+   * <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the
+   *             maximum permissions that the entity can have. You can input only one permissions
+   *             boundary when you pass a policy to this operation. An IAM entity can only have one
+   *             permissions boundary in effect at a time. For example, if a permissions boundary is
+   *             attached to an entity and you pass in a different permissions boundary policy using this
+   *             parameter, then the new permissions boundary policy is used for the simulation. For more
+   *             information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
+   *                 entities</a> in the <i>IAM User Guide</i>. The policy input is
+   *             specified as a string containing the complete, valid JSON text of a permissions boundary
+   *             policy.</p>
+   *          <p>The maximum length of the policy document that you can pass in this operation,
+   *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PermissionsBoundaryPolicyInputList?: string[] | undefined;
+
+  /**
+   * <p>A list of names of API operations to evaluate in the simulation. Each operation is
+   *             evaluated for each resource. Each operation must include the service identifier, such as
+   *                 <code>iam:CreateUser</code>.</p>
+   * @public
+   */
+  ActionNames: string[] | undefined;
+
+  /**
+   * <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is
+   *             not provided, then the value defaults to <code>*</code> (all resources). Each API in the
+   *                 <code>ActionNames</code> parameter is evaluated for each resource in this list. The
+   *             simulation determines the access result (allowed or denied) of each combination and
+   *             reports it in the response. You can simulate resources that don't exist in your
+   *             account.</p>
+   *          <p>The simulation does not automatically retrieve policies for the specified resources.
+   *             If you want to include a resource policy in the simulation, then you must include the
+   *             policy as a string in the <code>ResourcePolicy</code> parameter.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *          <note>
+   *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
+   *          </note>
+   * @public
+   */
+  ResourceArns?: string[] | undefined;
+
+  /**
+   * <p>A resource-based policy to include in the simulation provided as a string. Each
+   *             resource in the simulation is treated as if it had this policy attached. You can include
+   *             only one resource-based policy in a simulation.</p>
+   *          <p>The maximum length of the policy document that you can pass in this operation,
+   *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
+   *          </note>
+   * @public
+   */
+  ResourcePolicy?: string | undefined;
+
+  /**
+   * <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not
+   *             identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket
+   *             or object. If <code>ResourceOwner</code> is specified, it is also used as the account
+   *             owner of any <code>ResourcePolicy</code> included in the simulation. If the
+   *                 <code>ResourceOwner</code> parameter is not specified, then the owner of the
+   *             resources and the resource policy defaults to the account of the identity provided in
+   *                 <code>CallerArn</code>. This parameter is required only if you specify a
+   *             resource-based policy and account that owns the resource is different from the account
+   *             that owns the simulated calling user <code>CallerArn</code>.</p>
+   * @public
+   */
+  ResourceOwner?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM user that you want to specify as the simulated caller of the API
+   *             operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of
+   *             the user that you specify in <code>PolicySourceArn</code>, if you specified a user. If
+   *             you include both a <code>PolicySourceArn</code> (for example,
+   *                 <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for
+   *             example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you
+   *             simulate calling the API operations as Bob, as if Bob had David's policies.</p>
+   *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an
+   *             assumed role, federated user, or a service principal.</p>
+   *          <p>
+   *             <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and
+   *             the <code>PolicySourceArn</code> is not the ARN for an IAM user. This is required so
+   *             that the resource-based policy's <code>Principal</code> element has a value to use in
+   *             evaluating the policy.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  CallerArn?: string | undefined;
+
+  /**
+   * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
+   *             context key is evaluated in one of the simulated IAM permissions policies, the
+   *             corresponding value is supplied.</p>
+   * @public
+   */
+  ContextEntries?: ContextEntry[] | undefined;
+
+  /**
+   * <p>Specifies the type of simulation to run. Different API operations that support
+   *             resource-based policies require different combinations of resources. By specifying the
+   *             type of simulation to run, you enable the policy simulator to enforce the presence of
+   *             the required resources to ensure reliable simulation results. If your simulation does
+   *             not match one of the following scenarios, then you can omit this parameter. The
+   *             following list shows each of the supported scenario values and the resources that you
+   *             must define to run the simulation.</p>
+   *          <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security
+   *             group resources. If your scenario includes an EBS volume, then you must specify that
+   *             volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the
+   *             network interface resource. If it includes an IP subnet, then you must specify the
+   *             subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-InstanceStore</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-InstanceStore-Subnet</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface, subnet</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-EBS</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface, volume</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EC2-VPC-EBS-Subnet</b>
+   *                </p>
+   *                <p>instance, image, security group, network interface, subnet, volume</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceHandlingOption?: string | undefined;
+
+  /**
+   * <p>Use this only when paginating results to indicate the
+   *     maximum number of items you want in the response. If additional items exist beyond the maximum
+   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *     IAM might return fewer results, even when there are more results available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagInstanceProfileRequest {
+  /**
+   * <p>The name of the IAM instance profile to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  InstanceProfileName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM instance profile.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagMFADeviceRequest {
+  /**
+   * <p>The unique identifier for the IAM virtual MFA device to which you want to add tags.
+   *       For virtual MFA devices, the serial number is the same as the ARN.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM virtual MFA device.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagOpenIDConnectProviderRequest {
+  /**
+   * <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the OIDC identity provider in IAM.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagPolicyRequest {
+  /**
+   * <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM customer managed policy.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagRoleRequest {
+  /**
+   * <p>The name of the IAM role to which you want to add tags.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagSAMLProviderRequest {
+  /**
+   * <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SAMLProviderArn: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the SAML identity provider in IAM.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagServerCertificateRequest {
+  /**
+   * <p>The name of the IAM server certificate to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  ServerCertificateName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM server certificate.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagUserRequest {
+  /**
+   * <p>The name of the IAM user to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagInstanceProfileRequest {
+  /**
+   * <p>The name of the IAM instance profile from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  InstanceProfileName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified instance profile.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagMFADeviceRequest {
+  /**
+   * <p>The unique identifier for the IAM virtual MFA device from which you want to remove
+   *       tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified instance profile.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagOpenIDConnectProviderRequest {
+  /**
+   * <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified OIDC provider.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagPolicyRequest {
+  /**
+   * <p>The ARN of the IAM customer managed policy from which you want to remove
+   *       tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified policy.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagRoleRequest {
+  /**
+   * <p>The name of the IAM role from which you want to remove tags.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified role.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagSAMLProviderRequest {
+  /**
+   * <p>The ARN of the SAML identity provider in IAM from which you want to remove
+   *       tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SAMLProviderArn: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified SAML identity provider.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagServerCertificateRequest {
+  /**
+   * <p>The name of the IAM server certificate from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  ServerCertificateName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified IAM server certificate.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagUserRequest {
+  /**
+   * <p>The name of the IAM user from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified user.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccessKeyRequest {
+  /**
+   * <p>The name of the user whose key you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The access key ID of the secret access key you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   * @public
+   */
+  AccessKeyId: string | undefined;
+
+  /**
+   * <p> The status you want to assign to the secret access key. <code>Active</code> means
+   *             that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
+   *             means that the key cannot be used.</p>
+   * @public
+   */
+  Status: StatusType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountPasswordPolicyRequest {
+  /**
+   * <p>The minimum number of characters allowed in an IAM user password.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>6</code>.</p>
+   * @public
+   */
+  MinimumPasswordLength?: number | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one of the following
+   *             non-alphanumeric characters:</p>
+   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             symbol character.</p>
+   * @public
+   */
+  RequireSymbols?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one numeric character (0
+   *             to 9).</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             numeric character.</p>
+   * @public
+   */
+  RequireNumbers?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one uppercase character
+   *             from the ISO basic Latin alphabet (A to Z).</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             uppercase character.</p>
+   * @public
+   */
+  RequireUppercaseCharacters?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one lowercase character
+   *             from the ISO basic Latin alphabet (a to z).</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             lowercase character.</p>
+   * @public
+   */
+  RequireLowercaseCharacters?: boolean | undefined;
+
+  /**
+   * <p> Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own
+   *             passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting
+   *                 IAM users to change their own passwords</a> in the
+   *                 <i>IAM User Guide</i>.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that IAM users in the account do not
+   *             automatically have permissions to change their own password.</p>
+   * @public
+   */
+  AllowUsersToChangePassword?: boolean | undefined;
+
+  /**
+   * <p>The number of days that an IAM user password is valid.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>0</code>. The result is that IAM user passwords never expire.</p>
+   * @public
+   */
+  MaxPasswordAge?: number | undefined;
+
+  /**
+   * <p>Specifies the number of previous passwords that IAM users are prevented from
+   *             reusing.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>0</code>. The result is that IAM users are not prevented from reusing
+   *             previous passwords.</p>
+   * @public
+   */
+  PasswordReusePrevention?: number | undefined;
+
+  /**
+   * <p> Prevents IAM users who are accessing the account via the Amazon Web Services Management Console from setting a
+   *             new console password after their password has expired. The IAM user cannot access the
+   *             console until an administrator resets the password.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that IAM users can change their passwords
+   *             after they expire and continue to sign in as the user.</p>
+   *          <note>
+   *             <p> In the Amazon Web Services Management Console, the custom password policy option <b>Allow
+   *                     users to change their own password</b> gives IAM users permissions to
+   *                     <code>iam:ChangePassword</code> for only their user and to the
+   *                     <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a
+   *                 permissions policy to each user, rather the permissions are applied at the
+   *                 account-level for all users by IAM. IAM users with
+   *                     <code>iam:ChangePassword</code> permission and active access keys can reset
+   *                 their own expired console password using the CLI or API.</p>
+   *          </note>
+   * @public
+   */
+  HardExpiry?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssumeRolePolicyRequest {
+  /**
+   * <p>The name of the role to update with the new policy.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The policy that grants an entity permission to assume the role.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to update.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+
+  /**
+   * <p>Additional notes or comments to add to the delegation request.</p>
+   * @public
+   */
+  Notes?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGroupRequest {
+  /**
+   * <p>Name of the IAM group to update. If you're changing the name of the group, this is
+   *             the original name.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>New path for the IAM group. Only include this if changing the group's path.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
+   */
+  NewPath?: string | undefined;
+
+  /**
+   * <p>New name for the IAM group. Only include this if changing the group's name.</p>
+   *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
+   *             not distinguished by case. For example, you cannot create resources named both
+   *             "MyResource" and "myresource".</p>
+   * @public
+   */
+  NewGroupName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLoginProfileRequest {
+  /**
+   * <p>The name of the user whose password you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The new password for the specified IAM user.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   *          <p>However, the format can be further restricted by the account administrator by setting
+   *             a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
+   * @public
+   */
+  Password?: string | undefined;
+
+  /**
+   * <p>Allows this new password to be used only once by requiring the specified IAM user to
+   *             set a new password on next sign-in.</p>
+   * @public
+   */
+  PasswordResetRequired?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOpenIDConnectProviderThumbprintRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
+   *             you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>A list of certificate thumbprints that are associated with the specified IAM OpenID
+   *             Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>. </p>
+   * @public
+   */
+  ThumbprintList: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoleRequest {
+  /**
+   * <p>The name of the role that you want to modify.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The new description that you want to apply to the specified role.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The maximum session duration (in seconds) that you want to set for the specified role.
+   *             If you do not specify a value for this setting, the default value of one hour is
+   *             applied. This setting can have a value from 1 hour to 12 hours.</p>
+   *          <p>Anyone who assumes the role from the CLI or API can use the
+   *                 <code>DurationSeconds</code> API parameter or the <code>duration-seconds</code>
+   *             CLI parameter to request a longer session. The <code>MaxSessionDuration</code> setting
+   *             determines the maximum duration that can be requested using the
+   *                 <code>DurationSeconds</code> parameter. If users don't specify a value for the
+   *                 <code>DurationSeconds</code> parameter, their security credentials are valid for one
+   *             hour by default. This applies when you use the <code>AssumeRole*</code> API operations
+   *             or the <code>assume-role*</code> CLI operations but does not apply when you use those
+   *             operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
+   *                 roles</a> in the <i>IAM User Guide</i>.</p>
+   *          <note>
+   *             <p>IAM role credentials provided by Amazon EC2 instances assigned to the role are not
+   *                 subject to the specified maximum session duration.</p>
+   *          </note>
+   * @public
+   */
+  MaxSessionDuration?: number | undefined;
 }

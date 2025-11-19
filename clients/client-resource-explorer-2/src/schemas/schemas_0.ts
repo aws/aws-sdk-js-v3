@@ -223,7 +223,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnauthorizedException as __UnauthorizedException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { ResourceExplorer2ServiceException as __ResourceExplorer2ServiceException } from "../models/ResourceExplorer2ServiceException";
 
 /* eslint no-var: 0 */

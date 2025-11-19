@@ -1,47 +1,31 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BedrockAgentCoreControlServiceException as __BaseException } from "./BedrockAgentCoreControlServiceException";
-
-/**
- * <p>This exception is thrown when a request is denied per access permissions</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when there is a conflict performing an operation</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
+import {
+  AgentManagedRuntimeType,
+  AgentRuntimeEndpointStatus,
+  AgentRuntimeStatus,
+  ApiKeyCredentialLocation,
+  AuthorizerType,
+  BrowserNetworkMode,
+  BrowserStatus,
+  CodeInterpreterNetworkMode,
+  CodeInterpreterStatus,
+  CredentialProviderType,
+  CredentialProviderVendorType,
+  ExceptionLevel,
+  GatewayProtocolType,
+  GatewayStatus,
+  KeyType,
+  MemoryStatus,
+  MemoryStrategyStatus,
+  MemoryStrategyType,
+  NetworkMode,
+  OverrideType,
+  ResourceType,
+  SchemaType,
+  SearchType,
+  ServerProtocol,
+  TargetStatus,
+} from "./enums";
 
 /**
  * @public
@@ -83,24 +67,6 @@ export interface CreateAgentRuntimeEndpointRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AgentRuntimeEndpointStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  READY: "READY",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type AgentRuntimeEndpointStatus = (typeof AgentRuntimeEndpointStatus)[keyof typeof AgentRuntimeEndpointStatus];
 
 /**
  * @public
@@ -150,86 +116,6 @@ export interface CreateAgentRuntimeEndpointResponse {
 }
 
 /**
- * <p>This exception is thrown if there was an unexpected error during processing of request</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when a resource referenced by the operation does not exist</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when a request is made beyond the service quota</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when the number of requests exceeds the limit</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
  * @public
  */
@@ -245,47 +131,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CannotParse",
-  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
-  IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION: "IdempotentParameterMismatchException",
-  RESOURCE_CONFLICT: "ResourceConflict",
-  ROOT_EVENT_IN_OTHER_SESSION: "EventInOtherSession",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  reason: ValidationExceptionReason | undefined;
-  fieldList?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -611,22 +456,6 @@ export interface UpdateAgentRuntimeEndpointResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AgentManagedRuntimeType = {
-  PYTHON_3_10: "PYTHON_3_10",
-  PYTHON_3_11: "PYTHON_3_11",
-  PYTHON_3_12: "PYTHON_3_12",
-  PYTHON_3_13: "PYTHON_3_13",
-} as const;
-
-/**
- * @public
- */
-export type AgentManagedRuntimeType = (typeof AgentManagedRuntimeType)[keyof typeof AgentManagedRuntimeType];
-
-/**
  * <p>The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.</p>
  * @public
  */
@@ -858,20 +687,6 @@ export interface LifecycleConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkMode = {
-  PUBLIC: "PUBLIC",
-  VPC: "VPC",
-} as const;
-
-/**
- * @public
- */
-export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
-
-/**
  * <p>VpcConfig for the Agent.</p>
  * @public
  */
@@ -906,21 +721,6 @@ export interface NetworkConfiguration {
    */
   networkModeConfig?: VpcConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ServerProtocol = {
-  A2A: "A2A",
-  HTTP: "HTTP",
-  MCP: "MCP",
-} as const;
-
-/**
- * @public
- */
-export type ServerProtocol = (typeof ServerProtocol)[keyof typeof ServerProtocol];
 
 /**
  * <p>The protocol configuration for an agent runtime. This structure defines how the agent runtime communicates with clients.</p>
@@ -1049,24 +849,6 @@ export interface CreateAgentRuntimeRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AgentRuntimeStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  READY: "READY",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type AgentRuntimeStatus = (typeof AgentRuntimeStatus)[keyof typeof AgentRuntimeStatus];
 
 /**
  * <p>The information about the workload identity.</p>
@@ -1578,86 +1360,6 @@ export interface CreateApiKeyCredentialProviderResponse {
 }
 
 /**
- * <p>Exception thrown when decryption of a secret fails.</p>
- * @public
- */
-export class DecryptionFailure extends __BaseException {
-  readonly name: "DecryptionFailure" = "DecryptionFailure";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DecryptionFailure, __BaseException>) {
-    super({
-      name: "DecryptionFailure",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DecryptionFailure.prototype);
-  }
-}
-
-/**
- * <p>Exception thrown when encryption of a secret fails.</p>
- * @public
- */
-export class EncryptionFailure extends __BaseException {
-  readonly name: "EncryptionFailure" = "EncryptionFailure";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EncryptionFailure, __BaseException>) {
-    super({
-      name: "EncryptionFailure",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EncryptionFailure.prototype);
-  }
-}
-
-/**
- * <p>Exception thrown when a resource limit is exceeded.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteApiKeyCredentialProviderRequest {
@@ -1848,20 +1550,6 @@ export interface BrowserSigningConfigInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const BrowserNetworkMode = {
-  PUBLIC: "PUBLIC",
-  VPC: "VPC",
-} as const;
-
-/**
- * @public
- */
-export type BrowserNetworkMode = (typeof BrowserNetworkMode)[keyof typeof BrowserNetworkMode];
-
-/**
  * <p>The network configuration for a browser. This structure defines how the browser connects to the network.</p>
  * @public
  */
@@ -1949,24 +1637,6 @@ export interface CreateBrowserRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BrowserStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type BrowserStatus = (typeof BrowserStatus)[keyof typeof BrowserStatus];
 
 /**
  * @public
@@ -2139,20 +1809,6 @@ export interface GetBrowserResponse {
 
 /**
  * @public
- * @enum
- */
-export const ResourceType = {
-  CUSTOM: "CUSTOM",
-  SYSTEM: "SYSTEM",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
  */
 export interface ListBrowsersRequest {
   /**
@@ -2240,21 +1896,6 @@ export interface ListBrowsersResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const CodeInterpreterNetworkMode = {
-  PUBLIC: "PUBLIC",
-  SANDBOX: "SANDBOX",
-  VPC: "VPC",
-} as const;
-
-/**
- * @public
- */
-export type CodeInterpreterNetworkMode = (typeof CodeInterpreterNetworkMode)[keyof typeof CodeInterpreterNetworkMode];
-
-/**
  * <p>The network configuration for a code interpreter. This structure defines how the code interpreter connects to the network.</p>
  * @public
  */
@@ -2312,24 +1953,6 @@ export interface CreateCodeInterpreterRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CodeInterpreterStatus = {
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type CodeInterpreterStatus = (typeof CodeInterpreterStatus)[keyof typeof CodeInterpreterStatus];
 
 /**
  * @public
@@ -2565,46 +2188,6 @@ export interface ListCodeInterpretersResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const AuthorizerType = {
-  AWS_IAM: "AWS_IAM",
-  CUSTOM_JWT: "CUSTOM_JWT",
-} as const;
-
-/**
- * @public
- */
-export type AuthorizerType = (typeof AuthorizerType)[keyof typeof AuthorizerType];
-
-/**
- * @public
- * @enum
- */
-export const ExceptionLevel = {
-  DEBUG: "DEBUG",
-} as const;
-
-/**
- * @public
- */
-export type ExceptionLevel = (typeof ExceptionLevel)[keyof typeof ExceptionLevel];
-
-/**
- * @public
- * @enum
- */
-export const SearchType = {
-  SEMANTIC: "SEMANTIC",
-} as const;
-
-/**
- * @public
- */
-export type SearchType = (typeof SearchType)[keyof typeof SearchType];
-
-/**
  * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
  * @public
  */
@@ -2666,19 +2249,6 @@ export namespace GatewayProtocolConfiguration {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const GatewayProtocolType = {
-  MCP: "MCP",
-} as const;
-
-/**
- * @public
- */
-export type GatewayProtocolType = (typeof GatewayProtocolType)[keyof typeof GatewayProtocolType];
 
 /**
  * @public
@@ -2750,24 +2320,6 @@ export interface CreateGatewayRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const GatewayStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  READY: "READY",
-  UPDATE_UNSUCCESSFUL: "UPDATE_UNSUCCESSFUL",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
 
 /**
  * @public
@@ -3289,20 +2841,6 @@ export interface UpdateGatewayResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ApiKeyCredentialLocation = {
-  HEADER: "HEADER",
-  QUERY_PARAMETER: "QUERY_PARAMETER",
-} as const;
-
-/**
- * @public
- */
-export type ApiKeyCredentialLocation = (typeof ApiKeyCredentialLocation)[keyof typeof ApiKeyCredentialLocation];
-
-/**
  * <p>An API key credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using an API key.</p>
  * @public
  */
@@ -3410,21 +2948,6 @@ export namespace CredentialProvider {
 }
 
 /**
- * @public
- * @enum
- */
-export const CredentialProviderType = {
-  API_KEY: "API_KEY",
-  GATEWAY_IAM_ROLE: "GATEWAY_IAM_ROLE",
-  OAUTH: "OAUTH",
-} as const;
-
-/**
- * @public
- */
-export type CredentialProviderType = (typeof CredentialProviderType)[keyof typeof CredentialProviderType];
-
-/**
  * <p>The configuration for a credential provider. This structure defines how the gateway authenticates with the target endpoint.</p>
  * @public
  */
@@ -3441,24 +2964,6 @@ export interface CredentialProviderConfiguration {
    */
   credentialProvider?: CredentialProvider | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SchemaType = {
-  ARRAY: "array",
-  BOOLEAN: "boolean",
-  INTEGER: "integer",
-  NUMBER: "number",
-  OBJECT: "object",
-  STRING: "string",
-} as const;
-
-/**
- * @public
- */
-export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 
 /**
  * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
@@ -3542,26 +3047,6 @@ export namespace ApiSchemaConfiguration {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const TargetStatus = {
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  READY: "READY",
-  SYNCHRONIZE_UNSUCCESSFUL: "SYNCHRONIZE_UNSUCCESSFUL",
-  SYNCHRONIZING: "SYNCHRONIZING",
-  UPDATE_UNSUCCESSFUL: "UPDATE_UNSUCCESSFUL",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
 
 /**
  * @public
@@ -3735,20 +3220,6 @@ export interface GetTokenVaultRequest {
    */
   tokenVaultId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const KeyType = {
-  CustomerManagedKey: "CustomerManagedKey",
-  ServiceManagedKey: "ServiceManagedKey",
-} as const;
-
-/**
- * @public
- */
-export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
  * <p>Contains the KMS configuration for a resource.</p>
@@ -4428,22 +3899,6 @@ export interface CreateMemoryInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const MemoryStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type MemoryStatus = (typeof MemoryStatus)[keyof typeof MemoryStatus];
-
-/**
  * <p>Contains semantic consolidation override configuration.</p>
  * @public
  */
@@ -4881,22 +4336,6 @@ export interface SelfManagedConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const OverrideType = {
-  SELF_MANAGED: "SELF_MANAGED",
-  SEMANTIC_OVERRIDE: "SEMANTIC_OVERRIDE",
-  SUMMARY_OVERRIDE: "SUMMARY_OVERRIDE",
-  USER_PREFERENCE_OVERRIDE: "USER_PREFERENCE_OVERRIDE",
-} as const;
-
-/**
- * @public
- */
-export type OverrideType = (typeof OverrideType)[keyof typeof OverrideType];
-
-/**
  * <p>Contains configuration information for a memory strategy.</p>
  * @public
  */
@@ -4925,38 +4364,6 @@ export interface StrategyConfiguration {
    */
   selfManagedConfiguration?: SelfManagedConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MemoryStrategyStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-} as const;
-
-/**
- * @public
- */
-export type MemoryStrategyStatus = (typeof MemoryStrategyStatus)[keyof typeof MemoryStrategyStatus];
-
-/**
- * @public
- * @enum
- */
-export const MemoryStrategyType = {
-  CUSTOM: "CUSTOM",
-  SEMANTIC: "SEMANTIC",
-  SUMMARIZATION: "SUMMARIZATION",
-  USER_PREFERENCE: "USER_PREFERENCE",
-} as const;
-
-/**
- * @public
- */
-export type MemoryStrategyType = (typeof MemoryStrategyType)[keyof typeof MemoryStrategyType];
 
 /**
  * <p>Contains information about a memory strategy.</p>
@@ -5105,48 +4512,6 @@ export interface CreateMemoryOutput {
    * @public
    */
   memory?: Memory | undefined;
-}
-
-/**
- * <p>An internal error occurred.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-  }
-}
-
-/**
- * <p>API rate limit has been exceeded.</p>
- * @public
- */
-export class ThrottledException extends __BaseException {
-  readonly name: "ThrottledException" = "ThrottledException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
-    super({
-      name: "ThrottledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledException.prototype);
-  }
 }
 
 /**
@@ -5658,44 +5023,6 @@ export interface UpdateMemoryOutput {
    */
   memory?: Memory | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CredentialProviderVendorType = {
-  AtlassianOauth2: "AtlassianOauth2",
-  Auth0Oauth2: "Auth0Oauth2",
-  CognitoOauth2: "CognitoOauth2",
-  CustomOauth2: "CustomOauth2",
-  CyberArkOauth2: "CyberArkOauth2",
-  DropboxOauth2: "DropboxOauth2",
-  FacebookOauth2: "FacebookOauth2",
-  FusionAuthOauth2: "FusionAuthOauth2",
-  GithubOauth2: "GithubOauth2",
-  GoogleOauth2: "GoogleOauth2",
-  HubspotOauth2: "HubspotOauth2",
-  LinkedinOauth2: "LinkedinOauth2",
-  MicrosoftOauth2: "MicrosoftOauth2",
-  NotionOauth2: "NotionOauth2",
-  OktaOauth2: "OktaOauth2",
-  OneLoginOauth2: "OneLoginOauth2",
-  PingOneOauth2: "PingOneOauth2",
-  RedditOauth2: "RedditOauth2",
-  SalesforceOauth2: "SalesforceOauth2",
-  SlackOauth2: "SlackOauth2",
-  SpotifyOauth2: "SpotifyOauth2",
-  TwitchOauth2: "TwitchOauth2",
-  XOauth2: "XOauth2",
-  YandexOauth2: "YandexOauth2",
-  ZoomOauth2: "ZoomOauth2",
-} as const;
-
-/**
- * @public
- */
-export type CredentialProviderVendorType =
-  (typeof CredentialProviderVendorType)[keyof typeof CredentialProviderVendorType];
 
 /**
  * <p>Configuration settings for connecting to Atlassian services using OAuth2 authentication. This includes the client credentials required to authenticate with Atlassian's OAuth2 authorization server.</p>
@@ -6842,26 +6169,6 @@ export interface UpdateOauth2CredentialProviderResponse {
    * @public
    */
   lastUpdatedTime: Date | undefined;
-}
-
-/**
- * <p>Exception thrown when a resource is modified concurrently by multiple requests.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
 }
 
 /**

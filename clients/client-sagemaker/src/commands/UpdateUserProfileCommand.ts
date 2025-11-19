@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_5";
+import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_4";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateUserProfile } from "../schemas/schemas_0";
 

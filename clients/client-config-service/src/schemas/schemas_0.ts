@@ -857,7 +857,7 @@ import {
   TooManyTagsException as __TooManyTagsException,
   UnmodifiableEntityException as __UnmodifiableEntityException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

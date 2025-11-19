@@ -12,6 +12,11 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { DataZoneExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/enums";
+export * from "./models/errors";
+export type * from "./models/models_0";
+export type * from "./models/models_1";
+export type * from "./models/models_2";
 
 export { DataZoneServiceException } from "./models/DataZoneServiceException";

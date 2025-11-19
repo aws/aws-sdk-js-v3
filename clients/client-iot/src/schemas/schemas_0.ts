@@ -1969,7 +1969,7 @@ import {
   ValidationException as __ValidationException,
   VersionConflictException as __VersionConflictException,
   VersionsLimitExceededException as __VersionsLimitExceededException,
-} from "../models/index";
+} from "../models/errors";
 import { IoTServiceException as __IoTServiceException } from "../models/IoTServiceException";
 
 /* eslint no-var: 0 */

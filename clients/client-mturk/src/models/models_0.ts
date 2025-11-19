@@ -1,7 +1,19 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { MTurkServiceException as __BaseException } from "./MTurkServiceException";
+import {
+  AssignmentStatus,
+  Comparator,
+  EventType,
+  HITAccessActions,
+  HITReviewStatus,
+  HITStatus,
+  NotificationTransport,
+  NotifyWorkersFailureCode,
+  QualificationStatus,
+  QualificationTypeStatus,
+  ReviewableHITStatus,
+  ReviewActionStatus,
+  ReviewPolicyLevel,
+} from "./enums";
 
 /**
  * @public
@@ -27,54 +39,6 @@ export interface AcceptQualificationRequestRequest {
  * @public
  */
 export interface AcceptQualificationRequestResponse {}
-
-/**
- * <p>Your request is invalid.</p>
- * @public
- */
-export class RequestError extends __BaseException {
-  readonly name: "RequestError" = "RequestError";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  TurkErrorCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestError, __BaseException>) {
-    super({
-      name: "RequestError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestError.prototype);
-    this.Message = opts.Message;
-    this.TurkErrorCode = opts.TurkErrorCode;
-  }
-}
-
-/**
- * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
- * @public
- */
-export class ServiceFault extends __BaseException {
-  readonly name: "ServiceFault" = "ServiceFault";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  TurkErrorCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFault, __BaseException>) {
-    super({
-      name: "ServiceFault",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFault.prototype);
-    this.Message = opts.Message;
-    this.TurkErrorCode = opts.TurkErrorCode;
-  }
-}
 
 /**
  * @public
@@ -109,21 +73,6 @@ export interface ApproveAssignmentRequest {
  * @public
  */
 export interface ApproveAssignmentResponse {}
-
-/**
- * @public
- * @enum
- */
-export const AssignmentStatus = {
-  Approved: "Approved",
-  Rejected: "Rejected",
-  Submitted: "Submitted",
-} as const;
-
-/**
- * @public
- */
-export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
 
 /**
  * <p> The Assignment data structure represents a single assignment
@@ -305,28 +254,6 @@ export interface BonusPayment {
 
 /**
  * @public
- * @enum
- */
-export const Comparator = {
-  DoesNotExist: "DoesNotExist",
-  EqualTo: "EqualTo",
-  Exists: "Exists",
-  GreaterThan: "GreaterThan",
-  GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
-  In: "In",
-  LessThan: "LessThan",
-  LessThanOrEqualTo: "LessThanOrEqualTo",
-  NotEqualTo: "NotEqualTo",
-  NotIn: "NotIn",
-} as const;
-
-/**
- * @public
- */
-export type Comparator = (typeof Comparator)[keyof typeof Comparator];
-
-/**
- * @public
  */
 export interface CreateAdditionalAssignmentsForHITRequest {
   /**
@@ -459,21 +386,6 @@ export interface HITLayoutParameter {
    */
   Value: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HITAccessActions = {
-  Accept: "Accept",
-  DiscoverPreviewAndAccept: "DiscoverPreviewAndAccept",
-  PreviewAndAccept: "PreviewAndAccept",
-} as const;
-
-/**
- * @public
- */
-export type HITAccessActions = (typeof HITAccessActions)[keyof typeof HITAccessActions];
 
 /**
  * <p>The Locale data structure represents a geographical region or location.</p>
@@ -787,39 +699,6 @@ export interface CreateHITRequest {
    */
   HITLayoutParameters?: HITLayoutParameter[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HITReviewStatus = {
-  MarkedForReview: "MarkedForReview",
-  NotReviewed: "NotReviewed",
-  ReviewedAppropriate: "ReviewedAppropriate",
-  ReviewedInappropriate: "ReviewedInappropriate",
-} as const;
-
-/**
- * @public
- */
-export type HITReviewStatus = (typeof HITReviewStatus)[keyof typeof HITReviewStatus];
-
-/**
- * @public
- * @enum
- */
-export const HITStatus = {
-  Assignable: "Assignable",
-  Disposed: "Disposed",
-  Reviewable: "Reviewable",
-  Reviewing: "Reviewing",
-  Unassignable: "Unassignable",
-} as const;
-
-/**
- * @public
- */
-export type HITStatus = (typeof HITStatus)[keyof typeof HITStatus];
 
 /**
  * <p> The HIT data structure represents a single HIT, including
@@ -1225,20 +1104,6 @@ export interface CreateHITWithHITTypeResponse {
 
 /**
  * @public
- * @enum
- */
-export const QualificationTypeStatus = {
-  Active: "Active",
-  Inactive: "Inactive",
-} as const;
-
-/**
- * @public
- */
-export type QualificationTypeStatus = (typeof QualificationTypeStatus)[keyof typeof QualificationTypeStatus];
-
-/**
- * @public
  */
 export interface CreateQualificationTypeRequest {
   /**
@@ -1588,30 +1453,6 @@ export interface DisassociateQualificationFromWorkerResponse {}
 
 /**
  * @public
- * @enum
- */
-export const EventType = {
-  AssignmentAbandoned: "AssignmentAbandoned",
-  AssignmentAccepted: "AssignmentAccepted",
-  AssignmentApproved: "AssignmentApproved",
-  AssignmentRejected: "AssignmentRejected",
-  AssignmentReturned: "AssignmentReturned",
-  AssignmentSubmitted: "AssignmentSubmitted",
-  HITCreated: "HITCreated",
-  HITDisposed: "HITDisposed",
-  HITExpired: "HITExpired",
-  HITExtended: "HITExtended",
-  HITReviewable: "HITReviewable",
-  Ping: "Ping",
-} as const;
-
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
-
-/**
- * @public
  */
 export interface GetAccountBalanceRequest {}
 
@@ -1733,20 +1574,6 @@ export interface GetQualificationScoreRequest {
    */
   WorkerId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QualificationStatus = {
-  Granted: "Granted",
-  Revoked: "Revoked",
-} as const;
-
-/**
- * @public
- */
-export type QualificationStatus = (typeof QualificationStatus)[keyof typeof QualificationStatus];
 
 /**
  * <p>The Qualification data structure represents a Qualification
@@ -2247,20 +2074,6 @@ export interface ListQualificationTypesResponse {
 
 /**
  * @public
- * @enum
- */
-export const ReviewableHITStatus = {
-  Reviewable: "Reviewable",
-  Reviewing: "Reviewing",
-} as const;
-
-/**
- * @public
- */
-export type ReviewableHITStatus = (typeof ReviewableHITStatus)[keyof typeof ReviewableHITStatus];
-
-/**
- * @public
  */
 export interface ListReviewableHITsRequest {
   /**
@@ -2326,20 +2139,6 @@ export interface ListReviewableHITsResponse {
 
 /**
  * @public
- * @enum
- */
-export const ReviewPolicyLevel = {
-  Assignment: "Assignment",
-  HIT: "HIT",
-} as const;
-
-/**
- * @public
- */
-export type ReviewPolicyLevel = (typeof ReviewPolicyLevel)[keyof typeof ReviewPolicyLevel];
-
-/**
- * @public
  */
 export interface ListReviewPolicyResultsForHITRequest {
   /**
@@ -2387,22 +2186,6 @@ export interface ListReviewPolicyResultsForHITRequest {
    */
   MaxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReviewActionStatus = {
-  Cancelled: "Cancelled",
-  Failed: "Failed",
-  Intended: "Intended",
-  Succeeded: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type ReviewActionStatus = (typeof ReviewActionStatus)[keyof typeof ReviewActionStatus];
 
 /**
  * <p> Both the AssignmentReviewReport and the HITReviewReport
@@ -2756,20 +2539,6 @@ export interface NotifyWorkersRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const NotifyWorkersFailureCode = {
-  HardFailure: "HardFailure",
-  SoftFailure: "SoftFailure",
-} as const;
-
-/**
- * @public
- */
-export type NotifyWorkersFailureCode = (typeof NotifyWorkersFailureCode)[keyof typeof NotifyWorkersFailureCode];
-
-/**
  * <p> When MTurk encounters an issue with notifying the Workers
  *             you specified, it returns back this object with failure details.
  *         </p>
@@ -2914,21 +2683,6 @@ export interface SendBonusRequest {
  * @public
  */
 export interface SendBonusResponse {}
-
-/**
- * @public
- * @enum
- */
-export const NotificationTransport = {
-  Email: "Email",
-  SNS: "SNS",
-  SQS: "SQS",
-} as const;
-
-/**
- * @public
- */
-export type NotificationTransport = (typeof NotificationTransport)[keyof typeof NotificationTransport];
 
 /**
  * <p>The NotificationSpecification data structure describes a HIT

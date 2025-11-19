@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { PIServiceException as __BaseException } from "./PIServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AcceptLanguage = {
-  EN_US: "EN_US",
-} as const;
-
-/**
- * @public
- */
-export type AcceptLanguage = (typeof AcceptLanguage)[keyof typeof AcceptLanguage];
+import {
+  AcceptLanguage,
+  AnalysisStatus,
+  ContextType,
+  DetailStatus,
+  FeatureStatus,
+  FineGrainedAction,
+  PeriodAlignment,
+  ServiceType,
+  Severity,
+  TextFormat,
+} from "./enums";
 
 /**
  * <p>This data type helps to determine Performance Insights metric to render for the insight.</p>
@@ -71,20 +67,6 @@ export interface Data {
 }
 
 /**
- * @public
- * @enum
- */
-export const ContextType = {
-  CAUSAL: "CAUSAL",
-  CONTEXTUAL: "CONTEXTUAL",
-} as const;
-
-/**
- * @public
- */
-export type ContextType = (typeof ContextType)[keyof typeof ContextType];
-
-/**
  * <p>The list of recommendations for the insight.</p>
  * @public
  */
@@ -103,50 +85,6 @@ export interface Recommendation {
    */
   RecommendationDescription?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Severity = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type Severity = (typeof Severity)[keyof typeof Severity];
-
-/**
- * @public
- * @enum
- */
-export const ServiceType = {
-  DOCDB: "DOCDB",
-  RDS: "RDS",
-} as const;
-
-/**
- * @public
- */
-export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
-
-/**
- * @public
- * @enum
- */
-export const AnalysisStatus = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
 
 /**
  * <p>Metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
@@ -216,21 +154,6 @@ export interface AnalysisReportSummary {
 
 /**
  * @public
- * @enum
- */
-export const FineGrainedAction = {
-  DESCRIBE_DIMENSION_KEYS: "DescribeDimensionKeys",
-  GET_DIMENSION_KEY_DETAILS: "GetDimensionKeyDetails",
-  GET_RESOURCE_METRICS: "GetResourceMetrics",
-} as const;
-
-/**
- * @public
- */
-export type FineGrainedAction = (typeof FineGrainedAction)[keyof typeof FineGrainedAction];
-
-/**
- * @public
  */
 export interface CreatePerformanceAnalysisReportRequest {
   /**
@@ -276,72 +199,6 @@ export interface CreatePerformanceAnalysisReportResponse {
    * @public
    */
   AnalysisReportId?: string | undefined;
-}
-
-/**
- * <p>The request failed due to an unknown error.</p>
- * @public
- */
-export class InternalServiceError extends __BaseException {
-  readonly name: "InternalServiceError" = "InternalServiceError";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
-    super({
-      name: "InternalServiceError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One of the arguments provided is invalid for this request.</p>
- * @public
- */
-export class InvalidArgumentException extends __BaseException {
-  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
-    super({
-      name: "InvalidArgumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The user is not authorized to perform this request.</p>
- * @public
- */
-export class NotAuthorizedException extends __BaseException {
-  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
-    super({
-      name: "NotAuthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -963,21 +820,6 @@ export interface DescribeDimensionKeysResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const DetailStatus = {
-  AVAILABLE: "AVAILABLE",
-  PROCESSING: "PROCESSING",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type DetailStatus = (typeof DetailStatus)[keyof typeof DetailStatus];
-
-/**
  * <p>The information about a dimension.</p>
  * @public
  */
@@ -1066,24 +908,6 @@ export interface DimensionKeyDetail {
    */
   Status?: DetailStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  DISABLED: "DISABLED",
-  DISABLED_PENDING_REBOOT: "DISABLED_PENDING_REBOOT",
-  ENABLED: "ENABLED",
-  ENABLED_PENDING_REBOOT: "ENABLED_PENDING_REBOOT",
-  UNKNOWN: "UNKNOWN",
-  UNSUPPORTED: "UNSUPPORTED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * <p>The metadata for a feature. For example, the metadata might indicate that a feature is
@@ -1231,20 +1055,6 @@ export interface GetDimensionKeyDetailsResponse {
    */
   Dimensions?: DimensionKeyDetail[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TextFormat = {
-  MARKDOWN: "MARKDOWN",
-  PLAIN_TEXT: "PLAIN_TEXT",
-} as const;
-
-/**
- * @public
- */
-export type TextFormat = (typeof TextFormat)[keyof typeof TextFormat];
 
 /**
  * @public
@@ -1400,20 +1210,6 @@ export interface MetricQuery {
    */
   Filter?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PeriodAlignment = {
-  END_TIME: "END_TIME",
-  START_TIME: "START_TIME",
-} as const;
-
-/**
- * @public
- */
-export type PeriodAlignment = (typeof PeriodAlignment)[keyof typeof PeriodAlignment];
 
 /**
  * @public

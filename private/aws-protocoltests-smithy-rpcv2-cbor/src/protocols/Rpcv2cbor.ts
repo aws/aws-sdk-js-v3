@@ -61,17 +61,15 @@ import {
   SparseNullsOperationCommandInput,
   SparseNullsOperationCommandOutput,
 } from "../commands/SparseNullsOperationCommand";
+import { FooEnum, IntegerEnum } from "../models/enums";
+import { ComplexError, InvalidGreeting, ValidationException } from "../models/errors";
 import {
   ClientOptionalDefaults,
-  ComplexError,
   Defaults,
   EmptyStructure,
   Float16Output,
-  FooEnum,
   FractionalSecondsOutput,
   GreetingStruct,
-  IntegerEnum,
-  InvalidGreeting,
   OperationWithDefaultsInput,
   OperationWithDefaultsOutput,
   RecursiveShapesInputOutput,
@@ -84,7 +82,6 @@ import {
   SimpleStructure,
   SparseNullsOperationInputOutput,
   StructureListMember,
-  ValidationException,
 } from "../models/models_0";
 import { RpcV2ProtocolServiceException as __BaseException } from "../models/RpcV2ProtocolServiceException";
 

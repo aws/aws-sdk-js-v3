@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteVpcEndpointConnectionNotificationsRequest,
   DeleteVpcEndpointConnectionNotificationsResult,
-} from "../models/models_3";
+} from "../models/models_2";
 import { DeleteVpcEndpointConnectionNotifications } from "../schemas/schemas_0";
 
 /**

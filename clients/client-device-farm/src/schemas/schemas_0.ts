@@ -588,7 +588,7 @@ import {
   TagOperationException as __TagOperationException,
   TagPolicyException as __TagPolicyException,
   TooManyTagsException as __TooManyTagsException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

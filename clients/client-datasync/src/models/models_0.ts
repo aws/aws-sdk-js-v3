@@ -1,7 +1,49 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { DataSyncServiceException as __BaseException } from "./DataSyncServiceException";
+import {
+  AgentStatus,
+  Atime,
+  AzureAccessTier,
+  AzureBlobAuthenticationType,
+  AzureBlobType,
+  EfsInTransitEncryption,
+  EndpointType,
+  FilterType,
+  Gid,
+  HdfsAuthenticationType,
+  HdfsDataTransferProtection,
+  HdfsRpcProtection,
+  LocationFilterName,
+  LogLevel,
+  ManifestAction,
+  ManifestFormat,
+  Mtime,
+  NfsVersion,
+  ObjectStorageServerProtocol,
+  ObjectTags,
+  ObjectVersionIds,
+  Operator,
+  OverwriteMode,
+  PhaseStatus,
+  PosixPermissions,
+  PreserveDeletedFiles,
+  PreserveDevices,
+  ReportLevel,
+  ReportOutputType,
+  S3StorageClass,
+  ScheduleDisabledBy,
+  ScheduleStatus,
+  SmbAuthenticationType,
+  SmbSecurityDescriptorCopyFlags,
+  SmbVersion,
+  TaskExecutionStatus,
+  TaskFilterName,
+  TaskMode,
+  TaskQueueing,
+  TaskStatus,
+  TransferMode,
+  Uid,
+  VerifyMode,
+} from "./enums";
 
 /**
  * <p>The platform-related details about the DataSync agent, such as the version
@@ -15,20 +57,6 @@ export interface Platform {
    */
   Version?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AgentStatus = {
-  OFFLINE: "OFFLINE",
-  ONLINE: "ONLINE",
-} as const;
-
-/**
- * @public
- */
-export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
  * <p>Represents a single entry in a list (or array) of DataSync agents when
@@ -74,50 +102,6 @@ export interface AgentListEntry {
 }
 
 /**
- * @public
- * @enum
- */
-export const Atime = {
-  BEST_EFFORT: "BEST_EFFORT",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Atime = (typeof Atime)[keyof typeof Atime];
-
-/**
- * @public
- * @enum
- */
-export const AzureAccessTier = {
-  ARCHIVE: "ARCHIVE",
-  COOL: "COOL",
-  HOT: "HOT",
-} as const;
-
-/**
- * @public
- */
-export type AzureAccessTier = (typeof AzureAccessTier)[keyof typeof AzureAccessTier];
-
-/**
- * @public
- * @enum
- */
-export const AzureBlobAuthenticationType = {
-  NONE: "NONE",
-  SAS: "SAS",
-} as const;
-
-/**
- * @public
- */
-export type AzureBlobAuthenticationType =
-  (typeof AzureBlobAuthenticationType)[keyof typeof AzureBlobAuthenticationType];
-
-/**
  * <p>The shared access signature (SAS) configuration that allows DataSync to
  *       access your Microsoft Azure Blob Storage.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens">SAS
@@ -138,19 +122,6 @@ export interface AzureBlobSasConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const AzureBlobType = {
-  BLOCK: "BLOCK",
-} as const;
-
-/**
- * @public
- */
-export type AzureBlobType = (typeof AzureBlobType)[keyof typeof AzureBlobType];
-
-/**
  * <p>CancelTaskExecutionRequest</p>
  * @public
  */
@@ -166,53 +137,6 @@ export interface CancelTaskExecutionRequest {
  * @public
  */
 export interface CancelTaskExecutionResponse {}
-
-/**
- * <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  errorCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-    this.errorCode = opts.errorCode;
-  }
-}
-
-/**
- * <p>This exception is thrown when the client submits a malformed request.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  errorCode?: string | undefined;
-  datasyncErrorCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.errorCode = opts.errorCode;
-    this.datasyncErrorCode = opts.datasyncErrorCode;
-  }
-}
 
 /**
  * <p>Specifies configuration information for a DataSync-managed secret, such as an
@@ -508,20 +432,6 @@ export interface Ec2Config {
 }
 
 /**
- * @public
- * @enum
- */
-export const EfsInTransitEncryption = {
-  NONE: "NONE",
-  TLS1_2: "TLS1_2",
-} as const;
-
-/**
- * @public
- */
-export type EfsInTransitEncryption = (typeof EfsInTransitEncryption)[keyof typeof EfsInTransitEncryption];
-
-/**
  * <p>CreateLocationEfsRequest</p>
  * @public
  */
@@ -653,22 +563,6 @@ export interface CreateLocationFsxLustreResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const NfsVersion = {
-  AUTOMATIC: "AUTOMATIC",
-  NFS3: "NFS3",
-  NFS4_0: "NFS4_0",
-  NFS4_1: "NFS4_1",
-} as const;
-
-/**
- * @public
- */
-export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];
-
-/**
  * <p>Specifies how DataSync can access a location using the NFS protocol.</p>
  * @public
  */
@@ -720,23 +614,6 @@ export interface FsxProtocolNfs {
    */
   MountOptions?: NfsMountOptions | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SmbVersion = {
-  AUTOMATIC: "AUTOMATIC",
-  SMB1: "SMB1",
-  SMB2: "SMB2",
-  SMB2_0: "SMB2_0",
-  SMB3: "SMB3",
-} as const;
-
-/**
- * @public
- */
-export type SmbVersion = (typeof SmbVersion)[keyof typeof SmbVersion];
 
 /**
  * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
@@ -1058,20 +935,6 @@ export interface CreateLocationFsxWindowsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const HdfsAuthenticationType = {
-  KERBEROS: "KERBEROS",
-  SIMPLE: "SIMPLE",
-} as const;
-
-/**
- * @public
- */
-export type HdfsAuthenticationType = (typeof HdfsAuthenticationType)[keyof typeof HdfsAuthenticationType];
-
-/**
  * <p>The NameNode of the Hadoop Distributed File System (HDFS). The NameNode manages the file
  *       system's namespace. The NameNode performs operations such as opening, closing, and renaming
  *       files and directories. The NameNode contains the information to map blocks of data to the
@@ -1093,38 +956,6 @@ export interface HdfsNameNode {
    */
   Port: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HdfsDataTransferProtection = {
-  AUTHENTICATION: "AUTHENTICATION",
-  DISABLED: "DISABLED",
-  INTEGRITY: "INTEGRITY",
-  PRIVACY: "PRIVACY",
-} as const;
-
-/**
- * @public
- */
-export type HdfsDataTransferProtection = (typeof HdfsDataTransferProtection)[keyof typeof HdfsDataTransferProtection];
-
-/**
- * @public
- * @enum
- */
-export const HdfsRpcProtection = {
-  AUTHENTICATION: "AUTHENTICATION",
-  DISABLED: "DISABLED",
-  INTEGRITY: "INTEGRITY",
-  PRIVACY: "PRIVACY",
-} as const;
-
-/**
- * @public
- */
-export type HdfsRpcProtection = (typeof HdfsRpcProtection)[keyof typeof HdfsRpcProtection];
 
 /**
  * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
@@ -1348,21 +1179,6 @@ export interface CreateLocationNfsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ObjectStorageServerProtocol = {
-  HTTP: "HTTP",
-  HTTPS: "HTTPS",
-} as const;
-
-/**
- * @public
- */
-export type ObjectStorageServerProtocol =
-  (typeof ObjectStorageServerProtocol)[keyof typeof ObjectStorageServerProtocol];
-
-/**
  * <p>CreateLocationObjectStorageRequest</p>
  * @public
  */
@@ -1534,26 +1350,6 @@ export interface S3Config {
 }
 
 /**
- * @public
- * @enum
- */
-export const S3StorageClass = {
-  DEEP_ARCHIVE: "DEEP_ARCHIVE",
-  GLACIER: "GLACIER",
-  GLACIER_INSTANT_RETRIEVAL: "GLACIER_INSTANT_RETRIEVAL",
-  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
-  ONEZONE_IA: "ONEZONE_IA",
-  OUTPOSTS: "OUTPOSTS",
-  STANDARD: "STANDARD",
-  STANDARD_IA: "STANDARD_IA",
-} as const;
-
-/**
- * @public
- */
-export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
-
-/**
  * <p>CreateLocationS3Request</p>
  * @public
  */
@@ -1650,20 +1446,6 @@ export interface CreateLocationS3Response {
    */
   LocationArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SmbAuthenticationType = {
-  KERBEROS: "KERBEROS",
-  NTLM: "NTLM",
-} as const;
-
-/**
- * @public
- */
-export type SmbAuthenticationType = (typeof SmbAuthenticationType)[keyof typeof SmbAuthenticationType];
 
 /**
  * <p>CreateLocationSmbRequest</p>
@@ -1801,19 +1583,6 @@ export interface CreateLocationSmbResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const FilterType = {
-  SIMPLE_PATTERN: "SIMPLE_PATTERN",
-} as const;
-
-/**
- * @public
- */
-export type FilterType = (typeof FilterType)[keyof typeof FilterType];
-
-/**
  * <p>Specifies which files, folders, and objects to include or exclude when transferring files
  *       from source to destination.</p>
  * @public
@@ -1835,32 +1604,6 @@ export interface FilterRule {
    */
   Value?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ManifestAction = {
-  TRANSFER: "TRANSFER",
-} as const;
-
-/**
- * @public
- */
-export type ManifestAction = (typeof ManifestAction)[keyof typeof ManifestAction];
-
-/**
- * @public
- * @enum
- */
-export const ManifestFormat = {
-  CSV: "CSV",
-} as const;
-
-/**
- * @public
- */
-export type ManifestFormat = (typeof ManifestFormat)[keyof typeof ManifestFormat];
 
 /**
  * <p>Specifies the S3 bucket where you're hosting the manifest that you want DataSync to use. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
@@ -1939,196 +1682,6 @@ export interface ManifestConfig {
    */
   Source?: SourceManifestConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Gid = {
-  BOTH: "BOTH",
-  INT_VALUE: "INT_VALUE",
-  NAME: "NAME",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Gid = (typeof Gid)[keyof typeof Gid];
-
-/**
- * @public
- * @enum
- */
-export const LogLevel = {
-  BASIC: "BASIC",
-  OFF: "OFF",
-  TRANSFER: "TRANSFER",
-} as const;
-
-/**
- * @public
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
-
-/**
- * @public
- * @enum
- */
-export const Mtime = {
-  NONE: "NONE",
-  PRESERVE: "PRESERVE",
-} as const;
-
-/**
- * @public
- */
-export type Mtime = (typeof Mtime)[keyof typeof Mtime];
-
-/**
- * @public
- * @enum
- */
-export const ObjectTags = {
-  NONE: "NONE",
-  PRESERVE: "PRESERVE",
-} as const;
-
-/**
- * @public
- */
-export type ObjectTags = (typeof ObjectTags)[keyof typeof ObjectTags];
-
-/**
- * @public
- * @enum
- */
-export const OverwriteMode = {
-  ALWAYS: "ALWAYS",
-  NEVER: "NEVER",
-} as const;
-
-/**
- * @public
- */
-export type OverwriteMode = (typeof OverwriteMode)[keyof typeof OverwriteMode];
-
-/**
- * @public
- * @enum
- */
-export const PosixPermissions = {
-  NONE: "NONE",
-  PRESERVE: "PRESERVE",
-} as const;
-
-/**
- * @public
- */
-export type PosixPermissions = (typeof PosixPermissions)[keyof typeof PosixPermissions];
-
-/**
- * @public
- * @enum
- */
-export const PreserveDeletedFiles = {
-  PRESERVE: "PRESERVE",
-  REMOVE: "REMOVE",
-} as const;
-
-/**
- * @public
- */
-export type PreserveDeletedFiles = (typeof PreserveDeletedFiles)[keyof typeof PreserveDeletedFiles];
-
-/**
- * @public
- * @enum
- */
-export const PreserveDevices = {
-  NONE: "NONE",
-  PRESERVE: "PRESERVE",
-} as const;
-
-/**
- * @public
- */
-export type PreserveDevices = (typeof PreserveDevices)[keyof typeof PreserveDevices];
-
-/**
- * @public
- * @enum
- */
-export const SmbSecurityDescriptorCopyFlags = {
-  NONE: "NONE",
-  OWNER_DACL: "OWNER_DACL",
-  OWNER_DACL_SACL: "OWNER_DACL_SACL",
-} as const;
-
-/**
- * @public
- */
-export type SmbSecurityDescriptorCopyFlags =
-  (typeof SmbSecurityDescriptorCopyFlags)[keyof typeof SmbSecurityDescriptorCopyFlags];
-
-/**
- * @public
- * @enum
- */
-export const TaskQueueing = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type TaskQueueing = (typeof TaskQueueing)[keyof typeof TaskQueueing];
-
-/**
- * @public
- * @enum
- */
-export const TransferMode = {
-  ALL: "ALL",
-  CHANGED: "CHANGED",
-} as const;
-
-/**
- * @public
- */
-export type TransferMode = (typeof TransferMode)[keyof typeof TransferMode];
-
-/**
- * @public
- * @enum
- */
-export const Uid = {
-  BOTH: "BOTH",
-  INT_VALUE: "INT_VALUE",
-  NAME: "NAME",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Uid = (typeof Uid)[keyof typeof Uid];
-
-/**
- * @public
- * @enum
- */
-export const VerifyMode = {
-  NONE: "NONE",
-  ONLY_FILES_TRANSFERRED: "ONLY_FILES_TRANSFERRED",
-  POINT_IN_TIME_CONSISTENT: "POINT_IN_TIME_CONSISTENT",
-} as const;
-
-/**
- * @public
- */
-export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
 
 /**
  * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
@@ -2503,20 +2056,6 @@ export interface Options {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScheduleStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
-
-/**
  * <p>Configures your DataSync task to run on a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">schedule</a>
  *       (at a minimum interval of 1 hour).</p>
  * @public
@@ -2553,20 +2092,6 @@ export interface TaskSchedule {
    */
   Status?: ScheduleStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskMode = {
-  BASIC: "BASIC",
-  ENHANCED: "ENHANCED",
-} as const;
-
-/**
- * @public
- */
-export type TaskMode = (typeof TaskMode)[keyof typeof TaskMode];
 
 /**
  * <p>Specifies the Amazon S3 bucket where DataSync uploads your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task
@@ -2608,48 +2133,6 @@ export interface ReportDestination {
    */
   S3?: ReportDestinationS3 | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ObjectVersionIds = {
-  INCLUDE: "INCLUDE",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type ObjectVersionIds = (typeof ObjectVersionIds)[keyof typeof ObjectVersionIds];
-
-/**
- * @public
- * @enum
- */
-export const ReportOutputType = {
-  STANDARD: "STANDARD",
-  SUMMARY_ONLY: "SUMMARY_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type ReportOutputType = (typeof ReportOutputType)[keyof typeof ReportOutputType];
-
-/**
- * @public
- * @enum
- */
-export const ReportLevel = {
-  ERRORS_ONLY: "ERRORS_ONLY",
-  SUCCESSES_AND_ERRORS: "SUCCESSES_AND_ERRORS",
-} as const;
-
-/**
- * @public
- */
-export type ReportLevel = (typeof ReportLevel)[keyof typeof ReportLevel];
 
 /**
  * <p>Specifies the level of detail for a particular aspect of your DataSync
@@ -2973,22 +2456,6 @@ export interface DescribeAgentRequest {
    */
   AgentArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointType = {
-  FIPS: "FIPS",
-  FIPS_PRIVATE_LINK: "FIPS_PRIVATE_LINK",
-  PRIVATE_LINK: "PRIVATE_LINK",
-  PUBLIC: "PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * <p>Specifies how your DataSync agent connects to Amazon Web Services using a
@@ -3877,20 +3344,6 @@ export interface DescribeTaskRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const ScheduleDisabledBy = {
-  SERVICE: "SERVICE",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleDisabledBy = (typeof ScheduleDisabledBy)[keyof typeof ScheduleDisabledBy];
-
-/**
  * <p>Provides information about your DataSync
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">task
  *         schedule</a>.</p>
@@ -3932,23 +3385,6 @@ export interface TaskScheduleDetails {
    */
   DisabledBy?: ScheduleDisabledBy | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 /**
  * <p>DescribeTaskResponse</p>
@@ -4183,21 +3619,6 @@ export interface TaskExecutionFilesListedDetail {
 }
 
 /**
- * @public
- * @enum
- */
-export const PhaseStatus = {
-  ERROR: "ERROR",
-  PENDING: "PENDING",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type PhaseStatus = (typeof PhaseStatus)[keyof typeof PhaseStatus];
-
-/**
  * <p>Indicates whether DataSync created a complete <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">task report</a> for your
  *       transfer.</p>
  * @public
@@ -4307,26 +3728,6 @@ export interface TaskExecutionResultDetail {
    */
   ErrorDetail?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskExecutionStatus = {
-  CANCELLING: "CANCELLING",
-  ERROR: "ERROR",
-  LAUNCHING: "LAUNCHING",
-  PREPARING: "PREPARING",
-  QUEUED: "QUEUED",
-  SUCCESS: "SUCCESS",
-  TRANSFERRING: "TRANSFERRING",
-  VERIFYING: "VERIFYING",
-} as const;
-
-/**
- * @public
- */
-export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
 
 /**
  * <p>DescribeTaskExecutionResponse</p>
@@ -4628,43 +4029,6 @@ export interface ListAgentsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const LocationFilterName = {
-  CreationTime: "CreationTime",
-  LocationType: "LocationType",
-  LocationUri: "LocationUri",
-} as const;
-
-/**
- * @public
- */
-export type LocationFilterName = (typeof LocationFilterName)[keyof typeof LocationFilterName];
-
-/**
- * @public
- * @enum
- */
-export const Operator = {
-  BEGINS_WITH: "BeginsWith",
-  CONTAINS: "Contains",
-  EQ: "Equals",
-  GE: "GreaterThanOrEqual",
-  GT: "GreaterThan",
-  IN: "In",
-  LE: "LessThanOrEqual",
-  LT: "LessThan",
-  NE: "NotEquals",
-  NOT_CONTAINS: "NotContains",
-} as const;
-
-/**
- * @public
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
-
-/**
  * <p>Narrow down the list of resources returned by <code>ListLocations</code>. For example, to
  *       see all your Amazon S3 locations, create a filter using <code>"Name":
  *         "LocationType"</code>, <code>"Operator": "Equals"</code>, and <code>"Values":
@@ -4895,20 +4259,6 @@ export interface ListTaskExecutionsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskFilterName = {
-  CreationTime: "CreationTime",
-  LocationId: "LocationId",
-} as const;
-
-/**
- * @public
- */
-export type TaskFilterName = (typeof TaskFilterName)[keyof typeof TaskFilterName];
 
 /**
  * <p>You can use API filters to narrow down the list of resources returned by

@@ -72,7 +72,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { S3OutpostsServiceException as __S3OutpostsServiceException } from "../models/S3OutpostsServiceException";
 
 /* eslint no-var: 0 */

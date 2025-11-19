@@ -311,7 +311,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaPackageV2ServiceException as __MediaPackageV2ServiceException } from "../models/MediaPackageV2ServiceException";
 
 /* eslint no-var: 0 */

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableIpamOrganizationAdminAccountRequest,
   EnableIpamOrganizationAdminAccountResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { EnableIpamOrganizationAdminAccount } from "../schemas/schemas_0";
 
 /**

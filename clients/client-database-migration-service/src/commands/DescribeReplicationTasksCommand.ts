@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_1";
+import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_0";
 import { DescribeReplicationTasks } from "../schemas/schemas_0";
 
 /**

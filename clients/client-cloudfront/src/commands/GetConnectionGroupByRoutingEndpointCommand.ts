@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetConnectionGroupByRoutingEndpointRequest,
   GetConnectionGroupByRoutingEndpointResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { GetConnectionGroupByRoutingEndpoint } from "../schemas/schemas_0";
 
 /**

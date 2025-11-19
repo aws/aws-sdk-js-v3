@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartRemediationExecutionRequest, StartRemediationExecutionResponse } from "../models/models_1";
+import { StartRemediationExecutionRequest, StartRemediationExecutionResponse } from "../models/models_0";
 import { StartRemediationExecution } from "../schemas/schemas_0";
 
 /**

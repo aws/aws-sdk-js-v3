@@ -948,7 +948,7 @@ import {
   WebAuthnNotEnabledException as __WebAuthnNotEnabledException,
   WebAuthnOriginNotAllowedException as __WebAuthnOriginNotAllowedException,
   WebAuthnRelyingPartyMismatchException as __WebAuthnRelyingPartyMismatchException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

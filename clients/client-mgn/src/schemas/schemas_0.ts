@@ -539,7 +539,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UninitializedAccountException as __UninitializedAccountException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { MgnServiceException as __MgnServiceException } from "../models/MgnServiceException";
 
 /* eslint no-var: 0 */

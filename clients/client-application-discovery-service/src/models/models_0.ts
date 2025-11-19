@@ -1,7 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ApplicationDiscoveryServiceServiceException as __BaseException } from "./ApplicationDiscoveryServiceServiceException";
+import {
+  AgentStatus,
+  BatchDeleteConfigurationTaskStatus,
+  BatchDeleteImportDataErrorCode,
+  ConfigurationItemType,
+  ContinuousExportStatus,
+  DataSource,
+  DeleteAgentErrorCode,
+  DeletionConfigurationItemType,
+  ExportDataFormat,
+  ExportStatus,
+  FileClassification,
+  ImportStatus,
+  ImportTaskFilterName,
+  OfferingClass,
+  OrderString,
+  PurchasingOption,
+  Tenancy,
+  TermLength,
+} from "./enums";
 
 /**
  * <p>Information about agents that were instructed to start collecting data.
@@ -49,24 +66,6 @@ export interface AgentNetworkInfo {
    */
   macAddress?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AgentStatus = {
-  BLACKLISTED: "BLACKLISTED",
-  HEALTHY: "HEALTHY",
-  RUNNING: "RUNNING",
-  SHUTDOWN: "SHUTDOWN",
-  UNHEALTHY: "UNHEALTHY",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
  * <p>Information about agents associated with the user’s Amazon Web Services account.
@@ -161,108 +160,6 @@ export interface AssociateConfigurationItemsToApplicationRequest {
 export interface AssociateConfigurationItemsToApplicationResponse {}
 
 /**
- * <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
- * @public
- */
-export class AuthorizationErrorException extends __BaseException {
-  readonly name: "AuthorizationErrorException" = "AuthorizationErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AuthorizationErrorException, __BaseException>) {
-    super({
-      name: "AuthorizationErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AuthorizationErrorException.prototype);
-  }
-}
-
-/**
- * <p>The home Region is not set. Set the home Region to continue.</p>
- * @public
- */
-export class HomeRegionNotSetException extends __BaseException {
-  readonly name: "HomeRegionNotSetException" = "HomeRegionNotSetException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HomeRegionNotSetException, __BaseException>) {
-    super({
-      name: "HomeRegionNotSetException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HomeRegionNotSetException.prototype);
-  }
-}
-
-/**
- * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
- * @public
- */
-export class InvalidParameterException extends __BaseException {
-  readonly name: "InvalidParameterException" = "InvalidParameterException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
-    super({
-      name: "InvalidParameterException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterException.prototype);
-  }
-}
-
-/**
- * <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-  }
-}
-
-/**
- * <p>The server experienced an internal error. Try again.</p>
- * @public
- */
-export class ServerInternalErrorException extends __BaseException {
-  readonly name: "ServerInternalErrorException" = "ServerInternalErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServerInternalErrorException, __BaseException>) {
-    super({
-      name: "ServerInternalErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServerInternalErrorException.prototype);
-  }
-}
-
-/**
  * <p>
  *       An object representing the agent or data collector to be deleted along with
  *       the optional configurations for error handling.
@@ -301,21 +198,6 @@ export interface BatchDeleteAgentsRequest {
    */
   deleteAgents: DeleteAgent[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeleteAgentErrorCode = {
-  AGENT_IN_USE: "AGENT_IN_USE",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type DeleteAgentErrorCode = (typeof DeleteAgentErrorCode)[keyof typeof DeleteAgentErrorCode];
 
 /**
  * <p>
@@ -383,22 +265,6 @@ export interface BatchDeleteImportDataRequest {
    */
   deleteHistory?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchDeleteImportDataErrorCode = {
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-  OVER_LIMIT: "OVER_LIMIT",
-} as const;
-
-/**
- * @public
- */
-export type BatchDeleteImportDataErrorCode =
-  (typeof BatchDeleteImportDataErrorCode)[keyof typeof BatchDeleteImportDataErrorCode];
 
 /**
  * <p>Error messages returned for each import task that you deleted as a response for this
@@ -518,27 +384,6 @@ export interface CreateTagsRequest {
  * @public
  */
 export interface CreateTagsResponse {}
-
-/**
- * <p>The specified configuration ID was not located. Verify the configuration ID and try
- *       again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
 
 /**
  * @public
@@ -692,20 +537,6 @@ export interface DescribeBatchDeleteConfigurationTaskRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const DeletionConfigurationItemType = {
-  SERVER: "SERVER",
-} as const;
-
-/**
- * @public
- */
-export type DeletionConfigurationItemType =
-  (typeof DeletionConfigurationItemType)[keyof typeof DeletionConfigurationItemType];
-
-/**
  * <p>
  *       A configuration ID paired with a warning message.
  *     </p>
@@ -768,24 +599,6 @@ export interface FailedConfiguration {
    */
   errorMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchDeleteConfigurationTaskStatus = {
-  COMPLETED: "COMPLETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INITIALIZING: "INITIALIZING",
-  VALIDATING: "VALIDATING",
-} as const;
-
-/**
- * @public
- */
-export type BatchDeleteConfigurationTaskStatus =
-  (typeof BatchDeleteConfigurationTaskStatus)[keyof typeof BatchDeleteConfigurationTaskStatus];
 
 /**
  * <p>
@@ -928,38 +741,6 @@ export interface DescribeContinuousExportsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DataSource = {
-  AGENT: "AGENT",
-} as const;
-
-/**
- * @public
- */
-export type DataSource = (typeof DataSource)[keyof typeof DataSource];
-
-/**
- * @public
- * @enum
- */
-export const ContinuousExportStatus = {
-  ACTIVE: "ACTIVE",
-  ERROR: "ERROR",
-  INACTIVE: "INACTIVE",
-  START_FAILED: "START_FAILED",
-  START_IN_PROGRESS: "START_IN_PROGRESS",
-  STOP_FAILED: "STOP_FAILED",
-  STOP_IN_PROGRESS: "STOP_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ContinuousExportStatus = (typeof ContinuousExportStatus)[keyof typeof ContinuousExportStatus];
 
 /**
  * <p>A list of continuous export descriptions.</p>
@@ -1143,26 +924,6 @@ export interface DescribeContinuousExportsResponse {
 }
 
 /**
- * <p>This operation is not permitted.</p>
- * @public
- */
-export class OperationNotPermittedException extends __BaseException {
-  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
-    super({
-      name: "OperationNotPermittedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DescribeExportConfigurationsRequest {
@@ -1185,21 +946,6 @@ export interface DescribeExportConfigurationsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
  * <p>Information regarding the export status of discovered data. The value is an array of
@@ -1376,22 +1122,6 @@ export interface DescribeExportTasksResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ImportTaskFilterName = {
-  FILE_CLASSIFICATION: "FILE_CLASSIFICATION",
-  IMPORT_TASK_ID: "IMPORT_TASK_ID",
-  NAME: "NAME",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type ImportTaskFilterName = (typeof ImportTaskFilterName)[keyof typeof ImportTaskFilterName];
-
-/**
  * <p>A name-values pair of elements you can use to filter the results when querying your import
  *       tasks. Currently, wildcards are not supported for filters.</p>
  *          <note>
@@ -1438,46 +1168,6 @@ export interface DescribeImportTasksRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileClassification = {
-  IMPORT_TEMPLATE: "IMPORT_TEMPLATE",
-  MODELIZEIT_EXPORT: "MODELIZEIT_EXPORT",
-  RVTOOLS_EXPORT: "RVTOOLS_EXPORT",
-  VMWARE_NSX_EXPORT: "VMWARE_NSX_EXPORT",
-} as const;
-
-/**
- * @public
- */
-export type FileClassification = (typeof FileClassification)[keyof typeof FileClassification];
-
-/**
- * @public
- * @enum
- */
-export const ImportStatus = {
-  DELETE_COMPLETE: "DELETE_COMPLETE",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_FAILED_LIMIT_EXCEEDED: "DELETE_FAILED_LIMIT_EXCEEDED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE: "IMPORT_COMPLETE",
-  IMPORT_COMPLETE_WITH_ERRORS: "IMPORT_COMPLETE_WITH_ERRORS",
-  IMPORT_FAILED: "IMPORT_FAILED",
-  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED: "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
-  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED: "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
-  IMPORT_FAILED_UNSUPPORTED_FILE_TYPE: "IMPORT_FAILED_UNSUPPORTED_FILE_TYPE",
-  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
 /**
  * <p>An array of information related to the import task request that includes status
@@ -1655,22 +1345,6 @@ export interface DescribeTagsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ConfigurationItemType = {
-  APPLICATION: "APPLICATION",
-  CONNECTIONS: "CONNECTION",
-  PROCESS: "PROCESS",
-  SERVER: "SERVER",
-} as const;
-
-/**
- * @public
- */
-export type ConfigurationItemType = (typeof ConfigurationItemType)[keyof typeof ConfigurationItemType];
 
 /**
  * <p>Tags for a configuration item. Tags are metadata that help you categorize IT
@@ -2016,20 +1690,6 @@ export interface GetDiscoverySummaryResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrderString = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type OrderString = (typeof OrderString)[keyof typeof OrderString];
-
-/**
  * <p>A field and direction for ordered output.</p>
  * @public
  */
@@ -2219,28 +1879,6 @@ export interface ListServerNeighborsResponse {
 }
 
 /**
- * <p>
- *       The limit of 200 configuration IDs per request has been exceeded.
- *     </p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface StartBatchDeleteConfigurationTaskRequest {
@@ -2272,50 +1910,6 @@ export interface StartBatchDeleteConfigurationTaskResponse {
    * @public
    */
   taskId?: string | undefined;
-}
-
-/**
- * <p>Conflict error.</p>
- * @public
- */
-export class ConflictErrorException extends __BaseException {
-  readonly name: "ConflictErrorException" = "ConflictErrorException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictErrorException, __BaseException>) {
-    super({
-      name: "ConflictErrorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictErrorException.prototype);
-  }
-}
-
-/**
- * <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
- *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
- *       same request token but have two different import URLs, you can encounter this issue. If the
- *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
- *       try again.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
 }
 
 /**
@@ -2397,19 +1991,6 @@ export interface StartDataCollectionByAgentIdsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExportDataFormat = {
-  CSV: "CSV",
-} as const;
-
-/**
- * @public
- */
-export type ExportDataFormat = (typeof ExportDataFormat)[keyof typeof ExportDataFormat];
-
-/**
  * <p>
  *       Specifies the performance metrics to use for the server that is used for recommendations.
  *     </p>
@@ -2432,49 +2013,6 @@ export interface UsageMetricBasis {
    */
   percentageAdjust?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OfferingClass = {
-  CONVERTIBLE: "CONVERTIBLE",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type OfferingClass = (typeof OfferingClass)[keyof typeof OfferingClass];
-
-/**
- * @public
- * @enum
- */
-export const PurchasingOption = {
-  ALL_UPFRONT: "ALL_UPFRONT",
-  NO_UPFRONT: "NO_UPFRONT",
-  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
-} as const;
-
-/**
- * @public
- */
-export type PurchasingOption = (typeof PurchasingOption)[keyof typeof PurchasingOption];
-
-/**
- * @public
- * @enum
- */
-export const TermLength = {
-  ONE_YEAR: "ONE_YEAR",
-  THREE_YEAR: "THREE_YEAR",
-} as const;
-
-/**
- * @public
- */
-export type TermLength = (typeof TermLength)[keyof typeof TermLength];
 
 /**
  * <p>
@@ -2507,20 +2045,6 @@ export interface ReservedInstanceOptions {
    */
   termLength: TermLength | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Tenancy = {
-  DEDICATED: "DEDICATED",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
 
 /**
  * <p>

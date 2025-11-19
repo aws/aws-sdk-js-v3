@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_2";
+import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_1";
 import { ListLambdaFunctions } from "../schemas/schemas_0";
 
 /**

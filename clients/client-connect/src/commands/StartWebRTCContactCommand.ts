@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartWebRTCContactRequest, StartWebRTCContactResponse } from "../models/models_3";
+import { StartWebRTCContactRequest, StartWebRTCContactResponse } from "../models/models_2";
 import { StartWebRTCContact } from "../schemas/schemas_0";
 
 /**

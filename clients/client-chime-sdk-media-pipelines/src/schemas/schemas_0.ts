@@ -353,7 +353,7 @@ import {
   ServiceUnavailableException as __ServiceUnavailableException,
   ThrottledClientException as __ThrottledClientException,
   UnauthorizedClientException as __UnauthorizedClientException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

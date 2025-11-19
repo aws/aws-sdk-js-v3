@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableImageDeregistrationProtectionRequest,
   EnableImageDeregistrationProtectionResult,
-} from "../models/models_6";
+} from "../models/models_5";
 import { EnableImageDeregistrationProtection } from "../schemas/schemas_0";
 
 /**

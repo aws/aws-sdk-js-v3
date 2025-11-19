@@ -1,37 +1,13 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2ServiceException";
-
-/**
- * @public
- * @enum
- */
-export const BackupState = {
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETED: "DELETED",
-  PENDING_DELETION: "PENDING_DELETION",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type BackupState = (typeof BackupState)[keyof typeof BackupState];
-
-/**
- * @public
- * @enum
- */
-export const ClusterMode = {
-  FIPS: "FIPS",
-  NON_FIPS: "NON_FIPS",
-} as const;
-
-/**
- * @public
- */
-export type ClusterMode = (typeof ClusterMode)[keyof typeof ClusterMode];
+import {
+  BackupPolicy,
+  BackupRetentionType,
+  BackupState,
+  ClusterMode,
+  ClusterState,
+  HsmState,
+  NetworkType,
+} from "./enums";
 
 /**
  * <p>Contains a tag. A tag is a key-value pair.</p>
@@ -151,32 +127,6 @@ export interface Backup {
 }
 
 /**
- * @public
- * @enum
- */
-export const BackupPolicy = {
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type BackupPolicy = (typeof BackupPolicy)[keyof typeof BackupPolicy];
-
-/**
- * @public
- * @enum
- */
-export const BackupRetentionType = {
-  DAYS: "DAYS",
-} as const;
-
-/**
- * @public
- */
-export type BackupRetentionType = (typeof BackupRetentionType)[keyof typeof BackupRetentionType];
-
-/**
  * <p>A policy that defines the number of days to retain backups.</p>
  * @public
  */
@@ -193,141 +143,6 @@ export interface BackupRetentionPolicy {
    * @public
    */
   Value?: string | undefined;
-}
-
-/**
- * <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
- * @public
- */
-export class CloudHsmAccessDeniedException extends __BaseException {
-  readonly name: "CloudHsmAccessDeniedException" = "CloudHsmAccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmAccessDeniedException, __BaseException>) {
-    super({
-      name: "CloudHsmAccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmAccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because of an CloudHSM internal failure. The request can
- *       be retried.</p>
- * @public
- */
-export class CloudHsmInternalFailureException extends __BaseException {
-  readonly name: "CloudHsmInternalFailureException" = "CloudHsmInternalFailureException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmInternalFailureException, __BaseException>) {
-    super({
-      name: "CloudHsmInternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmInternalFailureException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because it is not a valid request.</p>
- * @public
- */
-export class CloudHsmInvalidRequestException extends __BaseException {
-  readonly name: "CloudHsmInvalidRequestException" = "CloudHsmInvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmInvalidRequestException, __BaseException>) {
-    super({
-      name: "CloudHsmInvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmInvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
- * @public
- */
-export class CloudHsmResourceNotFoundException extends __BaseException {
-  readonly name: "CloudHsmResourceNotFoundException" = "CloudHsmResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmResourceNotFoundException, __BaseException>) {
-    super({
-      name: "CloudHsmResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because an error occurred.</p>
- * @public
- */
-export class CloudHsmServiceException extends __BaseException {
-  readonly name: "CloudHsmServiceException" = "CloudHsmServiceException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmServiceException, __BaseException>) {
-    super({
-      name: "CloudHsmServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
- * @public
- */
-export class CloudHsmTagException extends __BaseException {
-  readonly name: "CloudHsmTagException" = "CloudHsmTagException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmTagException, __BaseException>) {
-    super({
-      name: "CloudHsmTagException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmTagException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -398,20 +213,6 @@ export interface CopyBackupToRegionResponse {
    */
   DestinationBackup?: DestinationBackup | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const NetworkType = {
-  DUALSTACK: "DUALSTACK",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
 
 /**
  * @public
@@ -515,23 +316,6 @@ export interface Certificates {
 }
 
 /**
- * @public
- * @enum
- */
-export const HsmState = {
-  ACTIVE: "ACTIVE",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DEGRADED: "DEGRADED",
-  DELETED: "DELETED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type HsmState = (typeof HsmState)[keyof typeof HsmState];
-
-/**
  * <p>Contains information about a hardware security module (HSM) in an CloudHSM
  *       cluster.</p>
  * @public
@@ -597,29 +381,6 @@ export interface Hsm {
    */
   StateMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ClusterState = {
-  ACTIVE: "ACTIVE",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DEGRADED: "DEGRADED",
-  DELETED: "DELETED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  INITIALIZED: "INITIALIZED",
-  INITIALIZE_IN_PROGRESS: "INITIALIZE_IN_PROGRESS",
-  MODIFY_IN_PROGRESS: "MODIFY_IN_PROGRESS",
-  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-  UNINITIALIZED: "UNINITIALIZED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
  * <p>Contains information about an CloudHSM cluster.</p>
@@ -1266,28 +1027,6 @@ export interface RestoreBackupResponse {
    * @public
    */
   Backup?: Backup | undefined;
-}
-
-/**
- * <p>The request was rejected because it exceeds an CloudHSM limit.</p>
- * @public
- */
-export class CloudHsmResourceLimitExceededException extends __BaseException {
-  readonly name: "CloudHsmResourceLimitExceededException" = "CloudHsmResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudHsmResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "CloudHsmResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudHsmResourceLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

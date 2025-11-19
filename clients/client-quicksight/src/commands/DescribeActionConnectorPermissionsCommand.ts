@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeActionConnectorPermissionsRequest,
   DescribeActionConnectorPermissionsResponse,
-} from "../models/models_4";
+} from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeActionConnectorPermissions } from "../schemas/schemas_0";
 

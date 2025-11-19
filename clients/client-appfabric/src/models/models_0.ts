@@ -1,27 +1,15 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AppFabricServiceException as __BaseException } from "./AppFabricServiceException";
-
-/**
- * <p>You are not authorized to perform this operation.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  AppAuthorizationStatus,
+  AuthType,
+  Format,
+  IngestionDestinationStatus,
+  IngestionState,
+  IngestionType,
+  Persona,
+  ResultStatus,
+  Schema,
+} from "./enums";
 
 /**
  * <p>Contains API key credential information.</p>
@@ -34,50 +22,6 @@ export interface ApiKeyCredential {
    */
   apiKey: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthType = {
-  API_KEY: "apiKey",
-  OAUTH2: "oauth2",
-} as const;
-
-/**
- * @public
- */
-export type AuthType = (typeof AuthType)[keyof typeof AuthType];
-
-/**
- * @public
- * @enum
- */
-export const Persona = {
-  ADMIN: "admin",
-  ENDUSER: "endUser",
-} as const;
-
-/**
- * @public
- */
-export type Persona = (typeof Persona)[keyof typeof Persona];
-
-/**
- * @public
- * @enum
- */
-export const AppAuthorizationStatus = {
-  CONNECTED: "Connected",
-  CONNECTION_VALIDATION_FAILED: "ConnectionValidationFailed",
-  PENDING_CONNECT: "PendingConnect",
-  TOKEN_AUTO_ROTATION_FAILED: "TokenAutoRotationFailed",
-} as const;
-
-/**
- * @public
- */
-export type AppAuthorizationStatus = (typeof AppAuthorizationStatus)[keyof typeof AppAuthorizationStatus];
 
 /**
  * <p>Contains information about an application tenant.</p>
@@ -384,34 +328,6 @@ export interface AuditLogDestinationConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const Format = {
-  JSON: "json",
-  PARQUET: "parquet",
-} as const;
-
-/**
- * @public
- */
-export type Format = (typeof Format)[keyof typeof Format];
-
-/**
- * @public
- * @enum
- */
-export const Schema = {
-  OCSF: "ocsf",
-  RAW: "raw",
-} as const;
-
-/**
- * @public
- */
-export type Schema = (typeof Schema)[keyof typeof Schema];
-
-/**
  * <p>Contains information about an audit log processing configuration.</p>
  * @public
  */
@@ -466,22 +382,6 @@ export interface BatchGetUserAccessTasksRequest {
    */
   taskIdList: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResultStatus = {
-  COMPLETED: "COMPLETED",
-  EXPIRED: "EXPIRED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ResultStatus = (typeof ResultStatus)[keyof typeof ResultStatus];
 
 /**
  * <p>Contains information about an error returned from a user access task.</p>
@@ -610,113 +510,6 @@ export interface BatchGetUserAccessTasksResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure
- *          with an internal server.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>The period of time after which you should retry your request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource ID.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>The request rate exceeds the limit.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The code of the service.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The code for the quota exceeded.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The period of time after which you should retry your request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p>The input failed to meet the constraints specified by the Amazon Web Services service in
  *          a specified field.</p>
  * @public
@@ -733,90 +526,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>The request has invalid or missing parameters.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The reason for the exception.</p>
-   * @public
-   */
-  reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>The field list.</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
-}
-
-/**
- * <p>The request has created a conflict. Check the request parameters and try again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource ID.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
 }
 
 /**
@@ -1084,54 +793,6 @@ export interface CreateAppAuthorizationResponse {
 }
 
 /**
- * <p>The request exceeds a service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The resource ID.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p>The code of the service.</p>
-   * @public
-   */
-  serviceCode: string | undefined;
-
-  /**
-   * <p>The code for the quota exceeded.</p>
-   * @public
-   */
-  quotaCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * @public
  */
 export interface CreateAppBundleRequest {
@@ -1174,19 +835,6 @@ export interface CreateAppBundleResponse {
    */
   appBundle: AppBundle | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngestionType = {
-  AUDIT_LOG: "auditLog",
-} as const;
-
-/**
- * @public
- */
-export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
 
 /**
  * @public
@@ -1301,20 +949,6 @@ export interface CreateIngestionRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngestionState = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type IngestionState = (typeof IngestionState)[keyof typeof IngestionState];
 
 /**
  * <p>Contains information about an ingestion.</p>
@@ -1508,20 +1142,6 @@ export interface CreateIngestionDestinationRequest {
    */
   tags?: Tag[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IngestionDestinationStatus = {
-  ACTIVE: "Active",
-  FAILED: "Failed",
-} as const;
-
-/**
- * @public
- */
-export type IngestionDestinationStatus = (typeof IngestionDestinationStatus)[keyof typeof IngestionDestinationStatus];
 
 /**
  * <p>Contains information about an ingestion destination.</p>

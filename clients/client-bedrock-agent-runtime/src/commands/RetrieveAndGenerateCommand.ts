@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RetrieveAndGenerateRequest, RetrieveAndGenerateResponse } from "../models/models_1";
+import { RetrieveAndGenerateRequest, RetrieveAndGenerateResponse } from "../models/models_0";
 import { RetrieveAndGenerate } from "../schemas/schemas_0";
 
 /**

@@ -1,47 +1,25 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { WorkspacesInstancesServiceException as __BaseException } from "./WorkspacesInstancesServiceException";
-
-/**
- * <p>Indicates insufficient permissions to perform the requested action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Detailed explanation of the access denial.</p>
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AmdSevSnpEnum = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type AmdSevSnpEnum = (typeof AmdSevSnpEnum)[keyof typeof AmdSevSnpEnum];
+import {
+  AmdSevSnpEnum,
+  AutoRecoveryEnum,
+  BandwidthWeightingEnum,
+  CapacityReservationPreferenceEnum,
+  CpuCreditsEnum,
+  DisassociateModeEnum,
+  HostnameTypeEnum,
+  HttpEndpointEnum,
+  HttpProtocolIpv6Enum,
+  HttpTokensEnum,
+  InstanceInterruptionBehaviorEnum,
+  InstanceMetadataTagsEnum,
+  InterfaceTypeEnum,
+  MarketTypeEnum,
+  ProvisionStateEnum,
+  ResourceTypeEnum,
+  SpotInstanceTypeEnum,
+  TenancyEnum,
+  VolumeTypeEnum,
+} from "./enums";
 
 /**
  * <p>Specifies volume attachment parameters.</p>
@@ -74,170 +52,6 @@ export interface AssociateVolumeRequest {
 export interface AssociateVolumeResponse {}
 
 /**
- * <p>Signals a conflict with the current state of the resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the conflict encountered.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Identifier of the conflicting resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Type of the conflicting resource.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>Indicates an unexpected server-side error occurred.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * <p>Description of the internal server error.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Recommended wait time before retrying the request.</p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
- * <p>Indicates the requested resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Details about the missing resource.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Identifier of the resource that was not found.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Type of the resource that was not found.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>Indicates the request rate has exceeded limits.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>Description of the throttling event.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Code identifying the service experiencing throttling.</p>
-   * @public
-   */
-  ServiceCode?: string | undefined;
-
-  /**
-   * <p>Specific code for the throttling quota.</p>
-   * @public
-   */
-  QuotaCode?: string | undefined;
-
-  /**
-   * <p>Recommended wait time before retrying the request.</p>
-   * @public
-   */
-  RetryAfterSeconds?: number | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
-    this.ServiceCode = opts.ServiceCode;
-    this.QuotaCode = opts.QuotaCode;
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
  * <p>Represents a validation error field in an API request.</p>
  * @public
  */
@@ -260,112 +74,6 @@ export interface ValidationExceptionField {
    */
   Message: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "CANNOT_PARSE",
-  DEPENDENCY_FAILURE: "DEPENDENCY_FAILURE",
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  OTHER: "OTHER",
-  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
-  UNSUPPORTED_OPERATION: "UNSUPPORTED_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p>Indicates invalid input parameters in the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Overall description of validation failures.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Specific reason for the validation failure.</p>
-   * @public
-   */
-  Reason: ValidationExceptionReason | undefined;
-
-  /**
-   * <p>List of fields that failed validation.</p>
-   * @public
-   */
-  FieldList?: ValidationExceptionField[] | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-    this.FieldList = opts.FieldList;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AutoRecoveryEnum = {
-  DEFAULT: "default",
-  DISABLED: "disabled",
-} as const;
-
-/**
- * @public
- */
-export type AutoRecoveryEnum = (typeof AutoRecoveryEnum)[keyof typeof AutoRecoveryEnum];
-
-/**
- * @public
- * @enum
- */
-export const BandwidthWeightingEnum = {
-  DEFAULT: "default",
-  EBS_1: "ebs-1",
-  VPC_1: "vpc-1",
-} as const;
-
-/**
- * @public
- */
-export type BandwidthWeightingEnum = (typeof BandwidthWeightingEnum)[keyof typeof BandwidthWeightingEnum];
-
-/**
- * @public
- * @enum
- */
-export const VolumeTypeEnum = {
-  GP2: "gp2",
-  GP3: "gp3",
-  IO1: "io1",
-  IO2: "io2",
-  SC1: "sc1",
-  ST1: "st1",
-  STANDARD: "standard",
-} as const;
-
-/**
- * @public
- */
-export type VolumeTypeEnum = (typeof VolumeTypeEnum)[keyof typeof VolumeTypeEnum];
 
 /**
  * <p>Defines configuration for an Elastic Block Store volume.</p>
@@ -440,22 +148,6 @@ export interface BlockDeviceMappingRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CapacityReservationPreferenceEnum = {
-  CAPACITY_RESERVATIONS_ONLY: "capacity-reservations-only",
-  NONE: "none",
-  OPEN: "open",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationPreferenceEnum =
-  (typeof CapacityReservationPreferenceEnum)[keyof typeof CapacityReservationPreferenceEnum];
-
-/**
  * <p>Identifies a specific capacity reservation.</p>
  * @public
  */
@@ -516,20 +208,6 @@ export interface ConnectionTrackingSpecificationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CpuCreditsEnum = {
-  STANDARD: "standard",
-  UNLIMITED: "unlimited",
-} as const;
-
-/**
- * @public
- */
-export type CpuCreditsEnum = (typeof CpuCreditsEnum)[keyof typeof CpuCreditsEnum];
-
-/**
  * <p>Configures CPU-specific settings for WorkSpace Instance.</p>
  * @public
  */
@@ -552,22 +230,6 @@ export interface CpuOptionsRequest {
    */
   ThreadsPerCore?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceTypeEnum = {
-  INSTANCE: "instance",
-  NETWORK_INTERFACE: "network-interface",
-  SPOT_INSTANCES_REQUEST: "spot-instances-request",
-  VOLUME: "volume",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTypeEnum = (typeof ResourceTypeEnum)[keyof typeof ResourceTypeEnum];
 
 /**
  * <p>Represents a key-value metadata tag.</p>
@@ -684,60 +346,6 @@ export interface CreateVolumeResponse {
 }
 
 /**
- * <p>Indicates that a service quota has been exceeded.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Description of the quota limitation.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Identifier of the resource related to the quota.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>Type of resource related to the quota.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>Code identifying the service with the quota limitation.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-
-  /**
-   * <p>Specific code for the exceeded quota.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.ServiceCode = opts.ServiceCode;
-    this.QuotaCode = opts.QuotaCode;
-  }
-}
-
-/**
  * <p>Defines CPU credit configuration for burstable instances.</p>
  * @public
  */
@@ -790,49 +398,6 @@ export interface IamInstanceProfileSpecification {
    */
   Name?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MarketTypeEnum = {
-  CAPACITY_BLOCK: "capacity-block",
-  SPOT: "spot",
-} as const;
-
-/**
- * @public
- */
-export type MarketTypeEnum = (typeof MarketTypeEnum)[keyof typeof MarketTypeEnum];
-
-/**
- * @public
- * @enum
- */
-export const InstanceInterruptionBehaviorEnum = {
-  HIBERNATE: "hibernate",
-  STOP: "stop",
-} as const;
-
-/**
- * @public
- */
-export type InstanceInterruptionBehaviorEnum =
-  (typeof InstanceInterruptionBehaviorEnum)[keyof typeof InstanceInterruptionBehaviorEnum];
-
-/**
- * @public
- * @enum
- */
-export const SpotInstanceTypeEnum = {
-  ONE_TIME: "one-time",
-  PERSISTENT: "persistent",
-} as const;
-
-/**
- * @public
- */
-export type SpotInstanceTypeEnum = (typeof SpotInstanceTypeEnum)[keyof typeof SpotInstanceTypeEnum];
 
 /**
  * <p>Defines configuration for spot instance deployment.</p>
@@ -931,62 +496,6 @@ export interface InstanceMaintenanceOptionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const HttpEndpointEnum = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type HttpEndpointEnum = (typeof HttpEndpointEnum)[keyof typeof HttpEndpointEnum];
-
-/**
- * @public
- * @enum
- */
-export const HttpProtocolIpv6Enum = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type HttpProtocolIpv6Enum = (typeof HttpProtocolIpv6Enum)[keyof typeof HttpProtocolIpv6Enum];
-
-/**
- * @public
- * @enum
- */
-export const HttpTokensEnum = {
-  OPTIONAL: "optional",
-  REQUIRED: "required",
-} as const;
-
-/**
- * @public
- */
-export type HttpTokensEnum = (typeof HttpTokensEnum)[keyof typeof HttpTokensEnum];
-
-/**
- * @public
- * @enum
- */
-export const InstanceMetadataTagsEnum = {
-  DISABLED: "disabled",
-  ENABLED: "enabled",
-} as const;
-
-/**
- * @public
- */
-export type InstanceMetadataTagsEnum = (typeof InstanceMetadataTagsEnum)[keyof typeof InstanceMetadataTagsEnum];
-
-/**
  * <p>Defines instance metadata service configuration.</p>
  * @public
  */
@@ -1063,21 +572,6 @@ export interface EnaSrdSpecificationRequest {
    */
   EnaSrdUdpSpecification?: EnaSrdUdpSpecificationRequest | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InterfaceTypeEnum = {
-  EFA: "efa",
-  EFA_ONLY: "efa-only",
-  INTERFACE: "interface",
-} as const;
-
-/**
- * @public
- */
-export type InterfaceTypeEnum = (typeof InterfaceTypeEnum)[keyof typeof InterfaceTypeEnum];
 
 /**
  * <p>Specifies IPv4 prefix configuration for network interfaces.</p>
@@ -1266,21 +760,6 @@ export interface InstanceNetworkPerformanceOptionsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const TenancyEnum = {
-  DEDICATED: "dedicated",
-  DEFAULT: "default",
-  HOST: "host",
-} as const;
-
-/**
- * @public
- */
-export type TenancyEnum = (typeof TenancyEnum)[keyof typeof TenancyEnum];
-
-/**
  * <p>Defines instance placement configuration for WorkSpace Instance.</p>
  * @public
  */
@@ -1333,20 +812,6 @@ export interface Placement {
    */
   Tenancy?: TenancyEnum | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HostnameTypeEnum = {
-  IP_NAME: "ip-name",
-  RESOURCE_NAME: "resource-name",
-} as const;
-
-/**
- * @public
- */
-export type HostnameTypeEnum = (typeof HostnameTypeEnum)[keyof typeof HostnameTypeEnum];
 
 /**
  * <p>Configures private DNS name settings for WorkSpace Instance.</p>
@@ -1643,20 +1108,6 @@ export interface DeleteWorkspaceInstanceRequest {
 export interface DeleteWorkspaceInstanceResponse {}
 
 /**
- * @public
- * @enum
- */
-export const DisassociateModeEnum = {
-  FORCE: "FORCE",
-  NO_FORCE: "NO_FORCE",
-} as const;
-
-/**
- * @public
- */
-export type DisassociateModeEnum = (typeof DisassociateModeEnum)[keyof typeof DisassociateModeEnum];
-
-/**
  * <p>Specifies volume detachment parameters.</p>
  * @public
  */
@@ -1739,24 +1190,6 @@ export interface GetWorkspaceInstanceRequest {
    */
   WorkspaceInstanceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProvisionStateEnum = {
-  ALLOCATED: "ALLOCATED",
-  ALLOCATING: "ALLOCATING",
-  DEALLOCATED: "DEALLOCATED",
-  DEALLOCATING: "DEALLOCATING",
-  ERROR_ALLOCATING: "ERROR_ALLOCATING",
-  ERROR_DEALLOCATING: "ERROR_DEALLOCATING",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionStateEnum = (typeof ProvisionStateEnum)[keyof typeof ProvisionStateEnum];
 
 /**
  * <p>Captures errors specific to WorkSpace Instance operations.</p>

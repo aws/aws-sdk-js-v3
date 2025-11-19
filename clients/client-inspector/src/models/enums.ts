@@ -1,0 +1,356 @@
+// smithy-typescript generated code
+/**
+ * @public
+ * @enum
+ */
+export const AccessDeniedErrorCode = {
+  ACCESS_DENIED_TO_ASSESSMENT_RUN: "ACCESS_DENIED_TO_ASSESSMENT_RUN",
+  ACCESS_DENIED_TO_ASSESSMENT_TARGET: "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
+  ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE: "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
+  ACCESS_DENIED_TO_FINDING: "ACCESS_DENIED_TO_FINDING",
+  ACCESS_DENIED_TO_IAM_ROLE: "ACCESS_DENIED_TO_IAM_ROLE",
+  ACCESS_DENIED_TO_RESOURCE_GROUP: "ACCESS_DENIED_TO_RESOURCE_GROUP",
+  ACCESS_DENIED_TO_RULES_PACKAGE: "ACCESS_DENIED_TO_RULES_PACKAGE",
+  ACCESS_DENIED_TO_SNS_TOPIC: "ACCESS_DENIED_TO_SNS_TOPIC",
+} as const;
+/**
+ * @public
+ */
+export type AccessDeniedErrorCode = (typeof AccessDeniedErrorCode)[keyof typeof AccessDeniedErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FailedItemErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DUPLICATE_ARN: "DUPLICATE_ARN",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ARN: "INVALID_ARN",
+  ITEM_DOES_NOT_EXIST: "ITEM_DOES_NOT_EXIST",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type FailedItemErrorCode = (typeof FailedItemErrorCode)[keyof typeof FailedItemErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvalidInputErrorCode = {
+  ASSESSMENT_TARGET_NAME_ALREADY_TAKEN: "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
+  ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN: "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
+  INVALID_AGENT_ID: "INVALID_AGENT_ID",
+  INVALID_ASSESSMENT_RUN_ARN: "INVALID_ASSESSMENT_RUN_ARN",
+  INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE: "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
+  INVALID_ASSESSMENT_RUN_DURATION_RANGE: "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
+  INVALID_ASSESSMENT_RUN_START_TIME_RANGE: "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
+  INVALID_ASSESSMENT_RUN_STATE: "INVALID_ASSESSMENT_RUN_STATE",
+  INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE: "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
+  INVALID_ASSESSMENT_TARGET_ARN: "INVALID_ASSESSMENT_TARGET_ARN",
+  INVALID_ASSESSMENT_TARGET_NAME: "INVALID_ASSESSMENT_TARGET_NAME",
+  INVALID_ASSESSMENT_TARGET_NAME_PATTERN: "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
+  INVALID_ASSESSMENT_TEMPLATE_ARN: "INVALID_ASSESSMENT_TEMPLATE_ARN",
+  INVALID_ASSESSMENT_TEMPLATE_DURATION: "INVALID_ASSESSMENT_TEMPLATE_DURATION",
+  INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE: "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
+  INVALID_ASSESSMENT_TEMPLATE_NAME: "INVALID_ASSESSMENT_TEMPLATE_NAME",
+  INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN: "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
+  INVALID_ATTRIBUTE: "INVALID_ATTRIBUTE",
+  INVALID_AUTO_SCALING_GROUP: "INVALID_AUTO_SCALING_GROUP",
+  INVALID_EVENT: "INVALID_EVENT",
+  INVALID_FINDING_ARN: "INVALID_FINDING_ARN",
+  INVALID_IAM_ROLE_ARN: "INVALID_IAM_ROLE_ARN",
+  INVALID_LOCALE: "INVALID_LOCALE",
+  INVALID_MAX_RESULTS: "INVALID_MAX_RESULTS",
+  INVALID_NUMBER_OF_AGENT_IDS: "INVALID_NUMBER_OF_AGENT_IDS",
+  INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
+  INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES: "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
+  INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
+  INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
+  INVALID_NUMBER_OF_ATTRIBUTES: "INVALID_NUMBER_OF_ATTRIBUTES",
+  INVALID_NUMBER_OF_AUTO_SCALING_GROUPS: "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
+  INVALID_NUMBER_OF_FINDING_ARNS: "INVALID_NUMBER_OF_FINDING_ARNS",
+  INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS: "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
+  INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS: "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
+  INVALID_NUMBER_OF_RULES_PACKAGE_ARNS: "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
+  INVALID_NUMBER_OF_RULE_NAMES: "INVALID_NUMBER_OF_RULE_NAMES",
+  INVALID_NUMBER_OF_SEVERITIES: "INVALID_NUMBER_OF_SEVERITIES",
+  INVALID_NUMBER_OF_TAGS: "INVALID_NUMBER_OF_TAGS",
+  INVALID_NUMBER_OF_USER_ATTRIBUTES: "INVALID_NUMBER_OF_USER_ATTRIBUTES",
+  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
+  INVALID_RESOURCE_ARN: "INVALID_RESOURCE_ARN",
+  INVALID_RESOURCE_GROUP_ARN: "INVALID_RESOURCE_GROUP_ARN",
+  INVALID_RESOURCE_GROUP_TAG_KEY: "INVALID_RESOURCE_GROUP_TAG_KEY",
+  INVALID_RESOURCE_GROUP_TAG_VALUE: "INVALID_RESOURCE_GROUP_TAG_VALUE",
+  INVALID_RULES_PACKAGE_ARN: "INVALID_RULES_PACKAGE_ARN",
+  INVALID_RULE_NAME: "INVALID_RULE_NAME",
+  INVALID_SEVERITY: "INVALID_SEVERITY",
+  INVALID_SNS_TOPIC_ARN: "INVALID_SNS_TOPIC_ARN",
+  INVALID_TAG: "INVALID_TAG",
+  INVALID_TAG_KEY: "INVALID_TAG_KEY",
+  INVALID_TAG_VALUE: "INVALID_TAG_VALUE",
+  INVALID_USER_ATTRIBUTE: "INVALID_USER_ATTRIBUTE",
+  INVALID_USER_ATTRIBUTE_KEY: "INVALID_USER_ATTRIBUTE_KEY",
+  INVALID_USER_ATTRIBUTE_VALUE: "INVALID_USER_ATTRIBUTE_VALUE",
+} as const;
+/**
+ * @public
+ */
+export type InvalidInputErrorCode = (typeof InvalidInputErrorCode)[keyof typeof InvalidInputErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const NoSuchEntityErrorCode = {
+  ASSESSMENT_RUN_DOES_NOT_EXIST: "ASSESSMENT_RUN_DOES_NOT_EXIST",
+  ASSESSMENT_TARGET_DOES_NOT_EXIST: "ASSESSMENT_TARGET_DOES_NOT_EXIST",
+  ASSESSMENT_TEMPLATE_DOES_NOT_EXIST: "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
+  FINDING_DOES_NOT_EXIST: "FINDING_DOES_NOT_EXIST",
+  IAM_ROLE_DOES_NOT_EXIST: "IAM_ROLE_DOES_NOT_EXIST",
+  RESOURCE_GROUP_DOES_NOT_EXIST: "RESOURCE_GROUP_DOES_NOT_EXIST",
+  RULES_PACKAGE_DOES_NOT_EXIST: "RULES_PACKAGE_DOES_NOT_EXIST",
+  SNS_TOPIC_DOES_NOT_EXIST: "SNS_TOPIC_DOES_NOT_EXIST",
+} as const;
+/**
+ * @public
+ */
+export type NoSuchEntityErrorCode = (typeof NoSuchEntityErrorCode)[keyof typeof NoSuchEntityErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentHealthCode = {
+  IDLE: "IDLE",
+  RUNNING: "RUNNING",
+  SHUTDOWN: "SHUTDOWN",
+  THROTTLED: "THROTTLED",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type AgentHealthCode = (typeof AgentHealthCode)[keyof typeof AgentHealthCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentHealth = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type AgentHealth = (typeof AgentHealth)[keyof typeof AgentHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const Severity = {
+  HIGH: "High",
+  INFORMATIONAL: "Informational",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  UNDEFINED: "Undefined",
+} as const;
+/**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * @public
+ * @enum
+ */
+export const InspectorEvent = {
+  ASSESSMENT_RUN_COMPLETED: "ASSESSMENT_RUN_COMPLETED",
+  ASSESSMENT_RUN_STARTED: "ASSESSMENT_RUN_STARTED",
+  ASSESSMENT_RUN_STATE_CHANGED: "ASSESSMENT_RUN_STATE_CHANGED",
+  FINDING_REPORTED: "FINDING_REPORTED",
+  OTHER: "OTHER",
+} as const;
+/**
+ * @public
+ */
+export type InspectorEvent = (typeof InspectorEvent)[keyof typeof InspectorEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentRunNotificationSnsStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  SUCCESS: "SUCCESS",
+  TOPIC_DOES_NOT_EXIST: "TOPIC_DOES_NOT_EXIST",
+} as const;
+/**
+ * @public
+ */
+export type AssessmentRunNotificationSnsStatusCode =
+  (typeof AssessmentRunNotificationSnsStatusCode)[keyof typeof AssessmentRunNotificationSnsStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssessmentRunState = {
+  CANCELED: "CANCELED",
+  COLLECTING_DATA: "COLLECTING_DATA",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  CREATED: "CREATED",
+  DATA_COLLECTED: "DATA_COLLECTED",
+  ERROR: "ERROR",
+  EVALUATING_RULES: "EVALUATING_RULES",
+  FAILED: "FAILED",
+  START_DATA_COLLECTION_IN_PROGRESS: "START_DATA_COLLECTION_IN_PROGRESS",
+  START_DATA_COLLECTION_PENDING: "START_DATA_COLLECTION_PENDING",
+  START_EVALUATING_RULES_PENDING: "START_EVALUATING_RULES_PENDING",
+  STOP_DATA_COLLECTION_PENDING: "STOP_DATA_COLLECTION_PENDING",
+} as const;
+/**
+ * @public
+ */
+export type AssessmentRunState = (typeof AssessmentRunState)[keyof typeof AssessmentRunState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetType = {
+  EC2_INSTANCE: "ec2-instance",
+} as const;
+/**
+ * @public
+ */
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvalidCrossAccountRoleErrorCode = {
+  ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP: "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
+  ROLE_DOES_NOT_HAVE_CORRECT_POLICY: "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
+} as const;
+/**
+ * @public
+ */
+export type InvalidCrossAccountRoleErrorCode =
+  (typeof InvalidCrossAccountRoleErrorCode)[keyof typeof InvalidCrossAccountRoleErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const LimitExceededErrorCode = {
+  ASSESSMENT_RUN_LIMIT_EXCEEDED: "ASSESSMENT_RUN_LIMIT_EXCEEDED",
+  ASSESSMENT_TARGET_LIMIT_EXCEEDED: "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
+  ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED: "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
+  EVENT_SUBSCRIPTION_LIMIT_EXCEEDED: "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
+  RESOURCE_GROUP_LIMIT_EXCEEDED: "RESOURCE_GROUP_LIMIT_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type LimitExceededErrorCode = (typeof LimitExceededErrorCode)[keyof typeof LimitExceededErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Locale = {
+  EN_US: "EN_US",
+} as const;
+/**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeType = {
+  INSTANCE_ID: "INSTANCE_ID",
+  RULES_PACKAGE_ARN: "RULES_PACKAGE_ARN",
+} as const;
+/**
+ * @public
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportFileFormat = {
+  HTML: "HTML",
+  PDF: "PDF",
+} as const;
+/**
+ * @public
+ */
+export type ReportFileFormat = (typeof ReportFileFormat)[keyof typeof ReportFileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportType = {
+  FINDING: "FINDING",
+  FULL: "FULL",
+} as const;
+/**
+ * @public
+ */
+export type ReportType = (typeof ReportType)[keyof typeof ReportType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type ReportStatus = (typeof ReportStatus)[keyof typeof ReportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreviewStatus = {
+  COMPLETED: "COMPLETED",
+  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type PreviewStatus = (typeof PreviewStatus)[keyof typeof PreviewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StopAction = {
+  SKIP_EVALUATION: "SKIP_EVALUATION",
+  START_EVALUATION: "START_EVALUATION",
+} as const;
+/**
+ * @public
+ */
+export type StopAction = (typeof StopAction)[keyof typeof StopAction];

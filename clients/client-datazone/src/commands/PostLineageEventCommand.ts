@@ -5,7 +5,7 @@ import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smit
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PostLineageEventInput, PostLineageEventOutput } from "../models/models_2";
+import { PostLineageEventInput, PostLineageEventOutput } from "../models/models_1";
 import { PostLineageEvent } from "../schemas/schemas_0";
 
 /**

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
-} from "../models/models_6";
+} from "../models/models_4";
 import { DescribeTransitGatewayRouteTableAnnouncements } from "../schemas/schemas_0";
 
 /**

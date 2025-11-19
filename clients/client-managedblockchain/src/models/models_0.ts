@@ -1,74 +1,19 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ManagedBlockchainServiceException as __BaseException } from "./ManagedBlockchainServiceException";
-
-/**
- * <p>You don't have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AccessorNetworkType = {
-  ETHEREUM_GOERLI: "ETHEREUM_GOERLI",
-  ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
-  ETHEREUM_MAINNET_AND_GOERLI: "ETHEREUM_MAINNET_AND_GOERLI",
-  POLYGON_MAINNET: "POLYGON_MAINNET",
-  POLYGON_MUMBAI: "POLYGON_MUMBAI",
-} as const;
-
-/**
- * @public
- */
-export type AccessorNetworkType = (typeof AccessorNetworkType)[keyof typeof AccessorNetworkType];
-
-/**
- * @public
- * @enum
- */
-export const AccessorStatus = {
-  AVAILABLE: "AVAILABLE",
-  DELETED: "DELETED",
-  PENDING_DELETION: "PENDING_DELETION",
-} as const;
-
-/**
- * @public
- */
-export type AccessorStatus = (typeof AccessorStatus)[keyof typeof AccessorStatus];
-
-/**
- * @public
- * @enum
- */
-export const AccessorType = {
-  BILLING_TOKEN: "BILLING_TOKEN",
-} as const;
-
-/**
- * @public
- */
-export type AccessorType = (typeof AccessorType)[keyof typeof AccessorType];
+import {
+  AccessorNetworkType,
+  AccessorStatus,
+  AccessorType,
+  Edition,
+  Framework,
+  InvitationStatus,
+  MemberStatus,
+  NetworkStatus,
+  NodeStatus,
+  ProposalStatus,
+  StateDBType,
+  ThresholdComparator,
+  VoteValue,
+} from "./enums";
 
 /**
  * <p>The properties of the Accessor.</p>
@@ -178,20 +123,6 @@ export interface AccessorSummary {
    */
   NetworkType?: AccessorNetworkType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ThresholdComparator = {
-  GREATER_THAN: "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
-} as const;
-
-/**
- * @public
- */
-export type ThresholdComparator = (typeof ThresholdComparator)[keyof typeof ThresholdComparator];
 
 /**
  * <p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
@@ -315,144 +246,6 @@ export interface CreateAccessorOutput {
    * @public
    */
   NetworkType?: AccessorNetworkType | undefined;
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-  }
-}
-
-/**
- * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A resource request is issued for a resource that already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The maximum number of resources of that type already exist. Ensure the resources requested
- *          are within the boundaries of the service edition and your account limits.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p></p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p></p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
 }
 
 /**
@@ -633,84 +426,6 @@ export interface CreateMemberOutput {
 }
 
 /**
- * <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>A requested resource doesn't exist. It may have been deleted or referenced inaccurately.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
-}
-
-/**
- * <p>The requested resource exists but isn't in a status that can complete the operation.</p>
- * @public
- */
-export class ResourceNotReadyException extends __BaseException {
-  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
-    super({
-      name: "ResourceNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Framework = {
-  ETHEREUM: "ETHEREUM",
-  HYPERLEDGER_FABRIC: "HYPERLEDGER_FABRIC",
-} as const;
-
-/**
- * @public
- */
-export type Framework = (typeof Framework)[keyof typeof Framework];
-
-/**
- * @public
- * @enum
- */
-export const Edition = {
-  STANDARD: "STANDARD",
-  STARTER: "STARTER",
-} as const;
-
-/**
- * @public
- */
-export type Edition = (typeof Edition)[keyof typeof Edition];
-
-/**
  * <p>Hyperledger Fabric configuration properties for the network.</p>
  * @public
  */
@@ -870,20 +585,6 @@ export interface NodeLogPublishingConfiguration {
    */
   Fabric?: NodeFabricLogPublishingConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StateDBType = {
-  CouchDB: "CouchDB",
-  LevelDB: "LevelDB",
-} as const;
-
-/**
- * @public
- */
-export type StateDBType = (typeof StateDBType)[keyof typeof StateDBType];
 
 /**
  * <p>Configuration properties of a node.</p>
@@ -1231,25 +932,6 @@ export interface MemberFrameworkAttributes {
 }
 
 /**
- * @public
- * @enum
- */
-export const MemberStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
-
-/**
  * <p>Member configuration properties.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @public
@@ -1434,23 +1116,6 @@ export interface NetworkFrameworkAttributes {
 }
 
 /**
- * @public
- * @enum
- */
-export const NetworkStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-} as const;
-
-/**
- * @public
- */
-export type NetworkStatus = (typeof NetworkStatus)[keyof typeof NetworkStatus];
-
-/**
  * <p>Network configuration properties.</p>
  * @public
  */
@@ -1619,27 +1284,6 @@ export interface NodeFrameworkAttributes {
 }
 
 /**
- * @public
- * @enum
- */
-export const NodeStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATING: "CREATING",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
-  UNHEALTHY: "UNHEALTHY",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type NodeStatus = (typeof NodeStatus)[keyof typeof NodeStatus];
-
-/**
  * <p>Configuration properties of a node.</p>
  * @public
  */
@@ -1796,23 +1440,6 @@ export interface GetProposalInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const ProposalStatus = {
-  ACTION_FAILED: "ACTION_FAILED",
-  APPROVED: "APPROVED",
-  EXPIRED: "EXPIRED",
-  IN_PROGRESS: "IN_PROGRESS",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type ProposalStatus = (typeof ProposalStatus)[keyof typeof ProposalStatus];
-
-/**
  * <p>Properties of a proposal on a Managed Blockchain network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @public
@@ -1948,28 +1575,6 @@ export interface GetProposalOutput {
 }
 
 /**
- * <p></p>
- * @public
- */
-export class IllegalActionException extends __BaseException {
-  readonly name: "IllegalActionException" = "IllegalActionException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalActionException, __BaseException>) {
-    super({
-      name: "IllegalActionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalActionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A summary of network configuration properties.</p>
  * @public
  */
@@ -2022,23 +1627,6 @@ export interface NetworkSummary {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InvitationStatus = {
-  ACCEPTED: "ACCEPTED",
-  ACCEPTING: "ACCEPTING",
-  EXPIRED: "EXPIRED",
-  PENDING: "PENDING",
-  REJECTED: "REJECTED",
-} as const;
-
-/**
- * @public
- */
-export type InvitationStatus = (typeof InvitationStatus)[keyof typeof InvitationStatus];
 
 /**
  * <p>An invitation to an Amazon Web Services account to create a member and join the network.</p>
@@ -2646,20 +2234,6 @@ export interface ListProposalVotesInput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const VoteValue = {
-  NO: "NO",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type VoteValue = (typeof VoteValue)[keyof typeof VoteValue];
 
 /**
  * <p>

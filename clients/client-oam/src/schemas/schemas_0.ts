@@ -114,7 +114,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { OAMServiceException as __OAMServiceException } from "../models/OAMServiceException";
 
 /* eslint no-var: 0 */

@@ -276,7 +276,7 @@ import {
   UpdateChimeWebhookConfigurationException as __UpdateChimeWebhookConfigurationException,
   UpdateSlackChannelConfigurationException as __UpdateSlackChannelConfigurationException,
   UpdateTeamsChannelConfigurationException as __UpdateTeamsChannelConfigurationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_1";
+import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_0";
 import { SuspendGameServerGroup } from "../schemas/schemas_0";
 
 /**

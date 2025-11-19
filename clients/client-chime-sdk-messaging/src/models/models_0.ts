@@ -1,36 +1,23 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { ChimeSDKMessagingServiceException as __BaseException } from "./ChimeSDKMessagingServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AllowNotifications = {
-  ALL: "ALL",
-  FILTERED: "FILTERED",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type AllowNotifications = (typeof AllowNotifications)[keyof typeof AllowNotifications];
-
-/**
- * @public
- * @enum
- */
-export const ChannelMembershipType = {
-  DEFAULT: "DEFAULT",
-  HIDDEN: "HIDDEN",
-} as const;
-
-/**
- * @public
- */
-export type ChannelMembershipType = (typeof ChannelMembershipType)[keyof typeof ChannelMembershipType];
+import {
+  AllowNotifications,
+  ChannelMembershipType,
+  ChannelMessagePersistenceType,
+  ChannelMessageStatus,
+  ChannelMessageType,
+  ChannelMode,
+  ChannelPrivacy,
+  ErrorCode,
+  ExpirationCriterion,
+  FallbackAction,
+  InvocationType,
+  MessagingDataType,
+  NetworkType,
+  PushNotificationType,
+  SearchFieldKey,
+  SearchFieldOperator,
+  SortOrder,
+} from "./enums";
 
 /**
  * <p>Summary of the membership details of an <code>AppInstanceUser</code>.</p>
@@ -77,226 +64,6 @@ export interface AssociateChannelFlowRequest {
    * @public
    */
   ChimeBearer: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  AccessDenied: "AccessDenied",
-  BadRequest: "BadRequest",
-  Conflict: "Conflict",
-  Forbidden: "Forbidden",
-  NotFound: "NotFound",
-  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
-  PreconditionFailed: "PreconditionFailed",
-  ResourceLimitExceeded: "ResourceLimitExceeded",
-  ServiceFailure: "ServiceFailure",
-  ServiceUnavailable: "ServiceUnavailable",
-  Throttled: "Throttled",
-  Throttling: "Throttling",
-  Unauthorized: "Unauthorized",
-  Unprocessable: "Unprocessable",
-  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
-} as const;
-
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
- * <p>The input parameters don't match the service's restrictions.</p>
- * @public
- */
-export class BadRequestException extends __BaseException {
-  readonly name: "BadRequestException" = "BadRequestException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
-    super({
-      name: "BadRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BadRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The client is permanently forbidden from making the request.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>One or more of the resources in the request does not exist in the system.</p>
- * @public
- */
-export class NotFoundException extends __BaseException {
-  readonly name: "NotFoundException" = "NotFoundException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
-    super({
-      name: "NotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service encountered an unexpected error.</p>
- * @public
- */
-export class ServiceFailureException extends __BaseException {
-  readonly name: "ServiceFailureException" = "ServiceFailureException";
-  readonly $fault: "server" = "server";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
-    super({
-      name: "ServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The client exceeded its request rate limit.</p>
- * @public
- */
-export class ThrottledClientException extends __BaseException {
-  readonly name: "ThrottledClientException" = "ThrottledClientException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottledClientException, __BaseException>) {
-    super({
-      name: "ThrottledClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottledClientException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The client is not currently authorized to make the request.</p>
- * @public
- */
-export class UnauthorizedClientException extends __BaseException {
-  readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedClientException, __BaseException>) {
-    super({
-      name: "UnauthorizedClientException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedClientException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -441,30 +208,6 @@ export interface BatchCreateChannelMembershipResponse {
 }
 
 /**
- * <p>The request exceeds the resource limit.</p>
- * @public
- */
-export class ResourceLimitExceededException extends __BaseException {
-  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
-  readonly $fault: "client" = "client";
-  Code?: ErrorCode | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
  * @public
  */
@@ -489,20 +232,6 @@ export interface ElasticChannelConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExpirationCriterion = {
-  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
-  LAST_MESSAGE_TIMESTAMP: "LAST_MESSAGE_TIMESTAMP",
-} as const;
-
-/**
- * @public
- */
-export type ExpirationCriterion = (typeof ExpirationCriterion)[keyof typeof ExpirationCriterion];
-
-/**
  * <p>Settings that control the interval after which a channel is deleted.</p>
  * @public
  */
@@ -519,34 +248,6 @@ export interface ExpirationSettings {
    */
   ExpirationCriterion: ExpirationCriterion | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelMode = {
-  RESTRICTED: "RESTRICTED",
-  UNRESTRICTED: "UNRESTRICTED",
-} as const;
-
-/**
- * @public
- */
-export type ChannelMode = (typeof ChannelMode)[keyof typeof ChannelMode];
-
-/**
- * @public
- * @enum
- */
-export const ChannelPrivacy = {
-  PRIVATE: "PRIVATE",
-  PUBLIC: "PUBLIC",
-} as const;
-
-/**
- * @public
- */
-export type ChannelPrivacy = (typeof ChannelPrivacy)[keyof typeof ChannelPrivacy];
 
 /**
  * <p>The details of a channel.</p>
@@ -705,19 +406,6 @@ export interface ChannelBanSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const InvocationType = {
-  ASYNC: "ASYNC",
-} as const;
-
-/**
- * @public
- */
-export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
-
-/**
  * <p>Stores metadata about a Lambda processor.</p>
  * @public
  */
@@ -746,20 +434,6 @@ export interface ProcessorConfiguration {
    */
   Lambda: LambdaConfiguration | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const FallbackAction = {
-  ABORT: "ABORT",
-  CONTINUE: "CONTINUE",
-} as const;
-
-/**
- * @public
- */
-export type FallbackAction = (typeof FallbackAction)[keyof typeof FallbackAction];
 
 /**
  * <p>The information about a processor in a channel flow.</p>
@@ -841,20 +515,6 @@ export interface MessageAttributeValue {
    */
   StringValues?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PushNotificationType = {
-  DEFAULT: "DEFAULT",
-  VOIP: "VOIP",
-} as const;
-
-/**
- * @public
- */
-export type PushNotificationType = (typeof PushNotificationType)[keyof typeof PushNotificationType];
 
 /**
  * <p>The push notification configuration of the message.</p>
@@ -1160,37 +820,6 @@ export interface ChannelMembershipSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const ChannelMessagePersistenceType = {
-  NON_PERSISTENT: "NON_PERSISTENT",
-  PERSISTENT: "PERSISTENT",
-} as const;
-
-/**
- * @public
- */
-export type ChannelMessagePersistenceType =
-  (typeof ChannelMessagePersistenceType)[keyof typeof ChannelMessagePersistenceType];
-
-/**
- * @public
- * @enum
- */
-export const ChannelMessageStatus = {
-  DENIED: "DENIED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  SENT: "SENT",
-} as const;
-
-/**
- * @public
- */
-export type ChannelMessageStatus = (typeof ChannelMessageStatus)[keyof typeof ChannelMessageStatus];
-
-/**
  * <p>Stores information about a message status.</p>
  * @public
  */
@@ -1220,20 +849,6 @@ export interface Target {
    */
   MemberArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ChannelMessageType = {
-  CONTROL: "CONTROL",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type ChannelMessageType = (typeof ChannelMessageType)[keyof typeof ChannelMessageType];
 
 /**
  * <p>The details of a message in a channel.</p>
@@ -2349,20 +1964,6 @@ export interface GetChannelMessageStatusResponse {
 
 /**
  * @public
- * @enum
- */
-export const NetworkType = {
-  DUAL_STACK: "DUAL_STACK",
-  IPV4_ONLY: "IPV4_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
-
-/**
- * @public
  */
 export interface GetMessagingSessionEndpointRequest {
   /**
@@ -2405,20 +2006,6 @@ export interface GetMessagingStreamingConfigurationsRequest {
    */
   AppInstanceArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MessagingDataType = {
-  Channel: "Channel",
-  ChannelMessage: "ChannelMessage",
-} as const;
-
-/**
- * @public
- */
-export type MessagingDataType = (typeof MessagingDataType)[keyof typeof MessagingDataType];
 
 /**
  * <p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>
@@ -2662,20 +2249,6 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -3231,33 +2804,6 @@ export interface RedactChannelMessageResponse {
    */
   SubChannelId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SearchFieldKey = {
-  MEMBERS: "MEMBERS",
-} as const;
-
-/**
- * @public
- */
-export type SearchFieldKey = (typeof SearchFieldKey)[keyof typeof SearchFieldKey];
-
-/**
- * @public
- * @enum
- */
-export const SearchFieldOperator = {
-  EQUALS: "EQUALS",
-  INCLUDES: "INCLUDES",
-} as const;
-
-/**
- * @public
- */
-export type SearchFieldOperator = (typeof SearchFieldOperator)[keyof typeof SearchFieldOperator];
 
 /**
  * <p>A <code>Field</code> of the channel that you want to search.</p>

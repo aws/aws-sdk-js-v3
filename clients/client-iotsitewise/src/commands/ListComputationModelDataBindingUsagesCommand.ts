@@ -8,7 +8,7 @@ import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ListComputationModelDataBindingUsagesRequest,
   ListComputationModelDataBindingUsagesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListComputationModelDataBindingUsages } from "../schemas/schemas_0";
 
 /**

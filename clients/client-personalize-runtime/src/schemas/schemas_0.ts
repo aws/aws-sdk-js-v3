@@ -65,7 +65,7 @@ import {
 import {
   InvalidInputException as __InvalidInputException,
   ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { PersonalizeRuntimeServiceException as __PersonalizeRuntimeServiceException } from "../models/PersonalizeRuntimeServiceException";
 
 /* eslint no-var: 0 */

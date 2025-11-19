@@ -1,27 +1,28 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { BCMPricingCalculatorServiceException as __BaseException } from "./BCMPricingCalculatorServiceException";
-
-/**
- * <p> You do not have sufficient access to perform this action. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  BatchCreateBillScenarioCommitmentModificationErrorCode,
+  BatchCreateBillScenarioUsageModificationErrorCode,
+  BatchCreateWorkloadEstimateUsageCode,
+  BatchDeleteBillScenarioCommitmentModificationErrorCode,
+  BatchDeleteBillScenarioUsageModificationErrorCode,
+  BatchUpdateBillScenarioCommitmentModificationErrorCode,
+  BatchUpdateBillScenarioUsageModificationErrorCode,
+  BillEstimateStatus,
+  BillScenarioStatus,
+  CurrencyCode,
+  ListBillEstimateLineItemsFilterName,
+  ListBillEstimatesFilterName,
+  ListBillScenariosFilterName,
+  ListUsageFilterName,
+  ListWorkloadEstimatesFilterName,
+  MatchOption,
+  PurchaseAgreementType,
+  RateType,
+  WorkloadEstimateCostStatus,
+  WorkloadEstimateRateType,
+  WorkloadEstimateStatus,
+  WorkloadEstimateUpdateUsageErrorCode,
+} from "./enums";
 
 /**
  * <p> Represents an action to add a Reserved Instance to a bill scenario. </p>
@@ -60,53 +61,6 @@ export interface AddSavingsPlanAction {
 }
 
 /**
- * <p> The requested data is currently unavailable. </p>
- * @public
- */
-export class DataUnavailableException extends __BaseException {
-  readonly name: "DataUnavailableException" = "DataUnavailableException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DataUnavailableException, __BaseException>) {
-    super({
-      name: "DataUnavailableException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DataUnavailableException.prototype);
-  }
-}
-
-/**
- * <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * @public
  */
 export interface ListBillEstimateCommitmentsRequest {
@@ -130,19 +84,6 @@ export interface ListBillEstimateCommitmentsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const CurrencyCode = {
-  USD: "USD",
-} as const;
-
-/**
- * @public
- */
-export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
-
-/**
  * <p> Represents a monetary amount with associated currency. </p>
  * @public
  */
@@ -159,20 +100,6 @@ export interface CostAmount {
    */
   currency?: CurrencyCode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PurchaseAgreementType = {
-  RESERVED_INSTANCE: "RESERVED_INSTANCE",
-  SAVINGS_PLANS: "SAVINGS_PLANS",
-} as const;
-
-/**
- * @public
- */
-export type PurchaseAgreementType = (typeof PurchaseAgreementType)[keyof typeof PurchaseAgreementType];
 
 /**
  * <p> Provides a summary of commitment-related information for a bill estimate. </p>
@@ -252,81 +179,6 @@ export interface ListBillEstimateCommitmentsResponse {
 }
 
 /**
- * <p> The specified resource was not found. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> The identifier of the resource that was not found. </p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p> The type of the resource that was not found. </p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p> The request was denied due to request throttling. </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The service code that exceeded the throttling limit.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The quota code that exceeded the throttling limit.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The service code that exceeded the throttling limit. Retry your request, but if the problem persists, contact Amazon Web Services support.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
  * <p> Represents a field that failed validation in a request. </p>
  * @public
  */
@@ -342,58 +194,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  DISALLOWED_RATE: "disallowedRate",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  INVALID_REQUEST_FROM_MEMBER: "invalidRequestFromMember",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> The reason for the validation exception. </p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p> The list of fields that are invalid. </p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -614,44 +414,6 @@ export interface ListBillEstimateInputCommitmentModificationsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const MatchOption = {
-  CONTAINS: "CONTAINS",
-  EQUALS: "EQUALS",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
-
-/**
- * @public
- * @enum
- */
-export const ListUsageFilterName = {
-  HISTORICAL_LOCATION: "HISTORICAL_LOCATION",
-  HISTORICAL_OPERATION: "HISTORICAL_OPERATION",
-  HISTORICAL_SERVICE_CODE: "HISTORICAL_SERVICE_CODE",
-  HISTORICAL_USAGE_ACCOUNT_ID: "HISTORICAL_USAGE_ACCOUNT_ID",
-  HISTORICAL_USAGE_TYPE: "HISTORICAL_USAGE_TYPE",
-  LOCATION: "LOCATION",
-  OPERATION: "OPERATION",
-  SERVICE_CODE: "SERVICE_CODE",
-  USAGE_ACCOUNT_ID: "USAGE_ACCOUNT_ID",
-  USAGE_GROUP: "USAGE_GROUP",
-  USAGE_TYPE: "USAGE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ListUsageFilterName = (typeof ListUsageFilterName)[keyof typeof ListUsageFilterName];
-
-/**
  * <p> Represents a filter for listing usage data. </p>
  * @public
  */
@@ -769,25 +531,6 @@ export interface UsageQuantity {
    */
   amount?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListBillEstimateLineItemsFilterName = {
-  LINE_ITEM_TYPE: "LINE_ITEM_TYPE",
-  LOCATION: "LOCATION",
-  OPERATION: "OPERATION",
-  SERVICE_CODE: "SERVICE_CODE",
-  USAGE_ACCOUNT_ID: "USAGE_ACCOUNT_ID",
-  USAGE_TYPE: "USAGE_TYPE",
-} as const;
-
-/**
- * @public
- */
-export type ListBillEstimateLineItemsFilterName =
-  (typeof ListBillEstimateLineItemsFilterName)[keyof typeof ListBillEstimateLineItemsFilterName];
 
 /**
  * <p> Represents a filter for listing bill estimate line items. </p>
@@ -975,55 +718,6 @@ export interface ListBillEstimateLineItemsResponse {
 
 /**
  * @public
- * @enum
- */
-export const BillEstimateStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type BillEstimateStatus = (typeof BillEstimateStatus)[keyof typeof BillEstimateStatus];
-
-/**
- * <p> The request could not be processed because of conflict in the current state of the resource. </p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> The identifier of the resource that was not found. </p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p> The type of the resource that was not found. </p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
  */
 export interface CreateBillEstimateRequest {
   /**
@@ -1201,21 +895,6 @@ export interface FilterTimestamp {
    */
   beforeTimestamp?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListBillEstimatesFilterName = {
-  NAME: "NAME",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type ListBillEstimatesFilterName =
-  (typeof ListBillEstimatesFilterName)[keyof typeof ListBillEstimatesFilterName];
 
 /**
  * <p> Represents a filter for listing bill estimates. </p>
@@ -1465,22 +1144,6 @@ export interface BatchCreateBillScenarioCommitmentModificationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchCreateBillScenarioCommitmentModificationErrorCode = {
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  INVALID_ACCOUNT: "INVALID_ACCOUNT",
-} as const;
-
-/**
- * @public
- */
-export type BatchCreateBillScenarioCommitmentModificationErrorCode =
-  (typeof BatchCreateBillScenarioCommitmentModificationErrorCode)[keyof typeof BatchCreateBillScenarioCommitmentModificationErrorCode];
-
-/**
  * <p> Represents an error that occurred during a batch create operation for bill scenario commitment modifications. </p>
  * @public
  */
@@ -1575,22 +1238,6 @@ export interface BatchDeleteBillScenarioCommitmentModificationRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchDeleteBillScenarioCommitmentModificationErrorCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type BatchDeleteBillScenarioCommitmentModificationErrorCode =
-  (typeof BatchDeleteBillScenarioCommitmentModificationErrorCode)[keyof typeof BatchDeleteBillScenarioCommitmentModificationErrorCode];
-
-/**
  * <p> Represents an error that occurred when deleting a commitment in a Bill Scenario. </p>
  * @public
  */
@@ -1659,23 +1306,6 @@ export interface BatchUpdateBillScenarioCommitmentModificationRequest {
    */
   commitmentModifications: BatchUpdateBillScenarioCommitmentModificationEntry[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchUpdateBillScenarioCommitmentModificationErrorCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type BatchUpdateBillScenarioCommitmentModificationErrorCode =
-  (typeof BatchUpdateBillScenarioCommitmentModificationErrorCode)[keyof typeof BatchUpdateBillScenarioCommitmentModificationErrorCode];
 
 /**
  * <p> Represents an error that occurred when updating a commitment in a Bill Scenario. </p>
@@ -1789,22 +1419,6 @@ export interface ListBillScenarioCommitmentModificationsResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const BillScenarioStatus = {
-  FAILED: "FAILED",
-  LOCKED: "LOCKED",
-  READY: "READY",
-  STALE: "STALE",
-} as const;
-
-/**
- * @public
- */
-export type BillScenarioStatus = (typeof BillScenarioStatus)[keyof typeof BillScenarioStatus];
-
-/**
  * <p> Represents a usage amount for a specific time period. </p>
  * @public
  */
@@ -1821,23 +1435,6 @@ export interface UsageAmount {
    */
   amount: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchCreateBillScenarioUsageModificationErrorCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type BatchCreateBillScenarioUsageModificationErrorCode =
-  (typeof BatchCreateBillScenarioUsageModificationErrorCode)[keyof typeof BatchCreateBillScenarioUsageModificationErrorCode];
 
 /**
  * <p> Represents an error that occurred during a batch create operation for bill scenario usage modifications. </p>
@@ -1864,54 +1461,6 @@ export interface BatchCreateBillScenarioUsageModificationError {
 }
 
 /**
- * <p> The request would cause you to exceed your service quota. </p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> The identifier of the resource that exceeded quota. </p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p> The type of the resource that exceeded quota. </p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * <p> The service code that exceeded quota. </p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p> The quota code that was exceeded. </p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
  * @public
  */
 export interface BatchDeleteBillScenarioUsageModificationRequest {
@@ -1927,22 +1476,6 @@ export interface BatchDeleteBillScenarioUsageModificationRequest {
    */
   ids: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchDeleteBillScenarioUsageModificationErrorCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type BatchDeleteBillScenarioUsageModificationErrorCode =
-  (typeof BatchDeleteBillScenarioUsageModificationErrorCode)[keyof typeof BatchDeleteBillScenarioUsageModificationErrorCode];
 
 /**
  * <p> Represents an error that occurred when deleting usage in a Bill Scenario. </p>
@@ -2019,23 +1552,6 @@ export interface BatchUpdateBillScenarioUsageModificationRequest {
    */
   usageModifications: BatchUpdateBillScenarioUsageModificationEntry[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BatchUpdateBillScenarioUsageModificationErrorCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type BatchUpdateBillScenarioUsageModificationErrorCode =
-  (typeof BatchUpdateBillScenarioUsageModificationErrorCode)[keyof typeof BatchUpdateBillScenarioUsageModificationErrorCode];
 
 /**
  * <p> Represents an error that occurred when updating usage in a Bill Scenario. </p>
@@ -2233,21 +1749,6 @@ export interface GetBillScenarioResponse {
    */
   failureMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListBillScenariosFilterName = {
-  NAME: "NAME",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type ListBillScenariosFilterName =
-  (typeof ListBillScenariosFilterName)[keyof typeof ListBillScenariosFilterName];
 
 /**
  * <p> Represents a filter for listing bill scenarios. </p>
@@ -2450,21 +1951,6 @@ export interface GetPreferencesRequest {}
 
 /**
  * @public
- * @enum
- */
-export const RateType = {
-  AFTER_DISCOUNTS: "AFTER_DISCOUNTS",
-  AFTER_DISCOUNTS_AND_COMMITMENTS: "AFTER_DISCOUNTS_AND_COMMITMENTS",
-  BEFORE_DISCOUNTS: "BEFORE_DISCOUNTS",
-} as const;
-
-/**
- * @public
- */
-export type RateType = (typeof RateType)[keyof typeof RateType];
-
-/**
- * @public
  */
 export interface GetPreferencesResponse {
   /**
@@ -2600,21 +2086,6 @@ export interface UpdatePreferencesResponse {
 
 /**
  * @public
- * @enum
- */
-export const WorkloadEstimateRateType = {
-  AFTER_DISCOUNTS: "AFTER_DISCOUNTS",
-  AFTER_DISCOUNTS_AND_COMMITMENTS: "AFTER_DISCOUNTS_AND_COMMITMENTS",
-  BEFORE_DISCOUNTS: "BEFORE_DISCOUNTS",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadEstimateRateType = (typeof WorkloadEstimateRateType)[keyof typeof WorkloadEstimateRateType];
-
-/**
- * @public
  */
 export interface CreateWorkloadEstimateRequest {
   /**
@@ -2641,22 +2112,6 @@ export interface CreateWorkloadEstimateRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadEstimateStatus = {
-  ACTION_NEEDED: "ACTION_NEEDED",
-  INVALID: "INVALID",
-  UPDATING: "UPDATING",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadEstimateStatus = (typeof WorkloadEstimateStatus)[keyof typeof WorkloadEstimateStatus];
 
 /**
  * Mixin for common fields returned by CRUD APIs
@@ -2816,21 +2271,6 @@ export interface GetWorkloadEstimateResponse {
    */
   failureMessage?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ListWorkloadEstimatesFilterName = {
-  NAME: "NAME",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type ListWorkloadEstimatesFilterName =
-  (typeof ListWorkloadEstimatesFilterName)[keyof typeof ListWorkloadEstimatesFilterName];
 
 /**
  * <p> Represents a filter for listing workload estimates. </p>
@@ -3064,23 +2504,6 @@ export interface UpdateWorkloadEstimateResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchCreateWorkloadEstimateUsageCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type BatchCreateWorkloadEstimateUsageCode =
-  (typeof BatchCreateWorkloadEstimateUsageCode)[keyof typeof BatchCreateWorkloadEstimateUsageCode];
-
-/**
  * <p> Represents an error that occurred during a batch create operation for workload estimate usage. </p>
  * @public
  */
@@ -3124,21 +2547,6 @@ export interface WorkloadEstimateUsageQuantity {
 
 /**
  * @public
- * @enum
- */
-export const WorkloadEstimateCostStatus = {
-  INVALID: "INVALID",
-  STALE: "STALE",
-  VALID: "VALID",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadEstimateCostStatus = (typeof WorkloadEstimateCostStatus)[keyof typeof WorkloadEstimateCostStatus];
-
-/**
- * @public
  */
 export interface BatchDeleteWorkloadEstimateUsageRequest {
   /**
@@ -3153,23 +2561,6 @@ export interface BatchDeleteWorkloadEstimateUsageRequest {
    */
   ids: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadEstimateUpdateUsageErrorCode = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONFLICT: "CONFLICT",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadEstimateUpdateUsageErrorCode =
-  (typeof WorkloadEstimateUpdateUsageErrorCode)[keyof typeof WorkloadEstimateUpdateUsageErrorCode];
 
 /**
  * <p> Represents an error that occurred when deleting usage in a workload estimate. </p>

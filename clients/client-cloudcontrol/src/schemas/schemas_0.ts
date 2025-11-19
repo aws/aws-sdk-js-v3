@@ -121,7 +121,7 @@ import {
   ThrottlingException as __ThrottlingException,
   TypeNotFoundException as __TypeNotFoundException,
   UnsupportedActionException as __UnsupportedActionException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

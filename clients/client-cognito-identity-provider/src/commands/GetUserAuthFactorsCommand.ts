@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUserAuthFactorsRequest, GetUserAuthFactorsResponse } from "../models/models_1";
+import { GetUserAuthFactorsRequest, GetUserAuthFactorsResponse } from "../models/models_0";
 import { GetUserAuthFactors } from "../schemas/schemas_0";
 
 /**

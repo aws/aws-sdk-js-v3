@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/models_1";
+import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/models_0";
 import { GlobalSignOut } from "../schemas/schemas_0";
 
 /**

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteKeyGroupRequest } from "../models/models_1";
+import { DeleteKeyGroupRequest } from "../models/models_0";
 import { DeleteKeyGroup } from "../schemas/schemas_0";
 
 /**

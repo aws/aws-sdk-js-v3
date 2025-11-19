@@ -279,7 +279,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnknownResourceException as __UnknownResourceException,
   UnmatchedPolicyPermissionException as __UnmatchedPolicyPermissionException,
-} from "../models/index";
+} from "../models/errors";
 import { RAMServiceException as __RAMServiceException } from "../models/RAMServiceException";
 
 /* eslint no-var: 0 */

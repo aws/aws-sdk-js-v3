@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetInAppMessagesRequest, GetInAppMessagesResponse } from "../models/models_1";
+import { GetInAppMessagesRequest, GetInAppMessagesResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetInAppMessages } from "../schemas/schemas_0";
 

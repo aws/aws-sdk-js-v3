@@ -8,7 +8,7 @@ import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   ListSensitivityInspectionTemplatesRequest,
   ListSensitivityInspectionTemplatesResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListSensitivityInspectionTemplates } from "../schemas/schemas_0";
 
 /**

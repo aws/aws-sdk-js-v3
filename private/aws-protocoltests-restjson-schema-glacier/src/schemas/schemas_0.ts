@@ -41,14 +41,14 @@ const n0 = "com.amazonaws.glacier";
 import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticOperationSchema, StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
 
-import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
 import {
   InvalidParameterValueException as __InvalidParameterValueException,
   MissingParameterValueException as __MissingParameterValueException,
   RequestTimeoutException as __RequestTimeoutException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceUnavailableException as __ServiceUnavailableException,
-} from "../models/index";
+} from "../models/errors";
+import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
 

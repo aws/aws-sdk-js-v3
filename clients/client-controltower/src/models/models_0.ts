@@ -1,29 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { DocumentType as __DocumentType } from "@smithy/types";
 
-import { ControlTowerServiceException as __BaseException } from "./ControlTowerServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  BaselineOperationStatus,
+  BaselineOperationType,
+  ControlOperationStatus,
+  ControlOperationType,
+  DriftStatus,
+  EnabledBaselineDriftStatus,
+  EnablementStatus,
+  LandingZoneDriftStatus,
+  LandingZoneOperationStatus,
+  LandingZoneOperationType,
+  LandingZoneStatus,
+  RemediationType,
+} from "./enums";
 
 /**
  * @public
@@ -35,37 +26,6 @@ export interface GetBaselineOperationInput {
    */
   operationIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BaselineOperationType = {
-  DISABLE_BASELINE: "DISABLE_BASELINE",
-  ENABLE_BASELINE: "ENABLE_BASELINE",
-  RESET_ENABLED_BASELINE: "RESET_ENABLED_BASELINE",
-  UPDATE_ENABLED_BASELINE: "UPDATE_ENABLED_BASELINE",
-} as const;
-
-/**
- * @public
- */
-export type BaselineOperationType = (typeof BaselineOperationType)[keyof typeof BaselineOperationType];
-
-/**
- * @public
- * @enum
- */
-export const BaselineOperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type BaselineOperationStatus = (typeof BaselineOperationStatus)[keyof typeof BaselineOperationStatus];
 
 /**
  * <p>An object of shape <code>BaselineOperation</code>, returning details about the specified <code>Baseline</code> operation ID.</p>
@@ -118,111 +78,6 @@ export interface GetBaselineOperationOutput {
    * @public
    */
   baselineOperation: BaselineOperation | undefined;
-}
-
-/**
- * <p>An unexpected error occurred during processing of a request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request references a resource that does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * <p>The ID of the service that is associated with the error.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The ID of the service quota that was exceeded.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
-   * @public
-   */
-  retryAfterSeconds?: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -327,37 +182,6 @@ export interface GetControlOperationInput {
    */
   operationIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlOperationType = {
-  DISABLE_CONTROL: "DISABLE_CONTROL",
-  ENABLE_CONTROL: "ENABLE_CONTROL",
-  RESET_ENABLED_CONTROL: "RESET_ENABLED_CONTROL",
-  UPDATE_ENABLED_CONTROL: "UPDATE_ENABLED_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type ControlOperationType = (typeof ControlOperationType)[keyof typeof ControlOperationType];
-
-/**
- * @public
- * @enum
- */
-export const ControlOperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ControlOperationStatus = (typeof ControlOperationStatus)[keyof typeof ControlOperationStatus];
 
 /**
  * <p>An operation performed by the control.</p>
@@ -567,26 +391,6 @@ export interface ListControlOperationsOutput {
 }
 
 /**
- * <p>Updating or deleting the resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DisableControlInput {
@@ -618,26 +422,6 @@ export interface DisableControlOutput {
    * @public
    */
   operationIdentifier: string | undefined;
-}
-
-/**
- * <p>The request would cause a service quota to be exceeded. See <a href="https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html">Service quotas</a>.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -744,20 +528,6 @@ export interface GetEnabledBaselineInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const EnabledBaselineDriftStatus = {
-  DRIFTED: "DRIFTED",
-  IN_SYNC: "IN_SYNC",
-} as const;
-
-/**
- * @public
- */
-export type EnabledBaselineDriftStatus = (typeof EnabledBaselineDriftStatus)[keyof typeof EnabledBaselineDriftStatus];
-
-/**
  * <p>The inheritance drift summary for the enabled baseline. Inheritance drift occurs when any accounts in the target OU do not match the baseline configuration defined on that OU. </p>
  * @public
  */
@@ -810,21 +580,6 @@ export interface EnabledBaselineParameterSummary {
    */
   value: __DocumentType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnablementStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-  UNDER_CHANGE: "UNDER_CHANGE",
-} as const;
-
-/**
- * @public
- */
-export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
 
 /**
  * <p>The deployment summary of an <code>EnabledControl</code> or <code>EnabledBaseline</code> resource.</p>
@@ -1169,22 +924,6 @@ export interface GetEnabledControlInput {
    */
   enabledControlIdentifier: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DriftStatus = {
-  DRIFTED: "DRIFTED",
-  IN_SYNC: "IN_SYNC",
-  NOT_CHECKING: "NOT_CHECKING",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type DriftStatus = (typeof DriftStatus)[keyof typeof DriftStatus];
 
 /**
  * <p>Represents drift information related to control inheritance between organizational units.</p>
@@ -1539,37 +1278,6 @@ export interface GetLandingZoneOperationInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const LandingZoneOperationType = {
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-  RESET: "RESET",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type LandingZoneOperationType = (typeof LandingZoneOperationType)[keyof typeof LandingZoneOperationType];
-
-/**
- * @public
- * @enum
- */
-export const LandingZoneOperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type LandingZoneOperationStatus = (typeof LandingZoneOperationStatus)[keyof typeof LandingZoneOperationStatus];
-
-/**
  * <p>Information about a landing zone operation.</p>
  * @public
  */
@@ -1706,19 +1414,6 @@ export interface ListLandingZoneOperationsOutput {
 
 /**
  * @public
- * @enum
- */
-export const RemediationType = {
-  INHERITANCE_DRIFT: "INHERITANCE_DRIFT",
-} as const;
-
-/**
- * @public
- */
-export type RemediationType = (typeof RemediationType)[keyof typeof RemediationType];
-
-/**
- * @public
  */
 export interface CreateLandingZoneInput {
   /**
@@ -1797,20 +1492,6 @@ export interface GetLandingZoneInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const LandingZoneDriftStatus = {
-  DRIFTED: "DRIFTED",
-  IN_SYNC: "IN_SYNC",
-} as const;
-
-/**
- * @public
- */
-export type LandingZoneDriftStatus = (typeof LandingZoneDriftStatus)[keyof typeof LandingZoneDriftStatus];
-
-/**
  * <p>The drift status summary of the landing zone. </p> <p>If the landing zone differs from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the landing zone.</p>
  * @public
  */
@@ -1821,21 +1502,6 @@ export interface LandingZoneDriftStatusSummary {
    */
   status?: LandingZoneDriftStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const LandingZoneStatus = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  PROCESSING: "PROCESSING",
-} as const;
-
-/**
- * @public
- */
-export type LandingZoneStatus = (typeof LandingZoneStatus)[keyof typeof LandingZoneStatus];
 
 /**
  * <p>Information about the landing zone.</p>

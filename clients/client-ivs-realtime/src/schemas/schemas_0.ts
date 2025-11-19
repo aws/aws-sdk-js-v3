@@ -352,7 +352,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { IVSRealTimeServiceException as __IVSRealTimeServiceException } from "../models/IVSRealTimeServiceException";
 
 /* eslint no-var: 0 */

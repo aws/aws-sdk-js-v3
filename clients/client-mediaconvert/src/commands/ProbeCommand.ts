@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { ProbeRequest, ProbeResponse } from "../models/models_2";
+import { ProbeRequest, ProbeResponse } from "../models/models_0";
 import { Probe } from "../schemas/schemas_0";
 
 /**

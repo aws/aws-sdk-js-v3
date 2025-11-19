@@ -6,7 +6,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_1";
+import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutObjectRetention } from "../schemas/schemas_0";
 

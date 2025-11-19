@@ -402,7 +402,7 @@ import {
   TypeNotDeprecatedFault as __TypeNotDeprecatedFault,
   UnknownResourceFault as __UnknownResourceFault,
   WorkflowExecutionAlreadyStartedFault as __WorkflowExecutionAlreadyStartedFault,
-} from "../models/index";
+} from "../models/errors";
 import { SWFServiceException as __SWFServiceException } from "../models/SWFServiceException";
 
 /* eslint no-var: 0 */

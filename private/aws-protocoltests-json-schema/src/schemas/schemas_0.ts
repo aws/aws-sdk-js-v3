@@ -153,7 +153,7 @@ import {
   ErrorWithoutMembers as __ErrorWithoutMembers,
   FooError as __FooError,
   InvalidGreeting as __InvalidGreeting,
-} from "../models/index";
+} from "../models/errors";
 import { JsonProtocolServiceException as __JsonProtocolServiceException } from "../models/JsonProtocolServiceException";
 
 /* eslint no-var: 0 */

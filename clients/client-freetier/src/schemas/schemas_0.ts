@@ -79,14 +79,14 @@ const n0 = "com.amazonaws.freetier";
 import { TypeRegistry } from "@smithy/core/schema";
 import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { FreeTierServiceException as __FreeTierServiceException } from "../models/FreeTierServiceException";
 import {
   AccessDeniedException as __AccessDeniedException,
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { FreeTierServiceException as __FreeTierServiceException } from "../models/FreeTierServiceException";
 
 /* eslint no-var: 0 */
 

@@ -61,7 +61,7 @@ import {
   InvalidRequestException as __InvalidRequestException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ThrottlingException as __ThrottlingException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

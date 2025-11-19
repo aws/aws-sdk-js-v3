@@ -493,7 +493,7 @@ import {
   TemplateDoesNotExistException as __TemplateDoesNotExistException,
   TrackingOptionsAlreadyExistsException as __TrackingOptionsAlreadyExistsException,
   TrackingOptionsDoesNotExistException as __TrackingOptionsDoesNotExistException,
-} from "../models/index";
+} from "../models/errors";
 import { SESServiceException as __SESServiceException } from "../models/SESServiceException";
 
 /* eslint no-var: 0 */

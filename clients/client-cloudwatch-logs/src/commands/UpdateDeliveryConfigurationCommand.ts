@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDeliveryConfigurationRequest, UpdateDeliveryConfigurationResponse } from "../models/models_1";
+import { UpdateDeliveryConfigurationRequest, UpdateDeliveryConfigurationResponse } from "../models/models_0";
 import { UpdateDeliveryConfiguration } from "../schemas/schemas_0";
 
 /**

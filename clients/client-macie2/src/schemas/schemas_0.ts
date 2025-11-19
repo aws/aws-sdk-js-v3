@@ -814,7 +814,7 @@ import {
   ThrottlingException as __ThrottlingException,
   UnprocessableEntityException as __UnprocessableEntityException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { Macie2ServiceException as __Macie2ServiceException } from "../models/Macie2ServiceException";
 
 /* eslint no-var: 0 */

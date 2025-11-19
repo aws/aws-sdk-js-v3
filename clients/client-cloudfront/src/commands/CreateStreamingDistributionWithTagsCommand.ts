@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateStreamingDistributionWithTagsRequest,
   CreateStreamingDistributionWithTagsResult,
-} from "../models/models_1";
+} from "../models/models_0";
 import { CreateStreamingDistributionWithTags } from "../schemas/schemas_0";
 
 /**

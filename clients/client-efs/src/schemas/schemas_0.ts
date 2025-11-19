@@ -250,7 +250,7 @@ import {
   TooManyRequests as __TooManyRequests,
   UnsupportedAvailabilityZone as __UnsupportedAvailabilityZone,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 
 /* eslint no-var: 0 */
 

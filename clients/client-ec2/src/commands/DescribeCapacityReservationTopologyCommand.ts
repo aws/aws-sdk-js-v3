@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeCapacityReservationTopologyRequest,
   DescribeCapacityReservationTopologyResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeCapacityReservationTopology } from "../schemas/schemas_0";
 
 /**

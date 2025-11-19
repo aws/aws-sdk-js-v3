@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
-} from "../models/models_7";
+} from "../models/models_6";
 import { ModifyInstanceCapacityReservationAttributes } from "../schemas/schemas_0";
 
 /**

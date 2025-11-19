@@ -119,7 +119,7 @@ import {
   InternalServerError as __InternalServerError,
   LimitExceededException as __LimitExceededException,
   PolicyNotFoundException as __PolicyNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { MediaStoreServiceException as __MediaStoreServiceException } from "../models/MediaStoreServiceException";
 
 /* eslint no-var: 0 */

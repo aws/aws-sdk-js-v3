@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteUserCustomPermissionRequest, DeleteUserCustomPermissionResponse } from "../models/models_4";
+import { DeleteUserCustomPermissionRequest, DeleteUserCustomPermissionResponse } from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteUserCustomPermission } from "../schemas/schemas_0";
 

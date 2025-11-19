@@ -400,7 +400,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { GroundStationServiceException as __GroundStationServiceException } from "../models/GroundStationServiceException";
 import {
   DependencyException as __DependencyException,
   InvalidParameterException as __InvalidParameterException,
@@ -408,7 +407,8 @@ import {
   ResourceLimitExceededException as __ResourceLimitExceededException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
-} from "../models/index";
+} from "../models/errors";
+import { GroundStationServiceException as __GroundStationServiceException } from "../models/GroundStationServiceException";
 
 /* eslint no-var: 0 */
 

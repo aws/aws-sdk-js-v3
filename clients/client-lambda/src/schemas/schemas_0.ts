@@ -563,7 +563,7 @@ import {
   SubnetIPAddressLimitReachedException as __SubnetIPAddressLimitReachedException,
   TooManyRequestsException as __TooManyRequestsException,
   UnsupportedMediaTypeException as __UnsupportedMediaTypeException,
-} from "../models/index";
+} from "../models/errors";
 import { LambdaServiceException as __LambdaServiceException } from "../models/LambdaServiceException";
 
 /* eslint no-var: 0 */

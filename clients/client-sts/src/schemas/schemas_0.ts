@@ -123,7 +123,7 @@ import {
   MalformedPolicyDocumentException as __MalformedPolicyDocumentException,
   PackedPolicyTooLargeException as __PackedPolicyTooLargeException,
   RegionDisabledException as __RegionDisabledException,
-} from "../models/index";
+} from "../models/errors";
 import { STSServiceException as __STSServiceException } from "../models/STSServiceException";
 
 /* eslint no-var: 0 */

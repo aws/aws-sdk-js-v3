@@ -1,63 +1,33 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { AuditManagerServiceException as __BaseException } from "./AuditManagerServiceException";
-
-/**
- * <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const AccountStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-  PENDING_ACTIVATION: "PENDING_ACTIVATION",
-} as const;
-
-/**
- * @public
- */
-export type AccountStatus = (typeof AccountStatus)[keyof typeof AccountStatus];
-
-/**
- * @public
- * @enum
- */
-export const ActionEnum = {
-  ACTIVE: "ACTIVE",
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-  IMPORT_EVIDENCE: "IMPORT_EVIDENCE",
-  INACTIVE: "INACTIVE",
-  REVIEWED: "REVIEWED",
-  UNDER_REVIEW: "UNDER_REVIEW",
-  UPDATE_METADATA: "UPDATE_METADATA",
-} as const;
-
-/**
- * @public
- */
-export type ActionEnum = (typeof ActionEnum)[keyof typeof ActionEnum];
+import {
+  AccountStatus,
+  ActionEnum,
+  AssessmentReportDestinationType,
+  AssessmentReportStatus,
+  AssessmentStatus,
+  ControlResponse,
+  ControlSetStatus,
+  ControlState,
+  ControlStatus,
+  ControlType,
+  DataSourceType,
+  DelegationStatus,
+  DeleteResources,
+  EvidenceFinderBackfillStatus,
+  EvidenceFinderEnablementStatus,
+  ExportDestinationType,
+  FrameworkType,
+  KeywordInputType,
+  ObjectTypeEnum,
+  RoleType,
+  SettingAttribute,
+  ShareRequestAction,
+  ShareRequestStatus,
+  ShareRequestType,
+  SourceFrequency,
+  SourceSetUpOption,
+  SourceType,
+} from "./enums";
 
 /**
  * <p> The wrapper of Amazon Web Services account details, such as account ID or email address.
@@ -108,37 +78,6 @@ export interface ControlComment {
    */
   postedDate?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlResponse = {
-  AUTOMATE: "AUTOMATE",
-  DEFER: "DEFER",
-  IGNORE: "IGNORE",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type ControlResponse = (typeof ControlResponse)[keyof typeof ControlResponse];
-
-/**
- * @public
- * @enum
- */
-export const ControlStatus = {
-  INACTIVE: "INACTIVE",
-  REVIEWED: "REVIEWED",
-  UNDER_REVIEW: "UNDER_REVIEW",
-} as const;
-
-/**
- * @public
- */
-export type ControlStatus = (typeof ControlStatus)[keyof typeof ControlStatus];
 
 /**
  * <p> The control entity that represents a standard control or a custom control in an Audit Manager assessment. </p>
@@ -201,35 +140,6 @@ export interface AssessmentControl {
    */
   assessmentReportEvidenceCount?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RoleType = {
-  PROCESS_OWNER: "PROCESS_OWNER",
-  RESOURCE_OWNER: "RESOURCE_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type RoleType = (typeof RoleType)[keyof typeof RoleType];
-
-/**
- * @public
- * @enum
- */
-export const DelegationStatus = {
-  COMPLETE: "COMPLETE",
-  IN_PROGRESS: "IN_PROGRESS",
-  UNDER_REVIEW: "UNDER_REVIEW",
-} as const;
-
-/**
- * @public
- */
-export type DelegationStatus = (typeof DelegationStatus)[keyof typeof DelegationStatus];
 
 /**
  * <p> The assignment of a control set to a delegate for review. </p>
@@ -337,21 +247,6 @@ export interface Role {
    */
   roleArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlSetStatus = {
-  ACTIVE: "ACTIVE",
-  REVIEWED: "REVIEWED",
-  UNDER_REVIEW: "UNDER_REVIEW",
-} as const;
-
-/**
- * @public
- */
-export type ControlSetStatus = (typeof ControlSetStatus)[keyof typeof ControlSetStatus];
 
 /**
  * <p> Represents a set of controls in an Audit Manager assessment. </p>
@@ -473,20 +368,6 @@ export interface AssessmentFramework {
 }
 
 /**
- * @public
- * @enum
- */
-export const AssessmentReportDestinationType = {
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentReportDestinationType =
-  (typeof AssessmentReportDestinationType)[keyof typeof AssessmentReportDestinationType];
-
-/**
  * <p> The location where Audit Manager saves assessment reports for the given
  *          assessment. </p>
  * @public
@@ -569,20 +450,6 @@ export interface Scope {
    */
   awsServices?: AWSService[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssessmentStatus = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];
 
 /**
  * <p> The metadata that's associated with the specified assessment. </p>
@@ -817,20 +684,6 @@ export interface AssessmentEvidenceFolder {
 }
 
 /**
- * @public
- * @enum
- */
-export const FrameworkType = {
-  CUSTOM: "Custom",
-  STANDARD: "Standard",
-} as const;
-
-/**
- * @public
- */
-export type FrameworkType = (typeof FrameworkType)[keyof typeof FrameworkType];
-
-/**
  * <p> The metadata that's associated with a standard framework or a custom framework. </p>
  * @public
  */
@@ -902,26 +755,6 @@ export interface AssessmentFrameworkMetadata {
    */
   lastUpdatedAt?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShareRequestStatus = {
-  ACTIVE: "ACTIVE",
-  DECLINED: "DECLINED",
-  EXPIRED: "EXPIRED",
-  EXPIRING: "EXPIRING",
-  FAILED: "FAILED",
-  REPLICATING: "REPLICATING",
-  REVOKED: "REVOKED",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type ShareRequestStatus = (typeof ShareRequestStatus)[keyof typeof ShareRequestStatus];
 
 /**
  * <p> Represents a share request for a custom framework in Audit Manager. </p>
@@ -1075,21 +908,6 @@ export interface AssessmentMetadataItem {
    */
   lastUpdated?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssessmentReportStatus = {
-  COMPLETE: "COMPLETE",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentReportStatus = (typeof AssessmentReportStatus)[keyof typeof AssessmentReportStatus];
 
 /**
  * <p> A finalized document that's generated from an Audit Manager assessment. These
@@ -1256,61 +1074,6 @@ export interface AssociateAssessmentReportEvidenceFolderRequest {
 export interface AssociateAssessmentReportEvidenceFolderResponse {}
 
 /**
- * <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p> The resource that's specified in the request can't be found. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> The unique identifier for the resource. </p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p> The type of resource that's affected by the error. </p>
-   * @public
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
  * <p> Indicates that the request has invalid or missing parameters for the field. </p>
  * @public
  */
@@ -1326,56 +1089,6 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * <p> The request has invalid or missing parameters. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> The reason the request failed validation. </p>
-   * @public
-   */
-  reason?: ValidationExceptionReason | undefined;
-
-  /**
-   * <p> The fields that caused the error, if applicable. </p>
-   * @public
-   */
-  fields?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fields = opts.fields;
-  }
 }
 
 /**
@@ -1715,26 +1428,6 @@ export interface BatchImportEvidenceToAssessmentControlResponse {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface CreateAssessmentRequest {
@@ -1803,29 +1496,6 @@ export interface CreateAssessmentResponse {
    * @public
    */
   assessment?: Assessment | undefined;
-}
-
-/**
- * <p>You've reached your account quota for this resource type. To perform the requested
- *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
- *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
- *             restrictions for Audit Manager</a>.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -1899,36 +1569,6 @@ export interface CreateAssessmentFrameworkRequest {
    */
   tags?: Record<string, string> | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SourceFrequency = {
-  DAILY: "DAILY",
-  MONTHLY: "MONTHLY",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type SourceFrequency = (typeof SourceFrequency)[keyof typeof SourceFrequency];
-
-/**
- * @public
- * @enum
- */
-export const KeywordInputType = {
-  INPUT_TEXT: "INPUT_TEXT",
-  SELECT_FROM_LIST: "SELECT_FROM_LIST",
-  UPLOAD_FILE: "UPLOAD_FILE",
-} as const;
-
-/**
- * @public
- */
-export type KeywordInputType = (typeof KeywordInputType)[keyof typeof KeywordInputType];
 
 /**
  * <p>A keyword that relates to the control data source.</p>
@@ -2113,39 +1753,6 @@ export interface SourceKeyword {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceSetUpOption = {
-  PROCEDURAL_CONTROLS_MAPPING: "Procedural_Controls_Mapping",
-  SYSTEM_CONTROLS_MAPPING: "System_Controls_Mapping",
-} as const;
-
-/**
- * @public
- */
-export type SourceSetUpOption = (typeof SourceSetUpOption)[keyof typeof SourceSetUpOption];
-
-/**
- * @public
- * @enum
- */
-export const SourceType = {
-  AWS_API_CALL: "AWS_API_Call",
-  AWS_CLOUDTRAIL: "AWS_Cloudtrail",
-  AWS_CONFIG: "AWS_Config",
-  AWS_SECURITY_HUB: "AWS_Security_Hub",
-  COMMON_CONTROL: "Common_Control",
-  CORE_CONTROL: "Core_Control",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
-
-/**
  * <p> The data source that determines where Audit Manager collects evidence from for
  *          the control. </p>
  * @public
@@ -2244,35 +1851,6 @@ export interface ControlMappingSource {
    */
   troubleshootingText?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ControlState = {
-  ACTIVE: "ACTIVE",
-  END_OF_SUPPORT: "END_OF_SUPPORT",
-} as const;
-
-/**
- * @public
- */
-export type ControlState = (typeof ControlState)[keyof typeof ControlState];
-
-/**
- * @public
- * @enum
- */
-export const ControlType = {
-  CORE: "Core",
-  CUSTOM: "Custom",
-  STANDARD: "Standard",
-} as const;
-
-/**
- * @public
- */
-export type ControlType = (typeof ControlType)[keyof typeof ControlType];
 
 /**
  * <p> A control in Audit Manager. </p>
@@ -2755,20 +2333,6 @@ export interface DeleteAssessmentFrameworkResponse {}
 
 /**
  * @public
- * @enum
- */
-export const ShareRequestType = {
-  RECEIVED: "RECEIVED",
-  SENT: "SENT",
-} as const;
-
-/**
- * @public
- */
-export type ShareRequestType = (typeof ShareRequestType)[keyof typeof ShareRequestType];
-
-/**
- * @public
  */
 export interface DeleteAssessmentFrameworkShareRequest {
   /**
@@ -3036,23 +2600,6 @@ export interface GetChangeLogsRequest {
    */
   maxResults?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ObjectTypeEnum = {
-  ASSESSMENT: "ASSESSMENT",
-  ASSESSMENT_REPORT: "ASSESSMENT_REPORT",
-  CONTROL: "CONTROL",
-  CONTROL_SET: "CONTROL_SET",
-  DELEGATION: "DELEGATION",
-} as const;
-
-/**
- * @public
- */
-export type ObjectTypeEnum = (typeof ObjectTypeEnum)[keyof typeof ObjectTypeEnum];
 
 /**
  * <p> The record of a change within Audit Manager. For example, this could be the
@@ -3917,26 +3464,6 @@ export interface GetServicesInScopeResponse {
 
 /**
  * @public
- * @enum
- */
-export const SettingAttribute = {
-  ALL: "ALL",
-  DEFAULT_ASSESSMENT_REPORTS_DESTINATION: "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
-  DEFAULT_EXPORT_DESTINATION: "DEFAULT_EXPORT_DESTINATION",
-  DEFAULT_PROCESS_OWNERS: "DEFAULT_PROCESS_OWNERS",
-  DEREGISTRATION_POLICY: "DEREGISTRATION_POLICY",
-  EVIDENCE_FINDER_ENABLEMENT: "EVIDENCE_FINDER_ENABLEMENT",
-  IS_AWS_ORG_ENABLED: "IS_AWS_ORG_ENABLED",
-  SNS_TOPIC: "SNS_TOPIC",
-} as const;
-
-/**
- * @public
- */
-export type SettingAttribute = (typeof SettingAttribute)[keyof typeof SettingAttribute];
-
-/**
- * @public
  */
 export interface GetSettingsRequest {
   /**
@@ -3945,19 +3472,6 @@ export interface GetSettingsRequest {
    */
   attribute: SettingAttribute | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExportDestinationType = {
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type ExportDestinationType = (typeof ExportDestinationType)[keyof typeof ExportDestinationType];
 
 /**
  * <p>The default s3 bucket where Audit Manager saves the files that you export from evidence finder.</p>
@@ -3976,20 +3490,6 @@ export interface DefaultExportDestination {
    */
   destination?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const DeleteResources = {
-  ALL: "ALL",
-  DEFAULT: "DEFAULT",
-} as const;
-
-/**
- * @public
- */
-export type DeleteResources = (typeof DeleteResources)[keyof typeof DeleteResources];
 
 /**
  * <p>The deregistration policy for the data that's stored in Audit Manager. You can
@@ -4029,39 +3529,6 @@ export interface DeregistrationPolicy {
    */
   deleteResources?: DeleteResources | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EvidenceFinderBackfillStatus = {
-  COMPLETED: "COMPLETED",
-  IN_PROGRESS: "IN_PROGRESS",
-  NOT_STARTED: "NOT_STARTED",
-} as const;
-
-/**
- * @public
- */
-export type EvidenceFinderBackfillStatus =
-  (typeof EvidenceFinderBackfillStatus)[keyof typeof EvidenceFinderBackfillStatus];
-
-/**
- * @public
- * @enum
- */
-export const EvidenceFinderEnablementStatus = {
-  DISABLED: "DISABLED",
-  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
-  ENABLED: "ENABLED",
-  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type EvidenceFinderEnablementStatus =
-  (typeof EvidenceFinderEnablementStatus)[keyof typeof EvidenceFinderEnablementStatus];
 
 /**
  * <p>The settings object that specifies whether evidence finder is enabled. This object also
@@ -4816,23 +4283,6 @@ export interface ListControlsResponse {
 
 /**
  * @public
- * @enum
- */
-export const DataSourceType = {
-  AWS_API_CALL: "AWS_API_Call",
-  AWS_CLOUDTRAIL: "AWS_Cloudtrail",
-  AWS_CONFIG: "AWS_Config",
-  AWS_SECURITY_HUB: "AWS_Security_Hub",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
-
-/**
- * @public
  */
 export interface ListKeywordsForDataSourceRequest {
   /**
@@ -5340,21 +4790,6 @@ export interface UpdateAssessmentFrameworkResponse {
    */
   framework?: Framework | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ShareRequestAction = {
-  ACCEPT: "ACCEPT",
-  DECLINE: "DECLINE",
-  REVOKE: "REVOKE",
-} as const;
-
-/**
- * @public
- */
-export type ShareRequestAction = (typeof ShareRequestAction)[keyof typeof ShareRequestAction];
 
 /**
  * @public

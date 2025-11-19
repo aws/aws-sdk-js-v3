@@ -1,7 +1,14 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { PersonalizeServiceException as __BaseException } from "./PersonalizeServiceException";
+import {
+  BatchInferenceJobMode,
+  Domain,
+  ImportMode,
+  IngestionMode,
+  ObjectiveSensitivity,
+  RecipeProvider,
+  TrainingMode,
+  TrainingType,
+} from "./enums";
 
 /**
  * <p>Describes an algorithm image.</p>
@@ -220,20 +227,6 @@ export interface BatchInferenceJobConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const BatchInferenceJobMode = {
-  BATCH_INFERENCE: "BATCH_INFERENCE",
-  THEME_GENERATION: "THEME_GENERATION",
-} as const;
-
-/**
- * @public
- */
-export type BatchInferenceJobMode = (typeof BatchInferenceJobMode)[keyof typeof BatchInferenceJobMode];
-
-/**
  * <p>The configuration details of an Amazon S3 input or output bucket.</p>
  * @public
  */
@@ -411,126 +404,6 @@ export interface CreateBatchInferenceJobResponse {
    * @public
    */
   batchInferenceJobArn?: string | undefined;
-}
-
-/**
- * <p>Provide a valid value for the field or parameter.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
- * <p>The limit on the number of requests per second has been exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource already exists.</p>
- * @public
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource is in use.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
-
-/**
- * <p>Could not find the specified resource.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-  }
 }
 
 /**
@@ -863,21 +736,6 @@ export interface CreateDatasetResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const IngestionMode = {
-  ALL: "ALL",
-  BULK: "BULK",
-  PUT: "PUT",
-} as const;
-
-/**
- * @public
- */
-export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
-
-/**
  * <p>The output configuration parameters of a dataset export job.</p>
  * @public
  */
@@ -950,20 +808,6 @@ export interface CreateDatasetExportJobResponse {
 
 /**
  * @public
- * @enum
- */
-export const Domain = {
-  ECOMMERCE: "ECOMMERCE",
-  VIDEO_ON_DEMAND: "VIDEO_ON_DEMAND",
-} as const;
-
-/**
- * @public
- */
-export type Domain = (typeof Domain)[keyof typeof Domain];
-
-/**
- * @public
  */
 export interface CreateDatasetGroupRequest {
   /**
@@ -1020,20 +864,6 @@ export interface CreateDatasetGroupResponse {
    */
   domain?: Domain | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ImportMode = {
-  FULL: "FULL",
-  INCREMENTAL: "INCREMENTAL",
-} as const;
-
-/**
- * @public
- */
-export type ImportMode = (typeof ImportMode)[keyof typeof ImportMode];
 
 /**
  * @public
@@ -1667,22 +1497,6 @@ export interface HPOConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const ObjectiveSensitivity = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  OFF: "OFF",
-} as const;
-
-/**
- * @public
- */
-export type ObjectiveSensitivity = (typeof ObjectiveSensitivity)[keyof typeof ObjectiveSensitivity];
-
-/**
  * <p>Describes the additional objective for the solution, such as maximizing streaming
  *       minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
  * @public
@@ -1874,21 +1688,6 @@ export interface CreateSolutionResponse {
    */
   solutionArn?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TrainingMode = {
-  AUTOTRAIN: "AUTOTRAIN",
-  FULL: "FULL",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type TrainingMode = (typeof TrainingMode)[keyof typeof TrainingMode];
 
 /**
  * @public
@@ -3820,20 +3619,6 @@ export interface SolutionUpdateSummary {
 }
 
 /**
- * @public
- * @enum
- */
-export const TrainingType = {
-  AUTOMATIC: "AUTOMATIC",
-  MANUAL: "MANUAL",
-} as const;
-
-/**
- * @public
- */
-export type TrainingType = (typeof TrainingType)[keyof typeof TrainingType];
-
-/**
  * <p>Provides a summary of the properties of a solution version. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a> API.</p>
  * @public
@@ -4239,26 +4024,6 @@ export interface GetSolutionMetricsResponse {
    * @public
    */
   metrics?: Record<string, number> | undefined;
-}
-
-/**
- * <p>The token is not valid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-  }
 }
 
 /**
@@ -5372,19 +5137,6 @@ export interface ListMetricAttributionsResponse {
 
 /**
  * @public
- * @enum
- */
-export const RecipeProvider = {
-  SERVICE: "SERVICE",
-} as const;
-
-/**
- * @public
- */
-export type RecipeProvider = (typeof RecipeProvider)[keyof typeof RecipeProvider];
-
-/**
- * @public
  */
 export interface ListRecipesRequest {
   /**
@@ -5887,26 +5639,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
- * @public
- */
-export class TooManyTagKeysException extends __BaseException {
-  readonly name: "TooManyTagKeysException" = "TooManyTagKeysException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagKeysException, __BaseException>) {
-    super({
-      name: "TooManyTagKeysException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagKeysException.prototype);
-  }
-}
 
 /**
  * @public

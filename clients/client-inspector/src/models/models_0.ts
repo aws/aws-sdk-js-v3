@@ -1,61 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { InspectorServiceException as __BaseException } from "./InspectorServiceException";
-
-/**
- * @public
- * @enum
- */
-export const AccessDeniedErrorCode = {
-  ACCESS_DENIED_TO_ASSESSMENT_RUN: "ACCESS_DENIED_TO_ASSESSMENT_RUN",
-  ACCESS_DENIED_TO_ASSESSMENT_TARGET: "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
-  ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE: "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
-  ACCESS_DENIED_TO_FINDING: "ACCESS_DENIED_TO_FINDING",
-  ACCESS_DENIED_TO_IAM_ROLE: "ACCESS_DENIED_TO_IAM_ROLE",
-  ACCESS_DENIED_TO_RESOURCE_GROUP: "ACCESS_DENIED_TO_RESOURCE_GROUP",
-  ACCESS_DENIED_TO_RULES_PACKAGE: "ACCESS_DENIED_TO_RULES_PACKAGE",
-  ACCESS_DENIED_TO_SNS_TOPIC: "ACCESS_DENIED_TO_SNS_TOPIC",
-} as const;
-
-/**
- * @public
- */
-export type AccessDeniedErrorCode = (typeof AccessDeniedErrorCode)[keyof typeof AccessDeniedErrorCode];
-
-/**
- * <p>You do not have required permissions to access the requested resource.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Code that indicates the type of error that is generated.</p>
-   * @public
-   */
-  errorCode: AccessDeniedErrorCode | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.errorCode = opts.errorCode;
-    this.canRetry = opts.canRetry;
-  }
-}
+import {
+  AgentHealth,
+  AgentHealthCode,
+  AssessmentRunNotificationSnsStatusCode,
+  AssessmentRunState,
+  AssetType,
+  FailedItemErrorCode,
+  InspectorEvent,
+  Locale,
+  PreviewStatus,
+  ReportFileFormat,
+  ReportStatus,
+  ReportType,
+  ScopeType,
+  Severity,
+  StopAction,
+} from "./enums";
 
 /**
  * <p>This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a>
@@ -94,24 +54,6 @@ export interface AddAttributesToFindingsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const FailedItemErrorCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  DUPLICATE_ARN: "DUPLICATE_ARN",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  INVALID_ARN: "INVALID_ARN",
-  ITEM_DOES_NOT_EXIST: "ITEM_DOES_NOT_EXIST",
-  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type FailedItemErrorCode = (typeof FailedItemErrorCode)[keyof typeof FailedItemErrorCode];
-
-/**
  * <p>Includes details about the failed items.</p>
  * @public
  */
@@ -143,216 +85,6 @@ export interface AddAttributesToFindingsResponse {
 }
 
 /**
- * <p>Internal server error.</p>
- * @public
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-    this.canRetry = opts.canRetry;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InvalidInputErrorCode = {
-  ASSESSMENT_TARGET_NAME_ALREADY_TAKEN: "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
-  ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN: "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
-  INVALID_AGENT_ID: "INVALID_AGENT_ID",
-  INVALID_ASSESSMENT_RUN_ARN: "INVALID_ASSESSMENT_RUN_ARN",
-  INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE: "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
-  INVALID_ASSESSMENT_RUN_DURATION_RANGE: "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
-  INVALID_ASSESSMENT_RUN_START_TIME_RANGE: "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
-  INVALID_ASSESSMENT_RUN_STATE: "INVALID_ASSESSMENT_RUN_STATE",
-  INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE: "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
-  INVALID_ASSESSMENT_TARGET_ARN: "INVALID_ASSESSMENT_TARGET_ARN",
-  INVALID_ASSESSMENT_TARGET_NAME: "INVALID_ASSESSMENT_TARGET_NAME",
-  INVALID_ASSESSMENT_TARGET_NAME_PATTERN: "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
-  INVALID_ASSESSMENT_TEMPLATE_ARN: "INVALID_ASSESSMENT_TEMPLATE_ARN",
-  INVALID_ASSESSMENT_TEMPLATE_DURATION: "INVALID_ASSESSMENT_TEMPLATE_DURATION",
-  INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE: "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
-  INVALID_ASSESSMENT_TEMPLATE_NAME: "INVALID_ASSESSMENT_TEMPLATE_NAME",
-  INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN: "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
-  INVALID_ATTRIBUTE: "INVALID_ATTRIBUTE",
-  INVALID_AUTO_SCALING_GROUP: "INVALID_AUTO_SCALING_GROUP",
-  INVALID_EVENT: "INVALID_EVENT",
-  INVALID_FINDING_ARN: "INVALID_FINDING_ARN",
-  INVALID_IAM_ROLE_ARN: "INVALID_IAM_ROLE_ARN",
-  INVALID_LOCALE: "INVALID_LOCALE",
-  INVALID_MAX_RESULTS: "INVALID_MAX_RESULTS",
-  INVALID_NUMBER_OF_AGENT_IDS: "INVALID_NUMBER_OF_AGENT_IDS",
-  INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
-  INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES: "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
-  INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
-  INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
-  INVALID_NUMBER_OF_ATTRIBUTES: "INVALID_NUMBER_OF_ATTRIBUTES",
-  INVALID_NUMBER_OF_AUTO_SCALING_GROUPS: "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
-  INVALID_NUMBER_OF_FINDING_ARNS: "INVALID_NUMBER_OF_FINDING_ARNS",
-  INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS: "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
-  INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS: "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
-  INVALID_NUMBER_OF_RULES_PACKAGE_ARNS: "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
-  INVALID_NUMBER_OF_RULE_NAMES: "INVALID_NUMBER_OF_RULE_NAMES",
-  INVALID_NUMBER_OF_SEVERITIES: "INVALID_NUMBER_OF_SEVERITIES",
-  INVALID_NUMBER_OF_TAGS: "INVALID_NUMBER_OF_TAGS",
-  INVALID_NUMBER_OF_USER_ATTRIBUTES: "INVALID_NUMBER_OF_USER_ATTRIBUTES",
-  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
-  INVALID_RESOURCE_ARN: "INVALID_RESOURCE_ARN",
-  INVALID_RESOURCE_GROUP_ARN: "INVALID_RESOURCE_GROUP_ARN",
-  INVALID_RESOURCE_GROUP_TAG_KEY: "INVALID_RESOURCE_GROUP_TAG_KEY",
-  INVALID_RESOURCE_GROUP_TAG_VALUE: "INVALID_RESOURCE_GROUP_TAG_VALUE",
-  INVALID_RULES_PACKAGE_ARN: "INVALID_RULES_PACKAGE_ARN",
-  INVALID_RULE_NAME: "INVALID_RULE_NAME",
-  INVALID_SEVERITY: "INVALID_SEVERITY",
-  INVALID_SNS_TOPIC_ARN: "INVALID_SNS_TOPIC_ARN",
-  INVALID_TAG: "INVALID_TAG",
-  INVALID_TAG_KEY: "INVALID_TAG_KEY",
-  INVALID_TAG_VALUE: "INVALID_TAG_VALUE",
-  INVALID_USER_ATTRIBUTE: "INVALID_USER_ATTRIBUTE",
-  INVALID_USER_ATTRIBUTE_KEY: "INVALID_USER_ATTRIBUTE_KEY",
-  INVALID_USER_ATTRIBUTE_VALUE: "INVALID_USER_ATTRIBUTE_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type InvalidInputErrorCode = (typeof InvalidInputErrorCode)[keyof typeof InvalidInputErrorCode];
-
-/**
- * <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name: "InvalidInputException" = "InvalidInputException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Code that indicates the type of error that is generated.</p>
-   * @public
-   */
-  errorCode: InvalidInputErrorCode | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
-    this.errorCode = opts.errorCode;
-    this.canRetry = opts.canRetry;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const NoSuchEntityErrorCode = {
-  ASSESSMENT_RUN_DOES_NOT_EXIST: "ASSESSMENT_RUN_DOES_NOT_EXIST",
-  ASSESSMENT_TARGET_DOES_NOT_EXIST: "ASSESSMENT_TARGET_DOES_NOT_EXIST",
-  ASSESSMENT_TEMPLATE_DOES_NOT_EXIST: "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
-  FINDING_DOES_NOT_EXIST: "FINDING_DOES_NOT_EXIST",
-  IAM_ROLE_DOES_NOT_EXIST: "IAM_ROLE_DOES_NOT_EXIST",
-  RESOURCE_GROUP_DOES_NOT_EXIST: "RESOURCE_GROUP_DOES_NOT_EXIST",
-  RULES_PACKAGE_DOES_NOT_EXIST: "RULES_PACKAGE_DOES_NOT_EXIST",
-  SNS_TOPIC_DOES_NOT_EXIST: "SNS_TOPIC_DOES_NOT_EXIST",
-} as const;
-
-/**
- * @public
- */
-export type NoSuchEntityErrorCode = (typeof NoSuchEntityErrorCode)[keyof typeof NoSuchEntityErrorCode];
-
-/**
- * <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
- * @public
- */
-export class NoSuchEntityException extends __BaseException {
-  readonly name: "NoSuchEntityException" = "NoSuchEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Code that indicates the type of error that is generated.</p>
-   * @public
-   */
-  errorCode: NoSuchEntityErrorCode | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchEntityException, __BaseException>) {
-    super({
-      name: "NoSuchEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchEntityException.prototype);
-    this.errorCode = opts.errorCode;
-    this.canRetry = opts.canRetry;
-  }
-}
-
-/**
- * <p>The serice is temporary unavailable.</p>
- * @public
- */
-export class ServiceTemporarilyUnavailableException extends __BaseException {
-  readonly name: "ServiceTemporarilyUnavailableException" = "ServiceTemporarilyUnavailableException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>You can wait and then retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceTemporarilyUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceTemporarilyUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceTemporarilyUnavailableException.prototype);
-    this.canRetry = opts.canRetry;
-  }
-}
-
-/**
  * <p>Used in the exception error that is thrown if you start an assessment run for an
  *          assessment target that includes an EC2 instance that is already participating in another
  *          started assessment run.</p>
@@ -372,39 +104,6 @@ export interface AgentAlreadyRunningAssessment {
    */
   assessmentRunArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AgentHealthCode = {
-  IDLE: "IDLE",
-  RUNNING: "RUNNING",
-  SHUTDOWN: "SHUTDOWN",
-  THROTTLED: "THROTTLED",
-  UNHEALTHY: "UNHEALTHY",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type AgentHealthCode = (typeof AgentHealthCode)[keyof typeof AgentHealthCode];
-
-/**
- * @public
- * @enum
- */
-export const AgentHealth = {
-  HEALTHY: "HEALTHY",
-  UNHEALTHY: "UNHEALTHY",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type AgentHealth = (typeof AgentHealth)[keyof typeof AgentHealth];
 
 /**
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
@@ -484,99 +183,6 @@ export interface AgentPreview {
 }
 
 /**
- * <p>You started an assessment run, but one of the instances is already participating in
- *          another assessment run.</p>
- * @public
- */
-export class AgentsAlreadyRunningAssessmentException extends __BaseException {
-  readonly name: "AgentsAlreadyRunningAssessmentException" = "AgentsAlreadyRunningAssessmentException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p></p>
-   * @public
-   */
-  agents: AgentAlreadyRunningAssessment[] | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  agentsTruncated: boolean | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AgentsAlreadyRunningAssessmentException, __BaseException>) {
-    super({
-      name: "AgentsAlreadyRunningAssessmentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AgentsAlreadyRunningAssessmentException.prototype);
-    this.agents = opts.agents;
-    this.agentsTruncated = opts.agentsTruncated;
-    this.canRetry = opts.canRetry;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const Severity = {
-  HIGH: "High",
-  INFORMATIONAL: "Informational",
-  LOW: "Low",
-  MEDIUM: "Medium",
-  UNDEFINED: "Undefined",
-} as const;
-
-/**
- * @public
- */
-export type Severity = (typeof Severity)[keyof typeof Severity];
-
-/**
- * @public
- * @enum
- */
-export const InspectorEvent = {
-  ASSESSMENT_RUN_COMPLETED: "ASSESSMENT_RUN_COMPLETED",
-  ASSESSMENT_RUN_STARTED: "ASSESSMENT_RUN_STARTED",
-  ASSESSMENT_RUN_STATE_CHANGED: "ASSESSMENT_RUN_STATE_CHANGED",
-  FINDING_REPORTED: "FINDING_REPORTED",
-  OTHER: "OTHER",
-} as const;
-
-/**
- * @public
- */
-export type InspectorEvent = (typeof InspectorEvent)[keyof typeof InspectorEvent];
-
-/**
- * @public
- * @enum
- */
-export const AssessmentRunNotificationSnsStatusCode = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  SUCCESS: "SUCCESS",
-  TOPIC_DOES_NOT_EXIST: "TOPIC_DOES_NOT_EXIST",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentRunNotificationSnsStatusCode =
-  (typeof AssessmentRunNotificationSnsStatusCode)[keyof typeof AssessmentRunNotificationSnsStatusCode];
-
-/**
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
  * @public
@@ -619,31 +225,6 @@ export interface AssessmentRunNotification {
    */
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AssessmentRunState = {
-  CANCELED: "CANCELED",
-  COLLECTING_DATA: "COLLECTING_DATA",
-  COMPLETED: "COMPLETED",
-  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
-  CREATED: "CREATED",
-  DATA_COLLECTED: "DATA_COLLECTED",
-  ERROR: "ERROR",
-  EVALUATING_RULES: "EVALUATING_RULES",
-  FAILED: "FAILED",
-  START_DATA_COLLECTION_IN_PROGRESS: "START_DATA_COLLECTION_IN_PROGRESS",
-  START_DATA_COLLECTION_PENDING: "START_DATA_COLLECTION_PENDING",
-  START_EVALUATING_RULES_PENDING: "START_EVALUATING_RULES_PENDING",
-  STOP_DATA_COLLECTION_PENDING: "STOP_DATA_COLLECTION_PENDING",
-} as const;
-
-/**
- * @public
- */
-export type AssessmentRunState = (typeof AssessmentRunState)[keyof typeof AssessmentRunState];
 
 /**
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
@@ -944,49 +525,6 @@ export interface AssessmentRunFilter {
    * @public
    */
   stateChangeTimeRange?: TimestampRange | undefined;
-}
-
-/**
- * <p>You cannot perform a specified action if an assessment run is currently in
- *          progress.</p>
- * @public
- */
-export class AssessmentRunInProgressException extends __BaseException {
-  readonly name: "AssessmentRunInProgressException" = "AssessmentRunInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ARNs of the assessment runs that are currently in progress.</p>
-   * @public
-   */
-  assessmentRunArns: string[] | undefined;
-
-  /**
-   * <p>Boolean value that indicates whether the ARN list of the assessment runs is
-   *          truncated.</p>
-   * @public
-   */
-  assessmentRunArnsTruncated: boolean | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AssessmentRunInProgressException, __BaseException>) {
-    super({
-      name: "AssessmentRunInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AssessmentRunInProgressException.prototype);
-    this.assessmentRunArns = opts.assessmentRunArns;
-    this.assessmentRunArnsTruncated = opts.assessmentRunArnsTruncated;
-    this.canRetry = opts.canRetry;
-  }
 }
 
 /**
@@ -1329,19 +867,6 @@ export interface AssetAttributes {
 
 /**
  * @public
- * @enum
- */
-export const AssetType = {
-  EC2_INSTANCE: "ec2-instance",
-} as const;
-
-/**
- * @public
- */
-export type AssetType = (typeof AssetType)[keyof typeof AssetType];
-
-/**
- * @public
  */
 export interface CreateAssessmentTargetRequest {
   /**
@@ -1369,108 +894,6 @@ export interface CreateAssessmentTargetResponse {
    * @public
    */
   assessmentTargetArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InvalidCrossAccountRoleErrorCode = {
-  ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP: "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
-  ROLE_DOES_NOT_HAVE_CORRECT_POLICY: "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
-} as const;
-
-/**
- * @public
- */
-export type InvalidCrossAccountRoleErrorCode =
-  (typeof InvalidCrossAccountRoleErrorCode)[keyof typeof InvalidCrossAccountRoleErrorCode];
-
-/**
- * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
- *          instances during the assessment run.</p>
- * @public
- */
-export class InvalidCrossAccountRoleException extends __BaseException {
-  readonly name: "InvalidCrossAccountRoleException" = "InvalidCrossAccountRoleException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Code that indicates the type of error that is generated.</p>
-   * @public
-   */
-  errorCode: InvalidCrossAccountRoleErrorCode | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCrossAccountRoleException, __BaseException>) {
-    super({
-      name: "InvalidCrossAccountRoleException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCrossAccountRoleException.prototype);
-    this.errorCode = opts.errorCode;
-    this.canRetry = opts.canRetry;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const LimitExceededErrorCode = {
-  ASSESSMENT_RUN_LIMIT_EXCEEDED: "ASSESSMENT_RUN_LIMIT_EXCEEDED",
-  ASSESSMENT_TARGET_LIMIT_EXCEEDED: "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
-  ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED: "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
-  EVENT_SUBSCRIPTION_LIMIT_EXCEEDED: "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
-  RESOURCE_GROUP_LIMIT_EXCEEDED: "RESOURCE_GROUP_LIMIT_EXCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type LimitExceededErrorCode = (typeof LimitExceededErrorCode)[keyof typeof LimitExceededErrorCode];
-
-/**
- * <p>The request was rejected because it attempted to create resources beyond the current
- *          AWS account limits. The error code describes the limit exceeded.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Code that indicates the type of error that is generated.</p>
-   * @public
-   */
-  errorCode: LimitExceededErrorCode | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   * @public
-   */
-  canRetry: boolean | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.errorCode = opts.errorCode;
-    this.canRetry = opts.canRetry;
-  }
 }
 
 /**
@@ -1550,27 +973,6 @@ export interface CreateExclusionsPreviewResponse {
    * @public
    */
   previewToken: string | undefined;
-}
-
-/**
- * <p>The request is rejected. The specified assessment template is currently generating an
- *          exclusions preview.</p>
- * @public
- */
-export class PreviewGenerationInProgressException extends __BaseException {
-  readonly name: "PreviewGenerationInProgressException" = "PreviewGenerationInProgressException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreviewGenerationInProgressException, __BaseException>) {
-    super({
-      name: "PreviewGenerationInProgressException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreviewGenerationInProgressException.prototype);
-  }
 }
 
 /**
@@ -1759,19 +1161,6 @@ export interface DescribeCrossAccountAccessRoleResponse {
 
 /**
  * @public
- * @enum
- */
-export const Locale = {
-  EN_US: "EN_US",
-} as const;
-
-/**
- * @public
- */
-export type Locale = (typeof Locale)[keyof typeof Locale];
-
-/**
- * @public
  */
 export interface DescribeExclusionsRequest {
   /**
@@ -1787,20 +1176,6 @@ export interface DescribeExclusionsRequest {
    */
   locale?: Locale | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ScopeType = {
-  INSTANCE_ID: "INSTANCE_ID",
-  RULES_PACKAGE_ARN: "RULES_PACKAGE_ARN",
-} as const;
-
-/**
- * @public
- */
-export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 
 /**
  * <p>This data type contains key-value pairs that identify various Amazon
@@ -2309,34 +1684,6 @@ export interface FindingFilter {
 
 /**
  * @public
- * @enum
- */
-export const ReportFileFormat = {
-  HTML: "HTML",
-  PDF: "PDF",
-} as const;
-
-/**
- * @public
- */
-export type ReportFileFormat = (typeof ReportFileFormat)[keyof typeof ReportFileFormat];
-
-/**
- * @public
- * @enum
- */
-export const ReportType = {
-  FINDING: "FINDING",
-  FULL: "FULL",
-} as const;
-
-/**
- * @public
- */
-export type ReportType = (typeof ReportType)[keyof typeof ReportType];
-
-/**
- * @public
  */
 export interface GetAssessmentReportRequest {
   /**
@@ -2364,21 +1711,6 @@ export interface GetAssessmentReportRequest {
 
 /**
  * @public
- * @enum
- */
-export const ReportStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ReportStatus = (typeof ReportStatus)[keyof typeof ReportStatus];
-
-/**
- * @public
  */
 export interface GetAssessmentReportResponse {
   /**
@@ -2393,32 +1725,6 @@ export interface GetAssessmentReportResponse {
    * @public
    */
   url?: string | undefined;
-}
-
-/**
- * <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
- *          because you tried to generate a report for an assessment run that existed before reporting
- *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
- *          took place or will take place after generating reports in Amazon Inspector became
- *          available.</p>
- * @public
- */
-export class UnsupportedFeatureException extends __BaseException {
-  readonly name: "UnsupportedFeatureException" = "UnsupportedFeatureException";
-  readonly $fault: "client" = "client";
-  canRetry: boolean | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedFeatureException, __BaseException>) {
-    super({
-      name: "UnsupportedFeatureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedFeatureException.prototype);
-    this.canRetry = opts.canRetry;
-  }
 }
 
 /**
@@ -2461,20 +1767,6 @@ export interface GetExclusionsPreviewRequest {
    */
   locale?: Locale | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PreviewStatus = {
-  COMPLETED: "COMPLETED",
-  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type PreviewStatus = (typeof PreviewStatus)[keyof typeof PreviewStatus];
 
 /**
  * @public
@@ -3131,20 +2423,6 @@ export interface StartAssessmentRunResponse {
    */
   assessmentRunArn: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StopAction = {
-  SKIP_EVALUATION: "SKIP_EVALUATION",
-  START_EVALUATION: "START_EVALUATION",
-} as const;
-
-/**
- * @public
- */
-export type StopAction = (typeof StopAction)[keyof typeof StopAction];
 
 /**
  * @public

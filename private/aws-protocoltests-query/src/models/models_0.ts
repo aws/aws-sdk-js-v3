@@ -1,35 +1,11 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { QueryProtocolServiceException as __BaseException } from "./QueryProtocolServiceException";
+import { FooEnum, IntegerEnum } from "./enums";
 
 /**
  * @public
  */
 export interface GreetingStruct {
   hi?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FooEnum = {
-  BAR: "Bar",
-  BAZ: "Baz",
-  FOO: "Foo",
-  ONE: "1",
-  ZERO: "0",
-} as const;
-/**
- * @public
- */
-export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
-
-export enum IntegerEnum {
-  A = 1,
-  B = 2,
-  C = 3,
 }
 
 /**
@@ -92,77 +68,10 @@ export interface ComplexNestedErrorData {
 }
 
 /**
- * This error is thrown when a request is invalid.
- * @public
- */
-export class ComplexError extends __BaseException {
-  readonly name: "ComplexError" = "ComplexError";
-  readonly $fault: "client" = "client";
-  TopLevel?: string | undefined;
-  Nested?: ComplexNestedErrorData | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
-    super({
-      name: "ComplexError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ComplexError.prototype);
-    this.TopLevel = opts.TopLevel;
-    this.Nested = opts.Nested;
-  }
-}
-
-/**
- * @public
- */
-export class CustomCodeError extends __BaseException {
-  readonly name: "CustomCodeError" = "CustomCodeError";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CustomCodeError, __BaseException>) {
-    super({
-      name: "CustomCodeError",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CustomCodeError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GreetingWithErrorsOutput {
   greeting?: string | undefined;
-}
-
-/**
- * This error is thrown when an invalid greeting value is provided.
- * @public
- */
-export class InvalidGreeting extends __BaseException {
-  readonly name: "InvalidGreeting" = "InvalidGreeting";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
-    super({
-      name: "InvalidGreeting",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidGreeting.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**

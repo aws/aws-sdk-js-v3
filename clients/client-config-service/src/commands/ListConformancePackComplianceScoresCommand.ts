@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListConformancePackComplianceScoresRequest,
   ListConformancePackComplianceScoresResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListConformancePackComplianceScores } from "../schemas/schemas_0";
 
 /**

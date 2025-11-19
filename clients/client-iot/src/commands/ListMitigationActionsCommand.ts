@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/models_2";
+import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/models_1";
 import { ListMitigationActions } from "../schemas/schemas_0";
 
 /**

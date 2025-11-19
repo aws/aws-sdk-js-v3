@@ -198,7 +198,7 @@ import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { KeyspacesServiceException as __KeyspacesServiceException } from "../models/KeyspacesServiceException";
 
 /* eslint no-var: 0 */

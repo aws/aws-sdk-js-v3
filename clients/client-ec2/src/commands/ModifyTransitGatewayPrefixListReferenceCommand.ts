@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyTransitGatewayPrefixListReferenceRequest,
   ModifyTransitGatewayPrefixListReferenceResult,
-} from "../models/models_8";
+} from "../models/models_6";
 import { ModifyTransitGatewayPrefixListReference } from "../schemas/schemas_0";
 
 /**

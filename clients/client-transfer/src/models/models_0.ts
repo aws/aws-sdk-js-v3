@@ -1,29 +1,44 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { TransferServiceException as __BaseException } from "./TransferServiceException";
-
-/**
- * <p>You do not have sufficient access to perform this action.</p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-    this.Message = opts.Message;
-  }
-}
+import {
+  AgreementStatusType,
+  As2Transport,
+  CertificateStatusType,
+  CertificateType,
+  CertificateUsageType,
+  CompressionEnum,
+  ConnectorEgressType,
+  ConnectorStatus,
+  CustomStepStatus,
+  DirectoryListingOptimization,
+  Domain,
+  EncryptionAlg,
+  EncryptionType,
+  EndpointType,
+  EnforceMessageSigningType,
+  ExecutionErrorType,
+  ExecutionStatus,
+  HomeDirectoryType,
+  IdentityProviderType,
+  IpAddressType,
+  MapType,
+  MdnResponse,
+  MdnSigningAlg,
+  OverwriteExisting,
+  PreserveContentType,
+  PreserveFilenameType,
+  ProfileType,
+  Protocol,
+  SecurityPolicyProtocol,
+  SecurityPolicyResourceType,
+  SetStatOption,
+  SftpAuthenticationMethods,
+  SigningAlg,
+  State,
+  TlsSessionResumptionMode,
+  TransferTableStatus,
+  WebAppEndpointPolicy,
+  WorkflowStepType,
+} from "./enums";
 
 /**
  * <p>Contains Amazon S3 locations for storing specific types of AS2 message files.</p>
@@ -60,48 +75,6 @@ export interface CustomDirectoriesType {
    */
   TemporaryFilesDirectory: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EnforceMessageSigningType = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type EnforceMessageSigningType = (typeof EnforceMessageSigningType)[keyof typeof EnforceMessageSigningType];
-
-/**
- * @public
- * @enum
- */
-export const PreserveFilenameType = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PreserveFilenameType = (typeof PreserveFilenameType)[keyof typeof PreserveFilenameType];
-
-/**
- * @public
- * @enum
- */
-export const AgreementStatusType = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type AgreementStatusType = (typeof AgreementStatusType)[keyof typeof AgreementStatusType];
 
 /**
  * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes. You can apply tags to servers, users, and roles. A tag key can take more than one value. For example, to group servers for accounting purposes, you might create a tag called <code>Group</code> and assign the values <code>Research</code> and <code>Accounting</code> to that group.</p>
@@ -201,146 +174,6 @@ export interface CreateAgreementResponse {
    * @public
    */
   AgreementId: string | undefined;
-}
-
-/**
- * <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
- * @public
- */
-export class InternalServiceError extends __BaseException {
-  readonly name: "InternalServiceError" = "InternalServiceError";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
-    super({
-      name: "InternalServiceError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is thrown when the client submits a malformed request.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
- * @public
- */
-export class ResourceExistsException extends __BaseException {
-  readonly name: "ResourceExistsException" = "ResourceExistsException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  Resource: string | undefined;
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
-    super({
-      name: "ResourceExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceExistsException.prototype);
-    this.Message = opts.Message;
-    this.Resource = opts.Resource;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  Resource: string | undefined;
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Resource = opts.Resource;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  RetryAfterSeconds?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
 }
 
 /**
@@ -470,28 +303,6 @@ export interface DescribeAgreementResponse {
    * @public
    */
   Agreement: DescribedAgreement | undefined;
-}
-
-/**
- * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -665,100 +476,6 @@ export interface UpdateAgreementResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const CompressionEnum = {
-  DISABLED: "DISABLED",
-  ZLIB: "ZLIB",
-} as const;
-
-/**
- * @public
- */
-export type CompressionEnum = (typeof CompressionEnum)[keyof typeof CompressionEnum];
-
-/**
- * @public
- * @enum
- */
-export const EncryptionAlg = {
-  AES128_CBC: "AES128_CBC",
-  AES192_CBC: "AES192_CBC",
-  AES256_CBC: "AES256_CBC",
-  DES_EDE3_CBC: "DES_EDE3_CBC",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionAlg = (typeof EncryptionAlg)[keyof typeof EncryptionAlg];
-
-/**
- * @public
- * @enum
- */
-export const MdnResponse = {
-  NONE: "NONE",
-  SYNC: "SYNC",
-} as const;
-
-/**
- * @public
- */
-export type MdnResponse = (typeof MdnResponse)[keyof typeof MdnResponse];
-
-/**
- * @public
- * @enum
- */
-export const MdnSigningAlg = {
-  DEFAULT: "DEFAULT",
-  NONE: "NONE",
-  SHA1: "SHA1",
-  SHA256: "SHA256",
-  SHA384: "SHA384",
-  SHA512: "SHA512",
-} as const;
-
-/**
- * @public
- */
-export type MdnSigningAlg = (typeof MdnSigningAlg)[keyof typeof MdnSigningAlg];
-
-/**
- * @public
- * @enum
- */
-export const PreserveContentType = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PreserveContentType = (typeof PreserveContentType)[keyof typeof PreserveContentType];
-
-/**
- * @public
- * @enum
- */
-export const SigningAlg = {
-  NONE: "NONE",
-  SHA1: "SHA1",
-  SHA256: "SHA256",
-  SHA384: "SHA384",
-  SHA512: "SHA512",
-} as const;
-
-/**
- * @public
- */
-export type SigningAlg = (typeof SigningAlg)[keyof typeof SigningAlg];
-
-/**
  * <p>Contains the details for an AS2 connector object. The connector object is used for AS2 outbound processes, to connect the Transfer Family customer with the trading partner.</p>
  * @public
  */
@@ -826,19 +543,6 @@ export interface As2ConnectorConfig {
 
 /**
  * @public
- * @enum
- */
-export const As2Transport = {
-  HTTP: "HTTP",
-} as const;
-
-/**
- * @public
- */
-export type As2Transport = (typeof As2Transport)[keyof typeof As2Transport];
-
-/**
- * @public
  */
 export interface DeleteCertificateRequest {
   /**
@@ -858,50 +562,6 @@ export interface DescribeCertificateRequest {
    */
   CertificateId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CertificateStatusType = {
-  ACTIVE: "ACTIVE",
-  INACTIVE: "INACTIVE",
-  PENDING_ROTATION: "PENDING_ROTATION",
-} as const;
-
-/**
- * @public
- */
-export type CertificateStatusType = (typeof CertificateStatusType)[keyof typeof CertificateStatusType];
-
-/**
- * @public
- * @enum
- */
-export const CertificateType = {
-  CERTIFICATE: "CERTIFICATE",
-  CERTIFICATE_WITH_PRIVATE_KEY: "CERTIFICATE_WITH_PRIVATE_KEY",
-} as const;
-
-/**
- * @public
- */
-export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
-
-/**
- * @public
- * @enum
- */
-export const CertificateUsageType = {
-  ENCRYPTION: "ENCRYPTION",
-  SIGNING: "SIGNING",
-  TLS: "TLS",
-} as const;
-
-/**
- * @public
- */
-export type CertificateUsageType = (typeof CertificateUsageType)[keyof typeof CertificateUsageType];
 
 /**
  * <p>Describes the properties of a certificate.</p>
@@ -1197,28 +857,6 @@ export interface UpdateCertificateResponse {
 }
 
 /**
- * <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>VPC_LATTICE egress configuration that specifies the Resource Configuration ARN and port for connecting to SFTP servers through customer VPCs. Requires a valid Resource Configuration with appropriate network access.</p>
  * @public
  */
@@ -1272,36 +910,6 @@ export namespace ConnectorEgressConfig {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectorEgressType = {
-  SERVICE_MANAGED: "SERVICE_MANAGED",
-  VPC_LATTICE: "VPC_LATTICE",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorEgressType = (typeof ConnectorEgressType)[keyof typeof ConnectorEgressType];
-
-/**
- * @public
- * @enum
- */
-export const TransferTableStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED: "QUEUED",
-} as const;
-
-/**
- * @public
- */
-export type TransferTableStatus = (typeof TransferTableStatus)[keyof typeof TransferTableStatus];
 
 /**
  * <p>A structure that contains the details for files transferred using an SFTP connector, during a single transfer.</p>
@@ -1499,21 +1107,6 @@ export namespace DescribedConnectorEgressConfig {
     _: (name: string, value: any) => T;
   }
 }
-
-/**
- * @public
- * @enum
- */
-export const ConnectorStatus = {
-  ACTIVE: "ACTIVE",
-  ERRORED: "ERRORED",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
 
 /**
  * <p>Describes the parameters for the connector, as identified by the <code>ConnectorId</code>.</p>
@@ -1850,20 +1443,6 @@ export interface InputFileLocation {
 }
 
 /**
- * @public
- * @enum
- */
-export const OverwriteExisting = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-} as const;
-
-/**
- * @public
- */
-export type OverwriteExisting = (typeof OverwriteExisting)[keyof typeof OverwriteExisting];
-
-/**
  * <p>Each step type has its own <code>StepDetails</code> structure.</p>
  * @public
  */
@@ -1894,20 +1473,6 @@ export interface CopyStepDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const MapType = {
-  DIRECTORY: "DIRECTORY",
-  FILE: "FILE",
-} as const;
-
-/**
- * @public
- */
-export type MapType = (typeof MapType)[keyof typeof MapType];
-
-/**
  * <p>Represents an object that contains entries and targets for <code>HomeDirectoryMappings</code>.</p> <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p> <p> <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code> </p>
  * @public
  */
@@ -1930,20 +1495,6 @@ export interface HomeDirectoryMapEntry {
    */
   Type?: MapType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const HomeDirectoryType = {
-  LOGICAL: "LOGICAL",
-  PATH: "PATH",
-} as const;
-
-/**
- * @public
- */
-export type HomeDirectoryType = (typeof HomeDirectoryType)[keyof typeof HomeDirectoryType];
 
 /**
  * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls your users' access to your Amazon EFS file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.</p>
@@ -2041,20 +1592,6 @@ export interface CreateAccessResponse {
 
 /**
  * @public
- * @enum
- */
-export const ProfileType = {
-  LOCAL: "LOCAL",
-  PARTNER: "PARTNER",
-} as const;
-
-/**
- * @public
- */
-export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
-
-/**
- * @public
  */
 export interface CreateProfileRequest {
   /**
@@ -2094,20 +1631,6 @@ export interface CreateProfileResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const Domain = {
-  EFS: "EFS",
-  S3: "S3",
-} as const;
-
-/**
- * @public
- */
-export type Domain = (typeof Domain)[keyof typeof Domain];
-
-/**
  * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server and resources only within your VPC. To control incoming internet traffic, invoke the <code>UpdateServer</code> API and attach an Elastic IP address to your server's endpoint.</p> <note> <p> After May 19, 2021, you won't be able to create a server using <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account if your account hasn't already done so before May 19, 2021. If you have already created servers with <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Services account on or before May 19, 2021, you will not be affected. After this date, use <code>EndpointType</code>=<code>VPC</code>.</p> <p>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p> <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security groups to restrict traffic by the client's public IP address. This is not possible with <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p> </note>
  * @public
  */
@@ -2142,37 +1665,6 @@ export interface EndpointDetails {
    */
   SecurityGroupIds?: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EndpointType = {
-  PUBLIC: "PUBLIC",
-  VPC: "VPC",
-  VPC_ENDPOINT: "VPC_ENDPOINT",
-} as const;
-
-/**
- * @public
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-/**
- * @public
- * @enum
- */
-export const SftpAuthenticationMethods = {
-  PASSWORD: "PASSWORD",
-  PUBLIC_KEY: "PUBLIC_KEY",
-  PUBLIC_KEY_AND_PASSWORD: "PUBLIC_KEY_AND_PASSWORD",
-  PUBLIC_KEY_OR_PASSWORD: "PUBLIC_KEY_OR_PASSWORD",
-} as const;
-
-/**
- * @public
- */
-export type SftpAuthenticationMethods = (typeof SftpAuthenticationMethods)[keyof typeof SftpAuthenticationMethods];
 
 /**
  * <p>Returns information related to the type of user authentication that is in use for a file transfer protocol-enabled server's users. A server can have only one method of authentication.</p>
@@ -2211,65 +1703,6 @@ export interface IdentityProviderDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const IdentityProviderType = {
-  API_GATEWAY: "API_GATEWAY",
-  AWS_DIRECTORY_SERVICE: "AWS_DIRECTORY_SERVICE",
-  AWS_LAMBDA: "AWS_LAMBDA",
-  SERVICE_MANAGED: "SERVICE_MANAGED",
-} as const;
-
-/**
- * @public
- */
-export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
-
-/**
- * @public
- * @enum
- */
-export const IpAddressType = {
-  DUALSTACK: "DUALSTACK",
-  IPV4: "IPV4",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
-
-/**
- * @public
- * @enum
- */
-export const SetStatOption = {
-  DEFAULT: "DEFAULT",
-  ENABLE_NO_OP: "ENABLE_NO_OP",
-} as const;
-
-/**
- * @public
- */
-export type SetStatOption = (typeof SetStatOption)[keyof typeof SetStatOption];
-
-/**
- * @public
- * @enum
- */
-export const TlsSessionResumptionMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-  ENFORCED: "ENFORCED",
-} as const;
-
-/**
- * @public
- */
-export type TlsSessionResumptionMode = (typeof TlsSessionResumptionMode)[keyof typeof TlsSessionResumptionMode];
-
-/**
  * <p> The protocol settings that are configured for your server. </p>
  * @public
  */
@@ -2298,37 +1731,6 @@ export interface ProtocolDetails {
    */
   As2Transports?: As2Transport[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  AS2: "AS2",
-  FTP: "FTP",
-  FTPS: "FTPS",
-  SFTP: "SFTP",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
-/**
- * @public
- * @enum
- */
-export const DirectoryListingOptimization = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DirectoryListingOptimization =
-  (typeof DirectoryListingOptimization)[keyof typeof DirectoryListingOptimization];
 
 /**
  * <p>The Amazon S3 storage options that are configured for your server.</p>
@@ -2642,20 +2044,6 @@ export namespace WebAppIdentityProviderDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const WebAppEndpointPolicy = {
-  FIPS: "FIPS",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type WebAppEndpointPolicy = (typeof WebAppEndpointPolicy)[keyof typeof WebAppEndpointPolicy];
-
-/**
  * <p>Contains an integer value that represents the value for number of concurrent connections or the user sessions on your web app.</p>
  * @public
  */
@@ -2769,19 +2157,6 @@ export interface CustomStepDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const EncryptionType = {
-  PGP: "PGP",
-} as const;
-
-/**
- * @public
- */
-export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
-
-/**
  * <p>Each step type has its own <code>StepDetails</code> structure.</p>
  * @public
  */
@@ -2878,23 +2253,6 @@ export interface TagStepDetails {
 }
 
 /**
- * @public
- * @enum
- */
-export const WorkflowStepType = {
-  COPY: "COPY",
-  CUSTOM: "CUSTOM",
-  DECRYPT: "DECRYPT",
-  DELETE: "DELETE",
-  TAG: "TAG",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowStepType = (typeof WorkflowStepType)[keyof typeof WorkflowStepType];
-
-/**
  * <p>The basic building block of a workflow.</p>
  * @public
  */
@@ -2975,20 +2333,6 @@ export interface CreateWorkflowResponse {
    */
   WorkflowId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CustomStepStatus = {
-  FAILURE: "FAILURE",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type CustomStepStatus = (typeof CustomStepStatus)[keyof typeof CustomStepStatus];
 
 /**
  * @public
@@ -3268,26 +2612,6 @@ export interface LoggingConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ExecutionErrorType = {
-  ALREADY_EXISTS: "ALREADY_EXISTS",
-  BAD_REQUEST: "BAD_REQUEST",
-  CUSTOM_STEP_FAILED: "CUSTOM_STEP_FAILED",
-  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
-  NOT_FOUND: "NOT_FOUND",
-  PERMISSION_DENIED: "PERMISSION_DENIED",
-  THROTTLED: "THROTTLED",
-  TIMEOUT: "TIMEOUT",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionErrorType = (typeof ExecutionErrorType)[keyof typeof ExecutionErrorType];
-
-/**
  * <p>Specifies the error message and type, for an error that occurs during the execution of the workflow.</p>
  * @public
  */
@@ -3382,22 +2706,6 @@ export interface ServiceMetadata {
    */
   UserDetails: UserDetails | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  COMPLETED: "COMPLETED",
-  EXCEPTION: "EXCEPTION",
-  HANDLING_EXCEPTION: "HANDLING_EXCEPTION",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * <p>The details for an execution object.</p>
@@ -3568,34 +2876,6 @@ export interface DescribedProfile {
 }
 
 /**
- * @public
- * @enum
- */
-export const SecurityPolicyProtocol = {
-  FTPS: "FTPS",
-  SFTP: "SFTP",
-} as const;
-
-/**
- * @public
- */
-export type SecurityPolicyProtocol = (typeof SecurityPolicyProtocol)[keyof typeof SecurityPolicyProtocol];
-
-/**
- * @public
- * @enum
- */
-export const SecurityPolicyResourceType = {
-  CONNECTOR: "CONNECTOR",
-  SERVER: "SERVER",
-} as const;
-
-/**
- * @public
- */
-export type SecurityPolicyResourceType = (typeof SecurityPolicyResourceType)[keyof typeof SecurityPolicyResourceType];
-
-/**
  * <p>Describes the properties of a security policy that you specify. For more information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security policies for SFTP connectors</a>.</p>
  * @public
  */
@@ -3654,24 +2934,6 @@ export interface DescribedSecurityPolicy {
    */
   Protocols?: SecurityPolicyProtocol[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  OFFLINE: "OFFLINE",
-  ONLINE: "ONLINE",
-  STARTING: "STARTING",
-  START_FAILED: "START_FAILED",
-  STOPPING: "STOPPING",
-  STOP_FAILED: "STOP_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
 
 /**
  * <p>Describes the properties of a file transfer protocol-enabled server that was specified.</p>

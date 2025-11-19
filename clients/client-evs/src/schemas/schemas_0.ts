@@ -182,7 +182,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { EvsServiceException as __EvsServiceException } from "../models/EvsServiceException";
 import {
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
@@ -190,7 +189,8 @@ import {
   ThrottlingException as __ThrottlingException,
   TooManyTagsException as __TooManyTagsException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
+import { EvsServiceException as __EvsServiceException } from "../models/EvsServiceException";
 
 /* eslint no-var: 0 */
 

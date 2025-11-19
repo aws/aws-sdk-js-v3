@@ -838,7 +838,6 @@ import {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { IAMServiceException as __IAMServiceException } from "../models/IAMServiceException";
 import {
   AccountNotManagementOrDelegatedAdministratorException as __AccountNotManagementOrDelegatedAdministratorException,
   CallerIsNotManagementAccountException as __CallerIsNotManagementAccountException,
@@ -873,7 +872,8 @@ import {
   ServiceNotSupportedException as __ServiceNotSupportedException,
   UnmodifiableEntityException as __UnmodifiableEntityException,
   UnrecognizedPublicKeyEncodingException as __UnrecognizedPublicKeyEncodingException,
-} from "../models/index";
+} from "../models/errors";
+import { IAMServiceException as __IAMServiceException } from "../models/IAMServiceException";
 
 /* eslint no-var: 0 */
 

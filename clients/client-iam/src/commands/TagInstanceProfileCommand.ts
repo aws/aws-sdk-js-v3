@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagInstanceProfileRequest } from "../models/models_1";
+import { TagInstanceProfileRequest } from "../models/models_0";
 import { TagInstanceProfile } from "../schemas/schemas_0";
 
 /**

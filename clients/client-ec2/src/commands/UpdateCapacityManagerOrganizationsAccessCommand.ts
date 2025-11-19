@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateCapacityManagerOrganizationsAccessRequest,
   UpdateCapacityManagerOrganizationsAccessResult,
-} from "../models/models_8";
+} from "../models/models_7";
 import { UpdateCapacityManagerOrganizationsAccess } from "../schemas/schemas_0";
 
 /**

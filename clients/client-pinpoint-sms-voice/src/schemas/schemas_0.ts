@@ -82,7 +82,7 @@ import {
   LimitExceededException as __LimitExceededException,
   NotFoundException as __NotFoundException,
   TooManyRequestsException as __TooManyRequestsException,
-} from "../models/index";
+} from "../models/errors";
 import { PinpointSMSVoiceServiceException as __PinpointSMSVoiceServiceException } from "../models/PinpointSMSVoiceServiceException";
 
 /* eslint no-var: 0 */

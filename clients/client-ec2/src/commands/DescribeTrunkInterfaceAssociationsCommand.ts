@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
-} from "../models/models_6";
+} from "../models/models_4";
 import { DescribeTrunkInterfaceAssociations } from "../schemas/schemas_0";
 
 /**

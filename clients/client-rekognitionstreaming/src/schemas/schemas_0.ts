@@ -101,7 +101,7 @@ import {
   SessionNotFoundException as __SessionNotFoundException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { RekognitionStreamingServiceException as __RekognitionStreamingServiceException } from "../models/RekognitionStreamingServiceException";
 
 /* eslint no-var: 0 */

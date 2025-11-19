@@ -1,9 +1,40 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
-import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
+import {
+  ApplicationLogLevel,
+  Architecture,
+  CodeSigningPolicy,
+  EndPointType,
+  EventSourceMappingMetric,
+  EventSourcePosition,
+  FullDocument,
+  FunctionResponseType,
+  FunctionUrlAuthType,
+  FunctionVersion,
+  InvocationType,
+  InvokeMode,
+  KafkaSchemaRegistryAuthType,
+  KafkaSchemaValidationAttribute,
+  LastUpdateStatus,
+  LastUpdateStatusReasonCode,
+  LogFormat,
+  LogType,
+  PackageType,
+  ProvisionedConcurrencyStatusEnum,
+  RecursiveLoop,
+  ResponseStreamingInvocationType,
+  Runtime,
+  SchemaRegistryEventRecordFormat,
+  SnapStartApplyOn,
+  SnapStartOptimizationStatus,
+  SourceAccessType,
+  State,
+  StateReasonCode,
+  SystemLogLevel,
+  TracingMode,
+  UpdateRuntimeOn,
+} from "./enums";
 
 /**
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
@@ -122,220 +153,6 @@ export interface AddLayerVersionPermissionResponse {
    */
   RevisionId?: string | undefined;
 }
-
-/**
- * <p>One of the parameters in the request is not valid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
- * @public
- */
-export class PolicyLengthExceededException extends __BaseException {
-  readonly name: "PolicyLengthExceededException" = "PolicyLengthExceededException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PolicyLengthExceededException, __BaseException>) {
-    super({
-      name: "PolicyLengthExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PolicyLengthExceededException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
- * @public
- */
-export class PreconditionFailedException extends __BaseException {
-  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
-    super({
-      name: "PreconditionFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The resource already exists, or another operation is in progress.</p>
- * @public
- */
-export class ResourceConflictException extends __BaseException {
-  readonly name: "ResourceConflictException" = "ResourceConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
-    super({
-      name: "ResourceConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceConflictException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The resource specified in the request does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Lambda service encountered an internal error.</p>
- * @public
- */
-export class ServiceException extends __BaseException {
-  readonly name: "ServiceException" = "ServiceException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
-    super({
-      name: "ServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ThrottleReason = {
-  CallerRateLimitExceeded: "CallerRateLimitExceeded",
-  ConcurrentInvocationLimitExceeded: "ConcurrentInvocationLimitExceeded",
-  ConcurrentSnapshotCreateLimitExceeded: "ConcurrentSnapshotCreateLimitExceeded",
-  FunctionInvocationRateLimitExceeded: "FunctionInvocationRateLimitExceeded",
-  ReservedFunctionConcurrentInvocationLimitExceeded: "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded: "ReservedFunctionInvocationRateLimitExceeded",
-} as const;
-
-/**
- * @public
- */
-export type ThrottleReason = (typeof ThrottleReason)[keyof typeof ThrottleReason];
-
-/**
- * <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
-   * @public
-   */
-  retryAfterSeconds?: string | undefined;
-
-  Type?: string | undefined;
-  Reason?: ThrottleReason | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-    this.Type = opts.Type;
-    this.Reason = opts.Reason;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const FunctionUrlAuthType = {
-  AWS_IAM: "AWS_IAM",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type FunctionUrlAuthType = (typeof FunctionUrlAuthType)[keyof typeof FunctionUrlAuthType];
 
 /**
  * @public
@@ -492,22 +309,6 @@ export interface AllowedPublishers {
 }
 
 /**
- * @public
- * @enum
- */
-export const KafkaSchemaRegistryAuthType = {
-  BASIC_AUTH: "BASIC_AUTH",
-  CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",
-  SERVER_ROOT_CA_CERTIFICATE: "SERVER_ROOT_CA_CERTIFICATE",
-} as const;
-
-/**
- * @public
- */
-export type KafkaSchemaRegistryAuthType =
-  (typeof KafkaSchemaRegistryAuthType)[keyof typeof KafkaSchemaRegistryAuthType];
-
-/**
  * <p>Specific access configuration settings that tell Lambda how to authenticate with your schema registry.</p> <p>If you're working with an Glue schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.</p> <p>If you're working with a Confluent schema registry, choose the authentication method in the <code>Type</code> field, and provide the Secrets Manager secret ARN in the <code>URI</code> field.</p>
  * @public
  */
@@ -524,36 +325,6 @@ export interface KafkaSchemaRegistryAccessConfig {
    */
   URI?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SchemaRegistryEventRecordFormat = {
-  JSON: "JSON",
-  SOURCE: "SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type SchemaRegistryEventRecordFormat =
-  (typeof SchemaRegistryEventRecordFormat)[keyof typeof SchemaRegistryEventRecordFormat];
-
-/**
- * @public
- * @enum
- */
-export const KafkaSchemaValidationAttribute = {
-  KEY: "KEY",
-  VALUE: "VALUE",
-} as const;
-
-/**
- * @public
- */
-export type KafkaSchemaValidationAttribute =
-  (typeof KafkaSchemaValidationAttribute)[keyof typeof KafkaSchemaValidationAttribute];
 
 /**
  * <p>Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
@@ -614,52 +385,6 @@ export interface AmazonManagedKafkaEventSourceConfig {
    */
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ApplicationLogLevel = {
-  Debug: "DEBUG",
-  Error: "ERROR",
-  Fatal: "FATAL",
-  Info: "INFO",
-  Trace: "TRACE",
-  Warn: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type ApplicationLogLevel = (typeof ApplicationLogLevel)[keyof typeof ApplicationLogLevel];
-
-/**
- * @public
- * @enum
- */
-export const Architecture = {
-  arm64: "arm64",
-  x86_64: "x86_64",
-} as const;
-
-/**
- * @public
- */
-export type Architecture = (typeof Architecture)[keyof typeof Architecture];
-
-/**
- * @public
- * @enum
- */
-export const CodeSigningPolicy = {
-  Enforce: "Enforce",
-  Warn: "Warn",
-} as const;
-
-/**
- * @public
- */
-export type CodeSigningPolicy = (typeof CodeSigningPolicy)[keyof typeof CodeSigningPolicy];
 
 /**
  * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or expiry.</p>
@@ -950,20 +675,6 @@ export interface DestinationConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const FullDocument = {
-  Default: "Default",
-  UpdateLookup: "UpdateLookup",
-} as const;
-
-/**
- * @public
- */
-export type FullDocument = (typeof FullDocument)[keyof typeof FullDocument];
-
-/**
  * <p> Specific configuration settings for a DocumentDB event source. </p>
  * @public
  */
@@ -1012,32 +723,6 @@ export interface FilterCriteria {
 }
 
 /**
- * @public
- * @enum
- */
-export const FunctionResponseType = {
-  ReportBatchItemFailures: "ReportBatchItemFailures",
-} as const;
-
-/**
- * @public
- */
-export type FunctionResponseType = (typeof FunctionResponseType)[keyof typeof FunctionResponseType];
-
-/**
- * @public
- * @enum
- */
-export const EventSourceMappingMetric = {
-  EventCount: "EventCount",
-} as const;
-
-/**
- * @public
- */
-export type EventSourceMappingMetric = (typeof EventSourceMappingMetric)[keyof typeof EventSourceMappingMetric];
-
-/**
  * <p>The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.</p>
  * @public
  */
@@ -1080,19 +765,6 @@ export interface ScalingConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const EndPointType = {
-  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
-} as const;
-
-/**
- * @public
- */
-export type EndPointType = (typeof EndPointType)[keyof typeof EndPointType];
-
-/**
  * <p>The self-managed Apache Kafka cluster for your event source.</p>
  * @public
  */
@@ -1123,26 +795,6 @@ export interface SelfManagedKafkaEventSourceConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const SourceAccessType = {
-  BASIC_AUTH: "BASIC_AUTH",
-  CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",
-  SASL_SCRAM_256_AUTH: "SASL_SCRAM_256_AUTH",
-  SASL_SCRAM_512_AUTH: "SASL_SCRAM_512_AUTH",
-  SERVER_ROOT_CA_CERTIFICATE: "SERVER_ROOT_CA_CERTIFICATE",
-  VIRTUAL_HOST: "VIRTUAL_HOST",
-  VPC_SECURITY_GROUP: "VPC_SECURITY_GROUP",
-  VPC_SUBNET: "VPC_SUBNET",
-} as const;
-
-/**
- * @public
- */
-export type SourceAccessType = (typeof SourceAccessType)[keyof typeof SourceAccessType];
-
-/**
  * <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
  * @public
  */
@@ -1159,21 +811,6 @@ export interface SourceAccessConfiguration {
    */
   URI?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EventSourcePosition = {
-  AT_TIMESTAMP: "AT_TIMESTAMP",
-  LATEST: "LATEST",
-  TRIM_HORIZON: "TRIM_HORIZON",
-} as const;
-
-/**
- * @public
- */
-export type EventSourcePosition = (typeof EventSourcePosition)[keyof typeof EventSourcePosition];
 
 /**
  * @public
@@ -1570,30 +1207,6 @@ export interface DeleteEventSourceMappingRequest {
 }
 
 /**
- * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface GetEventSourceMappingRequest {
@@ -1782,81 +1395,6 @@ export interface UpdateEventSourceMappingRequest {
 }
 
 /**
- * <p>The specified code signing configuration does not exist.</p>
- * @public
- */
-export class CodeSigningConfigNotFoundException extends __BaseException {
-  readonly name: "CodeSigningConfigNotFoundException" = "CodeSigningConfigNotFoundException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CodeSigningConfigNotFoundException, __BaseException>) {
-    super({
-      name: "CodeSigningConfigNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CodeSigningConfigNotFoundException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
- * @public
- */
-export class CodeStorageExceededException extends __BaseException {
-  readonly name: "CodeStorageExceededException" = "CodeStorageExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CodeStorageExceededException, __BaseException>) {
-    super({
-      name: "CodeStorageExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CodeStorageExceededException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
- * @public
- */
-export class CodeVerificationFailedException extends __BaseException {
-  readonly name: "CodeVerificationFailedException" = "CodeVerificationFailedException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CodeVerificationFailedException, __BaseException>) {
-    super({
-      name: "CodeVerificationFailedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CodeVerificationFailedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
  * @public
  */
@@ -1977,35 +1515,6 @@ export interface ImageConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const LogFormat = {
-  Json: "JSON",
-  Text: "Text",
-} as const;
-
-/**
- * @public
- */
-export type LogFormat = (typeof LogFormat)[keyof typeof LogFormat];
-
-/**
- * @public
- * @enum
- */
-export const SystemLogLevel = {
-  Debug: "DEBUG",
-  Info: "INFO",
-  Warn: "WARN",
-} as const;
-
-/**
- * @public
- */
-export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
-
-/**
  * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
  * @public
  */
@@ -2036,90 +1545,6 @@ export interface LoggingConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const PackageType = {
-  Image: "Image",
-  Zip: "Zip",
-} as const;
-
-/**
- * @public
- */
-export type PackageType = (typeof PackageType)[keyof typeof PackageType];
-
-/**
- * @public
- * @enum
- */
-export const Runtime = {
-  dotnet6: "dotnet6",
-  dotnet8: "dotnet8",
-  dotnetcore10: "dotnetcore1.0",
-  dotnetcore20: "dotnetcore2.0",
-  dotnetcore21: "dotnetcore2.1",
-  dotnetcore31: "dotnetcore3.1",
-  go1x: "go1.x",
-  java11: "java11",
-  java17: "java17",
-  java21: "java21",
-  java25: "java25",
-  java8: "java8",
-  java8al2: "java8.al2",
-  nodejs: "nodejs",
-  nodejs10x: "nodejs10.x",
-  nodejs12x: "nodejs12.x",
-  nodejs14x: "nodejs14.x",
-  nodejs16x: "nodejs16.x",
-  nodejs18x: "nodejs18.x",
-  nodejs20x: "nodejs20.x",
-  nodejs22x: "nodejs22.x",
-  nodejs24x: "nodejs24.x",
-  nodejs43: "nodejs4.3",
-  nodejs43edge: "nodejs4.3-edge",
-  nodejs610: "nodejs6.10",
-  nodejs810: "nodejs8.10",
-  provided: "provided",
-  providedal2: "provided.al2",
-  providedal2023: "provided.al2023",
-  python27: "python2.7",
-  python310: "python3.10",
-  python311: "python3.11",
-  python312: "python3.12",
-  python313: "python3.13",
-  python314: "python3.14",
-  python36: "python3.6",
-  python37: "python3.7",
-  python38: "python3.8",
-  python39: "python3.9",
-  ruby25: "ruby2.5",
-  ruby27: "ruby2.7",
-  ruby32: "ruby3.2",
-  ruby33: "ruby3.3",
-  ruby34: "ruby3.4",
-} as const;
-
-/**
- * @public
- */
-export type Runtime = (typeof Runtime)[keyof typeof Runtime];
-
-/**
- * @public
- * @enum
- */
-export const SnapStartApplyOn = {
-  None: "None",
-  PublishedVersions: "PublishedVersions",
-} as const;
-
-/**
- * @public
- */
-export type SnapStartApplyOn = (typeof SnapStartApplyOn)[keyof typeof SnapStartApplyOn];
-
-/**
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a> setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
  * @public
  */
@@ -2130,20 +1555,6 @@ export interface SnapStart {
    */
   ApplyOn?: SnapStartApplyOn | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TracingMode = {
-  Active: "Active",
-  PassThrough: "PassThrough",
-} as const;
-
-/**
- * @public
- */
-export type TracingMode = (typeof TracingMode)[keyof typeof TracingMode];
 
 /**
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a> tracing configuration. To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
@@ -2403,54 +1814,6 @@ export interface ImageConfigResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const LastUpdateStatus = {
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Successful: "Successful",
-} as const;
-
-/**
- * @public
- */
-export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdateStatus];
-
-/**
- * @public
- * @enum
- */
-export const LastUpdateStatusReasonCode = {
-  DisabledKMSKey: "DisabledKMSKey",
-  EFSIOError: "EFSIOError",
-  EFSMountConnectivityError: "EFSMountConnectivityError",
-  EFSMountFailure: "EFSMountFailure",
-  EFSMountTimeout: "EFSMountTimeout",
-  EniLimitExceeded: "EniLimitExceeded",
-  FunctionError: "FunctionError",
-  ImageAccessDenied: "ImageAccessDenied",
-  ImageDeleted: "ImageDeleted",
-  InsufficientRolePermissions: "InsufficientRolePermissions",
-  InternalError: "InternalError",
-  InvalidConfiguration: "InvalidConfiguration",
-  InvalidImage: "InvalidImage",
-  InvalidRuntime: "InvalidRuntime",
-  InvalidSecurityGroup: "InvalidSecurityGroup",
-  InvalidStateKMSKey: "InvalidStateKMSKey",
-  InvalidSubnet: "InvalidSubnet",
-  InvalidZipFileException: "InvalidZipFileException",
-  KMSKeyAccessDenied: "KMSKeyAccessDenied",
-  KMSKeyNotFound: "KMSKeyNotFound",
-  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
-} as const;
-
-/**
- * @public
- */
-export type LastUpdateStatusReasonCode = (typeof LastUpdateStatusReasonCode)[keyof typeof LastUpdateStatusReasonCode];
-
-/**
  * <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
  * @public
  */
@@ -2517,21 +1880,6 @@ export interface RuntimeVersionConfig {
 }
 
 /**
- * @public
- * @enum
- */
-export const SnapStartOptimizationStatus = {
-  Off: "Off",
-  On: "On",
-} as const;
-
-/**
- * @public
- */
-export type SnapStartOptimizationStatus =
-  (typeof SnapStartOptimizationStatus)[keyof typeof SnapStartOptimizationStatus];
-
-/**
  * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
  * @public
  */
@@ -2548,58 +1896,6 @@ export interface SnapStartResponse {
    */
   OptimizationStatus?: SnapStartOptimizationStatus | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const State = {
-  Active: "Active",
-  Failed: "Failed",
-  Inactive: "Inactive",
-  Pending: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type State = (typeof State)[keyof typeof State];
-
-/**
- * @public
- * @enum
- */
-export const StateReasonCode = {
-  Creating: "Creating",
-  DisabledKMSKey: "DisabledKMSKey",
-  EFSIOError: "EFSIOError",
-  EFSMountConnectivityError: "EFSMountConnectivityError",
-  EFSMountFailure: "EFSMountFailure",
-  EFSMountTimeout: "EFSMountTimeout",
-  EniLimitExceeded: "EniLimitExceeded",
-  FunctionError: "FunctionError",
-  Idle: "Idle",
-  ImageAccessDenied: "ImageAccessDenied",
-  ImageDeleted: "ImageDeleted",
-  InsufficientRolePermissions: "InsufficientRolePermissions",
-  InternalError: "InternalError",
-  InvalidConfiguration: "InvalidConfiguration",
-  InvalidImage: "InvalidImage",
-  InvalidRuntime: "InvalidRuntime",
-  InvalidSecurityGroup: "InvalidSecurityGroup",
-  InvalidStateKMSKey: "InvalidStateKMSKey",
-  InvalidSubnet: "InvalidSubnet",
-  InvalidZipFileException: "InvalidZipFileException",
-  KMSKeyAccessDenied: "KMSKeyAccessDenied",
-  KMSKeyNotFound: "KMSKeyNotFound",
-  Restoring: "Restoring",
-  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
-} as const;
-
-/**
- * @public
- */
-export type StateReasonCode = (typeof StateReasonCode)[keyof typeof StateReasonCode];
 
 /**
  * <p>The function's X-Ray tracing configuration.</p>
@@ -2866,30 +2162,6 @@ export interface FunctionConfiguration {
 }
 
 /**
- * <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
- * @public
- */
-export class InvalidCodeSignatureException extends __BaseException {
-  readonly name: "InvalidCodeSignatureException" = "InvalidCodeSignatureException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidCodeSignatureException, __BaseException>) {
-    super({
-      name: "InvalidCodeSignatureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidCodeSignatureException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your Lambda function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.</p>
  * @public
  */
@@ -2930,20 +2202,6 @@ export interface Cors {
    */
   MaxAge?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const InvokeMode = {
-  BUFFERED: "BUFFERED",
-  RESPONSE_STREAM: "RESPONSE_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type InvokeMode = (typeof InvokeMode)[keyof typeof InvokeMode];
 
 /**
  * @public
@@ -3343,20 +2601,6 @@ export interface GetFunctionRecursionConfigRequest {
 
 /**
  * @public
- * @enum
- */
-export const RecursiveLoop = {
-  Allow: "Allow",
-  Terminate: "Terminate",
-} as const;
-
-/**
- * @public
- */
-export type RecursiveLoop = (typeof RecursiveLoop)[keyof typeof RecursiveLoop];
-
-/**
- * @public
  */
 export interface GetFunctionRecursionConfigResponse {
   /**
@@ -3483,21 +2727,6 @@ export interface GetRuntimeManagementConfigRequest {
 
 /**
  * @public
- * @enum
- */
-export const UpdateRuntimeOn = {
-  Auto: "Auto",
-  FunctionUpdate: "FunctionUpdate",
-  Manual: "Manual",
-} as const;
-
-/**
- * @public
- */
-export type UpdateRuntimeOn = (typeof UpdateRuntimeOn)[keyof typeof UpdateRuntimeOn];
-
-/**
- * @public
  */
 export interface GetRuntimeManagementConfigResponse {
   /**
@@ -3518,352 +2747,6 @@ export interface GetRuntimeManagementConfigResponse {
    */
   FunctionArn?: string | undefined;
 }
-
-/**
- * <p>Need additional permissions to configure VPC settings.</p>
- * @public
- */
-export class EC2AccessDeniedException extends __BaseException {
-  readonly name: "EC2AccessDeniedException" = "EC2AccessDeniedException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EC2AccessDeniedException, __BaseException>) {
-    super({
-      name: "EC2AccessDeniedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EC2AccessDeniedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
- * @public
- */
-export class EC2ThrottledException extends __BaseException {
-  readonly name: "EC2ThrottledException" = "EC2ThrottledException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EC2ThrottledException, __BaseException>) {
-    super({
-      name: "EC2ThrottledException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EC2ThrottledException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
- * @public
- */
-export class EC2UnexpectedException extends __BaseException {
-  readonly name: "EC2UnexpectedException" = "EC2UnexpectedException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  EC2ErrorCode?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EC2UnexpectedException, __BaseException>) {
-    super({
-      name: "EC2UnexpectedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EC2UnexpectedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-    this.EC2ErrorCode = opts.EC2ErrorCode;
-  }
-}
-
-/**
- * <p>An error occurred when reading from or writing to a connected file system.</p>
- * @public
- */
-export class EFSIOException extends __BaseException {
-  readonly name: "EFSIOException" = "EFSIOException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EFSIOException, __BaseException>) {
-    super({
-      name: "EFSIOException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EFSIOException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Lambda function couldn't make a network connection to the configured file system.</p>
- * @public
- */
-export class EFSMountConnectivityException extends __BaseException {
-  readonly name: "EFSMountConnectivityException" = "EFSMountConnectivityException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EFSMountConnectivityException, __BaseException>) {
-    super({
-      name: "EFSMountConnectivityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EFSMountConnectivityException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
- * @public
- */
-export class EFSMountFailureException extends __BaseException {
-  readonly name: "EFSMountFailureException" = "EFSMountFailureException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EFSMountFailureException, __BaseException>) {
-    super({
-      name: "EFSMountFailureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EFSMountFailureException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
- * @public
- */
-export class EFSMountTimeoutException extends __BaseException {
-  readonly name: "EFSMountTimeoutException" = "EFSMountTimeoutException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EFSMountTimeoutException, __BaseException>) {
-    super({
-      name: "EFSMountTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EFSMountTimeoutException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
- * @public
- */
-export class ENILimitReachedException extends __BaseException {
-  readonly name: "ENILimitReachedException" = "ENILimitReachedException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ENILimitReachedException, __BaseException>) {
-    super({
-      name: "ENILimitReachedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ENILimitReachedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
- * @public
- */
-export class InvalidRequestContentException extends __BaseException {
-  readonly name: "InvalidRequestContentException" = "InvalidRequestContentException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestContentException, __BaseException>) {
-    super({
-      name: "InvalidRequestContentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestContentException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The runtime or runtime version specified is not supported.</p>
- * @public
- */
-export class InvalidRuntimeException extends __BaseException {
-  readonly name: "InvalidRuntimeException" = "InvalidRuntimeException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRuntimeException, __BaseException>) {
-    super({
-      name: "InvalidRuntimeException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRuntimeException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
- * @public
- */
-export class InvalidSecurityGroupIDException extends __BaseException {
-  readonly name: "InvalidSecurityGroupIDException" = "InvalidSecurityGroupIDException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSecurityGroupIDException, __BaseException>) {
-    super({
-      name: "InvalidSecurityGroupIDException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSecurityGroupIDException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
- * @public
- */
-export class InvalidSubnetIDException extends __BaseException {
-  readonly name: "InvalidSubnetIDException" = "InvalidSubnetIDException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnetIDException, __BaseException>) {
-    super({
-      name: "InvalidSubnetIDException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnetIDException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda could not unzip the deployment package.</p>
- * @public
- */
-export class InvalidZipFileException extends __BaseException {
-  readonly name: "InvalidZipFileException" = "InvalidZipFileException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidZipFileException, __BaseException>) {
-    super({
-      name: "InvalidZipFileException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidZipFileException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const InvocationType = {
-  DryRun: "DryRun",
-  Event: "Event",
-  RequestResponse: "RequestResponse",
-} as const;
-
-/**
- * @public
- */
-export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
-
-/**
- * @public
- * @enum
- */
-export const LogType = {
-  None: "None",
-  Tail: "Tail",
-} as const;
-
-/**
- * @public
- */
-export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * @public
@@ -3942,329 +2825,6 @@ export interface InvocationResponse {
 }
 
 /**
- * <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
- * @public
- */
-export class KMSAccessDeniedException extends __BaseException {
-  readonly name: "KMSAccessDeniedException" = "KMSAccessDeniedException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
-    super({
-      name: "KMSAccessDeniedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
- * @public
- */
-export class KMSDisabledException extends __BaseException {
-  readonly name: "KMSDisabledException" = "KMSDisabledException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
-    super({
-      name: "KMSDisabledException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSDisabledException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
- * @public
- */
-export class KMSInvalidStateException extends __BaseException {
-  readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
-    super({
-      name: "KMSInvalidStateException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
- * @public
- */
-export class KMSNotFoundException extends __BaseException {
-  readonly name: "KMSNotFoundException" = "KMSNotFoundException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
-    super({
-      name: "KMSNotFoundException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
- * @public
- */
-export class RecursiveInvocationException extends __BaseException {
-  readonly name: "RecursiveInvocationException" = "RecursiveInvocationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The exception message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RecursiveInvocationException, __BaseException>) {
-    super({
-      name: "RecursiveInvocationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RecursiveInvocationException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
- * @public
- */
-export class RequestTooLargeException extends __BaseException {
-  readonly name: "RequestTooLargeException" = "RequestTooLargeException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestTooLargeException, __BaseException>) {
-    super({
-      name: "RequestTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestTooLargeException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
- * @public
- */
-export class ResourceNotReadyException extends __BaseException {
-  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The exception type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
-    super({
-      name: "ResourceNotReadyException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The processed request payload exceeded the <code>Invoke</code> request body size limit for asynchronous invocations. While the event payload may be under 1 MB, the size after internal serialization exceeds the maximum allowed size for asynchronous invocations.</p>
- * @public
- */
-export class SerializedRequestEntityTooLargeException extends __BaseException {
-  readonly name: "SerializedRequestEntityTooLargeException" = "SerializedRequestEntityTooLargeException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The error type.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SerializedRequestEntityTooLargeException, __BaseException>) {
-    super({
-      name: "SerializedRequestEntityTooLargeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SerializedRequestEntityTooLargeException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
- * <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
- * @public
- */
-export class SnapStartException extends __BaseException {
-  readonly name: "SnapStartException" = "SnapStartException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapStartException, __BaseException>) {
-    super({
-      name: "SnapStartException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapStartException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
- * @public
- */
-export class SnapStartNotReadyException extends __BaseException {
-  readonly name: "SnapStartNotReadyException" = "SnapStartNotReadyException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapStartNotReadyException, __BaseException>) {
-    super({
-      name: "SnapStartNotReadyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapStartNotReadyException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
- * @public
- */
-export class SnapStartTimeoutException extends __BaseException {
-  readonly name: "SnapStartTimeoutException" = "SnapStartTimeoutException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SnapStartTimeoutException, __BaseException>) {
-    super({
-      name: "SnapStartTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SnapStartTimeoutException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
- * @public
- */
-export class SubnetIPAddressLimitReachedException extends __BaseException {
-  readonly name: "SubnetIPAddressLimitReachedException" = "SubnetIPAddressLimitReachedException";
-  readonly $fault: "server" = "server";
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SubnetIPAddressLimitReachedException, __BaseException>) {
-    super({
-      name: "SubnetIPAddressLimitReachedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SubnetIPAddressLimitReachedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
- * @public
- */
-export class UnsupportedMediaTypeException extends __BaseException {
-  readonly name: "UnsupportedMediaTypeException" = "UnsupportedMediaTypeException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedMediaTypeException, __BaseException>) {
-    super({
-      name: "UnsupportedMediaTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedMediaTypeException.prototype);
-    this.Type = opts.Type;
-  }
-}
-
-/**
  * @public
  */
 export interface InvokeAsyncRequest {
@@ -4294,21 +2854,6 @@ export interface InvokeAsyncResponse {
    */
   Status?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResponseStreamingInvocationType = {
-  DryRun: "DryRun",
-  RequestResponse: "RequestResponse",
-} as const;
-
-/**
- * @public
- */
-export type ResponseStreamingInvocationType =
-  (typeof ResponseStreamingInvocationType)[keyof typeof ResponseStreamingInvocationType];
 
 /**
  * @public
@@ -4511,19 +3056,6 @@ export interface ListFunctionEventInvokeConfigsResponse {
 
 /**
  * @public
- * @enum
- */
-export const FunctionVersion = {
-  ALL: "ALL",
-} as const;
-
-/**
- * @public
- */
-export type FunctionVersion = (typeof FunctionVersion)[keyof typeof FunctionVersion];
-
-/**
- * @public
  */
 export interface ListFunctionsRequest {
   /**
@@ -4679,22 +3211,6 @@ export interface ListProvisionedConcurrencyConfigsRequest {
    */
   MaxItems?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProvisionedConcurrencyStatusEnum = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  READY: "READY",
-} as const;
-
-/**
- * @public
- */
-export type ProvisionedConcurrencyStatusEnum =
-  (typeof ProvisionedConcurrencyStatusEnum)[keyof typeof ProvisionedConcurrencyStatusEnum];
 
 /**
  * <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
@@ -6108,28 +4624,6 @@ export interface GetProvisionedConcurrencyConfigResponse {
    * @public
    */
   LastModified?: string | undefined;
-}
-
-/**
- * <p>The specified configuration does not exist.</p>
- * @public
- */
-export class ProvisionedConcurrencyConfigNotFoundException extends __BaseException {
-  readonly name: "ProvisionedConcurrencyConfigNotFoundException" = "ProvisionedConcurrencyConfigNotFoundException";
-  readonly $fault: "client" = "client";
-  Type?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ProvisionedConcurrencyConfigNotFoundException, __BaseException>) {
-    super({
-      name: "ProvisionedConcurrencyConfigNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ProvisionedConcurrencyConfigNotFoundException.prototype);
-    this.Type = opts.Type;
-  }
 }
 
 /**

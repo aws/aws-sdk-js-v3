@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetDomainsRequest, GetDomainsResult } from "../models/models_1";
+import { GetDomainsRequest, GetDomainsResult } from "../models/models_0";
 import { GetDomains } from "../schemas/schemas_0";
 
 /**

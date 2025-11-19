@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAccountSubscriptionRequest, DeleteAccountSubscriptionResponse } from "../models/models_4";
+import { DeleteAccountSubscriptionRequest, DeleteAccountSubscriptionResponse } from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteAccountSubscription } from "../schemas/schemas_0";
 

@@ -8,7 +8,7 @@ import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ListWirelessGatewayTaskDefinitionsRequest,
   ListWirelessGatewayTaskDefinitionsResponse,
-} from "../models/models_1";
+} from "../models/models_0";
 import { ListWirelessGatewayTaskDefinitions } from "../schemas/schemas_0";
 
 /**

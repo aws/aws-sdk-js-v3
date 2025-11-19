@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_1";
+import { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_0";
 import { DeleteCloudFrontOriginAccessIdentity } from "../schemas/schemas_0";
 
 /**

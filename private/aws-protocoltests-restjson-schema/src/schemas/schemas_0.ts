@@ -588,7 +588,7 @@ import {
   ComplexError as __ComplexError,
   FooError as __FooError,
   InvalidGreeting as __InvalidGreeting,
-} from "../models/index";
+} from "../models/errors";
 import { RestJsonProtocolServiceException as __RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
 
 /* eslint no-var: 0 */

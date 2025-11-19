@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesModificationsResult,
-} from "../models/models_5";
+} from "../models/models_4";
 import { DescribeReservedInstancesModifications } from "../schemas/schemas_0";
 
 /**

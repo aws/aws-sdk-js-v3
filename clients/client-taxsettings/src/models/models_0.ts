@@ -1,28 +1,24 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
-import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
-
-/**
- * <p>The access is denied for the Amazon Web ServicesSupport API.
- *     </p>
- * @public
- */
-export class AccessDeniedException extends __BaseException {
-  readonly name: "AccessDeniedException" = "AccessDeniedException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
-    super({
-      name: "AccessDeniedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AccessDeniedException.prototype);
-  }
-}
+import {
+  AddressRoleType,
+  EntityExemptionAccountStatus,
+  HeritageStatus,
+  IndonesiaTaxRegistrationNumberType,
+  Industries,
+  IsraelCustomerType,
+  IsraelDealerType,
+  MalaysiaServiceTaxCode,
+  PersonType,
+  RegistrationType,
+  SaudiArabiaTaxRegistrationNumberType,
+  Sector,
+  SupplementalTaxRegistrationType,
+  TaxRegistrationNumberType,
+  TaxRegistrationStatus,
+  TaxRegistrationType,
+  UkraineTrnType,
+  UzbekistanTaxRegistrationNumberType,
+} from "./enums";
 
 /**
  * <p> The details of the address associated with the TRN information. </p>
@@ -85,21 +81,6 @@ export interface Address {
    */
   countryCode: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AddressRoleType = {
-  BILLING_ADDRESS: "BillingAddress",
-  CONTACT_ADDRESS: "ContactAddress",
-  TAX_ADDRESS: "TaxAddress",
-} as const;
-
-/**
- * @public
- */
-export type AddressRoleType = (typeof AddressRoleType)[keyof typeof AddressRoleType];
 
 /**
  * <p>The jurisdiction details of the TRN information of the customers. This doesn't contain
@@ -295,21 +276,6 @@ export interface EstoniaAdditionalInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const PersonType = {
-  BUSINESS: "Business",
-  LEGAL_PERSON: "Legal Person",
-  PHYSICAL_PERSON: "Physical Person",
-} as const;
-
-/**
- * @public
- */
-export type PersonType = (typeof PersonType)[keyof typeof PersonType];
-
-/**
  * <p>
  *       Additional tax information associated with your TRN in Georgia.
  *     </p>
@@ -355,23 +321,6 @@ export interface IndiaAdditionalInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const IndonesiaTaxRegistrationNumberType = {
-  NIK: "NIK",
-  NITKU: "NITKU",
-  NPWP: "NPWP",
-  PASSPORT_NUMBER: "PassportNumber",
-} as const;
-
-/**
- * @public
- */
-export type IndonesiaTaxRegistrationNumberType =
-  (typeof IndonesiaTaxRegistrationNumberType)[keyof typeof IndonesiaTaxRegistrationNumberType];
-
-/**
  * <p>Additional tax information associated with your TRN in Indonesia.</p>
  * @public
  */
@@ -394,34 +343,6 @@ export interface IndonesiaAdditionalInfo {
    */
   decisionNumber?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IsraelCustomerType = {
-  BUSINESS: "Business",
-  INDIVIDUAL: "Individual",
-} as const;
-
-/**
- * @public
- */
-export type IsraelCustomerType = (typeof IsraelCustomerType)[keyof typeof IsraelCustomerType];
-
-/**
- * @public
- * @enum
- */
-export const IsraelDealerType = {
-  AUTHORIZED: "Authorized",
-  NON_AUTHORIZED: "Non-authorized",
-} as const;
-
-/**
- * @public
- */
-export type IsraelDealerType = (typeof IsraelDealerType)[keyof typeof IsraelDealerType];
 
 /**
  * <p> Additional tax information associated with your TRN in Israel.</p>
@@ -497,22 +418,6 @@ export interface KenyaAdditionalInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const MalaysiaServiceTaxCode = {
-  CONSULTANCY: "Consultancy",
-  DIGITAL_SVC_ELECTRONIC_MEDIUM: "Digital Service And Electronic Medium",
-  IT_SERVICES: "IT Services",
-  TRAINING_OR_COACHING: "Training Or Coaching",
-} as const;
-
-/**
- * @public
- */
-export type MalaysiaServiceTaxCode = (typeof MalaysiaServiceTaxCode)[keyof typeof MalaysiaServiceTaxCode];
-
-/**
  * <p> Additional tax information associated with your TRN in Malaysia.</p>
  * @public
  */
@@ -568,20 +473,6 @@ export interface PolandAdditionalInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const TaxRegistrationNumberType = {
-  LOCAL_REGISTRATION_NUMBER: "LocalRegistrationNumber",
-  TAX_REGISTRATION_NUMBER: "TaxRegistrationNumber",
-} as const;
-
-/**
- * @public
- */
-export type TaxRegistrationNumberType = (typeof TaxRegistrationNumberType)[keyof typeof TaxRegistrationNumberType];
-
-/**
  * <p>Additional tax information to specify for a TRN in Romania.
  *     </p>
  * @public
@@ -595,22 +486,6 @@ export interface RomaniaAdditionalInfo {
    */
   taxRegistrationNumberType: TaxRegistrationNumberType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SaudiArabiaTaxRegistrationNumberType = {
-  COMMERCIAL_REGISTRATION_NUMBER: "CommercialRegistrationNumber",
-  TAX_IDENTIFICATION_NUMBER: "TaxIdentificationNumber",
-  TAX_REGISTRATION_NUMBER: "TaxRegistrationNumber",
-} as const;
-
-/**
- * @public
- */
-export type SaudiArabiaTaxRegistrationNumberType =
-  (typeof SaudiArabiaTaxRegistrationNumberType)[keyof typeof SaudiArabiaTaxRegistrationNumberType];
 
 /**
  * <p>
@@ -653,20 +528,6 @@ export interface SouthKoreaAdditionalInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const RegistrationType = {
-  INTRA_EU: "Intra-EU",
-  LOCAL: "Local",
-} as const;
-
-/**
- * @public
- */
-export type RegistrationType = (typeof RegistrationType)[keyof typeof RegistrationType];
-
-/**
  * <p>Additional tax information associated with your TRN in Spain.</p>
  * @public
  */
@@ -677,24 +538,6 @@ export interface SpainAdditionalInfo {
    */
   registrationType: RegistrationType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const Industries = {
-  BANKS: "Banks",
-  CIRCULATING_ORG: "CirculatingOrg",
-  DEVELOPMENT_AGENCIES: "DevelopmentAgencies",
-  INSURANCE: "Insurance",
-  PENSION_AND_BENEFIT_FUNDS: "PensionAndBenefitFunds",
-  PROFESSIONAL_ORG: "ProfessionalOrg",
-} as const;
-
-/**
- * @public
- */
-export type Industries = (typeof Industries)[keyof typeof Industries];
 
 /**
  * <p>Additional tax information associated with your TRN in Turkey.</p>
@@ -731,20 +574,6 @@ export interface TurkeyAdditionalInfo {
 }
 
 /**
- * @public
- * @enum
- */
-export const UkraineTrnType = {
-  BUSINESS: "Business",
-  INDIVIDUAL: "Individual",
-} as const;
-
-/**
- * @public
- */
-export type UkraineTrnType = (typeof UkraineTrnType)[keyof typeof UkraineTrnType];
-
-/**
  * <p>
  *       Additional tax information associated with your TRN in Ukraine.
  *     </p>
@@ -759,21 +588,6 @@ export interface UkraineAdditionalInfo {
    */
   ukraineTrnType: UkraineTrnType | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const UzbekistanTaxRegistrationNumberType = {
-  BUSINESS: "Business",
-  INDIVIDUAL: "Individual",
-} as const;
-
-/**
- * @public
- */
-export type UzbekistanTaxRegistrationNumberType =
-  (typeof UzbekistanTaxRegistrationNumberType)[keyof typeof UzbekistanTaxRegistrationNumberType];
 
 /**
  * <p>
@@ -981,56 +795,6 @@ export interface AdditionalInfoResponse {
    */
   uzbekistanAdditionalInfo?: UzbekistanAdditionalInfo | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaxRegistrationType = {
-  CNPJ: "CNPJ",
-  CPF: "CPF",
-  GST: "GST",
-  NRIC: "NRIC",
-  SST: "SST",
-  TIN: "TIN",
-  VAT: "VAT",
-} as const;
-
-/**
- * @public
- */
-export type TaxRegistrationType = (typeof TaxRegistrationType)[keyof typeof TaxRegistrationType];
-
-/**
- * @public
- * @enum
- */
-export const Sector = {
-  BUSINESS: "Business",
-  INDIVIDUAL: "Individual",
-  PUBLIC_INSTITUTIONS: "Government",
-} as const;
-
-/**
- * @public
- */
-export type Sector = (typeof Sector)[keyof typeof Sector];
-
-/**
- * @public
- * @enum
- */
-export const TaxRegistrationStatus = {
-  DELETED: "Deleted",
-  PENDING: "Pending",
-  REJECTED: "Rejected",
-  VERIFIED: "Verified",
-} as const;
-
-/**
- * @public
- */
-export type TaxRegistrationStatus = (typeof TaxRegistrationStatus)[keyof typeof TaxRegistrationStatus];
 
 /**
  * <p>The metadata for your tax document.</p>
@@ -1296,27 +1060,6 @@ export interface AdditionalInfoRequest {
 }
 
 /**
- * <p>Failed to upload the tax exemption document to Amazon Web ServicesSupport case.
- *     </p>
- * @public
- */
-export class AttachmentUploadException extends __BaseException {
-  readonly name: "AttachmentUploadException" = "AttachmentUploadException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AttachmentUploadException, __BaseException>) {
-    super({
-      name: "AttachmentUploadException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AttachmentUploadException.prototype);
-  }
-}
-
-/**
  * <p>The address domain associate with the tax information.
  *     </p>
  * @public
@@ -1389,78 +1132,6 @@ export interface BatchDeleteTaxRegistrationResponse {
 }
 
 /**
- * <p>The exception when the input is creating conflict with the given state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>409</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.errorCode = opts.errorCode;
-  }
-}
-
-/**
- * <p>The exception thrown when an unexpected error occurs when processing a request.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>500</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.errorCode = opts.errorCode;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionErrorCode = {
-  EXPIRED_TOKEN: "ExpiredToken",
-  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
-  INVALID_TOKEN: "InvalidToken",
-  MALFORMED_TOKEN: "MalformedToken",
-  MISSING_INPUT: "MissingInput",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionErrorCode =
-  (typeof ValidationExceptionErrorCode)[keyof typeof ValidationExceptionErrorCode];
-
-/**
  * <p>The information about the specified parameter in the request that caused an error.</p>
  * @public
  */
@@ -1470,41 +1141,6 @@ export interface ValidationExceptionField {
    * @public
    */
   name: string | undefined;
-}
-
-/**
- * <p>The exception when the input doesn't pass validation for at least one of the input
- *       parameters. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>400</p>
-   * @public
-   */
-  errorCode: ValidationExceptionErrorCode | undefined;
-
-  /**
-   * <p>400</p>
-   * @public
-   */
-  fieldList?: ValidationExceptionField[] | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.errorCode = opts.errorCode;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -1519,23 +1155,6 @@ export interface BatchGetTaxExemptionsRequest {
    */
   accountIds: string[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const EntityExemptionAccountStatus = {
-  Expired: "Expired",
-  None: "None",
-  Pending: "Pending",
-  Valid: "Valid",
-} as const;
-
-/**
- * @public
- */
-export type EntityExemptionAccountStatus =
-  (typeof EntityExemptionAccountStatus)[keyof typeof EntityExemptionAccountStatus];
 
 /**
  * <p>The tax exemption type.
@@ -1666,33 +1285,6 @@ export interface BatchGetTaxExemptionsResponse {
    * @public
    */
   failedAccounts?: string[] | undefined;
-}
-
-/**
- * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>404</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.errorCode = opts.errorCode;
-  }
 }
 
 /**
@@ -1911,27 +1503,6 @@ export interface BatchPutTaxRegistrationResponse {
 }
 
 /**
- * <p>You've exceeded the Amazon Web ServicesSupport case creation limit for your account.
- *     </p>
- * @public
- */
-export class CaseCreationLimitExceededException extends __BaseException {
-  readonly name: "CaseCreationLimitExceededException" = "CaseCreationLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CaseCreationLimitExceededException, __BaseException>) {
-    super({
-      name: "CaseCreationLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CaseCreationLimitExceededException.prototype);
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteSupplementalTaxRegistrationRequest {
@@ -2027,20 +1598,6 @@ export interface GetTaxExemptionTypesResponse {
  * @public
  */
 export interface GetTaxInheritanceRequest {}
-
-/**
- * @public
- * @enum
- */
-export const HeritageStatus = {
-  OptIn: "OptIn",
-  OptOut: "OptOut",
-} as const;
-
-/**
- * @public
- */
-export type HeritageStatus = (typeof HeritageStatus)[keyof typeof HeritageStatus];
 
 /**
  * @public
@@ -2194,20 +1751,6 @@ export interface ListSupplementalTaxRegistrationsRequest {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SupplementalTaxRegistrationType = {
-  VAT: "VAT",
-} as const;
-
-/**
- * @public
- */
-export type SupplementalTaxRegistrationType =
-  (typeof SupplementalTaxRegistrationType)[keyof typeof SupplementalTaxRegistrationType];
 
 /**
  * <p>

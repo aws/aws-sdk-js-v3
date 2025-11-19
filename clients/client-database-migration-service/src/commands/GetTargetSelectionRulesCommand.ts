@@ -9,7 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTargetSelectionRulesMessage, GetTargetSelectionRulesResponse } from "../models/models_1";
+import { GetTargetSelectionRulesMessage, GetTargetSelectionRulesResponse } from "../models/models_0";
 import { GetTargetSelectionRules } from "../schemas/schemas_0";
 
 /**

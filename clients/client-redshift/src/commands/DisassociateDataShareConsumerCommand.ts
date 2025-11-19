@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DataShare } from "../models/models_0";
-import { DisassociateDataShareConsumerMessage } from "../models/models_1";
+import { DataShare, DisassociateDataShareConsumerMessage } from "../models/models_0";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DisassociateDataShareConsumer } from "../schemas/schemas_0";
 

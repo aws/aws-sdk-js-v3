@@ -12,6 +12,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { QConnectExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/errors";
+export type * from "./models/models_0";
+export type * from "./models/models_1";
 
 export { QConnectServiceException } from "./models/QConnectServiceException";

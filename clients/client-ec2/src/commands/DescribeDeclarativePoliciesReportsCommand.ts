@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeDeclarativePoliciesReportsRequest,
   DescribeDeclarativePoliciesReportsResult,
-} from "../models/models_4";
+} from "../models/models_3";
 import { DescribeDeclarativePoliciesReports } from "../schemas/schemas_0";
 
 /**

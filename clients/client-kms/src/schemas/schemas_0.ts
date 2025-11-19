@@ -425,7 +425,7 @@ import {
   XksProxyVpcEndpointServiceInUseException as __XksProxyVpcEndpointServiceInUseException,
   XksProxyVpcEndpointServiceInvalidConfigurationException as __XksProxyVpcEndpointServiceInvalidConfigurationException,
   XksProxyVpcEndpointServiceNotFoundException as __XksProxyVpcEndpointServiceNotFoundException,
-} from "../models/index";
+} from "../models/errors";
 import { KMSServiceException as __KMSServiceException } from "../models/KMSServiceException";
 
 /* eslint no-var: 0 */

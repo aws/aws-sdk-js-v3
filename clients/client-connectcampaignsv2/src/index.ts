@@ -12,6 +12,8 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ConnectCampaignsV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
-export * from "./models";
+
+export * from "./models/errors";
+export type * from "./models/models_0";
 
 export { ConnectCampaignsV2ServiceException } from "./models/ConnectCampaignsV2ServiceException";

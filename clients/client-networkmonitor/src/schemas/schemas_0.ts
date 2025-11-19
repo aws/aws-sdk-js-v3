@@ -101,7 +101,7 @@ import {
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
-} from "../models/index";
+} from "../models/errors";
 import { NetworkMonitorServiceException as __NetworkMonitorServiceException } from "../models/NetworkMonitorServiceException";
 
 /* eslint no-var: 0 */
