@@ -7,13 +7,26 @@ import {
   Feedback,
   FilterAction,
   FindingPublishingFrequency,
+  ListMalwareScansCriterionKey,
+  MalwareProtectionResourceType,
+  MalwareProtectionScanStatus,
+  MalwareProtectionScanType,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
+  ScanResultStatus,
+  ThreatEntitySetFormat,
+  ThreatEntitySetStatus,
+  ThreatIntelSetFormat,
+  ThreatIntelSetStatus,
+  TrustedEntitySetFormat,
+  TrustedEntitySetStatus,
   UsageFeature,
+  UsageStatisticType,
 } from "./enums";
 
 import {
+  AccountFreeTrialInfo,
   AdminAccount,
   CoverageFilterCriteria,
   CoverageResource,
@@ -22,15 +35,492 @@ import {
   Destination,
   DestinationProperties,
   DetectorFeatureConfiguration,
+  FilterCondition,
   FindingCriteria,
+  IncrementalScanDetails,
   MalwareProtectionPlanActions,
   Member,
+  OrganizationFeatureStatisticsAdditionalConfiguration,
   ScanResourceCriteria,
   SortCriteria,
-  Total,
   UnprocessedAccount,
-  UsageAccountResult,
 } from "./models_0";
+
+/**
+ * <p>Information about the number of accounts
+ *       that have enabled a specific feature.</p>
+ * @public
+ */
+export interface OrganizationFeatureStatistics {
+  /**
+   * <p>Name of the feature.</p>
+   * @public
+   */
+  Name?: OrgFeature | undefined;
+
+  /**
+   * <p>Total number of accounts that have enabled a specific
+   *       feature.</p>
+   * @public
+   */
+  EnabledAccountsCount?: number | undefined;
+
+  /**
+   * <p>Name of the additional configuration.</p>
+   * @public
+   */
+  AdditionalConfiguration?: OrganizationFeatureStatisticsAdditionalConfiguration[] | undefined;
+}
+
+/**
+ * <p>Information about the coverage statistics of the
+ *       features for the entire
+ *       Amazon Web Services organization.</p>
+ *          <p>When you create a new Amazon Web Services organization, it might
+ *       take up to 24 hours to
+ *       generate the statistics summary for this organization.</p>
+ * @public
+ */
+export interface OrganizationStatistics {
+  /**
+   * <p>Total number of accounts in your Amazon Web Services organization.</p>
+   * @public
+   */
+  TotalAccountsCount?: number | undefined;
+
+  /**
+   * <p>Total number of accounts in your Amazon Web Services organization
+   *       that are associated with GuardDuty.</p>
+   * @public
+   */
+  MemberAccountsCount?: number | undefined;
+
+  /**
+   * <p>Total number of active accounts in your Amazon Web Services
+   *       organization that are associated with GuardDuty.</p>
+   * @public
+   */
+  ActiveAccountsCount?: number | undefined;
+
+  /**
+   * <p>Total number of accounts that have enabled GuardDuty.</p>
+   * @public
+   */
+  EnabledAccountsCount?: number | undefined;
+
+  /**
+   * <p>Retrieves the coverage
+   *       statistics for each feature.</p>
+   * @public
+   */
+  CountByFeature?: OrganizationFeatureStatistics[] | undefined;
+}
+
+/**
+ * <p>Information about GuardDuty coverage statistics for members
+ *       in your Amazon Web Services organization.</p>
+ * @public
+ */
+export interface OrganizationDetails {
+  /**
+   * <p>The timestamp at which the organization statistics
+   *       was last updated. This is in
+   *       UTC format.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Information about the GuardDuty coverage statistics
+   *       for members in your Amazon Web Services organization.</p>
+   * @public
+   */
+  OrganizationStatistics?: OrganizationStatistics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOrganizationStatisticsResponse {
+  /**
+   * <p>Information about the statistics report for your organization.</p>
+   * @public
+   */
+  OrganizationDetails?: OrganizationDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRemainingFreeTrialDaysRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account identifiers of the GuardDuty member account.</p>
+   * @public
+   */
+  AccountIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRemainingFreeTrialDaysResponse {
+  /**
+   * <p>The member accounts which were included in a request and were processed
+   *       successfully.</p>
+   * @public
+   */
+  Accounts?: AccountFreeTrialInfo[] | undefined;
+
+  /**
+   * <p>The member account that was included in a request but for which the request could not be
+   *       processed.</p>
+   * @public
+   */
+  UnprocessedAccounts?: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetThreatEntitySetRequest {
+  /**
+   * <p>The unique ID of the detector associated with the threat entity set resource.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID that helps GuardDuty identify the threat entity set.</p>
+   * @public
+   */
+  ThreatEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetThreatEntitySetResponse {
+  /**
+   * <p>The name of the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the threat entity set.</p>
+   * @public
+   */
+  Format: ThreatEntitySetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the threat entity set.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *        parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>The status of the associated threat entity set.</p>
+   * @public
+   */
+  Status: ThreatEntitySetStatus | undefined;
+
+  /**
+   * <p>The tags associated with the threat entity set resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the associated threat entity set was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the associated threat entity set was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The error details when the status is shown as <code>ERROR</code>.</p>
+   * @public
+   */
+  ErrorDetails?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetThreatIntelSetRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with the threatIntelSet.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID of the threatIntelSet that you want to get.</p>
+   * @public
+   */
+  ThreatIntelSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetThreatIntelSetResponse {
+  /**
+   * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
+   *       activity that involves IP addresses included in this ThreatIntelSet.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the threatIntelSet.</p>
+   * @public
+   */
+  Format: ThreatIntelSetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the ThreatIntelSet. </p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The status of threatIntelSet file uploaded.</p>
+   * @public
+   */
+  Status: ThreatIntelSetStatus | undefined;
+
+  /**
+   * <p>The tags of the threat list resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter.
+   *       This field appears in the response only if it was provided during ThreatIntelSet creation or update.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustedEntitySetRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector associated with this trusted entity set.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID that helps GuardDuty identify the trusted entity set.</p>
+   * @public
+   */
+  TrustedEntitySetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustedEntitySetResponse {
+  /**
+   * <p>The name of the threat entity set associated with the specified <code>trustedEntitySetId</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Format: TrustedEntitySetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the trusted entity set.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b>
+   *        parameter.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>The status of the associated trusted entity set.</p>
+   * @public
+   */
+  Status: TrustedEntitySetStatus | undefined;
+
+  /**
+   * <p>The tags associated with trusted entity set resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the associated trusted entity set was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the associated trusted entity set was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The error details when the status is shown as <code>ERROR</code>.</p>
+   * @public
+   */
+  ErrorDetails?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the criteria used to query usage statistics.</p>
+ * @public
+ */
+export interface UsageCriteria {
+  /**
+   * <p>The account IDs to aggregate usage statistics from.</p>
+   * @public
+   */
+  AccountIds?: string[] | undefined;
+
+  /**
+   * <p>The data sources to aggregate usage statistics from.</p>
+   *
+   * @deprecated This parameter is deprecated, use Features instead
+   * @public
+   */
+  DataSources?: DataSource[] | undefined;
+
+  /**
+   * <p>The resources to aggregate usage statistics from. Only accepts exact resource
+   *       names.</p>
+   * @public
+   */
+  Resources?: string[] | undefined;
+
+  /**
+   * <p>The features to aggregate usage statistics from.</p>
+   * @public
+   */
+  Features?: UsageFeature[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUsageStatisticsRequest {
+  /**
+   * <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you
+   *       want to retrieve.</p>
+   *          <p>To find the <code>detectorId</code> in the current Region, see the
+   * Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The type of usage statistics to retrieve.</p>
+   * @public
+   */
+  UsageStatisticType: UsageStatisticType | undefined;
+
+  /**
+   * <p>Represents the criteria used for querying usage.</p>
+   * @public
+   */
+  UsageCriteria: UsageCriteria | undefined;
+
+  /**
+   * <p>The currency unit you would like to view your usage statistics in. Current valid values
+   *       are USD.</p>
+   * @public
+   */
+  Unit?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *       NextToken value returned from the previous request to continue listing results after the first
+   *       page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+ * @public
+ */
+export interface Total {
+  /**
+   * <p>The total usage.</p>
+   * @public
+   */
+  Amount?: string | undefined;
+
+  /**
+   * <p>The currency unit that the amount is given in.</p>
+   * @public
+   */
+  Unit?: string | undefined;
+}
+
+/**
+ * <p>Contains information on the total of usage based on account IDs.</p>
+ * @public
+ */
+export interface UsageAccountResult {
+  /**
+   * <p>The Account ID that generated usage.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>Represents the total of usage for the Account ID.</p>
+   * @public
+   */
+  Total?: Total | undefined;
+}
 
 /**
  * <p>Contains information on the result of usage based on data source type.</p>
@@ -764,6 +1254,147 @@ export interface ListMalwareProtectionPlansResponse {
 }
 
 /**
+ * <p>Represents a condition that when matched will be added to the response of the operation.
+ *       Irrespective of using any filter criteria, an administrator account can view the scan entries
+ *       for all of its member accounts. However, each member account can view the scan entries only
+ *       for their own account.</p>
+ * @public
+ */
+export interface ListMalwareScansFilterCriterion {
+  /**
+   * <p>An enum value representing possible scan properties to match with given scan
+   *       entries.</p>
+   * @public
+   */
+  ListMalwareScansCriterionKey?: ListMalwareScansCriterionKey | undefined;
+
+  /**
+   * <p>Contains information about the condition.</p>
+   * @public
+   */
+  FilterCondition?: FilterCondition | undefined;
+}
+
+/**
+ * <p>Represents the criteria used to filter the malware scan entries.</p>
+ * @public
+ */
+export interface ListMalwareScansFilterCriteria {
+  /**
+   * <p>Represents a condition that when matched will be added to the response of the
+   *       operation.</p>
+   * @public
+   */
+  ListMalwareScansFilterCriterion?: ListMalwareScansFilterCriterion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMalwareScansRequest {
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Represents the criteria used to filter the malware scan entries.</p>
+   * @public
+   */
+  FilterCriteria?: ListMalwareScansFilterCriteria | undefined;
+
+  /**
+   * <p>Represents the criteria used for sorting malware scan entries.</p>
+   * @public
+   */
+  SortCriteria?: SortCriteria | undefined;
+}
+
+/**
+ * <p>Contains information about a particular malware scan.</p>
+ * @public
+ */
+export interface MalwareScan {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource for the given malware scan.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The type of resource that was scanned for malware.</p>
+   * @public
+   */
+  ResourceType?: MalwareProtectionResourceType | undefined;
+
+  /**
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
+   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   * @public
+   */
+  ScanId?: string | undefined;
+
+  /**
+   * <p>An enum value representing the current status of the malware scan.</p>
+   * @public
+   */
+  ScanStatus?: MalwareProtectionScanStatus | undefined;
+
+  /**
+   * <p>An enum value representing the result of the malware scan.</p>
+   * @public
+   */
+  ScanResultStatus?: ScanResultStatus | undefined;
+
+  /**
+   * <p>An enum value representing the type of scan that was initiated.</p>
+   * @public
+   */
+  ScanType?: MalwareProtectionScanType | undefined;
+
+  /**
+   * <p>The timestamp representing when the malware scan was started.</p>
+   * @public
+   */
+  ScanStartedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp representing when the malware scan was completed.</p>
+   * @public
+   */
+  ScanCompletedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMalwareScansResponse {
+  /**
+   * <p>The list of malware scans associated with the provided input parameters.</p>
+   * @public
+   */
+  Scans: MalwareScan[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       scans.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListMembersRequest {
@@ -1114,6 +1745,43 @@ export interface SendObjectMalwareScanRequest {
 export interface SendObjectMalwareScanResponse {}
 
 /**
+ * <p>Contains information about the recovery point configuration for scanning backup data from Amazon Web Services Backup.</p>
+ * @public
+ */
+export interface RecoveryPoint {
+  /**
+   * <p>The name of the Amazon Web Services Backup vault that contains the name of the recovery point to be scanned.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+}
+
+/**
+ * <p>Contains information about the configuration to be used for the malware scan.</p>
+ * @public
+ */
+export interface StartMalwareScanConfiguration {
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role that is used for scanning the resource.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>Contains information about the incremental scan configuration. When specified, the scan will only process
+   *       changes since the baseline resource.</p>
+   * @public
+   */
+  IncrementalScanDetails?: IncrementalScanDetails | undefined;
+
+  /**
+   * <p>Contains information about the recovery point configuration for the requested scan.</p>
+   * @public
+   */
+  RecoveryPoint?: RecoveryPoint | undefined;
+}
+
+/**
  * @public
  */
 export interface StartMalwareScanRequest {
@@ -1122,6 +1790,18 @@ export interface StartMalwareScanRequest {
    * @public
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The idempotency token for the create request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Contains information about the configuration to be used for the malware scan.</p>
+   * @public
+   */
+  ScanConfiguration?: StartMalwareScanConfiguration | undefined;
 }
 
 /**

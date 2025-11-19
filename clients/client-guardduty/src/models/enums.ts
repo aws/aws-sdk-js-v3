@@ -474,6 +474,19 @@ export type ScanType = (typeof ScanType)[keyof typeof ScanType];
  * @public
  * @enum
  */
+export const TriggerType = {
+  BACKUP: "BACKUP",
+  GUARDDUTY: "GUARDDUTY",
+} as const;
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OrgFeatureStatus = {
   ALL: "ALL",
   NEW: "NEW",
@@ -672,6 +685,19 @@ export type SignalType = (typeof SignalType)[keyof typeof SignalType];
  * @public
  * @enum
  */
+export const DetectionSource = {
+  AMAZON: "AMAZON",
+  BITDEFENDER: "BITDEFENDER",
+} as const;
+/**
+ * @public
+ */
+export type DetectionSource = (typeof DetectionSource)[keyof typeof DetectionSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const DetectorFeatureResult = {
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
@@ -727,6 +753,33 @@ export const Feedback = {
  * @public
  */
 export type Feedback = (typeof Feedback)[keyof typeof Feedback];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanCategory = {
+  FULL_SCAN: "FULL_SCAN",
+  INCREMENTAL_SCAN: "INCREMENTAL_SCAN",
+} as const;
+/**
+ * @public
+ */
+export type ScanCategory = (typeof ScanCategory)[keyof typeof ScanCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareProtectionScanType = {
+  BACKUP_INITIATED: "BACKUP_INITIATED",
+  GUARDDUTY_INITIATED: "GUARDDUTY_INITIATED",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+/**
+ * @public
+ */
+export type MalwareProtectionScanType = (typeof MalwareProtectionScanType)[keyof typeof MalwareProtectionScanType];
 
 /**
  * @public
@@ -788,6 +841,83 @@ export const MalwareProtectionPlanStatus = {
  */
 export type MalwareProtectionPlanStatus =
   (typeof MalwareProtectionPlanStatus)[keyof typeof MalwareProtectionPlanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareProtectionResourceType = {
+  EBS_RECOVERY_POINT: "EBS_RECOVERY_POINT",
+  EBS_SNAPSHOT: "EBS_SNAPSHOT",
+  EBS_VOLUME: "EBS_VOLUME",
+  EC2_AMI: "EC2_AMI",
+  EC2_INSTANCE: "EC2_INSTANCE",
+  EC2_RECOVERY_POINT: "EC2_RECOVERY_POINT",
+  S3_BUCKET: "S3_BUCKET",
+  S3_RECOVERY_POINT: "S3_RECOVERY_POINT",
+} as const;
+/**
+ * @public
+ */
+export type MalwareProtectionResourceType =
+  (typeof MalwareProtectionResourceType)[keyof typeof MalwareProtectionResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareProtectionScanStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ISSUES: "COMPLETED_WITH_ISSUES",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SKIPPED: "SKIPPED",
+} as const;
+/**
+ * @public
+ */
+export type MalwareProtectionScanStatus =
+  (typeof MalwareProtectionScanStatus)[keyof typeof MalwareProtectionScanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanStatusReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  AMI_SNAPSHOT_LIMIT_EXCEEDED: "AMI_SNAPSHOT_LIMIT_EXCEEDED",
+  BASE_CREATED_AFTER_TARGET: "BASE_CREATED_AFTER_TARGET",
+  BASE_RESOURCE_NOT_SCANNED: "BASE_RESOURCE_NOT_SCANNED",
+  INCONSISTENT_SOURCE: "INCONSISTENT_SOURCE",
+  INCREMENTAL_NO_DIFFERENCE: "INCREMENTAL_NO_DIFFERENCE",
+  NO_EBS_VOLUMES_FOUND: "NO_EBS_VOLUMES_FOUND",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  RESOURCE_UNAVAILABLE: "RESOURCE_UNAVAILABLE",
+  SNAPSHOT_SIZE_LIMIT_EXCEEDED: "SNAPSHOT_SIZE_LIMIT_EXCEEDED",
+  UNRELATED_RESOURCES: "UNRELATED_RESOURCES",
+  UNSUPPORTED_AMI: "UNSUPPORTED_AMI",
+  UNSUPPORTED_COMPOSITE_RECOVERY_POINT: "UNSUPPORTED_COMPOSITE_RECOVERY_POINT",
+  UNSUPPORTED_FOR_INCREMENTAL: "UNSUPPORTED_FOR_INCREMENTAL",
+  UNSUPPORTED_PRODUCT_CODE_TYPE: "UNSUPPORTED_PRODUCT_CODE_TYPE",
+  UNSUPPORTED_SNAPSHOT: "UNSUPPORTED_SNAPSHOT",
+} as const;
+/**
+ * @public
+ */
+export type ScanStatusReason = (typeof ScanStatusReason)[keyof typeof ScanStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanResultStatus = {
+  NO_THREATS_FOUND: "NO_THREATS_FOUND",
+  THREATS_FOUND: "THREATS_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type ScanResultStatus = (typeof ScanResultStatus)[keyof typeof ScanResultStatus];
 
 /**
  * @public
@@ -895,3 +1025,23 @@ export const UsageStatisticType = {
  * @public
  */
 export type UsageStatisticType = (typeof UsageStatisticType)[keyof typeof UsageStatisticType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListMalwareScansCriterionKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  GUARDDUTY_FINDING_ID: "GUARDDUTY_FINDING_ID",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SCAN_ID: "SCAN_ID",
+  SCAN_START_TIME: "SCAN_START_TIME",
+  SCAN_STATUS: "SCAN_STATUS",
+  SCAN_TYPE: "SCAN_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type ListMalwareScansCriterionKey =
+  (typeof ListMalwareScansCriterionKey)[keyof typeof ListMalwareScansCriterionKey];

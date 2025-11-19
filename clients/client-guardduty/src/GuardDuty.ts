@@ -184,6 +184,11 @@ import {
   GetMalwareProtectionPlanCommandOutput,
 } from "./commands/GetMalwareProtectionPlanCommand";
 import {
+  GetMalwareScanCommand,
+  GetMalwareScanCommandInput,
+  GetMalwareScanCommandOutput,
+} from "./commands/GetMalwareScanCommand";
+import {
   GetMalwareScanSettingsCommand,
   GetMalwareScanSettingsCommandInput,
   GetMalwareScanSettingsCommandOutput,
@@ -261,6 +266,11 @@ import {
   ListMalwareProtectionPlansCommandInput,
   ListMalwareProtectionPlansCommandOutput,
 } from "./commands/ListMalwareProtectionPlansCommand";
+import {
+  ListMalwareScansCommand,
+  ListMalwareScansCommandInput,
+  ListMalwareScansCommandOutput,
+} from "./commands/ListMalwareScansCommand";
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommand,
@@ -423,6 +433,7 @@ const commands = {
   GetInvitationsCountCommand,
   GetIPSetCommand,
   GetMalwareProtectionPlanCommand,
+  GetMalwareScanCommand,
   GetMalwareScanSettingsCommand,
   GetMasterAccountCommand,
   GetMemberDetectorsCommand,
@@ -441,6 +452,7 @@ const commands = {
   ListInvitationsCommand,
   ListIPSetsCommand,
   ListMalwareProtectionPlansCommand,
+  ListMalwareScansCommand,
   ListMembersCommand,
   ListOrganizationAdminAccountsCommand,
   ListPublishingDestinationsCommand,
@@ -1100,6 +1112,20 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link GetMalwareScanCommand}
+   */
+  getMalwareScan(
+    args: GetMalwareScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMalwareScanCommandOutput>;
+  getMalwareScan(args: GetMalwareScanCommandInput, cb: (err: any, data?: GetMalwareScanCommandOutput) => void): void;
+  getMalwareScan(
+    args: GetMalwareScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMalwareScanCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMalwareScanSettingsCommand}
    */
   getMalwareScanSettings(
@@ -1362,6 +1388,24 @@ export interface GuardDuty {
     args: ListMalwareProtectionPlansCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListMalwareProtectionPlansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMalwareScansCommand}
+   */
+  listMalwareScans(): Promise<ListMalwareScansCommandOutput>;
+  listMalwareScans(
+    args: ListMalwareScansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMalwareScansCommandOutput>;
+  listMalwareScans(
+    args: ListMalwareScansCommandInput,
+    cb: (err: any, data?: ListMalwareScansCommandOutput) => void
+  ): void;
+  listMalwareScans(
+    args: ListMalwareScansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMalwareScansCommandOutput) => void
   ): void;
 
   /**

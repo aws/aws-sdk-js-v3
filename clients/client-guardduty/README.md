@@ -552,6 +552,14 @@ GetMalwareProtectionPlan
 </details>
 <details>
 <summary>
+GetMalwareScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/GetMalwareScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/GetMalwareScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/GetMalwareScanCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMalwareScanSettings
 </summary>
 
@@ -692,6 +700,14 @@ ListMalwareProtectionPlans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/ListMalwareProtectionPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListMalwareProtectionPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListMalwareProtectionPlansCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListMalwareScans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/ListMalwareScansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListMalwareScansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListMalwareScansCommandOutput/)
 
 </details>
 <details>

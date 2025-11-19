@@ -391,6 +391,16 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           },
  * //           Tags: "<Tags>",
  * //         },
+ * //         EbsSnapshotDetails: { // EbsSnapshotDetails
+ * //           SnapshotArn: "STRING_VALUE",
+ * //         },
+ * //         Ec2ImageDetails: { // Ec2ImageDetails
+ * //           ImageArn: "STRING_VALUE",
+ * //         },
+ * //         RecoveryPointDetails: { // RecoveryPointDetails
+ * //           RecoveryPointArn: "STRING_VALUE",
+ * //           BackupVaultName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       SchemaVersion: "STRING_VALUE", // required
  * //       Service: { // Service
@@ -1026,8 +1036,31 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                   Hash: "STRING_VALUE",
  * //                 },
  * //               ],
+ * //               Count: Number("long"),
+ * //               Hash: "STRING_VALUE",
+ * //               ItemDetails: [ // ItemDetailsList
+ * //                 { // ItemDetails
+ * //                   ResourceArn: "STRING_VALUE",
+ * //                   ItemPath: "STRING_VALUE",
+ * //                   Hash: "STRING_VALUE",
+ * //                   AdditionalInfo: { // AdditionalInfo
+ * //                     VersionId: "STRING_VALUE",
+ * //                     DeviceName: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
  * //             },
  * //           ],
+ * //           ScanId: "STRING_VALUE",
+ * //           ScanType: "BACKUP_INITIATED" || "ON_DEMAND" || "GUARDDUTY_INITIATED",
+ * //           ScanCategory: "FULL_SCAN" || "INCREMENTAL_SCAN",
+ * //           ScanConfiguration: { // MalwareProtectionFindingsScanConfiguration
+ * //             TriggerType: "BACKUP" || "GUARDDUTY",
+ * //             IncrementalScanDetails: { // IncrementalScanDetails
+ * //               BaselineResourceArn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //           UniqueThreatCount: Number("int"),
  * //         },
  * //       },
  * //       Severity: Number("double"), // required

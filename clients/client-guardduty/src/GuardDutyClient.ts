@@ -173,6 +173,7 @@ import {
   GetMalwareProtectionPlanCommandInput,
   GetMalwareProtectionPlanCommandOutput,
 } from "./commands/GetMalwareProtectionPlanCommand";
+import { GetMalwareScanCommandInput, GetMalwareScanCommandOutput } from "./commands/GetMalwareScanCommand";
 import {
   GetMalwareScanSettingsCommandInput,
   GetMalwareScanSettingsCommandOutput,
@@ -206,6 +207,7 @@ import {
   ListMalwareProtectionPlansCommandInput,
   ListMalwareProtectionPlansCommandOutput,
 } from "./commands/ListMalwareProtectionPlansCommand";
+import { ListMalwareScansCommandInput, ListMalwareScansCommandOutput } from "./commands/ListMalwareScansCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommandInput,
@@ -342,6 +344,7 @@ export type ServiceInputTypes =
   | GetIPSetCommandInput
   | GetInvitationsCountCommandInput
   | GetMalwareProtectionPlanCommandInput
+  | GetMalwareScanCommandInput
   | GetMalwareScanSettingsCommandInput
   | GetMasterAccountCommandInput
   | GetMemberDetectorsCommandInput
@@ -360,6 +363,7 @@ export type ServiceInputTypes =
   | ListIPSetsCommandInput
   | ListInvitationsCommandInput
   | ListMalwareProtectionPlansCommandInput
+  | ListMalwareScansCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
   | ListPublishingDestinationsCommandInput
@@ -432,6 +436,7 @@ export type ServiceOutputTypes =
   | GetIPSetCommandOutput
   | GetInvitationsCountCommandOutput
   | GetMalwareProtectionPlanCommandOutput
+  | GetMalwareScanCommandOutput
   | GetMalwareScanSettingsCommandOutput
   | GetMasterAccountCommandOutput
   | GetMemberDetectorsCommandOutput
@@ -450,6 +455,7 @@ export type ServiceOutputTypes =
   | ListIPSetsCommandOutput
   | ListInvitationsCommandOutput
   | ListMalwareProtectionPlansCommandOutput
+  | ListMalwareScansCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
   | ListPublishingDestinationsCommandOutput

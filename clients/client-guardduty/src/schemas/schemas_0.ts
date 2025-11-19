@@ -86,7 +86,9 @@ const _BPA = "BlockPublicAccess";
 const _BPAl = "BlockPublicAcls";
 const _BPAu = "BucketPublicAccess";
 const _BPP = "BlockPublicPolicy";
+const _BRA = "BaselineResourceArn";
 const _BRE = "BadRequestException";
+const _BVN = "BackupVaultName";
 const _Bl = "Blocked";
 const _Bu = "Bucket";
 const _C = "City";
@@ -286,6 +288,7 @@ const _ED = "ErrorDetails";
 const _EFS = "EventFirstSeen";
 const _EI = "Ec2Instance";
 const _EID = "Ec2InstanceDetails";
+const _EIDc = "Ec2ImageDetails";
 const _EIU = "Ec2InstanceUids";
 const _EIn = "EndpointIds";
 const _EKA = "EncryptionKeyArn";
@@ -297,8 +300,10 @@ const _EOAAR = "EnableOrganizationAdminAccountRequest";
 const _EOAARn = "EnableOrganizationAdminAccountResponse";
 const _EP = "ExecutablePath";
 const _EPf = "EffectivePermission";
-const _ES = "ExecutableSha256";
+const _ES = "EbsSnapshot";
+const _ESD = "EbsSnapshotDetails";
 const _ESP = "EbsSnapshotPreservation";
+const _ESx = "ExecutableSha256";
 const _ET = "EncryptionType";
 const _ETD = "EcsTaskDetails";
 const _ETa = "ETag";
@@ -307,6 +312,7 @@ const _EVD = "EbsVolumeDetails";
 const _EVR = "EbsVolumesResult";
 const _EVSD = "EbsVolumeScanDetails";
 const _EVb = "EbsVolumes";
+const _EVbs = "EbsVolume";
 const _EVn = "EngineVersion";
 const _En = "Enable";
 const _End = "Endpoints";
@@ -325,6 +331,7 @@ const _FCil = "FilterCriteria";
 const _FCile = "FileCount";
 const _FCin = "FindingCriteria";
 const _FD = "FargateDetails";
+const _FFC = "FailedFileCount";
 const _FI = "FindingIds";
 const _FL = "FlowLogs";
 const _FLA = "FailedLoginAttempts";
@@ -338,6 +345,7 @@ const _FP = "FilePath";
 const _FPF = "FindingPublishingFrequency";
 const _FPi = "FilePaths";
 const _FR = "FailureReason";
+const _FRC = "FailedResourcesCount";
 const _FS = "FindingStatistics";
 const _FSA = "FirstSeenAt";
 const _FST = "FindingStatisticTypes";
@@ -402,6 +410,10 @@ const _GMPPR = "GetMalwareProtectionPlanRequest";
 const _GMPPRe = "GetMalwareProtectionPlanResponse";
 const _GMR = "GetMembersRequest";
 const _GMRe = "GetMembersResponse";
+const _GMS = "GetMalwareScan";
+const _GMSR = "GetMalwareScanRequest";
+const _GMSRD = "GetMalwareScanResultDetails";
+const _GMSRe = "GetMalwareScanResponse";
 const _GMSS = "GetMalwareScanSettings";
 const _GMSSR = "GetMalwareScanSettingsRequest";
 const _GMSSRe = "GetMalwareScanSettingsResponse";
@@ -438,12 +450,15 @@ const _I = "Id";
 const _IA = "InvitedAt";
 const _IAV = "IpAddressV4";
 const _IAVp = "IpAddressV6";
+const _IAm = "ImageArn";
 const _IAn = "InstanceArn";
 const _IAp = "Ipv6Addresses";
 const _IC = "InvitationsCount";
 const _ICt = "ItemCount";
 const _ID = "ImageDescription";
+const _IDL = "ItemDetailsList";
 const _IDn = "InstanceDetails";
+const _IDt = "ItemDetails";
 const _II = "InvitationId";
 const _IIP = "IamInstanceProfile";
 const _IIm = "ImageId";
@@ -457,6 +472,7 @@ const _IPN = "IanaProtocolNumber";
 const _IPt = "ItemPath";
 const _IPte = "ItemPaths";
 const _IS = "InstanceState";
+const _ISD = "IncrementalScanDetails";
 const _ISEE = "InternalServerErrorException";
 const _ISI = "IpSetId";
 const _ISIp = "IpSetIds";
@@ -524,6 +540,13 @@ const _LMPPR = "ListMalwareProtectionPlansRequest";
 const _LMPPRi = "ListMalwareProtectionPlansResponse";
 const _LMR = "ListMembersRequest";
 const _LMRi = "ListMembersResponse";
+const _LMS = "ListMalwareScans";
+const _LMSCK = "ListMalwareScansCriterionKey";
+const _LMSFC = "ListMalwareScansFilterCriteria";
+const _LMSFCL = "ListMalwareScansFilterCriterionList";
+const _LMSFCi = "ListMalwareScansFilterCriterion";
+const _LMSR = "ListMalwareScansRequest";
+const _LMSRi = "ListMalwareScansResponse";
 const _LNI = "LocalNetworkInterface";
 const _LO = "LineageObject";
 const _LOAA = "ListOrganizationAdminAccounts";
@@ -581,6 +604,7 @@ const _MP = "MalwareProtection";
 const _MPC = "MalwareProtectionConfiguration";
 const _MPCR = "MalwareProtectionConfigurationResult";
 const _MPDSFT = "MalwareProtectionDataSourceFreeTrial";
+const _MPFSC = "MalwareProtectionFindingsScanConfiguration";
 const _MPP = "MalwareProtectionPlans";
 const _MPPA = "MalwareProtectionPlanActions";
 const _MPPI = "MalwareProtectionPlanId";
@@ -593,10 +617,12 @@ const _MPo = "ModifyingProcess";
 const _MPou = "MountPath";
 const _MR = "MaxResults";
 const _MRe = "MemoryRegions";
-const _MS = "MountSource";
+const _MS = "MalwareScan";
 const _MSD = "MalwareScanDetails";
+const _MSa = "MalwareScans";
 const _MSf = "MfaStatus";
-const _MSo = "ModuleSha256";
+const _MSo = "MountSource";
+const _MSod = "ModuleSha256";
 const _MT = "ManagementType";
 const _MTo = "MountTarget";
 const _Ma = "Master";
@@ -715,8 +741,11 @@ const _RLAA = "RdsLoginAttemptAction";
 const _RLDD = "RdsLimitlessDbDetails";
 const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
+const _RP = "RecoveryPoint";
+const _RPA = "RecoveryPointArn";
 const _RPB = "RestrictPublicBuckets";
 const _RPD = "RemotePortDetails";
+const _RPDe = "RecoveryPointDetails";
 const _RR = "ResourceRole";
 const _RRK = "RoleRefKind";
 const _RRN = "RoleRefName";
@@ -734,10 +763,10 @@ const _Reso = "Resources";
 const _Resu = "Result";
 const _Ro = "Role";
 const _S = "Session";
-const _SA = "StartedAt";
+const _SA = "SnapshotArn";
 const _SAI = "ServiceAdditionalInfo";
 const _SAN = "ServiceAccountName";
-const _SAn = "SnapshotArn";
+const _SAt = "StartedAt";
 const _SB = "S3Bucket";
 const _SBA = "SumByAccount";
 const _SBD = "S3BucketDetails";
@@ -749,14 +778,18 @@ const _SBt = "StartedBy";
 const _SC = "SecurityContext";
 const _SCA = "ScanCompletedAt";
 const _SCP = "ScanConditionPair";
-const _SCc = "ScanCondition";
-const _SCca = "ScanCriterion";
+const _SCRP = "ScanConfigurationRecoveryPoint";
+const _SCc = "ScanConfiguration";
+const _SCca = "ScanCategory";
+const _SCcan = "ScanCondition";
+const _SCcanr = "ScanCriterion";
 const _SCo = "SortCriteria";
 const _SCt = "StatusCode";
 const _SD = "ScanDetections";
 const _SEIWF = "ScanEc2InstanceWithFindings";
 const _SEIWFR = "ScanEc2InstanceWithFindingsResult";
 const _SET = "ScanEndTime";
+const _SFC = "SkippedFileCount";
 const _SFP = "ScanFilePath";
 const _SG = "SecurityGroups";
 const _SGe = "SecurityGroup";
@@ -779,6 +812,7 @@ const _SMMRto = "StopMonitoringMembersRequest";
 const _SMMRtop = "StopMonitoringMembersResponse";
 const _SMMt = "StopMonitoringMembers";
 const _SMS = "StartMalwareScan";
+const _SMSC = "StartMalwareScanConfiguration";
 const _SMSR = "StartMalwareScanRequest";
 const _SMSRt = "StartMalwareScanResponse";
 const _SN = "ServiceName";
@@ -795,12 +829,24 @@ const _SOU = "S3ObjectUids";
 const _SP = "ScriptPath";
 const _SPo = "SocketPath";
 const _SR = "ServiceRole";
-const _SRC = "ScanResourceCriteria";
+const _SRA = "ScannedResourceArn";
+const _SRC = "ScannedResourcesCount";
+const _SRCc = "ScanResourceCriteria";
+const _SRCk = "SkippedResourcesCount";
 const _SRD = "ScanResultDetails";
-const _SRc = "ScanResult";
+const _SRDc = "ScannedResourceDetails";
+const _SRS = "ScanResultStatus";
+const _SRSc = "ScannedResourceStatus";
+const _SRT = "ScannedResourceType";
+const _SRTc = "ScanResultThreat";
+const _SRTca = "ScanResultThreats";
+const _SRc = "ScannedResources";
+const _SRca = "ScannedResource";
+const _SRcan = "ScanResult";
 const _SRt = "StatusReasons";
 const _SS = "SensitiveString";
 const _SSA = "ScanStartedAt";
+const _SSR = "ScanStatusReason";
 const _SST = "ScanStartTime";
 const _SSc = "ScanStatus";
 const _SSe = "SeverityStatistics";
@@ -841,6 +887,8 @@ const _TESIh = "ThreatEntitySetIds";
 const _TESIr = "TrustedEntitySetId";
 const _TESIru = "TrustedEntitySetIds";
 const _TF = "TotalFindings";
+const _TFC = "TotalFileCount";
+const _TFFC = "ThreatFoundFileCount";
 const _TFI = "TriggerFindingId";
 const _TFP = "ThreatFilePath";
 const _TFS = "ThreatFileSha256";
@@ -859,6 +907,7 @@ const _TR = "TopResources";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TRa = "TagResource";
+const _TT = "TriggerType";
 const _Ta = "Tags";
 const _Tag = "Tagging";
 const _Tag_ = "Tag";
@@ -927,6 +976,7 @@ const _UTABFL = "UsageTopAccountsByFeatureList";
 const _UTAR = "UsageTopAccountResult";
 const _UTARL = "UsageTopAccountsResultList";
 const _UTARs = "UsageTopAccountsResult";
+const _UTC = "UniqueThreatCount";
 const _UTES = "UpdateThreatEntitySet";
 const _UTESR = "UpdateThreatEntitySetRequest";
 const _UTESRp = "UpdateThreatEntitySetResponse";
@@ -947,8 +997,8 @@ const _VA = "VolumeArn";
 const _VC = "VpcConfig";
 const _VD = "VolumeDetail";
 const _VDo = "VolumeDetails";
-const _VI = "VpcId";
-const _VIe = "VersionId";
+const _VI = "VersionId";
+const _VIp = "VpcId";
 const _VM = "VolumeMounts";
 const _VMo = "VolumeMount";
 const _VOAI = "VpcOwnerAccountId";
@@ -1024,6 +1074,8 @@ const _bPA = "blockPublicAccess";
 const _bPAl = "blockPublicAcls";
 const _bPAu = "bucketPublicAccess";
 const _bPP = "blockPublicPolicy";
+const _bRA = "baselineResourceArn";
+const _bVN = "backupVaultName";
 const _bl = "blocked";
 const _bu = "bucket";
 const _c = "client";
@@ -1108,6 +1160,7 @@ const _eD = "errorDetails";
 const _eFS = "eventFirstSeen";
 const _eI = "ec2Instance";
 const _eID = "ec2InstanceDetails";
+const _eIDc = "ec2ImageDetails";
 const _eIU = "ec2InstanceUids";
 const _eIn = "endpointIds";
 const _eKA = "encryptionKeyArn";
@@ -1117,13 +1170,16 @@ const _eNIU = "ec2NetworkInterfaceUids";
 const _eP = "executablePath";
 const _ePf = "effectivePermission";
 const _eS = "executableSha256";
+const _eSD = "ebsSnapshotDetails";
 const _eSP = "ebsSnapshotPreservation";
+const _eSb = "ebsSnapshot";
 const _eT = "encryptionType";
 const _eTa = "eTag";
 const _eV = "equalsValue";
 const _eVD = "ebsVolumeDetails";
 const _eVSD = "ebsVolumeScanDetails";
 const _eVb = "ebsVolumes";
+const _eVbs = "ebsVolume";
 const _eVn = "engineVersion";
 const _em = "email";
 const _en = "enable";
@@ -1142,6 +1198,7 @@ const _fCil = "filterCriteria";
 const _fCile = "fileCount";
 const _fCin = "findingCriteria";
 const _fD = "fargateDetails";
+const _fFC = "failedFileCount";
 const _fI = "findingIds";
 const _fL = "flowLogs";
 const _fLA = "failedLoginAttempts";
@@ -1154,6 +1211,7 @@ const _fP = "filePath";
 const _fPF = "findingPublishingFrequency";
 const _fPi = "filePaths";
 const _fR = "failureReason";
+const _fRC = "failedResourcesCount";
 const _fS = "findingStatistics";
 const _fSA = "firstSeenAt";
 const _fST = "findingStatisticTypes";
@@ -1198,12 +1256,14 @@ const _i = "id";
 const _iA = "invitedAt";
 const _iAV = "ipAddressV4";
 const _iAVp = "ipAddressV6";
+const _iAm = "imageArn";
 const _iAn = "instanceArn";
 const _iAp = "ipv6Addresses";
 const _iC = "invitationsCount";
 const _iCt = "itemCount";
 const _iD = "imageDescription";
 const _iDn = "instanceDetails";
+const _iDt = "itemDetails";
 const _iI = "invitationId";
 const _iIP = "iamInstanceProfile";
 const _iIm = "imageId";
@@ -1211,8 +1271,10 @@ const _iIn = "instanceId";
 const _iP = "imagePrefix";
 const _iPA = "ignorePublicAcls";
 const _iPN = "ianaProtocolNumber";
-const _iPt = "itemPaths";
+const _iPt = "itemPath";
+const _iPte = "itemPaths";
 const _iS = "instanceState";
+const _iSD = "incrementalScanDetails";
 const _iSI = "ipSetId";
 const _iSIp = "ipSetIds";
 const _iT = "instanceType";
@@ -1358,8 +1420,11 @@ const _rIe = "revisionId";
 const _rLAA = "rdsLoginAttemptAction";
 const _rLDD = "rdsLimitlessDbDetails";
 const _rN = "resourceName";
+const _rP = "recoveryPoint";
+const _rPA = "recoveryPointArn";
 const _rPB = "restrictPublicBuckets";
 const _rPD = "remotePortDetails";
+const _rPDe = "recoveryPointDetails";
 const _rR = "resourceRole";
 const _rRK = "roleRefKind";
 const _rRN = "roleRefName";
@@ -1375,9 +1440,9 @@ const _reso = "resources";
 const _resu = "result";
 const _ro = "role";
 const _s = "session";
-const _sA = "startedAt";
+const _sA = "snapshotArn";
 const _sAN = "serviceAccountName";
-const _sAn = "snapshotArn";
+const _sAt = "startedAt";
 const _sB = "s3Bucket";
 const _sBA = "sumByAccount";
 const _sBD = "s3BucketDetails";
@@ -1387,11 +1452,14 @@ const _sBR = "sumByResource";
 const _sBt = "startedBy";
 const _sC = "securityContext";
 const _sCA = "scanCompletedAt";
+const _sCc = "scanConfiguration";
+const _sCca = "scanCategory";
 const _sCo = "sortCriteria";
 const _sCt = "statusCode";
 const _sD = "scanDetections";
 const _sEIWF = "scanEc2InstanceWithFindings";
 const _sET = "scanEndTime";
+const _sFC = "skippedFileCount";
 const _sG = "securityGroups";
 const _sHFP = "shellHistoryFilePath";
 const _sI = "scanId";
@@ -1412,12 +1480,20 @@ const _sOU = "s3ObjectUids";
 const _sP = "scriptPath";
 const _sPo = "socketPath";
 const _sR = "serviceRole";
-const _sRC = "scanResourceCriteria";
+const _sRA = "scannedResourceArn";
+const _sRC = "scannedResourcesCount";
+const _sRCc = "scanResourceCriteria";
+const _sRCk = "skippedResourcesCount";
 const _sRD = "scanResultDetails";
-const _sRc = "scanResult";
+const _sRS = "scanResultStatus";
+const _sRSc = "scannedResourceStatus";
+const _sRT = "scannedResourceType";
+const _sRc = "scannedResources";
+const _sRca = "scanResult";
 const _sRt = "statusReasons";
 const _sS = "scanStatus";
 const _sSA = "scanStartedAt";
+const _sSR = "scanStatusReason";
 const _sST = "scanStartTime";
 const _sT = "scanType";
 const _sTt = "statisticsType";
@@ -1453,6 +1529,8 @@ const _tESIh = "threatEntitySetIds";
 const _tESIr = "trustedEntitySetId";
 const _tESIru = "trustedEntitySetIds";
 const _tF = "totalFindings";
+const _tFC = "totalFileCount";
+const _tFFC = "threatFoundFileCount";
 const _tFI = "triggerFindingId";
 const _tFP = "threatFilePath";
 const _tFS = "threatFileSha256";
@@ -1467,6 +1545,7 @@ const _tNh = "threatNames";
 const _tNo = "toolName";
 const _tP = "targetProcess";
 const _tR = "topResources";
+const _tT = "triggerType";
 const _ta = "tags";
 const _tag = "tagging";
 const _te = "text";
@@ -1486,6 +1565,7 @@ const _uN = "userName";
 const _uS = "usageStatistics";
 const _uST = "usageStatisticsType";
 const _uT = "userType";
+const _uTC = "uniqueThreatCount";
 const _uTNC = "uniqueThreatNameCount";
 const _un = "unusual";
 const _uni = "unit";
@@ -1495,8 +1575,8 @@ const _uu = "uuid";
 const _v = "version";
 const _vA = "volumeArn";
 const _vC = "vpcConfig";
-const _vI = "vpcId";
-const _vIe = "versionId";
+const _vI = "versionId";
+const _vIp = "vpcId";
 const _vM = "volumeMounts";
 const _vOAI = "vpcOwnerAccountId";
 const _vSIGB = "volumeSizeInGB";
@@ -1932,6 +2012,27 @@ export var ActorProcess: StaticStructureSchema = [
       0,
       {
         [_jN]: _sh,
+      },
+    ],
+  ],
+];
+export var AdditionalInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _AId,
+  0,
+  [_VI, _DN],
+  [
+    [
+      0,
+      {
+        [_jN]: _vI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dN,
       },
     ],
   ],
@@ -4483,6 +4584,36 @@ export var DomainDetails: StaticStructureSchema = [
     ],
   ],
 ];
+export var EbsSnapshot: StaticStructureSchema = [
+  3,
+  n0,
+  _ES,
+  0,
+  [_DN],
+  [
+    [
+      0,
+      {
+        [_jN]: _dN,
+      },
+    ],
+  ],
+];
+export var EbsSnapshotDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _ESD,
+  0,
+  [_SA],
+  [
+    [
+      0,
+      {
+        [_jN]: _sA,
+      },
+    ],
+  ],
+];
 export var EbsVolumeDetails: StaticStructureSchema = [
   3,
   n0,
@@ -4576,6 +4707,21 @@ export var EbsVolumesResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var Ec2ImageDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _EIDc,
+  0,
+  [_IAm],
+  [
+    [
+      0,
+      {
+        [_jN]: _iAm,
+      },
+    ],
+  ],
+];
 export var Ec2Instance: StaticStructureSchema = [
   3,
   n0,
@@ -4639,7 +4785,7 @@ export var Ec2NetworkInterface: StaticStructureSchema = [
   n0,
   _ENI,
   0,
-  [_IAp, _PIA, _PIu, _SG, _SNI, _VI],
+  [_IAp, _PIA, _PIu, _SG, _SNI, _VIp],
   [
     [
       64 | 0,
@@ -4674,7 +4820,7 @@ export var Ec2NetworkInterface: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vI,
+        [_jN]: _vIp,
       },
     ],
   ],
@@ -4741,7 +4887,7 @@ export var EcsTaskDetails: StaticStructureSchema = [
   n0,
   _ETD,
   0,
-  [_Ar, _DAe, _V, _TCA, _SA, _SBt, _Ta, _Vo, _Cont, _Gr, _LTa],
+  [_Ar, _DAe, _V, _TCA, _SAt, _SBt, _Ta, _Vo, _Cont, _Gr, _LTa],
   [
     [
       0,
@@ -4770,7 +4916,7 @@ export var EcsTaskDetails: StaticStructureSchema = [
     [
       4,
       {
-        [_jN]: _sA,
+        [_jN]: _sAt,
       },
     ],
     [
@@ -4816,7 +4962,7 @@ export var EksCluster: StaticStructureSchema = [
   n0,
   _ECk,
   0,
-  [_Ar, _CAr, _St, _VI, _EIU],
+  [_Ar, _CAr, _St, _VIp, _EIU],
   [
     [
       0,
@@ -4839,7 +4985,7 @@ export var EksCluster: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vI,
+        [_jN]: _vIp,
       },
     ],
     [
@@ -4855,7 +5001,7 @@ export var EksClusterDetails: StaticStructureSchema = [
   n0,
   _ECD,
   0,
-  [_N, _Ar, _VI, _St, _Ta, _CAr],
+  [_N, _Ar, _VIp, _St, _Ta, _CAr],
   [
     [
       0,
@@ -4872,7 +5018,7 @@ export var EksClusterDetails: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vI,
+        [_jN]: _vIp,
       },
     ],
     [
@@ -5741,6 +5887,190 @@ export var GetMalwareProtectionPlanResponse: StaticStructureSchema = [
     ],
   ],
 ];
+export var GetMalwareScanRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GMSR,
+  0,
+  [_SI],
+  [
+    [
+      0,
+      {
+        [_jN]: _sI,
+        [_hL]: 1,
+      },
+    ],
+  ],
+];
+export var GetMalwareScanResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GMSRe,
+  0,
+  [_SI, _DI, _ADI, _RA, _RT, _SRC, _SRCk, _FRC, _SRc, _SCc, _SCca, _SSc, _SSR, _ST, _SSA, _SCA, _SRD],
+  [
+    [
+      0,
+      {
+        [_jN]: _sI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _aDI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rT,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _sRC,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _sRCk,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _fRC,
+      },
+    ],
+    [
+      () => ScannedResources,
+      {
+        [_jN]: _sRc,
+      },
+    ],
+    [
+      () => ScanConfiguration,
+      {
+        [_jN]: _sCc,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sCca,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sSR,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sT,
+      },
+    ],
+    [
+      4,
+      {
+        [_jN]: _sSA,
+      },
+    ],
+    [
+      4,
+      {
+        [_jN]: _sCA,
+      },
+    ],
+    [
+      () => GetMalwareScanResultDetails,
+      {
+        [_jN]: _sRD,
+      },
+    ],
+  ],
+];
+export var GetMalwareScanResultDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _GMSRD,
+  0,
+  [_SRS, _SFC, _FFC, _TFFC, _TFC, _TB, _UTC, _Th],
+  [
+    [
+      0,
+      {
+        [_jN]: _sRS,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _sFC,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _fFC,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _tFFC,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _tFC,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _tB,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _uTC,
+      },
+    ],
+    [
+      () => ScanResultThreats,
+      {
+        [_jN]: _th,
+      },
+    ],
+  ],
+];
 export var GetMalwareScanSettingsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -5762,12 +6092,12 @@ export var GetMalwareScanSettingsResponse: StaticStructureSchema = [
   n0,
   _GMSSRe,
   0,
-  [_SRC, _ESP],
+  [_SRCc, _ESP],
   [
     [
       () => ScanResourceCriteria,
       {
-        [_jN]: _sRC,
+        [_jN]: _sRCc,
       },
     ],
     [
@@ -6344,6 +6674,21 @@ export var ImpersonatedUser: StaticStructureSchema = [
     ],
   ],
 ];
+export var IncrementalScanDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _ISD,
+  0,
+  [_BRA],
+  [
+    [
+      0,
+      {
+        [_jN]: _bRA,
+      },
+    ],
+  ],
+];
 export var Indicator: StaticStructureSchema = [
   3,
   n0,
@@ -6562,6 +6907,39 @@ export var InviteMembersResponse: StaticStructureSchema = [
       () => UnprocessedAccounts,
       {
         [_jN]: _uAn,
+      },
+    ],
+  ],
+];
+export var ItemDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _IDt,
+  0,
+  [_RA, _IPt, _H, _AId],
+  [
+    [
+      0,
+      {
+        [_jN]: _rA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _iPt,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _h,
+      },
+    ],
+    [
+      () => AdditionalInfo,
+      {
+        [_jN]: _aId,
       },
     ],
   ],
@@ -7467,6 +7845,98 @@ export var ListMalwareProtectionPlansResponse: StaticStructureSchema = [
     ],
   ],
 ];
+export var ListMalwareScansFilterCriteria: StaticStructureSchema = [
+  3,
+  n0,
+  _LMSFC,
+  0,
+  [_LMSFCi],
+  [
+    [
+      () => ListMalwareScansFilterCriterionList,
+      {
+        [_jN]: _fC,
+      },
+    ],
+  ],
+];
+export var ListMalwareScansFilterCriterion: StaticStructureSchema = [
+  3,
+  n0,
+  _LMSFCi,
+  0,
+  [_LMSCK, _FCi],
+  [
+    [
+      0,
+      {
+        [_jN]: _cK,
+      },
+    ],
+    [
+      () => FilterCondition,
+      {
+        [_jN]: _fCi,
+      },
+    ],
+  ],
+];
+export var ListMalwareScansRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LMSR,
+  0,
+  [_MR, _NT, _FCil, _SCo],
+  [
+    [
+      1,
+      {
+        [_jN]: _mR,
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+        [_hQ]: _nT,
+      },
+    ],
+    [
+      () => ListMalwareScansFilterCriteria,
+      {
+        [_jN]: _fCil,
+      },
+    ],
+    [
+      () => SortCriteria,
+      {
+        [_jN]: _sCo,
+      },
+    ],
+  ],
+];
+export var ListMalwareScansResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LMSRi,
+  0,
+  [_Sc, _NT],
+  [
+    [
+      () => MalwareScans,
+      {
+        [_jN]: _sc,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+      },
+    ],
+  ],
+];
 export var ListMembersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -7930,6 +8400,27 @@ export var MalwareProtectionDataSourceFreeTrial: StaticStructureSchema = [
     ],
   ],
 ];
+export var MalwareProtectionFindingsScanConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _MPFSC,
+  0,
+  [_TT, _ISD],
+  [
+    [
+      0,
+      {
+        [_jN]: _tT,
+      },
+    ],
+    [
+      () => IncrementalScanDetails,
+      {
+        [_jN]: _iSD,
+      },
+    ],
+  ],
+];
 export var MalwareProtectionPlanActions: StaticStructureSchema = [
   3,
   n0,
@@ -7996,17 +8487,104 @@ export var MalwareProtectionPlanTaggingAction: StaticStructureSchema = [
     ],
   ],
 ];
+export var MalwareScan: StaticStructureSchema = [
+  3,
+  n0,
+  _MS,
+  0,
+  [_RA, _RT, _SI, _SSc, _SRS, _ST, _SSA, _SCA],
+  [
+    [
+      0,
+      {
+        [_jN]: _rA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rT,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sRS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sT,
+      },
+    ],
+    [
+      4,
+      {
+        [_jN]: _sSA,
+      },
+    ],
+    [
+      4,
+      {
+        [_jN]: _sCA,
+      },
+    ],
+  ],
+];
 export var MalwareScanDetails: StaticStructureSchema = [
   3,
   n0,
   _MSD,
   0,
-  [_Th],
+  [_Th, _SI, _ST, _SCca, _SCc, _UTC],
   [
     [
       () => Threats,
       {
         [_jN]: _th,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sT,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sCca,
+      },
+    ],
+    [
+      () => MalwareProtectionFindingsScanConfiguration,
+      {
+        [_jN]: _sCc,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _uTC,
       },
     ],
   ],
@@ -8397,7 +8975,7 @@ export var NetworkInterface: StaticStructureSchema = [
   n0,
   _NIe,
   0,
-  [_IAp, _NII, _PDN, _PIAr, _PIA, _PDNu, _PIu, _SG, _SIu, _VI],
+  [_IAp, _NII, _PDN, _PIAr, _PIA, _PDNu, _PIu, _SG, _SIu, _VIp],
   [
     [
       64 | 0,
@@ -8456,7 +9034,7 @@ export var NetworkInterface: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vI,
+        [_jN]: _vIp,
       },
     ],
   ],
@@ -9057,7 +9635,7 @@ export var ProcessDetails: StaticStructureSchema = [
   n0,
   _PD,
   0,
-  [_N, _EP, _ES, _NP, _Pw, _Pi, _STta, _Uu, _PU, _Us, _UI, _Eu, _Li],
+  [_N, _EP, _ESx, _NP, _Pw, _Pi, _STta, _Uu, _PU, _Us, _UI, _Eu, _Li],
   [
     [
       0,
@@ -9365,6 +9943,42 @@ export var RdsLoginAttemptAction: StaticStructureSchema = [
     [() => LoginAttributes, 0],
   ],
 ];
+export var RecoveryPoint: StaticStructureSchema = [
+  3,
+  n0,
+  _RP,
+  0,
+  [_BVN],
+  [
+    [
+      0,
+      {
+        [_jN]: _bVN,
+      },
+    ],
+  ],
+];
+export var RecoveryPointDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _RPDe,
+  0,
+  [_RPA, _BVN],
+  [
+    [
+      0,
+      {
+        [_jN]: _rPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _bVN,
+      },
+    ],
+  ],
+];
 export var RemoteAccountDetails: StaticStructureSchema = [
   3,
   n0,
@@ -9457,7 +10071,7 @@ export var Resource: StaticStructureSchema = [
   n0,
   _Res,
   0,
-  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDo, _RDID, _RLDD, _RDUD, _LD],
+  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDo, _RDID, _RLDD, _RDUD, _LD, _ESD, _EIDc, _RPDe],
   [
     [
       () => AccessKeyDetails,
@@ -9535,6 +10149,24 @@ export var Resource: StaticStructureSchema = [
       () => LambdaDetails,
       {
         [_jN]: _lD,
+      },
+    ],
+    [
+      () => EbsSnapshotDetails,
+      {
+        [_jN]: _eSD,
+      },
+    ],
+    [
+      () => Ec2ImageDetails,
+      {
+        [_jN]: _eIDc,
+      },
+    ],
+    [
+      () => RecoveryPointDetails,
+      {
+        [_jN]: _rPDe,
       },
     ],
   ],
@@ -9753,13 +10385,13 @@ export var RuntimeContext: StaticStructureSchema = [
     _SPo,
     _RBP,
     _RAP,
-    _MS,
+    _MSo,
     _MTo,
     _FSTi,
     _Fl,
     _MN,
     _MFP,
-    _MSo,
+    _MSod,
     _SHFP,
     _TP,
     _AF,
@@ -10112,7 +10744,7 @@ export var S3Object: StaticStructureSchema = [
   n0,
   _SO,
   0,
-  [_ETa, _Ke, _VIe],
+  [_ETa, _Ke, _VI],
   [
     [
       0,
@@ -10129,7 +10761,7 @@ export var S3Object: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vIe,
+        [_jN]: _vI,
       },
     ],
   ],
@@ -10139,7 +10771,7 @@ export var S3ObjectDetail: StaticStructureSchema = [
   n0,
   _SODb,
   0,
-  [_OAb, _Ke, _ETa, _H, _VIe],
+  [_OAb, _Ke, _ETa, _H, _VI],
   [
     [
       0,
@@ -10168,7 +10800,7 @@ export var S3ObjectDetail: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vIe,
+        [_jN]: _vI,
       },
     ],
   ],
@@ -10178,7 +10810,7 @@ export var S3ObjectForSendObjectMalwareScan: StaticStructureSchema = [
   n0,
   _SOFSOMS,
   0,
-  [_Bu, _Ke, _VIe],
+  [_Bu, _Ke, _VI],
   [
     [
       0,
@@ -10195,7 +10827,7 @@ export var S3ObjectForSendObjectMalwareScan: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vIe,
+        [_jN]: _vI,
       },
     ],
   ],
@@ -10302,7 +10934,7 @@ export var Scan: StaticStructureSchema = [
 export var ScanCondition: StaticStructureSchema = [
   3,
   n0,
-  _SCc,
+  _SCcan,
   0,
   [_ME],
   [
@@ -10331,6 +10963,54 @@ export var ScanConditionPair: StaticStructureSchema = [
       0,
       {
         [_jN]: _val,
+      },
+    ],
+  ],
+];
+export var ScanConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SCc,
+  0,
+  [_Ro, _TDr, _ISD, _RP],
+  [
+    [
+      0,
+      {
+        [_jN]: _ro,
+      },
+    ],
+    [
+      () => TriggerDetails,
+      {
+        [_jN]: _tDr,
+      },
+    ],
+    [
+      () => IncrementalScanDetails,
+      {
+        [_jN]: _iSD,
+      },
+    ],
+    [
+      () => ScanConfigurationRecoveryPoint,
+      {
+        [_jN]: _rP,
+      },
+    ],
+  ],
+];
+export var ScanConfigurationRecoveryPoint: StaticStructureSchema = [
+  3,
+  n0,
+  _SCRP,
+  0,
+  [_BVN],
+  [
+    [
+      0,
+      {
+        [_jN]: _bVN,
       },
     ],
   ],
@@ -10458,10 +11138,70 @@ export var ScannedItemCount: StaticStructureSchema = [
     ],
   ],
 ];
+export var ScannedResource: StaticStructureSchema = [
+  3,
+  n0,
+  _SRca,
+  0,
+  [_SRA, _SRT, _SRSc, _SSR, _RD],
+  [
+    [
+      0,
+      {
+        [_jN]: _sRA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sRT,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sRSc,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sSR,
+      },
+    ],
+    [
+      () => ScannedResourceDetails,
+      {
+        [_jN]: _rD,
+      },
+    ],
+  ],
+];
+export var ScannedResourceDetails: StaticStructureSchema = [
+  3,
+  n0,
+  _SRDc,
+  0,
+  [_EVbs, _ES],
+  [
+    [
+      () => VolumeDetail,
+      {
+        [_jN]: _eVbs,
+      },
+    ],
+    [
+      () => EbsSnapshot,
+      {
+        [_jN]: _eSb,
+      },
+    ],
+  ],
+];
 export var ScanResourceCriteria: StaticStructureSchema = [
   3,
   n0,
-  _SRC,
+  _SRCc,
   0,
   [_Inc, _Ex],
   [
@@ -10484,12 +11224,51 @@ export var ScanResultDetails: StaticStructureSchema = [
   n0,
   _SRD,
   0,
-  [_SRc],
+  [_SRcan],
   [
     [
       0,
       {
-        [_jN]: _sRc,
+        [_jN]: _sRca,
+      },
+    ],
+  ],
+];
+export var ScanResultThreat: StaticStructureSchema = [
+  3,
+  n0,
+  _SRTc,
+  0,
+  [_N, _Sou, _Coun, _H, _IDt],
+  [
+    [
+      0,
+      {
+        [_jN]: _n,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sou,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _cou,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _h,
+      },
+    ],
+    [
+      () => ItemDetailsList,
+      {
+        [_jN]: _iDt,
       },
     ],
   ],
@@ -10942,17 +11721,57 @@ export var SortCriteria: StaticStructureSchema = [
     ],
   ],
 ];
+export var StartMalwareScanConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SMSC,
+  0,
+  [_Ro, _ISD, _RP],
+  [
+    [
+      0,
+      {
+        [_jN]: _ro,
+      },
+    ],
+    [
+      () => IncrementalScanDetails,
+      {
+        [_jN]: _iSD,
+      },
+    ],
+    [
+      () => RecoveryPoint,
+      {
+        [_jN]: _rP,
+      },
+    ],
+  ],
+];
 export var StartMalwareScanRequest: StaticStructureSchema = [
   3,
   n0,
   _SMSR,
   0,
-  [_RA],
+  [_RA, _CTl, _SCc],
   [
     [
       0,
       {
         [_jN]: _rA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _cTl,
+        [_iTd]: 1,
+      },
+    ],
+    [
+      () => StartMalwareScanConfiguration,
+      {
+        [_jN]: _sCc,
       },
     ],
   ],
@@ -11095,7 +11914,7 @@ export var Threat: StaticStructureSchema = [
   n0,
   _Thr,
   0,
-  [_N, _Sou, _IPte],
+  [_N, _Sou, _IPte, _Coun, _H, _IDt],
   [
     [
       0,
@@ -11112,7 +11931,25 @@ export var Threat: StaticStructureSchema = [
     [
       () => ItemPaths,
       {
-        [_jN]: _iPt,
+        [_jN]: _iPte,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _cou,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _h,
+      },
+    ],
+    [
+      () => ItemDetailsList,
+      {
+        [_jN]: _iDt,
       },
     ],
   ],
@@ -11218,7 +12055,7 @@ export var TriggerDetails: StaticStructureSchema = [
   n0,
   _TDr,
   0,
-  [_GDFI, _D],
+  [_GDFI, _D, _TT],
   [
     [
       0,
@@ -11230,6 +12067,12 @@ export var TriggerDetails: StaticStructureSchema = [
       0,
       {
         [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tT,
       },
     ],
   ],
@@ -11542,7 +12385,7 @@ export var UpdateMalwareScanSettingsRequest: StaticStructureSchema = [
   n0,
   _UMSSR,
   0,
-  [_DI, _SRC, _ESP],
+  [_DI, _SRCc, _ESP],
   [
     [
       0,
@@ -11554,7 +12397,7 @@ export var UpdateMalwareScanSettingsRequest: StaticStructureSchema = [
     [
       () => ScanResourceCriteria,
       {
-        [_jN]: _sRC,
+        [_jN]: _sRCc,
       },
     ],
     [
@@ -12129,7 +12972,7 @@ export var VolumeDetail: StaticStructureSchema = [
   n0,
   _VD,
   0,
-  [_VA, _VT, _DN, _VSIGB, _ET, _SAn, _KKA],
+  [_VA, _VT, _DN, _VSIGB, _ET, _SA, _KKA],
   [
     [
       0,
@@ -12164,7 +13007,7 @@ export var VolumeDetail: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _sAn,
+        [_jN]: _sA,
       },
     ],
     [
@@ -12201,7 +13044,7 @@ export var VpcConfig: StaticStructureSchema = [
   n0,
   _VC,
   0,
-  [_SIub, _VI, _SG],
+  [_SIub, _VIp, _SG],
   [
     [
       64 | 0,
@@ -12212,7 +13055,7 @@ export var VpcConfig: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _vI,
+        [_jN]: _vIp,
       },
     ],
     [
@@ -12320,8 +13163,16 @@ export var Ipv6Addresses = 64 | 0;
 
 export var Issues = 64 | 0;
 
+export var ItemDetailsList: StaticListSchema = [1, n0, _IDL, 0, [() => ItemDetails, 0]];
 export var ItemPaths: StaticListSchema = [1, n0, _IPte, 0, [() => ItemPath, 0]];
 export var Lineage: StaticListSchema = [1, n0, _Li, 0, [() => LineageObject, 0]];
+export var ListMalwareScansFilterCriterionList: StaticListSchema = [
+  1,
+  n0,
+  _LMSFCL,
+  0,
+  [() => ListMalwareScansFilterCriterion, 0],
+];
 export var LoginAttributes: StaticListSchema = [1, n0, _LAo, 0, [() => LoginAttribute, 0]];
 export var MalwareProtectionPlanObjectPrefixesList = 64 | 0;
 
@@ -12339,6 +13190,7 @@ export var MalwareProtectionPlanStatusReasonsList: StaticListSchema = [
   0,
   [() => MalwareProtectionPlanStatusReason, 0],
 ];
+export var MalwareScans: StaticListSchema = [1, n0, _MSa, 0, [() => MalwareScan, 0]];
 export var MapEquals: StaticListSchema = [1, n0, _ME, 0, [() => ScanConditionPair, 0]];
 export var MemberAdditionalConfigurationResults: StaticListSchema = [
   1,
@@ -12434,6 +13286,8 @@ export var S3BucketDetails: StaticListSchema = [1, n0, _SBD, 0, [() => S3BucketD
 export var S3ObjectDetails: StaticListSchema = [1, n0, _SOD, 0, [() => S3ObjectDetail, 0]];
 export var S3ObjectUids = 64 | 0;
 
+export var ScannedResources: StaticListSchema = [1, n0, _SRc, 0, [() => ScannedResource, 0]];
+export var ScanResultThreats: StaticListSchema = [1, n0, _SRTca, 0, [() => ScanResultThreat, 0]];
 export var Scans: StaticListSchema = [1, n0, _Sc, 0, [() => Scan, 0]];
 export var ScanThreatNames: StaticListSchema = [1, n0, _STNc, 0, [() => ScanThreatName, 0]];
 export var SecurityGroups: StaticListSchema = [1, n0, _SG, 0, [() => SecurityGroup, 0]];
@@ -12484,7 +13338,7 @@ export var CountByResourceType = 128 | 1;
 export var CountBySeverity = 128 | 1;
 
 export var Criterion: StaticMapSchema = [2, n0, _Cr, 0, [0, 0], [() => Condition, 0]];
-export var ScanCriterion: StaticMapSchema = [2, n0, _SCca, 0, [0, 0], [() => ScanCondition, 0]];
+export var ScanCriterion: StaticMapSchema = [2, n0, _SCcanr, 0, [0, 0], [() => ScanCondition, 0]];
 export var TagMap = 128 | 0;
 
 export var AcceptAdministratorInvitation: StaticOperationSchema = [
@@ -12897,6 +13751,16 @@ export var GetMalwareProtectionPlan: StaticOperationSchema = [
   () => GetMalwareProtectionPlanRequest,
   () => GetMalwareProtectionPlanResponse,
 ];
+export var GetMalwareScan: StaticOperationSchema = [
+  9,
+  n0,
+  _GMS,
+  {
+    [_ht]: ["GET", "/malware-scan/{ScanId}", 200],
+  },
+  () => GetMalwareScanRequest,
+  () => GetMalwareScanResponse,
+];
 export var GetMalwareScanSettings: StaticOperationSchema = [
   9,
   n0,
@@ -13076,6 +13940,16 @@ export var ListMalwareProtectionPlans: StaticOperationSchema = [
   },
   () => ListMalwareProtectionPlansRequest,
   () => ListMalwareProtectionPlansResponse,
+];
+export var ListMalwareScans: StaticOperationSchema = [
+  9,
+  n0,
+  _LMS,
+  {
+    [_ht]: ["POST", "/malware-scan", 200],
+  },
+  () => ListMalwareScansRequest,
+  () => ListMalwareScansResponse,
 ];
 export var ListMembers: StaticOperationSchema = [
   9,
