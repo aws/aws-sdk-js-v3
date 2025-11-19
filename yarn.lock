@@ -23170,7 +23170,6 @@ __metadata:
     "@aws-sdk/credential-provider-env": "npm:*"
     "@aws-sdk/credential-provider-http": "npm:*"
     "@aws-sdk/credential-provider-ini": "npm:*"
-    "@aws-sdk/credential-provider-login": "npm:*"
     "@aws-sdk/credential-provider-process": "npm:*"
     "@aws-sdk/credential-provider-sso": "npm:*"
     "@aws-sdk/credential-provider-web-identity": "npm:*"
