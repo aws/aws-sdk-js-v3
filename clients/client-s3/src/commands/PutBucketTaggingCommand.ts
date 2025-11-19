@@ -31,7 +31,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Sets the tags for a bucket.</p>
+ *          <p>Sets the tags for a general purpose bucket.  </p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign up to get
  *       your Amazon Web Services account bill with tag key values included. Then, to see the cost of combined resources,
  *       organize your billing information according to resources with the same tag key values. For example, you

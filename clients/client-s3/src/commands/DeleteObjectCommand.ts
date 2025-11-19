@@ -103,9 +103,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObject</code>
- *                               </b> - To delete an
- *                     object from a bucket, you must always have the <code>s3:DeleteObject</code>
- *                     permission.</p>
+ *                               </b> - To
+ *                     delete an object from a bucket, you must always have the
+ *                       <code>s3:DeleteObject</code> permission.</p>
  *                         </li>
  *                         <li>
  *                            <p>
@@ -113,6 +113,11 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                                  <code>s3:DeleteObjectVersion</code>
  *                               </b> - To delete a specific version of an object from a versioning-enabled
  *                     bucket, you must have the <code>s3:DeleteObjectVersion</code> permission.</p>
+ *                            <note>
+ *                               <p>If the <code>s3:DeleteObject</code> or <code>s3:DeleteObjectVersion</code> permissions are explicitly
+ *                       denied in your bucket policy, attempts to delete any unversioned objects
+ *                       result in a <code>403 Access Denied</code> error.</p>
+ *                            </note>
  *                         </li>
  *                      </ul>
  *                   </li>

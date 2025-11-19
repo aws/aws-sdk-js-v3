@@ -409,6 +409,19 @@ export type StorageClassAnalysisSchemaVersion =
  * @public
  * @enum
  */
+export const EncryptionType = {
+  NONE: "NONE",
+  SSE_C: "SSE-C",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const IntelligentTieringStatus = {
   Disabled: "Disabled",
   Enabled: "Enabled",

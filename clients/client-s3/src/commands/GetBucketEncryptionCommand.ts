@@ -29,13 +29,13 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
 
 /**
  * <p>Returns the default encryption configuration for an Amazon S3 bucket. By default, all buckets have a
- *       default encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). </p>
+ *       default encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). This operation also returns the <code>BucketKeyEnabled</code> and <code>BlockedEncryptionTypes</code> statuses. </p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
  *                      <b>General purpose buckets</b> - For information about the bucket
- *             default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a> in the
+ *             default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Amazon S3 Bucket Default Encryption</a> in the
  *               <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *                <li>
@@ -113,6 +113,11 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  * //           KMSMasterKeyID: "STRING_VALUE",
  * //         },
  * //         BucketKeyEnabled: true || false,
+ * //         BlockedEncryptionTypes: { // BlockedEncryptionTypes
+ * //           EncryptionType: [ // EncryptionTypeList
+ * //             "NONE" || "SSE-C",
+ * //           ],
+ * //         },
  * //       },
  * //     ],
  * //   },

@@ -23,8 +23,50 @@ import {
   OutputLocation,
   OutputSerialization,
   RecordExpiration,
-  SelectParameters,
 } from "./models_0";
+
+/**
+ * <important>
+ *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can
+ *         continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+ *             </p>
+ *          </important>
+ *          <p>Describes the parameters for Select job types.</p>
+ *          <p>Learn <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">How to
+ *         optimize querying your data in Amazon S3</a> using <a href="https://docs.aws.amazon.com/athena/latest/ug/what-is.html">Amazon Athena</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">S3 Object Lambda</a>, or client-side
+ *       filtering.</p>
+ * @public
+ */
+export interface SelectParameters {
+  /**
+   * <p>Describes the serialization format of the object.</p>
+   * @public
+   */
+  InputSerialization: InputSerialization | undefined;
+
+  /**
+   * <p>The type of the provided expression (for example, SQL).</p>
+   * @public
+   */
+  ExpressionType: ExpressionType | undefined;
+
+  /**
+   * <important>
+   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can
+   *         continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
+   *             </p>
+   *          </important>
+   *          <p>The expression that is used to query the object.</p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>Describes how the results of the Select job are serialized.</p>
+   * @public
+   */
+  OutputSerialization: OutputSerialization | undefined;
+}
 
 /**
  * <p>Container for restore job parameters.</p>
@@ -214,7 +256,7 @@ export interface RecordsEvent {
    * <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record
    *       will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might
    *       split the same record across multiple record frames instead of aggregating the results in memory. Some
-   *       S3 clients (for example, the SDKforJava) handle this behavior by creating a
+   *       S3 clients (for example, the SDK for Java) handle this behavior by creating a
    *         <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior
    *       by default. In those cases, you must aggregate the results on the client side and parse the
    *       response.</p>

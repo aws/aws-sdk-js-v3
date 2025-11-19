@@ -138,7 +138,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  * const response = await client.send(command);
  * /* response is
  * {
- *   Policy: `{"Version":"2008-10-17","Id":"LogPolicy","Statement":[{"Sid":"Enables the log delivery group to publish logs to your bucket ","Effect":"Allow","Principal":{"AWS":"111122223333"},"Action":["s3:GetBucketAcl","s3:GetObjectAcl","s3:PutObject"],"Resource":["arn:aws:s3:::policytest1/*","arn:aws:s3:::policytest1"]}]}`
+ *   Policy: `{"Version":"2008-10-17",&TCX5-2025-waiver;"Id":"LogPolicy","Statement":[{"Sid":"Enables the log delivery group to publish logs to your bucket ","Effect":"Allow","Principal":{"AWS":"111122223333"},"Action":["s3:GetBucketAcl","s3:GetObjectAcl","s3:PutObject"],"Resource":["arn:aws:s3:::policytest1/*","arn:aws:s3:::policytest1"]}]}`
  * }
  * *\/
  * ```

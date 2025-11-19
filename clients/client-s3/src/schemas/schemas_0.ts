@@ -37,6 +37,7 @@ const _BA = "BucketArn";
 const _BAE = "BucketAlreadyExists";
 const _BAI = "BucketAccountId";
 const _BAOBY = "BucketAlreadyOwnedByYou";
+const _BET = "BlockedEncryptionTypes";
 const _BGR = "BypassGovernanceRetention";
 const _BI = "BucketInfo";
 const _BKE = "BucketKeyEnabled";
@@ -223,10 +224,11 @@ const _EODM = "ExpiredObjectDeleteMarker";
 const _EOR = "ExistingObjectReplication";
 const _ES = "ExpiresString";
 const _ESBO = "ExpectedSourceBucketOwner";
-const _ET = "ETag";
+const _ET = "EncryptionType";
+const _ETL = "EncryptionTypeList";
 const _ETM = "EncryptionTypeMismatch";
-const _ETn = "EncryptionType";
-const _ETnc = "EncodingType";
+const _ETa = "ETag";
+const _ETn = "EncodingType";
 const _ETv = "EventThreshold";
 const _ETx = "ExpressionType";
 const _En = "Encryption";
@@ -1144,6 +1146,21 @@ export var AnalyticsExportDestination: StaticStructureSchema = [
   [() => AnalyticsS3BucketDestination],
 ];
 export var AnalyticsS3BucketDestination: StaticStructureSchema = [3, n0, _ASBD, 0, [_Fo, _BAI, _B, _P], [0, 0, 0, 0]];
+export var BlockedEncryptionTypes: StaticStructureSchema = [
+  3,
+  n0,
+  _BET,
+  0,
+  [_ET],
+  [
+    [
+      () => EncryptionTypeList,
+      {
+        [_xF]: 1,
+      },
+    ],
+  ],
+];
 export var Bucket: StaticStructureSchema = [3, n0, _B, 0, [_N, _CD, _BR, _BA], [0, 4, 0, 0]];
 export var BucketAlreadyExists: StaticErrorSchema = [
   -3,
@@ -1219,7 +1236,7 @@ export var CompletedPart: StaticStructureSchema = [
   n0,
   _CPo,
   0,
-  [_ET, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _PN],
+  [_ETa, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _PN],
   [0, 0, 0, 0, 0, 0, 1],
 ];
 export var CompleteMultipartUploadOutput: StaticStructureSchema = [
@@ -1229,7 +1246,7 @@ export var CompleteMultipartUploadOutput: StaticStructureSchema = [
   {
     [_xN]: _CMUR,
   },
-  [_L, _B, _K, _E, _ET, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CT, _SSE, _VI, _SSEKMSKI, _BKE, _RC],
+  [_L, _B, _K, _E, _ETa, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CT, _SSE, _VI, _SSEKMSKI, _BKE, _RC],
   [
     0,
     0,
@@ -1784,7 +1801,7 @@ export var CopyObjectResult: StaticStructureSchema = [
   n0,
   _COR,
   0,
-  [_ET, _LM, _CT, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
+  [_ETa, _LM, _CT, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [0, 4, 0, 0, 0, 0, 0, 0],
 ];
 export var CopyPartResult: StaticStructureSchema = [
@@ -1792,7 +1809,7 @@ export var CopyPartResult: StaticStructureSchema = [
   n0,
   _CPR,
   0,
-  [_ET, _LM, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
+  [_ETa, _LM, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [0, 4, 0, 0, 0, 0, 0],
 ];
 export var CORSConfiguration: StaticStructureSchema = [
@@ -2924,7 +2941,7 @@ export var Destination: StaticStructureSchema = [
   [0, 0, 0, () => AccessControlTranslation, () => EncryptionConfiguration, () => ReplicationTime, () => Metrics],
 ];
 export var DestinationResult: StaticStructureSchema = [3, n0, _DRes, 0, [_TBT, _TBA, _TN], [0, 0, 0]];
-export var Encryption: StaticStructureSchema = [3, n0, _En, 0, [_ETn, _KMSKI, _KMSC], [0, [() => SSEKMSKeyId, 0], 0]];
+export var Encryption: StaticStructureSchema = [3, n0, _En, 0, [_ET, _KMSKI, _KMSC], [0, [() => SSEKMSKeyId, 0], 0]];
 export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_RKKID], [0]];
 export var EncryptionTypeMismatch: StaticErrorSchema = [
   -3,
@@ -3624,7 +3641,7 @@ export var GetObjectAttributesOutput: StaticStructureSchema = [
   {
     [_xN]: _GOARe,
   },
-  [_DM, _LM, _VI, _RC, _ET, _C, _OP, _SC, _OS],
+  [_DM, _LM, _VI, _RC, _ETa, _C, _OP, _SC, _OS],
   [
     [
       2,
@@ -3830,7 +3847,7 @@ export var GetObjectOutput: StaticStructureSchema = [
     _Re,
     _LM,
     _CLo,
-    _ET,
+    _ETa,
     _CCRC,
     _CCRCC,
     _CCRCNVME,
@@ -3904,7 +3921,7 @@ export var GetObjectOutput: StaticStructureSchema = [
     [
       0,
       {
-        [_hH]: _ET,
+        [_hH]: _ETa,
       },
     ],
     [
@@ -4508,7 +4525,7 @@ export var HeadObjectOutput: StaticStructureSchema = [
     _CSHA,
     _CSHAh,
     _CT,
-    _ET,
+    _ETa,
     _MM,
     _VI,
     _CC,
@@ -4617,7 +4634,7 @@ export var HeadObjectOutput: StaticStructureSchema = [
     [
       0,
       {
-        [_hH]: _ET,
+        [_hH]: _ETa,
       },
     ],
     [
@@ -5463,7 +5480,7 @@ export var ListMultipartUploadsOutput: StaticStructureSchema = [
   {
     [_xN]: _LMUR,
   },
-  [_B, _KM, _UIM, _NKM, _P, _Deli, _NUIM, _MUa, _IT, _U, _CPom, _ETnc, _RC],
+  [_B, _KM, _UIM, _NKM, _P, _Deli, _NUIM, _MUa, _IT, _U, _CPom, _ETn, _RC],
   [
     0,
     0,
@@ -5501,7 +5518,7 @@ export var ListMultipartUploadsRequest: StaticStructureSchema = [
   n0,
   _LMURi,
   0,
-  [_B, _Deli, _ETnc, _KM, _MUa, _P, _UIM, _EBO, _RP],
+  [_B, _Deli, _ETn, _KM, _MUa, _P, _UIM, _EBO, _RP],
   [
     [0, 1],
     [
@@ -5561,7 +5578,7 @@ export var ListObjectsOutput: StaticStructureSchema = [
   {
     [_xN]: _LBRi,
   },
-  [_IT, _Ma, _NM, _Con, _N, _P, _Deli, _MK, _CPom, _ETnc, _RC],
+  [_IT, _Ma, _NM, _Con, _N, _P, _Deli, _MK, _CPom, _ETn, _RC],
   [
     2,
     0,
@@ -5596,7 +5613,7 @@ export var ListObjectsRequest: StaticStructureSchema = [
   n0,
   _LOR,
   0,
-  [_B, _Deli, _ETnc, _Ma, _MK, _P, _RP, _EBO, _OOA],
+  [_B, _Deli, _ETn, _Ma, _MK, _P, _RP, _EBO, _OOA],
   [
     [0, 1],
     [
@@ -5656,7 +5673,7 @@ export var ListObjectsV2Output: StaticStructureSchema = [
   {
     [_xN]: _LBRi,
   },
-  [_IT, _Con, _N, _P, _Deli, _MK, _CPom, _ETnc, _KC, _CTon, _NCT, _SA, _RC],
+  [_IT, _Con, _N, _P, _Deli, _MK, _CPom, _ETn, _KC, _CTon, _NCT, _SA, _RC],
   [
     2,
     [
@@ -5693,7 +5710,7 @@ export var ListObjectsV2Request: StaticStructureSchema = [
   n0,
   _LOVR,
   0,
-  [_B, _Deli, _ETnc, _MK, _P, _CTon, _FO, _SA, _RP, _EBO, _OOA],
+  [_B, _Deli, _ETn, _MK, _P, _CTon, _FO, _SA, _RP, _EBO, _OOA],
   [
     [0, 1],
     [
@@ -5765,7 +5782,7 @@ export var ListObjectVersionsOutput: StaticStructureSchema = [
   {
     [_xN]: _LVR,
   },
-  [_IT, _KM, _VIM, _NKM, _NVIM, _Ve, _DMe, _N, _P, _Deli, _MK, _CPom, _ETnc, _RC],
+  [_IT, _KM, _VIM, _NKM, _NVIM, _Ve, _DMe, _N, _P, _Deli, _MK, _CPom, _ETn, _RC],
   [
     2,
     0,
@@ -5810,7 +5827,7 @@ export var ListObjectVersionsRequest: StaticStructureSchema = [
   n0,
   _LOVRi,
   0,
-  [_B, _Deli, _ETnc, _KM, _MK, _P, _VIM, _EBO, _RP, _OOA],
+  [_B, _Deli, _ETn, _KM, _MK, _P, _VIM, _EBO, _RP, _OOA],
   [
     [0, 1],
     [
@@ -6144,7 +6161,7 @@ export var _Object: StaticStructureSchema = [
   n0,
   _Obj,
   0,
-  [_K, _LM, _ET, _CA, _CT, _Si, _SC, _O, _RSe],
+  [_K, _LM, _ETa, _CA, _CT, _Si, _SC, _O, _RSe],
   [
     0,
     4,
@@ -6175,7 +6192,7 @@ export var ObjectAlreadyInActiveTierError: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ObjectAlreadyInActiveTierError, __ObjectAlreadyInActiveTierError);
 
-export var ObjectIdentifier: StaticStructureSchema = [3, n0, _OI, 0, [_K, _VI, _ET, _LMT, _Si], [0, 0, 0, 6, 1]];
+export var ObjectIdentifier: StaticStructureSchema = [3, n0, _OI, 0, [_K, _VI, _ETa, _LMT, _Si], [0, 0, 0, 6, 1]];
 export var ObjectLockConfiguration: StaticStructureSchema = [3, n0, _OLC, 0, [_OLE, _Ru], [0, () => ObjectLockRule]];
 export var ObjectLockLegalHold: StaticStructureSchema = [3, n0, _OLLH, 0, [_S], [0]];
 export var ObjectLockRetention: StaticStructureSchema = [3, n0, _OLR, 0, [_Mo, _RUD], [0, 5]];
@@ -6206,7 +6223,7 @@ export var ObjectVersion: StaticStructureSchema = [
   n0,
   _OV,
   0,
-  [_ET, _CA, _CT, _Si, _SC, _K, _VI, _IL, _LM, _O, _RSe],
+  [_ETa, _CA, _CT, _Si, _SC, _K, _VI, _IL, _LM, _O, _RSe],
   [
     0,
     [
@@ -6259,7 +6276,7 @@ export var Part: StaticStructureSchema = [
   n0,
   _Par,
   0,
-  [_PN, _LM, _ET, _Si, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
+  [_PN, _LM, _ETa, _Si, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [1, 4, 0, 1, 0, 0, 0, 0, 0],
 ];
 export var PartitionedPrefix: StaticStructureSchema = [
@@ -7224,7 +7241,7 @@ export var PutObjectOutput: StaticStructureSchema = [
   0,
   [
     _E,
-    _ET,
+    _ETa,
     _CCRC,
     _CCRCC,
     _CCRCNVME,
@@ -7251,7 +7268,7 @@ export var PutObjectOutput: StaticStructureSchema = [
     [
       0,
       {
-        [_hH]: _ET,
+        [_hH]: _ETa,
       },
     ],
     [
@@ -8161,8 +8178,8 @@ export var ServerSideEncryptionRule: StaticStructureSchema = [
   n0,
   _SSER,
   0,
-  [_ASSEBD, _BKE],
-  [[() => ServerSideEncryptionByDefault, 0], 2],
+  [_ASSEBD, _BKE, _BET],
+  [[() => ServerSideEncryptionByDefault, 0], 2, [() => BlockedEncryptionTypes, 0]],
 ];
 export var SessionCredentials: StaticStructureSchema = [
   3,
@@ -8606,7 +8623,7 @@ export var UploadPartOutput: StaticStructureSchema = [
   n0,
   _UPO,
   0,
-  [_SSE, _ET, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
+  [_SSE, _ETa, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
   [
     [
       0,
@@ -8617,7 +8634,7 @@ export var UploadPartOutput: StaticStructureSchema = [
     [
       0,
       {
-        [_hH]: _ET,
+        [_hH]: _ETa,
       },
     ],
     [
@@ -8853,7 +8870,7 @@ export var WriteGetObjectResponseRequest: StaticStructureSchema = [
     _CSHA,
     _CSHAh,
     _DM,
-    _ET,
+    _ETa,
     _Ex,
     _E,
     _LM,
@@ -9151,6 +9168,18 @@ export var CompletedPartList: StaticListSchema = [1, n0, _CPLo, 0, () => Complet
 export var CORSRules: StaticListSchema = [1, n0, _CORSR, 0, [() => CORSRule, 0]];
 export var DeletedObjects: StaticListSchema = [1, n0, _DOe, 0, () => DeletedObject];
 export var DeleteMarkers: StaticListSchema = [1, n0, _DMe, 0, () => DeleteMarkerEntry];
+export var EncryptionTypeList: StaticListSchema = [
+  1,
+  n0,
+  _ETL,
+  0,
+  [
+    0,
+    {
+      [_xN]: _ET,
+    },
+  ],
+];
 export var Errors: StaticListSchema = [1, n0, _Er, 0, () => _Error];
 export var EventList = 64 | 0;
 

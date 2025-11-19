@@ -17,11 +17,11 @@ import {
   DataRedundancy,
   DeleteMarkerReplicationStatus,
   EncodingType,
+  EncryptionType,
   Event,
   ExistingObjectReplicationStatus,
   ExpirationState,
   ExpirationStatus,
-  ExpressionType,
   FileHeaderInfo,
   FilterRuleName,
   IntelligentTieringAccessTier,
@@ -1875,18 +1875,11 @@ export interface CreateBucketConfiguration {
   Bucket?: BucketInfo | undefined;
 
   /**
-   * <p>An array of tags that you can apply to the bucket that you're creating. Tags are key-value pairs of
-   *       metadata used to categorize and organize your buckets, track costs, and control access. </p>
+   * <p>An array of tags that you can apply to the bucket that you're creating. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. </p>
    *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with
-   *           directory buckets</a>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>You must have the <code>s3express:TagResource</code> permission to create a directory bucket with tags.</p>
-   *                </li>
-   *             </ul>
+   *             <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with
+   *         directory buckets</a>.</p>
+   *             <p>You must have the <code>s3express:TagResource</code> permission to create a directory bucket with tags.</p>
    *          </note>
    * @public
    */
@@ -6425,6 +6418,46 @@ export interface ServerSideEncryptionByDefault {
 }
 
 /**
+ * <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/userguide/block-encryption-type.html">Blocking an encryption type for a general purpose bucket</a>. </p>
+ *          <p>This data type is used with the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html">PutBucketEncryption</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html">GetBucketEncryption</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html">DeleteBucketEncryption</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>You must have the <code>s3:PutEncryptionConfiguration</code> permission to block or unblock an encryption type for a bucket. </p>
+ *                <p>You must have the <code>s3:GetEncryptionConfiguration</code> permission to view a bucket's encryption type. </p>
+ *             </dd>
+ *          </dl>
+ * @public
+ */
+export interface BlockedEncryptionTypes {
+  /**
+   * <p>The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.</p>
+   *          <note>
+   *             <p>Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
+   *          </note>
+   * @public
+   */
+  EncryptionType?: EncryptionType[] | undefined;
+}
+
+/**
  * <p>Specifies the default server-side encryption configuration.</p>
  *          <note>
  *             <ul>
@@ -6477,6 +6510,15 @@ export interface ServerSideEncryptionRule {
    * @public
    */
   BucketKeyEnabled?: boolean | undefined;
+
+  /**
+   * <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/userguide/block-encryption-type.html">Blocking an encryption type for a general purpose bucket</a>. </p>
+   *          <note>
+   *             <p>Currently, this parameter only supports blocking or unblocking Server Side Encryption with Customer Provided Keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
+   *          </note>
+   * @public
+   */
+  BlockedEncryptionTypes?: BlockedEncryptionTypes | undefined;
 }
 
 /**
@@ -16623,47 +16665,4 @@ export interface OutputSerialization {
    * @public
    */
   JSON?: JSONOutput | undefined;
-}
-
-/**
- * <important>
- *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can
- *         continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
- *             </p>
- *          </important>
- *          <p>Describes the parameters for Select job types.</p>
- *          <p>Learn <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">How to
- *         optimize querying your data in Amazon S3</a> using <a href="https://docs.aws.amazon.com/athena/latest/ug/what-is.html">Amazon Athena</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">S3 Object Lambda</a>, or client-side
- *       filtering.</p>
- * @public
- */
-export interface SelectParameters {
-  /**
-   * <p>Describes the serialization format of the object.</p>
-   * @public
-   */
-  InputSerialization: InputSerialization | undefined;
-
-  /**
-   * <p>The type of the provided expression (for example, SQL).</p>
-   * @public
-   */
-  ExpressionType: ExpressionType | undefined;
-
-  /**
-   * <important>
-   *             <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can
-   *         continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a>
-   *             </p>
-   *          </important>
-   *          <p>The expression that is used to query the object.</p>
-   * @public
-   */
-  Expression: string | undefined;
-
-  /**
-   * <p>Describes how the results of the Select job are serialized.</p>
-   * @public
-   */
-  OutputSerialization: OutputSerialization | undefined;
 }

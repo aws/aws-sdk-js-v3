@@ -30,7 +30,7 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Deletes the tags from the bucket.</p>
+ *          <p>Deletes tags from the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the <code>s3:PutBucketTagging</code>
  *       action. By default, the bucket owner has this permission and can grant this permission to others. </p>
  *          <p>The following operations are related to <code>DeleteBucketTagging</code>:</p>
