@@ -39,13 +39,14 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * const input = { // UpdateBillingGroupInput
  *   Arn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING",
+ *   Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING" || "PENDING",
  *   ComputationPreference: { // ComputationPreference
  *     PricingPlanArn: "STRING_VALUE", // required
  *   },
  *   Description: "STRING_VALUE",
  *   AccountGrouping: { // UpdateBillingGroupAccountGrouping
  *     AutoAssociate: true || false,
+ *     ResponsibilityTransferArn: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateBillingGroupCommand(input);
@@ -58,10 +59,11 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * //   PricingPlanArn: "STRING_VALUE",
  * //   Size: Number("long"),
  * //   LastModifiedTime: Number("long"),
- * //   Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING",
+ * //   Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING" || "PENDING",
  * //   StatusReason: "STRING_VALUE",
  * //   AccountGrouping: { // UpdateBillingGroupAccountGrouping
  * //     AutoAssociate: true || false,
+ * //     ResponsibilityTransferArn: "STRING_VALUE",
  * //   },
  * // };
  *

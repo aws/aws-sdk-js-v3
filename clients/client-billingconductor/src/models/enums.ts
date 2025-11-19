@@ -32,6 +32,7 @@ export const ValidationExceptionReason = {
   ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
   ILLEGAL_ACCOUNT_ID: "ILLEGAL_ACCOUNT_ID",
   ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
+  ILLEGAL_BILLING_GROUP_TYPE: "ILLEGAL_BILLING_GROUP_TYPE",
   ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
   ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
   ILLEGAL_CHARGE_DETAILS: "ILLEGAL_CHARGE_DETAILS",
@@ -111,8 +112,34 @@ export type AssociateResourceErrorReason =
  * @public
  * @enum
  */
+export const BillingGroupType = {
+  STANDARD: "STANDARD",
+  TRANSFER_BILLING: "TRANSFER_BILLING",
+} as const;
+/**
+ * @public
+ */
+export type BillingGroupType = (typeof BillingGroupType)[keyof typeof BillingGroupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchOption = {
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+/**
+ * @public
+ */
+export type SearchOption = (typeof SearchOption)[keyof typeof SearchOption];
+
+/**
+ * @public
+ * @enum
+ */
 export const BillingGroupStatus = {
   ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
   PRIMARY_ACCOUNT_MISSING: "PRIMARY_ACCOUNT_MISSING",
 } as const;
 /**

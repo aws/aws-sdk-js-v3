@@ -2,6 +2,7 @@
 import {
   AssociateResourceErrorReason,
   BillingGroupStatus,
+  BillingGroupType,
   ComputationRuleEnum,
   CurrencyCode,
   CustomLineItemRelationship,
@@ -12,6 +13,7 @@ import {
   MatchOption,
   PricingRuleScope,
   PricingRuleType,
+  SearchOption,
 } from "./enums";
 
 /**
@@ -53,13 +55,19 @@ export interface AccountGrouping {
    * <p>The account IDs that make up the billing group. Account IDs must be a part of the consolidated billing family, and not associated with another billing group.</p>
    * @public
    */
-  LinkedAccountIds: string[] | undefined;
+  LinkedAccountIds?: string[] | undefined;
 
   /**
    * <p>Specifies if this billing group will automatically associate newly added Amazon Web Services accounts that join your consolidated billing family.</p>
    * @public
    */
   AutoAssociate?: boolean | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the transfer relationship owned by the Bill Transfer account (caller account). When specified, the PrimaryAccountId is no longer required. </p>
+   * @public
+   */
+  ResponsibilityTransferArn?: string | undefined;
 }
 
 /**
@@ -311,6 +319,24 @@ export interface DisassociateAccountsOutput {
 }
 
 /**
+ * <p> A structure that defines string search parameters. </p>
+ * @public
+ */
+export interface StringSearch {
+  /**
+   * <p> The search option to be applied when performing the string search. </p>
+   * @public
+   */
+  SearchOption: SearchOption | undefined;
+
+  /**
+   * <p> The value to search for within the specified string field. </p>
+   * @public
+   */
+  SearchValue: string | undefined;
+}
+
+/**
  * <p>The filter that specifies the billing groups and pricing plans to retrieve billing group information.</p>
  * @public
  */
@@ -338,6 +364,30 @@ export interface ListBillingGroupsFilter {
    * @public
    */
   AutoAssociate?: boolean | undefined;
+
+  /**
+   * <p> A list of primary account IDs to filter the billing groups. </p>
+   * @public
+   */
+  PrimaryAccountIds?: string[] | undefined;
+
+  /**
+   * <p> Filter billing groups by their type. </p>
+   * @public
+   */
+  BillingGroupTypes?: BillingGroupType[] | undefined;
+
+  /**
+   * <p> Filter billing groups by their names. </p>
+   * @public
+   */
+  Names?: StringSearch[] | undefined;
+
+  /**
+   * <p> Filter billing groups by their responsibility transfer ARNs. </p>
+   * @public
+   */
+  ResponsibilityTransferArns?: string[] | undefined;
 }
 
 /**
@@ -379,6 +429,12 @@ export interface ListBillingGroupAccountGrouping {
    * @public
    */
   AutoAssociate?: boolean | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the transfer relationship for the billing group. </p>
+   * @public
+   */
+  ResponsibilityTransferArn?: string | undefined;
 }
 
 /**
@@ -451,6 +507,12 @@ export interface BillingGroupListElement {
    * @public
    */
   AccountGrouping?: ListBillingGroupAccountGrouping | undefined;
+
+  /**
+   * <p> The type of billing group. </p>
+   * @public
+   */
+  BillingGroupType?: BillingGroupType | undefined;
 }
 
 /**
@@ -480,6 +542,12 @@ export interface UpdateBillingGroupAccountGrouping {
    * @public
    */
   AutoAssociate?: boolean | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the transfer relationship. Note: Modifications to the ResponsibilityTransferArn are not permitted for existing billing groups. </p>
+   * @public
+   */
+  ResponsibilityTransferArn?: string | undefined;
 }
 
 /**
@@ -717,7 +785,7 @@ export interface CustomLineItemFlatChargeDetails {
 }
 
 /**
- * <p>A representation of the line item filter for your custom line item. You can use line item filters to include or exclude specific resource values from the billing group's total cost. For example, if you create a custom line item and you want to filter out a value, such as Savings Plan discounts, you can update <code>LineItemFilter</code> to exclude it.</p>
+ * <p>A representation of the line item filter for your custom line item. You can use line item filters to include or exclude specific resource values from the billing group's total cost. For example, if you create a custom line item and you want to filter out a value, such as Savings Plans discounts, you can update <code>LineItemFilter</code> to exclude it.</p>
  * @public
  */
 export interface LineItemFilter {
@@ -734,7 +802,7 @@ export interface LineItemFilter {
   MatchOption: MatchOption | undefined;
 
   /**
-   * <p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plan discounts.</p>
+   * <p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plans discounts.</p>
    * @public
    */
   Values: LineItemFilterValue[] | undefined;
@@ -789,12 +857,12 @@ export interface CustomLineItemChargeDetails {
 }
 
 /**
- * The presentation configuration of the custom line item
+ * <p> An object that defines how custom line item charges are presented in the bill, containing specifications for service presentation. </p>
  * @public
  */
 export interface PresentationObject {
   /**
-   * This defines the service of where the custom line item is presented
+   * <p> The service under which the custom line item charges will be presented. Must be a string between 1 and 128 characters matching the pattern "<code>^[a-zA-Z0-9]+$</code>". </p>
    * @public
    */
   Service: string | undefined;
@@ -853,13 +921,13 @@ export interface CreateCustomLineItemInput {
   AccountId?: string | undefined;
 
   /**
-   * The display settings of the custom line item
+   * <p> Specifies how the custom line item charges are computed. </p>
    * @public
    */
   ComputationRule?: ComputationRuleEnum | undefined;
 
   /**
-   * The presentation configuration of the custom line item
+   * <p> Details controlling how the custom line item charges are presented in the bill. Contains specifications for which service the charges will be shown under. </p>
    * @public
    */
   PresentationDetails?: PresentationObject | undefined;
@@ -1089,13 +1157,13 @@ export interface CustomLineItemListElement {
   AccountId?: string | undefined;
 
   /**
-   * The display settings of the custom line item
+   * <p> The computation rule that determines how the custom line item charges are computed and reflected in the bill. </p>
    * @public
    */
   ComputationRule?: ComputationRuleEnum | undefined;
 
   /**
-   * The presentation configuration of the custom line item
+   * <p> Configuration details specifying how the custom line item charges are presented, including which service the charges are shown under. </p>
    * @public
    */
   PresentationDetails?: PresentationObject | undefined;
@@ -1267,13 +1335,13 @@ export interface CustomLineItemVersionListElement {
   AccountId?: string | undefined;
 
   /**
-   * The display settings of the custom line item
+   * <p> The computation rule for a specific version of a custom line item, determining how charges are computed and reflected in the bill. </p>
    * @public
    */
   ComputationRule?: ComputationRuleEnum | undefined;
 
   /**
-   * The presentation configuration of the custom line item
+   * <p> Presentation configuration for a specific version of a custom line item, specifying how charges are displayed in the bill. </p>
    * @public
    */
   PresentationDetails?: PresentationObject | undefined;

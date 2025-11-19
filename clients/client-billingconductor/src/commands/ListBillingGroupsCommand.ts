@@ -46,9 +46,24 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  *     ],
  *     PricingPlan: "STRING_VALUE",
  *     Statuses: [ // BillingGroupStatusList
- *       "ACTIVE" || "PRIMARY_ACCOUNT_MISSING",
+ *       "ACTIVE" || "PRIMARY_ACCOUNT_MISSING" || "PENDING",
  *     ],
  *     AutoAssociate: true || false,
+ *     PrimaryAccountIds: [ // PrimaryAccountIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     BillingGroupTypes: [ // BillingGroupTypeList
+ *       "STANDARD" || "TRANSFER_BILLING",
+ *     ],
+ *     Names: [ // StringSearches
+ *       { // StringSearch
+ *         SearchOption: "STARTS_WITH", // required
+ *         SearchValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ResponsibilityTransferArns: [ // ResponsibilityTransferArnsList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new ListBillingGroupsCommand(input);
@@ -66,11 +81,13 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * //       Size: Number("long"),
  * //       CreationTime: Number("long"),
  * //       LastModifiedTime: Number("long"),
- * //       Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING",
+ * //       Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING" || "PENDING",
  * //       StatusReason: "STRING_VALUE",
  * //       AccountGrouping: { // ListBillingGroupAccountGrouping
  * //         AutoAssociate: true || false,
+ * //         ResponsibilityTransferArn: "STRING_VALUE",
  * //       },
+ * //       BillingGroupType: "STANDARD" || "TRANSFER_BILLING",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

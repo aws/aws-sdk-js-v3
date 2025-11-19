@@ -48,6 +48,8 @@ const _BGD = "BillingGroupDescription";
 const _BGL = "BillingGroupList";
 const _BGLE = "BillingGroupListElement";
 const _BGN = "BillingGroupName";
+const _BGT = "BillingGroupType";
+const _BGTi = "BillingGroupTypes";
 const _BP = "BillingPeriod";
 const _BPR = "BillingPeriodRange";
 const _C = "Currency";
@@ -191,6 +193,7 @@ const _Na = "Names";
 const _O = "Operation";
 const _P = "Percentage";
 const _PAI = "PrimaryAccountId";
+const _PAIr = "PrimaryAccountIds";
 const _PC = "ProformaCost";
 const _PCr = "ProductCode";
 const _PD = "PresentationDetails";
@@ -219,6 +222,8 @@ const _RAe = "ResourceArn";
 const _RI = "ResourceId";
 const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
+const _RTA = "ResponsibilityTransferArn";
+const _RTAe = "ResponsibilityTransferArns";
 const _Re = "Relationship";
 const _S = "Size";
 const _SAR = "SuccessfullyAssociatedResources";
@@ -226,8 +231,12 @@ const _SBP = "StartBillingPeriod";
 const _SC = "ServiceCode";
 const _SDR = "SuccessfullyDisassociatedResources";
 const _SLEE = "ServiceLimitExceededException";
+const _SO = "SearchOption";
 const _SR = "StatusReason";
+const _SS = "StringSearch";
+const _SSt = "StringSearches";
 const _ST = "StartTime";
+const _SV = "SearchValue";
 const _Sc = "Scope";
 const _Se = "Service";
 const _St = "Status";
@@ -336,7 +345,7 @@ export var AccountAssociationsListElement: StaticStructureSchema = [
   [_AI, _BGA, _AN, _AE],
   [0, 0, [() => AccountName, 0], [() => AccountEmail, 0]],
 ];
-export var AccountGrouping: StaticStructureSchema = [3, n0, _AG, 0, [_LAI, _AA], [64 | 0, 2]];
+export var AccountGrouping: StaticStructureSchema = [3, n0, _AG, 0, [_LAI, _AA, _RTA], [64 | 0, 2, 0]];
 export var AssociateAccountsInput: StaticStructureSchema = [3, n0, _AAI, 0, [_A, _AIc], [0, 64 | 0]];
 export var AssociateAccountsOutput: StaticStructureSchema = [3, n0, _AAO, 0, [_A], [0]];
 export var AssociatePricingRulesInput: StaticStructureSchema = [3, n0, _APRI, 0, [_A, _PRA], [0, 64 | 0]];
@@ -404,7 +413,7 @@ export var BillingGroupListElement: StaticStructureSchema = [
   n0,
   _BGLE,
   0,
-  [_N, _A, _D, _PAI, _CP, _S, _CT, _LMT, _St, _SR, _AG],
+  [_N, _A, _D, _PAI, _CP, _S, _CT, _LMT, _St, _SR, _AG, _BGT],
   [
     [() => BillingGroupName, 0],
     0,
@@ -417,6 +426,7 @@ export var BillingGroupListElement: StaticStructureSchema = [
     0,
     0,
     () => ListBillingGroupAccountGrouping,
+    0,
   ],
 ];
 export var BillingPeriodRange: StaticStructureSchema = [3, n0, _BPR, 0, [_ISBP, _EEBP], [0, 0]];
@@ -675,7 +685,7 @@ export var ListAccountAssociationsOutput: StaticStructureSchema = [
   [_LA, _NT],
   [[() => AccountAssociationsList, 0], 0],
 ];
-export var ListBillingGroupAccountGrouping: StaticStructureSchema = [3, n0, _LBGAG, 0, [_AA], [2]];
+export var ListBillingGroupAccountGrouping: StaticStructureSchema = [3, n0, _LBGAG, 0, [_AA, _RTA], [2, 0]];
 export var ListBillingGroupCostReportsFilter: StaticStructureSchema = [3, n0, _LBGCRF, 0, [_BGAi], [64 | 0]];
 export var ListBillingGroupCostReportsInput: StaticStructureSchema = [
   3,
@@ -698,8 +708,8 @@ export var ListBillingGroupsFilter: StaticStructureSchema = [
   n0,
   _LBGF,
   0,
-  [_Ar, _PP, _Sta, _AA],
-  [64 | 0, 0, 64 | 0, 2],
+  [_Ar, _PP, _Sta, _AA, _PAIr, _BGTi, _Na, _RTAe],
+  [64 | 0, 0, 64 | 0, 2, 64 | 0, 64 | 0, () => StringSearches, 64 | 0],
 ];
 export var ListBillingGroupsInput: StaticStructureSchema = [
   3,
@@ -924,6 +934,7 @@ export var ServiceLimitExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException, __ServiceLimitExceededException);
 
+export var StringSearch: StaticStructureSchema = [3, n0, _SS, 0, [_SO, _SV], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAe, _T], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
@@ -965,7 +976,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateBillingGroupAccountGrouping: StaticStructureSchema = [3, n0, _UBGAG, 0, [_AA], [2]];
+export var UpdateBillingGroupAccountGrouping: StaticStructureSchema = [3, n0, _UBGAG, 0, [_AA, _RTA], [2, 0]];
 export var UpdateBillingGroupInput: StaticStructureSchema = [
   3,
   n0,
@@ -1138,6 +1149,8 @@ export var BillingGroupCostReportResultsList: StaticListSchema = [
 export var BillingGroupList: StaticListSchema = [1, n0, _BGL, 0, [() => BillingGroupListElement, 0]];
 export var BillingGroupStatusList = 64 | 0;
 
+export var BillingGroupTypeList = 64 | 0;
+
 export var CustomLineItemArns = 64 | 0;
 
 export var CustomLineItemAssociationsList = 64 | 0;
@@ -1184,6 +1197,11 @@ export var PricingRuleArnsInput = 64 | 0;
 export var PricingRuleArnsNonEmptyInput = 64 | 0;
 
 export var PricingRuleList: StaticListSchema = [1, n0, _PRL, 0, [() => PricingRuleListElement, 0]];
+export var PrimaryAccountIdList = 64 | 0;
+
+export var ResponsibilityTransferArnsList = 64 | 0;
+
+export var StringSearches: StaticListSchema = [1, n0, _SSt, 0, () => StringSearch];
 export var TagKeyList = 64 | 0;
 
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];

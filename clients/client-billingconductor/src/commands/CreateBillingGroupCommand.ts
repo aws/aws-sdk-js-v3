@@ -40,10 +40,11 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  *   ClientToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   AccountGrouping: { // AccountGrouping
- *     LinkedAccountIds: [ // AccountIdList // required
+ *     LinkedAccountIds: [ // AccountIdList
  *       "STRING_VALUE",
  *     ],
  *     AutoAssociate: true || false,
+ *     ResponsibilityTransferArn: "STRING_VALUE",
  *   },
  *   ComputationPreference: { // ComputationPreference
  *     PricingPlanArn: "STRING_VALUE", // required
