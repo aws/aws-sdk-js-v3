@@ -30,9 +30,14 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:ReplicateSecretToRegions</code>.
- *       If the primary secret is encrypted with a KMS key other than <code>aws/secretsmanager</code>, you also need <code>kms:Decrypt</code> permission to the key. To encrypt the replicated secret with a KMS key other than <code>aws/secretsmanager</code>, you need <code>kms:GenerateDataKey</code> and <code>kms:Encrypt</code> to the key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:ReplicateSecretToRegions</code>. If the primary
+ *             secret is encrypted with a KMS key other than <code>aws/secretsmanager</code>, you also
+ *             need <code>kms:Decrypt</code> permission to the key. To encrypt the replicated secret
+ *             with a KMS key other than <code>aws/secretsmanager</code>, you need
+ *                 <code>kms:GenerateDataKey</code> and <code>kms:Encrypt</code> to the key.
+ *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

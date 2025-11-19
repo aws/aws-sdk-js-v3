@@ -27,26 +27,29 @@ export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersio
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
- *       track a version as it progresses through the secret rotation process. Each staging label can be
- *       attached to only one version at a time. To add a staging label to a version when it is already
- *       attached to another version, Secrets Manager first removes it from the other version first and
- *       then attaches it to this one. For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts: Version</a>. </p>
- *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are added
- *       to the existing list of staging labels for the version. </p>
- *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it in this
- *       call.</p>
+ * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging
+ *             labels to track a version as it progresses through the secret rotation process. Each
+ *             staging label can be attached to only one version at a time. To add a staging label to a
+ *             version when it is already attached to another version, Secrets Manager first removes it from the
+ *             other version first and then attaches it to this one. For more information about
+ *             versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts:
+ *                 Version</a>. </p>
+ *          <p>The staging labels that you specify in the <code>VersionStage</code> parameter are
+ *             added to the existing list of staging labels for the version. </p>
+ *          <p>You can move the <code>AWSCURRENT</code> staging label to this version by including it
+ *             in this call.</p>
  *          <note>
- *             <p>Whenever you move <code>AWSCURRENT</code>, Secrets Manager automatically moves the label <code>AWSPREVIOUS</code>
- *         to the version that <code>AWSCURRENT</code> was removed from.</p>
+ *             <p>Whenever you move <code>AWSCURRENT</code>, Secrets Manager automatically moves the label
+ *                     <code>AWSPREVIOUS</code> to the version that <code>AWSCURRENT</code> was removed
+ *                 from.</p>
  *          </note>
- *          <p>If this action results in the last label being removed from a version, then the version is
- *       considered to be 'deprecated' and can be deleted by Secrets Manager.</p>
+ *          <p>If this action results in the last label being removed from a version, then the
+ *             version is considered to be 'deprecated' and can be deleted by Secrets Manager.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:UpdateSecretVersionStage</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:UpdateSecretVersionStage</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

@@ -28,12 +28,13 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
 
 /**
  * <p>Validates that a resource policy does not grant a wide range of principals access to
- *       your secret. A resource-based policy is optional for secrets.</p>
+ *             your secret. A resource-based policy is optional for secrets.</p>
  *          <p>The API performs three checks when validating the policy:</p>
  *          <ul>
  *             <li>
- *                <p>Sends a call to <a href="https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/">Zelkova</a>, an automated reasoning engine, to ensure your resource policy does not
- *           allow broad access to your secret, for example policies that use a wildcard for the principal.</p>
+ *                <p>Sends a call to <a href="https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/">Zelkova</a>, an automated reasoning engine, to ensure your resource
+ *                     policy does not allow broad access to your secret, for example policies that use
+ *                     a wildcard for the principal.</p>
  *             </li>
  *             <li>
  *                <p>Checks for correct syntax in a policy.</p>
@@ -44,9 +45,10 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  *          </ul>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:ValidateResourcePolicy</code> and <code>secretsmanager:PutResourcePolicy</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:ValidateResourcePolicy</code> and
+ *                 <code>secretsmanager:PutResourcePolicy</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

@@ -28,19 +28,19 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes specific tags from a secret.</p>
- *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
- *       is returned and the secret metadata is unchanged.</p>
+ *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no
+ *             error is returned and the secret metadata is unchanged.</p>
  *          <important>
  *             <p>If you use tags as part of your security strategy, then removing a tag can change
- *         permissions. If successfully completing this operation would result in you losing your
- *         permissions for this secret, then the operation is blocked and returns an Access Denied
- *         error.</p>
+ *                 permissions. If successfully completing this operation would result in you losing
+ *                 your permissions for this secret, then the operation is blocked and returns an
+ *                 Access Denied error.</p>
  *          </important>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:UntagResource</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:UntagResource</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

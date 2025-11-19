@@ -27,13 +27,13 @@ export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
 export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
- *       only returns fields that have a value in the response. </p>
+ * <p>Retrieves the details of a secret. It does not include the encrypted secret value.
+ *             Secrets Manager only returns fields that have a value in the response. </p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:DescribeSecret</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:DescribeSecret</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example
@@ -52,6 +52,7 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * // { // DescribeSecretResponse
  * //   ARN: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
  * //   KmsKeyId: "STRING_VALUE",
  * //   RotationEnabled: true || false,
@@ -61,6 +62,13 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * //     Duration: "STRING_VALUE",
  * //     ScheduleExpression: "STRING_VALUE",
  * //   },
+ * //   ExternalSecretRotationMetadata: [ // ExternalSecretRotationMetadataType
+ * //     { // ExternalSecretRotationMetadataItem
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ExternalSecretRotationRoleArn: "STRING_VALUE",
  * //   LastRotatedDate: new Date("TIMESTAMP"),
  * //   LastChangedDate: new Date("TIMESTAMP"),
  * //   LastAccessedDate: new Date("TIMESTAMP"),

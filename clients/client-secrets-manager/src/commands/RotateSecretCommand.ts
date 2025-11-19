@@ -27,22 +27,30 @@ export interface RotateSecretCommandInput extends RotateSecretRequest {}
 export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Configures and starts the asynchronous process of rotating the secret. For information about rotation,
- *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration parameters, the operation sets the values for the secret and then immediately starts a rotation. If you don't include the configuration parameters, the operation starts a rotation with the values already stored in the secret. </p>
- *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
- *       to the same version as the <code>AWSCURRENT</code> version, or it might not be attached to any
- *       version. If the <code>AWSPENDING</code> staging label is present but not attached to the same
- *       version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
- *       assumes that a previous rotation request is still in progress and returns an error. When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
+ * <p>Configures and starts the asynchronous process of rotating the secret. For information
+ *             about rotation, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a>
+ *             in the <i>Secrets Manager User Guide</i>. If you include the configuration
+ *             parameters, the operation sets the values for the secret and then immediately starts a
+ *             rotation. If you don't include the configuration parameters, the operation starts a
+ *             rotation with the values already stored in the secret. </p>
+ *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be
+ *             attached to the same version as the <code>AWSCURRENT</code> version, or it might not be
+ *             attached to any version. If the <code>AWSPENDING</code> staging label is present but not
+ *             attached to the same version as <code>AWSCURRENT</code>, then any later invocation of
+ *                 <code>RotateSecret</code> assumes that a previous rotation request is still in
+ *             progress and returns an error. When rotation is unsuccessful, the
+ *                 <code>AWSPENDING</code> staging label might be attached to an empty secret version.
+ *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot
+ *                 rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:RotateSecret</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:RotateSecret</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
- *       and access control in Secrets Manager</a>. You also need <code>lambda:InvokeFunction</code> permissions on the rotation function.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html">
- *         Permissions for rotation</a>.</p>
+ *       and access control in Secrets Manager</a>. You also
+ *             need <code>lambda:InvokeFunction</code> permissions on the rotation function. For more
+ *             information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html"> Permissions for rotation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +68,13 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  *     Duration: "STRING_VALUE",
  *     ScheduleExpression: "STRING_VALUE",
  *   },
+ *   ExternalSecretRotationMetadata: [ // ExternalSecretRotationMetadataType
+ *     { // ExternalSecretRotationMetadataItem
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ExternalSecretRotationRoleArn: "STRING_VALUE",
  *   RotateImmediately: true || false,
  * };
  * const command = new RotateSecretCommand(input);

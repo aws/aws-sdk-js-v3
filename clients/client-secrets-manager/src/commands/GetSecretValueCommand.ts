@@ -28,21 +28,21 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
 
 /**
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
- *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
- *       content.</p>
+ *                 <code>SecretBinary</code> from the specified version of a secret, whichever contains
+ *             content.</p>
  *          <p>To retrieve the values for a group of secrets, call <a>BatchGetSecretValue</a>.</p>
- *          <p>We recommend that you cache your secret values by using client-side caching.
- *       Caching secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for
- *         your applications</a>.</p>
- *          <p>To retrieve the previous version of a secret, use <code>VersionStage</code> and specify
- *       AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.</p>
+ *          <p>We recommend that you cache your secret values by using client-side caching. Caching
+ *             secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for your applications</a>.</p>
+ *          <p>To retrieve the previous version of a secret, use <code>VersionStage</code> and
+ *             specify AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:GetSecretValue</code>.
- *       If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key
- *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:GetSecretValue</code>. If the secret is encrypted
+ *             using a customer-managed key instead of the Amazon Web Services managed key
+ *                 <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code>
+ *             permissions for that key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

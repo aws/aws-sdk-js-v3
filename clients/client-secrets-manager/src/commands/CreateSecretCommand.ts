@@ -28,41 +28,50 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
 
 /**
  * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
- *       credentials such as a user name and password, an OAuth token, or other secret information
- *       that you store in an encrypted form in Secrets Manager. The secret also
- *       includes the connection information to access a database or other service, which Secrets Manager
- *       doesn't encrypt. A secret in Secrets Manager consists of both the protected secret data and the
- *       important information needed to manage the secret.</p>
- *          <p>For secrets that use <i>managed rotation</i>, you need to create the secret through the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.
- *
- *     </p>
- *          <p>For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create a secret</a>.</p>
+ *             credentials such as a user name and password, an OAuth token, or other secret
+ *             information that you store in an encrypted form in Secrets Manager. The secret also includes the
+ *             connection information to access a database or other service, which Secrets Manager doesn't
+ *             encrypt. A secret in Secrets Manager consists of both the protected secret data and the important
+ *             information needed to manage the secret.</p>
+ *          <p>For secrets that use <i>managed rotation</i>, you need to create the
+ *             secret through the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets
+ *                 managed by other Amazon Web Services services</a>. </p>
+ *          <p>For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create a
+ *                 secret</a>.</p>
  *          <p>To create a secret, you can provide the secret value to be encrypted in either the
- *       <code>SecretString</code> parameter or the <code>SecretBinary</code> parameter, but not both.
- *       If you include <code>SecretString</code> or <code>SecretBinary</code>
- *       then Secrets Manager creates an initial secret version and automatically attaches the staging
- *       label <code>AWSCURRENT</code> to it.</p>
- *          <p>For database credentials you want to rotate, for Secrets Manager to be able to rotate the secret,
- *       you must make sure the JSON you store in the <code>SecretString</code> matches the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html">JSON structure of
- *         a database secret</a>.</p>
+ *                 <code>SecretString</code> parameter or the <code>SecretBinary</code> parameter, but
+ *             not both. If you include <code>SecretString</code> or <code>SecretBinary</code> then
+ *             Secrets Manager creates an initial secret version and automatically attaches the staging label
+ *                 <code>AWSCURRENT</code> to it.</p>
+ *          <p>For database credentials you want to rotate, for Secrets Manager to be able to rotate the
+ *             secret, you must make sure the JSON you store in the <code>SecretString</code> matches
+ *             the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html">JSON
+ *                 structure of a database secret</a>.</p>
  *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
- *       <code>aws/secretsmanager</code>. If this key
- *       doesn't already exist in your account, then Secrets Manager creates it for you automatically. All
- *       users and roles in the Amazon Web Services account automatically have access to use <code>aws/secretsmanager</code>.
- *       Creating <code>aws/secretsmanager</code> can result in a one-time significant delay in returning the
- *       result.</p>
- *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then
- *       you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must create
- *       and use a customer managed KMS key. </p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
+ *                 <code>aws/secretsmanager</code>. If this key doesn't already exist in your account,
+ *             then Secrets Manager creates it for you automatically. All users and roles in the Amazon Web Services account
+ *             automatically have access to use <code>aws/secretsmanager</code>. Creating
+ *                 <code>aws/secretsmanager</code> can result in a one-time significant delay in
+ *             returning the result.</p>
+ *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API,
+ *             then you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must
+ *             create and use a customer managed KMS key. </p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.
+ *             Do not include sensitive information in request parameters except
+ *                 <code>SecretBinary</code> or <code>SecretString</code> because it might be logged.
+ *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:CreateSecret</code>. If you
- *       include tags in the secret, you also need <code>secretsmanager:TagResource</code>. To add replica Regions, you must also have <code>secretsmanager:ReplicateSecretToRegions</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:CreateSecret</code>. If you include tags in the
+ *             secret, you also need <code>secretsmanager:TagResource</code>. To add replica Regions,
+ *             you must also have <code>secretsmanager:ReplicateSecretToRegions</code>.
+ *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
- *          <p>To encrypt the secret with a KMS key other than <code>aws/secretsmanager</code>, you need <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permission to the key. </p>
+ *          <p>To encrypt the secret with a KMS key other than <code>aws/secretsmanager</code>, you
+ *             need <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permission to the
+ *             key. </p>
  *          <important>
  *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
  *          </important>
@@ -94,6 +103,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *     },
  *   ],
  *   ForceOverwriteReplicaSecret: true || false,
+ *   Type: "STRING_VALUE",
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);

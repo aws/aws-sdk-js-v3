@@ -27,15 +27,18 @@ export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest 
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a random password. We recommend that you specify the
- *       maximum length and include every character type that the system you are generating a password
- *       for can support. By default, Secrets Manager uses uppercase and lowercase letters, numbers, and the following characters in passwords: <code>!\"#$%&'()*+,-./:;<=>?@[\\]^_`\{|\}~</code>
+ * <p>Generates a random password. We recommend that you specify the maximum length and
+ *             include every character type that the system you are generating a password for can
+ *             support. By default, Secrets Manager uses uppercase and lowercase letters, numbers, and the
+ *             following characters in passwords:
+ *                 <code>!\"#$%&'()*+,-./:;<=>?@[\\]^_`\{|\}~</code>
  *          </p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this
+ *             action.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:GetRandomPassword</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:GetRandomPassword</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  * @example

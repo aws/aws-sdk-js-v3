@@ -39,6 +39,10 @@ const _EL = "ExcludeLowercase";
 const _EM = "ErrorMessage";
 const _EN = "ExcludeNumbers";
 const _EP = "ExcludePunctuation";
+const _ESRM = "ExternalSecretRotationMetadata";
+const _ESRMI = "ExternalSecretRotationMetadataItem";
+const _ESRMT = "ExternalSecretRotationMetadataType";
+const _ESRRA = "ExternalSecretRotationRoleArn";
 const _EU = "ExcludeUppercase";
 const _F = "Filters";
 const _FDWR = "ForceDeleteWithoutRecovery";
@@ -155,6 +159,7 @@ const _TLT = "TagListType";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _Ta = "Tag";
+const _Ty = "Type";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _US = "UpdateSecret";
@@ -163,7 +168,7 @@ const _USRp = "UpdateSecretResponse";
 const _USVS = "UpdateSecretVersionStage";
 const _USVSR = "UpdateSecretVersionStageRequest";
 const _USVSRp = "UpdateSecretVersionStageResponse";
-const _V = "Values";
+const _V = "Value";
 const _VE = "ValidationErrors";
 const _VEE = "ValidationErrorsEntry";
 const _VET = "ValidationErrorsType";
@@ -174,7 +179,7 @@ const _VRPR = "ValidateResourcePolicyRequest";
 const _VRPRa = "ValidateResourcePolicyResponse";
 const _VS = "VersionStage";
 const _VSe = "VersionStages";
-const _Va = "Value";
+const _Va = "Values";
 const _Ve = "Versions";
 const _c = "client";
 const _e = "error";
@@ -239,7 +244,7 @@ export var CreateSecretRequest: StaticStructureSchema = [
   n0,
   _CSR,
   0,
-  [_N, _CRT, _D, _KKI, _SB, _SS, _T, _ARR, _FORS],
+  [_N, _CRT, _D, _KKI, _SB, _SS, _T, _ARR, _FORS, _Ty],
   [
     0,
     [0, 4],
@@ -250,6 +255,7 @@ export var CreateSecretRequest: StaticStructureSchema = [
     () => TagListType,
     () => AddReplicaRegionListType,
     2,
+    0,
   ],
 ];
 export var CreateSecretResponse: StaticStructureSchema = [
@@ -282,8 +288,31 @@ export var DescribeSecretResponse: StaticStructureSchema = [
   n0,
   _DSResc,
   0,
-  [_ARN, _N, _D, _KKI, _RE, _RLARN, _RR, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _VITS, _OS, _CD, _PR, _RS],
   [
+    _ARN,
+    _N,
+    _Ty,
+    _D,
+    _KKI,
+    _RE,
+    _RLARN,
+    _RR,
+    _ESRM,
+    _ESRRA,
+    _LRD,
+    _LCD,
+    _LAD,
+    _DDe,
+    _NRD,
+    _T,
+    _VITS,
+    _OS,
+    _CD,
+    _PR,
+    _RS,
+  ],
+  [
+    0,
     0,
     0,
     0,
@@ -291,6 +320,8 @@ export var DescribeSecretResponse: StaticStructureSchema = [
     2,
     0,
     () => RotationRulesType,
+    () => ExternalSecretRotationMetadataType,
+    0,
     4,
     4,
     4,
@@ -316,7 +347,8 @@ export var EncryptionFailure: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(EncryptionFailure, __EncryptionFailure);
 
-export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_K, _V], [0, 64 | 0]];
+export var ExternalSecretRotationMetadataItem: StaticStructureSchema = [3, n0, _ESRMI, 0, [_K, _V], [0, 0]];
+export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_K, _Va], [0, 64 | 0]];
 export var GetRandomPasswordRequest: StaticStructureSchema = [
   3,
   n0,
@@ -527,8 +559,8 @@ export var RotateSecretRequest: StaticStructureSchema = [
   n0,
   _RSRo,
   0,
-  [_SI, _CRT, _RLARN, _RR, _RI],
-  [0, [0, 4], 0, () => RotationRulesType, 2],
+  [_SI, _CRT, _RLARN, _RR, _ESRM, _ESRRA, _RI],
+  [0, [0, 4], 0, () => RotationRulesType, () => ExternalSecretRotationMetadataType, 0, 2],
 ];
 export var RotateSecretResponse: StaticStructureSchema = [3, n0, _RSRot, 0, [_ARN, _N, _VI], [0, 0, 0]];
 export var RotationRulesType: StaticStructureSchema = [3, n0, _RRTo, 0, [_AAD, _Du, _SE], [1, 0, 0]];
@@ -537,8 +569,9 @@ export var SecretListEntry: StaticStructureSchema = [
   n0,
   _SLE,
   0,
-  [_ARN, _N, _D, _KKI, _RE, _RLARN, _RR, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _SVTS, _OS, _CD, _PR],
+  [_ARN, _N, _Ty, _D, _KKI, _RE, _RLARN, _RR, _ESRM, _ESRRA, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _SVTS, _OS, _CD, _PR],
   [
+    0,
     0,
     0,
     0,
@@ -546,6 +579,8 @@ export var SecretListEntry: StaticStructureSchema = [
     2,
     0,
     () => RotationRulesType,
+    () => ExternalSecretRotationMetadataType,
+    0,
     4,
     4,
     4,
@@ -576,7 +611,7 @@ export var SecretVersionsListEntry: StaticStructureSchema = [
 ];
 export var StopReplicationToReplicaRequest: StaticStructureSchema = [3, n0, _SRTRR, 0, [_SI], [0]];
 export var StopReplicationToReplicaResponse: StaticStructureSchema = [3, n0, _SRTRRt, 0, [_ARN], [0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
+export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_SI, _T], [0, () => TagListType]];
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_SI, _TK], [0, 64 | 0]];
 export var UpdateSecretRequest: StaticStructureSchema = [
@@ -584,8 +619,8 @@ export var UpdateSecretRequest: StaticStructureSchema = [
   n0,
   _USR,
   0,
-  [_SI, _CRT, _D, _KKI, _SB, _SS],
-  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0]],
+  [_SI, _CRT, _D, _KKI, _SB, _SS, _Ty],
+  [0, [0, 4], 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], 0],
 ];
 export var UpdateSecretResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_ARN, _N, _VI], [0, 0, 0]];
 export var UpdateSecretVersionStageRequest: StaticStructureSchema = [
@@ -614,6 +649,13 @@ TypeRegistry.for(_sm).registerError(SecretsManagerServiceException, __SecretsMan
 
 export var AddReplicaRegionListType: StaticListSchema = [1, n0, _ARRLT, 0, () => ReplicaRegionType];
 export var APIErrorListType: StaticListSchema = [1, n0, _APIELT, 0, () => APIErrorType];
+export var ExternalSecretRotationMetadataType: StaticListSchema = [
+  1,
+  n0,
+  _ESRMT,
+  0,
+  () => ExternalSecretRotationMetadataItem,
+];
 export var FiltersListType: StaticListSchema = [1, n0, _FLT, 0, () => Filter];
 export var FilterValuesStringList = 64 | 0;
 

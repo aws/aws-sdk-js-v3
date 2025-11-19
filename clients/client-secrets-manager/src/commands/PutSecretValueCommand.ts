@@ -27,32 +27,36 @@ export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
 export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
- *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
- *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
- *       once every 10 minutes. When you update the secret value, Secrets Manager creates a new version
- *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not
- *       remove versions created less than 24 hours ago. If you call <code>PutSecretValue</code> more
- *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
- *       the quota for secret versions.</p>
- *          <p>You can specify the staging labels to attach to the new version in <code>VersionStages</code>.
- *       If you don't include <code>VersionStages</code>, then Secrets Manager automatically
- *       moves the staging label <code>AWSCURRENT</code> to this version. If this operation creates
- *       the first version for the secret, then Secrets Manager
- *         automatically attaches the staging label <code>AWSCURRENT</code> to it.
- *     If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
- *       version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
- *       the version that <code>AWSCURRENT</code> was removed from.</p>
- *          <p>This operation is idempotent. If you call this operation with a <code>ClientRequestToken</code>
- *     that matches an existing version's VersionId, and you specify the
- *       same secret data, the operation succeeds but does nothing. However, if the secret data is
- *       different, then the operation fails because you can't modify an existing version; you can
- *       only create new ones.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code>, <code>SecretString</code>, or <code>RotationToken</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
+ * <p>Creates a new version of your secret by creating a new encrypted value and attaching
+ *             it to the secret. version can contain a new <code>SecretString</code> value or a new
+ *                 <code>SecretBinary</code> value. </p>
+ *          <p>Do not call <code>PutSecretValue</code> at a sustained rate of more than once every 10
+ *             minutes. When you update the secret value, Secrets Manager creates a new version of the secret.
+ *             Secrets Manager keeps 100 of the most recent versions, but it keeps <i>all</i>
+ *             secret versions created in the last 24 hours. If you call <code>PutSecretValue</code>
+ *             more than once every 10 minutes, you will create more versions than Secrets Manager removes, and
+ *             you will reach the quota for secret versions.</p>
+ *          <p>You can specify the staging labels to attach to the new version in
+ *                 <code>VersionStages</code>. If you don't include <code>VersionStages</code>, then
+ *             Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to this version. If
+ *             this operation creates the first version for the secret, then Secrets Manager automatically
+ *             attaches the staging label <code>AWSCURRENT</code> to it. If this operation moves the
+ *             staging label <code>AWSCURRENT</code> from another version to this version, then Secrets Manager
+ *             also automatically moves the staging label <code>AWSPREVIOUS</code> to the version that
+ *                 <code>AWSCURRENT</code> was removed from.</p>
+ *          <p>This operation is idempotent. If you call this operation with a
+ *                 <code>ClientRequestToken</code> that matches an existing version's VersionId, and
+ *             you specify the same secret data, the operation succeeds but does nothing. However, if
+ *             the secret data is different, then the operation fails because you can't modify an
+ *             existing version; you can only create new ones.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.
+ *             Do not include sensitive information in request parameters except
+ *                 <code>SecretBinary</code>, <code>SecretString</code>, or <code>RotationToken</code>
+ *             because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:PutSecretValue</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:PutSecretValue</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
  *          <important>

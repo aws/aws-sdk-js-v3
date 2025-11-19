@@ -27,33 +27,43 @@ export interface UpdateSecretCommandInput extends UpdateSecretRequest {}
 export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use <a>PutSecretValue</a>.</p>
- *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.</p>
- *          <p>To change a secret so that it is managed by another service, you need to recreate the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets managed by other Amazon Web Services services</a>.</p>
- *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more than
- *       once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret value, Secrets Manager creates a new version
- *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not
- *       remove versions created less than 24 hours ago. If you update the secret value more
- *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
- *       the quota for secret versions.</p>
+ * <p>Modifies the details of a secret, including metadata and the secret value. To change
+ *             the secret value, you can also use <a>PutSecretValue</a>.</p>
+ *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a>
+ *             instead.</p>
+ *          <p>To change a secret so that it is managed by another service, you need to recreate the
+ *             secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets
+ *                 managed by other Amazon Web Services services</a>.</p>
+ *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
+ *             than once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret
+ *             value, Secrets Manager creates a new version of the secret. Secrets Manager removes outdated versions when
+ *             there are more than 100, but it does not remove versions created less than 24 hours ago.
+ *             If you update the secret value more than once every 10 minutes, you create more versions
+ *             than Secrets Manager removes, and you will reach the quota for secret versions.</p>
  *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
- *       secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to the new
- *       version. Then it attaches the label <code>AWSPREVIOUS</code>
- *         to the version that <code>AWSCURRENT</code> was removed from.</p>
- *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an existing version's
- *       <code>VersionId</code>, the operation results in an error. You can't modify an existing
- *       version, you can only create a new version. To remove a version, remove all staging labels from it. See
- *     <a>UpdateSecretVersionStage</a>.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
+ *             secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to
+ *             the new version. Then it attaches the label <code>AWSPREVIOUS</code> to the version that
+ *                 <code>AWSCURRENT</code> was removed from.</p>
+ *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an
+ *             existing version's <code>VersionId</code>, the operation results in an error. You can't
+ *             modify an existing version, you can only create a new version. To remove a version,
+ *             remove all staging labels from it. See <a>UpdateSecretVersionStage</a>.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.
+ *             Do not include sensitive information in request parameters except
+ *                 <code>SecretBinary</code> or <code>SecretString</code> because it might be logged.
+ *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Required permissions: </b>
- *             <code>secretsmanager:UpdateSecret</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *             <b>Required permissions:
+ *                 </b>
+ *             <code>secretsmanager:UpdateSecret</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
- *       and access control in Secrets Manager</a>.
- *       If you use a customer managed key, you must also have <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, and
- *       <code>kms:Decrypt</code> permissions on the key. If you change the KMS key and you don't have <code>kms:Encrypt</code> permission to the new key, Secrets Manager does not re-encrypt existing secret versions with the new key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
- *         Secret encryption and decryption</a>.</p>
+ *       and access control in Secrets Manager</a>. If you use a
+ *                 customer managed key, you must also have <code>kms:GenerateDataKey</code>,
+ *                 <code>kms:Encrypt</code>, and <code>kms:Decrypt</code> permissions on the key. If
+ *             you change the KMS key and you don't have <code>kms:Encrypt</code> permission to the new
+ *             key, Secrets Manager does not re-encrypt existing secret versions with the new key. For more
+ *             information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html"> Secret encryption
+ *                 and decryption</a>.</p>
  *          <important>
  *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
  *          </important>
@@ -72,6 +82,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *   KmsKeyId: "STRING_VALUE",
  *   SecretBinary: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   SecretString: "STRING_VALUE",
+ *   Type: "STRING_VALUE",
  * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
