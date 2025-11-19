@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Adding support for ocsf version 1.5, add optional parameter MappingVersion ([2a15be8](https://github.com/aws/aws-sdk-js-v3/commit/2a15be86e1c126bb8d1e748eb602edf3b6159bcb))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 

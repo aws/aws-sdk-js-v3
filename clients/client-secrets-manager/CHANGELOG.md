@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-secrets-manager:** Adds support to create, update, retrieve, rotate, and delete managed external secrets. ([c13b6f9](https://github.com/aws/aws-sdk-js-v3/commit/c13b6f97233fadcfcf16126b4d03e75a6cc695e2))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-secrets-manager

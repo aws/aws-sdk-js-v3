@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-guardduty:** Add support for scanning and viewing scan results for backup resource types ([231cf06](https://github.com/aws/aws-sdk-js-v3/commit/231cf06b1c1d7a5a2b249b55bde3c2cd629bf8fc))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

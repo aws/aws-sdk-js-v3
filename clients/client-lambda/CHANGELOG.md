@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-lambda:** Added support for creating and invoking Tenant Isolated functions in AWS Lambda APIs. ([fc517d8](https://github.com/aws/aws-sdk-js-v3/commit/fc517d863b108c6ffbef22f6f84be3858338c851))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

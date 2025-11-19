@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-api-gateway:** API Gateway now supports response streaming and new security policies for REST APIs and custom domain names. ([e1d2d6b](https://github.com/aws/aws-sdk-js-v3/commit/e1d2d6b1eba60429c227e2c5e5a6803970c59c60))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-api-gateway

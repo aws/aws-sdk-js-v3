@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-billing:** Added name filtering support to ListBillingViews API through the new names parameter to efficiently filter billing views by name. ([8c6af8c](https://github.com/aws/aws-sdk-js-v3/commit/8c6af8c222ad6f2ef79569ffb2e32e46f29a948b))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-billing

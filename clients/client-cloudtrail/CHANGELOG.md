@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-cloudtrail:** AWS CloudTrail now supports Insights for data events, expanding beyond management events to automatically detect unusual activity on data plane operations. ([f857066](https://github.com/aws/aws-sdk-js-v3/commit/f857066506ab98f31b1b6b3dd26d721b066b0241))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

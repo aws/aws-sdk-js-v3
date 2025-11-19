@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.935.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.934.0...v3.935.0) (2025-11-19)
+
+
+### Features
+
+* **client-networkflowmonitor:** Added new enum value (AWS::EKS::Cluster) for type field under MonitorLocalResource ([6672978](https://github.com/aws/aws-sdk-js-v3/commit/6672978744f52673d746711fd4842441d99afc65))
+
+
+
+
+
 # [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
 
 **Note:** Version bump only for package @aws-sdk/client-networkflowmonitor
