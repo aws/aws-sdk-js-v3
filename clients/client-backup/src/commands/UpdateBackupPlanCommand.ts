@@ -77,6 +77,12 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *             ],
  *           },
  *         ],
+ *         ScanActions: [ // ScanActions
+ *           { // ScanAction
+ *             MalwareScanner: "GUARDDUTY",
+ *             ScanMode: "FULL_SCAN" || "INCREMENTAL_SCAN",
+ *           },
+ *         ],
  *       },
  *     ],
  *     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -85,6 +91,15 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *         BackupOptions: { // BackupOptions
  *           "<keys>": "STRING_VALUE",
  *         },
+ *       },
+ *     ],
+ *     ScanSettings: [ // ScanSettings
+ *       { // ScanSetting
+ *         MalwareScanner: "GUARDDUTY",
+ *         ResourceTypes: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ScannerRoleArn: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -102,6 +117,15 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * //       BackupOptions: { // BackupOptions
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //     },
+ * //   ],
+ * //   ScanSettings: [ // ScanSettings
+ * //     { // ScanSetting
+ * //       MalwareScanner: "GUARDDUTY",
+ * //       ResourceTypes: [ // ResourceTypes
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ScannerRoleArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

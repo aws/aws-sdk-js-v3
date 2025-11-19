@@ -153,6 +153,7 @@ import {
 import { DescribeReportJobCommandInput, DescribeReportJobCommandOutput } from "./commands/DescribeReportJobCommand";
 import { DescribeReportPlanCommandInput, DescribeReportPlanCommandOutput } from "./commands/DescribeReportPlanCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
+import { DescribeScanJobCommandInput, DescribeScanJobCommandOutput } from "./commands/DescribeScanJobCommand";
 import {
   DisassociateBackupVaultMpaApprovalTeamCommandInput,
   DisassociateBackupVaultMpaApprovalTeamCommandOutput,
@@ -293,6 +294,11 @@ import {
   ListRestoreTestingSelectionsCommandInput,
   ListRestoreTestingSelectionsCommandOutput,
 } from "./commands/ListRestoreTestingSelectionsCommand";
+import { ListScanJobsCommandInput, ListScanJobsCommandOutput } from "./commands/ListScanJobsCommand";
+import {
+  ListScanJobSummariesCommandInput,
+  ListScanJobSummariesCommandOutput,
+} from "./commands/ListScanJobSummariesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListTieringConfigurationsCommandInput,
@@ -322,6 +328,7 @@ import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./comma
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
 import { StartRestoreJobCommandInput, StartRestoreJobCommandOutput } from "./commands/StartRestoreJobCommand";
+import { StartScanJobCommandInput, StartScanJobCommandOutput } from "./commands/StartScanJobCommand";
 import { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./commands/StopBackupJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -407,6 +414,7 @@ export type ServiceInputTypes =
   | DescribeReportJobCommandInput
   | DescribeReportPlanCommandInput
   | DescribeRestoreJobCommandInput
+  | DescribeScanJobCommandInput
   | DisassociateBackupVaultMpaApprovalTeamCommandInput
   | DisassociateRecoveryPointCommandInput
   | DisassociateRecoveryPointFromParentCommandInput
@@ -451,6 +459,8 @@ export type ServiceInputTypes =
   | ListRestoreJobsCommandInput
   | ListRestoreTestingPlansCommandInput
   | ListRestoreTestingSelectionsCommandInput
+  | ListScanJobSummariesCommandInput
+  | ListScanJobsCommandInput
   | ListTagsCommandInput
   | ListTieringConfigurationsCommandInput
   | PutBackupVaultAccessPolicyCommandInput
@@ -462,6 +472,7 @@ export type ServiceInputTypes =
   | StartCopyJobCommandInput
   | StartReportJobCommandInput
   | StartRestoreJobCommandInput
+  | StartScanJobCommandInput
   | StopBackupJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -516,6 +527,7 @@ export type ServiceOutputTypes =
   | DescribeReportJobCommandOutput
   | DescribeReportPlanCommandOutput
   | DescribeRestoreJobCommandOutput
+  | DescribeScanJobCommandOutput
   | DisassociateBackupVaultMpaApprovalTeamCommandOutput
   | DisassociateRecoveryPointCommandOutput
   | DisassociateRecoveryPointFromParentCommandOutput
@@ -560,6 +572,8 @@ export type ServiceOutputTypes =
   | ListRestoreJobsCommandOutput
   | ListRestoreTestingPlansCommandOutput
   | ListRestoreTestingSelectionsCommandOutput
+  | ListScanJobSummariesCommandOutput
+  | ListScanJobsCommandOutput
   | ListTagsCommandOutput
   | ListTieringConfigurationsCommandOutput
   | PutBackupVaultAccessPolicyCommandOutput
@@ -571,6 +585,7 @@ export type ServiceOutputTypes =
   | StartCopyJobCommandOutput
   | StartReportJobCommandOutput
   | StartRestoreJobCommandOutput
+  | StartScanJobCommandOutput
   | StopBackupJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

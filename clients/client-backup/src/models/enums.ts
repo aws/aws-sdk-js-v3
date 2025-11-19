@@ -3,6 +3,18 @@
  * @public
  * @enum
  */
+export const ScanFinding = {
+  MALWARE: "MALWARE",
+} as const;
+/**
+ * @public
+ */
+export type ScanFinding = (typeof ScanFinding)[keyof typeof ScanFinding];
+
+/**
+ * @public
+ * @enum
+ */
 export const AggregationPeriod = {
   FOURTEEN_DAYS: "FOURTEEN_DAYS",
   ONE_DAY: "ONE_DAY",
@@ -66,6 +78,31 @@ export const BackupJobStatus = {
  * @public
  */
 export type BackupJobStatus = (typeof BackupJobStatus)[keyof typeof BackupJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareScanner = {
+  GUARDDUTY: "GUARDDUTY",
+} as const;
+/**
+ * @public
+ */
+export type MalwareScanner = (typeof MalwareScanner)[keyof typeof MalwareScanner];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanMode = {
+  FULL_SCAN: "FULL_SCAN",
+  INCREMENTAL_SCAN: "INCREMENTAL_SCAN",
+} as const;
+/**
+ * @public
+ */
+export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
 
 /**
  * @public
@@ -266,6 +303,21 @@ export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
  * @public
  * @enum
  */
+export const ScanJobState = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ISSUES: "COMPLETED_WITH_ISSUES",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ScanJobState = (typeof ScanJobState)[keyof typeof ScanJobState];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecoveryPointStatus = {
   AVAILABLE: "AVAILABLE",
   COMPLETED: "COMPLETED",
@@ -343,6 +395,50 @@ export type RestoreValidationStatus = (typeof RestoreValidationStatus)[keyof typ
  * @public
  * @enum
  */
+export const ScanResourceType = {
+  EBS: "EBS",
+  EC2: "EC2",
+  S3: "S3",
+} as const;
+/**
+ * @public
+ */
+export type ScanResourceType = (typeof ScanResourceType)[keyof typeof ScanResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanResultStatus = {
+  NO_THREATS_FOUND: "NO_THREATS_FOUND",
+  THREATS_FOUND: "THREATS_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type ScanResultStatus = (typeof ScanResultStatus)[keyof typeof ScanResultStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanState = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ISSUES: "COMPLETED_WITH_ISSUES",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+/**
+ * @public
+ */
+export type ScanState = (typeof ScanState)[keyof typeof ScanState];
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleExecutionType = {
   CONTINUOUS: "CONTINUOUS",
   CONTINUOUS_AND_SNAPSHOTS: "CONTINUOUS_AND_SNAPSHOTS",
@@ -384,6 +480,25 @@ export const RestoreJobState = {
  * @public
  */
 export type RestoreJobState = (typeof RestoreJobState)[keyof typeof RestoreJobState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanJobStatus = {
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ISSUES: "COMPLETED_WITH_ISSUES",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
+/**
+ * @public
+ */
+export type ScanJobStatus = (typeof ScanJobStatus)[keyof typeof ScanJobStatus];
 
 /**
  * @public

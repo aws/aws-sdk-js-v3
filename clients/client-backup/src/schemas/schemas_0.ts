@@ -7,6 +7,7 @@ const _AD = "ApprovalDate";
 const _AEE = "AlreadyExistsException";
 const _AI = "AccountId";
 const _AP = "AggregationPeriod";
+const _ASR = "AggregatedScanResult";
 const _Ac = "Accounts";
 const _Al = "Algorithm";
 const _BAI = "ByAccountId";
@@ -28,6 +29,7 @@ const _BJSL = "BackupJobSummaryList";
 const _BJSa = "BackupJobSummaries";
 const _BJa = "BackupJobs";
 const _BMC = "ByMessageCategory";
+const _BMS = "ByMalwareScanner";
 const _BO = "BackupOptions";
 const _BP = "BackupPlan";
 const _BPA = "BackupPlanArn";
@@ -54,6 +56,7 @@ const _BRI = "BackupRuleInput";
 const _BRIa = "BackupRuleId";
 const _BRIac = "BackupRulesInput";
 const _BRN = "BackupRuleName";
+const _BRPA = "ByRecoveryPointArn";
 const _BRPCDA = "ByRecoveryPointCreationDateAfter";
 const _BRPCDB = "ByRecoveryPointCreationDateBefore";
 const _BRPN = "ByReportPlanName";
@@ -67,6 +70,7 @@ const _BSIB = "BackupSizeInBytes";
 const _BSL = "BackupSelectionsList";
 const _BSLM = "BackupSelectionsListMember";
 const _BSRPA = "BySourceRecoveryPointArn";
+const _BSRS = "ByScanResultStatus";
 const _BSy = "ByState";
 const _BSyh = "ByShared";
 const _BSyt = "ByStatus";
@@ -237,6 +241,9 @@ const _DRTPI = "DeleteRestoreTestingPlanInput";
 const _DRTS = "DeleteRestoreTestingSelection";
 const _DRTSI = "DeleteRestoreTestingSelectionInput";
 const _DS = "DeploymentStatus";
+const _DSJ = "DescribeScanJob";
+const _DSJI = "DescribeScanJobInput";
+const _DSJO = "DescribeScanJobOutput";
 const _DSM = "DeletionStatusMessage";
 const _DSe = "DeletionStatus";
 const _DTC = "DeleteTieringConfiguration";
@@ -256,7 +263,7 @@ const _EKT = "EncryptionKeyType";
 const _ET = "EndTime";
 const _ETx = "ExecutionTime";
 const _EV = "ExcludeVaults";
-const _F = "Framework";
+const _F = "Findings";
 const _FA = "FrameworkArn";
 const _FAr = "FrameworkArns";
 const _FC = "FrameworkControls";
@@ -265,10 +272,12 @@ const _FD = "FrameworkDescription";
 const _FDr = "FromDate";
 const _FL = "FrameworkList";
 const _FN = "FrameworkName";
-const _FS = "FrameworkStatus";
+const _FS = "FailedScan";
+const _FSr = "FrameworkStatus";
 const _FT = "FrameworkTags";
 const _Fo = "Formats";
-const _Fr = "Frameworks";
+const _Fr = "Framework";
+const _Fra = "Frameworks";
 const _GBP = "GetBackupPlan";
 const _GBPFJSON = "GetBackupPlanFromJSON";
 const _GBPFJSONI = "GetBackupPlanFromJSONInput";
@@ -365,6 +374,7 @@ const _LBV = "ListBackupVaults";
 const _LBVA = "LastBackupVaultArn";
 const _LBVI = "ListBackupVaultsInput";
 const _LBVO = "ListBackupVaultsOutput";
+const _LC = "LastComputed";
 const _LCJ = "ListCopyJobs";
 const _LCJI = "ListCopyJobsInput";
 const _LCJO = "ListCopyJobsOutput";
@@ -437,6 +447,13 @@ const _LRTS = "ListRestoreTestingSelections";
 const _LRTSI = "ListRestoreTestingSelectionsInput";
 const _LRTSO = "ListRestoreTestingSelectionsOutput";
 const _LSET = "LastSuccessfulExecutionTime";
+const _LSJ = "ListScanJobs";
+const _LSJI = "ListScanJobsInput";
+const _LSJO = "ListScanJobsOutput";
+const _LSJS = "ListScanJobSummaries";
+const _LSJSI = "ListScanJobSummariesInput";
+const _LSJSO = "ListScanJobSummariesOutput";
+const _LST = "LastScanTimestamp";
 const _LT = "ListTags";
 const _LTC = "ListTieringConfigurations";
 const _LTCI = "ListTieringConfigurationsInput";
@@ -454,6 +471,7 @@ const _MPVE = "MissingParameterValueException";
 const _MR = "MaxResults";
 const _MRD = "MinRetentionDays";
 const _MRDa = "MaxRetentionDays";
+const _MS = "MalwareScanner";
 const _MSA = "MpaSessionArn";
 const _MSRP = "MaxScheduledRunsPreview";
 const _MTCSA = "MoveToColdStorageAt";
@@ -570,6 +588,8 @@ const _Reg = "Regions";
 const _Res = "Results";
 const _Ru = "Rules";
 const _S = "State";
+const _SA = "ScanActions";
+const _SAc = "ScanAction";
 const _SB = "StartBy";
 const _SBJ = "StartBackupJob";
 const _SBJI = "StartBackupJobInput";
@@ -577,6 +597,7 @@ const _SBJIt = "StopBackupJobInput";
 const _SBJO = "StartBackupJobOutput";
 const _SBJt = "StopBackupJob";
 const _SBN = "S3BucketName";
+const _SBRPA = "ScanBaseRecoveryPointArn";
 const _SBVA = "SourceBackupVaultArn";
 const _SBVN = "SourceBackupVaultName";
 const _SC = "StorageClass";
@@ -587,16 +608,29 @@ const _SE = "ScheduleExpression";
 const _SET = "ScheduleExpressionTimezone";
 const _SEt = "StringEquals";
 const _SI = "SelectionId";
+const _SIc = "ScanId";
+const _SJ = "ScanJobs";
+const _SJC = "ScanJobCreator";
+const _SJI = "ScanJobId";
+const _SJS = "ScanJobSummaries";
+const _SJSL = "ScanJobSummaryList";
+const _SJSc = "ScanJobSummary";
+const _SJSca = "ScanJobState";
+const _SJc = "ScanJob";
 const _SK = "S3Keys";
 const _SKP = "S3KeyPrefix";
 const _SL = "StringLike";
 const _SM = "StatusMessage";
+const _SMc = "ScanMode";
 const _SN = "SelectionName";
 const _SNE = "StringNotEquals";
 const _SNL = "StringNotLike";
 const _SNSTA = "SNSTopicArn";
 const _SPEM = "ScheduledPlanExecutionMember";
+const _SR = "ScanResults";
 const _SRA = "SourceResourceArn";
+const _SRAc = "ScannerRoleArn";
+const _SRI = "ScanResultInfo";
 const _SRJ = "StartReportJob";
 const _SRJI = "StartReportJobInput";
 const _SRJIt = "StartRestoreJobInput";
@@ -605,7 +639,14 @@ const _SRJOt = "StartRestoreJobOutput";
 const _SRJt = "StartRestoreJob";
 const _SRP = "ScheduledRunsPreview";
 const _SRPA = "SourceRecoveryPointArn";
+const _SRS = "ScanResultStatus";
+const _SRc = "ScanResult";
+const _SS = "ScanSettings";
+const _SSJ = "StartScanJob";
+const _SSJI = "StartScanJobInput";
+const _SSJO = "StartScanJobOutput";
 const _SSM = "SensitiveStringMap";
+const _SSc = "ScanSetting";
 const _ST = "StartTime";
 const _SUE = "ServiceUnavailableException";
 const _SWD = "SelectionWindowDays";
@@ -743,6 +784,7 @@ import {
 
 export var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
 export var AdvancedBackupSetting: StaticStructureSchema = [3, n0, _ABS, 0, [_RT, _BO], [0, 128 | 0]];
+export var AggregatedScanResult: StaticStructureSchema = [3, n0, _ASR, 0, [_FS, _F, _LC], [2, 64 | 0, 4]];
 export var AlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
@@ -846,16 +888,16 @@ export var BackupPlan: StaticStructureSchema = [
   n0,
   _BP,
   0,
-  [_BPN, _Ru, _ABSd],
-  [0, [() => BackupRules, 0], () => AdvancedBackupSettings],
+  [_BPN, _Ru, _ABSd, _SS],
+  [0, [() => BackupRules, 0], () => AdvancedBackupSettings, () => ScanSettings],
 ];
 export var BackupPlanInput: StaticStructureSchema = [
   3,
   n0,
   _BPI,
   0,
-  [_BPN, _Ru, _ABSd],
-  [0, [() => BackupRulesInput, 0], () => AdvancedBackupSettings],
+  [_BPN, _Ru, _ABSd, _SS],
+  [0, [() => BackupRulesInput, 0], () => AdvancedBackupSettings, () => ScanSettings],
 ];
 export var BackupPlansListMember: StaticStructureSchema = [
   3,
@@ -871,16 +913,31 @@ export var BackupRule: StaticStructureSchema = [
   n0,
   _BR,
   0,
-  [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _RI, _CA, _ECB, _SET, _IA],
-  [0, 0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], 0, () => CopyActions, 2, 0, () => IndexActions],
+  [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _RI, _CA, _ECB, _SET, _IA, _SA],
+  [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    () => Lifecycle,
+    [() => Tags, 0],
+    0,
+    () => CopyActions,
+    2,
+    0,
+    () => IndexActions,
+    () => ScanActions,
+  ],
 ];
 export var BackupRuleInput: StaticStructureSchema = [
   3,
   n0,
   _BRI,
   0,
-  [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _CA, _ECB, _SET, _IA],
-  [0, 0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], () => CopyActions, 2, 0, () => IndexActions],
+  [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _CA, _ECB, _SET, _IA, _SA],
+  [0, 0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], () => CopyActions, 2, 0, () => IndexActions, () => ScanActions],
 ];
 export var BackupSelection: StaticStructureSchema = [
   3,
@@ -1331,7 +1388,7 @@ export var DescribeFrameworkOutput: StaticStructureSchema = [
   n0,
   _DFO,
   0,
-  [_FN, _FA, _FD, _FC, _CTr, _DS, _FS, _IT],
+  [_FN, _FA, _FD, _FC, _CTr, _DS, _FSr, _IT],
   [0, 0, 0, () => FrameworkControls, 4, 0, 0, 0],
 ];
 export var DescribeGlobalSettingsInput: StaticStructureSchema = [3, n0, _DGSI, 0, [], []];
@@ -1396,6 +1453,7 @@ export var DescribeRecoveryPointOutput: StaticStructureSchema = [
     _IS,
     _ISM,
     _EKT,
+    _SR,
   ],
   [
     0,
@@ -1426,6 +1484,7 @@ export var DescribeRecoveryPointOutput: StaticStructureSchema = [
     0,
     0,
     0,
+    () => ScanResults,
   ],
 ];
 export var DescribeRegionSettingsInput: StaticStructureSchema = [3, n0, _DRSI, 0, [], []];
@@ -1467,6 +1526,15 @@ export var DescribeRestoreJobOutput: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1, 0, 1, 0, 0, 4, () => RestoreJobCreator, 0, 0, 0, 0, 2, 0],
 ];
+export var DescribeScanJobInput: StaticStructureSchema = [3, n0, _DSJI, 0, [_SJI], [[0, 1]]];
+export var DescribeScanJobOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _DSJO,
+  0,
+  [_AI, _BVA, _BVN, _CDo, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SBRPA, _SIc, _SJI, _SMc, _SRc, _SRAc, _S, _SM],
+  [0, 0, 0, 4, () => ScanJobCreator, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ScanResultInfo, 0, 0, 0],
+];
 export var DisassociateBackupVaultMpaApprovalTeamInput: StaticStructureSchema = [
   3,
   n0,
@@ -1502,7 +1570,7 @@ export var DisassociateRecoveryPointInput: StaticStructureSchema = [
 ];
 export var ExportBackupPlanTemplateInput: StaticStructureSchema = [3, n0, _EBPTI, 0, [_BPIa], [[0, 1]]];
 export var ExportBackupPlanTemplateOutput: StaticStructureSchema = [3, n0, _EBPTO, 0, [_BPTJ], [0]];
-export var Framework: StaticStructureSchema = [3, n0, _F, 0, [_FN, _FA, _FD, _NOC, _CTr, _DS], [0, 0, 0, 1, 4, 0]];
+export var Framework: StaticStructureSchema = [3, n0, _Fr, 0, [_FN, _FA, _FD, _NOC, _CTr, _DS], [0, 0, 0, 1, 4, 0]];
 export var FrameworkControl: StaticStructureSchema = [
   3,
   n0,
@@ -2258,7 +2326,7 @@ export var ListFrameworksInput: StaticStructureSchema = [
     ],
   ],
 ];
-export var ListFrameworksOutput: StaticStructureSchema = [3, n0, _LFO, 0, [_Fr, _NT], [() => FrameworkList, 0]];
+export var ListFrameworksOutput: StaticStructureSchema = [3, n0, _LFO, 0, [_Fra, _NT], [() => FrameworkList, 0]];
 export var ListIndexedRecoveryPointsInput: StaticStructureSchema = [
   3,
   n0,
@@ -2877,6 +2945,153 @@ export var ListRestoreTestingSelectionsOutput: StaticStructureSchema = [
   [_NT, _RTSe],
   [0, () => RestoreTestingSelections],
 ];
+export var ListScanJobsInput: StaticStructureSchema = [
+  3,
+  n0,
+  _LSJI,
+  0,
+  [_BAI, _BBVN, _BCAy, _BCBy, _BMS, _BRPA, _BRA, _BRT, _BSRS, _BSy, _MR, _NT],
+  [
+    [
+      0,
+      {
+        [_hQ]: _BAI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BBVN,
+      },
+    ],
+    [
+      4,
+      {
+        [_hQ]: _BCAy,
+      },
+    ],
+    [
+      4,
+      {
+        [_hQ]: _BCBy,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BMS,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BRPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BRA,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BRT,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BSRS,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _BSy,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _NT,
+      },
+    ],
+  ],
+];
+export var ListScanJobsOutput: StaticStructureSchema = [3, n0, _LSJO, 0, [_NT, _SJ], [0, () => ScanJobs]];
+export var ListScanJobSummariesInput: StaticStructureSchema = [
+  3,
+  n0,
+  _LSJSI,
+  0,
+  [_AI, _RT, _MS, _SRS, _S, _AP, _MR, _NT],
+  [
+    [
+      0,
+      {
+        [_hQ]: _AI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _RT,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _MS,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _SRS,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _S,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _AP,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _MR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _NT,
+      },
+    ],
+  ],
+];
+export var ListScanJobSummariesOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _LSJSO,
+  0,
+  [_SJS, _AP, _NT],
+  [() => ScanJobSummaryList, 0, 0],
+];
 export var ListTagsInput: StaticStructureSchema = [
   3,
   n0,
@@ -3015,6 +3230,7 @@ export var RecoveryPointByBackupVault: StaticStructureSchema = [
     _IS,
     _ISM,
     _EKT,
+    _ASR,
   ],
   [
     0,
@@ -3044,6 +3260,7 @@ export var RecoveryPointByBackupVault: StaticStructureSchema = [
     0,
     0,
     0,
+    () => AggregatedScanResult,
   ],
 ];
 export var RecoveryPointByResource: StaticStructureSchema = [
@@ -3051,8 +3268,8 @@ export var RecoveryPointByResource: StaticStructureSchema = [
   n0,
   _RPBR,
   0,
-  [_RPA, _CD, _St, _SM, _EKA, _BSB, _BVN, _IP, _PRPA, _RN, _VT, _IS, _ISM, _EKT],
-  [0, 4, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0],
+  [_RPA, _CD, _St, _SM, _EKA, _BSB, _BVN, _IP, _PRPA, _RN, _VT, _IS, _ISM, _EKT, _ASR],
+  [0, 4, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, () => AggregatedScanResult],
 ];
 export var RecoveryPointCreator: StaticStructureSchema = [
   3,
@@ -3248,6 +3465,27 @@ export var RevokeRestoreAccessBackupVaultInput: StaticStructureSchema = [
     ],
   ],
 ];
+export var ScanAction: StaticStructureSchema = [3, n0, _SAc, 0, [_MS, _SMc], [0, 0]];
+export var ScanJob: StaticStructureSchema = [
+  3,
+  n0,
+  _SJc,
+  0,
+  [_AI, _BVA, _BVN, _CDo, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SBRPA, _SIc, _SJI, _SMc, _SRc, _SRAc, _S, _SM],
+  [0, 0, 0, 4, () => ScanJobCreator, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ScanResultInfo, 0, 0, 0],
+];
+export var ScanJobCreator: StaticStructureSchema = [3, n0, _SJC, 0, [_BPA, _BPIa, _BPV, _BRIa], [0, 0, 0, 0]];
+export var ScanJobSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _SJSc,
+  0,
+  [_R, _AI, _S, _RT, _Cou, _ST, _ET, _MS, _SRS],
+  [0, 0, 0, 0, 1, 4, 4, 0, 0],
+];
+export var ScanResult: StaticStructureSchema = [3, n0, _SRc, 0, [_MS, _SJSca, _LST, _F], [0, 0, 4, 64 | 0]];
+export var ScanResultInfo: StaticStructureSchema = [3, n0, _SRI, 0, [_SRS], [0]];
+export var ScanSetting: StaticStructureSchema = [3, n0, _SSc, 0, [_MS, _RTe, _SRAc], [0, 64 | 0, 0]];
 export var ScheduledPlanExecutionMember: StaticStructureSchema = [3, n0, _SPEM, 0, [_ETx, _RI, _RET], [4, 0, 0]];
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
@@ -3300,6 +3538,15 @@ export var StartRestoreJobInput: StaticStructureSchema = [
   [0, [() => Metadata, 0], 0, [0, 4], 0, 2],
 ];
 export var StartRestoreJobOutput: StaticStructureSchema = [3, n0, _SRJOt, 0, [_RJIe], [0]];
+export var StartScanJobInput: StaticStructureSchema = [
+  3,
+  n0,
+  _SSJI,
+  0,
+  [_BVN, _IRA, _IT, _MS, _RPA, _SBRPA, _SMc, _SRAc],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+];
+export var StartScanJobOutput: StaticStructureSchema = [3, n0, _SSJO, 0, [_CD, _SJI], [4, 0]];
 export var StopBackupJobInput: StaticStructureSchema = [3, n0, _SBJIt, 0, [_BJI], [[0, 1]]];
 export var TagResourceInput: StaticStructureSchema = [
   3,
@@ -3371,8 +3618,8 @@ export var UpdateBackupPlanOutput: StaticStructureSchema = [
   n0,
   _UBPO,
   0,
-  [_BPIa, _BPA, _CD, _VI, _ABSd],
-  [0, 0, 4, 0, () => AdvancedBackupSettings],
+  [_BPIa, _BPA, _CD, _VI, _ABSd, _SS],
+  [0, 0, 4, 0, () => AdvancedBackupSettings, () => ScanSettings],
 ];
 export var UpdateFrameworkInput: StaticStructureSchema = [
   3,
@@ -3539,6 +3786,13 @@ export var RestoreTestingPlans: StaticListSchema = [1, n0, _RTPe, 0, () => Resto
 export var RestoreTestingRecoveryPointTypeList = 64 | 0;
 
 export var RestoreTestingSelections: StaticListSchema = [1, n0, _RTSe, 0, () => RestoreTestingSelectionForList];
+export var ScanActions: StaticListSchema = [1, n0, _SA, 0, () => ScanAction];
+export var ScanFindings = 64 | 0;
+
+export var ScanJobs: StaticListSchema = [1, n0, _SJ, 0, () => ScanJob];
+export var ScanJobSummaryList: StaticListSchema = [1, n0, _SJSL, 0, () => ScanJobSummary];
+export var ScanResults: StaticListSchema = [1, n0, _SR, 0, () => ScanResult];
+export var ScanSettings: StaticListSchema = [1, n0, _SS, 0, () => ScanSetting];
 export var ScheduledRunsPreview: StaticListSchema = [1, n0, _SRP, 0, () => ScheduledPlanExecutionMember];
 export var stringList = 64 | 0;
 
@@ -3922,6 +4176,16 @@ export var DescribeRestoreJob: StaticOperationSchema = [
   },
   () => DescribeRestoreJobInput,
   () => DescribeRestoreJobOutput,
+];
+export var DescribeScanJob: StaticOperationSchema = [
+  9,
+  n0,
+  _DSJ,
+  {
+    [_h]: ["GET", "/scan/jobs/{ScanJobId}", 200],
+  },
+  () => DescribeScanJobInput,
+  () => DescribeScanJobOutput,
 ];
 export var DisassociateBackupVaultMpaApprovalTeam: StaticOperationSchema = [
   9,
@@ -4363,6 +4627,26 @@ export var ListRestoreTestingSelections: StaticOperationSchema = [
   () => ListRestoreTestingSelectionsInput,
   () => ListRestoreTestingSelectionsOutput,
 ];
+export var ListScanJobs: StaticOperationSchema = [
+  9,
+  n0,
+  _LSJ,
+  {
+    [_h]: ["GET", "/scan/jobs", 200],
+  },
+  () => ListScanJobsInput,
+  () => ListScanJobsOutput,
+];
+export var ListScanJobSummaries: StaticOperationSchema = [
+  9,
+  n0,
+  _LSJS,
+  {
+    [_h]: ["GET", "/audit/scan-job-summaries", 200],
+  },
+  () => ListScanJobSummariesInput,
+  () => ListScanJobSummariesOutput,
+];
 export var ListTags: StaticOperationSchema = [
   9,
   n0,
@@ -4476,6 +4760,16 @@ export var StartRestoreJob: StaticOperationSchema = [
   },
   () => StartRestoreJobInput,
   () => StartRestoreJobOutput,
+];
+export var StartScanJob: StaticOperationSchema = [
+  9,
+  n0,
+  _SSJ,
+  {
+    [_h]: ["PUT", "/scan/job", 201],
+  },
+  () => StartScanJobInput,
+  () => StartScanJobOutput,
 ];
 export var StopBackupJob: StaticOperationSchema = [
   9,

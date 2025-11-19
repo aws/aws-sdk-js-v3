@@ -90,6 +90,16 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * //   IndexStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING",
  * //   IndexStatusMessage: "STRING_VALUE",
  * //   EncryptionKeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KMS_KEY",
+ * //   ScanResults: [ // ScanResults
+ * //     { // ScanResult
+ * //       MalwareScanner: "GUARDDUTY",
+ * //       ScanJobState: "COMPLETED" || "COMPLETED_WITH_ISSUES" || "FAILED" || "CANCELED",
+ * //       LastScanTimestamp: new Date("TIMESTAMP"),
+ * //       Findings: [ // ScanFindings
+ * //         "MALWARE",
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

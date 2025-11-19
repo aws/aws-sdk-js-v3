@@ -80,6 +80,12 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *             ],
  *           },
  *         ],
+ *         ScanActions: [ // ScanActions
+ *           { // ScanAction
+ *             MalwareScanner: "GUARDDUTY",
+ *             ScanMode: "FULL_SCAN" || "INCREMENTAL_SCAN",
+ *           },
+ *         ],
  *       },
  *     ],
  *     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -88,6 +94,15 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *         BackupOptions: { // BackupOptions
  *           "<keys>": "STRING_VALUE",
  *         },
+ *       },
+ *     ],
+ *     ScanSettings: [ // ScanSettings
+ *       { // ScanSetting
+ *         MalwareScanner: "GUARDDUTY",
+ *         ResourceTypes: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ScannerRoleArn: "STRING_VALUE",
  *       },
  *     ],
  *   },

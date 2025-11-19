@@ -82,6 +82,12 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //             ],
  * //           },
  * //         ],
+ * //         ScanActions: [ // ScanActions
+ * //           { // ScanAction
+ * //             MalwareScanner: "GUARDDUTY",
+ * //             ScanMode: "FULL_SCAN" || "INCREMENTAL_SCAN",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -90,6 +96,15 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //         BackupOptions: { // BackupOptions
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //       },
+ * //     ],
+ * //     ScanSettings: [ // ScanSettings
+ * //       { // ScanSetting
+ * //         MalwareScanner: "GUARDDUTY",
+ * //         ResourceTypes: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ScannerRoleArn: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

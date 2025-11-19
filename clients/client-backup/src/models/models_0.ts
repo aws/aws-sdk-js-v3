@@ -12,6 +12,7 @@ import {
   IndexStatus,
   LegalHoldStatus,
   LifecycleDeleteAfterEvent,
+  MalwareScanner,
   MpaRevokeSessionStatus,
   MpaSessionStatus,
   RecoveryPointStatus,
@@ -22,6 +23,13 @@ import {
   RestoreTestingRecoveryPointType,
   RestoreValidationStatus,
   RuleExecutionType,
+  ScanFinding,
+  ScanJobState,
+  ScanJobStatus,
+  ScanMode,
+  ScanResourceType,
+  ScanResultStatus,
+  ScanState,
   StorageClass,
   VaultState,
   VaultType,
@@ -60,6 +68,30 @@ export interface AdvancedBackupSetting {
    * @public
    */
   BackupOptions?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains aggregated scan results across multiple scan operations, providing a summary of scan status and findings.</p>
+ * @public
+ */
+export interface AggregatedScanResult {
+  /**
+   * <p>A Boolean value indicating whether any of the aggregated scans failed.</p>
+   * @public
+   */
+  FailedScan?: boolean | undefined;
+
+  /**
+   * <p>An array of findings discovered across all aggregated scans.</p>
+   * @public
+   */
+  Findings?: ScanFinding[] | undefined;
+
+  /**
+   * <p>The timestamp when the aggregated scan result was last computed, in Unix format and Coordinated Universal Time (UTC).</p>
+   * @public
+   */
+  LastComputed?: Date | undefined;
 }
 
 /**
@@ -599,6 +631,25 @@ export interface IndexAction {
 }
 
 /**
+ * <p>Defines a scanning action that specifies the malware scanner and scan mode to use.</p>
+ * @public
+ */
+export interface ScanAction {
+  /**
+   * <p>The malware scanner to use for the scan action. Currently only <code>GUARDDUTY</code> is supported.</p>
+   * @public
+   */
+  MalwareScanner?: MalwareScanner | undefined;
+
+  /**
+   * <p>The scanning mode to use for the scan action.</p>
+   *          <p>Valid values: <code>FULL_SCAN</code> | <code>INCREMENTAL_SCAN</code>.</p>
+   * @public
+   */
+  ScanMode?: ScanMode | undefined;
+}
+
+/**
  * <p>Specifies a scheduled task used to back up a selection of resources.</p>
  * @public
  */
@@ -722,6 +773,37 @@ export interface BackupRule {
    * @public
    */
   IndexActions?: IndexAction[] | undefined;
+
+  /**
+   * <p>Contains your scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.</p>
+   * @public
+   */
+  ScanActions?: ScanAction[] | undefined;
+}
+
+/**
+ * <p>Contains configuration settings for malware scanning, including the scanner type, target resource types, and scanner role.</p>
+ * @public
+ */
+export interface ScanSetting {
+  /**
+   * <p>The malware scanner to use for scanning. Currently only <code>GUARDDUTY</code> is supported.</p>
+   * @public
+   */
+  MalwareScanner?: MalwareScanner | undefined;
+
+  /**
+   * <p>An array of resource types to be scanned for malware.</p>
+   * @public
+   */
+  ResourceTypes?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the scanner uses to access resources; for example,
+   *          <code>arn:aws:iam::123456789012:role/ScannerRole</code>.</p>
+   * @public
+   */
+  ScannerRoleArn?: string | undefined;
 }
 
 /**
@@ -753,6 +835,12 @@ export interface BackupPlan {
    * @public
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
+
+  /**
+   * <p>Contains your scanning configuration for the backup plan and includes the Malware scanner, your selected resources, and scanner role.</p>
+   * @public
+   */
+  ScanSettings?: ScanSetting[] | undefined;
 }
 
 /**
@@ -876,6 +964,12 @@ export interface BackupRuleInput {
    * @public
    */
   IndexActions?: IndexAction[] | undefined;
+
+  /**
+   * <p>Contains your scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.</p>
+   * @public
+   */
+  ScanActions?: ScanAction[] | undefined;
 }
 
 /**
@@ -905,6 +999,12 @@ export interface BackupPlanInput {
    * @public
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
+
+  /**
+   * <p>Contains your scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.</p>
+   * @public
+   */
+  ScanSettings?: ScanSetting[] | undefined;
 }
 
 /**
@@ -2279,7 +2379,7 @@ export interface ReportSetting {
    *          template. The report templates are:</p>
    *          <p>
    *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
-   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT | SCAN_JOB_REPORT</code>
    *          </p>
    * @public
    */
@@ -2349,7 +2449,7 @@ export interface CreateReportPlanInput {
    *          template. The report templates are:</p>
    *          <p>
    *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
-   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT | SCAN_JOB_REPORT </code>
    *          </p>
    *          <p>If the report template is <code>RESOURCE_COMPLIANCE_REPORT</code> or
    *             <code>CONTROL_COMPLIANCE_REPORT</code>, this API resource also describes the report
@@ -4000,6 +4100,37 @@ export interface DescribeRecoveryPointInput {
 }
 
 /**
+ * <p>Contains the results of a security scan, including scanner information, scan state, and any findings discovered.</p>
+ * @public
+ */
+export interface ScanResult {
+  /**
+   * <p>The malware scanner used to perform the scan. Currently only <code>GUARDDUTY</code> is supported.</p>
+   * @public
+   */
+  MalwareScanner?: MalwareScanner | undefined;
+
+  /**
+   * <p>The final state of the scan job.</p>
+   *          <p>Valid values: <code>COMPLETED</code> | <code>FAILED</code> | <code>CANCELED</code>.</p>
+   * @public
+   */
+  ScanJobState?: ScanJobState | undefined;
+
+  /**
+   * <p>The timestamp of when the last scan was performed, in Unix format and Coordinated Universal Time (UTC).</p>
+   * @public
+   */
+  LastScanTimestamp?: Date | undefined;
+
+  /**
+   * <p>An array of findings discovered during the scan.</p>
+   * @public
+   */
+  Findings?: ScanFinding[] | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeRecoveryPointOutput {
@@ -4264,6 +4395,13 @@ export interface DescribeRecoveryPointOutput {
    * @public
    */
   EncryptionKeyType?: EncryptionKeyType | undefined;
+
+  /**
+   * <p>Contains the latest scanning results against the recovery point and currently include <code>MalwareScanner</code>, <code>ScanJobState</code>, <code>Findings</code>, and <code>LastScanTimestamp</code>
+   *          </p>
+   * @public
+   */
+  ScanResults?: ScanResult[] | undefined;
 }
 
 /**
@@ -4705,6 +4843,205 @@ export interface DescribeRestoreJobOutput {
    * @public
    */
   ParentJobId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeScanJobInput {
+  /**
+   * <p>Uniquely identifies a request to Backup to scan a resource.</p>
+   * @public
+   */
+  ScanJobId: string | undefined;
+}
+
+/**
+ * <p>Contains identifying information about the creation of a scan job, including the backup plan and rule that initiated the scan.</p>
+ * @public
+ */
+export interface ScanJobCreator {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
+   * @public
+   */
+  BackupPlanArn: string | undefined;
+
+  /**
+   * <p>The ID of the backup plan.</p>
+   * @public
+   */
+  BackupPlanId: string | undefined;
+
+  /**
+   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
+   *          long. Version IDs cannot be edited.</p>
+   * @public
+   */
+  BackupPlanVersion: string | undefined;
+
+  /**
+   * <p>Uniquely identifies the backup rule that initiated the scan job.</p>
+   * @public
+   */
+  BackupRuleId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the results of a scan job.</p>
+ * @public
+ */
+export interface ScanResultInfo {
+  /**
+   * <p>The status of the scan results.</p>
+   *          <p>Valid values: <code>THREATS_FOUND</code> | <code>NO_THREATS_FOUND</code>.</p>
+   * @public
+   */
+  ScanResultStatus: ScanResultStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeScanJobOutput {
+  /**
+   * <p>Returns the account ID that owns the scan job.</p>
+   *          <p>Pattern: <code>^[0-9]\{12\}$</code>
+   *          </p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>
+   *          </p>
+   * @public
+   */
+  BackupVaultArn: string | undefined;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are
+   *          unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
+   *          <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]\{2,50\}$</code>
+   *          </p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The date and time that a backup index finished creation, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  CompletionDate?: Date | undefined;
+
+  /**
+   * <p>Contains identifying information about the creation of a scan job, including the backup plan and rule that initiated the scan.</p>
+   * @public
+   */
+  CreatedBy: ScanJobCreator | undefined;
+
+  /**
+   * <p>The date and time that a backup index finished creation, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * @public
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>The scanning engine used for the corresponding scan job. Currently only <code>GUARDUTY</code> is supported.</p>
+   * @public
+   */
+  MalwareScanner: MalwareScanner | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the target recovery point for scanning.; for example,
+   *       <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the source resource of the corresponding recovery point ARN.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The non-unique name of the resource that belongs to the specified backup.</p>
+   * @public
+   */
+  ResourceName: string | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services Resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume.</p>
+   *          <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]\{1,50\}$</code>
+   *          </p>
+   * @public
+   */
+  ResourceType: ScanResourceType | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the base recovery point for scanning. This field will only be populated when an incremental scan job has taken place.</p>
+   * @public
+   */
+  ScanBaseRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>The scan ID generated by Amazon GuardDuty for the corresponding Scan Job ID request from Backup.</p>
+   * @public
+   */
+  ScanId?: string | undefined;
+
+  /**
+   * <p>The scan job ID that uniquely identified the request to Backup.</p>
+   * @public
+   */
+  ScanJobId: string | undefined;
+
+  /**
+   * <p>Specifies the scan type used for the scan job.</p>
+   * @public
+   */
+  ScanMode: ScanMode | undefined;
+
+  /**
+   * <p>
+   *       Contains the <code>ScanResultsStatus</code> for the scanning job and returns <code>THREATS_FOUND</code> or <code>NO_THREATS_FOUND</code> for completed jobs.</p>
+   * @public
+   */
+  ScanResult?: ScanResultInfo | undefined;
+
+  /**
+   * <p>Specifies the scanner IAM role ARN used to for the scan job.</p>
+   * @public
+   */
+  ScannerRoleArn: string | undefined;
+
+  /**
+   * <p>The current state of a scan job.</p>
+   * @public
+   */
+  State: ScanState | undefined;
+
+  /**
+   * <p>A detailed message explaining the status of the job to back up a resource.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -7609,6 +7946,13 @@ export interface RecoveryPointByBackupVault {
    * @public
    */
   EncryptionKeyType?: EncryptionKeyType | undefined;
+
+  /**
+   * <p>Contains the latest scanning results against the recovery point and currently include
+   *       <code>FailedScan</code>, <code>Findings</code>, <code>LastComputed</code>.</p>
+   * @public
+   */
+  AggregatedScanResult?: AggregatedScanResult | undefined;
 }
 
 /**
@@ -7859,6 +8203,13 @@ export interface RecoveryPointByResource {
    * @public
    */
   EncryptionKeyType?: EncryptionKeyType | undefined;
+
+  /**
+   * <p>Contains the latest scanning results against the recovery point and currently include
+   *       <code>FailedScan</code>, <code>Findings</code>, <code>LastComputed</code>.</p>
+   * @public
+   */
+  AggregatedScanResult?: AggregatedScanResult | undefined;
 }
 
 /**
@@ -7915,8 +8266,11 @@ export interface ListReportJobsInput {
   /**
    * <p>Returns only report jobs that are in the specified status. The statuses are:</p>
    *          <p>
-   *             <code>CREATED | RUNNING | COMPLETED | FAILED</code>
+   *             <code>CREATED | RUNNING | COMPLETED | FAILED | COMPLETED_WITH_ISSUES</code>
    *          </p>
+   *          <p> Please note that only scanning jobs finish with state completed with issues.
+   *             For backup jobs this is a console interpretation of a job that finishes in
+   *             completed state and has a status message.</p>
    * @public
    */
   ByStatus?: string | undefined;
@@ -8914,6 +9268,476 @@ export interface ListRestoreTestingSelectionsOutput {
 /**
  * @public
  */
+export interface ListScanJobsInput {
+  /**
+   * <p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p>
+   *          <p>If used from an Amazon Web Services Organizations management account, passing <code>*</code> returns all jobs across the organization.</p>
+   *          <p>Pattern: <code>^[0-9]\{12\}$</code>
+   *          </p>
+   * @public
+   */
+  ByAccountId?: string | undefined;
+
+  /**
+   * <p>Returns only scan jobs that will be stored in the specified backup vault.
+   *          Backup vaults are identified by names that are unique to the account
+   *          used to create them and the Amazon Web Services Region where they are created.</p>
+   *          <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]\{2,50\}$</code>
+   *          </p>
+   * @public
+   */
+  ByBackupVaultName?: string | undefined;
+
+  /**
+   * <p>Returns only scan jobs completed after a date expressed in Unix format and Coordinated Universal Time (UTC).</p>
+   * @public
+   */
+  ByCompleteAfter?: Date | undefined;
+
+  /**
+   * <p>Returns only backup jobs completed before a date expressed in Unix format and Coordinated Universal Time (UTC).</p>
+   * @public
+   */
+  ByCompleteBefore?: Date | undefined;
+
+  /**
+   * <p>Returns only the scan jobs for the specified malware scanner. Currently only supports <code>GUARDDUTY</code>.</p>
+   * @public
+   */
+  ByMalwareScanner?: MalwareScanner | undefined;
+
+  /**
+   * <p>Returns only the scan jobs that are ran against the specified recovery point.</p>
+   * @public
+   */
+  ByRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>Returns only scan jobs that match the specified resource Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  ByResourceArn?: string | undefined;
+
+  /**
+   * <p>Returns restore testing selections by the specified restore testing
+   *          plan name.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code>for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code>for Amazon Elastic Compute Cloud</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code>for Amazon Simple Storage Service (Amazon S3)</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>^[a-zA-Z0-9\-\_\.]\{1,50\}$</code>
+   *          </p>
+   * @public
+   */
+  ByResourceType?: ScanResourceType | undefined;
+
+  /**
+   * <p>Returns only the scan jobs for the specified scan results:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>THREATS_FOUND</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_THREATS_FOUND</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ByScanResultStatus?: ScanResultStatus | undefined;
+
+  /**
+   * <p>Returns only the scan jobs for the specified scanning job state.</p>
+   * @public
+   */
+  ByState?: ScanState | undefined;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 1000.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to
+   *          return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains metadata about a scan job, including information about the scanning process, results, and associated resources.</p>
+ * @public
+ */
+export interface ScanJob {
+  /**
+   * <p>The account ID that owns the scan job.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
+   * @public
+   */
+  BackupVaultArn: string | undefined;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Amazon Web Services
+   *          Region where they are created.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The date and time that a scan job is completed, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  CompletionDate?: Date | undefined;
+
+  /**
+   * <p>Contains identifying information about the creation of a scan job.</p>
+   * @public
+   */
+  CreatedBy: ScanJobCreator | undefined;
+
+  /**
+   * <p>The date and time that a scan job is created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the scan job; for example,
+   *          <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * @public
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>The scanning engine used for the scan job. Currently only <code>GUARDDUTY</code> is supported.</p>
+   * @public
+   */
+  MalwareScanner: MalwareScanner | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the recovery point being scanned; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the source resource of the recovery point being scanned.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The non-unique name of the resource that belongs to the specified backup.</p>
+   * @public
+   */
+  ResourceName: string | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services resource being scanned; for example, an Amazon Elastic Block Store
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   * @public
+   */
+  ResourceType: ScanResourceType | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the base recovery point for scanning. This field is populated
+   *          when an incremental scan job has taken place.</p>
+   * @public
+   */
+  ScanBaseRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>The scan ID generated by the malware scanner for the corresponding scan job.</p>
+   * @public
+   */
+  ScanId?: string | undefined;
+
+  /**
+   * <p>The unique identifier that identifies the scan job request to Backup.</p>
+   * @public
+   */
+  ScanJobId: string | undefined;
+
+  /**
+   * <p>Specifies the scan type use for the scan job.</p>
+   *          <p>Includes:</p>
+   *          <p>
+   *             <code>FULL_SCAN</code> will scan the entire data lineage within the backup.</p>
+   *          <p>
+   *             <code>INCREMENTAL_SCAN</code> will scan the data difference between the target recovery point and base recovery point ARN.</p>
+   * @public
+   */
+  ScanMode: ScanMode | undefined;
+
+  /**
+   * <p>Contains the scan results information, including the status of threats found during scanning.</p>
+   * @public
+   */
+  ScanResult?: ScanResultInfo | undefined;
+
+  /**
+   * <p>Specifies the scanner IAM role ARN used for the scan job.</p>
+   * @public
+   */
+  ScannerRoleArn: string | undefined;
+
+  /**
+   * <p>The current state of the scan job.</p>
+   *          <p>Valid values: <code>CREATED</code> | <code>RUNNING</code> | <code>COMPLETED</code> |
+   *          <code>COMPLETED_WITH_ISSUES</code> | <code>FAILED</code> | <code>CANCELED</code>.</p>
+   * @public
+   */
+  State?: ScanState | undefined;
+
+  /**
+   * <p>A detailed message explaining the status of the scan job.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScanJobsOutput {
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to
+   *          return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An array of structures containing metadata about your scan jobs returned in JSON format.</p>
+   * @public
+   */
+  ScanJobs: ScanJob[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScanJobSummariesInput {
+  /**
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account not part of Amazon Web Services Organizations, jobs within requestor's account will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use the value <code>ANY</code> to return job counts from every account in the organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts from all accounts within the authenticated organization, then returns the sum.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>Returns the job count for the specified resource type. Use request
+   *          <code>GetSupportedResourceTypes</code> to obtain strings for supported resource types.</p>
+   *          <p>The the value <code>ANY</code> returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts for all resource types and returns the sum.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>Returns only the scan jobs for the specified malware scanner.
+   *          Currently the only MalwareScanner is <code>GUARDDUTY</code>. But the field also supports <code>ANY</code>, and <code>AGGREGATE_ALL</code>.</p>
+   * @public
+   */
+  MalwareScanner?: MalwareScanner | undefined;
+
+  /**
+   * <p>Returns only the scan jobs for the specified scan results.</p>
+   * @public
+   */
+  ScanResultStatus?: ScanResultStatus | undefined;
+
+  /**
+   * <p>Returns only the scan jobs for the specified scanning job state.</p>
+   * @public
+   */
+  State?: ScanJobStatus | undefined;
+
+  /**
+   * <p>The period for the returned results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code>The daily job count for the prior 1 day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code>The daily job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code>The daily job count for the prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AggregationPeriod?: AggregationPeriod | undefined;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from 1 to 500.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to
+   *          return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about scan jobs, including counts and metadata for a specific time period and criteria.</p>
+ * @public
+ */
+export interface ScanJobSummary {
+  /**
+   * <p>The Amazon Web Services Region where the scan jobs were executed.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The account ID that owns the scan jobs included in this summary.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The state of the scan jobs included in this summary.</p>
+   *          <p>Valid values: <code>CREATED</code> | <code>RUNNING</code> | <code>COMPLETED</code> |
+   *          <code>COMPLETED_WITH_ISSUES</code> | <code>FAILED</code> | <code>CANCELED</code>.</p>
+   * @public
+   */
+  State?: ScanJobStatus | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services resource for the scan jobs included in this summary.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The number of scan jobs that match the specified criteria.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Specifies the malware scanner used during the scan job. Currently only supports <code>GUARDDUTY</code>.</p>
+   * @public
+   */
+  MalwareScanner?: MalwareScanner | undefined;
+
+  /**
+   * <p>The scan result status for the scan jobs included in this summary.</p>
+   *          <p>Valid values: <code>THREATS_FOUND</code> | <code>NO_THREATS_FOUND</code>.</p>
+   * @public
+   */
+  ScanResultStatus?: ScanResultStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScanJobSummariesOutput {
+  /**
+   * <p>The summary information.</p>
+   * @public
+   */
+  ScanJobSummaries?: ScanJobSummary[] | undefined;
+
+  /**
+   * <p>The period for the returned results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code>The daily job count for the prior 1 day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code>The daily job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code>The daily job count for the prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid Values: <code>'ONE_DAY'</code> | <code>'SEVEN_DAYS'</code> | <code>'FOURTEEN_DAYS'</code>
+   *          </p>
+   * @public
+   */
+  AggregationPeriod?: string | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to
+   *          return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsInput {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
@@ -9697,6 +10521,97 @@ export interface StartRestoreJobOutput {
 /**
  * @public
  */
+export interface StartScanJobInput {
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that
+   *           are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
+   *          <p>Pattern: <code>^[a-zA-Z0-9\-\_]\{2,50\}$</code>
+   *          </p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * @public
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>A customer-chosen string that you can use to distinguish between otherwise identical
+   *          calls to <code>StartScanJob</code>. Retrying a successful request with the same idempotency
+   *          token results in a success message with no action taken.</p>
+   * @public
+   */
+  IdempotencyToken?: string | undefined;
+
+  /**
+   * <p>Specifies the malware scanner used during the scan job. Currently only supports <code>GUARDDUTY</code>.</p>
+   * @public
+   */
+  MalwareScanner: MalwareScanner | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point. This is your target recovery point for a full scan.
+   *          If you are running an incremental scan, this will be your a recovery point which has been created after your base recovery point selection.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>An ARN that uniquely identifies the base recovery point to be used for incremental scanning.</p>
+   * @public
+   */
+  ScanBaseRecoveryPointArn?: string | undefined;
+
+  /**
+   * <p>Specifies the scan type use for the scan job.</p>
+   *          <p>Includes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_SCAN</code> will scan the entire data lineage within the backup.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCREMENTAL_SCAN</code> will scan the data difference between the target recovery point and base recovery point ARN.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScanMode: ScanMode | undefined;
+
+  /**
+   * <p>Specified the IAM scanner role ARN.</p>
+   * @public
+   */
+  ScannerRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartScanJobOutput {
+  /**
+   * <p>The date and time that a backup job is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   * @public
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>Uniquely identifies a request to Backup to back up a resource.</p>
+   * @public
+   */
+  ScanJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopBackupJobInput {
   /**
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
@@ -9803,6 +10718,12 @@ export interface UpdateBackupPlanOutput {
    * @public
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
+
+  /**
+   * <p>Contains your scanning configuration for the backup plan and includes the Malware scanner, your selected resources, and scanner role.</p>
+   * @public
+   */
+  ScanSettings?: ScanSetting[] | undefined;
 }
 
 /**

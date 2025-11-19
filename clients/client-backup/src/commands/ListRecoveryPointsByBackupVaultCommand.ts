@@ -100,6 +100,13 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * //       IndexStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING",
  * //       IndexStatusMessage: "STRING_VALUE",
  * //       EncryptionKeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KMS_KEY",
+ * //       AggregatedScanResult: { // AggregatedScanResult
+ * //         FailedScan: true || false,
+ * //         Findings: [ // ScanFindings
+ * //           "MALWARE",
+ * //         ],
+ * //         LastComputed: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * // };

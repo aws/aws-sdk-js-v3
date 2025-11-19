@@ -184,6 +184,11 @@ import {
   DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand";
 import {
+  DescribeScanJobCommand,
+  DescribeScanJobCommandInput,
+  DescribeScanJobCommandOutput,
+} from "./commands/DescribeScanJobCommand";
+import {
   DisassociateBackupVaultMpaApprovalTeamCommand,
   DisassociateBackupVaultMpaApprovalTeamCommandInput,
   DisassociateBackupVaultMpaApprovalTeamCommandOutput,
@@ -403,6 +408,16 @@ import {
   ListRestoreTestingSelectionsCommandInput,
   ListRestoreTestingSelectionsCommandOutput,
 } from "./commands/ListRestoreTestingSelectionsCommand";
+import {
+  ListScanJobsCommand,
+  ListScanJobsCommandInput,
+  ListScanJobsCommandOutput,
+} from "./commands/ListScanJobsCommand";
+import {
+  ListScanJobSummariesCommand,
+  ListScanJobSummariesCommandInput,
+  ListScanJobSummariesCommandOutput,
+} from "./commands/ListScanJobSummariesCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListTieringConfigurationsCommand,
@@ -454,6 +469,11 @@ import {
   StartRestoreJobCommandInput,
   StartRestoreJobCommandOutput,
 } from "./commands/StartRestoreJobCommand";
+import {
+  StartScanJobCommand,
+  StartScanJobCommandInput,
+  StartScanJobCommandOutput,
+} from "./commands/StartScanJobCommand";
 import {
   StopBackupJobCommand,
   StopBackupJobCommandInput,
@@ -553,6 +573,7 @@ const commands = {
   DescribeReportJobCommand,
   DescribeReportPlanCommand,
   DescribeRestoreJobCommand,
+  DescribeScanJobCommand,
   DisassociateBackupVaultMpaApprovalTeamCommand,
   DisassociateRecoveryPointCommand,
   DisassociateRecoveryPointFromParentCommand,
@@ -597,6 +618,8 @@ const commands = {
   ListRestoreJobSummariesCommand,
   ListRestoreTestingPlansCommand,
   ListRestoreTestingSelectionsCommand,
+  ListScanJobsCommand,
+  ListScanJobSummariesCommand,
   ListTagsCommand,
   ListTieringConfigurationsCommand,
   PutBackupVaultAccessPolicyCommand,
@@ -608,6 +631,7 @@ const commands = {
   StartCopyJobCommand,
   StartReportJobCommand,
   StartRestoreJobCommand,
+  StartScanJobCommand,
   StopBackupJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -1221,6 +1245,20 @@ export interface Backup {
     args: DescribeRestoreJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeRestoreJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeScanJobCommand}
+   */
+  describeScanJob(
+    args: DescribeScanJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeScanJobCommandOutput>;
+  describeScanJob(args: DescribeScanJobCommandInput, cb: (err: any, data?: DescribeScanJobCommandOutput) => void): void;
+  describeScanJob(
+    args: DescribeScanJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeScanJobCommandOutput) => void
   ): void;
 
   /**
@@ -1950,6 +1988,36 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link ListScanJobsCommand}
+   */
+  listScanJobs(): Promise<ListScanJobsCommandOutput>;
+  listScanJobs(args: ListScanJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListScanJobsCommandOutput>;
+  listScanJobs(args: ListScanJobsCommandInput, cb: (err: any, data?: ListScanJobsCommandOutput) => void): void;
+  listScanJobs(
+    args: ListScanJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScanJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListScanJobSummariesCommand}
+   */
+  listScanJobSummaries(): Promise<ListScanJobSummariesCommandOutput>;
+  listScanJobSummaries(
+    args: ListScanJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScanJobSummariesCommandOutput>;
+  listScanJobSummaries(
+    args: ListScanJobSummariesCommandInput,
+    cb: (err: any, data?: ListScanJobSummariesCommandOutput) => void
+  ): void;
+  listScanJobSummaries(
+    args: ListScanJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScanJobSummariesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsCommand}
    */
   listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -2114,6 +2182,17 @@ export interface Backup {
     args: StartRestoreJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartRestoreJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartScanJobCommand}
+   */
+  startScanJob(args: StartScanJobCommandInput, options?: __HttpHandlerOptions): Promise<StartScanJobCommandOutput>;
+  startScanJob(args: StartScanJobCommandInput, cb: (err: any, data?: StartScanJobCommandOutput) => void): void;
+  startScanJob(
+    args: StartScanJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartScanJobCommandOutput) => void
   ): void;
 
   /**
