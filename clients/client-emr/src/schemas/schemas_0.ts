@@ -94,6 +94,7 @@ const _CT = "ClusterTimeline";
 const _CTr = "CreationTime";
 const _CV = "ConfigurationsVersion";
 const _CWAD = "CloudWatchAlarmDefinition";
+const _CWLC = "CloudWatchLogConfiguration";
 const _Cl = "Classification";
 const _Clu = "Cluster";
 const _Clus = "Clusters";
@@ -141,6 +142,7 @@ const _DSes = "DescribeStudio";
 const _DT = "DecommissionTimeout";
 const _De = "Description";
 const _Dev = "Device";
+const _E = "Enabled";
 const _EA = "ExpiresAt";
 const _EAZ = "Ec2AvailabilityZone";
 const _EBD = "EbsBlockDevice";
@@ -311,6 +313,7 @@ const _LCI = "ListClustersInput";
 const _LCO = "ListClustersOutput";
 const _LEKKI = "LogEncryptionKmsKeyId";
 const _LF = "LogFile";
+const _LGN = "LogGroupName";
 const _LI = "ListInstances";
 const _LIF = "ListInstanceFleets";
 const _LIFI = "ListInstanceFleetsInput";
@@ -339,6 +342,7 @@ const _LSIT = "ListSupportedInstanceTypes";
 const _LSITI = "ListSupportedInstanceTypesInput";
 const _LSITO = "ListSupportedInstanceTypesOutput";
 const _LSIi = "ListStudiosInput";
+const _LSNP = "LogStreamNamePrefix";
 const _LSO = "ListStepsOutput";
 const _LSOi = "ListStudiosOutput";
 const _LSSM = "ListStudioSessionMappings";
@@ -346,15 +350,18 @@ const _LSSMI = "ListStudioSessionMappingsInput";
 const _LSSMO = "ListStudioSessionMappingsOutput";
 const _LSi = "ListSteps";
 const _LSis = "ListStudios";
+const _LT = "LogTypes";
+const _LTM = "LogTypesMap";
 const _LU = "LogUri";
 const _M = "Message";
-const _MC = "MainClass";
+const _MC = "MonitoringConfiguration";
 const _MCCU = "MaximumCoreCapacityUnits";
 const _MCI = "ModifyClusterInput";
 const _MCO = "ModifyClusterOutput";
 const _MCU = "MinimumCapacityUnits";
 const _MCUa = "MaximumCapacityUnits";
-const _MCa = "MaxCapacity";
+const _MCa = "MainClass";
+const _MCax = "MaxCapacity";
 const _MCi = "MinCapacity";
 const _MCo = "ModifyCluster";
 const _MD = "MetricDimension";
@@ -716,6 +723,14 @@ export var CloudWatchAlarmDefinition: StaticStructureSchema = [
   [_CO, _EP, _MN, _Na, _Pe, _Stat, _Th, _U, _D],
   [0, 1, 0, 0, 1, 0, 1, 0, () => MetricDimensionList],
 ];
+export var CloudWatchLogConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _CWLC,
+  0,
+  [_E, _LGN, _LSNP, _EKA, _LT],
+  [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]],
+];
 export var Cluster: StaticStructureSchema = [
   3,
   n0,
@@ -757,6 +772,7 @@ export var Cluster: StaticStructureSchema = [
     _ERVI,
     _ERVT,
     _ES,
+    _MC,
   ],
   [
     0,
@@ -794,6 +810,7 @@ export var Cluster: StaticStructureSchema = [
     1,
     1,
     2,
+    () => MonitoringConfiguration,
   ],
 ];
 export var ClusterStateChangeReason: StaticStructureSchema = [3, n0, _CSCR, 0, [_Co, _M], [0, 0]];
@@ -1012,10 +1029,10 @@ export var HadoopJarStepConfig: StaticStructureSchema = [
   n0,
   _HJSC,
   0,
-  [_P, _J, _MC, _Ar],
+  [_P, _J, _MCa, _Ar],
   [() => KeyValueList, 0, 0, 64 | 0],
 ];
-export var HadoopStepConfig: StaticStructureSchema = [3, n0, _HSC, 0, [_J, _P, _MC, _Ar], [0, 128 | 0, 0, 64 | 0]];
+export var HadoopStepConfig: StaticStructureSchema = [3, n0, _HSC, 0, [_J, _P, _MCa, _Ar], [0, 128 | 0, 0, 64 | 0]];
 export var Instance: StaticStructureSchema = [
   3,
   n0,
@@ -1412,6 +1429,14 @@ export var ModifyInstanceGroupsInput: StaticStructureSchema = [
   [_CI, _IG],
   [0, () => InstanceGroupModifyConfigList],
 ];
+export var MonitoringConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _MC,
+  0,
+  [_CWLC],
+  [() => CloudWatchLogConfiguration],
+];
 export var NotebookExecution: StaticStructureSchema = [
   3,
   n0,
@@ -1576,6 +1601,7 @@ export var RunJobFlowInput: StaticStructureSchema = [
     _ERVI,
     _ERVT,
     _ES,
+    _MC,
   ],
   [
     0,
@@ -1610,6 +1636,7 @@ export var RunJobFlowInput: StaticStructureSchema = [
     1,
     1,
     2,
+    () => MonitoringConfiguration,
   ],
 ];
 export var RunJobFlowOutput: StaticStructureSchema = [3, n0, _RJFO, 0, [_JFI, _CA], [0, 0]];
@@ -1621,7 +1648,7 @@ export var ScalingAction: StaticStructureSchema = [
   [_Ma, _SSPC],
   [0, () => SimpleScalingPolicyConfiguration],
 ];
-export var ScalingConstraints: StaticStructureSchema = [3, n0, _SCc, 0, [_MCi, _MCa], [1, 1]];
+export var ScalingConstraints: StaticStructureSchema = [3, n0, _SCc, 0, [_MCi, _MCax], [1, 1]];
 export var ScalingRule: StaticStructureSchema = [
   3,
   n0,
@@ -1883,6 +1910,7 @@ export var XmlStringMaxLen256List = 64 | 0;
 
 export var EnvironmentVariablesMap = 128 | 0;
 
+export var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
 export var StringMap = 128 | 0;
 
 export var Credentials: StaticStructureSchema = [3, n0, _Cr, 0, [_UP], [[() => UsernamePassword, 0]]];

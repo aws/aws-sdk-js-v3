@@ -1157,6 +1157,42 @@ export interface CancelStepsOutput {
 }
 
 /**
+ * <p>Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.</p>
+ * @public
+ */
+export interface CloudWatchLogConfiguration {
+  /**
+   * <p>Specifies if CloudWatch logging is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The name of the CloudWatch log group where logs are published.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>The prefix of the log stream name.</p>
+   * @public
+   */
+  LogStreamNamePrefix?: string | undefined;
+
+  /**
+   * <p>The ARN of the encryption key used to encrypt the logs.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A map of log types to file names for publishing logs to the standard output or standard error streams for CloudWatch. Valid log types include STEP_LOGS, SPARK_DRIVER, and SPARK_EXECUTOR. Valid file names for each type include STDOUT and STDERR.</p>
+   * @public
+   */
+  LogTypes?: Record<string, string[]> | undefined;
+}
+
+/**
  * <p>Provides information about the Amazon EC2 instances in a cluster grouped by
  *          category. For example, key name, subnet ID, IAM instance profile, and so
  *          on.</p>
@@ -1295,6 +1331,18 @@ export interface KerberosAttributes {
    * @public
    */
   ADDomainJoinPassword?: string | undefined;
+}
+
+/**
+ * <p>Contains CloudWatch log configuration metadata and settings.</p>
+ * @public
+ */
+export interface MonitoringConfiguration {
+  /**
+   * <p>CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.</p>
+   * @public
+   */
+  CloudWatchLogConfiguration?: CloudWatchLogConfiguration | undefined;
 }
 
 /**
@@ -2075,9 +2123,10 @@ export interface InstanceGroupDetail {
   InstanceRole: InstanceRoleType | undefined;
 
   /**
-   * <p>If specified, indicates that the instance group uses Spot Instances. This is the maximum
-   *          price you are willing to pay for Spot Instances. Specify <code>OnDemandPrice</code> to set
-   *          the amount equal to the On-Demand price, or specify an amount in USD.</p>
+   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
+   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
    * @public
    */
   BidPrice?: string | undefined;
@@ -5921,6 +5970,12 @@ export interface Cluster {
    * @public
    */
   ExtendedSupport?: boolean | undefined;
+
+  /**
+   * <p>Contains Cloudwatch log configuration metadata and settings.</p>
+   * @public
+   */
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
 }
 
 /**
@@ -5947,9 +6002,10 @@ export interface InstanceGroupConfig {
   InstanceRole: InstanceRoleType | undefined;
 
   /**
-   * <p>If specified, indicates that the instance group uses Spot Instances. This is the maximum
-   *          price you are willing to pay for Spot Instances. Specify <code>OnDemandPrice</code> to set
-   *          the amount equal to the On-Demand price, or specify an amount in USD.</p>
+   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
+   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
    * @public
    */
   BidPrice?: string | undefined;
@@ -6146,7 +6202,9 @@ export interface InstanceTypeSpecification {
 
   /**
    * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
-   *             <code>InstanceType</code>. Expressed in USD.</p>
+   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
    * @public
    */
   BidPrice?: string | undefined;
@@ -6619,9 +6677,10 @@ export interface InstanceGroup {
   InstanceGroupType?: InstanceGroupType | undefined;
 
   /**
-   * <p>If specified, indicates that the instance group uses Spot Instances. This is the maximum
-   *          price you are willing to pay for Spot Instances. Specify <code>OnDemandPrice</code> to set
-   *          the amount equal to the On-Demand price, or specify an amount in USD.</p>
+   * <p>The bid price for each Amazon EC2 Spot Instance type as defined by
+   *          <code>InstanceType</code>. Expressed in USD. If neither <code>BidPrice</code> nor
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
+   *          <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
    * @public
    */
   BidPrice?: string | undefined;
@@ -7233,4 +7292,10 @@ export interface RunJobFlowInput {
    * @public
    */
   ExtendedSupport?: boolean | undefined;
+
+  /**
+   * <p>Contains CloudWatch log configuration metadata and settings.</p>
+   * @public
+   */
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
 }

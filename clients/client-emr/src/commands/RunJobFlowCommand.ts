@@ -337,6 +337,19 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *   EbsRootVolumeIops: Number("int"),
  *   EbsRootVolumeThroughput: Number("int"),
  *   ExtendedSupport: true || false,
+ *   MonitoringConfiguration: { // MonitoringConfiguration
+ *     CloudWatchLogConfiguration: { // CloudWatchLogConfiguration
+ *       Enabled: true || false, // required
+ *       LogGroupName: "STRING_VALUE",
+ *       LogStreamNamePrefix: "STRING_VALUE",
+ *       EncryptionKeyArn: "STRING_VALUE",
+ *       LogTypes: { // LogTypesMap
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);

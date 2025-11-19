@@ -164,6 +164,19 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * //     EbsRootVolumeIops: Number("int"),
  * //     EbsRootVolumeThroughput: Number("int"),
  * //     ExtendedSupport: true || false,
+ * //     MonitoringConfiguration: { // MonitoringConfiguration
+ * //       CloudWatchLogConfiguration: { // CloudWatchLogConfiguration
+ * //         Enabled: true || false, // required
+ * //         LogGroupName: "STRING_VALUE",
+ * //         LogStreamNamePrefix: "STRING_VALUE",
+ * //         EncryptionKeyArn: "STRING_VALUE",
+ * //         LogTypes: { // LogTypesMap
+ * //           "<keys>": [ // XmlStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *
