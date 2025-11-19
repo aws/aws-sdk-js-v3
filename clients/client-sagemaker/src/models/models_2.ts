@@ -221,6 +221,7 @@ import {
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
+  MetricsConfig,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -243,6 +244,7 @@ import {
   NetworkConfig,
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
+  OidcConfig,
   OnlineStoreConfig,
   OptimizationConfig,
   OptimizationJobModelSource,
@@ -277,7 +279,55 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
   UserSettings,
+  WorkforceVpcConfigRequest,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateWorkforceRequest {
+  /**
+   * <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p> <p>Do not use <code>OidcConfig</code> if you specify values for <code>CognitoConfig</code>.</p>
+   * @public
+   */
+  CognitoConfig?: CognitoConfig | undefined;
+
+  /**
+   * <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p> <p>Do not use <code>CognitoConfig</code> if you specify values for <code>OidcConfig</code>.</p>
+   * @public
+   */
+  OidcConfig?: OidcConfig | undefined;
+
+  /**
+   * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow list of IP addresses for a private workforce. Workers will only be able to log in to their worker portal from an IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
+   * @public
+   */
+  SourceIpConfig?: SourceIpConfig | undefined;
+
+  /**
+   * <p>The name of the private workforce.</p>
+   * @public
+   */
+  WorkforceName: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Use this parameter to configure a workforce using VPC.</p>
+   * @public
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest | undefined;
+
+  /**
+   * <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
+   * @public
+   */
+  IpAddressType?: WorkforceIpAddressType | undefined;
+}
 
 /**
  * @public
@@ -4103,6 +4153,12 @@ export interface DescribeEndpointOutput {
    * @public
    */
   ShadowProductionVariants?: ProductionVariantSummary[] | undefined;
+
+  /**
+   * <p>The configuration parameters for utilization metrics.</p>
+   * @public
+   */
+  MetricsConfig?: MetricsConfig | undefined;
 }
 
 /**
@@ -4191,6 +4247,12 @@ export interface DescribeEndpointConfigOutput {
    * @public
    */
   EnableNetworkIsolation?: boolean | undefined;
+
+  /**
+   * <p>The configuration parameters for utilization metrics.</p>
+   * @public
+   */
+  MetricsConfig?: MetricsConfig | undefined;
 }
 
 /**
@@ -10155,15 +10217,4 @@ export interface DescribeWorkforceResponse {
    * @public
    */
   Workforce: Workforce | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeWorkteamRequest {
-  /**
-   * <p>The name of the work team to return a description of.</p>
-   * @public
-   */
-  WorkteamName: string | undefined;
 }

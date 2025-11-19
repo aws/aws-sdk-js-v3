@@ -232,6 +232,17 @@ import {
 } from "./models_2";
 
 /**
+ * @public
+ */
+export interface DescribeWorkteamRequest {
+  /**
+   * <p>The name of the work team to return a description of.</p>
+   * @public
+   */
+  WorkteamName: string | undefined;
+}
+
+/**
  * <p>Provides details about a labeling work team.</p>
  * @public
  */
@@ -10887,21 +10898,4 @@ export interface ListWorkteamsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkteamsResponse {
-  /**
-   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
-   * @public
-   */
-  Workteams: Workteam[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

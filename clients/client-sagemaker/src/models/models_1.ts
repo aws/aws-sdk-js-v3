@@ -34,6 +34,7 @@ import {
   JobType,
   JoinSource,
   ManagedInstanceScalingStatus,
+  MetricPublishFrequencyInSeconds,
   MlTools,
   ModelApprovalStatus,
   ModelCardStatus,
@@ -80,7 +81,6 @@ import {
   TrialComponentPrimaryStatus,
   TtlDurationUnit,
   VendorGuidance,
-  WorkforceIpAddressType,
 } from "./enums";
 
 import {
@@ -113,7 +113,6 @@ import {
   ClarifyExplainerConfig,
   CodeEditorAppSettings,
   CodeRepository,
-  CognitoConfig,
   CollectionConfig,
   CollectionConfiguration,
   ContainerDefinition,
@@ -1299,6 +1298,24 @@ export interface ExplainerConfig {
 }
 
 /**
+ * <p>The configuration for Utilization metrics.</p>
+ * @public
+ */
+export interface MetricsConfig {
+  /**
+   * <p>Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization data at instance and container granularity. Container granularity is supported for Inference Components. The default is <code>False</code>.</p>
+   * @public
+   */
+  EnableEnhancedMetrics?: boolean | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which utilization metrics are published to Amazon CloudWatch. The default is <code>60</code> seconds.</p>
+   * @public
+   */
+  MetricPublishFrequencyInSeconds?: MetricPublishFrequencyInSeconds | undefined;
+}
+
+/**
  * <p>Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. </p>
  * @public
  */
@@ -1565,6 +1582,12 @@ export interface CreateEndpointConfigInput {
    * @public
    */
   EnableNetworkIsolation?: boolean | undefined;
+
+  /**
+   * <p>The configuration parameters for utilization metrics.</p>
+   * @public
+   */
+  MetricsConfig?: MetricsConfig | undefined;
 }
 
 /**
@@ -6100,7 +6123,7 @@ export interface CreateOptimizationJobResponse {
 }
 
 /**
- * <p>Defines the mapping between an in-app role and the AWS IAM Identity Center group patterns that should be assigned to that role within the SageMaker Partner AI App.</p>
+ * <p>Defines the mapping between an in-app role and the Amazon Web Services IAM Identity Center group patterns that should be assigned to that role within the SageMaker Partner AI App.</p>
  * @public
  */
 export interface RoleGroupAssignment {
@@ -6111,7 +6134,7 @@ export interface RoleGroupAssignment {
   RoleName: string | undefined;
 
   /**
-   * <p>A list of AWS IAM Identity Center group patterns that should be assigned to the specified role. Group patterns support wildcard matching using <code>*</code>.</p>
+   * <p>A list of Amazon Web Services IAM Identity Center group patterns that should be assigned to the specified role. Group patterns support wildcard matching using <code>*</code>.</p>
    * @public
    */
   GroupPatterns: string[] | undefined;
@@ -8329,51 +8352,4 @@ export interface WorkforceVpcConfigRequest {
    * @public
    */
   Subnets?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateWorkforceRequest {
-  /**
-   * <p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p> <p>Do not use <code>OidcConfig</code> if you specify values for <code>CognitoConfig</code>.</p>
-   * @public
-   */
-  CognitoConfig?: CognitoConfig | undefined;
-
-  /**
-   * <p>Use this parameter to configure a private workforce using your own OIDC Identity Provider.</p> <p>Do not use <code>CognitoConfig</code> if you specify values for <code>OidcConfig</code>.</p>
-   * @public
-   */
-  OidcConfig?: OidcConfig | undefined;
-
-  /**
-   * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow list of IP addresses for a private workforce. Workers will only be able to log in to their worker portal from an IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
-   * @public
-   */
-  SourceIpConfig?: SourceIpConfig | undefined;
-
-  /**
-   * <p>The name of the private workforce.</p>
-   * @public
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Use this parameter to configure a workforce using VPC.</p>
-   * @public
-   */
-  WorkforceVpcConfig?: WorkforceVpcConfigRequest | undefined;
-
-  /**
-   * <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
-   * @public
-   */
-  IpAddressType?: WorkforceIpAddressType | undefined;
 }

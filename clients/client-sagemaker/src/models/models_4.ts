@@ -181,6 +181,23 @@ import {
 } from "./models_3";
 
 /**
+ * @public
+ */
+export interface ListWorkteamsResponse {
+  /**
+   * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
+   * @public
+   */
+  Workteams: Workteam[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>The properties of a model as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  * @public
  */

@@ -2916,6 +2916,16 @@ export const DeviceSubsetType = {
  */
 export type DeviceSubsetType = (typeof DeviceSubsetType)[keyof typeof DeviceSubsetType];
 
+export enum MetricPublishFrequencyInSeconds {
+  FREQ_10_S = 10,
+  FREQ_30_S = 30,
+  FREQ_60_S = 60,
+  FREQ_120_S = 120,
+  FREQ_180_S = 180,
+  FREQ_240_S = 240,
+  FREQ_300_S = 300,
+}
+
 /**
  * @public
  * @enum

@@ -1197,6 +1197,7 @@ const _EDSM = "EdgeDeploymentStatusMessage";
 const _EDSST = "EdgeDeploymentStageStartTime";
 const _EDSd = "EdgeDeploymentStatus";
 const _EE = "EfaEnis";
+const _EEM = "EnableEnhancedMetrics";
 const _EEn = "EnableExplanations";
 const _EFA = "ExcludeFeaturesAttribute";
 const _EFSFS = "EFSFileSystem";
@@ -2011,6 +2012,7 @@ const _MCVSL = "ModelCardVersionSummaryList";
 const _MCa = "MaintenanceConfig";
 const _MCax = "MaxCapacity";
 const _MCaxo = "MaxConcurrency";
+const _MCe = "MetricsConfig";
 const _MCi = "MinCapacity";
 const _MCo = "ModelConfigs";
 const _MCod = "ModelCard";
@@ -2113,6 +2115,7 @@ const _MPCDL = "ModelPackageContainerDefinitionList";
 const _MPD = "ModelPackageDescription";
 const _MPDF = "MonitoringParquetDatasetFormat";
 const _MPES = "MaxParallelExecutionSteps";
+const _MPFIS = "MetricPublishFrequencyInSeconds";
 const _MPG = "ModelPackageGroup";
 const _MPGA = "ModelPackageGroupArn";
 const _MPGD = "ModelPackageGroupDescription";
@@ -4334,7 +4337,7 @@ export var CreateEndpointConfigInput: StaticStructureSchema = [
   n0,
   _CECI,
   0,
-  [_ECN, _PV, _DCC, _T, _KKI, _AIC, _ECx, _SPV, _ERA, _VC, _ENI],
+  [_ECN, _PV, _DCC, _T, _KKI, _AIC, _ECx, _SPV, _ERA, _VC, _ENI, _MCe],
   [
     0,
     () => ProductionVariantList,
@@ -4347,6 +4350,7 @@ export var CreateEndpointConfigInput: StaticStructureSchema = [
     0,
     () => VpcConfig,
     2,
+    () => MetricsConfig,
   ],
 ];
 export var CreateEndpointConfigOutput: StaticStructureSchema = [3, n0, _CECO, 0, [_ECA], [0]];
@@ -5673,7 +5677,7 @@ export var DescribeEndpointConfigOutput: StaticStructureSchema = [
   n0,
   _DECO,
   0,
-  [_ECN, _ECA, _PV, _DCC, _KKI, _CT, _AIC, _ECx, _SPV, _ERA, _VC, _ENI],
+  [_ECN, _ECA, _PV, _DCC, _KKI, _CT, _AIC, _ECx, _SPV, _ERA, _VC, _ENI, _MCe],
   [
     0,
     0,
@@ -5687,6 +5691,7 @@ export var DescribeEndpointConfigOutput: StaticStructureSchema = [
     0,
     () => VpcConfig,
     2,
+    () => MetricsConfig,
   ],
 ];
 export var DescribeEndpointInput: StaticStructureSchema = [3, n0, _DEIe, 0, [_EN], [0]];
@@ -5695,7 +5700,7 @@ export var DescribeEndpointOutput: StaticStructureSchema = [
   n0,
   _DEO,
   0,
-  [_EN, _EA, _ECN, _PV, _DCC, _ES, _FR, _CT, _LMT, _LDC, _AIC, _PDS, _ECx, _SPV],
+  [_EN, _EA, _ECN, _PV, _DCC, _ES, _FR, _CT, _LMT, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe],
   [
     0,
     0,
@@ -5711,6 +5716,7 @@ export var DescribeEndpointOutput: StaticStructureSchema = [
     () => PendingDeploymentSummary,
     () => ExplainerConfig,
     () => ProductionVariantSummaryList,
+    () => MetricsConfig,
   ],
 ];
 export var DescribeExperimentRequest: StaticStructureSchema = [3, n0, _DERes, 0, [_ENx], [0]];
@@ -8830,6 +8836,7 @@ export var MetadataProperties: StaticStructureSchema = [3, n0, _MP, 0, [_CIom, _
 export var MetricData: StaticStructureSchema = [3, n0, _MDet, 0, [_MN, _Va, _Tim], [0, 1, 4]];
 export var MetricDatum: StaticStructureSchema = [3, n0, _MDetr, 0, [_MN, _SMN, _Va, _Set], [0, 0, 1, 0]];
 export var MetricDefinition: StaticStructureSchema = [3, n0, _MDetri, 0, [_N, _Reg], [0, 0]];
+export var MetricsConfig: StaticStructureSchema = [3, n0, _MCe, 0, [_EEM, _MPFIS], [2, 1]];
 export var MetricsSource: StaticStructureSchema = [3, n0, _MSe, 0, [_CTon, _CDon, _SUr], [0, 0, 0]];
 export var Model: StaticStructureSchema = [
   3,

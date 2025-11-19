@@ -201,6 +201,10 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *     ],
  *   },
  *   EnableNetworkIsolation: true || false,
+ *   MetricsConfig: { // MetricsConfig
+ *     EnableEnhancedMetrics: true || false,
+ *     MetricPublishFrequencyInSeconds: 10 || 30 || 60 || 120 || 180 || 240 || 300,
+ *   },
  * };
  * const command = new CreateEndpointConfigCommand(input);
  * const response = await client.send(command);
