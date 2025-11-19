@@ -136,6 +136,12 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * @throws {@link CloudTrailAccessNotEnabledException} (client fault)
  *  <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not ready for an operation. This
+ *          can occur when you try to run an operation on a resource before CloudTrail has time
+ *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
+ *          operation again.</p>
+ *
  * @throws {@link EventDataStoreAlreadyExistsException} (client fault)
  *  <p>An event data store with that name already exists.</p>
  *
@@ -243,6 +249,11 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *  <p>This exception is thrown when the request is made from an Amazon Web Services account
  *          that is not a member of an organization. To make this request, sign in using the
  *          credentials of an account that belongs to an organization.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>

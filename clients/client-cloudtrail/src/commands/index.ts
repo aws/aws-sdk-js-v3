@@ -32,6 +32,7 @@ export * from "./ListDashboardsCommand";
 export * from "./ListEventDataStoresCommand";
 export * from "./ListImportFailuresCommand";
 export * from "./ListImportsCommand";
+export * from "./ListInsightsDataCommand";
 export * from "./ListInsightsMetricDataCommand";
 export * from "./ListPublicKeysCommand";
 export * from "./ListQueriesCommand";

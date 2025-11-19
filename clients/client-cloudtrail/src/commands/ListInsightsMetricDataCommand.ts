@@ -42,8 +42,17 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  *                <p>Data points with a period of 3600 seconds (1 hour) are available for 90 days.</p>
  *             </li>
  *          </ul>
- *          <p>Access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action. To use this operation,
+ *          <p>To use <code>ListInsightsMetricData</code> operation, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If <code>ListInsightsMetricData</code> is invoked with <code>TrailName</code> parameter, access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action and <code>cloudtrail:ListInsightsData</code>. To use this operation,
+ *          you must have permissions to perform the <code>cloudtrail:LookupEvents</code> and <code>cloudtrail:ListInsightsData</code> action on the specific trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>If <code>ListInsightsMetricData</code> is invoked without <code>TrailName</code> parameter, access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action only. To use this operation,
  *          you must have permissions to perform the <code>cloudtrail:LookupEvents</code> action.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +62,7 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // ListInsightsMetricDataRequest
+ *   TrailName: "STRING_VALUE",
  *   EventSource: "STRING_VALUE", // required
  *   EventName: "STRING_VALUE", // required
  *   InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight", // required
@@ -67,6 +77,7 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  * const command = new ListInsightsMetricDataCommand(input);
  * const response = await client.send(command);
  * // { // ListInsightsMetricDataResponse
+ * //   TrailARN: "STRING_VALUE",
  * //   EventSource: "STRING_VALUE",
  * //   EventName: "STRING_VALUE",
  * //   InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
@@ -90,6 +101,29 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>

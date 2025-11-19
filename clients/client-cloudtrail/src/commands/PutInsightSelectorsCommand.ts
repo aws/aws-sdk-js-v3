@@ -27,15 +27,33 @@ export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequ
 export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
+ * <p>Lets you enable Insights event logging on specific event categories by specifying the Insights selectors that you
  *          want to enable on an existing trail or event data store. You also use <code>PutInsightSelectors</code> to turn
  *          off Insights event logging, by passing an empty list of Insights types. The valid Insights
  *          event types are <code>ApiErrorRateInsight</code> and
- *             <code>ApiCallRateInsight</code>.</p>
+ *             <code>ApiCallRateInsight</code>, and valid EventCategories are <code>Management</code> and <code>Data</code>.</p>
+ *          <note>
+ *             <p>
+ *             Insights on data events are not supported on event data stores. For event data stores, you can only enable Insights on management events.
+ *          </p>
+ *          </note>
  *          <p>To enable Insights on an event data store, you must specify the ARNs (or ID suffix of the ARNs) for the source event data store (<code>EventDataStore</code>) and the destination event data store (<code>InsightsDestination</code>). The source event data store logs management events and enables Insights.
  *          The destination event data store logs Insights events based upon the management event activity of the source event data store. The source and destination event data stores must belong to the same Amazon Web Services account.</p>
  *          <p>To log Insights events for a trail, you must specify the name (<code>TrailName</code>) of the CloudTrail trail for which you want to change or add Insights
  *          selectors.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                For Management events Insights: To log CloudTrail Insights on the API call rate, the trail or event data store must log <code>write</code> management events.
+ *                To log CloudTrail Insights on the API error rate, the trail or event data store must log <code>read</code> or <code>write</code> management events.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                For Data events Insights: To log CloudTrail Insights on the API call rate or API error rate, the trail must log <code>read</code> or <code>write</code> data events. Data events Insights are not supported on event data store.
+ *             </p>
+ *             </li>
+ *          </ul>
  *          <p>To log CloudTrail Insights events on API call volume, the trail or event data store
  *          must log <code>write</code> management events. To log CloudTrail
  *          Insights events on API error rate, the trail or event data store must log <code>read</code> or
@@ -56,6 +74,9 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *   InsightSelectors: [ // InsightSelectors // required
  *     { // InsightSelector
  *       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ *       EventCategories: [ // SourceEventCategories
+ *         "Management" || "Data",
+ *       ],
  *     },
  *   ],
  *   EventDataStore: "STRING_VALUE",
@@ -68,6 +89,9 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * //   InsightSelectors: [ // InsightSelectors
  * //     { // InsightSelector
  * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ * //       EventCategories: [ // SourceEventCategories
+ * //         "Management" || "Data",
+ * //       ],
  * //     },
  * //   ],
  * //   EventDataStoreArn: "STRING_VALUE",

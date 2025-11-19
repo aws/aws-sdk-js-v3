@@ -233,6 +233,11 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *          that is not a member of an organization. To make this request, sign in using the
  *          credentials of an account that belongs to an organization.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *

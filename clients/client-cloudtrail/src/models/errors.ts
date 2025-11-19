@@ -1221,6 +1221,34 @@ export class OrganizationsNotInUseException extends __BaseException {
 }
 
 /**
+ * <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code>
  *          error code. This can occur when you are creating or updating a trail to send notifications
  *          to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
@@ -1561,34 +1589,6 @@ export class S3BucketDoesNotExistException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, S3BucketDoesNotExistException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>
- *          This exception is thrown when the request rate exceeds the limit.
- *       </p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
     this.Message = opts.Message;
   }
 }

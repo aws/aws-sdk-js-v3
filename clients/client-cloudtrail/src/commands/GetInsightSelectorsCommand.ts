@@ -28,8 +28,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
 
 /**
  * <p>Describes the settings for the Insights event selectors that you configured for your
- *          trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
- *          is enabled on the trail or event data store, and if it is, which Insights types are enabled. If you run
+ *          trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights logging is enabled
+ *          and which Insights types are configured with corresponding event categories. If you run
  *             <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights events enabled,
  *          the operation throws the exception <code>InsightNotEnabledException</code>
  *          </p>
@@ -55,6 +55,9 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * //   InsightSelectors: [ // InsightSelectors
  * //     { // InsightSelector
  * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ * //       EventCategories: [ // SourceEventCategories
+ * //         "Management" || "Data",
+ * //       ],
  * //     },
  * //   ],
  * //   EventDataStoreArn: "STRING_VALUE",

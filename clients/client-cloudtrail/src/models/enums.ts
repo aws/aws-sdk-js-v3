@@ -210,6 +210,19 @@ export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
  * @public
  * @enum
  */
+export const SourceEventCategory = {
+  Data: "Data",
+  Management: "Management",
+} as const;
+/**
+ * @public
+ */
+export type SourceEventCategory = (typeof SourceEventCategory)[keyof typeof SourceEventCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const InsightType = {
   ApiCallRateInsight: "ApiCallRateInsight",
   ApiErrorRateInsight: "ApiErrorRateInsight",
@@ -232,6 +245,33 @@ export const ImportFailureStatus = {
  * @public
  */
 export type ImportFailureStatus = (typeof ImportFailureStatus)[keyof typeof ImportFailureStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListInsightsDataType = {
+  INSIGHTS_EVENTS: "InsightsEvents",
+} as const;
+/**
+ * @public
+ */
+export type ListInsightsDataType = (typeof ListInsightsDataType)[keyof typeof ListInsightsDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListInsightsDataDimensionKey = {
+  EVENT_ID: "EventId",
+  EVENT_NAME: "EventName",
+  EVENT_SOURCE: "EventSource",
+} as const;
+/**
+ * @public
+ */
+export type ListInsightsDataDimensionKey =
+  (typeof ListInsightsDataDimensionKey)[keyof typeof ListInsightsDataDimensionKey];
 
 /**
  * @public

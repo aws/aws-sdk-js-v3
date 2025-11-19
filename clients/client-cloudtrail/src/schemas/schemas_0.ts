@@ -95,10 +95,12 @@ const _DTes = "DescribeTrails";
 const _Da = "Dashboards";
 const _De = "Destination";
 const _Des = "Description";
+const _Di = "Dimensions";
 const _E = "Equals";
 const _EC = "EventsCompleted";
 const _ECr = "ErrorCode";
-const _ECv = "EventCategory";
+const _ECv = "EventCategories";
+const _ECve = "EventCategory";
 const _EDS = "EventDataStore";
 const _EDSA = "EventDataStoreArn";
 const _EDSAEE = "EventDataStoreAlreadyExistsException";
@@ -230,6 +232,7 @@ const _ISmp = "ImportStatus";
 const _ISmpo = "ImportStatistics";
 const _ISn = "InsightSelectors";
 const _ISns = "InsightSelector";
+const _ISnsi = "InsightSource";
 const _IT = "InsightType";
 const _ITE = "InvalidTokenException";
 const _ITNE = "InvalidTrailNameException";
@@ -268,6 +271,9 @@ const _LFVE = "LogFileValidationEnabled";
 const _LI = "ListImports";
 const _LIAEID = "LatestIngestionAttemptEventID";
 const _LIAT = "LatestIngestionAttemptTime";
+const _LID = "ListInsightsData";
+const _LIDR = "ListInsightsDataRequest";
+const _LIDRi = "ListInsightsDataResponse";
 const _LIEC = "LatestIngestionErrorCode";
 const _LIF = "ListImportFailures";
 const _LIFR = "ListImportFailuresRequest";
@@ -1293,7 +1299,7 @@ export var InsightNotEnabledException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InsightNotEnabledException, __InsightNotEnabledException);
 
-export var InsightSelector: StaticStructureSchema = [3, n0, _ISns, 0, [_IT], [0]];
+export var InsightSelector: StaticStructureSchema = [3, n0, _ISns, 0, [_IT, _ECv], [0, 64 | 0]];
 export var InsufficientDependencyServiceAccessPermissionException: StaticErrorSchema = [
   -3,
   n0,
@@ -1803,21 +1809,30 @@ export var ListImportFailuresResponse: StaticStructureSchema = [
 ];
 export var ListImportsRequest: StaticStructureSchema = [3, n0, _LIR, 0, [_MR, _De, _ISmp, _NT], [1, 0, 0, 0]];
 export var ListImportsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_I, _NT], [() => ImportsList, 0]];
+export var ListInsightsDataRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LIDR,
+  0,
+  [_ISnsi, _DT, _Di, _ST, _ETn, _MR, _NT],
+  [0, 0, 128 | 0, 4, 4, 1, 0],
+];
+export var ListInsightsDataResponse: StaticStructureSchema = [3, n0, _LIDRi, 0, [_Eve, _NT], [() => EventsList, 0]];
 export var ListInsightsMetricDataRequest: StaticStructureSchema = [
   3,
   n0,
   _LIMDR,
   0,
-  [_ES, _EN, _IT, _ECr, _ST, _ETn, _Pe, _DT, _MR, _NT],
-  [0, 0, 0, 0, 4, 4, 1, 0, 1, 0],
+  [_TN, _ES, _EN, _IT, _ECr, _ST, _ETn, _Pe, _DT, _MR, _NT],
+  [0, 0, 0, 0, 0, 4, 4, 1, 0, 1, 0],
 ];
 export var ListInsightsMetricDataResponse: StaticStructureSchema = [
   3,
   n0,
   _LIMDRi,
   0,
-  [_ES, _EN, _IT, _ECr, _Ti, _V, _NT],
-  [0, 0, 0, 0, 64 | 4, 64 | 1, 0],
+  [_TARN, _ES, _EN, _IT, _ECr, _Ti, _V, _NT],
+  [0, 0, 0, 0, 0, 64 | 4, 64 | 1, 0],
 ];
 export var ListPublicKeysRequest: StaticStructureSchema = [3, n0, _LPKR, 0, [_ST, _ETn, _NT], [4, 4, 0]];
 export var ListPublicKeysResponse: StaticStructureSchema = [3, n0, _LPKRi, 0, [_PKL, _NT], [() => PublicKeyList, 0]];
@@ -1840,7 +1855,7 @@ export var LookupEventsRequest: StaticStructureSchema = [
   n0,
   _LER,
   0,
-  [_LAo, _ST, _ETn, _ECv, _MR, _NT],
+  [_LAo, _ST, _ETn, _ECve, _MR, _NT],
   [() => LookupAttributesList, 4, 4, 0, 1, 0],
 ];
 export var LookupEventsResponse: StaticStructureSchema = [3, n0, _LERo, 0, [_Eve, _NT], [() => EventsList, 0]];
@@ -2428,6 +2443,8 @@ export var SearchSampleQueriesSearchResults: StaticListSchema = [
   0,
   () => SearchSampleQueriesSearchResult,
 ];
+export var SourceEventCategories = 64 | 0;
+
 export var TagsList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var Timestamps = 64 | 4;
 
@@ -2436,6 +2453,8 @@ export var TrailNameList = 64 | 0;
 
 export var Trails: StaticListSchema = [1, n0, _Tra, 0, () => TrailInfo];
 export var WidgetList: StaticListSchema = [1, n0, _WL, 0, () => Widget];
+export var ListInsightsDataDimensions = 128 | 0;
+
 export var QueryParameterValues = 128 | 0;
 
 export var QueryResultColumn = 128 | 0;
@@ -2636,6 +2655,14 @@ export var ListImportFailures: StaticOperationSchema = [
   () => ListImportFailuresResponse,
 ];
 export var ListImports: StaticOperationSchema = [9, n0, _LI, 2, () => ListImportsRequest, () => ListImportsResponse];
+export var ListInsightsData: StaticOperationSchema = [
+  9,
+  n0,
+  _LID,
+  2,
+  () => ListInsightsDataRequest,
+  () => ListInsightsDataResponse,
+];
 export var ListInsightsMetricData: StaticOperationSchema = [
   9,
   n0,

@@ -485,6 +485,14 @@ ListImports
 </details>
 <details>
 <summary>
+ListInsightsData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudtrail/command/ListInsightsDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail/Interface/ListInsightsDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail/Interface/ListInsightsDataCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListInsightsMetricData
 </summary>
 

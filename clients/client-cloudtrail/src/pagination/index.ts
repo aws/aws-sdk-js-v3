@@ -5,6 +5,7 @@ export * from "./ListChannelsPaginator";
 export * from "./ListEventDataStoresPaginator";
 export * from "./ListImportFailuresPaginator";
 export * from "./ListImportsPaginator";
+export * from "./ListInsightsDataPaginator";
 export * from "./ListInsightsMetricDataPaginator";
 export * from "./ListPublicKeysPaginator";
 export * from "./ListQueriesPaginator";

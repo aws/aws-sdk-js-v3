@@ -137,6 +137,11 @@ import {
 } from "./commands/ListImportFailuresCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  ListInsightsDataCommand,
+  ListInsightsDataCommandInput,
+  ListInsightsDataCommandOutput,
+} from "./commands/ListInsightsDataCommand";
+import {
   ListInsightsMetricDataCommand,
   ListInsightsMetricDataCommandInput,
   ListInsightsMetricDataCommandOutput,
@@ -265,6 +270,7 @@ const commands = {
   ListEventDataStoresCommand,
   ListImportFailuresCommand,
   ListImportsCommand,
+  ListInsightsDataCommand,
   ListInsightsMetricDataCommand,
   ListPublicKeysCommand,
   ListQueriesCommand,
@@ -759,6 +765,23 @@ export interface CloudTrail {
     args: ListImportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInsightsDataCommand}
+   */
+  listInsightsData(
+    args: ListInsightsDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInsightsDataCommandOutput>;
+  listInsightsData(
+    args: ListInsightsDataCommandInput,
+    cb: (err: any, data?: ListInsightsDataCommandOutput) => void
+  ): void;
+  listInsightsData(
+    args: ListInsightsDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInsightsDataCommandOutput) => void
   ): void;
 
   /**

@@ -12,12 +12,15 @@ import {
   ImportStatus,
   InsightsMetricDataType,
   InsightType,
+  ListInsightsDataDimensionKey,
+  ListInsightsDataType,
   LookupAttributeKey,
   MaxEventSize,
   QueryStatus,
   ReadWriteType,
   RefreshScheduleFrequencyUnit,
   RefreshScheduleStatus,
+  SourceEventCategory,
   Type,
 } from "./enums";
 
@@ -919,7 +922,7 @@ export interface CreateTrailRequest {
   CloudWatchLogsRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully
+   * <p>Specifies the KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully
    *          specified ARN to an alias, a fully specified ARN to a key, or a globally unique
    *          identifier.</p>
    *          <p>CloudTrail also supports KMS multi-Region keys. For more
@@ -1484,7 +1487,7 @@ export interface Trail {
   CloudWatchLogsRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
+   * <p>Specifies the KMS key ID that encrypts the logs and digest files delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
    *          following format.</p>
    *          <p>
    *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
@@ -2558,13 +2561,29 @@ export interface InsightSelector {
    * <p>The type of Insights events to log on a trail or event data store. <code>ApiCallRateInsight</code> and
    *             <code>ApiErrorRateInsight</code> are valid Insight types.</p>
    *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only
-   *          management API calls that are aggregated per minute against a baseline API call volume.</p>
-   *          <p>The <code>ApiErrorRateInsight</code> Insights type analyzes management
+   *          management API calls or read and write data API calls that are aggregated per minute against a baseline API call volume.</p>
+   *          <p>The <code>ApiErrorRateInsight</code> Insights type analyzes management and data
    *          API calls that result in error codes. The error is shown if the API call is
    *          unsuccessful.</p>
    * @public
    */
   InsightType?: InsightType | undefined;
+
+  /**
+   * <p>Select the event category on which Insights should be enabled. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If EventCategories is not provided, the specified Insights types are enabled on management API calls by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>If EventCategories is provided, the given event categories will overwrite the existing ones. For example,
+   *             if a trail already has Insights enabled on management events, and then a PutInsightSelectors request is made with only data events specified in EventCategories, Insights on management events will be disabled.
+   *             </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EventCategories?: SourceEventCategory[] | undefined;
 }
 
 /**
@@ -2579,8 +2598,9 @@ export interface GetInsightSelectorsResponse {
   TrailARN?: string | undefined;
 
   /**
-   * <p>A JSON string that contains the Insight types you want to log on a trail or event data store. <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
-   *          as Insights types.</p>
+   * <p>Contains the Insights types that are enabled on a trail or event data store. It also specifies the event categories on which a particular Insight type is enabled.
+   *             <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid Insight
+   *          types.The EventCategory field can specify <code>Management</code> or <code>Data</code> events or both. For event data store, you can log Insights for management events only.</p>
    * @public
    */
   InsightSelectors?: InsightSelector[] | undefined;
@@ -3349,7 +3369,171 @@ export interface ListImportsResponse {
 /**
  * @public
  */
+export interface ListInsightsDataRequest {
+  /**
+   * <p>The Amazon Resource Name(ARN) of the trail for which you want to retrieve Insights events.</p>
+   * @public
+   */
+  InsightSource: string | undefined;
+
+  /**
+   * <p>Specifies the category of events returned. To fetch Insights events, specify <code>InsightsEvents</code> as the value of <code>DataType</code>
+   *          </p>
+   * @public
+   */
+  DataType: ListInsightsDataType | undefined;
+
+  /**
+   * <p>Contains a map of dimensions. Currently the map can contain only one item.</p>
+   * @public
+   */
+  Dimensions?: Partial<Record<ListInsightsDataDimensionKey, string>> | undefined;
+
+  /**
+   * <p>Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The number of events to return. Possible values are 1 through 50. The default is 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call.
+   *       For example, if the original call specified a EventName as a dimension with <code>PutObject</code> as a value, the call with NextToken should include those same parameters.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Specifies the type and name of a resource referenced by an event.</p>
+ * @public
+ */
+export interface Resource {
+  /**
+   * <p>The type of a resource referenced by the event returned. When the resource type cannot
+   *          be determined, null is returned. Some examples of resource types are: <b>Instance</b> for EC2, <b>Trail</b> for CloudTrail, <b>DBInstance</b> for Amazon RDS, and <b>AccessKey</b> for IAM. To learn more about how to look up and filter
+   *          events by the resource types supported for a service, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events">Filtering CloudTrail Events</a>.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The name of the resource referenced by the event returned. These are user-created names
+   *          whose values will depend on the environment. For example, the resource name might be
+   *          "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2
+   *          Instance.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+}
+
+/**
+ * <p>Contains information about an event that was returned by a lookup request. The result
+ *          includes a representation of a CloudTrail event.</p>
+ * @public
+ */
+export interface Event {
+  /**
+   * <p>The CloudTrail ID of the event returned.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The name of the event returned.</p>
+   * @public
+   */
+  EventName?: string | undefined;
+
+  /**
+   * <p>Information about whether the event is a write event or a read event. </p>
+   * @public
+   */
+  ReadOnly?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services access key ID that was used to sign the request. If the request
+   *          was made with temporary security credentials, this is the access key ID of the temporary
+   *          credentials.</p>
+   * @public
+   */
+  AccessKeyId?: string | undefined;
+
+  /**
+   * <p>The date and time of the event returned.</p>
+   * @public
+   */
+  EventTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services service to which the request was made.</p>
+   * @public
+   */
+  EventSource?: string | undefined;
+
+  /**
+   * <p>A user name or role name of the requester that called the API in the event
+   *          returned.</p>
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * <p>A list of resources referenced by the event returned.</p>
+   * @public
+   */
+  Resources?: Resource[] | undefined;
+
+  /**
+   * <p>A JSON string that contains a representation of the event returned.</p>
+   * @public
+   */
+  CloudTrailEvent?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInsightsDataResponse {
+  /**
+   * <p>A list of events returned based on the InsightSource, DataType or Dimensions specified. The events list is sorted by time. The most recent event is listed first.</p>
+   * @public
+   */
+  Events?: Event[] | undefined;
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call.
+   *       For example, if the original call specified a EventName as a dimension with <code>PutObject</code> as a value, the call with NextToken should include those same parameters.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListInsightsMetricDataRequest {
+  /**
+   * <p>The Amazon Resource Name(ARN) or name of the trail for which you want to retrieve Insights metrics data.
+   *       This parameter should only be provided to fetch Insights metrics data generated on trails logging data events.
+   *       This parameter is not required for Insights metric data generated on trails logging management events.</p>
+   * @public
+   */
+  TrailName?: string | undefined;
+
   /**
    * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
    * @public
@@ -3425,6 +3609,12 @@ export interface ListInsightsMetricDataRequest {
  * @public
  */
 export interface ListInsightsMetricDataResponse {
+  /**
+   * <p>Specifies the ARN of the trail. This is only returned when Insights is enabled on a trail logging data events. </p>
+   * @public
+   */
+  TrailARN?: string | undefined;
+
   /**
    * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
    * @public
@@ -3844,93 +4034,6 @@ export interface LookupEventsRequest {
 }
 
 /**
- * <p>Specifies the type and name of a resource referenced by an event.</p>
- * @public
- */
-export interface Resource {
-  /**
-   * <p>The type of a resource referenced by the event returned. When the resource type cannot
-   *          be determined, null is returned. Some examples of resource types are: <b>Instance</b> for EC2, <b>Trail</b> for CloudTrail, <b>DBInstance</b> for Amazon RDS, and <b>AccessKey</b> for IAM. To learn more about how to look up and filter
-   *          events by the resource types supported for a service, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events">Filtering CloudTrail Events</a>.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The name of the resource referenced by the event returned. These are user-created names
-   *          whose values will depend on the environment. For example, the resource name might be
-   *          "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2
-   *          Instance.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-}
-
-/**
- * <p>Contains information about an event that was returned by a lookup request. The result
- *          includes a representation of a CloudTrail event.</p>
- * @public
- */
-export interface Event {
-  /**
-   * <p>The CloudTrail ID of the event returned.</p>
-   * @public
-   */
-  EventId?: string | undefined;
-
-  /**
-   * <p>The name of the event returned.</p>
-   * @public
-   */
-  EventName?: string | undefined;
-
-  /**
-   * <p>Information about whether the event is a write event or a read event. </p>
-   * @public
-   */
-  ReadOnly?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services access key ID that was used to sign the request. If the request
-   *          was made with temporary security credentials, this is the access key ID of the temporary
-   *          credentials.</p>
-   * @public
-   */
-  AccessKeyId?: string | undefined;
-
-  /**
-   * <p>The date and time of the event returned.</p>
-   * @public
-   */
-  EventTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services service to which the request was made.</p>
-   * @public
-   */
-  EventSource?: string | undefined;
-
-  /**
-   * <p>A user name or role name of the requester that called the API in the event
-   *          returned.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>A list of resources referenced by the event returned.</p>
-   * @public
-   */
-  Resources?: Resource[] | undefined;
-
-  /**
-   * <p>A JSON string that contains a representation of the event returned.</p>
-   * @public
-   */
-  CloudTrailEvent?: string | undefined;
-}
-
-/**
  * <p>Contains a response to a LookupEvents action.</p>
  * @public
  */
@@ -4119,14 +4222,14 @@ export interface PutInsightSelectorsRequest {
   TrailName?: string | undefined;
 
   /**
-   * <p>A JSON string that contains the Insights types you want to log on a trail or event data store.
+   * <p>Contains the Insights types you want to log on a specific category of events on a trail or event data store.
    *             <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid Insight
-   *          types.</p>
-   *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only
-   *          management API calls that are aggregated per minute against a baseline API call volume.</p>
-   *          <p>The <code>ApiErrorRateInsight</code> Insights type analyzes management
-   *          API calls that result in error codes. The error is shown if the API call is
-   *          unsuccessful.</p>
+   *          types.The EventCategory field can specify <code>Management</code> or <code>Data</code> events or both. For event data store, you can log Insights for management events only.</p>
+   *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only management
+   * 	         API calls or read and write data API calls that are aggregated per minute against a baseline API call volume.</p>
+   *          <p>The <code>ApiErrorRateInsight</code> Insights type analyzes management and data
+   * 	          API calls that result in error codes. The error is shown if the API call is
+   * 	          unsuccessful.</p>
    * @public
    */
   InsightSelectors: InsightSelector[] | undefined;
@@ -4163,9 +4266,9 @@ export interface PutInsightSelectorsResponse {
   TrailARN?: string | undefined;
 
   /**
-   * <p>A JSON string that contains the Insights event types that you want to log on a trail or event data store.
-   *          The valid Insights types are <code>ApiErrorRateInsight</code> and
-   *             <code>ApiCallRateInsight</code>.</p>
+   * <p>Contains the Insights types you want to log on a specific category of events in a trail or event data store.
+   *             <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid Insight
+   *          types.The EventCategory field can specify <code>Management</code> or <code>Data</code> events or both. For event data store, you can only log Insights for management events only.</p>
    * @public
    */
   InsightSelectors?: InsightSelector[] | undefined;
@@ -5361,7 +5464,7 @@ export interface UpdateTrailRequest {
   CloudWatchLogsRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to
+   * <p>Specifies the KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to
    *          an alias, a fully specified ARN to a key, or a globally unique identifier.</p>
    *          <p>CloudTrail also supports KMS multi-Region keys. For more
    *          information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region
@@ -5490,7 +5593,7 @@ export interface UpdateTrailResponse {
   CloudWatchLogsRoleArn?: string | undefined;
 
   /**
-   * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
+   * <p>Specifies the KMS key ID that encrypts the logs and digest files delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
    *          following format.</p>
    *          <p>
    *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
