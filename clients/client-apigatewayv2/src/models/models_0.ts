@@ -11,9 +11,13 @@ import {
   IpAddressType,
   LoggingLevel,
   PassthroughBehavior,
+  PreviewStatus,
   ProtocolType,
+  PublishStatus,
   RoutingMode,
   SecurityPolicy,
+  Status,
+  TryItState,
   VpcLinkStatus,
   VpcLinkVersion,
 } from "./enums";
@@ -697,6 +701,474 @@ export interface Model {
 }
 
 /**
+ * <p>Represents a portal product.</p>
+ * @public
+ */
+export interface PortalProductSummary {
+  /**
+   * <p>The description.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The display name of a portal product.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The timestamp when the portal product was last modified.</p>
+   * @public
+   */
+  LastModified: Date | undefined;
+
+  /**
+   * <p>The ARN of a portal product.</p>
+   * @public
+   */
+  PortalProductArn: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration for using Amazon Cognito user pools to control access to your portal.</p>
+ * @public
+ */
+export interface CognitoConfig {
+  /**
+   * <p>The app client ID.</p>
+   * @public
+   */
+  AppClientId: string | undefined;
+
+  /**
+   * <p>The user pool ARN.</p>
+   * @public
+   */
+  UserPoolArn: string | undefined;
+
+  /**
+   * <p>The user pool domain.</p>
+   * @public
+   */
+  UserPoolDomain: string | undefined;
+}
+
+/**
+ * <p>The none option.</p>
+ * @public
+ */
+export interface None {}
+
+/**
+ * <p>Represents an authorization configuration for a portal.</p>
+ * @public
+ */
+export interface Authorization {
+  /**
+   * <p>The Amazon Cognito configuration.</p>
+   * @public
+   */
+  CognitoConfig?: CognitoConfig | undefined;
+
+  /**
+   * <p>Provide no authorization for your portal. This makes your portal publicly accesible on the web.</p>
+   * @public
+   */
+  None?: None | undefined;
+}
+
+/**
+ * <p>Represents an endpoint configuration.</p>
+ * @public
+ */
+export interface EndpointConfigurationResponse {
+  /**
+   * <p>The ARN of the ACM certificate.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The portal default domain name. This domain name is generated and managed by API Gateway.</p>
+   * @public
+   */
+  PortalDefaultDomainName: string | undefined;
+
+  /**
+   * <p>The portal domain hosted zone identifier.</p>
+   * @public
+   */
+  PortalDomainHostedZoneId: string | undefined;
+}
+
+/**
+ * <p>Represents custom colors for a published portal.</p>
+ * @public
+ */
+export interface CustomColors {
+  /**
+   * <p>Represents the accent color.</p>
+   * @public
+   */
+  AccentColor: string | undefined;
+
+  /**
+   * <p>Represents the background color.</p>
+   * @public
+   */
+  BackgroundColor: string | undefined;
+
+  /**
+   * <p>The errorValidationColor.</p>
+   * @public
+   */
+  ErrorValidationColor: string | undefined;
+
+  /**
+   * <p>Represents the header color.</p>
+   * @public
+   */
+  HeaderColor: string | undefined;
+
+  /**
+   * <p>Represents the navigation color.</p>
+   * @public
+   */
+  NavigationColor: string | undefined;
+
+  /**
+   * <p>Represents the text color.</p>
+   * @public
+   */
+  TextColor: string | undefined;
+}
+
+/**
+ * <p>Defines the theme for a portal.</p>
+ * @public
+ */
+export interface PortalTheme {
+  /**
+   * <p>Defines custom color values.</p>
+   * @public
+   */
+  CustomColors: CustomColors | undefined;
+
+  /**
+   * <p>The timestamp when the logo was last uploaded.</p>
+   * @public
+   */
+  LogoLastUploaded?: Date | undefined;
+}
+
+/**
+ * <p>Contains the content that is visible to portal consumers including the themes, display names, and description.</p>
+ * @public
+ */
+export interface PortalContent {
+  /**
+   * <p>A description of the portal.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name for the portal.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The theme for the portal.</p>
+   * @public
+   */
+  Theme: PortalTheme | undefined;
+}
+
+/**
+ * <p>Represents a StatusException.</p>
+ * @public
+ */
+export interface StatusException {
+  /**
+   * <p>The exception.</p>
+   * @public
+   */
+  Exception?: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Contains the preview status and preview URL.</p>
+ * @public
+ */
+export interface Preview {
+  /**
+   * <p>The status of the preview.</p>
+   * @public
+   */
+  PreviewStatus: PreviewStatus | undefined;
+
+  /**
+   * <p>The URL of the preview.</p>
+   * @public
+   */
+  PreviewUrl?: string | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+}
+
+/**
+ * <p>Represents a portal summary.</p>
+ * @public
+ */
+export interface PortalSummary {
+  /**
+   * <p>The authorization of the portal.</p>
+   * @public
+   */
+  Authorization: Authorization | undefined;
+
+  /**
+   * <p>The endpoint configuration of the portal.</p>
+   * @public
+   */
+  EndpointConfiguration: EndpointConfigurationResponse | undefined;
+
+  /**
+   * <p>The ARNs of the portal products included in the portal.</p>
+   * @public
+   */
+  IncludedPortalProductArns: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last modified.</p>
+   * @public
+   */
+  LastModified: Date | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last published.</p>
+   * @public
+   */
+  LastPublished?: Date | undefined;
+
+  /**
+   * <p>The description of the portal the last time it was published.</p>
+   * @public
+   */
+  LastPublishedDescription?: string | undefined;
+
+  /**
+   * <p>The ARN of the portal.</p>
+   * @public
+   */
+  PortalArn: string | undefined;
+
+  /**
+   * <p>Contains the content that is visible to portal consumers including the themes, display names, and description.</p>
+   * @public
+   */
+  PortalContent: PortalContent | undefined;
+
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+
+  /**
+   * <p>Represents the preview endpoint and the any possible error messages during preview generation.</p>
+   * @public
+   */
+  Preview?: Preview | undefined;
+
+  /**
+   * <p>The publish status.</p>
+   * @public
+   */
+  PublishStatus?: PublishStatus | undefined;
+
+  /**
+   * <p>The CloudWatch RUM app monitor name.</p>
+   * @public
+   */
+  RumAppMonitorName?: string | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Represents a product page summary without listing any page content.</p>
+ * @public
+ */
+export interface ProductPageSummaryNoBody {
+  /**
+   * <p>The timestamp when the product page was last modified.</p>
+   * @public
+   */
+  LastModified: Date | undefined;
+
+  /**
+   * <p>The page title.</p>
+   * @public
+   */
+  PageTitle: string | undefined;
+
+  /**
+   * <p>The ARN of the product page.</p>
+   * @public
+   */
+  ProductPageArn: string | undefined;
+
+  /**
+   * <p>The product page identifier.</p>
+   * @public
+   */
+  ProductPageId: string | undefined;
+}
+
+/**
+ * <p>The identifier parts of a product REST endpoint.</p>
+ * @public
+ */
+export interface IdentifierParts {
+  /**
+   * <p>The method of the product REST endpoint.</p>
+   * @public
+   */
+  Method: string | undefined;
+
+  /**
+   * <p>The path of the product REST endpoint.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The REST API ID of the product REST endpoint.</p>
+   * @public
+   */
+  RestApiId: string | undefined;
+
+  /**
+   * <p>The stage of the product REST endpoint.</p>
+   * @public
+   */
+  Stage: string | undefined;
+}
+
+/**
+ * <p>The REST API endpoint identifier.</p>
+ * @public
+ */
+export interface RestEndpointIdentifier {
+  /**
+   * <p>The identifier parts of the REST endpoint identifier.</p>
+   * @public
+   */
+  IdentifierParts?: IdentifierParts | undefined;
+}
+
+/**
+ * <p>A summary of a product REST endpoint page, without providing the page content.</p>
+ * @public
+ */
+export interface ProductRestEndpointPageSummaryNoBody {
+  /**
+   * <p>The endpoint of the product REST endpoint page.</p>
+   * @public
+   */
+  Endpoint: string | undefined;
+
+  /**
+   * <p>The timestamp when the product REST endpoint page was last modified.</p>
+   * @public
+   */
+  LastModified: Date | undefined;
+
+  /**
+   * <p>The operation name of the product REST endpoint.</p>
+   * @public
+   */
+  OperationName?: string | undefined;
+
+  /**
+   * <p>The ARN of the product REST endpoint page.</p>
+   * @public
+   */
+  ProductRestEndpointPageArn: string | undefined;
+
+  /**
+   * <p>The product REST endpoint page identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId: string | undefined;
+
+  /**
+   * <p>The REST endpoint identifier.</p>
+   * @public
+   */
+  RestEndpointIdentifier: RestEndpointIdentifier | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status: Status | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The try it state of a product REST endpoint page.</p>
+   * @public
+   */
+  TryItState: TryItState | undefined;
+}
+
+/**
  * <p>Validation constraints imposed on parameters of a request (path, query string, headers).</p>
  * @public
  */
@@ -961,6 +1433,24 @@ export interface RoutingRule {
 }
 
 /**
+ * <p>Contains the section name and list of product REST endpoints for a product.</p>
+ * @public
+ */
+export interface Section {
+  /**
+   * <p>The ARNs of the product REST endpoint pages in a portal product.</p>
+   * @public
+   */
+  ProductRestEndpointPageArns: string[] | undefined;
+
+  /**
+   * <p>The section name.</p>
+   * @public
+   */
+  SectionName: string | undefined;
+}
+
+/**
  * <p>Settings for logging access in a stage.</p>
  * @public
  */
@@ -1162,6 +1652,24 @@ export interface VpcLink {
    * @public
    */
   VpcLinkVersion?: VpcLinkVersion | undefined;
+}
+
+/**
+ * <p>Represents a domain name and certificate for a portal.</p>
+ * @public
+ */
+export interface ACMManaged {
+  /**
+   * <p>The certificate ARN.</p>
+   * @public
+   */
+  CertificateArn: string | undefined;
+
+  /**
+   * <p>The domain name.</p>
+   * @public
+   */
+  DomainName: string | undefined;
 }
 
 /**
@@ -2152,6 +2660,464 @@ export interface CreateModelResponse {
 }
 
 /**
+ * <p>Represents an endpoint configuration.</p>
+ * @public
+ */
+export interface EndpointConfigurationRequest {
+  /**
+   * <p>Represents a domain name and certificate for a portal.</p>
+   * @public
+   */
+  AcmManaged?: ACMManaged | undefined;
+
+  /**
+   * <p>Use the default portal domain name that is generated and managed by API Gateway.</p>
+   * @public
+   */
+  None?: None | undefined;
+}
+
+/**
+ * <p>The request body for the post operation.</p>
+ * @public
+ */
+export interface CreatePortalRequest {
+  /**
+   * <p>The authentication configuration for the portal.</p>
+   * @public
+   */
+  Authorization: Authorization | undefined;
+
+  /**
+   * <p>The domain configuration for the portal. Use a default domain provided by API Gateway or provide a fully-qualified domain name that you own.</p>
+   * @public
+   */
+  EndpointConfiguration: EndpointConfigurationRequest | undefined;
+
+  /**
+   * <p>The ARNs of the portal products included in the portal.</p>
+   * @public
+   */
+  IncludedPortalProductArns?: string[] | undefined;
+
+  /**
+   * <p>The URI for the portal logo image that is displayed in the portal header.</p>
+   * @public
+   */
+  LogoUri?: string | undefined;
+
+  /**
+   * <p>The content of the portal.</p>
+   * @public
+   */
+  PortalContent: PortalContent | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch RUM app monitor for the portal.</p>
+   * @public
+   */
+  RumAppMonitorName?: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePortalResponse {
+  /**
+   * <p>The authorization for the portal. Supports Cognito-based user authentication or no authentication.</p>
+   * @public
+   */
+  Authorization?: Authorization | undefined;
+
+  /**
+   * <p>The endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfiguration?: EndpointConfigurationResponse | undefined;
+
+  /**
+   * <p>The ARNs of the portal products included in the portal.</p>
+   * @public
+   */
+  IncludedPortalProductArns?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the portal configuration was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last published.</p>
+   * @public
+   */
+  LastPublished?: Date | undefined;
+
+  /**
+   * <p>A user-written description of the changes made in the last published version of the portal.</p>
+   * @public
+   */
+  LastPublishedDescription?: string | undefined;
+
+  /**
+   * <p>The ARN of the portal.</p>
+   * @public
+   */
+  PortalArn?: string | undefined;
+
+  /**
+   * <p>The name, description, and theme for the portal.</p>
+   * @public
+   */
+  PortalContent?: PortalContent | undefined;
+
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId?: string | undefined;
+
+  /**
+   * <p>The current publishing status of the portal.</p>
+   * @public
+   */
+  PublishStatus?: PublishStatus | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch RUM app monitor.</p>
+   * @public
+   */
+  RumAppMonitorName?: string | undefined;
+
+  /**
+   * <p>Error information for failed portal operations. Contains details about any issues encountered during portal creation or publishing.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request body for the post operation.</p>
+ * @public
+ */
+export interface CreatePortalProductRequest {
+  /**
+   * <p>A description of the portal product.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the portal product as it appears in a published portal.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The display order.</p>
+ * @public
+ */
+export interface DisplayOrder {
+  /**
+   * <p>Represents a list of sections which include section name and list of product REST endpoints for a product.</p>
+   * @public
+   */
+  Contents?: Section[] | undefined;
+
+  /**
+   * <p>The ARN of the overview page.</p>
+   * @public
+   */
+  OverviewPageArn?: string | undefined;
+
+  /**
+   * <p>The product page ARNs.</p>
+   * @public
+   */
+  ProductPageArns?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePortalProductResponse {
+  /**
+   * <p>A description of the portal product.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name for the portal product.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The visual ordering of the product pages and product REST endpoint pages in a published portal.</p>
+   * @public
+   */
+  DisplayOrder?: DisplayOrder | undefined;
+
+  /**
+   * <p>The timestamp when the portal product was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the portal product.</p>
+   * @public
+   */
+  PortalProductArn?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId?: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The content of the product page.</p>
+ * @public
+ */
+export interface DisplayContent {
+  /**
+   * <p>The body.</p>
+   * @public
+   */
+  Body: string | undefined;
+
+  /**
+   * <p>The title.</p>
+   * @public
+   */
+  Title: string | undefined;
+}
+
+/**
+ * <p>The request body for the post operation.</p>
+ * @public
+ */
+export interface CreateProductPageRequest {
+  /**
+   * <p>The content of the product page.</p>
+   * @public
+   */
+  DisplayContent: DisplayContent | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProductPageResponse {
+  /**
+   * <p>The content of the product page.</p>
+   * @public
+   */
+  DisplayContent?: DisplayContent | undefined;
+
+  /**
+   * <p>The timestamp when the product page was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the product page.</p>
+   * @public
+   */
+  ProductPageArn?: string | undefined;
+
+  /**
+   * <p>The product page identifier.</p>
+   * @public
+   */
+  ProductPageId?: string | undefined;
+}
+
+/**
+ * <p>Contains any values that override the default configuration generated from API Gateway.</p>
+ * @public
+ */
+export interface DisplayContentOverrides {
+  /**
+   * <p>By default, this is the documentation of your REST API from API Gateway. You can provide custom documentation to override this value.</p>
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * <p>The URL for your REST API. By default, API Gateway uses the default execute API endpoint. You can provide a custom domain to override this value.</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+
+  /**
+   * <p>The operation name of the product REST endpoint.</p>
+   * @public
+   */
+  OperationName?: string | undefined;
+}
+
+/**
+ * <p>Represents the endpoint display content.</p>
+ * @public
+ */
+export interface EndpointDisplayContent {
+  /**
+   * <p>If your product REST endpoint contains no overrides, the none object is returned.</p>
+   * @public
+   */
+  None?: None | undefined;
+
+  /**
+   * <p>The overrides for endpoint display content.</p>
+   * @public
+   */
+  Overrides?: DisplayContentOverrides | undefined;
+}
+
+/**
+ * <p>The request body for the post operation.</p>
+ * @public
+ */
+export interface CreateProductRestEndpointPageRequest {
+  /**
+   * <p>The content of the product REST endpoint page.</p>
+   * @public
+   */
+  DisplayContent?: EndpointDisplayContent | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The REST endpoint identifier.</p>
+   * @public
+   */
+  RestEndpointIdentifier: RestEndpointIdentifier | undefined;
+
+  /**
+   * <p>The try it state of the product REST endpoint page.</p>
+   * @public
+   */
+  TryItState?: TryItState | undefined;
+}
+
+/**
+ * <p>The product REST endpoint page.</p>
+ * @public
+ */
+export interface EndpointDisplayContentResponse {
+  /**
+   * <p>The API documentation.</p>
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * <p>The URL to invoke your REST API.</p>
+   * @public
+   */
+  Endpoint: string | undefined;
+
+  /**
+   * <p>The operation name.</p>
+   * @public
+   */
+  OperationName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProductRestEndpointPageResponse {
+  /**
+   * <p>The display content.</p>
+   * @public
+   */
+  DisplayContent?: EndpointDisplayContentResponse | undefined;
+
+  /**
+   * <p>The timestamp when the product REST endpoint page was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the product REST endpoint page.</p>
+   * @public
+   */
+  ProductRestEndpointPageArn?: string | undefined;
+
+  /**
+   * <p>The product REST endpoint page identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId?: string | undefined;
+
+  /**
+   * <p>The REST endpoint identifier.</p>
+   * @public
+   */
+  RestEndpointIdentifier?: RestEndpointIdentifier | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The try it state.</p>
+   * @public
+   */
+  TryItState?: TryItState | undefined;
+}
+
+/**
  * <p>Creates a new Route resource to represent a route.</p>
  * @public
  */
@@ -2870,6 +3836,73 @@ export interface DeleteModelRequest {
 /**
  * @public
  */
+export interface DeletePortalRequest {
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePortalProductRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePortalProductSharingPolicyRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProductPageRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  ProductPageId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProductRestEndpointPageRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The product REST endpoint identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteRouteRequest {
   /**
    * <p>The API identifier.</p>
@@ -3008,6 +4041,17 @@ export interface DeleteVpcLinkRequest {
  * @public
  */
 export interface DeleteVpcLinkResponse {}
+
+/**
+ * @public
+ */
+export interface DisablePortalRequest {
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+}
 
 /**
  * @public
@@ -3554,7 +4598,7 @@ export interface GetDomainNameResponse {
   DomainName?: string | undefined;
 
   /**
-   * <p>Represents an Amazon Resource Name (ARN).</p>
+   * <p>The ARN of the DomainName resource.</p>
    * @public
    */
   DomainNameArn?: string | undefined;
@@ -4033,6 +5077,338 @@ export interface GetModelTemplateResponse {
    * @public
    */
   Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPortalRequest {
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPortalResponse {
+  /**
+   * <p>The authorization for the portal.</p>
+   * @public
+   */
+  Authorization?: Authorization | undefined;
+
+  /**
+   * <p>The endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfiguration?: EndpointConfigurationResponse | undefined;
+
+  /**
+   * <p>The ARNs of the portal products included in the portal.</p>
+   * @public
+   */
+  IncludedPortalProductArns?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last published.</p>
+   * @public
+   */
+  LastPublished?: Date | undefined;
+
+  /**
+   * <p>The publish description used when the portal was last published.</p>
+   * @public
+   */
+  LastPublishedDescription?: string | undefined;
+
+  /**
+   * <p>The ARN of the portal.</p>
+   * @public
+   */
+  PortalArn?: string | undefined;
+
+  /**
+   * <p>Contains the content that is visible to portal consumers including the themes, display names, and description.</p>
+   * @public
+   */
+  PortalContent?: PortalContent | undefined;
+
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId?: string | undefined;
+
+  /**
+   * <p>Represents the preview endpoint and the any possible error messages during preview generation.</p>
+   * @public
+   */
+  Preview?: Preview | undefined;
+
+  /**
+   * <p>The publish status of a portal.</p>
+   * @public
+   */
+  PublishStatus?: PublishStatus | undefined;
+
+  /**
+   * <p>The CloudWatch RUM app monitor name.</p>
+   * @public
+   */
+  RumAppMonitorName?: string | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPortalProductRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The account ID of the resource owner of the portal product.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPortalProductResponse {
+  /**
+   * <p>The description of a portal product.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The display order.</p>
+   * @public
+   */
+  DisplayOrder?: DisplayOrder | undefined;
+
+  /**
+   * <p>The timestamp when the portal product was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the portal product.</p>
+   * @public
+   */
+  PortalProductArn?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId?: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPortalProductSharingPolicyRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPortalProductSharingPolicyResponse {
+  /**
+   * <p>The product sharing policy.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProductPageRequest {
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  ProductPageId: string | undefined;
+
+  /**
+   * <p>The account ID of the resource owner of the portal product.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProductPageResponse {
+  /**
+   * <p>The content of the product page.</p>
+   * @public
+   */
+  DisplayContent?: DisplayContent | undefined;
+
+  /**
+   * <p>The timestamp when the product page was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the product page.</p>
+   * @public
+   */
+  ProductPageArn?: string | undefined;
+
+  /**
+   * <p>The product page identifier.</p>
+   * @public
+   */
+  ProductPageId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProductRestEndpointPageRequest {
+  /**
+   * <p>The query parameter to include raw display content.</p>
+   * @public
+   */
+  IncludeRawDisplayContent?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The product REST endpoint identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId: string | undefined;
+
+  /**
+   * <p>The account ID of the resource owner of the portal product.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProductRestEndpointPageResponse {
+  /**
+   * <p>The content of the product REST endpoint page.</p>
+   * @public
+   */
+  DisplayContent?: EndpointDisplayContentResponse | undefined;
+
+  /**
+   * <p>The timestamp when the product REST endpoint page was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the product REST endpoint page.</p>
+   * @public
+   */
+  ProductRestEndpointPageArn?: string | undefined;
+
+  /**
+   * <p>The product REST endpoint page identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId?: string | undefined;
+
+  /**
+   * <p>The raw display content of the product REST endpoint page.</p>
+   * @public
+   */
+  RawDisplayContent?: string | undefined;
+
+  /**
+   * <p>The REST endpoint identifier.</p>
+   * @public
+   */
+  RestEndpointIdentifier?: RestEndpointIdentifier | undefined;
+
+  /**
+   * <p>The status of the product REST endpoint page.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The try it state.</p>
+   * @public
+   */
+  TryItState?: TryItState | undefined;
 }
 
 /**
@@ -4743,6 +6119,172 @@ export interface ImportApiResponse {
 /**
  * @public
  */
+export interface ListPortalProductsRequest {
+  /**
+   * <p>The maximum number of elements to be returned for this resource.</p>
+   * @public
+   */
+  MaxResults?: string | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The resource owner of the portal product.</p>
+   * @public
+   */
+  ResourceOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPortalProductsResponse {
+  /**
+   * <p>The elements from this collection.</p>
+   * @public
+   */
+  Items?: PortalProductSummary[] | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPortalsRequest {
+  /**
+   * <p>The maximum number of elements to be returned for this resource.</p>
+   * @public
+   */
+  MaxResults?: string | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPortalsResponse {
+  /**
+   * <p>The elements from this collection.</p>
+   * @public
+   */
+  Items?: PortalSummary[] | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProductPagesRequest {
+  /**
+   * <p>The maximum number of elements to be returned for this resource.</p>
+   * @public
+   */
+  MaxResults?: string | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The account ID of the resource owner of the portal product.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProductPagesResponse {
+  /**
+   * <p>The elements from this collection.</p>
+   * @public
+   */
+  Items?: ProductPageSummaryNoBody[] | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProductRestEndpointPagesRequest {
+  /**
+   * <p>The maximum number of elements to be returned for this resource.</p>
+   * @public
+   */
+  MaxResults?: string | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The account ID of the resource owner of the portal product.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProductRestEndpointPagesResponse {
+  /**
+   * <p>The elements from this collection.</p>
+   * @public
+   */
+  Items?: ProductRestEndpointPageSummaryNoBody[] | undefined;
+
+  /**
+   * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListRoutingRulesRequest {
   /**
    * <p>The domain name.</p>
@@ -4785,6 +6327,68 @@ export interface ListRoutingRulesResponse {
    */
   RoutingRules?: RoutingRule[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PreviewPortalRequest {
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PreviewPortalResponse {}
+
+/**
+ * <p>The request body for the post operation.</p>
+ * @public
+ */
+export interface PublishPortalRequest {
+  /**
+   * <p>The description of the portal. When the portal is published, this description becomes the last published description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PublishPortalResponse {}
+
+/**
+ * <p>The request body for the put operation.</p>
+ * @public
+ */
+export interface PutPortalProductSharingPolicyRequest {
+  /**
+   * <p>The product sharing policy.</p>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutPortalProductSharingPolicyResponse {}
 
 /**
  * @public
@@ -5575,7 +7179,7 @@ export interface UpdateDomainNameResponse {
   DomainName?: string | undefined;
 
   /**
-   * <p>Represents an Amazon Resource Name (ARN).</p>
+   * <p>The ARN of the DomainName resource.</p>
    * @public
    */
   DomainNameArn?: string | undefined;
@@ -6037,6 +7641,356 @@ export interface UpdateModelResponse {
    * @public
    */
   Schema?: string | undefined;
+}
+
+/**
+ * <p>The request body for the patch operation.</p>
+ * @public
+ */
+export interface UpdatePortalRequest {
+  /**
+   * <p>The authorization of the portal.</p>
+   * @public
+   */
+  Authorization?: Authorization | undefined;
+
+  /**
+   * <p>Represents an endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfiguration?: EndpointConfigurationRequest | undefined;
+
+  /**
+   * <p>The ARNs of the portal products included in the portal.</p>
+   * @public
+   */
+  IncludedPortalProductArns?: string[] | undefined;
+
+  /**
+   * <p>The logo URI.</p>
+   * @public
+   */
+  LogoUri?: string | undefined;
+
+  /**
+   * <p>Contains the content that is visible to portal consumers including the themes, display names, and description.</p>
+   * @public
+   */
+  PortalContent?: PortalContent | undefined;
+
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId: string | undefined;
+
+  /**
+   * <p>The CloudWatch RUM app monitor name.</p>
+   * @public
+   */
+  RumAppMonitorName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePortalResponse {
+  /**
+   * <p>The authorization for the portal.</p>
+   * @public
+   */
+  Authorization?: Authorization | undefined;
+
+  /**
+   * <p>The endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfiguration?: EndpointConfigurationResponse | undefined;
+
+  /**
+   * <p>The ARNs of the portal products included in the portal.</p>
+   * @public
+   */
+  IncludedPortalProductArns?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the portal was last published.</p>
+   * @public
+   */
+  LastPublished?: Date | undefined;
+
+  /**
+   * <p>The description associated with the last time the portal was published.</p>
+   * @public
+   */
+  LastPublishedDescription?: string | undefined;
+
+  /**
+   * <p>The ARN of the portal.</p>
+   * @public
+   */
+  PortalArn?: string | undefined;
+
+  /**
+   * <p>Contains the content that is visible to portal consumers including the themes, display names, and description.</p>
+   * @public
+   */
+  PortalContent?: PortalContent | undefined;
+
+  /**
+   * <p>The portal identifier.</p>
+   * @public
+   */
+  PortalId?: string | undefined;
+
+  /**
+   * <p>Represents the preview endpoint and the any possible error messages during preview generation.</p>
+   * @public
+   */
+  Preview?: Preview | undefined;
+
+  /**
+   * <p>The publishStatus.</p>
+   * @public
+   */
+  PublishStatus?: PublishStatus | undefined;
+
+  /**
+   * <p>The CloudWatch RUM app monitor name.</p>
+   * @public
+   */
+  RumAppMonitorName?: string | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request body for the patch operation.</p>
+ * @public
+ */
+export interface UpdatePortalProductRequest {
+  /**
+   * <p>The description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The displayName.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The display order.</p>
+   * @public
+   */
+  DisplayOrder?: DisplayOrder | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePortalProductResponse {
+  /**
+   * <p>The description of the portal product.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The display name of a portal product.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The display order that the portal products will appear in a portal.</p>
+   * @public
+   */
+  DisplayOrder?: DisplayOrder | undefined;
+
+  /**
+   * <p>The timestamp when the portal product was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the portal product.</p>
+   * @public
+   */
+  PortalProductArn?: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId?: string | undefined;
+
+  /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request body for the patch operation.</p>
+ * @public
+ */
+export interface UpdateProductPageRequest {
+  /**
+   * <p>The content of the product page.</p>
+   * @public
+   */
+  DisplayContent?: DisplayContent | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  ProductPageId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProductPageResponse {
+  /**
+   * <p>The content of the product page.</p>
+   * @public
+   */
+  DisplayContent?: DisplayContent | undefined;
+
+  /**
+   * <p>The timestamp when the product page was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the product page.</p>
+   * @public
+   */
+  ProductPageArn?: string | undefined;
+
+  /**
+   * <p>The product page identifier.</p>
+   * @public
+   */
+  ProductPageId?: string | undefined;
+}
+
+/**
+ * <p>The request body for the patch operation.</p>
+ * @public
+ */
+export interface UpdateProductRestEndpointPageRequest {
+  /**
+   * <p>The display content.</p>
+   * @public
+   */
+  DisplayContent?: EndpointDisplayContent | undefined;
+
+  /**
+   * <p>The portal product identifier.</p>
+   * @public
+   */
+  PortalProductId: string | undefined;
+
+  /**
+   * <p>The product REST endpoint identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId: string | undefined;
+
+  /**
+   * <p>The try it state of a product REST endpoint page.</p>
+   * @public
+   */
+  TryItState?: TryItState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProductRestEndpointPageResponse {
+  /**
+   * <p>The content of the product REST endpoint page.</p>
+   * @public
+   */
+  DisplayContent?: EndpointDisplayContentResponse | undefined;
+
+  /**
+   * <p>The timestamp when the product REST endpoint page was last modified.</p>
+   * @public
+   */
+  LastModified?: Date | undefined;
+
+  /**
+   * <p>The ARN of the product REST endpoint page.</p>
+   * @public
+   */
+  ProductRestEndpointPageArn?: string | undefined;
+
+  /**
+   * <p>The product REST endpoint page identifier.</p>
+   * @public
+   */
+  ProductRestEndpointPageId?: string | undefined;
+
+  /**
+   * <p>The REST endpoint identifier.</p>
+   * @public
+   */
+  RestEndpointIdentifier?: RestEndpointIdentifier | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>The status exception information.</p>
+   * @public
+   */
+  StatusException?: StatusException | undefined;
+
+  /**
+   * <p>The try it state of a product REST endpoint page.</p>
+   * @public
+   */
+  TryItState?: TryItState | undefined;
 }
 
 /**

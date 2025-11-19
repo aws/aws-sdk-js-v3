@@ -1,6 +1,9 @@
 const _A = "Api";
 const _AC = "AllowCredentials";
 const _ACA = "AuthorizerCredentialsArn";
+const _ACI = "AppClientId";
+const _ACMM = "ACMManaged";
+const _ACc = "AccentColor";
 const _AD = "AutoDeployed";
 const _ADE = "AccessDeniedException";
 const _ADu = "AutoDeploy";
@@ -17,6 +20,7 @@ const _AM = "ApiMapping";
 const _AMI = "ApiMappingId";
 const _AMK = "ApiMappingKey";
 const _AMSE = "ApiMappingSelectionExpression";
+const _AMc = "AcmManaged";
 const _AMl = "AllowMethods";
 const _AO = "AllowOrigins";
 const _AOn = "AnyOf";
@@ -27,13 +31,15 @@ const _AT = "AuthorizerType";
 const _ATu = "AuthorizationType";
 const _AU = "AuthorizerUri";
 const _Ac = "Actions";
-const _Au = "Authorizer";
+const _Au = "Authorization";
 const _Aud = "Audience";
-const _B = "Basepath";
+const _Aut = "Authorizer";
+const _B = "Body";
+const _BC = "BackgroundColor";
 const _BRE = "BadRequestException";
-const _Bo = "Body";
+const _Ba = "Basepath";
 const _C = "Cors";
-const _CA = "CredentialsArn";
+const _CA = "CertificateArn";
 const _CAM = "CreateApiMapping";
 const _CAMR = "CreateApiMappingRequest";
 const _CAMRr = "CreateApiMappingResponse";
@@ -41,11 +47,13 @@ const _CAR = "CreateApiRequest";
 const _CARr = "CreateApiResponse";
 const _CARre = "CreateAuthorizerRequest";
 const _CARrea = "CreateAuthorizerResponse";
-const _CAe = "CertificateArn";
-const _CAr = "CreateApi";
-const _CAre = "CreateAuthorizer";
+const _CAr = "CredentialsArn";
+const _CAre = "CreateApi";
+const _CArea = "CreateAuthorizer";
 const _CC = "CorsConfiguration";
 const _CCI = "ClientCertificateId";
+const _CCo = "CognitoConfig";
+const _CCu = "CustomColors";
 const _CD = "CreatedDate";
 const _CDN = "CreateDomainName";
 const _CDNR = "CreateDomainNameRequest";
@@ -66,6 +74,18 @@ const _CM = "CreateModel";
 const _CMR = "CreateModelRequest";
 const _CMRr = "CreateModelResponse";
 const _CN = "CertificateName";
+const _CP = "CreatePortal";
+const _CPP = "CreatePortalProduct";
+const _CPPR = "CreatePortalProductRequest";
+const _CPPRr = "CreatePortalProductResponse";
+const _CPPRre = "CreateProductPageRequest";
+const _CPPRrea = "CreateProductPageResponse";
+const _CPPr = "CreateProductPage";
+const _CPR = "CreatePortalRequest";
+const _CPREP = "CreateProductRestEndpointPage";
+const _CPREPR = "CreateProductRestEndpointPageRequest";
+const _CPREPRr = "CreateProductRestEndpointPageResponse";
+const _CPRr = "CreatePortalResponse";
 const _CR = "CreateRoute";
 const _CRR = "CreateRouteRequest";
 const _CRRR = "CreateRouteResponseRequest";
@@ -85,6 +105,7 @@ const _CVL = "CreateVpcLink";
 const _CVLR = "CreateVpcLinkRequest";
 const _CVLRr = "CreateVpcLinkResponse";
 const _Co = "Conditions";
+const _Con = "Contents";
 const _D = "Description";
 const _DA = "DestinationArn";
 const _DALS = "DeleteAccessLogSettings";
@@ -95,8 +116,10 @@ const _DAR = "DeleteApiRequest";
 const _DARe = "DeleteAuthorizerRequest";
 const _DAe = "DeleteApi";
 const _DAel = "DeleteAuthorizer";
+const _DC = "DisplayContent";
 const _DCC = "DeleteCorsConfiguration";
 const _DCCR = "DeleteCorsConfigurationRequest";
+const _DCO = "DisplayContentOverrides";
 const _DD = "DeleteDeployment";
 const _DDN = "DeleteDomainName";
 const _DDNR = "DeleteDomainNameRequest";
@@ -117,6 +140,20 @@ const _DNCo = "DomainNameConfiguration";
 const _DNI = "DomainNameId";
 const _DNS = "DomainNameStatus";
 const _DNSM = "DomainNameStatusMessage";
+const _DNi = "DisplayName";
+const _DO = "DisplayOrder";
+const _DP = "DeletePortal";
+const _DPP = "DeletePortalProduct";
+const _DPPR = "DeletePortalProductRequest";
+const _DPPRe = "DeleteProductPageRequest";
+const _DPPSP = "DeletePortalProductSharingPolicy";
+const _DPPSPR = "DeletePortalProductSharingPolicyRequest";
+const _DPPe = "DeleteProductPage";
+const _DPR = "DeletePortalRequest";
+const _DPREP = "DeleteProductRestEndpointPage";
+const _DPREPR = "DeleteProductRestEndpointPageRequest";
+const _DPRi = "DisablePortalRequest";
+const _DPi = "DisablePortal";
 const _DR = "DeleteRoute";
 const _DRR = "DeleteRouteRequest";
 const _DRRP = "DeleteRouteRequestParameter";
@@ -138,13 +175,21 @@ const _DVL = "DeleteVpcLink";
 const _DVLR = "DeleteVpcLinkRequest";
 const _DVLRe = "DeleteVpcLinkResponse";
 const _De = "Deployment";
+const _E = "Endpoint";
 const _EA = "ExportApi";
 const _EAR = "ExportApiRequest";
 const _EARx = "ExportApiResponse";
+const _EC = "EndpointConfiguration";
+const _ECR = "EndpointConfigurationRequest";
+const _ECRn = "EndpointConfigurationResponse";
+const _EDC = "EndpointDisplayContent";
+const _EDCR = "EndpointDisplayContentResponse";
 const _EH = "ExposeHeaders";
 const _ESR = "EnableSimpleResponses";
 const _ET = "EndpointType";
 const _EV = "ExportVersion";
+const _EVC = "ErrorValidationColor";
+const _Ex = "Exception";
 const _F = "Format";
 const _FOW = "FailOnWarnings";
 const _GA = "GetApi";
@@ -198,6 +243,21 @@ const _GMT = "GetModelTemplate";
 const _GMTR = "GetModelTemplateRequest";
 const _GMTRe = "GetModelTemplateResponse";
 const _GMe = "GetModels";
+const _GP = "GetPortal";
+const _GPP = "GetPortalProduct";
+const _GPPR = "GetPortalProductRequest";
+const _GPPRe = "GetPortalProductResponse";
+const _GPPRet = "GetProductPageRequest";
+const _GPPRetr = "GetProductPageResponse";
+const _GPPSP = "GetPortalProductSharingPolicy";
+const _GPPSPR = "GetPortalProductSharingPolicyRequest";
+const _GPPSPRe = "GetPortalProductSharingPolicyResponse";
+const _GPPe = "GetProductPage";
+const _GPR = "GetPortalRequest";
+const _GPREP = "GetProductRestEndpointPage";
+const _GPREPR = "GetProductRestEndpointPageRequest";
+const _GPREPRe = "GetProductRestEndpointPageResponse";
+const _GPRe = "GetPortalResponse";
 const _GR = "GetRoute";
 const _GRR = "GetRouteRequest";
 const _GRRR = "GetRouteResponseRequest";
@@ -229,6 +289,7 @@ const _GVLRet = "GetVpcLinksRequest";
 const _GVLRetp = "GetVpcLinksResponse";
 const _GVLe = "GetVpcLinks";
 const _H = "Header";
+const _HC = "HeaderColor";
 const _HZI = "HostedZoneId";
 const _I = "Items";
 const _IA = "InvokeApi";
@@ -240,7 +301,10 @@ const _IE = "IncludeExtensions";
 const _II = "ImportInfo";
 const _IIn = "IntegrationId";
 const _IM = "IntegrationMethod";
+const _IP = "IdentifierParts";
+const _IPPA = "IncludedPortalProductArns";
 const _IR = "IntegrationResponse";
+const _IRDC = "IncludeRawDisplayContent";
 const _IRI = "IntegrationResponseId";
 const _IRK = "IntegrationResponseKey";
 const _IRSE = "IntegrationResponseSelectionExpression";
@@ -255,10 +319,27 @@ const _JC = "JwtConfiguration";
 const _JWTC = "JWTConfiguration";
 const _LDSM = "LastDeploymentStatusMessage";
 const _LL = "LoggingLevel";
+const _LLU = "LogoLastUploaded";
+const _LM = "LastModified";
+const _LP = "LastPublished";
+const _LPD = "LastPublishedDescription";
+const _LPP = "ListPortalProducts";
+const _LPPR = "ListPortalProductsRequest";
+const _LPPRi = "ListPortalProductsResponse";
+const _LPPRis = "ListProductPagesRequest";
+const _LPPRist = "ListProductPagesResponse";
+const _LPPi = "ListProductPages";
+const _LPR = "ListPortalsRequest";
+const _LPREP = "ListProductRestEndpointPages";
+const _LPREPR = "ListProductRestEndpointPagesRequest";
+const _LPREPRi = "ListProductRestEndpointPagesResponse";
+const _LPRi = "ListPortalsResponse";
+const _LPi = "ListPortals";
 const _LRR = "ListRoutingRules";
 const _LRRR = "ListRoutingRulesRequest";
 const _LRRRi = "ListRoutingRulesResponse";
 const _LT = "LimitType";
+const _LU = "LogoUri";
 const _LUD = "LastUpdatedDate";
 const _M = "Message";
 const _MA = "MaxAge";
@@ -269,33 +350,78 @@ const _MR = "MaxResults";
 const _MSE = "ModelSelectionExpression";
 const _MTA = "MutualTlsAuthentication";
 const _MTAI = "MutualTlsAuthenticationInput";
+const _Me = "Method";
 const _Mo = "Model";
 const _N = "Name";
+const _NC = "NavigationColor";
 const _NFE = "NotFoundException";
 const _NT = "NextToken";
+const _No = "None";
+const _O = "Overrides";
 const _ON = "OperationName";
+const _OPA = "OverviewPageArn";
 const _OT = "OutputType";
 const _OVCA = "OwnershipVerificationCertificateArn";
 const _P = "Priority";
+const _PA = "PortalArn";
 const _PB = "PassthroughBehavior";
-const _PC = "ParameterConstraints";
+const _PC = "PortalContent";
+const _PCa = "ParameterConstraints";
+const _PD = "PolicyDocument";
+const _PDDN = "PortalDefaultDomainName";
+const _PDHZI = "PortalDomainHostedZoneId";
 const _PFV = "PayloadFormatVersion";
+const _PI = "PortalId";
+const _PP = "PreviewPortal";
+const _PPA = "PortalProductArn";
+const _PPAr = "ProductPageArn";
+const _PPAro = "ProductPageArns";
+const _PPI = "PortalProductId";
+const _PPIr = "ProductPageId";
+const _PPPSP = "PutPortalProductSharingPolicy";
+const _PPPSPR = "PutPortalProductSharingPolicyRequest";
+const _PPPSPRu = "PutPortalProductSharingPolicyResponse";
+const _PPR = "PreviewPortalRequest";
+const _PPRr = "PreviewPortalResponse";
+const _PPRu = "PublishPortalRequest";
+const _PPRub = "PublishPortalResponse";
+const _PPS = "PortalProductSummary";
+const _PPSNB = "ProductPageSummaryNoBody";
+const _PPu = "PublishPortal";
+const _PREPA = "ProductRestEndpointPageArn";
+const _PREPAr = "ProductRestEndpointPageArns";
+const _PREPI = "ProductRestEndpointPageId";
+const _PREPSNB = "ProductRestEndpointPageSummaryNoBody";
 const _PRR = "PutRoutingRule";
 const _PRRR = "PutRoutingRuleRequest";
 const _PRRRu = "PutRoutingRuleResponse";
+const _PS = "PublishStatus";
+const _PSo = "PortalSummary";
+const _PSr = "PreviewStatus";
 const _PT = "ProtocolType";
+const _PTa = "PageTitle";
+const _PTo = "PortalTheme";
+const _PU = "PreviewUrl";
+const _Pa = "Path";
+const _Pr = "Preview";
 const _R = "Required";
 const _RA = "ResourceArn";
 const _RAC = "ResetAuthorizersCache";
 const _RACR = "ResetAuthorizersCacheRequest";
+const _RAI = "RestApiId";
+const _RAMN = "RumAppMonitorName";
 const _RAR = "ReimportApiRequest";
 const _RARe = "ReimportApiResponse";
 const _RAe = "ReimportApi";
+const _RDC = "RawDisplayContent";
+const _REI = "RestEndpointIdentifier";
 const _RI = "RouteId";
 const _RK = "RouteKey";
 const _RM = "RoutingMode";
 const _RMe = "RequestModels";
 const _RMes = "ResponseModels";
+const _RO = "ResourceOwner";
+const _ROAI = "ResourceOwnerAccountId";
 const _RP = "RequestParameters";
 const _RPK = "RequestParameterKey";
 const _RPe = "ResponseParameters";
@@ -323,19 +449,25 @@ const _RTes = "ResourceType";
 const _Ro = "Route";
 const _S = "Stage";
 const _SBP = "StripBasePath";
+const _SE = "StatusException";
 const _SGI = "SecurityGroupIds";
 const _SI = "SubnetIds";
 const _SN = "StageName";
 const _SNTV = "ServerNameToVerify";
+const _SNe = "SectionName";
 const _SP = "SecurityPolicy";
 const _SV = "StageVariables";
 const _Sc = "Schema";
+const _Se = "Section";
 const _Sp = "Specification";
+const _St = "Status";
 const _T = "Tags";
 const _TBL = "ThrottlingBurstLimit";
 const _TC = "TlsConfig";
 const _TCI = "TlsConfigInput";
+const _TCe = "TextColor";
 const _TIM = "TimeoutInMillis";
+const _TIS = "TryItState";
 const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
@@ -347,6 +479,8 @@ const _TU = "TruststoreUri";
 const _TV = "TruststoreVersion";
 const _TW = "TruststoreWarnings";
 const _Ta = "Target";
+const _Th = "Theme";
+const _Ti = "Title";
 const _UA = "UpdateApi";
 const _UAM = "UpdateApiMapping";
 const _UAMR = "UpdateApiMappingRequest";
@@ -371,6 +505,20 @@ const _UIRpd = "UpdateIntegrationResponse";
 const _UM = "UpdateModel";
 const _UMR = "UpdateModelRequest";
 const _UMRp = "UpdateModelResponse";
+const _UP = "UpdatePortal";
+const _UPA = "UserPoolArn";
+const _UPD = "UserPoolDomain";
+const _UPP = "UpdatePortalProduct";
+const _UPPR = "UpdatePortalProductRequest";
+const _UPPRp = "UpdatePortalProductResponse";
+const _UPPRpd = "UpdateProductPageRequest";
+const _UPPRpda = "UpdateProductPageResponse";
+const _UPPp = "UpdateProductPage";
+const _UPR = "UpdatePortalRequest";
+const _UPREP = "UpdateProductRestEndpointPage";
+const _UPREPR = "UpdateProductRestEndpointPageRequest";
+const _UPREPRp = "UpdateProductRestEndpointPageResponse";
+const _UPRp = "UpdatePortalResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRR = "UpdateRouteResponseRequest";
@@ -394,9 +542,11 @@ const _VLSM = "VpcLinkStatusMessage";
 const _VLV = "VpcLinkVersion";
 const _Va = "Value";
 const _W = "Warnings";
-const _a = "actions";
+const _a = "authorization";
 const _aC = "allowCredentials";
 const _aCA = "authorizerCredentialsArn";
+const _aCI = "appClientId";
+const _aCc = "accentColor";
 const _aD = "autoDeployed";
 const _aDu = "autoDeploy";
 const _aE = "apiEndpoint";
@@ -412,6 +562,7 @@ const _aM = "allowMethods";
 const _aMI = "apiMappingId";
 const _aMK = "apiMappingKey";
 const _aMSE = "apiMappingSelectionExpression";
+const _aMc = "acmManaged";
 const _aO = "allowOrigins";
 const _aOn = "anyOf";
 const _aPFV = "authorizerPayloadFormatVersion";
@@ -420,14 +571,18 @@ const _aS = "authorizationScopes";
 const _aT = "authorizerType";
 const _aTu = "authorizationType";
 const _aU = "authorizerUri";
+const _ac = "actions";
 const _au = "audience";
 const _b = "body";
+const _bC = "backgroundColor";
 const _ba = "basepath";
 const _c = "client";
-const _cA = "credentialsArn";
-const _cAe = "certificateArn";
+const _cA = "certificateArn";
+const _cAr = "credentialsArn";
 const _cC = "corsConfiguration";
 const _cCI = "clientCertificateId";
+const _cCo = "cognitoConfig";
+const _cCu = "customColors";
 const _cD = "createdDate";
 const _cHS = "contentHandlingStrategy";
 const _cI = "connectionId";
@@ -436,8 +591,10 @@ const _cT = "connectionType";
 const _cTo = "contentType";
 const _cUD = "certificateUploadDate";
 const _co = "conditions";
+const _con = "contents";
 const _d = "description";
 const _dA = "destinationArn";
+const _dC = "displayContent";
 const _dEAE = "disableExecuteApiEndpoint";
 const _dI = "deploymentId";
 const _dME = "detailedMetricsEnabled";
@@ -447,19 +604,26 @@ const _dNC = "domainNameConfigurations";
 const _dNI = "domainNameId";
 const _dNS = "domainNameStatus";
 const _dNSM = "domainNameStatusMessage";
+const _dNi = "displayName";
+const _dO = "displayOrder";
 const _dRS = "defaultRouteSettings";
 const _dS = "deploymentStatus";
 const _dSM = "deploymentStatusMessage";
 const _dSV = "disableSchemaValidation";
 const _dTE = "dataTraceEnabled";
 const _e = "error";
+const _eC = "endpointConfiguration";
 const _eH = "exposeHeaders";
 const _eSR = "enableSimpleResponses";
 const _eT = "endpointType";
 const _eV = "exportVersion";
+const _eVC = "errorValidationColor";
+const _en = "endpoint";
+const _ex = "exception";
 const _f = "format";
 const _fOW = "failOnWarnings";
 const _h = "header";
+const _hC = "headerColor";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _hZI = "hostedZoneId";
@@ -471,6 +635,9 @@ const _iE = "includeExtensions";
 const _iI = "importInfo";
 const _iIn = "integrationId";
 const _iM = "integrationMethod";
+const _iP = "identifierParts";
+const _iPPA = "includedPortalProductArns";
+const _iRDC = "includeRawDisplayContent";
 const _iRI = "integrationResponseId";
 const _iRK = "integrationResponseKey";
 const _iRSE = "integrationResponseSelectionExpression";
@@ -484,6 +651,8 @@ const _jC = "jwtConfiguration";
 const _jN = "jsonName";
 const _lDSM = "lastDeploymentStatusMessage";
 const _lL = "loggingLevel";
+const _lLU = "logoLastUploaded";
+const _lM = "lastModified";
 const _lOA = "__listOfApi";
 const _lOAM = "__listOfApiMapping";
 const _lOAi = "__listOfAuthorizer";
@@ -492,15 +661,23 @@ const _lODN = "__listOfDomainName";
 const _lOI = "__listOfIntegration";
 const _lOIR = "__listOfIntegrationResponse";
 const _lOM = "__listOfModel";
+const _lOPPS = "__listOfPortalProductSummary";
+const _lOPPSNB = "__listOfProductPageSummaryNoBody";
+const _lOPREPSNB = "__listOfProductRestEndpointPageSummaryNoBody";
+const _lOPS = "__listOfPortalSummary";
 const _lOR = "__listOfRoute";
 const _lORR = "__listOfRouteResponse";
 const _lORRA = "__listOfRoutingRuleAction";
 const _lORRC = "__listOfRoutingRuleCondition";
 const _lORRMHV = "__listOfRoutingRuleMatchHeaderValue";
 const _lORRi = "__listOfRoutingRule";
-const _lOS = "__listOfStage";
+const _lOS = "__listOfSection";
+const _lOSi = "__listOfStage";
 const _lOVL = "__listOfVpcLink";
+const _lP = "lastPublished";
+const _lPD = "lastPublishedDescription";
 const _lT = "limitType";
+const _lU = "logoUri";
 const _lUD = "lastUpdatedDate";
 const _m = "message";
 const _mA = "maxAge";
@@ -510,21 +687,52 @@ const _mI = "modelId";
 const _mR = "maxResults";
 const _mSE = "modelSelectionExpression";
 const _mTA = "mutualTlsAuthentication";
+const _me = "method";
 const _n = "name";
+const _nC = "navigationColor";
 const _nT = "nextToken";
+const _no = "none";
+const _o = "overrides";
 const _oN = "operationName";
+const _oPA = "overviewPageArn";
 const _oT = "outputType";
 const _oVCA = "ownershipVerificationCertificateArn";
 const _p = "priority";
+const _pA = "portalArn";
 const _pB = "passthroughBehavior";
+const _pC = "portalContent";
+const _pD = "policyDocument";
+const _pDDN = "portalDefaultDomainName";
+const _pDHZI = "portalDomainHostedZoneId";
 const _pFV = "payloadFormatVersion";
+const _pI = "portalId";
+const _pPA = "portalProductArn";
+const _pPAr = "productPageArn";
+const _pPAro = "productPageArns";
+const _pPI = "portalProductId";
+const _pPIr = "productPageId";
+const _pREPA = "productRestEndpointPageArn";
+const _pREPAr = "productRestEndpointPageArns";
+const _pREPI = "productRestEndpointPageId";
+const _pS = "publishStatus";
+const _pSr = "previewStatus";
 const _pT = "protocolType";
+const _pTa = "pageTitle";
+const _pU = "previewUrl";
+const _pa = "path";
+const _pr = "preview";
 const _r = "required";
+const _rAI = "restApiId";
+const _rAMN = "rumAppMonitorName";
+const _rDC = "rawDisplayContent";
+const _rEI = "restEndpointIdentifier";
 const _rI = "routeId";
 const _rK = "routeKey";
 const _rM = "routingMode";
 const _rMe = "requestModels";
 const _rMes = "responseModels";
+const _rO = "resourceOwner";
+const _rOAI = "resourceOwnerAccountId";
 const _rP = "requestParameters";
 const _rPe = "responseParameters";
 const _rR = "routingRules";
@@ -540,18 +748,23 @@ const _rTe = "responseTemplates";
 const _rTes = "resourceType";
 const _s = "stage";
 const _sBP = "stripBasePath";
+const _sE = "statusException";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
 const _sN = "stageName";
 const _sNTV = "serverNameToVerify";
+const _sNe = "sectionName";
 const _sP = "securityPolicy";
 const _sV = "stageVariables";
 const _sc = "schema";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.apigatewayv2";
+const _st = "status";
 const _t = "tags";
 const _tBL = "throttlingBurstLimit";
 const _tC = "tlsConfig";
+const _tCe = "textColor";
 const _tIM = "timeoutInMillis";
+const _tIS = "tryItState";
 const _tK = "tagKeys";
 const _tRL = "throttlingRateLimit";
 const _tSE = "templateSelectionExpression";
@@ -559,6 +772,10 @@ const _tU = "truststoreUri";
 const _tV = "truststoreVersion";
 const _tW = "truststoreWarnings";
 const _ta = "target";
+const _th = "theme";
+const _ti = "title";
+const _uPA = "userPoolArn";
+const _uPD = "userPoolDomain";
 const _v = "version";
 const _vG = "valueGlob";
 const _vLI = "vpcLinkId";
@@ -627,6 +844,27 @@ export var AccessLogSettings: StaticStructureSchema = [
       0,
       {
         [_jN]: _f,
+      },
+    ],
+  ],
+];
+export var ACMManaged: StaticStructureSchema = [
+  3,
+  n0,
+  _ACMM,
+  0,
+  [_CA, _DN],
+  [
+    [
+      0,
+      {
+        [_jN]: _cA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dN,
       },
     ],
   ],
@@ -775,10 +1013,31 @@ export var ApiMapping: StaticStructureSchema = [
     ],
   ],
 ];
-export var Authorizer: StaticStructureSchema = [
+export var Authorization: StaticStructureSchema = [
   3,
   n0,
   _Au,
+  0,
+  [_CCo, _No],
+  [
+    [
+      () => CognitoConfig,
+      {
+        [_jN]: _cCo,
+      },
+    ],
+    [
+      () => None,
+      {
+        [_jN]: _no,
+      },
+    ],
+  ],
+];
+export var Authorizer: StaticStructureSchema = [
+  3,
+  n0,
+  _Aut,
   0,
   [_ACA, _AIu, _APFV, _ARTIS, _AT, _AU, _ESR, _IS, _IVE, _JC, _N],
   [
@@ -870,6 +1129,33 @@ export var BadRequestException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
 
+export var CognitoConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _CCo,
+  0,
+  [_ACI, _UPA, _UPD],
+  [
+    [
+      0,
+      {
+        [_jN]: _aCI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _uPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _uPD,
+      },
+    ],
+  ],
+];
 export var ConflictException: StaticErrorSchema = [
   -3,
   n0,
@@ -1001,7 +1287,7 @@ export var CreateApiRequest: StaticStructureSchema = [
   n0,
   _CAR,
   0,
-  [_AKSE, _CC, _CA, _D, _DSV, _DEAE, _IAT, _N, _PT, _RK, _RSE, _T, _Ta, _V],
+  [_AKSE, _CC, _CAr, _D, _DSV, _DEAE, _IAT, _N, _PT, _RK, _RSE, _T, _Ta, _V],
   [
     [
       0,
@@ -1018,7 +1304,7 @@ export var CreateApiRequest: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -1507,7 +1793,7 @@ export var CreateIntegrationRequest: StaticStructureSchema = [
   n0,
   _CIR,
   0,
-  [_AI, _CI, _CT, _CHS, _CA, _D, _IM, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
+  [_AI, _CI, _CT, _CHS, _CAr, _D, _IM, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
   [
     [0, 1],
     [
@@ -1531,7 +1817,7 @@ export var CreateIntegrationRequest: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -1705,7 +1991,7 @@ export var CreateIntegrationResult: StaticStructureSchema = [
   n0,
   _CIRr,
   0,
-  [_AGM, _CI, _CT, _CHS, _CA, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
   [
     [
       2,
@@ -1734,7 +2020,7 @@ export var CreateIntegrationResult: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -1898,6 +2184,356 @@ export var CreateModelResponse: StaticStructureSchema = [
       0,
       {
         [_jN]: _sc,
+      },
+    ],
+  ],
+];
+export var CreatePortalProductRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPPR,
+  0,
+  [_D, _DNi, _T],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var CreatePortalProductResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CPPRr,
+  0,
+  [_D, _DNi, _DO, _LM, _PPA, _PPI, _T],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      () => DisplayOrder,
+      {
+        [_jN]: _dO,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPI,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var CreatePortalRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPR,
+  0,
+  [_Au, _EC, _IPPA, _LU, _PC, _RAMN, _T],
+  [
+    [
+      () => Authorization,
+      {
+        [_jN]: _a,
+      },
+    ],
+    [
+      () => EndpointConfigurationRequest,
+      {
+        [_jN]: _eC,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _iPPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lU,
+      },
+    ],
+    [
+      () => PortalContent,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rAMN,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var CreatePortalResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CPRr,
+  0,
+  [_Au, _EC, _IPPA, _LM, _LP, _LPD, _PA, _PC, _PI, _PS, _RAMN, _SE, _T],
+  [
+    [
+      () => Authorization,
+      {
+        [_jN]: _a,
+      },
+    ],
+    [
+      () => EndpointConfigurationResponse,
+      {
+        [_jN]: _eC,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _iPPA,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lP,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lPD,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pA,
+      },
+    ],
+    [
+      () => PortalContent,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rAMN,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var CreateProductPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPPRre,
+  0,
+  [_DC, _PPI],
+  [
+    [
+      () => DisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [0, 1],
+  ],
+];
+export var CreateProductPageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CPPRrea,
+  0,
+  [_DC, _LM, _PPAr, _PPIr],
+  [
+    [
+      () => DisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPAr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPIr,
+      },
+    ],
+  ],
+];
+export var CreateProductRestEndpointPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPREPR,
+  0,
+  [_DC, _PPI, _REI, _TIS],
+  [
+    [
+      () => EndpointDisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [0, 1],
+    [
+      () => RestEndpointIdentifier,
+      {
+        [_jN]: _rEI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tIS,
+      },
+    ],
+  ],
+];
+export var CreateProductRestEndpointPageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CPREPRr,
+  0,
+  [_DC, _LM, _PREPA, _PREPI, _REI, _St, _SE, _TIS],
+  [
+    [
+      () => EndpointDisplayContentResponse,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPI,
+      },
+    ],
+    [
+      () => RestEndpointIdentifier,
+      {
+        [_jN]: _rEI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _st,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tIS,
       },
     ],
   ],
@@ -2149,7 +2785,7 @@ export var CreateRoutingRuleRequest: StaticStructureSchema = [
     [
       () => __listOfRoutingRuleAction,
       {
-        [_jN]: _a,
+        [_jN]: _ac,
       },
     ],
     [
@@ -2183,7 +2819,7 @@ export var CreateRoutingRuleResponse: StaticStructureSchema = [
     [
       () => __listOfRoutingRuleAction,
       {
-        [_jN]: _a,
+        [_jN]: _ac,
       },
     ],
     [
@@ -2471,6 +3107,51 @@ export var CreateVpcLinkResponse: StaticStructureSchema = [
     ],
   ],
 ];
+export var CustomColors: StaticStructureSchema = [
+  3,
+  n0,
+  _CCu,
+  0,
+  [_ACc, _BC, _EVC, _HC, _NC, _TCe],
+  [
+    [
+      0,
+      {
+        [_jN]: _aCc,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _bC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _eVC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _hC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tCe,
+      },
+    ],
+  ],
+];
 export var DeleteAccessLogSettingsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2547,6 +3228,31 @@ export var DeleteModelRequest: StaticStructureSchema = [
   _DMR,
   0,
   [_AI, _MI],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DeletePortalProductRequest: StaticStructureSchema = [3, n0, _DPPR, 0, [_PPI], [[0, 1]]];
+export var DeletePortalProductSharingPolicyRequest: StaticStructureSchema = [3, n0, _DPPSPR, 0, [_PPI], [[0, 1]]];
+export var DeletePortalRequest: StaticStructureSchema = [3, n0, _DPR, 0, [_PI], [[0, 1]]];
+export var DeleteProductPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DPPRe,
+  0,
+  [_PPI, _PPIr],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DeleteProductRestEndpointPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DPREPR,
+  0,
+  [_PPI, _PREPI],
   [
     [0, 1],
     [0, 1],
@@ -2674,6 +3380,82 @@ export var Deployment: StaticStructureSchema = [
     ],
   ],
 ];
+export var DisablePortalRequest: StaticStructureSchema = [3, n0, _DPRi, 0, [_PI], [[0, 1]]];
+export var DisplayContent: StaticStructureSchema = [
+  3,
+  n0,
+  _DC,
+  0,
+  [_B, _Ti],
+  [
+    [
+      0,
+      {
+        [_jN]: _b,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _ti,
+      },
+    ],
+  ],
+];
+export var DisplayContentOverrides: StaticStructureSchema = [
+  3,
+  n0,
+  _DCO,
+  0,
+  [_B, _E, _ON],
+  [
+    [
+      0,
+      {
+        [_jN]: _b,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _en,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _oN,
+      },
+    ],
+  ],
+];
+export var DisplayOrder: StaticStructureSchema = [
+  3,
+  n0,
+  _DO,
+  0,
+  [_Con, _OPA, _PPAro],
+  [
+    [
+      () => __listOfSection,
+      {
+        [_jN]: _con,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _oPA,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _pPAro,
+      },
+    ],
+  ],
+];
 export var DomainName: StaticStructureSchema = [
   3,
   n0,
@@ -2730,7 +3512,7 @@ export var DomainNameConfiguration: StaticStructureSchema = [
   n0,
   _DNCo,
   0,
-  [_AGDN, _CAe, _CN, _CUD, _DNS, _DNSM, _ET, _HZI, _IAT, _SP, _OVCA],
+  [_AGDN, _CA, _CN, _CUD, _DNS, _DNSM, _ET, _HZI, _IAT, _SP, _OVCA],
   [
     [
       0,
@@ -2741,7 +3523,7 @@ export var DomainNameConfiguration: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cAe,
+        [_jN]: _cA,
       },
     ],
     [
@@ -2796,6 +3578,108 @@ export var DomainNameConfiguration: StaticStructureSchema = [
       0,
       {
         [_jN]: _oVCA,
+      },
+    ],
+  ],
+];
+export var EndpointConfigurationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _ECR,
+  0,
+  [_AMc, _No],
+  [
+    [
+      () => ACMManaged,
+      {
+        [_jN]: _aMc,
+      },
+    ],
+    [
+      () => None,
+      {
+        [_jN]: _no,
+      },
+    ],
+  ],
+];
+export var EndpointConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _ECRn,
+  0,
+  [_CA, _DN, _PDDN, _PDHZI],
+  [
+    [
+      0,
+      {
+        [_jN]: _cA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dN,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pDDN,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pDHZI,
+      },
+    ],
+  ],
+];
+export var EndpointDisplayContent: StaticStructureSchema = [
+  3,
+  n0,
+  _EDC,
+  0,
+  [_No, _O],
+  [
+    [
+      () => None,
+      {
+        [_jN]: _no,
+      },
+    ],
+    [
+      () => DisplayContentOverrides,
+      {
+        [_jN]: _o,
+      },
+    ],
+  ],
+];
+export var EndpointDisplayContentResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _EDCR,
+  0,
+  [_B, _E, _ON],
+  [
+    [
+      0,
+      {
+        [_jN]: _b,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _en,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _oN,
       },
     ],
   ],
@@ -3516,7 +4400,7 @@ export var GetIntegrationResult: StaticStructureSchema = [
   n0,
   _GIRe,
   0,
-  [_AGM, _CI, _CT, _CHS, _CA, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
   [
     [
       2,
@@ -3545,7 +4429,7 @@ export var GetIntegrationResult: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -3798,6 +4682,325 @@ export var GetModelTemplateResponse: StaticStructureSchema = [
       0,
       {
         [_jN]: _va,
+      },
+    ],
+  ],
+];
+export var GetPortalProductRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GPPR,
+  0,
+  [_PPI, _ROAI],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _rOAI,
+      },
+    ],
+  ],
+];
+export var GetPortalProductResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GPPRe,
+  0,
+  [_D, _DNi, _DO, _LM, _PPA, _PPI, _T],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      () => DisplayOrder,
+      {
+        [_jN]: _dO,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPI,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var GetPortalProductSharingPolicyRequest: StaticStructureSchema = [3, n0, _GPPSPR, 0, [_PPI], [[0, 1]]];
+export var GetPortalProductSharingPolicyResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GPPSPRe,
+  0,
+  [_PD, _PPI],
+  [
+    [
+      0,
+      {
+        [_jN]: _pD,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPI,
+      },
+    ],
+  ],
+];
+export var GetPortalRequest: StaticStructureSchema = [3, n0, _GPR, 0, [_PI], [[0, 1]]];
+export var GetPortalResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GPRe,
+  0,
+  [_Au, _EC, _IPPA, _LM, _LP, _LPD, _PA, _PC, _PI, _Pr, _PS, _RAMN, _SE, _T],
+  [
+    [
+      () => Authorization,
+      {
+        [_jN]: _a,
+      },
+    ],
+    [
+      () => EndpointConfigurationResponse,
+      {
+        [_jN]: _eC,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _iPPA,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lP,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lPD,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pA,
+      },
+    ],
+    [
+      () => PortalContent,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pI,
+      },
+    ],
+    [
+      () => Preview,
+      {
+        [_jN]: _pr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rAMN,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var GetProductPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GPPRet,
+  0,
+  [_PPI, _PPIr, _ROAI],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _rOAI,
+      },
+    ],
+  ],
+];
+export var GetProductPageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GPPRetr,
+  0,
+  [_DC, _LM, _PPAr, _PPIr],
+  [
+    [
+      () => DisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPAr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPIr,
+      },
+    ],
+  ],
+];
+export var GetProductRestEndpointPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GPREPR,
+  0,
+  [_IRDC, _PPI, _PREPI, _ROAI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _iRDC,
+      },
+    ],
+    [0, 1],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _rOAI,
+      },
+    ],
+  ],
+];
+export var GetProductRestEndpointPageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GPREPRe,
+  0,
+  [_DC, _LM, _PREPA, _PREPI, _RDC, _REI, _St, _SE, _TIS],
+  [
+    [
+      () => EndpointDisplayContentResponse,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rDC,
+      },
+    ],
+    [
+      () => RestEndpointIdentifier,
+      {
+        [_jN]: _rEI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _st,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tIS,
       },
     ],
   ],
@@ -4065,7 +5268,7 @@ export var GetRoutingRuleResponse: StaticStructureSchema = [
     [
       () => __listOfRoutingRuleAction,
       {
-        [_jN]: _a,
+        [_jN]: _ac,
       },
     ],
     [
@@ -4363,12 +5566,45 @@ export var GetVpcLinksResponse: StaticStructureSchema = [
     ],
   ],
 ];
+export var IdentifierParts: StaticStructureSchema = [
+  3,
+  n0,
+  _IP,
+  0,
+  [_Me, _Pa, _RAI, _S],
+  [
+    [
+      0,
+      {
+        [_jN]: _me,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pa,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rAI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _s,
+      },
+    ],
+  ],
+];
 export var ImportApiRequest: StaticStructureSchema = [
   3,
   n0,
   _IAR,
   0,
-  [_B, _Bo, _FOW],
+  [_Ba, _B, _FOW],
   [
     [
       0,
@@ -4506,7 +5742,7 @@ export var Integration: StaticStructureSchema = [
   n0,
   _In,
   0,
-  [_AGM, _CI, _CT, _CHS, _CA, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
   [
     [
       2,
@@ -4535,7 +5771,7 @@ export var Integration: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -4696,6 +5932,194 @@ export var JWTConfiguration: StaticStructureSchema = [
     ],
   ],
 ];
+export var ListPortalProductsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LPPR,
+  0,
+  [_MR, _NT, _RO],
+  [
+    [
+      0,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _rO,
+      },
+    ],
+  ],
+];
+export var ListPortalProductsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LPPRi,
+  0,
+  [_I, _NT],
+  [
+    [
+      () => __listOfPortalProductSummary,
+      {
+        [_jN]: _i,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+      },
+    ],
+  ],
+];
+export var ListPortalsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LPR,
+  0,
+  [_MR, _NT],
+  [
+    [
+      0,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var ListPortalsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LPRi,
+  0,
+  [_I, _NT],
+  [
+    [
+      () => __listOfPortalSummary,
+      {
+        [_jN]: _i,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+      },
+    ],
+  ],
+];
+export var ListProductPagesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LPPRis,
+  0,
+  [_MR, _NT, _PPI, _ROAI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _rOAI,
+      },
+    ],
+  ],
+];
+export var ListProductPagesResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LPPRist,
+  0,
+  [_I, _NT],
+  [
+    [
+      () => __listOfProductPageSummaryNoBody,
+      {
+        [_jN]: _i,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+      },
+    ],
+  ],
+];
+export var ListProductRestEndpointPagesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LPREPR,
+  0,
+  [_MR, _NT, _PPI, _ROAI],
+  [
+    [
+      0,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _rOAI,
+      },
+    ],
+  ],
+];
+export var ListProductRestEndpointPagesResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LPREPRi,
+  0,
+  [_I, _NT],
+  [
+    [
+      () => __listOfProductRestEndpointPageSummaryNoBody,
+      {
+        [_jN]: _i,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+      },
+    ],
+  ],
+];
 export var ListRoutingRulesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4832,6 +6256,7 @@ export var MutualTlsAuthenticationInput: StaticStructureSchema = [
     ],
   ],
 ];
+export var None: StaticStructureSchema = [3, n0, _No, 0, [], []];
 export var NotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -4861,7 +6286,7 @@ TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
 export var ParameterConstraints: StaticStructureSchema = [
   3,
   n0,
-  _PC,
+  _PCa,
   0,
   [_R],
   [
@@ -4873,6 +6298,351 @@ export var ParameterConstraints: StaticStructureSchema = [
     ],
   ],
 ];
+export var PortalContent: StaticStructureSchema = [
+  3,
+  n0,
+  _PC,
+  0,
+  [_D, _DNi, _Th],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      () => PortalTheme,
+      {
+        [_jN]: _th,
+      },
+    ],
+  ],
+];
+export var PortalProductSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _PPS,
+  0,
+  [_D, _DNi, _LM, _PPA, _PPI, _T],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPI,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var PortalSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _PSo,
+  0,
+  [_Au, _EC, _IPPA, _LM, _LP, _LPD, _PA, _PC, _PI, _Pr, _PS, _RAMN, _SE, _T],
+  [
+    [
+      () => Authorization,
+      {
+        [_jN]: _a,
+      },
+    ],
+    [
+      () => EndpointConfigurationResponse,
+      {
+        [_jN]: _eC,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _iPPA,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lP,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lPD,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pA,
+      },
+    ],
+    [
+      () => PortalContent,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pI,
+      },
+    ],
+    [
+      () => Preview,
+      {
+        [_jN]: _pr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rAMN,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var PortalTheme: StaticStructureSchema = [
+  3,
+  n0,
+  _PTo,
+  0,
+  [_CCu, _LLU],
+  [
+    [
+      () => CustomColors,
+      {
+        [_jN]: _cCu,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lLU,
+      },
+    ],
+  ],
+];
+export var Preview: StaticStructureSchema = [
+  3,
+  n0,
+  _Pr,
+  0,
+  [_PSr, _PU, _SE],
+  [
+    [
+      0,
+      {
+        [_jN]: _pSr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pU,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+  ],
+];
+export var PreviewPortalRequest: StaticStructureSchema = [3, n0, _PPR, 0, [_PI], [[0, 1]]];
+export var PreviewPortalResponse: StaticStructureSchema = [3, n0, _PPRr, 0, [], []];
+export var ProductPageSummaryNoBody: StaticStructureSchema = [
+  3,
+  n0,
+  _PPSNB,
+  0,
+  [_LM, _PTa, _PPAr, _PPIr],
+  [
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pTa,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPAr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPIr,
+      },
+    ],
+  ],
+];
+export var ProductRestEndpointPageSummaryNoBody: StaticStructureSchema = [
+  3,
+  n0,
+  _PREPSNB,
+  0,
+  [_E, _LM, _ON, _PREPA, _PREPI, _REI, _St, _SE, _TIS],
+  [
+    [
+      0,
+      {
+        [_jN]: _en,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _oN,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPI,
+      },
+    ],
+    [
+      () => RestEndpointIdentifier,
+      {
+        [_jN]: _rEI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _st,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tIS,
+      },
+    ],
+  ],
+];
+export var PublishPortalRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PPRu,
+  0,
+  [_D, _PI],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [0, 1],
+  ],
+];
+export var PublishPortalResponse: StaticStructureSchema = [3, n0, _PPRub, 0, [], []];
+export var PutPortalProductSharingPolicyRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PPPSPR,
+  0,
+  [_PD, _PPI],
+  [
+    [
+      0,
+      {
+        [_jN]: _pD,
+      },
+    ],
+    [0, 1],
+  ],
+];
+export var PutPortalProductSharingPolicyResponse: StaticStructureSchema = [3, n0, _PPPSPRu, 0, [], []];
 export var PutRoutingRuleRequest: StaticStructureSchema = [
   3,
   n0,
@@ -4883,7 +6653,7 @@ export var PutRoutingRuleRequest: StaticStructureSchema = [
     [
       () => __listOfRoutingRuleAction,
       {
-        [_jN]: _a,
+        [_jN]: _ac,
       },
     ],
     [
@@ -4918,7 +6688,7 @@ export var PutRoutingRuleResponse: StaticStructureSchema = [
     [
       () => __listOfRoutingRuleAction,
       {
-        [_jN]: _a,
+        [_jN]: _ac,
       },
     ],
     [
@@ -4952,7 +6722,7 @@ export var ReimportApiRequest: StaticStructureSchema = [
   n0,
   _RAR,
   0,
-  [_AI, _B, _Bo, _FOW],
+  [_AI, _Ba, _B, _FOW],
   [
     [0, 1],
     [
@@ -5095,6 +6865,21 @@ export var ResetAuthorizersCacheRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
+  ],
+];
+export var RestEndpointIdentifier: StaticStructureSchema = [
+  3,
+  n0,
+  _REI,
+  0,
+  [_IP],
+  [
+    [
+      () => IdentifierParts,
+      {
+        [_jN]: _iP,
+      },
+    ],
   ],
 ];
 export var Route: StaticStructureSchema = [
@@ -5272,7 +7057,7 @@ export var RoutingRule: StaticStructureSchema = [
     [
       () => __listOfRoutingRuleAction,
       {
-        [_jN]: _a,
+        [_jN]: _ac,
       },
     ],
     [
@@ -5415,6 +7200,27 @@ export var RoutingRuleMatchHeaderValue: StaticStructureSchema = [
     ],
   ],
 ];
+export var Section: StaticStructureSchema = [
+  3,
+  n0,
+  _Se,
+  0,
+  [_PREPAr, _SNe],
+  [
+    [
+      64 | 0,
+      {
+        [_jN]: _pREPAr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sNe,
+      },
+    ],
+  ],
+];
 export var Stage: StaticStructureSchema = [
   3,
   n0,
@@ -5504,6 +7310,27 @@ export var Stage: StaticStructureSchema = [
       128 | 0,
       {
         [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var StatusException: StaticStructureSchema = [
+  3,
+  n0,
+  _SE,
+  0,
+  [_Ex, _M],
+  [
+    [
+      0,
+      {
+        [_jN]: _ex,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _m,
       },
     ],
   ],
@@ -5664,7 +7491,7 @@ export var UpdateApiRequest: StaticStructureSchema = [
   n0,
   _UAR,
   0,
-  [_AI, _AKSE, _CC, _CA, _D, _DSV, _DEAE, _IAT, _N, _RK, _RSE, _Ta, _V],
+  [_AI, _AKSE, _CC, _CAr, _D, _DSV, _DEAE, _IAT, _N, _RK, _RSE, _Ta, _V],
   [
     [0, 1],
     [
@@ -5682,7 +7509,7 @@ export var UpdateApiRequest: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -6144,7 +7971,7 @@ export var UpdateIntegrationRequest: StaticStructureSchema = [
   n0,
   _UIR,
   0,
-  [_AI, _CI, _CT, _CHS, _CA, _D, _IIn, _IM, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
+  [_AI, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
   [
     [0, 1],
     [
@@ -6168,7 +7995,7 @@ export var UpdateIntegrationRequest: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -6344,7 +8171,7 @@ export var UpdateIntegrationResult: StaticStructureSchema = [
   n0,
   _UIRp,
   0,
-  [_AGM, _CI, _CT, _CHS, _CA, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
   [
     [
       2,
@@ -6373,7 +8200,7 @@ export var UpdateIntegrationResult: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _cA,
+        [_jN]: _cAr,
       },
     ],
     [
@@ -6538,6 +8365,354 @@ export var UpdateModelResponse: StaticStructureSchema = [
       0,
       {
         [_jN]: _sc,
+      },
+    ],
+  ],
+];
+export var UpdatePortalProductRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UPPR,
+  0,
+  [_D, _DNi, _DO, _PPI],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      () => DisplayOrder,
+      {
+        [_jN]: _dO,
+      },
+    ],
+    [0, 1],
+  ],
+];
+export var UpdatePortalProductResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UPPRp,
+  0,
+  [_D, _DNi, _DO, _LM, _PPA, _PPI, _T],
+  [
+    [
+      0,
+      {
+        [_jN]: _d,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _dNi,
+      },
+    ],
+    [
+      () => DisplayOrder,
+      {
+        [_jN]: _dO,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPI,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var UpdatePortalRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UPR,
+  0,
+  [_Au, _EC, _IPPA, _LU, _PC, _PI, _RAMN],
+  [
+    [
+      () => Authorization,
+      {
+        [_jN]: _a,
+      },
+    ],
+    [
+      () => EndpointConfigurationRequest,
+      {
+        [_jN]: _eC,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _iPPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lU,
+      },
+    ],
+    [
+      () => PortalContent,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [0, 1],
+    [
+      0,
+      {
+        [_jN]: _rAMN,
+      },
+    ],
+  ],
+];
+export var UpdatePortalResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UPRp,
+  0,
+  [_Au, _EC, _IPPA, _LM, _LP, _LPD, _PA, _PC, _PI, _Pr, _PS, _RAMN, _SE, _T],
+  [
+    [
+      () => Authorization,
+      {
+        [_jN]: _a,
+      },
+    ],
+    [
+      () => EndpointConfigurationResponse,
+      {
+        [_jN]: _eC,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_jN]: _iPPA,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lP,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _lPD,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pA,
+      },
+    ],
+    [
+      () => PortalContent,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pI,
+      },
+    ],
+    [
+      () => Preview,
+      {
+        [_jN]: _pr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pS,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _rAMN,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      128 | 0,
+      {
+        [_jN]: _t,
+      },
+    ],
+  ],
+];
+export var UpdateProductPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UPPRpd,
+  0,
+  [_DC, _PPI, _PPIr],
+  [
+    [
+      () => DisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var UpdateProductPageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UPPRpda,
+  0,
+  [_DC, _LM, _PPAr, _PPIr],
+  [
+    [
+      () => DisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPAr,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pPIr,
+      },
+    ],
+  ],
+];
+export var UpdateProductRestEndpointPageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UPREPR,
+  0,
+  [_DC, _PPI, _PREPI, _TIS],
+  [
+    [
+      () => EndpointDisplayContent,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [0, 1],
+    [0, 1],
+    [
+      0,
+      {
+        [_jN]: _tIS,
+      },
+    ],
+  ],
+];
+export var UpdateProductRestEndpointPageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UPREPRp,
+  0,
+  [_DC, _LM, _PREPA, _PREPI, _REI, _St, _SE, _TIS],
+  [
+    [
+      () => EndpointDisplayContentResponse,
+      {
+        [_jN]: _dC,
+      },
+    ],
+    [
+      5,
+      {
+        [_jN]: _lM,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _pREPI,
+      },
+    ],
+    [
+      () => RestEndpointIdentifier,
+      {
+        [_jN]: _rEI,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _st,
+      },
+    ],
+    [
+      () => StatusException,
+      {
+        [_jN]: _sE,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tIS,
       },
     ],
   ],
@@ -7082,6 +9257,8 @@ TypeRegistry.for(_sm).registerError(ApiGatewayV2ServiceException, __ApiGatewayV2
 
 export var __listOf__string = 64 | 0;
 
+export var __listOf__stringMin20Max2048 = 64 | 0;
+
 export var __listOfApi: StaticListSchema = [1, n0, _lOA, 0, [() => Api, 0]];
 export var __listOfApiMapping: StaticListSchema = [1, n0, _lOAM, 0, [() => ApiMapping, 0]];
 export var __listOfAuthorizer: StaticListSchema = [1, n0, _lOAi, 0, [() => Authorizer, 0]];
@@ -7090,6 +9267,22 @@ export var __listOfDomainName: StaticListSchema = [1, n0, _lODN, 0, [() => Domai
 export var __listOfIntegration: StaticListSchema = [1, n0, _lOI, 0, [() => Integration, 0]];
 export var __listOfIntegrationResponse: StaticListSchema = [1, n0, _lOIR, 0, [() => IntegrationResponse, 0]];
 export var __listOfModel: StaticListSchema = [1, n0, _lOM, 0, [() => Model, 0]];
+export var __listOfPortalProductSummary: StaticListSchema = [1, n0, _lOPPS, 0, [() => PortalProductSummary, 0]];
+export var __listOfPortalSummary: StaticListSchema = [1, n0, _lOPS, 0, [() => PortalSummary, 0]];
+export var __listOfProductPageSummaryNoBody: StaticListSchema = [
+  1,
+  n0,
+  _lOPPSNB,
+  0,
+  [() => ProductPageSummaryNoBody, 0],
+];
+export var __listOfProductRestEndpointPageSummaryNoBody: StaticListSchema = [
+  1,
+  n0,
+  _lOPREPSNB,
+  0,
+  [() => ProductRestEndpointPageSummaryNoBody, 0],
+];
 export var __listOfRoute: StaticListSchema = [1, n0, _lOR, 0, [() => Route, 0]];
 export var __listOfRouteResponse: StaticListSchema = [1, n0, _lORR, 0, [() => RouteResponse, 0]];
 export var __listOfRoutingRule: StaticListSchema = [1, n0, _lORRi, 0, [() => RoutingRule, 0]];
@@ -7102,9 +9295,10 @@ export var __listOfRoutingRuleMatchHeaderValue: StaticListSchema = [
   0,
   [() => RoutingRuleMatchHeaderValue, 0],
 ];
+export var __listOfSection: StaticListSchema = [1, n0, _lOS, 0, [() => Section, 0]];
 export var __listOfSelectionKey = 64 | 0;
 
-export var __listOfStage: StaticListSchema = [1, n0, _lOS, 0, [() => Stage, 0]];
+export var __listOfStage: StaticListSchema = [1, n0, _lOSi, 0, [() => Stage, 0]];
 export var __listOfVpcLink: StaticListSchema = [1, n0, _lOVL, 0, [() => VpcLink, 0]];
 export var AuthorizationScopes = 64 | 0;
 
@@ -7137,7 +9331,7 @@ export var TemplateMap = 128 | 0;
 export var CreateApi: StaticOperationSchema = [
   9,
   n0,
-  _CAr,
+  _CAre,
   {
     [_ht]: ["POST", "/v2/apis", 201],
   },
@@ -7157,7 +9351,7 @@ export var CreateApiMapping: StaticOperationSchema = [
 export var CreateAuthorizer: StaticOperationSchema = [
   9,
   n0,
-  _CAre,
+  _CArea,
   {
     [_ht]: ["POST", "/v2/apis/{ApiId}/authorizers", 201],
   },
@@ -7213,6 +9407,46 @@ export var CreateModel: StaticOperationSchema = [
   },
   () => CreateModelRequest,
   () => CreateModelResponse,
+];
+export var CreatePortal: StaticOperationSchema = [
+  9,
+  n0,
+  _CP,
+  {
+    [_ht]: ["POST", "/v2/portals", 201],
+  },
+  () => CreatePortalRequest,
+  () => CreatePortalResponse,
+];
+export var CreatePortalProduct: StaticOperationSchema = [
+  9,
+  n0,
+  _CPP,
+  {
+    [_ht]: ["POST", "/v2/portalproducts", 201],
+  },
+  () => CreatePortalProductRequest,
+  () => CreatePortalProductResponse,
+];
+export var CreateProductPage: StaticOperationSchema = [
+  9,
+  n0,
+  _CPPr,
+  {
+    [_ht]: ["POST", "/v2/portalproducts/{PortalProductId}/productpages", 201],
+  },
+  () => CreateProductPageRequest,
+  () => CreateProductPageResponse,
+];
+export var CreateProductRestEndpointPage: StaticOperationSchema = [
+  9,
+  n0,
+  _CPREP,
+  {
+    [_ht]: ["POST", "/v2/portalproducts/{PortalProductId}/productrestendpointpages", 201],
+  },
+  () => CreateProductRestEndpointPageRequest,
+  () => CreateProductRestEndpointPageResponse,
 ];
 export var CreateRoute: StaticOperationSchema = [
   9,
@@ -7368,6 +9602,56 @@ export var DeleteModel: StaticOperationSchema = [
   () => DeleteModelRequest,
   () => __Unit,
 ];
+export var DeletePortal: StaticOperationSchema = [
+  9,
+  n0,
+  _DP,
+  {
+    [_ht]: ["DELETE", "/v2/portals/{PortalId}", 204],
+  },
+  () => DeletePortalRequest,
+  () => __Unit,
+];
+export var DeletePortalProduct: StaticOperationSchema = [
+  9,
+  n0,
+  _DPP,
+  {
+    [_ht]: ["DELETE", "/v2/portalproducts/{PortalProductId}", 204],
+  },
+  () => DeletePortalProductRequest,
+  () => __Unit,
+];
+export var DeletePortalProductSharingPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _DPPSP,
+  {
+    [_ht]: ["DELETE", "/v2/portalproducts/{PortalProductId}/sharingpolicy", 204],
+  },
+  () => DeletePortalProductSharingPolicyRequest,
+  () => __Unit,
+];
+export var DeleteProductPage: StaticOperationSchema = [
+  9,
+  n0,
+  _DPPe,
+  {
+    [_ht]: ["DELETE", "/v2/portalproducts/{PortalProductId}/productpages/{ProductPageId}", 204],
+  },
+  () => DeleteProductPageRequest,
+  () => __Unit,
+];
+export var DeleteProductRestEndpointPage: StaticOperationSchema = [
+  9,
+  n0,
+  _DPREP,
+  {
+    [_ht]: ["DELETE", "/v2/portalproducts/{PortalProductId}/productrestendpointpages/{ProductRestEndpointPageId}", 204],
+  },
+  () => DeleteProductRestEndpointPageRequest,
+  () => __Unit,
+];
 export var DeleteRoute: StaticOperationSchema = [
   9,
   n0,
@@ -7437,6 +9721,16 @@ export var DeleteVpcLink: StaticOperationSchema = [
   },
   () => DeleteVpcLinkRequest,
   () => DeleteVpcLinkResponse,
+];
+export var DisablePortal: StaticOperationSchema = [
+  9,
+  n0,
+  _DPi,
+  {
+    [_ht]: ["DELETE", "/v2/portals/{PortalId}/publish", 204],
+  },
+  () => DisablePortalRequest,
+  () => __Unit,
 ];
 export var ExportApi: StaticOperationSchema = [
   9,
@@ -7618,6 +9912,56 @@ export var GetModelTemplate: StaticOperationSchema = [
   () => GetModelTemplateRequest,
   () => GetModelTemplateResponse,
 ];
+export var GetPortal: StaticOperationSchema = [
+  9,
+  n0,
+  _GP,
+  {
+    [_ht]: ["GET", "/v2/portals/{PortalId}", 200],
+  },
+  () => GetPortalRequest,
+  () => GetPortalResponse,
+];
+export var GetPortalProduct: StaticOperationSchema = [
+  9,
+  n0,
+  _GPP,
+  {
+    [_ht]: ["GET", "/v2/portalproducts/{PortalProductId}", 200],
+  },
+  () => GetPortalProductRequest,
+  () => GetPortalProductResponse,
+];
+export var GetPortalProductSharingPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _GPPSP,
+  {
+    [_ht]: ["GET", "/v2/portalproducts/{PortalProductId}/sharingpolicy", 200],
+  },
+  () => GetPortalProductSharingPolicyRequest,
+  () => GetPortalProductSharingPolicyResponse,
+];
+export var GetProductPage: StaticOperationSchema = [
+  9,
+  n0,
+  _GPPe,
+  {
+    [_ht]: ["GET", "/v2/portalproducts/{PortalProductId}/productpages/{ProductPageId}", 200],
+  },
+  () => GetProductPageRequest,
+  () => GetProductPageResponse,
+];
+export var GetProductRestEndpointPage: StaticOperationSchema = [
+  9,
+  n0,
+  _GPREP,
+  {
+    [_ht]: ["GET", "/v2/portalproducts/{PortalProductId}/productrestendpointpages/{ProductRestEndpointPageId}", 200],
+  },
+  () => GetProductRestEndpointPageRequest,
+  () => GetProductRestEndpointPageResponse,
+];
 export var GetRoute: StaticOperationSchema = [
   9,
   n0,
@@ -7728,6 +10072,46 @@ export var ImportApi: StaticOperationSchema = [
   () => ImportApiRequest,
   () => ImportApiResponse,
 ];
+export var ListPortalProducts: StaticOperationSchema = [
+  9,
+  n0,
+  _LPP,
+  {
+    [_ht]: ["GET", "/v2/portalproducts", 200],
+  },
+  () => ListPortalProductsRequest,
+  () => ListPortalProductsResponse,
+];
+export var ListPortals: StaticOperationSchema = [
+  9,
+  n0,
+  _LPi,
+  {
+    [_ht]: ["GET", "/v2/portals", 200],
+  },
+  () => ListPortalsRequest,
+  () => ListPortalsResponse,
+];
+export var ListProductPages: StaticOperationSchema = [
+  9,
+  n0,
+  _LPPi,
+  {
+    [_ht]: ["GET", "/v2/portalproducts/{PortalProductId}/productpages", 200],
+  },
+  () => ListProductPagesRequest,
+  () => ListProductPagesResponse,
+];
+export var ListProductRestEndpointPages: StaticOperationSchema = [
+  9,
+  n0,
+  _LPREP,
+  {
+    [_ht]: ["GET", "/v2/portalproducts/{PortalProductId}/productrestendpointpages", 200],
+  },
+  () => ListProductRestEndpointPagesRequest,
+  () => ListProductRestEndpointPagesResponse,
+];
 export var ListRoutingRules: StaticOperationSchema = [
   9,
   n0,
@@ -7737,6 +10121,36 @@ export var ListRoutingRules: StaticOperationSchema = [
   },
   () => ListRoutingRulesRequest,
   () => ListRoutingRulesResponse,
+];
+export var PreviewPortal: StaticOperationSchema = [
+  9,
+  n0,
+  _PP,
+  {
+    [_ht]: ["POST", "/v2/portals/{PortalId}/preview", 202],
+  },
+  () => PreviewPortalRequest,
+  () => PreviewPortalResponse,
+];
+export var PublishPortal: StaticOperationSchema = [
+  9,
+  n0,
+  _PPu,
+  {
+    [_ht]: ["POST", "/v2/portals/{PortalId}/publish", 202],
+  },
+  () => PublishPortalRequest,
+  () => PublishPortalResponse,
+];
+export var PutPortalProductSharingPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _PPPSP,
+  {
+    [_ht]: ["PUT", "/v2/portalproducts/{PortalProductId}/sharingpolicy", 200],
+  },
+  () => PutPortalProductSharingPolicyRequest,
+  () => PutPortalProductSharingPolicyResponse,
 ];
 export var PutRoutingRule: StaticOperationSchema = [
   9,
@@ -7867,6 +10281,46 @@ export var UpdateModel: StaticOperationSchema = [
   },
   () => UpdateModelRequest,
   () => UpdateModelResponse,
+];
+export var UpdatePortal: StaticOperationSchema = [
+  9,
+  n0,
+  _UP,
+  {
+    [_ht]: ["PATCH", "/v2/portals/{PortalId}", 200],
+  },
+  () => UpdatePortalRequest,
+  () => UpdatePortalResponse,
+];
+export var UpdatePortalProduct: StaticOperationSchema = [
+  9,
+  n0,
+  _UPP,
+  {
+    [_ht]: ["PATCH", "/v2/portalproducts/{PortalProductId}", 200],
+  },
+  () => UpdatePortalProductRequest,
+  () => UpdatePortalProductResponse,
+];
+export var UpdateProductPage: StaticOperationSchema = [
+  9,
+  n0,
+  _UPPp,
+  {
+    [_ht]: ["PATCH", "/v2/portalproducts/{PortalProductId}/productpages/{ProductPageId}", 200],
+  },
+  () => UpdateProductPageRequest,
+  () => UpdateProductPageResponse,
+];
+export var UpdateProductRestEndpointPage: StaticOperationSchema = [
+  9,
+  n0,
+  _UPREP,
+  {
+    [_ht]: ["PATCH", "/v2/portalproducts/{PortalProductId}/productrestendpointpages/{ProductRestEndpointPageId}", 200],
+  },
+  () => UpdateProductRestEndpointPageRequest,
+  () => UpdateProductRestEndpointPageResponse,
 ];
 export var UpdateRoute: StaticOperationSchema = [
   9,

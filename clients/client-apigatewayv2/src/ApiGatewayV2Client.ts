@@ -68,6 +68,16 @@ import {
   CreateIntegrationResponseCommandOutput,
 } from "./commands/CreateIntegrationResponseCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
+import {
+  CreatePortalProductCommandInput,
+  CreatePortalProductCommandOutput,
+} from "./commands/CreatePortalProductCommand";
+import { CreateProductPageCommandInput, CreateProductPageCommandOutput } from "./commands/CreateProductPageCommand";
+import {
+  CreateProductRestEndpointPageCommandInput,
+  CreateProductRestEndpointPageCommandOutput,
+} from "./commands/CreateProductRestEndpointPageCommand";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteResponseCommandInput,
@@ -95,6 +105,20 @@ import {
   DeleteIntegrationResponseCommandOutput,
 } from "./commands/DeleteIntegrationResponseCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
+import {
+  DeletePortalProductCommandInput,
+  DeletePortalProductCommandOutput,
+} from "./commands/DeletePortalProductCommand";
+import {
+  DeletePortalProductSharingPolicyCommandInput,
+  DeletePortalProductSharingPolicyCommandOutput,
+} from "./commands/DeletePortalProductSharingPolicyCommand";
+import { DeleteProductPageCommandInput, DeleteProductPageCommandOutput } from "./commands/DeleteProductPageCommand";
+import {
+  DeleteProductRestEndpointPageCommandInput,
+  DeleteProductRestEndpointPageCommandOutput,
+} from "./commands/DeleteProductRestEndpointPageCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteRequestParameterCommandInput,
@@ -111,6 +135,7 @@ import {
 import { DeleteRoutingRuleCommandInput, DeleteRoutingRuleCommandOutput } from "./commands/DeleteRoutingRuleCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand";
+import { DisablePortalCommandInput, DisablePortalCommandOutput } from "./commands/DisablePortalCommand";
 import { ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
 import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "./commands/GetApiMappingCommand";
@@ -135,6 +160,17 @@ import { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "./com
 import { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
 import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "./commands/GetModelTemplateCommand";
+import { GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
+import { GetPortalProductCommandInput, GetPortalProductCommandOutput } from "./commands/GetPortalProductCommand";
+import {
+  GetPortalProductSharingPolicyCommandInput,
+  GetPortalProductSharingPolicyCommandOutput,
+} from "./commands/GetPortalProductSharingPolicyCommand";
+import { GetProductPageCommandInput, GetProductPageCommandOutput } from "./commands/GetProductPageCommand";
+import {
+  GetProductRestEndpointPageCommandInput,
+  GetProductRestEndpointPageCommandOutput,
+} from "./commands/GetProductRestEndpointPageCommand";
 import { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
 import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "./commands/GetRouteResponseCommand";
 import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "./commands/GetRouteResponsesCommand";
@@ -146,7 +182,20 @@ import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCom
 import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
 import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import { ListPortalProductsCommandInput, ListPortalProductsCommandOutput } from "./commands/ListPortalProductsCommand";
+import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import { ListProductPagesCommandInput, ListProductPagesCommandOutput } from "./commands/ListProductPagesCommand";
+import {
+  ListProductRestEndpointPagesCommandInput,
+  ListProductRestEndpointPagesCommandOutput,
+} from "./commands/ListProductRestEndpointPagesCommand";
 import { ListRoutingRulesCommandInput, ListRoutingRulesCommandOutput } from "./commands/ListRoutingRulesCommand";
+import { PreviewPortalCommandInput, PreviewPortalCommandOutput } from "./commands/PreviewPortalCommand";
+import { PublishPortalCommandInput, PublishPortalCommandOutput } from "./commands/PublishPortalCommand";
+import {
+  PutPortalProductSharingPolicyCommandInput,
+  PutPortalProductSharingPolicyCommandOutput,
+} from "./commands/PutPortalProductSharingPolicyCommand";
 import { PutRoutingRuleCommandInput, PutRoutingRuleCommandOutput } from "./commands/PutRoutingRuleCommand";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
 import {
@@ -166,6 +215,16 @@ import {
   UpdateIntegrationResponseCommandOutput,
 } from "./commands/UpdateIntegrationResponseCommand";
 import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
+import {
+  UpdatePortalProductCommandInput,
+  UpdatePortalProductCommandOutput,
+} from "./commands/UpdatePortalProductCommand";
+import { UpdateProductPageCommandInput, UpdateProductPageCommandOutput } from "./commands/UpdateProductPageCommand";
+import {
+  UpdateProductRestEndpointPageCommandInput,
+  UpdateProductRestEndpointPageCommandOutput,
+} from "./commands/UpdateProductRestEndpointPageCommand";
 import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import {
   UpdateRouteResponseCommandInput,
@@ -196,6 +255,10 @@ export type ServiceInputTypes =
   | CreateIntegrationCommandInput
   | CreateIntegrationResponseCommandInput
   | CreateModelCommandInput
+  | CreatePortalCommandInput
+  | CreatePortalProductCommandInput
+  | CreateProductPageCommandInput
+  | CreateProductRestEndpointPageCommandInput
   | CreateRouteCommandInput
   | CreateRouteResponseCommandInput
   | CreateRoutingRuleCommandInput
@@ -211,6 +274,11 @@ export type ServiceInputTypes =
   | DeleteIntegrationCommandInput
   | DeleteIntegrationResponseCommandInput
   | DeleteModelCommandInput
+  | DeletePortalCommandInput
+  | DeletePortalProductCommandInput
+  | DeletePortalProductSharingPolicyCommandInput
+  | DeleteProductPageCommandInput
+  | DeleteProductRestEndpointPageCommandInput
   | DeleteRouteCommandInput
   | DeleteRouteRequestParameterCommandInput
   | DeleteRouteResponseCommandInput
@@ -218,6 +286,7 @@ export type ServiceInputTypes =
   | DeleteRoutingRuleCommandInput
   | DeleteStageCommandInput
   | DeleteVpcLinkCommandInput
+  | DisablePortalCommandInput
   | ExportApiCommandInput
   | GetApiCommandInput
   | GetApiMappingCommandInput
@@ -236,6 +305,11 @@ export type ServiceInputTypes =
   | GetModelCommandInput
   | GetModelTemplateCommandInput
   | GetModelsCommandInput
+  | GetPortalCommandInput
+  | GetPortalProductCommandInput
+  | GetPortalProductSharingPolicyCommandInput
+  | GetProductPageCommandInput
+  | GetProductRestEndpointPageCommandInput
   | GetRouteCommandInput
   | GetRouteResponseCommandInput
   | GetRouteResponsesCommandInput
@@ -247,7 +321,14 @@ export type ServiceInputTypes =
   | GetVpcLinkCommandInput
   | GetVpcLinksCommandInput
   | ImportApiCommandInput
+  | ListPortalProductsCommandInput
+  | ListPortalsCommandInput
+  | ListProductPagesCommandInput
+  | ListProductRestEndpointPagesCommandInput
   | ListRoutingRulesCommandInput
+  | PreviewPortalCommandInput
+  | PublishPortalCommandInput
+  | PutPortalProductSharingPolicyCommandInput
   | PutRoutingRuleCommandInput
   | ReimportApiCommandInput
   | ResetAuthorizersCacheCommandInput
@@ -261,6 +342,10 @@ export type ServiceInputTypes =
   | UpdateIntegrationCommandInput
   | UpdateIntegrationResponseCommandInput
   | UpdateModelCommandInput
+  | UpdatePortalCommandInput
+  | UpdatePortalProductCommandInput
+  | UpdateProductPageCommandInput
+  | UpdateProductRestEndpointPageCommandInput
   | UpdateRouteCommandInput
   | UpdateRouteResponseCommandInput
   | UpdateStageCommandInput
@@ -278,6 +363,10 @@ export type ServiceOutputTypes =
   | CreateIntegrationCommandOutput
   | CreateIntegrationResponseCommandOutput
   | CreateModelCommandOutput
+  | CreatePortalCommandOutput
+  | CreatePortalProductCommandOutput
+  | CreateProductPageCommandOutput
+  | CreateProductRestEndpointPageCommandOutput
   | CreateRouteCommandOutput
   | CreateRouteResponseCommandOutput
   | CreateRoutingRuleCommandOutput
@@ -293,6 +382,11 @@ export type ServiceOutputTypes =
   | DeleteIntegrationCommandOutput
   | DeleteIntegrationResponseCommandOutput
   | DeleteModelCommandOutput
+  | DeletePortalCommandOutput
+  | DeletePortalProductCommandOutput
+  | DeletePortalProductSharingPolicyCommandOutput
+  | DeleteProductPageCommandOutput
+  | DeleteProductRestEndpointPageCommandOutput
   | DeleteRouteCommandOutput
   | DeleteRouteRequestParameterCommandOutput
   | DeleteRouteResponseCommandOutput
@@ -300,6 +394,7 @@ export type ServiceOutputTypes =
   | DeleteRoutingRuleCommandOutput
   | DeleteStageCommandOutput
   | DeleteVpcLinkCommandOutput
+  | DisablePortalCommandOutput
   | ExportApiCommandOutput
   | GetApiCommandOutput
   | GetApiMappingCommandOutput
@@ -318,6 +413,11 @@ export type ServiceOutputTypes =
   | GetModelCommandOutput
   | GetModelTemplateCommandOutput
   | GetModelsCommandOutput
+  | GetPortalCommandOutput
+  | GetPortalProductCommandOutput
+  | GetPortalProductSharingPolicyCommandOutput
+  | GetProductPageCommandOutput
+  | GetProductRestEndpointPageCommandOutput
   | GetRouteCommandOutput
   | GetRouteResponseCommandOutput
   | GetRouteResponsesCommandOutput
@@ -329,7 +429,14 @@ export type ServiceOutputTypes =
   | GetVpcLinkCommandOutput
   | GetVpcLinksCommandOutput
   | ImportApiCommandOutput
+  | ListPortalProductsCommandOutput
+  | ListPortalsCommandOutput
+  | ListProductPagesCommandOutput
+  | ListProductRestEndpointPagesCommandOutput
   | ListRoutingRulesCommandOutput
+  | PreviewPortalCommandOutput
+  | PublishPortalCommandOutput
+  | PutPortalProductSharingPolicyCommandOutput
   | PutRoutingRuleCommandOutput
   | ReimportApiCommandOutput
   | ResetAuthorizersCacheCommandOutput
@@ -343,6 +450,10 @@ export type ServiceOutputTypes =
   | UpdateIntegrationCommandOutput
   | UpdateIntegrationResponseCommandOutput
   | UpdateModelCommandOutput
+  | UpdatePortalCommandOutput
+  | UpdatePortalProductCommandOutput
+  | UpdateProductPageCommandOutput
+  | UpdateProductRestEndpointPageCommandOutput
   | UpdateRouteCommandOutput
   | UpdateRouteResponseCommandOutput
   | UpdateStageCommandOutput

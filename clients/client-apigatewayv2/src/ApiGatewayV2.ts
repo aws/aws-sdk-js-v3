@@ -35,6 +35,26 @@ import {
   CreateIntegrationResponseCommandOutput,
 } from "./commands/CreateIntegrationResponseCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import {
+  CreatePortalCommand,
+  CreatePortalCommandInput,
+  CreatePortalCommandOutput,
+} from "./commands/CreatePortalCommand";
+import {
+  CreatePortalProductCommand,
+  CreatePortalProductCommandInput,
+  CreatePortalProductCommandOutput,
+} from "./commands/CreatePortalProductCommand";
+import {
+  CreateProductPageCommand,
+  CreateProductPageCommandInput,
+  CreateProductPageCommandOutput,
+} from "./commands/CreateProductPageCommand";
+import {
+  CreateProductRestEndpointPageCommand,
+  CreateProductRestEndpointPageCommandInput,
+  CreateProductRestEndpointPageCommandOutput,
+} from "./commands/CreateProductRestEndpointPageCommand";
 import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteResponseCommand,
@@ -94,6 +114,31 @@ import {
   DeleteIntegrationResponseCommandOutput,
 } from "./commands/DeleteIntegrationResponseCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import {
+  DeletePortalCommand,
+  DeletePortalCommandInput,
+  DeletePortalCommandOutput,
+} from "./commands/DeletePortalCommand";
+import {
+  DeletePortalProductCommand,
+  DeletePortalProductCommandInput,
+  DeletePortalProductCommandOutput,
+} from "./commands/DeletePortalProductCommand";
+import {
+  DeletePortalProductSharingPolicyCommand,
+  DeletePortalProductSharingPolicyCommandInput,
+  DeletePortalProductSharingPolicyCommandOutput,
+} from "./commands/DeletePortalProductSharingPolicyCommand";
+import {
+  DeleteProductPageCommand,
+  DeleteProductPageCommandInput,
+  DeleteProductPageCommandOutput,
+} from "./commands/DeleteProductPageCommand";
+import {
+  DeleteProductRestEndpointPageCommand,
+  DeleteProductRestEndpointPageCommandInput,
+  DeleteProductRestEndpointPageCommandOutput,
+} from "./commands/DeleteProductRestEndpointPageCommand";
 import { DeleteRouteCommand, DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteRequestParameterCommand,
@@ -121,6 +166,11 @@ import {
   DeleteVpcLinkCommandInput,
   DeleteVpcLinkCommandOutput,
 } from "./commands/DeleteVpcLinkCommand";
+import {
+  DisablePortalCommand,
+  DisablePortalCommandInput,
+  DisablePortalCommandOutput,
+} from "./commands/DisablePortalCommand";
 import { ExportApiCommand, ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand";
 import { GetApiCommand, GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import {
@@ -191,6 +241,27 @@ import {
   GetModelTemplateCommandInput,
   GetModelTemplateCommandOutput,
 } from "./commands/GetModelTemplateCommand";
+import { GetPortalCommand, GetPortalCommandInput, GetPortalCommandOutput } from "./commands/GetPortalCommand";
+import {
+  GetPortalProductCommand,
+  GetPortalProductCommandInput,
+  GetPortalProductCommandOutput,
+} from "./commands/GetPortalProductCommand";
+import {
+  GetPortalProductSharingPolicyCommand,
+  GetPortalProductSharingPolicyCommandInput,
+  GetPortalProductSharingPolicyCommandOutput,
+} from "./commands/GetPortalProductSharingPolicyCommand";
+import {
+  GetProductPageCommand,
+  GetProductPageCommandInput,
+  GetProductPageCommandOutput,
+} from "./commands/GetProductPageCommand";
+import {
+  GetProductRestEndpointPageCommand,
+  GetProductRestEndpointPageCommandInput,
+  GetProductRestEndpointPageCommandOutput,
+} from "./commands/GetProductRestEndpointPageCommand";
 import { GetRouteCommand, GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
 import {
   GetRouteResponseCommand,
@@ -215,10 +286,41 @@ import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } fr
 import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommand, ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
 import {
+  ListPortalProductsCommand,
+  ListPortalProductsCommandInput,
+  ListPortalProductsCommandOutput,
+} from "./commands/ListPortalProductsCommand";
+import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import {
+  ListProductPagesCommand,
+  ListProductPagesCommandInput,
+  ListProductPagesCommandOutput,
+} from "./commands/ListProductPagesCommand";
+import {
+  ListProductRestEndpointPagesCommand,
+  ListProductRestEndpointPagesCommandInput,
+  ListProductRestEndpointPagesCommandOutput,
+} from "./commands/ListProductRestEndpointPagesCommand";
+import {
   ListRoutingRulesCommand,
   ListRoutingRulesCommandInput,
   ListRoutingRulesCommandOutput,
 } from "./commands/ListRoutingRulesCommand";
+import {
+  PreviewPortalCommand,
+  PreviewPortalCommandInput,
+  PreviewPortalCommandOutput,
+} from "./commands/PreviewPortalCommand";
+import {
+  PublishPortalCommand,
+  PublishPortalCommandInput,
+  PublishPortalCommandOutput,
+} from "./commands/PublishPortalCommand";
+import {
+  PutPortalProductSharingPolicyCommand,
+  PutPortalProductSharingPolicyCommandInput,
+  PutPortalProductSharingPolicyCommandOutput,
+} from "./commands/PutPortalProductSharingPolicyCommand";
 import {
   PutRoutingRuleCommand,
   PutRoutingRuleCommandInput,
@@ -268,6 +370,26 @@ import {
   UpdateIntegrationResponseCommandOutput,
 } from "./commands/UpdateIntegrationResponseCommand";
 import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import {
+  UpdatePortalCommand,
+  UpdatePortalCommandInput,
+  UpdatePortalCommandOutput,
+} from "./commands/UpdatePortalCommand";
+import {
+  UpdatePortalProductCommand,
+  UpdatePortalProductCommandInput,
+  UpdatePortalProductCommandOutput,
+} from "./commands/UpdatePortalProductCommand";
+import {
+  UpdateProductPageCommand,
+  UpdateProductPageCommandInput,
+  UpdateProductPageCommandOutput,
+} from "./commands/UpdateProductPageCommand";
+import {
+  UpdateProductRestEndpointPageCommand,
+  UpdateProductRestEndpointPageCommandInput,
+  UpdateProductRestEndpointPageCommandOutput,
+} from "./commands/UpdateProductRestEndpointPageCommand";
 import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import {
   UpdateRouteResponseCommand,
@@ -290,6 +412,10 @@ const commands = {
   CreateIntegrationCommand,
   CreateIntegrationResponseCommand,
   CreateModelCommand,
+  CreatePortalCommand,
+  CreatePortalProductCommand,
+  CreateProductPageCommand,
+  CreateProductRestEndpointPageCommand,
   CreateRouteCommand,
   CreateRouteResponseCommand,
   CreateRoutingRuleCommand,
@@ -305,6 +431,11 @@ const commands = {
   DeleteIntegrationCommand,
   DeleteIntegrationResponseCommand,
   DeleteModelCommand,
+  DeletePortalCommand,
+  DeletePortalProductCommand,
+  DeletePortalProductSharingPolicyCommand,
+  DeleteProductPageCommand,
+  DeleteProductRestEndpointPageCommand,
   DeleteRouteCommand,
   DeleteRouteRequestParameterCommand,
   DeleteRouteResponseCommand,
@@ -312,6 +443,7 @@ const commands = {
   DeleteRoutingRuleCommand,
   DeleteStageCommand,
   DeleteVpcLinkCommand,
+  DisablePortalCommand,
   ExportApiCommand,
   GetApiCommand,
   GetApiMappingCommand,
@@ -330,6 +462,11 @@ const commands = {
   GetModelCommand,
   GetModelsCommand,
   GetModelTemplateCommand,
+  GetPortalCommand,
+  GetPortalProductCommand,
+  GetPortalProductSharingPolicyCommand,
+  GetProductPageCommand,
+  GetProductRestEndpointPageCommand,
   GetRouteCommand,
   GetRouteResponseCommand,
   GetRouteResponsesCommand,
@@ -341,7 +478,14 @@ const commands = {
   GetVpcLinkCommand,
   GetVpcLinksCommand,
   ImportApiCommand,
+  ListPortalProductsCommand,
+  ListPortalsCommand,
+  ListProductPagesCommand,
+  ListProductRestEndpointPagesCommand,
   ListRoutingRulesCommand,
+  PreviewPortalCommand,
+  PublishPortalCommand,
+  PutPortalProductSharingPolicyCommand,
   PutRoutingRuleCommand,
   ReimportApiCommand,
   ResetAuthorizersCacheCommand,
@@ -355,6 +499,10 @@ const commands = {
   UpdateIntegrationCommand,
   UpdateIntegrationResponseCommand,
   UpdateModelCommand,
+  UpdatePortalCommand,
+  UpdatePortalProductCommand,
+  UpdateProductPageCommand,
+  UpdateProductRestEndpointPageCommand,
   UpdateRouteCommand,
   UpdateRouteResponseCommand,
   UpdateStageCommand,
@@ -484,6 +632,68 @@ export interface ApiGatewayV2 {
     args: CreateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePortalCommand}
+   */
+  createPortal(args: CreatePortalCommandInput, options?: __HttpHandlerOptions): Promise<CreatePortalCommandOutput>;
+  createPortal(args: CreatePortalCommandInput, cb: (err: any, data?: CreatePortalCommandOutput) => void): void;
+  createPortal(
+    args: CreatePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePortalProductCommand}
+   */
+  createPortalProduct(
+    args: CreatePortalProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePortalProductCommandOutput>;
+  createPortalProduct(
+    args: CreatePortalProductCommandInput,
+    cb: (err: any, data?: CreatePortalProductCommandOutput) => void
+  ): void;
+  createPortalProduct(
+    args: CreatePortalProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePortalProductCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProductPageCommand}
+   */
+  createProductPage(
+    args: CreateProductPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProductPageCommandOutput>;
+  createProductPage(
+    args: CreateProductPageCommandInput,
+    cb: (err: any, data?: CreateProductPageCommandOutput) => void
+  ): void;
+  createProductPage(
+    args: CreateProductPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProductPageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProductRestEndpointPageCommand}
+   */
+  createProductRestEndpointPage(
+    args: CreateProductRestEndpointPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProductRestEndpointPageCommandOutput>;
+  createProductRestEndpointPage(
+    args: CreateProductRestEndpointPageCommandInput,
+    cb: (err: any, data?: CreateProductRestEndpointPageCommandOutput) => void
+  ): void;
+  createProductRestEndpointPage(
+    args: CreateProductRestEndpointPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProductRestEndpointPageCommandOutput) => void
   ): void;
 
   /**
@@ -712,6 +922,85 @@ export interface ApiGatewayV2 {
   ): void;
 
   /**
+   * @see {@link DeletePortalCommand}
+   */
+  deletePortal(args: DeletePortalCommandInput, options?: __HttpHandlerOptions): Promise<DeletePortalCommandOutput>;
+  deletePortal(args: DeletePortalCommandInput, cb: (err: any, data?: DeletePortalCommandOutput) => void): void;
+  deletePortal(
+    args: DeletePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePortalProductCommand}
+   */
+  deletePortalProduct(
+    args: DeletePortalProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePortalProductCommandOutput>;
+  deletePortalProduct(
+    args: DeletePortalProductCommandInput,
+    cb: (err: any, data?: DeletePortalProductCommandOutput) => void
+  ): void;
+  deletePortalProduct(
+    args: DeletePortalProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePortalProductCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePortalProductSharingPolicyCommand}
+   */
+  deletePortalProductSharingPolicy(
+    args: DeletePortalProductSharingPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePortalProductSharingPolicyCommandOutput>;
+  deletePortalProductSharingPolicy(
+    args: DeletePortalProductSharingPolicyCommandInput,
+    cb: (err: any, data?: DeletePortalProductSharingPolicyCommandOutput) => void
+  ): void;
+  deletePortalProductSharingPolicy(
+    args: DeletePortalProductSharingPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePortalProductSharingPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProductPageCommand}
+   */
+  deleteProductPage(
+    args: DeleteProductPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProductPageCommandOutput>;
+  deleteProductPage(
+    args: DeleteProductPageCommandInput,
+    cb: (err: any, data?: DeleteProductPageCommandOutput) => void
+  ): void;
+  deleteProductPage(
+    args: DeleteProductPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProductPageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProductRestEndpointPageCommand}
+   */
+  deleteProductRestEndpointPage(
+    args: DeleteProductRestEndpointPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProductRestEndpointPageCommandOutput>;
+  deleteProductRestEndpointPage(
+    args: DeleteProductRestEndpointPageCommandInput,
+    cb: (err: any, data?: DeleteProductRestEndpointPageCommandOutput) => void
+  ): void;
+  deleteProductRestEndpointPage(
+    args: DeleteProductRestEndpointPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProductRestEndpointPageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteRouteCommand}
    */
   deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
@@ -810,6 +1099,17 @@ export interface ApiGatewayV2 {
     args: DeleteVpcLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisablePortalCommand}
+   */
+  disablePortal(args: DisablePortalCommandInput, options?: __HttpHandlerOptions): Promise<DisablePortalCommandOutput>;
+  disablePortal(args: DisablePortalCommandInput, cb: (err: any, data?: DisablePortalCommandOutput) => void): void;
+  disablePortal(
+    args: DisablePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisablePortalCommandOutput) => void
   ): void;
 
   /**
@@ -1049,6 +1349,82 @@ export interface ApiGatewayV2 {
   ): void;
 
   /**
+   * @see {@link GetPortalCommand}
+   */
+  getPortal(args: GetPortalCommandInput, options?: __HttpHandlerOptions): Promise<GetPortalCommandOutput>;
+  getPortal(args: GetPortalCommandInput, cb: (err: any, data?: GetPortalCommandOutput) => void): void;
+  getPortal(
+    args: GetPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPortalProductCommand}
+   */
+  getPortalProduct(
+    args: GetPortalProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPortalProductCommandOutput>;
+  getPortalProduct(
+    args: GetPortalProductCommandInput,
+    cb: (err: any, data?: GetPortalProductCommandOutput) => void
+  ): void;
+  getPortalProduct(
+    args: GetPortalProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPortalProductCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPortalProductSharingPolicyCommand}
+   */
+  getPortalProductSharingPolicy(
+    args: GetPortalProductSharingPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPortalProductSharingPolicyCommandOutput>;
+  getPortalProductSharingPolicy(
+    args: GetPortalProductSharingPolicyCommandInput,
+    cb: (err: any, data?: GetPortalProductSharingPolicyCommandOutput) => void
+  ): void;
+  getPortalProductSharingPolicy(
+    args: GetPortalProductSharingPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPortalProductSharingPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProductPageCommand}
+   */
+  getProductPage(
+    args: GetProductPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProductPageCommandOutput>;
+  getProductPage(args: GetProductPageCommandInput, cb: (err: any, data?: GetProductPageCommandOutput) => void): void;
+  getProductPage(
+    args: GetProductPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProductPageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProductRestEndpointPageCommand}
+   */
+  getProductRestEndpointPage(
+    args: GetProductRestEndpointPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProductRestEndpointPageCommandOutput>;
+  getProductRestEndpointPage(
+    args: GetProductRestEndpointPageCommandInput,
+    cb: (err: any, data?: GetProductRestEndpointPageCommandOutput) => void
+  ): void;
+  getProductRestEndpointPage(
+    args: GetProductRestEndpointPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProductRestEndpointPageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRouteCommand}
    */
   getRoute(args: GetRouteCommandInput, options?: __HttpHandlerOptions): Promise<GetRouteCommandOutput>;
@@ -1186,6 +1562,70 @@ export interface ApiGatewayV2 {
   ): void;
 
   /**
+   * @see {@link ListPortalProductsCommand}
+   */
+  listPortalProducts(): Promise<ListPortalProductsCommandOutput>;
+  listPortalProducts(
+    args: ListPortalProductsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPortalProductsCommandOutput>;
+  listPortalProducts(
+    args: ListPortalProductsCommandInput,
+    cb: (err: any, data?: ListPortalProductsCommandOutput) => void
+  ): void;
+  listPortalProducts(
+    args: ListPortalProductsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPortalProductsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPortalsCommand}
+   */
+  listPortals(): Promise<ListPortalsCommandOutput>;
+  listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
+  listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
+  listPortals(
+    args: ListPortalsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProductPagesCommand}
+   */
+  listProductPages(
+    args: ListProductPagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProductPagesCommandOutput>;
+  listProductPages(
+    args: ListProductPagesCommandInput,
+    cb: (err: any, data?: ListProductPagesCommandOutput) => void
+  ): void;
+  listProductPages(
+    args: ListProductPagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProductPagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProductRestEndpointPagesCommand}
+   */
+  listProductRestEndpointPages(
+    args: ListProductRestEndpointPagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProductRestEndpointPagesCommandOutput>;
+  listProductRestEndpointPages(
+    args: ListProductRestEndpointPagesCommandInput,
+    cb: (err: any, data?: ListProductRestEndpointPagesCommandOutput) => void
+  ): void;
+  listProductRestEndpointPages(
+    args: ListProductRestEndpointPagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProductRestEndpointPagesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRoutingRulesCommand}
    */
   listRoutingRules(
@@ -1200,6 +1640,45 @@ export interface ApiGatewayV2 {
     args: ListRoutingRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRoutingRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PreviewPortalCommand}
+   */
+  previewPortal(args: PreviewPortalCommandInput, options?: __HttpHandlerOptions): Promise<PreviewPortalCommandOutput>;
+  previewPortal(args: PreviewPortalCommandInput, cb: (err: any, data?: PreviewPortalCommandOutput) => void): void;
+  previewPortal(
+    args: PreviewPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PreviewPortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PublishPortalCommand}
+   */
+  publishPortal(args: PublishPortalCommandInput, options?: __HttpHandlerOptions): Promise<PublishPortalCommandOutput>;
+  publishPortal(args: PublishPortalCommandInput, cb: (err: any, data?: PublishPortalCommandOutput) => void): void;
+  publishPortal(
+    args: PublishPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishPortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutPortalProductSharingPolicyCommand}
+   */
+  putPortalProductSharingPolicy(
+    args: PutPortalProductSharingPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPortalProductSharingPolicyCommandOutput>;
+  putPortalProductSharingPolicy(
+    args: PutPortalProductSharingPolicyCommandInput,
+    cb: (err: any, data?: PutPortalProductSharingPolicyCommandOutput) => void
+  ): void;
+  putPortalProductSharingPolicy(
+    args: PutPortalProductSharingPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPortalProductSharingPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1388,6 +1867,68 @@ export interface ApiGatewayV2 {
     args: UpdateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePortalCommand}
+   */
+  updatePortal(args: UpdatePortalCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePortalCommandOutput>;
+  updatePortal(args: UpdatePortalCommandInput, cb: (err: any, data?: UpdatePortalCommandOutput) => void): void;
+  updatePortal(
+    args: UpdatePortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePortalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePortalProductCommand}
+   */
+  updatePortalProduct(
+    args: UpdatePortalProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePortalProductCommandOutput>;
+  updatePortalProduct(
+    args: UpdatePortalProductCommandInput,
+    cb: (err: any, data?: UpdatePortalProductCommandOutput) => void
+  ): void;
+  updatePortalProduct(
+    args: UpdatePortalProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePortalProductCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProductPageCommand}
+   */
+  updateProductPage(
+    args: UpdateProductPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProductPageCommandOutput>;
+  updateProductPage(
+    args: UpdateProductPageCommandInput,
+    cb: (err: any, data?: UpdateProductPageCommandOutput) => void
+  ): void;
+  updateProductPage(
+    args: UpdateProductPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProductPageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProductRestEndpointPageCommand}
+   */
+  updateProductRestEndpointPage(
+    args: UpdateProductRestEndpointPageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProductRestEndpointPageCommandOutput>;
+  updateProductRestEndpointPage(
+    args: UpdateProductRestEndpointPageCommandInput,
+    cb: (err: any, data?: UpdateProductRestEndpointPageCommandOutput) => void
+  ): void;
+  updateProductRestEndpointPage(
+    args: UpdateProductRestEndpointPageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProductRestEndpointPageCommandOutput) => void
   ): void;
 
   /**

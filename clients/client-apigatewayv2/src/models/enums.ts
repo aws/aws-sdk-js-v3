@@ -167,6 +167,62 @@ export type PassthroughBehavior = (typeof PassthroughBehavior)[keyof typeof Pass
  * @public
  * @enum
  */
+export const PreviewStatus = {
+  PREVIEW_FAILED: "PREVIEW_FAILED",
+  PREVIEW_IN_PROGRESS: "PREVIEW_IN_PROGRESS",
+  PREVIEW_READY: "PREVIEW_READY",
+} as const;
+/**
+ * @public
+ */
+export type PreviewStatus = (typeof PreviewStatus)[keyof typeof PreviewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PublishStatus = {
+  DISABLED: "DISABLED",
+  PUBLISHED: "PUBLISHED",
+  PUBLISH_FAILED: "PUBLISH_FAILED",
+  PUBLISH_IN_PROGRESS: "PUBLISH_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type PublishStatus = (typeof PublishStatus)[keyof typeof PublishStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  AVAILABLE: "AVAILABLE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const TryItState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type TryItState = (typeof TryItState)[keyof typeof TryItState];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthorizationType = {
   AWS_IAM: "AWS_IAM",
   CUSTOM: "CUSTOM",

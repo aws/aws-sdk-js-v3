@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApiGatewayV2Client` and
-the commands you need, for example `ListRoutingRulesCommand`:
+the commands you need, for example `ListPortalsCommand`:
 
 ```js
 // ES5 example
-const { ApiGatewayV2Client, ListRoutingRulesCommand } = require("@aws-sdk/client-apigatewayv2");
+const { ApiGatewayV2Client, ListPortalsCommand } = require("@aws-sdk/client-apigatewayv2");
 ```
 
 ```ts
 // ES6+ example
-import { ApiGatewayV2Client, ListRoutingRulesCommand } from "@aws-sdk/client-apigatewayv2";
+import { ApiGatewayV2Client, ListPortalsCommand } from "@aws-sdk/client-apigatewayv2";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ApiGatewayV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListRoutingRulesCommand(params);
+const command = new ListPortalsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.ApiGatewayV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listRoutingRules(params);
+  const data = await client.listPortals(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .listRoutingRules(params)
+  .listPortals(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.listRoutingRules(params, (err, data) => {
+client.listPortals(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -265,6 +265,38 @@ CreateModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/CreateModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreatePortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/CreatePortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreatePortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreatePortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreatePortalProduct
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/CreatePortalProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreatePortalProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreatePortalProductCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateProductPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/CreateProductPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateProductPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateProductPageCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateProductRestEndpointPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/CreateProductRestEndpointPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateProductRestEndpointPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/CreateProductRestEndpointPageCommandOutput/)
 
 </details>
 <details>
@@ -389,6 +421,46 @@ DeleteModel
 </details>
 <details>
 <summary>
+DeletePortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeletePortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeletePortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeletePortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePortalProduct
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeletePortalProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeletePortalProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeletePortalProductCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePortalProductSharingPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeletePortalProductSharingPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeletePortalProductSharingPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeletePortalProductSharingPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteProductPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeleteProductPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteProductPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteProductPageCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteProductRestEndpointPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeleteProductRestEndpointPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteProductRestEndpointPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteProductRestEndpointPageCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteRoute
 </summary>
 
@@ -441,6 +513,14 @@ DeleteVpcLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DeleteVpcLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteVpcLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DeleteVpcLinkCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisablePortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/DisablePortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DisablePortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/DisablePortalCommandOutput/)
 
 </details>
 <details>
@@ -589,6 +669,46 @@ GetModelTemplate
 </details>
 <details>
 <summary>
+GetPortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/GetPortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetPortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetPortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPortalProduct
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/GetPortalProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetPortalProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetPortalProductCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPortalProductSharingPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/GetPortalProductSharingPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetPortalProductSharingPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetPortalProductSharingPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetProductPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/GetProductPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetProductPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetProductPageCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetProductRestEndpointPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/GetProductRestEndpointPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetProductRestEndpointPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/GetProductRestEndpointPageCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRoute
 </summary>
 
@@ -677,10 +797,66 @@ ImportApi
 </details>
 <details>
 <summary>
+ListPortalProducts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ListPortalProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListPortalProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListPortalProductsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPortals
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ListPortalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListPortalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListPortalsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListProductPages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ListProductPagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListProductPagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListProductPagesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListProductRestEndpointPages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ListProductRestEndpointPagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListProductRestEndpointPagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListProductRestEndpointPagesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRoutingRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/ListRoutingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListRoutingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/ListRoutingRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+PreviewPortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/PreviewPortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PreviewPortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PreviewPortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+PublishPortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/PublishPortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PublishPortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PublishPortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutPortalProductSharingPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/PutPortalProductSharingPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PutPortalProductSharingPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/PutPortalProductSharingPolicyCommandOutput/)
 
 </details>
 <details>
@@ -785,6 +961,38 @@ UpdateModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/UpdateModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdateModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdateModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePortal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/UpdatePortalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdatePortalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdatePortalCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePortalProduct
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/UpdatePortalProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdatePortalProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdatePortalProductCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateProductPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/UpdateProductPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdateProductPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdateProductPageCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateProductRestEndpointPage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apigatewayv2/command/UpdateProductRestEndpointPageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdateProductRestEndpointPageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apigatewayv2/Interface/UpdateProductRestEndpointPageCommandOutput/)
 
 </details>
 <details>
