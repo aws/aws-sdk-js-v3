@@ -80,6 +80,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //             enableAnswerMachineDetection: true || false, // required
  * //             awaitAnswerMachinePrompt: true || false,
  * //           },
+ * //           ringTimeout: Number("int"),
  * //         },
  * //       },
  * //       sms: { // SmsChannelSubtypeConfig

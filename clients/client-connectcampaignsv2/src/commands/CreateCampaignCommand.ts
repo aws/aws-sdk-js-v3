@@ -72,6 +72,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *           enableAnswerMachineDetection: true || false, // required
  *           awaitAnswerMachinePrompt: true || false,
  *         },
+ *         ringTimeout: Number("int"),
  *       },
  *     },
  *     sms: { // SmsChannelSubtypeConfig

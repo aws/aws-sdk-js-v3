@@ -57,6 +57,7 @@ export interface PutOutboundRequestBatchCommandOutput extends PutOutboundRequest
  *             enableAnswerMachineDetection: true || false, // required
  *             awaitAnswerMachinePrompt: true || false,
  *           },
+ *           ringTimeout: Number("int"),
  *         },
  *         sms: { // SmsChannelSubtypeParameters
  *           destinationPhoneNumber: "STRING_VALUE", // required

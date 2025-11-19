@@ -222,6 +222,12 @@ export interface TelephonyOutboundConfig {
    * @public
    */
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
+
+  /**
+   * Ring timeout for outbound calls
+   * @public
+   */
+  ringTimeout?: number | undefined;
 }
 
 /**
@@ -2141,6 +2147,12 @@ export interface TelephonyChannelSubtypeParameters {
    * @public
    */
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
+
+  /**
+   * Ring timeout for outbound calls
+   * @public
+   */
+  ringTimeout?: number | undefined;
 }
 
 /**

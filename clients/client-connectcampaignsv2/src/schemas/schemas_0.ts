@@ -257,6 +257,7 @@ const _qC = "qConnect";
 const _rF = "refreshFrequency";
 const _rP = "restrictedPeriods";
 const _rPL = "restrictedPeriodList";
+const _rT = "ringTimeout";
 const _s = "source";
 const _sD = "startDate";
 const _sEADN = "sourceEmailAddressDisplayName";
@@ -862,16 +863,16 @@ export var TelephonyChannelSubtypeParameters: StaticStructureSchema = [
   n0,
   _TCSP,
   0,
-  [_dPN, _at, _cSPN, _aMDC],
-  [[() => DestinationPhoneNumber, 0], [() => Attributes, 0], 0, () => AnswerMachineDetectionConfig],
+  [_dPN, _at, _cSPN, _aMDC, _rT],
+  [[() => DestinationPhoneNumber, 0], [() => Attributes, 0], 0, () => AnswerMachineDetectionConfig, 1],
 ];
 export var TelephonyOutboundConfig: StaticStructureSchema = [
   3,
   n0,
   _TOC,
   0,
-  [_cCFI, _cSPN, _aMDC],
-  [0, 0, () => AnswerMachineDetectionConfig],
+  [_cCFI, _cSPN, _aMDC, _rT],
+  [0, 0, () => AnswerMachineDetectionConfig, 1],
 ];
 export var ThrottlingException: StaticErrorSchema = [
   -3,

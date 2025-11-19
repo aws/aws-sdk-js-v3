@@ -71,6 +71,7 @@ export interface UpdateCampaignChannelSubtypeConfigCommandOutput extends __Metad
  *           enableAnswerMachineDetection: true || false, // required
  *           awaitAnswerMachinePrompt: true || false,
  *         },
+ *         ringTimeout: Number("int"),
  *       },
  *     },
  *     sms: { // SmsChannelSubtypeConfig
