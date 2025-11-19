@@ -1,2 +1,2 @@
 // smithy-typescript generated code
-export {};
+export * from "./CreateOAuth2TokenCommand";

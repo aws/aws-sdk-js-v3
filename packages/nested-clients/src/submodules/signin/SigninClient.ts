@@ -31,6 +31,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
@@ -43,7 +44,6 @@ import {
   HttpRequest,
   HttpResponse,
   Logger as __Logger,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   Provider,
   StreamCollector as __StreamCollector,
@@ -57,6 +57,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CreateOAuth2TokenCommandInput, CreateOAuth2TokenCommandOutput } from "./commands/CreateOAuth2TokenCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -71,12 +72,12 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = {};
+export type ServiceInputTypes = CreateOAuth2TokenCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = __MetadataBearer;
+export type ServiceOutputTypes = CreateOAuth2TokenCommandOutput;
 
 /**
  * @public
@@ -195,6 +196,13 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
+   * Default credentials provider; Not available in browser runtime.
+   * @deprecated
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -272,10 +280,8 @@ export type SigninClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface SigninClientResolvedConfig extends SigninClientResolvedConfigType {}
 
 /**
- * AWS Sign-In Data Plane Service
- *
- * This service implements OAuth 2.0 flows for AWS CLI authentication,
- * providing secure token exchange and refresh capabilities.
+ * AWS Sign-In manages authentication for AWS services. This service provides
+ * secure authentication flows for accessing AWS resources from the console and developer tools.
  * @public
  */
 export class SigninClient extends __Client<

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
+import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -28,6 +29,12 @@ export const getRuntimeConfig = (config: SigninClientConfig) => {
         schemeId: "aws.auth#sigv4",
         identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
+      },
+      {
+        schemeId: "smithy.api#noAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
+        signer: new NoAuthSigner(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),

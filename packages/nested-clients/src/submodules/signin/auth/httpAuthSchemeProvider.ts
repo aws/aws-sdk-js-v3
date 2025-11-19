@@ -73,6 +73,12 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SigninHttpAuthSchemePa
   };
 }
 
+function createSmithyApiNoAuthHttpAuthOption(authParameters: SigninHttpAuthSchemeParameters): HttpAuthOption {
+  return {
+    schemeId: "smithy.api#noAuth",
+  };
+}
+
 /**
  * @internal
  */
@@ -84,6 +90,10 @@ export interface SigninHttpAuthSchemeProvider extends HttpAuthSchemeProvider<Sig
 export const defaultSigninHttpAuthSchemeProvider: SigninHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
+    case "CreateOAuth2Token": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }
