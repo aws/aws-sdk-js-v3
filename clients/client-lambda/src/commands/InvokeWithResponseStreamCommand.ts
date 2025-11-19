@@ -50,6 +50,7 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  *   ClientContext: "STRING_VALUE",
  *   Qualifier: "STRING_VALUE",
  *   Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   TenantId: "STRING_VALUE",
  * };
  * const command = new InvokeWithResponseStreamCommand(input);
  * const response = await client.send(command);

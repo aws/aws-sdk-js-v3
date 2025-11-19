@@ -58,6 +58,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *   ClientContext: "STRING_VALUE",
  *   Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Qualifier: "STRING_VALUE",
+ *   TenantId: "STRING_VALUE",
  * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);

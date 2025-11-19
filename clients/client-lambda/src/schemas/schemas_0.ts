@@ -449,7 +449,10 @@ const _TA = "TargetArn";
 const _TC = "TracingConfig";
 const _TCR = "TracingConfigResponse";
 const _TCS = "TotalCodeSize";
+const _TCe = "TenancyConfig";
 const _TE = "TagsError";
+const _TI = "TenantId";
+const _TIM = "TenantIsolationMode";
 const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
@@ -496,6 +499,7 @@ const _XAFE = "X-Amz-Function-Error";
 const _XAIT = "X-Amz-Invocation-Type";
 const _XALR = "X-Amz-Log-Result";
 const _XALT = "X-Amz-Log-Type";
+const _XATI = "X-Amz-Tenant-Id";
 const _ZF = "ZipFile";
 const _c = "client";
 const _e = "error";
@@ -825,6 +829,7 @@ export var CreateFunctionRequest: StaticStructureSchema = [
     _ES,
     _SSn,
     _LC,
+    _TCe,
   ],
   [
     0,
@@ -851,6 +856,7 @@ export var CreateFunctionRequest: StaticStructureSchema = [
     () => EphemeralStorage,
     () => SnapStart,
     () => LoggingConfig,
+    () => TenancyConfig,
   ],
 ];
 export var CreateFunctionUrlConfigRequest: StaticStructureSchema = [
@@ -1229,6 +1235,7 @@ export var FunctionConfiguration: StaticStructureSchema = [
     _SSn,
     _RVC,
     _LC,
+    _TCe,
   ],
   [
     0,
@@ -1267,6 +1274,7 @@ export var FunctionConfiguration: StaticStructureSchema = [
     () => SnapStartResponse,
     [() => RuntimeVersionConfig, 0],
     () => LoggingConfig,
+    () => TenancyConfig,
   ],
 ];
 export var FunctionEventInvokeConfig: StaticStructureSchema = [
@@ -1611,7 +1619,7 @@ export var InvocationRequest: StaticStructureSchema = [
   n0,
   _IR,
   0,
-  [_FN, _IT, _LT, _CC, _Pay, _Q],
+  [_FN, _IT, _LT, _CC, _Pay, _Q, _TI],
   [
     [0, 1],
     [
@@ -1637,6 +1645,12 @@ export var InvocationRequest: StaticStructureSchema = [
       0,
       {
         [_hQ]: _Q,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _XATI,
       },
     ],
   ],
@@ -1710,7 +1724,7 @@ export var InvokeWithResponseStreamRequest: StaticStructureSchema = [
   n0,
   _IWRSR,
   0,
-  [_FN, _IT, _LT, _CC, _Q, _Pay],
+  [_FN, _IT, _LT, _CC, _Q, _Pay, _TI],
   [
     [0, 1],
     [
@@ -1738,6 +1752,12 @@ export var InvokeWithResponseStreamRequest: StaticStructureSchema = [
       },
     ],
     [() => _Blob, 16],
+    [
+      0,
+      {
+        [_hH]: _XATI,
+      },
+    ],
   ],
 ];
 export var InvokeWithResponseStreamResponse: StaticStructureSchema = [
@@ -2589,6 +2609,7 @@ TypeRegistry.for(n0).registerError(SubnetIPAddressLimitReachedException, __Subne
 
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_Re, _Ta], [[0, 1], 128 | 0]];
 export var TagsError: StaticStructureSchema = [3, n0, _TE, 0, [_EC, _M], [0, 0]];
+export var TenancyConfig: StaticStructureSchema = [3, n0, _TCe, 0, [_TIM], [0]];
 export var TooManyRequestsException: StaticErrorSchema = [
   -3,
   n0,

@@ -32,6 +32,7 @@ import {
   State,
   StateReasonCode,
   SystemLogLevel,
+  TenantIsolationMode,
   TracingMode,
   UpdateRuntimeOn,
 } from "./enums";
@@ -225,7 +226,7 @@ export interface AddPermissionRequest {
   FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>Restricts the <code>lambda:InvokeFunction</code> action to function URL calls. When set to <code>true</code>, this prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * <p>Restricts the <code>lambda:InvokeFunction</code> action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   InvokedViaFunctionUrl?: boolean | undefined;
@@ -735,18 +736,18 @@ export interface EventSourceMappingMetricsConfig {
 }
 
 /**
- * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode"> provisioned mode</a> configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source. An event poller is a compute unit that provides approximately 5 MBps of throughput.</p>
+ * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode"> provisioned mode</a> configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.</p>
  * @public
  */
 export interface ProvisionedPollerConfig {
   /**
-   * <p>The minimum number of event pollers this event source can scale down to.</p>
+   * <p>The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.</p>
    * @public
    */
   MinimumPollers?: number | undefined;
 
   /**
-   * <p>The maximum number of event pollers this event source can scale up to.</p>
+   * <p>The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.</p>
    * @public
    */
   MaximumPollers?: number | undefined;
@@ -973,7 +974,7 @@ export interface CreateEventSourceMappingRequest {
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
+   * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
@@ -1189,7 +1190,7 @@ export interface EventSourceMappingConfiguration {
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
+   * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
@@ -1388,7 +1389,7 @@ export interface UpdateEventSourceMappingRequest {
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
+   * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
@@ -1554,6 +1555,18 @@ export interface SnapStart {
    * @public
    */
   ApplyOn?: SnapStartApplyOn | undefined;
+}
+
+/**
+ * <p>Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.</p>
+ * @public
+ */
+export interface TenancyConfig {
+  /**
+   * <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
+   * @public
+   */
+  TenantIsolationMode: TenantIsolationMode | undefined;
 }
 
 /**
@@ -1739,6 +1752,12 @@ export interface CreateFunctionRequest {
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
+
+  /**
+   * <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
+   * @public
+   */
+  TenancyConfig?: TenancyConfig | undefined;
 }
 
 /**
@@ -2159,6 +2178,12 @@ export interface FunctionConfiguration {
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
+
+  /**
+   * <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
+   * @public
+   */
+  TenancyConfig?: TenancyConfig | undefined;
 }
 
 /**
@@ -2787,6 +2812,12 @@ export interface InvocationRequest {
    * @public
    */
   Qualifier?: string | undefined;
+
+  /**
+   * <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
 }
 
 /**
@@ -2894,6 +2925,12 @@ export interface InvokeWithResponseStreamRequest {
    * @public
    */
   Payload?: Uint8Array | undefined;
+
+  /**
+   * <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
 }
 
 /**

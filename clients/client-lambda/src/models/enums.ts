@@ -309,6 +309,18 @@ export type SnapStartApplyOn = (typeof SnapStartApplyOn)[keyof typeof SnapStartA
  * @public
  * @enum
  */
+export const TenantIsolationMode = {
+  PER_TENANT: "PER_TENANT",
+} as const;
+/**
+ * @public
+ */
+export type TenantIsolationMode = (typeof TenantIsolationMode)[keyof typeof TenantIsolationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const TracingMode = {
   Active: "Active",
   PassThrough: "PassThrough",
