@@ -56,13 +56,24 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // CreateNatGatewayRequest
+ *   AvailabilityMode: "zonal" || "regional",
  *   AllocationId: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
- *   SubnetId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   AvailabilityZoneAddresses: [ // AvailabilityZoneAddresses
+ *     { // AvailabilityZoneAddress
+ *       AvailabilityZone: "STRING_VALUE",
+ *       AvailabilityZoneId: "STRING_VALUE",
+ *       AllocationIds: [ // AllocationIdList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "image-usage-report" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "outpost-lag" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "service-link-virtual-interface" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token" || "capacity-block" || "mac-modification-task" || "ipam-prefix-list-resolver" || "ipam-prefix-list-resolver-target" || "capacity-manager-data-export" || "vpn-concentrator",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "image-usage-report" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "outpost-lag" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "service-link-virtual-interface" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token" || "capacity-block" || "mac-modification-task" || "ipam-prefix-list-resolver" || "ipam-policy" || "ipam-prefix-list-resolver-target" || "capacity-manager-data-export" || "vpn-concentrator",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -73,7 +84,7 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  *   ],
  *   ConnectivityType: "private" || "public",
  *   PrivateIpAddress: "STRING_VALUE",
- *   SecondaryAllocationIds: [ // AllocationIdList
+ *   SecondaryAllocationIds: [
  *     "STRING_VALUE",
  *   ],
  *   SecondaryPrivateIpAddresses: [ // IpList
@@ -100,6 +111,8 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * //         IsPrimary: true || false,
  * //         FailureMessage: "STRING_VALUE",
  * //         Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //         AvailabilityZone: "STRING_VALUE",
+ * //         AvailabilityZoneId: "STRING_VALUE",
  * //       },
  * //     ],
  * //     NatGatewayId: "STRING_VALUE",
@@ -120,6 +133,10 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * //       },
  * //     ],
  * //     ConnectivityType: "private" || "public",
+ * //     AvailabilityMode: "zonal" || "regional",
+ * //     AutoScalingIps: "enabled" || "disabled",
+ * //     AutoProvisionZones: "enabled" || "disabled",
+ * //     RouteTableId: "STRING_VALUE",
  * //   },
  * // };
  *

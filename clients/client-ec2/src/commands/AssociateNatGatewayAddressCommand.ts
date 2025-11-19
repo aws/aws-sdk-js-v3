@@ -56,6 +56,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  *     "STRING_VALUE",
  *   ],
  *   DryRun: true || false,
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  * };
  * const command = new AssociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
@@ -71,6 +73,8 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * //       IsPrimary: true || false,
  * //       FailureMessage: "STRING_VALUE",
  * //       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

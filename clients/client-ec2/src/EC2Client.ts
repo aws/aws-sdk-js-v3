@@ -336,6 +336,7 @@ import {
   CreateIpamExternalResourceVerificationTokenCommandInput,
   CreateIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
+import { CreateIpamPolicyCommandInput, CreateIpamPolicyCommandOutput } from "./commands/CreateIpamPolicyCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "./commands/CreateIpamPoolCommand";
 import {
   CreateIpamPrefixListResolverCommandInput,
@@ -623,6 +624,7 @@ import {
   DeleteIpamExternalResourceVerificationTokenCommandInput,
   DeleteIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
+import { DeleteIpamPolicyCommandInput, DeleteIpamPolicyCommandOutput } from "./commands/DeleteIpamPolicyCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "./commands/DeleteIpamPoolCommand";
 import {
   DeleteIpamPrefixListResolverCommandInput,
@@ -1134,6 +1136,10 @@ import {
   DescribeIpamExternalResourceVerificationTokensCommandInput,
   DescribeIpamExternalResourceVerificationTokensCommandOutput,
 } from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
+import {
+  DescribeIpamPoliciesCommandInput,
+  DescribeIpamPoliciesCommandOutput,
+} from "./commands/DescribeIpamPoliciesCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "./commands/DescribeIpamPoolsCommand";
 import {
   DescribeIpamPrefixListResolversCommandInput,
@@ -1590,6 +1596,7 @@ import {
   DisableIpamOrganizationAdminAccountCommandInput,
   DisableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableIpamOrganizationAdminAccountCommand";
+import { DisableIpamPolicyCommandInput, DisableIpamPolicyCommandOutput } from "./commands/DisableIpamPolicyCommand";
 import {
   DisableRouteServerPropagationCommandInput,
   DisableRouteServerPropagationCommandOutput,
@@ -1736,6 +1743,7 @@ import {
   EnableIpamOrganizationAdminAccountCommandInput,
   EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
+import { EnableIpamPolicyCommandInput, EnableIpamPolicyCommandOutput } from "./commands/EnableIpamPolicyCommand";
 import {
   EnableReachabilityAnalyzerOrganizationSharingCommandInput,
   EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
@@ -1845,6 +1853,10 @@ import {
   GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand";
 import {
+  GetEnabledIpamPolicyCommandInput,
+  GetEnabledIpamPolicyCommandOutput,
+} from "./commands/GetEnabledIpamPolicyCommand";
+import {
   GetFlowLogsIntegrationTemplateCommandInput,
   GetFlowLogsIntegrationTemplateCommandOutput,
 } from "./commands/GetFlowLogsIntegrationTemplateCommand";
@@ -1893,6 +1905,14 @@ import {
   GetIpamDiscoveredResourceCidrsCommandInput,
   GetIpamDiscoveredResourceCidrsCommandOutput,
 } from "./commands/GetIpamDiscoveredResourceCidrsCommand";
+import {
+  GetIpamPolicyAllocationRulesCommandInput,
+  GetIpamPolicyAllocationRulesCommandOutput,
+} from "./commands/GetIpamPolicyAllocationRulesCommand";
+import {
+  GetIpamPolicyOrganizationTargetsCommandInput,
+  GetIpamPolicyOrganizationTargetsCommandOutput,
+} from "./commands/GetIpamPolicyOrganizationTargetsCommand";
 import {
   GetIpamPoolAllocationsCommandInput,
   GetIpamPoolAllocationsCommandOutput,
@@ -2133,6 +2153,10 @@ import {
   ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
 import { ModifyIpamCommandInput, ModifyIpamCommandOutput } from "./commands/ModifyIpamCommand";
+import {
+  ModifyIpamPolicyAllocationRulesCommandInput,
+  ModifyIpamPolicyAllocationRulesCommandOutput,
+} from "./commands/ModifyIpamPolicyAllocationRulesCommand";
 import { ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput } from "./commands/ModifyIpamPoolCommand";
 import {
   ModifyIpamPrefixListResolverCommandInput,
@@ -2656,6 +2680,7 @@ export type ServiceInputTypes =
   | CreateInternetGatewayCommandInput
   | CreateIpamCommandInput
   | CreateIpamExternalResourceVerificationTokenCommandInput
+  | CreateIpamPolicyCommandInput
   | CreateIpamPoolCommandInput
   | CreateIpamPrefixListResolverCommandInput
   | CreateIpamPrefixListResolverTargetCommandInput
@@ -2745,6 +2770,7 @@ export type ServiceInputTypes =
   | DeleteInternetGatewayCommandInput
   | DeleteIpamCommandInput
   | DeleteIpamExternalResourceVerificationTokenCommandInput
+  | DeleteIpamPolicyCommandInput
   | DeleteIpamPoolCommandInput
   | DeleteIpamPrefixListResolverCommandInput
   | DeleteIpamPrefixListResolverTargetCommandInput
@@ -2893,6 +2919,7 @@ export type ServiceInputTypes =
   | DescribeInternetGatewaysCommandInput
   | DescribeIpamByoasnCommandInput
   | DescribeIpamExternalResourceVerificationTokensCommandInput
+  | DescribeIpamPoliciesCommandInput
   | DescribeIpamPoolsCommandInput
   | DescribeIpamPrefixListResolverTargetsCommandInput
   | DescribeIpamPrefixListResolversCommandInput
@@ -3019,6 +3046,7 @@ export type ServiceInputTypes =
   | DisableImageDeregistrationProtectionCommandInput
   | DisableInstanceSqlHaStandbyDetectionsCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
+  | DisableIpamPolicyCommandInput
   | DisableRouteServerPropagationCommandInput
   | DisableSerialConsoleAccessCommandInput
   | DisableSnapshotBlockPublicAccessCommandInput
@@ -3057,6 +3085,7 @@ export type ServiceInputTypes =
   | EnableImageDeregistrationProtectionCommandInput
   | EnableInstanceSqlHaStandbyDetectionsCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
+  | EnableIpamPolicyCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
   | EnableRouteServerPropagationCommandInput
   | EnableSerialConsoleAccessCommandInput
@@ -3087,6 +3116,7 @@ export type ServiceInputTypes =
   | GetDefaultCreditSpecificationCommandInput
   | GetEbsDefaultKmsKeyIdCommandInput
   | GetEbsEncryptionByDefaultCommandInput
+  | GetEnabledIpamPolicyCommandInput
   | GetFlowLogsIntegrationTemplateCommandInput
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
@@ -3100,6 +3130,8 @@ export type ServiceInputTypes =
   | GetIpamDiscoveredAccountsCommandInput
   | GetIpamDiscoveredPublicAddressesCommandInput
   | GetIpamDiscoveredResourceCidrsCommandInput
+  | GetIpamPolicyAllocationRulesCommandInput
+  | GetIpamPolicyOrganizationTargetsCommandInput
   | GetIpamPoolAllocationsCommandInput
   | GetIpamPoolCidrsCommandInput
   | GetIpamPrefixListResolverRulesCommandInput
@@ -3169,6 +3201,7 @@ export type ServiceInputTypes =
   | ModifyInstanceNetworkPerformanceOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyIpamCommandInput
+  | ModifyIpamPolicyAllocationRulesCommandInput
   | ModifyIpamPoolCommandInput
   | ModifyIpamPrefixListResolverCommandInput
   | ModifyIpamPrefixListResolverTargetCommandInput
@@ -3385,6 +3418,7 @@ export type ServiceOutputTypes =
   | CreateInternetGatewayCommandOutput
   | CreateIpamCommandOutput
   | CreateIpamExternalResourceVerificationTokenCommandOutput
+  | CreateIpamPolicyCommandOutput
   | CreateIpamPoolCommandOutput
   | CreateIpamPrefixListResolverCommandOutput
   | CreateIpamPrefixListResolverTargetCommandOutput
@@ -3474,6 +3508,7 @@ export type ServiceOutputTypes =
   | DeleteInternetGatewayCommandOutput
   | DeleteIpamCommandOutput
   | DeleteIpamExternalResourceVerificationTokenCommandOutput
+  | DeleteIpamPolicyCommandOutput
   | DeleteIpamPoolCommandOutput
   | DeleteIpamPrefixListResolverCommandOutput
   | DeleteIpamPrefixListResolverTargetCommandOutput
@@ -3622,6 +3657,7 @@ export type ServiceOutputTypes =
   | DescribeInternetGatewaysCommandOutput
   | DescribeIpamByoasnCommandOutput
   | DescribeIpamExternalResourceVerificationTokensCommandOutput
+  | DescribeIpamPoliciesCommandOutput
   | DescribeIpamPoolsCommandOutput
   | DescribeIpamPrefixListResolverTargetsCommandOutput
   | DescribeIpamPrefixListResolversCommandOutput
@@ -3748,6 +3784,7 @@ export type ServiceOutputTypes =
   | DisableImageDeregistrationProtectionCommandOutput
   | DisableInstanceSqlHaStandbyDetectionsCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
+  | DisableIpamPolicyCommandOutput
   | DisableRouteServerPropagationCommandOutput
   | DisableSerialConsoleAccessCommandOutput
   | DisableSnapshotBlockPublicAccessCommandOutput
@@ -3786,6 +3823,7 @@ export type ServiceOutputTypes =
   | EnableImageDeregistrationProtectionCommandOutput
   | EnableInstanceSqlHaStandbyDetectionsCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
+  | EnableIpamPolicyCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
   | EnableRouteServerPropagationCommandOutput
   | EnableSerialConsoleAccessCommandOutput
@@ -3816,6 +3854,7 @@ export type ServiceOutputTypes =
   | GetDefaultCreditSpecificationCommandOutput
   | GetEbsDefaultKmsKeyIdCommandOutput
   | GetEbsEncryptionByDefaultCommandOutput
+  | GetEnabledIpamPolicyCommandOutput
   | GetFlowLogsIntegrationTemplateCommandOutput
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
@@ -3829,6 +3868,8 @@ export type ServiceOutputTypes =
   | GetIpamDiscoveredAccountsCommandOutput
   | GetIpamDiscoveredPublicAddressesCommandOutput
   | GetIpamDiscoveredResourceCidrsCommandOutput
+  | GetIpamPolicyAllocationRulesCommandOutput
+  | GetIpamPolicyOrganizationTargetsCommandOutput
   | GetIpamPoolAllocationsCommandOutput
   | GetIpamPoolCidrsCommandOutput
   | GetIpamPrefixListResolverRulesCommandOutput
@@ -3898,6 +3939,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceNetworkPerformanceOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyIpamCommandOutput
+  | ModifyIpamPolicyAllocationRulesCommandOutput
   | ModifyIpamPoolCommandOutput
   | ModifyIpamPrefixListResolverCommandOutput
   | ModifyIpamPrefixListResolverTargetCommandOutput

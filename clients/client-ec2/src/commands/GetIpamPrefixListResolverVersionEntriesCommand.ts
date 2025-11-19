@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetIpamPrefixListResolverVersionEntriesRequest,
   GetIpamPrefixListResolverVersionEntriesResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { GetIpamPrefixListResolverVersionEntries } from "../schemas/schemas_0";
 
 /**

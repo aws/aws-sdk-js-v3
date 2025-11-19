@@ -67,6 +67,8 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * //       IsPrimary: true || false,
  * //       FailureMessage: "STRING_VALUE",
  * //       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

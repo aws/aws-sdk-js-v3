@@ -904,6 +904,14 @@ CreateIpamExternalResourceVerificationToken
 </details>
 <details>
 <summary>
+CreateIpamPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateIpamPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateIpamPool
 </summary>
 
@@ -1612,6 +1620,14 @@ DeleteIpamExternalResourceVerificationToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteIpamExternalResourceVerificationTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamExternalResourceVerificationTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamExternalResourceVerificationTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIpamPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteIpamPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamPolicyCommandOutput/)
 
 </details>
 <details>
@@ -2800,6 +2816,14 @@ DescribeIpamExternalResourceVerificationTokens
 </details>
 <details>
 <summary>
+DescribeIpamPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIpamPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeIpamPools
 </summary>
 
@@ -3808,6 +3832,14 @@ DisableIpamOrganizationAdminAccount
 </details>
 <details>
 <summary>
+DisableIpamPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisableIpamPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableIpamPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableIpamPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableRouteServerPropagation
 </summary>
 
@@ -4112,6 +4144,14 @@ EnableIpamOrganizationAdminAccount
 </details>
 <details>
 <summary>
+EnableIpamPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableIpamPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableIpamPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableIpamPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 EnableReachabilityAnalyzerOrganizationSharing
 </summary>
 
@@ -4352,6 +4392,14 @@ GetEbsEncryptionByDefault
 </details>
 <details>
 <summary>
+GetEnabledIpamPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetEnabledIpamPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetEnabledIpamPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetEnabledIpamPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFlowLogsIntegrationTemplate
 </summary>
 
@@ -4452,6 +4500,22 @@ GetIpamDiscoveredResourceCidrs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamDiscoveredResourceCidrsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamDiscoveredResourceCidrsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamDiscoveredResourceCidrsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIpamPolicyAllocationRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamPolicyAllocationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamPolicyAllocationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamPolicyAllocationRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIpamPolicyOrganizationTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamPolicyOrganizationTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamPolicyOrganizationTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamPolicyOrganizationTargetsCommandOutput/)
 
 </details>
 <details>
@@ -5004,6 +5068,14 @@ ModifyIpam
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyIpamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyIpamPolicyAllocationRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyIpamPolicyAllocationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamPolicyAllocationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamPolicyAllocationRulesCommandOutput/)
 
 </details>
 <details>

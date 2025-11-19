@@ -162,13 +162,14 @@ const _ALT = "AttachmentLimitType";
 const _ALc = "AccessLogs";
 const _ALd = "AddressList";
 const _ALr = "ArnList";
-const _AM = "AcceleratorManufacturers";
+const _AM = "AvailabilityMode";
 const _AMIT = "AllowsMultipleInstanceTypes";
 const _AMNL = "AllocationMinNetmaskLength";
 const _AMNLl = "AllocationMaxNetmaskLength";
 const _AMS = "ApplianceModeSupport";
 const _AMSc = "AcceleratorManufacturerSet";
-const _AMc = "AcceleratorManufacturer";
+const _AMc = "AcceleratorManufacturers";
+const _AMcc = "AcceleratorManufacturer";
 const _AN = "AttributeName";
 const _ANGA = "AssociateNatGatewayAddress";
 const _ANGAR = "AssociateNatGatewayAddressRequest";
@@ -212,6 +213,7 @@ const _APNGAR = "AssignPrivateNatGatewayAddressRequest";
 const _APNGARs = "AssignPrivateNatGatewayAddressResult";
 const _APS = "AddedPrincipalSet";
 const _APSl = "AllowedPrincipalSet";
+const _APZ = "AutoProvisionZones";
 const _APd = "AddedPrincipals";
 const _APl = "AllowedPrincipal";
 const _APll = "AllowedPrincipals";
@@ -247,6 +249,8 @@ const _ARcl = "AclRule";
 const _ARd = "AddressRegion";
 const _ARl = "AllowReassociation";
 const _ARll = "AllRegions";
+const _ARllo = "AllocationRules";
+const _ARlloc = "AllocationRule";
 const _ARs = "AssociatedRole";
 const _ARss = "AssociatedResource";
 const _ARsso = "AssociatedRoles";
@@ -282,6 +286,7 @@ const _ASIATd = "AddSupportedIpAddressType";
 const _ASId = "AddSubnetIds";
 const _ASIdd = "AddSubnetId";
 const _ASIs = "AssociatedSubnetId";
+const _ASIu = "AutoScalingIps";
 const _ASL = "AssociatedSubnetList";
 const _ASLt = "AttributeSummaryList";
 const _ASP = "AccessScopePath";
@@ -376,6 +381,8 @@ const _AVt = "AttributeValue";
 const _AVtt = "AttachVolume";
 const _AWSAKI = "AWSAccessKeyId";
 const _AZ = "AvailabilityZone";
+const _AZA = "AvailabilityZoneAddress";
+const _AZAv = "AvailabilityZoneAddresses";
 const _AZG = "AvailabilityZoneGroup";
 const _AZI = "AvailabilityZoneId";
 const _AZISL = "AvailabilityZoneIdStringList";
@@ -651,15 +658,18 @@ const _CIGRr = "CreateInternetGatewayResult";
 const _CILP = "CancelImageLaunchPermission";
 const _CILPR = "CancelImageLaunchPermissionRequest";
 const _CILPRa = "CancelImageLaunchPermissionResult";
-const _CIP = "CreateIpamPool";
+const _CIP = "CreateIpamPolicy";
 const _CIPLR = "CreateIpamPrefixListResolver";
 const _CIPLRR = "CreateIpamPrefixListResolverRequest";
 const _CIPLRRr = "CreateIpamPrefixListResolverResult";
 const _CIPLRT = "CreateIpamPrefixListResolverTarget";
 const _CIPLRTR = "CreateIpamPrefixListResolverTargetRequest";
 const _CIPLRTRr = "CreateIpamPrefixListResolverTargetResult";
-const _CIPR = "CreateIpamPoolRequest";
-const _CIPRr = "CreateIpamPoolResult";
+const _CIPR = "CreateIpamPolicyRequest";
+const _CIPRr = "CreateIpamPolicyResult";
+const _CIPRre = "CreateIpamPoolRequest";
+const _CIPRrea = "CreateIpamPoolResult";
+const _CIPr = "CreateIpamPool";
 const _CIR = "CopyImageRequest";
 const _CIRD = "CreateIpamResourceDiscovery";
 const _CIRDR = "CreateIpamResourceDiscoveryRequest";
@@ -1465,7 +1475,7 @@ const _DILi = "DiskInfoList";
 const _DIOAA = "DisableIpamOrganizationAdminAccount";
 const _DIOAAR = "DisableIpamOrganizationAdminAccountRequest";
 const _DIOAARi = "DisableIpamOrganizationAdminAccountResult";
-const _DIP = "DeleteIpamPool";
+const _DIP = "DeleteIpamPolicy";
 const _DIPC = "DeprovisionIpamPoolCidr";
 const _DIPCR = "DeprovisionIpamPoolCidrRequest";
 const _DIPCRe = "DeprovisionIpamPoolCidrResult";
@@ -1481,14 +1491,23 @@ const _DIPLRTRes = "DescribeIpamPrefixListResolverTargetsRequest";
 const _DIPLRTResc = "DescribeIpamPrefixListResolverTargetsResult";
 const _DIPLRTe = "DescribeIpamPrefixListResolverTargets";
 const _DIPLRe = "DescribeIpamPrefixListResolvers";
-const _DIPR = "DeleteIpamPoolRequest";
-const _DIPRe = "DeleteIpamPoolResult";
-const _DIPRes = "DescribeIpamPoolsRequest";
-const _DIPResc = "DescribeIpamPoolsResult";
-const _DIPRescr = "DescribeIpv6PoolsRequest";
-const _DIPRescri = "DescribeIpv6PoolsResult";
-const _DIPe = "DescribeIpamPools";
-const _DIPes = "DescribeIpv6Pools";
+const _DIPR = "DeleteIpamPolicyRequest";
+const _DIPRe = "DeleteIpamPolicyResult";
+const _DIPRel = "DeleteIpamPoolRequest";
+const _DIPRele = "DeleteIpamPoolResult";
+const _DIPRes = "DescribeIpamPoliciesRequest";
+const _DIPResc = "DescribeIpamPoliciesResult";
+const _DIPRescr = "DescribeIpamPoolsRequest";
+const _DIPRescri = "DescribeIpamPoolsResult";
+const _DIPRescrib = "DescribeIpv6PoolsRequest";
+const _DIPRescribe = "DescribeIpv6PoolsResult";
+const _DIPRi = "DisableIpamPolicyRequest";
+const _DIPRis = "DisableIpamPolicyResult";
+const _DIPe = "DeleteIpamPool";
+const _DIPes = "DescribeIpamPolicies";
+const _DIPesc = "DescribeIpamPools";
+const _DIPescr = "DescribeIpv6Pools";
+const _DIPi = "DisableIpamPolicy";
 const _DIR = "DeleteIpamRequest";
 const _DIRD = "DeleteIpamResourceDiscovery";
 const _DIRDA = "DescribeIpamResourceDiscoveryAssociations";
@@ -2330,6 +2349,9 @@ const _EIDRn = "EnableImageDeprecationResult";
 const _EIOAA = "EnableIpamOrganizationAdminAccount";
 const _EIOAAR = "EnableIpamOrganizationAdminAccountRequest";
 const _EIOAARn = "EnableIpamOrganizationAdminAccountResult";
+const _EIP = "EnableIpamPolicy";
+const _EIPR = "EnableIpamPolicyRequest";
+const _EIPRn = "EnableIpamPolicyResult";
 const _EIR = "EnableImageRequest";
 const _EIRn = "EnableImageResult";
 const _EIRx = "ExportImageRequest";
@@ -2632,6 +2654,9 @@ const _GEDKKIRe = "GetEbsDefaultKmsKeyIdResult";
 const _GEEBD = "GetEbsEncryptionByDefault";
 const _GEEBDR = "GetEbsEncryptionByDefaultRequest";
 const _GEEBDRe = "GetEbsEncryptionByDefaultResult";
+const _GEIP = "GetEnabledIpamPolicy";
+const _GEIPR = "GetEnabledIpamPolicyRequest";
+const _GEIPRe = "GetEnabledIpamPolicyResult";
 const _GFLIT = "GetFlowLogsIntegrationTemplate";
 const _GFLITR = "GetFlowLogsIntegrationTemplateRequest";
 const _GFLITRe = "GetFlowLogsIntegrationTemplateResult";
@@ -2667,7 +2692,10 @@ const _GIMDR = "GetInstanceMetadataDefaultsRequest";
 const _GIMDRe = "GetInstanceMetadataDefaultsResult";
 const _GIPA = "GetIpamPoolAllocations";
 const _GIPAR = "GetIpamPoolAllocationsRequest";
+const _GIPARR = "GetIpamPolicyAllocationRulesRequest";
+const _GIPARRe = "GetIpamPolicyAllocationRulesResult";
 const _GIPARe = "GetIpamPoolAllocationsResult";
+const _GIPARet = "GetIpamPolicyAllocationRules";
 const _GIPC = "GetIpamPoolCidrs";
 const _GIPCR = "GetIpamPoolCidrsRequest";
 const _GIPCRe = "GetIpamPoolCidrsResult";
@@ -2680,6 +2708,9 @@ const _GIPLRVER = "GetIpamPrefixListResolverVersionEntriesRequest";
 const _GIPLRVERe = "GetIpamPrefixListResolverVersionEntriesResult";
 const _GIPLRVR = "GetIpamPrefixListResolverVersionsRequest";
 const _GIPLRVRe = "GetIpamPrefixListResolverVersionsResult";
+const _GIPOT = "GetIpamPolicyOrganizationTargets";
+const _GIPOTR = "GetIpamPolicyOrganizationTargetsRequest";
+const _GIPOTRe = "GetIpamPolicyOrganizationTargetsResult";
 const _GIRC = "GetIpamResourceCidrs";
 const _GIRCR = "GetIpamResourceCidrsRequest";
 const _GIRCRe = "GetIpamResourceCidrsResult";
@@ -3075,6 +3106,10 @@ const _IPA = "IpamPoolAllocation";
 const _IPAAC = "IpamPoolAllocationAllowedCidrs";
 const _IPADC = "IpamPoolAllocationDisallowedCidrs";
 const _IPAI = "IpamPoolAllocationId";
+const _IPAR = "IpamPolicyAllocationRule";
+const _IPARL = "IpamPolicyAllocationRuleList";
+const _IPARLR = "IpamPolicyAllocationRuleListRequest";
+const _IPARR = "IpamPolicyAllocationRuleRequest";
 const _IPAS = "IpamPoolAllocationSet";
 const _IPASG = "IpamPublicAddressSecurityGroup";
 const _IPASGL = "IpamPublicAddressSecurityGroupList";
@@ -3082,7 +3117,8 @@ const _IPAT = "IpamPublicAddressTag";
 const _IPATL = "IpamPublicAddressTagList";
 const _IPATp = "IpamPublicAddressTags";
 const _IPAp = "IpamPoolAllocations";
-const _IPApa = "IpamPoolArn";
+const _IPApa = "IpamPolicyArn";
+const _IPApam = "IpamPoolArn";
 const _IPC = "Ipv6PrefixCount";
 const _IPCFR = "IpamPoolCidrFailureReason";
 const _IPCI = "IpamPoolCidrId";
@@ -3090,12 +3126,18 @@ const _IPCS = "IpamPoolCidrSet";
 const _IPCp = "Ipv4PrefixCount";
 const _IPCpa = "IpamPoolCidr";
 const _IPCpam = "IpamPoolCidrs";
-const _IPE = "IpPermissionsEgress";
+const _IPD = "IpamPolicyDocuments";
+const _IPDS = "IpamPolicyDocumentSet";
+const _IPDp = "IpamPolicyDocument";
+const _IPE = "IpamPolicyEnabled";
+const _IPEp = "IpPermissionsEgress";
 const _IPI = "IpamPoolId";
 const _IPIA = "InstancePrivateIpAddress";
 const _IPIAL = "InstancePrivateIpAddressList";
 const _IPIL = "Ipv6PoolIdList";
-const _IPIp = "IpamPoolIds";
+const _IPIp = "IpamPolicyId";
+const _IPIpa = "IpamPolicyIds";
+const _IPIpam = "IpamPoolIds";
 const _IPIs = "IsPrimaryIpv6";
 const _IPK = "IncludePublicKey";
 const _IPL = "ImageProviderList";
@@ -3135,8 +3177,11 @@ const _IPLpvr = "Ipv4PrefixList";
 const _IPLpvre = "Ipv6PrefixesList";
 const _IPLpvref = "Ipv6PrefixList";
 const _IPO = "IpamPoolOwner";
-const _IPR = "IsPermanentRestore";
+const _IPOT = "IpamPolicyOrganizationTarget";
+const _IPOTS = "IpamPolicyOrganizationTargetSet";
+const _IPR = "IpamPolicyRegion";
 const _IPRL = "ImageProviderRequestList";
+const _IPRs = "IsPermanentRestore";
 const _IPS = "Ipv4PrefixSpecification";
 const _IPSR = "IpamPoolSourceResource";
 const _IPSRR = "IpamPoolSourceResourceRequest";
@@ -3145,7 +3190,8 @@ const _IPSRpv = "Ipv4PrefixSpecificationResponse";
 const _IPSRpvr = "Ipv6PrefixSpecificationRequest";
 const _IPSRpvre = "Ipv6PrefixSpecificationResponse";
 const _IPSp = "Ipv6PrefixSpecification";
-const _IPSpa = "IpamPoolSet";
+const _IPSpa = "IpamPolicySet";
+const _IPSpam = "IpamPoolSet";
 const _IPSpv = "Ipv6PoolSet";
 const _IPTUC = "InstancePoolsToUseCount";
 const _IPm = "ImageProviders";
@@ -3156,8 +3202,10 @@ const _IPnt = "InterfacePermission";
 const _IPnte = "InterfaceProtocol";
 const _IPo = "IoPerformance";
 const _IPp = "Ipv6Prefixes";
-const _IPpa = "IpamPool";
-const _IPpam = "IpamPools";
+const _IPpa = "IpamPolicy";
+const _IPpam = "IpamPool";
+const _IPpamo = "IpamPolicies";
+const _IPpamoo = "IpamPools";
 const _IPpe = "IpPermissions";
 const _IPper = "IpPermission";
 const _IPpr = "IpProtocol";
@@ -3690,6 +3738,9 @@ const _MINPO = "ModifyInstanceNetworkPerformanceOptions";
 const _MINPR = "ModifyInstanceNetworkPerformanceRequest";
 const _MINPRo = "ModifyInstanceNetworkPerformanceResult";
 const _MIP = "ModifyInstancePlacement";
+const _MIPAR = "ModifyIpamPolicyAllocationRules";
+const _MIPARR = "ModifyIpamPolicyAllocationRulesRequest";
+const _MIPARRo = "ModifyIpamPolicyAllocationRulesResult";
 const _MIPLR = "ModifyIpamPrefixListResolver";
 const _MIPLRR = "ModifyIpamPrefixListResolverRequest";
 const _MIPLRRo = "ModifyIpamPrefixListResolverResult";
@@ -4102,9 +4153,11 @@ const _OST = "OldestSampleTime";
 const _OSr = "OriginalSize";
 const _OSv = "OverlapStatus";
 const _OT = "OptimizingTime";
+const _OTI = "OrganizationTargetId";
 const _OTf = "OfferingType";
 const _OTp = "OperationType";
-const _OTr = "OriginalThroughput";
+const _OTr = "OrganizationTargets";
+const _OTri = "OriginalThroughput";
 const _OU = "OccurrenceUnit";
 const _OUA = "OrganizationalUnitArn";
 const _OUASL = "OrganizationalUnitArnStringList";
@@ -5823,6 +5876,7 @@ const _aL = "accountLevel";
 const _aLI = "amiLaunchIndex";
 const _aLT = "attachmentLimitType";
 const _aLc = "accessLogs";
+const _aM = "availabilityMode";
 const _aMIT = "allowsMultipleInstanceTypes";
 const _aMNL = "allocationMinNetmaskLength";
 const _aMNLl = "allocationMaxNetmaskLength";
@@ -5840,6 +5894,7 @@ const _aPIAS = "assignedPrivateIpAddressesSet";
 const _aPICB = "amazonProvidedIpv6CidrBlock";
 const _aPS = "addedPrincipalSet";
 const _aPSs = "asPathSet";
+const _aPZ = "autoProvisionZones";
 const _aPl = "allowedPrincipals";
 const _aR = "allowReassignment";
 const _aRA = "associatedRoleArn";
@@ -5849,6 +5904,7 @@ const _aRAss = "associatedResourceArn";
 const _aRC = "acceptedRouteCount";
 const _aRP = "areRoutesPersisted";
 const _aRS = "associatedRoleSet";
+const _aRSl = "allocationRuleSet";
 const _aRSu = "autoRecoverySupported";
 const _aRTS = "allocationResourceTagSet";
 const _aRc = "aclRule";
@@ -5861,6 +5917,7 @@ const _aRut = "autoRecovery";
 const _aRw = "awsRegion";
 const _aS = "associationState";
 const _aSA = "amazonSideAsn";
+const _aSI = "autoScalingIps";
 const _aSS = "amdSevSnp";
 const _aSSs = "associatedSubnetSet";
 const _aSSt = "attributeSummarySet";
@@ -6530,15 +6587,20 @@ const _iP = "instancePort";
 const _iPA = "ipamPoolAllocation";
 const _iPAI = "ipamPoolAllocationId";
 const _iPAS = "ipamPoolAllocationSet";
-const _iPAp = "ipamPoolArn";
+const _iPAp = "ipamPolicyArn";
+const _iPApa = "ipamPoolArn";
 const _iPC = "ipamPoolCidr";
 const _iPCI = "ipamPoolCidrId";
 const _iPCS = "ipamPoolCidrSet";
 const _iPCp = "ipv4PrefixCount";
 const _iPCpv = "ipv6PrefixCount";
-const _iPE = "ipPermissionsEgress";
-const _iPI = "isPrimaryIpv6";
+const _iPD = "ipamPolicyDocument";
+const _iPDS = "ipamPolicyDocumentSet";
+const _iPE = "ipamPolicyEnabled";
+const _iPEp = "ipPermissionsEgress";
+const _iPI = "ipamPolicyId";
 const _iPIp = "ipamPoolId";
+const _iPIs = "isPrimaryIpv6";
 const _iPLR = "ipamPrefixListResolver";
 const _iPLRA = "ipamPrefixListResolverArn";
 const _iPLRI = "ipamPrefixListResolverId";
@@ -6549,13 +6611,15 @@ const _iPLRTA = "ipamPrefixListResolverTargetArn";
 const _iPLRTI = "ipamPrefixListResolverTargetId";
 const _iPLRTS = "ipamPrefixListResolverTargetSet";
 const _iPLRVS = "ipamPrefixListResolverVersionSet";
-const _iPR = "isPermanentRestore";
-const _iPS = "ipamPoolSet";
+const _iPR = "ipamPolicyRegion";
+const _iPRs = "isPermanentRestore";
+const _iPS = "ipamPolicySet";
 const _iPSm = "imageProviderSet";
-const _iPSp = "ipv6PoolSet";
+const _iPSp = "ipamPoolSet";
 const _iPSpr = "ipPrefixSet";
-const _iPSpv = "ipv4PrefixSet";
-const _iPSpvr = "ipv6PrefixSet";
+const _iPSpv = "ipv6PoolSet";
+const _iPSpvr = "ipv4PrefixSet";
+const _iPSpvre = "ipv6PrefixSet";
 const _iPTUC = "instancePoolsToUseCount";
 const _iPn = "instancePlatform";
 const _iPng = "ingressPackets";
@@ -6563,7 +6627,8 @@ const _iPnt = "interfacePermission";
 const _iPnte = "interfaceProtocol";
 const _iPo = "ioPerformance";
 const _iPp = "ipProtocol";
-const _iPpa = "ipamPool";
+const _iPpa = "ipamPolicy";
+const _iPpam = "ipamPool";
 const _iPpe = "ipPermissions";
 const _iPpv = "ipv4Prefix";
 const _iPpvo = "ipv6Pool";
@@ -6962,6 +7027,8 @@ const _oST = "oldestSampleTime";
 const _oSr = "originalSize";
 const _oSv = "overlapStatus";
 const _oT = "optimizingTime";
+const _oTI = "organizationTargetId";
+const _oTS = "organizationTargetSet";
 const _oTf = "offeringType";
 const _oTr = "originalThroughput";
 const _oU = "occurrenceUnit";
@@ -9856,7 +9923,7 @@ export var AssociateNatGatewayAddressRequest: StaticStructureSchema = [
   n0,
   _ANGAR,
   0,
-  [_NGI, _AIll, _PIAri, _DR],
+  [_NGI, _AIll, _PIAri, _DR, _AZ, _AZI],
   [
     0,
     [
@@ -9872,6 +9939,8 @@ export var AssociateNatGatewayAddressRequest: StaticStructureSchema = [
       },
     ],
     2,
+    0,
+    0,
   ],
 ];
 export var AssociateNatGatewayAddressResult: StaticStructureSchema = [
@@ -10885,6 +10954,23 @@ export var AvailabilityZone: StaticStructureSchema = [
       {
         [_eQN]: `ZoneState`,
         [_xN]: _zS,
+      },
+    ],
+  ],
+];
+export var AvailabilityZoneAddress: StaticStructureSchema = [
+  3,
+  n0,
+  _AZA,
+  0,
+  [_AZ, _AZI, _AIll],
+  [
+    0,
+    0,
+    [
+      () => AllocationIdList,
+      {
+        [_xN]: _AIl,
       },
     ],
   ],
@@ -15788,10 +15874,44 @@ export var CreateIpamExternalResourceVerificationTokenResult: StaticStructureSch
     ],
   ],
 ];
-export var CreateIpamPoolRequest: StaticStructureSchema = [
+export var CreateIpamPolicyRequest: StaticStructureSchema = [
   3,
   n0,
   _CIPR,
+  0,
+  [_DR, _TS, _CT, _IIp],
+  [
+    2,
+    [
+      () => TagSpecificationList,
+      {
+        [_xN]: _TSa,
+      },
+    ],
+    [0, 4],
+    0,
+  ],
+];
+export var CreateIpamPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CIPRr,
+  0,
+  [_IPpa],
+  [
+    [
+      () => IpamPolicy,
+      {
+        [_eQN]: `IpamPolicy`,
+        [_xN]: _iPpa,
+      },
+    ],
+  ],
+];
+export var CreateIpamPoolRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CIPRre,
   0,
   [_DR, _ISI, _Lo, _SIPI, _De, _AF, _AIu, _PAu, _AMNL, _AMNLl, _ADNL, _ART, _TS, _CT, _ASw, _PIS, _SRou],
   [
@@ -15827,15 +15947,15 @@ export var CreateIpamPoolRequest: StaticStructureSchema = [
 export var CreateIpamPoolResult: StaticStructureSchema = [
   3,
   n0,
-  _CIPRr,
+  _CIPRrea,
   0,
-  [_IPpa],
+  [_IPpam],
   [
     [
       () => IpamPool,
       {
         [_eQN]: `IpamPool`,
-        [_xN]: _iPpa,
+        [_xN]: _iPpam,
       },
     ],
   ],
@@ -16423,12 +16543,20 @@ export var CreateNatGatewayRequest: StaticStructureSchema = [
   n0,
   _CNGR,
   0,
-  [_AIl, _CT, _DR, _SIu, _TS, _CTon, _PIAr, _SAI, _SPIA, _SPIAC],
+  [_AM, _AIl, _CT, _DR, _SIu, _VI, _AZAv, _TS, _CTon, _PIAr, _SAI, _SPIA, _SPIAC],
   [
+    0,
     0,
     [0, 4],
     2,
     0,
+    0,
+    [
+      () => AvailabilityZoneAddresses,
+      {
+        [_xN]: _AZA,
+      },
+    ],
     [
       () => TagSpecificationList,
       {
@@ -19653,8 +19781,8 @@ export var DeleteIpamExternalResourceVerificationTokenResult: StaticStructureSch
     ],
   ],
 ];
-export var DeleteIpamPoolRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_DR, _IPI, _Ca], [2, 0, 2]];
-export var DeleteIpamPoolResult: StaticStructureSchema = [
+export var DeleteIpamPolicyRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_DR, _IPIp], [2, 0]];
+export var DeleteIpamPolicyResult: StaticStructureSchema = [
   3,
   n0,
   _DIPRe,
@@ -19662,10 +19790,27 @@ export var DeleteIpamPoolResult: StaticStructureSchema = [
   [_IPpa],
   [
     [
+      () => IpamPolicy,
+      {
+        [_eQN]: `IpamPolicy`,
+        [_xN]: _iPpa,
+      },
+    ],
+  ],
+];
+export var DeleteIpamPoolRequest: StaticStructureSchema = [3, n0, _DIPRel, 0, [_DR, _IPI, _Ca], [2, 0, 2]];
+export var DeleteIpamPoolResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DIPRele,
+  0,
+  [_IPpam],
+  [
+    [
       () => IpamPool,
       {
         [_eQN]: `IpamPool`,
-        [_xN]: _iPpa,
+        [_xN]: _iPpam,
       },
     ],
   ],
@@ -24937,12 +25082,59 @@ export var DescribeIpamExternalResourceVerificationTokensResult: StaticStructure
     ],
   ],
 ];
-export var DescribeIpamPoolsRequest: StaticStructureSchema = [
+export var DescribeIpamPoliciesRequest: StaticStructureSchema = [
   3,
   n0,
   _DIPRes,
   0,
-  [_DR, _Fi, _MR, _NTe, _IPIp],
+  [_DR, _Fi, _MR, _NTe, _IPIpa],
+  [
+    2,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    1,
+    0,
+    [
+      () => ValueStringList,
+      {
+        [_xN]: _IPIp,
+      },
+    ],
+  ],
+];
+export var DescribeIpamPoliciesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DIPResc,
+  0,
+  [_NTe, _IPpamo],
+  [
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+    [
+      () => IpamPolicySet,
+      {
+        [_eQN]: `IpamPolicySet`,
+        [_xN]: _iPS,
+      },
+    ],
+  ],
+];
+export var DescribeIpamPoolsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DIPRescr,
+  0,
+  [_DR, _Fi, _MR, _NTe, _IPIpam],
   [
     2,
     [
@@ -24964,9 +25156,9 @@ export var DescribeIpamPoolsRequest: StaticStructureSchema = [
 export var DescribeIpamPoolsResult: StaticStructureSchema = [
   3,
   n0,
-  _DIPResc,
+  _DIPRescri,
   0,
-  [_NTe, _IPpam],
+  [_NTe, _IPpamoo],
   [
     [
       0,
@@ -24979,7 +25171,7 @@ export var DescribeIpamPoolsResult: StaticStructureSchema = [
       () => IpamPoolSet,
       {
         [_eQN]: `IpamPoolSet`,
-        [_xN]: _iPS,
+        [_xN]: _iPSp,
       },
     ],
   ],
@@ -25270,7 +25462,7 @@ export var DescribeIpamsResult: StaticStructureSchema = [
 export var DescribeIpv6PoolsRequest: StaticStructureSchema = [
   3,
   n0,
-  _DIPRescr,
+  _DIPRescrib,
   0,
   [_PIoo, _NTe, _MR, _DR, _Fi],
   [
@@ -25294,7 +25486,7 @@ export var DescribeIpv6PoolsRequest: StaticStructureSchema = [
 export var DescribeIpv6PoolsResult: StaticStructureSchema = [
   3,
   n0,
-  _DIPRescri,
+  _DIPRescribe,
   0,
   [_IPpvoo, _NTe],
   [
@@ -25302,7 +25494,7 @@ export var DescribeIpv6PoolsResult: StaticStructureSchema = [
       () => Ipv6PoolSet,
       {
         [_eQN]: `Ipv6PoolSet`,
-        [_xN]: _iPSp,
+        [_xN]: _iPSpv,
       },
     ],
     [
@@ -31013,6 +31205,23 @@ export var DisableIpamOrganizationAdminAccountResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DisableIpamPolicyRequest: StaticStructureSchema = [3, n0, _DIPRi, 0, [_DR, _IPIp, _OTI], [2, 0, 0]];
+export var DisableIpamPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DIPRis,
+  0,
+  [_R],
+  [
+    [
+      2,
+      {
+        [_eQN]: `Return`,
+        [_xN]: _r,
+      },
+    ],
+  ],
+];
 export var DisableRouteServerPropagationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -33094,6 +33303,23 @@ export var EnableIpamOrganizationAdminAccountResult: StaticStructureSchema = [
       {
         [_eQN]: `Success`,
         [_xN]: _succ,
+      },
+    ],
+  ],
+];
+export var EnableIpamPolicyRequest: StaticStructureSchema = [3, n0, _EIPR, 0, [_DR, _IPIp, _OTI], [2, 0, 0]];
+export var EnableIpamPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _EIPRn,
+  0,
+  [_IPIp],
+  [
+    [
+      0,
+      {
+        [_eQN]: `IpamPolicyId`,
+        [_xN]: _iPI,
       },
     ],
   ],
@@ -36086,6 +36312,37 @@ export var GetEbsEncryptionByDefaultResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var GetEnabledIpamPolicyRequest: StaticStructureSchema = [3, n0, _GEIPR, 0, [_DR], [2]];
+export var GetEnabledIpamPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GEIPRe,
+  0,
+  [_IPE, _IPIp, _MB],
+  [
+    [
+      2,
+      {
+        [_eQN]: `IpamPolicyEnabled`,
+        [_xN]: _iPE,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `IpamPolicyId`,
+        [_xN]: _iPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ManagedBy`,
+        [_xN]: _mB,
+      },
+    ],
+  ],
+];
 export var GetFlowLogsIntegrationTemplateRequest: StaticStructureSchema = [
   3,
   n0,
@@ -36553,6 +36810,92 @@ export var GetIpamDiscoveredResourceCidrsResult: StaticStructureSchema = [
       {
         [_eQN]: `IpamDiscoveredResourceCidrSet`,
         [_xN]: _iDRCS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
+export var GetIpamPolicyAllocationRulesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GIPARR,
+  0,
+  [_DR, _IPIp, _Fi, _Lo, _RTe, _MR, _NTe],
+  [
+    2,
+    0,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    0,
+    0,
+    1,
+    0,
+  ],
+];
+export var GetIpamPolicyAllocationRulesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GIPARRe,
+  0,
+  [_IPD, _NTe],
+  [
+    [
+      () => IpamPolicyDocumentSet,
+      {
+        [_eQN]: `IpamPolicyDocumentSet`,
+        [_xN]: _iPDS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
+export var GetIpamPolicyOrganizationTargetsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GIPOTR,
+  0,
+  [_DR, _MR, _NTe, _IPIp, _Fi],
+  [
+    2,
+    1,
+    0,
+    0,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+  ],
+];
+export var GetIpamPolicyOrganizationTargetsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GIPOTRe,
+  0,
+  [_OTr, _NTe],
+  [
+    [
+      () => IpamPolicyOrganizationTargetSet,
+      {
+        [_eQN]: `OrganizationTargetSet`,
+        [_xN]: _oTS,
       },
     ],
     [
@@ -41660,7 +42003,7 @@ export var InstanceIpv6Address: StaticStructureSchema = [
       2,
       {
         [_eQN]: `IsPrimaryIpv6`,
-        [_xN]: _iPI,
+        [_xN]: _iPIs,
       },
     ],
   ],
@@ -41991,14 +42334,14 @@ export var InstanceNetworkInterface: StaticStructureSchema = [
       () => InstanceIpv4PrefixList,
       {
         [_eQN]: `Ipv4PrefixSet`,
-        [_xN]: _iPSpv,
+        [_xN]: _iPSpvr,
       },
     ],
     [
       () => InstanceIpv6PrefixList,
       {
         [_eQN]: `Ipv6PrefixSet`,
-        [_xN]: _iPSpvr,
+        [_xN]: _iPSpvre,
       },
     ],
     [
@@ -42341,7 +42684,7 @@ export var InstanceRequirements: StaticStructureSchema = [
     _BEBM,
     _ATc,
     _AC,
-    _AM,
+    _AMc,
     _ANc,
     _ATMMB,
     _NBGe,
@@ -42559,7 +42902,7 @@ export var InstanceRequirementsRequest: StaticStructureSchema = [
     _BEBM,
     _ATc,
     _AC,
-    _AM,
+    _AMc,
     _ANc,
     _ATMMB,
     _NBGe,
@@ -42615,7 +42958,7 @@ export var InstanceRequirementsRequest: StaticStructureSchema = [
     [
       () => AcceleratorManufacturerSet,
       {
-        [_xN]: _AMc,
+        [_xN]: _AMcc,
       },
     ],
     [
@@ -44095,16 +44438,151 @@ export var IpamOrganizationalUnitExclusion: StaticStructureSchema = [
     ],
   ],
 ];
-export var IpamPool: StaticStructureSchema = [
+export var IpamPolicy: StaticStructureSchema = [
   3,
   n0,
   _IPpa,
+  0,
+  [_OI, _IPIp, _IPApa, _IPR, _St, _SMta, _T, _IIp],
+  [
+    [
+      0,
+      {
+        [_eQN]: `OwnerId`,
+        [_xN]: _oI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `IpamPolicyId`,
+        [_xN]: _iPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `IpamPolicyArn`,
+        [_xN]: _iPAp,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `IpamPolicyRegion`,
+        [_xN]: _iPR,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `State`,
+        [_xN]: _st,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `StateMessage`,
+        [_xN]: _sMta,
+      },
+    ],
+    [
+      () => TagList,
+      {
+        [_eQN]: `TagSet`,
+        [_xN]: _tS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `IpamId`,
+        [_xN]: _iIp,
+      },
+    ],
+  ],
+];
+export var IpamPolicyAllocationRule: StaticStructureSchema = [
+  3,
+  n0,
+  _IPAR,
+  0,
+  [_SIPI],
+  [
+    [
+      0,
+      {
+        [_eQN]: `SourceIpamPoolId`,
+        [_xN]: _sIPI,
+      },
+    ],
+  ],
+];
+export var IpamPolicyAllocationRuleRequest: StaticStructureSchema = [3, n0, _IPARR, 0, [_SIPI], [0]];
+export var IpamPolicyDocument: StaticStructureSchema = [
+  3,
+  n0,
+  _IPDp,
+  0,
+  [_IPIp, _Lo, _RTe, _ARllo],
+  [
+    [
+      0,
+      {
+        [_eQN]: `IpamPolicyId`,
+        [_xN]: _iPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Locale`,
+        [_xN]: _loc,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ResourceType`,
+        [_xN]: _rTe,
+      },
+    ],
+    [
+      () => IpamPolicyAllocationRuleList,
+      {
+        [_eQN]: `AllocationRuleSet`,
+        [_xN]: _aRSl,
+      },
+    ],
+  ],
+];
+export var IpamPolicyOrganizationTarget: StaticStructureSchema = [
+  3,
+  n0,
+  _IPOT,
+  0,
+  [_OTI],
+  [
+    [
+      0,
+      {
+        [_eQN]: `OrganizationTargetId`,
+        [_xN]: _oTI,
+      },
+    ],
+  ],
+];
+export var IpamPool: StaticStructureSchema = [
+  3,
+  n0,
+  _IPpam,
   0,
   [
     _OI,
     _IPI,
     _SIPI,
-    _IPApa,
+    _IPApam,
     _ISA,
     _ISTp,
     _IApa,
@@ -44152,7 +44630,7 @@ export var IpamPool: StaticStructureSchema = [
       0,
       {
         [_eQN]: `IpamPoolArn`,
-        [_xN]: _iPAp,
+        [_xN]: _iPApa,
       },
     ],
     [
@@ -46500,7 +46978,7 @@ export var LaunchTemplateInstanceNetworkInterfaceSpecification: StaticStructureS
       () => Ipv4PrefixListResponse,
       {
         [_eQN]: `Ipv4PrefixSet`,
-        [_xN]: _iPSpv,
+        [_xN]: _iPSpvr,
       },
     ],
     [
@@ -46514,7 +46992,7 @@ export var LaunchTemplateInstanceNetworkInterfaceSpecification: StaticStructureS
       () => Ipv6PrefixListResponse,
       {
         [_eQN]: `Ipv6PrefixSet`,
-        [_xN]: _iPSpvr,
+        [_xN]: _iPSpvre,
       },
     ],
     [
@@ -49224,6 +49702,41 @@ export var ModifyInstancePlacementResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var ModifyIpamPolicyAllocationRulesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _MIPARR,
+  0,
+  [_DR, _IPIp, _Lo, _RTe, _ARllo],
+  [
+    2,
+    0,
+    0,
+    0,
+    [
+      () => IpamPolicyAllocationRuleListRequest,
+      {
+        [_xN]: _ARlloc,
+      },
+    ],
+  ],
+];
+export var ModifyIpamPolicyAllocationRulesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _MIPARRo,
+  0,
+  [_IPDp],
+  [
+    [
+      () => IpamPolicyDocument,
+      {
+        [_eQN]: `IpamPolicyDocument`,
+        [_xN]: _iPD,
+      },
+    ],
+  ],
+];
 export var ModifyIpamPoolRequest: StaticStructureSchema = [
   3,
   n0,
@@ -49258,13 +49771,13 @@ export var ModifyIpamPoolResult: StaticStructureSchema = [
   n0,
   _MIPRodi,
   0,
-  [_IPpa],
+  [_IPpam],
   [
     [
       () => IpamPool,
       {
         [_eQN]: `IpamPool`,
-        [_xN]: _iPpa,
+        [_xN]: _iPpam,
       },
     ],
   ],
@@ -51200,7 +51713,7 @@ export var NatGateway: StaticStructureSchema = [
   n0,
   _NG,
   0,
-  [_CTr, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon],
+  [_CTr, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon, _AM, _ASIu, _APZ, _RTI],
   [
     [
       4,
@@ -51286,6 +51799,34 @@ export var NatGateway: StaticStructureSchema = [
         [_xN]: _cTonn,
       },
     ],
+    [
+      0,
+      {
+        [_eQN]: `AvailabilityMode`,
+        [_xN]: _aM,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AutoScalingIps`,
+        [_xN]: _aSI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AutoProvisionZones`,
+        [_xN]: _aPZ,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `RouteTableId`,
+        [_xN]: _rTI,
+      },
+    ],
   ],
 ];
 export var NatGatewayAddress: StaticStructureSchema = [
@@ -51293,7 +51834,7 @@ export var NatGatewayAddress: StaticStructureSchema = [
   n0,
   _NGAa,
   0,
-  [_AIl, _NII, _PIri, _PI, _AIs, _IPsr, _FM, _Sta],
+  [_AIl, _NII, _PIri, _PI, _AIs, _IPsr, _FM, _Sta, _AZ, _AZI],
   [
     [
       0,
@@ -51349,6 +51890,20 @@ export var NatGatewayAddress: StaticStructureSchema = [
       {
         [_eQN]: `Status`,
         [_xN]: _sta,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AvailabilityZone`,
+        [_xN]: _aZ,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AvailabilityZoneId`,
+        [_xN]: _aZI,
       },
     ],
   ],
@@ -52325,14 +52880,14 @@ export var NetworkInterface: StaticStructureSchema = [
       () => Ipv4PrefixesList,
       {
         [_eQN]: `Ipv4PrefixSet`,
-        [_xN]: _iPSpv,
+        [_xN]: _iPSpvr,
       },
     ],
     [
       () => Ipv6PrefixesList,
       {
         [_eQN]: `Ipv6PrefixSet`,
-        [_xN]: _iPSpvr,
+        [_xN]: _iPSpvre,
       },
     ],
     [
@@ -52639,7 +53194,7 @@ export var NetworkInterfaceIpv6Address: StaticStructureSchema = [
       2,
       {
         [_eQN]: `IsPrimaryIpv6`,
-        [_xN]: _iPI,
+        [_xN]: _iPIs,
       },
     ],
   ],
@@ -57774,7 +58329,7 @@ export var RestoreSnapshotTierResult: StaticStructureSchema = [
   n0,
   _RSTRe,
   0,
-  [_SIn, _RSTe, _RD, _IPR],
+  [_SIn, _RSTe, _RD, _IPRs],
   [
     [
       0,
@@ -57801,7 +58356,7 @@ export var RestoreSnapshotTierResult: StaticStructureSchema = [
       2,
       {
         [_eQN]: `IsPermanentRestore`,
-        [_xN]: _iPR,
+        [_xN]: _iPRs,
       },
     ],
   ],
@@ -59657,7 +60212,7 @@ export var SecurityGroup: StaticStructureSchema = [
   n0,
   _SGe,
   0,
-  [_GIr, _IPE, _T, _VI, _SGA, _OI, _GN, _De, _IPpe],
+  [_GIr, _IPEp, _T, _VI, _SGA, _OI, _GN, _De, _IPpe],
   [
     [
       0,
@@ -59670,7 +60225,7 @@ export var SecurityGroup: StaticStructureSchema = [
       () => IpPermissionList,
       {
         [_eQN]: `IpPermissionsEgress`,
-        [_xN]: _iPE,
+        [_xN]: _iPEp,
       },
     ],
     [
@@ -67619,7 +68174,7 @@ export var VolumeModification: StaticStructureSchema = [
   n0,
   _VMo,
   0,
-  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTr, _OMAE, _Pro, _ST, _ETnd],
+  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd],
   [
     [
       0,
@@ -68616,14 +69171,14 @@ export var VpcEndpoint: StaticStructureSchema = [
       () => SubnetIpPrefixesList,
       {
         [_eQN]: `Ipv4PrefixSet`,
-        [_xN]: _iPSpv,
+        [_xN]: _iPSpvr,
       },
     ],
     [
       () => SubnetIpPrefixesList,
       {
         [_eQN]: `Ipv6PrefixSet`,
-        [_xN]: _iPSpvr,
+        [_xN]: _iPSpvre,
       },
     ],
     [
@@ -70025,6 +70580,18 @@ export var AuthorizationRuleSet: StaticListSchema = [
     () => AuthorizationRule,
     {
       [_xN]: _it,
+    },
+  ],
+];
+export var AvailabilityZoneAddresses: StaticListSchema = [
+  1,
+  n0,
+  _AZAv,
+  0,
+  [
+    () => AvailabilityZoneAddress,
+    {
+      [_xN]: _AZA,
     },
   ],
 ];
@@ -72729,6 +73296,66 @@ export var IpamOrganizationalUnitExclusionSet: StaticListSchema = [
     },
   ],
 ];
+export var IpamPolicyAllocationRuleList: StaticListSchema = [
+  1,
+  n0,
+  _IPARL,
+  0,
+  [
+    () => IpamPolicyAllocationRule,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var IpamPolicyAllocationRuleListRequest: StaticListSchema = [
+  1,
+  n0,
+  _IPARLR,
+  0,
+  [
+    () => IpamPolicyAllocationRuleRequest,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var IpamPolicyDocumentSet: StaticListSchema = [
+  1,
+  n0,
+  _IPDS,
+  0,
+  [
+    () => IpamPolicyDocument,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var IpamPolicyOrganizationTargetSet: StaticListSchema = [
+  1,
+  n0,
+  _IPOTS,
+  0,
+  [
+    () => IpamPolicyOrganizationTarget,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var IpamPolicySet: StaticListSchema = [
+  1,
+  n0,
+  _IPSpa,
+  0,
+  [
+    () => IpamPolicy,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
 export var IpamPoolAllocationAllowedCidrs: StaticListSchema = [
   1,
   n0,
@@ -72780,7 +73407,7 @@ export var IpamPoolCidrSet: StaticListSchema = [
 export var IpamPoolSet: StaticListSchema = [
   1,
   n0,
-  _IPSpa,
+  _IPSpam,
   0,
   [
     () => IpamPool,
@@ -78193,10 +78820,18 @@ export var CreateIpamExternalResourceVerificationToken: StaticOperationSchema = 
   () => CreateIpamExternalResourceVerificationTokenRequest,
   () => CreateIpamExternalResourceVerificationTokenResult,
 ];
-export var CreateIpamPool: StaticOperationSchema = [
+export var CreateIpamPolicy: StaticOperationSchema = [
   9,
   n0,
   _CIP,
+  0,
+  () => CreateIpamPolicyRequest,
+  () => CreateIpamPolicyResult,
+];
+export var CreateIpamPool: StaticOperationSchema = [
+  9,
+  n0,
+  _CIPr,
   0,
   () => CreateIpamPoolRequest,
   () => CreateIpamPoolResult,
@@ -78842,10 +79477,18 @@ export var DeleteIpamExternalResourceVerificationToken: StaticOperationSchema = 
   () => DeleteIpamExternalResourceVerificationTokenRequest,
   () => DeleteIpamExternalResourceVerificationTokenResult,
 ];
-export var DeleteIpamPool: StaticOperationSchema = [
+export var DeleteIpamPolicy: StaticOperationSchema = [
   9,
   n0,
   _DIP,
+  0,
+  () => DeleteIpamPolicyRequest,
+  () => DeleteIpamPolicyResult,
+];
+export var DeleteIpamPool: StaticOperationSchema = [
+  9,
+  n0,
+  _DIPe,
   0,
   () => DeleteIpamPoolRequest,
   () => DeleteIpamPoolResult,
@@ -79963,10 +80606,18 @@ export var DescribeIpamExternalResourceVerificationTokens: StaticOperationSchema
   () => DescribeIpamExternalResourceVerificationTokensRequest,
   () => DescribeIpamExternalResourceVerificationTokensResult,
 ];
+export var DescribeIpamPolicies: StaticOperationSchema = [
+  9,
+  n0,
+  _DIPes,
+  0,
+  () => DescribeIpamPoliciesRequest,
+  () => DescribeIpamPoliciesResult,
+];
 export var DescribeIpamPools: StaticOperationSchema = [
   9,
   n0,
-  _DIPe,
+  _DIPesc,
   0,
   () => DescribeIpamPoolsRequest,
   () => DescribeIpamPoolsResult,
@@ -80022,7 +80673,7 @@ export var DescribeIpamScopes: StaticOperationSchema = [
 export var DescribeIpv6Pools: StaticOperationSchema = [
   9,
   n0,
-  _DIPes,
+  _DIPescr,
   0,
   () => DescribeIpv6PoolsRequest,
   () => DescribeIpv6PoolsResult,
@@ -80950,6 +81601,14 @@ export var DisableIpamOrganizationAdminAccount: StaticOperationSchema = [
   () => DisableIpamOrganizationAdminAccountRequest,
   () => DisableIpamOrganizationAdminAccountResult,
 ];
+export var DisableIpamPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _DIPi,
+  0,
+  () => DisableIpamPolicyRequest,
+  () => DisableIpamPolicyResult,
+];
 export var DisableRouteServerPropagation: StaticOperationSchema = [
   9,
   n0,
@@ -81247,6 +81906,14 @@ export var EnableIpamOrganizationAdminAccount: StaticOperationSchema = [
   () => EnableIpamOrganizationAdminAccountRequest,
   () => EnableIpamOrganizationAdminAccountResult,
 ];
+export var EnableIpamPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _EIP,
+  0,
+  () => EnableIpamPolicyRequest,
+  () => EnableIpamPolicyResult,
+];
 export var EnableReachabilityAnalyzerOrganizationSharing: StaticOperationSchema = [
   9,
   n0,
@@ -81473,6 +82140,14 @@ export var GetEbsEncryptionByDefault: StaticOperationSchema = [
   () => GetEbsEncryptionByDefaultRequest,
   () => GetEbsEncryptionByDefaultResult,
 ];
+export var GetEnabledIpamPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _GEIP,
+  0,
+  () => GetEnabledIpamPolicyRequest,
+  () => GetEnabledIpamPolicyResult,
+];
 export var GetFlowLogsIntegrationTemplate: StaticOperationSchema = [
   9,
   n0,
@@ -81576,6 +82251,22 @@ export var GetIpamDiscoveredResourceCidrs: StaticOperationSchema = [
   0,
   () => GetIpamDiscoveredResourceCidrsRequest,
   () => GetIpamDiscoveredResourceCidrsResult,
+];
+export var GetIpamPolicyAllocationRules: StaticOperationSchema = [
+  9,
+  n0,
+  _GIPARet,
+  0,
+  () => GetIpamPolicyAllocationRulesRequest,
+  () => GetIpamPolicyAllocationRulesResult,
+];
+export var GetIpamPolicyOrganizationTargets: StaticOperationSchema = [
+  9,
+  n0,
+  _GIPOT,
+  0,
+  () => GetIpamPolicyOrganizationTargetsRequest,
+  () => GetIpamPolicyOrganizationTargetsResult,
 ];
 export var GetIpamPoolAllocations: StaticOperationSchema = [
   9,
@@ -82087,6 +82778,14 @@ export var ModifyInstancePlacement: StaticOperationSchema = [
   () => ModifyInstancePlacementResult,
 ];
 export var ModifyIpam: StaticOperationSchema = [9, n0, _MIo, 0, () => ModifyIpamRequest, () => ModifyIpamResult];
+export var ModifyIpamPolicyAllocationRules: StaticOperationSchema = [
+  9,
+  n0,
+  _MIPAR,
+  0,
+  () => ModifyIpamPolicyAllocationRulesRequest,
+  () => ModifyIpamPolicyAllocationRulesResult,
+];
 export var ModifyIpamPool: StaticOperationSchema = [
   9,
   n0,

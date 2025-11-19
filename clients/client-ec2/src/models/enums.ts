@@ -94,6 +94,7 @@ export const ResourceType = {
   internet_gateway: "internet-gateway",
   ipam: "ipam",
   ipam_external_resource_verification_token: "ipam-external-resource-verification-token",
+  ipam_policy: "ipam-policy",
   ipam_pool: "ipam-pool",
   ipam_prefix_list_resolver: "ipam-prefix-list-resolver",
   ipam_prefix_list_resolver_target: "ipam-prefix-list-resolver-target",
@@ -444,6 +445,7 @@ export type DomainType = (typeof DomainType)[keyof typeof DomainType];
 export const ServiceManaged = {
   alb: "alb",
   nlb: "nlb",
+  rds: "rds",
   rnat: "rnat",
 } as const;
 /**
@@ -3014,6 +3016,7 @@ export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDes
  */
 export const FlowLogsResourceType = {
   NetworkInterface: "NetworkInterface",
+  RegionalNatGateway: "RegionalNatGateway",
   Subnet: "Subnet",
   TransitGateway: "TransitGateway",
   TransitGatewayAttachment: "TransitGatewayAttachment",
@@ -3220,6 +3223,29 @@ export const TokenState = {
  * @public
  */
 export type TokenState = (typeof TokenState)[keyof typeof TokenState];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPolicyState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+} as const;
+/**
+ * @public
+ */
+export type IpamPolicyState = (typeof IpamPolicyState)[keyof typeof IpamPolicyState];
 
 /**
  * @public
@@ -3774,6 +3800,19 @@ export type PrefixListState = (typeof PrefixListState)[keyof typeof PrefixListSt
  * @public
  * @enum
  */
+export const AvailabilityMode = {
+  REGIONAL: "regional",
+  ZONAL: "zonal",
+} as const;
+/**
+ * @public
+ */
+export type AvailabilityMode = (typeof AvailabilityMode)[keyof typeof AvailabilityMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConnectivityType = {
   PRIVATE: "private",
   PUBLIC: "public",
@@ -3782,6 +3821,32 @@ export const ConnectivityType = {
  * @public
  */
 export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoProvisionZonesState = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type AutoProvisionZonesState = (typeof AutoProvisionZonesState)[keyof typeof AutoProvisionZonesState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoScalingIpsState = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type AutoScalingIpsState = (typeof AutoScalingIpsState)[keyof typeof AutoScalingIpsState];
 
 /**
  * @public
@@ -6920,6 +6985,19 @@ export type UnlimitedSupportedInstanceFamily =
  * @public
  * @enum
  */
+export const IpamPolicyManagedBy = {
+  account: "account",
+  delegated_administrator_for_ipam: "delegated-administrator-for-ipam",
+} as const;
+/**
+ * @public
+ */
+export type IpamPolicyManagedBy = (typeof IpamPolicyManagedBy)[keyof typeof IpamPolicyManagedBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const PartitionLoadFrequency = {
   DAILY: "daily",
   MONTHLY: "monthly",
@@ -7096,6 +7174,21 @@ export const IpamNetworkInterfaceAttachmentStatus = {
  */
 export type IpamNetworkInterfaceAttachmentStatus =
   (typeof IpamNetworkInterfaceAttachmentStatus)[keyof typeof IpamNetworkInterfaceAttachmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPolicyResourceType = {
+  alb: "alb",
+  eip: "eip",
+  rds: "rds",
+  rnat: "rnat",
+} as const;
+/**
+ * @public
+ */
+export type IpamPolicyResourceType = (typeof IpamPolicyResourceType)[keyof typeof IpamPolicyResourceType];
 
 /**
  * @public

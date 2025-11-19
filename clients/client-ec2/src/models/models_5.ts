@@ -25,15 +25,15 @@ import {
   IngestionStatus,
   InstanceMetadataEndpointState,
   InstanceMetadataTagsState,
+  InternetGatewayBlockMode,
   IpAddressType,
   IpamAddressHistoryResourceType,
   IpamComplianceStatus,
   IpamDiscoveryFailureCode,
-  IpamManagementState,
   IpamNetworkInterfaceAttachmentStatus,
   IpamOverlapStatus,
-  IpamPrefixListResolverRuleConditionOperation,
-  IpamPrefixListResolverRuleType,
+  IpamPolicyManagedBy,
+  IpamPolicyResourceType,
   IpamPublicAddressAssociationStatus,
   IpamPublicAddressAwsService,
   IpamPublicAddressType,
@@ -61,6 +61,9 @@ import {
   UnlimitedSupportedInstanceFamily,
   UserTrustProviderType,
   VirtualizationType,
+  VpcAttributeName,
+  VpcBlockPublicAccessExclusionsAllowed,
+  VpcBlockPublicAccessState,
 } from "./enums";
 
 import {
@@ -89,18 +92,14 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 
-import {
-  InstanceRequirementsRequest,
-  IpamResourceTag,
-  RequestIpamResourceTag,
-  ResponseLaunchTemplateData,
-} from "./models_1";
+import { InstanceRequirementsRequest, IpamResourceTag } from "./models_1";
 
 import {
   ConnectionNotification,
   DnsEntry,
   ServiceConfiguration,
   ServiceTypeDetail,
+  VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConcentrator,
   VpnConnection,
@@ -108,13 +107,280 @@ import {
 } from "./models_2";
 
 import {
+  AttributeBooleanValue,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   Filter,
-  IpamPoolCidr,
   RegisteredInstance,
 } from "./models_3";
+
+import { VolumeStatusItem } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeVolumeStatusResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the status of the volumes.</p>
+   * @public
+   */
+  VolumeStatuses?: VolumeStatusItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcAttributeRequest {
+  /**
+   * <p>The VPC attribute.</p>
+   * @public
+   */
+  Attribute: VpcAttributeName | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcAttributeResult {
+  /**
+   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
+   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
+   * 				otherwise, they do not.</p>
+   * @public
+   */
+  EnableDnsHostnames?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Indicates whether DNS resolution is enabled for
+   * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
+   * 				resolves DNS hostnames for your instances to their corresponding
+   * 				IP addresses; otherwise, it does not.</p>
+   * @public
+   */
+  EnableDnsSupport?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   * @public
+   */
+  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessExclusionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Filters for the request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-arn</code> - The Amazon Resource Name (ARN) of a exclusion.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>internet-gateway-exclusion-mode</code> - The mode of a VPC BPA exclusion. Possible values: <code>allow-bidirectional | allow-egress</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of VPC BPA. Possible values: <code>create-in-progress | create-complete | update-in-progress | update-complete | delete-in-progress | deleted-complete | disable-in-progress | disable-complete</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-value</code>: The value of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific value, regardless of the tag key.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>IDs of exclusions.</p>
+   * @public
+   */
+  ExclusionIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessExclusionsResult {
+  /**
+   * <p>Details related to the exclusions.</p>
+   * @public
+   */
+  VpcBlockPublicAccessExclusions?: VpcBlockPublicAccessExclusion[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessOptionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcBlockPublicAccessOptions {
+  /**
+   * <p>An Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>An Amazon Web Services Region.</p>
+   * @public
+   */
+  AwsRegion?: string | undefined;
+
+  /**
+   * <p>The current state of VPC BPA.</p>
+   * @public
+   */
+  State?: VpcBlockPublicAccessState | undefined;
+
+  /**
+   * <p>The current mode of VPC BPA.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayBlockMode?: InternetGatewayBlockMode | undefined;
+
+  /**
+   * <p>The reason for the current state.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>The last time the VPC BPA mode was updated.</p>
+   * @public
+   */
+  LastUpdateTimestamp?: Date | undefined;
+
+  /**
+   * <p>The entity that manages the state of VPC BPA. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - The state is managed by the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - The state is managed by a declarative policy
+   *                     and can't be modified by the account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+
+  /**
+   * <p>Determines if exclusions are allowed. If you have <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html#security-vpc-bpa-exclusions-orgs">enabled VPC BPA at the Organization level</a>, exclusions may be
+   *                 <code>not-allowed</code>. Otherwise, they are <code>allowed</code>.</p>
+   * @public
+   */
+  ExclusionsAllowed?: VpcBlockPublicAccessExclusionsAllowed | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessOptionsResult {
+  /**
+   * <p>Details related to the options.</p>
+   * @public
+   */
+  VpcBlockPublicAccessOptions?: VpcBlockPublicAccessOptions | undefined;
+}
 
 /**
  * @public
@@ -2506,6 +2772,43 @@ export interface DisableIpamOrganizationAdminAccountResult {
 /**
  * @public
  */
+export interface DisableIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy to disable.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Organizations target for which to disable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will be disabled for the current account.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
+   * @public
+   */
+  OrganizationTargetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableIpamPolicyResult {
+  /**
+   * <p>Returns true if the IPAM policy was successfully disabled.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableRouteServerPropagationRequest {
   /**
    * <p>The ID of the route server for which to disable propagation.</p>
@@ -4180,6 +4483,43 @@ export interface EnableIpamOrganizationAdminAccountResult {
    * @public
    */
   Success?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy to enable.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Organizations target for which to enable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will apply to the current account.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
+   * @public
+   */
+  OrganizationTargetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableIpamPolicyResult {
+  /**
+   * <p>The ID of the IPAM policy that was enabled.</p>
+   * @public
+   */
+  IpamPolicyId?: string | undefined;
 }
 
 /**
@@ -6588,6 +6928,42 @@ export interface GetEbsEncryptionByDefaultResult {
 }
 
 /**
+ * @public
+ */
+export interface GetEnabledIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEnabledIpamPolicyResult {
+  /**
+   * <p>Indicates whether the IPAM policy is enabled.</p>
+   * @public
+   */
+  IpamPolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The ID of the enabled IPAM policy.</p>
+   * @public
+   */
+  IpamPolicyId?: string | undefined;
+
+  /**
+   * <p>The entity that manages the IPAM policy.</p>
+   * @public
+   */
+  ManagedBy?: IpamPolicyManagedBy | undefined;
+}
+
+/**
  * <p>Describes integration options for Amazon Athena.</p>
  * @public
  */
@@ -6883,8 +7259,8 @@ export interface ImageAncestryEntry {
 
   /**
    * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> |
-   *       <code>aws-marketplace</code> ) of this AMI, if one is assigned. Otherwise, the value is
-   *       <code>null</code>.</p>
+   *         <code>aws-marketplace</code> ) of this AMI, if one is assigned. Otherwise, the value is
+   *         <code>null</code>.</p>
    * @public
    */
   ImageOwnerAlias?: string | undefined;
@@ -7937,6 +8313,196 @@ export interface GetIpamDiscoveredResourceCidrsResult {
 /**
  * @public
  */
+export interface GetIpamPolicyAllocationRulesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy for which to get allocation rules.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>One or more filters for the allocation rules.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The locale for which to get the allocation rules.</p>
+   * @public
+   */
+  Locale?: string | undefined;
+
+  /**
+   * <p>The resource type for which to get the allocation rules.</p>
+   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Elastic IP addresses</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: IpamPolicyResourceType | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about an IPAM policy allocation rule.</p>
+ *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+ * @public
+ */
+export interface IpamPolicyAllocationRule {
+  /**
+   * <p>The ID of the source IPAM pool for the allocation rule.</p>
+   *          <p>An IPAM pool is a collection of IP addresses in IPAM that can be allocated to Amazon Web Services resources.</p>
+   * @public
+   */
+  SourceIpamPoolId?: string | undefined;
+}
+
+/**
+ * <p>Information about an IPAM policy.</p>
+ * @public
+ */
+export interface IpamPolicyDocument {
+  /**
+   * <p>The ID of the IPAM policy.</p>
+   * @public
+   */
+  IpamPolicyId?: string | undefined;
+
+  /**
+   * <p>The locale of the IPAM policy document.</p>
+   * @public
+   */
+  Locale?: string | undefined;
+
+  /**
+   * <p>The resource type of the IPAM policy document.</p>
+   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Elastic IP addresses</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: IpamPolicyResourceType | undefined;
+
+  /**
+   * <p>The allocation rules in the IPAM policy document.</p>
+   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+   * @public
+   */
+  AllocationRules?: IpamPolicyAllocationRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyAllocationRulesResult {
+  /**
+   * <p>The IPAM policy documents containing the allocation rules.</p>
+   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+   * @public
+   */
+  IpamPolicyDocuments?: IpamPolicyDocument[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyOrganizationTargetsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy for which to get Amazon Web Services Organizations targets.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>One or more filters for the Amazon Web Services Organizations targets.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>The Amazon Web Services Organizations target for an IPAM policy.</p>
+ * @public
+ */
+export interface IpamPolicyOrganizationTarget {
+  /**
+   * <p>The ID of a Amazon Web Services Organizations target for an IPAM policy.</p>
+   * @public
+   */
+  OrganizationTargetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyOrganizationTargetsResult {
+  /**
+   * <p>The Amazon Web Services Organizations targets for an IPAM policy.</p>
+   * @public
+   */
+  OrganizationTargets?: IpamPolicyOrganizationTarget[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetIpamPoolAllocationsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -8029,785 +8595,4 @@ export interface GetIpamPoolCidrsRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolCidrsResult {
-  /**
-   * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
-   * @public
-   */
-  IpamPoolCidrs?: IpamPoolCidr[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPrefixListResolverRulesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM prefix list resolver whose rules you want to retrieve.</p>
-   * @public
-   */
-  IpamPrefixListResolverId: string | undefined;
-
-  /**
-   * <p>One or more filters to limit the results.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a condition within a CIDR selection rule. Conditions define the criteria for selecting CIDRs from IPAM's database based on resource attributes.</p>
- *          <p>CIDR selection rules define the business logic for selecting CIDRs from IPAM. If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without any CIDR selection rules, but it will generate empty versions (containing no CIDRs) until you add rules.</p>
- *          <p>There are three rule types. Only 2 of the 3 rule types support conditions - <b>IPAM pool CIDR</b> and <b>Scope resource CIDR</b>. <b>Static CIDR</b> rules cannot have conditions.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Static CIDR</b>: A fixed list of CIDRs that do not change (like a manual list replicated across Regions)</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>IPAM pool CIDR</b>: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool)</p>
- *                <p>If you choose this option, choose the following:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>IPAM scope</b>: Select the IPAM scope to search for resources</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Conditions:</b>
- *                      </p>
- *                      <ul>
- *                         <li>
- *                            <p>
- *                               <b>Property</b>
- *                            </p>
- *                            <ul>
- *                               <li>
- *                                  <p>
- *                                     <b>IPAM pool ID</b>: Select an IPAM pool that contains the resources</p>
- *                               </li>
- *                               <li>
- *                                  <p>
- *                                     <b>CIDR</b> (like 10.24.34.0/23)</p>
- *                               </li>
- *                            </ul>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <b>Operation</b>: Equals/Not equals</p>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <b>Value</b>: The value on which to match the condition</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Scope resource CIDR</b>: CIDRs from Amazon Web Services resources like VPCs, subnets, EIPs within an IPAM scope</p>
- *                <p>If you choose this option, choose the following:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>IPAM scope</b>: Select the IPAM scope to search for resources</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Resource type</b>: Select a resource, like a VPC or subnet.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Conditions</b>:</p>
- *                      <ul>
- *                         <li>
- *                            <p>
- *                               <b>Property</b>:</p>
- *                            <ul>
- *                               <li>
- *                                  <p>Resource ID: The unique ID of a resource (like vpc-1234567890abcdef0)</p>
- *                               </li>
- *                               <li>
- *                                  <p>Resource owner (like 111122223333)</p>
- *                               </li>
- *                               <li>
- *                                  <p>Resource region (like us-east-1)</p>
- *                               </li>
- *                               <li>
- *                                  <p>Resource tag (like key: name, value: dev-vpc-1)</p>
- *                               </li>
- *                               <li>
- *                                  <p>CIDR (like 10.24.34.0/23)</p>
- *                               </li>
- *                            </ul>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <b>Operation</b>: Equals/Not equals</p>
- *                         </li>
- *                         <li>
- *                            <p>
- *                               <b>Value</b>: The value on which to match the condition</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- * @public
- */
-export interface IpamPrefixListResolverRuleCondition {
-  /**
-   * <p>The operation to perform when evaluating this condition. Valid values include <code>equals</code>, <code>not-equals</code>, <code>contains</code>, and <code>not-contains</code>.</p>
-   * @public
-   */
-  Operation?: IpamPrefixListResolverRuleConditionOperation | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool to match against. This condition selects CIDRs that belong to the specified IPAM pool.</p>
-   * @public
-   */
-  IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services resource to match against. This condition selects CIDRs associated with the specified resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID that owns the resources to match against. This condition selects CIDRs from resources owned by the specified account.</p>
-   * @public
-   */
-  ResourceOwner?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the resources are located. This condition selects CIDRs from resources in the specified Region.</p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>A tag key-value pair to match against. This condition selects CIDRs from resources that have the specified tag.</p>
-   * @public
-   */
-  ResourceTag?: IpamResourceTag | undefined;
-
-  /**
-   * <p>A CIDR block to match against. This condition selects CIDRs that fall within or match the specified CIDR range.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-}
-
-/**
- * <p>Describes a CIDR selection rule.</p>
- *          <p>CIDR selection rules define the business logic for selecting CIDRs from IPAM. If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without any CIDR selection rules, but it will generate empty versions (containing no CIDRs) until you add rules.</p>
- * @public
- */
-export interface IpamPrefixListResolverRule {
-  /**
-   * <p>The type of CIDR selection rule. Valid values include <code>include</code> for selecting CIDRs that match the conditions, and <code>exclude</code> for excluding CIDRs that match the conditions.</p>
-   * @public
-   */
-  RuleType?: IpamPrefixListResolverRuleType | undefined;
-
-  /**
-   * <p>A fixed list of CIDRs that do not change (like a manual list replicated across Regions).</p>
-   * @public
-   */
-  StaticCidr?: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM scope from which to select CIDRs. This determines whether to select from public or private IP address space.</p>
-   * @public
-   */
-  IpamScopeId?: string | undefined;
-
-  /**
-   * <p>For rules of type <code>ipam-resource-cidr</code>, this is the resource type.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The conditions that determine which CIDRs are selected by this rule. Conditions specify criteria such as resource type, tags, account IDs, and Regions.</p>
-   * @public
-   */
-  Conditions?: IpamPrefixListResolverRuleCondition[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPrefixListResolverRulesResult {
-  /**
-   * <p>The CIDR selection rules for the IPAM prefix list resolver.</p>
-   * @public
-   */
-  Rules?: IpamPrefixListResolverRule[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPrefixListResolverVersionEntriesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM prefix list resolver whose version entries you want to retrieve.</p>
-   * @public
-   */
-  IpamPrefixListResolverId: string | undefined;
-
-  /**
-   * <p>The version number of the resolver for which to retrieve CIDR entries. If not specified, the latest version is used.</p>
-   * @public
-   */
-  IpamPrefixListResolverVersion: number | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a CIDR entry in a specific version of an IPAM prefix list resolver. This represents a CIDR that was selected and synchronized at a particular point in time.</p>
- * @public
- */
-export interface IpamPrefixListResolverVersionEntry {
-  /**
-   * <p>The CIDR block that was selected and synchronized in this resolver version.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPrefixListResolverVersionEntriesResult {
-  /**
-   * <p>The CIDR entries for the specified resolver version.</p>
-   * @public
-   */
-  Entries?: IpamPrefixListResolverVersionEntry[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPrefixListResolverVersionsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM prefix list resolver whose versions you want to retrieve.</p>
-   * @public
-   */
-  IpamPrefixListResolverId: string | undefined;
-
-  /**
-   * <p>Specific version numbers to retrieve. If not specified, all versions are returned.</p>
-   * @public
-   */
-  IpamPrefixListResolverVersions?: number[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters to limit the results.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a version of an IPAM prefix list resolver.</p>
- *          <p>Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list
- * changes due to infrastructure changes.</p>
- *          <p>
- *             <b>Version example:</b>
- *          </p>
- *          <p>
- *             <b>Initial State (Version 1)</b>
- *          </p>
- *          <p>Production environment:</p>
- *          <ul>
- *             <li>
- *                <p>vpc-prod-web (10.1.0.0/16) - tagged env=prod</p>
- *             </li>
- *             <li>
- *                <p>vpc-prod-db (10.2.0.0/16) - tagged env=prod</p>
- *             </li>
- *          </ul>
- *          <p>Resolver rule: Include all VPCs tagged env=prod</p>
- *          <p>
- *             <b>Version 1 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16</p>
- *          <p>
- *             <b>Infrastructure Change (Version 2)</b>
- *          </p>
- *          <p>New VPC added:</p>
- *          <ul>
- *             <li>
- *                <p>vpc-prod-api (10.3.0.0/16) - tagged env=prod</p>
- *             </li>
- *          </ul>
- *          <p>IPAM automatically detects the change and creates a new version.</p>
- *          <p>
- *             <b>Version 2 CIDRs:</b> 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16</p>
- * @public
- */
-export interface IpamPrefixListResolverVersion {
-  /**
-   * <p>The version number of the IPAM prefix list resolver.</p>
-   *          <p>Each version is a snapshot of what CIDRs matched your rules at that moment in time. The version number increments every time the CIDR list
-   * changes due to infrastructure changes.</p>
-   * @public
-   */
-  Version?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPrefixListResolverVersionsResult {
-  /**
-   * <p>Information about the IPAM prefix list resolver versions.</p>
-   * @public
-   */
-  IpamPrefixListResolverVersions?: IpamPrefixListResolverVersion[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamResourceCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the scope that the resource is in.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool that the resource is in.</p>
-   * @public
-   */
-  IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The resource tag.</p>
-   * @public
-   */
-  ResourceTag?: RequestIpamResourceTag | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the resource.</p>
-   * @public
-   */
-  ResourceOwner?: string | undefined;
-}
-
-/**
- * <p>The CIDR for an IPAM resource.</p>
- * @public
- */
-export interface IpamResourceCidr {
-  /**
-   * <p>The IPAM ID for an IPAM resource.</p>
-   * @public
-   */
-  IpamId?: string | undefined;
-
-  /**
-   * <p>The scope ID for an IPAM resource.</p>
-   * @public
-   */
-  IpamScopeId?: string | undefined;
-
-  /**
-   * <p>The pool ID for an IPAM resource.</p>
-   * @public
-   */
-  IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region for an IPAM resource.</p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account number of the owner of an IPAM resource.</p>
-   * @public
-   */
-  ResourceOwnerId?: string | undefined;
-
-  /**
-   * <p>The ID of an IPAM resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The name of an IPAM resource.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-
-  /**
-   * <p>The CIDR for an IPAM resource.</p>
-   * @public
-   */
-  ResourceCidr?: string | undefined;
-
-  /**
-   * <p>The type of IPAM resource.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The tags for an IPAM resource.</p>
-   * @public
-   */
-  ResourceTags?: IpamResourceTag[] | undefined;
-
-  /**
-   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
-   *          </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  IpUsage?: number | undefined;
-
-  /**
-   * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  ComplianceStatus?: IpamComplianceStatus | undefined;
-
-  /**
-   * <p>The management state of the resource. For more information about management states, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  ManagementState?: IpamManagementState | undefined;
-
-  /**
-   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  OverlapStatus?: IpamOverlapStatus | undefined;
-
-  /**
-   * <p>The ID of a VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone ID.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamResourceCidrsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The resource CIDRs.</p>
-   * @public
-   */
-  IpamResourceCidrs?: IpamResourceCidr[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLaunchTemplateDataRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLaunchTemplateDataResult {
-  /**
-   * <p>The instance data.</p>
-   * @public
-   */
-  LaunchTemplateData?: ResponseLaunchTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListAssociationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the resource with which a prefix list is associated.</p>
- * @public
- */
-export interface PrefixListAssociation {
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The owner of the resource.</p>
-   * @public
-   */
-  ResourceOwner?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   * @public
-   */
-  PrefixListAssociations?: PrefixListAssociation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListEntriesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The version of the prefix list for which to return the entries. The default is the current version.</p>
-   * @public
-   */
-  TargetVersion?: number | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a prefix list entry.</p>
- * @public
- */
-export interface PrefixListEntry {
-  /**
-   * <p>The CIDR block.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-
-  /**
-   * <p>The description.</p>
-   * @public
-   */
-  Description?: string | undefined;
 }

@@ -33,6 +33,7 @@ import {
   ServiceType,
   State,
   StaticSourcesSupportValue,
+  SubnetCidrReservationType,
   TelemetryStatus,
   Tenancy,
   TrafficDirection,
@@ -74,6 +75,7 @@ import {
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  Subnet,
   Tag,
   TagSpecification,
   TransitGatewayPeeringAttachment,
@@ -91,6 +93,7 @@ import {
   Ec2InstanceConnectEndpoint,
   Ipam,
   IpamExternalResourceVerificationToken,
+  IpamPolicy,
   IpamPool,
   IpamPrefixListResolver,
   IpamPrefixListResolverTarget,
@@ -108,8 +111,218 @@ import {
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
-  SubnetCidrReservation,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateSubnetRequest {
+  /**
+   * <p>The tags to assign to the subnet.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The Availability Zone or Local Zone for the subnet.</p>
+   *          <p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we
+   *           do not necessarily select a different zone for each subnet.</p>
+   *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
+   *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
+   *            see <a href="https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html">Available Local Zones</a>.</p>
+   *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
+   *            Outpost and specify the Outpost ARN.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The AZ ID or the Local Zone ID of the subnet.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
+   *            We modify the specified CIDR block to its canonical form; for example, if you specify
+   *            <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   *          <p>This parameter is not supported for an IPv6 only subnet.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The IPv6 network range for the subnet, in CIDR notation. This parameter is required
+   *             for an IPv6 only subnet.</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also
+   *         specify the Availability Zone of the Outpost subnet.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Indicates whether to create an IPv6 only subnet.</p>
+   * @public
+   */
+  Ipv6Native?: boolean | undefined;
+
+  /**
+   * <p>An IPv4 IPAM pool ID for the subnet.</p>
+   * @public
+   */
+  Ipv4IpamPoolId?: string | undefined;
+
+  /**
+   * <p>An IPv4 netmask length for the subnet.</p>
+   * @public
+   */
+  Ipv4NetmaskLength?: number | undefined;
+
+  /**
+   * <p>An IPv6 IPAM pool ID for the subnet.</p>
+   * @public
+   */
+  Ipv6IpamPoolId?: string | undefined;
+
+  /**
+   * <p>An IPv6 netmask length for the subnet.</p>
+   * @public
+   */
+  Ipv6NetmaskLength?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubnetResult {
+  /**
+   * <p>Information about the subnet.</p>
+   * @public
+   */
+  Subnet?: Subnet | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubnetCidrReservationRequest {
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The IPv4 or IPV6 CIDR range to reserve.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The type of reservation. The reservation type determines how the reserved IP addresses are
+   *             assigned to resources.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to
+   *                     network interfaces.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>explicit</code> - You assign the reserved IP addresses to network interfaces.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ReservationType: SubnetCidrReservationType | undefined;
+
+  /**
+   * <p>The description to assign to the subnet CIDR reservation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to assign to the subnet CIDR reservation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes a subnet CIDR reservation.</p>
+ * @public
+ */
+export interface SubnetCidrReservation {
+  /**
+   * <p>The ID of the subnet CIDR reservation.</p>
+   * @public
+   */
+  SubnetCidrReservationId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The CIDR that has been reserved.</p>
+   * @public
+   */
+  Cidr?: string | undefined;
+
+  /**
+   * <p>The type of reservation. </p>
+   * @public
+   */
+  ReservationType?: SubnetCidrReservationType | undefined;
+
+  /**
+   * <p>The ID of the account that owns the subnet CIDR reservation. </p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The description assigned to the subnet CIDR reservation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the subnet CIDR reservation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -6497,6 +6710,37 @@ export interface DeleteIpamExternalResourceVerificationTokenResult {
 /**
  * @public
  */
+export interface DeleteIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy to delete.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPolicyResult {
+  /**
+   * <p>Information about the deleted IPAM policy.</p>
+   *          <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
+   * @public
+   */
+  IpamPolicy?: IpamPolicy | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteIpamPoolRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -8430,103 +8674,4 @@ export interface DeleteVolumeRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVpcRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVpcBlockPublicAccessExclusionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the exclusion.</p>
-   * @public
-   */
-  ExclusionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVpcBlockPublicAccessExclusionResult {
-  /**
-   * <p>Details about an exclusion.</p>
-   * @public
-   */
-  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVpcEndpointConnectionNotificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the notifications.</p>
-   * @public
-   */
-  ConnectionNotificationIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVpcEndpointConnectionNotificationsResult {
-  /**
-   * <p>Information about the notifications that could not be deleted
-   *             successfully.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVpcEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the VPC endpoints.</p>
-   * @public
-   */
-  VpcEndpointIds: string[] | undefined;
 }

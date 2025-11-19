@@ -25,10 +25,9 @@ import {
   InstanceInterruptionBehavior,
   InstanceStorageEncryptionSupport,
   InstanceTypeHypervisor,
-  InternetGatewayBlockMode,
   KeyType,
+  LocationType,
   LockState,
-  ManagedBy,
   MoveStatus,
   NetworkInterfaceAttribute,
   NitroEnclavesSupport,
@@ -69,9 +68,6 @@ import {
   VolumeStatusInfoStatus,
   VolumeStatusName,
   VolumeType,
-  VpcAttributeName,
-  VpcBlockPublicAccessExclusionsAllowed,
-  VpcBlockPublicAccessState,
 } from "./enums";
 
 import {
@@ -109,6 +105,7 @@ import {
   InternetGateway,
   Ipam,
   IpamExternalResourceVerificationToken,
+  IpamPolicy,
   IpamPool,
   IpamPrefixListResolver,
   IpamPrefixListResolverTarget,
@@ -157,10 +154,527 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
-  VpcBlockPublicAccessExclusion,
 } from "./models_2";
 
 import { AttributeBooleanValue, Byoasn, EventInformation, Filter, IdFormat, ProductCode } from "./models_3";
+
+/**
+ * <p>Information about the instance topology.</p>
+ * @public
+ */
+export interface InstanceTopology {
+  /**
+   * <p>The instance ID.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The name of the placement group that the instance is in.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The network nodes. The nodes are hashed based on your account. Instances from
+   *             different accounts running under the same server will return a different hashed list of
+   *             strings.</p>
+   *          <p>The value is <code>null</code> or empty if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The instance type is not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance is in a state other than <code>running</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkNodes?: string[] | undefined;
+
+  /**
+   * <p>The name of the Availability Zone or Local Zone that the instance is in.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone or Local Zone that the instance is in.</p>
+   * @public
+   */
+  ZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block. This parameter is only supported for UltraServer
+   *             instances and identifies instances within the UltraServer domain.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTopologyResult {
+  /**
+   * <p>Information about the topology of each instance.</p>
+   * @public
+   */
+  Instances?: InstanceTopology[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTypeOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The location type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone. When you specify a location
+   *      filter, it must be an Availability Zone for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must
+   *      be an AZ ID for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an
+   *      Outpost ARN for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> - The current Region. If you specify a location filter, it must match
+   *      the current Region.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LocationType?: LocationType | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>location</code> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The instance types offered.</p>
+ * @public
+ */
+export interface InstanceTypeOffering {
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2
+   *     User Guide</i>.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The location type.</p>
+   * @public
+   */
+  LocationType?: LocationType | undefined;
+
+  /**
+   * <p>The identifier for the location. This depends on the location type. For example, if the
+   *    location type is <code>region</code>, the location is the Region code (for example,
+   *     <code>us-east-2</code>.)</p>
+   * @public
+   */
+  Location?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTypeOfferingsResult {
+  /**
+   * <p>The instance types offered in the location.</p>
+   * @public
+   */
+  InstanceTypeOfferings?: InstanceTypeOffering[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTypesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The instance types.</p>
+   * @public
+   */
+  InstanceTypes?: _InstanceType[] | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action
+   *      based recovery is supported  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type
+   *       (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether the instance type is a
+   *      burstable performance T instance type  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
+   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated-hosts-supported</code> - Indicates whether the instance type supports
+   *      Dedicated Hosts.  (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.attachment-limit-type</code> - The type of Amazon EBS volume attachment limit
+   *      (<code>shared</code> | <code>dedicated</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.maximum-ebs-attachments</code> - The maximum number of Amazon EBS volumes that
+   *      can be attached to the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
+   *      bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
+   *      operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
+   *      performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
+   *      operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
+   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
+   *      <code>default</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>free-tier-eligible</code> - A Boolean that indicates whether this instance type can
+   *      be used under the Amazon Web Services Free Tier  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
+   *       (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance
+   *      storage disk, in GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
+   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is
+   *      encrypted at rest (<code>required</code> | <code>supported</code> |
+   *      <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>
+   *      | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage
+   *      available from all local instance storage, in GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
+   *      instance storage  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
+   *      c5*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.bandwidth-weightings</code> - For instances that support bandwidth
+   *      weighting to boost performance (<code>default</code>, <code>vpc-1</code>,
+   *      <code>ebs-1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
+   *      Fabric Adapters (EFAs) per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
+   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
+   *      supported or required (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.flexible-ena-queues-support</code> - Indicates whether an instance supports
+   *      flexible ENA queues (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance
+   *      type automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private
+   *      IPv4 addresses per network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private
+   *      IPv6 addresses per network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
+   *      IPv6  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-cards</code> - The maximum number of network cards per
+   *      instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network
+   *      interfaces per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
+   *      Gigabit").</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version
+   *       (<code>2.0</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
+   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
+   *      GHz.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.supported-features</code> - The supported CPU features
+   *       (<code>amd-sev-snp</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reboot-migration-support</code> - Indicates whether enabling reboot migration is
+   *      supported (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
+   *       <code>uefi</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
+   *       <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
+   *       <code>spot</code> | <code>capacity-block</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
+   *       <code>paravirtual</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance
+   *      type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core
+   *      for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance
+   *      type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the
+   *      instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be
+   *      configured for the instance type. For example, "1" or "1,2".</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Describes the optimized EBS performance for supported instance types.</p>
@@ -1359,6 +1873,61 @@ export interface DescribeIpamExternalResourceVerificationTokensResult {
 /**
  * @public
  */
+export interface DescribeIpamPoliciesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters for the IPAM policy description.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The IDs of the IPAM policies to describe.</p>
+   * @public
+   */
+  IpamPolicyIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpamPoliciesResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the IPAM policies.</p>
+   *          <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
+   * @public
+   */
+  IpamPolicies?: IpamPolicy[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeIpamPoolsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -1543,7 +2112,7 @@ export interface DescribeIpamResourceDiscoveriesRequest {
   IpamResourceDiscoveryIds?: string[] | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * <p>The token for the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1572,7 +2141,7 @@ export interface DescribeIpamResourceDiscoveriesResult {
   IpamResourceDiscoveries?: IpamResourceDiscovery[] | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1626,7 +2195,7 @@ export interface DescribeIpamResourceDiscoveryAssociationsResult {
   IpamResourceDiscoveryAssociations?: IpamResourceDiscoveryAssociation[] | undefined;
 
   /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -12833,269 +13402,4 @@ export interface VolumeStatusItem {
    * @public
    */
   AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVolumeStatusResult {
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the status of the volumes.</p>
-   * @public
-   */
-  VolumeStatuses?: VolumeStatusItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcAttributeRequest {
-  /**
-   * <p>The VPC attribute.</p>
-   * @public
-   */
-  Attribute: VpcAttributeName | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcAttributeResult {
-  /**
-   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
-   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
-   * 				otherwise, they do not.</p>
-   * @public
-   */
-  EnableDnsHostnames?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether DNS resolution is enabled for
-   * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
-   * 				resolves DNS hostnames for your instances to their corresponding
-   * 				IP addresses; otherwise, it does not.</p>
-   * @public
-   */
-  EnableDnsSupport?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
-   * @public
-   */
-  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcBlockPublicAccessExclusionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Filters for the request:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-arn</code> - The Amazon Resource Name (ARN) of a exclusion.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>internet-gateway-exclusion-mode</code> - The mode of a VPC BPA exclusion. Possible values: <code>allow-bidirectional | allow-egress</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of VPC BPA. Possible values: <code>create-in-progress | create-complete | update-in-progress | update-complete | delete-in-progress | deleted-complete | disable-in-progress | disable-complete</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-value</code>: The value of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific value, regardless of the tag key.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>IDs of exclusions.</p>
-   * @public
-   */
-  ExclusionIds?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcBlockPublicAccessExclusionsResult {
-  /**
-   * <p>Details related to the exclusions.</p>
-   * @public
-   */
-  VpcBlockPublicAccessExclusions?: VpcBlockPublicAccessExclusion[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcBlockPublicAccessOptionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
- * @public
- */
-export interface VpcBlockPublicAccessOptions {
-  /**
-   * <p>An Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>An Amazon Web Services Region.</p>
-   * @public
-   */
-  AwsRegion?: string | undefined;
-
-  /**
-   * <p>The current state of VPC BPA.</p>
-   * @public
-   */
-  State?: VpcBlockPublicAccessState | undefined;
-
-  /**
-   * <p>The current mode of VPC BPA.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InternetGatewayBlockMode?: InternetGatewayBlockMode | undefined;
-
-  /**
-   * <p>The reason for the current state.</p>
-   * @public
-   */
-  Reason?: string | undefined;
-
-  /**
-   * <p>The last time the VPC BPA mode was updated.</p>
-   * @public
-   */
-  LastUpdateTimestamp?: Date | undefined;
-
-  /**
-   * <p>The entity that manages the state of VPC BPA. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> - The state is managed by the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - The state is managed by a declarative policy
-   *                     and can't be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
-
-  /**
-   * <p>Determines if exclusions are allowed. If you have <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html#security-vpc-bpa-exclusions-orgs">enabled VPC BPA at the Organization level</a>, exclusions may be
-   *                 <code>not-allowed</code>. Otherwise, they are <code>allowed</code>.</p>
-   * @public
-   */
-  ExclusionsAllowed?: VpcBlockPublicAccessExclusionsAllowed | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVpcBlockPublicAccessOptionsResult {
-  /**
-   * <p>Details related to the options.</p>
-   * @public
-   */
-  VpcBlockPublicAccessOptions?: VpcBlockPublicAccessOptions | undefined;
 }

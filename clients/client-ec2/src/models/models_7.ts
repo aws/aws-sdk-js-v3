@@ -6,6 +6,7 @@ import {
   ArchitectureValues,
   BootModeValues,
   CapacityManagerStatus,
+  CapacityReservationInstancePlatform,
   CurrencyCodeValues,
   HostnameType,
   HttpTokensState,
@@ -32,11 +33,13 @@ import {
   Status,
   TpmSupportValues,
   TransitGatewayAttachmentResourceType,
+  VerificationMethod,
 } from "./enums";
 
 import {
   AddressAttribute,
   ByoipCidr,
+  CapacityReservation,
   ClientVpnAuthorizationRuleStatus,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -65,12 +68,23 @@ import {
 
 import { TransitGatewayRoute } from "./models_2";
 
-import { ClientVpnConnectionStatus, Filter, InstanceState, InstanceTagNotificationAttribute } from "./models_3";
+import {
+  Byoasn,
+  CapacityBlock,
+  CapacityBlockExtension,
+  ClientVpnConnectionStatus,
+  Filter,
+  InstanceState,
+  InstanceTagNotificationAttribute,
+  IpamPoolCidr,
+  Monitoring,
+} from "./models_3";
 
 import {
   InstanceNetworkInterfaceSpecification,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  PublicIpv4PoolRange,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SpotFleetRequestConfigData,
@@ -80,7 +94,606 @@ import {
 
 import { Purchase } from "./models_5";
 
-import { CapacityReservationSpecification, InstanceMonitoring } from "./models_6";
+import { CapacityReservationSpecification } from "./models_6";
+
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ * @public
+ */
+export interface InstanceMonitoring {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   * @public
+   */
+  Monitoring?: Monitoring | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MonitorInstancesResult {
+  /**
+   * <p>The monitoring information.</p>
+   * @public
+   */
+  InstanceMonitorings?: InstanceMonitoring[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveAddressToVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  PublicIp: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveAddressToVpcResult {
+  /**
+   * <p>The allocation ID for the Elastic IP address.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>The status of the move of the IP address.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveByoipCidrToIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The BYOIP CIDR.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The IPAM pool ID.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
+   * @public
+   */
+  IpamPoolOwner: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveByoipCidrToIpamResult {
+  /**
+   * <p>The BYOIP CIDR.</p>
+   * @public
+   */
+  ByoipCidr?: ByoipCidr | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveCapacityReservationInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p> The ID of the Capacity Reservation from which you want to move capacity. </p>
+   * @public
+   */
+  SourceCapacityReservationId: string | undefined;
+
+  /**
+   * <p> The ID of the Capacity Reservation that you want to move capacity into. </p>
+   * @public
+   */
+  DestinationCapacityReservationId: string | undefined;
+
+  /**
+   * <p>The number of instances that you want to move from the source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveCapacityReservationInstancesResult {
+  /**
+   * <p> Information about the source Capacity Reservation. </p>
+   * @public
+   */
+  SourceCapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p> Information about the destination Capacity Reservation. </p>
+   * @public
+   */
+  DestinationCapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p> The number of instances that were moved from the source Capacity Reservation to the
+   * 			destination Capacity Reservation. </p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
+ *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface CidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   * @public
+   */
+  Signature: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionByoipCidrRequest {
+  /**
+   * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
+   *           specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've
+   *          brought to this or another Region.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring the specified IP address
+   *          range to Amazon using BYOIP.</p>
+   * @public
+   */
+  CidrAuthorizationContext?: CidrAuthorizationContext | undefined;
+
+  /**
+   * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
+   *             internet.</p>
+   *          <p>Default: true</p>
+   * @public
+   */
+  PubliclyAdvertisable?: boolean | undefined;
+
+  /**
+   * <p>A description for the address range and the address pool.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the address pool.</p>
+   * @public
+   */
+  PoolTagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  MultiRegion?: boolean | undefined;
+
+  /**
+   * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
+   *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
+   *          <ul>
+   *             <li>
+   *                <p>us-east-1-dfw-2</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-lax-1</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-phx-2</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
+   *          </note>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionByoipCidrResult {
+  /**
+   * <p>Information about the address range.</p>
+   * @public
+   */
+  ByoipCidr?: ByoipCidr | undefined;
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
+ *             For details on the format of the message and signature, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ * @public
+ */
+export interface AsnAuthorizationContext {
+  /**
+   * <p>The authorization context's message.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The authorization context's signature.</p>
+   * @public
+   */
+  Signature: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionIpamByoasnRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>An IPAM ID.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   * @public
+   */
+  Asn: string | undefined;
+
+  /**
+   * <p>An ASN authorization context.</p>
+   * @public
+   */
+  AsnAuthorizationContext: AsnAuthorizationContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionIpamByoasnResult {
+  /**
+   * <p>An ASN and BYOIP CIDR association.</p>
+   * @public
+   */
+  Byoasn?: Byoasn | undefined;
+}
+
+/**
+ * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
+ * @public
+ */
+export interface IpamCidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   * @public
+   */
+  Signature?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionIpamPoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is required. This value will be null if you specify "NetmaskLength" and will be filled in during the provisioning process.</p>
+   * @public
+   */
+  Cidr?: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
+   * @public
+   */
+  CidrAuthorizationContext?: IpamCidrAuthorizationContext | undefined;
+
+  /**
+   * <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either "NetmaskLength" or "Cidr" is required.</p>
+   * @public
+   */
+  NetmaskLength?: number | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The method for verifying control of a public IP address range. Defaults to <code>remarks-x509</code> if not specified. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
+   * @public
+   */
+  VerificationMethod?: VerificationMethod | undefined;
+
+  /**
+   * <p>Verification token ID. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionIpamPoolCidrResult {
+  /**
+   * <p>Information about the provisioned CIDR.</p>
+   * @public
+   */
+  IpamPoolCidr?: IpamPoolCidr | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionPublicIpv4PoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool you would like to use to allocate this CIDR.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the public IPv4 pool you would like to use for this CIDR.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool. The least specific netmask length you can define is 24.</p>
+   * @public
+   */
+  NetmaskLength: number | undefined;
+
+  /**
+   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionPublicIpv4PoolCidrResult {
+  /**
+   * <p>The ID of the pool that you want to provision the CIDR to.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>Information about the address range of the public IPv4 pool.</p>
+   * @public
+   */
+  PoolAddressRange?: PublicIpv4PoolRange | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the Capacity Block during launch.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block offering.</p>
+   * @public
+   */
+  CapacityBlockOfferingId: string | undefined;
+
+  /**
+   * <p>The type of operating system for which to reserve capacity.</p>
+   * @public
+   */
+  InstancePlatform: CapacityReservationInstancePlatform | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockResult {
+  /**
+   * <p>The Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p>The Capacity Block.</p>
+   * @public
+   */
+  CapacityBlocks?: CapacityBlock[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockExtensionRequest {
+  /**
+   * <p>The ID of the Capacity Block extension offering to purchase.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferingId: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity reservation to be extended.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockExtensionResult {
+  /**
+   * <p>The purchased Capacity Block extensions. </p>
+   * @public
+   */
+  CapacityBlockExtensions?: CapacityBlockExtension[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseHostReservationRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>, and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
+   * @public
+   */
+  HostIdSet: string[] | undefined;
+
+  /**
+   * <p>The specified limit is checked against the total upfront cost of the reservation
+   *             (calculated as the offering's upfront cost multiplied by the host count). If the total
+   *             upfront cost is greater than the specified price limit, the request fails. This is used
+   *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
+   *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
+   *             a limit price of USD 100, specify 100.00.</p>
+   * @public
+   */
+  LimitPrice?: string | undefined;
+
+  /**
+   * <p>The ID of the offering.</p>
+   * @public
+   */
+  OfferingId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
 
 /**
  * @public

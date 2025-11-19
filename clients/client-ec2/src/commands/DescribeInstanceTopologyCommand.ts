@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeInstanceTopologyRequest, DescribeInstanceTopologyResult } from "../models/models_3";
+import { DescribeInstanceTopologyRequest } from "../models/models_3";
+import { DescribeInstanceTopologyResult } from "../models/models_4";
 import { DescribeInstanceTopology } from "../schemas/schemas_0";
 
 /**

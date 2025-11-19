@@ -7,6 +7,9 @@ import {
   AddressFamily,
   AmdSevSnpSpecification,
   AttachmentStatus,
+  AutoProvisionZonesState,
+  AutoScalingIpsState,
+  AvailabilityMode,
   BareMetal,
   BurstablePerformance,
   CapacityReservationPreference,
@@ -37,6 +40,7 @@ import {
   IpAddressType,
   IpamExternalResourceVerificationTokenState,
   IpamMeteredAccount,
+  IpamPolicyState,
   IpamPoolAwsService,
   IpamPoolPublicIpSource,
   IpamPoolSourceResourceType,
@@ -103,7 +107,6 @@ import {
   SpreadLevel,
   SSEType,
   StorageTier,
-  SubnetCidrReservationType,
   TargetCapacityUnitType,
   Tenancy,
   TokenState,
@@ -131,7 +134,6 @@ import {
   PortRange,
   ReservedInstancesListing,
   RouteTableAssociationState,
-  Subnet,
   Tag,
   TagSpecification,
   UnsuccessfulItem,
@@ -4933,6 +4935,104 @@ export interface CreateIpamExternalResourceVerificationTokenResult {
 }
 
 /**
+ * @public
+ */
+export interface CreateIpamPolicyRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to assign to the IPAM policy.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM for which you're creating the policy.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+}
+
+/**
+ * <p>Information about an IPAM policy.</p>
+ *          <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
+ * @public
+ */
+export interface IpamPolicy {
+  /**
+   * <p>The account ID that owns the IPAM policy.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy.</p>
+   * @public
+   */
+  IpamPolicyId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IPAM policy.</p>
+   * @public
+   */
+  IpamPolicyArn?: string | undefined;
+
+  /**
+   * <p>The Region of the IPAM policy.</p>
+   * @public
+   */
+  IpamPolicyRegion?: string | undefined;
+
+  /**
+   * <p>The state of the IPAM policy.</p>
+   * @public
+   */
+  State?: IpamPolicyState | undefined;
+
+  /**
+   * <p>A message about the state of the IPAM policy.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the IPAM policy.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the IPAM this policy belongs to.</p>
+   * @public
+   */
+  IpamId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIpamPolicyResult {
+  /**
+   * <p>Information about the created IPAM policy.</p>
+   *          <p>An IPAM policy is a set of rules that define how public IPv4 addresses from IPAM pools are allocated to Amazon Web Services resources. Each rule maps an Amazon Web Services service to IPAM pools that the service will use to get IP addresses. A single policy can have multiple rules and be applied to multiple Amazon Web Services Regions. If the IPAM pool run out of addresses then the services fallback to Amazon-provided IP addresses. A policy can be applied to an individual Amazon Web Services account or an entity within Amazon Web Services Organizations.</p>
+   * @public
+   */
+  IpamPolicy?: IpamPolicy | undefined;
+}
+
+/**
  * <p>A tag on an IPAM resource.</p>
  * @public
  */
@@ -6086,7 +6186,7 @@ export interface CreateIpamResourceDiscoveryResult {
 
 /**
  * <p>The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html">Integrate VPC IPAM with Infoblox infrastructure</a> in the <i>Amazon VPC IPAM User Guide</i>..</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html">Integrate VPC IPAM with Infoblox infrastructure</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @public
  */
 export interface ExternalAuthorityConfiguration {
@@ -10285,9 +10385,45 @@ export interface CreateManagedPrefixListResult {
 }
 
 /**
+ * <p>For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone. </p>
+ *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface AvailabilityZoneAddress {
+  /**
+   * <p>For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. </p>
+   *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across Amazon Web Services Regions. </p>
+   *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.</p>
+   * @public
+   */
+  AllocationIds?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateNatGatewayRequest {
+  /**
+   * <p>Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Defaults to <code>zonal</code>.</p>
+   *          <p>A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  AvailabilityMode?: AvailabilityMode | undefined;
+
   /**
    * <p>[Public NAT gateways only] The allocation ID of an Elastic IP address to associate
    *           with the NAT gateway. You cannot specify an Elastic IP address with a private NAT gateway.
@@ -10316,7 +10452,21 @@ export interface CreateNatGatewayRequest {
    * <p>The ID of the subnet in which to create the NAT gateway.</p>
    * @public
    */
-  SubnetId: string | undefined;
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC where you want to create a regional NAT gateway.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.</p>
+   *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  AvailabilityZoneAddresses?: AvailabilityZoneAddress[] | undefined;
 
   /**
    * <p>The tags to assign to the NAT gateway.</p>
@@ -10524,6 +10674,35 @@ export interface NatGateway {
    * @public
    */
   ConnectivityType?: ConnectivityType | undefined;
+
+  /**
+   * <p>Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.</p>
+   *          <p>A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  AvailabilityMode?: AvailabilityMode | undefined;
+
+  /**
+   * <p>For regional NAT gateways only: Indicates whether Amazon Web Services automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  AutoScalingIps?: AutoScalingIpsState | undefined;
+
+  /**
+   * <p>For regional NAT gateways only: Indicates whether Amazon Web Services automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.</p>
+   *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  AutoProvisionZones?: AutoProvisionZonesState | undefined;
+
+  /**
+   * <p>For regional NAT gateways only, this is the ID of the NAT gateway.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
 }
 
 /**
@@ -14089,215 +14268,4 @@ export interface CreateStoreImageTaskResult {
    * @public
    */
   ObjectKey?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSubnetRequest {
-  /**
-   * <p>The tags to assign to the subnet.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The Availability Zone or Local Zone for the subnet.</p>
-   *          <p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we
-   *           do not necessarily select a different zone for each subnet.</p>
-   *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
-   *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
-   *            see <a href="https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html">Available Local Zones</a>.</p>
-   *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
-   *            Outpost and specify the Outpost ARN.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The AZ ID or the Local Zone ID of the subnet.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
-   *            We modify the specified CIDR block to its canonical form; for example, if you specify
-   *            <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   *          <p>This parameter is not supported for an IPv6 only subnet.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 network range for the subnet, in CIDR notation. This parameter is required
-   *             for an IPv6 only subnet.</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also
-   *         specify the Availability Zone of the Outpost subnet.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Indicates whether to create an IPv6 only subnet.</p>
-   * @public
-   */
-  Ipv6Native?: boolean | undefined;
-
-  /**
-   * <p>An IPv4 IPAM pool ID for the subnet.</p>
-   * @public
-   */
-  Ipv4IpamPoolId?: string | undefined;
-
-  /**
-   * <p>An IPv4 netmask length for the subnet.</p>
-   * @public
-   */
-  Ipv4NetmaskLength?: number | undefined;
-
-  /**
-   * <p>An IPv6 IPAM pool ID for the subnet.</p>
-   * @public
-   */
-  Ipv6IpamPoolId?: string | undefined;
-
-  /**
-   * <p>An IPv6 netmask length for the subnet.</p>
-   * @public
-   */
-  Ipv6NetmaskLength?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSubnetResult {
-  /**
-   * <p>Information about the subnet.</p>
-   * @public
-   */
-  Subnet?: Subnet | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSubnetCidrReservationRequest {
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>The IPv4 or IPV6 CIDR range to reserve.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The type of reservation. The reservation type determines how the reserved IP addresses are
-   *             assigned to resources.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to
-   *                     network interfaces.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>explicit</code> - You assign the reserved IP addresses to network interfaces.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ReservationType: SubnetCidrReservationType | undefined;
-
-  /**
-   * <p>The description to assign to the subnet CIDR reservation.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The tags to assign to the subnet CIDR reservation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * <p>Describes a subnet CIDR reservation.</p>
- * @public
- */
-export interface SubnetCidrReservation {
-  /**
-   * <p>The ID of the subnet CIDR reservation.</p>
-   * @public
-   */
-  SubnetCidrReservationId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The CIDR that has been reserved.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-
-  /**
-   * <p>The type of reservation. </p>
-   * @public
-   */
-  ReservationType?: SubnetCidrReservationType | undefined;
-
-  /**
-   * <p>The ID of the account that owns the subnet CIDR reservation. </p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The description assigned to the subnet CIDR reservation.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The tags assigned to the subnet CIDR reservation.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

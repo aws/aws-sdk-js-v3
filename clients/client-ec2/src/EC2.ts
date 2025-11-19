@@ -418,6 +418,11 @@ import {
   CreateIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
 import {
+  CreateIpamPolicyCommand,
+  CreateIpamPolicyCommandInput,
+  CreateIpamPolicyCommandOutput,
+} from "./commands/CreateIpamPolicyCommand";
+import {
   CreateIpamPoolCommand,
   CreateIpamPoolCommandInput,
   CreateIpamPoolCommandOutput,
@@ -846,6 +851,11 @@ import {
   DeleteIpamExternalResourceVerificationTokenCommandInput,
   DeleteIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
+import {
+  DeleteIpamPolicyCommand,
+  DeleteIpamPolicyCommandInput,
+  DeleteIpamPolicyCommandOutput,
+} from "./commands/DeleteIpamPolicyCommand";
 import {
   DeleteIpamPoolCommand,
   DeleteIpamPoolCommandInput,
@@ -1575,6 +1585,11 @@ import {
   DescribeIpamExternalResourceVerificationTokensCommandOutput,
 } from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import {
+  DescribeIpamPoliciesCommand,
+  DescribeIpamPoliciesCommandInput,
+  DescribeIpamPoliciesCommandOutput,
+} from "./commands/DescribeIpamPoliciesCommand";
+import {
   DescribeIpamPoolsCommand,
   DescribeIpamPoolsCommandInput,
   DescribeIpamPoolsCommandOutput,
@@ -2205,6 +2220,11 @@ import {
   DisableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableIpamOrganizationAdminAccountCommand";
 import {
+  DisableIpamPolicyCommand,
+  DisableIpamPolicyCommandInput,
+  DisableIpamPolicyCommandOutput,
+} from "./commands/DisableIpamPolicyCommand";
+import {
   DisableRouteServerPropagationCommand,
   DisableRouteServerPropagationCommandInput,
   DisableRouteServerPropagationCommandOutput,
@@ -2391,6 +2411,11 @@ import {
   EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
 import {
+  EnableIpamPolicyCommand,
+  EnableIpamPolicyCommandInput,
+  EnableIpamPolicyCommandOutput,
+} from "./commands/EnableIpamPolicyCommand";
+import {
   EnableReachabilityAnalyzerOrganizationSharingCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommandInput,
   EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
@@ -2537,6 +2562,11 @@ import {
   GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand";
 import {
+  GetEnabledIpamPolicyCommand,
+  GetEnabledIpamPolicyCommandInput,
+  GetEnabledIpamPolicyCommandOutput,
+} from "./commands/GetEnabledIpamPolicyCommand";
+import {
   GetFlowLogsIntegrationTemplateCommand,
   GetFlowLogsIntegrationTemplateCommandInput,
   GetFlowLogsIntegrationTemplateCommandOutput,
@@ -2601,6 +2631,16 @@ import {
   GetIpamDiscoveredResourceCidrsCommandInput,
   GetIpamDiscoveredResourceCidrsCommandOutput,
 } from "./commands/GetIpamDiscoveredResourceCidrsCommand";
+import {
+  GetIpamPolicyAllocationRulesCommand,
+  GetIpamPolicyAllocationRulesCommandInput,
+  GetIpamPolicyAllocationRulesCommandOutput,
+} from "./commands/GetIpamPolicyAllocationRulesCommand";
+import {
+  GetIpamPolicyOrganizationTargetsCommand,
+  GetIpamPolicyOrganizationTargetsCommandInput,
+  GetIpamPolicyOrganizationTargetsCommandOutput,
+} from "./commands/GetIpamPolicyOrganizationTargetsCommand";
 import {
   GetIpamPoolAllocationsCommand,
   GetIpamPoolAllocationsCommandInput,
@@ -2930,6 +2970,11 @@ import {
   ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand";
 import { ModifyIpamCommand, ModifyIpamCommandInput, ModifyIpamCommandOutput } from "./commands/ModifyIpamCommand";
+import {
+  ModifyIpamPolicyAllocationRulesCommand,
+  ModifyIpamPolicyAllocationRulesCommandInput,
+  ModifyIpamPolicyAllocationRulesCommandOutput,
+} from "./commands/ModifyIpamPolicyAllocationRulesCommand";
 import {
   ModifyIpamPoolCommand,
   ModifyIpamPoolCommandInput,
@@ -3640,6 +3685,7 @@ const commands = {
   CreateInternetGatewayCommand,
   CreateIpamCommand,
   CreateIpamExternalResourceVerificationTokenCommand,
+  CreateIpamPolicyCommand,
   CreateIpamPoolCommand,
   CreateIpamPrefixListResolverCommand,
   CreateIpamPrefixListResolverTargetCommand,
@@ -3729,6 +3775,7 @@ const commands = {
   DeleteInternetGatewayCommand,
   DeleteIpamCommand,
   DeleteIpamExternalResourceVerificationTokenCommand,
+  DeleteIpamPolicyCommand,
   DeleteIpamPoolCommand,
   DeleteIpamPrefixListResolverCommand,
   DeleteIpamPrefixListResolverTargetCommand,
@@ -3877,6 +3924,7 @@ const commands = {
   DescribeInternetGatewaysCommand,
   DescribeIpamByoasnCommand,
   DescribeIpamExternalResourceVerificationTokensCommand,
+  DescribeIpamPoliciesCommand,
   DescribeIpamPoolsCommand,
   DescribeIpamPrefixListResolversCommand,
   DescribeIpamPrefixListResolverTargetsCommand,
@@ -4003,6 +4051,7 @@ const commands = {
   DisableImageDeregistrationProtectionCommand,
   DisableInstanceSqlHaStandbyDetectionsCommand,
   DisableIpamOrganizationAdminAccountCommand,
+  DisableIpamPolicyCommand,
   DisableRouteServerPropagationCommand,
   DisableSerialConsoleAccessCommand,
   DisableSnapshotBlockPublicAccessCommand,
@@ -4041,6 +4090,7 @@ const commands = {
   EnableImageDeregistrationProtectionCommand,
   EnableInstanceSqlHaStandbyDetectionsCommand,
   EnableIpamOrganizationAdminAccountCommand,
+  EnableIpamPolicyCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
   EnableRouteServerPropagationCommand,
   EnableSerialConsoleAccessCommand,
@@ -4071,6 +4121,7 @@ const commands = {
   GetDefaultCreditSpecificationCommand,
   GetEbsDefaultKmsKeyIdCommand,
   GetEbsEncryptionByDefaultCommand,
+  GetEnabledIpamPolicyCommand,
   GetFlowLogsIntegrationTemplateCommand,
   GetGroupsForCapacityReservationCommand,
   GetHostReservationPurchasePreviewCommand,
@@ -4084,6 +4135,8 @@ const commands = {
   GetIpamDiscoveredAccountsCommand,
   GetIpamDiscoveredPublicAddressesCommand,
   GetIpamDiscoveredResourceCidrsCommand,
+  GetIpamPolicyAllocationRulesCommand,
+  GetIpamPolicyOrganizationTargetsCommand,
   GetIpamPoolAllocationsCommand,
   GetIpamPoolCidrsCommand,
   GetIpamPrefixListResolverRulesCommand,
@@ -4153,6 +4206,7 @@ const commands = {
   ModifyInstanceNetworkPerformanceOptionsCommand,
   ModifyInstancePlacementCommand,
   ModifyIpamCommand,
+  ModifyIpamPolicyAllocationRulesCommand,
   ModifyIpamPoolCommand,
   ModifyIpamPrefixListResolverCommand,
   ModifyIpamPrefixListResolverTargetCommand,
@@ -5699,6 +5753,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateIpamPolicyCommand}
+   */
+  createIpamPolicy(
+    args: CreateIpamPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamPolicyCommandOutput>;
+  createIpamPolicy(
+    args: CreateIpamPolicyCommandInput,
+    cb: (err: any, data?: CreateIpamPolicyCommandOutput) => void
+  ): void;
+  createIpamPolicy(
+    args: CreateIpamPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIpamPoolCommand}
    */
   createIpamPool(
@@ -5962,6 +6033,7 @@ export interface EC2 {
   /**
    * @see {@link CreateNatGatewayCommand}
    */
+  createNatGateway(): Promise<CreateNatGatewayCommandOutput>;
   createNatGateway(
     args: CreateNatGatewayCommandInput,
     options?: __HttpHandlerOptions
@@ -7147,6 +7219,23 @@ export interface EC2 {
     args: DeleteIpamExternalResourceVerificationTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIpamExternalResourceVerificationTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIpamPolicyCommand}
+   */
+  deleteIpamPolicy(
+    args: DeleteIpamPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamPolicyCommandOutput>;
+  deleteIpamPolicy(
+    args: DeleteIpamPolicyCommandInput,
+    cb: (err: any, data?: DeleteIpamPolicyCommandOutput) => void
+  ): void;
+  deleteIpamPolicy(
+    args: DeleteIpamPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -9669,6 +9758,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeIpamPoliciesCommand}
+   */
+  describeIpamPolicies(): Promise<DescribeIpamPoliciesCommandOutput>;
+  describeIpamPolicies(
+    args: DescribeIpamPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamPoliciesCommandOutput>;
+  describeIpamPolicies(
+    args: DescribeIpamPoliciesCommandInput,
+    cb: (err: any, data?: DescribeIpamPoliciesCommandOutput) => void
+  ): void;
+  describeIpamPolicies(
+    args: DescribeIpamPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamPoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeIpamPoolsCommand}
    */
   describeIpamPools(): Promise<DescribeIpamPoolsCommandOutput>;
@@ -11874,6 +11981,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableIpamPolicyCommand}
+   */
+  disableIpamPolicy(
+    args: DisableIpamPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableIpamPolicyCommandOutput>;
+  disableIpamPolicy(
+    args: DisableIpamPolicyCommandInput,
+    cb: (err: any, data?: DisableIpamPolicyCommandOutput) => void
+  ): void;
+  disableIpamPolicy(
+    args: DisableIpamPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableIpamPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableRouteServerPropagationCommand}
    */
   disableRouteServerPropagation(
@@ -12521,6 +12645,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link EnableIpamPolicyCommand}
+   */
+  enableIpamPolicy(
+    args: EnableIpamPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableIpamPolicyCommandOutput>;
+  enableIpamPolicy(
+    args: EnableIpamPolicyCommandInput,
+    cb: (err: any, data?: EnableIpamPolicyCommandOutput) => void
+  ): void;
+  enableIpamPolicy(
+    args: EnableIpamPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableIpamPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommand}
    */
   enableReachabilityAnalyzerOrganizationSharing(): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput>;
@@ -13030,6 +13171,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetEnabledIpamPolicyCommand}
+   */
+  getEnabledIpamPolicy(): Promise<GetEnabledIpamPolicyCommandOutput>;
+  getEnabledIpamPolicy(
+    args: GetEnabledIpamPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnabledIpamPolicyCommandOutput>;
+  getEnabledIpamPolicy(
+    args: GetEnabledIpamPolicyCommandInput,
+    cb: (err: any, data?: GetEnabledIpamPolicyCommandOutput) => void
+  ): void;
+  getEnabledIpamPolicy(
+    args: GetEnabledIpamPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnabledIpamPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFlowLogsIntegrationTemplateCommand}
    */
   getFlowLogsIntegrationTemplate(
@@ -13250,6 +13409,40 @@ export interface EC2 {
     args: GetIpamDiscoveredResourceCidrsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIpamDiscoveredResourceCidrsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamPolicyAllocationRulesCommand}
+   */
+  getIpamPolicyAllocationRules(
+    args: GetIpamPolicyAllocationRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPolicyAllocationRulesCommandOutput>;
+  getIpamPolicyAllocationRules(
+    args: GetIpamPolicyAllocationRulesCommandInput,
+    cb: (err: any, data?: GetIpamPolicyAllocationRulesCommandOutput) => void
+  ): void;
+  getIpamPolicyAllocationRules(
+    args: GetIpamPolicyAllocationRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPolicyAllocationRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamPolicyOrganizationTargetsCommand}
+   */
+  getIpamPolicyOrganizationTargets(
+    args: GetIpamPolicyOrganizationTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPolicyOrganizationTargetsCommandOutput>;
+  getIpamPolicyOrganizationTargets(
+    args: GetIpamPolicyOrganizationTargetsCommandInput,
+    cb: (err: any, data?: GetIpamPolicyOrganizationTargetsCommandOutput) => void
+  ): void;
+  getIpamPolicyOrganizationTargets(
+    args: GetIpamPolicyOrganizationTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPolicyOrganizationTargetsCommandOutput) => void
   ): void;
 
   /**
@@ -14377,6 +14570,23 @@ export interface EC2 {
     args: ModifyIpamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyIpamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIpamPolicyAllocationRulesCommand}
+   */
+  modifyIpamPolicyAllocationRules(
+    args: ModifyIpamPolicyAllocationRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamPolicyAllocationRulesCommandOutput>;
+  modifyIpamPolicyAllocationRules(
+    args: ModifyIpamPolicyAllocationRulesCommandInput,
+    cb: (err: any, data?: ModifyIpamPolicyAllocationRulesCommandOutput) => void
+  ): void;
+  modifyIpamPolicyAllocationRules(
+    args: ModifyIpamPolicyAllocationRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamPolicyAllocationRulesCommandOutput) => void
   ): void;
 
   /**

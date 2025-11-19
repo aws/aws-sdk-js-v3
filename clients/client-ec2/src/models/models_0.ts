@@ -3666,6 +3666,18 @@ export interface NatGatewayAddress {
    * @public
    */
   Status?: NatGatewayAddressStatus | undefined;
+
+  /**
+   * <p>The Availability Zone where this Elastic IP address (EIP) is being used to handle outbound NAT traffic.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where this Elastic IP address (EIP) is being used to handle outbound NAT traffic. Use this instead of AvailabilityZone for consistent identification of AZs across Amazon Web Services Regions.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -4429,6 +4441,20 @@ export interface AssociateNatGatewayAddressRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>For regional NAT gateways only: The Availability Zone where you want to associate an Elastic IP address (EIP). The regional NAT gateway uses a separate EIP in each AZ to handle outbound NAT traffic from that AZ.</p>
+   *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>For regional NAT gateways only: The ID of the Availability Zone where you want to associate an Elastic IP address (EIP). The regional NAT gateway uses a separate EIP in each AZ to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across Amazon Web Services Regions. </p>
+   *          <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

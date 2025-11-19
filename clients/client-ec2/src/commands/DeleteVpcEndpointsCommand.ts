@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteVpcEndpointsRequest } from "../models/models_2";
-import { DeleteVpcEndpointsResult } from "../models/models_3";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_3";
 import { DeleteVpcEndpoints } from "../schemas/schemas_0";
 
 /**
