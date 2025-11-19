@@ -221,6 +221,14 @@ GetRecommendation
 </details>
 <details>
 <summary>
+ListEfficiencyMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-optimization-hub/command/ListEfficiencyMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-optimization-hub/Interface/ListEfficiencyMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-optimization-hub/Interface/ListEfficiencyMetricsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListEnrollmentStatuses
 </summary>
 

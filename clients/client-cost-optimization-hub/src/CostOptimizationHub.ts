@@ -13,6 +13,11 @@ import {
   GetRecommendationCommandOutput,
 } from "./commands/GetRecommendationCommand";
 import {
+  ListEfficiencyMetricsCommand,
+  ListEfficiencyMetricsCommandInput,
+  ListEfficiencyMetricsCommandOutput,
+} from "./commands/ListEfficiencyMetricsCommand";
+import {
   ListEnrollmentStatusesCommand,
   ListEnrollmentStatusesCommandInput,
   ListEnrollmentStatusesCommandOutput,
@@ -42,6 +47,7 @@ import { CostOptimizationHubClient, CostOptimizationHubClientConfig } from "./Co
 const commands = {
   GetPreferencesCommand,
   GetRecommendationCommand,
+  ListEfficiencyMetricsCommand,
   ListEnrollmentStatusesCommand,
   ListRecommendationsCommand,
   ListRecommendationSummariesCommand,
@@ -80,6 +86,23 @@ export interface CostOptimizationHub {
     args: GetRecommendationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEfficiencyMetricsCommand}
+   */
+  listEfficiencyMetrics(
+    args: ListEfficiencyMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEfficiencyMetricsCommandOutput>;
+  listEfficiencyMetrics(
+    args: ListEfficiencyMetricsCommandInput,
+    cb: (err: any, data?: ListEfficiencyMetricsCommandOutput) => void
+  ): void;
+  listEfficiencyMetrics(
+    args: ListEfficiencyMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEfficiencyMetricsCommandOutput) => void
   ): void;
 
   /**

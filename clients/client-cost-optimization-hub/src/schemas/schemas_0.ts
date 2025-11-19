@@ -19,6 +19,8 @@ const _EI = "Ec2Instance";
 const _EIC = "Ec2InstanceConfiguration";
 const _EISP = "Ec2InstanceSavingsPlans";
 const _EISPC = "Ec2InstanceSavingsPlansConfiguration";
+const _EMBG = "EfficiencyMetricsByGroup";
+const _EMBGL = "EfficiencyMetricsByGroupList";
 const _ERI = "Ec2ReservedInstances";
 const _ERIC = "Ec2ReservedInstancesConfiguration";
 const _ES = "EcsService";
@@ -34,6 +36,9 @@ const _GRR = "GetRecommendationRequest";
 const _GRRe = "GetRecommendationResponse";
 const _IC = "InstanceConfiguration";
 const _ISE = "InternalServerException";
+const _LEM = "ListEfficiencyMetrics";
+const _LEMR = "ListEfficiencyMetricsRequest";
+const _LEMRi = "ListEfficiencyMetricsResponse";
 const _LES = "ListEnrollmentStatuses";
 const _LESR = "ListEnrollmentStatusesRequest";
 const _LESRi = "ListEnrollmentStatusesResponse";
@@ -45,6 +50,8 @@ const _LRRi = "ListRecommendationsResponse";
 const _LRS = "ListRecommendationSummaries";
 const _LRSR = "ListRecommendationSummariesRequest";
 const _LRSRi = "ListRecommendationSummariesResponse";
+const _MBT = "MetricsByTime";
+const _MBTL = "MetricsByTimeList";
 const _MDRI = "MemoryDbReservedInstances";
 const _MDRIC = "MemoryDbReservedInstancesConfiguration";
 const _MIC = "MixedInstanceConfiguration";
@@ -80,6 +87,7 @@ const _SPP = "SavingsPlansPricing";
 const _T = "Tag";
 const _TE = "ThrottlingException";
 const _TL = "TagList";
+const _TP = "TimePeriod";
 const _U = "Usage";
 const _UES = "UpdateEnrollmentStatus";
 const _UESR = "UpdateEnrollmentStatusRequest";
@@ -129,6 +137,7 @@ const _eD = "estimatedDiscounts";
 const _eI = "ec2Instance";
 const _eISP = "ec2InstanceSavingsPlans";
 const _eMARC = "estimatedMonthlyAmortizedReservationCost";
+const _eMBG = "efficiencyMetricsByGroup";
 const _eMC = "estimatedMonthlyCost";
 const _eMCs = "estimatedMonthlyCommitment";
 const _eMS = "estimatedMonthlySavings";
@@ -140,11 +149,13 @@ const _eSOCCLP = "estimatedSavingsOverCostCalculationLookbackPeriod";
 const _eSP = "estimatedSavingsPercentage";
 const _eTDS = "estimatedTotalDedupedSavings";
 const _eV = "ebsVolume";
+const _en = "end";
 const _f = "filter";
 const _fN = "fieldName";
 const _fi = "fields";
 const _g = "group";
 const _gB = "groupBy";
+const _gr = "granularity";
 const _hC = "hourlyCommitment";
 const _hE = "httpError";
 const _i = "iops";
@@ -164,6 +175,7 @@ const _lRT = "lastRefreshTimestamp";
 const _lUT = "lastUpdatedTimestamp";
 const _m = "message";
 const _mADV = "memberAccountDiscountVisibility";
+const _mBT = "metricsByTime";
 const _mDRI = "memoryDbReservedInstances";
 const _mI = "mixedInstances";
 const _mR = "maxResults";
@@ -221,15 +233,21 @@ const _sPD = "savingsPlansDiscount";
 const _sPR = "savingsPlansRegion";
 const _sT = "storageType";
 const _sTt = "storageThroughput";
+const _sa = "savings";
+const _sc = "score";
 const _se = "service";
 const _ser = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.costoptimizationhub";
 const _so = "source";
+const _sp = "spend";
 const _st = "storage";
+const _sta = "start";
 const _t = "throughput";
+const _tP = "timePeriod";
 const _ta = "tags";
 const _te = "term";
 const _ten = "tenancy";
+const _ti = "timestamp";
 const _ty = "type";
 const _u = "usages";
 const _uA = "usageAmount";
@@ -395,6 +413,14 @@ export var EcsService: StaticStructureSchema = [
   [() => EcsServiceConfiguration, () => ResourceCostCalculation],
 ];
 export var EcsServiceConfiguration: StaticStructureSchema = [3, n0, _ESC, 0, [_com], [() => ComputeConfiguration]];
+export var EfficiencyMetricsByGroup: StaticStructureSchema = [
+  3,
+  n0,
+  _EMBG,
+  0,
+  [_mBT, _g, _m],
+  [() => MetricsByTimeList, 0, 0],
+];
 export var ElastiCacheReservedInstances: StaticStructureSchema = [
   3,
   n0,
@@ -509,6 +535,22 @@ export var LambdaFunction: StaticStructureSchema = [
   [() => LambdaFunctionConfiguration, () => ResourceCostCalculation],
 ];
 export var LambdaFunctionConfiguration: StaticStructureSchema = [3, n0, _LFC, 0, [_com], [() => ComputeConfiguration]];
+export var ListEfficiencyMetricsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LEMR,
+  0,
+  [_gB, _gr, _tP, _mR, _oB, _nT],
+  [0, 0, () => TimePeriod, 1, () => OrderBy, 0],
+];
+export var ListEfficiencyMetricsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LEMRi,
+  0,
+  [_eMBG, _nT],
+  [() => EfficiencyMetricsByGroupList, 0],
+];
 export var ListEnrollmentStatusesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -573,6 +615,7 @@ export var MemoryDbReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _iF, _sFE, _cG],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
 ];
+export var MetricsByTime: StaticStructureSchema = [3, n0, _MBT, 0, [_sc, _sa, _sp, _ti], [1, 1, 1, 0]];
 export var MixedInstanceConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_ty], [0]];
 export var OpenSearchReservedInstances: StaticStructureSchema = [
   3,
@@ -766,6 +809,7 @@ export var ThrottlingException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 
+export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sta, _en], [0, 0]];
 export var UpdateEnrollmentStatusRequest: StaticStructureSchema = [3, n0, _UESR, 0, [_s, _iMA], [0, 2]];
 export var UpdateEnrollmentStatusResponse: StaticStructureSchema = [3, n0, _UESRp, 0, [_s], [0]];
 export var UpdatePreferencesRequest: StaticStructureSchema = [
@@ -816,8 +860,10 @@ export var AccountIdList = 64 | 0;
 
 export var ActionTypeList = 64 | 0;
 
+export var EfficiencyMetricsByGroupList: StaticListSchema = [1, n0, _EMBGL, 0, () => EfficiencyMetricsByGroup];
 export var ImplementationEffortList = 64 | 0;
 
+export var MetricsByTimeList: StaticListSchema = [1, n0, _MBTL, 0, () => MetricsByTime];
 export var MixedInstanceConfigurationList: StaticListSchema = [1, n0, _MICL, 0, () => MixedInstanceConfiguration];
 export var RecommendationIdList = 64 | 0;
 
@@ -878,6 +924,14 @@ export var GetRecommendation: StaticOperationSchema = [
   0,
   () => GetRecommendationRequest,
   () => GetRecommendationResponse,
+];
+export var ListEfficiencyMetrics: StaticOperationSchema = [
+  9,
+  n0,
+  _LEM,
+  0,
+  () => ListEfficiencyMetricsRequest,
+  () => ListEfficiencyMetricsResponse,
 ];
 export var ListEnrollmentStatuses: StaticOperationSchema = [
   9,

@@ -4,6 +4,7 @@ import {
   AllocationStrategy,
   Ec2AutoScalingGroupType,
   EnrollmentStatus,
+  GranularityType,
   ImplementationEffort,
   MemberAccountDiscountVisibility,
   Order,
@@ -262,30 +263,30 @@ export interface ComputeSavingsPlansConfiguration {
 }
 
 /**
- * <p>Pricing information about a Savings Plan.</p>
+ * <p>Pricing information about a Savings Plans.</p>
  * @public
  */
 export interface SavingsPlansPricing {
   /**
-   * <p>The cost of paying for the recommended Savings Plan monthly.</p>
+   * <p>The cost of paying for the recommended Savings Plans monthly.</p>
    * @public
    */
   monthlySavingsPlansEligibleCost?: number | undefined;
 
   /**
-   * <p>Estimated monthly commitment for the Savings Plan.</p>
+   * <p>Estimated monthly commitment for the Savings Plans.</p>
    * @public
    */
   estimatedMonthlyCommitment?: number | undefined;
 
   /**
-   * <p>Estimated savings as a percentage of your overall costs after buying the Savings Plan.</p>
+   * <p>Estimated savings as a percentage of your overall costs after buying the Savings Plans.</p>
    * @public
    */
   savingsPercentage?: number | undefined;
 
   /**
-   * <p>Estimated On-Demand cost you will pay after buying the Savings Plan.</p>
+   * <p>Estimated On-Demand cost you will pay after buying the Savings Plans.</p>
    * @public
    */
   estimatedOnDemandCost?: number | undefined;
@@ -708,7 +709,7 @@ export interface Ec2InstanceSavingsPlansConfiguration {
   hourlyCommitment?: string | undefined;
 
   /**
-   * <p>The instance family of the recommended Savings Plan.</p>
+   * <p>The instance family of the recommended Savings Plans.</p>
    * @public
    */
   instanceFamily?: string | undefined;
@@ -2295,6 +2296,154 @@ export interface GetRecommendationResponse {
 }
 
 /**
+ * <p>Defines how rows will be sorted in the response.</p>
+ * @public
+ */
+export interface OrderBy {
+  /**
+   * <p>Sorts by dimension values.</p>
+   * @public
+   */
+  dimension?: string | undefined;
+
+  /**
+   * <p>The order that's used to sort the data.</p>
+   * @public
+   */
+  order?: Order | undefined;
+}
+
+/**
+ * <p>Specifies a date range for retrieving efficiency metrics. The start date is inclusive and the end date is exclusive.</p>
+ * @public
+ */
+export interface TimePeriod {
+  /**
+   * <p>The beginning of the time period (inclusive). Specify the date in ISO 8601 format, such as 2024-01-01.</p>
+   * @public
+   */
+  start: string | undefined;
+
+  /**
+   * <p>The end of the time period (exclusive). Specify the date in ISO 8601 format, such as 2024-12-31.</p>
+   * @public
+   */
+  end: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEfficiencyMetricsRequest {
+  /**
+   * <p>The dimension by which to group the cost efficiency metrics. Valid values include account ID, Amazon Web Services Region. When no grouping is specified, metrics are aggregated across all resources in the specified time period.</p>
+   * @public
+   */
+  groupBy?: string | undefined;
+
+  /**
+   * <p>The time granularity for the cost efficiency metrics. Specify <code>Daily</code> for metrics aggregated by day, or <code>Monthly</code> for metrics aggregated by month.</p>
+   * @public
+   */
+  granularity: GranularityType | undefined;
+
+  /**
+   * <p>The time period for which to retrieve the cost efficiency metrics. The start date is inclusive and the end date is exclusive. Dates can be specified in either YYYY-MM-DD format or YYYY-MM format depending on the desired granularity.</p>
+   * @public
+   */
+  timePeriod: TimePeriod | undefined;
+
+  /**
+   * <p>The maximum number of groups to return in the response. Valid values range from 0 to 1000. Use in conjunction with <code>nextToken</code> to paginate through results when the total number of groups exceeds this limit.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The ordering specification for the results. Defines which dimension to sort by and whether to sort in ascending or descending order.</p>
+   * @public
+   */
+  orderBy?: OrderBy | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results. This value is returned in the response when the number of groups exceeds the specified <code>maxResults</code> value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains efficiency metrics for a specific point in time, including an efficiency score, potential savings, optimizable spend, and timestamp.</p>
+ * @public
+ */
+export interface MetricsByTime {
+  /**
+   * <p>The efficiency score for this time period. The score represents a measure of how effectively the cloud resources are being optimized, with higher scores indicating better optimization performance.</p>
+   * @public
+   */
+  score?: number | undefined;
+
+  /**
+   * <p>The estimated savings amount for this time period, representing the potential cost reduction achieved through optimization recommendations.</p>
+   * @public
+   */
+  savings?: number | undefined;
+
+  /**
+   * <p>The total spending amount for this time period.</p>
+   * @public
+   */
+  spend?: number | undefined;
+
+  /**
+   * <p>The timestamp for this data point. The format depends on the granularity: YYYY-MM-DD for daily metrics, or YYYY-MM for monthly metrics.</p>
+   * @public
+   */
+  timestamp?: string | undefined;
+}
+
+/**
+ * <p>Contains cost efficiency metrics for a specific group over time. The group is defined by the grouping dimension specified in the request, such as account ID, Amazon Web Services Region.</p>
+ * @public
+ */
+export interface EfficiencyMetricsByGroup {
+  /**
+   * <p>A list of time-series data points containing efficiency metrics for this group. Each data point includes an efficiency score, estimated savings, spending, and a timestamp corresponding to the specified granularity. This field is null when efficiency metrics cannot be calculated for the group, in which case the message field provides an explanation.</p>
+   * @public
+   */
+  metricsByTime?: MetricsByTime[] | undefined;
+
+  /**
+   * <p>The value of the grouping dimension for this set of metrics. For example, if grouped by account ID, this field contains the account ID. If no grouping is specified, this field is empty.</p>
+   * @public
+   */
+  group?: string | undefined;
+
+  /**
+   * <p>An explanation of why efficiency metrics could not be calculated for this group when the metricsByTime field is null. Common reasons include insufficient or inconclusive cost and usage data during the specified time period. This field is null or empty when metrics are successfully calculated.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEfficiencyMetricsResponse {
+  /**
+   * <p>A list of cost efficiency metrics grouped by the specified dimension. Each group contains time-series data points with cost efficiency, potential savings, and optimzable spend for the specified time period.</p>
+   * @public
+   */
+  efficiencyMetricsByGroup?: EfficiencyMetricsByGroup[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results. When this value is present in the response, additional groups are available. Pass this token in the <code>nextToken</code> parameter of a subsequent request to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListEnrollmentStatusesRequest {
@@ -2416,24 +2565,6 @@ export interface Filter {
    * @public
    */
   recommendationIds?: string[] | undefined;
-}
-
-/**
- * <p>Defines how rows will be sorted in the response.</p>
- * @public
- */
-export interface OrderBy {
-  /**
-   * <p>Sorts by dimension values.</p>
-   * @public
-   */
-  dimension?: string | undefined;
-
-  /**
-   * <p>The order that's used to sort the data.</p>
-   * @public
-   */
-  order?: Order | undefined;
 }
 
 /**

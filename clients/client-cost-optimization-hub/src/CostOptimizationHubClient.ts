@@ -60,6 +60,10 @@ import {
 import { GetPreferencesCommandInput, GetPreferencesCommandOutput } from "./commands/GetPreferencesCommand";
 import { GetRecommendationCommandInput, GetRecommendationCommandOutput } from "./commands/GetRecommendationCommand";
 import {
+  ListEfficiencyMetricsCommandInput,
+  ListEfficiencyMetricsCommandOutput,
+} from "./commands/ListEfficiencyMetricsCommand";
+import {
   ListEnrollmentStatusesCommandInput,
   ListEnrollmentStatusesCommandOutput,
 } from "./commands/ListEnrollmentStatusesCommand";
@@ -93,6 +97,7 @@ export { __Client };
 export type ServiceInputTypes =
   | GetPreferencesCommandInput
   | GetRecommendationCommandInput
+  | ListEfficiencyMetricsCommandInput
   | ListEnrollmentStatusesCommandInput
   | ListRecommendationSummariesCommandInput
   | ListRecommendationsCommandInput
@@ -105,6 +110,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | GetPreferencesCommandOutput
   | GetRecommendationCommandOutput
+  | ListEfficiencyMetricsCommandOutput
   | ListEnrollmentStatusesCommandOutput
   | ListRecommendationSummariesCommandOutput
   | ListRecommendationsCommandOutput

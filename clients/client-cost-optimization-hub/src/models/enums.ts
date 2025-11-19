@@ -186,6 +186,25 @@ export type Source = (typeof Source)[keyof typeof Source];
  * @public
  * @enum
  */
+export const GranularityType = {
+  /**
+   * <p>Metrics are aggregated daily, with each data point representing a single day's worth of efficiency data. Timestamps are formatted as YYYY-MM-DD.</p>
+   */
+  DAILY: "Daily",
+  /**
+   * <p>Metrics are aggregated monthly, with each data point representing a full month's worth of efficiency data. Timestamps are formatted as YYYY-MM.</p>
+   */
+  MONTHLY: "Monthly",
+} as const;
+/**
+ * @public
+ */
+export type GranularityType = (typeof GranularityType)[keyof typeof GranularityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Order = {
   ASC: "Asc",
   DESC: "Desc",
