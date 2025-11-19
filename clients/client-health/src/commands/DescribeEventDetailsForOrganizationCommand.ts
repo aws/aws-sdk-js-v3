@@ -99,6 +99,10 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * //         lastUpdatedTime: new Date("TIMESTAMP"),
  * //         statusCode: "open" || "closed" || "upcoming",
  * //         eventScopeCode: "PUBLIC" || "ACCOUNT_SPECIFIC" || "NONE",
+ * //         actionability: "ACTION_REQUIRED" || "ACTION_MAY_BE_REQUIRED" || "INFORMATIONAL",
+ * //         personas: [ // EventPersonaList
+ * //           "OPERATIONS" || "SECURITY" || "BILLING",
+ * //         ],
  * //       },
  * //       eventDescription: { // EventDescription
  * //         latestDescription: "STRING_VALUE",

@@ -53,6 +53,12 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  *     eventTypeCategories: [ // EventTypeCategoryList
  *       "issue" || "accountNotification" || "scheduledChange" || "investigation",
  *     ],
+ *     actionabilities: [ // EventTypeActionabilityList
+ *       "ACTION_REQUIRED" || "ACTION_MAY_BE_REQUIRED" || "INFORMATIONAL",
+ *     ],
+ *     personas: [ // EventTypePersonaList
+ *       "OPERATIONS" || "SECURITY" || "BILLING",
+ *     ],
  *   },
  *   locale: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
@@ -66,6 +72,10 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * //       service: "STRING_VALUE",
  * //       code: "STRING_VALUE",
  * //       category: "issue" || "accountNotification" || "scheduledChange" || "investigation",
+ * //       actionability: "ACTION_REQUIRED" || "ACTION_MAY_BE_REQUIRED" || "INFORMATIONAL",
+ * //       personas: [ // EventTypePersonaList
+ * //         "OPERATIONS" || "SECURITY" || "BILLING",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

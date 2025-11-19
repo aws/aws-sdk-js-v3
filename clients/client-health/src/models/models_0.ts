@@ -1,5 +1,15 @@
 // smithy-typescript generated code
-import { EntityStatusCode, EventAggregateField, EventScopeCode, EventStatusCode, EventTypeCategory } from "./enums";
+import {
+  EntityStatusCode,
+  EventActionability,
+  EventAggregateField,
+  EventPersona,
+  EventScopeCode,
+  EventStatusCode,
+  EventTypeActionability,
+  EventTypeCategory,
+  EventTypePersona,
+} from "./enums";
 
 /**
  * <p>The number of entities in an account that are impacted by a specific event aggregated by the entity status codes.</p>
@@ -77,7 +87,7 @@ export interface AffectedEntity {
 
   /**
    * <p>The most recent status of the entity affected by the event. The possible values are
-   *             <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
+   *             <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, <code>UNKNOWN</code>, <code>PENDING</code>, and <code>RESOLVED</code>.</p>
    * @public
    */
   statusCode?: EntityStatusCode | undefined;
@@ -589,6 +599,12 @@ export interface DescribeEntityAggregatesForOrganizationResponse {
  */
 export interface EventFilter {
   /**
+   * <p>A list of actionability values to filter events. Use this to filter events based on whether they require action (<code>ACTION_REQUIRED</code>), may require action (<code>ACTION_MAY_BE_REQUIRED</code>) or are informational (<code>INFORMATIONAL</code>).</p>
+   * @public
+   */
+  actionabilities?: EventActionability[] | undefined;
+
+  /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
    *          </p>
    * @public
@@ -673,6 +689,12 @@ export interface EventFilter {
    * @public
    */
   eventStatusCodes?: EventStatusCode[] | undefined;
+
+  /**
+   * <p>A list of persona values to filter events. Use this to filter events based on their target audience: <code>OPERATIONS</code>, <code>SECURITY</code>, or <code>BILLING</code>.</p>
+   * @public
+   */
+  personas?: EventPersona[] | undefined;
 }
 
 /**
@@ -912,6 +934,19 @@ export interface Event {
    * @public
    */
   eventScopeCode?: EventScopeCode | undefined;
+
+  /**
+   * <p>The actionability classification of the event. Possible values are <code>ACTION_REQUIRED</code>, <code>ACTION_MAY_BE_REQUIRED</code> and <code>INFORMATIONAL</code>. Events with <code>ACTION_REQUIRED</code> actionability require customer action to resolve or mitigate the event. Events with <code>ACTION_MAY_BE_REQUIRED</code> actionability indicates that the current status is unknown or conditional and inspection is needed to determine if action is required.
+   * Events with <code>INFORMATIONAL</code> actionability are provided for awareness and do not require immediate action.</p>
+   * @public
+   */
+  actionability?: EventActionability | undefined;
+
+  /**
+   * <p>A list of persona classifications that indicate the target audience for the event. Possible values are <code>OPERATIONS</code>, <code>SECURITY</code>, and <code>BILLING</code>. Events can be associated with multiple personas to indicate relevance to different teams or roles within an organization.</p>
+   * @public
+   */
+  personas?: EventPersona[] | undefined;
 }
 
 /**
@@ -1165,6 +1200,12 @@ export interface DescribeEventsResponse {
  */
 export interface OrganizationEventFilter {
   /**
+   * <p>A list of actionability values to filter events. Use this to filter events based on whether they require action (<code>ACTION_REQUIRED</code>), may require action (<code>ACTION_MAY_BE_REQUIRED</code>) or are informational (<code>INFORMATIONAL</code>).</p>
+   * @public
+   */
+  actionabilities?: EventActionability[] | undefined;
+
+  /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
    *          </p>
    * @public
@@ -1250,6 +1291,12 @@ export interface OrganizationEventFilter {
    * @public
    */
   eventStatusCodes?: EventStatusCode[] | undefined;
+
+  /**
+   * <p>A list of persona values to filter events. Use this to filter events based on their target audience: <code>OPERATIONS</code>, <code>SECURITY</code>, or <code>BILLING</code>.</p>
+   * @public
+   */
+  personas?: EventPersona[] | undefined;
 }
 
 /**
@@ -1378,6 +1425,19 @@ export interface OrganizationEvent {
    * @public
    */
   statusCode?: EventStatusCode | undefined;
+
+  /**
+   * <p>The actionability classification of the event. Possible values are <code>ACTION_REQUIRED</code>, <code>ACTION_MAY_BE_REQUIRED</code> and <code>INFORMATIONAL</code>. Events with <code>ACTION_REQUIRED</code> actionability require customer action to resolve or mitigate the event. Events with <code>ACTION_MAY_BE_REQUIRED</code> actionability indicates that the current status is unknown or conditional and inspection is needed to determine if action is required.
+   * Events with <code>INFORMATIONAL</code> actionability are provided for awareness and do not require immediate action.</p>
+   * @public
+   */
+  actionability?: EventActionability | undefined;
+
+  /**
+   * <p>A list of persona classifications that indicate the target audience for the event. Possible values are <code>OPERATIONS</code>, <code>SECURITY</code>, and <code>BILLING</code>. Events can be associated with multiple personas to indicate relevance to different teams or roles within an organization.</p>
+   * @public
+   */
+  personas?: EventPersona[] | undefined;
 }
 
 /**
@@ -1425,6 +1485,18 @@ export interface EventTypeFilter {
    * @public
    */
   eventTypeCategories?: EventTypeCategory[] | undefined;
+
+  /**
+   * <p>A list of actionability values to filter event types. Possible values are <code>ACTION_REQUIRED</code>, <code>ACTION_MAY_BE_REQUIRED</code> and <code>INFORMATIONAL</code>.</p>
+   * @public
+   */
+  actionabilities?: EventTypeActionability[] | undefined;
+
+  /**
+   * <p>A list of persona classifications to filter event types. Possible values are <code>OPERATIONS</code>, <code>SECURITY</code>, and <code>BILLING</code>.</p>
+   * @public
+   */
+  personas?: EventTypePersona[] | undefined;
 }
 
 /**
@@ -1497,6 +1569,19 @@ export interface EventType {
    * @public
    */
   category?: EventTypeCategory | undefined;
+
+  /**
+   * <p>The actionability classification of the event. Possible values are <code>ACTION_REQUIRED</code>, <code>ACTION_MAY_BE_REQUIRED</code> and <code>INFORMATIONAL</code>. Events with <code>ACTION_REQUIRED</code> actionability require customer action to resolve or mitigate the event. Events with <code>ACTION_MAY_BE_REQUIRED</code> actionability indicates that the current status is unknown or conditional and inspection is needed to determine if action is required.
+   * Events with <code>INFORMATIONAL</code> actionability are provided for awareness and do not require immediate action.</p>
+   * @public
+   */
+  actionability?: EventTypeActionability | undefined;
+
+  /**
+   * <p>A list of persona classifications that indicate the target audience for the event. Possible values are <code>OPERATIONS</code>, <code>SECURITY</code>, and <code>BILLING</code>. Events can be associated with multiple personas to indicate relevance to different teams or roles within an organization.</p>
+   * @public
+   */
+  personas?: EventTypePersona[] | undefined;
 }
 
 /**

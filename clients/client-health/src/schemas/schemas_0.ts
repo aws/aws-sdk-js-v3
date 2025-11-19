@@ -84,7 +84,9 @@ const _aI = "accountId";
 const _aV = "aggregateValue";
 const _aZ = "availabilityZone";
 const _aZv = "availabilityZones";
-const _ac = "accounts";
+const _ac = "actionability";
+const _acc = "accounts";
+const _act = "actionabilities";
 const _c = "count";
 const _ca = "category";
 const _cl = "client";
@@ -132,6 +134,7 @@ const _oEA = "organizationEntityAggregates";
 const _oEAF = "organizationEntityAccountFilters";
 const _oEDF = "organizationEventDetailFilters";
 const _oEF = "organizationEntityFilters";
+const _p = "personas";
 const _r = "region";
 const _re = "regions";
 const _s = "statuses";
@@ -360,8 +363,8 @@ export var Event: StaticStructureSchema = [
   n0,
   _E,
   0,
-  [_a, _se, _eTC, _eTCv, _r, _aZ, _sT, _eTn, _lUT, _sC, _eSC],
-  [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0],
+  [_a, _se, _eTC, _eTCv, _r, _aZ, _sT, _eTn, _lUT, _sC, _eSC, _ac, _p],
+  [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 64 | 0],
 ];
 export var EventAccountFilter: StaticStructureSchema = [3, n0, _EAFv, 0, [_eAv, _aAI], [0, 0]];
 export var EventAggregate: StaticStructureSchema = [3, n0, _EAv, 0, [_aV, _c], [0, 1]];
@@ -380,8 +383,9 @@ export var EventFilter: StaticStructureSchema = [
   n0,
   _EFv,
   0,
-  [_eAve, _eTCve, _ser, _re, _aZv, _sTt, _eTnd, _lUTa, _eAnt, _eVn, _eTCven, _t, _eSCv],
+  [_act, _eAve, _eTCve, _ser, _re, _aZv, _sTt, _eTnd, _lUTa, _eAnt, _eVn, _eTCven, _t, _eSCv, _p],
   [
+    64 | 0,
     64 | 0,
     64 | 0,
     64 | 0,
@@ -395,10 +399,18 @@ export var EventFilter: StaticStructureSchema = [
     64 | 0,
     [1, n0, _tF, 0, 128 | 0],
     64 | 0,
+    64 | 0,
   ],
 ];
-export var EventType: StaticStructureSchema = [3, n0, _ET, 0, [_se, _co, _ca], [0, 0, 0]];
-export var EventTypeFilter: StaticStructureSchema = [3, n0, _ETF, 0, [_eTCve, _ser, _eTCven], [64 | 0, 64 | 0, 64 | 0]];
+export var EventType: StaticStructureSchema = [3, n0, _ET, 0, [_se, _co, _ca, _ac, _p], [0, 0, 0, 0, 64 | 0]];
+export var EventTypeFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _ETF,
+  0,
+  [_eTCve, _ser, _eTCven, _act, _p],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
+];
 export var InvalidPaginationToken: StaticErrorSchema = [
   -3,
   n0,
@@ -424,7 +436,7 @@ export var OrganizationEntityAggregate: StaticStructureSchema = [
   n0,
   _OEA,
   0,
-  [_eAv, _c, _s, _ac],
+  [_eAv, _c, _s, _acc],
   [0, 1, 128 | 1, () => AccountEntityAggregatesList],
 ];
 export var OrganizationEvent: StaticStructureSchema = [
@@ -432,8 +444,8 @@ export var OrganizationEvent: StaticStructureSchema = [
   n0,
   _OE,
   0,
-  [_a, _se, _eTC, _eTCv, _eSC, _r, _sT, _eTn, _lUT, _sC],
-  [0, 0, 0, 0, 0, 0, 4, 4, 4, 0],
+  [_a, _se, _eTC, _eTCv, _eSC, _r, _sT, _eTn, _lUT, _sC, _ac, _p],
+  [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 64 | 0],
 ];
 export var OrganizationEventDetails: StaticStructureSchema = [
   3,
@@ -456,15 +468,17 @@ export var OrganizationEventFilter: StaticStructureSchema = [
   n0,
   _OEF,
   0,
-  [_eTCve, _aAIw, _ser, _re, _sT, _eTn, _lUT, _eAnt, _eVn, _eTCven, _eSCv],
+  [_act, _eTCve, _aAIw, _ser, _re, _sT, _eTn, _lUT, _eAnt, _eVn, _eTCven, _eSCv, _p],
   [
     64 | 0,
     64 | 0,
     64 | 0,
     64 | 0,
+    64 | 0,
     () => DateTimeRange,
     () => DateTimeRange,
     () => DateTimeRange,
+    64 | 0,
     64 | 0,
     64 | 0,
     64 | 0,
@@ -527,13 +541,19 @@ export var entityStatusCodeList = 64 | 0;
 
 export var entityValueList = 64 | 0;
 
+export var EventActionabilityList = 64 | 0;
+
 export var EventAggregateList: StaticListSchema = [1, n0, _EALv, 0, () => EventAggregate];
 export var eventArnList = 64 | 0;
 
 export var EventArnsList = 64 | 0;
 
 export var EventList: StaticListSchema = [1, n0, _ELv, 0, () => Event];
+export var EventPersonaList = 64 | 0;
+
 export var eventStatusCodeList = 64 | 0;
+
+export var EventTypeActionabilityList = 64 | 0;
 
 export var EventTypeCategoryList = 64 | 0;
 
@@ -543,6 +563,8 @@ export var EventTypeCodeList = 64 | 0;
 
 export var EventTypeList: StaticListSchema = [1, n0, _ETL, 0, () => EventType];
 export var eventTypeList2 = 64 | 0;
+
+export var EventTypePersonaList = 64 | 0;
 
 export var OrganizationAccountIdsList = 64 | 0;
 

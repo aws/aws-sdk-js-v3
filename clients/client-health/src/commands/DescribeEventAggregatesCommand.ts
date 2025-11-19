@@ -43,6 +43,9 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * const client = new HealthClient(config);
  * const input = { // DescribeEventAggregatesRequest
  *   filter: { // EventFilter
+ *     actionabilities: [ // EventActionabilityList
+ *       "ACTION_REQUIRED" || "ACTION_MAY_BE_REQUIRED" || "INFORMATIONAL",
+ *     ],
  *     eventArns: [ // eventArnList
  *       "STRING_VALUE",
  *     ],
@@ -92,6 +95,9 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  *     ],
  *     eventStatusCodes: [ // eventStatusCodeList
  *       "open" || "closed" || "upcoming",
+ *     ],
+ *     personas: [ // EventPersonaList
+ *       "OPERATIONS" || "SECURITY" || "BILLING",
  *     ],
  *   },
  *   aggregateField: "eventTypeCategory", // required

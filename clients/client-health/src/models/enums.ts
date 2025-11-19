@@ -45,6 +45,20 @@ export type EventAggregateField = (typeof EventAggregateField)[keyof typeof Even
  * @public
  * @enum
  */
+export const EventActionability = {
+  ACTION_MAY_BE_REQUIRED: "ACTION_MAY_BE_REQUIRED",
+  ACTION_REQUIRED: "ACTION_REQUIRED",
+  INFORMATIONAL: "INFORMATIONAL",
+} as const;
+/**
+ * @public
+ */
+export type EventActionability = (typeof EventActionability)[keyof typeof EventActionability];
+
+/**
+ * @public
+ * @enum
+ */
 export const EventStatusCode = {
   CLOSED: "closed",
   OPEN: "open",
@@ -69,3 +83,45 @@ export const EventTypeCategory = {
  * @public
  */
 export type EventTypeCategory = (typeof EventTypeCategory)[keyof typeof EventTypeCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventPersona = {
+  BILLING: "BILLING",
+  OPERATIONS: "OPERATIONS",
+  SECURITY: "SECURITY",
+} as const;
+/**
+ * @public
+ */
+export type EventPersona = (typeof EventPersona)[keyof typeof EventPersona];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventTypeActionability = {
+  ACTION_MAY_BE_REQUIRED: "ACTION_MAY_BE_REQUIRED",
+  ACTION_REQUIRED: "ACTION_REQUIRED",
+  INFORMATIONAL: "INFORMATIONAL",
+} as const;
+/**
+ * @public
+ */
+export type EventTypeActionability = (typeof EventTypeActionability)[keyof typeof EventTypeActionability];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventTypePersona = {
+  BILLING: "BILLING",
+  OPERATIONS: "OPERATIONS",
+  SECURITY: "SECURITY",
+} as const;
+/**
+ * @public
+ */
+export type EventTypePersona = (typeof EventTypePersona)[keyof typeof EventTypePersona];

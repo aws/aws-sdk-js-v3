@@ -71,6 +71,9 @@ export interface DescribeEventsForOrganizationCommandOutput
  * const client = new HealthClient(config);
  * const input = { // DescribeEventsForOrganizationRequest
  *   filter: { // OrganizationEventFilter
+ *     actionabilities: [ // EventActionabilityList
+ *       "ACTION_REQUIRED" || "ACTION_MAY_BE_REQUIRED" || "INFORMATIONAL",
+ *     ],
  *     eventTypeCodes: [ // eventTypeList2
  *       "STRING_VALUE",
  *     ],
@@ -107,6 +110,9 @@ export interface DescribeEventsForOrganizationCommandOutput
  *     eventStatusCodes: [ // eventStatusCodeList
  *       "open" || "closed" || "upcoming",
  *     ],
+ *     personas: [ // EventPersonaList
+ *       "OPERATIONS" || "SECURITY" || "BILLING",
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -127,6 +133,10 @@ export interface DescribeEventsForOrganizationCommandOutput
  * //       endTime: new Date("TIMESTAMP"),
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
  * //       statusCode: "open" || "closed" || "upcoming",
+ * //       actionability: "ACTION_REQUIRED" || "ACTION_MAY_BE_REQUIRED" || "INFORMATIONAL",
+ * //       personas: [ // EventPersonaList
+ * //         "OPERATIONS" || "SECURITY" || "BILLING",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
