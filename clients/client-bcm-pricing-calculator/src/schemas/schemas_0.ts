@@ -223,6 +223,8 @@ const _cA = "commitmentAction";
 const _cAF = "createdAtFilter";
 const _cAr = "createdAt";
 const _cC = "costCurrency";
+const _cCGSPA = "costCategoryGroupSharingPreferenceArn";
+const _cCGSPED = "costCategoryGroupSharingPreferenceEffectiveDate";
 const _cCo = "costCategories";
 const _cM = "commitmentModifications";
 const _cS = "costSummary";
@@ -245,6 +247,7 @@ const _fE = "filterExpression";
 const _fL = "fieldList";
 const _fM = "failureMessage";
 const _g = "group";
+const _gSP = "groupSharingPreference";
 const _hC = "historicalCost";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -745,8 +748,8 @@ export var BillScenarioSummary: StaticStructureSchema = [
   n0,
   _BSS,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM],
-  [0, 0, () => BillInterval, 0, 4, 4, 0],
+  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [0, 0, () => BillInterval, 0, 4, 4, 0, 0, 0],
 ];
 export var BillScenarioUsageModificationItem: StaticStructureSchema = [
   3,
@@ -796,15 +799,15 @@ export var CreateBillEstimateResponse: StaticStructureSchema = [
   n0,
   _CBERr,
   0,
-  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA],
-  [0, 0, 0, 0, () => BillInterval, () => BillEstimateCostSummary, 4, 4],
+  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
+  [0, 0, 0, 0, () => BillInterval, () => BillEstimateCostSummary, 4, 4, 0, 0, 4],
 ];
 export var CreateBillScenarioRequest: StaticStructureSchema = [
   3,
   n0,
   _CBSR,
   0,
-  [_n, _cT, _t],
+  [_n, _cT, _t, _gSP, _cCGSPA],
   [
     0,
     [
@@ -815,6 +818,8 @@ export var CreateBillScenarioRequest: StaticStructureSchema = [
       },
     ],
     128 | 0,
+    0,
+    0,
   ],
 ];
 export var CreateBillScenarioResponse: StaticStructureSchema = [
@@ -822,8 +827,8 @@ export var CreateBillScenarioResponse: StaticStructureSchema = [
   n0,
   _CBSRr,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM],
-  [0, 0, () => BillInterval, 0, 4, 4, 0],
+  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [0, 0, () => BillInterval, 0, 4, 4, 0, 0, 0],
 ];
 export var CreateWorkloadEstimateRequest: StaticStructureSchema = [
   3,
@@ -894,8 +899,8 @@ export var GetBillEstimateResponse: StaticStructureSchema = [
   n0,
   _GBERe,
   0,
-  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA],
-  [0, 0, 0, 0, () => BillInterval, () => BillEstimateCostSummary, 4, 4],
+  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
+  [0, 0, 0, 0, () => BillInterval, () => BillEstimateCostSummary, 4, 4, 0, 0, 4],
 ];
 export var GetBillScenarioRequest: StaticStructureSchema = [3, n0, _GBSR, 0, [_ide], [0]];
 export var GetBillScenarioResponse: StaticStructureSchema = [
@@ -903,8 +908,8 @@ export var GetBillScenarioResponse: StaticStructureSchema = [
   n0,
   _GBSRe,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM],
-  [0, 0, () => BillInterval, 0, 4, 4, 0],
+  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [0, 0, () => BillInterval, 0, 4, 4, 0, 0, 0],
 ];
 export var GetPreferencesRequest: StaticStructureSchema = [3, n0, _GPR, 0, [], []];
 export var GetPreferencesResponse: StaticStructureSchema = [
@@ -1177,17 +1182,24 @@ export var UpdateBillEstimateResponse: StaticStructureSchema = [
   n0,
   _UBERp,
   0,
-  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA],
-  [0, 0, 0, 0, () => BillInterval, () => BillEstimateCostSummary, 4, 4],
+  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
+  [0, 0, 0, 0, () => BillInterval, () => BillEstimateCostSummary, 4, 4, 0, 0, 4],
 ];
-export var UpdateBillScenarioRequest: StaticStructureSchema = [3, n0, _UBSR, 0, [_ide, _n, _eA], [0, 0, 4]];
+export var UpdateBillScenarioRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UBSR,
+  0,
+  [_ide, _n, _eA, _gSP, _cCGSPA],
+  [0, 0, 4, 0, 0],
+];
 export var UpdateBillScenarioResponse: StaticStructureSchema = [
   3,
   n0,
   _UBSRp,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM],
-  [0, 0, () => BillInterval, 0, 4, 4, 0],
+  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [0, 0, () => BillInterval, 0, 4, 4, 0, 0, 0],
 ];
 export var UpdatePreferencesRequest: StaticStructureSchema = [
   3,

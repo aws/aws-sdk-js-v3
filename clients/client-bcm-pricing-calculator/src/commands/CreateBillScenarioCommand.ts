@@ -46,6 +46,8 @@ export interface CreateBillScenarioCommandOutput extends CreateBillScenarioRespo
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ *   costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
  * };
  * const command = new CreateBillScenarioCommand(input);
  * const response = await client.send(command);
@@ -60,6 +62,8 @@ export interface CreateBillScenarioCommandOutput extends CreateBillScenarioRespo
  * //   createdAt: new Date("TIMESTAMP"),
  * //   expiresAt: new Date("TIMESTAMP"),
  * //   failureMessage: "STRING_VALUE",
+ * //   groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ * //   costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
  * // };
  *
  * ```

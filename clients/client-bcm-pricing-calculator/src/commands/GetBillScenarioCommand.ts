@@ -56,6 +56,8 @@ export interface GetBillScenarioCommandOutput extends GetBillScenarioResponse, _
  * //   createdAt: new Date("TIMESTAMP"),
  * //   expiresAt: new Date("TIMESTAMP"),
  * //   failureMessage: "STRING_VALUE",
+ * //   groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ * //   costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
  * // };
  *
  * ```

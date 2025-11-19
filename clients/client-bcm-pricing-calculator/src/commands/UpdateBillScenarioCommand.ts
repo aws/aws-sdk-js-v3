@@ -44,6 +44,8 @@ export interface UpdateBillScenarioCommandOutput extends UpdateBillScenarioRespo
  *   identifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   expiresAt: new Date("TIMESTAMP"),
+ *   groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ *   costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
  * };
  * const command = new UpdateBillScenarioCommand(input);
  * const response = await client.send(command);
@@ -58,6 +60,8 @@ export interface UpdateBillScenarioCommandOutput extends UpdateBillScenarioRespo
  * //   createdAt: new Date("TIMESTAMP"),
  * //   expiresAt: new Date("TIMESTAMP"),
  * //   failureMessage: "STRING_VALUE",
+ * //   groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ * //   costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
  * // };
  *
  * ```

@@ -2206,6 +2206,15 @@
         },
         "expiresAt": {
           "target": "smithy.api#Timestamp"
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum"
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn"
+        },
+        "costCategoryGroupSharingPreferenceEffectiveDate": {
+          "target": "smithy.api#Timestamp"
         }
       },
       "create": {
@@ -2759,6 +2768,12 @@
         },
         "failureMessage": {
           "target": "smithy.api#String"
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum"
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn"
         }
       },
       "create": {
@@ -2789,7 +2804,6 @@
           "template": "bill-scenario/{billScenarioId}"
         },
         "aws.api#taggable": {},
-        "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "bill-scenario"
         },
@@ -2984,6 +2998,18 @@
           "traits": {
             "smithy.api#documentation": "<p> An error message if the bill scenario creation or processing failed. </p>"
           }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
+          }
         }
       },
       "traits": {
@@ -3159,6 +3185,16 @@
         "smithy.api#documentation": "<p> Represents a monetary amount with associated currency. </p>"
       }
     },
+    "com.amazonaws.bcmpricingcalculator#CostCategoryArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws[-a-z0-9]*:ce::[0-9]{12}:costcategory/[a-f0-9-]{36}$"
+      }
+    },
     "com.amazonaws.bcmpricingcalculator#CostDifference": {
       "type": "structure",
       "members": {
@@ -3302,6 +3338,24 @@
           "traits": {
             "smithy.api#documentation": "<p> The timestamp of when the Bill estimate will expire. A Bill estimate becomes inaccessible after expiration. </p>"
           }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceEffectiveDate": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of the effective date of the cost category used in the group sharing settings.</p>"
+          }
         }
       },
       "traits": {
@@ -3360,6 +3414,18 @@
             "smithy.api#documentation": "<p> The tags to apply to the bill scenario. </p>",
             "smithy.api#notProperty": {}
           }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
+          }
         }
       },
       "traits": {
@@ -3411,6 +3477,18 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p> An error message if the bill scenario creation failed. </p>"
+          }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
           }
         }
       },
@@ -3907,6 +3985,24 @@
           "traits": {
             "smithy.api#documentation": "<p> The timestamp when the bill estimate will expire. </p>"
           }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceEffectiveDate": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of the effective date of the cost category used in the group sharing settings.</p>"
+          }
         }
       },
       "traits": {
@@ -3998,6 +4094,18 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p> An error message if the bill scenario retrieval failed. </p>"
+          }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
           }
         }
       },
@@ -4180,6 +4288,29 @@
       "traits": {
         "smithy.api#documentation": "Mixin for common fields returned by CRUD APIs",
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum": {
+      "type": "enum",
+      "members": {
+        "OPEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPEN"
+          }
+        },
+        "PRIORITIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRIORITIZED"
+          }
+        },
+        "RESTRICTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESTRICTED"
+          }
+        }
       }
     },
     "com.amazonaws.bcmpricingcalculator#HistoricalUsageEntity": {
@@ -5041,6 +5172,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "NAME"
+          }
+        },
+        "GROUP_SHARING_PREFERENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GROUP_SHARING_PREFERENCE"
+          }
+        },
+        "COST_CATEGORY_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COST_CATEGORY_ARN"
           }
         }
       }
@@ -6066,6 +6209,24 @@
           "traits": {
             "smithy.api#documentation": "<p> The updated expiration timestamp for the bill estimate. </p>"
           }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceEffectiveDate": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp of the effective date of the cost category used in the group sharing settings.</p>"
+          }
         }
       },
       "traits": {
@@ -6121,6 +6282,18 @@
           "traits": {
             "smithy.api#documentation": "<p> The new expiration date for the bill scenario. </p>"
           }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
+          }
         }
       },
       "traits": {
@@ -6172,6 +6345,18 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p> An error message if the bill scenario update failed. </p>"
+          }
+        },
+        "groupSharingPreference": {
+          "target": "com.amazonaws.bcmpricingcalculator#GroupSharingPreferenceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>"
+          }
+        },
+        "costCategoryGroupSharingPreferenceArn": {
+          "target": "com.amazonaws.bcmpricingcalculator#CostCategoryArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The arn of the cost category used in the reserved and prioritized group sharing.</p>"
           }
         }
       },
@@ -6649,7 +6834,6 @@
           "template": "workload-estimate/{workloadEstimateId}"
         },
         "aws.api#taggable": {},
-        "aws.iam#disableConditionKeyInference": {},
         "aws.iam#iamResource": {
           "name": "workload-estimate"
         },

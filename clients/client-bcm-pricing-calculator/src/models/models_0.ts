@@ -10,6 +10,7 @@ import {
   BillEstimateStatus,
   BillScenarioStatus,
   CurrencyCode,
+  GroupSharingPreferenceEnum,
   ListBillEstimateLineItemsFilterName,
   ListBillEstimatesFilterName,
   ListBillScenariosFilterName,
@@ -796,6 +797,24 @@ export interface CreateBillEstimateResponse {
    * @public
    */
   expiresAt?: Date | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
+
+  /**
+   * <p>Timestamp of the effective date of the cost category used in the group sharing settings.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceEffectiveDate?: Date | undefined;
 }
 
 /**
@@ -876,6 +895,24 @@ export interface GetBillEstimateResponse {
    * @public
    */
   expiresAt?: Date | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
+
+  /**
+   * <p>Timestamp of the effective date of the cost category used in the group sharing settings.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceEffectiveDate?: Date | undefined;
 }
 
 /**
@@ -1088,6 +1125,24 @@ export interface UpdateBillEstimateResponse {
    * @public
    */
   expiresAt?: Date | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
+
+  /**
+   * <p>Timestamp of the effective date of the cost category used in the group sharing settings.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceEffectiveDate?: Date | undefined;
 }
 
 /**
@@ -1627,6 +1682,18 @@ export interface CreateBillScenarioRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
 }
 
 /**
@@ -1674,6 +1741,18 @@ export interface CreateBillScenarioResponse {
    * @public
    */
   failureMessage?: string | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
 }
 
 /**
@@ -1748,6 +1827,18 @@ export interface GetBillScenarioResponse {
    * @public
    */
   failureMessage?: string | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
 }
 
 /**
@@ -1855,6 +1946,18 @@ export interface BillScenarioSummary {
    * @public
    */
   failureMessage?: string | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
 }
 
 /**
@@ -1895,6 +1998,18 @@ export interface UpdateBillScenarioRequest {
    * @public
    */
   expiresAt?: Date | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
 }
 
 /**
@@ -1942,6 +2057,18 @@ export interface UpdateBillScenarioResponse {
    * @public
    */
   failureMessage?: string | undefined;
+
+  /**
+   * <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
+   * @public
+   */
+  groupSharingPreference?: GroupSharingPreferenceEnum | undefined;
+
+  /**
+   * <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+   * @public
+   */
+  costCategoryGroupSharingPreferenceArn?: string | undefined;
 }
 
 /**

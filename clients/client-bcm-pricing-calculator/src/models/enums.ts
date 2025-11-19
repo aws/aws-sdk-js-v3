@@ -113,6 +113,20 @@ export type BillEstimateStatus = (typeof BillEstimateStatus)[keyof typeof BillEs
  * @public
  * @enum
  */
+export const GroupSharingPreferenceEnum = {
+  OPEN: "OPEN",
+  PRIORITIZED: "PRIORITIZED",
+  RESTRICTED: "RESTRICTED",
+} as const;
+/**
+ * @public
+ */
+export type GroupSharingPreferenceEnum = (typeof GroupSharingPreferenceEnum)[keyof typeof GroupSharingPreferenceEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const ListBillEstimatesFilterName = {
   NAME: "NAME",
   STATUS: "STATUS",
@@ -236,6 +250,8 @@ export type BatchUpdateBillScenarioUsageModificationErrorCode =
  * @enum
  */
 export const ListBillScenariosFilterName = {
+  COST_CATEGORY_ARN: "COST_CATEGORY_ARN",
+  GROUP_SHARING_PREFERENCE: "GROUP_SHARING_PREFERENCE",
   NAME: "NAME",
   STATUS: "STATUS",
 } as const;

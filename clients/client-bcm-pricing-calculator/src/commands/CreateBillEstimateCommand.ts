@@ -85,6 +85,9 @@ export interface CreateBillEstimateCommandOutput extends CreateBillEstimateRespo
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   expiresAt: new Date("TIMESTAMP"),
+ * //   groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ * //   costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
+ * //   costCategoryGroupSharingPreferenceEffectiveDate: new Date("TIMESTAMP"),
  * // };
  *
  * ```

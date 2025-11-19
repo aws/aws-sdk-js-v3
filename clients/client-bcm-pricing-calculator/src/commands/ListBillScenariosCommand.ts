@@ -43,7 +43,7 @@ export interface ListBillScenariosCommandOutput extends ListBillScenariosRespons
  * const input = { // ListBillScenariosRequest
  *   filters: [ // ListBillScenariosFilters
  *     { // ListBillScenariosFilter
- *       name: "STATUS" || "NAME", // required
+ *       name: "STATUS" || "NAME" || "GROUP_SHARING_PREFERENCE" || "COST_CATEGORY_ARN", // required
  *       values: [ // ListBillScenariosFilterValues // required
  *         "STRING_VALUE",
  *       ],
@@ -76,6 +76,8 @@ export interface ListBillScenariosCommandOutput extends ListBillScenariosRespons
  * //       createdAt: new Date("TIMESTAMP"),
  * //       expiresAt: new Date("TIMESTAMP"),
  * //       failureMessage: "STRING_VALUE",
+ * //       groupSharingPreference: "OPEN" || "PRIORITIZED" || "RESTRICTED",
+ * //       costCategoryGroupSharingPreferenceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
