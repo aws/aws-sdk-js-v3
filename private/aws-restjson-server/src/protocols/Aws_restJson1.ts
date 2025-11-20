@@ -14,6 +14,7 @@ import {
   SmithyFrameworkException as __SmithyFrameworkException,
   UnsupportedMediaTypeException as __UnsupportedMediaTypeException,
 } from "@aws-smithy/server-common";
+import { Int64 as __Int64 } from "@smithy/eventstream-codec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -4547,7 +4548,7 @@ export const serializeDuplexStreamResponse = async (
   input: DuplexStreamServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
-  const context: __SerdeContext = {
+  const context: __SerdeContext & any /*event stream context unsupported in ssdk*/ = {
     ...ctx,
     endpoint: () =>
       Promise.resolve({
@@ -4629,7 +4630,7 @@ export const serializeDuplexStreamWithInitialMessagesResponse = async (
   input: DuplexStreamWithInitialMessagesServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
-  const context: __SerdeContext = {
+  const context: __SerdeContext & any /*event stream context unsupported in ssdk*/ = {
     ...ctx,
     endpoint: () =>
       Promise.resolve({
@@ -7551,7 +7552,7 @@ export const serializeOutputStreamResponse = async (
   input: OutputStreamServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
-  const context: __SerdeContext = {
+  const context: __SerdeContext & any /*event stream context unsupported in ssdk*/ = {
     ...ctx,
     endpoint: () =>
       Promise.resolve({
@@ -7590,7 +7591,7 @@ export const serializeOutputStreamWithInitialResponseResponse = async (
   input: OutputStreamWithInitialResponseServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
-  const context: __SerdeContext = {
+  const context: __SerdeContext & any /*event stream context unsupported in ssdk*/ = {
     ...ctx,
     endpoint: () =>
       Promise.resolve({
@@ -8871,7 +8872,7 @@ const se_HeadersEvent_event = (input: HeadersEvent, context: __SerdeContext): __
     headers["intHeader"] = { type: "integer", value: input.intHeader };
   }
   if (input.longHeader != null) {
-    headers["longHeader"] = { type: "long", value: input.longHeader };
+    headers["longHeader"] = { type: "long", value: __Int64.fromNumber(input.longHeader) };
   }
   if (input.blobHeader != null) {
     headers["blobHeader"] = { type: "binary", value: input.blobHeader };
@@ -9093,7 +9094,7 @@ const de_ErrorEventRes = async (parsedOutput: any, context: __SerdeContext): Pro
     message: __expectString,
   });
   Object.assign(contents, doc);
-  const exception = new ErrorEvent({
+  const exception: any /* $metadata unsupported on ssdk error */ = new ErrorEvent({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

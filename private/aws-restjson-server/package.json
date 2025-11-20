@@ -24,6 +24,7 @@
     "@aws-sdk/types": "*",
     "@aws-smithy/server-common": "1.0.0-alpha.10",
     "@smithy/config-resolver": "^4.4.3",
+    "@smithy/eventstream-codec": "^4.2.5",
     "@smithy/fetch-http-handler": "^5.3.6",
     "@smithy/hash-node": "^4.2.5",
     "@smithy/invalid-dependency": "^4.2.5",

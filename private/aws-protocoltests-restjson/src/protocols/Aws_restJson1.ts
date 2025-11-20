@@ -6,6 +6,7 @@ import {
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
+import { Int64 as __Int64 } from "@smithy/eventstream-codec";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -5290,7 +5291,7 @@ const se_HeadersEvent_event = (input: HeadersEvent, context: __SerdeContext): __
     headers["intHeader"] = { type: "integer", value: input.intHeader };
   }
   if (input.longHeader != null) {
-    headers["longHeader"] = { type: "long", value: input.longHeader };
+    headers["longHeader"] = { type: "long", value: __Int64.fromNumber(input.longHeader) };
   }
   if (input.blobHeader != null) {
     headers["blobHeader"] = { type: "binary", value: input.blobHeader };

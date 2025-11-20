@@ -1537,10 +1537,9 @@ export namespace EventStream {
             break;
           }
           case "error": {
-            memberValidators["error"] = new __CompositeStructureValidator<ErrorEvent>(
-              new __NoOpValidator(),
-              ErrorEvent.validate
-            );
+            memberValidators["error"] = new __CompositeStructureValidator<ErrorEvent>(new __NoOpValidator(), () => [
+              /*Error validator unsupported*/
+            ]);
             break;
           }
         }
@@ -1618,7 +1617,10 @@ export namespace DuplexStreamInput {
       }
       return memberValidators[member]!;
     }
-    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+    return [
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
   };
 }
 
@@ -1660,7 +1662,10 @@ export namespace DuplexStreamOutput {
       }
       return memberValidators[member]!;
     }
-    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+    return [
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
   };
 }
 
@@ -1704,7 +1709,10 @@ export namespace DuplexStreamWithDistinctStreamsInput {
       }
       return memberValidators[member]!;
     }
-    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+    return [
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
   };
 }
 
@@ -1882,7 +1890,8 @@ export namespace DuplexStreamWithInitialMessagesInput {
     }
     return [
       ...getMemberValidator("initialRequestMember").validate(obj.initialRequestMember, `${path}/initialRequestMember`),
-      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
     ];
   };
 }
@@ -1938,7 +1947,8 @@ export namespace DuplexStreamWithInitialMessagesOutput {
         obj.initialResponseMember,
         `${path}/initialResponseMember`
       ),
-      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
     ];
   };
 }
@@ -3277,7 +3287,10 @@ export namespace InputStreamInput {
       }
       return memberValidators[member]!;
     }
-    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+    return [
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
   };
 }
 
@@ -3327,7 +3340,8 @@ export namespace InputStreamWithInitialRequestInput {
     }
     return [
       ...getMemberValidator("initialRequestMember").validate(obj.initialRequestMember, `${path}/initialRequestMember`),
-      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
     ];
   };
 }
@@ -6229,7 +6243,10 @@ export namespace OutputStreamOutput {
       }
       return memberValidators[member]!;
     }
-    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+    return [
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
   };
 }
 
@@ -6284,7 +6301,8 @@ export namespace OutputStreamWithInitialResponseOutput {
         obj.initialResponseMember,
         `${path}/initialResponseMember`
       ),
-      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+      // unsupported event stream validation
+      // ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
     ];
   };
 }
