@@ -255,6 +255,12 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       StepMonitoringConfiguration: { // StepMonitoringConfiguration
+ *         S3MonitoringConfiguration: { // S3MonitoringConfiguration
+ *           LogUri: "STRING_VALUE",
+ *           EncryptionKeyArn: "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *   ],
  *   BootstrapActions: [ // BootstrapActionConfigList

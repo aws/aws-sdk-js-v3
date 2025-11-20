@@ -86,6 +86,8 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * //           EndDateTime: new Date("TIMESTAMP"),
  * //         },
  * //       },
+ * //       LogUri: "STRING_VALUE",
+ * //       EncryptionKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

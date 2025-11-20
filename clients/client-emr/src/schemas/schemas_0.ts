@@ -529,6 +529,8 @@ const _SIu = "SubnetIds";
 const _SKJFAWNS = "SetKeepJobFlowAliveWhenNoSteps";
 const _SKJFAWNSI = "SetKeepJobFlowAliveWhenNoStepsInput";
 const _SM = "SessionMapping";
+const _SMC = "S3MonitoringConfiguration";
+const _SMCt = "StepMonitoringConfiguration";
 const _SMD = "SessionMappingDetail";
 const _SMS = "SessionMappingSummary";
 const _SMSL = "SessionMappingSummaryList";
@@ -1640,6 +1642,7 @@ export var RunJobFlowInput: StaticStructureSchema = [
   ],
 ];
 export var RunJobFlowOutput: StaticStructureSchema = [3, n0, _RJFO, 0, [_JFI, _CA], [0, 0]];
+export var S3MonitoringConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_LU, _EKA], [0, 0]];
 export var ScalingAction: StaticStructureSchema = [
   3,
   n0,
@@ -1726,10 +1729,17 @@ export var Step: StaticStructureSchema = [
   n0,
   _Ste,
   0,
-  [_I, _N, _Confi, _AOF, _St, _ERA],
-  [0, 0, () => HadoopStepConfig, 0, () => StepStatus, 0],
+  [_I, _N, _Confi, _AOF, _St, _ERA, _LU, _EKA],
+  [0, 0, () => HadoopStepConfig, 0, () => StepStatus, 0, 0, 0],
 ];
-export var StepConfig: StaticStructureSchema = [3, n0, _SCt, 0, [_N, _AOF, _HJS], [0, 0, () => HadoopJarStepConfig]];
+export var StepConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _SCt,
+  0,
+  [_N, _AOF, _HJS, _SMCt],
+  [0, 0, () => HadoopJarStepConfig, () => StepMonitoringConfiguration],
+];
 export var StepDetail: StaticStructureSchema = [
   3,
   n0,
@@ -1746,6 +1756,14 @@ export var StepExecutionStatusDetail: StaticStructureSchema = [
   [_Sta, _CDT, _SDT, _EDT, _LSCR],
   [0, 4, 4, 4, 0],
 ];
+export var StepMonitoringConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SMCt,
+  0,
+  [_SMC],
+  [() => S3MonitoringConfiguration],
+];
 export var StepStateChangeReason: StaticStructureSchema = [3, n0, _SSCR, 0, [_Co, _M], [0, 0]];
 export var StepStatus: StaticStructureSchema = [
   3,
@@ -1760,8 +1778,8 @@ export var StepSummary: StaticStructureSchema = [
   n0,
   _SStep,
   0,
-  [_I, _N, _Confi, _AOF, _St],
-  [0, 0, () => HadoopStepConfig, 0, () => StepStatus],
+  [_I, _N, _Confi, _AOF, _St, _LU, _EKA],
+  [0, 0, () => HadoopStepConfig, 0, () => StepStatus, 0, 0],
 ];
 export var StepTimeline: StaticStructureSchema = [3, n0, _STt, 0, [_CDT, _SDT, _EDT], [4, 4, 4]];
 export var StopNotebookExecutionInput: StaticStructureSchema = [3, n0, _SNEIt, 0, [_NEI], [0]];

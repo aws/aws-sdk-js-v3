@@ -731,6 +731,42 @@ export interface HadoopJarStepConfig {
 }
 
 /**
+ * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your step to send log information
+ *          to Amazon S3. When it's specified, it takes precedence over the cluster's logging configuration. If you don't specify this
+ *          configuration entirely, or omit individual fields, EMR falls back to cluster-level
+ *          logging behavior.</p>
+ * @public
+ */
+export interface S3MonitoringConfiguration {
+  /**
+   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * @public
+   */
+  LogUri?: string | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
+}
+
+/**
+ * <p>Object that holds configuration properties for logging.</p>
+ * @public
+ */
+export interface StepMonitoringConfiguration {
+  /**
+   * <p>The Amazon S3 configuration for monitoring log publishing. You can configure your step to send log information
+   *          to Amazon S3. When it's specified, it takes precedence over the cluster's logging configuration. If you don't specify this
+   *          configuration entirely, or omit individual fields, EMR falls back to cluster-level logging behavior.
+   *       </p>
+   * @public
+   */
+  S3MonitoringConfiguration?: S3MonitoringConfiguration | undefined;
+}
+
+/**
  * <p>Specification for a cluster (job flow) step.</p>
  * @public
  */
@@ -784,6 +820,12 @@ export interface StepConfig {
    * @public
    */
   HadoopJarStep: HadoopJarStepConfig | undefined;
+
+  /**
+   * <p>Object that holds configuration properties for logging.</p>
+   * @public
+   */
+  StepMonitoringConfiguration?: StepMonitoringConfiguration | undefined;
 }
 
 /**
@@ -3192,6 +3234,19 @@ export interface Step {
    * @public
    */
   ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * @public
+   */
+  LogUri?: string | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3
+   *          destination.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -4708,6 +4763,19 @@ export interface StepSummary {
    * @public
    */
   Status?: StepStatus | undefined;
+
+  /**
+   * <p>The Amazon S3 destination URI for log publishing.</p>
+   * @public
+   */
+  LogUri?: string | undefined;
+
+  /**
+   * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3
+   *          destination.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
 }
 
 /**

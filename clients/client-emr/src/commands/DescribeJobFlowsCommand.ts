@@ -143,6 +143,12 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             StepMonitoringConfiguration: { // StepMonitoringConfiguration
+ * //               S3MonitoringConfiguration: { // S3MonitoringConfiguration
+ * //                 LogUri: "STRING_VALUE",
+ * //                 EncryptionKeyArn: "STRING_VALUE",
+ * //               },
+ * //             },
  * //           },
  * //           ExecutionStatusDetail: { // StepExecutionStatusDetail
  * //             State: "PENDING" || "RUNNING" || "CONTINUE" || "COMPLETED" || "CANCELLED" || "FAILED" || "INTERRUPTED", // required

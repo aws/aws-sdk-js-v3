@@ -75,6 +75,8 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * //       },
  * //     },
  * //     ExecutionRoleArn: "STRING_VALUE",
+ * //     LogUri: "STRING_VALUE",
+ * //     EncryptionKeyArn: "STRING_VALUE",
  * //   },
  * // };
  *

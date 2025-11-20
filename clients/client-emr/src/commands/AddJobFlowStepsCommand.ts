@@ -73,6 +73,12 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       StepMonitoringConfiguration: { // StepMonitoringConfiguration
+ *         S3MonitoringConfiguration: { // S3MonitoringConfiguration
+ *           LogUri: "STRING_VALUE",
+ *           EncryptionKeyArn: "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *   ],
  *   ExecutionRoleArn: "STRING_VALUE",
