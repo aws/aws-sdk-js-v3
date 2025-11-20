@@ -78,6 +78,10 @@ import {
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateConnectPeerCommandInput, CreateConnectPeerCommandOutput } from "./commands/CreateConnectPeerCommand";
 import { CreateCoreNetworkCommandInput, CreateCoreNetworkCommandOutput } from "./commands/CreateCoreNetworkCommand";
+import {
+  CreateCoreNetworkPrefixListAssociationCommandInput,
+  CreateCoreNetworkPrefixListAssociationCommandOutput,
+} from "./commands/CreateCoreNetworkPrefixListAssociationCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "./commands/CreateDeviceCommand";
 import {
   CreateDirectConnectGatewayAttachmentCommandInput,
@@ -113,6 +117,10 @@ import {
   DeleteCoreNetworkPolicyVersionCommandInput,
   DeleteCoreNetworkPolicyVersionCommandOutput,
 } from "./commands/DeleteCoreNetworkPolicyVersionCommand";
+import {
+  DeleteCoreNetworkPrefixListAssociationCommandInput,
+  DeleteCoreNetworkPrefixListAssociationCommandOutput,
+} from "./commands/DeleteCoreNetworkPrefixListAssociationCommand";
 import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand";
 import {
   DeleteGlobalNetworkCommandInput,
@@ -228,12 +236,24 @@ import {
   GetTransitGatewayRouteTableAttachmentCommandOutput,
 } from "./commands/GetTransitGatewayRouteTableAttachmentCommand";
 import { GetVpcAttachmentCommandInput, GetVpcAttachmentCommandOutput } from "./commands/GetVpcAttachmentCommand";
+import {
+  ListAttachmentRoutingPolicyAssociationsCommandInput,
+  ListAttachmentRoutingPolicyAssociationsCommandOutput,
+} from "./commands/ListAttachmentRoutingPolicyAssociationsCommand";
 import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
 import { ListConnectPeersCommandInput, ListConnectPeersCommandOutput } from "./commands/ListConnectPeersCommand";
 import {
   ListCoreNetworkPolicyVersionsCommandInput,
   ListCoreNetworkPolicyVersionsCommandOutput,
 } from "./commands/ListCoreNetworkPolicyVersionsCommand";
+import {
+  ListCoreNetworkPrefixListAssociationsCommandInput,
+  ListCoreNetworkPrefixListAssociationsCommandOutput,
+} from "./commands/ListCoreNetworkPrefixListAssociationsCommand";
+import {
+  ListCoreNetworkRoutingInformationCommandInput,
+  ListCoreNetworkRoutingInformationCommandOutput,
+} from "./commands/ListCoreNetworkRoutingInformationCommand";
 import { ListCoreNetworksCommandInput, ListCoreNetworksCommandOutput } from "./commands/ListCoreNetworksCommand";
 import {
   ListOrganizationServiceAccessStatusCommandInput,
@@ -245,6 +265,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutAttachmentRoutingPolicyLabelCommandInput,
+  PutAttachmentRoutingPolicyLabelCommandOutput,
+} from "./commands/PutAttachmentRoutingPolicyLabelCommand";
+import {
   PutCoreNetworkPolicyCommandInput,
   PutCoreNetworkPolicyCommandOutput,
 } from "./commands/PutCoreNetworkPolicyCommand";
@@ -254,6 +278,10 @@ import {
   RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
 import { RejectAttachmentCommandInput, RejectAttachmentCommandOutput } from "./commands/RejectAttachmentCommand";
+import {
+  RemoveAttachmentRoutingPolicyLabelCommandInput,
+  RemoveAttachmentRoutingPolicyLabelCommandOutput,
+} from "./commands/RemoveAttachmentRoutingPolicyLabelCommand";
 import {
   RestoreCoreNetworkPolicyVersionCommandInput,
   RestoreCoreNetworkPolicyVersionCommandOutput,
@@ -310,6 +338,7 @@ export type ServiceInputTypes =
   | CreateConnectPeerCommandInput
   | CreateConnectionCommandInput
   | CreateCoreNetworkCommandInput
+  | CreateCoreNetworkPrefixListAssociationCommandInput
   | CreateDeviceCommandInput
   | CreateDirectConnectGatewayAttachmentCommandInput
   | CreateGlobalNetworkCommandInput
@@ -324,6 +353,7 @@ export type ServiceInputTypes =
   | DeleteConnectionCommandInput
   | DeleteCoreNetworkCommandInput
   | DeleteCoreNetworkPolicyVersionCommandInput
+  | DeleteCoreNetworkPrefixListAssociationCommandInput
   | DeleteDeviceCommandInput
   | DeleteGlobalNetworkCommandInput
   | DeleteLinkCommandInput
@@ -364,17 +394,22 @@ export type ServiceInputTypes =
   | GetTransitGatewayRegistrationsCommandInput
   | GetTransitGatewayRouteTableAttachmentCommandInput
   | GetVpcAttachmentCommandInput
+  | ListAttachmentRoutingPolicyAssociationsCommandInput
   | ListAttachmentsCommandInput
   | ListConnectPeersCommandInput
   | ListCoreNetworkPolicyVersionsCommandInput
+  | ListCoreNetworkPrefixListAssociationsCommandInput
+  | ListCoreNetworkRoutingInformationCommandInput
   | ListCoreNetworksCommandInput
   | ListOrganizationServiceAccessStatusCommandInput
   | ListPeeringsCommandInput
   | ListTagsForResourceCommandInput
+  | PutAttachmentRoutingPolicyLabelCommandInput
   | PutCoreNetworkPolicyCommandInput
   | PutResourcePolicyCommandInput
   | RegisterTransitGatewayCommandInput
   | RejectAttachmentCommandInput
+  | RemoveAttachmentRoutingPolicyLabelCommandInput
   | RestoreCoreNetworkPolicyVersionCommandInput
   | StartOrganizationServiceAccessUpdateCommandInput
   | StartRouteAnalysisCommandInput
@@ -403,6 +438,7 @@ export type ServiceOutputTypes =
   | CreateConnectPeerCommandOutput
   | CreateConnectionCommandOutput
   | CreateCoreNetworkCommandOutput
+  | CreateCoreNetworkPrefixListAssociationCommandOutput
   | CreateDeviceCommandOutput
   | CreateDirectConnectGatewayAttachmentCommandOutput
   | CreateGlobalNetworkCommandOutput
@@ -417,6 +453,7 @@ export type ServiceOutputTypes =
   | DeleteConnectionCommandOutput
   | DeleteCoreNetworkCommandOutput
   | DeleteCoreNetworkPolicyVersionCommandOutput
+  | DeleteCoreNetworkPrefixListAssociationCommandOutput
   | DeleteDeviceCommandOutput
   | DeleteGlobalNetworkCommandOutput
   | DeleteLinkCommandOutput
@@ -457,17 +494,22 @@ export type ServiceOutputTypes =
   | GetTransitGatewayRegistrationsCommandOutput
   | GetTransitGatewayRouteTableAttachmentCommandOutput
   | GetVpcAttachmentCommandOutput
+  | ListAttachmentRoutingPolicyAssociationsCommandOutput
   | ListAttachmentsCommandOutput
   | ListConnectPeersCommandOutput
   | ListCoreNetworkPolicyVersionsCommandOutput
+  | ListCoreNetworkPrefixListAssociationsCommandOutput
+  | ListCoreNetworkRoutingInformationCommandOutput
   | ListCoreNetworksCommandOutput
   | ListOrganizationServiceAccessStatusCommandOutput
   | ListPeeringsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAttachmentRoutingPolicyLabelCommandOutput
   | PutCoreNetworkPolicyCommandOutput
   | PutResourcePolicyCommandOutput
   | RegisterTransitGatewayCommandOutput
   | RejectAttachmentCommandOutput
+  | RemoveAttachmentRoutingPolicyLabelCommandOutput
   | RestoreCoreNetworkPolicyVersionCommandOutput
   | StartOrganizationServiceAccessUpdateCommandOutput
   | StartRouteAnalysisCommandOutput

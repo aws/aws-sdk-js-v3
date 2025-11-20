@@ -277,6 +277,14 @@ CreateCoreNetwork
 </details>
 <details>
 <summary>
+CreateCoreNetworkPrefixListAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/CreateCoreNetworkPrefixListAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/CreateCoreNetworkPrefixListAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/CreateCoreNetworkPrefixListAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateDevice
 </summary>
 
@@ -385,6 +393,14 @@ DeleteCoreNetworkPolicyVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/DeleteCoreNetworkPolicyVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/DeleteCoreNetworkPolicyVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/DeleteCoreNetworkPolicyVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCoreNetworkPrefixListAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/DeleteCoreNetworkPrefixListAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/DeleteCoreNetworkPrefixListAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/DeleteCoreNetworkPrefixListAssociationCommandOutput/)
 
 </details>
 <details>
@@ -709,6 +725,14 @@ GetVpcAttachment
 </details>
 <details>
 <summary>
+ListAttachmentRoutingPolicyAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/ListAttachmentRoutingPolicyAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListAttachmentRoutingPolicyAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListAttachmentRoutingPolicyAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAttachments
 </summary>
 
@@ -729,6 +753,22 @@ ListCoreNetworkPolicyVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/ListCoreNetworkPolicyVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListCoreNetworkPolicyVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListCoreNetworkPolicyVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCoreNetworkPrefixListAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/ListCoreNetworkPrefixListAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListCoreNetworkPrefixListAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListCoreNetworkPrefixListAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCoreNetworkRoutingInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/ListCoreNetworkRoutingInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListCoreNetworkRoutingInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/ListCoreNetworkRoutingInformationCommandOutput/)
 
 </details>
 <details>
@@ -765,6 +805,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+PutAttachmentRoutingPolicyLabel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/PutAttachmentRoutingPolicyLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/PutAttachmentRoutingPolicyLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/PutAttachmentRoutingPolicyLabelCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutCoreNetworkPolicy
 </summary>
 
@@ -793,6 +841,14 @@ RejectAttachment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/RejectAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/RejectAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/RejectAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+RemoveAttachmentRoutingPolicyLabel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/RemoveAttachmentRoutingPolicyLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/RemoveAttachmentRoutingPolicyLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/RemoveAttachmentRoutingPolicyLabelCommandOutput/)
 
 </details>
 <details>

@@ -48,6 +48,11 @@ import {
   CreateCoreNetworkCommandOutput,
 } from "./commands/CreateCoreNetworkCommand";
 import {
+  CreateCoreNetworkPrefixListAssociationCommand,
+  CreateCoreNetworkPrefixListAssociationCommandInput,
+  CreateCoreNetworkPrefixListAssociationCommandOutput,
+} from "./commands/CreateCoreNetworkPrefixListAssociationCommand";
+import {
   CreateDeviceCommand,
   CreateDeviceCommandInput,
   CreateDeviceCommandOutput,
@@ -109,6 +114,11 @@ import {
   DeleteCoreNetworkPolicyVersionCommandInput,
   DeleteCoreNetworkPolicyVersionCommandOutput,
 } from "./commands/DeleteCoreNetworkPolicyVersionCommand";
+import {
+  DeleteCoreNetworkPrefixListAssociationCommand,
+  DeleteCoreNetworkPrefixListAssociationCommandInput,
+  DeleteCoreNetworkPrefixListAssociationCommandOutput,
+} from "./commands/DeleteCoreNetworkPrefixListAssociationCommand";
 import {
   DeleteDeviceCommand,
   DeleteDeviceCommandInput,
@@ -290,6 +300,11 @@ import {
   GetVpcAttachmentCommandOutput,
 } from "./commands/GetVpcAttachmentCommand";
 import {
+  ListAttachmentRoutingPolicyAssociationsCommand,
+  ListAttachmentRoutingPolicyAssociationsCommandInput,
+  ListAttachmentRoutingPolicyAssociationsCommandOutput,
+} from "./commands/ListAttachmentRoutingPolicyAssociationsCommand";
+import {
   ListAttachmentsCommand,
   ListAttachmentsCommandInput,
   ListAttachmentsCommandOutput,
@@ -304,6 +319,16 @@ import {
   ListCoreNetworkPolicyVersionsCommandInput,
   ListCoreNetworkPolicyVersionsCommandOutput,
 } from "./commands/ListCoreNetworkPolicyVersionsCommand";
+import {
+  ListCoreNetworkPrefixListAssociationsCommand,
+  ListCoreNetworkPrefixListAssociationsCommandInput,
+  ListCoreNetworkPrefixListAssociationsCommandOutput,
+} from "./commands/ListCoreNetworkPrefixListAssociationsCommand";
+import {
+  ListCoreNetworkRoutingInformationCommand,
+  ListCoreNetworkRoutingInformationCommandInput,
+  ListCoreNetworkRoutingInformationCommandOutput,
+} from "./commands/ListCoreNetworkRoutingInformationCommand";
 import {
   ListCoreNetworksCommand,
   ListCoreNetworksCommandInput,
@@ -325,6 +350,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutAttachmentRoutingPolicyLabelCommand,
+  PutAttachmentRoutingPolicyLabelCommandInput,
+  PutAttachmentRoutingPolicyLabelCommandOutput,
+} from "./commands/PutAttachmentRoutingPolicyLabelCommand";
+import {
   PutCoreNetworkPolicyCommand,
   PutCoreNetworkPolicyCommandInput,
   PutCoreNetworkPolicyCommandOutput,
@@ -344,6 +374,11 @@ import {
   RejectAttachmentCommandInput,
   RejectAttachmentCommandOutput,
 } from "./commands/RejectAttachmentCommand";
+import {
+  RemoveAttachmentRoutingPolicyLabelCommand,
+  RemoveAttachmentRoutingPolicyLabelCommandInput,
+  RemoveAttachmentRoutingPolicyLabelCommandOutput,
+} from "./commands/RemoveAttachmentRoutingPolicyLabelCommand";
 import {
   RestoreCoreNetworkPolicyVersionCommand,
   RestoreCoreNetworkPolicyVersionCommandInput,
@@ -414,6 +449,7 @@ const commands = {
   CreateConnectionCommand,
   CreateConnectPeerCommand,
   CreateCoreNetworkCommand,
+  CreateCoreNetworkPrefixListAssociationCommand,
   CreateDeviceCommand,
   CreateDirectConnectGatewayAttachmentCommand,
   CreateGlobalNetworkCommand,
@@ -428,6 +464,7 @@ const commands = {
   DeleteConnectPeerCommand,
   DeleteCoreNetworkCommand,
   DeleteCoreNetworkPolicyVersionCommand,
+  DeleteCoreNetworkPrefixListAssociationCommand,
   DeleteDeviceCommand,
   DeleteGlobalNetworkCommand,
   DeleteLinkCommand,
@@ -468,17 +505,22 @@ const commands = {
   GetTransitGatewayRegistrationsCommand,
   GetTransitGatewayRouteTableAttachmentCommand,
   GetVpcAttachmentCommand,
+  ListAttachmentRoutingPolicyAssociationsCommand,
   ListAttachmentsCommand,
   ListConnectPeersCommand,
   ListCoreNetworkPolicyVersionsCommand,
+  ListCoreNetworkPrefixListAssociationsCommand,
+  ListCoreNetworkRoutingInformationCommand,
   ListCoreNetworksCommand,
   ListOrganizationServiceAccessStatusCommand,
   ListPeeringsCommand,
   ListTagsForResourceCommand,
+  PutAttachmentRoutingPolicyLabelCommand,
   PutCoreNetworkPolicyCommand,
   PutResourcePolicyCommand,
   RegisterTransitGatewayCommand,
   RejectAttachmentCommand,
+  RemoveAttachmentRoutingPolicyLabelCommand,
   RestoreCoreNetworkPolicyVersionCommand,
   StartOrganizationServiceAccessUpdateCommand,
   StartRouteAnalysisCommand,
@@ -641,6 +683,23 @@ export interface NetworkManager {
     args: CreateCoreNetworkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCoreNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCoreNetworkPrefixListAssociationCommand}
+   */
+  createCoreNetworkPrefixListAssociation(
+    args: CreateCoreNetworkPrefixListAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCoreNetworkPrefixListAssociationCommandOutput>;
+  createCoreNetworkPrefixListAssociation(
+    args: CreateCoreNetworkPrefixListAssociationCommandInput,
+    cb: (err: any, data?: CreateCoreNetworkPrefixListAssociationCommandOutput) => void
+  ): void;
+  createCoreNetworkPrefixListAssociation(
+    args: CreateCoreNetworkPrefixListAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCoreNetworkPrefixListAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -862,6 +921,23 @@ export interface NetworkManager {
     args: DeleteCoreNetworkPolicyVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCoreNetworkPolicyVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCoreNetworkPrefixListAssociationCommand}
+   */
+  deleteCoreNetworkPrefixListAssociation(
+    args: DeleteCoreNetworkPrefixListAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCoreNetworkPrefixListAssociationCommandOutput>;
+  deleteCoreNetworkPrefixListAssociation(
+    args: DeleteCoreNetworkPrefixListAssociationCommandInput,
+    cb: (err: any, data?: DeleteCoreNetworkPrefixListAssociationCommandOutput) => void
+  ): void;
+  deleteCoreNetworkPrefixListAssociation(
+    args: DeleteCoreNetworkPrefixListAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCoreNetworkPrefixListAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1495,6 +1571,23 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link ListAttachmentRoutingPolicyAssociationsCommand}
+   */
+  listAttachmentRoutingPolicyAssociations(
+    args: ListAttachmentRoutingPolicyAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttachmentRoutingPolicyAssociationsCommandOutput>;
+  listAttachmentRoutingPolicyAssociations(
+    args: ListAttachmentRoutingPolicyAssociationsCommandInput,
+    cb: (err: any, data?: ListAttachmentRoutingPolicyAssociationsCommandOutput) => void
+  ): void;
+  listAttachmentRoutingPolicyAssociations(
+    args: ListAttachmentRoutingPolicyAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttachmentRoutingPolicyAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAttachmentsCommand}
    */
   listAttachments(): Promise<ListAttachmentsCommandOutput>;
@@ -1542,6 +1635,40 @@ export interface NetworkManager {
     args: ListCoreNetworkPolicyVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCoreNetworkPolicyVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCoreNetworkPrefixListAssociationsCommand}
+   */
+  listCoreNetworkPrefixListAssociations(
+    args: ListCoreNetworkPrefixListAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoreNetworkPrefixListAssociationsCommandOutput>;
+  listCoreNetworkPrefixListAssociations(
+    args: ListCoreNetworkPrefixListAssociationsCommandInput,
+    cb: (err: any, data?: ListCoreNetworkPrefixListAssociationsCommandOutput) => void
+  ): void;
+  listCoreNetworkPrefixListAssociations(
+    args: ListCoreNetworkPrefixListAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCoreNetworkPrefixListAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCoreNetworkRoutingInformationCommand}
+   */
+  listCoreNetworkRoutingInformation(
+    args: ListCoreNetworkRoutingInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoreNetworkRoutingInformationCommandOutput>;
+  listCoreNetworkRoutingInformation(
+    args: ListCoreNetworkRoutingInformationCommandInput,
+    cb: (err: any, data?: ListCoreNetworkRoutingInformationCommandOutput) => void
+  ): void;
+  listCoreNetworkRoutingInformation(
+    args: ListCoreNetworkRoutingInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCoreNetworkRoutingInformationCommandOutput) => void
   ): void;
 
   /**
@@ -1610,6 +1737,23 @@ export interface NetworkManager {
   ): void;
 
   /**
+   * @see {@link PutAttachmentRoutingPolicyLabelCommand}
+   */
+  putAttachmentRoutingPolicyLabel(
+    args: PutAttachmentRoutingPolicyLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAttachmentRoutingPolicyLabelCommandOutput>;
+  putAttachmentRoutingPolicyLabel(
+    args: PutAttachmentRoutingPolicyLabelCommandInput,
+    cb: (err: any, data?: PutAttachmentRoutingPolicyLabelCommandOutput) => void
+  ): void;
+  putAttachmentRoutingPolicyLabel(
+    args: PutAttachmentRoutingPolicyLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAttachmentRoutingPolicyLabelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutCoreNetworkPolicyCommand}
    */
   putCoreNetworkPolicy(
@@ -1675,6 +1819,23 @@ export interface NetworkManager {
     args: RejectAttachmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveAttachmentRoutingPolicyLabelCommand}
+   */
+  removeAttachmentRoutingPolicyLabel(
+    args: RemoveAttachmentRoutingPolicyLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveAttachmentRoutingPolicyLabelCommandOutput>;
+  removeAttachmentRoutingPolicyLabel(
+    args: RemoveAttachmentRoutingPolicyLabelCommandInput,
+    cb: (err: any, data?: RemoveAttachmentRoutingPolicyLabelCommandOutput) => void
+  ): void;
+  removeAttachmentRoutingPolicyLabel(
+    args: RemoveAttachmentRoutingPolicyLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveAttachmentRoutingPolicyLabelCommandOutput) => void
   ): void;
 
   /**

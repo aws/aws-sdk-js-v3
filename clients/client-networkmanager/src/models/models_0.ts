@@ -31,6 +31,7 @@ import {
   RouteState,
   RouteTableType,
   RouteType,
+  RoutingPolicyDirection,
   SegmentActionServiceInsertion,
   SendViaMode,
   SiteState,
@@ -602,6 +603,36 @@ export interface AssociateTransitGatewayConnectPeerResponse {
 }
 
 /**
+ * <p>Summary information about routing policy associations for an attachment.</p>
+ * @public
+ */
+export interface AttachmentRoutingPolicyAssociationSummary {
+  /**
+   * <p>The ID of the attachment associated with the routing policy.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The list of routing policies that are pending association with the attachment.</p>
+   * @public
+   */
+  PendingRoutingPolicies?: string[] | undefined;
+
+  /**
+   * <p>The list of routing policies currently associated with the attachment.</p>
+   * @public
+   */
+  AssociatedRoutingPolicies?: string[] | undefined;
+
+  /**
+   * <p>The routing policy label associated with the attachment.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
+}
+
+/**
  * <p>Specifies a location in Amazon Web Services.</p>
  * @public
  */
@@ -1155,6 +1186,24 @@ export interface CoreNetwork {
 }
 
 /**
+ * <p>Information about a routing policy association.</p>
+ * @public
+ */
+export interface RoutingPolicyAssociationDetail {
+  /**
+   * <p>The names of the routing policies in the association.</p>
+   * @public
+   */
+  RoutingPolicyNames?: string[] | undefined;
+
+  /**
+   * <p>The names of the segments that are shared with each other in the association.</p>
+   * @public
+   */
+  SharedSegments?: string[] | undefined;
+}
+
+/**
  * <p>Describes a network function group for service insertion.</p>
  * @public
  */
@@ -1328,6 +1377,36 @@ export interface CoreNetworkChangeValues {
    * @public
    */
   SecurityGroupReferencingSupport?: boolean | undefined;
+
+  /**
+   * <p>The routing policy direction (inbound/outbound) in a core network change event.</p>
+   * @public
+   */
+  RoutingPolicyDirection?: RoutingPolicyDirection | undefined;
+
+  /**
+   * <p>The routing policy configuration in the core network change values.</p>
+   * @public
+   */
+  RoutingPolicy?: string | undefined;
+
+  /**
+   * <p>The edge locations of peers in the core network change values.</p>
+   * @public
+   */
+  PeerEdgeLocations?: string[] | undefined;
+
+  /**
+   * <p>The attachment identifier in the core network change values.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The names of the routing policies and other association details in the core network change values.</p>
+   * @public
+   */
+  RoutingPolicyAssociationDetails?: RoutingPolicyAssociationDetail[] | undefined;
 }
 
 /**
@@ -1384,6 +1463,18 @@ export interface CoreNetworkChangeEventValues {
   EdgeLocation?: string | undefined;
 
   /**
+   * <p>The edge location of the peer in a core network change event.</p>
+   * @public
+   */
+  PeerEdgeLocation?: string | undefined;
+
+  /**
+   * <p>The routing policy direction (inbound/outbound) in a core network change event.</p>
+   * @public
+   */
+  RoutingPolicyDirection?: RoutingPolicyDirection | undefined;
+
+  /**
    * <p>The segment name if the change event is associated with a segment.</p>
    * @public
    */
@@ -1406,6 +1497,12 @@ export interface CoreNetworkChangeEventValues {
    * @public
    */
   Cidr?: string | undefined;
+
+  /**
+   * <p>The names of the routing policies and other association details in the core network change values.</p>
+   * @public
+   */
+  RoutingPolicyAssociationDetails?: RoutingPolicyAssociationDetail[] | undefined;
 }
 
 /**
@@ -1595,6 +1692,90 @@ export interface CoreNetworkPolicyVersion {
 }
 
 /**
+ * <p>Information about the next hop for a route in the core network.</p>
+ * @public
+ */
+export interface RoutingInformationNextHop {
+  /**
+   * <p>The IP address of the next hop.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>The ID of the core network attachment for the next hop.</p>
+   * @public
+   */
+  CoreNetworkAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource for the next hop.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource for the next hop.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The name of the segment for the next hop.</p>
+   * @public
+   */
+  SegmentName?: string | undefined;
+
+  /**
+   * <p>The edge location for the next hop.</p>
+   * @public
+   */
+  EdgeLocation?: string | undefined;
+}
+
+/**
+ * <p>Routing information for a core network, including route details and BGP attributes.</p>
+ * @public
+ */
+export interface CoreNetworkRoutingInformation {
+  /**
+   * <p>The IP prefix for the route.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The next hop information for the route.</p>
+   * @public
+   */
+  NextHop?: RoutingInformationNextHop | undefined;
+
+  /**
+   * <p>The BGP local preference value for the route.</p>
+   * @public
+   */
+  LocalPreference?: string | undefined;
+
+  /**
+   * <p>The BGP Multi-Exit Discriminator (MED) value for the route.</p>
+   * @public
+   */
+  Med?: string | undefined;
+
+  /**
+   * <p>The BGP AS path for the route.</p>
+   * @public
+   */
+  AsPath?: string[] | undefined;
+
+  /**
+   * <p>The BGP community values for the route.</p>
+   * @public
+   */
+  Communities?: string[] | undefined;
+}
+
+/**
  * <p>Returns details about a core network edge.</p>
  * @public
  */
@@ -1687,6 +1868,12 @@ export interface CreateConnectAttachmentRequest {
    * @public
    */
   TransportAttachmentId: string | undefined;
+
+  /**
+   * <p>The routing policy label to apply to the Connect attachment for traffic routing decisions.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
 
   /**
    * <p>Options for creating an attachment.</p>
@@ -1885,6 +2072,58 @@ export interface CreateCoreNetworkResponse {
    * @public
    */
   CoreNetwork?: CoreNetwork | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCoreNetworkPrefixListAssociationRequest {
+  /**
+   * <p>The ID of the core network to associate with the prefix list.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the prefix list to associate with the core network.</p>
+   * @public
+   */
+  PrefixListArn: string | undefined;
+
+  /**
+   * <p>An optional alias for the prefix list association.</p>
+   * @public
+   */
+  PrefixListAlias: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCoreNetworkPrefixListAssociationResponse {
+  /**
+   * <p>The ID of the core network associated with the prefix list.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The ARN of the prefix list that was associated with the core network.</p>
+   * @public
+   */
+  PrefixListArn?: string | undefined;
+
+  /**
+   * <p>The alias of the prefix list association, if provided.</p>
+   * @public
+   */
+  PrefixListAlias?: string | undefined;
 }
 
 /**
@@ -2096,6 +2335,12 @@ export interface CreateDirectConnectGatewayAttachmentRequest {
    * @public
    */
   DirectConnectGatewayArn: string | undefined;
+
+  /**
+   * <p>The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
 
   /**
    * <p>One or more core network edge locations that the Direct Connect gateway attachment is associated with. </p>
@@ -2475,6 +2720,12 @@ export interface CreateSiteToSiteVpnAttachmentRequest {
   VpnConnectionArn: string | undefined;
 
   /**
+   * <p>The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
+
+  /**
    * <p>The tags associated with the request.</p>
    * @public
    */
@@ -2718,6 +2969,12 @@ export interface CreateTransitGatewayRouteTableAttachmentRequest {
   TransitGatewayRouteTableArn: string | undefined;
 
   /**
+   * <p>The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
+
+  /**
    * <p>The list of key-value tags associated with the request.</p>
    * @public
    */
@@ -2822,6 +3079,12 @@ export interface CreateVpcAttachmentRequest {
    * @public
    */
   Options?: VpcOptions | undefined;
+
+  /**
+   * <p>The routing policy label to apply to the VPC attachment for traffic routing decisions.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
 
   /**
    * <p>The key-value tags associated with the request.</p>
@@ -2991,6 +3254,40 @@ export interface DeleteCoreNetworkPolicyVersionResponse {
    * @public
    */
   CoreNetworkPolicy?: CoreNetworkPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCoreNetworkPrefixListAssociationRequest {
+  /**
+   * <p>The ID of the core network from which to delete the prefix list association.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the prefix list to disassociate from the core network.</p>
+   * @public
+   */
+  PrefixListArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCoreNetworkPrefixListAssociationResponse {
+  /**
+   * <p>The ID of the core network from which the prefix list association was deleted.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The ARN of the prefix list that was disassociated from the core network.</p>
+   * @public
+   */
+  PrefixListArn?: string | undefined;
 }
 
 /**
@@ -5480,6 +5777,52 @@ export interface GetVpcAttachmentResponse {
 /**
  * @public
  */
+export interface ListAttachmentRoutingPolicyAssociationsRequest {
+  /**
+   * <p>The ID of the core network to list attachment routing policy associations for.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of a specific attachment to filter the routing policy associations.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachmentRoutingPolicyAssociationsResponse {
+  /**
+   * <p>The list of attachment routing policy associations.</p>
+   * @public
+   */
+  AttachmentRoutingPolicyAssociations?: AttachmentRoutingPolicyAssociationSummary[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAttachmentsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -5613,6 +5956,158 @@ export interface ListCoreNetworkPolicyVersionsResponse {
    * @public
    */
   CoreNetworkPolicyVersions?: CoreNetworkPolicyVersion[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoreNetworkPrefixListAssociationsRequest {
+  /**
+   * <p>The ID of the core network to list prefix list associations for.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of a specific prefix list to filter the associations.</p>
+   * @public
+   */
+  PrefixListArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a prefix list association with a core network.</p>
+ * @public
+ */
+export interface PrefixListAssociation {
+  /**
+   * <p>The core network id in the association.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The ARN of the prefix list in the association.</p>
+   * @public
+   */
+  PrefixListArn?: string | undefined;
+
+  /**
+   * <p>The alias of the prefix list in the association.</p>
+   * @public
+   */
+  PrefixListAlias?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoreNetworkPrefixListAssociationsResponse {
+  /**
+   * <p>The list of prefix list associations for the core network.</p>
+   * @public
+   */
+  PrefixListAssociations?: PrefixListAssociation[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoreNetworkRoutingInformationRequest {
+  /**
+   * <p>The ID of the core network to retrieve routing information for.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The name of the segment to filter routing information by.</p>
+   * @public
+   */
+  SegmentName: string | undefined;
+
+  /**
+   * <p>The edge location to filter routing information by.</p>
+   * @public
+   */
+  EdgeLocation: string | undefined;
+
+  /**
+   * <p>Filters to apply based on next hop information.</p>
+   * @public
+   */
+  NextHopFilters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>Local preference values to match when filtering routing information.</p>
+   * @public
+   */
+  LocalPreferenceMatches?: string[] | undefined;
+
+  /**
+   * <p>Exact AS path values to match when filtering routing information.</p>
+   * @public
+   */
+  ExactAsPathMatches?: string[] | undefined;
+
+  /**
+   * <p>Multi-Exit Discriminator (MED) values to match when filtering routing information.</p>
+   * @public
+   */
+  MedMatches?: string[] | undefined;
+
+  /**
+   * <p>BGP community values to match when filtering routing information.</p>
+   * @public
+   */
+  CommunityMatches?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of routing information entries to return in a single page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoreNetworkRoutingInformationResponse {
+  /**
+   * <p>The list of routing information for the core network.</p>
+   * @public
+   */
+  CoreNetworkRoutingInformation?: CoreNetworkRoutingInformation[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
@@ -5802,6 +6297,58 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface PutAttachmentRoutingPolicyLabelRequest {
+  /**
+   * <p>The ID of the core network containing the attachment.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment to apply the routing policy label to.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>The routing policy label to apply to the attachment.</p>
+   * @public
+   */
+  RoutingPolicyLabel: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAttachmentRoutingPolicyLabelResponse {
+  /**
+   * <p>The ID of the core network containing the attachment.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The ID of the attachment that received the routing policy label.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The routing policy label that was applied to the attachment.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutCoreNetworkPolicyRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -5915,6 +6462,46 @@ export interface RejectAttachmentResponse {
    * @public
    */
   Attachment?: Attachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveAttachmentRoutingPolicyLabelRequest {
+  /**
+   * <p>The ID of the core network containing the attachment.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment to remove the routing policy label from.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveAttachmentRoutingPolicyLabelResponse {
+  /**
+   * <p>The ID of the core network containing the attachment.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The ID of the attachment from which the routing policy label was removed.</p>
+   * @public
+   */
+  AttachmentId?: string | undefined;
+
+  /**
+   * <p>The routing policy label that was removed from the attachment.</p>
+   * @public
+   */
+  RoutingPolicyLabel?: string | undefined;
 }
 
 /**

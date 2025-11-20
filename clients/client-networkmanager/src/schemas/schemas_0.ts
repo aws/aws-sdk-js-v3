@@ -18,8 +18,13 @@ const _ALR = "AssociateLinkRequest";
 const _ALRs = "AssociateLinkResponse";
 const _ALs = "AssociateLink";
 const _AMS = "ApplianceModeSupport";
+const _AP = "AsPath";
 const _APRN = "AttachmentPolicyRuleNumber";
 const _AR = "AwsRegion";
+const _ARP = "AssociatedRoutingPolicies";
+const _ARPA = "AttachmentRoutingPolicyAssociations";
+const _ARPAL = "AttachmentRoutingPolicyAssociationsList";
+const _ARPAS = "AttachmentRoutingPolicyAssociationSummary";
 const _AS = "AccountStatus";
 const _ASA = "AddSubnetArns";
 const _ASL = "AccountStatusList";
@@ -47,6 +52,9 @@ const _CCA = "CreateConnectAttachment";
 const _CCAR = "CreateConnectAttachmentRequest";
 const _CCARr = "CreateConnectAttachmentResponse";
 const _CCN = "CreateCoreNetwork";
+const _CCNPLA = "CreateCoreNetworkPrefixListAssociation";
+const _CCNPLAR = "CreateCoreNetworkPrefixListAssociationRequest";
+const _CCNPLARr = "CreateCoreNetworkPrefixListAssociationResponse";
 const _CCNR = "CreateCoreNetworkRequest";
 const _CCNRr = "CreateCoreNetworkResponse";
 const _CCP = "CreateConnectPeer";
@@ -78,6 +86,7 @@ const _CLI = "ConnectedLinkId";
 const _CLR = "CreateLinkRequest";
 const _CLRr = "CreateLinkResponse";
 const _CLr = "CreateLink";
+const _CM = "CommunityMatches";
 const _CN = "CoreNetwork";
 const _CNA = "CoreNetworkArn";
 const _CNAI = "CoreNetworkAttachmentId";
@@ -104,6 +113,8 @@ const _CNPEo = "CoreNetworkPolicyException";
 const _CNPV = "CoreNetworkPolicyVersion";
 const _CNPVL = "CoreNetworkPolicyVersionList";
 const _CNPVo = "CoreNetworkPolicyVersions";
+const _CNRI = "CoreNetworkRoutingInformation";
+const _CNRIL = "CoreNetworkRoutingInformationList";
 const _CNS = "CoreNetworkSegment";
 const _CNSE = "CoreNetworkSegmentEdge";
 const _CNSEI = "CoreNetworkSegmentEdgeIdentifier";
@@ -146,6 +157,7 @@ const _CVAR = "CreateVpcAttachmentRequest";
 const _CVARr = "CreateVpcAttachmentResponse";
 const _Ci = "Cidr";
 const _Co = "Connection";
+const _Com = "Communities";
 const _Con = "Configuration";
 const _Conn = "Connections";
 const _Cont = "Context";
@@ -163,6 +175,9 @@ const _DCGAi = "DirectConnectGatewayAttachment";
 const _DCGR = "DisassociateCustomerGatewayRequest";
 const _DCGRi = "DisassociateCustomerGatewayResponse";
 const _DCN = "DeleteCoreNetwork";
+const _DCNPLA = "DeleteCoreNetworkPrefixListAssociation";
+const _DCNPLAR = "DeleteCoreNetworkPrefixListAssociationRequest";
+const _DCNPLARe = "DeleteCoreNetworkPrefixListAssociationResponse";
 const _DCNPV = "DeleteCoreNetworkPolicyVersion";
 const _DCNPVR = "DeleteCoreNetworkPolicyVersionRequest";
 const _DCNPVRe = "DeleteCoreNetworkPolicyVersionResponse";
@@ -220,6 +235,7 @@ const _Des = "Destinations";
 const _Dest = "Destination";
 const _Dev = "Devices";
 const _E = "Edges";
+const _EAPM = "ExactAsPathMatches";
 const _EC = "ErrorCode";
 const _ECM = "ExactCidrMatches";
 const _ECNCS = "ExecuteCoreNetworkChangeSet";
@@ -337,6 +353,9 @@ const _L = "Location";
 const _LA = "LinkAssociation";
 const _LAL = "LinkAssociationList";
 const _LAR = "ListAttachmentsRequest";
+const _LARPA = "ListAttachmentRoutingPolicyAssociations";
+const _LARPAR = "ListAttachmentRoutingPolicyAssociationsRequest";
+const _LARPARi = "ListAttachmentRoutingPolicyAssociationsResponse";
 const _LARi = "ListAttachmentsResponse";
 const _LAS = "LinkAssociationState";
 const _LAi = "LinkAssociations";
@@ -344,10 +363,16 @@ const _LAin = "LinkArn";
 const _LAis = "ListAttachments";
 const _LC = "LimitCode";
 const _LCN = "ListCoreNetworks";
+const _LCNPLA = "ListCoreNetworkPrefixListAssociations";
+const _LCNPLAR = "ListCoreNetworkPrefixListAssociationsRequest";
+const _LCNPLARi = "ListCoreNetworkPrefixListAssociationsResponse";
 const _LCNPV = "ListCoreNetworkPolicyVersions";
 const _LCNPVR = "ListCoreNetworkPolicyVersionsRequest";
 const _LCNPVRi = "ListCoreNetworkPolicyVersionsResponse";
 const _LCNR = "ListCoreNetworksRequest";
+const _LCNRI = "ListCoreNetworkRoutingInformation";
+const _LCNRIR = "ListCoreNetworkRoutingInformationRequest";
+const _LCNRIRi = "ListCoreNetworkRoutingInformationResponse";
 const _LCNRi = "ListCoreNetworksResponse";
 const _LCP = "ListConnectPeers";
 const _LCPR = "ListConnectPeersRequest";
@@ -359,10 +384,12 @@ const _LME = "LastModificationErrors";
 const _LOSAS = "ListOrganizationServiceAccessStatus";
 const _LOSASR = "ListOrganizationServiceAccessStatusRequest";
 const _LOSASRi = "ListOrganizationServiceAccessStatusResponse";
-const _LP = "ListPeerings";
+const _LP = "LocalPreference";
 const _LPM = "LongestPrefixMatches";
+const _LPMo = "LocalPreferenceMatches";
 const _LPR = "ListPeeringsRequest";
 const _LPRi = "ListPeeringsResponse";
+const _LPi = "ListPeerings";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -372,10 +399,12 @@ const _Li = "Link";
 const _Lin = "Links";
 const _Lo = "Longitude";
 const _M = "Message";
+const _MM = "MedMatches";
 const _MP = "MissingPermission";
 const _MPC = "MissingPermissionsContext";
 const _MR = "MaxResults";
-const _Me = "Metadata";
+const _Me = "Med";
+const _Met = "Metadata";
 const _Mo = "Model";
 const _Mod = "Mode";
 const _N = "Name";
@@ -383,6 +412,8 @@ const _NFG = "NetworkFunctionGroups";
 const _NFGL = "NetworkFunctionGroupList";
 const _NFGN = "NetworkFunctionGroupName";
 const _NFGe = "NetworkFunctionGroup";
+const _NH = "NextHop";
+const _NHF = "NextHopFilters";
 const _NR = "NetworkResources";
 const _NRC = "NetworkResourceCounts";
 const _NRCL = "NetworkResourceCountList";
@@ -407,6 +438,9 @@ const _OI = "OrganizationId";
 const _OS = "OrganizationStatus";
 const _P = "Protocol";
 const _PA = "PeerAsn";
+const _PARPL = "PutAttachmentRoutingPolicyLabel";
+const _PARPLR = "PutAttachmentRoutingPolicyLabelRequest";
+const _PARPLRu = "PutAttachmentRoutingPolicyLabelResponse";
 const _PAe = "PeerAddress";
 const _PC = "PathComponent";
 const _PCL = "PathComponentList";
@@ -416,16 +450,24 @@ const _PCNPRu = "PutCoreNetworkPolicyResponse";
 const _PD = "PolicyDocument";
 const _PE = "PolicyErrors";
 const _PEC = "PermissionsErrorContext";
-const _PEL = "PeeringErrorList";
+const _PEL = "PeerEdgeLocation";
+const _PELe = "PeerEdgeLocations";
+const _PELee = "PeeringErrorList";
 const _PEe = "PeeringError";
 const _PI = "PeeringId";
 const _PL = "PeeringList";
+const _PLA = "PrefixListArn";
+const _PLAL = "PrefixListAssociationList";
+const _PLAr = "PrefixListAlias";
+const _PLAre = "PrefixListAssociations";
+const _PLAref = "PrefixListAssociation";
 const _PLI = "PrefixListIds";
 const _PLIr = "PrefixListId";
 const _PNFGC = "ProposedNetworkFunctionGroupChange";
-const _PRP = "PutResourcePolicy";
+const _PRP = "PendingRoutingPolicies";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
+const _PRPu = "PutResourcePolicy";
 const _PSC = "ProposedSegmentChange";
 const _PT = "PeeringType";
 const _PV = "PreviousValues";
@@ -433,7 +475,8 @@ const _PVI = "PolicyVersionId";
 const _Pa = "Path";
 const _Pe = "Peering";
 const _Pee = "Peerings";
-const _Pr = "Provider";
+const _Pr = "Prefix";
+const _Pro = "Provider";
 const _R = "Relationships";
 const _RA = "ResourceArn";
 const _RAC = "RouteAnalysisCompletion";
@@ -442,6 +485,9 @@ const _RAEOS = "RouteAnalysisEndpointOptionsSpecification";
 const _RAI = "RouteAnalysisId";
 const _RAP = "RouteAnalysisPath";
 const _RAR = "RejectAttachmentRequest";
+const _RARPL = "RemoveAttachmentRoutingPolicyLabel";
+const _RARPLR = "RemoveAttachmentRoutingPolicyLabelRequest";
+const _RARPLRe = "RemoveAttachmentRoutingPolicyLabelResponse";
 const _RARe = "RejectAttachmentResponse";
 const _RAS = "RetryAfterSeconds";
 const _RA_ = "Retry-After";
@@ -455,10 +501,18 @@ const _RCe = "ReasonCode";
 const _RCea = "ReasonContext";
 const _RGA = "RegisteredGatewayArn";
 const _RI = "RequestId";
+const _RINH = "RoutingInformationNextHop";
 const _RIe = "ResourceId";
 const _RL = "RelationshipList";
 const _RNFE = "ResourceNotFoundException";
-const _RP = "ReturnPath";
+const _RP = "RoutingPolicy";
+const _RPAD = "RoutingPolicyAssociationDetails";
+const _RPADL = "RoutingPolicyAssociationDetailsList";
+const _RPADo = "RoutingPolicyAssociationDetail";
+const _RPD = "RoutingPolicyDirection";
+const _RPL = "RoutingPolicyLabel";
+const _RPN = "RoutingPolicyNames";
+const _RPe = "ReturnPath";
 const _RSA = "RemoveSubnetArns";
 const _RT = "ResourceType";
 const _RTA = "RouteTableArn";
@@ -593,6 +647,7 @@ const _WSTSL = "WhenSentToSegmentsList";
 const _Z = "Zone";
 const _a = "application/json";
 const _aI = "accountId";
+const _aIt = "attachmentId";
 const _aR = "awsRegion";
 const _aT = "attachmentType";
 const _al = "alias";
@@ -617,6 +672,7 @@ const _mR = "maxResults";
 const _mT = "mediaType";
 const _nT = "nextToken";
 const _p = "provider";
+const _pLA = "prefixListArn";
 const _pT = "peeringType";
 const _pVI = "policyVersionId";
 const _rA = "resourceArn";
@@ -771,6 +827,14 @@ export var Attachment: StaticStructureSchema = [
   ],
 ];
 export var AttachmentError: StaticStructureSchema = [3, n0, _AE, 0, [_C, _M, _RA, _RI], [0, 0, 0, 0]];
+export var AttachmentRoutingPolicyAssociationSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _ARPAS,
+  0,
+  [_AI, _PRP, _ARP, _RPL],
+  [0, 64 | 0, 64 | 0, 0],
+];
 export var AWSLocation: StaticStructureSchema = [3, n0, _AWSL, 0, [_Z, _SA], [0, 0]];
 export var Bandwidth: StaticStructureSchema = [3, n0, _B, 0, [_US, _DS], [1, 1]];
 export var BgpOptions: StaticStructureSchema = [3, n0, _BO, 0, [_PA], [1]];
@@ -886,16 +950,34 @@ export var CoreNetworkChangeEventValues: StaticStructureSchema = [
   n0,
   _CNCEV,
   0,
-  [_EL, _SN, _NFGN, _AI, _Ci],
-  [0, 0, 0, 0, 0],
+  [_EL, _PEL, _RPD, _SN, _NFGN, _AI, _Ci, _RPAD],
+  [0, 0, 0, 0, 0, 0, 0, () => RoutingPolicyAssociationDetailsList],
 ];
 export var CoreNetworkChangeValues: StaticStructureSchema = [
   3,
   n0,
   _CNCV,
   0,
-  [_SN, _NFGN, _ELd, _As, _Ci, _DIe, _ICB, _SS, _SIA, _VES, _DSn, _SGRS],
-  [0, 0, 64 | 0, 1, 0, 0, 64 | 0, 64 | 0, () => ServiceInsertionActionList, 2, 2, 2],
+  [_SN, _NFGN, _ELd, _As, _Ci, _DIe, _ICB, _SS, _SIA, _VES, _DSn, _SGRS, _RPD, _RP, _PELe, _AI, _RPAD],
+  [
+    0,
+    0,
+    64 | 0,
+    1,
+    0,
+    0,
+    64 | 0,
+    64 | 0,
+    () => ServiceInsertionActionList,
+    2,
+    2,
+    2,
+    0,
+    0,
+    64 | 0,
+    0,
+    () => RoutingPolicyAssociationDetailsList,
+  ],
 ];
 export var CoreNetworkEdge: StaticStructureSchema = [3, n0, _CNE, 0, [_EL, _As, _ICB], [0, 1, 64 | 0]];
 export var CoreNetworkNetworkFunctionGroup: StaticStructureSchema = [
@@ -944,6 +1026,14 @@ export var CoreNetworkPolicyVersion: StaticStructureSchema = [
   [_CNI, _PVI, _Al, _D, _CA, _CSS],
   [0, 1, 0, 0, 4, 0],
 ];
+export var CoreNetworkRoutingInformation: StaticStructureSchema = [
+  3,
+  n0,
+  _CNRI,
+  0,
+  [_Pr, _NH, _LP, _Me, _AP, _Com],
+  [0, () => RoutingInformationNextHop, 0, 0, 64 | 0, 64 | 0],
+];
 export var CoreNetworkSegment: StaticStructureSchema = [3, n0, _CNS, 0, [_N, _ELd, _SS], [0, 64 | 0, 64 | 0]];
 export var CoreNetworkSegmentEdgeIdentifier: StaticStructureSchema = [3, n0, _CNSEI, 0, [_CNI, _SN, _EL], [0, 0, 0]];
 export var CoreNetworkSummary: StaticStructureSchema = [
@@ -959,8 +1049,8 @@ export var CreateConnectAttachmentRequest: StaticStructureSchema = [
   n0,
   _CCAR,
   0,
-  [_CNI, _EL, _TAI, _O, _T, _CT],
-  [0, 0, 0, () => ConnectAttachmentOptions, () => TagList, [0, 4]],
+  [_CNI, _EL, _TAI, _RPL, _O, _T, _CT],
+  [0, 0, 0, 0, () => ConnectAttachmentOptions, () => TagList, [0, 4]],
 ];
 export var CreateConnectAttachmentResponse: StaticStructureSchema = [
   3,
@@ -988,6 +1078,22 @@ export var CreateConnectPeerRequest: StaticStructureSchema = [
   [0, 0, 0, () => BgpOptions, 64 | 0, () => TagList, [0, 4], 0],
 ];
 export var CreateConnectPeerResponse: StaticStructureSchema = [3, n0, _CCPRr, 0, [_CP], [() => ConnectPeer]];
+export var CreateCoreNetworkPrefixListAssociationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CCNPLAR,
+  0,
+  [_CNI, _PLA, _PLAr, _CT],
+  [0, 0, 0, [0, 4]],
+];
+export var CreateCoreNetworkPrefixListAssociationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CCNPLARr,
+  0,
+  [_CNI, _PLA, _PLAr],
+  [0, 0, 0],
+];
 export var CreateCoreNetworkRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1011,8 +1117,8 @@ export var CreateDirectConnectGatewayAttachmentRequest: StaticStructureSchema = 
   n0,
   _CDCGAR,
   0,
-  [_CNI, _DCGA, _ELd, _T, _CT],
-  [0, 0, 64 | 0, () => TagList, [0, 4]],
+  [_CNI, _DCGA, _RPL, _ELd, _T, _CT],
+  [0, 0, 0, 64 | 0, () => TagList, [0, 4]],
 ];
 export var CreateDirectConnectGatewayAttachmentResponse: StaticStructureSchema = [
   3,
@@ -1029,7 +1135,7 @@ export var CreateLinkRequest: StaticStructureSchema = [
   n0,
   _CLR,
   0,
-  [_GNI, _D, _Ty, _B, _Pr, _SI, _T],
+  [_GNI, _D, _Ty, _B, _Pro, _SI, _T],
   [[0, 1], 0, 0, () => Bandwidth, 0, 0, () => TagList],
 ];
 export var CreateLinkResponse: StaticStructureSchema = [3, n0, _CLRr, 0, [_Li], [() => Link]];
@@ -1047,8 +1153,8 @@ export var CreateSiteToSiteVpnAttachmentRequest: StaticStructureSchema = [
   n0,
   _CSTSVAR,
   0,
-  [_CNI, _VCA, _T, _CT],
-  [0, 0, () => TagList, [0, 4]],
+  [_CNI, _VCA, _RPL, _T, _CT],
+  [0, 0, 0, () => TagList, [0, 4]],
 ];
 export var CreateSiteToSiteVpnAttachmentResponse: StaticStructureSchema = [
   3,
@@ -1079,8 +1185,8 @@ export var CreateTransitGatewayRouteTableAttachmentRequest: StaticStructureSchem
   n0,
   _CTGRTAR,
   0,
-  [_PI, _TGRTA, _T, _CT],
-  [0, 0, () => TagList, [0, 4]],
+  [_PI, _TGRTA, _RPL, _T, _CT],
+  [0, 0, 0, () => TagList, [0, 4]],
 ];
 export var CreateTransitGatewayRouteTableAttachmentResponse: StaticStructureSchema = [
   3,
@@ -1095,8 +1201,8 @@ export var CreateVpcAttachmentRequest: StaticStructureSchema = [
   n0,
   _CVAR,
   0,
-  [_CNI, _VA, _SAu, _O, _T, _CT],
-  [0, 0, 64 | 0, () => VpcOptions, () => TagList, [0, 4]],
+  [_CNI, _VA, _SAu, _O, _RPL, _T, _CT],
+  [0, 0, 64 | 0, () => VpcOptions, 0, () => TagList, [0, 4]],
 ];
 export var CreateVpcAttachmentResponse: StaticStructureSchema = [3, n0, _CVARr, 0, [_VAp], [() => VpcAttachment]];
 export var CustomerGatewayAssociation: StaticStructureSchema = [
@@ -1141,6 +1247,25 @@ export var DeleteCoreNetworkPolicyVersionResponse: StaticStructureSchema = [
   0,
   [_CNP],
   [[() => CoreNetworkPolicy, 0]],
+];
+export var DeleteCoreNetworkPrefixListAssociationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCNPLAR,
+  0,
+  [_CNI, _PLA],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DeleteCoreNetworkPrefixListAssociationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DCNPLARe,
+  0,
+  [_CNI, _PLA],
+  [0, 0],
 ];
 export var DeleteCoreNetworkRequest: StaticStructureSchema = [3, n0, _DCNR, 0, [_CNI], [[0, 1]]];
 export var DeleteCoreNetworkResponse: StaticStructureSchema = [3, n0, _DCNRe, 0, [_CN], [() => CoreNetwork]];
@@ -1645,7 +1770,7 @@ export var GetLinksRequest: StaticStructureSchema = [
   n0,
   _GLR,
   0,
-  [_GNI, _LIi, _SI, _Ty, _Pr, _MR, _NT],
+  [_GNI, _LIi, _SI, _Ty, _Pro, _MR, _NT],
   [
     [0, 1],
     [
@@ -2133,10 +2258,46 @@ export var Link: StaticStructureSchema = [
   n0,
   _Li,
   0,
-  [_LI, _LAin, _GNI, _SI, _D, _Ty, _B, _Pr, _CA, _S, _T],
+  [_LI, _LAin, _GNI, _SI, _D, _Ty, _B, _Pro, _CA, _S, _T],
   [0, 0, 0, 0, 0, 0, () => Bandwidth, 0, 4, 0, () => TagList],
 ];
 export var LinkAssociation: StaticStructureSchema = [3, n0, _LA, 0, [_GNI, _DI, _LI, _LAS], [0, 0, 0, 0]];
+export var ListAttachmentRoutingPolicyAssociationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LARPAR,
+  0,
+  [_CNI, _AI, _MR, _NT],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _aIt,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var ListAttachmentRoutingPolicyAssociationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LARPARi,
+  0,
+  [_ARPA, _NT],
+  [() => AttachmentRoutingPolicyAssociationsList, 0],
+];
 export var ListAttachmentsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2254,6 +2415,79 @@ export var ListCoreNetworkPolicyVersionsResponse: StaticStructureSchema = [
   [_CNPVo, _NT],
   [() => CoreNetworkPolicyVersionList, 0],
 ];
+export var ListCoreNetworkPrefixListAssociationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCNPLAR,
+  0,
+  [_CNI, _PLA, _MR, _NT],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hQ]: _pLA,
+      },
+    ],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var ListCoreNetworkPrefixListAssociationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCNPLARi,
+  0,
+  [_PLAre, _NT],
+  [() => PrefixListAssociationList, 0],
+];
+export var ListCoreNetworkRoutingInformationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCNRIR,
+  0,
+  [_CNI, _SN, _EL, _NHF, _LPMo, _EAPM, _MM, _CM, _MR, _NT],
+  [
+    [0, 1],
+    0,
+    0,
+    [2, n0, _FM, 0, 0, 64 | 0],
+    64 | 0,
+    64 | 0,
+    64 | 0,
+    64 | 0,
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var ListCoreNetworkRoutingInformationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCNRIRi,
+  0,
+  [_CNRI, _NT],
+  [() => CoreNetworkRoutingInformationList, 0],
+];
 export var ListCoreNetworksRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2367,7 +2601,7 @@ export var NetworkResource: StaticStructureSchema = [
   n0,
   _NRet,
   0,
-  [_RGA, _CNI, _AR, _AIc, _RT, _RIe, _RA, _Def, _DT, _T, _Me],
+  [_RGA, _CNI, _AR, _AIc, _RT, _RIe, _RA, _Def, _DT, _T, _Met],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, () => TagList, 128 | 0],
 ];
 export var NetworkResourceCount: StaticStructureSchema = [3, n0, _NRCe, 0, [_RT, _Cou], [0, 1]];
@@ -2446,6 +2680,7 @@ export var PeeringError: StaticStructureSchema = [
   [0, 0, 0, 0, () => PermissionsErrorContext],
 ];
 export var PermissionsErrorContext: StaticStructureSchema = [3, n0, _PEC, 0, [_MP], [0]];
+export var PrefixListAssociation: StaticStructureSchema = [3, n0, _PLAref, 0, [_CNI, _PLA, _PLAr], [0, 0, 0]];
 export var ProposedNetworkFunctionGroupChange: StaticStructureSchema = [
   3,
   n0,
@@ -2455,6 +2690,22 @@ export var ProposedNetworkFunctionGroupChange: StaticStructureSchema = [
   [() => TagList, 1, 0],
 ];
 export var ProposedSegmentChange: StaticStructureSchema = [3, n0, _PSC, 0, [_T, _APRN, _SN], [() => TagList, 1, 0]];
+export var PutAttachmentRoutingPolicyLabelRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PARPLR,
+  0,
+  [_CNI, _AI, _RPL, _CT],
+  [0, 0, 0, [0, 4]],
+];
+export var PutAttachmentRoutingPolicyLabelResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _PARPLRu,
+  0,
+  [_CNI, _AI, _RPL],
+  [0, 0, 0],
+];
 export var PutCoreNetworkPolicyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2495,6 +2746,25 @@ export var RegisterTransitGatewayResponse: StaticStructureSchema = [
 export var RejectAttachmentRequest: StaticStructureSchema = [3, n0, _RAR, 0, [_AI], [[0, 1]]];
 export var RejectAttachmentResponse: StaticStructureSchema = [3, n0, _RARe, 0, [_A], [() => Attachment]];
 export var Relationship: StaticStructureSchema = [3, n0, _Rel, 0, [_F, _To], [0, 0]];
+export var RemoveAttachmentRoutingPolicyLabelRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _RARPLR,
+  0,
+  [_CNI, _AI],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var RemoveAttachmentRoutingPolicyLabelResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _RARPLRe,
+  0,
+  [_CNI, _AI, _RPL],
+  [0, 0, 0],
+];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -2532,7 +2802,7 @@ export var RouteAnalysis: StaticStructureSchema = [
   n0,
   _RAo,
   0,
-  [_GNI, _OAI, _RAI, _ST, _St, _So, _Dest, _IRP, _UM, _FP, _RP],
+  [_GNI, _OAI, _RAI, _ST, _St, _So, _Dest, _IRP, _UM, _FP, _RPe],
   [
     0,
     0,
@@ -2566,6 +2836,15 @@ export var RouteTableIdentifier: StaticStructureSchema = [
   [_TGRTA, _CNSE, _CNNFG],
   [0, () => CoreNetworkSegmentEdgeIdentifier, () => CoreNetworkNetworkFunctionGroupIdentifier],
 ];
+export var RoutingInformationNextHop: StaticStructureSchema = [
+  3,
+  n0,
+  _RINH,
+  0,
+  [_IA, _CNAI, _RIe, _RT, _SN, _EL],
+  [0, 0, 0, 0, 0, 0],
+];
+export var RoutingPolicyAssociationDetail: StaticStructureSchema = [3, n0, _RPADo, 0, [_RPN, _SS], [64 | 0, 64 | 0]];
 export var ServiceInsertionAction: StaticStructureSchema = [
   3,
   n0,
@@ -2725,7 +3004,7 @@ export var UpdateLinkRequest: StaticStructureSchema = [
   n0,
   _ULR,
   0,
-  [_GNI, _LI, _D, _Ty, _B, _Pr],
+  [_GNI, _LI, _D, _Ty, _B, _Pro],
   [[0, 1], [0, 1], 0, 0, () => Bandwidth, 0],
 ];
 export var UpdateLinkResponse: StaticStructureSchema = [3, n0, _ULRp, 0, [_Li], [() => Link]];
@@ -2734,10 +3013,17 @@ export var UpdateNetworkResourceMetadataRequest: StaticStructureSchema = [
   n0,
   _UNRMR,
   0,
-  [_GNI, _RA, _Me],
+  [_GNI, _RA, _Met],
   [[0, 1], [0, 1], 128 | 0],
 ];
-export var UpdateNetworkResourceMetadataResponse: StaticStructureSchema = [3, n0, _UNRMRp, 0, [_RA, _Me], [0, 128 | 0]];
+export var UpdateNetworkResourceMetadataResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UNRMRp,
+  0,
+  [_RA, _Met],
+  [0, 128 | 0],
+];
 export var UpdateSiteRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2796,6 +3082,13 @@ TypeRegistry.for(_sm).registerError(NetworkManagerServiceException, __NetworkMan
 export var AccountStatusList: StaticListSchema = [1, n0, _ASL, 0, () => AccountStatus];
 export var AttachmentErrorList: StaticListSchema = [1, n0, _AEL, 0, () => AttachmentError];
 export var AttachmentList: StaticListSchema = [1, n0, _AL, 0, () => Attachment];
+export var AttachmentRoutingPolicyAssociationsList: StaticListSchema = [
+  1,
+  n0,
+  _ARPAL,
+  0,
+  () => AttachmentRoutingPolicyAssociationSummary,
+];
 export var ConnectionIdList = 64 | 0;
 
 export var ConnectionList: StaticListSchema = [1, n0, _CL, 0, () => Connection];
@@ -2819,6 +3112,13 @@ export var CoreNetworkNetworkFunctionGroupList: StaticListSchema = [
 ];
 export var CoreNetworkPolicyErrorList: StaticListSchema = [1, n0, _CNPEL, 0, () => CoreNetworkPolicyError];
 export var CoreNetworkPolicyVersionList: StaticListSchema = [1, n0, _CNPVL, 0, () => CoreNetworkPolicyVersion];
+export var CoreNetworkRoutingInformationList: StaticListSchema = [
+  1,
+  n0,
+  _CNRIL,
+  0,
+  () => CoreNetworkRoutingInformation,
+];
 export var CoreNetworkSegmentList: StaticListSchema = [1, n0, _CNSL, 0, () => CoreNetworkSegment];
 export var CoreNetworkSummaryList: StaticListSchema = [1, n0, _CNSLo, 0, () => CoreNetworkSummary];
 export var CustomerGatewayArnList = 64 | 0;
@@ -2848,13 +3148,21 @@ export var NetworkRouteDestinationList: StaticListSchema = [1, n0, _NRDL, 0, () 
 export var NetworkRouteList: StaticListSchema = [1, n0, _NRLe, 0, () => NetworkRoute];
 export var NetworkTelemetryList: StaticListSchema = [1, n0, _NTL, 0, () => NetworkTelemetry];
 export var PathComponentList: StaticListSchema = [1, n0, _PCL, 0, () => PathComponent];
-export var PeeringErrorList: StaticListSchema = [1, n0, _PEL, 0, () => PeeringError];
+export var PeeringErrorList: StaticListSchema = [1, n0, _PELee, 0, () => PeeringError];
 export var PeeringList: StaticListSchema = [1, n0, _PL, 0, () => Peering];
+export var PrefixListAssociationList: StaticListSchema = [1, n0, _PLAL, 0, () => PrefixListAssociation];
 export var RelationshipList: StaticListSchema = [1, n0, _RL, 0, () => Relationship];
 export var RouteStateList = 64 | 0;
 
 export var RouteTypeList = 64 | 0;
 
+export var RoutingPolicyAssociationDetailsList: StaticListSchema = [
+  1,
+  n0,
+  _RPADL,
+  0,
+  () => RoutingPolicyAssociationDetail,
+];
 export var ServiceInsertionActionList: StaticListSchema = [1, n0, _SIAL, 0, () => ServiceInsertionAction];
 export var SiteIdList = 64 | 0;
 
@@ -2976,6 +3284,16 @@ export var CreateCoreNetwork: StaticOperationSchema = [
   },
   () => CreateCoreNetworkRequest,
   () => CreateCoreNetworkResponse,
+];
+export var CreateCoreNetworkPrefixListAssociation: StaticOperationSchema = [
+  9,
+  n0,
+  _CCNPLA,
+  {
+    [_h]: ["POST", "/prefix-list", 200],
+  },
+  () => CreateCoreNetworkPrefixListAssociationRequest,
+  () => CreateCoreNetworkPrefixListAssociationResponse,
 ];
 export var CreateDevice: StaticOperationSchema = [
   9,
@@ -3116,6 +3434,16 @@ export var DeleteCoreNetworkPolicyVersion: StaticOperationSchema = [
   },
   () => DeleteCoreNetworkPolicyVersionRequest,
   () => DeleteCoreNetworkPolicyVersionResponse,
+];
+export var DeleteCoreNetworkPrefixListAssociation: StaticOperationSchema = [
+  9,
+  n0,
+  _DCNPLA,
+  {
+    [_h]: ["DELETE", "/prefix-list/{PrefixListArn}/core-network/{CoreNetworkId}", 200],
+  },
+  () => DeleteCoreNetworkPrefixListAssociationRequest,
+  () => DeleteCoreNetworkPrefixListAssociationResponse,
 ];
 export var DeleteDevice: StaticOperationSchema = [
   9,
@@ -3521,6 +3849,16 @@ export var GetVpcAttachment: StaticOperationSchema = [
   () => GetVpcAttachmentRequest,
   () => GetVpcAttachmentResponse,
 ];
+export var ListAttachmentRoutingPolicyAssociations: StaticOperationSchema = [
+  9,
+  n0,
+  _LARPA,
+  {
+    [_h]: ["GET", "/routing-policy-label/core-network/{CoreNetworkId}", 200],
+  },
+  () => ListAttachmentRoutingPolicyAssociationsRequest,
+  () => ListAttachmentRoutingPolicyAssociationsResponse,
+];
 export var ListAttachments: StaticOperationSchema = [
   9,
   n0,
@@ -3551,6 +3889,26 @@ export var ListCoreNetworkPolicyVersions: StaticOperationSchema = [
   () => ListCoreNetworkPolicyVersionsRequest,
   () => ListCoreNetworkPolicyVersionsResponse,
 ];
+export var ListCoreNetworkPrefixListAssociations: StaticOperationSchema = [
+  9,
+  n0,
+  _LCNPLA,
+  {
+    [_h]: ["GET", "/prefix-list/core-network/{CoreNetworkId}", 200],
+  },
+  () => ListCoreNetworkPrefixListAssociationsRequest,
+  () => ListCoreNetworkPrefixListAssociationsResponse,
+];
+export var ListCoreNetworkRoutingInformation: StaticOperationSchema = [
+  9,
+  n0,
+  _LCNRI,
+  {
+    [_h]: ["POST", "/core-networks/{CoreNetworkId}/core-network-routing-information", 200],
+  },
+  () => ListCoreNetworkRoutingInformationRequest,
+  () => ListCoreNetworkRoutingInformationResponse,
+];
 export var ListCoreNetworks: StaticOperationSchema = [
   9,
   n0,
@@ -3574,7 +3932,7 @@ export var ListOrganizationServiceAccessStatus: StaticOperationSchema = [
 export var ListPeerings: StaticOperationSchema = [
   9,
   n0,
-  _LP,
+  _LPi,
   {
     [_h]: ["GET", "/peerings", 200],
   },
@@ -3591,6 +3949,16 @@ export var ListTagsForResource: StaticOperationSchema = [
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
 ];
+export var PutAttachmentRoutingPolicyLabel: StaticOperationSchema = [
+  9,
+  n0,
+  _PARPL,
+  {
+    [_h]: ["POST", "/routing-policy-label", 200],
+  },
+  () => PutAttachmentRoutingPolicyLabelRequest,
+  () => PutAttachmentRoutingPolicyLabelResponse,
+];
 export var PutCoreNetworkPolicy: StaticOperationSchema = [
   9,
   n0,
@@ -3604,7 +3972,7 @@ export var PutCoreNetworkPolicy: StaticOperationSchema = [
 export var PutResourcePolicy: StaticOperationSchema = [
   9,
   n0,
-  _PRP,
+  _PRPu,
   {
     [_h]: ["POST", "/resource-policy/{ResourceArn}", 200],
   },
@@ -3630,6 +3998,16 @@ export var RejectAttachment: StaticOperationSchema = [
   },
   () => RejectAttachmentRequest,
   () => RejectAttachmentResponse,
+];
+export var RemoveAttachmentRoutingPolicyLabel: StaticOperationSchema = [
+  9,
+  n0,
+  _RARPL,
+  {
+    [_h]: ["DELETE", "/routing-policy-label/core-network/{CoreNetworkId}/attachment/{AttachmentId}", 200],
+  },
+  () => RemoveAttachmentRoutingPolicyLabelRequest,
+  () => RemoveAttachmentRoutingPolicyLabelResponse,
 ];
 export var RestoreCoreNetworkPolicyVersion: StaticOperationSchema = [
   9,

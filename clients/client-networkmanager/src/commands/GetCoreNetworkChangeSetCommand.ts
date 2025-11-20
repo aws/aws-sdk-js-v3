@@ -47,7 +47,7 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * // { // GetCoreNetworkChangeSetResponse
  * //   CoreNetworkChanges: [ // CoreNetworkChangeList
  * //     { // CoreNetworkChange
- * //       Type: "CORE_NETWORK_SEGMENT" || "NETWORK_FUNCTION_GROUP" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
+ * //       Type: "CORE_NETWORK_SEGMENT" || "NETWORK_FUNCTION_GROUP" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "ROUTING_POLICY" || "ROUTING_POLICY_SEGMENT_ASSOCIATION" || "ROUTING_POLICY_EDGE_ASSOCIATION" || "ROUTING_POLICY_ATTACHMENT_ASSOCIATION" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
  * //       Action: "ADD" || "MODIFY" || "REMOVE",
  * //       Identifier: "STRING_VALUE",
  * //       PreviousValues: { // CoreNetworkChangeValues
@@ -96,6 +96,22 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //         VpnEcmpSupport: true || false,
  * //         DnsSupport: true || false,
  * //         SecurityGroupReferencingSupport: true || false,
+ * //         RoutingPolicyDirection: "inbound" || "outbound",
+ * //         RoutingPolicy: "STRING_VALUE",
+ * //         PeerEdgeLocations: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AttachmentId: "STRING_VALUE",
+ * //         RoutingPolicyAssociationDetails: [ // RoutingPolicyAssociationDetailsList
+ * //           { // RoutingPolicyAssociationDetail
+ * //             RoutingPolicyNames: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             SharedSegments: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //       NewValues: {
  * //         SegmentName: "STRING_VALUE",
@@ -109,9 +125,7 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //         InsideCidrBlocks: [
  * //           "STRING_VALUE",
  * //         ],
- * //         SharedSegments: [
- * //           "STRING_VALUE",
- * //         ],
+ * //         SharedSegments: "<ConstrainedStringList>",
  * //         ServiceInsertionActions: [
  * //           {
  * //             Action: "send-via" || "send-to",
@@ -143,6 +157,18 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //         VpnEcmpSupport: true || false,
  * //         DnsSupport: true || false,
  * //         SecurityGroupReferencingSupport: true || false,
+ * //         RoutingPolicyDirection: "inbound" || "outbound",
+ * //         RoutingPolicy: "STRING_VALUE",
+ * //         PeerEdgeLocations: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AttachmentId: "STRING_VALUE",
+ * //         RoutingPolicyAssociationDetails: [
+ * //           {
+ * //             RoutingPolicyNames: "<ConstrainedStringList>",
+ * //             SharedSegments: "<ConstrainedStringList>",
+ * //           },
+ * //         ],
  * //       },
  * //       IdentifierPath: "STRING_VALUE",
  * //     },
