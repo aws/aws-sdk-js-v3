@@ -217,6 +217,7 @@ export type ProductCodeType = (typeof ProductCodeType)[keyof typeof ProductCodeT
 export const ReportFrequencyType = {
   DAY: "DAY",
   MONTH: "MONTH",
+  ONE_TIME: "ONE_TIME",
   WEEK: "WEEK",
 } as const;
 /**
@@ -229,6 +230,7 @@ export type ReportFrequencyType = (typeof ReportFrequencyType)[keyof typeof Repo
  * @enum
  */
 export const ReportType = {
+  LICENSE_ASSET_GROUP_USAGE_REPORT: "LicenseAssetGroupUsageReport",
   LICENSE_CONFIGURATION_SUMMARY_REPORT: "LicenseConfigurationSummaryReport",
   LICENSE_CONFIGURATION_USAGE_REPORT: "LicenseConfigurationUsageReport",
 } as const;
@@ -261,6 +263,20 @@ export const LicenseDeletionStatus = {
  * @public
  */
 export type LicenseDeletionStatus = (typeof LicenseDeletionStatus)[keyof typeof LicenseDeletionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseAssetGroupStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+} as const;
+/**
+ * @public
+ */
+export type LicenseAssetGroupStatus = (typeof LicenseAssetGroupStatus)[keyof typeof LicenseAssetGroupStatus];
 
 /**
  * @public

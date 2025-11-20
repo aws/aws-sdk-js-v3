@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource } from "../schemas/schemas_0";
+import { DeleteLicenseAssetGroupRequest, DeleteLicenseAssetGroupResponse } from "../models/models_0";
+import { DeleteLicenseAssetGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,47 +16,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link DeleteLicenseAssetGroupCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface DeleteLicenseAssetGroupCommandInput extends DeleteLicenseAssetGroupRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link DeleteLicenseAssetGroupCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteLicenseAssetGroupCommandOutput extends DeleteLicenseAssetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified resource. For more information about tagging support in
- *          License Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
+ * <p>Deletes a license asset group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListTagsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, DeleteLicenseAssetGroupCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, DeleteLicenseAssetGroupCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
  * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
- * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ * const input = { // DeleteLicenseAssetGroupRequest
+ *   LicenseAssetGroupArn: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteLicenseAssetGroupCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE",
- * //       Value: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // DeleteLicenseAssetGroupResponse
+ * //   Status: "ACTIVE" || "DISABLED" || "DELETED", // required
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param DeleteLicenseAssetGroupCommandInput - {@link DeleteLicenseAssetGroupCommandInput}
+ * @returns {@link DeleteLicenseAssetGroupCommandOutput}
+ * @see {@link DeleteLicenseAssetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteLicenseAssetGroupCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,10 +78,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class DeleteLicenseAssetGroupCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    DeleteLicenseAssetGroupCommandInput,
+    DeleteLicenseAssetGroupCommandOutput,
     LicenseManagerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,19 +90,19 @@ export class ListTagsForResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSLicenseManager", "ListTagsForResource", {})
-  .n("LicenseManagerClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource)
+  .s("AWSLicenseManager", "DeleteLicenseAssetGroup", {})
+  .n("LicenseManagerClient", "DeleteLicenseAssetGroupCommand")
+  .sc(DeleteLicenseAssetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: DeleteLicenseAssetGroupRequest;
+      output: DeleteLicenseAssetGroupResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: DeleteLicenseAssetGroupCommandInput;
+      output: DeleteLicenseAssetGroupCommandOutput;
     };
   };
 }

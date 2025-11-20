@@ -91,6 +91,7 @@ export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigur
  * //     LastRunTime: new Date("TIMESTAMP"),
  * //   },
  * //   DisassociateWhenNotFound: true || false,
+ * //   LicenseExpiry: Number("long"),
  * // };
  *
  * ```

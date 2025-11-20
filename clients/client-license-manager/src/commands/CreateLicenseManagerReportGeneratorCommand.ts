@@ -44,16 +44,21 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * const input = { // CreateLicenseManagerReportGeneratorRequest
  *   ReportGeneratorName: "STRING_VALUE", // required
  *   Type: [ // ReportTypeList // required
- *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport" || "LicenseAssetGroupUsageReport",
  *   ],
  *   ReportContext: { // ReportContext
- *     licenseConfigurationArns: [ // ArnList // required
+ *     licenseConfigurationArns: [ // ArnList
  *       "STRING_VALUE",
  *     ],
+ *     licenseAssetGroupArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     reportStartDate: new Date("TIMESTAMP"),
+ *     reportEndDate: new Date("TIMESTAMP"),
  *   },
  *   ReportFrequency: { // ReportFrequency
  *     value: Number("int"),
- *     period: "DAY" || "WEEK" || "MONTH",
+ *     period: "DAY" || "WEEK" || "MONTH" || "ONE_TIME",
  *   },
  *   ClientToken: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",

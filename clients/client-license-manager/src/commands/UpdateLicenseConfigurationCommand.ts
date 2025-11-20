@@ -61,6 +61,7 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  *     },
  *   ],
  *   DisassociateWhenNotFound: true || false,
+ *   LicenseExpiry: Number("long"),
  * };
  * const command = new UpdateLicenseConfigurationCommand(input);
  * const response = await client.send(command);

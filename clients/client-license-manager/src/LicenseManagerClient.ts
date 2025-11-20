@@ -66,6 +66,14 @@ import {
 import { CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput } from "./commands/CheckoutLicenseCommand";
 import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
 import { CreateGrantVersionCommandInput, CreateGrantVersionCommandOutput } from "./commands/CreateGrantVersionCommand";
+import {
+  CreateLicenseAssetGroupCommandInput,
+  CreateLicenseAssetGroupCommandOutput,
+} from "./commands/CreateLicenseAssetGroupCommand";
+import {
+  CreateLicenseAssetRulesetCommandInput,
+  CreateLicenseAssetRulesetCommandOutput,
+} from "./commands/CreateLicenseAssetRulesetCommand";
 import { CreateLicenseCommandInput, CreateLicenseCommandOutput } from "./commands/CreateLicenseCommand";
 import {
   CreateLicenseConfigurationCommandInput,
@@ -85,6 +93,14 @@ import {
 } from "./commands/CreateLicenseVersionCommand";
 import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import { DeleteGrantCommandInput, DeleteGrantCommandOutput } from "./commands/DeleteGrantCommand";
+import {
+  DeleteLicenseAssetGroupCommandInput,
+  DeleteLicenseAssetGroupCommandOutput,
+} from "./commands/DeleteLicenseAssetGroupCommand";
+import {
+  DeleteLicenseAssetRulesetCommandInput,
+  DeleteLicenseAssetRulesetCommandOutput,
+} from "./commands/DeleteLicenseAssetRulesetCommand";
 import { DeleteLicenseCommandInput, DeleteLicenseCommandOutput } from "./commands/DeleteLicenseCommand";
 import {
   DeleteLicenseConfigurationCommandInput,
@@ -101,6 +117,14 @@ import {
 } from "./commands/ExtendLicenseConsumptionCommand";
 import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
 import { GetGrantCommandInput, GetGrantCommandOutput } from "./commands/GetGrantCommand";
+import {
+  GetLicenseAssetGroupCommandInput,
+  GetLicenseAssetGroupCommandOutput,
+} from "./commands/GetLicenseAssetGroupCommand";
+import {
+  GetLicenseAssetRulesetCommandInput,
+  GetLicenseAssetRulesetCommandOutput,
+} from "./commands/GetLicenseAssetRulesetCommand";
 import { GetLicenseCommandInput, GetLicenseCommandOutput } from "./commands/GetLicenseCommand";
 import {
   GetLicenseConfigurationCommandInput,
@@ -117,6 +141,10 @@ import {
 import { GetLicenseUsageCommandInput, GetLicenseUsageCommandOutput } from "./commands/GetLicenseUsageCommand";
 import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "./commands/GetServiceSettingsCommand";
 import {
+  ListAssetsForLicenseAssetGroupCommandInput,
+  ListAssetsForLicenseAssetGroupCommandOutput,
+} from "./commands/ListAssetsForLicenseAssetGroupCommand";
+import {
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput,
 } from "./commands/ListAssociationsForLicenseConfigurationCommand";
@@ -129,9 +157,21 @@ import {
   ListFailuresForLicenseConfigurationOperationsCommandOutput,
 } from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
 import {
+  ListLicenseAssetGroupsCommandInput,
+  ListLicenseAssetGroupsCommandOutput,
+} from "./commands/ListLicenseAssetGroupsCommand";
+import {
+  ListLicenseAssetRulesetsCommandInput,
+  ListLicenseAssetRulesetsCommandOutput,
+} from "./commands/ListLicenseAssetRulesetsCommand";
+import {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseConfigurationsForOrganizationCommandInput,
+  ListLicenseConfigurationsForOrganizationCommandOutput,
+} from "./commands/ListLicenseConfigurationsForOrganizationCommand";
 import {
   ListLicenseConversionTasksCommandInput,
   ListLicenseConversionTasksCommandOutput,
@@ -179,6 +219,14 @@ import { RejectGrantCommandInput, RejectGrantCommandOutput } from "./commands/Re
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateLicenseAssetGroupCommandInput,
+  UpdateLicenseAssetGroupCommandOutput,
+} from "./commands/UpdateLicenseAssetGroupCommand";
+import {
+  UpdateLicenseAssetRulesetCommandInput,
+  UpdateLicenseAssetRulesetCommandOutput,
+} from "./commands/UpdateLicenseAssetRulesetCommand";
+import {
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput,
 } from "./commands/UpdateLicenseConfigurationCommand";
@@ -215,6 +263,8 @@ export type ServiceInputTypes =
   | CheckoutLicenseCommandInput
   | CreateGrantCommandInput
   | CreateGrantVersionCommandInput
+  | CreateLicenseAssetGroupCommandInput
+  | CreateLicenseAssetRulesetCommandInput
   | CreateLicenseCommandInput
   | CreateLicenseConfigurationCommandInput
   | CreateLicenseConversionTaskForResourceCommandInput
@@ -222,6 +272,8 @@ export type ServiceInputTypes =
   | CreateLicenseVersionCommandInput
   | CreateTokenCommandInput
   | DeleteGrantCommandInput
+  | DeleteLicenseAssetGroupCommandInput
+  | DeleteLicenseAssetRulesetCommandInput
   | DeleteLicenseCommandInput
   | DeleteLicenseConfigurationCommandInput
   | DeleteLicenseManagerReportGeneratorCommandInput
@@ -229,16 +281,22 @@ export type ServiceInputTypes =
   | ExtendLicenseConsumptionCommandInput
   | GetAccessTokenCommandInput
   | GetGrantCommandInput
+  | GetLicenseAssetGroupCommandInput
+  | GetLicenseAssetRulesetCommandInput
   | GetLicenseCommandInput
   | GetLicenseConfigurationCommandInput
   | GetLicenseConversionTaskCommandInput
   | GetLicenseManagerReportGeneratorCommandInput
   | GetLicenseUsageCommandInput
   | GetServiceSettingsCommandInput
+  | ListAssetsForLicenseAssetGroupCommandInput
   | ListAssociationsForLicenseConfigurationCommandInput
   | ListDistributedGrantsCommandInput
   | ListFailuresForLicenseConfigurationOperationsCommandInput
+  | ListLicenseAssetGroupsCommandInput
+  | ListLicenseAssetRulesetsCommandInput
   | ListLicenseConfigurationsCommandInput
+  | ListLicenseConfigurationsForOrganizationCommandInput
   | ListLicenseConversionTasksCommandInput
   | ListLicenseManagerReportGeneratorsCommandInput
   | ListLicenseSpecificationsForResourceCommandInput
@@ -255,6 +313,8 @@ export type ServiceInputTypes =
   | RejectGrantCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateLicenseAssetGroupCommandInput
+  | UpdateLicenseAssetRulesetCommandInput
   | UpdateLicenseConfigurationCommandInput
   | UpdateLicenseManagerReportGeneratorCommandInput
   | UpdateLicenseSpecificationsForResourceCommandInput
@@ -270,6 +330,8 @@ export type ServiceOutputTypes =
   | CheckoutLicenseCommandOutput
   | CreateGrantCommandOutput
   | CreateGrantVersionCommandOutput
+  | CreateLicenseAssetGroupCommandOutput
+  | CreateLicenseAssetRulesetCommandOutput
   | CreateLicenseCommandOutput
   | CreateLicenseConfigurationCommandOutput
   | CreateLicenseConversionTaskForResourceCommandOutput
@@ -277,6 +339,8 @@ export type ServiceOutputTypes =
   | CreateLicenseVersionCommandOutput
   | CreateTokenCommandOutput
   | DeleteGrantCommandOutput
+  | DeleteLicenseAssetGroupCommandOutput
+  | DeleteLicenseAssetRulesetCommandOutput
   | DeleteLicenseCommandOutput
   | DeleteLicenseConfigurationCommandOutput
   | DeleteLicenseManagerReportGeneratorCommandOutput
@@ -284,16 +348,22 @@ export type ServiceOutputTypes =
   | ExtendLicenseConsumptionCommandOutput
   | GetAccessTokenCommandOutput
   | GetGrantCommandOutput
+  | GetLicenseAssetGroupCommandOutput
+  | GetLicenseAssetRulesetCommandOutput
   | GetLicenseCommandOutput
   | GetLicenseConfigurationCommandOutput
   | GetLicenseConversionTaskCommandOutput
   | GetLicenseManagerReportGeneratorCommandOutput
   | GetLicenseUsageCommandOutput
   | GetServiceSettingsCommandOutput
+  | ListAssetsForLicenseAssetGroupCommandOutput
   | ListAssociationsForLicenseConfigurationCommandOutput
   | ListDistributedGrantsCommandOutput
   | ListFailuresForLicenseConfigurationOperationsCommandOutput
+  | ListLicenseAssetGroupsCommandOutput
+  | ListLicenseAssetRulesetsCommandOutput
   | ListLicenseConfigurationsCommandOutput
+  | ListLicenseConfigurationsForOrganizationCommandOutput
   | ListLicenseConversionTasksCommandOutput
   | ListLicenseManagerReportGeneratorsCommandOutput
   | ListLicenseSpecificationsForResourceCommandOutput
@@ -310,6 +380,8 @@ export type ServiceOutputTypes =
   | RejectGrantCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateLicenseAssetGroupCommandOutput
+  | UpdateLicenseAssetRulesetCommandOutput
   | UpdateLicenseConfigurationCommandOutput
   | UpdateLicenseManagerReportGeneratorCommandOutput
   | UpdateLicenseSpecificationsForResourceCommandOutput

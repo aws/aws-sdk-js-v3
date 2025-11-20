@@ -71,6 +71,7 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  *       ],
  *     },
  *   ],
+ *   LicenseExpiry: Number("long"),
  * };
  * const command = new CreateLicenseConfigurationCommand(input);
  * const response = await client.send(command);

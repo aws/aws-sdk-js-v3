@@ -1,3 +1,5 @@
+const _A = "Asset";
+const _AA = "AssetArn";
 const _AAS = "AmiAssociationScope";
 const _AC = "AssociationCount";
 const _ACI = "AllowCheckIn";
@@ -8,15 +10,23 @@ const _AECI = "AllowEarlyCheckIn";
 const _AG = "AcceptGrant";
 const _AGR = "AcceptGrantRequest";
 const _AGRc = "AcceptGrantResponse";
+const _AI = "AmiId";
+const _AL = "AssetList";
+const _ALARARN = "AssociatedLicenseAssetRulesetARNs";
 const _ALS = "AddLicenseSpecifications";
 const _AO = "AllowedOperations";
 const _AOB = "ActivationOverrideBehavior";
+const _ARS = "AndRuleStatement";
 const _AT = "AccessToken";
 const _ATs = "AssociationTime";
+const _ATss = "AssetType";
+const _As = "Assets";
 const _B = "Beneficiary";
 const _BC = "BorrowConfiguration";
 const _Be = "Begin";
 const _C = "Condition";
+const _CAD = "CrossAccountDiscovery";
+const _CADSS = "CrossAccountDiscoveryServiceStatus";
 const _CBL = "CheckoutBorrowLicense";
 const _CBLR = "CheckoutBorrowLicenseRequest";
 const _CBLRh = "CheckoutBorrowLicenseResponse";
@@ -32,6 +42,12 @@ const _CIL = "CheckInLicense";
 const _CILR = "CheckInLicenseRequest";
 const _CILRh = "CheckInLicenseResponse";
 const _CL = "ConsumedLicenses";
+const _CLAG = "CreateLicenseAssetGroup";
+const _CLAGR = "CreateLicenseAssetGroupRequest";
+const _CLAGRr = "CreateLicenseAssetGroupResponse";
+const _CLAR = "CreateLicenseAssetRuleset";
+const _CLARR = "CreateLicenseAssetRulesetRequest";
+const _CLARRr = "CreateLicenseAssetRulesetResponse";
 const _CLC = "CreateLicenseConfiguration";
 const _CLCR = "CreateLicenseConfigurationRequest";
 const _CLCRr = "CreateLicenseConfigurationResponse";
@@ -53,6 +69,10 @@ const _CLVRr = "CreateLicenseVersionResponse";
 const _CLh = "CheckoutLicense";
 const _CLr = "CreateLicense";
 const _CM = "CheckoutMetadata";
+const _CRD = "CrossRegionDiscovery";
+const _CRDHR = "CrossRegionDiscoveryHomeRegion";
+const _CRDS = "CrossRegionDiscoveryStatus";
+const _CRDSR = "CrossRegionDiscoverySourceRegions";
 const _CT = "ClientToken";
 const _CTR = "CreateTokenRequest";
 const _CTRr = "CreateTokenResponse";
@@ -60,12 +80,19 @@ const _CTh = "CheckoutType";
 const _CTr = "CreateTime";
 const _CTre = "CreateToken";
 const _CV = "ConsumedValue";
+const _Co = "Constraint";
 const _D = "Description";
 const _DD = "DeletionDate";
 const _DG = "DeleteGrant";
 const _DGR = "DeleteGrantRequest";
 const _DGRe = "DeleteGrantResponse";
 const _DL = "DeleteLicense";
+const _DLAG = "DeleteLicenseAssetGroup";
+const _DLAGR = "DeleteLicenseAssetGroupRequest";
+const _DLAGRe = "DeleteLicenseAssetGroupResponse";
+const _DLAR = "DeleteLicenseAssetRuleset";
+const _DLARR = "DeleteLicenseAssetRulesetRequest";
+const _DLARRe = "DeleteLicenseAssetRulesetResponse";
 const _DLC = "DestinationLicenseContext";
 const _DLCR = "DeleteLicenseConfigurationRequest";
 const _DLCRe = "DeleteLicenseConfigurationResponse";
@@ -88,6 +115,7 @@ const _EC = "ErrorCode";
 const _ECAD = "EnableCrossAccountsDiscovery";
 const _ED = "EntitlementData";
 const _EDL = "EntitlementDataList";
+const _EDSR = "EnabledDiscoverySourceRegions";
 const _EI = "EnableIntegration";
 const _EID = "ExpirationInDays";
 const _EL = "EntitlementList";
@@ -121,6 +149,12 @@ const _GG = "GetGrant";
 const _GGR = "GetGrantRequest";
 const _GGRe = "GetGrantResponse";
 const _GL = "GrantedLicense";
+const _GLAG = "GetLicenseAssetGroup";
+const _GLAGR = "GetLicenseAssetGroupRequest";
+const _GLAGRe = "GetLicenseAssetGroupResponse";
+const _GLAR = "GetLicenseAssetRuleset";
+const _GLARR = "GetLicenseAssetRulesetRequest";
+const _GLARRe = "GetLicenseAssetRulesetResponse";
 const _GLC = "GetLicenseConfiguration";
 const _GLCR = "GetLicenseConfigurationRequest";
 const _GLCRe = "GetLicenseConfigurationResponse";
@@ -146,6 +180,7 @@ const _GSS = "GetServiceSettings";
 const _GSSR = "GetServiceSettingsRequest";
 const _GSSRe = "GetServiceSettingsResponse";
 const _Gr = "Grants";
+const _HI = "HostId";
 const _HR = "HomeRegion";
 const _I = "Issuer";
 const _IA = "IssuedAt";
@@ -153,14 +188,36 @@ const _ID = "IssuerDetails";
 const _IF = "InventoryFilter";
 const _IFL = "InventoryFilterList";
 const _IPVE = "InvalidParameterValueException";
+const _IRS = "InstanceRuleStatement";
 const _IRSE = "InvalidResourceStateException";
+const _IT = "InstanceType";
 const _K = "Key";
 const _KF = "KeyFingerprint";
+const _KTM = "KeyToMatch";
 const _L = "License";
 const _LA = "LicenseArn";
+const _LADT = "LatestAssetDiscoveryTime";
+const _LAFLAG = "ListAssetsForLicenseAssetGroup";
+const _LAFLAGR = "ListAssetsForLicenseAssetGroupRequest";
+const _LAFLAGRi = "ListAssetsForLicenseAssetGroupResponse";
 const _LAFLC = "ListAssociationsForLicenseConfiguration";
 const _LAFLCR = "ListAssociationsForLicenseConfigurationRequest";
 const _LAFLCRi = "ListAssociationsForLicenseConfigurationResponse";
+const _LAG = "LicenseAssetGroup";
+const _LAGA = "LicenseAssetGroupArn";
+const _LAGC = "LicenseAssetGroupConfigurations";
+const _LAGCL = "LicenseAssetGroupConfigurationList";
+const _LAGCi = "LicenseAssetGroupConfiguration";
+const _LAGL = "LicenseAssetGroupList";
+const _LAGP = "LicenseAssetGroupProperty";
+const _LAGPL = "LicenseAssetGroupPropertyList";
+const _LAGi = "LicenseAssetGroups";
+const _LAR = "LicenseAssetRuleset";
+const _LARA = "LicenseAssetRulesetArn";
+const _LARL = "LicenseAssetRuleList";
+const _LARLi = "LicenseAssetRulesetList";
+const _LARi = "LicenseAssetRule";
+const _LARic = "LicenseAssetRulesets";
 const _LAi = "LicenseArns";
 const _LC = "LicenseCount";
 const _LCA = "LicenseConfigurationArn";
@@ -170,6 +227,7 @@ const _LCAice = "LicenseConfigurationArns";
 const _LCC = "LicenseConversionContext";
 const _LCHL = "LicenseCountHardLimit";
 const _LCI = "LicenseConfigurationId";
+const _LCRS = "LicenseConfigurationRuleStatement";
 const _LCS = "LicenseConfigurationStatus";
 const _LCT = "LicenseConsumptionToken";
 const _LCTI = "LicenseConversionTaskId";
@@ -184,11 +242,21 @@ const _LCic = "LicenseConfigurations";
 const _LDG = "ListDistributedGrants";
 const _LDGR = "ListDistributedGrantsRequest";
 const _LDGRi = "ListDistributedGrantsResponse";
+const _LE = "LicenseExpiry";
 const _LFFLCO = "ListFailuresForLicenseConfigurationOperations";
 const _LFFLCOR = "ListFailuresForLicenseConfigurationOperationsRequest";
 const _LFFLCORi = "ListFailuresForLicenseConfigurationOperationsResponse";
 const _LL = "LicenseList";
+const _LLAG = "ListLicenseAssetGroups";
+const _LLAGR = "ListLicenseAssetGroupsRequest";
+const _LLAGRi = "ListLicenseAssetGroupsResponse";
+const _LLAR = "ListLicenseAssetRulesets";
+const _LLARR = "ListLicenseAssetRulesetsRequest";
+const _LLARRi = "ListLicenseAssetRulesetsResponse";
 const _LLC = "ListLicenseConfigurations";
+const _LLCFO = "ListLicenseConfigurationsForOrganization";
+const _LLCFOR = "ListLicenseConfigurationsForOrganizationRequest";
+const _LLCFORi = "ListLicenseConfigurationsForOrganizationResponse";
 const _LLCR = "ListLicenseConfigurationsRequest";
 const _LLCRi = "ListLicenseConfigurationsResponse";
 const _LLCT = "ListLicenseConversionTasks";
@@ -213,6 +281,7 @@ const _LN = "LicenseName";
 const _LOF = "LicenseOperationFailure";
 const _LOFL = "LicenseOperationFailureList";
 const _LR = "LicenseRules";
+const _LRDT = "LatestResourceDiscoveryTime";
 const _LRFR = "LastRunFailureReason";
 const _LRG = "ListReceivedGrants";
 const _LRGFO = "ListReceivedGrantsForOrganization";
@@ -230,7 +299,8 @@ const _LRLFOR = "ListReceivedLicensesForOrganizationRequest";
 const _LRLFORi = "ListReceivedLicensesForOrganizationResponse";
 const _LRLR = "ListReceivedLicensesRequest";
 const _LRLRi = "ListReceivedLicensesResponse";
-const _LRS = "LastRunStatus";
+const _LRS = "LicenseRuleStatement";
+const _LRSa = "LastRunStatus";
 const _LRT = "LastRunTime";
 const _LS = "LicenseSpecification";
 const _LSi = "LicenseSpecifications";
@@ -241,6 +311,7 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTokensRequest";
 const _LTRi = "ListTokensResponse";
 const _LU = "LicenseUsage";
+const _LUAT = "LatestUsageAnalysisTime";
 const _LUE = "LicenseUsageException";
 const _LUFLC = "ListUsageForLicenseConfiguration";
 const _LUFLCR = "ListUsageForLicenseConfigurationRequest";
@@ -250,9 +321,13 @@ const _Lo = "Location";
 const _M = "Message";
 const _MC = "MaxCount";
 const _ML = "MetadataList";
+const _MPC = "MarketplaceProductCodes";
 const _MR = "MaxResults";
-const _MRS = "ManagedResourceSummary";
+const _MRS = "MatchingRuleStatements";
 const _MRSL = "ManagedResourceSummaryList";
+const _MRSLa = "MatchingRuleStatementList";
+const _MRSa = "MatchingRuleStatement";
+const _MRSan = "ManagedResourceSummary";
 const _MTTLIM = "MaxTimeToLiveInMinutes";
 const _Me = "Metadata";
 const _N = "Name";
@@ -264,6 +339,7 @@ const _OAI = "OwnerAccountId";
 const _OC = "OrganizationConfiguration";
 const _ON = "OperationName";
 const _ORB = "OperationRequestedBy";
+const _ORS = "OrRuleStatement";
 const _Ov = "Overage";
 const _P = "Principals";
 const _PA = "ParentArn";
@@ -284,6 +360,8 @@ const _PN = "ProductName";
 const _PSKU = "ProductSKU";
 const _PV = "PlatformVersion";
 const _Pl = "Platform";
+const _Pr = "Properties";
+const _R = "Rules";
 const _RA = "ResourceArn";
 const _RAo = "RoleArns";
 const _RC = "ReportContext";
@@ -307,13 +385,18 @@ const _RM = "ReceivedMetadata";
 const _RNFE = "ResourceNotFoundException";
 const _ROAI = "ResourceOwningAccountId";
 const _ROI = "ResourceOwnerId";
-const _RS = "ResourceStatus";
+const _RS = "RuleStatement";
+const _RSM = "RegionStatusMap";
 const _RSR = "ReceivedStatusReason";
-const _RSe = "ReceivedStatus";
+const _RSe = "ResourceStatus";
+const _RSec = "ReceivedStatus";
+const _RSeg = "RegionStatus";
 const _RT = "ResourceType";
 const _RTe = "RenewType";
 const _RTep = "ReportType";
+const _Re = "Region";
 const _S = "Status";
+const _SAWSMLAR = "ShowAWSManagedLicenseAssetRulesets";
 const _SBA = "S3BucketArn";
 const _SIE = "ServerInternalException";
 const _SK = "SignKey";
@@ -321,10 +404,15 @@ const _SL = "S3Location";
 const _SLC = "SourceLicenseContext";
 const _SM = "StatusMessage";
 const _SR = "StatusReason";
+const _SRS = "ScriptRuleStatements";
+const _SRSL = "ScriptRuleStatementList";
+const _SRSc = "ScriptRuleStatement";
+const _SS = "ServiceStatus";
 const _ST = "SignedToken";
 const _STA = "SnsTopicArn";
 const _STt = "StartTime";
 const _SV = "SourceVersion";
+const _Sc = "Script";
 const _T = "Tags";
 const _TD = "TokenData";
 const _TI = "TokenId";
@@ -342,7 +430,14 @@ const _To = "Token";
 const _Tok = "Tokens";
 const _Ty = "Type";
 const _U = "Unit";
+const _UD = "UsageDimension";
 const _UDSME = "UnsupportedDigitalSignatureMethodException";
+const _ULAG = "UpdateLicenseAssetGroup";
+const _ULAGR = "UpdateLicenseAssetGroupRequest";
+const _ULAGRp = "UpdateLicenseAssetGroupResponse";
+const _ULAR = "UpdateLicenseAssetRuleset";
+const _ULARR = "UpdateLicenseAssetRulesetRequest";
+const _ULARRp = "UpdateLicenseAssetRulesetResponse";
 const _ULC = "UpdateLicenseConfiguration";
 const _ULCR = "UpdateLicenseConfigurationRequest";
 const _ULCRp = "UpdateLicenseConfigurationResponse";
@@ -361,6 +456,7 @@ const _USSR = "UpdateServiceSettingsRequest";
 const _USSRp = "UpdateServiceSettingsResponse";
 const _V = "Version";
 const _VE = "ValidationException";
+const _VTM = "ValueToMatch";
 const _Va = "Validity";
 const _Val = "Value";
 const _Valu = "Values";
@@ -372,8 +468,11 @@ const _hE = "httpError";
 const _hH = "httpHeader";
 const _i = "item";
 const _kP = "keyPrefix";
+const _lAGA = "licenseAssetGroupArns";
 const _lCA = "licenseConfigurationArns";
 const _p = "period";
+const _rED = "reportEndDate";
+const _rSD = "reportStartDate";
 const _s = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanager";
 const _v = "value";
@@ -382,7 +481,13 @@ const n0 = "com.amazonaws.licensemanager";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticMapSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException as __AccessDeniedException,
@@ -423,6 +528,15 @@ export var AccessDeniedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
 
+export var AndRuleStatement: StaticStructureSchema = [
+  3,
+  n0,
+  _ARS,
+  0,
+  [_MRS, _SRS],
+  [() => MatchingRuleStatementList, () => ScriptRuleStatementList],
+];
+export var Asset: StaticStructureSchema = [3, n0, _A, 0, [_AA, _LADT], [0, 4]];
 export var AuthorizationException: StaticErrorSchema = [
   -3,
   n0,
@@ -514,13 +628,31 @@ export var CreateGrantVersionRequest: StaticStructureSchema = [
   [0, 0, 0, 64 | 0, 0, 0, 0, () => Options],
 ];
 export var CreateGrantVersionResponse: StaticStructureSchema = [3, n0, _CGVRr, 0, [_GA, _S, _V], [0, 0, 0]];
+export var CreateLicenseAssetGroupRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CLAGR,
+  0,
+  [_N, _D, _LAGC, _ALARARN, _Pr, _T, _CT],
+  [0, 0, () => LicenseAssetGroupConfigurationList, 64 | 0, () => LicenseAssetGroupPropertyList, () => TagList, 0],
+];
+export var CreateLicenseAssetGroupResponse: StaticStructureSchema = [3, n0, _CLAGRr, 0, [_LAGA, _S], [0, 0]];
+export var CreateLicenseAssetRulesetRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CLARR,
+  0,
+  [_N, _D, _R, _T, _CT],
+  [0, 0, () => LicenseAssetRuleList, () => TagList, 0],
+];
+export var CreateLicenseAssetRulesetResponse: StaticStructureSchema = [3, n0, _CLARRr, 0, [_LARA], [0]];
 export var CreateLicenseConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
   _CLCR,
   0,
-  [_N, _D, _LCTi, _LC, _LCHL, _LR, _T, _DWNF, _PIL],
-  [0, 0, 0, 1, 2, 64 | 0, () => TagList, 2, () => ProductInformationList],
+  [_N, _D, _LCTi, _LC, _LCHL, _LR, _T, _DWNF, _PIL, _LE],
+  [0, 0, 0, 1, 2, 64 | 0, () => TagList, 2, () => ProductInformationList, 1],
 ];
 export var CreateLicenseConfigurationResponse: StaticStructureSchema = [3, n0, _CLCRr, 0, [_LCA], [0]];
 export var CreateLicenseConversionTaskForResourceRequest: StaticStructureSchema = [
@@ -594,9 +726,15 @@ export var CreateTokenRequest: StaticStructureSchema = [
   [0, 64 | 0, 1, 64 | 0, 0],
 ];
 export var CreateTokenResponse: StaticStructureSchema = [3, n0, _CTRr, 0, [_TI, _TT, _To], [0, 0, 0]];
+export var CrossAccountDiscoveryServiceStatus: StaticStructureSchema = [3, n0, _CADSS, 0, [_M], [0]];
+export var CrossRegionDiscoveryStatus: StaticStructureSchema = [3, n0, _CRDS, 0, [_M], [() => RegionStatusMap]];
 export var DatetimeRange: StaticStructureSchema = [3, n0, _DR, 0, [_Be, _En], [0, 0]];
 export var DeleteGrantRequest: StaticStructureSchema = [3, n0, _DGR, 0, [_GA, _SR, _V], [0, 0, 0]];
 export var DeleteGrantResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [_GA, _S, _V], [0, 0, 0]];
+export var DeleteLicenseAssetGroupRequest: StaticStructureSchema = [3, n0, _DLAGR, 0, [_LAGA], [0]];
+export var DeleteLicenseAssetGroupResponse: StaticStructureSchema = [3, n0, _DLAGRe, 0, [_S], [0]];
+export var DeleteLicenseAssetRulesetRequest: StaticStructureSchema = [3, n0, _DLARR, 0, [_LARA], [0]];
+export var DeleteLicenseAssetRulesetResponse: StaticStructureSchema = [3, n0, _DLARRe, 0, [], []];
 export var DeleteLicenseConfigurationRequest: StaticStructureSchema = [3, n0, _DLCR, 0, [_LCA], [0]];
 export var DeleteLicenseConfigurationResponse: StaticStructureSchema = [3, n0, _DLCRe, 0, [], []];
 export var DeleteLicenseManagerReportGeneratorRequest: StaticStructureSchema = [3, n0, _DLMRGR, 0, [_LMRGA], [0]];
@@ -656,13 +794,24 @@ export var GetAccessTokenRequest: StaticStructureSchema = [3, n0, _GATR, 0, [_To
 export var GetAccessTokenResponse: StaticStructureSchema = [3, n0, _GATRe, 0, [_AT], [0]];
 export var GetGrantRequest: StaticStructureSchema = [3, n0, _GGR, 0, [_GA, _V], [0, 0]];
 export var GetGrantResponse: StaticStructureSchema = [3, n0, _GGRe, 0, [_G], [() => Grant]];
+export var GetLicenseAssetGroupRequest: StaticStructureSchema = [3, n0, _GLAGR, 0, [_LAGA], [0]];
+export var GetLicenseAssetGroupResponse: StaticStructureSchema = [3, n0, _GLAGRe, 0, [_LAG], [() => LicenseAssetGroup]];
+export var GetLicenseAssetRulesetRequest: StaticStructureSchema = [3, n0, _GLARR, 0, [_LARA], [0]];
+export var GetLicenseAssetRulesetResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GLARRe,
+  0,
+  [_LAR],
+  [() => LicenseAssetRuleset],
+];
 export var GetLicenseConfigurationRequest: StaticStructureSchema = [3, n0, _GLCR, 0, [_LCA], [0]];
 export var GetLicenseConfigurationResponse: StaticStructureSchema = [
   3,
   n0,
   _GLCRe,
   0,
-  [_LCI, _LCA, _N, _D, _LCTi, _LR, _LC, _LCHL, _CL, _S, _OAI, _CLSL, _MRSL, _T, _PIL, _ADI, _DWNF],
+  [_LCI, _LCA, _N, _D, _LCTi, _LR, _LC, _LCHL, _CL, _S, _OAI, _CLSL, _MRSL, _T, _PIL, _ADI, _DWNF, _LE],
   [
     0,
     0,
@@ -681,6 +830,7 @@ export var GetLicenseConfigurationResponse: StaticStructureSchema = [
     () => ProductInformationList,
     () => AutomatedDiscoveryInformation,
     2,
+    1,
   ],
 ];
 export var GetLicenseConversionTaskRequest: StaticStructureSchema = [3, n0, _GLCTR, 0, [_LCTI], [0]];
@@ -711,8 +861,8 @@ export var GetServiceSettingsResponse: StaticStructureSchema = [
   n0,
   _GSSRe,
   0,
-  [_SBA, _STA, _OC, _ECAD, _LMRSA],
-  [0, 0, () => OrganizationConfiguration, 2, 0],
+  [_SBA, _STA, _OC, _ECAD, _LMRSA, _CRDHR, _CRDSR, _SS],
+  [0, 0, () => OrganizationConfiguration, 2, 0, 0, 64 | 0, () => ServiceStatus],
 ];
 export var Grant: StaticStructureSchema = [
   3,
@@ -745,6 +895,14 @@ export var GrantedLicense: StaticStructureSchema = [
     0,
     () => ReceivedMetadata,
   ],
+];
+export var InstanceRuleStatement: StaticStructureSchema = [
+  3,
+  n0,
+  _IRS,
+  0,
+  [_ARS, _ORS, _MRSa, _SRSc],
+  [() => AndRuleStatement, () => OrRuleStatement, () => MatchingRuleStatement, () => ScriptRuleStatement],
 ];
 export var InvalidParameterValueException: StaticErrorSchema = [
   -3,
@@ -800,12 +958,31 @@ export var License: StaticStructureSchema = [
     0,
   ],
 ];
+export var LicenseAssetGroup: StaticStructureSchema = [
+  3,
+  n0,
+  _LAG,
+  0,
+  [_N, _D, _LAGC, _ALARARN, _Pr, _LAGA, _S, _SM, _LUAT, _LRDT],
+  [0, 0, () => LicenseAssetGroupConfigurationList, 64 | 0, () => LicenseAssetGroupPropertyList, 0, 0, 0, 4, 4],
+];
+export var LicenseAssetGroupConfiguration: StaticStructureSchema = [3, n0, _LAGCi, 0, [_UD], [0]];
+export var LicenseAssetGroupProperty: StaticStructureSchema = [3, n0, _LAGP, 0, [_K, _Val], [0, 0]];
+export var LicenseAssetRule: StaticStructureSchema = [3, n0, _LARi, 0, [_RS], [() => RuleStatement]];
+export var LicenseAssetRuleset: StaticStructureSchema = [
+  3,
+  n0,
+  _LAR,
+  0,
+  [_N, _D, _R, _LARA],
+  [0, 0, () => LicenseAssetRuleList, 0],
+];
 export var LicenseConfiguration: StaticStructureSchema = [
   3,
   n0,
   _LCi,
   0,
-  [_LCI, _LCA, _N, _D, _LCTi, _LR, _LC, _LCHL, _DWNF, _CL, _S, _OAI, _CLSL, _MRSL, _PIL, _ADI],
+  [_LCI, _LCA, _N, _D, _LCTi, _LR, _LC, _LCHL, _DWNF, _CL, _S, _OAI, _CLSL, _MRSL, _PIL, _ADI, _LE],
   [
     0,
     0,
@@ -823,6 +1000,7 @@ export var LicenseConfiguration: StaticStructureSchema = [
     () => ManagedResourceSummaryList,
     () => ProductInformationList,
     () => AutomatedDiscoveryInformation,
+    1,
   ],
 ];
 export var LicenseConfigurationAssociation: StaticStructureSchema = [
@@ -833,12 +1011,20 @@ export var LicenseConfigurationAssociation: StaticStructureSchema = [
   [_RA, _RT, _ROI, _ATs, _AAS],
   [0, 0, 0, 4, 0],
 ];
+export var LicenseConfigurationRuleStatement: StaticStructureSchema = [
+  3,
+  n0,
+  _LCRS,
+  0,
+  [_ARS, _ORS, _MRSa],
+  [() => AndRuleStatement, () => OrRuleStatement, () => MatchingRuleStatement],
+];
 export var LicenseConfigurationUsage: StaticStructureSchema = [
   3,
   n0,
   _LCU,
   0,
-  [_RA, _RT, _RS, _ROI, _ATs, _CL],
+  [_RA, _RT, _RSe, _ROI, _ATs, _CL],
   [0, 0, 0, 0, 4, 1],
 ];
 export var LicenseConversionContext: StaticStructureSchema = [3, n0, _LCC, 0, [_UO, _PCr], [0, () => ProductCodeList]];
@@ -858,6 +1044,14 @@ export var LicenseOperationFailure: StaticStructureSchema = [
   [_RA, _RT, _EM, _FT, _ON, _ROI, _ORB, _ML],
   [0, 0, 0, 4, 0, 0, 0, () => MetadataList],
 ];
+export var LicenseRuleStatement: StaticStructureSchema = [
+  3,
+  n0,
+  _LRS,
+  0,
+  [_ARS, _ORS, _MRSa],
+  [() => AndRuleStatement, () => OrRuleStatement, () => MatchingRuleStatement],
+];
 export var LicenseSpecification: StaticStructureSchema = [3, n0, _LS, 0, [_LCA, _AAS], [0, 0]];
 export var LicenseUsage: StaticStructureSchema = [3, n0, _LU, 0, [_EUn], [() => EntitlementUsageList]];
 export var LicenseUsageException: StaticErrorSchema = [
@@ -874,6 +1068,22 @@ export var LicenseUsageException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(LicenseUsageException, __LicenseUsageException);
 
+export var ListAssetsForLicenseAssetGroupRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LAFLAGR,
+  0,
+  [_LAGA, _ATss, _MR, _NT],
+  [0, 0, 1, 0],
+];
+export var ListAssetsForLicenseAssetGroupResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LAFLAGRi,
+  0,
+  [_As, _NT],
+  [() => AssetList, 0],
+];
 export var ListAssociationsForLicenseConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -914,6 +1124,54 @@ export var ListFailuresForLicenseConfigurationOperationsResponse: StaticStructur
   0,
   [_LOFL, _NT],
   [() => LicenseOperationFailureList, 0],
+];
+export var ListLicenseAssetGroupsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LLAGR,
+  0,
+  [_Fi, _MR, _NT],
+  [[() => Filters, 0], 1, 0],
+];
+export var ListLicenseAssetGroupsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LLAGRi,
+  0,
+  [_LAGi, _NT],
+  [() => LicenseAssetGroupList, 0],
+];
+export var ListLicenseAssetRulesetsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LLARR,
+  0,
+  [_Fi, _SAWSMLAR, _MR, _NT],
+  [[() => Filters, 0], 2, 1, 0],
+];
+export var ListLicenseAssetRulesetsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LLARRi,
+  0,
+  [_LARic, _NT],
+  [() => LicenseAssetRulesetList, 0],
+];
+export var ListLicenseConfigurationsForOrganizationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LLCFOR,
+  0,
+  [_LCAice, _MR, _NT, _Fi],
+  [64 | 0, 1, 0, [() => Filters, 0]],
+];
+export var ListLicenseConfigurationsForOrganizationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LLCFORi,
+  0,
+  [_LCic, _NT],
+  [() => LicenseConfigurations, 0],
 ];
 export var ListLicenseConfigurationsRequest: StaticStructureSchema = [
   3,
@@ -1090,7 +1348,8 @@ export var ListUsageForLicenseConfigurationResponse: StaticStructureSchema = [
   [_LCUL, _NT],
   [() => LicenseConfigurationUsageList, 0],
 ];
-export var ManagedResourceSummary: StaticStructureSchema = [3, n0, _MRS, 0, [_RT, _AC], [0, 1]];
+export var ManagedResourceSummary: StaticStructureSchema = [3, n0, _MRSan, 0, [_RT, _AC], [0, 1]];
+export var MatchingRuleStatement: StaticStructureSchema = [3, n0, _MRSa, 0, [_KTM, _Co, _VTM], [0, 0, 64 | 0]];
 export var Metadata: StaticStructureSchema = [3, n0, _Me, 0, [_N, _Val], [0, 0]];
 export var NoEntitlementsAllowedException: StaticErrorSchema = [
   -3,
@@ -1107,6 +1366,14 @@ TypeRegistry.for(n0).registerError(NoEntitlementsAllowedException, __NoEntitleme
 
 export var Options: StaticStructureSchema = [3, n0, _O, 0, [_AOB], [0]];
 export var OrganizationConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_EI], [2]];
+export var OrRuleStatement: StaticStructureSchema = [
+  3,
+  n0,
+  _ORS,
+  0,
+  [_MRS, _SRS],
+  [() => MatchingRuleStatementList, () => ScriptRuleStatementList],
+];
 export var ProductCodeListItem: StaticStructureSchema = [3, n0, _PCLI, 0, [_PCI, _PCT], [0, 0]];
 export var ProductInformation: StaticStructureSchema = [
   3,
@@ -1132,7 +1399,7 @@ export var RateLimitExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(RateLimitExceededException, __RateLimitExceededException);
 
-export var ReceivedMetadata: StaticStructureSchema = [3, n0, _RM, 0, [_RSe, _RSR, _AO], [0, 0, 64 | 0]];
+export var ReceivedMetadata: StaticStructureSchema = [3, n0, _RM, 0, [_RSec, _RSR, _AO], [0, 0, 64 | 0]];
 export var RedirectException: StaticErrorSchema = [
   -3,
   n0,
@@ -1154,16 +1421,17 @@ export var RedirectException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(RedirectException, __RedirectException);
 
+export var RegionStatus: StaticStructureSchema = [3, n0, _RSeg, 0, [_S], [0]];
 export var RejectGrantRequest: StaticStructureSchema = [3, n0, _RGR, 0, [_GA], [0]];
 export var RejectGrantResponse: StaticStructureSchema = [3, n0, _RGRe, 0, [_GA, _S, _V], [0, 0, 0]];
-export var ReportContext: StaticStructureSchema = [3, n0, _RC, 0, [_lCA], [64 | 0]];
+export var ReportContext: StaticStructureSchema = [3, n0, _RC, 0, [_lCA, _lAGA, _rSD, _rED], [64 | 0, 64 | 0, 4, 4]];
 export var ReportFrequency: StaticStructureSchema = [3, n0, _RF, 0, [_v, _p], [1, 0]];
 export var ReportGenerator: StaticStructureSchema = [
   3,
   n0,
   _RG,
   0,
-  [_RGN, _RTep, _RC, _RF, _LMRGA, _LRS, _LRFR, _LRGT, _RCA, _D, _SL, _CTr, _T],
+  [_RGN, _RTep, _RC, _RF, _LMRGA, _LRSa, _LRFR, _LRGT, _RCA, _D, _SL, _CTr, _T],
   [0, 64 | 0, () => ReportContext, () => ReportFrequency, 0, 0, 0, 0, 0, 0, () => S3Location, 0, () => TagList],
 ];
 export var ResourceInventory: StaticStructureSchema = [
@@ -1171,8 +1439,8 @@ export var ResourceInventory: StaticStructureSchema = [
   n0,
   _RI,
   0,
-  [_RIe, _RT, _RA, _Pl, _PV, _ROAI],
-  [0, 0, 0, 0, 0, 0],
+  [_RIe, _RT, _RA, _Pl, _PV, _ROAI, _MPC, _UO, _AI, _HI, _Re, _IT],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0],
 ];
 export var ResourceLimitExceededException: StaticErrorSchema = [
   -3,
@@ -1202,7 +1470,16 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
+export var RuleStatement: StaticStructureSchema = [
+  3,
+  n0,
+  _RS,
+  0,
+  [_LCRS, _LRS, _IRS],
+  [() => LicenseConfigurationRuleStatement, () => LicenseRuleStatement, () => InstanceRuleStatement],
+];
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_b, _kP], [0, 0]];
+export var ScriptRuleStatement: StaticStructureSchema = [3, n0, _SRSc, 0, [_KTM, _Sc], [0, 0]];
 export var ServerInternalException: StaticErrorSchema = [
   -3,
   n0,
@@ -1217,6 +1494,14 @@ export var ServerInternalException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServerInternalException, __ServerInternalException);
 
+export var ServiceStatus: StaticStructureSchema = [
+  3,
+  n0,
+  _SS,
+  0,
+  [_CAD, _CRD],
+  [() => CrossAccountDiscoveryServiceStatus, () => CrossRegionDiscoveryStatus],
+];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Val], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -1246,13 +1531,31 @@ TypeRegistry.for(n0).registerError(
 
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateLicenseAssetGroupRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _ULAGR,
+  0,
+  [_N, _D, _LAGC, _ALARARN, _Pr, _LAGA, _S, _CT],
+  [0, 0, () => LicenseAssetGroupConfigurationList, 64 | 0, () => LicenseAssetGroupPropertyList, 0, 0, 0],
+];
+export var UpdateLicenseAssetGroupResponse: StaticStructureSchema = [3, n0, _ULAGRp, 0, [_LAGA, _S], [0, 0]];
+export var UpdateLicenseAssetRulesetRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _ULARR,
+  0,
+  [_N, _D, _R, _LARA, _CT],
+  [0, 0, () => LicenseAssetRuleList, 0, 0],
+];
+export var UpdateLicenseAssetRulesetResponse: StaticStructureSchema = [3, n0, _ULARRp, 0, [_LARA], [0]];
 export var UpdateLicenseConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
   _ULCR,
   0,
-  [_LCA, _LCS, _LR, _LC, _LCHL, _N, _D, _PIL, _DWNF],
-  [0, 0, 64 | 0, 1, 2, 0, 0, () => ProductInformationList, 2],
+  [_LCA, _LCS, _LR, _LC, _LCHL, _N, _D, _PIL, _DWNF, _LE],
+  [0, 0, 64 | 0, 1, 2, 0, 0, () => ProductInformationList, 2, 1],
 ];
 export var UpdateLicenseConfigurationResponse: StaticStructureSchema = [3, n0, _ULCRp, 0, [], []];
 export var UpdateLicenseManagerReportGeneratorRequest: StaticStructureSchema = [
@@ -1278,8 +1581,8 @@ export var UpdateServiceSettingsRequest: StaticStructureSchema = [
   n0,
   _USSR,
   0,
-  [_SBA, _STA, _OC, _ECAD],
-  [0, 0, () => OrganizationConfiguration, 2],
+  [_SBA, _STA, _OC, _ECAD, _EDSR],
+  [0, 0, () => OrganizationConfiguration, 2, 64 | 0],
 ];
 export var UpdateServiceSettingsResponse: StaticStructureSchema = [3, n0, _USSRp, 0, [], []];
 export var ValidationException: StaticErrorSchema = [
@@ -1304,6 +1607,7 @@ export var AllowedOperationList = 64 | 0;
 
 export var ArnList = 64 | 0;
 
+export var AssetList: StaticListSchema = [1, n0, _AL, 0, () => Asset];
 export var ConsumedLicenseSummaryList: StaticListSchema = [1, n0, _CLSL, 0, () => ConsumedLicenseSummary];
 export var EntitlementDataList: StaticListSchema = [1, n0, _EDL, 0, () => EntitlementData];
 export var EntitlementList: StaticListSchema = [1, n0, _EL, 0, () => Entitlement];
@@ -1336,6 +1640,19 @@ export var FilterValues: StaticListSchema = [
 export var GrantedLicenseList: StaticListSchema = [1, n0, _GLL, 0, () => GrantedLicense];
 export var GrantList: StaticListSchema = [1, n0, _GLr, 0, () => Grant];
 export var InventoryFilterList: StaticListSchema = [1, n0, _IFL, 0, () => InventoryFilter];
+export var LicenseAssetGroupConfigurationList: StaticListSchema = [
+  1,
+  n0,
+  _LAGCL,
+  0,
+  () => LicenseAssetGroupConfiguration,
+];
+export var LicenseAssetGroupList: StaticListSchema = [1, n0, _LAGL, 0, () => LicenseAssetGroup];
+export var LicenseAssetGroupPropertyList: StaticListSchema = [1, n0, _LAGPL, 0, () => LicenseAssetGroupProperty];
+export var LicenseAssetRuleList: StaticListSchema = [1, n0, _LARL, 0, () => LicenseAssetRule];
+export var LicenseAssetRulesetArnList = 64 | 0;
+
+export var LicenseAssetRulesetList: StaticListSchema = [1, n0, _LARLi, 0, () => LicenseAssetRuleset];
 export var LicenseConfigurationAssociations: StaticListSchema = [
   1,
   n0,
@@ -1350,6 +1667,7 @@ export var LicenseList: StaticListSchema = [1, n0, _LL, 0, () => License];
 export var LicenseOperationFailureList: StaticListSchema = [1, n0, _LOFL, 0, () => LicenseOperationFailure];
 export var LicenseSpecifications: StaticListSchema = [1, n0, _LSi, 0, () => LicenseSpecification];
 export var ManagedResourceSummaryList: StaticListSchema = [1, n0, _MRSL, 0, () => ManagedResourceSummary];
+export var MatchingRuleStatementList: StaticListSchema = [1, n0, _MRSLa, 0, () => MatchingRuleStatement];
 export var MaxSize3StringList = 64 | 0;
 
 export var MetadataList: StaticListSchema = [1, n0, _ML, 0, () => Metadata];
@@ -1362,12 +1680,14 @@ export var ReportGeneratorList: StaticListSchema = [1, n0, _RGL, 0, () => Report
 export var ReportTypeList = 64 | 0;
 
 export var ResourceInventoryList: StaticListSchema = [1, n0, _RIL, 0, () => ResourceInventory];
+export var ScriptRuleStatementList: StaticListSchema = [1, n0, _SRSL, 0, () => ScriptRuleStatement];
 export var StringList = 64 | 0;
 
 export var TagKeyList = 64 | 0;
 
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var TokenList: StaticListSchema = [1, n0, _TLo, 0, () => TokenData];
+export var RegionStatusMap: StaticMapSchema = [2, n0, _RSM, 0, 0, () => RegionStatus];
 export var AcceptGrant: StaticOperationSchema = [9, n0, _AG, 0, () => AcceptGrantRequest, () => AcceptGrantResponse];
 export var CheckInLicense: StaticOperationSchema = [
   9,
@@ -1409,6 +1729,22 @@ export var CreateLicense: StaticOperationSchema = [
   0,
   () => CreateLicenseRequest,
   () => CreateLicenseResponse,
+];
+export var CreateLicenseAssetGroup: StaticOperationSchema = [
+  9,
+  n0,
+  _CLAG,
+  0,
+  () => CreateLicenseAssetGroupRequest,
+  () => CreateLicenseAssetGroupResponse,
+];
+export var CreateLicenseAssetRuleset: StaticOperationSchema = [
+  9,
+  n0,
+  _CLAR,
+  0,
+  () => CreateLicenseAssetRulesetRequest,
+  () => CreateLicenseAssetRulesetResponse,
 ];
 export var CreateLicenseConfiguration: StaticOperationSchema = [
   9,
@@ -1452,6 +1788,22 @@ export var DeleteLicense: StaticOperationSchema = [
   () => DeleteLicenseRequest,
   () => DeleteLicenseResponse,
 ];
+export var DeleteLicenseAssetGroup: StaticOperationSchema = [
+  9,
+  n0,
+  _DLAG,
+  0,
+  () => DeleteLicenseAssetGroupRequest,
+  () => DeleteLicenseAssetGroupResponse,
+];
+export var DeleteLicenseAssetRuleset: StaticOperationSchema = [
+  9,
+  n0,
+  _DLAR,
+  0,
+  () => DeleteLicenseAssetRulesetRequest,
+  () => DeleteLicenseAssetRulesetResponse,
+];
 export var DeleteLicenseConfiguration: StaticOperationSchema = [
   9,
   n0,
@@ -1487,6 +1839,22 @@ export var GetAccessToken: StaticOperationSchema = [
 ];
 export var GetGrant: StaticOperationSchema = [9, n0, _GG, 0, () => GetGrantRequest, () => GetGrantResponse];
 export var GetLicense: StaticOperationSchema = [9, n0, _GLe, 0, () => GetLicenseRequest, () => GetLicenseResponse];
+export var GetLicenseAssetGroup: StaticOperationSchema = [
+  9,
+  n0,
+  _GLAG,
+  0,
+  () => GetLicenseAssetGroupRequest,
+  () => GetLicenseAssetGroupResponse,
+];
+export var GetLicenseAssetRuleset: StaticOperationSchema = [
+  9,
+  n0,
+  _GLAR,
+  0,
+  () => GetLicenseAssetRulesetRequest,
+  () => GetLicenseAssetRulesetResponse,
+];
 export var GetLicenseConfiguration: StaticOperationSchema = [
   9,
   n0,
@@ -1527,6 +1895,14 @@ export var GetServiceSettings: StaticOperationSchema = [
   () => GetServiceSettingsRequest,
   () => GetServiceSettingsResponse,
 ];
+export var ListAssetsForLicenseAssetGroup: StaticOperationSchema = [
+  9,
+  n0,
+  _LAFLAG,
+  0,
+  () => ListAssetsForLicenseAssetGroupRequest,
+  () => ListAssetsForLicenseAssetGroupResponse,
+];
 export var ListAssociationsForLicenseConfiguration: StaticOperationSchema = [
   9,
   n0,
@@ -1551,6 +1927,22 @@ export var ListFailuresForLicenseConfigurationOperations: StaticOperationSchema 
   () => ListFailuresForLicenseConfigurationOperationsRequest,
   () => ListFailuresForLicenseConfigurationOperationsResponse,
 ];
+export var ListLicenseAssetGroups: StaticOperationSchema = [
+  9,
+  n0,
+  _LLAG,
+  0,
+  () => ListLicenseAssetGroupsRequest,
+  () => ListLicenseAssetGroupsResponse,
+];
+export var ListLicenseAssetRulesets: StaticOperationSchema = [
+  9,
+  n0,
+  _LLAR,
+  0,
+  () => ListLicenseAssetRulesetsRequest,
+  () => ListLicenseAssetRulesetsResponse,
+];
 export var ListLicenseConfigurations: StaticOperationSchema = [
   9,
   n0,
@@ -1558,6 +1950,14 @@ export var ListLicenseConfigurations: StaticOperationSchema = [
   0,
   () => ListLicenseConfigurationsRequest,
   () => ListLicenseConfigurationsResponse,
+];
+export var ListLicenseConfigurationsForOrganization: StaticOperationSchema = [
+  9,
+  n0,
+  _LLCFO,
+  0,
+  () => ListLicenseConfigurationsForOrganizationRequest,
+  () => ListLicenseConfigurationsForOrganizationResponse,
 ];
 export var ListLicenseConversionTasks: StaticOperationSchema = [
   9,
@@ -1665,6 +2065,22 @@ export var UntagResource: StaticOperationSchema = [
   0,
   () => UntagResourceRequest,
   () => UntagResourceResponse,
+];
+export var UpdateLicenseAssetGroup: StaticOperationSchema = [
+  9,
+  n0,
+  _ULAG,
+  0,
+  () => UpdateLicenseAssetGroupRequest,
+  () => UpdateLicenseAssetGroupResponse,
+];
+export var UpdateLicenseAssetRuleset: StaticOperationSchema = [
+  9,
+  n0,
+  _ULAR,
+  0,
+  () => UpdateLicenseAssetRulesetRequest,
+  () => UpdateLicenseAssetRulesetResponse,
 ];
 export var UpdateLicenseConfiguration: StaticOperationSchema = [
   9,

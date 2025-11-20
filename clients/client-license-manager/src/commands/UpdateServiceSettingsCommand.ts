@@ -43,6 +43,9 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  *     EnableIntegration: true || false, // required
  *   },
  *   EnableCrossAccountsDiscovery: true || false,
+ *   EnabledDiscoverySourceRegions: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateServiceSettingsCommand(input);
  * const response = await client.send(command);
@@ -63,6 +66,9 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
@@ -71,6 +77,9 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
  *
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>

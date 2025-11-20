@@ -47,6 +47,22 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * //   },
  * //   EnableCrossAccountsDiscovery: true || false,
  * //   LicenseManagerResourceShareArn: "STRING_VALUE",
+ * //   CrossRegionDiscoveryHomeRegion: "STRING_VALUE",
+ * //   CrossRegionDiscoverySourceRegions: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ServiceStatus: { // ServiceStatus
+ * //     CrossAccountDiscovery: { // CrossAccountDiscoveryServiceStatus
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     CrossRegionDiscovery: { // CrossRegionDiscoveryStatus
+ * //       Message: { // RegionStatusMap
+ * //         "<keys>": { // RegionStatus
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

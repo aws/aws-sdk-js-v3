@@ -5,8 +5,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { ListLicenseConfigurationsRequest, ListLicenseConfigurationsResponse } from "../models/models_0";
-import { ListLicenseConfigurations } from "../schemas/schemas_0";
+import {
+  ListLicenseConfigurationsForOrganizationRequest,
+  ListLicenseConfigurationsForOrganizationResponse,
+} from "../models/models_0";
+import { ListLicenseConfigurationsForOrganization } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,27 +19,30 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListLicenseConfigurationsCommand}.
+ * The input for {@link ListLicenseConfigurationsForOrganizationCommand}.
  */
-export interface ListLicenseConfigurationsCommandInput extends ListLicenseConfigurationsRequest {}
+export interface ListLicenseConfigurationsForOrganizationCommandInput
+  extends ListLicenseConfigurationsForOrganizationRequest {}
 /**
  * @public
  *
- * The output of {@link ListLicenseConfigurationsCommand}.
+ * The output of {@link ListLicenseConfigurationsForOrganizationCommand}.
  */
-export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfigurationsResponse, __MetadataBearer {}
+export interface ListLicenseConfigurationsForOrganizationCommandOutput
+  extends ListLicenseConfigurationsForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Lists the license configurations for your account.</p>
+ * <p>Lists license configurations for an organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, ListLicenseConfigurationsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, ListLicenseConfigurationsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListLicenseConfigurationsForOrganizationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListLicenseConfigurationsForOrganizationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
  * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
- * const input = { // ListLicenseConfigurationsRequest
+ * const input = { // ListLicenseConfigurationsForOrganizationRequest
  *   LicenseConfigurationArns: [ // StringList
  *     "STRING_VALUE",
  *   ],
@@ -51,9 +57,9 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  *     },
  *   ],
  * };
- * const command = new ListLicenseConfigurationsCommand(input);
+ * const command = new ListLicenseConfigurationsForOrganizationCommand(input);
  * const response = await client.send(command);
- * // { // ListLicenseConfigurationsResponse
+ * // { // ListLicenseConfigurationsForOrganizationResponse
  * //   LicenseConfigurations: [ // LicenseConfigurations
  * //     { // LicenseConfiguration
  * //       LicenseConfigurationId: "STRING_VALUE",
@@ -107,10 +113,10 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  *
  * ```
  *
- * @param ListLicenseConfigurationsCommandInput - {@link ListLicenseConfigurationsCommandInput}
- * @returns {@link ListLicenseConfigurationsCommandOutput}
- * @see {@link ListLicenseConfigurationsCommandInput} for command's `input` shape.
- * @see {@link ListLicenseConfigurationsCommandOutput} for command's `response` shape.
+ * @param ListLicenseConfigurationsForOrganizationCommandInput - {@link ListLicenseConfigurationsForOrganizationCommandInput}
+ * @returns {@link ListLicenseConfigurationsForOrganizationCommandOutput}
+ * @see {@link ListLicenseConfigurationsForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link ListLicenseConfigurationsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -138,10 +144,10 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  *
  * @public
  */
-export class ListLicenseConfigurationsCommand extends $Command
+export class ListLicenseConfigurationsForOrganizationCommand extends $Command
   .classBuilder<
-    ListLicenseConfigurationsCommandInput,
-    ListLicenseConfigurationsCommandOutput,
+    ListLicenseConfigurationsForOrganizationCommandInput,
+    ListLicenseConfigurationsForOrganizationCommandOutput,
     LicenseManagerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -150,19 +156,19 @@ export class ListLicenseConfigurationsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSLicenseManager", "ListLicenseConfigurations", {})
-  .n("LicenseManagerClient", "ListLicenseConfigurationsCommand")
-  .sc(ListLicenseConfigurations)
+  .s("AWSLicenseManager", "ListLicenseConfigurationsForOrganization", {})
+  .n("LicenseManagerClient", "ListLicenseConfigurationsForOrganizationCommand")
+  .sc(ListLicenseConfigurationsForOrganization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListLicenseConfigurationsRequest;
-      output: ListLicenseConfigurationsResponse;
+      input: ListLicenseConfigurationsForOrganizationRequest;
+      output: ListLicenseConfigurationsForOrganizationResponse;
     };
     sdk: {
-      input: ListLicenseConfigurationsCommandInput;
-      output: ListLicenseConfigurationsCommandOutput;
+      input: ListLicenseConfigurationsForOrganizationCommandInput;
+      output: ListLicenseConfigurationsForOrganizationCommandOutput;
     };
   };
 }

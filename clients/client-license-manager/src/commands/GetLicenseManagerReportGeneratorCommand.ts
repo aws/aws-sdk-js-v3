@@ -47,16 +47,21 @@ export interface GetLicenseManagerReportGeneratorCommandOutput
  * //   ReportGenerator: { // ReportGenerator
  * //     ReportGeneratorName: "STRING_VALUE",
  * //     ReportType: [ // ReportTypeList
- * //       "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ * //       "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport" || "LicenseAssetGroupUsageReport",
  * //     ],
  * //     ReportContext: { // ReportContext
- * //       licenseConfigurationArns: [ // ArnList // required
+ * //       licenseConfigurationArns: [ // ArnList
  * //         "STRING_VALUE",
  * //       ],
+ * //       licenseAssetGroupArns: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       reportStartDate: new Date("TIMESTAMP"),
+ * //       reportEndDate: new Date("TIMESTAMP"),
  * //     },
  * //     ReportFrequency: { // ReportFrequency
  * //       value: Number("int"),
- * //       period: "DAY" || "WEEK" || "MONTH",
+ * //       period: "DAY" || "WEEK" || "MONTH" || "ONE_TIME",
  * //     },
  * //     LicenseManagerReportGeneratorArn: "STRING_VALUE",
  * //     LastRunStatus: "STRING_VALUE",

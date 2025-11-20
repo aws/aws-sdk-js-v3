@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { TagResource } from "../schemas/schemas_0";
+import { CreateLicenseAssetGroupRequest, CreateLicenseAssetGroupResponse } from "../models/models_0";
+import { CreateLicenseAssetGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,60 +16,64 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link CreateLicenseAssetGroupCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface CreateLicenseAssetGroupCommandInput extends CreateLicenseAssetGroupRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link CreateLicenseAssetGroupCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface CreateLicenseAssetGroupCommandOutput extends CreateLicenseAssetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified resource. The following resources support
- *          tagging in License Manager:</p>
- *          <ul>
- *             <li>
- *                <p>Licenses</p>
- *             </li>
- *             <li>
- *                <p>Grants</p>
- *             </li>
- *             <li>
- *                <p>License configurations</p>
- *             </li>
- *             <li>
- *                <p>Report generators</p>
- *             </li>
- *          </ul>
+ * <p>Creates a license asset group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, TagResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, TagResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, CreateLicenseAssetGroupCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, CreateLicenseAssetGroupCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * // import type { LicenseManagerClientConfig } from "@aws-sdk/client-license-manager";
  * const config = {}; // type is LicenseManagerClientConfig
  * const client = new LicenseManagerClient(config);
- * const input = { // TagResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Tags: [ // TagList // required
+ * const input = { // CreateLicenseAssetGroupRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LicenseAssetGroupConfigurations: [ // LicenseAssetGroupConfigurationList // required
+ *     { // LicenseAssetGroupConfiguration
+ *       UsageDimension: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AssociatedLicenseAssetRulesetARNs: [ // LicenseAssetRulesetArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Properties: [ // LicenseAssetGroupPropertyList
+ *     { // LicenseAssetGroupProperty
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE",
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   ClientToken: "STRING_VALUE", // required
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new CreateLicenseAssetGroupCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateLicenseAssetGroupResponse
+ * //   LicenseAssetGroupArn: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param CreateLicenseAssetGroupCommandInput - {@link CreateLicenseAssetGroupCommandInput}
+ * @returns {@link CreateLicenseAssetGroupCommandOutput}
+ * @see {@link CreateLicenseAssetGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateLicenseAssetGroupCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -97,10 +101,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class CreateLicenseAssetGroupCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    CreateLicenseAssetGroupCommandInput,
+    CreateLicenseAssetGroupCommandOutput,
     LicenseManagerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,19 +113,19 @@ export class TagResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSLicenseManager", "TagResource", {})
-  .n("LicenseManagerClient", "TagResourceCommand")
-  .sc(TagResource)
+  .s("AWSLicenseManager", "CreateLicenseAssetGroup", {})
+  .n("LicenseManagerClient", "CreateLicenseAssetGroupCommand")
+  .sc(CreateLicenseAssetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TagResourceRequest;
-      output: {};
+      input: CreateLicenseAssetGroupRequest;
+      output: CreateLicenseAssetGroupResponse;
     };
     sdk: {
-      input: TagResourceCommandInput;
-      output: TagResourceCommandOutput;
+      input: CreateLicenseAssetGroupCommandInput;
+      output: CreateLicenseAssetGroupCommandOutput;
     };
   };
 }

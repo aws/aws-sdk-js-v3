@@ -262,6 +262,22 @@ CreateLicense
 </details>
 <details>
 <summary>
+CreateLicenseAssetGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/CreateLicenseAssetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/CreateLicenseAssetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/CreateLicenseAssetGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateLicenseAssetRuleset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/CreateLicenseAssetRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/CreateLicenseAssetRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/CreateLicenseAssetRulesetCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateLicenseConfiguration
 </summary>
 
@@ -314,6 +330,22 @@ DeleteLicense
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/DeleteLicenseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/DeleteLicenseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/DeleteLicenseCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLicenseAssetGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/DeleteLicenseAssetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/DeleteLicenseAssetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/DeleteLicenseAssetGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLicenseAssetRuleset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/DeleteLicenseAssetRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/DeleteLicenseAssetRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/DeleteLicenseAssetRulesetCommandOutput/)
 
 </details>
 <details>
@@ -374,6 +406,22 @@ GetLicense
 </details>
 <details>
 <summary>
+GetLicenseAssetGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/GetLicenseAssetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/GetLicenseAssetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/GetLicenseAssetGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetLicenseAssetRuleset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/GetLicenseAssetRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/GetLicenseAssetRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/GetLicenseAssetRulesetCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetLicenseConfiguration
 </summary>
 
@@ -414,6 +462,14 @@ GetServiceSettings
 </details>
 <details>
 <summary>
+ListAssetsForLicenseAssetGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/ListAssetsForLicenseAssetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListAssetsForLicenseAssetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListAssetsForLicenseAssetGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAssociationsForLicenseConfiguration
 </summary>
 
@@ -438,10 +494,34 @@ ListFailuresForLicenseConfigurationOperations
 </details>
 <details>
 <summary>
+ListLicenseAssetGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/ListLicenseAssetGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseAssetGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseAssetGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListLicenseAssetRulesets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/ListLicenseAssetRulesetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseAssetRulesetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseAssetRulesetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListLicenseConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/ListLicenseConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListLicenseConfigurationsForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/ListLicenseConfigurationsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseConfigurationsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/ListLicenseConfigurationsForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -570,6 +650,22 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLicenseAssetGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/UpdateLicenseAssetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/UpdateLicenseAssetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/UpdateLicenseAssetGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLicenseAssetRuleset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager/command/UpdateLicenseAssetRulesetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/UpdateLicenseAssetRulesetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager/Interface/UpdateLicenseAssetRulesetCommandOutput/)
 
 </details>
 <details>

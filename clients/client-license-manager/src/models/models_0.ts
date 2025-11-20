@@ -8,6 +8,7 @@ import {
   EntitlementUnit,
   GrantStatus,
   InventoryFilterCondition,
+  LicenseAssetGroupStatus,
   LicenseConfigurationStatus,
   LicenseConversionTaskStatus,
   LicenseCountingType,
@@ -54,6 +55,204 @@ export interface AcceptGrantResponse {
    * @public
    */
   Version?: string | undefined;
+}
+
+/**
+ * <p>Matching rule statement.</p>
+ * @public
+ */
+export interface MatchingRuleStatement {
+  /**
+   * <p>Key to match.</p>
+   *          <p>The following keys and are supported when the RuleStatement type
+   *          is <code>Instance</code>:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Platform</code> - The name of the platform.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2BillingProduct</code> - The billing product code.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *                Possible values are: <code>windows-server-enterprise</code> |
+   *                <code>windows-byol</code> |
+   *                <code>rhel</code> |
+   *                <code>rhel-byol</code> |
+   *                <code>rhel-high-availability</code> |
+   *                <code>ubuntu-pro</code> |
+   *                <code>suse-linux</code> |
+   *                <code>sql-server-standard</code> |
+   *                <code>sql-server-enterprise</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MarketPlaceProductCode</code> - The Marketplace product code.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AMIId</code> - The ID of the AMI.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InstanceType</code> - The instance type.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InstanceId</code> - The ID of the instance.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HostId</code> - The ID of the host.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccountId</code> - The ID of the account.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *          </ul>
+   *          <p>The following keys and are supported when the RuleStatement type
+   *          is <code>License</code>:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseArn</code> - The ARN of a Managed Entitlement License.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ProductSKU</code> - The productSKU of the license.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Issuer</code> - The issuer of the license.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Beneficiary</code> - The beneficiary of the license.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseStatus</code> - The status of the license.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HomeRegion</code> - The home region of the license.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *          </ul>
+   *          <p>The following keys and are supported when the RuleStatement type
+   *          is <code>License Configuration</code>:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseConfigurationArn</code> - The ARN of a self-managed license configuration.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccountId</code> - The account of the license configuration.
+   *                Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.
+   *             </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KeyToMatch: string | undefined;
+
+  /**
+   * <p>Constraint.</p>
+   * @public
+   */
+  Constraint: string | undefined;
+
+  /**
+   * <p>Value to match.</p>
+   * @public
+   */
+  ValueToMatch: string[] | undefined;
+}
+
+/**
+ * <p>Rule statement that uses a script to evaluate license asset conditions.</p>
+ * @public
+ */
+export interface ScriptRuleStatement {
+  /**
+   * <p>Key name to match against in the script rule evaluation.</p>
+   * @public
+   */
+  KeyToMatch: string | undefined;
+
+  /**
+   * <p>Script code used to evaluate the rule condition.</p>
+   * @public
+   */
+  Script: string | undefined;
+}
+
+/**
+ * <p>AND rule statement.</p>
+ * @public
+ */
+export interface AndRuleStatement {
+  /**
+   * <p>Matching rule statements.</p>
+   * @public
+   */
+  MatchingRuleStatements?: MatchingRuleStatement[] | undefined;
+
+  /**
+   * <p>Script rule statements.</p>
+   * @public
+   */
+  ScriptRuleStatements?: ScriptRuleStatement[] | undefined;
+}
+
+/**
+ * <p>Asset.</p>
+ * @public
+ */
+export interface Asset {
+  /**
+   * <p>Amazon Resource Name (ARN) of the asset.</p>
+   * @public
+   */
+  AssetArn?: string | undefined;
+
+  /**
+   * <p>Latest asset discovery time.</p>
+   * @public
+   */
+  LatestAssetDiscoveryTime?: Date | undefined;
 }
 
 /**
@@ -790,6 +989,278 @@ export interface CreateLicenseResponse {
 }
 
 /**
+ * <p>License asset group configuration.</p>
+ * @public
+ */
+export interface LicenseAssetGroupConfiguration {
+  /**
+   * <p>License Asset Group Configuration Usage dimension.</p>
+   * @public
+   */
+  UsageDimension?: string | undefined;
+}
+
+/**
+ * <p>License asset group property.</p>
+ * @public
+ */
+export interface LicenseAssetGroupProperty {
+  /**
+   * <p>Property key.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Property value.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLicenseAssetGroupRequest {
+  /**
+   * <p>License asset group name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>License asset group description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>License asset group configurations.</p>
+   * @public
+   */
+  LicenseAssetGroupConfigurations: LicenseAssetGroupConfiguration[] | undefined;
+
+  /**
+   * <p>ARNs of associated license asset rulesets.</p>
+   * @public
+   */
+  AssociatedLicenseAssetRulesetARNs: string[] | undefined;
+
+  /**
+   * <p>License asset group properties.</p>
+   * @public
+   */
+  Properties?: LicenseAssetGroupProperty[] | undefined;
+
+  /**
+   * <p>Tags to add to the license asset group.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLicenseAssetGroupResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+
+  /**
+   * <p>License asset group status.</p>
+   * @public
+   */
+  Status: string | undefined;
+}
+
+/**
+ * <p>OR rule statement.</p>
+ * @public
+ */
+export interface OrRuleStatement {
+  /**
+   * <p>Matching rule statements.</p>
+   * @public
+   */
+  MatchingRuleStatements?: MatchingRuleStatement[] | undefined;
+
+  /**
+   * <p>Script rule statements.</p>
+   * @public
+   */
+  ScriptRuleStatements?: ScriptRuleStatement[] | undefined;
+}
+
+/**
+ * <p>Instance rule statement.</p>
+ * @public
+ */
+export interface InstanceRuleStatement {
+  /**
+   * <p>AND rule statement.</p>
+   * @public
+   */
+  AndRuleStatement?: AndRuleStatement | undefined;
+
+  /**
+   * <p>OR rule statement.</p>
+   * @public
+   */
+  OrRuleStatement?: OrRuleStatement | undefined;
+
+  /**
+   * <p>Matching rule statement.</p>
+   * @public
+   */
+  MatchingRuleStatement?: MatchingRuleStatement | undefined;
+
+  /**
+   * <p>Script rule statement.</p>
+   * @public
+   */
+  ScriptRuleStatement?: ScriptRuleStatement | undefined;
+}
+
+/**
+ * <p>License configuration rule statement.</p>
+ * @public
+ */
+export interface LicenseConfigurationRuleStatement {
+  /**
+   * <p>AND rule statement.</p>
+   * @public
+   */
+  AndRuleStatement?: AndRuleStatement | undefined;
+
+  /**
+   * <p>OR rule statement.</p>
+   * @public
+   */
+  OrRuleStatement?: OrRuleStatement | undefined;
+
+  /**
+   * <p>Matching rule statement.</p>
+   * @public
+   */
+  MatchingRuleStatement?: MatchingRuleStatement | undefined;
+}
+
+/**
+ * <p>License rule statement.</p>
+ * @public
+ */
+export interface LicenseRuleStatement {
+  /**
+   * <p>AND rule statement.</p>
+   * @public
+   */
+  AndRuleStatement?: AndRuleStatement | undefined;
+
+  /**
+   * <p>OR rule statement.</p>
+   * @public
+   */
+  OrRuleStatement?: OrRuleStatement | undefined;
+
+  /**
+   * <p>Matching rule statement.</p>
+   * @public
+   */
+  MatchingRuleStatement?: MatchingRuleStatement | undefined;
+}
+
+/**
+ * <p>Rule statement.</p>
+ * @public
+ */
+export interface RuleStatement {
+  /**
+   * <p>License configuration rule statement.</p>
+   * @public
+   */
+  LicenseConfigurationRuleStatement?: LicenseConfigurationRuleStatement | undefined;
+
+  /**
+   * <p>License rule statement.</p>
+   * @public
+   */
+  LicenseRuleStatement?: LicenseRuleStatement | undefined;
+
+  /**
+   * <p>Instance rule statement.</p>
+   * @public
+   */
+  InstanceRuleStatement?: InstanceRuleStatement | undefined;
+}
+
+/**
+ * <p>License asset rule.</p>
+ * @public
+ */
+export interface LicenseAssetRule {
+  /**
+   * <p>Rule statement.</p>
+   * @public
+   */
+  RuleStatement: RuleStatement | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLicenseAssetRulesetRequest {
+  /**
+   * <p>License asset ruleset name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>License asset ruleset description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>License asset rules.</p>
+   * @public
+   */
+  Rules: LicenseAssetRule[] | undefined;
+
+  /**
+   * <p>Tags to add to the license asset ruleset.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLicenseAssetRulesetResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRulesetArn: string | undefined;
+}
+
+/**
  * <p>Describes product information filters.</p>
  * @public
  */
@@ -993,6 +1464,12 @@ export interface CreateLicenseConfigurationRequest {
    * @public
    */
   ProductInformationList?: ProductInformation[] | undefined;
+
+  /**
+   * <p>License configuration expiry.</p>
+   * @public
+   */
+  LicenseExpiry?: number | undefined;
 }
 
 /**
@@ -1089,7 +1566,25 @@ export interface ReportContext {
    * <p>Amazon Resource Name (ARN) of the license configuration that this generator reports on.</p>
    * @public
    */
-  licenseConfigurationArns: string[] | undefined;
+  licenseConfigurationArns?: string[] | undefined;
+
+  /**
+   * <p>Amazon Resource Names (ARNs) of the license asset groups to include in the report.</p>
+   * @public
+   */
+  licenseAssetGroupArns?: string[] | undefined;
+
+  /**
+   * <p>Start date for the report data collection period.</p>
+   * @public
+   */
+  reportStartDate?: Date | undefined;
+
+  /**
+   * <p>End date for the report data collection period.</p>
+   * @public
+   */
+  reportEndDate?: Date | undefined;
 }
 
 /**
@@ -1419,6 +1914,44 @@ export interface DeleteLicenseResponse {
    */
   DeletionDate?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteLicenseAssetGroupRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseAssetGroupResponse {
+  /**
+   * <p>License asset group status.</p>
+   * @public
+   */
+  Status: LicenseAssetGroupStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseAssetRulesetRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRulesetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLicenseAssetRulesetResponse {}
 
 /**
  * @public
@@ -1776,6 +2309,146 @@ export interface GetLicenseResponse {
 /**
  * @public
  */
+export interface GetLicenseAssetGroupRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+}
+
+/**
+ * <p>License asset group.</p>
+ * @public
+ */
+export interface LicenseAssetGroup {
+  /**
+   * <p>License asset group name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>License asset group description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>License asset group configurations.</p>
+   * @public
+   */
+  LicenseAssetGroupConfigurations?: LicenseAssetGroupConfiguration[] | undefined;
+
+  /**
+   * <p>ARNs of associated license asset rulesets.</p>
+   * @public
+   */
+  AssociatedLicenseAssetRulesetARNs: string[] | undefined;
+
+  /**
+   * <p>License asset group properties.</p>
+   * @public
+   */
+  Properties?: LicenseAssetGroupProperty[] | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+
+  /**
+   * <p>License asset group status.</p>
+   * @public
+   */
+  Status: LicenseAssetGroupStatus | undefined;
+
+  /**
+   * <p>License asset group status message.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Latest usage analysis time.</p>
+   * @public
+   */
+  LatestUsageAnalysisTime?: Date | undefined;
+
+  /**
+   * <p>Latest resource discovery time.</p>
+   * @public
+   */
+  LatestResourceDiscoveryTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseAssetGroupResponse {
+  /**
+   * <p>License asset group.</p>
+   * @public
+   */
+  LicenseAssetGroup: LicenseAssetGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseAssetRulesetRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRulesetArn: string | undefined;
+}
+
+/**
+ * <p>License asset ruleset.</p>
+ * @public
+ */
+export interface LicenseAssetRuleset {
+  /**
+   * <p>License asset ruleset name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>License asset ruleset description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>License asset rules.</p>
+   * @public
+   */
+  Rules: LicenseAssetRule[] | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRulesetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseAssetRulesetResponse {
+  /**
+   * <p>License asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRuleset: LicenseAssetRuleset | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetLicenseConfigurationRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -1925,6 +2598,12 @@ export interface GetLicenseConfigurationResponse {
    * @public
    */
   DisassociateWhenNotFound?: boolean | undefined;
+
+  /**
+   * <p>License Expiry.</p>
+   * @public
+   */
+  LicenseExpiry?: number | undefined;
 }
 
 /**
@@ -2203,6 +2882,60 @@ export interface OrganizationConfiguration {
 }
 
 /**
+ * <p>Status information for cross-account discovery service.</p>
+ * @public
+ */
+export interface CrossAccountDiscoveryServiceStatus {
+  /**
+   * <p>Status message for cross-account discovery service.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Status information for a specific region.</p>
+ * @public
+ */
+export interface RegionStatus {
+  /**
+   * <p>Status value for the region.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * <p>Status information for cross-region discovery.</p>
+ * @public
+ */
+export interface CrossRegionDiscoveryStatus {
+  /**
+   * <p>Map of region status messages for cross-region discovery.</p>
+   * @public
+   */
+  Message?: Record<string, RegionStatus> | undefined;
+}
+
+/**
+ * <p>Overall service status information for License Manager.</p>
+ * @public
+ */
+export interface ServiceStatus {
+  /**
+   * <p>Status of cross-account discovery service.</p>
+   * @public
+   */
+  CrossAccountDiscovery?: CrossAccountDiscoveryServiceStatus | undefined;
+
+  /**
+   * <p>Status of cross-region discovery service.</p>
+   * @public
+   */
+  CrossRegionDiscovery?: CrossRegionDiscoveryStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface GetServiceSettingsResponse {
@@ -2238,6 +2971,70 @@ export interface GetServiceSettingsResponse {
    * @public
    */
   LicenseManagerResourceShareArn?: string | undefined;
+
+  /**
+   * <p>Cross region discovery home region.</p>
+   * @public
+   */
+  CrossRegionDiscoveryHomeRegion?: string | undefined;
+
+  /**
+   * <p>Cross region discovery source regions.</p>
+   * @public
+   */
+  CrossRegionDiscoverySourceRegions?: string[] | undefined;
+
+  /**
+   * <p>Service status.</p>
+   * @public
+   */
+  ServiceStatus?: ServiceStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetsForLicenseAssetGroupRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+
+  /**
+   * <p>Asset type. The possible values are <code>Instance</code> | <code>License</code> | <code>LicenseConfiguration</code>.</p>
+   * @public
+   */
+  AssetType: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssetsForLicenseAssetGroupResponse {
+  /**
+   * <p>Assets.</p>
+   * @public
+   */
+  Assets?: Asset[] | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2506,6 +3303,106 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
 /**
  * @public
  */
+export interface ListLicenseAssetGroupsRequest {
+  /**
+   * <p>Filters to scope the results. Following filters are supported</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseAssetRulesetArn</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseAssetGroupsResponse {
+  /**
+   * <p>License asset groups.</p>
+   * @public
+   */
+  LicenseAssetGroups?: LicenseAssetGroup[] | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseAssetRulesetsRequest {
+  /**
+   * <p>Filters to scope the results. Following filters are supported</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Name</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specifies whether to show License Manager managed license asset rulesets.</p>
+   * @public
+   */
+  ShowAWSManagedLicenseAssetRulesets?: boolean | undefined;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseAssetRulesetsResponse {
+  /**
+   * <p>License asset rulesets.</p>
+   * @public
+   */
+  LicenseAssetRulesets?: LicenseAssetRuleset[] | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListLicenseConfigurationsRequest {
   /**
    * <p>Amazon Resource Names (ARN) of the license configurations.</p>
@@ -2652,6 +3549,12 @@ export interface LicenseConfiguration {
    * @public
    */
   AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation | undefined;
+
+  /**
+   * <p>License configuration expiry time in Unix timestamp format.</p>
+   * @public
+   */
+  LicenseExpiry?: number | undefined;
 }
 
 /**
@@ -2660,6 +3563,52 @@ export interface LicenseConfiguration {
 export interface ListLicenseConfigurationsResponse {
   /**
    * <p>Information about the license configurations.</p>
+   * @public
+   */
+  LicenseConfigurations?: LicenseConfiguration[] | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseConfigurationsForOrganizationRequest {
+  /**
+   * <p>License configuration ARNs.</p>
+   * @public
+   */
+  LicenseConfigurationArns?: string[] | undefined;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Filters to scope the results.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLicenseConfigurationsForOrganizationResponse {
+  /**
+   * <p>License configurations.</p>
    * @public
    */
   LicenseConfigurations?: LicenseConfiguration[] | undefined;
@@ -3488,6 +4437,42 @@ export interface ResourceInventory {
    * @public
    */
   ResourceOwningAccountId?: string | undefined;
+
+  /**
+   * <p>List of Marketplace product codes associated with the resource.</p>
+   * @public
+   */
+  MarketplaceProductCodes?: string[] | undefined;
+
+  /**
+   * <p>Usage operation value that corresponds to the license type for billing purposes.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+
+  /**
+   * <p>Amazon Machine Image (AMI) ID associated with the resource.</p>
+   * @public
+   */
+  AmiId?: string | undefined;
+
+  /**
+   * <p>Dedicated Host ID where the resource is running.</p>
+   * @public
+   */
+  HostId?: string | undefined;
+
+  /**
+   * <p>Region where the resource is located.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>EC2 instance type of the resource.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
 }
 
 /**
@@ -3838,6 +4823,122 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateLicenseAssetGroupRequest {
+  /**
+   * <p>License asset group name.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>License asset group description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>License asset group configurations.</p>
+   * @public
+   */
+  LicenseAssetGroupConfigurations?: LicenseAssetGroupConfiguration[] | undefined;
+
+  /**
+   * <p>ARNs of associated license asset rulesets.</p>
+   * @public
+   */
+  AssociatedLicenseAssetRulesetARNs: string[] | undefined;
+
+  /**
+   * <p>License asset group properties.</p>
+   * @public
+   */
+  Properties?: LicenseAssetGroupProperty[] | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+
+  /**
+   * <p>License asset group status. The possible values are <code>ACTIVE</code> | <code>DISABLED</code>.</p>
+   * @public
+   */
+  Status?: LicenseAssetGroupStatus | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLicenseAssetGroupResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset group.</p>
+   * @public
+   */
+  LicenseAssetGroupArn: string | undefined;
+
+  /**
+   * <p>License asset group status.</p>
+   * @public
+   */
+  Status: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLicenseAssetRulesetRequest {
+  /**
+   * <p>License asset ruleset name.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>License asset ruleset description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>License asset rules.</p>
+   * @public
+   */
+  Rules: LicenseAssetRule[] | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRulesetArn: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLicenseAssetRulesetResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+   * @public
+   */
+  LicenseAssetRulesetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateLicenseConfigurationRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -3893,6 +4994,12 @@ export interface UpdateLicenseConfigurationRequest {
    * @public
    */
   DisassociateWhenNotFound?: boolean | undefined;
+
+  /**
+   * <p>License configuration expiry time.</p>
+   * @public
+   */
+  LicenseExpiry?: number | undefined;
 }
 
 /**
@@ -4015,6 +5122,12 @@ export interface UpdateServiceSettingsRequest {
    * @public
    */
   EnableCrossAccountsDiscovery?: boolean | undefined;
+
+  /**
+   * <p>Cross region discovery enabled source regions.</p>
+   * @public
+   */
+  EnabledDiscoverySourceRegions?: string[] | undefined;
 }
 
 /**

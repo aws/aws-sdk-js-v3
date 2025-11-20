@@ -25,6 +25,16 @@ import {
   CreateGrantVersionCommandOutput,
 } from "./commands/CreateGrantVersionCommand";
 import {
+  CreateLicenseAssetGroupCommand,
+  CreateLicenseAssetGroupCommandInput,
+  CreateLicenseAssetGroupCommandOutput,
+} from "./commands/CreateLicenseAssetGroupCommand";
+import {
+  CreateLicenseAssetRulesetCommand,
+  CreateLicenseAssetRulesetCommandInput,
+  CreateLicenseAssetRulesetCommandOutput,
+} from "./commands/CreateLicenseAssetRulesetCommand";
+import {
   CreateLicenseCommand,
   CreateLicenseCommandInput,
   CreateLicenseCommandOutput,
@@ -52,6 +62,16 @@ import {
 import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import { DeleteGrantCommand, DeleteGrantCommandInput, DeleteGrantCommandOutput } from "./commands/DeleteGrantCommand";
 import {
+  DeleteLicenseAssetGroupCommand,
+  DeleteLicenseAssetGroupCommandInput,
+  DeleteLicenseAssetGroupCommandOutput,
+} from "./commands/DeleteLicenseAssetGroupCommand";
+import {
+  DeleteLicenseAssetRulesetCommand,
+  DeleteLicenseAssetRulesetCommandInput,
+  DeleteLicenseAssetRulesetCommandOutput,
+} from "./commands/DeleteLicenseAssetRulesetCommand";
+import {
   DeleteLicenseCommand,
   DeleteLicenseCommandInput,
   DeleteLicenseCommandOutput,
@@ -78,6 +98,16 @@ import {
   GetAccessTokenCommandOutput,
 } from "./commands/GetAccessTokenCommand";
 import { GetGrantCommand, GetGrantCommandInput, GetGrantCommandOutput } from "./commands/GetGrantCommand";
+import {
+  GetLicenseAssetGroupCommand,
+  GetLicenseAssetGroupCommandInput,
+  GetLicenseAssetGroupCommandOutput,
+} from "./commands/GetLicenseAssetGroupCommand";
+import {
+  GetLicenseAssetRulesetCommand,
+  GetLicenseAssetRulesetCommandInput,
+  GetLicenseAssetRulesetCommandOutput,
+} from "./commands/GetLicenseAssetRulesetCommand";
 import { GetLicenseCommand, GetLicenseCommandInput, GetLicenseCommandOutput } from "./commands/GetLicenseCommand";
 import {
   GetLicenseConfigurationCommand,
@@ -105,6 +135,11 @@ import {
   GetServiceSettingsCommandOutput,
 } from "./commands/GetServiceSettingsCommand";
 import {
+  ListAssetsForLicenseAssetGroupCommand,
+  ListAssetsForLicenseAssetGroupCommandInput,
+  ListAssetsForLicenseAssetGroupCommandOutput,
+} from "./commands/ListAssetsForLicenseAssetGroupCommand";
+import {
   ListAssociationsForLicenseConfigurationCommand,
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput,
@@ -120,10 +155,25 @@ import {
   ListFailuresForLicenseConfigurationOperationsCommandOutput,
 } from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
 import {
+  ListLicenseAssetGroupsCommand,
+  ListLicenseAssetGroupsCommandInput,
+  ListLicenseAssetGroupsCommandOutput,
+} from "./commands/ListLicenseAssetGroupsCommand";
+import {
+  ListLicenseAssetRulesetsCommand,
+  ListLicenseAssetRulesetsCommandInput,
+  ListLicenseAssetRulesetsCommandOutput,
+} from "./commands/ListLicenseAssetRulesetsCommand";
+import {
   ListLicenseConfigurationsCommand,
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseConfigurationsForOrganizationCommand,
+  ListLicenseConfigurationsForOrganizationCommandInput,
+  ListLicenseConfigurationsForOrganizationCommandOutput,
+} from "./commands/ListLicenseConfigurationsForOrganizationCommand";
 import {
   ListLicenseConversionTasksCommand,
   ListLicenseConversionTasksCommandInput,
@@ -193,6 +243,16 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateLicenseAssetGroupCommand,
+  UpdateLicenseAssetGroupCommandInput,
+  UpdateLicenseAssetGroupCommandOutput,
+} from "./commands/UpdateLicenseAssetGroupCommand";
+import {
+  UpdateLicenseAssetRulesetCommand,
+  UpdateLicenseAssetRulesetCommandInput,
+  UpdateLicenseAssetRulesetCommandOutput,
+} from "./commands/UpdateLicenseAssetRulesetCommand";
+import {
   UpdateLicenseConfigurationCommand,
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput,
@@ -222,6 +282,8 @@ const commands = {
   CreateGrantCommand,
   CreateGrantVersionCommand,
   CreateLicenseCommand,
+  CreateLicenseAssetGroupCommand,
+  CreateLicenseAssetRulesetCommand,
   CreateLicenseConfigurationCommand,
   CreateLicenseConversionTaskForResourceCommand,
   CreateLicenseManagerReportGeneratorCommand,
@@ -229,6 +291,8 @@ const commands = {
   CreateTokenCommand,
   DeleteGrantCommand,
   DeleteLicenseCommand,
+  DeleteLicenseAssetGroupCommand,
+  DeleteLicenseAssetRulesetCommand,
   DeleteLicenseConfigurationCommand,
   DeleteLicenseManagerReportGeneratorCommand,
   DeleteTokenCommand,
@@ -236,15 +300,21 @@ const commands = {
   GetAccessTokenCommand,
   GetGrantCommand,
   GetLicenseCommand,
+  GetLicenseAssetGroupCommand,
+  GetLicenseAssetRulesetCommand,
   GetLicenseConfigurationCommand,
   GetLicenseConversionTaskCommand,
   GetLicenseManagerReportGeneratorCommand,
   GetLicenseUsageCommand,
   GetServiceSettingsCommand,
+  ListAssetsForLicenseAssetGroupCommand,
   ListAssociationsForLicenseConfigurationCommand,
   ListDistributedGrantsCommand,
   ListFailuresForLicenseConfigurationOperationsCommand,
+  ListLicenseAssetGroupsCommand,
+  ListLicenseAssetRulesetsCommand,
   ListLicenseConfigurationsCommand,
+  ListLicenseConfigurationsForOrganizationCommand,
   ListLicenseConversionTasksCommand,
   ListLicenseManagerReportGeneratorsCommand,
   ListLicensesCommand,
@@ -261,6 +331,8 @@ const commands = {
   RejectGrantCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateLicenseAssetGroupCommand,
+  UpdateLicenseAssetRulesetCommand,
   UpdateLicenseConfigurationCommand,
   UpdateLicenseManagerReportGeneratorCommand,
   UpdateLicenseSpecificationsForResourceCommand,
@@ -361,6 +433,40 @@ export interface LicenseManager {
     args: CreateLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLicenseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLicenseAssetGroupCommand}
+   */
+  createLicenseAssetGroup(
+    args: CreateLicenseAssetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLicenseAssetGroupCommandOutput>;
+  createLicenseAssetGroup(
+    args: CreateLicenseAssetGroupCommandInput,
+    cb: (err: any, data?: CreateLicenseAssetGroupCommandOutput) => void
+  ): void;
+  createLicenseAssetGroup(
+    args: CreateLicenseAssetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLicenseAssetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLicenseAssetRulesetCommand}
+   */
+  createLicenseAssetRuleset(
+    args: CreateLicenseAssetRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLicenseAssetRulesetCommandOutput>;
+  createLicenseAssetRuleset(
+    args: CreateLicenseAssetRulesetCommandInput,
+    cb: (err: any, data?: CreateLicenseAssetRulesetCommandOutput) => void
+  ): void;
+  createLicenseAssetRuleset(
+    args: CreateLicenseAssetRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLicenseAssetRulesetCommandOutput) => void
   ): void;
 
   /**
@@ -465,6 +571,40 @@ export interface LicenseManager {
   ): void;
 
   /**
+   * @see {@link DeleteLicenseAssetGroupCommand}
+   */
+  deleteLicenseAssetGroup(
+    args: DeleteLicenseAssetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLicenseAssetGroupCommandOutput>;
+  deleteLicenseAssetGroup(
+    args: DeleteLicenseAssetGroupCommandInput,
+    cb: (err: any, data?: DeleteLicenseAssetGroupCommandOutput) => void
+  ): void;
+  deleteLicenseAssetGroup(
+    args: DeleteLicenseAssetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLicenseAssetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLicenseAssetRulesetCommand}
+   */
+  deleteLicenseAssetRuleset(
+    args: DeleteLicenseAssetRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLicenseAssetRulesetCommandOutput>;
+  deleteLicenseAssetRuleset(
+    args: DeleteLicenseAssetRulesetCommandInput,
+    cb: (err: any, data?: DeleteLicenseAssetRulesetCommandOutput) => void
+  ): void;
+  deleteLicenseAssetRuleset(
+    args: DeleteLicenseAssetRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLicenseAssetRulesetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteLicenseConfigurationCommand}
    */
   deleteLicenseConfiguration(
@@ -563,6 +703,40 @@ export interface LicenseManager {
   ): void;
 
   /**
+   * @see {@link GetLicenseAssetGroupCommand}
+   */
+  getLicenseAssetGroup(
+    args: GetLicenseAssetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLicenseAssetGroupCommandOutput>;
+  getLicenseAssetGroup(
+    args: GetLicenseAssetGroupCommandInput,
+    cb: (err: any, data?: GetLicenseAssetGroupCommandOutput) => void
+  ): void;
+  getLicenseAssetGroup(
+    args: GetLicenseAssetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLicenseAssetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLicenseAssetRulesetCommand}
+   */
+  getLicenseAssetRuleset(
+    args: GetLicenseAssetRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLicenseAssetRulesetCommandOutput>;
+  getLicenseAssetRuleset(
+    args: GetLicenseAssetRulesetCommandInput,
+    cb: (err: any, data?: GetLicenseAssetRulesetCommandOutput) => void
+  ): void;
+  getLicenseAssetRuleset(
+    args: GetLicenseAssetRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLicenseAssetRulesetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLicenseConfigurationCommand}
    */
   getLicenseConfiguration(
@@ -646,6 +820,23 @@ export interface LicenseManager {
   ): void;
 
   /**
+   * @see {@link ListAssetsForLicenseAssetGroupCommand}
+   */
+  listAssetsForLicenseAssetGroup(
+    args: ListAssetsForLicenseAssetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetsForLicenseAssetGroupCommandOutput>;
+  listAssetsForLicenseAssetGroup(
+    args: ListAssetsForLicenseAssetGroupCommandInput,
+    cb: (err: any, data?: ListAssetsForLicenseAssetGroupCommandOutput) => void
+  ): void;
+  listAssetsForLicenseAssetGroup(
+    args: ListAssetsForLicenseAssetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetsForLicenseAssetGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAssociationsForLicenseConfigurationCommand}
    */
   listAssociationsForLicenseConfiguration(
@@ -698,6 +889,42 @@ export interface LicenseManager {
   ): void;
 
   /**
+   * @see {@link ListLicenseAssetGroupsCommand}
+   */
+  listLicenseAssetGroups(): Promise<ListLicenseAssetGroupsCommandOutput>;
+  listLicenseAssetGroups(
+    args: ListLicenseAssetGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLicenseAssetGroupsCommandOutput>;
+  listLicenseAssetGroups(
+    args: ListLicenseAssetGroupsCommandInput,
+    cb: (err: any, data?: ListLicenseAssetGroupsCommandOutput) => void
+  ): void;
+  listLicenseAssetGroups(
+    args: ListLicenseAssetGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLicenseAssetGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLicenseAssetRulesetsCommand}
+   */
+  listLicenseAssetRulesets(): Promise<ListLicenseAssetRulesetsCommandOutput>;
+  listLicenseAssetRulesets(
+    args: ListLicenseAssetRulesetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLicenseAssetRulesetsCommandOutput>;
+  listLicenseAssetRulesets(
+    args: ListLicenseAssetRulesetsCommandInput,
+    cb: (err: any, data?: ListLicenseAssetRulesetsCommandOutput) => void
+  ): void;
+  listLicenseAssetRulesets(
+    args: ListLicenseAssetRulesetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLicenseAssetRulesetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListLicenseConfigurationsCommand}
    */
   listLicenseConfigurations(): Promise<ListLicenseConfigurationsCommandOutput>;
@@ -713,6 +940,24 @@ export interface LicenseManager {
     args: ListLicenseConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLicenseConfigurationsForOrganizationCommand}
+   */
+  listLicenseConfigurationsForOrganization(): Promise<ListLicenseConfigurationsForOrganizationCommandOutput>;
+  listLicenseConfigurationsForOrganization(
+    args: ListLicenseConfigurationsForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLicenseConfigurationsForOrganizationCommandOutput>;
+  listLicenseConfigurationsForOrganization(
+    args: ListLicenseConfigurationsForOrganizationCommandInput,
+    cb: (err: any, data?: ListLicenseConfigurationsForOrganizationCommandOutput) => void
+  ): void;
+  listLicenseConfigurationsForOrganization(
+    args: ListLicenseConfigurationsForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLicenseConfigurationsForOrganizationCommandOutput) => void
   ): void;
 
   /**
@@ -963,6 +1208,40 @@ export interface LicenseManager {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLicenseAssetGroupCommand}
+   */
+  updateLicenseAssetGroup(
+    args: UpdateLicenseAssetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLicenseAssetGroupCommandOutput>;
+  updateLicenseAssetGroup(
+    args: UpdateLicenseAssetGroupCommandInput,
+    cb: (err: any, data?: UpdateLicenseAssetGroupCommandOutput) => void
+  ): void;
+  updateLicenseAssetGroup(
+    args: UpdateLicenseAssetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLicenseAssetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLicenseAssetRulesetCommand}
+   */
+  updateLicenseAssetRuleset(
+    args: UpdateLicenseAssetRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLicenseAssetRulesetCommandOutput>;
+  updateLicenseAssetRuleset(
+    args: UpdateLicenseAssetRulesetCommandInput,
+    cb: (err: any, data?: UpdateLicenseAssetRulesetCommandOutput) => void
+  ): void;
+  updateLicenseAssetRuleset(
+    args: UpdateLicenseAssetRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLicenseAssetRulesetCommandOutput) => void
   ): void;
 
   /**
