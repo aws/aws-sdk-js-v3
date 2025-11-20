@@ -48,6 +48,17 @@ export interface GetAnycastIpListCommandOutput extends GetAnycastIpListResult, _
  * //     Status: "STRING_VALUE", // required
  * //     Arn: "STRING_VALUE", // required
  * //     IpAddressType: "ipv4" || "ipv6" || "dualstack",
+ * //     IpamConfig: { // IpamConfig
+ * //       Quantity: Number("int"), // required
+ * //       IpamCidrConfigs: [ // IpamCidrConfigList // required
+ * //         { // IpamCidrConfig
+ * //           Cidr: "STRING_VALUE", // required
+ * //           IpamPoolArn: "STRING_VALUE", // required
+ * //           AnycastIp: "STRING_VALUE",
+ * //           Status: "provisioned" || "failed-provision" || "provisioning" || "deprovisioned" || "failed-deprovision" || "deprovisioning" || "advertised" || "failed-advertise" || "advertising" || "withdrawn" || "failed-withdraw" || "withdrawing",
+ * //         },
+ * //       ],
+ * //     },
  * //     AnycastIps: [ // AnycastIps // required
  * //       "STRING_VALUE",
  * //     ],

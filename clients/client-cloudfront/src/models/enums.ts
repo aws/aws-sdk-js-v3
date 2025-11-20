@@ -69,6 +69,29 @@ export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
  * @public
  * @enum
  */
+export const IpamCidrStatus = {
+  Advertised: "advertised",
+  Advertising: "advertising",
+  Deprovisioned: "deprovisioned",
+  Deprovisioning: "deprovisioning",
+  FailedAdvertise: "failed-advertise",
+  FailedDeprovision: "failed-deprovision",
+  FailedProvision: "failed-provision",
+  FailedWithdraw: "failed-withdraw",
+  Provisioned: "provisioned",
+  Provisioning: "provisioning",
+  Withdrawing: "withdrawing",
+  Withdrawn: "withdrawn",
+} as const;
+/**
+ * @public
+ */
+export type IpamCidrStatus = (typeof IpamCidrStatus)[keyof typeof IpamCidrStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ItemSelection = {
   all: "all",
   none: "none",

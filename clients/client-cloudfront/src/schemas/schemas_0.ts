@@ -199,6 +199,7 @@ const _CVO = "CreateVpcOrigin";
 const _CVOR = "CreateVpcOriginRequest";
 const _CVORr = "CreateVpcOriginResult";
 const _Ce = "Certificate";
+const _Ci = "Cidr";
 const _Co = "Comment";
 const _Coo = "Cookies";
 const _Cu = "Customizations";
@@ -499,9 +500,13 @@ const _IAT = "IpAddressType";
 const _IAn = "InvalidAssociation";
 const _IB = "InvalidationBatch";
 const _IBn = "IncludeBody";
-const _IC = "IpCount";
+const _IC = "IpamConfig";
+const _ICC = "IpamCidrConfigs";
+const _ICCL = "IpamCidrConfigList";
+const _ICCp = "IpamCidrConfig";
 const _ICPRS = "ICPRecordalStatus";
 const _ICn = "IncludeCookies";
+const _ICp = "IpCount";
 const _ID = "IsDefault";
 const _IDNFOAC = "InvalidDomainNameForOriginAccessControl";
 const _IDRO = "InvalidDefaultRootObject";
@@ -527,6 +532,7 @@ const _IOACn = "InvalidOriginAccessControl";
 const _IOAI = "InvalidOriginAccessIdentity";
 const _IOKT = "InvalidOriginKeepaliveTimeout";
 const _IORT = "InvalidOriginReadTimeout";
+const _IPA = "IpamPoolArn";
 const _IPIB = "InProgressInvalidationBatches";
 const _IPS = "InvalidProtocolSettings";
 const _IQ = "InconsistentQuantities";
@@ -1304,8 +1310,8 @@ export var AnycastIpList: StaticStructureSchema = [
   n0,
   _AIL,
   0,
-  [_Id, _N, _S, _Ar, _IAT, _AI, _IC, _LMT],
-  [0, 0, 0, 0, 0, [() => AnycastIps, 0], 1, 4],
+  [_Id, _N, _S, _Ar, _IAT, _IC, _AI, _ICp, _LMT],
+  [0, 0, 0, 0, 0, [() => IpamConfig, 0], [() => AnycastIps, 0], 1, 4],
 ];
 export var AnycastIpListCollection: StaticStructureSchema = [
   3,
@@ -1320,8 +1326,8 @@ export var AnycastIpListSummary: StaticStructureSchema = [
   n0,
   _AILS,
   0,
-  [_Id, _N, _S, _Ar, _IC, _LMT, _IAT, _ET],
-  [0, 0, 0, 0, 1, 4, 0, 0],
+  [_Id, _N, _S, _Ar, _ICp, _LMT, _IAT, _ET, _IC],
+  [0, 0, 0, 0, 1, 4, 0, 0, [() => IpamConfig, 0]],
 ];
 export var AssociateAliasRequest: StaticStructureSchema = [
   3,
@@ -1810,8 +1816,8 @@ export var CreateAnycastIpListRequest: StaticStructureSchema = [
   n0,
   _CAILR,
   0,
-  [_N, _IC, _Ta, _IAT],
-  [0, 1, [() => Tags, 0], 0],
+  [_N, _ICp, _Ta, _IAT, _ICC],
+  [0, 1, [() => Tags, 0], 0, [() => IpamCidrConfigList, 0]],
 ];
 export var CreateAnycastIpListResult: StaticStructureSchema = [
   3,
@@ -4677,6 +4683,8 @@ export var InvalidWebACLId: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidWebACLId, __InvalidWebACLId);
 
+export var IpamCidrConfig: StaticStructureSchema = [3, n0, _ICCp, 0, [_Ci, _IPA, _AIn, _S], [0, 0, 0, 0]];
+export var IpamConfig: StaticStructureSchema = [3, n0, _IC, 0, [_Q, _ICC], [1, [() => IpamCidrConfigList, 0]]];
 export var KeyGroup: StaticStructureSchema = [3, n0, _KG, 0, [_Id, _LMT, _KGC], [0, 4, [() => KeyGroupConfig, 0]]];
 export var KeyGroupAlreadyExists: StaticErrorSchema = [
   -3,
@@ -8737,6 +8745,18 @@ export var InvalidationSummaryList: StaticListSchema = [
     () => InvalidationSummary,
     {
       [_xN]: _ISn,
+    },
+  ],
+];
+export var IpamCidrConfigList: StaticListSchema = [
+  1,
+  n0,
+  _ICCL,
+  0,
+  [
+    () => IpamCidrConfig,
+    {
+      [_xN]: _ICCp,
     },
   ],
 ];

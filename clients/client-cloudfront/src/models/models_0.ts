@@ -20,6 +20,7 @@ import {
   ICPRecordalStatus,
   ImportSourceType,
   IpAddressType,
+  IpamCidrStatus,
   ItemSelection,
   ManagedCertificateStatus,
   Method,
@@ -223,6 +224,54 @@ export interface AllowedMethods {
 }
 
 /**
+ * <p>Configuration for an IPAM CIDR that defines a specific IP address range, IPAM pool, and associated Anycast IP address.</p>
+ * @public
+ */
+export interface IpamCidrConfig {
+  /**
+   * <p>The CIDR that specifies the IP address range for this IPAM configuration.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IPAM pool that the CIDR block is assigned to.</p>
+   * @public
+   */
+  IpamPoolArn: string | undefined;
+
+  /**
+   * <p>The specified Anycast IP address allocated from the IPAM pool for this CIDR configuration.</p>
+   * @public
+   */
+  AnycastIp?: string | undefined;
+
+  /**
+   * <p>The current status of the IPAM CIDR configuration.</p>
+   * @public
+   */
+  Status?: IpamCidrStatus | undefined;
+}
+
+/**
+ * <p>The configuration IPAM settings that includes the quantity of CIDR configurations and the list of IPAM CIDR configurations.</p>
+ * @public
+ */
+export interface IpamConfig {
+  /**
+   * <p>The number of IPAM CIDR configurations in the <code>IpamCidrConfigs</code> list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>A list of IPAM CIDR configurations that define the IP address ranges, IPAM pools, and associated Anycast IP addresses.</p>
+   * @public
+   */
+  IpamCidrConfigs: IpamCidrConfig[] | undefined;
+}
+
+/**
  * <p>An Anycast static IP list. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/request-static-ips.html">Request Anycast static IPs to use for allowlisting</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @public
  */
@@ -256,6 +305,12 @@ export interface AnycastIpList {
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The IPAM configuration for the Anycast static IP list, that contains the quantity and list of IPAM CIDR configurations.</p>
+   * @public
+   */
+  IpamConfig?: IpamConfig | undefined;
 
   /**
    * <p>The static IP addresses that are allocated to the Anycast static IP list.</p>
@@ -328,6 +383,12 @@ export interface AnycastIpListSummary {
    * @public
    */
   ETag?: string | undefined;
+
+  /**
+   * <p>The IPAM configuration for the Anycast static IP list, that contains the quantity and list of IPAM CIDR configurations.</p>
+   * @public
+   */
+  IpamConfig?: IpamConfig | undefined;
 }
 
 /**
@@ -2154,10 +2215,16 @@ export interface CreateAnycastIpListRequest {
   Tags?: Tags | undefined;
 
   /**
-   * <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>ipv6</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
+   * <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> only</p> </li> <li> <p> <code>ipv6</code> only </p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool settings for creating the Anycast static IP list. </p>
+   * @public
+   */
+  IpamCidrConfigs?: IpamCidrConfig[] | undefined;
 }
 
 /**
@@ -6551,32 +6618,4 @@ export interface GetPublicKeyConfigResult {
    * @public
    */
   ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRealtimeLogConfigRequest {
-  /**
-   * <p>The name of the real-time log configuration to get.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
-   * @public
-   */
-  ARN?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRealtimeLogConfigResult {
-  /**
-   * <p>A real-time log configuration.</p>
-   * @public
-   */
-  RealtimeLogConfig?: RealtimeLogConfig | undefined;
 }

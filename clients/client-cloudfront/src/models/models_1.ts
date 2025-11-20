@@ -77,6 +77,34 @@ import {
 /**
  * @public
  */
+export interface GetRealtimeLogConfigRequest {
+  /**
+   * <p>The name of the real-time log configuration to get.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
+   * @public
+   */
+  ARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRealtimeLogConfigResult {
+  /**
+   * <p>A real-time log configuration.</p>
+   * @public
+   */
+  RealtimeLogConfig?: RealtimeLogConfig | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudFront resource that is associated with the resource policy.</p>
@@ -3079,7 +3107,7 @@ export interface UpdateAnycastIpListRequest {
   Id: string | undefined;
 
   /**
-   * <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>ipv6</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
+   * <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> only</p> </li> <li> <p> <code>ipv6</code> only</p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
    * @public
    */
   IpAddressType?: IpAddressType | undefined;

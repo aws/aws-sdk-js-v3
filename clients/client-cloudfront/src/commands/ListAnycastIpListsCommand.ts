@@ -54,6 +54,17 @@ export interface ListAnycastIpListsCommandOutput extends ListAnycastIpListsResul
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
  * //         IpAddressType: "ipv4" || "ipv6" || "dualstack",
  * //         ETag: "STRING_VALUE",
+ * //         IpamConfig: { // IpamConfig
+ * //           Quantity: Number("int"), // required
+ * //           IpamCidrConfigs: [ // IpamCidrConfigList // required
+ * //             { // IpamCidrConfig
+ * //               Cidr: "STRING_VALUE", // required
+ * //               IpamPoolArn: "STRING_VALUE", // required
+ * //               AnycastIp: "STRING_VALUE",
+ * //               Status: "provisioned" || "failed-provision" || "provisioning" || "deprovisioned" || "failed-deprovision" || "deprovisioning" || "advertised" || "failed-advertise" || "advertising" || "withdrawn" || "failed-withdraw" || "withdrawing",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     ],
  * //     Marker: "STRING_VALUE", // required
