@@ -805,6 +805,7 @@ const _FSVN = "FirstSchemaVersionNumber";
 const _FT = "FederatedTable";
 const _FTi = "FieldType";
 const _FTr = "FromType";
+const _FTu = "FunctionType";
 const _FV = "FieldValue";
 const _FVi = "FilterValue";
 const _FVil = "FilterValues";
@@ -5099,8 +5100,8 @@ export var GetUserDefinedFunctionsRequest: StaticStructureSchema = [
   n0,
   _GUDFRet,
   0,
-  [_CI, _DN, _Patt, _NTe, _MRax],
-  [0, 0, 0, 0, 1],
+  [_CI, _DN, _Patt, _FTu, _NTe, _MRax],
+  [0, 0, 0, 0, 0, 1],
 ];
 export var GetUserDefinedFunctionsResponse: StaticStructureSchema = [
   3,
@@ -7638,16 +7639,16 @@ export var UserDefinedFunction: StaticStructureSchema = [
   n0,
   _UDF,
   0,
-  [_FNu, _DN, _CNl, _ON, _OT, _CTr, _RUes, _CI],
-  [0, 0, 0, 0, 0, 4, () => ResourceUriList, 0],
+  [_FNu, _DN, _CNl, _ON, _FTu, _OT, _CTr, _RUes, _CI],
+  [0, 0, 0, 0, 0, 0, 4, () => ResourceUriList, 0],
 ];
 export var UserDefinedFunctionInput: StaticStructureSchema = [
   3,
   n0,
   _UDFI,
   0,
-  [_FNu, _CNl, _ON, _OT, _RUes],
-  [0, 0, 0, 0, () => ResourceUriList],
+  [_FNu, _CNl, _ON, _FTu, _OT, _RUes],
+  [0, 0, 0, 0, 0, () => ResourceUriList],
 ];
 export var ValidationException: StaticErrorSchema = [
   -3,

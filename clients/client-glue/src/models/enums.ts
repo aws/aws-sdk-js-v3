@@ -1471,6 +1471,20 @@ export type ViewDialect = (typeof ViewDialect)[keyof typeof ViewDialect];
  * @public
  * @enum
  */
+export const FunctionType = {
+  AGGREGATE_FUNCTION: "AGGREGATE_FUNCTION",
+  REGULAR_FUNCTION: "REGULAR_FUNCTION",
+  STORED_PROCEDURE: "STORED_PROCEDURE",
+} as const;
+/**
+ * @public
+ */
+export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PrincipalType = {
   GROUP: "GROUP",
   ROLE: "ROLE",

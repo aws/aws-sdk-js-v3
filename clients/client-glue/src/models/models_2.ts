@@ -14,6 +14,7 @@ import {
   ExistCondition,
   FieldName,
   FilterOperator,
+  FunctionType,
   InclusionAnnotationValue,
   IntegrationStatus,
   Language,
@@ -2646,6 +2647,12 @@ export interface UserDefinedFunction {
   OwnerName?: string | undefined;
 
   /**
+   * <p>The type of the function.</p>
+   * @public
+   */
+  FunctionType?: FunctionType | undefined;
+
+  /**
    * <p>The owner type.</p>
    * @public
    */
@@ -2705,6 +2712,17 @@ export interface GetUserDefinedFunctionsRequest {
    * @public
    */
   Pattern: string | undefined;
+
+  /**
+   * <p>An optional function-type pattern string that filters the function
+   *       definitions returned from Amazon Redshift Federated Permissions Catalog.</p>
+   *          <p>Specify a value of <code>REGULAR_FUNCTION</code> or <code>STORED_PROCEDURE</code>.
+   *       The <code>STORED_PROCEDURE</code> function type is only compatible with
+   *       Amazon Redshift Federated Permissions Catalog.
+   *     </p>
+   * @public
+   */
+  FunctionType?: FunctionType | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>

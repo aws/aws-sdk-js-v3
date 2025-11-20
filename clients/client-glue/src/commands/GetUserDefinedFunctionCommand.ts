@@ -49,6 +49,7 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * //     DatabaseName: "STRING_VALUE",
  * //     ClassName: "STRING_VALUE",
  * //     OwnerName: "STRING_VALUE",
+ * //     FunctionType: "REGULAR_FUNCTION" || "AGGREGATE_FUNCTION" || "STORED_PROCEDURE",
  * //     OwnerType: "USER" || "ROLE" || "GROUP",
  * //     CreateTime: new Date("TIMESTAMP"),
  * //     ResourceUris: [ // ResourceUriList

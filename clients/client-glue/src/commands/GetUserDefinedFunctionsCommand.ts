@@ -40,6 +40,7 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  *   CatalogId: "STRING_VALUE",
  *   DatabaseName: "STRING_VALUE",
  *   Pattern: "STRING_VALUE", // required
+ *   FunctionType: "REGULAR_FUNCTION" || "AGGREGATE_FUNCTION" || "STORED_PROCEDURE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -52,6 +53,7 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  * //       DatabaseName: "STRING_VALUE",
  * //       ClassName: "STRING_VALUE",
  * //       OwnerName: "STRING_VALUE",
+ * //       FunctionType: "REGULAR_FUNCTION" || "AGGREGATE_FUNCTION" || "STORED_PROCEDURE",
  * //       OwnerType: "USER" || "ROLE" || "GROUP",
  * //       CreateTime: new Date("TIMESTAMP"),
  * //       ResourceUris: [ // ResourceUriList

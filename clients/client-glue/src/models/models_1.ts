@@ -26,6 +26,7 @@ import {
   ExecutionStatus,
   FieldDataType,
   FieldFilterOperator,
+  FunctionType,
   IcebergNullOrder,
   IcebergSortDirection,
   IcebergStructTypeEnum,
@@ -2813,6 +2814,12 @@ export interface UserDefinedFunctionInput {
    * @public
    */
   OwnerName?: string | undefined;
+
+  /**
+   * <p>The type of the function.</p>
+   * @public
+   */
+  FunctionType?: FunctionType | undefined;
 
   /**
    * <p>The owner type.</p>
