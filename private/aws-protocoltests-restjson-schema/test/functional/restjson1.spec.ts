@@ -28,6 +28,7 @@ import { HttpPayloadWithStructureCommand } from "../../src/commands/HttpPayloadW
 import { HttpPayloadWithUnionCommand } from "../../src/commands/HttpPayloadWithUnionCommand";
 import { HttpPrefixHeadersCommand } from "../../src/commands/HttpPrefixHeadersCommand";
 import { HttpPrefixHeadersInResponseCommand } from "../../src/commands/HttpPrefixHeadersInResponseCommand";
+import { HttpQueryParamsOnlyOperationCommand } from "../../src/commands/HttpQueryParamsOnlyOperationCommand";
 import { HttpRequestWithFloatLabelsCommand } from "../../src/commands/HttpRequestWithFloatLabelsCommand";
 import { HttpRequestWithGreedyLabelInPathCommand } from "../../src/commands/HttpRequestWithGreedyLabelInPathCommand";
 import { HttpRequestWithLabelsAndTimestampFormatCommand } from "../../src/commands/HttpRequestWithLabelsAndTimestampFormatCommand";
@@ -3189,6 +3190,67 @@ it("HttpPrefixHeadersResponse:Response", async () => {
     ).toBeDefined();
     expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
+});
+
+/**
+ * Test that httpQueryParams are included in request when no other query parameters exist
+ */
+it("HttpQueryParamsOnlyRequest:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpQueryParamsOnlyOperationCommand({
+    queryMap: {
+      a: "b",
+      c: "d",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/http-query-params-only");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("a=b");
+    expect(queryString).toContain("c=d");
+  }
+});
+
+/**
+ * Test that empty httpQueryParams map results in no query parameters
+ */
+it("HttpQueryParamsOnlyEmptyRequest:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpQueryParamsOnlyOperationCommand({
+    queryMap: {} as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/http-query-params-only");
+  }
 });
 
 /**

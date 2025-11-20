@@ -3,6 +3,7 @@ import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import { FooEnum, IntegerEnum, StringEnum, TestEnum, TestIntEnum } from "./enums";
+import { ErrorEvent } from "./errors";
 
 /**
  * @public
@@ -36,6 +37,13 @@ export interface AllQueryStringTypesInput {
   queryIntegerEnum?: IntegerEnum | undefined;
   queryIntegerEnumList?: IntegerEnum[] | undefined;
   queryParamsMapOfStringList?: Record<string, string[]> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BlobPayloadEvent {
+  payload?: Uint8Array | undefined;
 }
 
 /**
@@ -156,6 +164,325 @@ export interface DocumentTypeAsMapValueInputOutput {
  */
 export interface DocumentTypeAsPayloadInputOutput {
   documentValue?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface HeadersEvent {
+  booleanHeader?: boolean | undefined;
+  byteHeader?: number | undefined;
+  shortHeader?: number | undefined;
+  intHeader?: number | undefined;
+  longHeader?: number | undefined;
+  blobHeader?: Uint8Array | undefined;
+  stringHeader?: string | undefined;
+  timestampHeader?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PayloadStructure {
+  structureMember?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface HeadersAndExplicitPayloadEvent {
+  header?: string | undefined;
+  payload?: PayloadStructure | undefined;
+}
+
+/**
+ * @public
+ */
+export interface HeadersAndImplicitPayloadEvent {
+  header?: string | undefined;
+  payload?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StringPayloadEvent {
+  payload?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StructurePayloadEvent {
+  payload?: PayloadStructure | undefined;
+}
+
+/**
+ * @public
+ */
+export type PayloadUnion = PayloadUnion.UnionMemberMember | PayloadUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PayloadUnion {
+  export interface UnionMemberMember {
+    unionMember: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    unionMember?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    unionMember: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UnionPayloadEvent {
+  payload?: PayloadUnion | undefined;
+}
+
+/**
+ * @public
+ */
+export type EventStream =
+  | EventStream.BlobPayloadMember
+  | EventStream.ErrorMember
+  | EventStream.HeadersMember
+  | EventStream.HeadersAndExplicitPayloadMember
+  | EventStream.HeadersAndImplicitPayloadMember
+  | EventStream.StringPayloadMember
+  | EventStream.StructurePayloadMember
+  | EventStream.UnionPayloadMember
+  | EventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EventStream {
+  export interface HeadersMember {
+    headers: HeadersEvent;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface BlobPayloadMember {
+    headers?: never;
+    blobPayload: BlobPayloadEvent;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface StringPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload: StringPayloadEvent;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface StructurePayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload: StructurePayloadEvent;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface UnionPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload: UnionPayloadEvent;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface HeadersAndExplicitPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload: HeadersAndExplicitPayloadEvent;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface HeadersAndImplicitPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload: HeadersAndImplicitPayloadEvent;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface ErrorMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error: ErrorEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    headers: (value: HeadersEvent) => T;
+    blobPayload: (value: BlobPayloadEvent) => T;
+    stringPayload: (value: StringPayloadEvent) => T;
+    structurePayload: (value: StructurePayloadEvent) => T;
+    unionPayload: (value: UnionPayloadEvent) => T;
+    headersAndExplicitPayload: (value: HeadersAndExplicitPayloadEvent) => T;
+    headersAndImplicitPayload: (value: HeadersAndImplicitPayloadEvent) => T;
+    error: (value: ErrorEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamOutput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithDistinctStreamsInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SingletonEvent {
+  value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export type SingletonEventStream = SingletonEventStream.SingletonMember | SingletonEventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SingletonEventStream {
+  export interface SingletonMember {
+    singleton: SingletonEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    singleton?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    singleton: (value: SingletonEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithDistinctStreamsOutput {
+  stream?: SingletonEventStream | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithInitialMessagesInput {
+  initialRequestMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithInitialMessagesOutput {
+  initialResponseMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
 }
 
 /**
@@ -320,6 +647,13 @@ export interface HttpPrefixHeadersInResponseOutput {
 /**
  * @public
  */
+export interface HttpQueryParamsOnlyInput {
+  queryMap?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface HttpRequestWithFloatLabelsInput {
   float: number | undefined;
   double: number | undefined;
@@ -419,6 +753,21 @@ export interface InputAndOutputWithHeadersIO {
   headerEnumList?: FooEnum[] | undefined;
   headerIntegerEnum?: IntegerEnum | undefined;
   headerIntegerEnumList?: IntegerEnum[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InputStreamInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InputStreamWithInitialRequestInput {
+  initialRequestMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
 }
 
 /**
@@ -1109,6 +1458,21 @@ export interface OperationWithNestedStructureOutput {
   dialog: Dialog | undefined;
   dialogList?: Dialog[] | undefined;
   dialogMap?: Record<string, Dialog> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface OutputStreamOutput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface OutputStreamWithInitialResponseOutput {
+  initialResponseMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
 }
 
 /**

@@ -6,8 +6,6 @@
 
 AWS SDK for JavaScript RestJsonProtocol Client for Node.js, Browser and React Native.
 
-A REST JSON service that sends JSON requests and responses.
-
 ## Installing
 
 To install this package, simply type add or install @aws-sdk/aws-protocoltests-restjson-schema
@@ -23,16 +21,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RestJsonProtocolClient` and
-the commands you need, for example `JsonBlobsCommand`:
+the commands you need, for example `InputStreamCommand`:
 
 ```js
 // ES5 example
-const { RestJsonProtocolClient, JsonBlobsCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema");
+const { RestJsonProtocolClient, InputStreamCommand } = require("@aws-sdk/aws-protocoltests-restjson-schema");
 ```
 
 ```ts
 // ES6+ example
-import { RestJsonProtocolClient, JsonBlobsCommand } from "@aws-sdk/aws-protocoltests-restjson-schema";
+import { RestJsonProtocolClient, InputStreamCommand } from "@aws-sdk/aws-protocoltests-restjson-schema";
 ```
 
 ### Usage
@@ -51,7 +49,7 @@ const client = new RestJsonProtocolClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new JsonBlobsCommand(params);
+const command = new InputStreamCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +128,7 @@ const client = new AWS.RestJsonProtocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.jsonBlobs(params);
+  const data = await client.inputStream(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +136,7 @@ try {
 
 // Promises.
 client
-  .jsonBlobs(params)
+  .inputStream(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +145,7 @@ client
   });
 
 // callbacks.
-client.jsonBlobs(params, (err, data) => {
+client.inputStream(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -1021,6 +1019,30 @@ DocumentTypeAsPayload
 </details>
 <details>
 <summary>
+DuplexStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/DuplexStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/DuplexStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/DuplexStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+DuplexStreamWithDistinctStreams
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/DuplexStreamWithDistinctStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/DuplexStreamWithDistinctStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/DuplexStreamWithDistinctStreamsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DuplexStreamWithInitialMessages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/DuplexStreamWithInitialMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/DuplexStreamWithInitialMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/DuplexStreamWithInitialMessagesCommandOutput/)
+
+</details>
+<details>
+<summary>
 EmptyInputAndEmptyOutput
 </summary>
 
@@ -1141,6 +1163,14 @@ HttpPrefixHeadersInResponse
 </details>
 <details>
 <summary>
+HttpQueryParamsOnlyOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/HttpQueryParamsOnlyOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/HttpQueryParamsOnlyOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/HttpQueryParamsOnlyOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 HttpRequestWithFloatLabels
 </summary>
 
@@ -1209,6 +1239,22 @@ InputAndOutputWithHeaders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/InputAndOutputWithHeadersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/InputAndOutputWithHeadersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/InputAndOutputWithHeadersCommandOutput/)
+
+</details>
+<details>
+<summary>
+InputStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/InputStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/InputStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/InputStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+InputStreamWithInitialRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/InputStreamWithInitialRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/InputStreamWithInitialRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/InputStreamWithInitialRequestCommandOutput/)
 
 </details>
 <details>
@@ -1601,6 +1647,22 @@ OperationWithNestedStructure
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/OperationWithNestedStructureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/OperationWithNestedStructureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/OperationWithNestedStructureCommandOutput/)
+
+</details>
+<details>
+<summary>
+OutputStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/OutputStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/OutputStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/OutputStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+OutputStreamWithInitialResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-json-protocol/command/OutputStreamWithInitialResponseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/OutputStreamWithInitialResponseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-json-protocol/Interface/OutputStreamWithInitialResponseCommandOutput/)
 
 </details>
 <details>

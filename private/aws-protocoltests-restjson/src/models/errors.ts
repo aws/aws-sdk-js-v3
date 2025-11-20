@@ -31,6 +31,44 @@ export class ComplexError extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export class ErrorEvent extends __BaseException {
+  readonly name = "ErrorEvent" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ErrorEvent, __BaseException>) {
+    super({
+      name: "ErrorEvent",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ErrorEvent.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export class ServiceUnavailableError extends __BaseException {
+  readonly name = "ServiceUnavailableError" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableError, __BaseException>) {
+    super({
+      name: "ServiceUnavailableError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableError.prototype);
+  }
+}
+
+/**
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  * @public

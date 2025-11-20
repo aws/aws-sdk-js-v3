@@ -1,5 +1,10 @@
 // smithy-typescript generated code
 import {
+  EventStreamInputConfig,
+  EventStreamResolvedConfig,
+  resolveEventStreamConfig,
+} from "@aws-sdk/middleware-eventstream";
+import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
@@ -13,6 +18,7 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider } from "@aws-sdk/types";
 import {
   DefaultAwsRegionalEndpointsInputConfig,
   DefaultAwsRegionalEndpointsResolvedConfig,
@@ -24,6 +30,11 @@ import {
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
 } from "@smithy/core";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import {
   CompressionInputConfig,
   CompressionResolvedConfig,
@@ -48,6 +59,7 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -93,6 +105,15 @@ import {
   DocumentTypeAsPayloadCommandOutput,
 } from "./commands/DocumentTypeAsPayloadCommand";
 import { DocumentTypeCommandInput, DocumentTypeCommandOutput } from "./commands/DocumentTypeCommand";
+import { DuplexStreamCommandInput, DuplexStreamCommandOutput } from "./commands/DuplexStreamCommand";
+import {
+  DuplexStreamWithDistinctStreamsCommandInput,
+  DuplexStreamWithDistinctStreamsCommandOutput,
+} from "./commands/DuplexStreamWithDistinctStreamsCommand";
+import {
+  DuplexStreamWithInitialMessagesCommandInput,
+  DuplexStreamWithInitialMessagesCommandOutput,
+} from "./commands/DuplexStreamWithInitialMessagesCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -136,6 +157,10 @@ import {
   HttpPrefixHeadersInResponseCommandOutput,
 } from "./commands/HttpPrefixHeadersInResponseCommand";
 import {
+  HttpQueryParamsOnlyOperationCommandInput,
+  HttpQueryParamsOnlyOperationCommandOutput,
+} from "./commands/HttpQueryParamsOnlyOperationCommand";
+import {
   HttpRequestWithFloatLabelsCommandInput,
   HttpRequestWithFloatLabelsCommandOutput,
 } from "./commands/HttpRequestWithFloatLabelsCommand";
@@ -165,6 +190,11 @@ import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
+import { InputStreamCommandInput, InputStreamCommandOutput } from "./commands/InputStreamCommand";
+import {
+  InputStreamWithInitialRequestCommandInput,
+  InputStreamWithInitialRequestCommandOutput,
+} from "./commands/InputStreamWithInitialRequestCommand";
 import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
 import { JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput } from "./commands/JsonIntEnumsCommand";
@@ -295,6 +325,11 @@ import {
   OperationWithNestedStructureCommandInput,
   OperationWithNestedStructureCommandOutput,
 } from "./commands/OperationWithNestedStructureCommand";
+import { OutputStreamCommandInput, OutputStreamCommandOutput } from "./commands/OutputStreamCommand";
+import {
+  OutputStreamWithInitialResponseCommandInput,
+  OutputStreamWithInitialResponseCommandOutput,
+} from "./commands/OutputStreamWithInitialResponseCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
 import {
   PostUnionWithJsonNameCommandInput,
@@ -381,6 +416,9 @@ export type ServiceInputTypes =
   | DocumentTypeAsMapValueCommandInput
   | DocumentTypeAsPayloadCommandInput
   | DocumentTypeCommandInput
+  | DuplexStreamCommandInput
+  | DuplexStreamWithDistinctStreamsCommandInput
+  | DuplexStreamWithInitialMessagesCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
@@ -396,6 +434,7 @@ export type ServiceInputTypes =
   | HttpPayloadWithUnionCommandInput
   | HttpPrefixHeadersCommandInput
   | HttpPrefixHeadersInResponseCommandInput
+  | HttpQueryParamsOnlyOperationCommandInput
   | HttpRequestWithFloatLabelsCommandInput
   | HttpRequestWithGreedyLabelInPathCommandInput
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
@@ -405,6 +444,8 @@ export type ServiceInputTypes =
   | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
+  | InputStreamCommandInput
+  | InputStreamWithInitialRequestCommandInput
   | JsonBlobsCommandInput
   | JsonEnumsCommandInput
   | JsonIntEnumsCommandInput
@@ -454,6 +495,8 @@ export type ServiceInputTypes =
   | OmitsSerializingEmptyListsCommandInput
   | OperationWithDefaultsCommandInput
   | OperationWithNestedStructureCommandInput
+  | OutputStreamCommandInput
+  | OutputStreamWithInitialResponseCommandInput
   | PostPlayerActionCommandInput
   | PostUnionWithJsonNameCommandInput
   | PutWithContentEncodingCommandInput
@@ -491,6 +534,9 @@ export type ServiceOutputTypes =
   | DocumentTypeAsMapValueCommandOutput
   | DocumentTypeAsPayloadCommandOutput
   | DocumentTypeCommandOutput
+  | DuplexStreamCommandOutput
+  | DuplexStreamWithDistinctStreamsCommandOutput
+  | DuplexStreamWithInitialMessagesCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
@@ -506,6 +552,7 @@ export type ServiceOutputTypes =
   | HttpPayloadWithUnionCommandOutput
   | HttpPrefixHeadersCommandOutput
   | HttpPrefixHeadersInResponseCommandOutput
+  | HttpQueryParamsOnlyOperationCommandOutput
   | HttpRequestWithFloatLabelsCommandOutput
   | HttpRequestWithGreedyLabelInPathCommandOutput
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
@@ -515,6 +562,8 @@ export type ServiceOutputTypes =
   | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
+  | InputStreamCommandOutput
+  | InputStreamWithInitialRequestCommandOutput
   | JsonBlobsCommandOutput
   | JsonEnumsCommandOutput
   | JsonIntEnumsCommandOutput
@@ -564,6 +613,8 @@ export type ServiceOutputTypes =
   | OmitsSerializingEmptyListsCommandOutput
   | OperationWithDefaultsCommandOutput
   | OperationWithNestedStructureCommandOutput
+  | OutputStreamCommandOutput
+  | OutputStreamWithInitialResponseCommandOutput
   | PostPlayerActionCommandOutput
   | PostUnionWithJsonNameCommandOutput
   | PutWithContentEncodingCommandOutput
@@ -735,6 +786,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
    * A function that, given a hash constructor and a stream, calculates the
    * hash of the streamed value.
    * @internal
@@ -754,6 +810,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
+   * The function that provides necessary utilities for handling request event stream.
+   * @internal
+   */
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
+  /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal
    */
@@ -771,7 +833,9 @@ export type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__H
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
   DefaultAwsRegionalEndpointsInputConfig &
+  EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
+  EventStreamInputConfig &
   CompressionInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -793,7 +857,9 @@ export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfigura
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
   DefaultAwsRegionalEndpointsResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
+  EventStreamResolvedConfig &
   CompressionResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -804,7 +870,6 @@ export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfigura
 export interface RestJsonProtocolClientResolvedConfig extends RestJsonProtocolClientResolvedConfigType {}
 
 /**
- * A REST JSON service that sends JSON requests and responses.
  * @public
  */
 export class RestJsonProtocolClient extends __Client<
@@ -829,10 +894,12 @@ export class RestJsonProtocolClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveDefaultAwsRegionalEndpointsConfig(_config_6);
-    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
-    const _config_9 = resolveCompressionConfig(_config_8);
-    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
-    this.config = _config_10;
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
+    const _config_10 = resolveEventStreamConfig(_config_9);
+    const _config_11 = resolveCompressionConfig(_config_10);
+    const _config_12 = resolveRuntimeExtensions(_config_11, configuration?.extensions || []);
+    this.config = _config_12;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
