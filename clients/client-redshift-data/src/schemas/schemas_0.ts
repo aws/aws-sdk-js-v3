@@ -198,8 +198,8 @@ export var BatchExecuteStatementInput: StaticStructureSchema = [
   n0,
   _BESI,
   0,
-  [_S, _CI, _SA, _DU, _D, _WE, _SN, _WN, _CT, _SKAS, _SIe, _RF],
-  [64 | 0, 0, 0, 0, 0, 2, 0, 0, [0, 4], 1, 0, 0],
+  [_S, _CI, _SA, _DU, _D, _WE, _SN, _WN, _CT, _RF, _SKAS, _SIe],
+  [64 | 0, 0, 0, 0, 0, 2, 0, 0, [0, 4], 0, 1, 0],
 ];
 export var BatchExecuteStatementOutput: StaticStructureSchema = [
   3,
@@ -238,7 +238,7 @@ export var DescribeStatementResponse: StaticStructureSchema = [
   n0,
   _DSRe,
   0,
-  [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _QP, _SS, _WN, _SIe, _RF],
+  [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _QP, _SS, _WN, _RF, _SIe],
   [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, () => SqlParametersList, () => SubStatementList, 0, 0, 0],
 ];
 export var DescribeTableRequest: StaticStructureSchema = [
@@ -268,8 +268,8 @@ export var ExecuteStatementInput: StaticStructureSchema = [
   n0,
   _ESI,
   0,
-  [_Sq, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _SKAS, _SIe, _RF],
-  [0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 1, 0, 0],
+  [_Sq, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe],
+  [0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0],
 ];
 export var ExecuteStatementOutput: StaticStructureSchema = [
   3,

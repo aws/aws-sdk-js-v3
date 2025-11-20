@@ -318,11 +318,7 @@ export type RedshiftDataClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface RedshiftDataClientResolvedConfig extends RedshiftDataClientResolvedConfigType {}
 
 /**
- * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
- *       can run SQL statements, which are committed if the statement succeeds. </p>
- *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
- *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
- *        <i>Amazon Redshift Management Guide</i>. </p>
+ * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You can run SQL statements, which are committed if the statement succeeds. </p> <p>For more information about the Amazon Redshift Data API and CLI usage examples, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. </p>
  * @public
  */
 export class RedshiftDataClient extends __Client<

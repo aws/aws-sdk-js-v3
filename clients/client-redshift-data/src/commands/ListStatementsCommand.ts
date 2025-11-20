@@ -27,16 +27,7 @@ export interface ListStatementsCommandInput extends ListStatementsRequest {}
 export interface ListStatementsCommandOutput extends ListStatementsResponse, __MetadataBearer {}
 
 /**
- * <p>List of SQL statements. By default, only finished statements are shown.
- *         A token is returned to page through the statement list. </p>
- *          <p>When you use identity-enhanced role sessions to list statements, you must provide either the
- *      <code>cluster-identifier</code> or <code>workgroup-name</code> parameter. This ensures that the IdC user
- *      can only access the Amazon Redshift IdC applications they are assigned. For more information, see
- *        <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html">
- *          Trusted identity propagation overview</a>.</p>
- *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
- *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
- *        <i>Amazon Redshift Management Guide</i>. </p>
+ * <p>List of SQL statements. By default, only finished statements are shown. A token is returned to page through the statement list. </p> <p>When you use identity-enhanced role sessions to list statements, you must provide either the <code>cluster-identifier</code> or <code>workgroup-name</code> parameter. This ensures that the IdC user can only access the Amazon Redshift IdC applications they are assigned. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html"> Trusted identity propagation overview</a>.</p> <p>For more information about the Amazon Redshift Data API and CLI usage examples, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +85,9 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>

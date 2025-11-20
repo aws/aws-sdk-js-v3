@@ -102,6 +102,39 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The exception message.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>Resource identifier associated with the exception.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+  }
+}
+
+/**
  * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  * @public
  */
@@ -146,39 +179,6 @@ export class DatabaseConnectionException extends __BaseException {
     });
     Object.setPrototypeOf(this, DatabaseConnectionException.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The exception message.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>Resource identifier associated with the exception.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
   }
 }
 
