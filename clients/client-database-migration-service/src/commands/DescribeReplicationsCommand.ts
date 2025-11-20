@@ -124,6 +124,7 @@ export interface DescribeReplicationsCommandOutput extends DescribeReplicationsR
  * //       ReplicationUpdateTime: new Date("TIMESTAMP"),
  * //       ReplicationLastStopTime: new Date("TIMESTAMP"),
  * //       ReplicationDeprovisionTime: new Date("TIMESTAMP"),
+ * //       IsReadOnly: true || false,
  * //     },
  * //   ],
  * // };

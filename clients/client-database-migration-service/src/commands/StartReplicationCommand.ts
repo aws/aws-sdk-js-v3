@@ -121,6 +121,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * //     ReplicationUpdateTime: new Date("TIMESTAMP"),
  * //     ReplicationLastStopTime: new Date("TIMESTAMP"),
  * //     ReplicationDeprovisionTime: new Date("TIMESTAMP"),
+ * //     IsReadOnly: true || false,
  * //   },
  * // };
  *

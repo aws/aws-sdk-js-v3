@@ -68,6 +68,7 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * //       ValidToDate: new Date("TIMESTAMP"),
  * //       SigningAlgorithm: "STRING_VALUE",
  * //       KeyLength: Number("int"),
+ * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

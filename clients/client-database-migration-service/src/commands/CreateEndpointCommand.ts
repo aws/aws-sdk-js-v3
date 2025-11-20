@@ -434,6 +434,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //     ServiceAccessRoleArn: "STRING_VALUE",
  * //     ExternalTableDefinition: "STRING_VALUE",
  * //     ExternalId: "STRING_VALUE",
+ * //     IsReadOnly: true || false,
  * //     DynamoDbSettings: { // DynamoDbSettings
  * //       ServiceAccessRoleArn: "STRING_VALUE", // required
  * //     },
@@ -774,6 +775,9 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       MagneticDuration: Number("int"), // required
  * //       CdcInsertsAndUpdates: true || false,
  * //       EnableMagneticStoreWrites: true || false,
+ * //     },
+ * //     LakehouseSettings: { // LakehouseSettings
+ * //       Arn: "STRING_VALUE", // required
  * //     },
  * //   },
  * // };

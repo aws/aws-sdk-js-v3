@@ -90,6 +90,7 @@ export interface DescribeReplicationInstancesCommandOutput
  * //         SupportedNetworkTypes: [ // StringList
  * //           "STRING_VALUE",
  * //         ],
+ * //         IsReadOnly: true || false,
  * //       },
  * //       PreferredMaintenanceWindow: "STRING_VALUE",
  * //       PendingModifiedValues: { // ReplicationPendingModifiedValues

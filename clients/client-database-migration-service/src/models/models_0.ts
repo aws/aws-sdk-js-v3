@@ -5426,6 +5426,20 @@ export interface CreateEndpointMessage {
 }
 
 /**
+ * <p>Provides information that defines a Lakehouse endpoint. This endpoint type is used for
+ *          zero-ETL integrations with Lakehouse data warehouses.</p>
+ * @public
+ */
+export interface LakehouseSettings {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lakehouse resource that serves as the target for
+   *          this endpoint.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
  * <p>Describes an endpoint of a database instance in response to operations such as the
  *          following:</p>
  *          <ul>
@@ -5572,6 +5586,14 @@ export interface Endpoint {
   ExternalId?: string | undefined;
 
   /**
+   * <p>Indicates whether the endpoint is read-only. When set to <code>true</code>, this endpoint
+   *          is managed by DMS as part of a zero-ETL integration and cannot be modified or deleted directly.
+   *          You can only modify or delete read-only endpoints through their associated zero-ETL integration.</p>
+   * @public
+   */
+  IsReadOnly?: boolean | undefined;
+
+  /**
    * <p>The settings for the DynamoDB target endpoint. For more information, see the
    *             <code>DynamoDBSettings</code> structure.</p>
    * @public
@@ -5701,6 +5723,13 @@ export interface Endpoint {
    * @public
    */
   TimestreamSettings?: TimestreamSettings | undefined;
+
+  /**
+   * <p>Settings in JSON format for the target Lakehouse endpoint. This parameter applies to endpoints
+   *           that are automatically created by DMS for a Lakehouse data warehouse as part of a zero-ETL integration.</p>
+   * @public
+   */
+  LakehouseSettings?: LakehouseSettings | undefined;
 }
 
 /**
@@ -6567,6 +6596,15 @@ export interface ReplicationConfig {
    * @public
    */
   ReplicationConfigUpdateTime?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the replication configuration is read-only. When set to <code>true</code>,
+   *          this replication configuration is managed by DMS as part of a zero-ETL integration and cannot
+   *          be modified or deleted directly. You can only modify or delete read-only replication configurations
+   *          through their associated zero-ETL integration.</p>
+   * @public
+   */
+  IsReadOnly?: boolean | undefined;
 }
 
 /**
@@ -6915,6 +6953,15 @@ export interface ReplicationSubnetGroup {
    * @public
    */
   SupportedNetworkTypes?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the replication subnet group is read-only. When set to <code>true</code>,
+   *          this subnet group is managed by DMS as part of a zero-ETL integration and cannot be modified
+   *          or deleted directly. You can only modify or delete read-only subnet groups through their
+   *          associated zero-ETL integration.</p>
+   * @public
+   */
+  IsReadOnly?: boolean | undefined;
 }
 
 /**
@@ -7912,6 +7959,16 @@ export interface Certificate {
    * @public
    */
   KeyLength?: number | undefined;
+
+  /**
+   * <p>An KMS key identifier that is used to encrypt the certificate.</p>
+   *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
+   *          your default encryption key.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has
+   *          a different default encryption key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -12048,6 +12105,15 @@ export interface Replication {
    * @public
    */
   ReplicationDeprovisionTime?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the serverless replication is read-only. When set to <code>true</code>,
+   *          this replication is managed by DMS as part of a zero-ETL integration and cannot be modified
+   *          or deleted directly. You can only modify or delete read-only replications through their
+   *          associated zero-ETL integration.</p>
+   * @public
+   */
+  IsReadOnly?: boolean | undefined;
 }
 
 /**
@@ -13025,6 +13091,16 @@ export interface ImportCertificateMessage {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An KMS key identifier that is used to encrypt the certificate.</p>
+   *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses
+   *          your default encryption key.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has
+   *          a different default encryption key for each Amazon Web Services Region.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -14191,15 +14267,4 @@ export interface RebootReplicationInstanceMessage {
    * @public
    */
   ForcePlannedFailover?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RebootReplicationInstanceResponse {
-  /**
-   * <p>The replication instance that is being rebooted. </p>
-   * @public
-   */
-  ReplicationInstance?: ReplicationInstance | undefined;
 }

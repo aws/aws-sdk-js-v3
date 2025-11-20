@@ -82,6 +82,7 @@ export interface DescribeReplicationConfigsCommandOutput extends DescribeReplica
  * //       TableMappings: "STRING_VALUE",
  * //       ReplicationConfigCreateTime: new Date("TIMESTAMP"),
  * //       ReplicationConfigUpdateTime: new Date("TIMESTAMP"),
+ * //       IsReadOnly: true || false,
  * //     },
  * //   ],
  * // };

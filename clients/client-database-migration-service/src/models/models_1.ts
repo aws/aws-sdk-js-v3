@@ -12,10 +12,22 @@ import {
   RecommendationSettings,
   RefreshSchemasStatus,
   Replication,
+  ReplicationInstance,
   ReplicationTask,
   ReplicationTaskAssessmentRun,
   Tag,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface RebootReplicationInstanceResponse {
+  /**
+   * <p>The replication instance that is being rebooted. </p>
+   * @public
+   */
+  ReplicationInstance?: ReplicationInstance | undefined;
+}
 
 /**
  * <p></p>

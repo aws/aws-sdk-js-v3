@@ -113,6 +113,7 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * //       SupportedNetworkTypes: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       IsReadOnly: true || false,
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // ReplicationPendingModifiedValues

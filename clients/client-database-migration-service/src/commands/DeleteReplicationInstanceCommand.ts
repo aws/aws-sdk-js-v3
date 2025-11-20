@@ -81,6 +81,7 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * //       SupportedNetworkTypes: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       IsReadOnly: true || false,
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // ReplicationPendingModifiedValues

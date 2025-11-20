@@ -114,6 +114,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //     ReplicationUpdateTime: new Date("TIMESTAMP"),
  * //     ReplicationLastStopTime: new Date("TIMESTAMP"),
  * //     ReplicationDeprovisionTime: new Date("TIMESTAMP"),
+ * //     IsReadOnly: true || false,
  * //   },
  * // };
  *

@@ -73,6 +73,7 @@ export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationC
  * //     TableMappings: "STRING_VALUE",
  * //     ReplicationConfigCreateTime: new Date("TIMESTAMP"),
  * //     ReplicationConfigUpdateTime: new Date("TIMESTAMP"),
+ * //     IsReadOnly: true || false,
  * //   },
  * // };
  *

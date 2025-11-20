@@ -9,7 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
+import { RebootReplicationInstanceMessage } from "../models/models_0";
+import { RebootReplicationInstanceResponse } from "../models/models_1";
 import { RebootReplicationInstance } from "../schemas/schemas_0";
 
 /**
@@ -79,6 +80,7 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * //       SupportedNetworkTypes: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       IsReadOnly: true || false,
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // ReplicationPendingModifiedValues

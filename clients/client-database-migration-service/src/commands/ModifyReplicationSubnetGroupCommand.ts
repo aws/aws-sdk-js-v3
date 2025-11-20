@@ -69,6 +69,7 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * //     SupportedNetworkTypes: [ // StringList
  * //       "STRING_VALUE",
  * //     ],
+ * //     IsReadOnly: true || false,
  * //   },
  * // };
  *

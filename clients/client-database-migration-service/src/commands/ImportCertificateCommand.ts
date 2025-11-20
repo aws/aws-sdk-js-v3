@@ -51,6 +51,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *       ResourceArn: "STRING_VALUE",
  *     },
  *   ],
+ *   KmsKeyId: "STRING_VALUE",
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
@@ -66,6 +67,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * //     ValidToDate: new Date("TIMESTAMP"),
  * //     SigningAlgorithm: "STRING_VALUE",
  * //     KeyLength: Number("int"),
+ * //     KmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -79,6 +81,9 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  * @throws {@link InvalidCertificateFault} (client fault)
  *  <p>The certificate was not valid.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>DMS cannot access the KMS key.</p>
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
  *  <p>The resource you are attempting to create already exists.</p>

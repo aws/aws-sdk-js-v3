@@ -57,6 +57,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * //     ValidToDate: new Date("TIMESTAMP"),
  * //     SigningAlgorithm: "STRING_VALUE",
  * //     KeyLength: Number("int"),
+ * //     KmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

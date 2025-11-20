@@ -51,6 +51,7 @@ const _AZ = "AvailabilityZone";
 const _AZv = "AvailabilityZones";
 const _Ac = "Action";
 const _Ap = "Applicability";
+const _Ar = "Arn";
 const _B = "Broker";
 const _BDN = "BabelfishDatabaseName";
 const _BF = "BucketFolder";
@@ -562,6 +563,7 @@ const _IPN = "InstanceProfileName";
 const _IPV = "IncludePartitionValue";
 const _IPn = "InstanceProfiles";
 const _IRCF = "InsufficientResourceCapacityFault";
+const _IRO = "IsReadOnly";
 const _IRSF = "InvalidResourceStateFault";
 const _IS = "InvalidSubnet";
 const _IST = "InstanceSizingType";
@@ -598,6 +600,7 @@ const _LDR = "LastDataReceived";
 const _LFM = "LastFailureMessage";
 const _LL = "LimitationList";
 const _LRD = "LastRefreshDate";
+const _LS = "LakehouseSettings";
 const _LT = "LoadTimeout";
 const _LTFR = "ListTagsForResource";
 const _LTFRM = "ListTagsForResourceMessage";
@@ -1272,8 +1275,8 @@ export var Certificate: StaticStructureSchema = [
   n0,
   _Ce,
   0,
-  [_CI, _CCD, _CP, _CW, _CA, _CO, _VFD, _VTD, _SA, _KL],
-  [0, 4, 0, 21, 0, 0, 4, 4, 0, 1],
+  [_CI, _CCD, _CP, _CW, _CA, _CO, _VFD, _VTD, _SA, _KL, _KKI],
+  [0, 4, 0, 21, 0, 0, 4, 4, 0, 1, 0],
 ];
 export var CollectorHealthCheck: StaticStructureSchema = [3, n0, _CHC, 0, [_CS, _LCSA, _WCSA, _WCGRBA], [0, 2, 2, 2]];
 export var CollectorNotFoundFault: StaticErrorSchema = [
@@ -2377,6 +2380,7 @@ export var Endpoint: StaticStructureSchema = [
     _SARA,
     _ETD,
     _EIx,
+    _IRO,
     _DDS,
     _SSe,
     _DTS,
@@ -2396,6 +2400,7 @@ export var Endpoint: StaticStructureSchema = [
     _RSe,
     _GMSQLS,
     _TS,
+    _LS,
   ],
   [
     0,
@@ -2415,6 +2420,7 @@ export var Endpoint: StaticStructureSchema = [
     0,
     0,
     0,
+    2,
     () => DynamoDbSettings,
     () => S3Settings,
     () => DmsTransferSettings,
@@ -2434,6 +2440,7 @@ export var Endpoint: StaticStructureSchema = [
     [() => RedisSettings, 0],
     [() => GcpMySQLSettings, 0],
     () => TimestreamSettings,
+    () => LakehouseSettings,
   ],
 ];
 export var EndpointSetting: StaticStructureSchema = [
@@ -2555,8 +2562,8 @@ export var ImportCertificateMessage: StaticStructureSchema = [
   n0,
   _ICM,
   0,
-  [_CI, _CP, _CW, _T],
-  [0, [() => SecretString, 0], 21, [() => TagList, 0]],
+  [_CI, _CP, _CW, _T, _KKI],
+  [0, [() => SecretString, 0], 21, [() => TagList, 0], 0],
 ];
 export var ImportCertificateResponse: StaticStructureSchema = [3, n0, _ICR, 0, [_Ce], [() => Certificate]];
 export var InstanceProfile: StaticStructureSchema = [
@@ -2751,6 +2758,7 @@ export var KMSThrottlingFault: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(KMSThrottlingFault, __KMSThrottlingFault);
 
+export var LakehouseSettings: StaticStructureSchema = [3, n0, _LS, 0, [_Ar], [0]];
 export var Limitation: StaticStructureSchema = [3, n0, _Lim, 0, [_DI, _EN, _N, _De, _I, _Ty], [0, 0, 0, 0, 0, 0]];
 export var ListTagsForResourceMessage: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RA, _RAL], [0, 64 | 0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRR, 0, [_TLag], [[() => TagList, 0]]];
@@ -3376,6 +3384,7 @@ export var Replication: StaticStructureSchema = [
     _RUT,
     _RLST,
     _RDT,
+    _IRO,
   ],
   [
     0,
@@ -3398,6 +3407,7 @@ export var Replication: StaticStructureSchema = [
     4,
     4,
     4,
+    2,
   ],
 ];
 export var ReplicationConfig: StaticStructureSchema = [
@@ -3405,8 +3415,8 @@ export var ReplicationConfig: StaticStructureSchema = [
   n0,
   _RC,
   0,
-  [_RCI, _RCA, _SEA, _TEA, _RT, _CC, _RSep, _SSu, _TM, _RCCT, _RCUT],
-  [0, 0, 0, 0, 0, () => ComputeConfig, 0, 0, 0, 4, 4],
+  [_RCI, _RCA, _SEA, _TEA, _RT, _CC, _RSep, _SSu, _TM, _RCCT, _RCUT, _IRO],
+  [0, 0, 0, 0, 0, () => ComputeConfig, 0, 0, 0, 4, 4, 2],
 ];
 export var ReplicationInstance: StaticStructureSchema = [
   3,
@@ -3492,8 +3502,8 @@ export var ReplicationSubnetGroup: StaticStructureSchema = [
   n0,
   _RSG,
   0,
-  [_RSGIe, _RSGD, _VI, _SGS, _Su, _SNT],
-  [0, 0, 0, 0, [() => SubnetList, 0], 64 | 0],
+  [_RSGIe, _RSGD, _VI, _SGS, _Su, _SNT, _IRO],
+  [0, 0, 0, 0, [() => SubnetList, 0], 64 | 0, 2],
 ];
 export var ReplicationSubnetGroupDoesNotCoverEnoughAZs: StaticErrorSchema = [
   -3,

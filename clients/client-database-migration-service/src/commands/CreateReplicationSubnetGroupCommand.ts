@@ -84,6 +84,7 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * //     SupportedNetworkTypes: [ // StringList
  * //       "STRING_VALUE",
  * //     ],
+ * //     IsReadOnly: true || false,
  * //   },
  * // };
  *
