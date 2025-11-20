@@ -80,6 +80,14 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *             "STRING_VALUE",
  *           ],
  *         },
+ *         Exclusion: {
+ *           UserTags: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           UserIds: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       CreateCaseAction: { // CreateCaseActionDefinition
  *         Fields: [ // FieldValues // required

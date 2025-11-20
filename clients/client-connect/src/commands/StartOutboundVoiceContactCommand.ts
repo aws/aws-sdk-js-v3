@@ -32,8 +32,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
  *    the flow places an outbound call to a contact, and then puts the contact in queue, the call is
  *    then routed to the agent, like any other inbound case.</p>
- *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
- *    60 seconds, it fails.</p>
+ *          <p>Dialing timeout for this operation can be configured with the “RingTimeoutInSeconds” parameter. If not specified, the default dialing timeout will be 60 seconds which means if the call is not connected within 60 seconds, it fails.</p>
  *          <note>
  *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
  *     mobile numbers, you must submit a service quota increase request. For more information, see

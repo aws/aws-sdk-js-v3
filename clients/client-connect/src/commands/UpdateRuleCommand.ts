@@ -77,6 +77,14 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *             "STRING_VALUE",
  *           ],
  *         },
+ *         Exclusion: {
+ *           UserTags: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           UserIds: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       CreateCaseAction: { // CreateCaseActionDefinition
  *         Fields: [ // FieldValues // required

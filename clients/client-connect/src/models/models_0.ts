@@ -4822,6 +4822,12 @@ export interface SendNotificationActionDefinition {
    * @public
    */
   Recipient: NotificationRecipientType | undefined;
+
+  /**
+   * <p>Recipients to exclude from notification.</p>
+   * @public
+   */
+  Exclusion?: NotificationRecipientType | undefined;
 }
 
 /**

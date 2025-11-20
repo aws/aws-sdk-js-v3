@@ -818,6 +818,7 @@ const _Err = "Error";
 const _Ev = "Evaluation";
 const _Eve = "Event";
 const _Ex = "Expiry";
+const _Exc = "Exclusion";
 const _Exp = "Expression";
 const _Expr = "Expressions";
 const _F = "Files";
@@ -7918,8 +7919,8 @@ export var SendNotificationActionDefinition: StaticStructureSchema = [
   n0,
   _SNAD,
   0,
-  [_DM, _Su, _Co, _CTon, _Rec],
-  [0, 0, 0, 0, () => NotificationRecipientType],
+  [_DM, _Su, _Co, _CTon, _Rec, _Exc],
+  [0, 0, 0, 0, () => NotificationRecipientType, () => NotificationRecipientType],
 ];
 export var SendOutboundEmailRequest: StaticStructureSchema = [
   3,

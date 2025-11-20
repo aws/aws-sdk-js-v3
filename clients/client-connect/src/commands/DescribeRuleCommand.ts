@@ -86,6 +86,14 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           Exclusion: {
+ * //             UserTags: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             UserIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //         },
  * //         CreateCaseAction: { // CreateCaseActionDefinition
  * //           Fields: [ // FieldValues // required
