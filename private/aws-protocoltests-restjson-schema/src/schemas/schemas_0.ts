@@ -3,6 +3,7 @@ const _AQST = "AllQueryStringTypes";
 const _AQSTI = "AllQueryStringTypesInput";
 const _B = "Byte";
 const _BL = "BooleanList";
+const _BPE = "BlobPayloadEvent";
 const _Bo = "Boolean";
 const _CAVQS = "ConstantAndVariableQueryString";
 const _CAVQSI = "ConstantAndVariableQueryStringInput";
@@ -23,8 +24,17 @@ const _DLi = "DialogList";
 const _DM = "DialogMap";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
+const _DS = "DuplexStream";
+const _DSI = "DuplexStreamInput";
 const _DSM = "DenseSetMap";
 const _DSMe = "DenseStructMap";
+const _DSO = "DuplexStreamOutput";
+const _DSWDS = "DuplexStreamWithDistinctStreams";
+const _DSWDSI = "DuplexStreamWithDistinctStreamsInput";
+const _DSWDSO = "DuplexStreamWithDistinctStreamsOutput";
+const _DSWIM = "DuplexStreamWithInitialMessages";
+const _DSWIMI = "DuplexStreamWithInitialMessagesInput";
+const _DSWIMO = "DuplexStreamWithInitialMessagesOutput";
 const _DT = "DocumentType";
 const _DTAMV = "DocumentTypeAsMapValue";
 const _DTAMVIO = "DocumentTypeAsMapValueInputOutput";
@@ -34,12 +44,14 @@ const _DTIO = "DocumentTypeInputOutput";
 const _De = "Defaults";
 const _Di = "Dialog";
 const _E = "Enum";
+const _EE = "ErrorEvent";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EIAEOI = "EmptyInputAndEmptyOutputInput";
 const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
 const _EL = "EnumList";
 const _EO = "EndpointOperation";
 const _EPI = "EnumPayloadInput";
+const _ES = "EventStream";
 const _EWHLO = "EndpointWithHostLabelOperation";
 const _Em = "Empty";
 const _F = "Float";
@@ -55,8 +67,11 @@ const _GS = "GreetingStruct";
 const _GWE = "GreetingWithErrors";
 const _GWEO = "GreetingWithErrorsOutput";
 const _H = "Header";
+const _HAEPE = "HeadersAndExplicitPayloadEvent";
+const _HAIPE = "HeadersAndImplicitPayloadEvent";
 const _HCR = "HttpChecksumRequired";
 const _HCRIO = "HttpChecksumRequiredInputOutput";
+const _HE = "HeadersEvent";
 const _HEP = "HttpEnumPayload";
 const _HEPH = "HttpEmptyPrefixHeaders";
 const _HEPHI = "HttpEmptyPrefixHeadersInput";
@@ -76,6 +91,8 @@ const _HPWS = "HttpPayloadWithStructure";
 const _HPWSIO = "HttpPayloadWithStructureInputOutput";
 const _HPWU = "HttpPayloadWithUnion";
 const _HPWUIO = "HttpPayloadWithUnionInputOutput";
+const _HQPOI = "HttpQueryParamsOnlyInput";
+const _HQPOO = "HttpQueryParamsOnlyOperation";
 const _HRC = "HttpResponseCode";
 const _HRCO = "HttpResponseCodeOutput";
 const _HRWFL = "HttpRequestWithFloatLabels";
@@ -100,6 +117,10 @@ const _IL = "IntegerList";
 const _IQPIR = "IgnoreQueryParamsInResponse";
 const _IQPIRO = "IgnoreQueryParamsInResponseOutput";
 const _IS = "IntegerSet";
+const _ISI = "InputStreamInput";
+const _ISWIR = "InputStreamWithInitialRequest";
+const _ISWIRI = "InputStreamWithInitialRequestInput";
+const _ISn = "InputStream";
 const _JB = "JpegBlob";
 const _JBIO = "JsonBlobsInputOutput";
 const _JBs = "JsonBlobs";
@@ -197,8 +218,12 @@ const _NSL = "NestedStringList";
 const _Nu = "Null";
 const _ONSES = "OmitsNullSerializesEmptyString";
 const _ONSESI = "OmitsNullSerializesEmptyStringInput";
+const _OS = "OutputStream";
 const _OSEL = "OmitsSerializingEmptyLists";
 const _OSELI = "OmitsSerializingEmptyListsInput";
+const _OSO = "OutputStreamOutput";
+const _OSWIR = "OutputStreamWithInitialResponse";
+const _OSWIRO = "OutputStreamWithInitialResponseOutput";
 const _OWD = "OperationWithDefaults";
 const _OWDI = "OperationWithDefaultsInput";
 const _OWDO = "OperationWithDefaultsOutput";
@@ -210,6 +235,8 @@ const _PC = "PayloadConfig";
 const _PPA = "PostPlayerAction";
 const _PPAI = "PostPlayerActionInput";
 const _PPAO = "PostPlayerActionOutput";
+const _PS = "PayloadStructure";
+const _PU = "PayloadUnion";
 const _PUWJN = "PostUnionWithJsonName";
 const _PUWJNI = "PostUnionWithJsonNameInput";
 const _PUWJNO = "PostUnionWithJsonNameOutput";
@@ -232,6 +259,8 @@ const _RSIONe = "RecursiveShapesInputOutputNested2";
 const _S = "String";
 const _SB = "StreamingBlob";
 const _SBM = "SparseBooleanMap";
+const _SE = "SingletonEvent";
+const _SES = "SingletonEventStream";
 const _SJL = "SparseJsonLists";
 const _SJLIO = "SparseJsonListsInputOutput";
 const _SJM = "SparseJsonMaps";
@@ -241,6 +270,8 @@ const _SLM = "StringListMap";
 const _SLMt = "StructureListMember";
 const _SLt = "StructureList";
 const _SNM = "SparseNumberMap";
+const _SPE = "StringPayloadEvent";
+const _SPEt = "StructurePayloadEvent";
 const _SPI = "StringPayloadInput";
 const _SS = "StringSet";
 const _SSL = "SparseShortList";
@@ -258,6 +289,7 @@ const _STRLI = "StreamingTraitsRequireLengthInput";
 const _STWMT = "StreamingTraitsWithMediaType";
 const _STWMTIO = "StreamingTraitsWithMediaTypeInputOutput";
 const _SU = "SimpleUnion";
+const _SUE = "ServiceUnavailableError";
 const _Sh = "Short";
 const _St = "Status";
 const _T = "Timestamp";
@@ -281,6 +313,7 @@ const _TPSIO = "TestPayloadStructureInputOutput";
 const _UIAO = "UnitInputAndOutput";
 const _UIO = "UnionInputOutput";
 const _UP = "UnionPayload";
+const _UPE = "UnionPayloadEvent";
 const _UWJN = "UnionWithJsonName";
 const _XA = "X-A";
 const _XATI = "X-Amz-Test-Id";
@@ -320,6 +353,9 @@ const _a_ = "a";
 const _ac = "action";
 const _amth = "amz-media-typed-header";
 const _b = "baz";
+const _bH = "booleanHeader";
+const _bHl = "blobHeader";
+const _bHy = "byteHeader";
 const _bIB = "booleanInBody";
 const _bIBy = "byteInBody";
 const _bIH = "booleanInHeader";
@@ -331,6 +367,7 @@ const _bIQy = "byteInQuery";
 const _bL = "booleanList";
 const _bLo = "bodyList";
 const _bM = "bodyMap";
+const _bP = "blobPayload";
 const _bV = "byteValue";
 const _bVl = "blobValue";
 const _bVo = "booleanValue";
@@ -388,7 +425,9 @@ const _di = "dialog";
 const _do = "double";
 const _e = "error";
 const _eB = "emptyBlob";
+const _eH = "eventHeader";
 const _eL = "enumList";
+const _eP = "eventPayload";
 const _eS = "emptyString";
 const _eSOT = "epochSecondsOnTarget";
 const _eSp = "epochSeconds";
@@ -414,6 +453,8 @@ const _fl = "float";
 const _fo = "foo";
 const _g = "greeting";
 const _h = "hello";
+const _hAEP = "headersAndExplicitPayload";
+const _hAIP = "headersAndImplicitPayload";
 const _hB = "headerByte";
 const _hBL = "headerBooleanList";
 const _hCR = "httpChecksumRequired";
@@ -441,6 +482,7 @@ const _hSe = "headerShort";
 const _hTB = "headerTrueBool";
 const _hTL = "headerTimestampList";
 const _he = "header";
+const _hea = "headers";
 const _hi = "hi";
 const _ht = "http";
 const _i = "image/jpeg";
@@ -451,18 +493,24 @@ const _iEM = "integerEnumMap";
 const _iES = "integerEnumSet";
 const _iEn = "integerEnum2";
 const _iEnt = "integerEnum3";
+const _iH = "intHeader";
 const _iIB = "integerInBody";
 const _iIH = "integerInHeader";
 const _iIP = "integerInPath";
 const _iIQ = "integerInQuery";
 const _iL = "integerList";
+const _iRM = "initialRequestMember";
+const _iRMn = "initialResponseMember";
 const _iT = "idempotencyToken";
 const _iV = "integerValue";
 const _in = "integer";
 const _int = "int";
+const _irm = "initial-request-member";
+const _irm_ = "initial-response-member";
 const _j = "json";
 const _jN = "jsonName";
 const _l = "language";
+const _lH = "longHeader";
 const _lIB = "longInBody";
 const _lIH = "longInHeader";
 const _lIP = "longInPath";
@@ -479,6 +527,7 @@ const _mS = "maybeSet";
 const _mSL = "myStructureList";
 const _mT = "mediaType";
 const _mV = "mapValue";
+const _me = "message";
 const _n = "nested";
 const _nSL = "nestedStringList";
 const _nV = "nullValue";
@@ -506,6 +555,7 @@ const _qIEL = "queryIntegerEnumList";
 const _qIL = "queryIntegerList";
 const _qIS = "queryIntegerSet";
 const _qL = "queryLong";
+const _qM = "queryMap";
 const _qPMOSL = "queryParamsMapOfStringList";
 const _qS = "queryString";
 const _qSL = "queryStringList";
@@ -520,14 +570,19 @@ const _rM = "recursiveMember";
 const _rSV = "renamedStructureValue";
 const _s = "streaming";
 const _sBM = "sparseBooleanMap";
-const _sH = "specificHeader";
+const _sH = "shortHeader";
+const _sHp = "specificHeader";
+const _sHt = "stringHeader";
 const _sIB = "shortInBody";
 const _sIH = "shortInHeader";
 const _sIP = "shortInPath";
 const _sIQ = "shortInQuery";
 const _sL = "stringList";
 const _sLt = "structureList";
+const _sM = "structureMember";
 const _sNM = "sparseNumberMap";
+const _sP = "stringPayload";
+const _sPt = "structurePayload";
 const _sS = "stringSet";
 const _sSL = "sparseStringList";
 const _sSLp = "sparseShortList";
@@ -540,15 +595,18 @@ const _sVt = "structureValue";
 const _sa = "salutation";
 const _se = "server";
 const _sh = "short";
+const _si = "singleton";
 const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.restjson";
 const _sp = "sparse";
-const _st = "string";
-const _str = "str";
+const _st = "stream";
+const _str = "string";
+const _str_ = "str";
 const _t = "text/plain";
 const _tBV = "trueBooleanValue";
 const _tC = "testConfig";
 const _tDT = "targetDateTime";
 const _tES = "targetEpochSeconds";
+const _tH = "timestampHeader";
 const _tHD = "targetHttpDate";
 const _tI = "testId";
 const _tL = "timestampList";
@@ -559,6 +617,8 @@ const _ti = "timestamp";
 const _tim = "timeout";
 const _to = "token";
 const _u = "union";
+const _uM = "unionMember";
+const _uP = "unionPayload";
 const _v = "value";
 const _xati = "x-amz-test-id";
 const _xf = "x-foo";
@@ -586,8 +646,10 @@ import {
 
 import {
   ComplexError as __ComplexError,
+  ErrorEvent as __ErrorEvent,
   FooError as __FooError,
   InvalidGreeting as __InvalidGreeting,
+  ServiceUnavailableError as __ServiceUnavailableError,
 } from "../models/errors";
 import { RestJsonProtocolServiceException as __RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
 
@@ -810,6 +872,21 @@ export var AllQueryStringTypesInput: StaticStructureSchema = [
     [[2, n1, _SLM, 0, 0, 64 | 0], 64],
   ],
 ];
+export var BlobPayloadEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _BPE,
+  0,
+  [_p],
+  [
+    [
+      21,
+      {
+        [_eP]: 1,
+      },
+    ],
+  ],
+];
 export var ClientOptionalDefaults: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
 export var ComplexError: StaticErrorSchema = [
   -3,
@@ -914,9 +991,71 @@ export var Dialog: StaticStructureSchema = [3, n0, _Di, 0, [_l, _g, _f], [0, 0, 
 export var DocumentTypeAsMapValueInputOutput: StaticStructureSchema = [3, n0, _DTAMVIO, 0, [_dVM], [128 | 15]];
 export var DocumentTypeAsPayloadInputOutput: StaticStructureSchema = [3, n0, _DTAPIO, 0, [_dV], [[15, 16]]];
 export var DocumentTypeInputOutput: StaticStructureSchema = [3, n0, _DTIO, 0, [_sV, _dV], [0, 15]];
+export var DuplexStreamInput: StaticStructureSchema = [3, n0, _DSI, 0, [_st], [[() => EventStream, 16]]];
+export var DuplexStreamOutput: StaticStructureSchema = [3, n0, _DSO, 0, [_st], [[() => EventStream, 16]]];
+export var DuplexStreamWithDistinctStreamsInput: StaticStructureSchema = [
+  3,
+  n0,
+  _DSWDSI,
+  0,
+  [_st],
+  [[() => EventStream, 16]],
+];
+export var DuplexStreamWithDistinctStreamsOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _DSWDSO,
+  0,
+  [_st],
+  [[() => SingletonEventStream, 16]],
+];
+export var DuplexStreamWithInitialMessagesInput: StaticStructureSchema = [
+  3,
+  n0,
+  _DSWIMI,
+  0,
+  [_iRM, _st],
+  [
+    [
+      0,
+      {
+        [_hH]: _irm,
+      },
+    ],
+    [() => EventStream, 16],
+  ],
+];
+export var DuplexStreamWithInitialMessagesOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _DSWIMO,
+  0,
+  [_iRMn, _st],
+  [
+    [
+      0,
+      {
+        [_hH]: _irm_,
+      },
+    ],
+    [() => EventStream, 16],
+  ],
+];
 export var EmptyInputAndEmptyOutputInput: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
 export var EmptyInputAndEmptyOutputOutput: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
 export var EnumPayloadInput: StaticStructureSchema = [3, n0, _EPI, 0, [_p], [[0, 16]]];
+export var ErrorEvent: StaticErrorSchema = [
+  -3,
+  n0,
+  _EE,
+  {
+    [_e]: _c,
+  },
+  [_me],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ErrorEvent, __ErrorEvent);
+
 export var Farewell: StaticStructureSchema = [3, n0, _Fa, 0, [_ph], [0]];
 export var FooError: StaticErrorSchema = [
   -3,
@@ -947,6 +1086,100 @@ export var GreetingWithErrorsOutput: StaticStructureSchema = [
     ],
   ],
 ];
+export var HeadersAndExplicitPayloadEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _HAEPE,
+  0,
+  [_he, _p],
+  [
+    [
+      0,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      () => PayloadStructure,
+      {
+        [_eP]: 1,
+      },
+    ],
+  ],
+];
+export var HeadersAndImplicitPayloadEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _HAIPE,
+  0,
+  [_he, _p],
+  [
+    [
+      0,
+      {
+        [_eH]: 1,
+      },
+    ],
+    0,
+  ],
+];
+export var HeadersEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _HE,
+  0,
+  [_bH, _bHy, _sH, _iH, _lH, _bHl, _sHt, _tH],
+  [
+    [
+      2,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      1,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      1,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      1,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      1,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      21,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      0,
+      {
+        [_eH]: 1,
+      },
+    ],
+    [
+      5,
+      {
+        [_eH]: 1,
+      },
+    ],
+  ],
+];
 export var HostLabelInput: StaticStructureSchema = [
   3,
   n0,
@@ -968,7 +1201,7 @@ export var HttpEmptyPrefixHeadersInput: StaticStructureSchema = [
   n0,
   _HEPHI,
   0,
-  [_pH, _sH],
+  [_pH, _sHp],
   [
     [
       128 | 0,
@@ -989,7 +1222,7 @@ export var HttpEmptyPrefixHeadersOutput: StaticStructureSchema = [
   n0,
   _HEPHO,
   0,
-  [_pH, _sH],
+  [_pH, _sHp],
   [
     [
       128 | 0,
@@ -1111,6 +1344,7 @@ export var HttpPrefixHeadersOutput: StaticStructureSchema = [
     ],
   ],
 ];
+export var HttpQueryParamsOnlyInput: StaticStructureSchema = [3, n0, _HQPOI, 0, [_qM], [[128 | 0, 64]]];
 export var HttpRequestWithFloatLabelsInput: StaticStructureSchema = [
   3,
   n0,
@@ -1154,7 +1388,7 @@ export var HttpRequestWithLabelsInput: StaticStructureSchema = [
   n0,
   _HRWLI,
   0,
-  [_st, _sh, _in, _lo, _fl, _do, _bo, _ti],
+  [_str, _sh, _in, _lo, _fl, _do, _bo, _ti],
   [
     [0, 1],
     [1, 1],
@@ -1166,7 +1400,7 @@ export var HttpRequestWithLabelsInput: StaticStructureSchema = [
     [4, 1],
   ],
 ];
-export var HttpRequestWithRegexLiteralInput: StaticStructureSchema = [3, n0, _HRWRLI, 0, [_str], [[0, 1]]];
+export var HttpRequestWithRegexLiteralInput: StaticStructureSchema = [3, n0, _HRWRLI, 0, [_str_], [[0, 1]]];
 export var HttpResponseCodeOutput: StaticStructureSchema = [3, n0, _HRCO, 0, [_St], [[1, 32]]];
 export var IgnoreQueryParamsInResponseOutput: StaticStructureSchema = [
   3,
@@ -1298,6 +1532,23 @@ export var InputAndOutputWithHeadersIO: StaticStructureSchema = [
         [_hH]: _XI___,
       },
     ],
+  ],
+];
+export var InputStreamInput: StaticStructureSchema = [3, n0, _ISI, 0, [_st], [[() => EventStream, 16]]];
+export var InputStreamWithInitialRequestInput: StaticStructureSchema = [
+  3,
+  n0,
+  _ISWIRI,
+  0,
+  [_iRM, _st],
+  [
+    [
+      0,
+      {
+        [_hH]: _irm,
+      },
+    ],
+    [() => EventStream, 16],
   ],
 ];
 export var InvalidGreeting: StaticErrorSchema = [
@@ -1857,7 +2108,25 @@ export var OperationWithNestedStructureOutput: StaticStructureSchema = [
   [_di, _dLi, _dMi],
   [() => Dialog, () => DialogList, () => DialogMap],
 ];
+export var OutputStreamOutput: StaticStructureSchema = [3, n0, _OSO, 0, [_st], [[() => EventStream, 16]]];
+export var OutputStreamWithInitialResponseOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _OSWIRO,
+  0,
+  [_iRMn, _st],
+  [
+    [
+      0,
+      {
+        [_hH]: _irm_,
+      },
+    ],
+    [() => EventStream, 16],
+  ],
+];
 export var PayloadConfig: StaticStructureSchema = [3, n0, _PC, 0, [_da], [1]];
+export var PayloadStructure: StaticStructureSchema = [3, n0, _PS, 0, [_sM], [0]];
 export var PostPlayerActionInput: StaticStructureSchema = [3, n0, _PPAI, 0, [_ac], [() => PlayerAction]];
 export var PostPlayerActionOutput: StaticStructureSchema = [3, n0, _PPAO, 0, [_ac], [() => PlayerAction]];
 export var PostUnionWithJsonNameInput: StaticStructureSchema = [
@@ -1966,6 +2235,19 @@ export var RecursiveShapesInputOutputNested2: StaticStructureSchema = [
 ];
 export var ResponseCodeHttpFallbackInputOutput: StaticStructureSchema = [3, n0, _RCHFIO, 0, [], []];
 export var ResponseCodeRequiredOutput: StaticStructureSchema = [3, n0, _RCRO, 0, [_rC], [[1, 32]]];
+export var ServiceUnavailableError: StaticErrorSchema = [
+  -3,
+  n0,
+  _SUE,
+  {
+    [_e]: _se,
+    [_hE]: 500,
+  },
+  [_me],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ServiceUnavailableError, __ServiceUnavailableError);
+
 export var SimpleScalarPropertiesInputOutput: StaticStructureSchema = [
   3,
   n0,
@@ -1995,6 +2277,7 @@ export var SimpleScalarPropertiesInputOutput: StaticStructureSchema = [
     ],
   ],
 ];
+export var SingletonEvent: StaticStructureSchema = [3, n0, _SE, 0, [_v], [0]];
 export var SparseJsonListsInputOutput: StaticStructureSchema = [
   3,
   n0,
@@ -2068,6 +2351,21 @@ export var StreamingTraitsWithMediaTypeInputOutput: StaticStructureSchema = [
     [() => StreamingTextPlainBlob, 16],
   ],
 ];
+export var StringPayloadEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _SPE,
+  0,
+  [_p],
+  [
+    [
+      0,
+      {
+        [_eP]: 1,
+      },
+    ],
+  ],
+];
 export var StringPayloadInput: StaticStructureSchema = [3, n0, _SPI, 0, [_p], [[0, 16]]];
 export var StructureListMember: StaticStructureSchema = [
   3,
@@ -2086,6 +2384,21 @@ export var StructureListMember: StaticStructureSchema = [
       0,
       {
         [_jN]: _o,
+      },
+    ],
+  ],
+];
+export var StructurePayloadEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _SPEt,
+  0,
+  [_p],
+  [
+    [
+      () => PayloadStructure,
+      {
+        [_eP]: 1,
       },
     ],
   ],
@@ -2214,8 +2527,23 @@ export var TopLevel: StaticStructureSchema = [
   [() => Dialog, () => DialogList, () => DialogMap],
 ];
 export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_con], [() => MyUnion]];
-export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
-export var GreetingStruct_n1: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
+export var UnionPayloadEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _UPE,
+  0,
+  [_p],
+  [
+    [
+      () => PayloadUnion,
+      {
+        [_eP]: 1,
+      },
+    ],
+  ],
+];
+export var GreetingStruct_n2: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
+export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
 export var __Unit = "unit" as const;
 
 export var RestJsonProtocolServiceException: StaticErrorSchema = [
@@ -2282,9 +2610,11 @@ export var DenseNumberMap = 128 | 1;
 export var DenseSetMap: StaticMapSchema = [2, n0, _DSM, 0, 0, 64 | 0];
 export var DenseStringMap = 128 | 0;
 
-export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct_n1];
+export var DenseStructMap: StaticMapSchema = [2, n0, _DSMe, 0, 0, () => GreetingStruct];
 export var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog];
 export var DocumentValuedMap = 128 | 15;
+
+export var QueryMap = 128 | 0;
 
 export var SimpleMap = 128 | 0;
 
@@ -2326,7 +2656,7 @@ export var SparseStructMap: StaticMapSchema = [
     [_sp]: 1,
   },
   0,
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
 ];
 export var TestStringMap = 128 | 0;
 
@@ -2347,16 +2677,37 @@ export var SparseStringMap: StaticMapSchema = [
 export var StringListMap: StaticMapSchema = [2, n1, _SLM, 0, 0, 64 | 0];
 export var StringMap = 128 | 0;
 
+export var EventStream: StaticStructureSchema = [
+  3,
+  n0,
+  _ES,
+  {
+    [_s]: 1,
+  },
+  [_hea, _bP, _sP, _sPt, _uP, _hAEP, _hAIP, _e],
+  [
+    [() => HeadersEvent, 0],
+    [() => BlobPayloadEvent, 0],
+    [() => StringPayloadEvent, 0],
+    [() => StructurePayloadEvent, 0],
+    [() => UnionPayloadEvent, 0],
+    [() => HeadersAndExplicitPayloadEvent, 0],
+    [() => HeadersAndImplicitPayloadEvent, 0],
+    [() => ErrorEvent, 0],
+  ],
+];
 export var MyUnion: StaticStructureSchema = [
   3,
   n0,
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct],
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct, () => GreetingStruct_n2],
 ];
+export var PayloadUnion: StaticStructureSchema = [3, n0, _PU, 0, [_uM], [0]];
 export var PlayerAction: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => __Unit]];
-export var SimpleUnion: StaticStructureSchema = [3, n0, _SU, 0, [_int, _st], [1, 0]];
+export var SimpleUnion: StaticStructureSchema = [3, n0, _SU, 0, [_int, _str], [1, 0]];
+export var SingletonEventStream: StaticStructureSchema = [3, n0, _SES, 0, [_si], [() => SingletonEvent]];
 export var UnionPayload: StaticStructureSchema = [3, n0, _UP, 0, [_g], [0]];
 export var UnionWithJsonName: StaticStructureSchema = [
   3,
@@ -2459,6 +2810,36 @@ export var DocumentTypeAsPayload: StaticOperationSchema = [
   },
   () => DocumentTypeAsPayloadInputOutput,
   () => DocumentTypeAsPayloadInputOutput,
+];
+export var DuplexStream: StaticOperationSchema = [
+  9,
+  n0,
+  _DS,
+  {
+    [_ht]: ["POST", "/DuplexStream", 200],
+  },
+  () => DuplexStreamInput,
+  () => DuplexStreamOutput,
+];
+export var DuplexStreamWithDistinctStreams: StaticOperationSchema = [
+  9,
+  n0,
+  _DSWDS,
+  {
+    [_ht]: ["POST", "/DuplexStreamWithDistinctStreams", 200],
+  },
+  () => DuplexStreamWithDistinctStreamsInput,
+  () => DuplexStreamWithDistinctStreamsOutput,
+];
+export var DuplexStreamWithInitialMessages: StaticOperationSchema = [
+  9,
+  n0,
+  _DSWIM,
+  {
+    [_ht]: ["POST", "/DuplexStreamWithInitialMessages", 200],
+  },
+  () => DuplexStreamWithInitialMessagesInput,
+  () => DuplexStreamWithInitialMessagesOutput,
 ];
 export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
   9,
@@ -2613,6 +2994,16 @@ export var HttpPrefixHeadersInResponse: StaticOperationSchema = [
   () => HttpPrefixHeadersInResponseInput,
   () => HttpPrefixHeadersInResponseOutput,
 ];
+export var HttpQueryParamsOnlyOperation: StaticOperationSchema = [
+  9,
+  n0,
+  _HQPOO,
+  {
+    [_ht]: ["GET", "/http-query-params-only", 200],
+  },
+  () => HttpQueryParamsOnlyInput,
+  () => __Unit,
+];
 export var HttpRequestWithFloatLabels: StaticOperationSchema = [
   9,
   n0,
@@ -2711,6 +3102,26 @@ export var InputAndOutputWithHeaders: StaticOperationSchema = [
   () => InputAndOutputWithHeadersIO,
   () => InputAndOutputWithHeadersIO,
 ];
+export var InputStream: StaticOperationSchema = [
+  9,
+  n0,
+  _ISn,
+  {
+    [_ht]: ["POST", "/InputStream", 200],
+  },
+  () => InputStreamInput,
+  () => __Unit,
+];
+export var InputStreamWithInitialRequest: StaticOperationSchema = [
+  9,
+  n0,
+  _ISWIR,
+  {
+    [_ht]: ["POST", "/InputStreamWithInitialRequest", 200],
+  },
+  () => InputStreamWithInitialRequestInput,
+  () => __Unit,
+];
 export var JsonBlobs: StaticOperationSchema = [
   9,
   n0,
@@ -2789,7 +3200,7 @@ export var MalformedAcceptWithBody: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
   },
   () => __Unit,
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
 ];
 export var MalformedAcceptWithGenericString: StaticOperationSchema = [
   9,
@@ -2848,7 +3259,7 @@ export var MalformedContentTypeWithBody: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
   },
-  () => GreetingStruct_n1,
+  () => GreetingStruct,
   () => __Unit,
 ];
 export var MalformedContentTypeWithGenericString: StaticOperationSchema = [
@@ -3200,6 +3611,26 @@ export var OperationWithNestedStructure: StaticOperationSchema = [
   },
   () => OperationWithNestedStructureInput,
   () => OperationWithNestedStructureOutput,
+];
+export var OutputStream: StaticOperationSchema = [
+  9,
+  n0,
+  _OS,
+  {
+    [_ht]: ["POST", "/OutputStream", 200],
+  },
+  () => __Unit,
+  () => OutputStreamOutput,
+];
+export var OutputStreamWithInitialResponse: StaticOperationSchema = [
+  9,
+  n0,
+  _OSWIR,
+  {
+    [_ht]: ["POST", "/OutputStreamWithInitialResponse", 200],
+  },
+  () => __Unit,
+  () => OutputStreamWithInitialResponseOutput,
 ];
 export var PostPlayerAction: StaticOperationSchema = [
   9,

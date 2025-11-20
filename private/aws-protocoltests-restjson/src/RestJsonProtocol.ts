@@ -43,6 +43,21 @@ import {
   DocumentTypeCommandOutput,
 } from "./commands/DocumentTypeCommand";
 import {
+  DuplexStreamCommand,
+  DuplexStreamCommandInput,
+  DuplexStreamCommandOutput,
+} from "./commands/DuplexStreamCommand";
+import {
+  DuplexStreamWithDistinctStreamsCommand,
+  DuplexStreamWithDistinctStreamsCommandInput,
+  DuplexStreamWithDistinctStreamsCommandOutput,
+} from "./commands/DuplexStreamWithDistinctStreamsCommand";
+import {
+  DuplexStreamWithInitialMessagesCommand,
+  DuplexStreamWithInitialMessagesCommandInput,
+  DuplexStreamWithInitialMessagesCommandOutput,
+} from "./commands/DuplexStreamWithInitialMessagesCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -118,6 +133,11 @@ import {
   HttpPrefixHeadersInResponseCommandOutput,
 } from "./commands/HttpPrefixHeadersInResponseCommand";
 import {
+  HttpQueryParamsOnlyOperationCommand,
+  HttpQueryParamsOnlyOperationCommandInput,
+  HttpQueryParamsOnlyOperationCommandOutput,
+} from "./commands/HttpQueryParamsOnlyOperationCommand";
+import {
   HttpRequestWithFloatLabelsCommand,
   HttpRequestWithFloatLabelsCommandInput,
   HttpRequestWithFloatLabelsCommandOutput,
@@ -162,6 +182,12 @@ import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
+import { InputStreamCommand, InputStreamCommandInput, InputStreamCommandOutput } from "./commands/InputStreamCommand";
+import {
+  InputStreamWithInitialRequestCommand,
+  InputStreamWithInitialRequestCommandInput,
+  InputStreamWithInitialRequestCommandOutput,
+} from "./commands/InputStreamWithInitialRequestCommand";
 import { JsonBlobsCommand, JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
 import { JsonEnumsCommand, JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
 import {
@@ -388,6 +414,16 @@ import {
   OperationWithNestedStructureCommandOutput,
 } from "./commands/OperationWithNestedStructureCommand";
 import {
+  OutputStreamCommand,
+  OutputStreamCommandInput,
+  OutputStreamCommandOutput,
+} from "./commands/OutputStreamCommand";
+import {
+  OutputStreamWithInitialResponseCommand,
+  OutputStreamWithInitialResponseCommandInput,
+  OutputStreamWithInitialResponseCommandOutput,
+} from "./commands/OutputStreamWithInitialResponseCommand";
+import {
   PostPlayerActionCommand,
   PostPlayerActionCommandInput,
   PostPlayerActionCommandOutput,
@@ -518,6 +554,9 @@ const commands = {
   DocumentTypeCommand,
   DocumentTypeAsMapValueCommand,
   DocumentTypeAsPayloadCommand,
+  DuplexStreamCommand,
+  DuplexStreamWithDistinctStreamsCommand,
+  DuplexStreamWithInitialMessagesCommand,
   EmptyInputAndEmptyOutputCommand,
   EndpointOperationCommand,
   EndpointWithHostLabelOperationCommand,
@@ -533,6 +572,7 @@ const commands = {
   HttpPayloadWithUnionCommand,
   HttpPrefixHeadersCommand,
   HttpPrefixHeadersInResponseCommand,
+  HttpQueryParamsOnlyOperationCommand,
   HttpRequestWithFloatLabelsCommand,
   HttpRequestWithGreedyLabelInPathCommand,
   HttpRequestWithLabelsCommand,
@@ -542,6 +582,8 @@ const commands = {
   HttpStringPayloadCommand,
   IgnoreQueryParamsInResponseCommand,
   InputAndOutputWithHeadersCommand,
+  InputStreamCommand,
+  InputStreamWithInitialRequestCommand,
   JsonBlobsCommand,
   JsonEnumsCommand,
   JsonIntEnumsCommand,
@@ -591,6 +633,8 @@ const commands = {
   OmitsSerializingEmptyListsCommand,
   OperationWithDefaultsCommand,
   OperationWithNestedStructureCommand,
+  OutputStreamCommand,
+  OutputStreamWithInitialResponseCommand,
   PostPlayerActionCommand,
   PostUnionWithJsonNameCommand,
   PutWithContentEncodingCommand,
@@ -750,6 +794,53 @@ export interface RestJsonProtocol {
     args: DocumentTypeAsPayloadCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DocumentTypeAsPayloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DuplexStreamCommand}
+   */
+  duplexStream(): Promise<DuplexStreamCommandOutput>;
+  duplexStream(args: DuplexStreamCommandInput, options?: __HttpHandlerOptions): Promise<DuplexStreamCommandOutput>;
+  duplexStream(args: DuplexStreamCommandInput, cb: (err: any, data?: DuplexStreamCommandOutput) => void): void;
+  duplexStream(
+    args: DuplexStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DuplexStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DuplexStreamWithDistinctStreamsCommand}
+   */
+  duplexStreamWithDistinctStreams(): Promise<DuplexStreamWithDistinctStreamsCommandOutput>;
+  duplexStreamWithDistinctStreams(
+    args: DuplexStreamWithDistinctStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DuplexStreamWithDistinctStreamsCommandOutput>;
+  duplexStreamWithDistinctStreams(
+    args: DuplexStreamWithDistinctStreamsCommandInput,
+    cb: (err: any, data?: DuplexStreamWithDistinctStreamsCommandOutput) => void
+  ): void;
+  duplexStreamWithDistinctStreams(
+    args: DuplexStreamWithDistinctStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DuplexStreamWithDistinctStreamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DuplexStreamWithInitialMessagesCommand}
+   */
+  duplexStreamWithInitialMessages(
+    args: DuplexStreamWithInitialMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DuplexStreamWithInitialMessagesCommandOutput>;
+  duplexStreamWithInitialMessages(
+    args: DuplexStreamWithInitialMessagesCommandInput,
+    cb: (err: any, data?: DuplexStreamWithInitialMessagesCommandOutput) => void
+  ): void;
+  duplexStreamWithInitialMessages(
+    args: DuplexStreamWithInitialMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DuplexStreamWithInitialMessagesCommandOutput) => void
   ): void;
 
   /**
@@ -1019,6 +1110,24 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
+   * @see {@link HttpQueryParamsOnlyOperationCommand}
+   */
+  httpQueryParamsOnlyOperation(): Promise<HttpQueryParamsOnlyOperationCommandOutput>;
+  httpQueryParamsOnlyOperation(
+    args: HttpQueryParamsOnlyOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpQueryParamsOnlyOperationCommandOutput>;
+  httpQueryParamsOnlyOperation(
+    args: HttpQueryParamsOnlyOperationCommandInput,
+    cb: (err: any, data?: HttpQueryParamsOnlyOperationCommandOutput) => void
+  ): void;
+  httpQueryParamsOnlyOperation(
+    args: HttpQueryParamsOnlyOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpQueryParamsOnlyOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link HttpRequestWithFloatLabelsCommand}
    */
   httpRequestWithFloatLabels(
@@ -1173,6 +1282,35 @@ export interface RestJsonProtocol {
     args: InputAndOutputWithHeadersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InputAndOutputWithHeadersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InputStreamCommand}
+   */
+  inputStream(): Promise<InputStreamCommandOutput>;
+  inputStream(args: InputStreamCommandInput, options?: __HttpHandlerOptions): Promise<InputStreamCommandOutput>;
+  inputStream(args: InputStreamCommandInput, cb: (err: any, data?: InputStreamCommandOutput) => void): void;
+  inputStream(
+    args: InputStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InputStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InputStreamWithInitialRequestCommand}
+   */
+  inputStreamWithInitialRequest(
+    args: InputStreamWithInitialRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InputStreamWithInitialRequestCommandOutput>;
+  inputStreamWithInitialRequest(
+    args: InputStreamWithInitialRequestCommandInput,
+    cb: (err: any, data?: InputStreamWithInitialRequestCommandOutput) => void
+  ): void;
+  inputStreamWithInitialRequest(
+    args: InputStreamWithInitialRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InputStreamWithInitialRequestCommandOutput) => void
   ): void;
 
   /**
@@ -1951,6 +2089,36 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
+   * @see {@link OutputStreamCommand}
+   */
+  outputStream(): Promise<OutputStreamCommandOutput>;
+  outputStream(args: OutputStreamCommandInput, options?: __HttpHandlerOptions): Promise<OutputStreamCommandOutput>;
+  outputStream(args: OutputStreamCommandInput, cb: (err: any, data?: OutputStreamCommandOutput) => void): void;
+  outputStream(
+    args: OutputStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OutputStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OutputStreamWithInitialResponseCommand}
+   */
+  outputStreamWithInitialResponse(): Promise<OutputStreamWithInitialResponseCommandOutput>;
+  outputStreamWithInitialResponse(
+    args: OutputStreamWithInitialResponseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OutputStreamWithInitialResponseCommandOutput>;
+  outputStreamWithInitialResponse(
+    args: OutputStreamWithInitialResponseCommandInput,
+    cb: (err: any, data?: OutputStreamWithInitialResponseCommandOutput) => void
+  ): void;
+  outputStreamWithInitialResponse(
+    args: OutputStreamWithInitialResponseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OutputStreamWithInitialResponseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PostPlayerActionCommand}
    */
   postPlayerAction(): Promise<PostPlayerActionCommandOutput>;
@@ -2366,7 +2534,6 @@ export interface RestJsonProtocol {
 }
 
 /**
- * A REST JSON service that sends JSON requests and responses.
  * @public
  */
 export class RestJsonProtocol extends RestJsonProtocolClient implements RestJsonProtocol {}

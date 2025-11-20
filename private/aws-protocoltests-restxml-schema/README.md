@@ -1021,6 +1021,30 @@ DocumentTypeAsPayload
 </details>
 <details>
 <summary>
+DuplexStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/DuplexStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/DuplexStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/DuplexStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+DuplexStreamWithDistinctStreams
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/DuplexStreamWithDistinctStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/DuplexStreamWithDistinctStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/DuplexStreamWithDistinctStreamsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DuplexStreamWithInitialMessages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/DuplexStreamWithInitialMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/DuplexStreamWithInitialMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/DuplexStreamWithInitialMessagesCommandOutput/)
+
+</details>
+<details>
+<summary>
 EmptyInputAndEmptyOutput
 </summary>
 
@@ -1141,6 +1165,14 @@ HttpPrefixHeadersInResponse
 </details>
 <details>
 <summary>
+HttpQueryParamsOnlyOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/HttpQueryParamsOnlyOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/HttpQueryParamsOnlyOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/HttpQueryParamsOnlyOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 HttpRequestWithFloatLabels
 </summary>
 
@@ -1209,6 +1241,22 @@ InputAndOutputWithHeaders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/InputAndOutputWithHeadersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/InputAndOutputWithHeadersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/InputAndOutputWithHeadersCommandOutput/)
+
+</details>
+<details>
+<summary>
+InputStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/InputStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/InputStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/InputStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+InputStreamWithInitialRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/InputStreamWithInitialRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/InputStreamWithInitialRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/InputStreamWithInitialRequestCommandOutput/)
 
 </details>
 <details>
@@ -1601,6 +1649,22 @@ OperationWithNestedStructure
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/OperationWithNestedStructureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/OperationWithNestedStructureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/OperationWithNestedStructureCommandOutput/)
+
+</details>
+<details>
+<summary>
+OutputStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/OutputStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/OutputStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/OutputStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+OutputStreamWithInitialResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/OutputStreamWithInitialResponseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/OutputStreamWithInitialResponseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/OutputStreamWithInitialResponseCommandOutput/)
 
 </details>
 <details>

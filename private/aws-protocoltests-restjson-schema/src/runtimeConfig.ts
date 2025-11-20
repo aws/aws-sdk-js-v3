@@ -4,6 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -11,6 +12,7 @@ import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
+import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-node";
 import { Hash } from "@smithy/hash-node";
 import { fileStreamHasher as streamHasher } from "@smithy/hash-stream-node";
 import {
@@ -55,6 +57,8 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
       createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     disableRequestCompression:
       config?.disableRequestCompression ?? loadNodeConfig(NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS, config),
+    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
+    eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region:

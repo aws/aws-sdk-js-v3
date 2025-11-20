@@ -3,6 +3,7 @@ import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import { FooEnum, IntegerEnum, StringEnum, TestEnum, TestIntEnum } from "./enums";
+import { ErrorEvent } from "./errors";
 
 /**
  * @public
@@ -36,6 +37,13 @@ export interface AllQueryStringTypesInput {
   queryIntegerEnum?: IntegerEnum | undefined;
   queryIntegerEnumList?: IntegerEnum[] | undefined;
   queryParamsMapOfStringList?: Record<string, string[]> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BlobPayloadEvent {
+  payload?: Uint8Array | undefined;
 }
 
 /**
@@ -157,6 +165,397 @@ export interface DocumentTypeAsMapValueInputOutput {
 export interface DocumentTypeAsPayloadInputOutput {
   documentValue?: __DocumentType | undefined;
 }
+
+/**
+ * @public
+ */
+export interface HeadersEvent {
+  booleanHeader?: boolean | undefined;
+  byteHeader?: number | undefined;
+  shortHeader?: number | undefined;
+  intHeader?: number | undefined;
+  longHeader?: number | undefined;
+  blobHeader?: Uint8Array | undefined;
+  stringHeader?: string | undefined;
+  timestampHeader?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PayloadStructure {
+  structureMember?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface HeadersAndExplicitPayloadEvent {
+  header?: string | undefined;
+  payload?: PayloadStructure | undefined;
+}
+
+/**
+ * @public
+ */
+export interface HeadersAndImplicitPayloadEvent {
+  header?: string | undefined;
+  payload?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StringPayloadEvent {
+  payload?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StructurePayloadEvent {
+  payload?: PayloadStructure | undefined;
+}
+
+/**
+ * @public
+ */
+export type PayloadUnion = PayloadUnion.UnionMemberMember | PayloadUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PayloadUnion {
+  export interface UnionMemberMember {
+    unionMember: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    unionMember?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    unionMember: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PayloadUnion, visitor: Visitor<T>): T => {
+    if (value.unionMember !== undefined) return visitor.unionMember(value.unionMember);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface UnionPayloadEvent {
+  payload?: PayloadUnion | undefined;
+}
+
+/**
+ * @public
+ */
+export type EventStream =
+  | EventStream.BlobPayloadMember
+  | EventStream.ErrorMember
+  | EventStream.HeadersMember
+  | EventStream.HeadersAndExplicitPayloadMember
+  | EventStream.HeadersAndImplicitPayloadMember
+  | EventStream.StringPayloadMember
+  | EventStream.StructurePayloadMember
+  | EventStream.UnionPayloadMember
+  | EventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EventStream {
+  export interface HeadersMember {
+    headers: HeadersEvent;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface BlobPayloadMember {
+    headers?: never;
+    blobPayload: BlobPayloadEvent;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface StringPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload: StringPayloadEvent;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface StructurePayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload: StructurePayloadEvent;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface UnionPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload: UnionPayloadEvent;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface HeadersAndExplicitPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload: HeadersAndExplicitPayloadEvent;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface HeadersAndImplicitPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload: HeadersAndImplicitPayloadEvent;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface ErrorMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error: ErrorEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    headers: (value: HeadersEvent) => T;
+    blobPayload: (value: BlobPayloadEvent) => T;
+    stringPayload: (value: StringPayloadEvent) => T;
+    structurePayload: (value: StructurePayloadEvent) => T;
+    unionPayload: (value: UnionPayloadEvent) => T;
+    headersAndExplicitPayload: (value: HeadersAndExplicitPayloadEvent) => T;
+    headersAndImplicitPayload: (value: HeadersAndImplicitPayloadEvent) => T;
+    error: (value: ErrorEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventStream, visitor: Visitor<T>): T => {
+    if (value.headers !== undefined) return visitor.headers(value.headers);
+    if (value.blobPayload !== undefined) return visitor.blobPayload(value.blobPayload);
+    if (value.stringPayload !== undefined) return visitor.stringPayload(value.stringPayload);
+    if (value.structurePayload !== undefined) return visitor.structurePayload(value.structurePayload);
+    if (value.unionPayload !== undefined) return visitor.unionPayload(value.unionPayload);
+    if (value.headersAndExplicitPayload !== undefined)
+      return visitor.headersAndExplicitPayload(value.headersAndExplicitPayload);
+    if (value.headersAndImplicitPayload !== undefined)
+      return visitor.headersAndImplicitPayload(value.headersAndImplicitPayload);
+    if (value.error !== undefined) return visitor.error(value.error);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+/**
+ * @internal
+ */
+export const EventStreamFilterSensitiveLog = (obj: EventStream): any => {
+  if (obj.headers !== undefined) return { headers: obj.headers };
+  if (obj.blobPayload !== undefined) return { blobPayload: obj.blobPayload };
+  if (obj.stringPayload !== undefined) return { stringPayload: obj.stringPayload };
+  if (obj.structurePayload !== undefined) return { structurePayload: obj.structurePayload };
+  if (obj.unionPayload !== undefined) return { unionPayload: obj.unionPayload };
+  if (obj.headersAndExplicitPayload !== undefined) return { headersAndExplicitPayload: obj.headersAndExplicitPayload };
+  if (obj.headersAndImplicitPayload !== undefined) return { headersAndImplicitPayload: obj.headersAndImplicitPayload };
+  if (obj.error !== undefined) return { error: obj.error };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @public
+ */
+export interface DuplexStreamInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamInputFilterSensitiveLog = (obj: DuplexStreamInput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @public
+ */
+export interface DuplexStreamOutput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamOutputFilterSensitiveLog = (obj: DuplexStreamOutput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithDistinctStreamsInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamWithDistinctStreamsInputFilterSensitiveLog = (
+  obj: DuplexStreamWithDistinctStreamsInput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @public
+ */
+export interface SingletonEvent {
+  value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export type SingletonEventStream = SingletonEventStream.SingletonMember | SingletonEventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SingletonEventStream {
+  export interface SingletonMember {
+    singleton: SingletonEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    singleton?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    singleton: (value: SingletonEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SingletonEventStream, visitor: Visitor<T>): T => {
+    if (value.singleton !== undefined) return visitor.singleton(value.singleton);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithDistinctStreamsOutput {
+  stream?: SingletonEventStream | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithInitialMessagesInput {
+  initialRequestMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamWithInitialMessagesInputFilterSensitiveLog = (
+  obj: DuplexStreamWithInitialMessagesInput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithInitialMessagesOutput {
+  initialResponseMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamWithInitialMessagesOutputFilterSensitiveLog = (
+  obj: DuplexStreamWithInitialMessagesOutput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
 
 /**
  * @public
@@ -321,6 +720,13 @@ export interface HttpPrefixHeadersInResponseOutput {
 /**
  * @public
  */
+export interface HttpQueryParamsOnlyInput {
+  queryMap?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface HttpRequestWithFloatLabelsInput {
   float: number | undefined;
   double: number | undefined;
@@ -421,6 +827,37 @@ export interface InputAndOutputWithHeadersIO {
   headerIntegerEnum?: IntegerEnum | undefined;
   headerIntegerEnumList?: IntegerEnum[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface InputStreamInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const InputStreamInputFilterSensitiveLog = (obj: InputStreamInput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @public
+ */
+export interface InputStreamWithInitialRequestInput {
+  initialRequestMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const InputStreamWithInitialRequestInputFilterSensitiveLog = (obj: InputStreamWithInitialRequestInput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
 
 /**
  * @public
@@ -1123,6 +1560,39 @@ export interface OperationWithNestedStructureOutput {
   dialogList?: Dialog[] | undefined;
   dialogMap?: Record<string, Dialog> | undefined;
 }
+
+/**
+ * @public
+ */
+export interface OutputStreamOutput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const OutputStreamOutputFilterSensitiveLog = (obj: OutputStreamOutput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @public
+ */
+export interface OutputStreamWithInitialResponseOutput {
+  initialResponseMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const OutputStreamWithInitialResponseOutputFilterSensitiveLog = (
+  obj: OutputStreamWithInitialResponseOutput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
 
 /**
  * @public

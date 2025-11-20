@@ -9,6 +9,7 @@ import {
   MultiConstraintValidator as __MultiConstraintValidator,
   NoOpValidator as __NoOpValidator,
   RequiredValidator as __RequiredValidator,
+  ServiceException as __BaseException,
   UniqueItemsValidator as __UniqueItemsValidator,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
@@ -17,6 +18,7 @@ import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/type
 import { Readable } from "stream";
 
 import { FooEnum, IntegerEnum, StringEnum, TestEnum, TestIntEnum } from "./enums";
+import { ErrorEvent } from "./errors";
 
 /**
  * @public
@@ -261,6 +263,38 @@ export namespace AllQueryStringTypesInput {
         `${path}/queryParamsMapOfStringList`
       ),
     ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface BlobPayloadEvent {
+  payload?: Uint8Array | undefined;
+}
+
+export namespace BlobPayloadEvent {
+  const memberValidators: {
+    payload?: __MultiConstraintValidator<Uint8Array>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: BlobPayloadEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "payload": {
+            memberValidators["payload"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("payload").validate(obj.payload, `${path}/payload`)];
   };
 }
 
@@ -916,6 +950,996 @@ export namespace DocumentTypeAsPayloadInputOutput {
       return memberValidators[member]!;
     }
     return [...getMemberValidator("documentValue").validate(obj.documentValue, `${path}/documentValue`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface HeadersEvent {
+  booleanHeader?: boolean | undefined;
+  byteHeader?: number | undefined;
+  shortHeader?: number | undefined;
+  intHeader?: number | undefined;
+  longHeader?: number | undefined;
+  blobHeader?: Uint8Array | undefined;
+  stringHeader?: string | undefined;
+  timestampHeader?: Date | undefined;
+}
+
+export namespace HeadersEvent {
+  const memberValidators: {
+    booleanHeader?: __MultiConstraintValidator<boolean>;
+    byteHeader?: __MultiConstraintValidator<number>;
+    shortHeader?: __MultiConstraintValidator<number>;
+    intHeader?: __MultiConstraintValidator<number>;
+    longHeader?: __MultiConstraintValidator<number>;
+    blobHeader?: __MultiConstraintValidator<Uint8Array>;
+    stringHeader?: __MultiConstraintValidator<string>;
+    timestampHeader?: __MultiConstraintValidator<Date>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HeadersEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "booleanHeader": {
+            memberValidators["booleanHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "byteHeader": {
+            memberValidators["byteHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "shortHeader": {
+            memberValidators["shortHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "intHeader": {
+            memberValidators["intHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "longHeader": {
+            memberValidators["longHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "blobHeader": {
+            memberValidators["blobHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "stringHeader": {
+            memberValidators["stringHeader"] = new __NoOpValidator();
+            break;
+          }
+          case "timestampHeader": {
+            memberValidators["timestampHeader"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("booleanHeader").validate(obj.booleanHeader, `${path}/booleanHeader`),
+      ...getMemberValidator("byteHeader").validate(obj.byteHeader, `${path}/byteHeader`),
+      ...getMemberValidator("shortHeader").validate(obj.shortHeader, `${path}/shortHeader`),
+      ...getMemberValidator("intHeader").validate(obj.intHeader, `${path}/intHeader`),
+      ...getMemberValidator("longHeader").validate(obj.longHeader, `${path}/longHeader`),
+      ...getMemberValidator("blobHeader").validate(obj.blobHeader, `${path}/blobHeader`),
+      ...getMemberValidator("stringHeader").validate(obj.stringHeader, `${path}/stringHeader`),
+      ...getMemberValidator("timestampHeader").validate(obj.timestampHeader, `${path}/timestampHeader`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface PayloadStructure {
+  structureMember?: string | undefined;
+}
+
+export namespace PayloadStructure {
+  const memberValidators: {
+    structureMember?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: PayloadStructure, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "structureMember": {
+            memberValidators["structureMember"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("structureMember").validate(obj.structureMember, `${path}/structureMember`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface HeadersAndExplicitPayloadEvent {
+  header?: string | undefined;
+  payload?: PayloadStructure | undefined;
+}
+
+export namespace HeadersAndExplicitPayloadEvent {
+  const memberValidators: {
+    header?: __MultiConstraintValidator<string>;
+    payload?: __MultiConstraintValidator<PayloadStructure>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HeadersAndExplicitPayloadEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "header": {
+            memberValidators["header"] = new __NoOpValidator();
+            break;
+          }
+          case "payload": {
+            memberValidators["payload"] = new __CompositeStructureValidator<PayloadStructure>(
+              new __NoOpValidator(),
+              PayloadStructure.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("header").validate(obj.header, `${path}/header`),
+      ...getMemberValidator("payload").validate(obj.payload, `${path}/payload`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface HeadersAndImplicitPayloadEvent {
+  header?: string | undefined;
+  payload?: string | undefined;
+}
+
+export namespace HeadersAndImplicitPayloadEvent {
+  const memberValidators: {
+    header?: __MultiConstraintValidator<string>;
+    payload?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HeadersAndImplicitPayloadEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "header": {
+            memberValidators["header"] = new __NoOpValidator();
+            break;
+          }
+          case "payload": {
+            memberValidators["payload"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("header").validate(obj.header, `${path}/header`),
+      ...getMemberValidator("payload").validate(obj.payload, `${path}/payload`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface StringPayloadEvent {
+  payload?: string | undefined;
+}
+
+export namespace StringPayloadEvent {
+  const memberValidators: {
+    payload?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: StringPayloadEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "payload": {
+            memberValidators["payload"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("payload").validate(obj.payload, `${path}/payload`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface StructurePayloadEvent {
+  payload?: PayloadStructure | undefined;
+}
+
+export namespace StructurePayloadEvent {
+  const memberValidators: {
+    payload?: __MultiConstraintValidator<PayloadStructure>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: StructurePayloadEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "payload": {
+            memberValidators["payload"] = new __CompositeStructureValidator<PayloadStructure>(
+              new __NoOpValidator(),
+              PayloadStructure.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("payload").validate(obj.payload, `${path}/payload`)];
+  };
+}
+
+/**
+ * @public
+ */
+export type PayloadUnion = PayloadUnion.UnionMemberMember | PayloadUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PayloadUnion {
+  export interface UnionMemberMember {
+    unionMember: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    unionMember?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    unionMember: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PayloadUnion, visitor: Visitor<T>): T => {
+    if (value.unionMember !== undefined) return visitor.unionMember(value.unionMember);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  const memberValidators: {
+    unionMember?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: PayloadUnion, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "unionMember": {
+            memberValidators["unionMember"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("unionMember").validate(obj.unionMember, `${path}/unionMember`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface UnionPayloadEvent {
+  payload?: PayloadUnion | undefined;
+}
+
+export namespace UnionPayloadEvent {
+  const memberValidators: {
+    payload?: __MultiConstraintValidator<PayloadUnion>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: UnionPayloadEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "payload": {
+            memberValidators["payload"] = new __CompositeStructureValidator<PayloadUnion>(
+              new __NoOpValidator(),
+              PayloadUnion.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("payload").validate(obj.payload, `${path}/payload`)];
+  };
+}
+
+/**
+ * @public
+ */
+export type EventStream =
+  | EventStream.BlobPayloadMember
+  | EventStream.ErrorMember
+  | EventStream.HeadersMember
+  | EventStream.HeadersAndExplicitPayloadMember
+  | EventStream.HeadersAndImplicitPayloadMember
+  | EventStream.StringPayloadMember
+  | EventStream.StructurePayloadMember
+  | EventStream.UnionPayloadMember
+  | EventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EventStream {
+  export interface HeadersMember {
+    headers: HeadersEvent;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface BlobPayloadMember {
+    headers?: never;
+    blobPayload: BlobPayloadEvent;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface StringPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload: StringPayloadEvent;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface StructurePayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload: StructurePayloadEvent;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface UnionPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload: UnionPayloadEvent;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface HeadersAndExplicitPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload: HeadersAndExplicitPayloadEvent;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface HeadersAndImplicitPayloadMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload: HeadersAndImplicitPayloadEvent;
+    error?: never;
+    $unknown?: never;
+  }
+
+  export interface ErrorMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error: ErrorEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    headers?: never;
+    blobPayload?: never;
+    stringPayload?: never;
+    structurePayload?: never;
+    unionPayload?: never;
+    headersAndExplicitPayload?: never;
+    headersAndImplicitPayload?: never;
+    error?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    headers: (value: HeadersEvent) => T;
+    blobPayload: (value: BlobPayloadEvent) => T;
+    stringPayload: (value: StringPayloadEvent) => T;
+    structurePayload: (value: StructurePayloadEvent) => T;
+    unionPayload: (value: UnionPayloadEvent) => T;
+    headersAndExplicitPayload: (value: HeadersAndExplicitPayloadEvent) => T;
+    headersAndImplicitPayload: (value: HeadersAndImplicitPayloadEvent) => T;
+    error: (value: ErrorEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventStream, visitor: Visitor<T>): T => {
+    if (value.headers !== undefined) return visitor.headers(value.headers);
+    if (value.blobPayload !== undefined) return visitor.blobPayload(value.blobPayload);
+    if (value.stringPayload !== undefined) return visitor.stringPayload(value.stringPayload);
+    if (value.structurePayload !== undefined) return visitor.structurePayload(value.structurePayload);
+    if (value.unionPayload !== undefined) return visitor.unionPayload(value.unionPayload);
+    if (value.headersAndExplicitPayload !== undefined)
+      return visitor.headersAndExplicitPayload(value.headersAndExplicitPayload);
+    if (value.headersAndImplicitPayload !== undefined)
+      return visitor.headersAndImplicitPayload(value.headersAndImplicitPayload);
+    if (value.error !== undefined) return visitor.error(value.error);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  const memberValidators: {
+    headers?: __MultiConstraintValidator<HeadersEvent>;
+    blobPayload?: __MultiConstraintValidator<BlobPayloadEvent>;
+    stringPayload?: __MultiConstraintValidator<StringPayloadEvent>;
+    structurePayload?: __MultiConstraintValidator<StructurePayloadEvent>;
+    unionPayload?: __MultiConstraintValidator<UnionPayloadEvent>;
+    headersAndExplicitPayload?: __MultiConstraintValidator<HeadersAndExplicitPayloadEvent>;
+    headersAndImplicitPayload?: __MultiConstraintValidator<HeadersAndImplicitPayloadEvent>;
+    error?: __MultiConstraintValidator<ErrorEvent>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: EventStream, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "headers": {
+            memberValidators["headers"] = new __CompositeStructureValidator<HeadersEvent>(
+              new __NoOpValidator(),
+              HeadersEvent.validate
+            );
+            break;
+          }
+          case "blobPayload": {
+            memberValidators["blobPayload"] = new __CompositeStructureValidator<BlobPayloadEvent>(
+              new __NoOpValidator(),
+              BlobPayloadEvent.validate
+            );
+            break;
+          }
+          case "stringPayload": {
+            memberValidators["stringPayload"] = new __CompositeStructureValidator<StringPayloadEvent>(
+              new __NoOpValidator(),
+              StringPayloadEvent.validate
+            );
+            break;
+          }
+          case "structurePayload": {
+            memberValidators["structurePayload"] = new __CompositeStructureValidator<StructurePayloadEvent>(
+              new __NoOpValidator(),
+              StructurePayloadEvent.validate
+            );
+            break;
+          }
+          case "unionPayload": {
+            memberValidators["unionPayload"] = new __CompositeStructureValidator<UnionPayloadEvent>(
+              new __NoOpValidator(),
+              UnionPayloadEvent.validate
+            );
+            break;
+          }
+          case "headersAndExplicitPayload": {
+            memberValidators["headersAndExplicitPayload"] =
+              new __CompositeStructureValidator<HeadersAndExplicitPayloadEvent>(
+                new __NoOpValidator(),
+                HeadersAndExplicitPayloadEvent.validate
+              );
+            break;
+          }
+          case "headersAndImplicitPayload": {
+            memberValidators["headersAndImplicitPayload"] =
+              new __CompositeStructureValidator<HeadersAndImplicitPayloadEvent>(
+                new __NoOpValidator(),
+                HeadersAndImplicitPayloadEvent.validate
+              );
+            break;
+          }
+          case "error": {
+            memberValidators["error"] = new __CompositeStructureValidator<ErrorEvent>(
+              new __NoOpValidator(),
+              ErrorEvent.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("headers").validate(obj.headers, `${path}/headers`),
+      ...getMemberValidator("blobPayload").validate(obj.blobPayload, `${path}/blobPayload`),
+      ...getMemberValidator("stringPayload").validate(obj.stringPayload, `${path}/stringPayload`),
+      ...getMemberValidator("structurePayload").validate(obj.structurePayload, `${path}/structurePayload`),
+      ...getMemberValidator("unionPayload").validate(obj.unionPayload, `${path}/unionPayload`),
+      ...getMemberValidator("headersAndExplicitPayload").validate(
+        obj.headersAndExplicitPayload,
+        `${path}/headersAndExplicitPayload`
+      ),
+      ...getMemberValidator("headersAndImplicitPayload").validate(
+        obj.headersAndImplicitPayload,
+        `${path}/headersAndImplicitPayload`
+      ),
+      ...getMemberValidator("error").validate(obj.error, `${path}/error`),
+    ];
+  };
+}
+/**
+ * @internal
+ */
+export const EventStreamFilterSensitiveLog = (obj: EventStream): any => {
+  if (obj.headers !== undefined) return { headers: obj.headers };
+  if (obj.blobPayload !== undefined) return { blobPayload: obj.blobPayload };
+  if (obj.stringPayload !== undefined) return { stringPayload: obj.stringPayload };
+  if (obj.structurePayload !== undefined) return { structurePayload: obj.structurePayload };
+  if (obj.unionPayload !== undefined) return { unionPayload: obj.unionPayload };
+  if (obj.headersAndExplicitPayload !== undefined) return { headersAndExplicitPayload: obj.headersAndExplicitPayload };
+  if (obj.headersAndImplicitPayload !== undefined) return { headersAndImplicitPayload: obj.headersAndImplicitPayload };
+  if (obj.error !== undefined) return { error: obj.error };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @public
+ */
+export interface DuplexStreamInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamInputFilterSensitiveLog = (obj: DuplexStreamInput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace DuplexStreamInput {
+  const memberValidators: {
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DuplexStreamInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamOutput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamOutputFilterSensitiveLog = (obj: DuplexStreamOutput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace DuplexStreamOutput {
+  const memberValidators: {
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DuplexStreamOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithDistinctStreamsInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamWithDistinctStreamsInputFilterSensitiveLog = (
+  obj: DuplexStreamWithDistinctStreamsInput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace DuplexStreamWithDistinctStreamsInput {
+  const memberValidators: {
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DuplexStreamWithDistinctStreamsInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface SingletonEvent {
+  value?: string | undefined;
+}
+
+export namespace SingletonEvent {
+  const memberValidators: {
+    value?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: SingletonEvent, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "value": {
+            memberValidators["value"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("value").validate(obj.value, `${path}/value`)];
+  };
+}
+
+/**
+ * @public
+ */
+export type SingletonEventStream = SingletonEventStream.SingletonMember | SingletonEventStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SingletonEventStream {
+  export interface SingletonMember {
+    singleton: SingletonEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    singleton?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    singleton: (value: SingletonEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SingletonEventStream, visitor: Visitor<T>): T => {
+    if (value.singleton !== undefined) return visitor.singleton(value.singleton);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  const memberValidators: {
+    singleton?: __MultiConstraintValidator<SingletonEvent>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: SingletonEventStream, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "singleton": {
+            memberValidators["singleton"] = new __CompositeStructureValidator<SingletonEvent>(
+              new __NoOpValidator(),
+              SingletonEvent.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("singleton").validate(obj.singleton, `${path}/singleton`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithDistinctStreamsOutput {
+  stream?: SingletonEventStream | undefined;
+}
+
+export namespace DuplexStreamWithDistinctStreamsOutput {
+  const memberValidators: {
+    stream?: __MultiConstraintValidator<SingletonEventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DuplexStreamWithDistinctStreamsOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<SingletonEventStream>(
+              new __NoOpValidator(),
+              SingletonEventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithInitialMessagesInput {
+  initialRequestMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamWithInitialMessagesInputFilterSensitiveLog = (
+  obj: DuplexStreamWithInitialMessagesInput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace DuplexStreamWithInitialMessagesInput {
+  const memberValidators: {
+    initialRequestMember?: __MultiConstraintValidator<string>;
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DuplexStreamWithInitialMessagesInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "initialRequestMember": {
+            memberValidators["initialRequestMember"] = new __CompositeValidator<string>([new __RequiredValidator()]);
+            break;
+          }
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("initialRequestMember").validate(obj.initialRequestMember, `${path}/initialRequestMember`),
+      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface DuplexStreamWithInitialMessagesOutput {
+  initialResponseMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const DuplexStreamWithInitialMessagesOutputFilterSensitiveLog = (
+  obj: DuplexStreamWithInitialMessagesOutput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace DuplexStreamWithInitialMessagesOutput {
+  const memberValidators: {
+    initialResponseMember?: __MultiConstraintValidator<string>;
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DuplexStreamWithInitialMessagesOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "initialResponseMember": {
+            memberValidators["initialResponseMember"] = new __CompositeValidator<string>([new __RequiredValidator()]);
+            break;
+          }
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("initialResponseMember").validate(
+        obj.initialResponseMember,
+        `${path}/initialResponseMember`
+      ),
+      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
+    ];
   };
 }
 
@@ -1621,6 +2645,42 @@ export namespace HttpPrefixHeadersInResponseOutput {
 /**
  * @public
  */
+export interface HttpQueryParamsOnlyInput {
+  queryMap?: Record<string, string> | undefined;
+}
+
+export namespace HttpQueryParamsOnlyInput {
+  const memberValidators: {
+    queryMap?: __MultiConstraintValidator<Record<string, string>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HttpQueryParamsOnlyInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "queryMap": {
+            memberValidators["queryMap"] = new __CompositeMapValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("queryMap").validate(obj.queryMap, `${path}/queryMap`)];
+  };
+}
+
+/**
+ * @public
+ */
 export interface HttpRequestWithFloatLabelsInput {
   float: number | undefined;
   double: number | undefined;
@@ -2175,6 +3235,99 @@ export namespace InputAndOutputWithHeadersIO {
         obj.headerIntegerEnumList,
         `${path}/headerIntegerEnumList`
       ),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface InputStreamInput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const InputStreamInputFilterSensitiveLog = (obj: InputStreamInput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace InputStreamInput {
+  const memberValidators: {
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: InputStreamInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface InputStreamWithInitialRequestInput {
+  initialRequestMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const InputStreamWithInitialRequestInputFilterSensitiveLog = (obj: InputStreamWithInitialRequestInput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace InputStreamWithInitialRequestInput {
+  const memberValidators: {
+    initialRequestMember?: __MultiConstraintValidator<string>;
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: InputStreamWithInitialRequestInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "initialRequestMember": {
+            memberValidators["initialRequestMember"] = new __CompositeValidator<string>([new __RequiredValidator()]);
+            break;
+          }
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("initialRequestMember").validate(obj.initialRequestMember, `${path}/initialRequestMember`),
+      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
     ];
   };
 }
@@ -5034,6 +6187,104 @@ export namespace OperationWithNestedStructureOutput {
       ...getMemberValidator("dialog").validate(obj.dialog, `${path}/dialog`),
       ...getMemberValidator("dialogList").validate(obj.dialogList, `${path}/dialogList`),
       ...getMemberValidator("dialogMap").validate(obj.dialogMap, `${path}/dialogMap`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface OutputStreamOutput {
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const OutputStreamOutputFilterSensitiveLog = (obj: OutputStreamOutput): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace OutputStreamOutput {
+  const memberValidators: {
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OutputStreamOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("stream").validate(obj.stream, `${path}/stream`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface OutputStreamWithInitialResponseOutput {
+  initialResponseMember: string | undefined;
+  stream?: AsyncIterable<EventStream> | undefined;
+}
+
+/**
+ * @internal
+ */
+export const OutputStreamWithInitialResponseOutputFilterSensitiveLog = (
+  obj: OutputStreamWithInitialResponseOutput
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+export namespace OutputStreamWithInitialResponseOutput {
+  const memberValidators: {
+    initialResponseMember?: __MultiConstraintValidator<string>;
+    stream?: __MultiConstraintValidator<EventStream>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OutputStreamWithInitialResponseOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "initialResponseMember": {
+            memberValidators["initialResponseMember"] = new __CompositeValidator<string>([new __RequiredValidator()]);
+            break;
+          }
+          case "stream": {
+            memberValidators["stream"] = new __CompositeStructureValidator<EventStream>(
+              new __NoOpValidator(),
+              EventStream.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("initialResponseMember").validate(
+        obj.initialResponseMember,
+        `${path}/initialResponseMember`
+      ),
+      ...getMemberValidator("stream").validate(obj.stream, `${path}/stream`),
     ];
   };
 }

@@ -1021,6 +1021,30 @@ DocumentTypeAsPayload
 </details>
 <details>
 <summary>
+DuplexStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/DuplexStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DuplexStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DuplexStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+DuplexStreamWithDistinctStreams
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/DuplexStreamWithDistinctStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DuplexStreamWithDistinctStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DuplexStreamWithDistinctStreamsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DuplexStreamWithInitialMessages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/DuplexStreamWithInitialMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DuplexStreamWithInitialMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DuplexStreamWithInitialMessagesCommandOutput/)
+
+</details>
+<details>
+<summary>
 EmptyInputAndEmptyOutput
 </summary>
 
@@ -1141,6 +1165,14 @@ HttpPrefixHeadersInResponse
 </details>
 <details>
 <summary>
+HttpQueryParamsOnlyOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/HttpQueryParamsOnlyOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/HttpQueryParamsOnlyOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/HttpQueryParamsOnlyOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 HttpRequestWithFloatLabels
 </summary>
 
@@ -1209,6 +1241,22 @@ InputAndOutputWithHeaders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/InputAndOutputWithHeadersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/InputAndOutputWithHeadersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/InputAndOutputWithHeadersCommandOutput/)
+
+</details>
+<details>
+<summary>
+InputStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/InputStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/InputStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/InputStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+InputStreamWithInitialRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/InputStreamWithInitialRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/InputStreamWithInitialRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/InputStreamWithInitialRequestCommandOutput/)
 
 </details>
 <details>
@@ -1601,6 +1649,22 @@ OperationWithNestedStructure
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/OperationWithNestedStructureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/OperationWithNestedStructureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/OperationWithNestedStructureCommandOutput/)
+
+</details>
+<details>
+<summary>
+OutputStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/OutputStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/OutputStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/OutputStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+OutputStreamWithInitialResponse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/OutputStreamWithInitialResponseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/OutputStreamWithInitialResponseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/OutputStreamWithInitialResponseCommandOutput/)
 
 </details>
 <details>

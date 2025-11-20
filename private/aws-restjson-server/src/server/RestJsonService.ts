@@ -55,6 +55,17 @@ import {
   DocumentTypeAsPayloadSerializer,
   DocumentTypeAsPayloadServerInput,
 } from "./operations/DocumentTypeAsPayload";
+import { DuplexStream, DuplexStreamSerializer, DuplexStreamServerInput } from "./operations/DuplexStream";
+import {
+  DuplexStreamWithDistinctStreams,
+  DuplexStreamWithDistinctStreamsSerializer,
+  DuplexStreamWithDistinctStreamsServerInput,
+} from "./operations/DuplexStreamWithDistinctStreams";
+import {
+  DuplexStreamWithInitialMessages,
+  DuplexStreamWithInitialMessagesSerializer,
+  DuplexStreamWithInitialMessagesServerInput,
+} from "./operations/DuplexStreamWithInitialMessages";
 import {
   EmptyInputAndEmptyOutput,
   EmptyInputAndEmptyOutputSerializer,
@@ -127,6 +138,11 @@ import {
   HttpPrefixHeadersInResponseServerInput,
 } from "./operations/HttpPrefixHeadersInResponse";
 import {
+  HttpQueryParamsOnlyOperation,
+  HttpQueryParamsOnlyOperationSerializer,
+  HttpQueryParamsOnlyOperationServerInput,
+} from "./operations/HttpQueryParamsOnlyOperation";
+import {
   HttpRequestWithFloatLabels,
   HttpRequestWithFloatLabelsSerializer,
   HttpRequestWithFloatLabelsServerInput,
@@ -171,6 +187,12 @@ import {
   InputAndOutputWithHeadersSerializer,
   InputAndOutputWithHeadersServerInput,
 } from "./operations/InputAndOutputWithHeaders";
+import { InputStream, InputStreamSerializer, InputStreamServerInput } from "./operations/InputStream";
+import {
+  InputStreamWithInitialRequest,
+  InputStreamWithInitialRequestSerializer,
+  InputStreamWithInitialRequestServerInput,
+} from "./operations/InputStreamWithInitialRequest";
 import { JsonBlobs, JsonBlobsSerializer, JsonBlobsServerInput } from "./operations/JsonBlobs";
 import { JsonEnums, JsonEnumsSerializer, JsonEnumsServerInput } from "./operations/JsonEnums";
 import { JsonIntEnums, JsonIntEnumsSerializer, JsonIntEnumsServerInput } from "./operations/JsonIntEnums";
@@ -344,6 +366,12 @@ import {
   OperationWithNestedStructureSerializer,
   OperationWithNestedStructureServerInput,
 } from "./operations/OperationWithNestedStructure";
+import { OutputStream, OutputStreamSerializer, OutputStreamServerInput } from "./operations/OutputStream";
+import {
+  OutputStreamWithInitialResponse,
+  OutputStreamWithInitialResponseSerializer,
+  OutputStreamWithInitialResponseServerInput,
+} from "./operations/OutputStreamWithInitialResponse";
 import {
   PostPlayerAction,
   PostPlayerActionSerializer,
@@ -450,6 +478,9 @@ export type RestJsonServiceOperations =
   | "DocumentType"
   | "DocumentTypeAsMapValue"
   | "DocumentTypeAsPayload"
+  | "DuplexStream"
+  | "DuplexStreamWithDistinctStreams"
+  | "DuplexStreamWithInitialMessages"
   | "EmptyInputAndEmptyOutput"
   | "EndpointOperation"
   | "EndpointWithHostLabelOperation"
@@ -465,6 +496,7 @@ export type RestJsonServiceOperations =
   | "HttpPayloadWithUnion"
   | "HttpPrefixHeaders"
   | "HttpPrefixHeadersInResponse"
+  | "HttpQueryParamsOnlyOperation"
   | "HttpRequestWithFloatLabels"
   | "HttpRequestWithGreedyLabelInPath"
   | "HttpRequestWithLabels"
@@ -474,6 +506,8 @@ export type RestJsonServiceOperations =
   | "HttpStringPayload"
   | "IgnoreQueryParamsInResponse"
   | "InputAndOutputWithHeaders"
+  | "InputStream"
+  | "InputStreamWithInitialRequest"
   | "JsonBlobs"
   | "JsonEnums"
   | "JsonIntEnums"
@@ -523,6 +557,8 @@ export type RestJsonServiceOperations =
   | "OmitsSerializingEmptyLists"
   | "OperationWithDefaults"
   | "OperationWithNestedStructure"
+  | "OutputStream"
+  | "OutputStreamWithInitialResponse"
   | "PostPlayerAction"
   | "PostUnionWithJsonName"
   | "PutWithContentEncoding"
@@ -556,6 +592,9 @@ export interface RestJsonService<Context> {
   DocumentType: DocumentType<Context>;
   DocumentTypeAsMapValue: DocumentTypeAsMapValue<Context>;
   DocumentTypeAsPayload: DocumentTypeAsPayload<Context>;
+  DuplexStream: DuplexStream<Context>;
+  DuplexStreamWithDistinctStreams: DuplexStreamWithDistinctStreams<Context>;
+  DuplexStreamWithInitialMessages: DuplexStreamWithInitialMessages<Context>;
   EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>;
   EndpointOperation: EndpointOperation<Context>;
   EndpointWithHostLabelOperation: EndpointWithHostLabelOperation<Context>;
@@ -571,6 +610,7 @@ export interface RestJsonService<Context> {
   HttpPayloadWithUnion: HttpPayloadWithUnion<Context>;
   HttpPrefixHeaders: HttpPrefixHeaders<Context>;
   HttpPrefixHeadersInResponse: HttpPrefixHeadersInResponse<Context>;
+  HttpQueryParamsOnlyOperation: HttpQueryParamsOnlyOperation<Context>;
   HttpRequestWithFloatLabels: HttpRequestWithFloatLabels<Context>;
   HttpRequestWithGreedyLabelInPath: HttpRequestWithGreedyLabelInPath<Context>;
   HttpRequestWithLabels: HttpRequestWithLabels<Context>;
@@ -580,6 +620,8 @@ export interface RestJsonService<Context> {
   HttpStringPayload: HttpStringPayload<Context>;
   IgnoreQueryParamsInResponse: IgnoreQueryParamsInResponse<Context>;
   InputAndOutputWithHeaders: InputAndOutputWithHeaders<Context>;
+  InputStream: InputStream<Context>;
+  InputStreamWithInitialRequest: InputStreamWithInitialRequest<Context>;
   JsonBlobs: JsonBlobs<Context>;
   JsonEnums: JsonEnums<Context>;
   JsonIntEnums: JsonIntEnums<Context>;
@@ -629,6 +671,8 @@ export interface RestJsonService<Context> {
   OmitsSerializingEmptyLists: OmitsSerializingEmptyLists<Context>;
   OperationWithDefaults: OperationWithDefaults<Context>;
   OperationWithNestedStructure: OperationWithNestedStructure<Context>;
+  OutputStream: OutputStream<Context>;
+  OutputStreamWithInitialResponse: OutputStreamWithInitialResponse<Context>;
   PostPlayerAction: PostPlayerAction<Context>;
   PostUnionWithJsonName: PostUnionWithJsonName<Context>;
   PutWithContentEncoding: PutWithContentEncoding<Context>;
@@ -840,6 +884,42 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "DuplexStream": {
+        return handle(
+          request,
+          context,
+          "DuplexStream",
+          this.serializerFactory("DuplexStream"),
+          this.service.DuplexStream,
+          this.serializeFrameworkException,
+          DuplexStreamServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "DuplexStreamWithDistinctStreams": {
+        return handle(
+          request,
+          context,
+          "DuplexStreamWithDistinctStreams",
+          this.serializerFactory("DuplexStreamWithDistinctStreams"),
+          this.service.DuplexStreamWithDistinctStreams,
+          this.serializeFrameworkException,
+          DuplexStreamWithDistinctStreamsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "DuplexStreamWithInitialMessages": {
+        return handle(
+          request,
+          context,
+          "DuplexStreamWithInitialMessages",
+          this.serializerFactory("DuplexStreamWithInitialMessages"),
+          this.service.DuplexStreamWithInitialMessages,
+          this.serializeFrameworkException,
+          DuplexStreamWithInitialMessagesServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "EmptyInputAndEmptyOutput": {
         return handle(
           request,
@@ -1020,6 +1100,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "HttpQueryParamsOnlyOperation": {
+        return handle(
+          request,
+          context,
+          "HttpQueryParamsOnlyOperation",
+          this.serializerFactory("HttpQueryParamsOnlyOperation"),
+          this.service.HttpQueryParamsOnlyOperation,
+          this.serializeFrameworkException,
+          HttpQueryParamsOnlyOperationServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "HttpRequestWithFloatLabels": {
         return handle(
           request,
@@ -1125,6 +1217,30 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.InputAndOutputWithHeaders,
           this.serializeFrameworkException,
           InputAndOutputWithHeadersServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "InputStream": {
+        return handle(
+          request,
+          context,
+          "InputStream",
+          this.serializerFactory("InputStream"),
+          this.service.InputStream,
+          this.serializeFrameworkException,
+          InputStreamServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "InputStreamWithInitialRequest": {
+        return handle(
+          request,
+          context,
+          "InputStreamWithInitialRequest",
+          this.serializerFactory("InputStreamWithInitialRequest"),
+          this.service.InputStreamWithInitialRequest,
+          this.serializeFrameworkException,
+          InputStreamWithInitialRequestServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1716,6 +1832,30 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "OutputStream": {
+        return handle(
+          request,
+          context,
+          "OutputStream",
+          this.serializerFactory("OutputStream"),
+          this.service.OutputStream,
+          this.serializeFrameworkException,
+          OutputStreamServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "OutputStreamWithInitialResponse": {
+        return handle(
+          request,
+          context,
+          "OutputStreamWithInitialResponse",
+          this.serializerFactory("OutputStreamWithInitialResponse"),
+          this.service.OutputStreamWithInitialResponse,
+          this.serializeFrameworkException,
+          OutputStreamWithInitialResponseServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "PostPlayerAction": {
         return handle(
           request,
@@ -2062,6 +2202,22 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "DocumentTypeAsPayload" }
     ),
+    new httpbinding.UriSpec<"RestJson", "DuplexStream">("POST", [{ type: "path_literal", value: "DuplexStream" }], [], {
+      service: "RestJson",
+      operation: "DuplexStream",
+    }),
+    new httpbinding.UriSpec<"RestJson", "DuplexStreamWithDistinctStreams">(
+      "POST",
+      [{ type: "path_literal", value: "DuplexStreamWithDistinctStreams" }],
+      [],
+      { service: "RestJson", operation: "DuplexStreamWithDistinctStreams" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "DuplexStreamWithInitialMessages">(
+      "POST",
+      [{ type: "path_literal", value: "DuplexStreamWithInitialMessages" }],
+      [],
+      { service: "RestJson", operation: "DuplexStreamWithInitialMessages" }
+    ),
     new httpbinding.UriSpec<"RestJson", "EmptyInputAndEmptyOutput">(
       "POST",
       [{ type: "path_literal", value: "EmptyInputAndEmptyOutput" }],
@@ -2152,6 +2308,12 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "HttpPrefixHeadersInResponse" }
     ),
+    new httpbinding.UriSpec<"RestJson", "HttpQueryParamsOnlyOperation">(
+      "GET",
+      [{ type: "path_literal", value: "http-query-params-only" }],
+      [],
+      { service: "RestJson", operation: "HttpQueryParamsOnlyOperation" }
+    ),
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithFloatLabels">(
       "GET",
       [{ type: "path_literal", value: "FloatHttpLabels" }, { type: "path" }, { type: "path" }],
@@ -2230,6 +2392,16 @@ export const getRestJsonServiceHandler = <Context>(
       [{ type: "path_literal", value: "InputAndOutputWithHeaders" }],
       [],
       { service: "RestJson", operation: "InputAndOutputWithHeaders" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "InputStream">("POST", [{ type: "path_literal", value: "InputStream" }], [], {
+      service: "RestJson",
+      operation: "InputStream",
+    }),
+    new httpbinding.UriSpec<"RestJson", "InputStreamWithInitialRequest">(
+      "POST",
+      [{ type: "path_literal", value: "InputStreamWithInitialRequest" }],
+      [],
+      { service: "RestJson", operation: "InputStreamWithInitialRequest" }
     ),
     new httpbinding.UriSpec<"RestJson", "JsonBlobs">("POST", [{ type: "path_literal", value: "JsonBlobs" }], [], {
       service: "RestJson",
@@ -2511,6 +2683,16 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "OperationWithNestedStructure" }
     ),
+    new httpbinding.UriSpec<"RestJson", "OutputStream">("POST", [{ type: "path_literal", value: "OutputStream" }], [], {
+      service: "RestJson",
+      operation: "OutputStream",
+    }),
+    new httpbinding.UriSpec<"RestJson", "OutputStreamWithInitialResponse">(
+      "POST",
+      [{ type: "path_literal", value: "OutputStreamWithInitialResponse" }],
+      [],
+      { service: "RestJson", operation: "OutputStreamWithInitialResponse" }
+    ),
     new httpbinding.UriSpec<"RestJson", "PostPlayerAction">(
       "POST",
       [{ type: "path_literal", value: "PostPlayerAction" }],
@@ -2677,6 +2859,12 @@ export const getRestJsonServiceHandler = <Context>(
         return new DocumentTypeAsMapValueSerializer();
       case "DocumentTypeAsPayload":
         return new DocumentTypeAsPayloadSerializer();
+      case "DuplexStream":
+        return new DuplexStreamSerializer();
+      case "DuplexStreamWithDistinctStreams":
+        return new DuplexStreamWithDistinctStreamsSerializer();
+      case "DuplexStreamWithInitialMessages":
+        return new DuplexStreamWithInitialMessagesSerializer();
       case "EmptyInputAndEmptyOutput":
         return new EmptyInputAndEmptyOutputSerializer();
       case "EndpointOperation":
@@ -2707,6 +2895,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new HttpPrefixHeadersSerializer();
       case "HttpPrefixHeadersInResponse":
         return new HttpPrefixHeadersInResponseSerializer();
+      case "HttpQueryParamsOnlyOperation":
+        return new HttpQueryParamsOnlyOperationSerializer();
       case "HttpRequestWithFloatLabels":
         return new HttpRequestWithFloatLabelsSerializer();
       case "HttpRequestWithGreedyLabelInPath":
@@ -2725,6 +2915,10 @@ export const getRestJsonServiceHandler = <Context>(
         return new IgnoreQueryParamsInResponseSerializer();
       case "InputAndOutputWithHeaders":
         return new InputAndOutputWithHeadersSerializer();
+      case "InputStream":
+        return new InputStreamSerializer();
+      case "InputStreamWithInitialRequest":
+        return new InputStreamWithInitialRequestSerializer();
       case "JsonBlobs":
         return new JsonBlobsSerializer();
       case "JsonEnums":
@@ -2823,6 +3017,10 @@ export const getRestJsonServiceHandler = <Context>(
         return new OperationWithDefaultsSerializer();
       case "OperationWithNestedStructure":
         return new OperationWithNestedStructureSerializer();
+      case "OutputStream":
+        return new OutputStreamSerializer();
+      case "OutputStreamWithInitialResponse":
+        return new OutputStreamWithInitialResponseSerializer();
       case "PostPlayerAction":
         return new PostPlayerActionSerializer();
       case "PostUnionWithJsonName":

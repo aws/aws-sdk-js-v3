@@ -38,6 +38,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
@@ -104,7 +105,14 @@ final class AwsProtocolUtils {
         Walker shapeWalker = new Walker(NeighborProviderIndex.of(context.getModel()).getProvider());
         Set<Shape> shapesToGenerate = new TreeSet<>(shapes);
         shapes.forEach(shape -> shapesToGenerate.addAll(shapeWalker.walkShapes(shape)));
-        shapesToGenerate.forEach(shape -> shape.accept(visitor));
+        shapesToGenerate.forEach(shape -> {
+            boolean isEventStream = shape.isUnionShape() && shape.hasTrait(StreamingTrait.class);
+
+            if (!isEventStream) {
+                // event streams have a separate serde.
+                shape.accept(visitor);
+            }
+        });
     }
 
     /**
