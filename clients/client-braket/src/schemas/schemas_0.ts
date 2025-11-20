@@ -17,6 +17,9 @@ const _CQTRa = "CancelQuantumTaskResponse";
 const _CQTRr = "CreateQuantumTaskRequest";
 const _CQTRre = "CreateQuantumTaskResponse";
 const _CQTr = "CreateQuantumTask";
+const _CSL = "CreateSpendingLimit";
+const _CSLR = "CreateSpendingLimitRequest";
+const _CSLRr = "CreateSpendingLimitResponse";
 const _DC = "DeviceConfig";
 const _DOE = "DeviceOfflineException";
 const _DQI = "DeviceQueueInfo";
@@ -24,6 +27,9 @@ const _DQIL = "DeviceQueueInfoList";
 const _DRE = "DeviceRetiredException";
 const _DS = "DataSource";
 const _DSL = "DeviceSummaryList";
+const _DSLR = "DeleteSpendingLimitRequest";
+const _DSLRe = "DeleteSpendingLimitResponse";
+const _DSLe = "DeleteSpendingLimit";
 const _DSe = "DeviceSummary";
 const _EC = "ExperimentalCapabilities";
 const _GD = "GetDevice";
@@ -68,6 +74,8 @@ const _SJF = "SearchJobsFilter";
 const _SJFL = "SearchJobsFilterList";
 const _SJR = "SearchJobsRequest";
 const _SJRe = "SearchJobsResponse";
+const _SLS = "SpendingLimitSummary";
+const _SLSL = "SpendingLimitSummaryList";
 const _SMC = "ScriptModeConfig";
 const _SQEE = "ServiceQuotaExceededException";
 const _SQT = "SearchQuantumTasks";
@@ -75,13 +83,22 @@ const _SQTF = "SearchQuantumTasksFilter";
 const _SQTFL = "SearchQuantumTasksFilterList";
 const _SQTR = "SearchQuantumTasksRequest";
 const _SQTRe = "SearchQuantumTasksResponse";
+const _SSL = "SearchSpendingLimits";
+const _SSLF = "SearchSpendingLimitsFilter";
+const _SSLFL = "SearchSpendingLimitsFilterList";
+const _SSLR = "SearchSpendingLimitsRequest";
+const _SSLRe = "SearchSpendingLimitsResponse";
 const _TE = "ThrottlingException";
+const _TP = "TimePeriod";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _USL = "UpdateSpendingLimit";
+const _USLR = "UpdateSpendingLimitRequest";
+const _USLRp = "UpdateSpendingLimitResponse";
 const _VE = "ValidationException";
 const _a = "application/json";
 const _aAN = "additionalAttributeNames";
@@ -114,6 +131,7 @@ const _dT = "deviceType";
 const _de = "devices";
 const _e = "error";
 const _eA = "endedAt";
+const _eAn = "endAt";
 const _eC = "executableCount";
 const _eCx = "experimentalCapabilities";
 const _eP = "entryPoint";
@@ -159,6 +177,7 @@ const _q = "queue";
 const _qI = "queueInfo";
 const _qP = "queuePriority";
 const _qS = "queueSize";
+const _qSu = "queuedSpend";
 const _qT = "quantumTasks";
 const _qTA = "quantumTaskArn";
 const _r = "reason";
@@ -166,8 +185,12 @@ const _rA = "roleArn";
 const _rAe = "resourceArn";
 const _s = "shots";
 const _sA = "startedAt";
+const _sAt = "startAt";
 const _sC = "stoppingCondition";
 const _sDS = "s3DataSource";
+const _sL = "spendingLimit";
+const _sLA = "spendingLimitArn";
+const _sLp = "spendingLimits";
 const _sMC = "scriptModeConfig";
 const _sP = "s3Path";
 const _sU = "s3Uri";
@@ -177,8 +200,11 @@ const _st = "status";
 const _t = "type";
 const _tK = "tagKeys";
 const _tOE = "timeOfEvent";
+const _tP = "timePeriod";
+const _tS = "totalSpend";
 const _ta = "tags";
 const _u = "uri";
+const _uA = "updatedAt";
 const _v = "values";
 const _vSIG = "volumeSizeInGb";
 const n0 = "com.amazonaws.braket";
@@ -313,7 +339,18 @@ export var CreateQuantumTaskRequest: StaticStructureSchema = [
   ],
 ];
 export var CreateQuantumTaskResponse: StaticStructureSchema = [3, n0, _CQTRre, 0, [_qTA], [0]];
+export var CreateSpendingLimitRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CSLR,
+  0,
+  [_cT, _dA, _sL, _tP, _ta],
+  [[0, 4], 0, 0, () => TimePeriod, 128 | 0],
+];
+export var CreateSpendingLimitResponse: StaticStructureSchema = [3, n0, _CSLRr, 0, [_sLA], [0]];
 export var DataSource: StaticStructureSchema = [3, n0, _DS, 0, [_sDS], [() => S3DataSource]];
+export var DeleteSpendingLimitRequest: StaticStructureSchema = [3, n0, _DSLR, 0, [_sLA], [[0, 1]]];
+export var DeleteSpendingLimitResponse: StaticStructureSchema = [3, n0, _DSLRe, 0, [], []];
 export var DeviceConfig: StaticStructureSchema = [3, n0, _DC, 0, [_d], [0]];
 export var DeviceOfflineException: StaticErrorSchema = [
   -3,
@@ -532,6 +569,23 @@ export var SearchQuantumTasksResponse: StaticStructureSchema = [
   [_qT, _nT],
   [() => QuantumTaskSummaryList, 0],
 ];
+export var SearchSpendingLimitsFilter: StaticStructureSchema = [3, n0, _SSLF, 0, [_n, _v, _o], [0, 64 | 0, 0]];
+export var SearchSpendingLimitsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SSLR,
+  0,
+  [_nT, _mR, _f],
+  [0, 1, () => SearchSpendingLimitsFilterList],
+];
+export var SearchSpendingLimitsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _SSLRe,
+  0,
+  [_sLp, _nT],
+  [() => SpendingLimitSummaryList, 0],
+];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -545,6 +599,14 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
+export var SpendingLimitSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _SLS,
+  0,
+  [_sLA, _dA, _tP, _sL, _qSu, _tS, _cA, _uA, _ta],
+  [0, 0, () => TimePeriod, 0, 0, 0, 5, 5, 128 | 0],
+];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
@@ -560,6 +622,7 @@ export var ThrottlingException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 
+export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sAt, _eAn], [7, 7]];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -577,6 +640,15 @@ export var UntagResourceRequest: StaticStructureSchema = [
   ],
 ];
 export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateSpendingLimitRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _USLR,
+  0,
+  [_sLA, _cT, _sL, _tP],
+  [[0, 1], [0, 4], 0, () => TimePeriod],
+];
+export var UpdateSpendingLimitResponse: StaticStructureSchema = [3, n0, _USLRp, 0, [], []];
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
@@ -610,6 +682,8 @@ export var QuantumTaskSummaryList: StaticListSchema = [1, n0, _QTSL, 0, () => Qu
 export var SearchDevicesFilterList: StaticListSchema = [1, n0, _SDFL, 0, () => SearchDevicesFilter];
 export var SearchJobsFilterList: StaticListSchema = [1, n0, _SJFL, 0, () => SearchJobsFilter];
 export var SearchQuantumTasksFilterList: StaticListSchema = [1, n0, _SQTFL, 0, () => SearchQuantumTasksFilter];
+export var SearchSpendingLimitsFilterList: StaticListSchema = [1, n0, _SSLFL, 0, () => SearchSpendingLimitsFilter];
+export var SpendingLimitSummaryList: StaticListSchema = [1, n0, _SLSL, 0, () => SpendingLimitSummary];
 export var String256List = 64 | 0;
 
 export var TagKeys = 64 | 0;
@@ -658,6 +732,26 @@ export var CreateQuantumTask: StaticOperationSchema = [
   },
   () => CreateQuantumTaskRequest,
   () => CreateQuantumTaskResponse,
+];
+export var CreateSpendingLimit: StaticOperationSchema = [
+  9,
+  n0,
+  _CSL,
+  {
+    [_h]: ["POST", "/spending-limit", 201],
+  },
+  () => CreateSpendingLimitRequest,
+  () => CreateSpendingLimitResponse,
+];
+export var DeleteSpendingLimit: StaticOperationSchema = [
+  9,
+  n0,
+  _DSLe,
+  {
+    [_h]: ["DELETE", "/spending-limit/{spendingLimitArn}/delete", 200],
+  },
+  () => DeleteSpendingLimitRequest,
+  () => DeleteSpendingLimitResponse,
 ];
 export var GetDevice: StaticOperationSchema = [
   9,
@@ -729,6 +823,16 @@ export var SearchQuantumTasks: StaticOperationSchema = [
   () => SearchQuantumTasksRequest,
   () => SearchQuantumTasksResponse,
 ];
+export var SearchSpendingLimits: StaticOperationSchema = [
+  9,
+  n0,
+  _SSL,
+  {
+    [_h]: ["POST", "/spending-limits", 200],
+  },
+  () => SearchSpendingLimitsRequest,
+  () => SearchSpendingLimitsResponse,
+];
 export var TagResource: StaticOperationSchema = [
   9,
   n0,
@@ -748,4 +852,14 @@ export var UntagResource: StaticOperationSchema = [
   },
   () => UntagResourceRequest,
   () => UntagResourceResponse,
+];
+export var UpdateSpendingLimit: StaticOperationSchema = [
+  9,
+  n0,
+  _USL,
+  {
+    [_h]: ["PATCH", "/spending-limit/{spendingLimitArn}/update", 200],
+  },
+  () => UpdateSpendingLimitRequest,
+  () => UpdateSpendingLimitResponse,
 ];

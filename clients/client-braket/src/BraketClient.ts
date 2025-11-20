@@ -61,6 +61,14 @@ import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/Cancel
 import { CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput } from "./commands/CancelQuantumTaskCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput } from "./commands/CreateQuantumTaskCommand";
+import {
+  CreateSpendingLimitCommandInput,
+  CreateSpendingLimitCommandOutput,
+} from "./commands/CreateSpendingLimitCommand";
+import {
+  DeleteSpendingLimitCommandInput,
+  DeleteSpendingLimitCommandOutput,
+} from "./commands/DeleteSpendingLimitCommand";
 import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "./commands/GetQuantumTaskCommand";
@@ -71,8 +79,16 @@ import {
 import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand";
 import { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { SearchQuantumTasksCommandInput, SearchQuantumTasksCommandOutput } from "./commands/SearchQuantumTasksCommand";
+import {
+  SearchSpendingLimitsCommandInput,
+  SearchSpendingLimitsCommandOutput,
+} from "./commands/SearchSpendingLimitsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateSpendingLimitCommandInput,
+  UpdateSpendingLimitCommandOutput,
+} from "./commands/UpdateSpendingLimitCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -92,6 +108,8 @@ export type ServiceInputTypes =
   | CancelQuantumTaskCommandInput
   | CreateJobCommandInput
   | CreateQuantumTaskCommandInput
+  | CreateSpendingLimitCommandInput
+  | DeleteSpendingLimitCommandInput
   | GetDeviceCommandInput
   | GetJobCommandInput
   | GetQuantumTaskCommandInput
@@ -99,8 +117,10 @@ export type ServiceInputTypes =
   | SearchDevicesCommandInput
   | SearchJobsCommandInput
   | SearchQuantumTasksCommandInput
+  | SearchSpendingLimitsCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateSpendingLimitCommandInput;
 
 /**
  * @public
@@ -110,6 +130,8 @@ export type ServiceOutputTypes =
   | CancelQuantumTaskCommandOutput
   | CreateJobCommandOutput
   | CreateQuantumTaskCommandOutput
+  | CreateSpendingLimitCommandOutput
+  | DeleteSpendingLimitCommandOutput
   | GetDeviceCommandOutput
   | GetJobCommandOutput
   | GetQuantumTaskCommandOutput
@@ -117,8 +139,10 @@ export type ServiceOutputTypes =
   | SearchDevicesCommandOutput
   | SearchJobsCommandOutput
   | SearchQuantumTasksCommandOutput
+  | SearchSpendingLimitsCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateSpendingLimitCommandOutput;
 
 /**
  * @public

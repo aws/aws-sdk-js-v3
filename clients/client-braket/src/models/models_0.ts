@@ -1622,6 +1622,258 @@ export interface SearchQuantumTasksResponse {
 }
 
 /**
+ * <p>Defines a time range for spending limits, specifying when the limit is active.</p>
+ * @public
+ */
+export interface TimePeriod {
+  /**
+   * <p>The start date and time for the spending limit period, in epoch seconds.</p>
+   * @public
+   */
+  startAt: Date | undefined;
+
+  /**
+   * <p>The end date and time for the spending limit period, in epoch seconds.</p>
+   * @public
+   */
+  endAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSpendingLimitRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Braket ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quantum device to apply the spending limit to.</p>
+   * @public
+   */
+  deviceArn: string | undefined;
+
+  /**
+   * <p>The maximum amount that can be spent on the specified device, in USD.</p>
+   * @public
+   */
+  spendingLimit: string | undefined;
+
+  /**
+   * <p>The time period during which the spending limit is active, including start and end dates.</p>
+   * @public
+   */
+  timePeriod?: TimePeriod | undefined;
+
+  /**
+   * <p>The tags to apply to the spending limit. Each tag consists of a key and an optional value.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSpendingLimitResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created spending limit.</p>
+   * @public
+   */
+  spendingLimitArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpendingLimitRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the spending limit to delete.</p>
+   * @public
+   */
+  spendingLimitArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpendingLimitResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchSpendingLimitsFilterOperator = {
+  EQUAL: "EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchSpendingLimitsFilterOperator =
+  (typeof SearchSpendingLimitsFilterOperator)[keyof typeof SearchSpendingLimitsFilterOperator];
+
+/**
+ * <p>Specifies filter criteria for searching spending limits. Use filters to narrow down results based on specific attributes.</p>
+ * @public
+ */
+export interface SearchSpendingLimitsFilter {
+  /**
+   * <p>The name of the field to filter on. Currently only supports <code>deviceArn</code>.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An array of values to match against the specified field.</p>
+   * @public
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The comparison operator to use when filtering.</p>
+   * @public
+   */
+  operator: SearchSpendingLimitsFilterOperator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSpendingLimitsRequest {
+  /**
+   * <p>The token to retrieve the next page of results. This value is returned from a previous call to SearchSpendingLimits when there are more results available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The filters to apply when searching for spending limits. Use filters to narrow down the results based on specific criteria.</p>
+   * @public
+   */
+  filters?: SearchSpendingLimitsFilter[] | undefined;
+}
+
+/**
+ * <p>Contains summary information about a spending limit, including current spending status and configuration details.</p>
+ * @public
+ */
+export interface SpendingLimitSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the spending limit.</p>
+   * @public
+   */
+  spendingLimitArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quantum device associated with this spending limit.</p>
+   * @public
+   */
+  deviceArn: string | undefined;
+
+  /**
+   * <p>The time period during which the spending limit is active.</p>
+   * @public
+   */
+  timePeriod: TimePeriod | undefined;
+
+  /**
+   * <p>The maximum spending amount allowed for the device during the specified time period, in USD.</p>
+   * @public
+   */
+  spendingLimit: string | undefined;
+
+  /**
+   * <p>The amount currently queued for spending on the device, in USD.</p>
+   * @public
+   */
+  queuedSpend: string | undefined;
+
+  /**
+   * <p>The total amount spent on the device so far during the current time period, in USD.</p>
+   * @public
+   */
+  totalSpend: string | undefined;
+
+  /**
+   * <p>The date and time when the spending limit was created, in epoch seconds.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the spending limit was last modified, in epoch seconds.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The tags associated with the spending limit. Each tag consists of a key and an optional value.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSpendingLimitsResponse {
+  /**
+   * <p>An array of spending limit summaries that match the specified filters.</p>
+   * @public
+   */
+  spendingLimits: SpendingLimitSummary[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSpendingLimitRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the spending limit to update.</p>
+   * @public
+   */
+  spendingLimitArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Braket ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The new maximum amount that can be spent on the specified device, in USD.</p>
+   * @public
+   */
+  spendingLimit?: string | undefined;
+
+  /**
+   * <p>The new time period during which the spending limit is active, including start and end dates.</p>
+   * @public
+   */
+  timePeriod?: TimePeriod | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSpendingLimitResponse {}
+
+/**
  * @public
  */
 export interface TagResourceRequest {

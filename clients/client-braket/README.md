@@ -237,6 +237,22 @@ CreateQuantumTask
 </details>
 <details>
 <summary>
+CreateSpendingLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/braket/command/CreateSpendingLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/CreateSpendingLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/CreateSpendingLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteSpendingLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/braket/command/DeleteSpendingLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/DeleteSpendingLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/DeleteSpendingLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDevice
 </summary>
 
@@ -293,6 +309,14 @@ SearchQuantumTasks
 </details>
 <details>
 <summary>
+SearchSpendingLimits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/braket/command/SearchSpendingLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/SearchSpendingLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/SearchSpendingLimitsCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -305,5 +329,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/braket/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSpendingLimit
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/braket/command/UpdateSpendingLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/UpdateSpendingLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-braket/Interface/UpdateSpendingLimitCommandOutput/)
 
 </details>
