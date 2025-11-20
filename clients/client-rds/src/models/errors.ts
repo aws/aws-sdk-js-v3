@@ -1390,6 +1390,28 @@ export class StorageTypeNotSupportedFault extends __BaseException {
 }
 
 /**
+ * <p>The operation violates VPC encryption control settings. Make sure that your DB instance
+ *             type supports the Nitro encryption-in-transit capability,
+ *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ * @public
+ */
+export class VpcEncryptionControlViolationException extends __BaseException {
+  readonly name = "VpcEncryptionControlViolationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VpcEncryptionControlViolationException, __BaseException>) {
+    super({
+      name: "VpcEncryptionControlViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VpcEncryptionControlViolationException.prototype);
+  }
+}
+
+/**
  * <p>The specified custom endpoint can't be created because it already exists.</p>
  * @public
  */

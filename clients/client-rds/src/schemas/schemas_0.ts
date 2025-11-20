@@ -1470,6 +1470,7 @@ const _UTp = "UpgradeTarget";
 const _Ur = "Url";
 const _V = "Value";
 const _VDBIMM = "ValidDBInstanceModificationsMessage";
+const _VECVE = "VpcEncryptionControlViolationException";
 const _VF = "ValidFrom";
 const _VI = "VpcId";
 const _VO = "VpcOnly";
@@ -1659,6 +1660,7 @@ import {
   TenantDatabaseNotFoundFault as __TenantDatabaseNotFoundFault,
   TenantDatabaseQuotaExceededFault as __TenantDatabaseQuotaExceededFault,
   UnsupportedDBEngineVersionFault as __UnsupportedDBEngineVersionFault,
+  VpcEncryptionControlViolationException as __VpcEncryptionControlViolationException,
 } from "../models/errors";
 import { RDSServiceException as __RDSServiceException } from "../models/RDSServiceException";
 
@@ -7886,6 +7888,20 @@ export var ValidStorageOptions: StaticStructureSchema = [
     2,
   ],
 ];
+export var VpcEncryptionControlViolationException: StaticErrorSchema = [
+  -3,
+  n0,
+  _VECVE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+    [_aQE]: [`VpcEncryptionControlViolationException`, 400],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(VpcEncryptionControlViolationException, __VpcEncryptionControlViolationException);
+
 export var VpcSecurityGroupMembership: StaticStructureSchema = [3, n0, _VSGMp, 0, [_VSGIp, _St], [0, 0]];
 export var __Unit = "unit" as const;
 

@@ -327,6 +327,11 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
+ * @throws {@link VpcEncryptionControlViolationException} (client fault)
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance
+ *             type supports the Nitro encryption-in-transit capability,
+ *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
