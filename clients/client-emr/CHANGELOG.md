@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.937.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.936.0...v3.937.0) (2025-11-20)
+
+
+### Features
+
+* **client-emr:** Add support for configuring S3 destination for step logs on a per-step basis. ([b24d79f](https://github.com/aws/aws-sdk-js-v3/commit/b24d79f63f36b829aa7138a144a292e722b8215e))
+
+
+
+
+
 # [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-emr
