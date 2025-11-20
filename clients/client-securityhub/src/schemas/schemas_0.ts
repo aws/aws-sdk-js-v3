@@ -728,6 +728,7 @@ const _ARQLCD = "AwsRoute53QueryLoggingConfigDetails";
 const _ARTIS = "AuthorizerResultTtlInSeconds";
 const _ARc = "AcceptanceRequired";
 const _ARg = "AggregationRegion";
+const _ARl = "AllResources";
 const _ARs = "AssociatedRoles";
 const _ARu = "AutoRecovery";
 const _ARw = "AwsRegion";
@@ -1748,6 +1749,11 @@ const _FSFRA = "FirehoseSuccessFeedbackRoleArn";
 const _FSI = "FileSystemId";
 const _FSi = "FindingsSummary";
 const _FT = "FindingType";
+const _FTCF = "FindingsTrendsCompositeFilter";
+const _FTCFL = "FindingsTrendsCompositeFilterList";
+const _FTF = "FindingsTrendsFilters";
+const _FTSF = "FindingsTrendsStringFilter";
+const _FTSFL = "FindingsTrendsStringFilterList";
 const _FV = "FieldValue";
 const _Fa = "Family";
 const _Fat = "Fatal";
@@ -1805,6 +1811,9 @@ const _GFRe = "GetFindingsResponse";
 const _GFSV = "GetFindingStatisticsV2";
 const _GFSVR = "GetFindingStatisticsV2Request";
 const _GFSVRe = "GetFindingStatisticsV2Response";
+const _GFTV = "GetFindingsTrendsV2";
+const _GFTVR = "GetFindingsTrendsV2Request";
+const _GFTVRe = "GetFindingsTrendsV2Response";
 const _GFV = "GetFindingsV2";
 const _GFVR = "GetFindingsV2Request";
 const _GFVRe = "GetFindingsV2Response";
@@ -1836,6 +1845,9 @@ const _GRSV = "GetResourcesStatisticsV2";
 const _GRSVR = "GetResourcesStatisticsV2Request";
 const _GRSVRe = "GetResourcesStatisticsV2Response";
 const _GRT = "GeneratedRulesType";
+const _GRTV = "GetResourcesTrendsV2";
+const _GRTVR = "GetResourcesTrendsV2Request";
+const _GRTVRe = "GetResourcesTrendsV2Response";
 const _GRV = "GetResourcesV2";
 const _GRVR = "GetResourcesV2Request";
 const _GRVRe = "GetResourcesV2Response";
@@ -1846,6 +1858,7 @@ const _GSI = "GlobalSecondaryIndexes";
 const _GTV = "GlobalTableVersion";
 const _Gi = "Gid";
 const _Gr = "Groups";
+const _Gra = "Granularity";
 const _Gro = "Group";
 const _Gt = "Gte";
 const _Gt_ = "Gt";
@@ -2654,6 +2667,7 @@ const _RCeq = "RequiresCompatibilities";
 const _RCes = "ResponseCode";
 const _RCeso = "ResourceCategory";
 const _RCesou = "ResourceConfig";
+const _RCesour = "ResourcesCount";
 const _RCo = "RoutingConfig";
 const _RD = "RootDirectory";
 const _RDCTD = "ResourceDetailCaptureTimeDt";
@@ -2807,10 +2821,18 @@ const _RSul = "RulesString";
 const _RT = "ResourceType";
 const _RTAI = "RouteTableAssociationId";
 const _RTC = "RunningTasksCount";
+const _RTCF = "ResourcesTrendsCompositeFilter";
+const _RTCFL = "ResourcesTrendsCompositeFilterList";
+const _RTF = "ResourcesTrendsFilters";
 const _RTI = "RouteTableId";
 const _RTIe = "ReplicationTaskIdentifier";
 const _RTL = "ResourceTagList";
+const _RTM = "ResourcesTrendsMetrics";
+const _RTMR = "ResourcesTrendsMetricsResult";
 const _RTS = "ReplicationTaskSettings";
+const _RTSF = "ResourcesTrendsStringFilter";
+const _RTSFL = "ResourcesTrendsStringFilterList";
+const _RTV = "ResourcesTrendsValues";
 const _RTe = "ResourceTags";
 const _RTec = "RecommendationText";
 const _RTes = "ResizeType";
@@ -3073,9 +3095,11 @@ const _SSu = "SubnetStatus";
 const _ST = "StorageType";
 const _STA = "SnsTopicArn";
 const _STAo = "SourceTableArn";
+const _STC = "SeverityTrendsCount";
 const _STH = "SessionTimeoutHours";
 const _STN = "SnsTopicName";
 const _STe = "ServiceType";
+const _STev = "SeverityTrends";
 const _STn = "SnapshotType";
 const _STo = "SourceType";
 const _STp = "SplitTunnel";
@@ -3164,6 +3188,8 @@ const _TLSSP = "TLSSecurityPolicy";
 const _TM = "TableMappings";
 const _TMD = "TreatMissingData";
 const _TMI = "ThresholdMetricId";
+const _TMR = "TrendsMetricsResult";
+const _TMr = "TrendsMetrics";
 const _TN = "TableName";
 const _TNo = "TopicName";
 const _TO = "TunnelOptions";
@@ -3181,6 +3207,7 @@ const _TSB = "TableSizeBytes";
 const _TSU = "TicketSrcUrl";
 const _TT = "TargetType";
 const _TTa = "TargetTypes";
+const _TV = "TrendsValues";
 const _TZ = "TimeZone";
 const _Ta = "Target";
 const _Tag = "Tag";
@@ -3196,6 +3223,7 @@ const _Ti = "Title";
 const _Tie = "Tier";
 const _Tim = "Timeout";
 const _Time = "Timezone";
+const _Times = "Timestamp";
 const _Tl = "Tls";
 const _Tm = "Tmpfs";
 const _To = "To";
@@ -8938,6 +8966,30 @@ export var FindingProviderFields: StaticStructureSchema = [
   [1, 1, () => RelatedFindingList, () => FindingProviderSeverity, 64 | 0],
 ];
 export var FindingProviderSeverity: StaticStructureSchema = [3, n0, _FPS, 0, [_Lab, _Orig], [0, 0]];
+export var FindingsTrendsCompositeFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _FTCF,
+  0,
+  [_SF, _NCF, _Oper],
+  [() => FindingsTrendsStringFilterList, () => FindingsTrendsCompositeFilterList, 0],
+];
+export var FindingsTrendsFilters: StaticStructureSchema = [
+  3,
+  n0,
+  _FTF,
+  0,
+  [_CFo, _COo],
+  [() => FindingsTrendsCompositeFilterList, 0],
+];
+export var FindingsTrendsStringFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _FTSF,
+  0,
+  [_FNie, _Fil],
+  [0, () => StringFilter],
+];
 export var FirewallPolicyDetails: StaticStructureSchema = [
   3,
   n0,
@@ -9077,6 +9129,22 @@ export var GetFindingStatisticsV2Request: StaticStructureSchema = [
   [() => GroupByRules, 0, 1],
 ];
 export var GetFindingStatisticsV2Response: StaticStructureSchema = [3, n0, _GFSVRe, 0, [_GBRr], [() => GroupByResults]];
+export var GetFindingsTrendsV2Request: StaticStructureSchema = [
+  3,
+  n0,
+  _GFTVR,
+  0,
+  [_Filt, _STtar, _ETnd, _NTe, _MRa],
+  [() => FindingsTrendsFilters, 5, 5, 0, 1],
+];
+export var GetFindingsTrendsV2Response: StaticStructureSchema = [
+  3,
+  n0,
+  _GFTVRe,
+  0,
+  [_Gra, _TMr, _NTe],
+  [0, () => TrendsMetrics, 0],
+];
 export var GetFindingsV2Request: StaticStructureSchema = [
   3,
   n0,
@@ -9118,6 +9186,22 @@ export var GetResourcesStatisticsV2Response: StaticStructureSchema = [
   0,
   [_GBRr],
   [() => GroupByResults],
+];
+export var GetResourcesTrendsV2Request: StaticStructureSchema = [
+  3,
+  n0,
+  _GRTVR,
+  0,
+  [_Filt, _STtar, _ETnd, _NTe, _MRa],
+  [() => ResourcesTrendsFilters, 5, 5, 0, 1],
+];
+export var GetResourcesTrendsV2Response: StaticStructureSchema = [
+  3,
+  n0,
+  _GRTVRe,
+  0,
+  [_Gra, _TMr, _NTe],
+  [0, () => ResourcesTrendsMetrics, 0],
 ];
 export var GetResourcesV2Request: StaticStructureSchema = [
   3,
@@ -10071,6 +10155,7 @@ export var ResourcesCompositeFilter: StaticStructureSchema = [
     0,
   ],
 ];
+export var ResourcesCount: StaticStructureSchema = [3, n0, _RCesour, 0, [_ARl], [1]];
 export var ResourcesDateFilter: StaticStructureSchema = [3, n0, _RDF, 0, [_FNie, _Fil], [0, () => DateFilter]];
 export var ResourceSeverityBreakdown: StaticStructureSchema = [
   3,
@@ -10091,6 +10176,39 @@ export var ResourcesFilters: StaticStructureSchema = [
 export var ResourcesMapFilter: StaticStructureSchema = [3, n0, _RMF, 0, [_FNie, _Fil], [0, () => MapFilter]];
 export var ResourcesNumberFilter: StaticStructureSchema = [3, n0, _RNF, 0, [_FNie, _Fil], [0, () => NumberFilter]];
 export var ResourcesStringFilter: StaticStructureSchema = [3, n0, _RSF, 0, [_FNie, _Fil], [0, () => StringFilter]];
+export var ResourcesTrendsCompositeFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _RTCF,
+  0,
+  [_SF, _NCF, _Oper],
+  [() => ResourcesTrendsStringFilterList, () => ResourcesTrendsCompositeFilterList, 0],
+];
+export var ResourcesTrendsFilters: StaticStructureSchema = [
+  3,
+  n0,
+  _RTF,
+  0,
+  [_CFo, _COo],
+  [() => ResourcesTrendsCompositeFilterList, 0],
+];
+export var ResourcesTrendsMetricsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _RTMR,
+  0,
+  [_Times, _TV],
+  [5, () => ResourcesTrendsValues],
+];
+export var ResourcesTrendsStringFilter: StaticStructureSchema = [
+  3,
+  n0,
+  _RTSF,
+  0,
+  [_FNie, _Fil],
+  [0, () => StringFilter],
+];
+export var ResourcesTrendsValues: StaticStructureSchema = [3, n0, _RTV, 0, [_RCesour], [() => ResourcesCount]];
 export var ResourceTag: StaticStructureSchema = [3, n0, _RTeso, 0, [_K, _Val], [0, 0]];
 export var Result: StaticStructureSchema = [3, n0, _Resu, 0, [_AIc, _PRr], [0, 0]];
 export var RouteSetDetails: StaticStructureSchema = [
@@ -10326,6 +10444,14 @@ export var ServiceNowProviderConfiguration: StaticStructureSchema = [
   [0, 0, [() => SensitiveNonEmptyString, 0]],
 ];
 export var Severity: StaticStructureSchema = [3, n0, _Se, 0, [_Produ, _Lab, _Norm, _Orig], [1, 0, 1, 0]];
+export var SeverityTrendsCount: StaticStructureSchema = [
+  3,
+  n0,
+  _STC,
+  0,
+  [_Unk, _Inf, _Low, _Med, _Hi, _Crit, _Fat, _Ot],
+  [1, 1, 1, 1, 1, 1, 1, 1],
+];
 export var SeverityUpdate: StaticStructureSchema = [3, n0, _SUe, 0, [_Norm, _Produ, _Lab], [1, 1, 0]];
 export var Signal: StaticStructureSchema = [
   3,
@@ -10473,6 +10599,8 @@ export var ThrottlingException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 
+export var TrendsMetricsResult: StaticStructureSchema = [3, n0, _TMR, 0, [_Times, _TV], [5, () => TrendsValues]];
+export var TrendsValues: StaticStructureSchema = [3, n0, _TV, 0, [_STev], [() => SeverityTrendsCount]];
 export var UnprocessedAutomationRule: StaticStructureSchema = [3, n0, _UARn, 0, [_RA, _ECr, _EMr], [0, 1, 0]];
 export var UnprocessedConfigurationPolicyAssociation: StaticStructureSchema = [
   3,
@@ -11571,6 +11699,14 @@ export var FilePathList: StaticListSchema = [1, n0, _FPL, 0, () => FilePaths];
 export var FindingAggregatorList: StaticListSchema = [1, n0, _FAL, 0, () => FindingAggregator];
 export var FindingHistoryRecordList: StaticListSchema = [1, n0, _FHRL, 0, () => FindingHistoryRecord];
 export var FindingHistoryUpdatesList: StaticListSchema = [1, n0, _FHUL, 0, () => FindingHistoryUpdate];
+export var FindingsTrendsCompositeFilterList: StaticListSchema = [
+  1,
+  n0,
+  _FTCFL,
+  0,
+  () => FindingsTrendsCompositeFilter,
+];
+export var FindingsTrendsStringFilterList: StaticListSchema = [1, n0, _FTSFL, 0, () => FindingsTrendsStringFilter];
 export var FirewallPolicyStatefulRuleGroupReferencesList: StaticListSchema = [
   1,
   n0,
@@ -11650,6 +11786,15 @@ export var ResourcesDateFilterList: StaticListSchema = [1, n0, _RDFL, 0, () => R
 export var ResourcesMapFilterList: StaticListSchema = [1, n0, _RMFL, 0, () => ResourcesMapFilter];
 export var ResourcesNumberFilterList: StaticListSchema = [1, n0, _RNFL, 0, () => ResourcesNumberFilter];
 export var ResourcesStringFilterList: StaticListSchema = [1, n0, _RSFL, 0, () => ResourcesStringFilter];
+export var ResourcesTrendsCompositeFilterList: StaticListSchema = [
+  1,
+  n0,
+  _RTCFL,
+  0,
+  () => ResourcesTrendsCompositeFilter,
+];
+export var ResourcesTrendsMetrics: StaticListSchema = [1, n0, _RTM, 0, () => ResourcesTrendsMetricsResult];
+export var ResourcesTrendsStringFilterList: StaticListSchema = [1, n0, _RTSFL, 0, () => ResourcesTrendsStringFilter];
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
 export var ResultList: StaticListSchema = [1, n0, _RLes, 0, () => Result];
 export var RouteSetList: StaticListSchema = [1, n0, _RSLo, 0, () => RouteSetDetails];
@@ -11782,6 +11927,7 @@ export var TagKeyList = 64 | 0;
 
 export var ThreatIntelIndicatorList: StaticListSchema = [1, n0, _TIIL, 0, () => ThreatIntelIndicator];
 export var ThreatList: StaticListSchema = [1, n0, _TL, 0, () => Threat];
+export var TrendsMetrics: StaticListSchema = [1, n0, _TMr, 0, () => TrendsMetricsResult];
 export var TypeList = 64 | 0;
 
 export var UnprocessedAutomationRulesList: StaticListSchema = [1, n0, _UARL, 0, () => UnprocessedAutomationRule];
@@ -12536,6 +12682,16 @@ export var GetFindingStatisticsV2: StaticOperationSchema = [
   () => GetFindingStatisticsV2Request,
   () => GetFindingStatisticsV2Response,
 ];
+export var GetFindingsTrendsV2: StaticOperationSchema = [
+  9,
+  n0,
+  _GFTV,
+  {
+    [_h]: ["POST", "/findingsTrendsv2", 200],
+  },
+  () => GetFindingsTrendsV2Request,
+  () => GetFindingsTrendsV2Response,
+];
 export var GetFindingsV2: StaticOperationSchema = [
   9,
   n0,
@@ -12605,6 +12761,16 @@ export var GetResourcesStatisticsV2: StaticOperationSchema = [
   },
   () => GetResourcesStatisticsV2Request,
   () => GetResourcesStatisticsV2Response,
+];
+export var GetResourcesTrendsV2: StaticOperationSchema = [
+  9,
+  n0,
+  _GRTV,
+  {
+    [_h]: ["POST", "/resourcesTrendsv2", 200],
+  },
+  () => GetResourcesTrendsV2Request,
+  () => GetResourcesTrendsV2Response,
 ];
 export var GetResourcesV2: StaticOperationSchema = [
   9,

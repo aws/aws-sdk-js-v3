@@ -27,7 +27,7 @@ export interface ConnectorRegistrationsV2CommandInput extends ConnectorRegistrat
 export interface ConnectorRegistrationsV2CommandOutput extends ConnectorRegistrationsV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to complete the authorization based on input parameters. This API is in preview release and subject to change.</p>
+ * <p>Grants permission to complete the authorization based on input parameters. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

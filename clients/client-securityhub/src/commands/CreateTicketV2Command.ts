@@ -27,7 +27,7 @@ export interface CreateTicketV2CommandInput extends CreateTicketV2Request {}
 export interface CreateTicketV2CommandOutput extends CreateTicketV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to create a ticket in the chosen ITSM based on finding information for the provided finding metadata UID. This API is in preview release and subject to change.</p>
+ * <p>Grants permission to create a ticket in the chosen ITSM based on finding information for the provided finding metadata UID. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

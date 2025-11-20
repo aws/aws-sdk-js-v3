@@ -27,7 +27,7 @@ export interface CreateConnectorV2CommandInput extends CreateConnectorV2Request 
 export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to create a connectorV2 based on input parameters. This API is in preview release and subject to change.</p>
+ * <p>Grants permission to create a connectorV2 based on input parameters. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

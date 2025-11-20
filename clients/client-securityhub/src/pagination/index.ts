@@ -14,11 +14,13 @@ export * from "./GetFindingHistoryPaginator";
 
 export * from "./GetFindingsPaginator";
 
-export * from "./GetFindingsV2Paginator";
+export * from "./GetFindingsTrendsV2Paginator";
 
-export * from "./GetInsightsPaginator";
+export * from "./GetFindingsV2Paginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetInsightsPaginator";
+export * from "./GetResourcesTrendsV2Paginator";
 export * from "./GetResourcesV2Paginator";
 export * from "./ListAggregatorsV2Paginator";
 export * from "./ListConfigurationPoliciesPaginator";

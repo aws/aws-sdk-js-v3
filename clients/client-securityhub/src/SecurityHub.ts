@@ -320,6 +320,11 @@ import {
   GetFindingStatisticsV2CommandOutput,
 } from "./commands/GetFindingStatisticsV2Command";
 import {
+  GetFindingsTrendsV2Command,
+  GetFindingsTrendsV2CommandInput,
+  GetFindingsTrendsV2CommandOutput,
+} from "./commands/GetFindingsTrendsV2Command";
+import {
   GetFindingsV2Command,
   GetFindingsV2CommandInput,
   GetFindingsV2CommandOutput,
@@ -346,6 +351,11 @@ import {
   GetResourcesStatisticsV2CommandInput,
   GetResourcesStatisticsV2CommandOutput,
 } from "./commands/GetResourcesStatisticsV2Command";
+import {
+  GetResourcesTrendsV2Command,
+  GetResourcesTrendsV2CommandInput,
+  GetResourcesTrendsV2CommandOutput,
+} from "./commands/GetResourcesTrendsV2Command";
 import {
   GetResourcesV2Command,
   GetResourcesV2CommandInput,
@@ -571,6 +581,7 @@ const commands = {
   GetFindingHistoryCommand,
   GetFindingsCommand,
   GetFindingStatisticsV2Command,
+  GetFindingsTrendsV2Command,
   GetFindingsV2Command,
   GetInsightResultsCommand,
   GetInsightsCommand,
@@ -578,6 +589,7 @@ const commands = {
   GetMasterAccountCommand,
   GetMembersCommand,
   GetResourcesStatisticsV2Command,
+  GetResourcesTrendsV2Command,
   GetResourcesV2Command,
   GetSecurityControlDefinitionCommand,
   InviteMembersCommand,
@@ -1692,6 +1704,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetFindingsTrendsV2Command}
+   */
+  getFindingsTrendsV2(
+    args: GetFindingsTrendsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsTrendsV2CommandOutput>;
+  getFindingsTrendsV2(
+    args: GetFindingsTrendsV2CommandInput,
+    cb: (err: any, data?: GetFindingsTrendsV2CommandOutput) => void
+  ): void;
+  getFindingsTrendsV2(
+    args: GetFindingsTrendsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingsTrendsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFindingsV2Command}
    */
   getFindingsV2(): Promise<GetFindingsV2CommandOutput>;
@@ -1794,6 +1823,23 @@ export interface SecurityHub {
     args: GetResourcesStatisticsV2CommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourcesStatisticsV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcesTrendsV2Command}
+   */
+  getResourcesTrendsV2(
+    args: GetResourcesTrendsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcesTrendsV2CommandOutput>;
+  getResourcesTrendsV2(
+    args: GetResourcesTrendsV2CommandInput,
+    cb: (err: any, data?: GetResourcesTrendsV2CommandOutput) => void
+  ): void;
+  getResourcesTrendsV2(
+    args: GetResourcesTrendsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcesTrendsV2CommandOutput) => void
   ): void;
 
   /**

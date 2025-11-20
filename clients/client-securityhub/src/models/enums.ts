@@ -915,6 +915,27 @@ export type FindingHistoryUpdateSourceType =
  * @public
  * @enum
  */
+export const FindingsTrendsStringField = {
+  ACCOUNT_ID: "account_id",
+  COMPLIANCE_CONTROL: "finding_control_id",
+  COMPLIANCE_STATUS: "finding_compliance_status",
+  CVE_ID: "finding_cve_ids",
+  FINDING_ACTIVITY_NAME: "finding_activity_name",
+  FINDING_CLASS: "finding_class_name",
+  FINDING_STATUS: "finding_status",
+  FINDING_TYPE: "finding_types",
+  PROVIDER_NAME: "finding_provider",
+  REGION: "region",
+} as const;
+/**
+ * @public
+ */
+export type FindingsTrendsStringField = (typeof FindingsTrendsStringField)[keyof typeof FindingsTrendsStringField];
+
+/**
+ * @public
+ * @enum
+ */
 export const SortOrder = {
   ASCENDING: "asc",
   DESCENDING: "desc",
@@ -955,6 +976,20 @@ export const GroupByField = {
  * @public
  */
 export type GroupByField = (typeof GroupByField)[keyof typeof GroupByField];
+
+/**
+ * @public
+ * @enum
+ */
+export const GranularityField = {
+  DAILY: "Daily",
+  MONTHLY: "Monthly",
+  WEEKLY: "Weekly",
+} as const;
+/**
+ * @public
+ */
+export type GranularityField = (typeof GranularityField)[keyof typeof GranularityField];
 
 /**
  * @public
@@ -1037,6 +1072,21 @@ export const ResourceGroupByField = {
  * @public
  */
 export type ResourceGroupByField = (typeof ResourceGroupByField)[keyof typeof ResourceGroupByField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourcesTrendsStringField = {
+  ACCOUNT_ID: "account_id",
+  REGION: "region",
+  RESOURCE_CATEGORY: "resource_category",
+  RESOURCE_TYPE: "resource_type",
+} as const;
+/**
+ * @public
+ */
+export type ResourcesTrendsStringField = (typeof ResourcesTrendsStringField)[keyof typeof ResourcesTrendsStringField];
 
 /**
  * @public

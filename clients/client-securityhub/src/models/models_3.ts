@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import {
   AllowedOperators,
+  AssociationType,
   AutoEnableStandards,
+  ConfigurationPolicyAssociationStatus,
   ControlFindingGenerator,
   ControlStatus,
   GroupByField,
@@ -9,12 +11,15 @@ import {
   ResourceGroupByField,
   RuleStatusV2,
   SortOrder,
+  TargetType,
 } from "./enums";
 
 import { AutomationRulesActionV2, NoteUpdate } from "./models_0";
 
 import {
   AwsSecurityFindingFilters,
+  FindingsTrendsStringFilter,
+  JiraCloudUpdateConfiguration,
   OcsfBooleanFilter,
   OcsfDateFilter,
   OcsfIpFilter,
@@ -24,13 +29,228 @@ import {
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
-  ProviderUpdateConfiguration,
   ResourcesDateFilter,
   ResourcesMapFilter,
   ResourcesNumberFilter,
   ResourcesStringFilter,
+  ResourcesTrendsStringFilter,
   SortCriterion,
+  StandardsControlAssociationSummary,
+  Target,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsResponse {
+  /**
+   * <p> An array that provides the enablement status and other details for each security
+   *          control that applies to each enabled standard. </p>
+   * @public
+   */
+  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with a resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The parameters required to update the configuration of an integration provider.</p>
+ * @public
+ */
+export type ProviderUpdateConfiguration =
+  | ProviderUpdateConfiguration.JiraCloudMember
+  | ProviderUpdateConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderUpdateConfiguration {
+  /**
+   * <p>The parameters required to update the configuration for a Jira Cloud integration.</p>
+   * @public
+   */
+  export interface JiraCloudMember {
+    JiraCloud: JiraCloudUpdateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    JiraCloud?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationRequest {
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
+   *         </p>
+   * @public
+   */
+  Target: Target | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationResponse {
+  /**
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyId?: string | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
+   *         </p>
+   * @public
+   */
+  TargetId?: string | undefined;
+
+  /**
+   * <p>
+   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *         </p>
+   * @public
+   */
+  TargetType?: TargetType | undefined;
+
+  /**
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   * @public
+   */
+  AssociationType?: AssociationType | undefined;
+
+  /**
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   * @public
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
+
+  /**
+   * <p>
+   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   * @public
+   */
+  AssociationStatusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationRequest {
+  /**
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
+   *         </p>
+   * @public
+   */
+  Target?: Target | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationResponse {}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to apply the tags to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
 
 /**
  * @public
@@ -636,6 +856,30 @@ export interface CompositeFilter {
 }
 
 /**
+ * <p>A filter structure that contains a logical combination of string filters and nested composite filters for findings trend data.</p>
+ * @public
+ */
+export interface FindingsTrendsCompositeFilter {
+  /**
+   * <p>A list of string filters that apply to findings trend data fields.</p>
+   * @public
+   */
+  StringFilters?: FindingsTrendsStringFilter[] | undefined;
+
+  /**
+   * <p>A list of nested composite filters that you can use to create complex filter conditions for findings trend data.</p>
+   * @public
+   */
+  NestedCompositeFilters?: FindingsTrendsCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator (AND, OR) to apply between the string filters and nested composite filters.</p>
+   * @public
+   */
+  Operator?: AllowedOperators | undefined;
+}
+
+/**
  * <p>Enables the creation of criteria for Amazon Web Services resources in Security Hub.</p>
  * @public
  */
@@ -683,6 +927,48 @@ export interface ResourcesCompositeFilter {
 }
 
 /**
+ * <p>A filter structure that contains a logical combination of string filters and nested composite filters for resources trend data.</p>
+ * @public
+ */
+export interface ResourcesTrendsCompositeFilter {
+  /**
+   * <p>A list of string filters that apply to resources trend data fields.</p>
+   * @public
+   */
+  StringFilters?: ResourcesTrendsStringFilter[] | undefined;
+
+  /**
+   * <p>A list of nested composite filters that you can use to create complex filter conditions for resources trend data.</p>
+   * @public
+   */
+  NestedCompositeFilters?: ResourcesTrendsCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator (AND, OR) to apply between the string filters and nested composite filters.</p>
+   * @public
+   */
+  Operator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>The structure that defines filters to apply to findings trend data queries.</p>
+ * @public
+ */
+export interface FindingsTrendsFilters {
+  /**
+   * <p>A list of composite filters to apply to the findings trend data.</p>
+   * @public
+   */
+  CompositeFilters?: FindingsTrendsCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator (AND, OR) to apply between multiple composite filters.</p>
+   * @public
+   */
+  CompositeOperator?: AllowedOperators | undefined;
+}
+
+/**
  * <p>Specifies the filtering criteria for security findings using OCSF.</p>
  * @public
  */
@@ -713,6 +999,24 @@ export interface ResourcesFilters {
 
   /**
    * <p>The logical operator used to combine multiple filter conditions in the structure.</p>
+   * @public
+   */
+  CompositeOperator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>The structure that defines filters to apply to resources trend data queries.</p>
+ * @public
+ */
+export interface ResourcesTrendsFilters {
+  /**
+   * <p>A list of composite filters to apply to the resources trend data.</p>
+   * @public
+   */
+  CompositeFilters?: ResourcesTrendsCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator (AND, OR) to apply between multiple composite filters.</p>
    * @public
    */
   CompositeOperator?: AllowedOperators | undefined;
@@ -758,6 +1062,41 @@ export namespace Criteria {
 /**
  * @public
  */
+export interface GetFindingsTrendsV2Request {
+  /**
+   * <p>The filters to apply to the findings trend data.</p>
+   * @public
+   */
+  Filters?: FindingsTrendsFilters | undefined;
+
+  /**
+   * <p>The starting timestamp for the time period to analyze findings trends, in ISO 8601 format.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The ending timestamp for the time period to analyze findings trends, in ISO 8601 format.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The token to use for paginating results. This value is returned in the response if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of trend data points to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetFindingsV2Request {
   /**
    * <p>The finding attributes used to define a condition to filter the returned OCSF findings.
@@ -784,6 +1123,41 @@ export interface GetFindingsV2Request {
 
   /**
    * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesTrendsV2Request {
+  /**
+   * <p>The filters to apply to the resources trend data.</p>
+   * @public
+   */
+  Filters?: ResourcesTrendsFilters | undefined;
+
+  /**
+   * <p>The starting timestamp for the time period to analyze resources trends, in ISO 8601 format.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The ending timestamp for the time period to analyze resources trends, in ISO 8601 format.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The token to use for paginating results. This value is returned in the response if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of trend data points to return in a single response.</p>
    * @public
    */
   MaxResults?: number | undefined;

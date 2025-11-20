@@ -27,7 +27,7 @@ export interface UpdateConnectorV2CommandInput extends UpdateConnectorV2Request 
 export interface UpdateConnectorV2CommandOutput extends UpdateConnectorV2Response, __MetadataBearer {}
 
 /**
- * <p>Grants permission to update a connectorV2 based on its id and input parameters. This API is in preview release and subject to change.</p>
+ * <p>Grants permission to update a connectorV2 based on its id and input parameters. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

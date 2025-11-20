@@ -796,6 +796,14 @@ GetFindingStatisticsV2
 </details>
 <details>
 <summary>
+GetFindingsTrendsV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetFindingsTrendsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingsTrendsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingsTrendsV2CommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFindingsV2
 </summary>
 
@@ -848,6 +856,14 @@ GetResourcesStatisticsV2
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetResourcesStatisticsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetResourcesStatisticsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetResourcesStatisticsV2CommandOutput/)
+
+</details>
+<details>
+<summary>
+GetResourcesTrendsV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetResourcesTrendsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetResourcesTrendsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetResourcesTrendsV2CommandOutput/)
 
 </details>
 <details>

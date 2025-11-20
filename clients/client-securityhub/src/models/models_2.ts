@@ -13,6 +13,8 @@ import {
   ControlFindingGenerator,
   ControlStatus,
   FindingHistoryUpdateSourceType,
+  FindingsTrendsStringField,
+  GranularityField,
   IntegrationType,
   IntegrationV2Type,
   OcsfBooleanField,
@@ -32,6 +34,7 @@ import {
   ResourcesMapField,
   ResourcesNumberField,
   ResourcesStringField,
+  ResourcesTrendsStringField,
   RuleStatus,
   SecurityControlProperty,
   SecurityHubFeature,
@@ -7872,6 +7875,24 @@ export interface FindingHistoryRecord {
 }
 
 /**
+ * <p>A filter for string-based fields in findings trend data.</p>
+ * @public
+ */
+export interface FindingsTrendsStringFilter {
+  /**
+   * <p>The name of the findings field to filter on.</p>
+   * @public
+   */
+  FieldName?: FindingsTrendsStringField | undefined;
+
+  /**
+   * <p>A string filter for filtering Security Hub findings.</p>
+   * @public
+   */
+  Filter?: StringFilter | undefined;
+}
+
+/**
  * @public
  */
 export interface GetAdministratorAccountRequest {}
@@ -8617,6 +8638,113 @@ export interface GetFindingStatisticsV2Response {
 }
 
 /**
+ * <p>Contains counts of findings grouped by severity level for trend analysis.</p>
+ * @public
+ */
+export interface SeverityTrendsCount {
+  /**
+   * <p>The count of findings with Unknown severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  Unknown: number | undefined;
+
+  /**
+   * <p>The count of findings with Informational severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  Informational: number | undefined;
+
+  /**
+   * <p>The count of findings with Low severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  Low: number | undefined;
+
+  /**
+   * <p>The count of findings with Medium severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  Medium: number | undefined;
+
+  /**
+   * <p>The count of findings with High severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  High: number | undefined;
+
+  /**
+   * <p>The count of findings with Critical severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  Critical: number | undefined;
+
+  /**
+   * <p>The count of findings with Fatal severity level at this point in the trend timeline.</p>
+   * @public
+   */
+  Fatal: number | undefined;
+
+  /**
+   * <p>The count of findings with severity levels not fitting into the standard categories at this point in the trend timeline.</p>
+   * @public
+   */
+  Other: number | undefined;
+}
+
+/**
+ * <p>Contains the aggregated finding values for a specific point in the findings trend timeline.</p>
+ * @public
+ */
+export interface TrendsValues {
+  /**
+   * <p>The count of findings organized by severity level for this data point in the trend timeline.</p>
+   * @public
+   */
+  SeverityTrends: SeverityTrendsCount | undefined;
+}
+
+/**
+ * <p>Contains the findings trend metrics data for a specific time point in the requested time period.</p>
+ * @public
+ */
+export interface TrendsMetricsResult {
+  /**
+   * <p>The timestamp for this data point in the findings trend metrics.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The finding trend metric values associated with this timestamp, including severity counts.</p>
+   * @public
+   */
+  TrendsValues: TrendsValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsTrendsV2Response {
+  /**
+   * <p>The time interval granularity for the returned trend data.</p>
+   * @public
+   */
+  Granularity: GranularityField | undefined;
+
+  /**
+   * <p>The collection of time-series trend metrics, including counts of findings by severity across the specified time period.</p>
+   * @public
+   */
+  TrendsMetrics: TrendsMetricsResult[] | undefined;
+
+  /**
+   * <p>The token to use for retrieving the next page of results, if more trend data is available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetFindingsV2Response {
@@ -9019,6 +9147,89 @@ export interface GetResourcesStatisticsV2Response {
    * @public
    */
   GroupByResults: GroupByResult[] | undefined;
+}
+
+/**
+ * <p>A filter for string-based fields in resources trend data, such as resource type or account ID.</p>
+ * @public
+ */
+export interface ResourcesTrendsStringFilter {
+  /**
+   * <p>The name of the resources field to filter on, such as resourceType, accountId, or region.</p>
+   * @public
+   */
+  FieldName?: ResourcesTrendsStringField | undefined;
+
+  /**
+   * <p>A string filter for filtering Security Hub findings.</p>
+   * @public
+   */
+  Filter?: StringFilter | undefined;
+}
+
+/**
+ * <p>Contains counts of resources for trend analysis.</p>
+ * @public
+ */
+export interface ResourcesCount {
+  /**
+   * <p>The total count of all resources for the given time interval.</p>
+   * @public
+   */
+  AllResources: number | undefined;
+}
+
+/**
+ * <p>Contains the aggregated resource count values for a specific point in the resources trend timeline.</p>
+ * @public
+ */
+export interface ResourcesTrendsValues {
+  /**
+   * <p>The resource count statistics for this data point in the trend timeline.</p>
+   * @public
+   */
+  ResourcesCount: ResourcesCount | undefined;
+}
+
+/**
+ * <p>Contains the resource trend metrics data for a specific time point in the requested time period.</p>
+ * @public
+ */
+export interface ResourcesTrendsMetricsResult {
+  /**
+   * <p>The timestamp for this data point in the resources trend metrics.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The resource trend metric values associated with this timestamp, including resource counts.</p>
+   * @public
+   */
+  TrendsValues: ResourcesTrendsValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesTrendsV2Response {
+  /**
+   * <p>The time interval granularity for the returned trend data (such as DAILY or WEEKLY).</p>
+   * @public
+   */
+  Granularity: GranularityField | undefined;
+
+  /**
+   * <p>The collection of time-series trend metrics, including counts of resources across the specified time period.</p>
+   * @public
+   */
+  TrendsMetrics: ResourcesTrendsMetricsResult[] | undefined;
+
+  /**
+   * <p>The token to use for retrieving the next page of results, if more trend data is available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10036,216 +10247,3 @@ export interface StandardsControlAssociationSummary {
    */
   StandardsControlDescription?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface ListStandardsControlAssociationsResponse {
-  /**
-   * <p> An array that provides the enablement status and other details for each security
-   *          control that applies to each enabled standard. </p>
-   * @public
-   */
-  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
-
-  /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource to retrieve tags for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags associated with a resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The parameters required to update the configuration of an integration provider.</p>
- * @public
- */
-export type ProviderUpdateConfiguration =
-  | ProviderUpdateConfiguration.JiraCloudMember
-  | ProviderUpdateConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProviderUpdateConfiguration {
-  /**
-   * <p>The parameters required to update the configuration for a Jira Cloud integration.</p>
-   * @public
-   */
-  export interface JiraCloudMember {
-    JiraCloud: JiraCloudUpdateConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    JiraCloud?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyAssociationRequest {
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
-   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyIdentifier: string | undefined;
-
-  /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
-   *         </p>
-   * @public
-   */
-  Target: Target | undefined;
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyAssociationResponse {
-  /**
-   * <p>
-   *             The UUID of the configuration policy.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyId?: string | undefined;
-
-  /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
-   *         </p>
-   * @public
-   */
-  TargetId?: string | undefined;
-
-  /**
-   * <p>
-   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
-   *         </p>
-   * @public
-   */
-  TargetType?: TargetType | undefined;
-
-  /**
-   * <p>
-   *             Indicates whether the association between the specified target and the configuration was directly applied by the
-   *             Security Hub delegated administrator or inherited from a parent.
-   *         </p>
-   * @public
-   */
-  AssociationType?: AssociationType | undefined;
-
-  /**
-   * <p>
-   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
-   *         </p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>
-   *             The current status of the association between the specified target and the configuration.
-   *         </p>
-   * @public
-   */
-  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
-
-  /**
-   * <p>
-   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
-   *         </p>
-   * @public
-   */
-  AssociationStatusMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyDisassociationRequest {
-  /**
-   * <p>
-   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
-   *         </p>
-   * @public
-   */
-  Target?: Target | undefined;
-
-  /**
-   * <p>
-   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
-   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartConfigurationPolicyDisassociationResponse {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource to apply the tags to.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}

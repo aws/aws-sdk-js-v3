@@ -245,6 +245,10 @@ import {
   GetFindingStatisticsV2CommandInput,
   GetFindingStatisticsV2CommandOutput,
 } from "./commands/GetFindingStatisticsV2Command";
+import {
+  GetFindingsTrendsV2CommandInput,
+  GetFindingsTrendsV2CommandOutput,
+} from "./commands/GetFindingsTrendsV2Command";
 import { GetFindingsV2CommandInput, GetFindingsV2CommandOutput } from "./commands/GetFindingsV2Command";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
@@ -258,6 +262,10 @@ import {
   GetResourcesStatisticsV2CommandInput,
   GetResourcesStatisticsV2CommandOutput,
 } from "./commands/GetResourcesStatisticsV2Command";
+import {
+  GetResourcesTrendsV2CommandInput,
+  GetResourcesTrendsV2CommandOutput,
+} from "./commands/GetResourcesTrendsV2Command";
 import { GetResourcesV2CommandInput, GetResourcesV2CommandOutput } from "./commands/GetResourcesV2Command";
 import {
   GetSecurityControlDefinitionCommandInput,
@@ -431,6 +439,7 @@ export type ServiceInputTypes =
   | GetFindingHistoryCommandInput
   | GetFindingStatisticsV2CommandInput
   | GetFindingsCommandInput
+  | GetFindingsTrendsV2CommandInput
   | GetFindingsV2CommandInput
   | GetInsightResultsCommandInput
   | GetInsightsCommandInput
@@ -438,6 +447,7 @@ export type ServiceInputTypes =
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
   | GetResourcesStatisticsV2CommandInput
+  | GetResourcesTrendsV2CommandInput
   | GetResourcesV2CommandInput
   | GetSecurityControlDefinitionCommandInput
   | InviteMembersCommandInput
@@ -541,6 +551,7 @@ export type ServiceOutputTypes =
   | GetFindingHistoryCommandOutput
   | GetFindingStatisticsV2CommandOutput
   | GetFindingsCommandOutput
+  | GetFindingsTrendsV2CommandOutput
   | GetFindingsV2CommandOutput
   | GetInsightResultsCommandOutput
   | GetInsightsCommandOutput
@@ -548,6 +559,7 @@ export type ServiceOutputTypes =
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
   | GetResourcesStatisticsV2CommandOutput
+  | GetResourcesTrendsV2CommandOutput
   | GetResourcesV2CommandOutput
   | GetSecurityControlDefinitionCommandOutput
   | InviteMembersCommandOutput
