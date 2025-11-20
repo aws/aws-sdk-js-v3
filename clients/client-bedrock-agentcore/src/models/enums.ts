@@ -200,3 +200,15 @@ export const OperatorType = {
  * @public
  */
 export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExtractionJobStatus = {
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ExtractionJobStatus = (typeof ExtractionJobStatus)[keyof typeof ExtractionJobStatus];

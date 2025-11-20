@@ -123,6 +123,10 @@ import {
   ListCodeInterpreterSessionsCommandOutput,
 } from "./commands/ListCodeInterpreterSessionsCommand";
 import { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
+import {
+  ListMemoryExtractionJobsCommandInput,
+  ListMemoryExtractionJobsCommandOutput,
+} from "./commands/ListMemoryExtractionJobsCommand";
 import { ListMemoryRecordsCommandInput, ListMemoryRecordsCommandOutput } from "./commands/ListMemoryRecordsCommand";
 import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import {
@@ -137,6 +141,10 @@ import {
   StartCodeInterpreterSessionCommandInput,
   StartCodeInterpreterSessionCommandOutput,
 } from "./commands/StartCodeInterpreterSessionCommand";
+import {
+  StartMemoryExtractionJobCommandInput,
+  StartMemoryExtractionJobCommandOutput,
+} from "./commands/StartMemoryExtractionJobCommand";
 import { StopBrowserSessionCommandInput, StopBrowserSessionCommandOutput } from "./commands/StopBrowserSessionCommand";
 import {
   StopCodeInterpreterSessionCommandInput,
@@ -185,11 +193,13 @@ export type ServiceInputTypes =
   | ListBrowserSessionsCommandInput
   | ListCodeInterpreterSessionsCommandInput
   | ListEventsCommandInput
+  | ListMemoryExtractionJobsCommandInput
   | ListMemoryRecordsCommandInput
   | ListSessionsCommandInput
   | RetrieveMemoryRecordsCommandInput
   | StartBrowserSessionCommandInput
   | StartCodeInterpreterSessionCommandInput
+  | StartMemoryExtractionJobCommandInput
   | StopBrowserSessionCommandInput
   | StopCodeInterpreterSessionCommandInput
   | StopRuntimeSessionCommandInput
@@ -222,11 +232,13 @@ export type ServiceOutputTypes =
   | ListBrowserSessionsCommandOutput
   | ListCodeInterpreterSessionsCommandOutput
   | ListEventsCommandOutput
+  | ListMemoryExtractionJobsCommandOutput
   | ListMemoryRecordsCommandOutput
   | ListSessionsCommandOutput
   | RetrieveMemoryRecordsCommandOutput
   | StartBrowserSessionCommandOutput
   | StartCodeInterpreterSessionCommandOutput
+  | StartMemoryExtractionJobCommandOutput
   | StopBrowserSessionCommandOutput
   | StopCodeInterpreterSessionCommandOutput
   | StopRuntimeSessionCommandOutput
@@ -446,7 +458,7 @@ export type BedrockAgentCoreClientResolvedConfigType = __SmithyResolvedConfigura
 export interface BedrockAgentCoreClientResolvedConfig extends BedrockAgentCoreClientResolvedConfigType {}
 
 /**
- * <note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
+ * <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
  * @public
  */
 export class BedrockAgentCoreClient extends __Client<

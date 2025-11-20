@@ -6,6 +6,7 @@ import {
   BrowserSessionStatus,
   CodeInterpreterSessionStatus,
   ContentBlockType,
+  ExtractionJobStatus,
   MemoryRecordStatus,
   Oauth2FlowType,
   OperatorType,
@@ -2526,7 +2527,7 @@ export interface ListActorsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2700,13 +2701,13 @@ export interface ListEventsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the session for which to list events. If specified, only events from this session are returned.</p>
+   * <p>The identifier of the session for which to list events.</p>
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The identifier of the actor for which to list events. If specified, only events from this actor are returned.</p>
+   * <p>The identifier of the actor for which to list events.</p>
    * @public
    */
   actorId: string | undefined;
@@ -2724,7 +2725,7 @@ export interface ListEventsInput {
   filter?: FilterInput | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2754,6 +2755,185 @@ export interface ListEventsOutput {
 }
 
 /**
+ * <p>Filters for querying memory extraction jobs based on various criteria.</p>
+ * @public
+ */
+export interface ExtractionJobFilterInput {
+  /**
+   * <p>The memory strategy identifier to filter extraction jobs by. If specified, only extraction jobs with this strategy ID are returned.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the session. If specified, only extraction jobs with this session ID are returned.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the actor. If specified, only extraction jobs with this actor ID are returned.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+
+  /**
+   * <p>The status of the extraction job. If specified, only extraction jobs with this status are returned.</p>
+   * @public
+   */
+  status?: ExtractionJobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMemoryExtractionJobsInput {
+  /**
+   * <p>The unique identifier of the memory to list extraction jobs for.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Filter criteria to apply when listing extraction jobs.</p>
+   * @public
+   */
+  filter?: ExtractionJobFilterInput | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Metadata information associated with this message.</p>
+ * @public
+ */
+export interface MessageMetadata {
+  /**
+   * <p>The identifier of the event associated with this message.</p>
+   * @public
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The position of this message within that event’s ordered list of messages.</p>
+   * @public
+   */
+  messageIndex: number | undefined;
+}
+
+/**
+ * <p>The list of messages that compose this extraction job.</p>
+ * @public
+ */
+export type ExtractionJobMessages = ExtractionJobMessages.MessagesListMember | ExtractionJobMessages.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExtractionJobMessages {
+  /**
+   * <p>The list of messages that compose this extraction job.</p>
+   * @public
+   */
+  export interface MessagesListMember {
+    messagesList: MessageMetadata[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    messagesList?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    messagesList: (value: MessageMetadata[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Metadata information associated with this extraction job.</p>
+ * @public
+ */
+export interface ExtractionJobMetadata {
+  /**
+   * <p>The unique identifier for the extraction job.</p>
+   * @public
+   */
+  jobID: string | undefined;
+
+  /**
+   * <p>The messages associated with the extraction job.</p>
+   * @public
+   */
+  messages: ExtractionJobMessages | undefined;
+
+  /**
+   * <p>The current status of the extraction job.</p>
+   * @public
+   */
+  status?: ExtractionJobStatus | undefined;
+
+  /**
+   * <p>The cause of failure, if the job did not complete successfully.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * <p>The identifier of the memory strategy for this extraction job.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+
+  /**
+   * <p>The identifier of the session for this extraction job.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the actor for this extraction job.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMemoryExtractionJobsOutput {
+  /**
+   * <p>List of extraction job metadata matching the specified criteria.</p>
+   * @public
+   */
+  jobs: ExtractionJobMetadata[] | undefined;
+
+  /**
+   * <p>Token to retrieve the next page of results, if available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListMemoryRecordsInput {
@@ -2776,7 +2956,7 @@ export interface ListMemoryRecordsInput {
   memoryStrategyId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2858,13 +3038,13 @@ export interface ListSessionsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the actor for which to list sessions. If specified, only sessions involving this actor are returned.</p>
+   * <p>The identifier of the actor for which to list sessions. </p>
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2952,7 +3132,7 @@ export interface RetrieveMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace to filter memory records by. If specified, only memory records in this namespace are searched.</p>
+   * <p>The namespace to filter memory records by.</p>
    * @public
    */
   namespace: string | undefined;
@@ -2970,7 +3150,7 @@ export interface RetrieveMemoryRecordsInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -2991,4 +3171,50 @@ export interface RetrieveMemoryRecordsOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents the metadata of a memory extraction job such as the message identifiers that compose this job.</p>
+ * @public
+ */
+export interface ExtractionJob {
+  /**
+   * <p>The unique identifier of the extraction job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMemoryExtractionJobInput {
+  /**
+   * <p>The unique identifier of the memory for which to start extraction jobs.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>Extraction job to start in this operation.</p>
+   * @public
+   */
+  extractionJob: ExtractionJob | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMemoryExtractionJobOutput {
+  /**
+   * <p>Extraction Job ID that was attempted to start.</p>
+   * @public
+   */
+  jobId: string | undefined;
 }

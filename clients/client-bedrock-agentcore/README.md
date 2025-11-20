@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript BedrockAgentCore Client for Node.js, Browser and React Native.
 
-<note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
+<p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
 
 ## Installing
 
@@ -389,6 +389,14 @@ ListEvents
 </details>
 <details>
 <summary>
+ListMemoryExtractionJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/ListMemoryExtractionJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListMemoryExtractionJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/ListMemoryExtractionJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListMemoryRecords
 </summary>
 
@@ -425,6 +433,14 @@ StartCodeInterpreterSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/StartCodeInterpreterSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/StartCodeInterpreterSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/StartCodeInterpreterSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartMemoryExtractionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/StartMemoryExtractionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/StartMemoryExtractionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/StartMemoryExtractionJobCommandOutput/)
 
 </details>
 <details>

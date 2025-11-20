@@ -40,6 +40,7 @@ const _CRTARo = "CompleteResourceTokenAuthResponse";
 const _CRVT = "CustomRequestValueType";
 const _CT = "Content-Type";
 const _Co = "Content";
+const _D = "Document";
 const _DE = "DeleteEvent";
 const _DEI = "DeleteEventInput";
 const _DEO = "DeleteEventOutput";
@@ -47,6 +48,11 @@ const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
 const _DMRO = "DeleteMemoryRecordOutput";
 const _E = "Event";
+const _EJ = "ExtractionJob";
+const _EJFI = "ExtractionJobFilterInput";
+const _EJM = "ExtractionJobMetadata";
+const _EJML = "ExtractionJobMetadataList";
+const _EJMx = "ExtractionJobMessages";
 const _EL = "EventList";
 const _EMFE = "EventMetadataFilterExpression";
 const _EMFL = "EventMetadataFilterList";
@@ -104,6 +110,9 @@ const _LE = "LeftExpression";
 const _LEI = "ListEventsInput";
 const _LEO = "ListEventsOutput";
 const _LEi = "ListEvents";
+const _LMEJ = "ListMemoryExtractionJobs";
+const _LMEJI = "ListMemoryExtractionJobsInput";
+const _LMEJO = "ListMemoryExtractionJobsOutput";
 const _LMR = "ListMemoryRecords";
 const _LMRI = "ListMemoryRecordsInput";
 const _LMRO = "ListMemoryRecordsOutput";
@@ -112,7 +121,9 @@ const _LSI = "ListSessionsInput";
 const _LSO = "ListSessionsOutput";
 const _LVS = "LiveViewStream";
 const _MC = "MemoryContent";
-const _MM = "MetadataMap";
+const _ML = "MessagesList";
+const _MM = "MessageMetadata";
+const _MMe = "MetadataMap";
 const _MPV = "Mcp-Protocol-Version";
 const _MR = "MemoryRecord";
 const _MRCI = "MemoryRecordCreateInput";
@@ -152,6 +163,9 @@ const _SCISRto = "StopCodeInterpreterSessionRequest";
 const _SCISRtop = "StopCodeInterpreterSessionResponse";
 const _SCISt = "StopCodeInterpreterSession";
 const _SE = "ServiceException";
+const _SMEJ = "StartMemoryExtractionJob";
+const _SMEJI = "StartMemoryExtractionJobInput";
+const _SMEJO = "StartMemoryExtractionJobOutput";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRS = "StopRuntimeSession";
 const _SRSR = "StopRuntimeSessionRequest";
@@ -215,6 +229,7 @@ const _e = "error";
 const _eC = "errorCode";
 const _eCx = "exitCode";
 const _eI = "eventId";
+const _eJ = "extractionJob";
 const _eM = "eventMetadata";
 const _eMr = "errorMessage";
 const _eT = "eventTimestamp";
@@ -225,6 +240,7 @@ const _f = "filter";
 const _fA = "forceAuthentication";
 const _fL = "fieldList";
 const _fR = "failedRecords";
+const _fRa = "failureReason";
 const _h = "height";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -236,13 +252,18 @@ const _iP = "includePayloads";
 const _iPB = "includeParentBranches";
 const _iSE = "internalServerException";
 const _iT = "idempotencyToken";
+const _j = "jobs";
+const _jI = "jobId";
+const _jID = "jobID";
 const _l = "left";
 const _lUA = "lastUpdatedAt";
 const _lVS = "liveViewStream";
 const _la = "language";
 const _m = "message";
 const _mI = "memoryId";
+const _mIe = "messageIndex";
 const _mK = "metadataKey";
+const _mL = "messagesList";
 const _mPV = "mcpProtocolVersion";
 const _mR = "memoryRecord";
 const _mRI = "memoryRecordId";
@@ -253,6 +274,7 @@ const _mSIe = "memoryStrategyId";
 const _mT = "mimeType";
 const _mV = "metadataValue";
 const _me = "metadata";
+const _mes = "messages";
 const _n = "name";
 const _nT = "nextToken";
 const _na = "namespace";
@@ -283,6 +305,7 @@ const _sCe = "searchCriteria";
 const _sCt = "statusCode";
 const _sE = "streamEndpoint";
 const _sI = "sessionId";
+const _sIt = "strategyId";
 const _sQ = "searchQuery";
 const _sQEE = "serviceQuotaExceededException";
 const _sR = "successfulRecords";
@@ -365,6 +388,7 @@ export var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 export var AuthorizationUrlType: StaticSimpleSchema = [0, n0, _AUT, 8, 0];
 export var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 export var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
+export var Document: StaticSimpleSchema = [0, n0, _D, 8, 15];
 export var ResponseStream: StaticSimpleSchema = [
   0,
   n0,
@@ -565,6 +589,16 @@ export var EventMetadataFilterExpression: StaticStructureSchema = [
   0,
   [_l, _o, _ri],
   [() => LeftExpression, 0, () => RightExpression],
+];
+export var ExtractionJob: StaticStructureSchema = [3, n0, _EJ, 0, [_jI], [0]];
+export var ExtractionJobFilterInput: StaticStructureSchema = [3, n0, _EJFI, 0, [_sIt, _sI, _aI, _st], [0, 0, 0, 0]];
+export var ExtractionJobMetadata: StaticStructureSchema = [
+  3,
+  n0,
+  _EJM,
+  0,
+  [_jID, _mes, _st, _fRa, _sIt, _sI, _aI],
+  [0, () => ExtractionJobMessages, 0, 0, 0, 0, 0],
 ];
 export var FilterInput: StaticStructureSchema = [
   3,
@@ -1016,6 +1050,22 @@ export var ListEventsInput: StaticStructureSchema = [
   [[0, 1], [0, 1], [0, 1], 2, () => FilterInput, 1, 0],
 ];
 export var ListEventsOutput: StaticStructureSchema = [3, n0, _LEO, 0, [_eve, _nT], [[() => EventList, 0], 0]];
+export var ListMemoryExtractionJobsInput: StaticStructureSchema = [
+  3,
+  n0,
+  _LMEJI,
+  0,
+  [_mI, _mRa, _f, _nT],
+  [[0, 1], 1, () => ExtractionJobFilterInput, 0],
+];
+export var ListMemoryExtractionJobsOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _LMEJO,
+  0,
+  [_j, _nT],
+  [() => ExtractionJobMetadataList, 0],
+];
 export var ListMemoryRecordsInput: StaticStructureSchema = [
   3,
   n0,
@@ -1069,6 +1119,7 @@ export var MemoryRecordUpdateInput: StaticStructureSchema = [
   [_mRI, _ti, _co, _nam, _mSIe],
   [0, 4, [() => MemoryContent, 0], 64 | 0, 0],
 ];
+export var MessageMetadata: StaticStructureSchema = [3, n0, _MM, 0, [_eI, _mIe], [0, 1]];
 export var ResourceContent: StaticStructureSchema = [3, n0, _RC, 0, [_t, _u, _mT, _te, _bl], [0, 0, 0, 0, 21]];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
@@ -1214,6 +1265,15 @@ export var StartCodeInterpreterSessionResponse: StaticStructureSchema = [
   [_cII, _sI, _cA],
   [0, 0, 5],
 ];
+export var StartMemoryExtractionJobInput: StaticStructureSchema = [
+  3,
+  n0,
+  _SMEJI,
+  0,
+  [_mI, _eJ, _cT],
+  [[0, 1], () => ExtractionJob, [0, 4]],
+];
+export var StartMemoryExtractionJobOutput: StaticStructureSchema = [3, n0, _SMEJO, 0, [_jI], [0]];
 export var StopBrowserSessionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1434,12 +1494,14 @@ export var CodeInterpreterSessionSummaries: StaticListSchema = [1, n0, _CISSo, 0
 export var ContentBlockList: StaticListSchema = [1, n0, _CBL, 0, () => ContentBlock];
 export var EventList: StaticListSchema = [1, n0, _EL, 0, [() => Event, 0]];
 export var EventMetadataFilterList: StaticListSchema = [1, n0, _EMFL, 0, () => EventMetadataFilterExpression];
+export var ExtractionJobMetadataList: StaticListSchema = [1, n0, _EJML, 0, () => ExtractionJobMetadata];
 export var InputContentBlockList: StaticListSchema = [1, n0, _ICBL, 0, [() => InputContentBlock, 0]];
 export var MemoryRecordsCreateInputList: StaticListSchema = [1, n0, _MRCIL, 0, [() => MemoryRecordCreateInput, 0]];
 export var MemoryRecordsDeleteInputList: StaticListSchema = [1, n0, _MRDIL, 0, () => MemoryRecordDeleteInput];
 export var MemoryRecordsOutputList: StaticListSchema = [1, n0, _MROL, 0, () => MemoryRecordOutput];
 export var MemoryRecordSummaryList: StaticListSchema = [1, n0, _MRSL, 0, [() => MemoryRecordSummary, 0]];
 export var MemoryRecordsUpdateInputList: StaticListSchema = [1, n0, _MRUIL, 0, [() => MemoryRecordUpdateInput, 0]];
+export var MessagesList: StaticListSchema = [1, n0, _ML, 0, () => MessageMetadata];
 export var NamespacesList = 64 | 0;
 
 export var PayloadTypeList: StaticListSchema = [1, n0, _PTL, 0, [() => PayloadType, 0]];
@@ -1450,7 +1512,7 @@ export var StringList = 64 | 0;
 
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT, 0, [0, 0], [() => CustomRequestValueType, 0]];
-export var MetadataMap: StaticMapSchema = [2, n0, _MM, 0, 0, () => MetadataValue];
+export var MetadataMap: StaticMapSchema = [2, n0, _MMe, 0, 0, () => MetadataValue];
 export var CodeInterpreterStreamOutput: StaticStructureSchema = [
   3,
   n0,
@@ -1471,10 +1533,21 @@ export var CodeInterpreterStreamOutput: StaticStructureSchema = [
   ],
 ];
 export var Content: StaticStructureSchema = [3, n0, _Co, 0, [_te], [[() => SensitiveString, 0]]];
+export var ExtractionJobMessages: StaticStructureSchema = [3, n0, _EJMx, 0, [_mL], [() => MessagesList]];
 export var LeftExpression: StaticStructureSchema = [3, n0, _LE, 0, [_mK], [0]];
 export var MemoryContent: StaticStructureSchema = [3, n0, _MC, 0, [_te], [[() => SensitiveString, 0]]];
 export var MetadataValue: StaticStructureSchema = [3, n0, _MV, 0, [_sV], [0]];
-export var PayloadType: StaticStructureSchema = [3, n0, _PT, 0, [_con, _bl], [[() => Conversational, 0], 15]];
+export var PayloadType: StaticStructureSchema = [
+  3,
+  n0,
+  _PT,
+  0,
+  [_con, _bl],
+  [
+    [() => Conversational, 0],
+    [() => Document, 0],
+  ],
+];
 export var RightExpression: StaticStructureSchema = [3, n0, _RE, 0, [_mV], [() => MetadataValue]];
 export var StreamUpdate: StaticStructureSchema = [3, n0, _SU, 0, [_aSU], [() => AutomationStreamUpdate]];
 export var UserIdentifier: StaticStructureSchema = [3, n0, _UI, 0, [_uT, _uIs], [[() => UserTokenType, 0], 0]];
@@ -1708,6 +1781,16 @@ export var ListEvents: StaticOperationSchema = [
   () => ListEventsInput,
   () => ListEventsOutput,
 ];
+export var ListMemoryExtractionJobs: StaticOperationSchema = [
+  9,
+  n0,
+  _LMEJ,
+  {
+    [_ht]: ["POST", "/memories/{memoryId}/extractionJobs", 200],
+  },
+  () => ListMemoryExtractionJobsInput,
+  () => ListMemoryExtractionJobsOutput,
+];
 export var ListMemoryRecords: StaticOperationSchema = [
   9,
   n0,
@@ -1757,6 +1840,16 @@ export var StartCodeInterpreterSession: StaticOperationSchema = [
   },
   () => StartCodeInterpreterSessionRequest,
   () => StartCodeInterpreterSessionResponse,
+];
+export var StartMemoryExtractionJob: StaticOperationSchema = [
+  9,
+  n0,
+  _SMEJ,
+  {
+    [_ht]: ["POST", "/memories/{memoryId}/extractionJobs/start", 200],
+  },
+  () => StartMemoryExtractionJobInput,
+  () => StartMemoryExtractionJobOutput,
 ];
 export var StopBrowserSession: StaticOperationSchema = [
   9,

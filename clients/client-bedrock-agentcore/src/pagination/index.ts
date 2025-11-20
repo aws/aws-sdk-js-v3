@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListActorsPaginator";
 export * from "./ListEventsPaginator";
+export * from "./ListMemoryExtractionJobsPaginator";
 export * from "./ListMemoryRecordsPaginator";
 export * from "./ListSessionsPaginator";
 export * from "./RetrieveMemoryRecordsPaginator";

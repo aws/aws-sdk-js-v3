@@ -99,6 +99,11 @@ import {
 } from "./commands/ListCodeInterpreterSessionsCommand";
 import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import {
+  ListMemoryExtractionJobsCommand,
+  ListMemoryExtractionJobsCommandInput,
+  ListMemoryExtractionJobsCommandOutput,
+} from "./commands/ListMemoryExtractionJobsCommand";
+import {
   ListMemoryRecordsCommand,
   ListMemoryRecordsCommandInput,
   ListMemoryRecordsCommandOutput,
@@ -123,6 +128,11 @@ import {
   StartCodeInterpreterSessionCommandInput,
   StartCodeInterpreterSessionCommandOutput,
 } from "./commands/StartCodeInterpreterSessionCommand";
+import {
+  StartMemoryExtractionJobCommand,
+  StartMemoryExtractionJobCommandInput,
+  StartMemoryExtractionJobCommandOutput,
+} from "./commands/StartMemoryExtractionJobCommand";
 import {
   StopBrowserSessionCommand,
   StopBrowserSessionCommandInput,
@@ -168,11 +178,13 @@ const commands = {
   ListBrowserSessionsCommand,
   ListCodeInterpreterSessionsCommand,
   ListEventsCommand,
+  ListMemoryExtractionJobsCommand,
   ListMemoryRecordsCommand,
   ListSessionsCommand,
   RetrieveMemoryRecordsCommand,
   StartBrowserSessionCommand,
   StartCodeInterpreterSessionCommand,
+  StartMemoryExtractionJobCommand,
   StopBrowserSessionCommand,
   StopCodeInterpreterSessionCommand,
   StopRuntimeSessionCommand,
@@ -533,6 +545,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link ListMemoryExtractionJobsCommand}
+   */
+  listMemoryExtractionJobs(
+    args: ListMemoryExtractionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMemoryExtractionJobsCommandOutput>;
+  listMemoryExtractionJobs(
+    args: ListMemoryExtractionJobsCommandInput,
+    cb: (err: any, data?: ListMemoryExtractionJobsCommandOutput) => void
+  ): void;
+  listMemoryExtractionJobs(
+    args: ListMemoryExtractionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMemoryExtractionJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMemoryRecordsCommand}
    */
   listMemoryRecords(
@@ -612,6 +641,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link StartMemoryExtractionJobCommand}
+   */
+  startMemoryExtractionJob(
+    args: StartMemoryExtractionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMemoryExtractionJobCommandOutput>;
+  startMemoryExtractionJob(
+    args: StartMemoryExtractionJobCommandInput,
+    cb: (err: any, data?: StartMemoryExtractionJobCommandOutput) => void
+  ): void;
+  startMemoryExtractionJob(
+    args: StartMemoryExtractionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMemoryExtractionJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopBrowserSessionCommand}
    */
   stopBrowserSession(
@@ -681,7 +727,7 @@ export interface BedrockAgentCore {
 }
 
 /**
- * <note> <p>Amazon Bedrock AgentCore is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
+ * <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
  * @public
  */
 export class BedrockAgentCore extends BedrockAgentCoreClient implements BedrockAgentCore {}
