@@ -58,6 +58,7 @@ export interface ListDataAutomationProjectsCommandOutput extends ListDataAutomat
  * //     { // DataAutomationProjectSummary
  * //       projectArn: "STRING_VALUE", // required
  * //       projectStage: "DEVELOPMENT" || "LIVE",
+ * //       projectType: "ASYNC" || "SYNC",
  * //       projectName: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //     },

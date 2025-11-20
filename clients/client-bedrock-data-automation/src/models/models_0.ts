@@ -8,13 +8,18 @@ import {
   DataAutomationProjectStage,
   DataAutomationProjectStageFilter,
   DataAutomationProjectStatus,
+  DataAutomationProjectType,
   DesiredModality,
   DocumentExtractionGranularityType,
   DocumentOutputTextFormatType,
   ImageExtractionCategoryType,
   ImageStandardGenerativeFieldType,
   Language,
+  PIIEntityType,
+  PIIRedactionMaskMode,
   ResourceOwner,
+  SensitiveDataDetectionMode,
+  SensitiveDataDetectionScopeType,
   State,
   Type,
   VideoExtractionCategoryType,
@@ -526,6 +531,48 @@ export interface ModalityProcessingConfiguration {
 }
 
 /**
+ * Configuration for PII entities detection and redaction
+ * @public
+ */
+export interface PIIEntitiesConfiguration {
+  /**
+   * Types of PII entities to detect
+   * @public
+   */
+  piiEntityTypes?: PIIEntityType[] | undefined;
+
+  /**
+   * Mode for redacting detected PII
+   * @public
+   */
+  redactionMaskMode?: PIIRedactionMaskMode | undefined;
+}
+
+/**
+ * Configuration for sensitive data detection and redaction
+ * @public
+ */
+export interface SensitiveDataConfiguration {
+  /**
+   * Mode for sensitive data detection
+   * @public
+   */
+  detectionMode: SensitiveDataDetectionMode | undefined;
+
+  /**
+   * Scope of detection - what types of sensitive data to detect
+   * @public
+   */
+  detectionScope?: SensitiveDataDetectionScopeType[] | undefined;
+
+  /**
+   * Configuration for PII entities detection and redaction
+   * @public
+   */
+  piiEntitiesConfiguration?: PIIEntitiesConfiguration | undefined;
+}
+
+/**
  * Override Configuration of Audio
  * @public
  */
@@ -541,6 +588,12 @@ export interface AudioOverrideConfiguration {
    * @public
    */
   languageConfiguration?: AudioLanguageConfiguration | undefined;
+
+  /**
+   * Configuration for sensitive data detection and redaction
+   * @public
+   */
+  sensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
 }
 
 /**
@@ -571,6 +624,12 @@ export interface DocumentOverrideConfiguration {
    * @public
    */
   modalityProcessing?: ModalityProcessingConfiguration | undefined;
+
+  /**
+   * Configuration for sensitive data detection and redaction
+   * @public
+   */
+  sensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
 }
 
 /**
@@ -583,6 +642,12 @@ export interface ImageOverrideConfiguration {
    * @public
    */
   modalityProcessing?: ModalityProcessingConfiguration | undefined;
+
+  /**
+   * Configuration for sensitive data detection and redaction
+   * @public
+   */
+  sensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
 }
 
 /**
@@ -625,6 +690,12 @@ export interface VideoOverrideConfiguration {
    * @public
    */
   modalityProcessing?: ModalityProcessingConfiguration | undefined;
+
+  /**
+   * Configuration for sensitive data detection and redaction
+   * @public
+   */
+  sensitiveDataConfiguration?: SensitiveDataConfiguration | undefined;
 }
 
 /**
@@ -1131,6 +1202,12 @@ export interface CreateDataAutomationProjectRequest {
   projectStage?: DataAutomationProjectStage | undefined;
 
   /**
+   * Type of the DataAutomationProject
+   * @public
+   */
+  projectType?: DataAutomationProjectType | undefined;
+
+  /**
    * Standard output configuration
    * @public
    */
@@ -1275,6 +1352,12 @@ export interface DataAutomationProject {
   projectStage?: DataAutomationProjectStage | undefined;
 
   /**
+   * Type of the DataAutomationProject
+   * @public
+   */
+  projectType?: DataAutomationProjectType | undefined;
+
+  /**
    * Description of the DataAutomationProject
    * @public
    */
@@ -1405,6 +1488,12 @@ export interface DataAutomationProjectSummary {
    * @public
    */
   projectStage?: DataAutomationProjectStage | undefined;
+
+  /**
+   * Type of the DataAutomationProject
+   * @public
+   */
+  projectType?: DataAutomationProjectType | undefined;
 
   /**
    * Name of the DataAutomationProject

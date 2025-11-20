@@ -73,8 +73,10 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _MPC = "ModalityProcessingConfiguration";
 const _MRC = "ModalityRoutingConfiguration";
 const _OC = "OverrideConfiguration";
+const _PIIEC = "PIIEntitiesConfiguration";
 const _RNFE = "ResourceNotFoundException";
 const _SC = "SplitterConfiguration";
+const _SDC = "SensitiveDataConfiguration";
 const _SLC = "SpeakerLabelingConfiguration";
 const _SOC = "StandardOutputConfiguration";
 const _SQEE = "ServiceQuotaExceededException";
@@ -121,6 +123,8 @@ const _cT = "creationTime";
 const _cTl = "clientToken";
 const _ca = "category";
 const _d = "document";
+const _dM = "detectionMode";
+const _dS = "detectionScope";
 const _e = "error";
 const _eC = "encryptionConfiguration";
 const _ex = "extraction";
@@ -153,15 +157,20 @@ const _oF = "outputFormat";
 const _p = "project";
 const _pA = "projectArn";
 const _pD = "projectDescription";
+const _pEC = "piiEntitiesConfiguration";
+const _pET = "piiEntityTypes";
 const _pF = "projectFilter";
 const _pN = "projectName";
 const _pS = "projectStage";
 const _pSF = "projectStageFilter";
+const _pT = "projectType";
 const _pn = "png";
 const _pr = "projects";
 const _rARN = "resourceARN";
+const _rMM = "redactionMaskMode";
 const _rO = "resourceOwner";
 const _s = "state";
+const _sDC = "sensitiveDataConfiguration";
 const _sL = "speakerLabeling";
 const _sOC = "standardOutputConfiguration";
 const _sc = "schema";
@@ -243,8 +252,8 @@ export var AudioOverrideConfiguration: StaticStructureSchema = [
   n0,
   _AOC,
   0,
-  [_mP, _lC],
-  [() => ModalityProcessingConfiguration, () => AudioLanguageConfiguration],
+  [_mP, _lC, _sDC],
+  [() => ModalityProcessingConfiguration, () => AudioLanguageConfiguration, () => SensitiveDataConfiguration],
 ];
 export var AudioStandardExtraction: StaticStructureSchema = [3, n0, _ASE, 0, [_ca], [() => AudioExtractionCategory]];
 export var AudioStandardGenerativeField: StaticStructureSchema = [3, n0, _ASGF, 0, [_s, _t], [0, 64 | 0]];
@@ -314,10 +323,11 @@ export var CreateDataAutomationProjectRequest: StaticStructureSchema = [
   n0,
   _CDAPR,
   0,
-  [_pN, _pD, _pS, _sOC, _cOC, _oC, _cTl, _eC, _ta],
+  [_pN, _pD, _pS, _pT, _sOC, _cOC, _oC, _cTl, _eC, _ta],
   [
     [() => DataAutomationProjectName, 0],
     [() => DataAutomationProjectDescription, 0],
+    0,
     0,
     () => StandardOutputConfiguration,
     () => CustomOutputConfiguration,
@@ -334,12 +344,13 @@ export var DataAutomationProject: StaticStructureSchema = [
   n0,
   _DAP,
   0,
-  [_pA, _cT, _lMT, _pN, _pS, _pD, _sOC, _cOC, _oC, _st, _kKI, _kEC],
+  [_pA, _cT, _lMT, _pN, _pS, _pT, _pD, _sOC, _cOC, _oC, _st, _kKI, _kEC],
   [
     0,
     5,
     5,
     [() => DataAutomationProjectName, 0],
+    0,
     0,
     [() => DataAutomationProjectDescription, 0],
     () => StandardOutputConfiguration,
@@ -356,8 +367,8 @@ export var DataAutomationProjectSummary: StaticStructureSchema = [
   n0,
   _DAPS,
   0,
-  [_pA, _pS, _pN, _cT],
-  [0, 0, [() => DataAutomationProjectName, 0], 5],
+  [_pA, _pS, _pT, _pN, _cT],
+  [0, 0, 0, [() => DataAutomationProjectName, 0], 5],
 ];
 export var DeleteBlueprintRequest: StaticStructureSchema = [
   3,
@@ -395,8 +406,8 @@ export var DocumentOverrideConfiguration: StaticStructureSchema = [
   n0,
   _DOC,
   0,
-  [_sp, _mP],
-  [() => SplitterConfiguration, () => ModalityProcessingConfiguration],
+  [_sp, _mP, _sDC],
+  [() => SplitterConfiguration, () => ModalityProcessingConfiguration, () => SensitiveDataConfiguration],
 ];
 export var DocumentStandardExtraction: StaticStructureSchema = [
   3,
@@ -434,8 +445,8 @@ export var ImageOverrideConfiguration: StaticStructureSchema = [
   n0,
   _IOC,
   0,
-  [_mP],
-  [() => ModalityProcessingConfiguration],
+  [_mP, _sDC],
+  [() => ModalityProcessingConfiguration, () => SensitiveDataConfiguration],
 ];
 export var ImageStandardExtraction: StaticStructureSchema = [
   3,
@@ -510,6 +521,7 @@ export var OverrideConfiguration: StaticStructureSchema = [
     () => ModalityRoutingConfiguration,
   ],
 ];
+export var PIIEntitiesConfiguration: StaticStructureSchema = [3, n0, _PIIEC, 0, [_pET, _rMM], [64 | 0, 0]];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -523,6 +535,14 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
+export var SensitiveDataConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _SDC,
+  0,
+  [_dM, _dS, _pEC],
+  [0, 64 | 0, () => PIIEntitiesConfiguration],
+];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -624,8 +644,8 @@ export var VideoOverrideConfiguration: StaticStructureSchema = [
   n0,
   _VOC,
   0,
-  [_mP],
-  [() => ModalityProcessingConfiguration],
+  [_mP, _sDC],
+  [() => ModalityProcessingConfiguration, () => SensitiveDataConfiguration],
 ];
 export var VideoStandardExtraction: StaticStructureSchema = [
   3,
@@ -678,6 +698,10 @@ export var DocumentOutputTextFormatTypes = 64 | 0;
 export var ImageExtractionCategoryTypes = 64 | 0;
 
 export var ImageStandardGenerativeFieldTypes = 64 | 0;
+
+export var PIIEntityTypes = 64 | 0;
+
+export var SensitiveDataDetectionScope = 64 | 0;
 
 export var TagKeyList = 64 | 0;
 
