@@ -28,7 +28,9 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
 
 /**
  * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
- *          <p>This operation returns only those permissions that have been explicitly granted.</p>
+ *          <p>This operation returns only those permissions that have been explicitly granted. If both
+ *         <code>Principal</code> and <code>Resource</code> parameters are provided, the response
+ *       returns effective permissions rather than the explicitly granted permissions.</p>
  *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

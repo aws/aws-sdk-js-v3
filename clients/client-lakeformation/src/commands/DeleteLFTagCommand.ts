@@ -27,7 +27,18 @@ export interface DeleteLFTagCommandInput extends DeleteLFTagRequest {}
 export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified LF-tag given a key name. If the input parameter tag key was not found, then the operation will throw an exception. When you delete an LF-tag, the <code>LFTagPolicy</code> attached to the LF-tag becomes invalid. If the deleted LF-tag was still assigned to any resource, the tag policy attach to the deleted LF-tag will no longer be applied to the resource.</p>
+ * <p> Deletes an LF-tag by its key name. The operation fails if the specified tag key doesn't
+ *       exist. When you delete an LF-Tag: </p>
+ *          <ul>
+ *             <li>
+ *                <p>The associated LF-Tag policy becomes invalid.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *      Resources that had this tag assigned will no longer have the tag policy applied to
+ *      them.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

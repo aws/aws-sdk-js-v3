@@ -62,6 +62,17 @@ export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput
  * //       DataLakePrincipalIdentifier: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   ServiceIntegrations: [ // ServiceIntegrationList
+ * //     { // ServiceIntegrationUnion Union: only one key present
+ * //       Redshift: [ // RedshiftServiceIntegrations
+ * //         { // RedshiftScopeUnion Union: only one key present
+ * //           RedshiftConnect: { // RedshiftConnect
+ * //             Authorization: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * //   ResourceShare: "STRING_VALUE",
  * // };
  *

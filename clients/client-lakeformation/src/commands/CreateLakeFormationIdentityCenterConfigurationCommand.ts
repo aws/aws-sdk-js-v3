@@ -56,6 +56,17 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
  *       DataLakePrincipalIdentifier: "STRING_VALUE",
  *     },
  *   ],
+ *   ServiceIntegrations: [ // ServiceIntegrationList
+ *     { // ServiceIntegrationUnion Union: only one key present
+ *       Redshift: [ // RedshiftServiceIntegrations
+ *         { // RedshiftScopeUnion Union: only one key present
+ *           RedshiftConnect: { // RedshiftConnect
+ *             Authorization: "ENABLED" || "DISABLED", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new CreateLakeFormationIdentityCenterConfigurationCommand(input);
  * const response = await client.send(command);

@@ -33,8 +33,27 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  *       Lake Formation does not scope down the permission of the assumed role.  All permissions attached to the role via the SAML federation setup will be included in the role session.
  *     </p>
  *          <p>
- *       This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API <code>GetDataAccess</code>.  Therefore, all SAML roles that can be assumed via <code>AssumeDecoratedRoleWithSAML</code> must at a minimum include <code>lakeformation:GetDataAccess</code> in their role policies.  A typical IAM policy attached to such a role would look as follows:
+ *       This decorated role is expected to access data in Amazon S3 by getting temporary access from Lake Formation which is authorized via the virtual API <code>GetDataAccess</code>.
+ *       Therefore, all SAML roles that can be assumed via <code>AssumeDecoratedRoleWithSAML</code> must at a minimum include <code>lakeformation:GetDataAccess</code> in their role policies.
+ *       A typical IAM policy attached to such a role would include the following actions:
  *     </p>
+ *          <ul>
+ *             <li>
+ *                <p>glue:*Database*</p>
+ *             </li>
+ *             <li>
+ *                <p>glue:*Table*</p>
+ *             </li>
+ *             <li>
+ *                <p>glue:*Partition*</p>
+ *             </li>
+ *             <li>
+ *                <p>glue:*UserDefinedFunction*</p>
+ *             </li>
+ *             <li>
+ *                <p>lakeformation:GetDataAccess</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

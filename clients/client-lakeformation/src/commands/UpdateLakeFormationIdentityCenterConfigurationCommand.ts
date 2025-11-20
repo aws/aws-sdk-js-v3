@@ -49,6 +49,17 @@ export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput
  *       DataLakePrincipalIdentifier: "STRING_VALUE",
  *     },
  *   ],
+ *   ServiceIntegrations: [ // ServiceIntegrationList
+ *     { // ServiceIntegrationUnion Union: only one key present
+ *       Redshift: [ // RedshiftServiceIntegrations
+ *         { // RedshiftScopeUnion Union: only one key present
+ *           RedshiftConnect: { // RedshiftConnect
+ *             Authorization: "ENABLED" || "DISABLED", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   ApplicationStatus: "ENABLED" || "DISABLED",
  *   ExternalFiltering: { // ExternalFilteringConfiguration
  *     Status: "ENABLED" || "DISABLED", // required

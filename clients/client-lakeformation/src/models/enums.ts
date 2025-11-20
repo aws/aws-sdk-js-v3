@@ -84,6 +84,19 @@ export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
  * @public
  * @enum
  */
+export const ServiceAuthorization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ServiceAuthorization = (typeof ServiceAuthorization)[keyof typeof ServiceAuthorization];
+
+/**
+ * @public
+ * @enum
+ */
 export const QueryStateString = {
   ERROR: "ERROR",
   EXPIRED: "EXPIRED",

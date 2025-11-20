@@ -1,3 +1,4 @@
+const _A = "Authorization";
 const _AA = "ApplicationArn";
 const _AAC = "AdditionalAuditContext";
 const _AC = "AuditContext";
@@ -283,6 +284,7 @@ const _QTM = "QueueTimeMillis";
 const _R = "Resource";
 const _RA = "RoleArn";
 const _RAe = "ResourceArn";
+const _RC = "RedshiftConnect";
 const _RE = "RequestEntry";
 const _RF = "RowFilter";
 const _RI = "ResourceInfo";
@@ -300,10 +302,13 @@ const _RR = "RegisterResource";
 const _RRR = "RegisterResourceRequest";
 const _RRRe = "RegisterResourceResponse";
 const _RS = "ResultStream";
+const _RSI = "RedshiftServiceIntegrations";
 const _RST = "ResourceShareType";
+const _RSU = "RedshiftScopeUnion";
 const _RSe = "ResourceShare";
 const _RT = "ResourceType";
 const _Re = "Result";
+const _Red = "Redshift";
 const _S = "Size";
 const _SAK = "SecretAccessKey";
 const _SALFT = "ShowAssignedLFTags";
@@ -313,6 +318,9 @@ const _SDBLFTR = "SearchDatabasesByLFTagsRequest";
 const _SDBLFTRe = "SearchDatabasesByLFTagsResponse";
 const _SF = "StatusFilter";
 const _SGWURRWUTS = "SyntheticGetWorkUnitResultsRequestWorkUnitTokenString";
+const _SI = "ServiceIntegrations";
+const _SIL = "ServiceIntegrationList";
+const _SIU = "ServiceIntegrationUnion";
 const _SNRYE = "StatisticsNotReadyYetException";
 const _SO = "StorageOptimizer";
 const _SOC = "StorageOptimizerConfig";
@@ -596,8 +604,8 @@ export var CreateLakeFormationIdentityCenterConfigurationRequest: StaticStructur
   n0,
   _CLFICCR,
   0,
-  [_CI, _IA, _EF, _SR],
-  [0, 0, () => ExternalFilteringConfiguration, () => DataLakePrincipalList],
+  [_CI, _IA, _EF, _SR, _SI],
+  [0, 0, () => ExternalFilteringConfiguration, () => DataLakePrincipalList, () => ServiceIntegrationList],
 ];
 export var CreateLakeFormationIdentityCenterConfigurationResponse: StaticStructureSchema = [
   3,
@@ -714,8 +722,8 @@ export var DescribeLakeFormationIdentityCenterConfigurationResponse: StaticStruc
   n0,
   _DLFICCResc,
   0,
-  [_CI, _IA, _AA, _EF, _SR, _RSe],
-  [0, 0, 0, () => ExternalFilteringConfiguration, () => DataLakePrincipalList, 0],
+  [_CI, _IA, _AA, _EF, _SR, _SI, _RSe],
+  [0, 0, 0, () => ExternalFilteringConfiguration, () => DataLakePrincipalList, () => ServiceIntegrationList, 0],
 ];
 export var DescribeResourceRequest: StaticStructureSchema = [3, n0, _DRRes, 0, [_RAe], [0]];
 export var DescribeResourceResponse: StaticStructureSchema = [3, n0, _DRResc, 0, [_RI], [() => ResourceInfo]];
@@ -1109,6 +1117,7 @@ export var QuerySessionContext: StaticStructureSchema = [
   [_QI, _QSTu, _CIl, _QAI, _ACd],
   [0, 4, 0, 0, 128 | 0],
 ];
+export var RedshiftConnect: StaticStructureSchema = [3, n0, _RC, 0, [_A], [0]];
 export var RegisterResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1325,8 +1334,8 @@ export var UpdateLakeFormationIdentityCenterConfigurationRequest: StaticStructur
   n0,
   _ULFICCR,
   0,
-  [_CI, _SR, _AS, _EF],
-  [0, () => DataLakePrincipalList, 0, () => ExternalFilteringConfiguration],
+  [_CI, _SR, _SI, _AS, _EF],
+  [0, () => DataLakePrincipalList, () => ServiceIntegrationList, 0, () => ExternalFilteringConfiguration],
 ];
 export var UpdateLakeFormationIdentityCenterConfigurationResponse: StaticStructureSchema = [
   3,
@@ -1429,11 +1438,13 @@ export var PermissionTypeList = 64 | 0;
 
 export var PrincipalPermissionsList: StaticListSchema = [1, n0, _PPL, 0, () => PrincipalPermissions];
 export var PrincipalResourcePermissionsList: StaticListSchema = [1, n0, _PRPL, 0, () => PrincipalResourcePermissions];
+export var RedshiftServiceIntegrations: StaticListSchema = [1, n0, _RSI, 0, () => RedshiftScopeUnion];
 export var ResourceInfoList: StaticListSchema = [1, n0, _RIL, 0, () => ResourceInfo];
 export var ResourceShareList = 64 | 0;
 
 export var ScopeTargets = 64 | 0;
 
+export var ServiceIntegrationList: StaticListSchema = [1, n0, _SIL, 0, () => ServiceIntegrationUnion];
 export var StorageOptimizerList: StaticListSchema = [1, n0, _SOL, 0, () => StorageOptimizer];
 export var StringValueList = 64 | 0;
 
@@ -1458,6 +1469,15 @@ export var QueryParameterMap = 128 | 0;
 export var StorageOptimizerConfig = 128 | 0;
 
 export var StorageOptimizerConfigMap: StaticMapSchema = [2, n0, _SOCM, 0, 0, 128 | 0];
+export var RedshiftScopeUnion: StaticStructureSchema = [3, n0, _RSU, 0, [_RC], [() => RedshiftConnect]];
+export var ServiceIntegrationUnion: StaticStructureSchema = [
+  3,
+  n0,
+  _SIU,
+  0,
+  [_Red],
+  [() => RedshiftServiceIntegrations],
+];
 export var AddLFTagsToResource: StaticOperationSchema = [
   9,
   n0,

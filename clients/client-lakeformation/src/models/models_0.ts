@@ -13,6 +13,7 @@ import {
   QueryStateString,
   ResourceShareType,
   ResourceType,
+  ServiceAuthorization,
   TransactionStatus,
   TransactionStatusFilter,
   TransactionType,
@@ -342,7 +343,7 @@ export interface Resource {
   DataCellsFilter?: DataCellsFilterResource | undefined;
 
   /**
-   * <p>The LF-tag key and values attached to a resource.</p>
+   * <p>The LF-Tag key and values attached to a resource.</p>
    * @public
    */
   LFTag?: LFTagKeyResource | undefined;
@@ -827,6 +828,92 @@ export interface ExternalFilteringConfiguration {
 }
 
 /**
+ * <p>Configuration for enabling trusted identity propagation with Redshift Connect.</p>
+ * @public
+ */
+export interface RedshiftConnect {
+  /**
+   * <p>The authorization status for Redshift Connect. Valid values are ENABLED or DISABLED.</p>
+   * @public
+   */
+  Authorization: ServiceAuthorization | undefined;
+}
+
+/**
+ * <p>A union structure representing different Redshift integration scopes.</p>
+ * @public
+ */
+export type RedshiftScopeUnion = RedshiftScopeUnion.RedshiftConnectMember | RedshiftScopeUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RedshiftScopeUnion {
+  /**
+   * <p>Configuration for Redshift Connect integration.</p>
+   * @public
+   */
+  export interface RedshiftConnectMember {
+    RedshiftConnect: RedshiftConnect;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RedshiftConnect?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RedshiftConnect: (value: RedshiftConnect) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A union structure representing different service integration types.</p>
+ * @public
+ */
+export type ServiceIntegrationUnion = ServiceIntegrationUnion.RedshiftMember | ServiceIntegrationUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ServiceIntegrationUnion {
+  /**
+   * <p>Redshift service integration configuration.</p>
+   * @public
+   */
+  export interface RedshiftMember {
+    Redshift: RedshiftScopeUnion[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Redshift?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Redshift: (value: RedshiftScopeUnion[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface CreateLakeFormationIdentityCenterConfigurationRequest {
@@ -862,6 +949,12 @@ export interface CreateLakeFormationIdentityCenterConfigurationRequest {
    * @public
    */
   ShareRecipients?: DataLakePrincipal[] | undefined;
+
+  /**
+   * <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+   * @public
+   */
+  ServiceIntegrations?: ServiceIntegrationUnion[] | undefined;
 }
 
 /**
@@ -1213,6 +1306,12 @@ export interface DescribeLakeFormationIdentityCenterConfigurationResponse {
    * @public
    */
   ShareRecipients?: DataLakePrincipal[] | undefined;
+
+  /**
+   * <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+   * @public
+   */
+  ServiceIntegrations?: ServiceIntegrationUnion[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the RAM share.</p>
@@ -2679,7 +2778,10 @@ export interface ListPermissionsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>Indicates that related permissions should be included in the results.</p>
+   * <p>Indicates that related permissions should be included in the results when listing permissions on a table resource.</p>
+   *          <p>Set the field to <code>TRUE</code> to show the cell filters on a table resource. Default
+   *       is <code>FALSE</code>. The Principal parameter must not be specified when requesting cell
+   *       filter information.</p>
    * @public
    */
   IncludeRelated?: string | undefined;
@@ -3327,6 +3429,12 @@ export interface UpdateLakeFormationIdentityCenterConfigurationRequest {
    * @public
    */
   ShareRecipients?: DataLakePrincipal[] | undefined;
+
+  /**
+   * <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+   * @public
+   */
+  ServiceIntegrations?: ServiceIntegrationUnion[] | undefined;
 
   /**
    * <p>Allows to enable or disable the IAM Identity Center connection.</p>
