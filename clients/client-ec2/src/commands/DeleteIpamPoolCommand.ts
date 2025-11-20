@@ -83,7 +83,7 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
- * //     AwsService: "ec2",
+ * //     AwsService: "ec2" || "global-services",
  * //     PublicIpSource: "amazon" || "byoip",
  * //     SourceResource: { // IpamPoolSourceResource
  * //       ResourceId: "STRING_VALUE",

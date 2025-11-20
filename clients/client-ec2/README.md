@@ -1296,6 +1296,22 @@ CreateTransitGatewayConnectPeer
 </details>
 <details>
 <summary>
+CreateTransitGatewayMeteringPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateTransitGatewayMeteringPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateTransitGatewayMeteringPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateTransitGatewayMeteringPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateTransitGatewayMeteringPolicyEntry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateTransitGatewayMeteringPolicyEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateTransitGatewayMeteringPolicyEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateTransitGatewayMeteringPolicyEntryCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateTransitGatewayMulticastDomain
 </summary>
 
@@ -1412,6 +1428,14 @@ CreateVpcBlockPublicAccessExclusion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateVpcBlockPublicAccessExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateVpcBlockPublicAccessExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateVpcBlockPublicAccessExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateVpcEncryptionControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateVpcEncryptionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateVpcEncryptionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateVpcEncryptionControlCommandOutput/)
 
 </details>
 <details>
@@ -1992,6 +2016,22 @@ DeleteTransitGatewayConnectPeer
 </details>
 <details>
 <summary>
+DeleteTransitGatewayMeteringPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteTransitGatewayMeteringPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayMeteringPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayMeteringPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTransitGatewayMeteringPolicyEntry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteTransitGatewayMeteringPolicyEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayMeteringPolicyEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayMeteringPolicyEntryCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteTransitGatewayMulticastDomain
 </summary>
 
@@ -2108,6 +2148,14 @@ DeleteVpcBlockPublicAccessExclusion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteVpcBlockPublicAccessExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteVpcBlockPublicAccessExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteVpcBlockPublicAccessExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteVpcEncryptionControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteVpcEncryptionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteVpcEncryptionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteVpcEncryptionControlCommandOutput/)
 
 </details>
 <details>
@@ -3408,6 +3456,14 @@ DescribeTransitGatewayConnects
 </details>
 <details>
 <summary>
+DescribeTransitGatewayMeteringPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeTransitGatewayMeteringPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTransitGatewayMeteringPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTransitGatewayMeteringPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeTransitGatewayMulticastDomains
 </summary>
 
@@ -3580,6 +3636,14 @@ DescribeVpcClassicLinkDnsSupport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcClassicLinkDnsSupportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcClassicLinkDnsSupportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcClassicLinkDnsSupportCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeVpcEncryptionControls
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcEncryptionControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcEncryptionControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcEncryptionControlsCommandOutput/)
 
 </details>
 <details>
@@ -4696,6 +4760,14 @@ GetTransitGatewayAttachmentPropagations
 </details>
 <details>
 <summary>
+GetTransitGatewayMeteringPolicyEntries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetTransitGatewayMeteringPolicyEntriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetTransitGatewayMeteringPolicyEntriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetTransitGatewayMeteringPolicyEntriesCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTransitGatewayMulticastDomainAssociations
 </summary>
 
@@ -4764,6 +4836,14 @@ GetVerifiedAccessGroupPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetVerifiedAccessGroupPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessGroupPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessGroupPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetVpcResourcesBlockingEncryptionEnforcement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetVpcResourcesBlockingEncryptionEnforcementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVpcResourcesBlockingEncryptionEnforcementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVpcResourcesBlockingEncryptionEnforcementCommandOutput/)
 
 </details>
 <details>
@@ -4852,6 +4932,14 @@ ListSnapshotsInRecycleBin
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ListSnapshotsInRecycleBinCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ListSnapshotsInRecycleBinCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ListSnapshotsInRecycleBinCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListVolumesInRecycleBin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ListVolumesInRecycleBinCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ListVolumesInRecycleBinCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ListVolumesInRecycleBinCommandOutput/)
 
 </details>
 <details>
@@ -5264,6 +5352,14 @@ ModifyTransitGateway
 </details>
 <details>
 <summary>
+ModifyTransitGatewayMeteringPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyTransitGatewayMeteringPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayMeteringPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyTransitGatewayMeteringPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyTransitGatewayPrefixListReference
 </summary>
 
@@ -5372,6 +5468,14 @@ ModifyVpcBlockPublicAccessOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyVpcBlockPublicAccessOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcBlockPublicAccessOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcBlockPublicAccessOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyVpcEncryptionControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyVpcEncryptionControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcEncryptionControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcEncryptionControlCommandOutput/)
 
 </details>
 <details>
@@ -5860,6 +5964,14 @@ RestoreSnapshotTier
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RestoreSnapshotTierCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RestoreSnapshotTierCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RestoreSnapshotTierCommandOutput/)
+
+</details>
+<details>
+<summary>
+RestoreVolumeFromRecycleBin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RestoreVolumeFromRecycleBinCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RestoreVolumeFromRecycleBinCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RestoreVolumeFromRecycleBinCommandOutput/)
 
 </details>
 <details>

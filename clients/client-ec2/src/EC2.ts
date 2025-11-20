@@ -655,6 +655,16 @@ import {
   CreateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/CreateTransitGatewayConnectPeerCommand";
 import {
+  CreateTransitGatewayMeteringPolicyCommand,
+  CreateTransitGatewayMeteringPolicyCommandInput,
+  CreateTransitGatewayMeteringPolicyCommandOutput,
+} from "./commands/CreateTransitGatewayMeteringPolicyCommand";
+import {
+  CreateTransitGatewayMeteringPolicyEntryCommand,
+  CreateTransitGatewayMeteringPolicyEntryCommandInput,
+  CreateTransitGatewayMeteringPolicyEntryCommandOutput,
+} from "./commands/CreateTransitGatewayMeteringPolicyEntryCommand";
+import {
   CreateTransitGatewayMulticastDomainCommand,
   CreateTransitGatewayMulticastDomainCommandInput,
   CreateTransitGatewayMulticastDomainCommandOutput,
@@ -725,6 +735,11 @@ import {
   CreateVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/CreateVpcBlockPublicAccessExclusionCommand";
 import { CreateVpcCommand, CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
+import {
+  CreateVpcEncryptionControlCommand,
+  CreateVpcEncryptionControlCommandInput,
+  CreateVpcEncryptionControlCommandOutput,
+} from "./commands/CreateVpcEncryptionControlCommand";
 import {
   CreateVpcEndpointCommand,
   CreateVpcEndpointCommandInput,
@@ -1074,6 +1089,16 @@ import {
   DeleteTransitGatewayConnectPeerCommandOutput,
 } from "./commands/DeleteTransitGatewayConnectPeerCommand";
 import {
+  DeleteTransitGatewayMeteringPolicyCommand,
+  DeleteTransitGatewayMeteringPolicyCommandInput,
+  DeleteTransitGatewayMeteringPolicyCommandOutput,
+} from "./commands/DeleteTransitGatewayMeteringPolicyCommand";
+import {
+  DeleteTransitGatewayMeteringPolicyEntryCommand,
+  DeleteTransitGatewayMeteringPolicyEntryCommandInput,
+  DeleteTransitGatewayMeteringPolicyEntryCommandOutput,
+} from "./commands/DeleteTransitGatewayMeteringPolicyEntryCommand";
+import {
   DeleteTransitGatewayMulticastDomainCommand,
   DeleteTransitGatewayMulticastDomainCommandInput,
   DeleteTransitGatewayMulticastDomainCommandOutput,
@@ -1144,6 +1169,11 @@ import {
   DeleteVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/DeleteVpcBlockPublicAccessExclusionCommand";
 import { DeleteVpcCommand, DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
+import {
+  DeleteVpcEncryptionControlCommand,
+  DeleteVpcEncryptionControlCommandInput,
+  DeleteVpcEncryptionControlCommandOutput,
+} from "./commands/DeleteVpcEncryptionControlCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommand,
   DeleteVpcEndpointConnectionNotificationsCommandInput,
@@ -1955,6 +1985,11 @@ import {
   DescribeTransitGatewayConnectsCommandOutput,
 } from "./commands/DescribeTransitGatewayConnectsCommand";
 import {
+  DescribeTransitGatewayMeteringPoliciesCommand,
+  DescribeTransitGatewayMeteringPoliciesCommandInput,
+  DescribeTransitGatewayMeteringPoliciesCommandOutput,
+} from "./commands/DescribeTransitGatewayMeteringPoliciesCommand";
+import {
   DescribeTransitGatewayMulticastDomainsCommand,
   DescribeTransitGatewayMulticastDomainsCommandInput,
   DescribeTransitGatewayMulticastDomainsCommandOutput,
@@ -2064,6 +2099,11 @@ import {
   DescribeVpcClassicLinkDnsSupportCommandInput,
   DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand";
+import {
+  DescribeVpcEncryptionControlsCommand,
+  DescribeVpcEncryptionControlsCommandInput,
+  DescribeVpcEncryptionControlsCommandOutput,
+} from "./commands/DescribeVpcEncryptionControlsCommand";
 import {
   DescribeVpcEndpointAssociationsCommand,
   DescribeVpcEndpointAssociationsCommandInput,
@@ -2752,6 +2792,11 @@ import {
   GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand";
 import {
+  GetTransitGatewayMeteringPolicyEntriesCommand,
+  GetTransitGatewayMeteringPolicyEntriesCommandInput,
+  GetTransitGatewayMeteringPolicyEntriesCommandOutput,
+} from "./commands/GetTransitGatewayMeteringPolicyEntriesCommand";
+import {
   GetTransitGatewayMulticastDomainAssociationsCommand,
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
@@ -2796,6 +2841,11 @@ import {
   GetVerifiedAccessGroupPolicyCommandInput,
   GetVerifiedAccessGroupPolicyCommandOutput,
 } from "./commands/GetVerifiedAccessGroupPolicyCommand";
+import {
+  GetVpcResourcesBlockingEncryptionEnforcementCommand,
+  GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
+  GetVpcResourcesBlockingEncryptionEnforcementCommandOutput,
+} from "./commands/GetVpcResourcesBlockingEncryptionEnforcementCommand";
 import {
   GetVpnConnectionDeviceSampleConfigurationCommand,
   GetVpnConnectionDeviceSampleConfigurationCommandInput,
@@ -2847,6 +2897,11 @@ import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
+import {
+  ListVolumesInRecycleBinCommand,
+  ListVolumesInRecycleBinCommandInput,
+  ListVolumesInRecycleBinCommandOutput,
+} from "./commands/ListVolumesInRecycleBinCommand";
 import {
   LockSnapshotCommand,
   LockSnapshotCommandInput,
@@ -3091,6 +3146,11 @@ import {
   ModifyTransitGatewayCommandOutput,
 } from "./commands/ModifyTransitGatewayCommand";
 import {
+  ModifyTransitGatewayMeteringPolicyCommand,
+  ModifyTransitGatewayMeteringPolicyCommandInput,
+  ModifyTransitGatewayMeteringPolicyCommandOutput,
+} from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
+import {
   ModifyTransitGatewayPrefixListReferenceCommand,
   ModifyTransitGatewayPrefixListReferenceCommandInput,
   ModifyTransitGatewayPrefixListReferenceCommandOutput,
@@ -3160,6 +3220,11 @@ import {
   ModifyVpcBlockPublicAccessOptionsCommandInput,
   ModifyVpcBlockPublicAccessOptionsCommandOutput,
 } from "./commands/ModifyVpcBlockPublicAccessOptionsCommand";
+import {
+  ModifyVpcEncryptionControlCommand,
+  ModifyVpcEncryptionControlCommandInput,
+  ModifyVpcEncryptionControlCommandOutput,
+} from "./commands/ModifyVpcEncryptionControlCommand";
 import {
   ModifyVpcEndpointCommand,
   ModifyVpcEndpointCommandInput,
@@ -3466,6 +3531,11 @@ import {
   RestoreSnapshotTierCommandOutput,
 } from "./commands/RestoreSnapshotTierCommand";
 import {
+  RestoreVolumeFromRecycleBinCommand,
+  RestoreVolumeFromRecycleBinCommandInput,
+  RestoreVolumeFromRecycleBinCommandOutput,
+} from "./commands/RestoreVolumeFromRecycleBinCommand";
+import {
   RevokeClientVpnIngressCommand,
   RevokeClientVpnIngressCommandInput,
   RevokeClientVpnIngressCommandOutput,
@@ -3734,6 +3804,8 @@ const commands = {
   CreateTransitGatewayCommand,
   CreateTransitGatewayConnectCommand,
   CreateTransitGatewayConnectPeerCommand,
+  CreateTransitGatewayMeteringPolicyCommand,
+  CreateTransitGatewayMeteringPolicyEntryCommand,
   CreateTransitGatewayMulticastDomainCommand,
   CreateTransitGatewayPeeringAttachmentCommand,
   CreateTransitGatewayPolicyTableCommand,
@@ -3749,6 +3821,7 @@ const commands = {
   CreateVolumeCommand,
   CreateVpcCommand,
   CreateVpcBlockPublicAccessExclusionCommand,
+  CreateVpcEncryptionControlCommand,
   CreateVpcEndpointCommand,
   CreateVpcEndpointConnectionNotificationCommand,
   CreateVpcEndpointServiceConfigurationCommand,
@@ -3821,6 +3894,8 @@ const commands = {
   DeleteTransitGatewayCommand,
   DeleteTransitGatewayConnectCommand,
   DeleteTransitGatewayConnectPeerCommand,
+  DeleteTransitGatewayMeteringPolicyCommand,
+  DeleteTransitGatewayMeteringPolicyEntryCommand,
   DeleteTransitGatewayMulticastDomainCommand,
   DeleteTransitGatewayPeeringAttachmentCommand,
   DeleteTransitGatewayPolicyTableCommand,
@@ -3836,6 +3911,7 @@ const commands = {
   DeleteVolumeCommand,
   DeleteVpcCommand,
   DeleteVpcBlockPublicAccessExclusionCommand,
+  DeleteVpcEncryptionControlCommand,
   DeleteVpcEndpointConnectionNotificationsCommand,
   DeleteVpcEndpointsCommand,
   DeleteVpcEndpointServiceConfigurationsCommand,
@@ -3998,6 +4074,7 @@ const commands = {
   DescribeTransitGatewayAttachmentsCommand,
   DescribeTransitGatewayConnectPeersCommand,
   DescribeTransitGatewayConnectsCommand,
+  DescribeTransitGatewayMeteringPoliciesCommand,
   DescribeTransitGatewayMulticastDomainsCommand,
   DescribeTransitGatewayPeeringAttachmentsCommand,
   DescribeTransitGatewayPolicyTablesCommand,
@@ -4020,6 +4097,7 @@ const commands = {
   DescribeVpcBlockPublicAccessOptionsCommand,
   DescribeVpcClassicLinkCommand,
   DescribeVpcClassicLinkDnsSupportCommand,
+  DescribeVpcEncryptionControlsCommand,
   DescribeVpcEndpointAssociationsCommand,
   DescribeVpcEndpointConnectionNotificationsCommand,
   DescribeVpcEndpointConnectionsCommand,
@@ -4159,6 +4237,7 @@ const commands = {
   GetSpotPlacementScoresCommand,
   GetSubnetCidrReservationsCommand,
   GetTransitGatewayAttachmentPropagationsCommand,
+  GetTransitGatewayMeteringPolicyEntriesCommand,
   GetTransitGatewayMulticastDomainAssociationsCommand,
   GetTransitGatewayPolicyTableAssociationsCommand,
   GetTransitGatewayPolicyTableEntriesCommand,
@@ -4168,6 +4247,7 @@ const commands = {
   GetVerifiedAccessEndpointPolicyCommand,
   GetVerifiedAccessEndpointTargetsCommand,
   GetVerifiedAccessGroupPolicyCommand,
+  GetVpcResourcesBlockingEncryptionEnforcementCommand,
   GetVpnConnectionDeviceSampleConfigurationCommand,
   GetVpnConnectionDeviceTypesCommand,
   GetVpnTunnelReplacementStatusCommand,
@@ -4179,6 +4259,7 @@ const commands = {
   ImportVolumeCommand,
   ListImagesInRecycleBinCommand,
   ListSnapshotsInRecycleBinCommand,
+  ListVolumesInRecycleBinCommand,
   LockSnapshotCommand,
   ModifyAddressAttributeCommand,
   ModifyAvailabilityZoneGroupCommand,
@@ -4230,6 +4311,7 @@ const commands = {
   ModifyTrafficMirrorFilterRuleCommand,
   ModifyTrafficMirrorSessionCommand,
   ModifyTransitGatewayCommand,
+  ModifyTransitGatewayMeteringPolicyCommand,
   ModifyTransitGatewayPrefixListReferenceCommand,
   ModifyTransitGatewayVpcAttachmentCommand,
   ModifyVerifiedAccessEndpointCommand,
@@ -4244,6 +4326,7 @@ const commands = {
   ModifyVpcAttributeCommand,
   ModifyVpcBlockPublicAccessExclusionCommand,
   ModifyVpcBlockPublicAccessOptionsCommand,
+  ModifyVpcEncryptionControlCommand,
   ModifyVpcEndpointCommand,
   ModifyVpcEndpointConnectionNotificationCommand,
   ModifyVpcEndpointServiceConfigurationCommand,
@@ -4305,6 +4388,7 @@ const commands = {
   RestoreManagedPrefixListVersionCommand,
   RestoreSnapshotFromRecycleBinCommand,
   RestoreSnapshotTierCommand,
+  RestoreVolumeFromRecycleBinCommand,
   RevokeClientVpnIngressCommand,
   RevokeSecurityGroupEgressCommand,
   RevokeSecurityGroupIngressCommand,
@@ -6557,6 +6641,40 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateTransitGatewayMeteringPolicyCommand}
+   */
+  createTransitGatewayMeteringPolicy(
+    args: CreateTransitGatewayMeteringPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayMeteringPolicyCommandOutput>;
+  createTransitGatewayMeteringPolicy(
+    args: CreateTransitGatewayMeteringPolicyCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+  createTransitGatewayMeteringPolicy(
+    args: CreateTransitGatewayMeteringPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTransitGatewayMeteringPolicyEntryCommand}
+   */
+  createTransitGatewayMeteringPolicyEntry(
+    args: CreateTransitGatewayMeteringPolicyEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayMeteringPolicyEntryCommandOutput>;
+  createTransitGatewayMeteringPolicyEntry(
+    args: CreateTransitGatewayMeteringPolicyEntryCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayMeteringPolicyEntryCommandOutput) => void
+  ): void;
+  createTransitGatewayMeteringPolicyEntry(
+    args: CreateTransitGatewayMeteringPolicyEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayMeteringPolicyEntryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTransitGatewayMulticastDomainCommand}
    */
   createTransitGatewayMulticastDomain(
@@ -6800,6 +6918,23 @@ export interface EC2 {
     args: CreateVpcBlockPublicAccessExclusionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVpcEncryptionControlCommand}
+   */
+  createVpcEncryptionControl(
+    args: CreateVpcEncryptionControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcEncryptionControlCommandOutput>;
+  createVpcEncryptionControl(
+    args: CreateVpcEncryptionControlCommandInput,
+    cb: (err: any, data?: CreateVpcEncryptionControlCommandOutput) => void
+  ): void;
+  createVpcEncryptionControl(
+    args: CreateVpcEncryptionControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcEncryptionControlCommandOutput) => void
   ): void;
 
   /**
@@ -7975,6 +8110,40 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DeleteTransitGatewayMeteringPolicyCommand}
+   */
+  deleteTransitGatewayMeteringPolicy(
+    args: DeleteTransitGatewayMeteringPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayMeteringPolicyCommandOutput>;
+  deleteTransitGatewayMeteringPolicy(
+    args: DeleteTransitGatewayMeteringPolicyCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+  deleteTransitGatewayMeteringPolicy(
+    args: DeleteTransitGatewayMeteringPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTransitGatewayMeteringPolicyEntryCommand}
+   */
+  deleteTransitGatewayMeteringPolicyEntry(
+    args: DeleteTransitGatewayMeteringPolicyEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayMeteringPolicyEntryCommandOutput>;
+  deleteTransitGatewayMeteringPolicyEntry(
+    args: DeleteTransitGatewayMeteringPolicyEntryCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayMeteringPolicyEntryCommandOutput) => void
+  ): void;
+  deleteTransitGatewayMeteringPolicyEntry(
+    args: DeleteTransitGatewayMeteringPolicyEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayMeteringPolicyEntryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTransitGatewayMulticastDomainCommand}
    */
   deleteTransitGatewayMulticastDomain(
@@ -8215,6 +8384,23 @@ export interface EC2 {
     args: DeleteVpcBlockPublicAccessExclusionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpcEncryptionControlCommand}
+   */
+  deleteVpcEncryptionControl(
+    args: DeleteVpcEncryptionControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcEncryptionControlCommandOutput>;
+  deleteVpcEncryptionControl(
+    args: DeleteVpcEncryptionControlCommandInput,
+    cb: (err: any, data?: DeleteVpcEncryptionControlCommandOutput) => void
+  ): void;
+  deleteVpcEncryptionControl(
+    args: DeleteVpcEncryptionControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcEncryptionControlCommandOutput) => void
   ): void;
 
   /**
@@ -11065,6 +11251,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeTransitGatewayMeteringPoliciesCommand}
+   */
+  describeTransitGatewayMeteringPolicies(): Promise<DescribeTransitGatewayMeteringPoliciesCommandOutput>;
+  describeTransitGatewayMeteringPolicies(
+    args: DescribeTransitGatewayMeteringPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransitGatewayMeteringPoliciesCommandOutput>;
+  describeTransitGatewayMeteringPolicies(
+    args: DescribeTransitGatewayMeteringPoliciesCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewayMeteringPoliciesCommandOutput) => void
+  ): void;
+  describeTransitGatewayMeteringPolicies(
+    args: DescribeTransitGatewayMeteringPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransitGatewayMeteringPoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTransitGatewayMulticastDomainsCommand}
    */
   describeTransitGatewayMulticastDomains(): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput>;
@@ -11453,6 +11657,24 @@ export interface EC2 {
     args: DescribeVpcClassicLinkDnsSupportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeVpcClassicLinkDnsSupportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeVpcEncryptionControlsCommand}
+   */
+  describeVpcEncryptionControls(): Promise<DescribeVpcEncryptionControlsCommandOutput>;
+  describeVpcEncryptionControls(
+    args: DescribeVpcEncryptionControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEncryptionControlsCommandOutput>;
+  describeVpcEncryptionControls(
+    args: DescribeVpcEncryptionControlsCommandInput,
+    cb: (err: any, data?: DescribeVpcEncryptionControlsCommandOutput) => void
+  ): void;
+  describeVpcEncryptionControls(
+    args: DescribeVpcEncryptionControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEncryptionControlsCommandOutput) => void
   ): void;
 
   /**
@@ -13819,6 +14041,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetTransitGatewayMeteringPolicyEntriesCommand}
+   */
+  getTransitGatewayMeteringPolicyEntries(
+    args: GetTransitGatewayMeteringPolicyEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayMeteringPolicyEntriesCommandOutput>;
+  getTransitGatewayMeteringPolicyEntries(
+    args: GetTransitGatewayMeteringPolicyEntriesCommandInput,
+    cb: (err: any, data?: GetTransitGatewayMeteringPolicyEntriesCommandOutput) => void
+  ): void;
+  getTransitGatewayMeteringPolicyEntries(
+    args: GetTransitGatewayMeteringPolicyEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayMeteringPolicyEntriesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTransitGatewayMulticastDomainAssociationsCommand}
    */
   getTransitGatewayMulticastDomainAssociations(
@@ -13969,6 +14208,23 @@ export interface EC2 {
     args: GetVerifiedAccessGroupPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVpcResourcesBlockingEncryptionEnforcementCommand}
+   */
+  getVpcResourcesBlockingEncryptionEnforcement(
+    args: GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpcResourcesBlockingEncryptionEnforcementCommandOutput>;
+  getVpcResourcesBlockingEncryptionEnforcement(
+    args: GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
+    cb: (err: any, data?: GetVpcResourcesBlockingEncryptionEnforcementCommandOutput) => void
+  ): void;
+  getVpcResourcesBlockingEncryptionEnforcement(
+    args: GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcResourcesBlockingEncryptionEnforcementCommandOutput) => void
   ): void;
 
   /**
@@ -14137,6 +14393,24 @@ export interface EC2 {
     args: ListSnapshotsInRecycleBinCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSnapshotsInRecycleBinCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVolumesInRecycleBinCommand}
+   */
+  listVolumesInRecycleBin(): Promise<ListVolumesInRecycleBinCommandOutput>;
+  listVolumesInRecycleBin(
+    args: ListVolumesInRecycleBinCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVolumesInRecycleBinCommandOutput>;
+  listVolumesInRecycleBin(
+    args: ListVolumesInRecycleBinCommandInput,
+    cb: (err: any, data?: ListVolumesInRecycleBinCommandOutput) => void
+  ): void;
+  listVolumesInRecycleBin(
+    args: ListVolumesInRecycleBinCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVolumesInRecycleBinCommandOutput) => void
   ): void;
 
   /**
@@ -14976,6 +15250,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ModifyTransitGatewayMeteringPolicyCommand}
+   */
+  modifyTransitGatewayMeteringPolicy(
+    args: ModifyTransitGatewayMeteringPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTransitGatewayMeteringPolicyCommandOutput>;
+  modifyTransitGatewayMeteringPolicy(
+    args: ModifyTransitGatewayMeteringPolicyCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+  modifyTransitGatewayMeteringPolicy(
+    args: ModifyTransitGatewayMeteringPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTransitGatewayMeteringPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyTransitGatewayPrefixListReferenceCommand}
    */
   modifyTransitGatewayPrefixListReference(
@@ -15205,6 +15496,23 @@ export interface EC2 {
     args: ModifyVpcBlockPublicAccessOptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyVpcBlockPublicAccessOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyVpcEncryptionControlCommand}
+   */
+  modifyVpcEncryptionControl(
+    args: ModifyVpcEncryptionControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVpcEncryptionControlCommandOutput>;
+  modifyVpcEncryptionControl(
+    args: ModifyVpcEncryptionControlCommandInput,
+    cb: (err: any, data?: ModifyVpcEncryptionControlCommandOutput) => void
+  ): void;
+  modifyVpcEncryptionControl(
+    args: ModifyVpcEncryptionControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVpcEncryptionControlCommandOutput) => void
   ): void;
 
   /**
@@ -16223,6 +16531,23 @@ export interface EC2 {
     args: RestoreSnapshotTierCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RestoreSnapshotTierCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestoreVolumeFromRecycleBinCommand}
+   */
+  restoreVolumeFromRecycleBin(
+    args: RestoreVolumeFromRecycleBinCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreVolumeFromRecycleBinCommandOutput>;
+  restoreVolumeFromRecycleBin(
+    args: RestoreVolumeFromRecycleBinCommandInput,
+    cb: (err: any, data?: RestoreVolumeFromRecycleBinCommandOutput) => void
+  ): void;
+  restoreVolumeFromRecycleBin(
+    args: RestoreVolumeFromRecycleBinCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreVolumeFromRecycleBinCommandOutput) => void
   ): void;
 
   /**

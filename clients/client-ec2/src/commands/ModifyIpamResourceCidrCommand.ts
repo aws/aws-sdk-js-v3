@@ -58,7 +58,7 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * //     ResourceId: "STRING_VALUE",
  * //     ResourceName: "STRING_VALUE",
  * //     ResourceCidr: "STRING_VALUE",
- * //     ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
+ * //     ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni" || "anycast-ip-list",
  * //     ResourceTags: [ // IpamResourceTagList
  * //       { // IpamResourceTag
  * //         Key: "STRING_VALUE",

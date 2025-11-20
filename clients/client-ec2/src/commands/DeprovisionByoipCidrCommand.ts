@@ -58,8 +58,9 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * //       },
  * //     ],
  * //     StatusMessage: "STRING_VALUE",
- * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-advertising" || "pending-deprovision" || "pending-provision" || "pending-withdrawal" || "provisioned" || "provisioned-not-publicly-advertisable",
  * //     NetworkBorderGroup: "STRING_VALUE",
+ * //     AdvertisementType: "STRING_VALUE",
  * //   },
  * // };
  *

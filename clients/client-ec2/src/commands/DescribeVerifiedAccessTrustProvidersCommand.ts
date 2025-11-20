@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeVerifiedAccessTrustProvidersRequest,
   DescribeVerifiedAccessTrustProvidersResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import { DescribeVerifiedAccessTrustProviders } from "../schemas/schemas_0";
 
 /**

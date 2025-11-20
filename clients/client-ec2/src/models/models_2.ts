@@ -15,6 +15,7 @@ import {
   DnsRecordIpType,
   DnsSupportValue,
   DynamicRoutingValue,
+  EncryptionStateValue,
   FleetStateCode,
   GatewayAssociationState,
   GatewayType,
@@ -43,6 +44,9 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayConnectPeerState,
+  TransitGatewayMeteringPayerType,
+  TransitGatewayMeteringPolicyEntryState,
+  TransitGatewayMeteringPolicyState,
   TransitGatewayMulticastDomainState,
   TransitGatewayPolicyTableState,
   TransitGatewayPrefixListReferenceState,
@@ -61,6 +65,8 @@ import {
   VerifiedAccessEndpointType,
   VolumeType,
   VpcBlockPublicAccessExclusionState,
+  VpcEncryptionControlExclusionStateInput,
+  VpcEncryptionControlMode,
   VpcEndpointType,
   VpnConcentratorType,
   VpnEcmpSupportValue,
@@ -86,6 +92,7 @@ import {
   VerifiedAccessTrustProvider,
   Vpc,
   VpcAttachment,
+  VpcEncryptionControl,
   VpcPeeringConnection,
 } from "./models_0";
 
@@ -1048,6 +1055,24 @@ export interface CreateTransitGatewayRequest {
 }
 
 /**
+ * <p>Describes the encryption support status for a transit gateway.</p>
+ * @public
+ */
+export interface EncryptionSupport {
+  /**
+   * <p>The current encryption state of the resource.</p>
+   * @public
+   */
+  EncryptionState?: EncryptionStateValue | undefined;
+
+  /**
+   * <p>A message describing the encryption state.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+}
+
+/**
  * <p>Describes the options for a transit gateway.</p>
  * @public
  */
@@ -1126,6 +1151,12 @@ export interface TransitGatewayOptions {
    * @public
    */
   MulticastSupport?: MulticastSupportValue | undefined;
+
+  /**
+   * <p>Defines if the Transit Gateway supports VPC Encryption Control.</p>
+   * @public
+   */
+  EncryptionSupport?: EncryptionSupport | undefined;
 }
 
 /**
@@ -1497,6 +1528,288 @@ export interface CreateTransitGatewayConnectPeerResult {
    * @public
    */
   TransitGatewayConnectPeer?: TransitGatewayConnectPeer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayMeteringPolicyRequest {
+  /**
+   * <p>The ID of the transit gateway for which to create the metering policy.</p>
+   * @public
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The IDs of the middlebox attachments to include in the metering policy.</p>
+   * @public
+   */
+  MiddleboxAttachmentIds?: string[] | undefined;
+
+  /**
+   * <p>The tags to assign to the metering policy.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a transit gateway metering policy.</p>
+ * @public
+ */
+export interface TransitGatewayMeteringPolicy {
+  /**
+   * <p>The ID of the transit gateway metering policy.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway associated with the metering policy.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The IDs of the middlebox attachments associated with the metering policy.</p>
+   * @public
+   */
+  MiddleboxAttachmentIds?: string[] | undefined;
+
+  /**
+   * <p>The state of the transit gateway metering policy.</p>
+   * @public
+   */
+  State?: TransitGatewayMeteringPolicyState | undefined;
+
+  /**
+   * <p>The date and time when the metering policy update becomes effective.</p>
+   * @public
+   */
+  UpdateEffectiveAt?: Date | undefined;
+
+  /**
+   * <p>The tags assigned to the transit gateway metering policy.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayMeteringPolicyResult {
+  /**
+   * <p>Information about the created transit gateway metering policy.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicy?: TransitGatewayMeteringPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayMeteringPolicyEntryRequest {
+  /**
+   * <p>The ID of the transit gateway metering policy to add the entry to.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId: string | undefined;
+
+  /**
+   * <p>The rule number for the metering policy entry. Rules are processed in order from lowest to highest number.</p>
+   * @public
+   */
+  PolicyRuleNumber: number | undefined;
+
+  /**
+   * <p>The ID of the source transit gateway attachment for traffic matching.</p>
+   * @public
+   */
+  SourceTransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The type of the source transit gateway attachment for traffic matching. Note that the <code>tgw-peering</code> resource type has been deprecated. To configure metering policies for Connect, use the transport attachment type.</p>
+   * @public
+   */
+  SourceTransitGatewayAttachmentType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The source CIDR block for traffic matching.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The source port range for traffic matching.</p>
+   * @public
+   */
+  SourcePortRange?: string | undefined;
+
+  /**
+   * <p>The ID of the destination transit gateway attachment for traffic matching.</p>
+   * @public
+   */
+  DestinationTransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The type of the destination transit gateway attachment for traffic matching. Note that the <code>tgw-peering</code> resource type has been deprecated. To configure metering policies for Connect, use the transport attachment type.</p>
+   * @public
+   */
+  DestinationTransitGatewayAttachmentType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The destination CIDR block for traffic matching.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The destination port range for traffic matching.</p>
+   * @public
+   */
+  DestinationPortRange?: string | undefined;
+
+  /**
+   * <p>The protocol for traffic matching (1, 6, 17, etc.).</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID to which the metered traffic should be attributed.</p>
+   * @public
+   */
+  MeteredAccount: TransitGatewayMeteringPayerType | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the traffic matching criteria for a transit gateway metering policy rule.</p>
+ * @public
+ */
+export interface TransitGatewayMeteringPolicyRule {
+  /**
+   * <p>The ID of the source transit gateway attachment.</p>
+   * @public
+   */
+  SourceTransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The type of the source transit gateway attachment. Note that the <code>tgw-peering</code> resource type has been deprecated. To configure metering policies for Connect, use the transport attachment type.</p>
+   * @public
+   */
+  SourceTransitGatewayAttachmentType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The source CIDR block for the rule.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The source port range for the rule.</p>
+   * @public
+   */
+  SourcePortRange?: string | undefined;
+
+  /**
+   * <p>The ID of the destination transit gateway attachment.</p>
+   * @public
+   */
+  DestinationTransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The type of the destination transit gateway attachment. Note that the <code>tgw-peering</code> resource type has been deprecated. To configure metering policies for Connect, use the transport attachment type.</p>
+   * @public
+   */
+  DestinationTransitGatewayAttachmentType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The destination CIDR block for the rule.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The destination port range for the rule.</p>
+   * @public
+   */
+  DestinationPortRange?: string | undefined;
+
+  /**
+   * <p>The protocol for the rule (1, 6, 17, etc.).</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+}
+
+/**
+ * <p>Describes an entry in a transit gateway metering policy.</p>
+ * @public
+ */
+export interface TransitGatewayMeteringPolicyEntry {
+  /**
+   * <p>The rule number of the metering policy entry.</p>
+   * @public
+   */
+  PolicyRuleNumber?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID to which the metered traffic is attributed.</p>
+   * @public
+   */
+  MeteredAccount?: TransitGatewayMeteringPayerType | undefined;
+
+  /**
+   * <p>The state of the metering policy entry.</p>
+   * @public
+   */
+  State?: TransitGatewayMeteringPolicyEntryState | undefined;
+
+  /**
+   * <p>The date and time when the metering policy entry was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the metering policy entry update becomes effective.</p>
+   * @public
+   */
+  UpdateEffectiveAt?: Date | undefined;
+
+  /**
+   * <p>The metering policy rule that defines traffic matching criteria.</p>
+   * @public
+   */
+  MeteringPolicyRule?: TransitGatewayMeteringPolicyRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayMeteringPolicyEntryResult {
+  /**
+   * <p>Information about the created transit gateway metering policy entry.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyEntry?: TransitGatewayMeteringPolicyEntry | undefined;
 }
 
 /**
@@ -3577,6 +3890,67 @@ export interface CreateVolumeRequest {
 }
 
 /**
+ * <p>Describes the configuration settings for VPC Encryption Control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcEncryptionControlConfiguration {
+  /**
+   * <p>The encryption mode for the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  Mode: VpcEncryptionControlMode | undefined;
+
+  /**
+   * <p>Specifies whether to exclude internet gateway traffic from encryption enforcement.</p>
+   * @public
+   */
+  InternetGatewayExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.</p>
+   * @public
+   */
+  EgressOnlyInternetGatewayExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude NAT gateway traffic from encryption enforcement.</p>
+   * @public
+   */
+  NatGatewayExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude virtual private gateway traffic from encryption enforcement.</p>
+   * @public
+   */
+  VirtualPrivateGatewayExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude VPC peering connection traffic from encryption enforcement.</p>
+   * @public
+   */
+  VpcPeeringExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Lambda function traffic from encryption enforcement.</p>
+   * @public
+   */
+  LambdaExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude VPC Lattice traffic from encryption enforcement.</p>
+   * @public
+   */
+  VpcLatticeExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Elastic File System traffic from encryption enforcement.</p>
+   * @public
+   */
+  ElasticFileSystemExclusion?: VpcEncryptionControlExclusionStateInput | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateVpcRequest {
@@ -3632,6 +4006,13 @@ export interface CreateVpcRequest {
    * @public
    */
   Ipv6CidrBlockNetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Specifies the encryption control configuration to apply to the VPC during creation. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  VpcEncryptionControl?: VpcEncryptionControlConfiguration | undefined;
 
   /**
    * <p>The tags to assign to the VPC.</p>
@@ -3810,6 +4191,42 @@ export interface CreateVpcBlockPublicAccessExclusionResult {
    * @public
    */
   VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEncryptionControlRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC for which to create the encryption control configuration.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the VPC Encryption Control resource.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcEncryptionControlResult {
+  /**
+   * <p>Information about the VPC Encryption Control configuration.</p>
+   * @public
+   */
+  VpcEncryptionControl?: VpcEncryptionControl | undefined;
 }
 
 /**
@@ -4893,6 +5310,28 @@ export interface CloudWatchLogOptionsSpecification {
    * @public
    */
   LogOutputFormat?: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable BGP logging for the VPN connection. Default value is <code>False</code>.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   * @public
+   */
+  BgpLogEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.</p>
+   * @public
+   */
+  BgpLogGroupArn?: string | undefined;
+
+  /**
+   * <p>The desired output format for BGP logs to be sent to CloudWatch. Default format is <code>json</code>.</p>
+   *          <p>Valid values: <code>json</code> | <code>text</code>
+   *          </p>
+   * @public
+   */
+  BgpLogOutputFormat?: string | undefined;
 }
 
 /**
@@ -5421,6 +5860,28 @@ export interface CloudWatchLogOptions {
    * @public
    */
   LogOutputFormat?: string | undefined;
+
+  /**
+   * <p>Indicates whether Border Gateway Protocol (BGP) logging is enabled for the VPN connection. Default value is <code>False</code>.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   * @public
+   */
+  BgpLogEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group for BGP logs.</p>
+   * @public
+   */
+  BgpLogGroupArn?: string | undefined;
+
+  /**
+   * <p>The output format for BGP logs sent to CloudWatch. Default format is <code>json</code>.</p>
+   *          <p>Valid values: <code>json</code> | <code>text</code>
+   *          </p>
+   * @public
+   */
+  BgpLogOutputFormat?: string | undefined;
 }
 
 /**
@@ -8260,6 +8721,72 @@ export interface DeleteTransitGatewayConnectPeerResult {
 /**
  * @public
  */
+export interface DeleteTransitGatewayMeteringPolicyRequest {
+  /**
+   * <p>The ID of the transit gateway metering policy to delete.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayMeteringPolicyResult {
+  /**
+   * <p>Information about the deleted transit gateway metering policy.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicy?: TransitGatewayMeteringPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayMeteringPolicyEntryRequest {
+  /**
+   * <p>The ID of the transit gateway metering policy containing the entry to delete.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId: string | undefined;
+
+  /**
+   * <p>The rule number of the metering policy entry to delete.</p>
+   * @public
+   */
+  PolicyRuleNumber: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayMeteringPolicyEntryResult {
+  /**
+   * <p>Information about the deleted transit gateway metering policy entry.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyEntry?: TransitGatewayMeteringPolicyEntry | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTransitGatewayMulticastDomainRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -8417,261 +8944,4 @@ export interface DeleteTransitGatewayRouteResult {
    * @public
    */
   Route?: TransitGatewayRoute | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayRouteTableRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayRouteTableResult {
-  /**
-   * <p>Information about the deleted transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTable?: TransitGatewayRouteTable | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
-  /**
-   * <p>The transit gateway route table ID that's being deleted. </p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncementId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayRouteTableAnnouncementResult {
-  /**
-   * <p>Provides details about a deleted transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the deleted VPC attachment.</p>
-   * @public
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessEndpointRequest {
-  /**
-   * <p>The ID of the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessEndpointResult {
-  /**
-   * <p>Details about the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpoint?: VerifiedAccessEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessGroupRequest {
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessGroupResult {
-  /**
-   * <p>Details about the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroup?: VerifiedAccessGroup | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessInstanceRequest {
-  /**
-   * <p>The ID of the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessInstanceResult {
-  /**
-   * <p>Details about the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstance?: VerifiedAccessInstance | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessTrustProviderRequest {
-  /**
-   * <p>The ID of the Verified Access trust provider.</p>
-   * @public
-   */
-  VerifiedAccessTrustProviderId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVerifiedAccessTrustProviderResult {
-  /**
-   * <p>Details about the Verified Access trust provider.</p>
-   * @public
-   */
-  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVolumeRequest {
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

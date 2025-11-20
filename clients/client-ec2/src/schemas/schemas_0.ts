@@ -163,6 +163,8 @@ const _ALc = "AccessLogs";
 const _ALd = "AddressList";
 const _ALr = "ArnList";
 const _AM = "AvailabilityMode";
+const _AMAI = "AddMiddleboxAttachmentIds";
+const _AMAId = "AddMiddleboxAttachmentId";
 const _AMIT = "AllowsMultipleInstanceTypes";
 const _AMNL = "AllocationMinNetmaskLength";
 const _AMNLl = "AllocationMaxNetmaskLength";
@@ -346,9 +348,10 @@ const _ATSc = "AcceleratorTypeSet";
 const _ATSr = "ArchitectureTypeSet";
 const _ATc = "AcceleratorTypes";
 const _ATcc = "AcceleratorType";
-const _ATd = "AddressTransfers";
-const _ATdd = "AddressType";
-const _ATddr = "AddressingType";
+const _ATd = "AdvertisementType";
+const _ATdd = "AddressTransfers";
+const _ATddr = "AddressType";
+const _ATddre = "AddressingType";
 const _ATl = "AllocationType";
 const _ATll = "AllocationTime";
 const _ATr = "ArchitectureTypes";
@@ -439,6 +442,9 @@ const _BISL = "BundleIdStringList";
 const _BIa = "BaselineIops";
 const _BIu = "BundleIds";
 const _BIun = "BundleInstance";
+const _BLE = "BgpLogEnabled";
+const _BLGA = "BgpLogGroupArn";
+const _BLOF = "BgpLogOutputFormat";
 const _BM = "BootMode";
 const _BMTL = "BootModeTypeList";
 const _BMa = "BareMetal";
@@ -959,6 +965,12 @@ const _CTGMD = "CreateTransitGatewayMulticastDomain";
 const _CTGMDR = "CreateTransitGatewayMulticastDomainRequest";
 const _CTGMDRO = "CreateTransitGatewayMulticastDomainRequestOptions";
 const _CTGMDRr = "CreateTransitGatewayMulticastDomainResult";
+const _CTGMP = "CreateTransitGatewayMeteringPolicy";
+const _CTGMPE = "CreateTransitGatewayMeteringPolicyEntry";
+const _CTGMPER = "CreateTransitGatewayMeteringPolicyEntryRequest";
+const _CTGMPERr = "CreateTransitGatewayMeteringPolicyEntryResult";
+const _CTGMPR = "CreateTransitGatewayMeteringPolicyRequest";
+const _CTGMPRr = "CreateTransitGatewayMeteringPolicyResult";
 const _CTGPA = "CreateTransitGatewayPeeringAttachment";
 const _CTGPAR = "CreateTransitGatewayPeeringAttachmentRequest";
 const _CTGPARO = "CreateTransitGatewayPeeringAttachmentRequestOptions";
@@ -1055,9 +1067,12 @@ const _CVCr = "CreateVpnConcentrator";
 const _CVCre = "CreateVpnConnection";
 const _CVE = "ClientVpnEndpoint";
 const _CVEAS = "ClientVpnEndpointAttributeStatus";
+const _CVEC = "CreateVpcEncryptionControl";
 const _CVECN = "CreateVpcEndpointConnectionNotification";
 const _CVECNR = "CreateVpcEndpointConnectionNotificationRequest";
 const _CVECNRr = "CreateVpcEndpointConnectionNotificationResult";
+const _CVECR = "CreateVpcEncryptionControlRequest";
+const _CVECRr = "CreateVpcEncryptionControlResult";
 const _CVEI = "ClientVpnEndpointId";
 const _CVEIL = "ClientVpnEndpointIdList";
 const _CVEIl = "ClientVpnEndpointIds";
@@ -1955,8 +1970,10 @@ const _DTCR = "DeprecationTimeConditionRequest";
 const _DTCT = "DefaultTargetCapacityType";
 const _DTG = "DeleteTransitGateway";
 const _DTGA = "DescribeTransitGatewayAttachments";
+const _DTGAI = "DestinationTransitGatewayAttachmentId";
 const _DTGAR = "DescribeTransitGatewayAttachmentsRequest";
 const _DTGARe = "DescribeTransitGatewayAttachmentsResult";
+const _DTGAT = "DestinationTransitGatewayAttachmentType";
 const _DTGC = "DeleteTransitGatewayConnect";
 const _DTGCP = "DeleteTransitGatewayConnectPeer";
 const _DTGCPR = "DeleteTransitGatewayConnectPeerRequest";
@@ -1984,6 +2001,15 @@ const _DTGMGMRe = "DeregisterTransitGatewayMulticastGroupMembersResult";
 const _DTGMGS = "DeregisterTransitGatewayMulticastGroupSources";
 const _DTGMGSR = "DeregisterTransitGatewayMulticastGroupSourcesRequest";
 const _DTGMGSRe = "DeregisterTransitGatewayMulticastGroupSourcesResult";
+const _DTGMP = "DeleteTransitGatewayMeteringPolicy";
+const _DTGMPE = "DeleteTransitGatewayMeteringPolicyEntry";
+const _DTGMPER = "DeleteTransitGatewayMeteringPolicyEntryRequest";
+const _DTGMPERe = "DeleteTransitGatewayMeteringPolicyEntryResult";
+const _DTGMPR = "DeleteTransitGatewayMeteringPolicyRequest";
+const _DTGMPRe = "DeleteTransitGatewayMeteringPolicyResult";
+const _DTGMPRes = "DescribeTransitGatewayMeteringPoliciesRequest";
+const _DTGMPResc = "DescribeTransitGatewayMeteringPoliciesResult";
+const _DTGMPe = "DescribeTransitGatewayMeteringPolicies";
 const _DTGPA = "DeleteTransitGatewayPeeringAttachment";
 const _DTGPAR = "DeleteTransitGatewayPeeringAttachmentRequest";
 const _DTGPARe = "DeleteTransitGatewayPeeringAttachmentResult";
@@ -2160,15 +2186,21 @@ const _DVE = "DeleteVpcEndpoints";
 const _DVEA = "DescribeVpcEndpointAssociations";
 const _DVEAR = "DescribeVpcEndpointAssociationsRequest";
 const _DVEARe = "DescribeVpcEndpointAssociationsResult";
-const _DVEC = "DescribeVpcEndpointConnections";
+const _DVEC = "DeleteVpcEncryptionControl";
 const _DVECN = "DeleteVpcEndpointConnectionNotifications";
 const _DVECNR = "DeleteVpcEndpointConnectionNotificationsRequest";
 const _DVECNRe = "DeleteVpcEndpointConnectionNotificationsResult";
 const _DVECNRes = "DescribeVpcEndpointConnectionNotificationsRequest";
 const _DVECNResc = "DescribeVpcEndpointConnectionNotificationsResult";
 const _DVECNe = "DescribeVpcEndpointConnectionNotifications";
-const _DVECR = "DescribeVpcEndpointConnectionsRequest";
-const _DVECRe = "DescribeVpcEndpointConnectionsResult";
+const _DVECR = "DeleteVpcEncryptionControlRequest";
+const _DVECRe = "DeleteVpcEncryptionControlResult";
+const _DVECRes = "DescribeVpcEncryptionControlsRequest";
+const _DVECResc = "DescribeVpcEncryptionControlsResult";
+const _DVECRescr = "DescribeVpcEndpointConnectionsRequest";
+const _DVECRescri = "DescribeVpcEndpointConnectionsResult";
+const _DVECe = "DescribeVpcEncryptionControls";
+const _DVECes = "DescribeVpcEndpointConnections";
 const _DVER = "DeleteVpcEndpointsRequest";
 const _DVERe = "DeleteVpcEndpointsResult";
 const _DVERes = "DescribeVpcEndpointsRequest";
@@ -2293,6 +2325,7 @@ const _EFLR = "EnableFastLaunchRequest";
 const _EFLRn = "EnableFastLaunchResult";
 const _EFR = "EgressFilterRules";
 const _EFS = "ElasticFileSystem";
+const _EFSE = "ElasticFileSystemExclusion";
 const _EFSR = "EnableFastSnapshotRestores";
 const _EFSREI = "EnableFastSnapshotRestoreErrorItem";
 const _EFSRES = "EnableFastSnapshotRestoreErrorSet";
@@ -2387,6 +2420,7 @@ const _ENAUM = "EnableNetworkAddressUsageMetrics";
 const _EO = "EbsOptimized";
 const _EOI = "EbsOptimizedInfo";
 const _EOIG = "EgressOnlyInternetGateway";
+const _EOIGE = "EgressOnlyInternetGatewayExclusion";
 const _EOIGI = "EgressOnlyInternetGatewayId";
 const _EOIGIL = "EgressOnlyInternetGatewayIdList";
 const _EOIGIg = "EgressOnlyInternetGatewayIds";
@@ -2434,6 +2468,7 @@ const _ESUSR = "EnaSrdUdpSpecificationRequest";
 const _ESf = "EfaSupported";
 const _ESn = "EncryptionSupport";
 const _ESna = "EnaSupport";
+const _ESnc = "EncryptionState";
 const _ESnd = "EndpointSet";
 const _ESr = "ErrorSet";
 const _ET = "ExpirationTime";
@@ -2791,6 +2826,9 @@ const _GTGAPRe = "GetTransitGatewayAttachmentPropagationsResult";
 const _GTGMDA = "GetTransitGatewayMulticastDomainAssociations";
 const _GTGMDAR = "GetTransitGatewayMulticastDomainAssociationsRequest";
 const _GTGMDARe = "GetTransitGatewayMulticastDomainAssociationsResult";
+const _GTGMPE = "GetTransitGatewayMeteringPolicyEntries";
+const _GTGMPER = "GetTransitGatewayMeteringPolicyEntriesRequest";
+const _GTGMPERe = "GetTransitGatewayMeteringPolicyEntriesResult";
 const _GTGPLR = "GetTransitGatewayPrefixListReferences";
 const _GTGPLRR = "GetTransitGatewayPrefixListReferencesRequest";
 const _GTGPLRRe = "GetTransitGatewayPrefixListReferencesResult";
@@ -2821,6 +2859,9 @@ const _GVCDSCRe = "GetVpnConnectionDeviceSampleConfigurationResult";
 const _GVCDT = "GetVpnConnectionDeviceTypes";
 const _GVCDTR = "GetVpnConnectionDeviceTypesRequest";
 const _GVCDTRe = "GetVpnConnectionDeviceTypesResult";
+const _GVRBEE = "GetVpcResourcesBlockingEncryptionEnforcement";
+const _GVRBEER = "GetVpcResourcesBlockingEncryptionEnforcementRequest";
+const _GVRBEERe = "GetVpcResourcesBlockingEncryptionEnforcementResult";
 const _GVTRS = "GetVpnTunnelReplacementStatus";
 const _GVTRSR = "GetVpnTunnelReplacementStatusRequest";
 const _GVTRSRe = "GetVpnTunnelReplacementStatusResult";
@@ -2977,6 +3018,7 @@ const _IEWTRL = "InstanceEventWindowTimeRangeList";
 const _IEWTRR = "InstanceEventWindowTimeRangeRequest";
 const _IEWTRRS = "InstanceEventWindowTimeRangeRequestSet";
 const _IEWn = "InstanceEventWindows";
+const _IEs = "IsExcludable";
 const _IF = "InstanceFamily";
 const _IFCS = "InstanceFamilyCreditSpecification";
 const _IFL = "IdFormatList";
@@ -2987,6 +3029,7 @@ const _IG = "InternetGateway";
 const _IGA = "InternetGatewayAttachment";
 const _IGAL = "InternetGatewayAttachmentList";
 const _IGBM = "InternetGatewayBlockMode";
+const _IGE = "InternetGatewayExclusion";
 const _IGEM = "InternetGatewayExclusionMode";
 const _IGI = "InternetGatewayId";
 const _IGIL = "InternetGatewayIdList";
@@ -3425,6 +3468,7 @@ const _LE = "LogEnabled";
 const _LEO = "LockExpiresOn";
 const _LET = "LastEvaluatedTime";
 const _LEa = "LastError";
+const _LEam = "LambdaExclusion";
 const _LF = "LogFormat";
 const _LFA = "LambdaFunctionArn";
 const _LG = "LocalGateways";
@@ -3603,6 +3647,9 @@ const _LUTas = "LastUpdateTimestamp";
 const _LV = "LogVersion";
 const _LVCS = "LastVersionCreationStatus";
 const _LVCSM = "LastVersionCreationStatusMessage";
+const _LVIRB = "ListVolumesInRecycleBin";
+const _LVIRBR = "ListVolumesInRecycleBinRequest";
+const _LVIRBRi = "ListVolumesInRecycleBinResult";
 const _LVN = "LatestVersionNumber";
 const _La = "Latest";
 const _Lam = "Lambda";
@@ -3618,6 +3665,8 @@ const _MAARo = "ModifyAddressAttributeResult";
 const _MAE = "MultiAttachEnabled";
 const _MAI = "MaxAggregationInterval";
 const _MAIe = "MediaAcceleratorInfo";
+const _MAIi = "MiddleboxAttachmentIds";
+const _MAIid = "MiddleboxAttachmentId";
 const _MAS = "MovingAddressStatuses";
 const _MASS = "MovingAddressStatusSet";
 const _MASo = "MovingAddressStatus";
@@ -3811,6 +3860,7 @@ const _MPIOL = "MapPublicIpOnLaunch";
 const _MPL = "MaxParallelLaunches";
 const _MPLS = "ManagedPrefixListSet";
 const _MPLa = "ManagedPrefixList";
+const _MPR = "MeteringPolicyRule";
 const _MPa = "MatchPath";
 const _MPax = "MaxPrice";
 const _MPe = "MetricPoints";
@@ -3855,6 +3905,9 @@ const _MTC = "MinTargetCapacity";
 const _MTDID = "MaxTermDurationInDays";
 const _MTDIDi = "MinTermDurationInDays";
 const _MTG = "ModifyTransitGateway";
+const _MTGMP = "ModifyTransitGatewayMeteringPolicy";
+const _MTGMPR = "ModifyTransitGatewayMeteringPolicyRequest";
+const _MTGMPRo = "ModifyTransitGatewayMeteringPolicyResult";
 const _MTGO = "ModifyTransitGatewayOptions";
 const _MTGPLR = "ModifyTransitGatewayPrefixListReference";
 const _MTGPLRR = "ModifyTransitGatewayPrefixListReferenceRequest";
@@ -3926,9 +3979,12 @@ const _MVCORo = "ModifyVpnConnectionOptionsResult";
 const _MVCR = "ModifyVpnConnectionRequest";
 const _MVCRo = "ModifyVpnConnectionResult";
 const _MVE = "ManagesVpcEndpoints";
+const _MVEC = "ModifyVpcEncryptionControl";
 const _MVECN = "ModifyVpcEndpointConnectionNotification";
 const _MVECNR = "ModifyVpcEndpointConnectionNotificationRequest";
 const _MVECNRo = "ModifyVpcEndpointConnectionNotificationResult";
+const _MVECR = "ModifyVpcEncryptionControlRequest";
+const _MVECRo = "ModifyVpcEncryptionControlResult";
 const _MVER = "ModifyVpcEndpointRequest";
 const _MVERo = "ModifyVpcEndpointResult";
 const _MVESC = "ModifyVpcEndpointServiceConfiguration";
@@ -3997,6 +4053,7 @@ const _NC = "NetworkCards";
 const _NCI = "NetworkCardIndex";
 const _NCIL = "NetworkCardInfoList";
 const _NCIe = "NetworkCardInfo";
+const _NCR = "NonCompliantResources";
 const _ND = "NoDevice";
 const _NDC = "NewDhcpConfiguration";
 const _NDCI = "NeuronDeviceCoreInfo";
@@ -4010,6 +4067,7 @@ const _NG = "NatGateway";
 const _NGA = "NatGatewayAddresses";
 const _NGAL = "NatGatewayAddressList";
 const _NGAa = "NatGatewayAddress";
+const _NGE = "NatGatewayExclusion";
 const _NGI = "NatGatewayId";
 const _NGISL = "NatGatewayIdStringList";
 const _NGIa = "NatGatewayIds";
@@ -4395,8 +4453,8 @@ const _PRIO = "PurchaseReservedInstancesOffering";
 const _PRIOR = "PurchaseReservedInstancesOfferingRequest";
 const _PRIORu = "PurchaseReservedInstancesOfferingResult";
 const _PRL = "PortRangeList";
-const _PRN = "PolicyReferenceName";
-const _PRNo = "PolicyRuleNumber";
+const _PRN = "PolicyRuleNumber";
+const _PRNo = "PolicyReferenceName";
 const _PRS = "PersistRoutesState";
 const _PRSu = "PurchaseRequestSet";
 const _PRU = "PtrRecordUpdate";
@@ -4663,6 +4721,8 @@ const _RLe = "ReservationList";
 const _RLes = "ResourceList";
 const _RLo = "RouteList";
 const _RM = "ReasonMessage";
+const _RMAI = "RemoveMiddleboxAttachmentIds";
+const _RMAIe = "RemoveMiddleboxAttachmentId";
 const _RMGM = "RegisteredMulticastGroupMembers";
 const _RMGS = "RegisteredMulticastGroupSources";
 const _RMPLV = "RestoreManagedPrefixListVersion";
@@ -4849,6 +4909,9 @@ const _RV = "ReturnValue";
 const _RVEC = "RejectVpcEndpointConnections";
 const _RVECR = "RejectVpcEndpointConnectionsRequest";
 const _RVECRe = "RejectVpcEndpointConnectionsResult";
+const _RVFRB = "RestoreVolumeFromRecycleBin";
+const _RVFRBR = "RestoreVolumeFromRecycleBinRequest";
+const _RVFRBRe = "RestoreVolumeFromRecycleBinResult";
 const _RVI = "ReferencingVpcId";
 const _RVIe = "RequesterVpcInfo";
 const _RVPC = "RejectVpcPeeringConnection";
@@ -5186,6 +5249,8 @@ const _STD = "SnapshotTaskDetail";
 const _STDS = "ServiceTypeDetailSet";
 const _STDe = "ServiceTypeDetail";
 const _STFR = "StoreTaskFailureReason";
+const _STGAI = "SourceTransitGatewayAttachmentId";
+const _STGAT = "SourceTransitGatewayAttachmentType";
 const _STGMG = "SearchTransitGatewayMulticastGroups";
 const _STGMGR = "SearchTransitGatewayMulticastGroupsRequest";
 const _STGMGRe = "SearchTransitGatewayMulticastGroupsResult";
@@ -5330,6 +5395,16 @@ const _TGMDr = "TransitGatewayMulticastDomains";
 const _TGMG = "TransitGatewayMulticastGroup";
 const _TGMGL = "TransitGatewayMulticastGroupList";
 const _TGMIMB = "TotalGpuMemoryInMiB";
+const _TGMP = "TransitGatewayMeteringPolicy";
+const _TGMPE = "TransitGatewayMeteringPolicyEntry";
+const _TGMPEL = "TransitGatewayMeteringPolicyEntryList";
+const _TGMPEr = "TransitGatewayMeteringPolicyEntries";
+const _TGMPI = "TransitGatewayMeteringPolicyId";
+const _TGMPISL = "TransitGatewayMeteringPolicyIdStringList";
+const _TGMPIr = "TransitGatewayMeteringPolicyIds";
+const _TGMPL = "TransitGatewayMeteringPolicyList";
+const _TGMPR = "TransitGatewayMeteringPolicyRule";
+const _TGMPr = "TransitGatewayMeteringPolicies";
 const _TGMRGM = "TransitGatewayMulticastRegisteredGroupMembers";
 const _TGMRGS = "TransitGatewayMulticastRegisteredGroupSources";
 const _TGNIIL = "TransitGatewayNetworkInterfaceIdList";
@@ -5505,6 +5580,7 @@ const _Tie = "Tier";
 const _To = "To";
 const _Ty = "Type";
 const _U = "Unsuccessful";
+const _UA = "UpdatedAt";
 const _UB = "UserBucket";
 const _UBD = "UserBucketDetails";
 const _UC = "UltraserverCount";
@@ -5519,6 +5595,7 @@ const _UDp = "UpdatedDate";
 const _UDpd = "UpdateDate";
 const _UDs = "UserData";
 const _UE = "UploadEnd";
+const _UEA = "UpdateEffectiveAt";
 const _UF = "UpfrontFee";
 const _UFD = "UnsuccessfulFleetDeletions";
 const _UFR = "UnsuccessfulFleetRequests";
@@ -5692,17 +5769,24 @@ const _VE = "VpcEndpoint";
 const _VEA = "VpcEndpointAssociations";
 const _VEAS = "VpcEndpointAssociationSet";
 const _VEAp = "VpcEndpointAssociation";
-const _VEC = "VpcEndpointConnections";
+const _VEC = "VpcEncryptionControl";
+const _VECC = "VpcEncryptionControlConfiguration";
 const _VECE = "VpcEncryptionControlExclusion";
 const _VECEp = "VpcEncryptionControlExclusions";
 const _VECI = "VpcEncryptionControlId";
-const _VECIp = "VpcEndpointConnectionId";
+const _VECIL = "VpcEncryptionControlIdList";
+const _VECIp = "VpcEncryptionControlIds";
+const _VECIpc = "VpcEndpointConnectionId";
+const _VECL = "VpcEncryptionControlList";
 const _VECS = "VpcEndpointConnectionSet";
-const _VECp = "VpcEncryptionControl";
-const _VECpc = "VpcEndpointConnection";
+const _VECp = "VpcEncryptionControls";
+const _VECpc = "VpcEndpointConnections";
+const _VECpcn = "VpcEndpointConnection";
 const _VEI = "VpcEndpointIds";
 const _VEIL = "VpcEndpointIdList";
 const _VEIp = "VpcEndpointId";
+const _VENCR = "VpcEncryptionNonCompliantResource";
+const _VENCRL = "VpcEncryptionNonCompliantResourceList";
 const _VEO = "VpcEndpointOwner";
 const _VEPS = "VpcEndpointPolicySupported";
 const _VER = "VpcEndpointRegion";
@@ -5737,6 +5821,7 @@ const _VIo = "VolumeId";
 const _VIol = "VolumeIds";
 const _VIp = "VpcIds";
 const _VL = "VpcLattice";
+const _VLE = "VpcLatticeExclusion";
 const _VLo = "VolumeList";
 const _VLp = "VpcList";
 const _VM = "VolumesModifications";
@@ -5758,9 +5843,13 @@ const _VPCOD = "VpcPeeringConnectionOptionsDescription";
 const _VPCSR = "VpcPeeringConnectionStateReason";
 const _VPCVI = "VpcPeeringConnectionVpcInfo";
 const _VPCp = "VpcPeeringConnections";
+const _VPE = "VpcPeeringExclusion";
 const _VPG = "VirtualPrivateGateway";
+const _VPGE = "VirtualPrivateGatewayExclusion";
 const _VPp = "VpnPort";
 const _VPpc = "VpcPeering";
+const _VRBI = "VolumeRecycleBinInfo";
+const _VRBIL = "VolumeRecycleBinInfoList";
 const _VS = "VolumeStatuses";
 const _VSA = "VolumeStatusAction";
 const _VSAL = "VolumeStatusActionsList";
@@ -5940,8 +6029,9 @@ const _aTN = "associatedTargetNetwork";
 const _aTS = "addressTransferStatus";
 const _aTSc = "acceleratorTypeSet";
 const _aTSd = "addressTransferSet";
-const _aTd = "addressType";
-const _aTdd = "addressingType";
+const _aTd = "advertisementType";
+const _aTdd = "addressType";
+const _aTddr = "addressingType";
 const _aTl = "allocationType";
 const _aTll = "allocationTime";
 const _aTs = "associationTarget";
@@ -5991,6 +6081,9 @@ const _bII = "branchInterfaceId";
 const _bIT = "bundleInstanceTask";
 const _bITS = "bundleInstanceTasksSet";
 const _bIa = "baselineIops";
+const _bLE = "bgpLogEnabled";
+const _bLGA = "bgpLogGroupArn";
+const _bLOF = "bgpLogOutputFormat";
 const _bM = "bootMode";
 const _bMa = "bareMetal";
 const _bN = "bucketName";
@@ -6260,6 +6353,8 @@ const _dT = "deletionTime";
 const _dTA = "dpdTimeoutAction";
 const _dTC = "deprecationTimeCondition";
 const _dTCT = "defaultTargetCapacityType";
+const _dTGAI = "destinationTransitGatewayAttachmentId";
+const _dTGAT = "destinationTransitGatewayAttachmentType";
 const _dTPC = "defaultThreadsPerCore";
 const _dTPS = "deviceTrustProviderSet";
 const _dTPT = "deviceTrustProviderType";
@@ -6371,6 +6466,7 @@ const _eSUS = "enaSrdUdpSpecification";
 const _eSf = "efaSupported";
 const _eSn = "encryptionSupport";
 const _eSna = "enaSupport";
+const _eSnc = "encryptionState";
 const _eSnt = "entrySet";
 const _eSr = "errorSet";
 const _eSv = "eventsSet";
@@ -6543,6 +6639,7 @@ const _iEWI = "instanceEventWindowId";
 const _iEWS = "instanceEventWindowState";
 const _iEWSn = "instanceEventWindowSet";
 const _iEs = "isEgress";
+const _iEsx = "isExcludable";
 const _iF = "instanceFamily";
 const _iFCS = "instanceFamilyCreditSpecification";
 const _iFR = "iamFleetRole";
@@ -6840,6 +6937,7 @@ const _mA = "mutualAuthentication";
 const _mAAA = "maintenanceAutoAppliedAfter";
 const _mAE = "multiAttachEnabled";
 const _mAI = "maxAggregationInterval";
+const _mAIS = "middleboxAttachmentIdSet";
 const _mAIe = "mediaAcceleratorInfo";
 const _mASS = "movingAddressStatusSet";
 const _mAa = "macAddress";
@@ -6883,6 +6981,7 @@ const _mP = "maxPrice";
 const _mPCS = "marketplaceProductCodeSet";
 const _mPIOL = "mapPublicIpOnLaunch";
 const _mPL = "maxParallelLaunches";
+const _mPR = "meteringPolicyRule";
 const _mPS = "metricPointSet";
 const _mPSa = "matchPathSet";
 const _mR = "maxResults";
@@ -6928,6 +7027,7 @@ const _nBG = "networkBorderGroup";
 const _nBGe = "networkBandwidthGbps";
 const _nC = "networkCards";
 const _nCI = "networkCardIndex";
+const _nCRS = "nonCompliantResourceSet";
 const _nD = "noDevice";
 const _nDe = "neuronDevices";
 const _nES = "nitroEnclavesSupport";
@@ -7507,6 +7607,8 @@ const _sTA = "snsTopicArn";
 const _sTC = "spotTargetCapacity";
 const _sTD = "snapshotTaskDetail";
 const _sTFR = "storeTaskFailureReason";
+const _sTGAI = "sourceTransitGatewayAttachmentId";
+const _sTGAT = "sourceTransitGatewayAttachmentType";
 const _sTH = "sessionTimeoutHours";
 const _sTR = "stateTransitionReason";
 const _sTS = "storeTaskState";
@@ -7587,6 +7689,11 @@ const _tGMDA = "transitGatewayMulticastDomainArn";
 const _tGMDI = "transitGatewayMulticastDomainId";
 const _tGMDr = "transitGatewayMulticastDomains";
 const _tGMIMB = "totalGpuMemoryInMiB";
+const _tGMP = "transitGatewayMeteringPolicy";
+const _tGMPE = "transitGatewayMeteringPolicyEntry";
+const _tGMPEr = "transitGatewayMeteringPolicyEntries";
+const _tGMPI = "transitGatewayMeteringPolicyId";
+const _tGMPr = "transitGatewayMeteringPolicies";
 const _tGOI = "transitGatewayOwnerId";
 const _tGPA = "transitGatewayPeeringAttachment";
 const _tGPAr = "transitGatewayPeeringAttachments";
@@ -7682,6 +7789,7 @@ const _tie = "tier";
 const _to = "to";
 const _ty = "type";
 const _u = "unsuccessful";
+const _uA = "updatedAt";
 const _uB = "userBucket";
 const _uC = "ultraserverCount";
 const _uCs = "usageCount";
@@ -7690,6 +7798,7 @@ const _uDLTVS = "unsuccessfullyDeletedLaunchTemplateVersionSet";
 const _uDp = "updatedDate";
 const _uDpd = "updateDate";
 const _uDs = "userData";
+const _uEA = "updateEffectiveAt";
 const _uF = "upfrontFee";
 const _uFDS = "unsuccessfulFleetDeletionSet";
 const _uFRS = "unsuccessfulFleetRequestSet";
@@ -7753,9 +7862,11 @@ const _vCp = "vpnConnection";
 const _vD = "versionDescription";
 const _vE = "vpcEndpoint";
 const _vEAS = "vpcEndpointAssociationSet";
+const _vEC = "vpcEncryptionControl";
 const _vECI = "vpcEncryptionControlId";
 const _vECIp = "vpcEndpointConnectionId";
-const _vECS = "vpcEndpointConnectionSet";
+const _vECS = "vpcEncryptionControlSet";
+const _vECSp = "vpcEndpointConnectionSet";
 const _vEI = "vpcEndpointId";
 const _vEO = "vpcEndpointOwner";
 const _vEPS = "vpcEndpointPolicySupported";
@@ -11332,7 +11443,7 @@ export var ByoipCidr: StaticStructureSchema = [
   n0,
   _BC,
   0,
-  [_Ci, _De, _AAsn, _SMt, _St, _NBG],
+  [_Ci, _De, _AAsn, _SMt, _St, _NBG, _ATd],
   [
     [
       0,
@@ -11374,6 +11485,13 @@ export var ByoipCidr: StaticStructureSchema = [
       {
         [_eQN]: `NetworkBorderGroup`,
         [_xN]: _nBG,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AdvertisementType`,
+        [_xN]: _aTd,
       },
     ],
   ],
@@ -13990,7 +14108,7 @@ export var CloudWatchLogOptions: StaticStructureSchema = [
   n0,
   _CWLO,
   0,
-  [_LE, _LGA, _LOF],
+  [_LE, _LGA, _LOF, _BLE, _BLGA, _BLOF],
   [
     [
       2,
@@ -14013,9 +14131,37 @@ export var CloudWatchLogOptions: StaticStructureSchema = [
         [_xN]: _lOF,
       },
     ],
+    [
+      2,
+      {
+        [_eQN]: `BgpLogEnabled`,
+        [_xN]: _bLE,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `BgpLogGroupArn`,
+        [_xN]: _bLGA,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `BgpLogOutputFormat`,
+        [_xN]: _bLOF,
+      },
+    ],
   ],
 ];
-export var CloudWatchLogOptionsSpecification: StaticStructureSchema = [3, n0, _CWLOS, 0, [_LE, _LGA, _LOF], [2, 0, 0]];
+export var CloudWatchLogOptionsSpecification: StaticStructureSchema = [
+  3,
+  n0,
+  _CWLOS,
+  0,
+  [_LE, _LGA, _LOF, _BLE, _BLGA, _BLOF],
+  [2, 0, 0, 2, 0, 0],
+];
 export var CoipAddressUsage: StaticStructureSchema = [
   3,
   n0,
@@ -18015,6 +18161,64 @@ export var CreateTransitGatewayConnectResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var CreateTransitGatewayMeteringPolicyEntryRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CTGMPER,
+  0,
+  [_TGMPI, _PRN, _STGAI, _STGAT, _SCB, _SPRo, _DTGAI, _DTGAT, _DCB, _DPRe, _Pr, _MAe, _DR],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+];
+export var CreateTransitGatewayMeteringPolicyEntryResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CTGMPERr,
+  0,
+  [_TGMPE],
+  [
+    [
+      () => TransitGatewayMeteringPolicyEntry,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicyEntry`,
+        [_xN]: _tGMPE,
+      },
+    ],
+  ],
+];
+export var CreateTransitGatewayMeteringPolicyRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CTGMPR,
+  0,
+  [_TGI, _MAIi, _TS, _DR],
+  [
+    0,
+    [
+      64 | 0,
+      {
+        [_xN]: _MAIid,
+      },
+    ],
+    [() => TagSpecificationList, 0],
+    2,
+  ],
+];
+export var CreateTransitGatewayMeteringPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CTGMPRr,
+  0,
+  [_TGMP],
+  [
+    [
+      () => TransitGatewayMeteringPolicy,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicy`,
+        [_xN]: _tGMP,
+      },
+    ],
+  ],
+];
 export var CreateTransitGatewayMulticastDomainRequest: StaticStructureSchema = [
   3,
   n0,
@@ -18546,7 +18750,7 @@ export var CreateVerifiedAccessTrustProviderRequest: StaticStructureSchema = [
   n0,
   _CVATPR,
   0,
-  [_TPT, _UTPT, _DTPT, _OO, _DOev, _PRN, _De, _TS, _CT, _DR, _SS, _NAOO],
+  [_TPT, _UTPT, _DTPT, _OO, _DOev, _PRNo, _De, _TS, _CT, _DR, _SS, _NAOO],
   [
     0,
     0,
@@ -18690,6 +18894,39 @@ export var CreateVpcBlockPublicAccessExclusionResult: StaticStructureSchema = [
       {
         [_eQN]: `VpcBlockPublicAccessExclusion`,
         [_xN]: _vBPAE,
+      },
+    ],
+  ],
+];
+export var CreateVpcEncryptionControlRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CVECR,
+  0,
+  [_DR, _VI, _TS],
+  [
+    2,
+    0,
+    [
+      () => TagSpecificationList,
+      {
+        [_xN]: _TSa,
+      },
+    ],
+  ],
+];
+export var CreateVpcEncryptionControlResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CVECRr,
+  0,
+  [_VEC],
+  [
+    [
+      () => VpcEncryptionControl,
+      {
+        [_eQN]: `VpcEncryptionControl`,
+        [_xN]: _vEC,
       },
     ],
   ],
@@ -18930,7 +19167,7 @@ export var CreateVpcRequest: StaticStructureSchema = [
   n0,
   _CVRre,
   0,
-  [_CB, _IPpvo, _ICB, _IIPIp, _INLp, _IIPI, _INL, _ICBNBG, _TS, _DR, _ITns, _APICB],
+  [_CB, _IPpvo, _ICB, _IIPIp, _INLp, _IIPI, _INL, _ICBNBG, _VEC, _TS, _DR, _ITns, _APICB],
   [
     0,
     0,
@@ -18940,6 +19177,7 @@ export var CreateVpcRequest: StaticStructureSchema = [
     0,
     1,
     0,
+    () => VpcEncryptionControlConfiguration,
     [
       () => TagSpecificationList,
       {
@@ -20918,6 +21156,54 @@ export var DeleteTransitGatewayConnectResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DeleteTransitGatewayMeteringPolicyEntryRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTGMPER,
+  0,
+  [_TGMPI, _PRN, _DR],
+  [0, 1, 2],
+];
+export var DeleteTransitGatewayMeteringPolicyEntryResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DTGMPERe,
+  0,
+  [_TGMPE],
+  [
+    [
+      () => TransitGatewayMeteringPolicyEntry,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicyEntry`,
+        [_xN]: _tGMPE,
+      },
+    ],
+  ],
+];
+export var DeleteTransitGatewayMeteringPolicyRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTGMPR,
+  0,
+  [_TGMPI, _DR],
+  [0, 2],
+];
+export var DeleteTransitGatewayMeteringPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DTGMPRe,
+  0,
+  [_TGMP],
+  [
+    [
+      () => TransitGatewayMeteringPolicy,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicy`,
+        [_xN]: _tGMP,
+      },
+    ],
+  ],
+];
 export var DeleteTransitGatewayMulticastDomainRequest: StaticStructureSchema = [
   3,
   n0,
@@ -21232,6 +21518,23 @@ export var DeleteVpcBlockPublicAccessExclusionResult: StaticStructureSchema = [
       {
         [_eQN]: `VpcBlockPublicAccessExclusion`,
         [_xN]: _vBPAE,
+      },
+    ],
+  ],
+];
+export var DeleteVpcEncryptionControlRequest: StaticStructureSchema = [3, n0, _DVECR, 0, [_DR, _VECI], [2, 0]];
+export var DeleteVpcEncryptionControlResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DVECRe,
+  0,
+  [_VEC],
+  [
+    [
+      () => VpcEncryptionControl,
+      {
+        [_eQN]: `VpcEncryptionControl`,
+        [_xN]: _vEC,
       },
     ],
   ],
@@ -21822,7 +22125,7 @@ export var DescribeAddressTransfersResult: StaticStructureSchema = [
   n0,
   _DATRe,
   0,
-  [_ATd, _NTe],
+  [_ATdd, _NTe],
   [
     [
       () => AddressTransferList,
@@ -28792,6 +29095,48 @@ export var DescribeTransitGatewayConnectsResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DescribeTransitGatewayMeteringPoliciesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTGMPRes,
+  0,
+  [_TGMPIr, _Fi, _MR, _NTe, _DR],
+  [
+    [() => TransitGatewayMeteringPolicyIdStringList, 0],
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    1,
+    0,
+    2,
+  ],
+];
+export var DescribeTransitGatewayMeteringPoliciesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DTGMPResc,
+  0,
+  [_TGMPr, _NTe],
+  [
+    [
+      () => TransitGatewayMeteringPolicyList,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicies`,
+        [_xN]: _tGMPr,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
 export var DescribeTransitGatewayMulticastDomainsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -29799,6 +30144,59 @@ export var DescribeVpcClassicLinkResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DescribeVpcEncryptionControlsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DVECRes,
+  0,
+  [_DR, _Fi, _VECIp, _VIp, _NTe, _MR],
+  [
+    2,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    [
+      () => VpcEncryptionControlIdList,
+      {
+        [_xN]: _VECI,
+      },
+    ],
+    [
+      () => VpcIdStringList,
+      {
+        [_xN]: _VI,
+      },
+    ],
+    0,
+    1,
+  ],
+];
+export var DescribeVpcEncryptionControlsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DVECResc,
+  0,
+  [_VECp, _NTe],
+  [
+    [
+      () => VpcEncryptionControlList,
+      {
+        [_eQN]: `VpcEncryptionControlSet`,
+        [_xN]: _vECS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
 export var DescribeVpcEndpointAssociationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -29891,7 +30289,7 @@ export var DescribeVpcEndpointConnectionNotificationsResult: StaticStructureSche
 export var DescribeVpcEndpointConnectionsRequest: StaticStructureSchema = [
   3,
   n0,
-  _DVECR,
+  _DVECRescr,
   0,
   [_DR, _Fi, _MR, _NTe],
   [
@@ -29909,15 +30307,15 @@ export var DescribeVpcEndpointConnectionsRequest: StaticStructureSchema = [
 export var DescribeVpcEndpointConnectionsResult: StaticStructureSchema = [
   3,
   n0,
-  _DVECRe,
+  _DVECRescri,
   0,
-  [_VEC, _NTe],
+  [_VECpc, _NTe],
   [
     [
       () => VpcEndpointConnectionSet,
       {
         [_eQN]: `VpcEndpointConnectionSet`,
-        [_xN]: _vECS,
+        [_xN]: _vECSp,
       },
     ],
     [
@@ -33559,6 +33957,29 @@ export var EnclaveOptions: StaticStructureSchema = [
   ],
 ];
 export var EnclaveOptionsRequest: StaticStructureSchema = [3, n0, _EOR, 0, [_En], [2]];
+export var EncryptionSupport: StaticStructureSchema = [
+  3,
+  n0,
+  _ESn,
+  0,
+  [_ESnc, _SMta],
+  [
+    [
+      0,
+      {
+        [_eQN]: `EncryptionState`,
+        [_xN]: _eSnc,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `StateMessage`,
+        [_xN]: _sMta,
+      },
+    ],
+  ],
+];
 export var EventInformation: StaticStructureSchema = [
   3,
   n0,
@@ -37764,6 +38185,48 @@ export var GetTransitGatewayAttachmentPropagationsResult: StaticStructureSchema 
     ],
   ],
 ];
+export var GetTransitGatewayMeteringPolicyEntriesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GTGMPER,
+  0,
+  [_TGMPI, _Fi, _MR, _NTe, _DR],
+  [
+    0,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    1,
+    0,
+    2,
+  ],
+];
+export var GetTransitGatewayMeteringPolicyEntriesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GTGMPERe,
+  0,
+  [_TGMPEr, _NTe],
+  [
+    [
+      () => TransitGatewayMeteringPolicyEntryList,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicyEntries`,
+        [_xN]: _tGMPEr,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
 export var GetTransitGatewayMulticastDomainAssociationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -38094,6 +38557,37 @@ export var GetVerifiedAccessGroupPolicyResult: StaticStructureSchema = [
       {
         [_eQN]: `PolicyDocument`,
         [_xN]: _pDo,
+      },
+    ],
+  ],
+];
+export var GetVpcResourcesBlockingEncryptionEnforcementRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GVRBEER,
+  0,
+  [_VI, _MR, _NTe, _DR],
+  [0, 1, 0, 2],
+];
+export var GetVpcResourcesBlockingEncryptionEnforcementResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GVRBEERe,
+  0,
+  [_NCR, _NTe],
+  [
+    [
+      () => VpcEncryptionNonCompliantResourceList,
+      {
+        [_eQN]: `NonCompliantResourceSet`,
+        [_xN]: _nCRS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
       },
     ],
   ],
@@ -44053,7 +44547,7 @@ export var IpamDiscoveredPublicAddress: StaticStructureSchema = [
   n0,
   _IDPAp,
   0,
-  [_IRDI, _ARd, _A, _AOI, _AAId, _ASs, _ATdd, _Se, _SRer, _VI, _SIu, _PIPI, _NII, _NID, _II, _T, _NBG, _SG, _STam],
+  [_IRDI, _ARd, _A, _AOI, _AAId, _ASs, _ATddr, _Se, _SRer, _VI, _SIu, _PIPI, _NII, _NID, _II, _T, _NBG, _SG, _STam],
   [
     [
       0,
@@ -44101,7 +44595,7 @@ export var IpamDiscoveredPublicAddress: StaticStructureSchema = [
       0,
       {
         [_eQN]: `AddressType`,
-        [_xN]: _aTd,
+        [_xN]: _aTdd,
       },
     ],
     [
@@ -46196,7 +46690,7 @@ export var LaunchSpecification: StaticStructureSchema = [
   n0,
   _LSa,
   0,
-  [_UDs, _ATddr, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _NIet, _Pla, _RIa, _SIu, _SG, _Mon],
+  [_UDs, _ATddre, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _NIet, _Pla, _RIa, _SIu, _SG, _Mon],
   [
     [
       () => SensitiveUserData,
@@ -46209,7 +46703,7 @@ export var LaunchSpecification: StaticStructureSchema = [
       0,
       {
         [_eQN]: `AddressingType`,
-        [_xN]: _aTdd,
+        [_xN]: _aTddr,
       },
     ],
     [
@@ -47589,6 +48083,47 @@ export var ListSnapshotsInRecycleBinResult: StaticStructureSchema = [
       {
         [_eQN]: `SnapshotSet`,
         [_xN]: _sS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
+export var ListVolumesInRecycleBinRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LVIRBR,
+  0,
+  [_VIol, _DR, _MR, _NTe],
+  [
+    [
+      () => VolumeIdStringList,
+      {
+        [_xN]: _VIo,
+      },
+    ],
+    2,
+    1,
+    0,
+  ],
+];
+export var ListVolumesInRecycleBinResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LVIRBRi,
+  0,
+  [_Vo, _NTe],
+  [
+    [
+      () => VolumeRecycleBinInfoList,
+      {
+        [_eQN]: `VolumeSet`,
+        [_xN]: _vS,
       },
     ],
     [
@@ -50550,12 +51085,51 @@ export var ModifyTrafficMirrorSessionResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var ModifyTransitGatewayMeteringPolicyRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _MTGMPR,
+  0,
+  [_TGMPI, _AMAI, _RMAI, _DR],
+  [
+    0,
+    [
+      64 | 0,
+      {
+        [_xN]: _AMAId,
+      },
+    ],
+    [
+      64 | 0,
+      {
+        [_xN]: _RMAIe,
+      },
+    ],
+    2,
+  ],
+];
+export var ModifyTransitGatewayMeteringPolicyResult: StaticStructureSchema = [
+  3,
+  n0,
+  _MTGMPRo,
+  0,
+  [_TGMP],
+  [
+    [
+      () => TransitGatewayMeteringPolicy,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicy`,
+        [_xN]: _tGMP,
+      },
+    ],
+  ],
+];
 export var ModifyTransitGatewayOptions: StaticStructureSchema = [
   3,
   n0,
   _MTGO,
   0,
-  [_ATGCB, _RTGCB, _VESp, _DSn, _SGRS, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _ASA],
+  [_ATGCB, _RTGCB, _VESp, _DSn, _SGRS, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _ASA, _ESn],
   [
     [() => TransitGatewayCidrBlockStringList, 0],
     [() => TransitGatewayCidrBlockStringList, 0],
@@ -50568,6 +51142,7 @@ export var ModifyTransitGatewayOptions: StaticStructureSchema = [
     0,
     0,
     1,
+    0,
   ],
 ];
 export var ModifyTransitGatewayPrefixListReferenceRequest: StaticStructureSchema = [
@@ -51059,6 +51634,30 @@ export var ModifyVpcBlockPublicAccessOptionsResult: StaticStructureSchema = [
       {
         [_eQN]: `VpcBlockPublicAccessOptions`,
         [_xN]: _vBPAO,
+      },
+    ],
+  ],
+];
+export var ModifyVpcEncryptionControlRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _MVECR,
+  0,
+  [_DR, _VECI, _Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
+  [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+export var ModifyVpcEncryptionControlResult: StaticStructureSchema = [
+  3,
+  n0,
+  _MVECRo,
+  0,
+  [_VEC],
+  [
+    [
+      () => VpcEncryptionControl,
+      {
+        [_eQN]: `VpcEncryptionControl`,
+        [_xN]: _vEC,
       },
     ],
   ],
@@ -56877,7 +57476,7 @@ export var RequestSpotLaunchSpecification: StaticStructureSchema = [
   n0,
   _RSLS,
   0,
-  [_SGIe, _SG, _ATddr, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SIu, _UDs],
+  [_SGIe, _SG, _ATddre, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SIu, _UDs],
   [
     [
       () => RequestSpotLaunchSpecificationSecurityGroupIdList,
@@ -56895,7 +57494,7 @@ export var RequestSpotLaunchSpecification: StaticStructureSchema = [
       0,
       {
         [_eQN]: `AddressingType`,
-        [_xN]: _aTdd,
+        [_xN]: _aTddr,
       },
     ],
     [
@@ -58357,6 +58956,23 @@ export var RestoreSnapshotTierResult: StaticStructureSchema = [
       {
         [_eQN]: `IsPermanentRestore`,
         [_xN]: _iPRs,
+      },
+    ],
+  ],
+];
+export var RestoreVolumeFromRecycleBinRequest: StaticStructureSchema = [3, n0, _RVFRBR, 0, [_VIo, _DR], [0, 2]];
+export var RestoreVolumeFromRecycleBinResult: StaticStructureSchema = [
+  3,
+  n0,
+  _RVFRBRe,
+  0,
+  [_R],
+  [
+    [
+      2,
+      {
+        [_eQN]: `Return`,
+        [_xN]: _r,
       },
     ],
   ],
@@ -61616,13 +62232,13 @@ export var SpotFleetLaunchSpecification: StaticStructureSchema = [
   n0,
   _SFLS,
   0,
-  [_ATddr, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SPp, _SIu, _UDs, _WCe, _TS, _IRn, _SG],
+  [_ATddre, _BDMl, _EO, _IIP, _IIm, _IT, _KI, _KN, _Mon, _NIet, _Pla, _RIa, _SPp, _SIu, _UDs, _WCe, _TS, _IRn, _SG],
   [
     [
       0,
       {
         [_eQN]: `AddressingType`,
-        [_xN]: _aTdd,
+        [_xN]: _aTddr,
       },
     ],
     [
@@ -64551,6 +65167,180 @@ export var TransitGatewayConnectPeerConfiguration: StaticStructureSchema = [
   ],
 ];
 export var TransitGatewayConnectRequestBgpOptions: StaticStructureSchema = [3, n0, _TGCRBO, 0, [_PAee], [1]];
+export var TransitGatewayMeteringPolicy: StaticStructureSchema = [
+  3,
+  n0,
+  _TGMP,
+  0,
+  [_TGMPI, _TGI, _MAIi, _St, _UEA, _T],
+  [
+    [
+      0,
+      {
+        [_eQN]: `TransitGatewayMeteringPolicyId`,
+        [_xN]: _tGMPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `TransitGatewayId`,
+        [_xN]: _tGI,
+      },
+    ],
+    [
+      () => ValueStringList,
+      {
+        [_eQN]: `MiddleboxAttachmentIdSet`,
+        [_xN]: _mAIS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `State`,
+        [_xN]: _st,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `UpdateEffectiveAt`,
+        [_xN]: _uEA,
+      },
+    ],
+    [
+      () => TagList,
+      {
+        [_eQN]: `TagSet`,
+        [_xN]: _tS,
+      },
+    ],
+  ],
+];
+export var TransitGatewayMeteringPolicyEntry: StaticStructureSchema = [
+  3,
+  n0,
+  _TGMPE,
+  0,
+  [_PRN, _MAe, _St, _UA, _UEA, _MPR],
+  [
+    [
+      0,
+      {
+        [_eQN]: `PolicyRuleNumber`,
+        [_xN]: _pRN,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `MeteredAccount`,
+        [_xN]: _mAe,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `State`,
+        [_xN]: _st,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `UpdatedAt`,
+        [_xN]: _uA,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `UpdateEffectiveAt`,
+        [_xN]: _uEA,
+      },
+    ],
+    [
+      () => TransitGatewayMeteringPolicyRule,
+      {
+        [_eQN]: `MeteringPolicyRule`,
+        [_xN]: _mPR,
+      },
+    ],
+  ],
+];
+export var TransitGatewayMeteringPolicyRule: StaticStructureSchema = [
+  3,
+  n0,
+  _TGMPR,
+  0,
+  [_STGAI, _STGAT, _SCB, _SPRo, _DTGAI, _DTGAT, _DCB, _DPRe, _Pr],
+  [
+    [
+      0,
+      {
+        [_eQN]: `SourceTransitGatewayAttachmentId`,
+        [_xN]: _sTGAI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourceTransitGatewayAttachmentType`,
+        [_xN]: _sTGAT,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourceCidrBlock`,
+        [_xN]: _sCB,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourcePortRange`,
+        [_xN]: _sPR,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `DestinationTransitGatewayAttachmentId`,
+        [_xN]: _dTGAI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `DestinationTransitGatewayAttachmentType`,
+        [_xN]: _dTGAT,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `DestinationCidrBlock`,
+        [_xN]: _dCB,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `DestinationPortRange`,
+        [_xN]: _dPR,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Protocol`,
+        [_xN]: _pr,
+      },
+    ],
+  ],
+];
 export var TransitGatewayMulticastDeregisteredGroupMembers: StaticStructureSchema = [
   3,
   n0,
@@ -64952,7 +65742,7 @@ export var TransitGatewayOptions: StaticStructureSchema = [
   n0,
   _TGO,
   0,
-  [_ASA, _TGCB, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _VESp, _DSn, _SGRS, _MSu],
+  [_ASA, _TGCB, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _VESp, _DSn, _SGRS, _MSu, _ESn],
   [
     [
       1,
@@ -65029,6 +65819,13 @@ export var TransitGatewayOptions: StaticStructureSchema = [
       {
         [_eQN]: `MulticastSupport`,
         [_xN]: _mSu,
+      },
+    ],
+    [
+      () => EncryptionSupport,
+      {
+        [_eQN]: `EncryptionSupport`,
+        [_xN]: _eSn,
       },
     ],
   ],
@@ -65288,7 +66085,7 @@ export var TransitGatewayPolicyTableEntry: StaticStructureSchema = [
   n0,
   _TGPTEr,
   0,
-  [_PRNo, _PRol, _TRTI],
+  [_PRN, _PRol, _TRTI],
   [
     [
       0,
@@ -67720,7 +68517,7 @@ export var VerifiedAccessTrustProvider: StaticStructureSchema = [
   n0,
   _VATP,
   0,
-  [_VATPI, _De, _TPT, _UTPT, _DTPT, _OO, _DOev, _PRN, _CTre, _LUTa, _T, _SS, _NAOO],
+  [_VATPI, _De, _TPT, _UTPT, _DTPT, _OO, _DOev, _PRNo, _CTre, _LUTa, _T, _SS, _NAOO],
   [
     [
       0,
@@ -68286,6 +69083,120 @@ export var VolumeModification: StaticStructureSchema = [
       {
         [_eQN]: `EndTime`,
         [_xN]: _eTn,
+      },
+    ],
+  ],
+];
+export var VolumeRecycleBinInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _VRBI,
+  0,
+  [_VIo, _VT, _St, _Siz, _Io, _Th, _OA, _AZ, _AZI, _SVI, _SIn, _Op, _CTr, _RBET, _RBETe],
+  [
+    [
+      0,
+      {
+        [_eQN]: `VolumeId`,
+        [_xN]: _vIo,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `VolumeType`,
+        [_xN]: _vT,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `State`,
+        [_xN]: _st,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `Size`,
+        [_xN]: _si,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `Iops`,
+        [_xN]: _io,
+      },
+    ],
+    [
+      1,
+      {
+        [_eQN]: `Throughput`,
+        [_xN]: _th,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `OutpostArn`,
+        [_xN]: _oA,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AvailabilityZone`,
+        [_xN]: _aZ,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AvailabilityZoneId`,
+        [_xN]: _aZI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourceVolumeId`,
+        [_xN]: _sVI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SnapshotId`,
+        [_xN]: _sIn,
+      },
+    ],
+    [
+      () => OperatorResponse,
+      {
+        [_eQN]: `Operator`,
+        [_xN]: _ope,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `CreateTime`,
+        [_xN]: _cTr,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `RecycleBinEnterTime`,
+        [_xN]: _rBET,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `RecycleBinExitTime`,
+        [_xN]: _rBETe,
       },
     ],
   ],
@@ -68858,7 +69769,7 @@ export var VpcClassicLink: StaticStructureSchema = [
 export var VpcEncryptionControl: StaticStructureSchema = [
   3,
   n0,
-  _VECp,
+  _VEC,
   0,
   [_VI, _VECI, _Mo, _St, _SMta, _REes, _T],
   [
@@ -68912,6 +69823,14 @@ export var VpcEncryptionControl: StaticStructureSchema = [
       },
     ],
   ],
+];
+export var VpcEncryptionControlConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _VECC,
+  0,
+  [_Mo, _IGE, _EOIGE, _NGE, _VPGE, _VPE, _LEam, _VLE, _EFSE],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var VpcEncryptionControlExclusion: StaticStructureSchema = [
   3,
@@ -68997,6 +69916,43 @@ export var VpcEncryptionControlExclusions: StaticStructureSchema = [
       {
         [_eQN]: `ElasticFileSystem`,
         [_xN]: _eFS,
+      },
+    ],
+  ],
+];
+export var VpcEncryptionNonCompliantResource: StaticStructureSchema = [
+  3,
+  n0,
+  _VENCR,
+  0,
+  [_I, _Ty, _De, _IEs],
+  [
+    [
+      0,
+      {
+        [_eQN]: `Id`,
+        [_xN]: _i,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Type`,
+        [_xN]: _ty,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Description`,
+        [_xN]: _de,
+      },
+    ],
+    [
+      2,
+      {
+        [_eQN]: `IsExcludable`,
+        [_xN]: _iEsx,
       },
     ],
   ],
@@ -69307,9 +70263,9 @@ export var VpcEndpointAssociation: StaticStructureSchema = [
 export var VpcEndpointConnection: StaticStructureSchema = [
   3,
   n0,
-  _VECpc,
+  _VECpcn,
   0,
-  [_SIe, _VEIp, _VEO, _VESpc, _CTrea, _DEn, _NLBAe, _GLBA, _IAT, _VECIp, _T, _VER],
+  [_SIe, _VEIp, _VEO, _VESpc, _CTrea, _DEn, _NLBAe, _GLBA, _IAT, _VECIpc, _T, _VER],
   [
     [
       0,
@@ -77088,6 +78044,42 @@ export var TransitGatewayList: StaticListSchema = [
     },
   ],
 ];
+export var TransitGatewayMeteringPolicyEntryList: StaticListSchema = [
+  1,
+  n0,
+  _TGMPEL,
+  0,
+  [
+    () => TransitGatewayMeteringPolicyEntry,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var TransitGatewayMeteringPolicyIdStringList: StaticListSchema = [
+  1,
+  n0,
+  _TGMPISL,
+  0,
+  [
+    0,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var TransitGatewayMeteringPolicyList: StaticListSchema = [
+  1,
+  n0,
+  _TGMPL,
+  0,
+  [
+    () => TransitGatewayMeteringPolicy,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
 export var TransitGatewayMulticastDomainAssociationList: StaticListSchema = [
   1,
   n0,
@@ -77772,6 +78764,18 @@ export var VolumeModificationList: StaticListSchema = [
     },
   ],
 ];
+export var VolumeRecycleBinInfoList: StaticListSchema = [
+  1,
+  n0,
+  _VRBIL,
+  0,
+  [
+    () => VolumeRecycleBinInfo,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
 export var VolumeStatusActionsList: StaticListSchema = [
   1,
   n0,
@@ -77899,6 +78903,42 @@ export var VpcClassicLinkList: StaticListSchema = [
   0,
   [
     () => VpcClassicLink,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var VpcEncryptionControlIdList: StaticListSchema = [
+  1,
+  n0,
+  _VECIL,
+  0,
+  [
+    0,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var VpcEncryptionControlList: StaticListSchema = [
+  1,
+  n0,
+  _VECL,
+  0,
+  [
+    () => VpcEncryptionControl,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
+export var VpcEncryptionNonCompliantResourceList: StaticListSchema = [
+  1,
+  n0,
+  _VENCRL,
+  0,
+  [
+    () => VpcEncryptionNonCompliantResource,
     {
       [_xN]: _it,
     },
@@ -79184,6 +80224,22 @@ export var CreateTransitGatewayConnectPeer: StaticOperationSchema = [
   () => CreateTransitGatewayConnectPeerRequest,
   () => CreateTransitGatewayConnectPeerResult,
 ];
+export var CreateTransitGatewayMeteringPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _CTGMP,
+  0,
+  () => CreateTransitGatewayMeteringPolicyRequest,
+  () => CreateTransitGatewayMeteringPolicyResult,
+];
+export var CreateTransitGatewayMeteringPolicyEntry: StaticOperationSchema = [
+  9,
+  n0,
+  _CTGMPE,
+  0,
+  () => CreateTransitGatewayMeteringPolicyEntryRequest,
+  () => CreateTransitGatewayMeteringPolicyEntryResult,
+];
 export var CreateTransitGatewayMulticastDomain: StaticOperationSchema = [
   9,
   n0,
@@ -79289,6 +80345,14 @@ export var CreateVpcBlockPublicAccessExclusion: StaticOperationSchema = [
   0,
   () => CreateVpcBlockPublicAccessExclusionRequest,
   () => CreateVpcBlockPublicAccessExclusionResult,
+];
+export var CreateVpcEncryptionControl: StaticOperationSchema = [
+  9,
+  n0,
+  _CVEC,
+  0,
+  () => CreateVpcEncryptionControlRequest,
+  () => CreateVpcEncryptionControlResult,
 ];
 export var CreateVpcEndpoint: StaticOperationSchema = [
   9,
@@ -79803,6 +80867,22 @@ export var DeleteTransitGatewayConnectPeer: StaticOperationSchema = [
   () => DeleteTransitGatewayConnectPeerRequest,
   () => DeleteTransitGatewayConnectPeerResult,
 ];
+export var DeleteTransitGatewayMeteringPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _DTGMP,
+  0,
+  () => DeleteTransitGatewayMeteringPolicyRequest,
+  () => DeleteTransitGatewayMeteringPolicyResult,
+];
+export var DeleteTransitGatewayMeteringPolicyEntry: StaticOperationSchema = [
+  9,
+  n0,
+  _DTGMPE,
+  0,
+  () => DeleteTransitGatewayMeteringPolicyEntryRequest,
+  () => DeleteTransitGatewayMeteringPolicyEntryResult,
+];
 export var DeleteTransitGatewayMulticastDomain: StaticOperationSchema = [
   9,
   n0,
@@ -79908,6 +80988,14 @@ export var DeleteVpcBlockPublicAccessExclusion: StaticOperationSchema = [
   0,
   () => DeleteVpcBlockPublicAccessExclusionRequest,
   () => DeleteVpcBlockPublicAccessExclusionResult,
+];
+export var DeleteVpcEncryptionControl: StaticOperationSchema = [
+  9,
+  n0,
+  _DVEC,
+  0,
+  () => DeleteVpcEncryptionControlRequest,
+  () => DeleteVpcEncryptionControlResult,
 ];
 export var DeleteVpcEndpointConnectionNotifications: StaticOperationSchema = [
   9,
@@ -81191,6 +82279,14 @@ export var DescribeTransitGatewayConnects: StaticOperationSchema = [
   () => DescribeTransitGatewayConnectsRequest,
   () => DescribeTransitGatewayConnectsResult,
 ];
+export var DescribeTransitGatewayMeteringPolicies: StaticOperationSchema = [
+  9,
+  n0,
+  _DTGMPe,
+  0,
+  () => DescribeTransitGatewayMeteringPoliciesRequest,
+  () => DescribeTransitGatewayMeteringPoliciesResult,
+];
 export var DescribeTransitGatewayMulticastDomains: StaticOperationSchema = [
   9,
   n0,
@@ -81367,6 +82463,14 @@ export var DescribeVpcClassicLinkDnsSupport: StaticOperationSchema = [
   () => DescribeVpcClassicLinkDnsSupportRequest,
   () => DescribeVpcClassicLinkDnsSupportResult,
 ];
+export var DescribeVpcEncryptionControls: StaticOperationSchema = [
+  9,
+  n0,
+  _DVECe,
+  0,
+  () => DescribeVpcEncryptionControlsRequest,
+  () => DescribeVpcEncryptionControlsResult,
+];
 export var DescribeVpcEndpointAssociations: StaticOperationSchema = [
   9,
   n0,
@@ -81386,7 +82490,7 @@ export var DescribeVpcEndpointConnectionNotifications: StaticOperationSchema = [
 export var DescribeVpcEndpointConnections: StaticOperationSchema = [
   9,
   n0,
-  _DVEC,
+  _DVECes,
   0,
   () => DescribeVpcEndpointConnectionsRequest,
   () => DescribeVpcEndpointConnectionsResult,
@@ -82444,6 +83548,14 @@ export var GetTransitGatewayAttachmentPropagations: StaticOperationSchema = [
   () => GetTransitGatewayAttachmentPropagationsRequest,
   () => GetTransitGatewayAttachmentPropagationsResult,
 ];
+export var GetTransitGatewayMeteringPolicyEntries: StaticOperationSchema = [
+  9,
+  n0,
+  _GTGMPE,
+  0,
+  () => GetTransitGatewayMeteringPolicyEntriesRequest,
+  () => GetTransitGatewayMeteringPolicyEntriesResult,
+];
 export var GetTransitGatewayMulticastDomainAssociations: StaticOperationSchema = [
   9,
   n0,
@@ -82515,6 +83627,14 @@ export var GetVerifiedAccessGroupPolicy: StaticOperationSchema = [
   0,
   () => GetVerifiedAccessGroupPolicyRequest,
   () => GetVerifiedAccessGroupPolicyResult,
+];
+export var GetVpcResourcesBlockingEncryptionEnforcement: StaticOperationSchema = [
+  9,
+  n0,
+  _GVRBEE,
+  0,
+  () => GetVpcResourcesBlockingEncryptionEnforcementRequest,
+  () => GetVpcResourcesBlockingEncryptionEnforcementResult,
 ];
 export var GetVpnConnectionDeviceSampleConfiguration: StaticOperationSchema = [
   9,
@@ -82589,6 +83709,14 @@ export var ListSnapshotsInRecycleBin: StaticOperationSchema = [
   0,
   () => ListSnapshotsInRecycleBinRequest,
   () => ListSnapshotsInRecycleBinResult,
+];
+export var ListVolumesInRecycleBin: StaticOperationSchema = [
+  9,
+  n0,
+  _LVIRB,
+  0,
+  () => ListVolumesInRecycleBinRequest,
+  () => ListVolumesInRecycleBinResult,
 ];
 export var LockSnapshot: StaticOperationSchema = [
   9,
@@ -82970,6 +84098,14 @@ export var ModifyTransitGateway: StaticOperationSchema = [
   () => ModifyTransitGatewayRequest,
   () => ModifyTransitGatewayResult,
 ];
+export var ModifyTransitGatewayMeteringPolicy: StaticOperationSchema = [
+  9,
+  n0,
+  _MTGMP,
+  0,
+  () => ModifyTransitGatewayMeteringPolicyRequest,
+  () => ModifyTransitGatewayMeteringPolicyResult,
+];
 export var ModifyTransitGatewayPrefixListReference: StaticOperationSchema = [
   9,
   n0,
@@ -83067,6 +84203,14 @@ export var ModifyVpcBlockPublicAccessOptions: StaticOperationSchema = [
   0,
   () => ModifyVpcBlockPublicAccessOptionsRequest,
   () => ModifyVpcBlockPublicAccessOptionsResult,
+];
+export var ModifyVpcEncryptionControl: StaticOperationSchema = [
+  9,
+  n0,
+  _MVEC,
+  0,
+  () => ModifyVpcEncryptionControlRequest,
+  () => ModifyVpcEncryptionControlResult,
 ];
 export var ModifyVpcEndpoint: StaticOperationSchema = [
   9,
@@ -83527,6 +84671,14 @@ export var RestoreSnapshotTier: StaticOperationSchema = [
   0,
   () => RestoreSnapshotTierRequest,
   () => RestoreSnapshotTierResult,
+];
+export var RestoreVolumeFromRecycleBin: StaticOperationSchema = [
+  9,
+  n0,
+  _RVFRB,
+  0,
+  () => RestoreVolumeFromRecycleBinRequest,
+  () => RestoreVolumeFromRecycleBinResult,
 ];
 export var RevokeClientVpnIngress: StaticOperationSchema = [
   9,

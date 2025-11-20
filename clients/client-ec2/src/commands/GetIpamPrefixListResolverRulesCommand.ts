@@ -60,7 +60,7 @@ export interface GetIpamPrefixListResolverRulesCommandOutput
  * //       RuleType: "static-cidr" || "ipam-resource-cidr" || "ipam-pool-cidr",
  * //       StaticCidr: "STRING_VALUE",
  * //       IpamScopeId: "STRING_VALUE",
- * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni" || "anycast-ip-list",
  * //       Conditions: [ // IpamPrefixListResolverRuleConditionSet
  * //         { // IpamPrefixListResolverRuleCondition
  * //           Operation: "equals" || "not-equals" || "subnet-of",

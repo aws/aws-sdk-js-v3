@@ -2923,6 +2923,23 @@ export interface ByoipCidr {
    * @public
    */
   NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Specifies the advertisement method for the BYOIP CIDR. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>unicast</code>: IP is advertised from a single location (regional services like EC2)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>anycast</code>: IP is advertised from multiple global locations simultaneously (global services like CloudFront)</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-cloudfront.html">Bring your own IP to CloudFront using IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  AdvertisementType?: string | undefined;
 }
 
 /**
@@ -10257,37 +10274,125 @@ export interface CreateDefaultVpcRequest {
 }
 
 /**
+ * <p>Describes an exclusion configuration for VPC Encryption Control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @public
  */
 export interface VpcEncryptionControlExclusion {
+  /**
+   * <p>The current state of the exclusion configuration.</p>
+   * @public
+   */
   State?: VpcEncryptionControlExclusionState | undefined;
+
+  /**
+   * <p>A message providing additional information about the exclusion state.</p>
+   * @public
+   */
   StateMessage?: string | undefined;
 }
 
 /**
+ * <p>Describes the exclusion configurations for various resource types in VPC Encryption Control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @public
  */
 export interface VpcEncryptionControlExclusions {
+  /**
+   * <p>The exclusion configuration for internet gateway traffic.</p>
+   * @public
+   */
   InternetGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for egress-only internet gateway traffic.</p>
+   * @public
+   */
   EgressOnlyInternetGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for NAT gateway traffic.</p>
+   * @public
+   */
   NatGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for virtual private gateway traffic.</p>
+   * @public
+   */
   VirtualPrivateGateway?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for VPC peering connection traffic.</p>
+   * @public
+   */
   VpcPeering?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for Lambda function traffic.</p>
+   * @public
+   */
   Lambda?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for VPC Lattice traffic.</p>
+   * @public
+   */
   VpcLattice?: VpcEncryptionControlExclusion | undefined;
+
+  /**
+   * <p>The exclusion configuration for Elastic File System traffic.</p>
+   * @public
+   */
   ElasticFileSystem?: VpcEncryptionControlExclusion | undefined;
 }
 
 /**
+ * <p>Describes the configuration and state of VPC encryption controls.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @public
  */
 export interface VpcEncryptionControl {
+  /**
+   * <p>The ID of the VPC associated with the encryption control configuration.</p>
+   * @public
+   */
   VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC Encryption Control configuration.</p>
+   * @public
+   */
   VpcEncryptionControlId?: string | undefined;
+
+  /**
+   * <p>The encryption mode for the VPC Encryption Control configuration.</p>
+   * @public
+   */
   Mode?: VpcEncryptionControlMode | undefined;
+
+  /**
+   * <p>The current state of the VPC Encryption Control configuration.</p>
+   * @public
+   */
   State?: VpcEncryptionControlState | undefined;
+
+  /**
+   * <p>A message providing additional information about the encryption control state.</p>
+   * @public
+   */
   StateMessage?: string | undefined;
+
+  /**
+   * <p>Information about resource exclusions for the VPC Encryption Control configuration.</p>
+   * @public
+   */
   ResourceExclusions?: VpcEncryptionControlExclusions | undefined;
+
+  /**
+   * <p>The tags assigned to the VPC Encryption Control configuration.</p>
+   * @public
+   */
   Tags?: Tag[] | undefined;
 }
 
@@ -10326,7 +10431,13 @@ export interface Vpc {
    */
   IsDefault?: boolean | undefined;
 
+  /**
+   * <p>Describes the configuration and state of VPC encryption controls.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
   EncryptionControl?: VpcEncryptionControl | undefined;
+
   /**
    * <p>Any tags assigned to the VPC.</p>
    * @public

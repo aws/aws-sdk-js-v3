@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIpamDiscoveredPublicAddressesRequest, GetIpamDiscoveredPublicAddressesResult } from "../models/models_5";
+import { GetIpamDiscoveredPublicAddressesRequest, GetIpamDiscoveredPublicAddressesResult } from "../models/models_6";
 import { GetIpamDiscoveredPublicAddresses } from "../schemas/schemas_0";
 
 /**
@@ -64,8 +64,8 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput
  * //       AddressOwnerId: "STRING_VALUE",
  * //       AddressAllocationId: "STRING_VALUE",
  * //       AssociationStatus: "associated" || "disassociated",
- * //       AddressType: "service-managed-ip" || "service-managed-byoip" || "amazon-owned-eip" || "amazon-owned-contig" || "byoip" || "ec2-public-ip",
- * //       Service: "nat-gateway" || "database-migration-service" || "redshift" || "elastic-container-service" || "relational-database-service" || "site-to-site-vpn" || "load-balancer" || "global-accelerator" || "other",
+ * //       AddressType: "service-managed-ip" || "service-managed-byoip" || "amazon-owned-eip" || "amazon-owned-contig" || "byoip" || "ec2-public-ip" || "anycast-ip-list-ip",
+ * //       Service: "nat-gateway" || "database-migration-service" || "redshift" || "elastic-container-service" || "relational-database-service" || "site-to-site-vpn" || "load-balancer" || "global-accelerator" || "cloudfront" || "other",
  * //       ServiceResource: "STRING_VALUE",
  * //       VpcId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",

@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import { ModifyVpcEndpointServiceConfiguration } from "../schemas/schemas_0";
 
 /**

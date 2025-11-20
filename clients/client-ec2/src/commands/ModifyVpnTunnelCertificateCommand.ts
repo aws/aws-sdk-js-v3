@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_6";
+import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_7";
 import { ModifyVpnTunnelCertificate } from "../schemas/schemas_0";
 
 /**
@@ -115,6 +115,9 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * //               LogEnabled: true || false,
  * //               LogGroupArn: "STRING_VALUE",
  * //               LogOutputFormat: "STRING_VALUE",
+ * //               BgpLogEnabled: true || false,
+ * //               BgpLogGroupArn: "STRING_VALUE",
+ * //               BgpLogOutputFormat: "STRING_VALUE",
  * //             },
  * //           },
  * //           EnableTunnelLifecycleControl: true || false,

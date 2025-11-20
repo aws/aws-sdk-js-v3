@@ -51,7 +51,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  *   IpamScopeId: "STRING_VALUE", // required
  *   IpamPoolId: "STRING_VALUE",
  *   ResourceId: "STRING_VALUE",
- *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
+ *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni" || "anycast-ip-list",
  *   ResourceTag: { // RequestIpamResourceTag
  *     Key: "STRING_VALUE",
  *     Value: "STRING_VALUE",
@@ -72,7 +72,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceName: "STRING_VALUE",
  * //       ResourceCidr: "STRING_VALUE",
- * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni" || "anycast-ip-list",
  * //       ResourceTags: [ // IpamResourceTagList
  * //         { // IpamResourceTag
  * //           Key: "STRING_VALUE",

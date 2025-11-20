@@ -494,6 +494,14 @@ import {
   CreateTransitGatewayConnectPeerCommandOutput,
 } from "./commands/CreateTransitGatewayConnectPeerCommand";
 import {
+  CreateTransitGatewayMeteringPolicyCommandInput,
+  CreateTransitGatewayMeteringPolicyCommandOutput,
+} from "./commands/CreateTransitGatewayMeteringPolicyCommand";
+import {
+  CreateTransitGatewayMeteringPolicyEntryCommandInput,
+  CreateTransitGatewayMeteringPolicyEntryCommandOutput,
+} from "./commands/CreateTransitGatewayMeteringPolicyEntryCommand";
+import {
   CreateTransitGatewayMulticastDomainCommandInput,
   CreateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/CreateTransitGatewayMulticastDomainCommand";
@@ -547,6 +555,10 @@ import {
   CreateVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/CreateVpcBlockPublicAccessExclusionCommand";
 import { CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
+import {
+  CreateVpcEncryptionControlCommandInput,
+  CreateVpcEncryptionControlCommandOutput,
+} from "./commands/CreateVpcEncryptionControlCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import {
   CreateVpcEndpointConnectionNotificationCommandInput,
@@ -773,6 +785,14 @@ import {
   DeleteTransitGatewayConnectPeerCommandOutput,
 } from "./commands/DeleteTransitGatewayConnectPeerCommand";
 import {
+  DeleteTransitGatewayMeteringPolicyCommandInput,
+  DeleteTransitGatewayMeteringPolicyCommandOutput,
+} from "./commands/DeleteTransitGatewayMeteringPolicyCommand";
+import {
+  DeleteTransitGatewayMeteringPolicyEntryCommandInput,
+  DeleteTransitGatewayMeteringPolicyEntryCommandOutput,
+} from "./commands/DeleteTransitGatewayMeteringPolicyEntryCommand";
+import {
   DeleteTransitGatewayMulticastDomainCommandInput,
   DeleteTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DeleteTransitGatewayMulticastDomainCommand";
@@ -826,6 +846,10 @@ import {
   DeleteVpcBlockPublicAccessExclusionCommandOutput,
 } from "./commands/DeleteVpcBlockPublicAccessExclusionCommand";
 import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
+import {
+  DeleteVpcEncryptionControlCommandInput,
+  DeleteVpcEncryptionControlCommandOutput,
+} from "./commands/DeleteVpcEncryptionControlCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
   DeleteVpcEndpointConnectionNotificationsCommandOutput,
@@ -1403,6 +1427,10 @@ import {
   DescribeTransitGatewayConnectsCommandOutput,
 } from "./commands/DescribeTransitGatewayConnectsCommand";
 import {
+  DescribeTransitGatewayMeteringPoliciesCommandInput,
+  DescribeTransitGatewayMeteringPoliciesCommandOutput,
+} from "./commands/DescribeTransitGatewayMeteringPoliciesCommand";
+import {
   DescribeTransitGatewayMulticastDomainsCommandInput,
   DescribeTransitGatewayMulticastDomainsCommandOutput,
 } from "./commands/DescribeTransitGatewayMulticastDomainsCommand";
@@ -1487,6 +1515,10 @@ import {
   DescribeVpcClassicLinkDnsSupportCommandInput,
   DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand";
+import {
+  DescribeVpcEncryptionControlsCommandInput,
+  DescribeVpcEncryptionControlsCommandOutput,
+} from "./commands/DescribeVpcEncryptionControlsCommand";
 import {
   DescribeVpcEndpointAssociationsCommandInput,
   DescribeVpcEndpointAssociationsCommandOutput,
@@ -1996,6 +2028,10 @@ import {
   GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand";
 import {
+  GetTransitGatewayMeteringPolicyEntriesCommandInput,
+  GetTransitGatewayMeteringPolicyEntriesCommandOutput,
+} from "./commands/GetTransitGatewayMeteringPolicyEntriesCommand";
+import {
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand";
@@ -2032,6 +2068,10 @@ import {
   GetVerifiedAccessGroupPolicyCommandOutput,
 } from "./commands/GetVerifiedAccessGroupPolicyCommand";
 import {
+  GetVpcResourcesBlockingEncryptionEnforcementCommandInput,
+  GetVpcResourcesBlockingEncryptionEnforcementCommandOutput,
+} from "./commands/GetVpcResourcesBlockingEncryptionEnforcementCommand";
+import {
   GetVpnConnectionDeviceSampleConfigurationCommandInput,
   GetVpnConnectionDeviceSampleConfigurationCommandOutput,
 } from "./commands/GetVpnConnectionDeviceSampleConfigurationCommand";
@@ -2060,6 +2100,10 @@ import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
+import {
+  ListVolumesInRecycleBinCommandInput,
+  ListVolumesInRecycleBinCommandOutput,
+} from "./commands/ListVolumesInRecycleBinCommand";
 import { LockSnapshotCommandInput, LockSnapshotCommandOutput } from "./commands/LockSnapshotCommand";
 import {
   ModifyAddressAttributeCommandInput,
@@ -2238,6 +2282,10 @@ import {
   ModifyTransitGatewayCommandOutput,
 } from "./commands/ModifyTransitGatewayCommand";
 import {
+  ModifyTransitGatewayMeteringPolicyCommandInput,
+  ModifyTransitGatewayMeteringPolicyCommandOutput,
+} from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
+import {
   ModifyTransitGatewayPrefixListReferenceCommandInput,
   ModifyTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/ModifyTransitGatewayPrefixListReferenceCommand";
@@ -2287,6 +2335,10 @@ import {
   ModifyVpcBlockPublicAccessOptionsCommandInput,
   ModifyVpcBlockPublicAccessOptionsCommandOutput,
 } from "./commands/ModifyVpcBlockPublicAccessOptionsCommand";
+import {
+  ModifyVpcEncryptionControlCommandInput,
+  ModifyVpcEncryptionControlCommandOutput,
+} from "./commands/ModifyVpcEncryptionControlCommand";
 import { ModifyVpcEndpointCommandInput, ModifyVpcEndpointCommandOutput } from "./commands/ModifyVpcEndpointCommand";
 import {
   ModifyVpcEndpointConnectionNotificationCommandInput,
@@ -2495,6 +2547,10 @@ import {
   RestoreSnapshotTierCommandInput,
   RestoreSnapshotTierCommandOutput,
 } from "./commands/RestoreSnapshotTierCommand";
+import {
+  RestoreVolumeFromRecycleBinCommandInput,
+  RestoreVolumeFromRecycleBinCommandOutput,
+} from "./commands/RestoreVolumeFromRecycleBinCommand";
 import {
   RevokeClientVpnIngressCommandInput,
   RevokeClientVpnIngressCommandOutput,
@@ -2729,6 +2785,8 @@ export type ServiceInputTypes =
   | CreateTransitGatewayCommandInput
   | CreateTransitGatewayConnectCommandInput
   | CreateTransitGatewayConnectPeerCommandInput
+  | CreateTransitGatewayMeteringPolicyCommandInput
+  | CreateTransitGatewayMeteringPolicyEntryCommandInput
   | CreateTransitGatewayMulticastDomainCommandInput
   | CreateTransitGatewayPeeringAttachmentCommandInput
   | CreateTransitGatewayPolicyTableCommandInput
@@ -2744,6 +2802,7 @@ export type ServiceInputTypes =
   | CreateVolumeCommandInput
   | CreateVpcBlockPublicAccessExclusionCommandInput
   | CreateVpcCommandInput
+  | CreateVpcEncryptionControlCommandInput
   | CreateVpcEndpointCommandInput
   | CreateVpcEndpointConnectionNotificationCommandInput
   | CreateVpcEndpointServiceConfigurationCommandInput
@@ -2816,6 +2875,8 @@ export type ServiceInputTypes =
   | DeleteTransitGatewayCommandInput
   | DeleteTransitGatewayConnectCommandInput
   | DeleteTransitGatewayConnectPeerCommandInput
+  | DeleteTransitGatewayMeteringPolicyCommandInput
+  | DeleteTransitGatewayMeteringPolicyEntryCommandInput
   | DeleteTransitGatewayMulticastDomainCommandInput
   | DeleteTransitGatewayPeeringAttachmentCommandInput
   | DeleteTransitGatewayPolicyTableCommandInput
@@ -2831,6 +2892,7 @@ export type ServiceInputTypes =
   | DeleteVolumeCommandInput
   | DeleteVpcBlockPublicAccessExclusionCommandInput
   | DeleteVpcCommandInput
+  | DeleteVpcEncryptionControlCommandInput
   | DeleteVpcEndpointConnectionNotificationsCommandInput
   | DeleteVpcEndpointServiceConfigurationsCommandInput
   | DeleteVpcEndpointsCommandInput
@@ -2993,6 +3055,7 @@ export type ServiceInputTypes =
   | DescribeTransitGatewayAttachmentsCommandInput
   | DescribeTransitGatewayConnectPeersCommandInput
   | DescribeTransitGatewayConnectsCommandInput
+  | DescribeTransitGatewayMeteringPoliciesCommandInput
   | DescribeTransitGatewayMulticastDomainsCommandInput
   | DescribeTransitGatewayPeeringAttachmentsCommandInput
   | DescribeTransitGatewayPolicyTablesCommandInput
@@ -3015,6 +3078,7 @@ export type ServiceInputTypes =
   | DescribeVpcBlockPublicAccessOptionsCommandInput
   | DescribeVpcClassicLinkCommandInput
   | DescribeVpcClassicLinkDnsSupportCommandInput
+  | DescribeVpcEncryptionControlsCommandInput
   | DescribeVpcEndpointAssociationsCommandInput
   | DescribeVpcEndpointConnectionNotificationsCommandInput
   | DescribeVpcEndpointConnectionsCommandInput
@@ -3154,6 +3218,7 @@ export type ServiceInputTypes =
   | GetSpotPlacementScoresCommandInput
   | GetSubnetCidrReservationsCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
+  | GetTransitGatewayMeteringPolicyEntriesCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
   | GetTransitGatewayPolicyTableAssociationsCommandInput
   | GetTransitGatewayPolicyTableEntriesCommandInput
@@ -3163,6 +3228,7 @@ export type ServiceInputTypes =
   | GetVerifiedAccessEndpointPolicyCommandInput
   | GetVerifiedAccessEndpointTargetsCommandInput
   | GetVerifiedAccessGroupPolicyCommandInput
+  | GetVpcResourcesBlockingEncryptionEnforcementCommandInput
   | GetVpnConnectionDeviceSampleConfigurationCommandInput
   | GetVpnConnectionDeviceTypesCommandInput
   | GetVpnTunnelReplacementStatusCommandInput
@@ -3174,6 +3240,7 @@ export type ServiceInputTypes =
   | ImportVolumeCommandInput
   | ListImagesInRecycleBinCommandInput
   | ListSnapshotsInRecycleBinCommandInput
+  | ListVolumesInRecycleBinCommandInput
   | LockSnapshotCommandInput
   | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
@@ -3225,6 +3292,7 @@ export type ServiceInputTypes =
   | ModifyTrafficMirrorFilterRuleCommandInput
   | ModifyTrafficMirrorSessionCommandInput
   | ModifyTransitGatewayCommandInput
+  | ModifyTransitGatewayMeteringPolicyCommandInput
   | ModifyTransitGatewayPrefixListReferenceCommandInput
   | ModifyTransitGatewayVpcAttachmentCommandInput
   | ModifyVerifiedAccessEndpointCommandInput
@@ -3239,6 +3307,7 @@ export type ServiceInputTypes =
   | ModifyVpcAttributeCommandInput
   | ModifyVpcBlockPublicAccessExclusionCommandInput
   | ModifyVpcBlockPublicAccessOptionsCommandInput
+  | ModifyVpcEncryptionControlCommandInput
   | ModifyVpcEndpointCommandInput
   | ModifyVpcEndpointConnectionNotificationCommandInput
   | ModifyVpcEndpointServiceConfigurationCommandInput
@@ -3300,6 +3369,7 @@ export type ServiceInputTypes =
   | RestoreManagedPrefixListVersionCommandInput
   | RestoreSnapshotFromRecycleBinCommandInput
   | RestoreSnapshotTierCommandInput
+  | RestoreVolumeFromRecycleBinCommandInput
   | RevokeClientVpnIngressCommandInput
   | RevokeSecurityGroupEgressCommandInput
   | RevokeSecurityGroupIngressCommandInput
@@ -3467,6 +3537,8 @@ export type ServiceOutputTypes =
   | CreateTransitGatewayCommandOutput
   | CreateTransitGatewayConnectCommandOutput
   | CreateTransitGatewayConnectPeerCommandOutput
+  | CreateTransitGatewayMeteringPolicyCommandOutput
+  | CreateTransitGatewayMeteringPolicyEntryCommandOutput
   | CreateTransitGatewayMulticastDomainCommandOutput
   | CreateTransitGatewayPeeringAttachmentCommandOutput
   | CreateTransitGatewayPolicyTableCommandOutput
@@ -3482,6 +3554,7 @@ export type ServiceOutputTypes =
   | CreateVolumeCommandOutput
   | CreateVpcBlockPublicAccessExclusionCommandOutput
   | CreateVpcCommandOutput
+  | CreateVpcEncryptionControlCommandOutput
   | CreateVpcEndpointCommandOutput
   | CreateVpcEndpointConnectionNotificationCommandOutput
   | CreateVpcEndpointServiceConfigurationCommandOutput
@@ -3554,6 +3627,8 @@ export type ServiceOutputTypes =
   | DeleteTransitGatewayCommandOutput
   | DeleteTransitGatewayConnectCommandOutput
   | DeleteTransitGatewayConnectPeerCommandOutput
+  | DeleteTransitGatewayMeteringPolicyCommandOutput
+  | DeleteTransitGatewayMeteringPolicyEntryCommandOutput
   | DeleteTransitGatewayMulticastDomainCommandOutput
   | DeleteTransitGatewayPeeringAttachmentCommandOutput
   | DeleteTransitGatewayPolicyTableCommandOutput
@@ -3569,6 +3644,7 @@ export type ServiceOutputTypes =
   | DeleteVolumeCommandOutput
   | DeleteVpcBlockPublicAccessExclusionCommandOutput
   | DeleteVpcCommandOutput
+  | DeleteVpcEncryptionControlCommandOutput
   | DeleteVpcEndpointConnectionNotificationsCommandOutput
   | DeleteVpcEndpointServiceConfigurationsCommandOutput
   | DeleteVpcEndpointsCommandOutput
@@ -3731,6 +3807,7 @@ export type ServiceOutputTypes =
   | DescribeTransitGatewayAttachmentsCommandOutput
   | DescribeTransitGatewayConnectPeersCommandOutput
   | DescribeTransitGatewayConnectsCommandOutput
+  | DescribeTransitGatewayMeteringPoliciesCommandOutput
   | DescribeTransitGatewayMulticastDomainsCommandOutput
   | DescribeTransitGatewayPeeringAttachmentsCommandOutput
   | DescribeTransitGatewayPolicyTablesCommandOutput
@@ -3753,6 +3830,7 @@ export type ServiceOutputTypes =
   | DescribeVpcBlockPublicAccessOptionsCommandOutput
   | DescribeVpcClassicLinkCommandOutput
   | DescribeVpcClassicLinkDnsSupportCommandOutput
+  | DescribeVpcEncryptionControlsCommandOutput
   | DescribeVpcEndpointAssociationsCommandOutput
   | DescribeVpcEndpointConnectionNotificationsCommandOutput
   | DescribeVpcEndpointConnectionsCommandOutput
@@ -3892,6 +3970,7 @@ export type ServiceOutputTypes =
   | GetSpotPlacementScoresCommandOutput
   | GetSubnetCidrReservationsCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
+  | GetTransitGatewayMeteringPolicyEntriesCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
   | GetTransitGatewayPolicyTableAssociationsCommandOutput
   | GetTransitGatewayPolicyTableEntriesCommandOutput
@@ -3901,6 +3980,7 @@ export type ServiceOutputTypes =
   | GetVerifiedAccessEndpointPolicyCommandOutput
   | GetVerifiedAccessEndpointTargetsCommandOutput
   | GetVerifiedAccessGroupPolicyCommandOutput
+  | GetVpcResourcesBlockingEncryptionEnforcementCommandOutput
   | GetVpnConnectionDeviceSampleConfigurationCommandOutput
   | GetVpnConnectionDeviceTypesCommandOutput
   | GetVpnTunnelReplacementStatusCommandOutput
@@ -3912,6 +3992,7 @@ export type ServiceOutputTypes =
   | ImportVolumeCommandOutput
   | ListImagesInRecycleBinCommandOutput
   | ListSnapshotsInRecycleBinCommandOutput
+  | ListVolumesInRecycleBinCommandOutput
   | LockSnapshotCommandOutput
   | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
@@ -3963,6 +4044,7 @@ export type ServiceOutputTypes =
   | ModifyTrafficMirrorFilterRuleCommandOutput
   | ModifyTrafficMirrorSessionCommandOutput
   | ModifyTransitGatewayCommandOutput
+  | ModifyTransitGatewayMeteringPolicyCommandOutput
   | ModifyTransitGatewayPrefixListReferenceCommandOutput
   | ModifyTransitGatewayVpcAttachmentCommandOutput
   | ModifyVerifiedAccessEndpointCommandOutput
@@ -3977,6 +4059,7 @@ export type ServiceOutputTypes =
   | ModifyVpcAttributeCommandOutput
   | ModifyVpcBlockPublicAccessExclusionCommandOutput
   | ModifyVpcBlockPublicAccessOptionsCommandOutput
+  | ModifyVpcEncryptionControlCommandOutput
   | ModifyVpcEndpointCommandOutput
   | ModifyVpcEndpointConnectionNotificationCommandOutput
   | ModifyVpcEndpointServiceConfigurationCommandOutput
@@ -4038,6 +4121,7 @@ export type ServiceOutputTypes =
   | RestoreManagedPrefixListVersionCommandOutput
   | RestoreSnapshotFromRecycleBinCommandOutput
   | RestoreSnapshotTierCommandOutput
+  | RestoreVolumeFromRecycleBinCommandOutput
   | RevokeClientVpnIngressCommandOutput
   | RevokeSecurityGroupEgressCommandOutput
   | RevokeSecurityGroupIngressCommandOutput

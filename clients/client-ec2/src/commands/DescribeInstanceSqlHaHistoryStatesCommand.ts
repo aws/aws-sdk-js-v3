@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeInstanceSqlHaHistoryStatesRequest,
   DescribeInstanceSqlHaHistoryStatesResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import { DescribeInstanceSqlHaHistoryStates } from "../schemas/schemas_0";
 
 /**

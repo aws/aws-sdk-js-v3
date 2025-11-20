@@ -16,6 +16,7 @@ import {
   DefaultRouteTablePropagationValue,
   DiskImageFormat,
   DnsSupportValue,
+  EncryptionSupportOptionValue,
   EndDateType,
   ExcessCapacityTerminationPolicy,
   FleetExcessCapacityTerminationPolicy,
@@ -33,16 +34,19 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceRebootMigrationState,
-  InternetGatewayBlockMode,
-  InternetGatewayExclusionMode,
   IpAddressType,
   IpamComplianceStatus,
   IpamManagementState,
   IpamMeteredAccount,
+  IpamNetworkInterfaceAttachmentStatus,
   IpamOverlapStatus,
   IpamPolicyResourceType,
   IpamPrefixListResolverRuleConditionOperation,
   IpamPrefixListResolverRuleType,
+  IpamPublicAddressAssociationStatus,
+  IpamPublicAddressAwsService,
+  IpamPublicAddressType,
+  IpamResourceCidrIpSource,
   IpamResourceType,
   IpamTier,
   Ipv6SupportValue,
@@ -52,7 +56,6 @@ import {
   MetadataDefaultHttpTokensState,
   ModifyAvailabilityZoneOptInStatus,
   OperationType,
-  PayerResponsibility,
   PermissionGroup,
   PlatformValues,
   PublicIpDnsOption,
@@ -78,14 +81,13 @@ import {
   UnsuccessfulInstanceCreditSpecificationErrorCode,
   VerifiedAccessEndpointProtocol,
   VirtualizationType,
+  VolumeState,
   VolumeType,
-  VpcTenancy,
   VpnEcmpSupportValue,
 } from "./enums";
 
 import {
   AccessScopeAnalysisFinding,
-  AddedPrincipal,
   AddIpamOperatingRegion,
   AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
@@ -97,6 +99,8 @@ import {
   ConnectionLogOptions,
   EnaSrdSpecification,
   InstanceEventWindow,
+  IpamPoolAllocation,
+  OperatorResponse,
   RouteServerAssociation,
   SubnetAssociation,
   Tag,
@@ -137,28 +141,18 @@ import {
 } from "./models_1";
 
 import {
-  DnsOptionsSpecification,
-  IKEVersionsRequestListValue,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
   SubnetCidrReservation,
-  SubnetConfiguration,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TransitGateway,
+  TransitGatewayMeteringPolicy,
+  TransitGatewayMeteringPolicyEntry,
   TransitGatewayPrefixListReference,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
-  VpcBlockPublicAccessExclusion,
-  VpnConnection,
-  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 
 import {
@@ -168,7 +162,6 @@ import {
   FpgaImageAttribute,
   ImportImageLicenseConfigurationResponse,
   InstanceMetadataOptionsResponse,
-  InstanceStatusEvent,
   IpamPoolCidr,
   LaunchPermission,
   SnapshotDetail,
@@ -177,18 +170,763 @@ import {
 
 import {
   CreateVolumePermission,
+  InstanceStatusEvent,
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
   VerifiedAccessInstanceLoggingConfiguration,
-  VolumeModification,
 } from "./models_4";
 
 import {
   InstanceFamilyCreditSpecification,
-  IpamPolicyDocument,
+  IpamDiscoveryFailureReason,
   RouteServerPropagation,
-  VpcBlockPublicAccessOptions,
+  VolumeModification,
 } from "./models_5";
+
+/**
+ * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
+ * @public
+ */
+export interface IpamDiscoveredAccount {
+  /**
+   * <p>The account ID.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.
+   *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
+   * @public
+   */
+  DiscoveryRegion?: string | undefined;
+
+  /**
+   * <p>The resource discovery failure reason.</p>
+   * @public
+   */
+  FailureReason?: IpamDiscoveryFailureReason | undefined;
+
+  /**
+   * <p>The last attempted resource discovery time.</p>
+   * @public
+   */
+  LastAttemptedDiscoveryTime?: Date | undefined;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   * @public
+   */
+  LastSuccessfulDiscoveryTime?: Date | undefined;
+
+  /**
+   * <p>The ID of an Organizational Unit in Amazon Web Services Organizations.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredAccountsResult {
+  /**
+   * <p>Discovered accounts.</p>
+   * @public
+   */
+  IpamDiscoveredAccounts?: IpamDiscoveredAccount[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredPublicAddressesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>An IPAM resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region for the IP address.</p>
+   * @public
+   */
+  AddressRegion: string | undefined;
+
+  /**
+   * <p>Filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The security group that the resource with the public IP address is in.</p>
+ * @public
+ */
+export interface IpamPublicAddressSecurityGroup {
+  /**
+   * <p>The security group's name.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The security group's ID.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+}
+
+/**
+ * <p>A tag for a public IP address discovered by IPAM.</p>
+ * @public
+ */
+export interface IpamPublicAddressTag {
+  /**
+   * <p>The tag's key.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Tags for a public IP address discovered by IPAM.</p>
+ * @public
+ */
+export interface IpamPublicAddressTags {
+  /**
+   * <p>Tags for an Elastic IP address.</p>
+   * @public
+   */
+  EipTags?: IpamPublicAddressTag[] | undefined;
+}
+
+/**
+ * <p>A public IP Address discovered by IPAM.</p>
+ * @public
+ */
+export interface IpamDiscoveredPublicAddress {
+  /**
+   * <p>The resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId?: string | undefined;
+
+  /**
+   * <p>The Region of the resource the IP address is assigned to.</p>
+   * @public
+   */
+  AddressRegion?: string | undefined;
+
+  /**
+   * <p>The IP address.</p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p>The ID of the owner of the resource the IP address is assigned to.</p>
+   * @public
+   */
+  AddressOwnerId?: string | undefined;
+
+  /**
+   * <p>The allocation ID of the resource the IP address is assigned to.</p>
+   * @public
+   */
+  AddressAllocationId?: string | undefined;
+
+  /**
+   * <p>The association status.</p>
+   * @public
+   */
+  AssociationStatus?: IpamPublicAddressAssociationStatus | undefined;
+
+  /**
+   * <p>The IP address type.</p>
+   * @public
+   */
+  AddressType?: IpamPublicAddressType | undefined;
+
+  /**
+   * <p>The Amazon Web Services service associated with the IP address.</p>
+   * @public
+   */
+  Service?: IpamPublicAddressAwsService | undefined;
+
+  /**
+   * <p>The resource ARN or ID.</p>
+   * @public
+   */
+  ServiceResource?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC that the resource with the assigned IP address is in.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet that the resource with the assigned IP address is in.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the public IPv4 pool that the resource with the assigned IP address is from.</p>
+   * @public
+   */
+  PublicIpv4PoolId?: string | undefined;
+
+  /**
+   * <p>The network interface ID of the resource with the assigned IP address.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The description of the network interface that IP address is assigned to.</p>
+   * @public
+   */
+  NetworkInterfaceDescription?: string | undefined;
+
+  /**
+   * <p>The instance ID of the instance the assigned IP address is assigned to.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>Tags associated with the IP address.</p>
+   * @public
+   */
+  Tags?: IpamPublicAddressTags | undefined;
+
+  /**
+   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>Security groups associated with the resource that the IP address is assigned to.</p>
+   * @public
+   */
+  SecurityGroups?: IpamPublicAddressSecurityGroup[] | undefined;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   * @public
+   */
+  SampleTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredPublicAddressesResult {
+  /**
+   * <p>IPAM discovered public addresses.</p>
+   * @public
+   */
+  IpamDiscoveredPublicAddresses?: IpamDiscoveredPublicAddress[] | undefined;
+
+  /**
+   * <p>The oldest successful resource discovery time.</p>
+   * @public
+   */
+  OldestSampleTime?: Date | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredResourceCidrsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>A resource Region.</p>
+   * @public
+   */
+  ResourceRegion: string | undefined;
+
+  /**
+   * <p>Filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
+ * @public
+ */
+export interface IpamDiscoveredResourceCidr {
+  /**
+   * <p>The resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId?: string | undefined;
+
+  /**
+   * <p>The resource Region.</p>
+   * @public
+   */
+  ResourceRegion?: string | undefined;
+
+  /**
+   * <p>The resource ID.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource owner ID.</p>
+   * @public
+   */
+  ResourceOwnerId?: string | undefined;
+
+  /**
+   * <p>The resource CIDR.</p>
+   * @public
+   */
+  ResourceCidr?: string | undefined;
+
+  /**
+   * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
+   * @public
+   */
+  IpSource?: IpamResourceCidrIpSource | undefined;
+
+  /**
+   * <p>The resource type.</p>
+   * @public
+   */
+  ResourceType?: IpamResourceType | undefined;
+
+  /**
+   * <p>The resource tags.</p>
+   * @public
+   */
+  ResourceTags?: IpamResourceTag[] | undefined;
+
+  /**
+   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
+   *          </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IpUsage?: number | undefined;
+
+  /**
+   * <p>The VPC ID.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The subnet ID.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>For elastic network interfaces, this is the status of whether or not the elastic network interface is attached.</p>
+   * @public
+   */
+  NetworkInterfaceAttachmentStatus?: IpamNetworkInterfaceAttachmentStatus | undefined;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   * @public
+   */
+  SampleTime?: Date | undefined;
+
+  /**
+   * <p>The Availability Zone ID.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredResourceCidrsResult {
+  /**
+   * <p>Discovered resource CIDRs.</p>
+   * @public
+   */
+  IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyAllocationRulesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy for which to get allocation rules.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>One or more filters for the allocation rules.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The locale for which to get the allocation rules.</p>
+   * @public
+   */
+  Locale?: string | undefined;
+
+  /**
+   * <p>The resource type for which to get the allocation rules.</p>
+   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Elastic IP addresses</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: IpamPolicyResourceType | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about an IPAM policy allocation rule.</p>
+ *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+ * @public
+ */
+export interface IpamPolicyAllocationRule {
+  /**
+   * <p>The ID of the source IPAM pool for the allocation rule.</p>
+   *          <p>An IPAM pool is a collection of IP addresses in IPAM that can be allocated to Amazon Web Services resources.</p>
+   * @public
+   */
+  SourceIpamPoolId?: string | undefined;
+}
+
+/**
+ * <p>Information about an IPAM policy.</p>
+ * @public
+ */
+export interface IpamPolicyDocument {
+  /**
+   * <p>The ID of the IPAM policy.</p>
+   * @public
+   */
+  IpamPolicyId?: string | undefined;
+
+  /**
+   * <p>The locale of the IPAM policy document.</p>
+   * @public
+   */
+  Locale?: string | undefined;
+
+  /**
+   * <p>The resource type of the IPAM policy document.</p>
+   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Elastic IP addresses</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: IpamPolicyResourceType | undefined;
+
+  /**
+   * <p>The allocation rules in the IPAM policy document.</p>
+   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+   * @public
+   */
+  AllocationRules?: IpamPolicyAllocationRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyAllocationRulesResult {
+  /**
+   * <p>The IPAM policy documents containing the allocation rules.</p>
+   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+   * @public
+   */
+  IpamPolicyDocuments?: IpamPolicyDocument[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyOrganizationTargetsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy for which to get Amazon Web Services Organizations targets.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>One or more filters for the Amazon Web Services Organizations targets.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>The Amazon Web Services Organizations target for an IPAM policy.</p>
+ * @public
+ */
+export interface IpamPolicyOrganizationTarget {
+  /**
+   * <p>The ID of a Amazon Web Services Organizations target for an IPAM policy.</p>
+   * @public
+   */
+  OrganizationTargetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPolicyOrganizationTargetsResult {
+  /**
+   * <p>The Amazon Web Services Organizations targets for an IPAM policy.</p>
+   * @public
+   */
+  OrganizationTargets?: IpamPolicyOrganizationTarget[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPoolAllocationsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool you want to see the allocations for.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the allocation.</p>
+   * @public
+   */
+  IpamPoolAllocationId?: string | undefined;
+
+  /**
+   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results you would like returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPoolAllocationsResult {
+  /**
+   * <p>The IPAM pool allocations you want information on.</p>
+   * @public
+   */
+  IpamPoolAllocations?: IpamPoolAllocation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPoolCidrsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool you want the CIDR for.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -2050,6 +2788,61 @@ export interface GetTransitGatewayAttachmentPropagationsResult {
 /**
  * @public
  */
+export interface GetTransitGatewayMeteringPolicyEntriesRequest {
+  /**
+   * <p>The ID of the transit gateway metering policy to retrieve entries for.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId: string | undefined;
+
+  /**
+   * <p>One or more filters to apply when retrieving metering policy entries.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTransitGatewayMeteringPolicyEntriesResult {
+  /**
+   * <p>Information about the transit gateway metering policy entries.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyEntries?: TransitGatewayMeteringPolicyEntry[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTransitGatewayMulticastDomainAssociationsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -2788,6 +3581,87 @@ export interface GetVerifiedAccessGroupPolicyResult {
    * @public
    */
   PolicyDocument?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcResourcesBlockingEncryptionEnforcementRequest {
+  /**
+   * <p>The ID of the VPC to check for resources blocking encryption enforcement.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a resource that is not compliant with VPC encryption requirements.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcEncryptionNonCompliantResource {
+  /**
+   * <p>The ID of the non-compliant resource.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of the non-compliant resource.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>A description of the non-compliant resource.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the resource can be excluded from encryption enforcement.</p>
+   * @public
+   */
+  IsExcludable?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcResourcesBlockingEncryptionEnforcementResult {
+  /**
+   * <p>Information about resources that are blocking encryption enforcement.</p>
+   * @public
+   */
+  NonCompliantResources?: VpcEncryptionNonCompliantResource[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4050,6 +4924,157 @@ export interface ListSnapshotsInRecycleBinResult {
    * @public
    */
   Snapshots?: SnapshotRecycleBinInfo[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVolumesInRecycleBinRequest {
+  /**
+   * <p>The IDs of the volumes to list. Omit this parameter to list all of the
+   *       volumes that are in the Recycle Bin.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>Valid range: 5 - 500</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a volume that is currently in the Recycle Bin.</p>
+ * @public
+ */
+export interface VolumeRecycleBinInfo {
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The volume type.</p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The state of the volume.</p>
+   * @public
+   */
+  State?: VolumeState | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) for the volume.</p>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>The throughput that the volume supports, in MiB/s.</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>The ARN of the Outpost on which the volume is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-outposts.html">Amazon EBS volumes on Outposts</a> in the
+   *       <i>Amazon EBS User Guide</i>.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the source volume.</p>
+   * @public
+   */
+  SourceVolumeId?: string | undefined;
+
+  /**
+   * <p>The snapshot from which the volume was created, if applicable.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The service provider that manages the volume.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The time stamp when volume creation was initiated.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the volume entered the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinEnterTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the volume is to be permanently deleted from the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinExitTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVolumesInRecycleBinResult {
+  /**
+   * <p>Information about the volumes.</p>
+   * @public
+   */
+  Volumes?: VolumeRecycleBinInfo[] | undefined;
 
   /**
    * <p>The token to include in another request to get the next page of items.
@@ -8036,6 +9061,12 @@ export interface ModifyTransitGatewayOptions {
    * @public
    */
   AmazonSideAsn?: number | undefined;
+
+  /**
+   * <p>Enable or disable encryption support for VPC Encryption Control.</p>
+   * @public
+   */
+  EncryptionSupport?: EncryptionSupportOptionValue | undefined;
 }
 
 /**
@@ -8078,6 +9109,48 @@ export interface ModifyTransitGatewayResult {
    * @public
    */
   TransitGateway?: TransitGateway | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayMeteringPolicyRequest {
+  /**
+   * <p>The ID of the transit gateway metering policy to modify.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicyId: string | undefined;
+
+  /**
+   * <p>The IDs of middlebox attachments to add to the metering policy.</p>
+   * @public
+   */
+  AddMiddleboxAttachmentIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of middlebox attachments to remove from the metering policy.</p>
+   * @public
+   */
+  RemoveMiddleboxAttachmentIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayMeteringPolicyResult {
+  /**
+   * <p>Information about the modified transit gateway metering policy.</p>
+   * @public
+   */
+  TransitGatewayMeteringPolicy?: TransitGatewayMeteringPolicy | undefined;
 }
 
 /**
@@ -9097,1060 +10170,6 @@ export interface ModifyVolumeAttributeRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcAttributeRequest {
-  /**
-   * <p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.</p>
-   *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.</p>
-   * @public
-   */
-  EnableDnsHostnames?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to
-   * 			the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP
-   * 			address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon
-   * 			provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is
-   * 			not enabled.</p>
-   *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>
-   * @public
-   */
-  EnableDnsSupport?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
-   * @public
-   */
-  EnableNetworkAddressUsageMetrics?: AttributeBooleanValue | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcBlockPublicAccessExclusionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of an exclusion.</p>
-   * @public
-   */
-  ExclusionId: string | undefined;
-
-  /**
-   * <p>The exclusion mode for internet gateway traffic.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InternetGatewayExclusionMode: InternetGatewayExclusionMode | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcBlockPublicAccessExclusionResult {
-  /**
-   * <p>Details related to the exclusion.</p>
-   * @public
-   */
-  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcBlockPublicAccessOptionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The mode of VPC BPA.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InternetGatewayBlockMode: InternetGatewayBlockMode | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcBlockPublicAccessOptionsResult {
-  /**
-   * <p>Details related to the VPC Block Public Access (BPA) options.</p>
-   * @public
-   */
-  VpcBlockPublicAccessOptions?: VpcBlockPublicAccessOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the endpoint.</p>
-   * @public
-   */
-  VpcEndpointId: string | undefined;
-
-  /**
-   * <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the
-   *             default policy. The default policy allows full access to the service.</p>
-   * @public
-   */
-  ResetPolicy?: boolean | undefined;
-
-  /**
-   * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must
-   *             be in valid JSON format.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</p>
-   * @public
-   */
-  AddRouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</p>
-   * @public
-   */
-  RemoveRouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to serve the endpoint.
-   *             For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
-   * @public
-   */
-  AddSubnetIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</p>
-   * @public
-   */
-  RemoveSubnetIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>
-   * @public
-   */
-  AddSecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>
-   * @public
-   */
-  RemoveSecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address type for the endpoint.</p>
-   * @public
-   */
-  IpAddressType?: IpAddressType | undefined;
-
-  /**
-   * <p>The DNS options for the endpoint.</p>
-   * @public
-   */
-  DnsOptions?: DnsOptionsSpecification | undefined;
-
-  /**
-   * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>
-   * @public
-   */
-  PrivateDnsEnabled?: boolean | undefined;
-
-  /**
-   * <p>The subnet configurations for the endpoint.</p>
-   * @public
-   */
-  SubnetConfigurations?: SubnetConfiguration[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointConnectionNotificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the notification.</p>
-   * @public
-   */
-  ConnectionNotificationId: string | undefined;
-
-  /**
-   * <p>The ARN for the SNS topic for the notification.</p>
-   * @public
-   */
-  ConnectionNotificationArn?: string | undefined;
-
-  /**
-   * <p>The events for the endpoint. Valid values are <code>Accept</code>,
-   *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
-   * @public
-   */
-  ConnectionEvents?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointConnectionNotificationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServiceConfigurationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
-   * @public
-   */
-  RemovePrivateDnsName?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether requests to create an endpoint to the service must be accepted.</p>
-   * @public
-   */
-  AcceptanceRequired?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to the service
-   *             configuration.</p>
-   * @public
-   */
-  AddNetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from the service
-   *             configuration.</p>
-   * @public
-   */
-  RemoveNetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to the service configuration.</p>
-   * @public
-   */
-  AddGatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from the service configuration.</p>
-   * @public
-   */
-  RemoveGatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The IP address types to add to the service configuration.</p>
-   * @public
-   */
-  AddSupportedIpAddressTypes?: string[] | undefined;
-
-  /**
-   * <p>The IP address types to remove from the service configuration.</p>
-   * @public
-   */
-  RemoveSupportedIpAddressTypes?: string[] | undefined;
-
-  /**
-   * <p>The supported Regions to add to the service configuration.</p>
-   * @public
-   */
-  AddSupportedRegions?: string[] | undefined;
-
-  /**
-   * <p>The supported Regions to remove from the service configuration.</p>
-   * @public
-   */
-  RemoveSupportedRegions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServiceConfigurationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.
-   *             If you set the payer responsibility to the service owner, you cannot set it back to the
-   *             endpoint owner.</p>
-   * @public
-   */
-  PayerResponsibility: PayerResponsibility | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePayerResponsibilityResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePermissionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the principals.
-   * 	        Permissions are granted to the principals in this list.
-   * 	        To grant permissions to all principals, specify an asterisk (*).</p>
-   * @public
-   */
-  AddAllowedPrincipals?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the principals.
-   * 	        Permissions are revoked for principals in this list.</p>
-   * @public
-   */
-  RemoveAllowedPrincipals?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServicePermissionsResult {
-  /**
-   * <p>Information about the added principals.</p>
-   * @public
-   */
-  AddedPrincipals?: AddedPrincipal[] | undefined;
-
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * <p>The VPC peering connection options.</p>
- * @public
- */
-export interface PeeringConnectionOptionsRequest {
-  /**
-   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
-   *         when queried from instances in the peer VPC.</p>
-   * @public
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcPeeringConnectionOptionsRequest {
-  /**
-   * <p>The VPC peering connection options for the accepter VPC.</p>
-   * @public
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The VPC peering connection options for the requester VPC.</p>
-   * @public
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest | undefined;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-/**
- * <p>Describes the VPC peering connection options.</p>
- * @public
- */
-export interface PeeringConnectionOptions {
-  /**
-   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
-   *             IP addresses when queried from instances in the peer VPC.</p>
-   * @public
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcPeeringConnectionOptionsResult {
-  /**
-   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
-   * @public
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
-
-  /**
-   * <p>Information about the VPC peering connection options for the requester VPC.</p>
-   * @public
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcTenancyRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The instance tenancy attribute for the VPC. </p>
-   * @public
-   */
-  InstanceTenancy: VpcTenancy | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcTenancyResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
-   *             error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   * @public
-   */
-  CustomerGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   * @public
-   */
-  VpnGatewayId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionOptionsRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnConnectionOptionsResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelCertificateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelCertificateResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
- * @public
- */
-export interface ModifyVpnTunnelOptionsSpecification {
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same virtual private gateway. </p>
-   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   *             following CIDR blocks are reserved and cannot be used:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.0.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.1.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.2.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.3.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.4.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.5.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.169.252/30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TunnelInsideCidr?: string | undefined;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same transit gateway.</p>
-   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
-   * @public
-   */
-  TunnelInsideIpv6Cidr?: string | undefined;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and the customer gateway.</p>
-   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
-   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
-   *             zero (0).</p>
-   * @public
-   */
-  PreSharedKey?: string | undefined;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *          <p>Constraints: A value between 900 and 28,800.</p>
-   *          <p>Default: <code>28800</code>
-   *          </p>
-   * @public
-   */
-  Phase1LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
-   *                 <code>Phase1LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>3600</code>
-   *          </p>
-   * @public
-   */
-  Phase2LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-   *             of the rekey is randomly selected based on the value for
-   *                 <code>RekeyFuzzPercentage</code>.</p>
-   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>270</code>
-   *          </p>
-   * @public
-   */
-  RekeyMarginTimeSeconds?: number | undefined;
-
-  /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
-   *             during which the rekey time is randomly selected.</p>
-   *          <p>Constraints: A value between 0 and 100.</p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   * @public
-   */
-  RekeyFuzzPercentage?: number | undefined;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   *          <p>Constraints: A value between 64 and 2048.</p>
-   *          <p>Default: <code>1024</code>
-   *          </p>
-   * @public
-   */
-  ReplayWindowSize?: number | undefined;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p>
-   *          <p>Constraints: A value greater than or equal to 30.</p>
-   *          <p>Default: <code>40</code>
-   *          </p>
-   * @public
-   */
-  DPDTimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
-   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
-   *          </p>
-   *          <p>Default: <code>clear</code>
-   *          </p>
-   * @public
-   */
-  DPDTimeoutAction?: string | undefined;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
-   *             IKE negotiations.</p>
-   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   * @public
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
-   *             IKE negotiations.</p>
-   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   * @public
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   * @public
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   * @public
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 1 IKE negotiations.</p>
-   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
-   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
-   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   * @public
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 2 IKE negotiations.</p>
-   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
-   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
-   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
-   *                 <code>24</code>
-   *          </p>
-   * @public
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[] | undefined;
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
-   *          </p>
-   * @public
-   */
-  IKEVersions?: IKEVersionsRequestListValue[] | undefined;
-
-  /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By
-   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
-   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
-   *             negotiation.</p>
-   *          <p>Valid Values: <code>add</code> | <code>start</code>
-   *          </p>
-   *          <p>Default: <code>add</code>
-   *          </p>
-   * @public
-   */
-  StartupAction?: string | undefined;
-
-  /**
-   * <p>Options for logging VPN tunnel activity.</p>
-   * @public
-   */
-  LogOptions?: VpnTunnelLogOptionsSpecification | undefined;
-
-  /**
-   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
-   * @public
-   */
-  EnableTunnelLifecycleControl?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelOptionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>The tunnel options to modify.</p>
-   * @public
-   */
-  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
-   *          <p>Valid values: <code>True</code> | <code>False</code>
-   *          </p>
-   * @public
-   */
-  SkipTunnelReplacement?: boolean | undefined;
-
-  /**
-   * <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code> (stored in Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
-   * @public
-   */
-  PreSharedKeyStorage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpnTunnelOptionsResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * @public
- */
-export interface MonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

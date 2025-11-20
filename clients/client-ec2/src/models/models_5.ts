@@ -23,6 +23,7 @@ import {
   ImageBlockPublicAccessDisabledState,
   ImageBlockPublicAccessEnabledState,
   IngestionStatus,
+  InitializationType,
   InstanceMetadataEndpointState,
   InstanceMetadataTagsState,
   InternetGatewayBlockMode,
@@ -30,15 +31,8 @@ import {
   IpamAddressHistoryResourceType,
   IpamComplianceStatus,
   IpamDiscoveryFailureCode,
-  IpamNetworkInterfaceAttachmentStatus,
   IpamOverlapStatus,
   IpamPolicyManagedBy,
-  IpamPolicyResourceType,
-  IpamPublicAddressAssociationStatus,
-  IpamPublicAddressAwsService,
-  IpamPublicAddressType,
-  IpamResourceCidrIpSource,
-  IpamResourceType,
   ManagedBy,
   Metric,
   MetricType,
@@ -61,6 +55,11 @@ import {
   UnlimitedSupportedInstanceFamily,
   UserTrustProviderType,
   VirtualizationType,
+  VolumeAttributeName,
+  VolumeModificationState,
+  VolumeStatusInfoStatus,
+  VolumeStatusName,
+  VolumeType,
   VpcAttributeName,
   VpcBlockPublicAccessExclusionsAllowed,
   VpcBlockPublicAccessState,
@@ -74,7 +73,6 @@ import {
   AssociationStatus,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
   RouteServerAssociation,
@@ -86,13 +84,15 @@ import {
   TransitGatewayPolicyTableAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  Volume,
   Vpc,
   VpcCidrBlockAssociation,
+  VpcEncryptionControl,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
 
-import { InstanceRequirementsRequest, IpamResourceTag } from "./models_1";
+import { InstanceRequirementsRequest } from "./models_1";
 
 import {
   ConnectionNotification,
@@ -112,10 +112,889 @@ import {
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   Filter,
-  RegisteredInstance,
+  ProductCode,
 } from "./models_3";
 
-import { VolumeStatusItem } from "./models_4";
+import { RegisteredInstance } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstancesRequest {
+  /**
+   * <p>The IDs of the Verified Access instances.</p>
+   * @public
+   */
+  VerifiedAccessInstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstancesResult {
+  /**
+   * <p>Details about the Verified Access instances.</p>
+   * @public
+   */
+  VerifiedAccessInstances?: VerifiedAccessInstance[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessTrustProvidersRequest {
+  /**
+   * <p>The IDs of the Verified Access trust providers.</p>
+   * @public
+   */
+  VerifiedAccessTrustProviderIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessTrustProvidersResult {
+  /**
+   * <p>Details about the Verified Access trust providers.</p>
+   * @public
+   */
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeRequest {
+  /**
+   * <p>The attribute of the volume. This parameter is required.</p>
+   * @public
+   */
+  Attribute: VolumeAttributeName | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeResult {
+  /**
+   * <p>The state of <code>autoEnableIO</code> attribute.</p>
+   * @public
+   */
+  AutoEnableIO?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>A list of product codes.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesRequest {
+  /**
+   * <p>The volume IDs. If not specified, then all volumes are included in the response.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
+   *           initiated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
+   *           instance termination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.device</code> - The device name specified in the block device mapping
+   *           (for example, <code>/dev/sda1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
+   *           to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
+   *             <code>attached</code> | <code>detaching</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
+   *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone in which the
+   *           volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
+   *           | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
+   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
+   *           <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
+   *     			| <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a managed
+   *           volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the volume. Only valid
+   *           for managed volumes, where <code>managed</code> is <code>true</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>size</code> - The size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The state of the volume (<code>creating</code> |
+   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
+   *             <code>deleted</code> | <code>error</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The volume ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
+   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the volumes.</p>
+   * @public
+   */
+  Volumes?: Volume[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesModificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>modification-state</code> - The current modification state (modifying |
+   *           optimizing | completed | failed).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-iops</code> - The original IOPS rate of the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-size</code> - The original size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-volume-type</code> - The original volume type of the volume (standard |
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-time</code> - The modification start time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-iops</code> - The target IOPS rate of the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-size</code> - The target size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-volume-type</code> - The target volume type of the volume (standard |
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The ID of the volume.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes the modification status of an EBS volume.</p>
+ * @public
+ */
+export interface VolumeModification {
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The current modification state.</p>
+   * @public
+   */
+  ModificationState?: VolumeModificationState | undefined;
+
+  /**
+   * <p>A status message about the modification progress or failure.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The target size of the volume, in GiB.</p>
+   * @public
+   */
+  TargetSize?: number | undefined;
+
+  /**
+   * <p>The target IOPS rate of the volume.</p>
+   * @public
+   */
+  TargetIops?: number | undefined;
+
+  /**
+   * <p>The target EBS volume type of the volume.</p>
+   * @public
+   */
+  TargetVolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The target throughput of the volume, in MiB/s.</p>
+   * @public
+   */
+  TargetThroughput?: number | undefined;
+
+  /**
+   * <p>The target setting for Amazon EBS Multi-Attach.</p>
+   * @public
+   */
+  TargetMultiAttachEnabled?: boolean | undefined;
+
+  /**
+   * <p>The original size of the volume, in GiB.</p>
+   * @public
+   */
+  OriginalSize?: number | undefined;
+
+  /**
+   * <p>The original IOPS rate of the volume.</p>
+   * @public
+   */
+  OriginalIops?: number | undefined;
+
+  /**
+   * <p>The original EBS volume type of the volume.</p>
+   * @public
+   */
+  OriginalVolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The original throughput of the volume, in MiB/s.</p>
+   * @public
+   */
+  OriginalThroughput?: number | undefined;
+
+  /**
+   * <p>The original setting for Amazon EBS Multi-Attach.</p>
+   * @public
+   */
+  OriginalMultiAttachEnabled?: boolean | undefined;
+
+  /**
+   * <p>The modification progress, from 0 to 100 percent complete.</p>
+   * @public
+   */
+  Progress?: number | undefined;
+
+  /**
+   * <p>The modification start time.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The modification completion or failure time.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesModificationsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the volume modifications.</p>
+   * @public
+   */
+  VolumesModifications?: VolumeModification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumeStatusRequest {
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   *          <p>Default: Describes all your volumes.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>action.code</code> - The action code for the event (for example,
+   *             <code>enable-volume-io</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>action.description</code> - A description of the action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.event-id</code> - The event ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
+   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
+   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
+   *             <code>io-performance:stalled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-after</code> - The latest end time for the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.details-name</code> - The cause for
+   *             <code>volume-status.status</code> (<code>io-enabled</code> |
+   *           <code>io-performance</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.details-status</code> - The status of
+   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
+   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
+   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
+   *             <code>stalled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
+   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes a volume status operation code.</p>
+ * @public
+ */
+export interface VolumeStatusAction {
+  /**
+   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A description of the operation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the event associated with this operation.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The event type associated with this operation.</p>
+   * @public
+   */
+  EventType?: string | undefined;
+}
+
+/**
+ * <p>Information about the instances to which the volume is attached.</p>
+ * @public
+ */
+export interface VolumeStatusAttachmentStatus {
+  /**
+   * <p>The maximum IOPS supported by the attached instance.</p>
+   * @public
+   */
+  IoPerformance?: string | undefined;
+
+  /**
+   * <p>The ID of the attached instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * <p>Describes a volume status event.</p>
+ * @public
+ */
+export interface VolumeStatusEvent {
+  /**
+   * <p>A description of the event.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of this event.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The type of this event.</p>
+   * @public
+   */
+  EventType?: string | undefined;
+
+  /**
+   * <p>The latest end time of the event.</p>
+   * @public
+   */
+  NotAfter?: Date | undefined;
+
+  /**
+   * <p>The earliest start time of the event.</p>
+   * @public
+   */
+  NotBefore?: Date | undefined;
+
+  /**
+   * <p>The ID of the instance associated with the event.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * <p>Information about the volume initialization. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
+ * @public
+ */
+export interface InitializationStatusDetails {
+  /**
+   * <p>The method used for volume initialization. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Volume initialized using the default volume initialization
+   *           rate or fast snapshot restore.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioned-rate</code> - Volume initialized using an Amazon EBS Provisioned
+   *           Rate for Volume Initialization.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-copy</code> - Volume copy initialized at the rate for volume copies.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InitializationType?: InitializationType | undefined;
+
+  /**
+   * <p>The current volume initialization progress as a percentage (0-100). Returns <code>100</code>
+   *       when volume initialization has completed.</p>
+   * @public
+   */
+  Progress?: number | undefined;
+
+  /**
+   * <p>The estimated remaining time, in seconds, for volume initialization to complete. Returns
+   *       <code>0</code> when volume initialization has completed.</p>
+   *          <p>Only available for volumes created with Amazon EBS Provisioned Rate for Volume Initialization.</p>
+   * @public
+   */
+  EstimatedTimeToCompleteInSeconds?: number | undefined;
+}
+
+/**
+ * <p>Describes a volume status.</p>
+ * @public
+ */
+export interface VolumeStatusDetails {
+  /**
+   * <p>The name of the volume status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>io-enabled</code> - Indicates the volume I/O status. For more
+   *           information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
+   *             status checks</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io-performance</code> - Indicates the volume performance status.
+   *           For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
+   *             status checks</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>initialization-state</code> - Indicates the status of the volume
+   *           initialization process. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name?: VolumeStatusName | undefined;
+
+  /**
+   * <p>The intended status of the volume status.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * <p>Describes the status of a volume.</p>
+ * @public
+ */
+export interface VolumeStatusInfo {
+  /**
+   * <p>The details of the volume status.</p>
+   * @public
+   */
+  Details?: VolumeStatusDetails[] | undefined;
+
+  /**
+   * <p>The status of the volume.</p>
+   * @public
+   */
+  Status?: VolumeStatusInfoStatus | undefined;
+}
+
+/**
+ * <p>Describes the volume status.</p>
+ * @public
+ */
+export interface VolumeStatusItem {
+  /**
+   * <p>The details of the operation.</p>
+   * @public
+   */
+  Actions?: VolumeStatusAction[] | undefined;
+
+  /**
+   * <p>The Availability Zone of the volume.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>A list of events associated with the volume.</p>
+   * @public
+   */
+  Events?: VolumeStatusEvent[] | undefined;
+
+  /**
+   * <p>The volume ID.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The volume status.</p>
+   * @public
+   */
+  VolumeStatus?: VolumeStatusInfo | undefined;
+
+  /**
+   * <p>Information about the instances to which the volume is attached.</p>
+   * @public
+   */
+  AttachmentStatuses?: VolumeStatusAttachmentStatus[] | undefined;
+
+  /**
+   * <p>Information about the volume initialization. It can take up to 5 minutes
+   *       for the volume initialization information to be updated.</p>
+   *          <p>Only available for volumes created from snapshots. Not available for empty
+   *       volumes created without a snapshot.</p>
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+   *         Initialize Amazon EBS volumes</a>.</p>
+   * @public
+   */
+  InitializationStatusDetails?: InitializationStatusDetails | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
 
 /**
  * @public
@@ -522,6 +1401,68 @@ export interface DescribeVpcClassicLinkDnsSupportResult {
    * @public
    */
   Vpcs?: ClassicLinkDnsSupport[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEncryptionControlsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters to apply to the request.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The IDs of the VPC Encryption Control configurations to describe.</p>
+   * @public
+   */
+  VpcEncryptionControlIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the VPCs to describe encryption control configurations for.</p>
+   * @public
+   */
+  VpcIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcEncryptionControlsResult {
+  /**
+   * <p>Information about the VPC Encryption Control configurations.</p>
+   * @public
+   */
+  VpcEncryptionControls?: VpcEncryptionControl[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7850,749 +8791,4 @@ export interface IpamDiscoveryFailureReason {
    * @public
    */
   Message?: string | undefined;
-}
-
-/**
- * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
- * @public
- */
-export interface IpamDiscoveredAccount {
-  /**
-   * <p>The account ID.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region that the account information is returned from.
-   *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
-   * @public
-   */
-  DiscoveryRegion?: string | undefined;
-
-  /**
-   * <p>The resource discovery failure reason.</p>
-   * @public
-   */
-  FailureReason?: IpamDiscoveryFailureReason | undefined;
-
-  /**
-   * <p>The last attempted resource discovery time.</p>
-   * @public
-   */
-  LastAttemptedDiscoveryTime?: Date | undefined;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  LastSuccessfulDiscoveryTime?: Date | undefined;
-
-  /**
-   * <p>The ID of an Organizational Unit in Amazon Web Services Organizations.</p>
-   * @public
-   */
-  OrganizationalUnitId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredAccountsResult {
-  /**
-   * <p>Discovered accounts.</p>
-   * @public
-   */
-  IpamDiscoveredAccounts?: IpamDiscoveredAccount[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredPublicAddressesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>An IPAM resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region for the IP address.</p>
-   * @public
-   */
-  AddressRegion: string | undefined;
-
-  /**
-   * <p>Filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The security group that the resource with the public IP address is in.</p>
- * @public
- */
-export interface IpamPublicAddressSecurityGroup {
-  /**
-   * <p>The security group's name.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The security group's ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-}
-
-/**
- * <p>A tag for a public IP address discovered by IPAM.</p>
- * @public
- */
-export interface IpamPublicAddressTag {
-  /**
-   * <p>The tag's key.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The tag's value.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Tags for a public IP address discovered by IPAM.</p>
- * @public
- */
-export interface IpamPublicAddressTags {
-  /**
-   * <p>Tags for an Elastic IP address.</p>
-   * @public
-   */
-  EipTags?: IpamPublicAddressTag[] | undefined;
-}
-
-/**
- * <p>A public IP Address discovered by IPAM.</p>
- * @public
- */
-export interface IpamDiscoveredPublicAddress {
-  /**
-   * <p>The resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId?: string | undefined;
-
-  /**
-   * <p>The Region of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressRegion?: string | undefined;
-
-  /**
-   * <p>The IP address.</p>
-   * @public
-   */
-  Address?: string | undefined;
-
-  /**
-   * <p>The ID of the owner of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressOwnerId?: string | undefined;
-
-  /**
-   * <p>The allocation ID of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressAllocationId?: string | undefined;
-
-  /**
-   * <p>The association status.</p>
-   * @public
-   */
-  AssociationStatus?: IpamPublicAddressAssociationStatus | undefined;
-
-  /**
-   * <p>The IP address type.</p>
-   * @public
-   */
-  AddressType?: IpamPublicAddressType | undefined;
-
-  /**
-   * <p>The Amazon Web Services service associated with the IP address.</p>
-   * @public
-   */
-  Service?: IpamPublicAddressAwsService | undefined;
-
-  /**
-   * <p>The resource ARN or ID.</p>
-   * @public
-   */
-  ServiceResource?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC that the resource with the assigned IP address is in.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet that the resource with the assigned IP address is in.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The ID of the public IPv4 pool that the resource with the assigned IP address is from.</p>
-   * @public
-   */
-  PublicIpv4PoolId?: string | undefined;
-
-  /**
-   * <p>The network interface ID of the resource with the assigned IP address.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The description of the network interface that IP address is assigned to.</p>
-   * @public
-   */
-  NetworkInterfaceDescription?: string | undefined;
-
-  /**
-   * <p>The instance ID of the instance the assigned IP address is assigned to.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Tags associated with the IP address.</p>
-   * @public
-   */
-  Tags?: IpamPublicAddressTags | undefined;
-
-  /**
-   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>Security groups associated with the resource that the IP address is assigned to.</p>
-   * @public
-   */
-  SecurityGroups?: IpamPublicAddressSecurityGroup[] | undefined;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  SampleTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredPublicAddressesResult {
-  /**
-   * <p>IPAM discovered public addresses.</p>
-   * @public
-   */
-  IpamDiscoveredPublicAddresses?: IpamDiscoveredPublicAddress[] | undefined;
-
-  /**
-   * <p>The oldest successful resource discovery time.</p>
-   * @public
-   */
-  OldestSampleTime?: Date | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredResourceCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>A resource Region.</p>
-   * @public
-   */
-  ResourceRegion: string | undefined;
-
-  /**
-   * <p>Filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
- * @public
- */
-export interface IpamDiscoveredResourceCidr {
-  /**
-   * <p>The resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId?: string | undefined;
-
-  /**
-   * <p>The resource Region.</p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>The resource ID.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The resource owner ID.</p>
-   * @public
-   */
-  ResourceOwnerId?: string | undefined;
-
-  /**
-   * <p>The resource CIDR.</p>
-   * @public
-   */
-  ResourceCidr?: string | undefined;
-
-  /**
-   * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
-   * @public
-   */
-  IpSource?: IpamResourceCidrIpSource | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The resource tags.</p>
-   * @public
-   */
-  ResourceTags?: IpamResourceTag[] | undefined;
-
-  /**
-   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
-   *          </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  IpUsage?: number | undefined;
-
-  /**
-   * <p>The VPC ID.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The subnet ID.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>For elastic network interfaces, this is the status of whether or not the elastic network interface is attached.</p>
-   * @public
-   */
-  NetworkInterfaceAttachmentStatus?: IpamNetworkInterfaceAttachmentStatus | undefined;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  SampleTime?: Date | undefined;
-
-  /**
-   * <p>The Availability Zone ID.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredResourceCidrsResult {
-  /**
-   * <p>Discovered resource CIDRs.</p>
-   * @public
-   */
-  IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPolicyAllocationRulesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM policy for which to get allocation rules.</p>
-   * @public
-   */
-  IpamPolicyId: string | undefined;
-
-  /**
-   * <p>One or more filters for the allocation rules.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The locale for which to get the allocation rules.</p>
-   * @public
-   */
-  Locale?: string | undefined;
-
-  /**
-   * <p>The resource type for which to get the allocation rules.</p>
-   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Elastic IP addresses</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceType?: IpamPolicyResourceType | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Information about an IPAM policy allocation rule.</p>
- *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
- * @public
- */
-export interface IpamPolicyAllocationRule {
-  /**
-   * <p>The ID of the source IPAM pool for the allocation rule.</p>
-   *          <p>An IPAM pool is a collection of IP addresses in IPAM that can be allocated to Amazon Web Services resources.</p>
-   * @public
-   */
-  SourceIpamPoolId?: string | undefined;
-}
-
-/**
- * <p>Information about an IPAM policy.</p>
- * @public
- */
-export interface IpamPolicyDocument {
-  /**
-   * <p>The ID of the IPAM policy.</p>
-   * @public
-   */
-  IpamPolicyId?: string | undefined;
-
-  /**
-   * <p>The locale of the IPAM policy document.</p>
-   * @public
-   */
-  Locale?: string | undefined;
-
-  /**
-   * <p>The resource type of the IPAM policy document.</p>
-   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Elastic IP addresses</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceType?: IpamPolicyResourceType | undefined;
-
-  /**
-   * <p>The allocation rules in the IPAM policy document.</p>
-   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
-   * @public
-   */
-  AllocationRules?: IpamPolicyAllocationRule[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPolicyAllocationRulesResult {
-  /**
-   * <p>The IPAM policy documents containing the allocation rules.</p>
-   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
-   * @public
-   */
-  IpamPolicyDocuments?: IpamPolicyDocument[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPolicyOrganizationTargetsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM policy for which to get Amazon Web Services Organizations targets.</p>
-   * @public
-   */
-  IpamPolicyId: string | undefined;
-
-  /**
-   * <p>One or more filters for the Amazon Web Services Organizations targets.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>The Amazon Web Services Organizations target for an IPAM policy.</p>
- * @public
- */
-export interface IpamPolicyOrganizationTarget {
-  /**
-   * <p>The ID of a Amazon Web Services Organizations target for an IPAM policy.</p>
-   * @public
-   */
-  OrganizationTargetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPolicyOrganizationTargetsResult {
-  /**
-   * <p>The Amazon Web Services Organizations targets for an IPAM policy.</p>
-   * @public
-   */
-  OrganizationTargets?: IpamPolicyOrganizationTarget[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolAllocationsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool you want to see the allocations for.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   * @public
-   */
-  IpamPoolAllocationId?: string | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results you would like returned per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolAllocationsResult {
-  /**
-   * <p>The IPAM pool allocations you want information on.</p>
-   * @public
-   */
-  IpamPoolAllocations?: IpamPoolAllocation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool you want the CIDR for.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

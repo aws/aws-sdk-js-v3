@@ -144,6 +144,7 @@ export const ResourceType = {
   transit_gateway: "transit-gateway",
   transit_gateway_attachment: "transit-gateway-attachment",
   transit_gateway_connect_peer: "transit-gateway-connect-peer",
+  transit_gateway_metering_policy: "transit-gateway-metering-policy",
   transit_gateway_multicast_domain: "transit-gateway-multicast-domain",
   transit_gateway_policy_table: "transit-gateway-policy-table",
   transit_gateway_route_table: "transit-gateway-route-table",
@@ -157,6 +158,7 @@ export const ResourceType = {
   volume: "volume",
   vpc: "vpc",
   vpc_block_public_access_exclusion: "vpc-block-public-access-exclusion",
+  vpc_encryption_control: "vpc-encryption-control",
   vpc_endpoint: "vpc-endpoint",
   vpc_endpoint_connection: "vpc-endpoint-connection",
   vpc_endpoint_connection_device_type: "vpc-endpoint-connection-device-type",
@@ -504,8 +506,10 @@ export const ByoipCidrState = {
   deprovisioned: "deprovisioned",
   failed_deprovision: "failed-deprovision",
   failed_provision: "failed-provision",
+  pending_advertising: "pending-advertising",
   pending_deprovision: "pending-deprovision",
   pending_provision: "pending-provision",
+  pending_withdrawal: "pending-withdrawal",
   provisioned: "provisioned",
   provisioned_not_publicly_advertisable: "provisioned-not-publicly-advertisable",
 } as const;
@@ -571,6 +575,7 @@ export type HostRecovery = (typeof HostRecovery)[keyof typeof HostRecovery];
  * @enum
  */
 export const IpamPoolAllocationResourceType = {
+  anycast_ip_list: "anycast-ip-list",
   custom: "custom",
   ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
   eip: "eip",
@@ -3253,6 +3258,7 @@ export type IpamPolicyState = (typeof IpamPolicyState)[keyof typeof IpamPolicySt
  */
 export const IpamPoolAwsService = {
   ec2: "ec2",
+  global_services: "global-services",
 } as const;
 /**
  * @public
@@ -3340,6 +3346,7 @@ export type IpamPrefixListResolverRuleConditionOperation =
  * @enum
  */
 export const IpamResourceType = {
+  anycast_ip_list: "anycast-ip-list",
   eip: "eip",
   eni: "eni",
   ipv6_pool: "ipv6-pool",
@@ -4384,6 +4391,21 @@ export type VpnEcmpSupportValue = (typeof VpnEcmpSupportValue)[keyof typeof VpnE
  * @public
  * @enum
  */
+export const EncryptionStateValue = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionStateValue = (typeof EncryptionStateValue)[keyof typeof EncryptionStateValue];
+
+/**
+ * @public
+ * @enum
+ */
 export const TransitGatewayState = {
   available: "available",
   deleted: "deleted",
@@ -4436,6 +4458,52 @@ export const TransitGatewayConnectPeerState = {
  */
 export type TransitGatewayConnectPeerState =
   (typeof TransitGatewayConnectPeerState)[keyof typeof TransitGatewayConnectPeerState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayMeteringPolicyState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  modifying: "modifying",
+  pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayMeteringPolicyState =
+  (typeof TransitGatewayMeteringPolicyState)[keyof typeof TransitGatewayMeteringPolicyState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayMeteringPayerType = {
+  destination_attachment_owner: "destination-attachment-owner",
+  source_attachment_owner: "source-attachment-owner",
+  transit_gateway_owner: "transit-gateway-owner",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayMeteringPayerType =
+  (typeof TransitGatewayMeteringPayerType)[keyof typeof TransitGatewayMeteringPayerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayMeteringPolicyEntryState = {
+  available: "available",
+  deleted: "deleted",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayMeteringPolicyEntryState =
+  (typeof TransitGatewayMeteringPolicyEntryState)[keyof typeof TransitGatewayMeteringPolicyEntryState];
 
 /**
  * @public
@@ -4661,6 +4729,20 @@ export const VerifiedAccessEndpointStatusCode = {
  */
 export type VerifiedAccessEndpointStatusCode =
   (typeof VerifiedAccessEndpointStatusCode)[keyof typeof VerifiedAccessEndpointStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEncryptionControlExclusionStateInput = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+/**
+ * @public
+ */
+export type VpcEncryptionControlExclusionStateInput =
+  (typeof VpcEncryptionControlExclusionStateInput)[keyof typeof VpcEncryptionControlExclusionStateInput];
 
 /**
  * @public
@@ -7102,6 +7184,7 @@ export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof t
 export const IpamPublicAddressType = {
   AMAZON_OWNED_CONTIG: "amazon-owned-contig",
   AMAZON_OWNED_EIP: "amazon-owned-eip",
+  ANYCAST_IP_LIST_IP: "anycast-ip-list-ip",
   BYOIP: "byoip",
   EC2_PUBLIC_IP: "ec2-public-ip",
   SERVICE_MANAGED_BYOIP: "service-managed-byoip",
@@ -7132,6 +7215,7 @@ export type IpamPublicAddressAssociationStatus =
  */
 export const IpamPublicAddressAwsService = {
   AGA: "global-accelerator",
+  CLOUDFRONT: "cloudfront",
   DMS: "database-migration-service",
   EC2_LB: "load-balancer",
   ECS: "elastic-container-service",
@@ -7401,6 +7485,20 @@ export const TrafficMirrorSessionField = {
  * @public
  */
 export type TrafficMirrorSessionField = (typeof TrafficMirrorSessionField)[keyof typeof TrafficMirrorSessionField];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionSupportOptionValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionSupportOptionValue =
+  (typeof EncryptionSupportOptionValue)[keyof typeof EncryptionSupportOptionValue];
 
 /**
  * @public

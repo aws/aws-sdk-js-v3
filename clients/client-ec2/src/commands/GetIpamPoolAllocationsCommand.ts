@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIpamPoolAllocationsRequest, GetIpamPoolAllocationsResult } from "../models/models_5";
+import { GetIpamPoolAllocationsRequest, GetIpamPoolAllocationsResult } from "../models/models_6";
 import { GetIpamPoolAllocations } from "../schemas/schemas_0";
 
 /**
@@ -63,7 +63,7 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * //       IpamPoolAllocationId: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE",
- * //       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet" || "eip",
+ * //       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet" || "eip" || "anycast-ip-list",
  * //       ResourceRegion: "STRING_VALUE",
  * //       ResourceOwner: "STRING_VALUE",
  * //     },

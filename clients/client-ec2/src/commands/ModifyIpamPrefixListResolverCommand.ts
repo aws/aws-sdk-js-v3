@@ -47,7 +47,7 @@ export interface ModifyIpamPrefixListResolverCommandOutput
  *       RuleType: "static-cidr" || "ipam-resource-cidr" || "ipam-pool-cidr", // required
  *       StaticCidr: "STRING_VALUE",
  *       IpamScopeId: "STRING_VALUE",
- *       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
+ *       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni" || "anycast-ip-list",
  *       Conditions: [ // IpamPrefixListResolverRuleConditionRequestSet
  *         { // IpamPrefixListResolverRuleConditionRequest
  *           Operation: "equals" || "not-equals" || "subnet-of", // required

@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/models_6";
+import { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/models_7";
 import { ModifyVpnConnection } from "../schemas/schemas_0";
 
 /**
@@ -152,6 +152,9 @@ export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionRes
  * //               LogEnabled: true || false,
  * //               LogGroupArn: "STRING_VALUE",
  * //               LogOutputFormat: "STRING_VALUE",
+ * //               BgpLogEnabled: true || false,
+ * //               BgpLogGroupArn: "STRING_VALUE",
+ * //               BgpLogOutputFormat: "STRING_VALUE",
  * //             },
  * //           },
  * //           EnableTunnelLifecycleControl: true || false,

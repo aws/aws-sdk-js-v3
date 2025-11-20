@@ -78,6 +78,10 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * //         DnsSupport: "enable" || "disable",
  * //         SecurityGroupReferencingSupport: "enable" || "disable",
  * //         MulticastSupport: "enable" || "disable",
+ * //         EncryptionSupport: { // EncryptionSupport
+ * //           EncryptionState: "enabling" || "enabled" || "disabling" || "disabled",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
  * //       },
  * //       Tags: [ // TagList
  * //         { // Tag
