@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListUltraServersByReservedCapacityRequest,
   ListUltraServersByReservedCapacityResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListUltraServersByReservedCapacity } from "../schemas/schemas_0";
 

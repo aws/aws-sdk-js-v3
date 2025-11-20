@@ -6,6 +6,8 @@ export * from "./AttachClusterNodeVolumeCommand";
 export * from "./BatchAddClusterNodesCommand";
 export * from "./BatchDeleteClusterNodesCommand";
 export * from "./BatchDescribeModelPackageCommand";
+export * from "./BatchRebootClusterNodesCommand";
+export * from "./BatchReplaceClusterNodesCommand";
 export * from "./CreateActionCommand";
 export * from "./CreateAlgorithmCommand";
 export * from "./CreateAppCommand";

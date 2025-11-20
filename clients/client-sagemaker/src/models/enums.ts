@@ -3,6 +3,45 @@
  * @public
  * @enum
  */
+export const MIGProfileType = {
+  MIG_1G_10GB: "mig-1g.10gb",
+  MIG_1G_18GB: "mig-1g.18gb",
+  MIG_1G_20GB: "mig-1g.20gb",
+  MIG_1G_23GB: "mig-1g.23gb",
+  MIG_1G_35GB: "mig-1g.35gb",
+  MIG_1G_45GB: "mig-1g.45gb",
+  MIG_1G_47GB: "mig-1g.47gb",
+  MIG_1G_5GB: "mig-1g.5gb",
+  MIG_2G_10GB: "mig-2g.10gb",
+  MIG_2G_20GB: "mig-2g.20gb",
+  MIG_2G_35GB: "mig-2g.35gb",
+  MIG_2G_45GB: "mig-2g.45gb",
+  MIG_2G_47GB: "mig-2g.47gb",
+  MIG_3G_20GB: "mig-3g.20gb",
+  MIG_3G_40GB: "mig-3g.40gb",
+  MIG_3G_71GB: "mig-3g.71gb",
+  MIG_3G_90GB: "mig-3g.90gb",
+  MIG_3G_93GB: "mig-3g.93gb",
+  MIG_4G_20GB: "mig-4g.20gb",
+  MIG_4G_40GB: "mig-4g.40gb",
+  MIG_4G_71GB: "mig-4g.71gb",
+  MIG_4G_90GB: "mig-4g.90gb",
+  MIG_4G_93GB: "mig-4g.93gb",
+  MIG_7G_141GB: "mig-7g.141gb",
+  MIG_7G_180GB: "mig-7g.180gb",
+  MIG_7G_186GB: "mig-7g.186gb",
+  MIG_7G_40GB: "mig-7g.40gb",
+  MIG_7G_80GB: "mig-7g.80gb",
+} as const;
+/**
+ * @public
+ */
+export type MIGProfileType = (typeof MIGProfileType)[keyof typeof MIGProfileType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ActionStatus = {
   COMPLETED: "Completed",
   FAILED: "Failed",
@@ -1684,6 +1723,38 @@ export const ModelPackageStatus = {
  * @public
  */
 export type ModelPackageStatus = (typeof ModelPackageStatus)[keyof typeof ModelPackageStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchRebootClusterNodesErrorCode = {
+  INSTANCE_ID_IN_USE: "InstanceIdInUse",
+  INSTANCE_ID_NOT_FOUND: "InstanceIdNotFound",
+  INTERNAL_SERVER_ERROR: "InternalServerError",
+  INVALID_INSTANCE_STATUS: "InvalidInstanceStatus",
+} as const;
+/**
+ * @public
+ */
+export type BatchRebootClusterNodesErrorCode =
+  (typeof BatchRebootClusterNodesErrorCode)[keyof typeof BatchRebootClusterNodesErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchReplaceClusterNodesErrorCode = {
+  INSTANCE_ID_IN_USE: "InstanceIdInUse",
+  INSTANCE_ID_NOT_FOUND: "InstanceIdNotFound",
+  INTERNAL_SERVER_ERROR: "InternalServerError",
+  INVALID_INSTANCE_STATUS: "InvalidInstanceStatus",
+} as const;
+/**
+ * @public
+ */
+export type BatchReplaceClusterNodesErrorCode =
+  (typeof BatchReplaceClusterNodesErrorCode)[keyof typeof BatchReplaceClusterNodesErrorCode];
 
 /**
  * @public
@@ -4685,6 +4756,7 @@ export type TrainingPlanStatus = (typeof TrainingPlanStatus)[keyof typeof Traini
  * @enum
  */
 export const SageMakerResourceName = {
+  ENDPOINT: "endpoint",
   HYPERPOD_CLUSTER: "hyperpod-cluster",
   TRAINING_JOB: "training-job",
 } as const;

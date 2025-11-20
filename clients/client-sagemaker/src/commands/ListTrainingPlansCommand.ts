@@ -71,7 +71,7 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * //       InUseInstanceCount: Number("int"),
  * //       TotalUltraServerCount: Number("int"),
  * //       TargetResources: [ // SageMakerResourceNames
- * //         "training-job" || "hyperpod-cluster",
+ * //         "training-job" || "hyperpod-cluster" || "endpoint",
  * //       ],
  * //       ReservedCapacitySummaries: [ // ReservedCapacitySummaries
  * //         { // ReservedCapacitySummary

@@ -27,6 +27,8 @@ import {
   AutotuneMode,
   BatchAddClusterNodesErrorCode,
   BatchDeleteClusterNodesErrorCode,
+  BatchRebootClusterNodesErrorCode,
+  BatchReplaceClusterNodesErrorCode,
   BatchStrategy,
   CandidateStatus,
   CandidateStepType,
@@ -54,7 +56,6 @@ import {
   DataSourceName,
   DeepHealthCheckType,
   DetailedAlgorithmStatus,
-  EdgePresetDeploymentType,
   FairShare,
   FeatureStatus,
   FileSystemAccessMode,
@@ -66,6 +67,7 @@ import {
   InstanceGroupStatus,
   LifecycleManagement,
   MetricSetSource,
+  MIGProfileType,
   ModelApprovalStatus,
   ModelCacheSetting,
   ModelCompressionType,
@@ -101,6 +103,24 @@ import {
   TransformInstanceType,
   VolumeAttachmentStatus,
 } from "./enums";
+
+/**
+ * <p>Configuration for allocating accelerator partitions.</p>
+ * @public
+ */
+export interface AcceleratorPartitionConfig {
+  /**
+   * <p>The Multi-Instance GPU (MIG) profile type that defines the partition configuration. The profile specifies the compute and memory allocation for each partition instance. The available profile types depend on the instance type specified in the compute quota configuration.</p>
+   * @public
+   */
+  Type: MIGProfileType | undefined;
+
+  /**
+   * <p>The number of accelerator partitions to allocate with the specified partition type. If you don't specify a value for vCPU and MemoryInGiB, SageMaker AI automatically allocates ratio-based values for those parameters based on the accelerator partition count you provide.</p>
+   * @public
+   */
+  Count: number | undefined;
+}
 
 /**
  * <p>A structure describing the source of an action.</p>
@@ -3681,6 +3701,206 @@ export interface BatchDescribeModelPackageOutput {
 }
 
 /**
+ * <p>Represents an error encountered when rebooting a node (identified by its logical node ID) from a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface BatchRebootClusterNodeLogicalIdsError {
+  /**
+   * <p>The logical node ID of the node that encountered an error during the reboot operation.</p>
+   * @public
+   */
+  NodeLogicalId: string | undefined;
+
+  /**
+   * <p>The error code associated with the error encountered when rebooting a node by logical node ID.</p> <p>Possible values:</p> <ul> <li> <p> <code>InstanceIdNotFound</code>: The node does not exist in the specified cluster.</p> </li> <li> <p> <code>InvalidInstanceStatus</code>: The node is in a state that does not allow rebooting. Wait for the node to finish any ongoing changes before retrying.</p> </li> <li> <p> <code>InstanceIdInUse</code>: Another operation is already in progress for this node. Wait for the operation to complete before retrying.</p> </li> <li> <p> <code>InternalServerError</code>: An internal error occurred while processing this node.</p> </li> </ul>
+   * @public
+   */
+  ErrorCode: BatchRebootClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the error encountered when rebooting a node by logical node ID.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchRebootClusterNodesRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the SageMaker HyperPod cluster containing the nodes to reboot.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of EC2 instance IDs to reboot using soft recovery. You can specify between 1 and 25 instance IDs.</p> <note> <ul> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> <li> <p>Each instance ID must follow the pattern <code>i-</code> followed by 17 hexadecimal characters (for example, <code>i-0123456789abcdef0</code>).</p> </li> </ul> </note>
+   * @public
+   */
+  NodeIds?: string[] | undefined;
+
+  /**
+   * <p>A list of logical node IDs to reboot using soft recovery. You can specify between 1 and 25 logical node IDs.</p> <p>The <code>NodeLogicalId</code> is a unique identifier that persists throughout the node's lifecycle and can be used to track nodes that are still being provisioned and don't yet have an EC2 instance ID assigned.</p> <important> <ul> <li> <p>This parameter is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>. For clusters using the default provisioning mode, use <code>NodeIds</code> instead.</p> </li> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> </ul> </important>
+   * @public
+   */
+  NodeLogicalIds?: string[] | undefined;
+}
+
+/**
+ * <p>Represents an error encountered when rebooting a node from a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface BatchRebootClusterNodesError {
+  /**
+   * <p>The EC2 instance ID of the node that encountered an error during the reboot operation.</p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p>The error code associated with the error encountered when rebooting a node.</p> <p>Possible values:</p> <ul> <li> <p> <code>InstanceIdNotFound</code>: The instance does not exist in the specified cluster.</p> </li> <li> <p> <code>InvalidInstanceStatus</code>: The instance is in a state that does not allow rebooting. Wait for the instance to finish any ongoing changes before retrying.</p> </li> <li> <p> <code>InstanceIdInUse</code>: Another operation is already in progress for this node. Wait for the operation to complete before retrying.</p> </li> <li> <p> <code>InternalServerError</code>: An internal error occurred while processing this node.</p> </li> </ul>
+   * @public
+   */
+  ErrorCode: BatchRebootClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the error encountered when rebooting a node.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchRebootClusterNodesResponse {
+  /**
+   * <p>A list of EC2 instance IDs for which the reboot operation was successfully initiated.</p>
+   * @public
+   */
+  Successful?: string[] | undefined;
+
+  /**
+   * <p>A list of errors encountered for EC2 instance IDs that could not be rebooted. Each error includes the instance ID, an error code, and a descriptive message.</p>
+   * @public
+   */
+  Failed?: BatchRebootClusterNodesError[] | undefined;
+
+  /**
+   * <p>A list of errors encountered for logical node IDs that could not be rebooted. Each error includes the logical node ID, an error code, and a descriptive message. This field is only present when <code>NodeLogicalIds</code> were provided in the request.</p>
+   * @public
+   */
+  FailedNodeLogicalIds?: BatchRebootClusterNodeLogicalIdsError[] | undefined;
+
+  /**
+   * <p>A list of logical node IDs for which the reboot operation was successfully initiated. This field is only present when <code>NodeLogicalIds</code> were provided in the request.</p>
+   * @public
+   */
+  SuccessfulNodeLogicalIds?: string[] | undefined;
+}
+
+/**
+ * <p>Represents an error encountered when replacing a node (identified by its logical node ID) in a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface BatchReplaceClusterNodeLogicalIdsError {
+  /**
+   * <p>The logical node ID of the node that encountered an error during the replacement operation.</p>
+   * @public
+   */
+  NodeLogicalId: string | undefined;
+
+  /**
+   * <p>The error code associated with the error encountered when replacing a node by logical node ID.</p> <p>Possible values:</p> <ul> <li> <p> <code>InstanceIdNotFound</code>: The node does not exist in the specified cluster.</p> </li> <li> <p> <code>InvalidInstanceStatus</code>: The node is in a state that does not allow replacement. Wait for the node to finish any ongoing changes before retrying.</p> </li> <li> <p> <code>InstanceIdInUse</code>: Another operation is already in progress for this node. Wait for the operation to complete before retrying.</p> </li> <li> <p> <code>InternalServerError</code>: An internal error occurred while processing this node.</p> </li> </ul>
+   * @public
+   */
+  ErrorCode: BatchReplaceClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the error encountered when replacing a node by logical node ID.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchReplaceClusterNodesRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the SageMaker HyperPod cluster containing the nodes to replace.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of EC2 instance IDs to replace with new hardware. You can specify between 1 and 25 instance IDs.</p> <important> <p>Replace operations destroy all instance volumes (root and secondary). Ensure you have backed up any important data before proceeding.</p> </important> <note> <ul> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> <li> <p>Each instance ID must follow the pattern <code>i-</code> followed by 17 hexadecimal characters (for example, <code>i-0123456789abcdef0</code>).</p> </li> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot replace instances that are configured as Slurm controller nodes.</p> </li> </ul> </note>
+   * @public
+   */
+  NodeIds?: string[] | undefined;
+
+  /**
+   * <p>A list of logical node IDs to replace with new hardware. You can specify between 1 and 25 logical node IDs.</p> <p>The <code>NodeLogicalId</code> is a unique identifier that persists throughout the node's lifecycle and can be used to track nodes that are still being provisioned and don't yet have an EC2 instance ID assigned.</p> <important> <ul> <li> <p>Replace operations destroy all instance volumes (root and secondary). Ensure you have backed up any important data before proceeding.</p> </li> <li> <p>This parameter is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>. For clusters using the default provisioning mode, use <code>NodeIds</code> instead.</p> </li> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> </ul> </important>
+   * @public
+   */
+  NodeLogicalIds?: string[] | undefined;
+}
+
+/**
+ * <p>Represents an error encountered when replacing a node in a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface BatchReplaceClusterNodesError {
+  /**
+   * <p>The EC2 instance ID of the node that encountered an error during the replacement operation.</p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p>The error code associated with the error encountered when replacing a node.</p> <p>Possible values:</p> <ul> <li> <p> <code>InstanceIdNotFound</code>: The instance does not exist in the specified cluster.</p> </li> <li> <p> <code>InvalidInstanceStatus</code>: The instance is in a state that does not allow replacement. Wait for the instance to finish any ongoing changes before retrying.</p> </li> <li> <p> <code>InstanceIdInUse</code>: Another operation is already in progress for this node. Wait for the operation to complete before retrying.</p> </li> <li> <p> <code>InternalServerError</code>: An internal error occurred while processing this node.</p> </li> </ul>
+   * @public
+   */
+  ErrorCode: BatchReplaceClusterNodesErrorCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the error encountered when replacing a node.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchReplaceClusterNodesResponse {
+  /**
+   * <p>A list of EC2 instance IDs for which the replacement operation was successfully initiated.</p>
+   * @public
+   */
+  Successful?: string[] | undefined;
+
+  /**
+   * <p>A list of errors encountered for EC2 instance IDs that could not be replaced. Each error includes the instance ID, an error code, and a descriptive message.</p>
+   * @public
+   */
+  Failed?: BatchReplaceClusterNodesError[] | undefined;
+
+  /**
+   * <p>A list of errors encountered for logical node IDs that could not be replaced. Each error includes the logical node ID, an error code, and a descriptive message. This field is only present when <code>NodeLogicalIds</code> were provided in the request.</p>
+   * @public
+   */
+  FailedNodeLogicalIds?: BatchReplaceClusterNodeLogicalIdsError[] | undefined;
+
+  /**
+   * <p>A list of logical node IDs for which the replacement operation was successfully initiated. This field is only present when <code>NodeLogicalIds</code> were provided in the request.</p>
+   * @public
+   */
+  SuccessfulNodeLogicalIds?: string[] | undefined;
+}
+
+/**
  * <p>Represents the CSV dataset format used when running a monitoring job.</p>
  * @public
  */
@@ -5700,6 +5920,12 @@ export interface ClusterNodeSummary {
    * @public
    */
   UltraServerInfo?: UltraServerInfo | undefined;
+
+  /**
+   * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  PrivateDnsHostname?: string | undefined;
 }
 
 /**
@@ -6391,6 +6617,12 @@ export interface ComputeQuotaResourceConfig {
    * @public
    */
   MemoryInGiB?: number | undefined;
+
+  /**
+   * <p>The accelerator partition configuration for fractional GPU allocation.</p>
+   * @public
+   */
+  AcceleratorPartition?: AcceleratorPartitionConfig | undefined;
 }
 
 /**
@@ -8201,241 +8433,4 @@ export interface MonitoringResources {
    * @public
    */
   ClusterConfig: MonitoringClusterConfig | undefined;
-}
-
-/**
- * <p>The networking configuration for the monitoring job.</p>
- * @public
- */
-export interface MonitoringNetworkConfig {
-  /**
-   * <p>Whether to encrypt all communications between the instances used for the monitoring jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.</p>
-   * @public
-   */
-  EnableInterContainerTrafficEncryption?: boolean | undefined;
-
-  /**
-   * <p>Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.</p>
-   * @public
-   */
-  EnableNetworkIsolation?: boolean | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  VpcConfig?: VpcConfig | undefined;
-}
-
-/**
- * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
- * @public
- */
-export interface MonitoringStoppingCondition {
-  /**
-   * <p>The maximum runtime allowed in seconds.</p> <note> <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data quality and model explainability, this can be up to 3600 seconds for an hourly schedule. For model bias and model quality hourly schedules, this can be up to 1800 seconds.</p> </note>
-   * @public
-   */
-  MaxRuntimeInSeconds: number | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDataQualityJobDefinitionRequest {
-  /**
-   * <p>The name for the monitoring job definition.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>Configures the constraints and baselines for the monitoring job.</p>
-   * @public
-   */
-  DataQualityBaselineConfig?: DataQualityBaselineConfig | undefined;
-
-  /**
-   * <p>Specifies the container that runs the monitoring job.</p>
-   * @public
-   */
-  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
-
-  /**
-   * <p>A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.</p>
-   * @public
-   */
-  DataQualityJobInput: DataQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Specifies networking configuration for the monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDataQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job definition.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-/**
- * <p>The output configuration.</p>
- * @public
- */
-export interface EdgeOutputConfig {
-  /**
-   * <p>The Amazon Simple Storage (S3) bucker URI.</p>
-   * @public
-   */
-  S3OutputLocation: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The deployment type SageMaker Edge Manager will create. Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
-   * @public
-   */
-  PresetDeploymentType?: EdgePresetDeploymentType | undefined;
-
-  /**
-   * <p>The configuration used to create deployment artifacts. Specify configuration options with a JSON string. The available configuration options for each type are:</p> <ul> <li> <p> <code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not specified, the default name generated consists of "SagemakerEdgeManager" and the name of your SageMaker Edge Manager packaging job.</p> </li> <li> <p> <code>ComponentDescription</code> (optional) - Description of the component.</p> </li> <li> <p> <code>ComponentVersion</code> (optional) - The version of the component.</p> <note> <p>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic versions follow a<i> major.minor.patch</i> number system. For example, version 1.0.0 represents the first major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p> </note> </li> <li> <p> <code>PlatformOS</code> (optional) - The name of the operating system for the platform. Supported platforms include Windows and Linux.</p> </li> <li> <p> <code>PlatformArchitecture</code> (optional) - The processor architecture for the platform. </p> <p>Supported architectures Windows include: Windows32_x86, Windows64_x64.</p> <p>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</p> </li> </ul>
-   * @public
-   */
-  PresetDeploymentConfig?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet that the device belongs to.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>A description of the fleet.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The output configuration for storing sample data collected by the fleet.</p>
-   * @public
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>Creates tags for the specified fleet.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-\{DeviceFleetName\}".</p> <p>For example, if your device fleet is called "demo-fleet", the name of the role alias will be "SageMakerEdge-demo-fleet".</p>
-   * @public
-   */
-  EnableIotRoleAlias?: boolean | undefined;
-}
-
-/**
- * <p>The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker AI Domain.</p>
- * @public
- */
-export interface EFSFileSystemConfig {
-  /**
-   * <p>The ID of your Amazon EFS file system.</p>
-   * @public
-   */
-  FileSystemId: string | undefined;
-
-  /**
-   * <p>The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.</p>
-   * @public
-   */
-  FileSystemPath?: string | undefined;
-}
-
-/**
- * <p>The settings for assigning a custom Amazon FSx for Lustre file system to a user profile or space for an Amazon SageMaker Domain.</p>
- * @public
- */
-export interface FSxLustreFileSystemConfig {
-  /**
-   * <p>The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.</p>
-   * @public
-   */
-  FileSystemId: string | undefined;
-
-  /**
-   * <p>The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.</p>
-   * @public
-   */
-  FileSystemPath?: string | undefined;
-}
-
-/**
- * <p>Configuration for the custom Amazon S3 file system.</p>
- * @public
- */
-export interface S3FileSystemConfig {
-  /**
-   * <p>The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.</p>
-   * @public
-   */
-  MountPath?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 URI of the S3 file system configuration.</p>
-   * @public
-   */
-  S3Uri: string | undefined;
 }

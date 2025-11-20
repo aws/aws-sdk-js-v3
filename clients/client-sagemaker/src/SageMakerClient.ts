@@ -79,6 +79,14 @@ import {
   BatchDescribeModelPackageCommandInput,
   BatchDescribeModelPackageCommandOutput,
 } from "./commands/BatchDescribeModelPackageCommand";
+import {
+  BatchRebootClusterNodesCommandInput,
+  BatchRebootClusterNodesCommandOutput,
+} from "./commands/BatchRebootClusterNodesCommand";
+import {
+  BatchReplaceClusterNodesCommandInput,
+  BatchReplaceClusterNodesCommandOutput,
+} from "./commands/BatchReplaceClusterNodesCommand";
 import { CreateActionCommandInput, CreateActionCommandOutput } from "./commands/CreateActionCommand";
 import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
@@ -1050,6 +1058,8 @@ export type ServiceInputTypes =
   | BatchAddClusterNodesCommandInput
   | BatchDeleteClusterNodesCommandInput
   | BatchDescribeModelPackageCommandInput
+  | BatchRebootClusterNodesCommandInput
+  | BatchReplaceClusterNodesCommandInput
   | CreateActionCommandInput
   | CreateAlgorithmCommandInput
   | CreateAppCommandInput
@@ -1426,6 +1436,8 @@ export type ServiceOutputTypes =
   | BatchAddClusterNodesCommandOutput
   | BatchDeleteClusterNodesCommandOutput
   | BatchDescribeModelPackageCommandOutput
+  | BatchRebootClusterNodesCommandOutput
+  | BatchReplaceClusterNodesCommandOutput
   | CreateActionCommandOutput
   | CreateAlgorithmCommandOutput
   | CreateAppCommandOutput

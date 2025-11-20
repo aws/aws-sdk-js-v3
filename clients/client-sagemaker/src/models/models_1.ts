@@ -17,6 +17,7 @@ import {
   DataDistributionType,
   DeviceSubsetType,
   DirectInternetAccess,
+  EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
   FailureHandlingPolicy,
   FeatureStatus,
@@ -78,7 +79,6 @@ import {
   TrainingInputMode,
   TrainingInstanceType,
   TrainingJobEarlyStoppingType,
-  TrialComponentPrimaryStatus,
   TtlDurationUnit,
   VendorGuidance,
 } from "./enums";
@@ -119,10 +119,10 @@ import {
   ContinuousParameterRange,
   ConvergenceDetected,
   CustomImage,
-  EdgeOutputConfig,
-  EFSFileSystemConfig,
+  DataQualityAppSpecification,
+  DataQualityBaselineConfig,
+  DataQualityJobInput,
   EndpointInput,
-  FSxLustreFileSystemConfig,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
   MetadataProperties,
@@ -130,15 +130,12 @@ import {
   MetricsSource,
   ModelDataSource,
   MonitoringConstraintsResource,
-  MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStatisticsResource,
-  MonitoringStoppingCondition,
   OutputDataConfig,
   ResourceConfig,
   ResourceSpec,
-  S3FileSystemConfig,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -147,6 +144,243 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The networking configuration for the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringNetworkConfig {
+  /**
+   * <p>Whether to encrypt all communications between the instances used for the monitoring jobs. Choose <code>True</code> to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.</p>
+   * @public
+   */
+  EnableInterContainerTrafficEncryption?: boolean | undefined;
+
+  /**
+   * <p>Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.</p>
+   * @public
+   */
+  EnableNetworkIsolation?: boolean | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+}
+
+/**
+ * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+ * @public
+ */
+export interface MonitoringStoppingCondition {
+  /**
+   * <p>The maximum runtime allowed in seconds.</p> <note> <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data quality and model explainability, this can be up to 3600 seconds for an hourly schedule. For model bias and model quality hourly schedules, this can be up to 1800 seconds.</p> </note>
+   * @public
+   */
+  MaxRuntimeInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityJobDefinitionRequest {
+  /**
+   * <p>The name for the monitoring job definition.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>Configures the constraints and baselines for the monitoring job.</p>
+   * @public
+   */
+  DataQualityBaselineConfig?: DataQualityBaselineConfig | undefined;
+
+  /**
+   * <p>Specifies the container that runs the monitoring job.</p>
+   * @public
+   */
+  DataQualityAppSpecification: DataQualityAppSpecification | undefined;
+
+  /**
+   * <p>A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.</p>
+   * @public
+   */
+  DataQualityJobInput: DataQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  DataQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Specifies networking configuration for the monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job definition.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+/**
+ * <p>The output configuration.</p>
+ * @public
+ */
+export interface EdgeOutputConfig {
+  /**
+   * <p>The Amazon Simple Storage (S3) bucker URI.</p>
+   * @public
+   */
+  S3OutputLocation: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The deployment type SageMaker Edge Manager will create. Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
+   * @public
+   */
+  PresetDeploymentType?: EdgePresetDeploymentType | undefined;
+
+  /**
+   * <p>The configuration used to create deployment artifacts. Specify configuration options with a JSON string. The available configuration options for each type are:</p> <ul> <li> <p> <code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not specified, the default name generated consists of "SagemakerEdgeManager" and the name of your SageMaker Edge Manager packaging job.</p> </li> <li> <p> <code>ComponentDescription</code> (optional) - Description of the component.</p> </li> <li> <p> <code>ComponentVersion</code> (optional) - The version of the component.</p> <note> <p>Amazon Web Services IoT Greengrass uses semantic versions for components. Semantic versions follow a<i> major.minor.patch</i> number system. For example, version 1.0.0 represents the first major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p> </note> </li> <li> <p> <code>PlatformOS</code> (optional) - The name of the operating system for the platform. Supported platforms include Windows and Linux.</p> </li> <li> <p> <code>PlatformArchitecture</code> (optional) - The processor architecture for the platform. </p> <p>Supported architectures Windows include: Windows32_x86, Windows64_x64.</p> <p>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</p> </li> </ul>
+   * @public
+   */
+  PresetDeploymentConfig?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet that the device belongs to.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of Things (IoT).</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A description of the fleet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The output configuration for storing sample data collected by the fleet.</p>
+   * @public
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Creates tags for the specified fleet.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-\{DeviceFleetName\}".</p> <p>For example, if your device fleet is called "demo-fleet", the name of the role alias will be "SageMakerEdge-demo-fleet".</p>
+   * @public
+   */
+  EnableIotRoleAlias?: boolean | undefined;
+}
+
+/**
+ * <p>The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker AI Domain.</p>
+ * @public
+ */
+export interface EFSFileSystemConfig {
+  /**
+   * <p>The ID of your Amazon EFS file system.</p>
+   * @public
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.</p>
+   * @public
+   */
+  FileSystemPath?: string | undefined;
+}
+
+/**
+ * <p>The settings for assigning a custom Amazon FSx for Lustre file system to a user profile or space for an Amazon SageMaker Domain.</p>
+ * @public
+ */
+export interface FSxLustreFileSystemConfig {
+  /**
+   * <p>The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.</p>
+   * @public
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.</p>
+   * @public
+   */
+  FileSystemPath?: string | undefined;
+}
+
+/**
+ * <p>Configuration for the custom Amazon S3 file system.</p>
+ * @public
+ */
+export interface S3FileSystemConfig {
+  /**
+   * <p>The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.</p>
+   * @public
+   */
+  MountPath?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the S3 file system configuration.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
 
 /**
  * <p>The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
@@ -8051,305 +8285,4 @@ export interface TrialComponentArtifact {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * <p>The value of a hyperparameter. Only one of <code>NumberValue</code> or <code>StringValue</code> can be specified.</p> <p>This object is specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p>
- * @public
- */
-export type TrialComponentParameterValue =
-  | TrialComponentParameterValue.NumberValueMember
-  | TrialComponentParameterValue.StringValueMember
-  | TrialComponentParameterValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TrialComponentParameterValue {
-  /**
-   * <p>The string value of a categorical hyperparameter. If you specify a value for this parameter, you can't specify the <code>NumberValue</code> parameter.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    StringValue: string;
-    NumberValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The numeric value of a numeric hyperparameter. If you specify a value for this parameter, you can't specify the <code>StringValue</code> parameter.</p>
-   * @public
-   */
-  export interface NumberValueMember {
-    StringValue?: never;
-    NumberValue: number;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    StringValue?: never;
-    NumberValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    StringValue: (value: string) => T;
-    NumberValue: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The status of the trial component.</p>
- * @public
- */
-export interface TrialComponentStatus {
-  /**
-   * <p>The status of the trial component.</p>
-   * @public
-   */
-  PrimaryStatus?: TrialComponentPrimaryStatus | undefined;
-
-  /**
-   * <p>If the component failed, a message describing why.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrialComponentRequest {
-  /**
-   * <p>The name of the component. The name must be unique in your Amazon Web Services account and is not case-sensitive.</p>
-   * @public
-   */
-  TrialComponentName: string | undefined;
-
-  /**
-   * <p>The name of the component as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The status of the component. States include:</p> <ul> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Failed</p> </li> </ul>
-   * @public
-   */
-  Status?: TrialComponentStatus | undefined;
-
-  /**
-   * <p>When the component started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>When the component ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The hyperparameters for the component.</p>
-   * @public
-   */
-  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
-
-  /**
-   * <p>The input artifacts for the component. Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types.</p>
-   * @public
-   */
-  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>The output artifacts for the component. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
-   * @public
-   */
-  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>A list of tags to associate with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrialComponentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   * @public
-   */
-  TrialComponentArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserProfileRequest {
-  /**
-   * <p>The ID of the associated Domain.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A name for the UserProfile. This value is not case sensitive.</p>
-   * @public
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is IAM Identity Center, this field is required. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>
-   * @public
-   */
-  SingleSignOnUserIdentifier?: string | undefined;
-
-  /**
-   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile. If the Domain's AuthMode is IAM Identity Center, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>
-   * @public
-   */
-  SingleSignOnUserValue?: string | undefined;
-
-  /**
-   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p> <p>Tags that you specify for the User Profile are also added to all Apps that the User Profile launches.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   * @public
-   */
-  UserSettings?: UserSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserProfileResponse {
-  /**
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  UserProfileArn?: string | undefined;
-}
-
-/**
- * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
- * @public
- */
-export interface OidcConfig {
-  /**
-   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
-   * @public
-   */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The OIDC IdP client secret used to configure your private workforce.</p>
-   * @public
-   */
-  ClientSecret: string | undefined;
-
-  /**
-   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
-   * @public
-   */
-  Issuer: string | undefined;
-
-  /**
-   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  AuthorizationEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  TokenEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  UserInfoEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  LogoutEndpoint: string | undefined;
-
-  /**
-   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
-   * @public
-   */
-  JwksUri: string | undefined;
-
-  /**
-   * <p>An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-
-  /**
-   * <p>A string to string map of identifiers specific to the custom identity provider (IdP) being used.</p>
-   * @public
-   */
-  AuthenticationRequestExtraParams?: Record<string, string> | undefined;
-}
-
-/**
- * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow list of IP addresses for a private workforce. Workers will only be able to log in to their worker portal from an IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
- * @public
- */
-export interface SourceIpConfig {
-  /**
-   * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p> <p>Maximum: Ten CIDR values</p> <note> <p>The following Length Constraints apply to individual CIDR values in the CIDR value list.</p> </note>
-   * @public
-   */
-  Cidrs: string[] | undefined;
-}
-
-/**
- * <p>The VPC object you use to create or update a workforce.</p>
- * @public
- */
-export interface WorkforceVpcConfigRequest {
-  /**
-   * <p>The ID of the VPC that the workforce uses for communication.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. The security groups must be for the same VPC as specified in the subnet.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The ID of the subnets in the VPC that you want to connect.</p>
-   * @public
-   */
-  Subnets?: string[] | undefined;
 }

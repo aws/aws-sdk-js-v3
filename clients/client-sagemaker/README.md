@@ -261,6 +261,22 @@ BatchDescribeModelPackage
 </details>
 <details>
 <summary>
+BatchRebootClusterNodes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/BatchRebootClusterNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/BatchRebootClusterNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/BatchRebootClusterNodesCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchReplaceClusterNodes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/BatchReplaceClusterNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/BatchReplaceClusterNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/BatchReplaceClusterNodesCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateAction
 </summary>
 

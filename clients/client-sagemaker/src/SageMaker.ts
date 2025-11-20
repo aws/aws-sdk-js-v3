@@ -34,6 +34,16 @@ import {
   BatchDescribeModelPackageCommandOutput,
 } from "./commands/BatchDescribeModelPackageCommand";
 import {
+  BatchRebootClusterNodesCommand,
+  BatchRebootClusterNodesCommandInput,
+  BatchRebootClusterNodesCommandOutput,
+} from "./commands/BatchRebootClusterNodesCommand";
+import {
+  BatchReplaceClusterNodesCommand,
+  BatchReplaceClusterNodesCommandInput,
+  BatchReplaceClusterNodesCommandOutput,
+} from "./commands/BatchReplaceClusterNodesCommand";
+import {
   CreateActionCommand,
   CreateActionCommandInput,
   CreateActionCommandOutput,
@@ -1739,6 +1749,8 @@ const commands = {
   BatchAddClusterNodesCommand,
   BatchDeleteClusterNodesCommand,
   BatchDescribeModelPackageCommand,
+  BatchRebootClusterNodesCommand,
+  BatchReplaceClusterNodesCommand,
   CreateActionCommand,
   CreateAlgorithmCommand,
   CreateAppCommand,
@@ -2214,6 +2226,40 @@ export interface SageMaker {
     args: BatchDescribeModelPackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDescribeModelPackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchRebootClusterNodesCommand}
+   */
+  batchRebootClusterNodes(
+    args: BatchRebootClusterNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchRebootClusterNodesCommandOutput>;
+  batchRebootClusterNodes(
+    args: BatchRebootClusterNodesCommandInput,
+    cb: (err: any, data?: BatchRebootClusterNodesCommandOutput) => void
+  ): void;
+  batchRebootClusterNodes(
+    args: BatchRebootClusterNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchRebootClusterNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchReplaceClusterNodesCommand}
+   */
+  batchReplaceClusterNodes(
+    args: BatchReplaceClusterNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchReplaceClusterNodesCommandOutput>;
+  batchReplaceClusterNodes(
+    args: BatchReplaceClusterNodesCommandInput,
+    cb: (err: any, data?: BatchReplaceClusterNodesCommandOutput) => void
+  ): void;
+  batchReplaceClusterNodes(
+    args: BatchReplaceClusterNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchReplaceClusterNodesCommandOutput) => void
   ): void;
 
   /**

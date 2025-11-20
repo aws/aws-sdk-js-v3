@@ -61,8 +61,6 @@ import {
   ListInferenceRecommendationsJobsSortBy,
   ListLabelingJobsForWorkteamSortByOptions,
   ListOptimizationJobsSortBy,
-  ListWorkforcesSortByOptions,
-  ListWorkteamsSortByOptions,
   ModelApprovalStatus,
   ModelCardExportJobSortBy,
   ModelCardExportJobSortOrder,
@@ -104,7 +102,6 @@ import {
   RecommendationJobStatus,
   RecommendationJobType,
   RecommendationStepType,
-  ReservedCapacityInstanceType,
   ResourceCatalogSortBy,
   ResourceCatalogSortOrder,
   ResourceType,
@@ -143,11 +140,11 @@ import {
   TrainingPlanSortOrder,
   TrainingPlanStatus,
   TransformJobStatus,
-  UltraServerHealthStatus,
-  UserProfileSortKey,
   UserProfileStatus,
   VolumeAttachmentStatus,
   WarmPoolResourceStatus,
+  WorkforceIpAddressType,
+  WorkforceStatus,
 } from "./enums";
 
 import {
@@ -170,11 +167,12 @@ import {
   ClusterSchedulerConfigSummary,
   ClusterSummary,
   CodeRepositorySummary,
+  CognitoConfig,
   CompilationJobSummary,
   ComputeQuotaSummary,
   ConditionStepMetadata,
   ContextSummary,
-  EdgeOutputConfig,
+  MetadataProperties,
   OutputParameter,
   ResourceSpec,
   Tag,
@@ -183,6 +181,7 @@ import {
 
 import {
   DockerSettings,
+  EdgeOutputConfig,
   FeatureDefinition,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -195,9 +194,10 @@ import {
   OnlineStoreConfig,
   ResourceLimits,
   SpaceStorageSettings,
-  TrialComponentStatus,
+  TrialComponentArtifact,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
+  UserSettings,
 } from "./models_1";
 
 import {
@@ -222,14 +222,425 @@ import {
   ProductionVariantSummary,
   RecommendationMetrics,
   ReservedCapacitySummary,
+  SourceIpConfig,
   SubscribedWorkteam,
   TrainingJobStatusCounters,
-  TrialComponentSource,
+  TrialComponentMetricSummary,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
   TrialSource,
   WarmPoolStatus,
   WorkerAccessConfiguration,
-  Workforce,
 } from "./models_2";
+
+/**
+ * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
+ * @public
+ */
+export interface TrialComponentSource {
+  /**
+   * <p>The source Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The source job type.</p>
+   * @public
+   */
+  SourceType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrialComponentResponse {
+  /**
+   * <p>The name of the trial component.</p>
+   * @public
+   */
+  TrialComponentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+
+  /**
+   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
+   * @public
+   */
+  Source?: TrialComponentSource | undefined;
+
+  /**
+   * <p>The status of the component. States include:</p> <ul> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Failed</p> </li> </ul>
+   * @public
+   */
+  Status?: TrialComponentStatus | undefined;
+
+  /**
+   * <p>When the component started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>When the component ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>When the component was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the trial component.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the component was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Who last modified the component.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The hyperparameters of the component.</p>
+   * @public
+   */
+  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
+
+  /**
+   * <p>The input artifacts of the component.</p>
+   * @public
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>The output artifacts of the component.</p>
+   * @public
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+
+  /**
+   * <p>The metrics for the component.</p>
+   * @public
+   */
+  Metrics?: TrialComponentMetricSummary[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   * @public
+   */
+  LineageGroupArn?: string | undefined;
+
+  /**
+   * <p>A list of ARNs and, if applicable, job types for multiple sources of an experiment run.</p>
+   * @public
+   */
+  Sources?: TrialComponentSource[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserProfileRequest {
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name. This value is not case sensitive.</p>
+   * @public
+   */
+  UserProfileName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeUserProfileResponse {
+  /**
+   * <p>The ID of the domain that contains the profile.</p>
+   * @public
+   */
+  DomainId?: string | undefined;
+
+  /**
+   * <p>The user profile Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  UserProfileArn?: string | undefined;
+
+  /**
+   * <p>The user profile name.</p>
+   * @public
+   */
+  UserProfileName?: string | undefined;
+
+  /**
+   * <p>The ID of the user's profile in the Amazon Elastic File System volume.</p>
+   * @public
+   */
+  HomeEfsFileSystemUid?: string | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: UserProfileStatus | undefined;
+
+  /**
+   * <p>The last modified time.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The creation time.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The failure reason.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The IAM Identity Center user identifier.</p>
+   * @public
+   */
+  SingleSignOnUserIdentifier?: string | undefined;
+
+  /**
+   * <p>The IAM Identity Center user value.</p>
+   * @public
+   */
+  SingleSignOnUserValue?: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   * @public
+   */
+  UserSettings?: UserSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkforceRequest {
+  /**
+   * <p>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code> is automatically set to <code>default</code> when a workforce is created and cannot be modified. </p>
+   * @public
+   */
+  WorkforceName: string | undefined;
+}
+
+/**
+ * <p>Your OIDC IdP workforce configuration.</p>
+ * @public
+ */
+export interface OidcConfigForResponse {
+  /**
+   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  LogoutEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
+   * @public
+   */
+  JwksUri?: string | undefined;
+
+  /**
+   * <p>An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * <p>A string to string map of identifiers specific to the custom identity provider (IdP) being used.</p>
+   * @public
+   */
+  AuthenticationRequestExtraParams?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A VpcConfig object that specifies the VPC that you want your workforce to connect to.</p>
+ * @public
+ */
+export interface WorkforceVpcConfigResponse {
+  /**
+   * <p>The ID of the VPC that the workforce uses for communication.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC that you want to connect.</p>
+   * @public
+   */
+  Subnets: string[] | undefined;
+
+  /**
+   * <p>The IDs for the VPC service endpoints of your VPC workforce when it is created and updated.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+}
+
+/**
+ * <p>A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each Amazon Web Services Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
+ * @public
+ */
+export interface Workforce {
+  /**
+   * <p>The name of the private workforce.</p>
+   * @public
+   */
+  WorkforceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the private workforce.</p>
+   * @public
+   */
+  WorkforceArn: string | undefined;
+
+  /**
+   * <p>The most recent date that <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html">UpdateWorkforce</a> was used to successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's allow list.</p>
+   * @public
+   */
+  LastUpdatedDate?: Date | undefined;
+
+  /**
+   * <p>A list of one to ten IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to be added to the workforce allow list. By default, a workforce isn't restricted to specific IP addresses.</p>
+   * @public
+   */
+  SourceIpConfig?: SourceIpConfig | undefined;
+
+  /**
+   * <p>The subdomain for your OIDC Identity Provider.</p>
+   * @public
+   */
+  SubDomain?: string | undefined;
+
+  /**
+   * <p>The configuration of an Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
+   * @public
+   */
+  CognitoConfig?: CognitoConfig | undefined;
+
+  /**
+   * <p>The configuration of an OIDC Identity Provider (IdP) private workforce.</p>
+   * @public
+   */
+  OidcConfig?: OidcConfigForResponse | undefined;
+
+  /**
+   * <p>The date that the workforce is created.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The configuration of a VPC workforce.</p>
+   * @public
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigResponse | undefined;
+
+  /**
+   * <p>The status of your workforce.</p>
+   * @public
+   */
+  Status?: WorkforceStatus | undefined;
+
+  /**
+   * <p>The reason your workforce failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The IP address type you specify - either <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) - to support your labeling workforce.</p>
+   * @public
+   */
+  IpAddressType?: WorkforceIpAddressType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkforceResponse {
+  /**
+   * <p>A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each Amazon Web Services Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
+   * @public
+   */
+  Workforce: Workforce | undefined;
+}
 
 /**
  * @public
@@ -10188,7 +10599,7 @@ export interface TrainingPlanSummary {
   TotalUltraServerCount?: number | undefined;
 
   /**
-   * <p>The target resources (e.g., training jobs, HyperPod clusters) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> </ul>
+   * <p>The target resources (e.g., training jobs, HyperPod clusters, Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
    * @public
    */
   TargetResources?: SageMakerResourceName[] | undefined;
@@ -10605,297 +11016,4 @@ export interface ListTrialsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUltraServersByReservedCapacityRequest {
-  /**
-   * <p>The ARN of the reserved capacity to list UltraServers for.</p>
-   * @public
-   */
-  ReservedCapacityArn: string | undefined;
-
-  /**
-   * <p>The maximum number of UltraServers to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Represents a high-performance compute server used for distributed training in SageMaker AI. An UltraServer consists of multiple instances within a shared NVLink interconnect domain.</p>
- * @public
- */
-export interface UltraServer {
-  /**
-   * <p>The unique identifier for the UltraServer.</p>
-   * @public
-   */
-  UltraServerId: string | undefined;
-
-  /**
-   * <p>The type of UltraServer, such as ml.u-p6e-gb200x72.</p>
-   * @public
-   */
-  UltraServerType: string | undefined;
-
-  /**
-   * <p>The name of the Availability Zone where the UltraServer is provisioned.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 instance type used in the UltraServer.</p>
-   * @public
-   */
-  InstanceType: ReservedCapacityInstanceType | undefined;
-
-  /**
-   * <p>The total number of instances in this UltraServer.</p>
-   * @public
-   */
-  TotalInstanceCount: number | undefined;
-
-  /**
-   * <p>The number of spare instances configured for this UltraServer to provide enhanced resiliency.</p>
-   * @public
-   */
-  ConfiguredSpareInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently available for use in this UltraServer.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances currently in use in this UltraServer.</p>
-   * @public
-   */
-  InUseInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of available spare instances in the UltraServer.</p>
-   * @public
-   */
-  AvailableSpareInstanceCount?: number | undefined;
-
-  /**
-   * <p>The number of instances in this UltraServer that are currently in an unhealthy state.</p>
-   * @public
-   */
-  UnhealthyInstanceCount?: number | undefined;
-
-  /**
-   * <p>The overall health status of the UltraServer.</p>
-   * @public
-   */
-  HealthStatus?: UltraServerHealthStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUltraServersByReservedCapacityResponse {
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. Use it in the next request to retrieve the next set of UltraServers.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of UltraServers that are part of the specified reserved capacity.</p>
-   * @public
-   */
-  UltraServers: UltraServer[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserProfilesRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The sort order for the results. The default is Ascending.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is CreationTime.</p>
-   * @public
-   */
-  SortBy?: UserProfileSortKey | undefined;
-
-  /**
-   * <p>A parameter by which to filter the results.</p>
-   * @public
-   */
-  DomainIdEquals?: string | undefined;
-
-  /**
-   * <p>A parameter by which to filter the results.</p>
-   * @public
-   */
-  UserProfileNameContains?: string | undefined;
-}
-
-/**
- * <p>The user profile details.</p>
- * @public
- */
-export interface UserProfileDetails {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId?: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   * @public
-   */
-  UserProfileName?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: UserProfileStatus | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUserProfilesResponse {
-  /**
-   * <p>The list of user profiles.</p>
-   * @public
-   */
-  UserProfiles?: UserProfileDetails[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkforcesRequest {
-  /**
-   * <p>Sort workforces using the workforce name or creation date.</p>
-   * @public
-   */
-  SortBy?: ListWorkforcesSortByOptions | undefined;
-
-  /**
-   * <p>Sort workforces in ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A filter you can use to search for workforces using part of the workforce name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of workforces returned in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkforcesResponse {
-  /**
-   * <p>A list containing information about your workforce.</p>
-   * @public
-   */
-  Workforces: Workforce[] | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkteamsRequest {
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListWorkteamsSortByOptions | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A string in the work team's name. This filter returns only work teams whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListWorkteams</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of work teams to return in each page of the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

@@ -102,12 +102,11 @@ import {
   TrainingJobStatus,
   TrainingPlanStatus,
   TransformJobStatus,
-  UserProfileStatus,
+  TrialComponentPrimaryStatus,
   VariantStatus,
   VendorGuidance,
   WarmPoolResourceStatus,
   WorkforceIpAddressType,
-  WorkforceStatus,
 } from "./enums";
 
 import {
@@ -157,7 +156,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  EdgeOutputConfig,
   GitConfig,
   InferenceSpecification,
   InputConfig,
@@ -165,10 +163,8 @@ import {
   KernelGatewayImageConfig,
   MetadataProperties,
   ModelDeployConfig,
-  MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringStoppingCondition,
   NeoVpcConfig,
   OutputConfig,
   OutputDataConfig,
@@ -197,6 +193,7 @@ import {
   DriftCheckBaselines,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
+  EdgeOutputConfig,
   EndpointInfo,
   ExperimentConfig,
   ExplainerConfig,
@@ -240,11 +237,12 @@ import {
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
+  MonitoringNetworkConfig,
   MonitoringScheduleConfig,
+  MonitoringStoppingCondition,
   NetworkConfig,
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
-  OidcConfig,
   OnlineStoreConfig,
   OptimizationConfig,
   OptimizationJobModelSource,
@@ -271,16 +269,313 @@ import {
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SourceAlgorithmSpecification,
-  SourceIpConfig,
   SpaceSettings,
   SpaceSharingSettings,
   TensorBoardOutputConfig,
   TrialComponentArtifact,
-  TrialComponentParameterValue,
-  TrialComponentStatus,
   UserSettings,
-  WorkforceVpcConfigRequest,
 } from "./models_1";
+
+/**
+ * <p>The value of a hyperparameter. Only one of <code>NumberValue</code> or <code>StringValue</code> can be specified.</p> <p>This object is specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p>
+ * @public
+ */
+export type TrialComponentParameterValue =
+  | TrialComponentParameterValue.NumberValueMember
+  | TrialComponentParameterValue.StringValueMember
+  | TrialComponentParameterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TrialComponentParameterValue {
+  /**
+   * <p>The string value of a categorical hyperparameter. If you specify a value for this parameter, you can't specify the <code>NumberValue</code> parameter.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    NumberValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The numeric value of a numeric hyperparameter. If you specify a value for this parameter, you can't specify the <code>StringValue</code> parameter.</p>
+   * @public
+   */
+  export interface NumberValueMember {
+    StringValue?: never;
+    NumberValue: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    NumberValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    NumberValue: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The status of the trial component.</p>
+ * @public
+ */
+export interface TrialComponentStatus {
+  /**
+   * <p>The status of the trial component.</p>
+   * @public
+   */
+  PrimaryStatus?: TrialComponentPrimaryStatus | undefined;
+
+  /**
+   * <p>If the component failed, a message describing why.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialComponentRequest {
+  /**
+   * <p>The name of the component. The name must be unique in your Amazon Web Services account and is not case-sensitive.</p>
+   * @public
+   */
+  TrialComponentName: string | undefined;
+
+  /**
+   * <p>The name of the component as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The status of the component. States include:</p> <ul> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Failed</p> </li> </ul>
+   * @public
+   */
+  Status?: TrialComponentStatus | undefined;
+
+  /**
+   * <p>When the component started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>When the component ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The hyperparameters for the component.</p>
+   * @public
+   */
+  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
+
+  /**
+   * <p>The input artifacts for the component. Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types.</p>
+   * @public
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>The output artifacts for the component. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
+   * @public
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+
+  /**
+   * <p>A list of tags to associate with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrialComponentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserProfileRequest {
+  /**
+   * <p>The ID of the associated Domain.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A name for the UserProfile. This value is not case sensitive.</p>
+   * @public
+   */
+  UserProfileName: string | undefined;
+
+  /**
+   * <p>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is IAM Identity Center, this field is required. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>
+   * @public
+   */
+  SingleSignOnUserIdentifier?: string | undefined;
+
+  /**
+   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile. If the Domain's AuthMode is IAM Identity Center, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>
+   * @public
+   */
+  SingleSignOnUserValue?: string | undefined;
+
+  /**
+   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p> <p>Tags that you specify for the User Profile are also added to all Apps that the User Profile launches.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   * @public
+   */
+  UserSettings?: UserSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserProfileResponse {
+  /**
+   * <p>The user profile Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  UserProfileArn?: string | undefined;
+}
+
+/**
+ * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
+ * @public
+ */
+export interface OidcConfig {
+  /**
+   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The OIDC IdP client secret used to configure your private workforce.</p>
+   * @public
+   */
+  ClientSecret: string | undefined;
+
+  /**
+   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
+   * @public
+   */
+  Issuer: string | undefined;
+
+  /**
+   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  AuthorizationEndpoint: string | undefined;
+
+  /**
+   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  TokenEndpoint: string | undefined;
+
+  /**
+   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  UserInfoEndpoint: string | undefined;
+
+  /**
+   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
+   * @public
+   */
+  LogoutEndpoint: string | undefined;
+
+  /**
+   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
+   * @public
+   */
+  JwksUri: string | undefined;
+
+  /**
+   * <p>An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * <p>A string to string map of identifiers specific to the custom identity provider (IdP) being used.</p>
+   * @public
+   */
+  AuthenticationRequestExtraParams?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow list of IP addresses for a private workforce. Workers will only be able to log in to their worker portal from an IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
+ * @public
+ */
+export interface SourceIpConfig {
+  /**
+   * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p> <p>Maximum: Ten CIDR values</p> <note> <p>The following Length Constraints apply to individual CIDR values in the CIDR value list.</p> </note>
+   * @public
+   */
+  Cidrs: string[] | undefined;
+}
+
+/**
+ * <p>The VPC object you use to create or update a workforce.</p>
+ * @public
+ */
+export interface WorkforceVpcConfigRequest {
+  /**
+   * <p>The ID of the VPC that the workforce uses for communication.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. The security groups must be for the same VPC as specified in the subnet.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC that you want to connect.</p>
+   * @public
+   */
+  Subnets?: string[] | undefined;
+}
 
 /**
  * @public
@@ -9491,7 +9786,7 @@ export interface DescribeTrainingPlanResponse {
   TotalUltraServerCount?: number | undefined;
 
   /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> </ul>
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
    * @public
    */
   TargetResources?: SageMakerResourceName[] | undefined;
@@ -9808,413 +10103,4 @@ export interface TrialComponentMetricSummary {
    * @public
    */
   StdDev?: number | undefined;
-}
-
-/**
- * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
- * @public
- */
-export interface TrialComponentSource {
-  /**
-   * <p>The source Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SourceArn: string | undefined;
-
-  /**
-   * <p>The source job type.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrialComponentResponse {
-  /**
-   * <p>The name of the trial component.</p>
-   * @public
-   */
-  TrialComponentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   * @public
-   */
-  TrialComponentArn?: string | undefined;
-
-  /**
-   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the job type.</p>
-   * @public
-   */
-  Source?: TrialComponentSource | undefined;
-
-  /**
-   * <p>The status of the component. States include:</p> <ul> <li> <p>InProgress</p> </li> <li> <p>Completed</p> </li> <li> <p>Failed</p> </li> </ul>
-   * @public
-   */
-  Status?: TrialComponentStatus | undefined;
-
-  /**
-   * <p>When the component started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>When the component ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>When the component was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the trial component.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the component was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Who last modified the component.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>The hyperparameters of the component.</p>
-   * @public
-   */
-  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
-
-  /**
-   * <p>The input artifacts of the component.</p>
-   * @public
-   */
-  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>The output artifacts of the component.</p>
-   * @public
-   */
-  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties | undefined;
-
-  /**
-   * <p>The metrics for the component.</p>
-   * @public
-   */
-  Metrics?: TrialComponentMetricSummary[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   * @public
-   */
-  LineageGroupArn?: string | undefined;
-
-  /**
-   * <p>A list of ARNs and, if applicable, job types for multiple sources of an experiment run.</p>
-   * @public
-   */
-  Sources?: TrialComponentSource[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name. This value is not case sensitive.</p>
-   * @public
-   */
-  UserProfileName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeUserProfileResponse {
-  /**
-   * <p>The ID of the domain that contains the profile.</p>
-   * @public
-   */
-  DomainId?: string | undefined;
-
-  /**
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  UserProfileArn?: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   * @public
-   */
-  UserProfileName?: string | undefined;
-
-  /**
-   * <p>The ID of the user's profile in the Amazon Elastic File System volume.</p>
-   * @public
-   */
-  HomeEfsFileSystemUid?: string | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: UserProfileStatus | undefined;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The failure reason.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The IAM Identity Center user identifier.</p>
-   * @public
-   */
-  SingleSignOnUserIdentifier?: string | undefined;
-
-  /**
-   * <p>The IAM Identity Center user value.</p>
-   * @public
-   */
-  SingleSignOnUserValue?: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   * @public
-   */
-  UserSettings?: UserSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeWorkforceRequest {
-  /**
-   * <p>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code> is automatically set to <code>default</code> when a workforce is created and cannot be modified. </p>
-   * @public
-   */
-  WorkforceName: string | undefined;
-}
-
-/**
- * <p>Your OIDC IdP workforce configuration.</p>
- * @public
- */
-export interface OidcConfigForResponse {
-  /**
-   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
-   * @public
-   */
-  ClientId?: string | undefined;
-
-  /**
-   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
-   * @public
-   */
-  Issuer?: string | undefined;
-
-  /**
-   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  AuthorizationEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  TokenEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  UserInfoEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
-   * @public
-   */
-  LogoutEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
-   * @public
-   */
-  JwksUri?: string | undefined;
-
-  /**
-   * <p>An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-
-  /**
-   * <p>A string to string map of identifiers specific to the custom identity provider (IdP) being used.</p>
-   * @public
-   */
-  AuthenticationRequestExtraParams?: Record<string, string> | undefined;
-}
-
-/**
- * <p>A VpcConfig object that specifies the VPC that you want your workforce to connect to.</p>
- * @public
- */
-export interface WorkforceVpcConfigResponse {
-  /**
-   * <p>The ID of the VPC that the workforce uses for communication.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
-   * @public
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>The ID of the subnets in the VPC that you want to connect.</p>
-   * @public
-   */
-  Subnets: string[] | undefined;
-
-  /**
-   * <p>The IDs for the VPC service endpoints of your VPC workforce when it is created and updated.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-}
-
-/**
- * <p>A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each Amazon Web Services Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
- * @public
- */
-export interface Workforce {
-  /**
-   * <p>The name of the private workforce.</p>
-   * @public
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the private workforce.</p>
-   * @public
-   */
-  WorkforceArn: string | undefined;
-
-  /**
-   * <p>The most recent date that <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html">UpdateWorkforce</a> was used to successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's allow list.</p>
-   * @public
-   */
-  LastUpdatedDate?: Date | undefined;
-
-  /**
-   * <p>A list of one to ten IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to be added to the workforce allow list. By default, a workforce isn't restricted to specific IP addresses.</p>
-   * @public
-   */
-  SourceIpConfig?: SourceIpConfig | undefined;
-
-  /**
-   * <p>The subdomain for your OIDC Identity Provider.</p>
-   * @public
-   */
-  SubDomain?: string | undefined;
-
-  /**
-   * <p>The configuration of an Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
-   * @public
-   */
-  CognitoConfig?: CognitoConfig | undefined;
-
-  /**
-   * <p>The configuration of an OIDC Identity Provider (IdP) private workforce.</p>
-   * @public
-   */
-  OidcConfig?: OidcConfigForResponse | undefined;
-
-  /**
-   * <p>The date that the workforce is created.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The configuration of a VPC workforce.</p>
-   * @public
-   */
-  WorkforceVpcConfig?: WorkforceVpcConfigResponse | undefined;
-
-  /**
-   * <p>The status of your workforce.</p>
-   * @public
-   */
-  Status?: WorkforceStatus | undefined;
-
-  /**
-   * <p>The reason your workforce failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The IP address type you specify - either <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) - to support your labeling workforce.</p>
-   * @public
-   */
-  IpAddressType?: WorkforceIpAddressType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeWorkforceResponse {
-  /**
-   * <p>A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each Amazon Web Services Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
-   * @public
-   */
-  Workforce: Workforce | undefined;
 }
