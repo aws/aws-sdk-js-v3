@@ -108,7 +108,8 @@
     "fromSSO": "function, since <=3.930.0",
     "fromTemporaryCredentials": "function, since <=3.930.0",
     "fromTokenFile": "function, since <=3.930.0",
-    "fromWebToken": "function, since <=3.930.0"
+    "fromWebToken": "function, since <=3.930.0",
+    "fromLoginCredentials": "function, since 3.936.0"
   },
   "@aws-sdk/crt-loader": {
     "auth": "object, since <=3.930.0",
@@ -788,7 +789,8 @@
     "waitUntilBucketExists": "function, since <=3.930.0",
     "waitUntilBucketNotExists": "function, since <=3.930.0",
     "waitUntilObjectExists": "function, since <=3.930.0",
-    "waitUntilObjectNotExists": "function, since <=3.930.0"
+    "waitUntilObjectNotExists": "function, since <=3.930.0",
+    "EncryptionType": "object, since 3.936.0"
   },
   "@aws-sdk/client-s3-control": {
     "$Command": "function, since <=3.930.0",
@@ -1234,7 +1236,11 @@
     "getDefaultRoleAssumer": "function, since <=3.930.0",
     "getDefaultRoleAssumerWithWebIdentity": "function, since <=3.930.0",
     "__Client": "function, since <=3.930.0",
-    "STSClient": "function, since <=3.930.0"
+    "STSClient": "function, since <=3.930.0",
+    "GetWebIdentityTokenCommand": "function, since 3.936.0",
+    "JWTPayloadSizeExceededException": "function, since 3.936.0",
+    "OutboundWebIdentityFederationDisabledException": "function, since 3.936.0",
+    "SessionDurationEscalationException": "function, since 3.936.0"
   },
   "@aws-sdk/client-sagemaker": {
     "$Command": "function, since <=3.930.0",
@@ -2045,7 +2051,8 @@
     "waitUntilNotebookInstanceStopped": "function, since <=3.930.0",
     "waitUntilProcessingJobCompletedOrStopped": "function, since <=3.930.0",
     "waitUntilTrainingJobCompletedOrStopped": "function, since <=3.930.0",
-    "waitUntilTransformJobCompletedOrStopped": "function, since <=3.930.0"
+    "waitUntilTransformJobCompletedOrStopped": "function, since <=3.930.0",
+    "MetricPublishFrequencyInSeconds": "object, since 3.936.0"
   },
   "@aws-sdk/client-bedrock": {
     "$Command": "function, since <=3.930.0",
@@ -2241,5 +2248,8 @@
     "paginateListModelInvocationJobs": "function, since <=3.930.0",
     "paginateListPromptRouters": "function, since <=3.930.0",
     "paginateListProvisionedModelThroughputs": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-login": {
+    "fromLoginCredentials": "function, since <=3.936.0"
   }
 }
