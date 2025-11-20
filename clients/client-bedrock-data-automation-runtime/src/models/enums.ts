@@ -40,3 +40,31 @@ export const DataAutomationStage = {
  * @public
  */
 export type DataAutomationStage = (typeof DataAutomationStage)[keyof typeof DataAutomationStage];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomOutputStatus = {
+  MATCH: "MATCH",
+  NO_MATCH: "NO_MATCH",
+} as const;
+/**
+ * @public
+ */
+export type CustomOutputStatus = (typeof CustomOutputStatus)[keyof typeof CustomOutputStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SemanticModality = {
+  AUDIO: "AUDIO",
+  DOCUMENT: "DOCUMENT",
+  IMAGE: "IMAGE",
+  VIDEO: "VIDEO",
+} as const;
+/**
+ * @public
+ */
+export type SemanticModality = (typeof SemanticModality)[keyof typeof SemanticModality];

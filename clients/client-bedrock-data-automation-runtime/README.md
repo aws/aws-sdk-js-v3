@@ -219,6 +219,14 @@ GetDataAutomationStatus
 </details>
 <details>
 <summary>
+InvokeDataAutomation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation-runtime/command/InvokeDataAutomationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/InvokeDataAutomationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation-runtime/Interface/InvokeDataAutomationCommandOutput/)
+
+</details>
+<details>
+<summary>
 InvokeDataAutomationAsync
 </summary>
 

@@ -17,6 +17,11 @@ import {
   InvokeDataAutomationAsyncCommandOutput,
 } from "./commands/InvokeDataAutomationAsyncCommand";
 import {
+  InvokeDataAutomationCommand,
+  InvokeDataAutomationCommandInput,
+  InvokeDataAutomationCommandOutput,
+} from "./commands/InvokeDataAutomationCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -30,6 +35,7 @@ import {
 
 const commands = {
   GetDataAutomationStatusCommand,
+  InvokeDataAutomationCommand,
   InvokeDataAutomationAsyncCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
@@ -52,6 +58,23 @@ export interface BedrockDataAutomationRuntime {
     args: GetDataAutomationStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataAutomationStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeDataAutomationCommand}
+   */
+  invokeDataAutomation(
+    args: InvokeDataAutomationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeDataAutomationCommandOutput>;
+  invokeDataAutomation(
+    args: InvokeDataAutomationCommandInput,
+    cb: (err: any, data?: InvokeDataAutomationCommandOutput) => void
+  ): void;
+  invokeDataAutomation(
+    args: InvokeDataAutomationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeDataAutomationCommandOutput) => void
   ): void;
 
   /**

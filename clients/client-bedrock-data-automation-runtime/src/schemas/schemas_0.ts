@@ -9,17 +9,24 @@ const _GDAS = "GetDataAutomationStatus";
 const _GDASR = "GetDataAutomationStatusRequest";
 const _GDASRe = "GetDataAutomationStatusResponse";
 const _IC = "InputConfiguration";
+const _IDA = "InvokeDataAutomation";
 const _IDAA = "InvokeDataAutomationAsync";
 const _IDAAR = "InvokeDataAutomationAsyncRequest";
 const _IDAARn = "InvokeDataAutomationAsyncResponse";
+const _IDAR = "InvokeDataAutomationRequest";
+const _IDARn = "InvokeDataAutomationResponse";
 const _ISE = "InternalServerException";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _NC = "NotificationConfiguration";
 const _OC = "OutputConfiguration";
+const _OS = "OutputSegment";
+const _OSL = "OutputSegmentList";
 const _RNFE = "ResourceNotFoundException";
+const _SIC = "SyncInputConfiguration";
 const _SQEE = "ServiceQuotaExceededException";
+const _SUE = "ServiceUnavailableException";
 const _T = "Tag";
 const _TE = "ThrottlingException";
 const _TL = "TagList";
@@ -36,7 +43,10 @@ const _VSC = "VideoSegmentConfiguration";
 const _aPC = "assetProcessingConfiguration";
 const _b = "blueprints";
 const _bA = "blueprintArn";
+const _by = "bytes";
 const _c = "client";
+const _cO = "customOutput";
+const _cOS = "customOutputStatus";
 const _cT = "clientToken";
 const _dAC = "dataAutomationConfiguration";
 const _dAPA = "dataAutomationProjectArn";
@@ -57,9 +67,12 @@ const _kKI = "kmsKeyId";
 const _m = "message";
 const _nC = "notificationConfiguration";
 const _oC = "outputConfiguration";
+const _oS = "outputSegments";
 const _rARN = "resourceARN";
 const _s = "stage";
 const _sC = "segmentConfiguration";
+const _sM = "semanticModality";
+const _sO = "standardOutput";
 const _sTM = "startTimeMillis";
 const _sU = "s3Uri";
 const _se = "server";
@@ -89,6 +102,7 @@ import {
   InternalServerException as __InternalServerException,
   ResourceNotFoundException as __ResourceNotFoundException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
+  ServiceUnavailableException as __ServiceUnavailableException,
   ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
 } from "../models/errors";
@@ -169,10 +183,33 @@ export var InvokeDataAutomationAsyncRequest: StaticStructureSchema = [
   ],
 ];
 export var InvokeDataAutomationAsyncResponse: StaticStructureSchema = [3, n0, _IDAARn, 0, [_iA], [0]];
+export var InvokeDataAutomationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _IDAR,
+  0,
+  [_iC, _dAC, _b, _dAPAa, _eC],
+  [
+    () => SyncInputConfiguration,
+    () => DataAutomationConfiguration,
+    () => BlueprintList,
+    0,
+    () => EncryptionConfiguration,
+  ],
+];
+export var InvokeDataAutomationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _IDARn,
+  0,
+  [_sM, _oS],
+  [0, () => OutputSegmentList],
+];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
 export var NotificationConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_eBC], [() => EventBridgeConfiguration]];
 export var OutputConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_sU], [0]];
+export var OutputSegment: StaticStructureSchema = [3, n0, _OS, 0, [_cOS, _cO, _sO], [0, 0, 0]];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -199,6 +236,20 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
+export var ServiceUnavailableException: StaticErrorSchema = [
+  -3,
+  n0,
+  _SUE,
+  {
+    [_e]: _se,
+    [_hE]: 503,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
+
+export var SyncInputConfiguration: StaticStructureSchema = [3, n0, _SIC, 0, [_by, _sU], [21, 0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _t], [0, () => TagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -255,6 +306,7 @@ TypeRegistry.for(_sm).registerError(
 );
 
 export var BlueprintList: StaticListSchema = [1, n0, _BL, 0, () => Blueprint];
+export var OutputSegmentList: StaticListSchema = [1, n0, _OSL, 0, () => OutputSegment];
 export var TagKeyList = 64 | 0;
 
 export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
@@ -268,6 +320,14 @@ export var GetDataAutomationStatus: StaticOperationSchema = [
   0,
   () => GetDataAutomationStatusRequest,
   () => GetDataAutomationStatusResponse,
+];
+export var InvokeDataAutomation: StaticOperationSchema = [
+  9,
+  n0,
+  _IDA,
+  0,
+  () => InvokeDataAutomationRequest,
+  () => InvokeDataAutomationResponse,
 ];
 export var InvokeDataAutomationAsync: StaticOperationSchema = [
   9,

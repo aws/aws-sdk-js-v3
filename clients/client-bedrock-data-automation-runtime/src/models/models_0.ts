@@ -1,5 +1,11 @@
 // smithy-typescript generated code
-import { AutomationJobStatus, BlueprintStage, DataAutomationStage } from "./enums";
+import {
+  AutomationJobStatus,
+  BlueprintStage,
+  CustomOutputStatus,
+  DataAutomationStage,
+  SemanticModality,
+} from "./enums";
 
 /**
  * Structure for request of GetDataAutomationStatus API.
@@ -326,6 +332,102 @@ export interface InvokeDataAutomationAsyncResponse {
    * @public
    */
   invocationArn: string | undefined;
+}
+
+/**
+ * Input configuration for synchronous API
+ * @public
+ */
+export interface SyncInputConfiguration {
+  /**
+   * Input data as bytes
+   * @public
+   */
+  bytes?: Uint8Array | undefined;
+
+  /**
+   * S3 URI of the input data
+   * @public
+   */
+  s3Uri?: string | undefined;
+}
+
+/**
+ * Invoke Data Automation Request
+ * @public
+ */
+export interface InvokeDataAutomationRequest {
+  /**
+   * Input configuration.
+   * @public
+   */
+  inputConfiguration: SyncInputConfiguration | undefined;
+
+  /**
+   * Data automation configuration.
+   * @public
+   */
+  dataAutomationConfiguration?: DataAutomationConfiguration | undefined;
+
+  /**
+   * Blueprint list.
+   * @public
+   */
+  blueprints?: Blueprint[] | undefined;
+
+  /**
+   * Data automation profile ARN
+   * @public
+   */
+  dataAutomationProfileArn: string | undefined;
+
+  /**
+   * Encryption configuration.
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+}
+
+/**
+ * Results for an output segment
+ * @public
+ */
+export interface OutputSegment {
+  /**
+   * Status of blueprint match
+   * @public
+   */
+  customOutputStatus?: CustomOutputStatus | undefined;
+
+  /**
+   * Custom output response
+   * @public
+   */
+  customOutput?: string | undefined;
+
+  /**
+   * Standard output response
+   * @public
+   */
+  standardOutput?: string | undefined;
+}
+
+/**
+ * Invoke Data Automation Response
+ * @public
+ */
+export interface InvokeDataAutomationResponse {
+  /**
+   * Detected semantic modality
+   * @public
+   */
+  semanticModality: SemanticModality | undefined;
+
+  /**
+   * List of outputs for each logical sub-doc
+   * @public
+   */
+  outputSegments: OutputSegment[] | undefined;
 }
 
 /**

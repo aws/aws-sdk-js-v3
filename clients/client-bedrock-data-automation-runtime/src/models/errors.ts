@@ -122,3 +122,23 @@ export class ServiceQuotaExceededException extends __BaseException {
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }
+
+/**
+ * This exception will be thrown when service is temporarily unavailable.
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name = "ServiceUnavailableException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
