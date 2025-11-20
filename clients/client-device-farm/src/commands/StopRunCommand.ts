@@ -145,6 +145,13 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     executionRoleArn: "STRING_VALUE",
+ * //     environmentVariables: [ // EnvironmentVariables
+ * //       { // EnvironmentVariable
+ * //         name: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -98,6 +98,13 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *       "STRING_VALUE",
  *     ],
  *     billingMethod: "METERED" || "UNMETERED",
+ *     environmentVariables: [ // EnvironmentVariables
+ *       { // EnvironmentVariable
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     executionRoleArn: "STRING_VALUE",
  *   },
  *   executionConfiguration: { // ExecutionConfiguration
  *     jobTimeoutMinutes: Number("int"),
@@ -210,6 +217,13 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     executionRoleArn: "STRING_VALUE",
+ * //     environmentVariables: [ // EnvironmentVariables
+ * //       { // EnvironmentVariable
+ * //         name: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -85,6 +85,13 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *       "STRING_VALUE",
  *     ],
  *     billingMethod: "METERED" || "UNMETERED",
+ *     environmentVariables: [ // EnvironmentVariables
+ *       { // EnvironmentVariable
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     executionRoleArn: "STRING_VALUE",
  *   },
  *   projectArn: "STRING_VALUE",
  * };

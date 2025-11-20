@@ -56,6 +56,13 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     environmentVariables: [ // EnvironmentVariables
+ * //       { // EnvironmentVariable
+ * //         name: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     executionRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

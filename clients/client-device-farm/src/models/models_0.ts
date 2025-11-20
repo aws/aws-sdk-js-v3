@@ -806,6 +806,24 @@ export interface CreateNetworkProfileResult {
 }
 
 /**
+ * <p>Information about an environment variable for a project or a run.</p>
+ * @public
+ */
+export interface EnvironmentVariable {
+  /**
+   * <p>The name of the environment variable.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The value of the environment variable.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * <p>Contains the VPC configuration data necessary to interface with AWS Device Farm's services.</p>
  * @public
  */
@@ -852,6 +870,26 @@ export interface CreateProjectRequest {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>
+   *             A set of environment variables which are used by default for all runs in the project.
+   *             These environment variables are applied to the test run during the execution of a test spec file.
+   *         </p>
+   *          <p>
+   *             For more information about using test spec files, please see
+   *             <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html">Custom test environments </a> in <i>AWS Device
+   *             Farm.</i>
+   *          </p>
+   * @public
+   */
+  environmentVariables?: EnvironmentVariable[] | undefined;
+
+  /**
+   * <p>An IAM role to be assumed by the test host for all runs in the project.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
 }
 
 /**
@@ -890,6 +928,18 @@ export interface Project {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>Environment variables associated with the project.</p>
+   * @public
+   */
+  environmentVariables?: EnvironmentVariable[] | undefined;
+
+  /**
+   * <p>The IAM execution role associated with the project.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
 }
 
 /**
@@ -2415,6 +2465,18 @@ export interface ScheduleRunConfiguration {
    * @public
    */
   billingMethod?: BillingMethod | undefined;
+
+  /**
+   * <p>Environment variables associated with the run.</p>
+   * @public
+   */
+  environmentVariables?: EnvironmentVariable[] | undefined;
+
+  /**
+   * <p>An IAM role to be assumed by the test host for the run.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
 }
 
 /**
@@ -3725,6 +3787,18 @@ export interface Run {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The IAM role associated with the run.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>Environment variables associated with the run.</p>
+   * @public
+   */
+  environmentVariables?: EnvironmentVariable[] | undefined;
 }
 
 /**
@@ -5152,7 +5226,7 @@ export interface ListSuitesResult {
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources for which to list tags. You can associate tags
-   *             with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
+   *             with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>,
    *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
    *                 <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and
    *             <code>VPCE_CONFIGURATION</code>.</p>
@@ -6232,7 +6306,7 @@ export interface StopRunResult {
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags
-   *             with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
+   *             with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>,
    *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
    *                 <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and
    *             <code>VPCE_CONFIGURATION</code>.</p>
@@ -6259,7 +6333,7 @@ export interface TagResourceResponse {}
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate
-   *             tags with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
+   *             tags with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>,
    *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
    *                 <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and
    *             <code>VPCE_CONFIGURATION</code>.</p>
@@ -6563,6 +6637,26 @@ export interface UpdateProjectRequest {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>
+   *             A set of environment variables which are used by default for all runs in the project.
+   *             These environment variables are applied to the test run during the execution of a test spec file.
+   *         </p>
+   *          <p>
+   *             For more information about using test spec files, please see
+   *             <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html">Custom test environments </a> in <i>AWS Device
+   *             Farm.</i>
+   *          </p>
+   * @public
+   */
+  environmentVariables?: EnvironmentVariable[] | undefined;
+
+  /**
+   * <p>An IAM role to be assumed by the test host for all runs in the project.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
 }
 
 /**

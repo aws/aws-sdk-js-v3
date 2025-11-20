@@ -50,6 +50,13 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  *     ],
  *     vpcId: "STRING_VALUE", // required
  *   },
+ *   environmentVariables: [ // EnvironmentVariables
+ *     { // EnvironmentVariable
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   executionRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
@@ -68,6 +75,13 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     environmentVariables: [ // EnvironmentVariables
+ * //       { // EnvironmentVariable
+ * //         name: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     executionRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *

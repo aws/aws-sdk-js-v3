@@ -76,6 +76,8 @@ const _DVPCECR = "DeleteVPCEConfigurationRequest";
 const _DVPCECRe = "DeleteVPCEConfigurationResult";
 const _De = "Devices";
 const _EC = "ExecutionConfiguration";
+const _EV = "EnvironmentVariable";
+const _EVn = "EnvironmentVariables";
 const _GAS = "GetAccountSettings";
 const _GASR = "GetAccountSettingsRequest";
 const _GASRe = "GetAccountSettingsResult";
@@ -400,8 +402,10 @@ const _eCx = "executionConfiguration";
 const _eDPA = "extraDataPackageArn";
 const _eIS = "expiresInSeconds";
 const _eO = "effectiveOn";
+const _eRA = "executionRoleArn";
 const _eTA = "endTimeAfter";
 const _eTB = "endTimeBefore";
+const _eV = "environmentVariables";
 const _en = "endpoint";
 const _end = "endpoints";
 const _ende = "ended";
@@ -657,7 +661,14 @@ export var CreateNetworkProfileRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 export var CreateNetworkProfileResult: StaticStructureSchema = [3, n0, _CNPRr, 0, [_nP], [() => NetworkProfile]];
-export var CreateProjectRequest: StaticStructureSchema = [3, n0, _CPR, 0, [_n, _dJTM, _vC], [0, 1, () => VpcConfig]];
+export var CreateProjectRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CPR,
+  0,
+  [_n, _dJTM, _vC, _eV, _eRA],
+  [0, 1, () => VpcConfig, () => EnvironmentVariables, 0],
+];
 export var CreateProjectResult: StaticStructureSchema = [3, n0, _CPRr, 0, [_pr], [() => Project]];
 export var CreateRemoteAccessSessionConfiguration: StaticStructureSchema = [
   3,
@@ -775,6 +786,7 @@ export var DeviceSelectionResult: StaticStructureSchema = [
   [_fi, _mDC, _mD],
   [() => DeviceFilters, 1, 1],
 ];
+export var EnvironmentVariable: StaticStructureSchema = [3, n0, _EV, 0, [_n, _va], [0, 0]];
 export var ExecutionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1122,7 +1134,14 @@ export var Problem: StaticStructureSchema = [
   [() => ProblemDetail, () => ProblemDetail, () => ProblemDetail, () => ProblemDetail, () => Device, 0, 0],
 ];
 export var ProblemDetail: StaticStructureSchema = [3, n0, _PD, 0, [_a, _n], [0, 0]];
-export var Project: StaticStructureSchema = [3, n0, _Pr, 0, [_a, _n, _dJTM, _cr, _vC], [0, 0, 1, 4, () => VpcConfig]];
+export var Project: StaticStructureSchema = [
+  3,
+  n0,
+  _Pr,
+  0,
+  [_a, _n, _dJTM, _cr, _vC, _eV, _eRA],
+  [0, 0, 1, 4, () => VpcConfig, () => EnvironmentVariables, 0],
+];
 export var PurchaseOfferingRequest: StaticStructureSchema = [3, n0, _POR, 0, [_oI, _q, _oPI], [0, 1, 0]];
 export var PurchaseOfferingResult: StaticStructureSchema = [3, n0, _PORu, 0, [_oTf], [() => OfferingTransaction]];
 export var Radios: StaticStructureSchema = [3, n0, _R, 0, [_wi, _b, _nf, _g], [2, 2, 2, 2]];
@@ -1210,6 +1229,8 @@ export var Run: StaticStructureSchema = [
     _tSA,
     _dSR,
     _vC,
+    _eRA,
+    _eV,
   ],
   [
     0,
@@ -1245,6 +1266,8 @@ export var Run: StaticStructureSchema = [
     0,
     () => DeviceSelectionResult,
     () => VpcConfig,
+    0,
+    () => EnvironmentVariables,
   ],
 ];
 export var Sample: StaticStructureSchema = [3, n0, _S, 0, [_a, _t, _u], [0, 0, 0]];
@@ -1253,8 +1276,21 @@ export var ScheduleRunConfiguration: StaticStructureSchema = [
   n0,
   _SRC,
   0,
-  [_eDPA, _nPA, _loc, _loca, _vCA, _dPe, _cAP, _rad, _aA, _bM],
-  [0, 0, 0, () => Location, 64 | 0, () => DeviceProxy, () => CustomerArtifactPaths, () => Radios, 64 | 0, 0],
+  [_eDPA, _nPA, _loc, _loca, _vCA, _dPe, _cAP, _rad, _aA, _bM, _eV, _eRA],
+  [
+    0,
+    0,
+    0,
+    () => Location,
+    64 | 0,
+    () => DeviceProxy,
+    () => CustomerArtifactPaths,
+    () => Radios,
+    64 | 0,
+    0,
+    () => EnvironmentVariables,
+    0,
+  ],
 ];
 export var ScheduleRunRequest: StaticStructureSchema = [
   3,
@@ -1436,8 +1472,8 @@ export var UpdateProjectRequest: StaticStructureSchema = [
   n0,
   _UPR,
   0,
-  [_a, _n, _dJTM, _vC],
-  [0, 0, 1, () => VpcConfig],
+  [_a, _n, _dJTM, _vC, _eV, _eRA],
+  [0, 0, 1, () => VpcConfig, () => EnvironmentVariables, 0],
 ];
 export var UpdateProjectResult: StaticStructureSchema = [3, n0, _UPRp, 0, [_pr], [() => Project]];
 export var UpdateTestGridProjectRequest: StaticStructureSchema = [
@@ -1498,6 +1534,7 @@ export var DeviceInstances: StaticListSchema = [1, n0, _DIe, 0, () => DeviceInst
 export var DevicePoolCompatibilityResults: StaticListSchema = [1, n0, _DPCRe, 0, () => DevicePoolCompatibilityResult];
 export var DevicePools: StaticListSchema = [1, n0, _DPev, 0, () => DevicePool];
 export var Devices: StaticListSchema = [1, n0, _De, 0, () => Device];
+export var EnvironmentVariables: StaticListSchema = [1, n0, _EVn, 0, () => EnvironmentVariable];
 export var IncompatibilityMessages: StaticListSchema = [1, n0, _IMn, 0, () => IncompatibilityMessage];
 export var InstanceLabels = 64 | 0;
 
