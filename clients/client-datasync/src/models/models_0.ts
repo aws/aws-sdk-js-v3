@@ -3398,7 +3398,7 @@ export interface DescribeTaskResponse {
   TaskArn?: string | undefined;
 
   /**
-   * <p>The status of your task. For information about what each status means, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-task-statuses.html#understand-task-creation-statuses">Task statuses</a>.</p>
+   * <p>The status of your task. For information about what each status means, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task-how-to.html#understand-task-creation-statuses">Task statuses</a>.</p>
    * @public
    */
   Status?: TaskStatus | undefined;
@@ -4228,7 +4228,7 @@ export interface TaskExecutionListEntry {
   TaskExecutionArn?: string | undefined;
 
   /**
-   * <p>The status of a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-task-statuses.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
+   * <p>The status of a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
    * @public
    */
   Status?: TaskExecutionStatus | undefined;
