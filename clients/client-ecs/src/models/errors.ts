@@ -408,6 +408,26 @@ export class TaskSetNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The specified resource wasn't found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The execute command cannot run. This error can be caused by any of the following
  * 			configuration issues:</p>
  *          <ul>
@@ -440,26 +460,6 @@ export class TargetNotConnectedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TargetNotConnectedException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource wasn't found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
 }
 

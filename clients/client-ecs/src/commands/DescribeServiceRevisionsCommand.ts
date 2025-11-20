@@ -205,6 +205,111 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           },
  * //         ],
  * //       },
+ * //       ecsManagedResources: { // ECSManagedResources
+ * //         ingressPaths: [ // ManagedIngressPaths
+ * //           { // ManagedIngressPath
+ * //             accessType: "PUBLIC" || "PRIVATE", // required
+ * //             endpoint: "STRING_VALUE", // required
+ * //             loadBalancer: { // ManagedLoadBalancer
+ * //               arn: "STRING_VALUE",
+ * //               status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //               statusReason: "STRING_VALUE",
+ * //               updatedAt: new Date("TIMESTAMP"), // required
+ * //               scheme: "STRING_VALUE", // required
+ * //               subnetIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               securityGroupIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             loadBalancerSecurityGroups: [ // ManagedSecurityGroups
+ * //               { // ManagedSecurityGroup
+ * //                 arn: "STRING_VALUE",
+ * //                 status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //                 statusReason: "STRING_VALUE",
+ * //                 updatedAt: new Date("TIMESTAMP"), // required
+ * //               },
+ * //             ],
+ * //             certificate: { // ManagedCertificate
+ * //               arn: "STRING_VALUE",
+ * //               status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //               statusReason: "STRING_VALUE",
+ * //               updatedAt: new Date("TIMESTAMP"), // required
+ * //               domainName: "STRING_VALUE", // required
+ * //             },
+ * //             listener: { // ManagedListener
+ * //               arn: "STRING_VALUE",
+ * //               status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //               statusReason: "STRING_VALUE",
+ * //               updatedAt: new Date("TIMESTAMP"), // required
+ * //             },
+ * //             rule: { // ManagedListenerRule
+ * //               arn: "STRING_VALUE",
+ * //               status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //               statusReason: "STRING_VALUE",
+ * //               updatedAt: new Date("TIMESTAMP"), // required
+ * //             },
+ * //             targetGroups: [ // ManagedTargetGroups
+ * //               { // ManagedTargetGroup
+ * //                 arn: "STRING_VALUE",
+ * //                 status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //                 statusReason: "STRING_VALUE",
+ * //                 updatedAt: new Date("TIMESTAMP"), // required
+ * //                 healthCheckPath: "STRING_VALUE", // required
+ * //                 healthCheckPort: Number("int"), // required
+ * //                 port: Number("int"), // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         autoScaling: { // ManagedAutoScaling
+ * //           scalableTarget: { // ManagedScalableTarget
+ * //             arn: "STRING_VALUE",
+ * //             status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //             statusReason: "STRING_VALUE",
+ * //             updatedAt: new Date("TIMESTAMP"), // required
+ * //             minCapacity: Number("int"), // required
+ * //             maxCapacity: Number("int"), // required
+ * //           },
+ * //           applicationAutoScalingPolicies: [ // ManagedApplicationAutoScalingPolicies
+ * //             { // ManagedApplicationAutoScalingPolicy
+ * //               arn: "STRING_VALUE",
+ * //               status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //               statusReason: "STRING_VALUE",
+ * //               updatedAt: new Date("TIMESTAMP"), // required
+ * //               policyType: "STRING_VALUE", // required
+ * //               targetValue: Number("double"), // required
+ * //               metric: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //         metricAlarms: [ // ManagedMetricAlarms
+ * //           { // ManagedMetricAlarm
+ * //             arn: "STRING_VALUE",
+ * //             status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //             statusReason: "STRING_VALUE",
+ * //             updatedAt: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         ],
+ * //         serviceSecurityGroups: [
+ * //           {
+ * //             arn: "STRING_VALUE",
+ * //             status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //             statusReason: "STRING_VALUE",
+ * //             updatedAt: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         ],
+ * //         logGroups: [ // ManagedLogGroups
+ * //           { // ManagedLogGroup
+ * //             arn: "STRING_VALUE",
+ * //             status: "PROVISIONING" || "ACTIVE" || "DEPROVISIONING" || "DELETED" || "FAILED", // required
+ * //             statusReason: "STRING_VALUE",
+ * //             updatedAt: new Date("TIMESTAMP"), // required
+ * //             logGroupName: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures

@@ -357,6 +357,15 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //       },
  * //     ],
  * //     createdAt: new Date("TIMESTAMP"),
+ * //     currentServiceDeployment: "STRING_VALUE",
+ * //     currentServiceRevisions: [ // ServiceCurrentRevisionSummaryList
+ * //       { // ServiceCurrentRevisionSummary
+ * //         arn: "STRING_VALUE",
+ * //         requestedTaskCount: Number("int"),
+ * //         runningTaskCount: Number("int"),
+ * //         pendingTaskCount: Number("int"),
+ * //       },
+ * //     ],
  * //     placementConstraints: [ // PlacementConstraints
  * //       { // PlacementConstraint
  * //         type: "distinctInstance" || "memberOf",
@@ -387,6 +396,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  * //     enableExecuteCommand: true || false,
  * //     availabilityZoneRebalancing: "ENABLED" || "DISABLED",
+ * //     resourceManagementType: "CUSTOMER" || "ECS",
  * //   },
  * // };
  *

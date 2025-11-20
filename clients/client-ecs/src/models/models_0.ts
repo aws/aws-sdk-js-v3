@@ -5,6 +5,7 @@ import {
   AcceleratorManufacturer,
   AcceleratorName,
   AcceleratorType,
+  AccessType,
   AgentUpdateStatus,
   ApplicationProtocol,
   AssignPublicIp,
@@ -35,6 +36,9 @@ import {
   EFSTransitEncryption,
   EnvironmentFileType,
   ExecuteCommandLogging,
+  ExpressGatewayServiceInclude,
+  ExpressGatewayServiceScalingMetric,
+  ExpressGatewayServiceStatusCode,
   FirelensConfigurationType,
   HealthStatus,
   InstanceGeneration,
@@ -48,6 +52,7 @@ import {
   ManagedAgentName,
   ManagedDraining,
   ManagedInstancesMonitoringOptions,
+  ManagedResourceStatus,
   ManagedScalingStatus,
   ManagedTerminationProtection,
   NetworkMode,
@@ -59,6 +64,7 @@ import {
   PropagateMITags,
   PropagateTags,
   ProxyConfigurationType,
+  ResourceManagementType,
   ResourceType,
   ScaleUnit,
   SchedulingStrategy,
@@ -1890,6 +1896,516 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * <p>The network configuration for an Express service. By default, an Express service utilizes subnets and security groups associated with the default VPC.</p>
+ * @public
+ */
+export interface ExpressGatewayServiceNetworkConfiguration {
+  /**
+   * <p>The IDs of the security groups associated with the Express service.</p>
+   * @public
+   */
+  securityGroups?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the subnets associated with the Express service.</p>
+   * @public
+   */
+  subnets?: string[] | undefined;
+}
+
+/**
+ * <p>Specifies the Amazon CloudWatch Logs configuration for the Express service
+ * 			container.</p>
+ * @public
+ */
+export interface ExpressGatewayServiceAwsLogsConfiguration {
+  /**
+   * <p>The name of the CloudWatch Logs log group to send container logs to.</p>
+   * @public
+   */
+  logGroup: string | undefined;
+
+  /**
+   * <p>The prefix for the CloudWatch Logs log stream names. The default for an Express service is <code>ecs</code>.</p>
+   * @public
+   */
+  logStreamPrefix: string | undefined;
+}
+
+/**
+ * <p>The repository credentials for private registry authentication to pass to the container.</p>
+ * @public
+ */
+export interface ExpressGatewayRepositoryCredentials {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p>
+   * @public
+   */
+  credentialsParameter?: string | undefined;
+}
+
+/**
+ * <p>An object representing the secret to expose to your container. Secrets can be exposed
+ * 			to a container in the following ways:</p>
+ *          <ul>
+ *             <li>
+ *                <p>To inject sensitive data into your containers as environment variables, use
+ * 					the <code>secrets</code> container definition parameter.</p>
+ *             </li>
+ *             <li>
+ *                <p>To reference sensitive information in the log configuration of a container,
+ * 					use the <code>secretOptions</code> container definition parameter.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
+ * 				sensitive data</a> in the <i>Amazon Elastic Container Service Developer
+ * 				Guide</i>.</p>
+ * @public
+ */
+export interface Secret {
+  /**
+   * <p>The name of the secret.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The secret to expose to the container. The supported values are either the full ARN of
+   * 			the Secrets
+   * 				Manager secret or the full ARN of the parameter in the SSM Parameter
+   * 			Store.</p>
+   *          <p>For information about the require Identity and Access Management permissions,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam">Required IAM permissions for Amazon ECS secrets</a> (for Secrets Manager) or
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html">Required IAM permissions for Amazon ECS secrets</a> (for Systems Manager
+   * 			Parameter store) in the <i>Amazon Elastic Container Service Developer
+   * 				Guide</i>.</p>
+   *          <note>
+   *             <p>If the SSM Parameter Store parameter exists in the same Region as the task you're
+   * 				launching, then you can use either the full ARN or name of the parameter. If the
+   * 				parameter exists in a different Region, then the full ARN must be specified.</p>
+   *          </note>
+   * @public
+   */
+  valueFrom: string | undefined;
+}
+
+/**
+ * <p>Defines the configuration for the primary container in an Express service. This container
+ * 			receives traffic from the Application Load Balancer and runs your application code.</p>
+ *          <p>The container configuration includes the container image, port mapping, logging
+ * 			settings, environment variables, and secrets. The container image is the only required
+ * 			parameter, with sensible defaults provided for other settings.</p>
+ * @public
+ */
+export interface ExpressGatewayContainer {
+  /**
+   * <p>The image used to start a container. This string is passed directly to the Docker
+   * 			daemon. Images in the Docker Hub registry are available by default. Other repositories are
+   * 			specified with either <code>repository-url/image:tag</code> or
+   * 			<code>repository-url/image@digest</code>.</p>
+   *          <p>For Express services, the image typically contains a web application that listens on the
+   * 			specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other
+   * 			container registry accessible to your execution role.</p>
+   * @public
+   */
+  image: string | undefined;
+
+  /**
+   * <p>The port number on the container that receives traffic from the load balancer. Default
+   * 			is 80.</p>
+   * @public
+   */
+  containerPort?: number | undefined;
+
+  /**
+   * <p>The log configuration for the container.</p>
+   * @public
+   */
+  awsLogsConfiguration?: ExpressGatewayServiceAwsLogsConfiguration | undefined;
+
+  /**
+   * <p>The configuration for repository credentials for private registry authentication.</p>
+   * @public
+   */
+  repositoryCredentials?: ExpressGatewayRepositoryCredentials | undefined;
+
+  /**
+   * <p>The command that is passed to the container.</p>
+   * @public
+   */
+  command?: string[] | undefined;
+
+  /**
+   * <p>The environment variables to pass to the container.</p>
+   * @public
+   */
+  environment?: KeyValuePair[] | undefined;
+
+  /**
+   * <p>The secrets to pass to the container.</p>
+   * @public
+   */
+  secrets?: Secret[] | undefined;
+}
+
+/**
+ * <p>Defines the auto-scaling configuration for an Express service. This determines how the
+ * 			service automatically adjusts the number of running tasks based on demand metrics such as
+ * 			CPU utilization, memory utilization, or request count per target.</p>
+ *          <p>Auto-scaling helps ensure your application can handle varying levels of traffic while
+ * 			optimizing costs by scaling down during low-demand periods. You can specify the minimum and
+ * 			maximum number of tasks, the scaling metric, and the target value for that metric.</p>
+ * @public
+ */
+export interface ExpressGatewayScalingTarget {
+  /**
+   * <p>The minimum number of tasks to run in the Express service.</p>
+   * @public
+   */
+  minTaskCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of tasks to run in the Express service.</p>
+   * @public
+   */
+  maxTaskCount?: number | undefined;
+
+  /**
+   * <p>The metric used for auto-scaling decisions. The default metric used for an Express service is <code>CPUUtilization</code>.</p>
+   * @public
+   */
+  autoScalingMetric?: ExpressGatewayServiceScalingMetric | undefined;
+
+  /**
+   * <p>The target value for the auto-scaling metric. The default value for an Express service is 60.</p>
+   * @public
+   */
+  autoScalingTargetValue?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExpressGatewayServiceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS
+   * 			container agent permission to make Amazon Web Services API calls on your behalf. This role is required
+   * 			for Amazon ECS to pull container images from Amazon ECR, send container logs to Amazon
+   * 			CloudWatch Logs, and retrieve sensitive data from Amazon Web Services Systems Manager Parameter Store or
+   * 			Amazon Web Services Secrets Manager.</p>
+   *          <p>The execution role must include the <code>AmazonECSTaskExecutionRolePolicy</code>
+   * 			managed policy or equivalent permissions. For Express services, this role is used during
+   * 			task startup and runtime for container management operations.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the infrastructure role that grants Amazon ECS permission
+   * 			to create and manage Amazon Web Services resources on your behalf for the Express service. This role is
+   * 			used to provision and manage Application Load Balancers, target groups, security groups,
+   * 			auto-scaling policies, and other Amazon Web Services infrastructure components.</p>
+   *          <p>The infrastructure role must include permissions for Elastic Load Balancing, Application
+   * 			Auto Scaling, Amazon EC2 (for security groups), and other services required for managed
+   * 			infrastructure. This role is only used during Express service creation, updates, and
+   * 			deletion operations.</p>
+   * @public
+   */
+  infrastructureRoleArn: string | undefined;
+
+  /**
+   * <p>The name of the Express service. This name must be unique within the specified cluster
+   * 			and can contain up to 255 letters (uppercase and lowercase), numbers, underscores, and
+   * 			hyphens. The name is used to identify the service in the Amazon ECS console and API
+   * 			operations.</p>
+   *          <p>If you don't specify a service name, Amazon ECS generates a unique name for the service. The
+   * 			service name becomes part of the service ARN and cannot be changed after the service is
+   * 			created.</p>
+   * @public
+   */
+  serviceName?: string | undefined;
+
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to create the
+   * 			Express service. If you do not specify a cluster, the <code>default</code> cluster is
+   * 			assumed.</p>
+   * @public
+   */
+  cluster?: string | undefined;
+
+  /**
+   * <p>The path on the container that the Application Load Balancer uses for health checks.
+   * 			This should be a valid HTTP endpoint that returns a successful response (HTTP 200) when the
+   * 			application is healthy.</p>
+   *          <p>If not specified, the default health check path is <code>/ping</code>. The health check path
+   * 			must start with a forward slash and can include query parameters. Examples:
+   * 			<code>/health</code>, <code>/api/status</code>, <code>/ping?format=json</code>.</p>
+   * @public
+   */
+  healthCheckPath?: string | undefined;
+
+  /**
+   * <p>The primary container configuration for the Express service. This defines the main
+   * 			application container that will receive traffic from the Application Load Balancer.</p>
+   *          <p>The primary container must specify at minimum a container image. You can also configure
+   * 			the container port (defaults to 80), logging configuration, environment variables, secrets,
+   * 			and startup commands. The container image can be from Amazon ECR, Docker Hub, or any other
+   * 			container registry accessible to your execution role.</p>
+   * @public
+   */
+  primaryContainer: ExpressGatewayContainer | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
+   * 			This role allows your application code to access other Amazon Web Services services securely.</p>
+   *          <p>The task role is different from the execution role. While the execution role is used by
+   * 			the Amazon ECS agent to set up the task, the task role is used by your application code running
+   * 			inside the container to make Amazon Web Services API calls. If your application doesn't need to access
+   * 			Amazon Web Services services, you can omit this parameter.</p>
+   * @public
+   */
+  taskRoleArn?: string | undefined;
+
+  /**
+   * <p>The network configuration for the Express service tasks. This specifies the VPC subnets
+   * 			and security groups for the tasks.</p>
+   *          <p>For Express services, you can specify custom security groups and subnets. If not
+   * 			provided, Amazon ECS will use the default VPC configuration and create appropriate security
+   * 			groups automatically. The network configuration determines how your service integrates with
+   * 			your VPC and what network access it has.</p>
+   * @public
+   */
+  networkConfiguration?: ExpressGatewayServiceNetworkConfiguration | undefined;
+
+  /**
+   * <p>The number of CPU units used by the task. This parameter determines the CPU allocation
+   * 			for each task in the Express service. The default value for an Express service is 256 (.25 vCPU).</p>
+   * @public
+   */
+  cpu?: string | undefined;
+
+  /**
+   * <p>The amount of memory (in MiB) used by the task. This parameter determines the memory
+   * 			allocation for each task in the Express service. The default value for an express service is 512 MiB.</p>
+   * @public
+   */
+  memory?: string | undefined;
+
+  /**
+   * <p>The auto-scaling configuration for the Express service. This defines how the service
+   * 			automatically adjusts the number of running tasks based on demand.</p>
+   *          <p>You can specify the minimum and maximum number of tasks, the scaling metric (CPU
+   * 			utilization, memory utilization, or request count per target), and the target value for the
+   * 			metric. If not specified, the default target value for an Express service is 60.</p>
+   * @public
+   */
+  scalingTarget?: ExpressGatewayScalingTarget | undefined;
+
+  /**
+   * <p>The metadata that you apply to the Express service to help categorize and organize it.
+   * 			Each tag consists of a key and an optional value. You can apply up to 50 tags to a
+   * 			service.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>The entry point into an Express service.</p>
+ * @public
+ */
+export interface IngressPathSummary {
+  /**
+   * <p>The type of access to the endpoint for the Express service.</p>
+   * @public
+   */
+  accessType: AccessType | undefined;
+
+  /**
+   * <p>The endpoint for access to the service.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+}
+
+/**
+ * <p>Represents a specific configuration revision of an Express service, containing all the
+ * 			settings and parameters for that revision.</p>
+ * @public
+ */
+export interface ExpressGatewayServiceConfiguration {
+  /**
+   * <p>The ARN of the service revision.</p>
+   * @public
+   */
+  serviceRevisionArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the task execution role for the service revision.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the task role for the service revision.</p>
+   * @public
+   */
+  taskRoleArn?: string | undefined;
+
+  /**
+   * <p>The CPU allocation for tasks in this service revision.</p>
+   * @public
+   */
+  cpu?: string | undefined;
+
+  /**
+   * <p>The memory allocation for tasks in this service revision.</p>
+   * @public
+   */
+  memory?: string | undefined;
+
+  /**
+   * <p>The network configuration for tasks in this service revision.</p>
+   * @public
+   */
+  networkConfiguration?: ExpressGatewayServiceNetworkConfiguration | undefined;
+
+  /**
+   * <p>The health check path for this service revision.</p>
+   * @public
+   */
+  healthCheckPath?: string | undefined;
+
+  /**
+   * <p>The primary container configuration for this service revision.</p>
+   * @public
+   */
+  primaryContainer?: ExpressGatewayContainer | undefined;
+
+  /**
+   * <p>The auto-scaling configuration for this service revision.</p>
+   * @public
+   */
+  scalingTarget?: ExpressGatewayScalingTarget | undefined;
+
+  /**
+   * <p>The entry point into this service revision.</p>
+   * @public
+   */
+  ingressPaths?: IngressPathSummary[] | undefined;
+
+  /**
+   * <p>The Unix timestamp for when this service revision was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * <p>An object that defines the status of Express service creation and information about the
+ * 			status of the service.</p>
+ * @public
+ */
+export interface ExpressGatewayServiceStatus {
+  /**
+   * <p>The status of the Express service.</p>
+   * @public
+   */
+  statusCode?: ExpressGatewayServiceStatusCode | undefined;
+
+  /**
+   * <p>Information about why the Express service is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>Represents an Express service, which provides a simplified way to deploy containerized
+ * 			web applications on Amazon ECS with managed Amazon Web Services infrastructure. An Express service
+ * 			automatically provisions and manages Application Load Balancers, target groups, security
+ * 			groups, and auto-scaling policies.</p>
+ *          <p>Express services use a service revision architecture where each service can have
+ * 			multiple active configurations, enabling blue-green deployments and gradual rollouts. The
+ * 			service maintains a list of active configurations and manages the lifecycle of the
+ * 			underlying Amazon Web Services resources.</p>
+ * @public
+ */
+export interface ECSExpressGatewayService {
+  /**
+   * <p>The short name or full ARN of the cluster that hosts the Express service.</p>
+   * @public
+   */
+  cluster?: string | undefined;
+
+  /**
+   * <p>The name of the Express service.</p>
+   * @public
+   */
+  serviceName?: string | undefined;
+
+  /**
+   * <p>The ARN that identifies the Express service.</p>
+   * @public
+   */
+  serviceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the infrastructure role that manages Amazon Web Services resources for the Express
+   * 			service.</p>
+   * @public
+   */
+  infrastructureRoleArn?: string | undefined;
+
+  /**
+   * <p>The current status of the Express service.</p>
+   * @public
+   */
+  status?: ExpressGatewayServiceStatus | undefined;
+
+  /**
+   * <p>The current deployment configuration for the Express service.</p>
+   * @public
+   */
+  currentDeployment?: string | undefined;
+
+  /**
+   * <p>The list of active service configurations for the Express service.</p>
+   * @public
+   */
+  activeConfigurations?: ExpressGatewayServiceConfiguration[] | undefined;
+
+  /**
+   * <p>The metadata applied to the Express service.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Express service was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Express service was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExpressGatewayServiceResponse {
+  /**
+   * <p>The full description of your Express service following the create operation.</p>
+   * @public
+   */
+  service?: ECSExpressGatewayService | undefined;
+}
+
+/**
  * <p>One of the methods which provide a way for you to quickly identify when a deployment
  * 			has failed, and then to optionally roll back the failure to the last working
  * 			deployment.</p>
@@ -2643,51 +3159,6 @@ export interface ServiceConnectAccessLogConfiguration {
    * @public
    */
   includeQueryParameters?: ServiceConnectIncludeQueryParameters | undefined;
-}
-
-/**
- * <p>An object representing the secret to expose to your container. Secrets can be exposed
- * 			to a container in the following ways:</p>
- *          <ul>
- *             <li>
- *                <p>To inject sensitive data into your containers as environment variables, use
- * 					the <code>secrets</code> container definition parameter.</p>
- *             </li>
- *             <li>
- *                <p>To reference sensitive information in the log configuration of a container,
- * 					use the <code>secretOptions</code> container definition parameter.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
- * 				sensitive data</a> in the <i>Amazon Elastic Container Service Developer
- * 				Guide</i>.</p>
- * @public
- */
-export interface Secret {
-  /**
-   * <p>The name of the secret.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The secret to expose to the container. The supported values are either the full ARN of
-   * 			the Secrets
-   * 				Manager secret or the full ARN of the parameter in the SSM Parameter
-   * 			Store.</p>
-   *          <p>For information about the require Identity and Access Management permissions,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam">Required IAM permissions for Amazon ECS secrets</a> (for Secrets Manager) or
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html">Required IAM permissions for Amazon ECS secrets</a> (for Systems Manager
-   * 			Parameter store) in the <i>Amazon Elastic Container Service Developer
-   * 				Guide</i>.</p>
-   *          <note>
-   *             <p>If the SSM Parameter Store parameter exists in the same Region as the task you're
-   * 				launching, then you can use either the full ARN or name of the parameter. If the
-   * 				parameter exists in a different Region, then the full ARN must be specified.</p>
-   *          </note>
-   * @public
-   */
-  valueFrom: string | undefined;
 }
 
 /**
@@ -4035,6 +4506,36 @@ export interface CreateServiceRequest {
 }
 
 /**
+ * <p>The summary of the current service revision configuration</p>
+ * @public
+ */
+export interface ServiceCurrentRevisionSummary {
+  /**
+   * <p>The ARN of the current service revision.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The number of requested tasks in the  current service revision</p>
+   * @public
+   */
+  requestedTaskCount?: number | undefined;
+
+  /**
+   * <p>The number of running tasks of the current service revision</p>
+   * @public
+   */
+  runningTaskCount?: number | undefined;
+
+  /**
+   * <p>The number of pending tasks in the current service revision</p>
+   * @public
+   */
+  pendingTaskCount?: number | undefined;
+}
+
+/**
  * <p>The amount of ephemeral storage to allocate for the deployment.</p>
  * @public
  */
@@ -4735,6 +5236,18 @@ export interface Service {
   createdAt?: Date | undefined;
 
   /**
+   * <p>The ARN of the current service deployment.</p>
+   * @public
+   */
+  currentServiceDeployment?: string | undefined;
+
+  /**
+   * <p>The list of the service revisions.</p>
+   * @public
+   */
+  currentServiceRevisions?: ServiceCurrentRevisionSummary[] | undefined;
+
+  /**
    * <p>The placement constraints for the tasks in the service.</p>
    * @public
    */
@@ -4894,6 +5407,14 @@ export interface Service {
    * @public
    */
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
+
+  /**
+   * <p>Identifies whether an ECS Service is an Express Service managed by ECS, or managed by the customer. The
+   * 			valid values are <code>ECS</code> and <code>CUSTOMER</code>
+   *          </p>
+   * @public
+   */
+  resourceManagementType?: ResourceManagementType | undefined;
 }
 
 /**
@@ -5287,6 +5808,29 @@ export interface DeleteClusterResponse {
    * @public
    */
   cluster?: Cluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteExpressGatewayServiceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Express service to delete. The ARN uniquely
+   * 			identifies the service within your Amazon Web Services account and region.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteExpressGatewayServiceResponse {
+  /**
+   * <p>The full description of the deleted express service.</p>
+   * @public
+   */
+  service?: ECSExpressGatewayService | undefined;
 }
 
 /**
@@ -8717,6 +9261,36 @@ export interface DescribeContainerInstancesResponse {
 /**
  * @public
  */
+export interface DescribeExpressGatewayServiceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Express service to describe. The ARN uniquely
+   * 			identifies the service within your Amazon Web Services account and region.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Specifies additional information to include in the response. Valid values are
+   * 			<code>TAGS</code> to include resource tags associated with the Express service.</p>
+   * @public
+   */
+  include?: ExpressGatewayServiceInclude[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExpressGatewayServiceResponse {
+  /**
+   * <p>The full description of the described express service.</p>
+   * @public
+   */
+  service?: ECSExpressGatewayService | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeServiceDeploymentsRequest {
   /**
    * <p>The ARN of the service deployment.</p>
@@ -9106,6 +9680,510 @@ export interface ContainerImage {
 }
 
 /**
+ * <p>The Application Auto Scaling policy created by Amazon ECS when you create an Express
+ * 			service.</p>
+ * @public
+ */
+export interface ManagedApplicationAutoScalingPolicy {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Application Auto Scaling policy associated with
+   * 			the Express service.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of Application Auto Scaling policy creation.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the Application Auto Scaling policy is in the current
+   * 			status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Application Auto Scaling policy was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The type of Application Auto Scaling policy associated with the Express service. Valid
+   * 			values are <code>TargetTrackingScaling</code>, <code>StepScaling</code>, and
+   * 			<code>PredictiveScaling</code>.</p>
+   * @public
+   */
+  policyType: string | undefined;
+
+  /**
+   * <p>The target value for the auto scaling metric.</p>
+   * @public
+   */
+  targetValue: number | undefined;
+
+  /**
+   * <p>The metric used for auto scaling decisions. The available metrics are
+   * 			<code>ECSServiceAverageCPUUtilization</code>,
+   * 			<code>ECSServiceAverageMemoryUtilization</code>, and
+   * 			<code>ALBRequestCOuntPerTarget</code>.</p>
+   * @public
+   */
+  metric: string | undefined;
+}
+
+/**
+ * <p>Represents a scalable target.</p>
+ * @public
+ */
+export interface ManagedScalableTarget {
+  /**
+   * <p>The ARN of the scalable target.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the scalable target.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the scalable target is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the target was most recently updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The minimum value to scale to in response to a scale-in activity.</p>
+   * @public
+   */
+  minCapacity: number | undefined;
+
+  /**
+   * <p>The maximum value to scale to in response to a scale-out activity.</p>
+   * @public
+   */
+  maxCapacity: number | undefined;
+}
+
+/**
+ * <p>The auto scaling configuration created by Amazon ECS for an Express service.</p>
+ * @public
+ */
+export interface ManagedAutoScaling {
+  /**
+   * <p>Represents a scalable target.</p>
+   * @public
+   */
+  scalableTarget?: ManagedScalableTarget | undefined;
+
+  /**
+   * <p>The policy used for auto scaling.</p>
+   * @public
+   */
+  applicationAutoScalingPolicies?: ManagedApplicationAutoScalingPolicy[] | undefined;
+}
+
+/**
+ * <p>The ACM certificate associated with the HTTPS domain created for the Express
+ * 			service.</p>
+ * @public
+ */
+export interface ManagedCertificate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the ACM; certificate.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the ACM certificate is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the ACM certificate was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) that is secured with this ACM
+   * 			certificate.</p>
+   * @public
+   */
+  domainName: string | undefined;
+}
+
+/**
+ * <p>The listeners associated with the Express service's Application Load Balancer.</p>
+ * @public
+ */
+export interface ManagedListener {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer listener.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the load balancer listener.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Informaion about why the load balancer listener is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when this listener was most recently updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The Application Load Balancer associated with the Express service.</p>
+ * @public
+ */
+export interface ManagedLoadBalancer {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the load balancer.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the load balancer is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when this load balancer was most recently updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The scheme of the load balancer. By default, the scheme of the load balancer is
+   * 			<code>internet-facing</code>.</p>
+   * @public
+   */
+  scheme: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets associated with the load balancer.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the security groups associated with the load balancer.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p>A security group associated with the Express service.</p>
+ * @public
+ */
+export interface ManagedSecurityGroup {
+  /**
+   * <p>The ARN of the security group.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the security group.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the security group is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the security group was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The listener rule associated with the Express service's Application Load
+ * 			Balancer.</p>
+ * @public
+ */
+export interface ManagedListenerRule {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer listener rule.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the load balancer listener rule.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the load balancer listener rule is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when this listener rule was most recently updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The target group associated with the Express service's Application Load Balancer. For
+ * 			more information about load balancer target groups, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html">CreateTargetGroup</a> in the <i>Elastic Load Balancing API
+ * 				Reference</i>
+ *          </p>
+ * @public
+ */
+export interface ManagedTargetGroup {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the target group.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the target group is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the target group was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The destination for health checks on the targets.</p>
+   * @public
+   */
+  healthCheckPath: string | undefined;
+
+  /**
+   * <p>The port the load balancer uses when performing health checks on targets.</p>
+   * @public
+   */
+  healthCheckPort: number | undefined;
+
+  /**
+   * <p>The port on which the targets receive traffic.</p>
+   * @public
+   */
+  port: number | undefined;
+}
+
+/**
+ * <p>The entry point into the Express service.</p>
+ * @public
+ */
+export interface ManagedIngressPath {
+  /**
+   * <p>The type of access to the endpoint for the Express service.</p>
+   * @public
+   */
+  accessType: AccessType | undefined;
+
+  /**
+   * <p>The endpoint for access to the Express service.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The Application Load Balancer associated with the Express service.</p>
+   * @public
+   */
+  loadBalancer?: ManagedLoadBalancer | undefined;
+
+  /**
+   * <p>The security groups associated with the Application Load Balancer.</p>
+   * @public
+   */
+  loadBalancerSecurityGroups?: ManagedSecurityGroup[] | undefined;
+
+  /**
+   * <p>The ACM certificate for the Express service's domain.</p>
+   * @public
+   */
+  certificate?: ManagedCertificate | undefined;
+
+  /**
+   * <p>The listeners associated with the Application Load Balancer.</p>
+   * @public
+   */
+  listener?: ManagedListener | undefined;
+
+  /**
+   * <p>The listener rules for the Application Load Balancer.</p>
+   * @public
+   */
+  rule?: ManagedListenerRule | undefined;
+
+  /**
+   * <p>The target groups associated with the Application Load Balancer.</p>
+   * @public
+   */
+  targetGroups?: ManagedTargetGroup[] | undefined;
+}
+
+/**
+ * <p>The Cloudwatch Log Group created by Amazon ECS for an Express service.</p>
+ * @public
+ */
+export interface ManagedLogGroup {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Cloudwatch Log Group associated with
+   * 			the Express service.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the Cloudwatch LogGroup.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the Cloudwatch LogGroup is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Cloudwatch LogGroup was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The name of the Cloudwatch Log Group associated with
+   * 			the Express service.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+}
+
+/**
+ * <p>The CloudWatch metric alarm associated with the Express service's scaling policy.</p>
+ * @public
+ */
+export interface ManagedMetricAlarm {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch metric alarm.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the CloudWatch metric alarm.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the CloudWatch metric alarm is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the CloudWatch metric alarm was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Represents the Amazon Web Services resources managed by Amazon ECS for an Express service, including ingress
+ * 			paths, auto-scaling policies, metric alarms, and security groups.</p>
+ * @public
+ */
+export interface ECSManagedResources {
+  /**
+   * <p>The ingress paths and endpoints for the Express service.</p>
+   * @public
+   */
+  ingressPaths?: ManagedIngressPath[] | undefined;
+
+  /**
+   * <p>The auto-scaling configuration and policies for the Express service.</p>
+   * @public
+   */
+  autoScaling?: ManagedAutoScaling | undefined;
+
+  /**
+   * <p>The CloudWatch metric alarms associated with the Express service.</p>
+   * @public
+   */
+  metricAlarms?: ManagedMetricAlarm[] | undefined;
+
+  /**
+   * <p>The security groups managed by the Express service.</p>
+   * @public
+   */
+  serviceSecurityGroups?: ManagedSecurityGroup[] | undefined;
+
+  /**
+   * <p>The log groups managed by the Express service.</p>
+   * @public
+   */
+  logGroups?: ManagedLogGroup[] | undefined;
+}
+
+/**
  * <p>The resolved load balancer configuration for a service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
  * @public
  */
@@ -9270,6 +10348,12 @@ export interface ServiceRevision {
    * @public
    */
   resolvedConfiguration?: ResolvedConfiguration | undefined;
+
+  /**
+   * <p>The resources created and managed by Amazon ECS when you create an Express service for Amazon ECS.</p>
+   * @public
+   */
+  ecsManagedResources?: ECSManagedResources | undefined;
 }
 
 /**
@@ -11097,6 +12181,12 @@ export interface ListServicesRequest {
    * @public
    */
   schedulingStrategy?: SchedulingStrategy | undefined;
+
+  /**
+   * <p>The resourceManagementType type to use when filtering the <code>ListServices</code> results.</p>
+   * @public
+   */
+  resourceManagementType?: ResourceManagementType | undefined;
 }
 
 /**
@@ -13885,6 +14975,125 @@ export interface UpdateContainerInstancesStateResponse {
    * @public
    */
   failures?: Failure[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExpressGatewayServiceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Express service to update.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task execution role for the Express
+   * 			service.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The path on the container for Application Load Balancer health checks.</p>
+   * @public
+   */
+  healthCheckPath?: string | undefined;
+
+  /**
+   * <p>The primary container configuration for the Express service.</p>
+   * @public
+   */
+  primaryContainer?: ExpressGatewayContainer | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role for containers in this task.</p>
+   * @public
+   */
+  taskRoleArn?: string | undefined;
+
+  /**
+   * <p>The network configuration for the Express service tasks. By default, the network configuration for an Express service uses the default VPC.</p>
+   * @public
+   */
+  networkConfiguration?: ExpressGatewayServiceNetworkConfiguration | undefined;
+
+  /**
+   * <p>The number of CPU units used by the task.</p>
+   * @public
+   */
+  cpu?: string | undefined;
+
+  /**
+   * <p>The amount of memory (in MiB) used by the task.</p>
+   * @public
+   */
+  memory?: string | undefined;
+
+  /**
+   * <p>The auto-scaling configuration for the Express service.</p>
+   * @public
+   */
+  scalingTarget?: ExpressGatewayScalingTarget | undefined;
+}
+
+/**
+ * <p>An object that describes an Express service to be updated.</p>
+ * @public
+ */
+export interface UpdatedExpressGatewayService {
+  /**
+   * <p>The ARN of the Express service that is being updated.</p>
+   * @public
+   */
+  serviceArn?: string | undefined;
+
+  /**
+   * <p>The cluster associated with the Express service that is being updated.</p>
+   * @public
+   */
+  cluster?: string | undefined;
+
+  /**
+   * <p>The name of the Express service that is being updated.</p>
+   * @public
+   */
+  serviceName?: string | undefined;
+
+  /**
+   * <p>The status of the Express service that is being updated.</p>
+   * @public
+   */
+  status?: ExpressGatewayServiceStatus | undefined;
+
+  /**
+   * <p>The configuration to which the current Express service is being updated to.</p>
+   * @public
+   */
+  targetConfiguration?: ExpressGatewayServiceConfiguration | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Express service that is being updated was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the Express service that is being updated was most recently updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExpressGatewayServiceResponse {
+  /**
+   * <p>The full description of your express gateway service following the update call.</p>
+   * @public
+   */
+  service?: UpdatedExpressGatewayService | undefined;
 }
 
 /**

@@ -56,6 +56,19 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
  * @public
  * @enum
  */
+export const AccessType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type AccessType = (typeof AccessType)[keyof typeof AccessType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentUpdateStatus = {
   FAILED: "FAILED",
   PENDING: "PENDING",
@@ -299,6 +312,36 @@ export type ClusterSettingName = (typeof ClusterSettingName)[keyof typeof Cluste
  * @public
  * @enum
  */
+export const ExpressGatewayServiceScalingMetric = {
+  AverageCPUUtilization: "AVERAGE_CPU",
+  AverageMemoryUtilization: "AVERAGE_MEMORY",
+  RequestCountPerTarget: "REQUEST_COUNT_PER_TARGET",
+} as const;
+/**
+ * @public
+ */
+export type ExpressGatewayServiceScalingMetric =
+  (typeof ExpressGatewayServiceScalingMetric)[keyof typeof ExpressGatewayServiceScalingMetric];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExpressGatewayServiceStatusCode = {
+  ACTIVE: "ACTIVE",
+  DRAINING: "DRAINING",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type ExpressGatewayServiceStatusCode =
+  (typeof ExpressGatewayServiceStatusCode)[keyof typeof ExpressGatewayServiceStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const AvailabilityZoneRebalancing = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -526,6 +569,19 @@ export const DeploymentRolloutState = {
  * @public
  */
 export type DeploymentRolloutState = (typeof DeploymentRolloutState)[keyof typeof DeploymentRolloutState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceManagementType = {
+  CUSTOMER: "CUSTOMER",
+  ECS: "ECS",
+} as const;
+/**
+ * @public
+ */
+export type ResourceManagementType = (typeof ResourceManagementType)[keyof typeof ResourceManagementType];
 
 /**
  * @public
@@ -972,6 +1028,19 @@ export type ContainerInstanceField = (typeof ContainerInstanceField)[keyof typeo
  * @public
  * @enum
  */
+export const ExpressGatewayServiceInclude = {
+  TAGS: "TAGS",
+} as const;
+/**
+ * @public
+ */
+export type ExpressGatewayServiceInclude =
+  (typeof ExpressGatewayServiceInclude)[keyof typeof ExpressGatewayServiceInclude];
+
+/**
+ * @public
+ * @enum
+ */
 export const ServiceDeploymentRollbackMonitorsStatus = {
   DISABLED: "DISABLED",
   MONITORING: "MONITORING",
@@ -1025,6 +1094,22 @@ export const ServiceDeploymentStatus = {
  * @public
  */
 export type ServiceDeploymentStatus = (typeof ServiceDeploymentStatus)[keyof typeof ServiceDeploymentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedResourceStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  FAILED: "FAILED",
+  PROVISIONING: "PROVISIONING",
+} as const;
+/**
+ * @public
+ */
+export type ManagedResourceStatus = (typeof ManagedResourceStatus)[keyof typeof ManagedResourceStatus];
 
 /**
  * @public

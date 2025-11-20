@@ -43,6 +43,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *   maxResults: Number("int"),
  *   launchType: "EC2" || "FARGATE" || "EXTERNAL" || "MANAGED_INSTANCES",
  *   schedulingStrategy: "REPLICA" || "DAEMON",
+ *   resourceManagementType: "CUSTOMER" || "ECS",
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);

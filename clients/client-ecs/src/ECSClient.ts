@@ -62,6 +62,10 @@ import {
   CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import {
+  CreateExpressGatewayServiceCommandInput,
+  CreateExpressGatewayServiceCommandOutput,
+} from "./commands/CreateExpressGatewayServiceCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import { CreateTaskSetCommandInput, CreateTaskSetCommandOutput } from "./commands/CreateTaskSetCommand";
 import {
@@ -74,6 +78,10 @@ import {
   DeleteCapacityProviderCommandOutput,
 } from "./commands/DeleteCapacityProviderCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteExpressGatewayServiceCommandInput,
+  DeleteExpressGatewayServiceCommandOutput,
+} from "./commands/DeleteExpressGatewayServiceCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import {
   DeleteTaskDefinitionsCommandInput,
@@ -97,6 +105,10 @@ import {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
+import {
+  DescribeExpressGatewayServiceCommandInput,
+  DescribeExpressGatewayServiceCommandOutput,
+} from "./commands/DescribeExpressGatewayServiceCommand";
 import {
   DescribeServiceDeploymentsCommandInput,
   DescribeServiceDeploymentsCommandOutput,
@@ -206,6 +218,10 @@ import {
   UpdateContainerInstancesStateCommandInput,
   UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
+import {
+  UpdateExpressGatewayServiceCommandInput,
+  UpdateExpressGatewayServiceCommandOutput,
+} from "./commands/UpdateExpressGatewayServiceCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
 import {
   UpdateServicePrimaryTaskSetCommandInput,
@@ -233,12 +249,14 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateCapacityProviderCommandInput
   | CreateClusterCommandInput
+  | CreateExpressGatewayServiceCommandInput
   | CreateServiceCommandInput
   | CreateTaskSetCommandInput
   | DeleteAccountSettingCommandInput
   | DeleteAttributesCommandInput
   | DeleteCapacityProviderCommandInput
   | DeleteClusterCommandInput
+  | DeleteExpressGatewayServiceCommandInput
   | DeleteServiceCommandInput
   | DeleteTaskDefinitionsCommandInput
   | DeleteTaskSetCommandInput
@@ -247,6 +265,7 @@ export type ServiceInputTypes =
   | DescribeCapacityProvidersCommandInput
   | DescribeClustersCommandInput
   | DescribeContainerInstancesCommandInput
+  | DescribeExpressGatewayServiceCommandInput
   | DescribeServiceDeploymentsCommandInput
   | DescribeServiceRevisionsCommandInput
   | DescribeServicesCommandInput
@@ -287,6 +306,7 @@ export type ServiceInputTypes =
   | UpdateClusterSettingsCommandInput
   | UpdateContainerAgentCommandInput
   | UpdateContainerInstancesStateCommandInput
+  | UpdateExpressGatewayServiceCommandInput
   | UpdateServiceCommandInput
   | UpdateServicePrimaryTaskSetCommandInput
   | UpdateTaskProtectionCommandInput
@@ -298,12 +318,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateCapacityProviderCommandOutput
   | CreateClusterCommandOutput
+  | CreateExpressGatewayServiceCommandOutput
   | CreateServiceCommandOutput
   | CreateTaskSetCommandOutput
   | DeleteAccountSettingCommandOutput
   | DeleteAttributesCommandOutput
   | DeleteCapacityProviderCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteExpressGatewayServiceCommandOutput
   | DeleteServiceCommandOutput
   | DeleteTaskDefinitionsCommandOutput
   | DeleteTaskSetCommandOutput
@@ -312,6 +334,7 @@ export type ServiceOutputTypes =
   | DescribeCapacityProvidersCommandOutput
   | DescribeClustersCommandOutput
   | DescribeContainerInstancesCommandOutput
+  | DescribeExpressGatewayServiceCommandOutput
   | DescribeServiceDeploymentsCommandOutput
   | DescribeServiceRevisionsCommandOutput
   | DescribeServicesCommandOutput
@@ -352,6 +375,7 @@ export type ServiceOutputTypes =
   | UpdateClusterSettingsCommandOutput
   | UpdateContainerAgentCommandOutput
   | UpdateContainerInstancesStateCommandOutput
+  | UpdateExpressGatewayServiceCommandOutput
   | UpdateServiceCommandOutput
   | UpdateServicePrimaryTaskSetCommandOutput
   | UpdateTaskProtectionCommandOutput

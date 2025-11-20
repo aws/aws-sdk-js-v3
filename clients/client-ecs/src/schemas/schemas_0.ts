@@ -42,6 +42,9 @@ const _CDo = "ContainerDependency";
 const _CDon = "ContainerDefinitions";
 const _CDont = "ContainerDependencies";
 const _CE = "ClientException";
+const _CEGS = "CreateExpressGatewayService";
+const _CEGSR = "CreateExpressGatewayServiceRequest";
+const _CEGSRr = "CreateExpressGatewayServiceResponse";
 const _CEo = "ConflictException";
 const _CI = "ContainerImage";
 const _CIHS = "ContainerInstanceHealthStatus";
@@ -103,6 +106,12 @@ const _DCResc = "DescribeClustersResponse";
 const _DCe = "DeploymentController";
 const _DCel = "DeleteCluster";
 const _DCes = "DescribeClusters";
+const _DEGS = "DeleteExpressGatewayService";
+const _DEGSR = "DeleteExpressGatewayServiceRequest";
+const _DEGSRe = "DeleteExpressGatewayServiceResponse";
+const _DEGSRes = "DescribeExpressGatewayServiceRequest";
+const _DEGSResc = "DescribeExpressGatewayServiceResponse";
+const _DEGSe = "DescribeExpressGatewayService";
 const _DES = "DeploymentEphemeralStorage";
 const _DL = "DevicesList";
 const _DLH = "DeploymentLifecycleHook";
@@ -150,10 +159,20 @@ const _ECC = "ExecuteCommandConfiguration";
 const _ECLC = "ExecuteCommandLogConfiguration";
 const _ECR = "ExecuteCommandRequest";
 const _ECRx = "ExecuteCommandResponse";
+const _ECSEGS = "ECSExpressGatewayService";
+const _ECSMR = "ECSManagedResources";
 const _EF = "EnvironmentFile";
 const _EFSAC = "EFSAuthorizationConfig";
 const _EFSVC = "EFSVolumeConfiguration";
 const _EFn = "EnvironmentFiles";
+const _EGC = "ExpressGatewayContainer";
+const _EGRC = "ExpressGatewayRepositoryCredentials";
+const _EGSALC = "ExpressGatewayServiceAwsLogsConfiguration";
+const _EGSC = "ExpressGatewayServiceConfiguration";
+const _EGSCx = "ExpressGatewayServiceConfigurations";
+const _EGSNC = "ExpressGatewayServiceNetworkConfiguration";
+const _EGSS = "ExpressGatewayServiceStatus";
+const _EGST = "ExpressGatewayScalingTarget";
 const _EIT = "ExcludedInstanceType";
 const _EITS = "ExcludedInstanceTypeSet";
 const _ES = "EphemeralStorage";
@@ -182,6 +201,8 @@ const _ILT = "InstanceLaunchTemplate";
 const _ILTU = "InstanceLaunchTemplateUpdate";
 const _IO = "InfrastructureOptimization";
 const _IPE = "InvalidParameterException";
+const _IPS = "IngressPathSummary";
+const _IPSn = "IngressPathSummaries";
 const _IRR = "InstanceRequirementsRequest";
 const _KC = "KernelCapabilities";
 const _KVP = "KeyValuePair";
@@ -227,18 +248,36 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTasksRequest";
 const _LTRi = "ListTasksResponse";
 const _MA = "ManagedAgent";
+const _MAASP = "ManagedApplicationAutoScalingPolicy";
+const _MAASPa = "ManagedApplicationAutoScalingPolicies";
+const _MAS = "ManagedAutoScaling";
 const _MASC = "ManagedAgentStateChange";
 const _MASCa = "ManagedAgentStateChanges";
 const _MAa = "ManagedAgents";
+const _MC = "ManagedCertificate";
 const _MGBPVCR = "MemoryGiBPerVCpuRequest";
 const _MINC = "ManagedInstancesNetworkConfiguration";
-const _MIP = "ManagedInstancesProvider";
+const _MIP = "ManagedIngressPath";
+const _MIPa = "ManagedInstancesProvider";
+const _MIPan = "ManagedIngressPaths";
 const _MISC = "ManagedInstancesStorageConfiguration";
+const _ML = "ManagedListener";
+const _MLB = "ManagedLoadBalancer";
+const _MLG = "ManagedLogGroup";
+const _MLGa = "ManagedLogGroups";
+const _MLR = "ManagedListenerRule";
+const _MMA = "ManagedMetricAlarm";
+const _MMAa = "ManagedMetricAlarms";
 const _MMBR = "MemoryMiBRequest";
 const _MP = "MountPoint";
 const _MPL = "MountPointList";
 const _MS = "ManagedScaling";
 const _MSC = "ManagedStorageConfiguration";
+const _MSG = "ManagedSecurityGroup";
+const _MSGa = "ManagedSecurityGroups";
+const _MST = "ManagedScalableTarget";
+const _MTG = "ManagedTargetGroup";
+const _MTGa = "ManagedTargetGroups";
 const _MVE = "MissingVersionException";
 const _NB = "NetworkBinding";
 const _NBGR = "NetworkBandwidthGbpsRequest";
@@ -304,6 +343,8 @@ const _SCALC = "ServiceConnectAccessLogConfiguration";
 const _SCC = "ServiceConnectConfiguration";
 const _SCCA = "ServiceConnectClientAlias";
 const _SCCAL = "ServiceConnectClientAliasList";
+const _SCRS = "ServiceCurrentRevisionSummary";
+const _SCRSL = "ServiceCurrentRevisionSummaryList";
 const _SCS = "ServiceConnectService";
 const _SCSC = "SubmitContainerStateChange";
 const _SCSCR = "SubmitContainerStateChangeRequest";
@@ -403,6 +444,10 @@ const _UCRp = "UpdateClusterResponse";
 const _UCS = "UpdateClusterSettings";
 const _UCSR = "UpdateClusterSettingsRequest";
 const _UCSRp = "UpdateClusterSettingsResponse";
+const _UEGS = "UpdatedExpressGatewayService";
+const _UEGSR = "UpdateExpressGatewayServiceRequest";
+const _UEGSRp = "UpdateExpressGatewayServiceResponse";
+const _UEGSp = "UpdateExpressGatewayService";
 const _UFE = "UnsupportedFeatureException";
 const _UIPE = "UpdateInProgressException";
 const _UL = "UlimitList";
@@ -432,15 +477,18 @@ const _VLC = "VpcLatticeConfiguration";
 const _VLCp = "VpcLatticeConfigurations";
 const _a = "attachments";
 const _aA = "attachmentArn";
+const _aASP = "applicationAutoScalingPolicies";
 const _aC = "agentConnected";
-const _aCc = "acceleratorCount";
+const _aCc = "activeConfigurations";
+const _aCcc = "acceleratorCount";
 const _aCd = "advancedConfiguration";
 const _aCu = "authorizationConfig";
 const _aCw = "awsvpcConfiguration";
 const _aH = "agentHash";
 const _aI = "attachmentId";
 const _aIT = "allowedInstanceTypes";
-const _aLC = "accessLogConfiguration";
+const _aLC = "awsLogsConfiguration";
+const _aLCc = "accessLogConfiguration";
 const _aM = "acceleratorManufacturers";
 const _aN = "alarmNames";
 const _aNc = "acceleratorNames";
@@ -453,9 +501,13 @@ const _aS = "attachmentsStatus";
 const _aSC = "activeServicesCount";
 const _aSGA = "autoScalingGroupArn";
 const _aSGP = "autoScalingGroupProvider";
-const _aT = "acceleratorTypes";
+const _aSM = "autoScalingMetric";
+const _aSTV = "autoScalingTargetValue";
+const _aSu = "autoScaling";
+const _aT = "accessType";
 const _aTGA = "alternateTargetGroupArn";
 const _aTMMB = "acceleratorTotalMemoryMiB";
+const _aTc = "acceleratorTypes";
 const _aUS = "agentUpdateStatus";
 const _aV = "attributeValue";
 const _aVg = "agentVersion";
@@ -487,8 +539,9 @@ const _cAr = "createdAt";
 const _cB = "createdBy";
 const _cBTIM = "canaryBakeTimeInMinutes";
 const _cC = "canaryConfiguration";
-const _cD = "containerDefinitions";
+const _cD = "currentDeployment";
 const _cDC = "computedDesiredCount";
+const _cDo = "containerDefinitions";
 const _cI = "containerInstance";
 const _cIA = "containerInstanceArn";
 const _cIAo = "containerInstanceArns";
@@ -509,10 +562,13 @@ const _cPo = "containerPath";
 const _cPon = "containerPort";
 const _cPr = "credentialsParameter";
 const _cS = "credentialSpecs";
+const _cSD = "currentServiceDeployment";
+const _cSR = "currentServiceRevisions";
 const _cT = "clientToken";
 const _cWEE = "cloudWatchEncryptionEnabled";
 const _cWLGN = "cloudWatchLogGroupName";
 const _ca = "capabilities";
+const _ce = "certificate";
 const _cl = "cluster";
 const _clu = "clusters";
 const _co = "configuration";
@@ -537,6 +593,7 @@ const _dN = "disableNetworking";
 const _dNe = "deviceName";
 const _dNi = "discoveryName";
 const _dNn = "dnsName";
+const _dNo = "domainName";
 const _dO = "dependsOn";
 const _dOT = "deleteOnTermination";
 const _dOr = "driverOpts";
@@ -568,6 +625,7 @@ const _eII = "ec2InstanceId";
 const _eIM = "expiresInMinutes";
 const _eIPA = "ec2InstanceProfileArn";
 const _eIT = "excludedInstanceTypes";
+const _eMR = "ecsManagedResources";
 const _eP = "entryPoint";
 const _eRA = "executionRoleArn";
 const _eS = "effectiveSettings";
@@ -607,6 +665,8 @@ const _gI = "gpuIds";
 const _h = "hostname";
 const _hC = "healthCheck";
 const _hCGPS = "healthCheckGracePeriodSeconds";
+const _hCP = "healthCheckPath";
+const _hCPe = "healthCheckPort";
 const _hD = "hookDetails";
 const _hL = "hardLimit";
 const _hP = "hostPath";
@@ -630,6 +690,7 @@ const _iIDS = "instanceIdentityDocumentSignature";
 const _iLT = "instanceLaunchTemplate";
 const _iM = "ipcMode";
 const _iO = "infrastructureOptimization";
+const _iP = "ingressPaths";
 const _iPE = "initProcessEnabled";
 const _iPO = "ingressPortOverride";
 const _iQP = "includeQueryParameters";
@@ -651,14 +712,20 @@ const _kKI = "kmsKeyId";
 const _l = "links";
 const _lB = "loadBalancers";
 const _lBN = "loadBalancerName";
+const _lBSG = "loadBalancerSecurityGroups";
+const _lBo = "loadBalancer";
 const _lC = "logConfiguration";
 const _lCi = "linearConfiguration";
 const _lD = "logDriver";
+const _lG = "logGroups";
+const _lGN = "logGroupName";
+const _lGo = "logGroup";
 const _lH = "lifecycleHooks";
 const _lP = "linuxParameters";
 const _lS = "lastStatus";
 const _lSA = "lastStartedAt";
 const _lSC = "lastStatusChange";
+const _lSP = "logStreamPrefix";
 const _lST = "localStorageTypes";
 const _lSi = "lifecycleStages";
 const _lSif = "lifecycleStage";
@@ -667,10 +734,14 @@ const _lT = "launchType";
 const _lU = "lastUpdated";
 const _lV = "longValue";
 const _la = "labels";
+const _li = "listener";
 const _lo = "logging";
 const _m = "min";
 const _mA = "managedAgents";
 const _mAN = "managedAgentName";
+const _mAe = "metricAlarms";
+const _mC = "minCapacity";
+const _mCa = "maxCapacity";
 const _mD = "managedDraining";
 const _mEBSV = "managedEBSVolume";
 const _mGBPVC = "memoryGiBPerVCpu";
@@ -688,10 +759,13 @@ const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _mSSS = "minimumScalingStepSize";
 const _mSSSa = "maximumScalingStepSize";
 const _mSa = "maxSwap";
+const _mTC = "minTaskCount";
+const _mTCa = "maxTaskCount";
 const _mTP = "managedTerminationProtection";
 const _ma = "max";
 const _me = "message";
 const _mem = "memory";
+const _met = "metric";
 const _mo = "monitoring";
 const _n = "name";
 const _nB = "networkBindings";
@@ -709,8 +783,9 @@ const _oSF = "operatingSystemFamily";
 const _ov = "overrides";
 const _p = "privileged";
 const _pA = "principalArn";
-const _pC = "placementConstraints";
+const _pC = "primaryContainer";
 const _pCe = "pendingCount";
+const _pCl = "placementConstraints";
 const _pCr = "proxyConfiguration";
 const _pD = "platformDevices";
 const _pE = "protectionEnabled";
@@ -728,6 +803,7 @@ const _pT = "pseudoTerminal";
 const _pTC = "pendingTasksCount";
 const _pTCe = "pendingTaskCount";
 const _pTS = "primaryTaskSet";
+const _pTo = "policyType";
 const _pTr = "propagateTags";
 const _pTro = "protectedTasks";
 const _pV = "platformVersion";
@@ -753,6 +829,7 @@ const _rHS = "requireHibernateSupport";
 const _rI = "resourceIds";
 const _rIe = "referenceId";
 const _rIu = "runtimeId";
+const _rMT = "resourceManagementType";
 const _rO = "readOnly";
 const _rP = "restartPolicy";
 const _rPTW = "requestedProductionTrafficWeight";
@@ -772,9 +849,10 @@ const _re = "retries";
 const _rev = "revision";
 const _ro = "role";
 const _rol = "rollback";
+const _ru = "rule";
 const _s = "status";
-const _sA = "serviceArns";
-const _sAe = "serviceArn";
+const _sA = "serviceArn";
+const _sAe = "serviceArns";
 const _sAt = "startedAt";
 const _sAto = "stoppedAt";
 const _sAtop = "stoppingAt";
@@ -787,17 +865,20 @@ const _sCD = "serviceConnectDefaults";
 const _sCE = "serviceConnectEndpoint";
 const _sCR = "serviceConnectResources";
 const _sCo = "sourceContainer";
-const _sCt = "storageConfiguration";
-const _sCto = "stopCode";
+const _sCt = "statusCode";
+const _sCto = "storageConfiguration";
+const _sCtop = "stopCode";
 const _sD = "serviceDeployments";
 const _sDA = "serviceDeploymentArns";
 const _sDAe = "serviceDeploymentArn";
 const _sEE = "s3EncryptionEnabled";
 const _sG = "securityGroups";
-const _sI = "snapshotId";
+const _sGI = "securityGroupIds";
+const _sI = "subnetIds";
 const _sIA = "scaleInAfter";
 const _sIGB = "sizeInGiB";
 const _sIe = "sessionId";
+const _sIn = "snapshotId";
 const _sKP = "s3KeyPrefix";
 const _sL = "softLimit";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";
@@ -815,16 +896,20 @@ const _sRer = "serviceRevisions";
 const _sRt = "stoppedReason";
 const _sS = "schedulingStrategy";
 const _sSA = "stabilityStatusAt";
+const _sSG = "serviceSecurityGroups";
 const _sSGB = "storageSizeGiB";
 const _sSR = "sourceServiceRevisions";
 const _sSV = "stringSetValue";
 const _sSt = "stabilityStatus";
 const _sT = "startTimeout";
+const _sTc = "scalingTarget";
+const _sTca = "scalableTarget";
 const _sTt = "stopTimeout";
 const _sTto = "stopType";
 const _sU = "streamUrl";
 const _sV = "sourceVolume";
 const _sc = "scale";
+const _sch = "scheme";
 const _sco = "scope";
 const _se = "settings";
 const _sec = "secrets";
@@ -845,6 +930,7 @@ const _tA = "taskArn";
 const _tAN = "triggeredAlarmNames";
 const _tAa = "taskArns";
 const _tC = "targetCapacity";
+const _tCa = "targetConfiguration";
 const _tD = "taskDefinition";
 const _tDA = "taskDefinitionArns";
 const _tDAa = "taskDefinitionArn";
@@ -852,6 +938,7 @@ const _tDa = "taskDefinitions";
 const _tE = "telemetryEndpoint";
 const _tEP = "transitEncryptionPort";
 const _tEr = "transitEncryption";
+const _tG = "targetGroups";
 const _tGA = "targetGroupArn";
 const _tI = "targetId";
 const _tK = "tagKeys";
@@ -868,7 +955,8 @@ const _tSa = "taskSets";
 const _tSag = "tagSpecifications";
 const _tT = "targetType";
 const _tTR = "testTrafficRules";
-const _tV = "tokenValue";
+const _tV = "targetValue";
+const _tVo = "tokenValue";
 const _ta = "tags";
 const _tas = "tasks";
 const _task = "task";
@@ -1332,6 +1420,35 @@ export var CreateClusterRequest: StaticStructureSchema = [
 ];
 export var CreateClusterResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_cl], [() => Cluster]];
 export var CreatedAt: StaticStructureSchema = [3, n0, _CA, 0, [_be, _af], [4, 4]];
+export var CreateExpressGatewayServiceRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CEGSR,
+  0,
+  [_eRA, _iRA, _sN, _cl, _hCP, _pC, _tRA, _nC, _cp, _mem, _sTc, _ta],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    () => ExpressGatewayContainer,
+    0,
+    () => ExpressGatewayServiceNetworkConfiguration,
+    0,
+    0,
+    () => ExpressGatewayScalingTarget,
+    () => Tags,
+  ],
+];
+export var CreateExpressGatewayServiceResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CEGSRr,
+  0,
+  [_ser],
+  [() => ECSExpressGatewayService],
+];
 export var CreateManagedInstancesProviderConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1359,7 +1476,7 @@ export var CreateServiceRequest: StaticStructureSchema = [
     _pV,
     _ro,
     _dCe,
-    _pC,
+    _pCl,
     _pS,
     _nC,
     _hCGPS,
@@ -1441,6 +1558,15 @@ export var DeleteCapacityProviderResponse: StaticStructureSchema = [
 ];
 export var DeleteClusterRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_cl], [0]];
 export var DeleteClusterResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [_cl], [() => Cluster]];
+export var DeleteExpressGatewayServiceRequest: StaticStructureSchema = [3, n0, _DEGSR, 0, [_sA], [0]];
+export var DeleteExpressGatewayServiceResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DEGSRe,
+  0,
+  [_ser],
+  [() => ECSExpressGatewayService],
+];
 export var DeleteServiceRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_cl, _ser, _f], [0, 0, 2]];
 export var DeleteServiceResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_ser], [() => Service]];
 export var DeleteTaskDefinitionsRequest: StaticStructureSchema = [3, n0, _DTDR, 0, [_tDa], [64 | 0]];
@@ -1573,6 +1699,15 @@ export var DescribeContainerInstancesResponse: StaticStructureSchema = [
   [_cIo, _fa],
   [() => ContainerInstances, () => Failures],
 ];
+export var DescribeExpressGatewayServiceRequest: StaticStructureSchema = [3, n0, _DEGSRes, 0, [_sA, _inc], [0, 64 | 0]];
+export var DescribeExpressGatewayServiceResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DEGSResc,
+  0,
+  [_ser],
+  [() => ECSExpressGatewayService],
+];
 export var DescribeServiceDeploymentsRequest: StaticStructureSchema = [3, n0, _DSDR, 0, [_sDA], [64 | 0]];
 export var DescribeServiceDeploymentsResponse: StaticStructureSchema = [
   3,
@@ -1639,6 +1774,28 @@ export var DockerVolumeConfiguration: StaticStructureSchema = [
   [0, 2, 0, 128 | 0, 128 | 0],
 ];
 export var EBSTagSpecification: StaticStructureSchema = [3, n0, _EBSTS, 0, [_rT, _ta, _pTr], [0, () => Tags, 0]];
+export var ECSExpressGatewayService: StaticStructureSchema = [
+  3,
+  n0,
+  _ECSEGS,
+  0,
+  [_cl, _sN, _sA, _iRA, _s, _cD, _aCc, _ta, _cAr, _uA],
+  [0, 0, 0, 0, () => ExpressGatewayServiceStatus, 0, () => ExpressGatewayServiceConfigurations, () => Tags, 4, 4],
+];
+export var ECSManagedResources: StaticStructureSchema = [
+  3,
+  n0,
+  _ECSMR,
+  0,
+  [_iP, _aSu, _mAe, _sSG, _lG],
+  [
+    () => ManagedIngressPaths,
+    () => ManagedAutoScaling,
+    () => ManagedMetricAlarms,
+    () => ManagedSecurityGroups,
+    () => ManagedLogGroups,
+  ],
+];
 export var EFSAuthorizationConfig: StaticStructureSchema = [3, n0, _EFSAC, 0, [_aPIc, _ia], [0, 0]];
 export var EFSVolumeConfiguration: StaticStructureSchema = [
   3,
@@ -1682,6 +1839,61 @@ export var ExecuteCommandResponse: StaticStructureSchema = [
   [_cA, _cAo, _cNo, _in, _ses, _tA],
   [0, 0, 0, 2, [() => Session, 0], 0],
 ];
+export var ExpressGatewayContainer: StaticStructureSchema = [
+  3,
+  n0,
+  _EGC,
+  0,
+  [_im, _cPon, _aLC, _rC, _com, _en, _sec],
+  [
+    0,
+    1,
+    () => ExpressGatewayServiceAwsLogsConfiguration,
+    () => ExpressGatewayRepositoryCredentials,
+    64 | 0,
+    () => EnvironmentVariables,
+    () => SecretList,
+  ],
+];
+export var ExpressGatewayRepositoryCredentials: StaticStructureSchema = [3, n0, _EGRC, 0, [_cPr], [0]];
+export var ExpressGatewayScalingTarget: StaticStructureSchema = [
+  3,
+  n0,
+  _EGST,
+  0,
+  [_mTC, _mTCa, _aSM, _aSTV],
+  [1, 1, 0, 1],
+];
+export var ExpressGatewayServiceAwsLogsConfiguration: StaticStructureSchema = [3, n0, _EGSALC, 0, [_lGo, _lSP], [0, 0]];
+export var ExpressGatewayServiceConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _EGSC,
+  0,
+  [_sRAe, _eRA, _tRA, _cp, _mem, _nC, _hCP, _pC, _sTc, _iP, _cAr],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    () => ExpressGatewayServiceNetworkConfiguration,
+    0,
+    () => ExpressGatewayContainer,
+    () => ExpressGatewayScalingTarget,
+    () => IngressPathSummaries,
+    4,
+  ],
+];
+export var ExpressGatewayServiceNetworkConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _EGSNC,
+  0,
+  [_sG, _su],
+  [64 | 0, 64 | 0],
+];
+export var ExpressGatewayServiceStatus: StaticStructureSchema = [3, n0, _EGSS, 0, [_sCt, _sR], [0, 0]];
 export var Failure: StaticStructureSchema = [3, n0, _F, 0, [_ar, _r, _de], [0, 0, 0]];
 export var FirelensConfiguration: StaticStructureSchema = [3, n0, _FC, 0, [_t, _o], [0, 128 | 0]];
 export var FSxWindowsFileServerAuthorizationConfig: StaticStructureSchema = [3, n0, _FSWFSAC, 0, [_cPr, _do], [0, 0]];
@@ -1708,13 +1920,14 @@ export var HostVolumeProperties: StaticStructureSchema = [3, n0, _HVP, 0, [_sPo]
 export var InferenceAccelerator: StaticStructureSchema = [3, n0, _IA, 0, [_dNe, _dT], [0, 0]];
 export var InferenceAcceleratorOverride: StaticStructureSchema = [3, n0, _IAO, 0, [_dNe, _dT], [0, 0]];
 export var InfrastructureOptimization: StaticStructureSchema = [3, n0, _IO, 0, [_sIA], [1]];
+export var IngressPathSummary: StaticStructureSchema = [3, n0, _IPS, 0, [_aT, _end], [0, 0]];
 export var InstanceHealthCheckResult: StaticStructureSchema = [3, n0, _IHCR, 0, [_t, _s, _lU, _lSC], [0, 0, 4, 4]];
 export var InstanceLaunchTemplate: StaticStructureSchema = [
   3,
   n0,
   _ILT,
   0,
-  [_eIPA, _nC, _sCt, _mo, _iR],
+  [_eIPA, _nC, _sCto, _mo, _iR],
   [
     0,
     () => ManagedInstancesNetworkConfiguration,
@@ -1728,7 +1941,7 @@ export var InstanceLaunchTemplateUpdate: StaticStructureSchema = [
   n0,
   _ILTU,
   0,
-  [_eIPA, _nC, _sCt, _mo, _iR],
+  [_eIPA, _nC, _sCto, _mo, _iR],
   [
     0,
     () => ManagedInstancesNetworkConfiguration,
@@ -1759,8 +1972,8 @@ export var InstanceRequirementsRequest: StaticStructureSchema = [
     _lST,
     _tLSGB,
     _bEBM,
-    _aT,
-    _aCc,
+    _aTc,
+    _aCcc,
     _aM,
     _aNc,
     _aTMMB,
@@ -1916,9 +2129,16 @@ export var ListServiceDeploymentsResponse: StaticStructureSchema = [
   [() => ServiceDeploymentsBrief, 0],
 ];
 export var ListServicesByNamespaceRequest: StaticStructureSchema = [3, n0, _LSBNR, 0, [_na, _nT, _mRa], [0, 0, 1]];
-export var ListServicesByNamespaceResponse: StaticStructureSchema = [3, n0, _LSBNRi, 0, [_sA, _nT], [64 | 0, 0]];
-export var ListServicesRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_cl, _nT, _mRa, _lT, _sS], [0, 0, 1, 0, 0]];
-export var ListServicesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sA, _nT], [64 | 0, 0]];
+export var ListServicesByNamespaceResponse: StaticStructureSchema = [3, n0, _LSBNRi, 0, [_sAe, _nT], [64 | 0, 0]];
+export var ListServicesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LSR,
+  0,
+  [_cl, _nT, _mRa, _lT, _sS, _rMT],
+  [0, 0, 1, 0, 0, 0],
+];
+export var ListServicesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sAe, _nT], [64 | 0, 0]];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAes], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => Tags]];
 export var ListTaskDefinitionFamiliesRequest: StaticStructureSchema = [
@@ -1959,6 +2179,40 @@ export var LoadBalancer: StaticStructureSchema = [
 export var LogConfiguration: StaticStructureSchema = [3, n0, _LCo, 0, [_lD, _o, _sO], [0, 128 | 0, () => SecretList]];
 export var ManagedAgent: StaticStructureSchema = [3, n0, _MA, 0, [_lSA, _n, _r, _lS], [4, 0, 0, 0]];
 export var ManagedAgentStateChange: StaticStructureSchema = [3, n0, _MASC, 0, [_cNo, _mAN, _s, _r], [0, 0, 0, 0]];
+export var ManagedApplicationAutoScalingPolicy: StaticStructureSchema = [
+  3,
+  n0,
+  _MAASP,
+  0,
+  [_ar, _s, _sR, _uA, _pTo, _tV, _met],
+  [0, 0, 0, 4, 0, 1, 0],
+];
+export var ManagedAutoScaling: StaticStructureSchema = [
+  3,
+  n0,
+  _MAS,
+  0,
+  [_sTca, _aASP],
+  [() => ManagedScalableTarget, () => ManagedApplicationAutoScalingPolicies],
+];
+export var ManagedCertificate: StaticStructureSchema = [3, n0, _MC, 0, [_ar, _s, _sR, _uA, _dNo], [0, 0, 0, 4, 0]];
+export var ManagedIngressPath: StaticStructureSchema = [
+  3,
+  n0,
+  _MIP,
+  0,
+  [_aT, _end, _lBo, _lBSG, _ce, _li, _ru, _tG],
+  [
+    0,
+    0,
+    () => ManagedLoadBalancer,
+    () => ManagedSecurityGroups,
+    () => ManagedCertificate,
+    () => ManagedListener,
+    () => ManagedListenerRule,
+    () => ManagedTargetGroups,
+  ],
+];
 export var ManagedInstancesNetworkConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -1970,14 +2224,43 @@ export var ManagedInstancesNetworkConfiguration: StaticStructureSchema = [
 export var ManagedInstancesProvider: StaticStructureSchema = [
   3,
   n0,
-  _MIP,
+  _MIPa,
   0,
   [_iRA, _iLT, _pTr, _iO],
   [0, [() => InstanceLaunchTemplate, 0], 0, () => InfrastructureOptimization],
 ];
 export var ManagedInstancesStorageConfiguration: StaticStructureSchema = [3, n0, _MISC, 0, [_sSGB], [1]];
+export var ManagedListener: StaticStructureSchema = [3, n0, _ML, 0, [_ar, _s, _sR, _uA], [0, 0, 0, 4]];
+export var ManagedListenerRule: StaticStructureSchema = [3, n0, _MLR, 0, [_ar, _s, _sR, _uA], [0, 0, 0, 4]];
+export var ManagedLoadBalancer: StaticStructureSchema = [
+  3,
+  n0,
+  _MLB,
+  0,
+  [_ar, _s, _sR, _uA, _sch, _sI, _sGI],
+  [0, 0, 0, 4, 0, 64 | 0, 64 | 0],
+];
+export var ManagedLogGroup: StaticStructureSchema = [3, n0, _MLG, 0, [_ar, _s, _sR, _uA, _lGN], [0, 0, 0, 4, 0]];
+export var ManagedMetricAlarm: StaticStructureSchema = [3, n0, _MMA, 0, [_ar, _s, _sR, _uA], [0, 0, 0, 4]];
+export var ManagedScalableTarget: StaticStructureSchema = [
+  3,
+  n0,
+  _MST,
+  0,
+  [_ar, _s, _sR, _uA, _mC, _mCa],
+  [0, 0, 0, 4, 1, 1],
+];
 export var ManagedScaling: StaticStructureSchema = [3, n0, _MS, 0, [_s, _tC, _mSSS, _mSSSa, _iWP], [0, 1, 1, 1, 1]];
+export var ManagedSecurityGroup: StaticStructureSchema = [3, n0, _MSG, 0, [_ar, _s, _sR, _uA], [0, 0, 0, 4]];
 export var ManagedStorageConfiguration: StaticStructureSchema = [3, n0, _MSC, 0, [_kKI, _fESKKI], [0, 0]];
+export var ManagedTargetGroup: StaticStructureSchema = [
+  3,
+  n0,
+  _MTG,
+  0,
+  [_ar, _s, _sR, _uA, _hCP, _hCPe, _po],
+  [0, 0, 0, 4, 0, 1, 1],
+];
 export var MemoryGiBPerVCpuRequest: StaticStructureSchema = [3, n0, _MGBPVCR, 0, [_m, _ma], [1, 1]];
 export var MemoryMiBRequest: StaticStructureSchema = [3, n0, _MMBR, 0, [_m, _ma], [1, 1]];
 export var MissingVersionException: StaticErrorSchema = [
@@ -2105,7 +2388,7 @@ export var RegisterTaskDefinitionRequest: StaticStructureSchema = [
   n0,
   _RTDR,
   0,
-  [_fami, _tRA, _eRA, _nM, _cD, _vo, _pC, _rCe, _cp, _mem, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
+  [_fami, _tRA, _eRA, _nM, _cDo, _vo, _pCl, _rCe, _cp, _mem, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
   [
     0,
     0,
@@ -2169,7 +2452,7 @@ export var RunTaskRequest: StaticStructureSchema = [
   n0,
   _RTR,
   0,
-  [_cPS, _cl, _cou, _eECSMT, _eEC, _g, _lT, _nC, _ov, _pC, _pS, _pV, _pTr, _rIe, _sB, _ta, _tD, _cT, _vCo],
+  [_cPS, _cl, _cou, _eECSMT, _eEC, _g, _lT, _nC, _ov, _pCl, _pS, _pV, _pTr, _rIe, _sB, _ta, _tD, _cT, _vCo],
   [
     () => CapacityProviderStrategy,
     0,
@@ -2214,7 +2497,7 @@ export var Service: StaticStructureSchema = [
   _Ser,
   0,
   [
-    _sAe,
+    _sA,
     _sN,
     _cA,
     _lB,
@@ -2234,7 +2517,9 @@ export var Service: StaticStructureSchema = [
     _rA,
     _ev,
     _cAr,
-    _pC,
+    _cSD,
+    _cSR,
+    _pCl,
     _pS,
     _nC,
     _hCGPS,
@@ -2246,6 +2531,7 @@ export var Service: StaticStructureSchema = [
     _pTr,
     _eEC,
     _aZR,
+    _rMT,
   ],
   [
     0,
@@ -2268,6 +2554,8 @@ export var Service: StaticStructureSchema = [
     0,
     () => ServiceEvents,
     4,
+    0,
+    () => ServiceCurrentRevisionSummaryList,
     () => PlacementConstraints,
     () => PlacementStrategies,
     () => NetworkConfiguration,
@@ -2279,6 +2567,7 @@ export var Service: StaticStructureSchema = [
     2,
     0,
     2,
+    0,
     0,
   ],
 ];
@@ -2296,7 +2585,7 @@ export var ServiceConnectConfiguration: StaticStructureSchema = [
   n0,
   _SCC,
   0,
-  [_ena, _na, _serv, _lC, _aLC],
+  [_ena, _na, _serv, _lC, _aLCc],
   [2, 0, () => ServiceConnectServiceList, () => LogConfiguration, () => ServiceConnectAccessLogConfiguration],
 ];
 export var ServiceConnectService: StaticStructureSchema = [
@@ -2334,12 +2623,20 @@ export var ServiceConnectTlsConfiguration: StaticStructureSchema = [
   [_iCA, _kK, _rA],
   [() => ServiceConnectTlsCertificateAuthority, 0, 0],
 ];
+export var ServiceCurrentRevisionSummary: StaticStructureSchema = [
+  3,
+  n0,
+  _SCRS,
+  0,
+  [_ar, _rTCe, _rTCu, _pTCe],
+  [0, 1, 1, 1],
+];
 export var ServiceDeployment: StaticStructureSchema = [
   3,
   n0,
   _SD,
   0,
-  [_sDAe, _sAe, _cA, _cAr, _sAt, _fA, _sAto, _uA, _sSR, _tSR, _s, _sR, _lSif, _dCe, _rol, _dCB, _al],
+  [_sDAe, _sA, _cA, _cAr, _sAt, _fA, _sAto, _uA, _sSR, _tSR, _s, _sR, _lSif, _dCe, _rol, _dCB, _al],
   [
     0,
     0,
@@ -2366,7 +2663,7 @@ export var ServiceDeploymentBrief: StaticStructureSchema = [
   n0,
   _SDB,
   0,
-  [_sDAe, _sAe, _cA, _sAt, _cAr, _fA, _tSRA, _s, _sR],
+  [_sDAe, _sA, _cA, _sAt, _cAr, _fA, _tSRA, _s, _sR],
   [0, 0, 0, 4, 4, 4, 0, 0, 0],
 ];
 export var ServiceDeploymentCircuitBreaker: StaticStructureSchema = [3, n0, _SDCB, 0, [_s, _fCa, _th], [0, 1, 1]];
@@ -2388,7 +2685,7 @@ export var ServiceManagedEBSVolumeConfiguration: StaticStructureSchema = [
   n0,
   _SMEBSVC,
   0,
-  [_enc, _kKI, _vT, _sIGB, _sI, _vIR, _io, _thr, _tSag, _rA, _fTi],
+  [_enc, _kKI, _vT, _sIGB, _sIn, _vIR, _io, _thr, _tSag, _rA, _fTi],
   [2, 0, 0, 1, 0, 1, 1, 1, () => EBSTagSpecifications, 0, 0],
 ];
 export var ServiceNotActiveException: StaticErrorSchema = [
@@ -2421,7 +2718,7 @@ export var ServiceRevision: StaticStructureSchema = [
   n0,
   _SRe,
   0,
-  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cIon, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes],
+  [_sRAe, _sA, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cIon, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR],
   [
     0,
     0,
@@ -2442,6 +2739,7 @@ export var ServiceRevision: StaticStructureSchema = [
     4,
     () => VpcLatticeConfigurations,
     () => ResolvedConfiguration,
+    () => ECSManagedResources,
   ],
 ];
 export var ServiceRevisionLoadBalancer: StaticStructureSchema = [3, n0, _SRLB, 0, [_tGA, _pLR], [0, 0]];
@@ -2461,7 +2759,7 @@ export var ServiceVolumeConfiguration: StaticStructureSchema = [
   [_n, _mEBSV],
   [0, () => ServiceManagedEBSVolumeConfiguration],
 ];
-export var Session: StaticStructureSchema = [3, n0, _Ses, 0, [_sIe, _sU, _tV], [0, 0, [() => SensitiveString, 0]]];
+export var Session: StaticStructureSchema = [3, n0, _Ses, 0, [_sIe, _sU, _tVo], [0, 0, [() => SensitiveString, 0]]];
 export var Setting: StaticStructureSchema = [3, n0, _Set, 0, [_n, _v, _pA, _t], [0, 0, 0, 0]];
 export var StartTaskRequest: StaticStructureSchema = [
   3,
@@ -2578,7 +2876,7 @@ export var Task: StaticStructureSchema = [
     _pSAu,
     _sAt,
     _sB,
-    _sCto,
+    _sCtop,
     _sAto,
     _sRt,
     _sAtop,
@@ -2636,7 +2934,7 @@ export var TaskDefinition: StaticStructureSchema = [
   0,
   [
     _tDAa,
-    _cD,
+    _cDo,
     _fami,
     _tRA,
     _eRA,
@@ -2645,7 +2943,7 @@ export var TaskDefinition: StaticStructureSchema = [
     _vo,
     _s,
     _rAeq,
-    _pC,
+    _pCl,
     _comp,
     _rPu,
     _rCe,
@@ -2696,7 +2994,7 @@ export var TaskManagedEBSVolumeConfiguration: StaticStructureSchema = [
   n0,
   _TMEBSVC,
   0,
-  [_enc, _kKI, _vT, _sIGB, _sI, _vIR, _io, _thr, _tSag, _rA, _tP, _fTi],
+  [_enc, _kKI, _vT, _sIGB, _sIn, _vIR, _io, _thr, _tSag, _rA, _tP, _fTi],
   [2, 0, 0, 1, 0, 1, 1, 1, () => EBSTagSpecifications, 0, () => TaskManagedEBSVolumeTerminationPolicy, 0],
 ];
 export var TaskManagedEBSVolumeTerminationPolicy: StaticStructureSchema = [3, n0, _TMEBSVTP, 0, [_dOT], [2]];
@@ -2716,7 +3014,7 @@ export var TaskSet: StaticStructureSchema = [
   [
     _i,
     _tSA,
-    _sAe,
+    _sA,
     _cA,
     _sB,
     _eI,
@@ -2858,6 +3156,40 @@ export var UpdateContainerInstancesStateResponse: StaticStructureSchema = [
   [_cIo, _fa],
   [() => ContainerInstances, () => Failures],
 ];
+export var UpdatedExpressGatewayService: StaticStructureSchema = [
+  3,
+  n0,
+  _UEGS,
+  0,
+  [_sA, _cl, _sN, _s, _tCa, _cAr, _uA],
+  [0, 0, 0, () => ExpressGatewayServiceStatus, () => ExpressGatewayServiceConfiguration, 4, 4],
+];
+export var UpdateExpressGatewayServiceRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _UEGSR,
+  0,
+  [_sA, _eRA, _hCP, _pC, _tRA, _nC, _cp, _mem, _sTc],
+  [
+    0,
+    0,
+    0,
+    () => ExpressGatewayContainer,
+    0,
+    () => ExpressGatewayServiceNetworkConfiguration,
+    0,
+    0,
+    () => ExpressGatewayScalingTarget,
+  ],
+];
+export var UpdateExpressGatewayServiceResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _UEGSRp,
+  0,
+  [_ser],
+  [() => UpdatedExpressGatewayService],
+];
 export var UpdateInProgressException: StaticErrorSchema = [
   -3,
   n0,
@@ -2901,7 +3233,7 @@ export var UpdateServiceRequest: StaticStructureSchema = [
     _dCe,
     _aZR,
     _nC,
-    _pC,
+    _pCl,
     _pS,
     _pV,
     _fND,
@@ -3096,12 +3428,22 @@ export var ExcludedInstanceTypeSet: StaticListSchema = [
     },
   ],
 ];
+export var ExpressGatewayServiceConfigurations: StaticListSchema = [
+  1,
+  n0,
+  _EGSCx,
+  0,
+  () => ExpressGatewayServiceConfiguration,
+];
+export var ExpressGatewayServiceIncludeList = 64 | 0;
+
 export var Failures: StaticListSchema = [1, n0, _Fa, 0, () => Failure];
 export var GpuIds = 64 | 0;
 
 export var HostEntryList: StaticListSchema = [1, n0, _HEL, 0, () => HostEntry];
 export var InferenceAcceleratorOverrides: StaticListSchema = [1, n0, _IAOn, 0, () => InferenceAcceleratorOverride];
 export var InferenceAccelerators: StaticListSchema = [1, n0, _IAn, 0, () => InferenceAccelerator];
+export var IngressPathSummaries: StaticListSchema = [1, n0, _IPSn, 0, () => IngressPathSummary];
 export var InstanceGenerationSet: StaticListSchema = [
   1,
   n0,
@@ -3132,6 +3474,18 @@ export var LocalStorageTypeSet: StaticListSchema = [
 ];
 export var ManagedAgents: StaticListSchema = [1, n0, _MAa, 0, () => ManagedAgent];
 export var ManagedAgentStateChanges: StaticListSchema = [1, n0, _MASCa, 0, () => ManagedAgentStateChange];
+export var ManagedApplicationAutoScalingPolicies: StaticListSchema = [
+  1,
+  n0,
+  _MAASPa,
+  0,
+  () => ManagedApplicationAutoScalingPolicy,
+];
+export var ManagedIngressPaths: StaticListSchema = [1, n0, _MIPan, 0, () => ManagedIngressPath];
+export var ManagedLogGroups: StaticListSchema = [1, n0, _MLGa, 0, () => ManagedLogGroup];
+export var ManagedMetricAlarms: StaticListSchema = [1, n0, _MMAa, 0, () => ManagedMetricAlarm];
+export var ManagedSecurityGroups: StaticListSchema = [1, n0, _MSGa, 0, () => ManagedSecurityGroup];
+export var ManagedTargetGroups: StaticListSchema = [1, n0, _MTGa, 0, () => ManagedTargetGroup];
 export var MountPointList: StaticListSchema = [1, n0, _MPL, 0, () => MountPoint];
 export var NetworkBindings: StaticListSchema = [1, n0, _NBe, 0, () => NetworkBinding];
 export var NetworkInterfaces: StaticListSchema = [1, n0, _NIe, 0, () => NetworkInterface];
@@ -3155,6 +3509,13 @@ export var ServiceConnectServiceResourceList: StaticListSchema = [
   _SCSRL,
   0,
   () => ServiceConnectServiceResource,
+];
+export var ServiceCurrentRevisionSummaryList: StaticListSchema = [
+  1,
+  n0,
+  _SCRSL,
+  0,
+  () => ServiceCurrentRevisionSummary,
 ];
 export var ServiceDeployments: StaticListSchema = [1, n0, _SDe, 0, () => ServiceDeployment];
 export var ServiceDeploymentsBrief: StaticListSchema = [1, n0, _SDBe, 0, () => ServiceDeploymentBrief];
@@ -3223,6 +3584,14 @@ export var CreateCluster: StaticOperationSchema = [
   () => CreateClusterRequest,
   () => CreateClusterResponse,
 ];
+export var CreateExpressGatewayService: StaticOperationSchema = [
+  9,
+  n0,
+  _CEGS,
+  0,
+  () => CreateExpressGatewayServiceRequest,
+  () => CreateExpressGatewayServiceResponse,
+];
 export var CreateService: StaticOperationSchema = [
   9,
   n0,
@@ -3270,6 +3639,14 @@ export var DeleteCluster: StaticOperationSchema = [
   0,
   () => DeleteClusterRequest,
   () => DeleteClusterResponse,
+];
+export var DeleteExpressGatewayService: StaticOperationSchema = [
+  9,
+  n0,
+  _DEGS,
+  0,
+  () => DeleteExpressGatewayServiceRequest,
+  () => DeleteExpressGatewayServiceResponse,
 ];
 export var DeleteService: StaticOperationSchema = [
   9,
@@ -3334,6 +3711,14 @@ export var DescribeContainerInstances: StaticOperationSchema = [
   0,
   () => DescribeContainerInstancesRequest,
   () => DescribeContainerInstancesResponse,
+];
+export var DescribeExpressGatewayService: StaticOperationSchema = [
+  9,
+  n0,
+  _DEGSe,
+  0,
+  () => DescribeExpressGatewayServiceRequest,
+  () => DescribeExpressGatewayServiceResponse,
 ];
 export var DescribeServiceDeployments: StaticOperationSchema = [
   9,
@@ -3612,6 +3997,14 @@ export var UpdateContainerInstancesState: StaticOperationSchema = [
   0,
   () => UpdateContainerInstancesStateRequest,
   () => UpdateContainerInstancesStateResponse,
+];
+export var UpdateExpressGatewayService: StaticOperationSchema = [
+  9,
+  n0,
+  _UEGSp,
+  0,
+  () => UpdateExpressGatewayServiceRequest,
+  () => UpdateExpressGatewayServiceResponse,
 ];
 export var UpdateService: StaticOperationSchema = [
   9,

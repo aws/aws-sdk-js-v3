@@ -13,6 +13,11 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  CreateExpressGatewayServiceCommand,
+  CreateExpressGatewayServiceCommandInput,
+  CreateExpressGatewayServiceCommandOutput,
+} from "./commands/CreateExpressGatewayServiceCommand";
+import {
   CreateServiceCommand,
   CreateServiceCommandInput,
   CreateServiceCommandOutput,
@@ -42,6 +47,11 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
+import {
+  DeleteExpressGatewayServiceCommand,
+  DeleteExpressGatewayServiceCommandInput,
+  DeleteExpressGatewayServiceCommandOutput,
+} from "./commands/DeleteExpressGatewayServiceCommand";
 import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
@@ -82,6 +92,11 @@ import {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
+import {
+  DescribeExpressGatewayServiceCommand,
+  DescribeExpressGatewayServiceCommandInput,
+  DescribeExpressGatewayServiceCommandOutput,
+} from "./commands/DescribeExpressGatewayServiceCommand";
 import {
   DescribeServiceDeploymentsCommand,
   DescribeServiceDeploymentsCommandInput,
@@ -263,6 +278,11 @@ import {
   UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
 import {
+  UpdateExpressGatewayServiceCommand,
+  UpdateExpressGatewayServiceCommandInput,
+  UpdateExpressGatewayServiceCommandOutput,
+} from "./commands/UpdateExpressGatewayServiceCommand";
+import {
   UpdateServiceCommand,
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
@@ -287,12 +307,14 @@ import { ECSClient, ECSClientConfig } from "./ECSClient";
 const commands = {
   CreateCapacityProviderCommand,
   CreateClusterCommand,
+  CreateExpressGatewayServiceCommand,
   CreateServiceCommand,
   CreateTaskSetCommand,
   DeleteAccountSettingCommand,
   DeleteAttributesCommand,
   DeleteCapacityProviderCommand,
   DeleteClusterCommand,
+  DeleteExpressGatewayServiceCommand,
   DeleteServiceCommand,
   DeleteTaskDefinitionsCommand,
   DeleteTaskSetCommand,
@@ -301,6 +323,7 @@ const commands = {
   DescribeCapacityProvidersCommand,
   DescribeClustersCommand,
   DescribeContainerInstancesCommand,
+  DescribeExpressGatewayServiceCommand,
   DescribeServiceDeploymentsCommand,
   DescribeServiceRevisionsCommand,
   DescribeServicesCommand,
@@ -341,6 +364,7 @@ const commands = {
   UpdateClusterSettingsCommand,
   UpdateContainerAgentCommand,
   UpdateContainerInstancesStateCommand,
+  UpdateExpressGatewayServiceCommand,
   UpdateServiceCommand,
   UpdateServicePrimaryTaskSetCommand,
   UpdateTaskProtectionCommand,
@@ -375,6 +399,23 @@ export interface ECS {
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExpressGatewayServiceCommand}
+   */
+  createExpressGatewayService(
+    args: CreateExpressGatewayServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExpressGatewayServiceCommandOutput>;
+  createExpressGatewayService(
+    args: CreateExpressGatewayServiceCommandInput,
+    cb: (err: any, data?: CreateExpressGatewayServiceCommandOutput) => void
+  ): void;
+  createExpressGatewayService(
+    args: CreateExpressGatewayServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExpressGatewayServiceCommandOutput) => void
   ): void;
 
   /**
@@ -459,6 +500,23 @@ export interface ECS {
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteExpressGatewayServiceCommand}
+   */
+  deleteExpressGatewayService(
+    args: DeleteExpressGatewayServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExpressGatewayServiceCommandOutput>;
+  deleteExpressGatewayService(
+    args: DeleteExpressGatewayServiceCommandInput,
+    cb: (err: any, data?: DeleteExpressGatewayServiceCommandOutput) => void
+  ): void;
+  deleteExpressGatewayService(
+    args: DeleteExpressGatewayServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExpressGatewayServiceCommandOutput) => void
   ): void;
 
   /**
@@ -585,6 +643,23 @@ export interface ECS {
     args: DescribeContainerInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContainerInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeExpressGatewayServiceCommand}
+   */
+  describeExpressGatewayService(
+    args: DescribeExpressGatewayServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExpressGatewayServiceCommandOutput>;
+  describeExpressGatewayService(
+    args: DescribeExpressGatewayServiceCommandInput,
+    cb: (err: any, data?: DescribeExpressGatewayServiceCommandOutput) => void
+  ): void;
+  describeExpressGatewayService(
+    args: DescribeExpressGatewayServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExpressGatewayServiceCommandOutput) => void
   ): void;
 
   /**
@@ -1204,6 +1279,23 @@ export interface ECS {
     args: UpdateContainerInstancesStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContainerInstancesStateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateExpressGatewayServiceCommand}
+   */
+  updateExpressGatewayService(
+    args: UpdateExpressGatewayServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExpressGatewayServiceCommandOutput>;
+  updateExpressGatewayService(
+    args: UpdateExpressGatewayServiceCommandInput,
+    cb: (err: any, data?: UpdateExpressGatewayServiceCommandOutput) => void
+  ): void;
+  updateExpressGatewayService(
+    args: UpdateExpressGatewayServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExpressGatewayServiceCommandOutput) => void
   ): void;
 
   /**
