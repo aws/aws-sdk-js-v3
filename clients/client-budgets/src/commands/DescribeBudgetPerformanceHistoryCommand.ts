@@ -105,6 +105,11 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
+ * @throws {@link BillingViewHealthStatusException} (client fault)
+ *  <p>
+ *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
+ *     </p>
+ *
  * @throws {@link ExpiredNextTokenException} (client fault)
  *  <p>The pagination token expired.</p>
  *

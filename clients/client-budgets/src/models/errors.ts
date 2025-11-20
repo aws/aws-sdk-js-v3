@@ -188,7 +188,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of tags you can associate with a resource.</p>
+ * <p>You've reached a Service Quota limit on this resource.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

@@ -212,6 +212,9 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>We can’t locate the resource that you specified.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You've reached a Service Quota limit on this resource.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
  *       for the account.</p>

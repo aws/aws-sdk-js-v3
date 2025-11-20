@@ -70,7 +70,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've reached the limit on the number of tags you can associate with a resource.</p>
+ *  <p>You've reached a Service Quota limit on this resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
