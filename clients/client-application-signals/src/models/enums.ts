@@ -115,6 +115,19 @@ export type StandardUnit = (typeof StandardUnit)[keyof typeof StandardUnit];
  * @public
  * @enum
  */
+export const DetailLevel = {
+  BRIEF: "BRIEF",
+  DETAILED: "DETAILED",
+} as const;
+/**
+ * @public
+ */
+export type DetailLevel = (typeof DetailLevel)[keyof typeof DetailLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const Severity = {
   CRITICAL: "CRITICAL",
   HIGH: "HIGH",
@@ -145,6 +158,7 @@ export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType
  * @enum
  */
 export const ChangeEventType = {
+  CONFIGURATION: "CONFIGURATION",
   DEPLOYMENT: "DEPLOYMENT",
 } as const;
 /**

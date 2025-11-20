@@ -31,7 +31,7 @@ export interface ListServiceStatesCommandInput extends ListServiceStatesInput {}
 export interface ListServiceStatesCommandOutput extends ListServiceStatesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current state information for services monitored by Application Signals. Service states include health status, recent change events, and other operational metadata.</p> <p>You can filter results by time range, AWS account, and service attributes to focus on specific services or time periods. This operation supports pagination and can include data from linked accounts.</p>
+ * <p>Returns information about the last deployment and other change states of services. This API provides visibility into recent changes that may have affected service performance, helping with troubleshooting and change correlation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +82,7 @@ export interface ListServiceStatesCommandOutput extends ListServiceStatesOutput,
  * //           Entity: { // required
  * //             "<keys>": "STRING_VALUE",
  * //           },
- * //           ChangeEventType: "DEPLOYMENT", // required
+ * //           ChangeEventType: "DEPLOYMENT" || "CONFIGURATION", // required
  * //           EventId: "STRING_VALUE", // required
  * //           UserName: "STRING_VALUE",
  * //           EventName: "STRING_VALUE",

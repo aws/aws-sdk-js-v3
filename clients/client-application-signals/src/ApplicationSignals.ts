@@ -40,6 +40,11 @@ import {
   ListAuditFindingsCommandOutput,
 } from "./commands/ListAuditFindingsCommand";
 import {
+  ListEntityEventsCommand,
+  ListEntityEventsCommandInput,
+  ListEntityEventsCommandOutput,
+} from "./commands/ListEntityEventsCommand";
+import {
   ListGroupingAttributeDefinitionsCommand,
   ListGroupingAttributeDefinitionsCommandInput,
   ListGroupingAttributeDefinitionsCommandOutput,
@@ -115,6 +120,7 @@ const commands = {
   GetServiceCommand,
   GetServiceLevelObjectiveCommand,
   ListAuditFindingsCommand,
+  ListEntityEventsCommand,
   ListGroupingAttributeDefinitionsCommand,
   ListServiceDependenciesCommand,
   ListServiceDependentsCommand,
@@ -261,6 +267,23 @@ export interface ApplicationSignals {
     args: ListAuditFindingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEntityEventsCommand}
+   */
+  listEntityEvents(
+    args: ListEntityEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEntityEventsCommandOutput>;
+  listEntityEvents(
+    args: ListEntityEventsCommandInput,
+    cb: (err: any, data?: ListEntityEventsCommandOutput) => void
+  ): void;
+  listEntityEvents(
+    args: ListEntityEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntityEventsCommandOutput) => void
   ): void;
 
   /**

@@ -7,6 +7,7 @@ export * from "./DeleteServiceLevelObjectiveCommand";
 export * from "./GetServiceCommand";
 export * from "./GetServiceLevelObjectiveCommand";
 export * from "./ListAuditFindingsCommand";
+export * from "./ListEntityEventsCommand";
 export * from "./ListGroupingAttributeDefinitionsCommand";
 export * from "./ListServiceDependenciesCommand";
 export * from "./ListServiceDependentsCommand";

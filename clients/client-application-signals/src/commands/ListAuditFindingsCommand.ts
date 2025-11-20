@@ -31,7 +31,7 @@ export interface ListAuditFindingsCommandInput extends ListAuditFindingsInput {}
 export interface ListAuditFindingsCommandOutput extends ListAuditFindingsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of audit findings for Application Signals resources. Audit findings identify potential issues, misconfigurations, or compliance violations in your observability setup.</p> <p>You can filter findings by time range, auditor type, and target resources to focus on specific areas of concern. This operation supports pagination for large result sets.</p>
+ * <p>Returns a list of audit findings that provide automated analysis of service behavior and root cause analysis. These findings help identify the most significant observations about your services, including performance issues, anomalies, and potential problems. The findings are generated using heuristic algorithms based on established troubleshooting patterns.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,12 +76,15 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsOutput,
  *       },
  *     },
  *   ],
+ *   DetailLevel: "BRIEF" || "DETAILED",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
  * const command = new ListAuditFindingsCommand(input);
  * const response = await client.send(command);
  * // { // ListAuditFindingsOutput
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
  * //   AuditFindings: [ // AuditFindings // required
  * //     { // AuditFinding
  * //       KeyAttributes: { // Attributes // required
@@ -91,6 +94,9 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsOutput,
  * //         { // AuditorResult
  * //           Auditor: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           Data: { // DataMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
  * //           Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "NONE",
  * //         },
  * //       ],

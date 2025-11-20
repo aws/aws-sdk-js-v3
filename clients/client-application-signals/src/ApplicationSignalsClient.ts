@@ -83,6 +83,7 @@ import {
   GetServiceLevelObjectiveCommandOutput,
 } from "./commands/GetServiceLevelObjectiveCommand";
 import { ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput } from "./commands/ListAuditFindingsCommand";
+import { ListEntityEventsCommandInput, ListEntityEventsCommandOutput } from "./commands/ListEntityEventsCommand";
 import {
   ListGroupingAttributeDefinitionsCommandInput,
   ListGroupingAttributeDefinitionsCommandOutput,
@@ -147,6 +148,7 @@ export type ServiceInputTypes =
   | GetServiceCommandInput
   | GetServiceLevelObjectiveCommandInput
   | ListAuditFindingsCommandInput
+  | ListEntityEventsCommandInput
   | ListGroupingAttributeDefinitionsCommandInput
   | ListServiceDependenciesCommandInput
   | ListServiceDependentsCommandInput
@@ -174,6 +176,7 @@ export type ServiceOutputTypes =
   | GetServiceCommandOutput
   | GetServiceLevelObjectiveCommandOutput
   | ListAuditFindingsCommandOutput
+  | ListEntityEventsCommandOutput
   | ListGroupingAttributeDefinitionsCommandOutput
   | ListServiceDependenciesCommandOutput
   | ListServiceDependentsCommandOutput

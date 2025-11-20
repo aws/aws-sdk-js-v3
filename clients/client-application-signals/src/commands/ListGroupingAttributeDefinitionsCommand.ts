@@ -33,7 +33,7 @@ export interface ListGroupingAttributeDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the available grouping attribute definitions that can be used to create grouping configurations. These definitions specify the attributes and rules available for organizing services.</p> <p>Use this operation to discover what grouping options are available before creating or updating grouping configurations.</p>
+ * <p>Returns the current grouping configuration for this account, including all custom grouping attribute definitions that have been configured. These definitions determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,6 +44,8 @@ export interface ListGroupingAttributeDefinitionsCommandOutput
  * const client = new ApplicationSignalsClient(config);
  * const input = { // ListGroupingAttributeDefinitionsInput
  *   NextToken: "STRING_VALUE",
+ *   AwsAccountId: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
  * };
  * const command = new ListGroupingAttributeDefinitionsCommand(input);
  * const response = await client.send(command);

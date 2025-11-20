@@ -37,6 +37,7 @@ const _C = "Canary";
 const _CE = "CanaryEntity";
 const _CET = "ChangeEventType";
 const _CEh = "ChangeEvent";
+const _CEha = "ChangeEvents";
 const _CEo = "ConflictException";
 const _CI = "CalendarInterval";
 const _CN = "CanaryName";
@@ -54,6 +55,7 @@ const _DGCO = "DeleteGroupingConfigurationOutput";
 const _DGV = "DefaultGroupingValue";
 const _DKA = "DependencyKeyAttributes";
 const _DKAe = "DependentKeyAttributes";
+const _DL = "DetailLevel";
 const _DNI = "DestinationNodeId";
 const _DON = "DependencyOperationName";
 const _DONe = "DependentOperationName";
@@ -107,6 +109,9 @@ const _LAFI = "ListAuditFindingsInput";
 const _LAFO = "ListAuditFindingsOutput";
 const _LBWM = "LookBackWindowMinutes";
 const _LCE = "LatestChangeEvents";
+const _LEE = "ListEntityEvents";
+const _LEEI = "ListEntityEventsInput";
+const _LEEO = "ListEntityEventsOutput";
 const _LGAD = "ListGroupingAttributeDefinitions";
 const _LGADI = "ListGroupingAttributeDefinitionsInput";
 const _LGADO = "ListGroupingAttributeDefinitionsOutput";
@@ -313,7 +318,7 @@ export var AuditFinding: StaticStructureSchema = [
   [_KA, _AR, _O, _MG, _DG, _T],
   [128 | 0, () => AuditorResults, 0, () => MetricGraph, () => DependencyGraph, 0],
 ];
-export var AuditorResult: StaticStructureSchema = [3, n0, _ARu, 0, [_A, _D, _S], [0, 0, 0]];
+export var AuditorResult: StaticStructureSchema = [3, n0, _ARu, 0, [_A, _D, _Da, _S], [0, 0, 128 | 0, 0]];
 export var AuditTarget: StaticStructureSchema = [3, n0, _AT, 0, [_T, _Da], [0, () => AuditTargetEntity]];
 export var BatchGetServiceLevelObjectiveBudgetReportInput: StaticStructureSchema = [
   3,
@@ -465,7 +470,7 @@ export var ListAuditFindingsInput: StaticStructureSchema = [
   n0,
   _LAFI,
   0,
-  [_ST, _ET, _Au, _ATu, _NT, _MR],
+  [_ST, _ET, _Au, _ATu, _DL, _NT, _MR],
   [
     [
       4,
@@ -482,21 +487,73 @@ export var ListAuditFindingsInput: StaticStructureSchema = [
     64 | 0,
     () => AuditTargets,
     0,
+    0,
     1,
   ],
 ];
-export var ListAuditFindingsOutput: StaticStructureSchema = [3, n0, _LAFO, 0, [_AFud, _NT], [() => AuditFindings, 0]];
+export var ListAuditFindingsOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _LAFO,
+  0,
+  [_ST, _ET, _AFud, _NT],
+  [4, 4, () => AuditFindings, 0],
+];
+export var ListEntityEventsInput: StaticStructureSchema = [
+  3,
+  n0,
+  _LEEI,
+  0,
+  [_En, _ST, _ET, _MR, _NT],
+  [
+    128 | 0,
+    4,
+    4,
+    [
+      1,
+      {
+        [_hQ]: _MR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _NT,
+      },
+    ],
+  ],
+];
+export var ListEntityEventsOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _LEEO,
+  0,
+  [_ST, _ET, _CEha, _NT],
+  [4, 4, () => ChangeEvents, 0],
+];
 export var ListGroupingAttributeDefinitionsInput: StaticStructureSchema = [
   3,
   n0,
   _LGADI,
   0,
-  [_NT],
+  [_NT, _AAI, _ILA],
   [
     [
       0,
       {
         [_hQ]: _NT,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _AAI,
+      },
+    ],
+    [
+      2,
+      {
+        [_hQ]: _ILA,
       },
     ],
   ],
@@ -1118,6 +1175,7 @@ export var BatchUpdateExclusionWindowsErrors: StaticListSchema = [
   () => BatchUpdateExclusionWindowsError,
 ];
 export var BurnRateConfigurations: StaticListSchema = [1, n0, _BRCu, 0, () => BurnRateConfiguration];
+export var ChangeEvents: StaticListSchema = [1, n0, _CEha, 0, () => ChangeEvent];
 export var Dimensions: StaticListSchema = [1, n0, _Dim, 0, () => Dimension];
 export var Edges: StaticListSchema = [1, n0, _Ed, 0, () => Edge];
 export var ExclusionWindows: StaticListSchema = [1, n0, _EWx, 0, () => ExclusionWindow];
@@ -1160,6 +1218,8 @@ export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
 export var AttributeMap = 128 | 0;
 
 export var Attributes = 128 | 0;
+
+export var DataMap = 128 | 0;
 
 export var AuditTargetEntity: StaticStructureSchema = [
   3,
@@ -1264,6 +1324,16 @@ export var ListAuditFindings: StaticOperationSchema = [
   },
   () => ListAuditFindingsInput,
   () => ListAuditFindingsOutput,
+];
+export var ListEntityEvents: StaticOperationSchema = [
+  9,
+  n0,
+  _LEE,
+  {
+    [_h]: ["POST", "/events", 200],
+  },
+  () => ListEntityEventsInput,
+  () => ListEntityEventsOutput,
 ];
 export var ListGroupingAttributeDefinitions: StaticOperationSchema = [
   9,

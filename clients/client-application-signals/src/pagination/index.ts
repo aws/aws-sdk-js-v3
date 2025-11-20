@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListEntityEventsPaginator";
 export * from "./ListServiceDependenciesPaginator";
 export * from "./ListServiceDependentsPaginator";
 export * from "./ListServiceLevelObjectiveExclusionWindowsPaginator";

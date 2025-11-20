@@ -269,6 +269,14 @@ ListAuditFindings
 </details>
 <details>
 <summary>
+ListEntityEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-signals/command/ListEntityEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListEntityEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-signals/Interface/ListEntityEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListGroupingAttributeDefinitions
 </summary>
 

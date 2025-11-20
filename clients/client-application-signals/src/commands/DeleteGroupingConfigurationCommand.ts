@@ -31,7 +31,7 @@ export interface DeleteGroupingConfigurationCommandInput {}
 export interface DeleteGroupingConfigurationCommandOutput extends DeleteGroupingConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a grouping configuration that defines how services are grouped and organized in Application Signals. Once deleted, services will no longer be grouped according to the specified configuration rules.</p> <p>This operation is irreversible. After deletion, you must recreate the grouping configuration if you want to restore the same grouping behavior.</p>
+ * <p>Deletes the grouping configuration for this account. This removes all custom grouping attribute definitions that were previously configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
