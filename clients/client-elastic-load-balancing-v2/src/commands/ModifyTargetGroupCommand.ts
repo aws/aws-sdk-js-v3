@@ -84,6 +84,7 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * //       TargetType: "instance" || "ip" || "lambda" || "alb",
  * //       ProtocolVersion: "STRING_VALUE",
  * //       IpAddressType: "ipv4" || "ipv6",
+ * //       TargetControlPort: Number("int"),
  * //     },
  * //   ],
  * // };

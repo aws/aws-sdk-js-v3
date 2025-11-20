@@ -876,7 +876,7 @@ export interface CreateListenerInput {
   /**
    * <p>The protocol for connections from clients to the load balancer. For Application Load
    *       Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the
-   *       supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP
+   *       supported protocols are TCP, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC. You can’t specify the UDP, TCP_UDP, QUIC, or TCP_QUIC
    *       protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load
    *       Balancer.</p>
    * @public
@@ -1885,8 +1885,8 @@ export interface CreateTargetGroupInput {
   /**
    * <p>The protocol to use for routing traffic to the targets. For Application Load Balancers,
    *       the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
-   *       protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is
-   *       GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a
+   *       protocols are TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC. For Gateway Load Balancers, the supported protocol is
+   *       GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. A TCP_QUIC listener must be associated with a TCP_QUIC target group. If the target is a
    *       Lambda function, this parameter does not apply.</p>
    * @public
    */
@@ -1919,7 +1919,7 @@ export interface CreateTargetGroupInput {
    * <p>The protocol the load balancer uses when performing health checks on targets. For
    *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
    *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
-   *       protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are
+   *       protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC protocols are
    *       not supported for health checks.</p>
    * @public
    */
@@ -1927,7 +1927,7 @@ export interface CreateTargetGroupInput {
 
   /**
    * <p>The port the load balancer uses when performing health checks on targets. If the protocol
-   *       is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is <code>traffic-port</code>, which is
+   *       is HTTP, HTTPS, TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC the default is <code>traffic-port</code>, which is
    *       the port on which each target receives traffic from the load balancer. If the protocol is
    *       GENEVE, the default is port 80.</p>
    * @public
@@ -1954,7 +1954,7 @@ export interface CreateTargetGroupInput {
 
   /**
    * <p>The approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300.
-   *       If the target group protocol is TCP, TLS, UDP, TCP_UDP, HTTP or HTTPS, the default is 30 seconds.
+   *       If the target group protocol is TCP, TLS, UDP, TCP_UDP, QUIC, TCP_QUIC, HTTP or HTTPS, the default is 30 seconds.
    *       If the target group protocol is GENEVE, the default is 10 seconds.
    *       If the target type is <code>lambda</code>, the default is 35 seconds.</p>
    * @public
@@ -1982,7 +1982,7 @@ export interface CreateTargetGroupInput {
 
   /**
    * <p>The number of consecutive health check failures required before considering a target unhealthy. The range is
-   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups
+   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, QUIC, TCP_QUIC, HTTP or HTTPS, the default is 2. For target groups
    *       with a protocol of GENEVE, the default is 2. If the target type
    *       is <code>lambda</code>, the default is 5.</p>
    * @public
@@ -1991,7 +1991,7 @@ export interface CreateTargetGroupInput {
 
   /**
    * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range
+   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP, QUIC, TCP_QUIC, or TLS the range
    *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
    *       groups with a protocol of GENEVE, the range is 200-399.</p>
    * @public
@@ -2038,6 +2038,12 @@ export interface CreateTargetGroupInput {
    * @public
    */
   IpAddressType?: TargetGroupIpAddressTypeEnum | undefined;
+
+  /**
+   * <p>The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.</p>
+   * @public
+   */
+  TargetControlPort?: number | undefined;
 }
 
 /**
@@ -2165,6 +2171,12 @@ export interface TargetGroup {
    * @public
    */
   IpAddressType?: TargetGroupIpAddressTypeEnum | undefined;
+
+  /**
+   * <p>The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.</p>
+   * @public
+   */
+  TargetControlPort?: number | undefined;
 }
 
 /**
@@ -4109,8 +4121,8 @@ export interface ModifyListenerInput {
 
   /**
    * <p>The protocol for connections from clients to the load balancer. Application Load Balancers
-   *       support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and
-   *       TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
+   *       support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP,
+   *       TCP_UDP, QUIC, and TCP_QUIC protocols. You can’t change the protocol to UDP, TCP_UDP, QUIC, or TCP_QUIC if dual-stack mode is
    *       enabled. You can't specify a protocol for a Gateway Load Balancer.</p>
    * @public
    */
@@ -4312,7 +4324,7 @@ export interface ModifyTargetGroupInput {
    *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
    *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
    *       protocol of the target group is HTTP or HTTPS. It is supported for health checks only if the
-   *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
+   *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC
    *       protocols are not supported for health checks.</p>
    * @public
    */

@@ -387,6 +387,7 @@ const _Sch = "Scheme";
 const _St = "Status";
 const _Su = "Subnets";
 const _T = "Type";
+const _TCP = "TargetControlPort";
 const _TD = "TagDescriptions";
 const _TDa = "TagDescription";
 const _TDar = "TargetDescription";
@@ -757,8 +758,8 @@ export var CreateTargetGroupInput: StaticStructureSchema = [
   n0,
   _CTGI,
   0,
-  [_N, _Pr, _PV, _Po, _VI, _HCP, _HCPe, _HCE, _HCPea, _HCIS, _HCTS, _HTC, _UTC, _Ma, _TT, _Ta, _IAT],
-  [0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1, () => Matcher, 0, () => TagList, 0],
+  [_N, _Pr, _PV, _Po, _VI, _HCP, _HCPe, _HCE, _HCPea, _HCIS, _HCTS, _HTC, _UTC, _Ma, _TT, _Ta, _IAT, _TCP],
+  [0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1, () => Matcher, 0, () => TagList, 0, 1],
 ];
 export var CreateTargetGroupOutput: StaticStructureSchema = [3, n0, _CTGO, 0, [_TG], [() => TargetGroups]];
 export var CreateTrustStoreInput: StaticStructureSchema = [
@@ -1628,8 +1629,8 @@ export var TargetGroup: StaticStructureSchema = [
   n0,
   _TGa,
   0,
-  [_TGA, _TGN, _Pr, _Po, _VI, _HCP, _HCPe, _HCE, _HCIS, _HCTS, _HTC, _UTC, _HCPea, _Ma, _LBAoa, _TT, _PV, _IAT],
-  [0, 0, 0, 1, 0, 0, 0, 2, 1, 1, 1, 1, 0, () => Matcher, 64 | 0, 0, 0, 0],
+  [_TGA, _TGN, _Pr, _Po, _VI, _HCP, _HCPe, _HCE, _HCIS, _HCTS, _HTC, _UTC, _HCPea, _Ma, _LBAoa, _TT, _PV, _IAT, _TCP],
+  [0, 0, 0, 1, 0, 0, 0, 2, 1, 1, 1, 1, 0, () => Matcher, 64 | 0, 0, 0, 0, 1],
 ];
 export var TargetGroupAssociationLimitException: StaticErrorSchema = [
   -3,

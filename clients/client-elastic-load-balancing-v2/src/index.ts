@@ -20,7 +20,7 @@
  *             </li>
  *             <li>
  *                <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP,
- *           TLS, and UDP.</p>
+ *           TLS, UDP, and QUIC.</p>
  *             </li>
  *             <li>
  *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>

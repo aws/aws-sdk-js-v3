@@ -89,6 +89,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *     },
  *   ],
  *   IpAddressType: "ipv4" || "ipv6",
+ *   TargetControlPort: Number("int"),
  * };
  * const command = new CreateTargetGroupCommand(input);
  * const response = await client.send(command);
@@ -118,6 +119,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * //       TargetType: "instance" || "ip" || "lambda" || "alb",
  * //       ProtocolVersion: "STRING_VALUE",
  * //       IpAddressType: "ipv4" || "ipv6",
+ * //       TargetControlPort: Number("int"),
  * //     },
  * //   ],
  * // };
