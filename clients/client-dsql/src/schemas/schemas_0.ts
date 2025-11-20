@@ -51,6 +51,7 @@ const _bPLSC = "bypassPolicyLockoutSafetyCheck";
 const _c = "client";
 const _cT = "clientToken";
 const _cTr = "creationTime";
+const _cVE = "clusterVpcEndpoint";
 const _cl = "clusters";
 const _ct = "client-token";
 const _dPE = "deletionProtectionEnabled";
@@ -216,7 +217,7 @@ export var GetClusterOutput: StaticStructureSchema = [
 export var GetClusterPolicyInput: StaticStructureSchema = [3, n0, _GCPI, 0, [_i], [[0, 1]]];
 export var GetClusterPolicyOutput: StaticStructureSchema = [3, n0, _GCPO, 0, [_p, _pV], [0, 0]];
 export var GetVpcEndpointServiceNameInput: StaticStructureSchema = [3, n0, _GVESNI, 0, [_i], [[0, 1]]];
-export var GetVpcEndpointServiceNameOutput: StaticStructureSchema = [3, n0, _GVESNO, 0, [_sN], [0]];
+export var GetVpcEndpointServiceNameOutput: StaticStructureSchema = [3, n0, _GVESNO, 0, [_sN, _cVE], [0, 0]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,

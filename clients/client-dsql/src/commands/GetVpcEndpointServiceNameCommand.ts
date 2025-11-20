@@ -43,6 +43,7 @@ export interface GetVpcEndpointServiceNameCommandOutput extends GetVpcEndpointSe
  * const response = await client.send(command);
  * // { // GetVpcEndpointServiceNameOutput
  * //   serviceName: "STRING_VALUE", // required
+ * //   clusterVpcEndpoint: "STRING_VALUE",
  * // };
  *
  * ```

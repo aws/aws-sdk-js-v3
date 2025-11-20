@@ -362,6 +362,12 @@ export interface GetVpcEndpointServiceNameOutput {
    * @public
    */
   serviceName: string | undefined;
+
+  /**
+   * <p>The VPC connection endpoint for the cluster.</p>
+   * @public
+   */
+  clusterVpcEndpoint?: string | undefined;
 }
 
 /**
