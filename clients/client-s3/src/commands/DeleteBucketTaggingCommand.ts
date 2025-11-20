@@ -30,7 +30,8 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Deletes tags from the bucket.</p>
+ *          <p>Deletes tags from the general purpose bucket if attribute based access control (ABAC) is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable ABAC for a general purpose bucket</a>, you can no longer use this operation for that bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a> instead.</p>
+ *          <p>if ABAC is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable ABAC for a general purpose bucket</a>, you can no longer use this operation for that bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a> instead.</p>
  *          <p>To use this operation, you must have permission to perform the <code>s3:PutBucketTagging</code>
  *       action. By default, the bucket owner has this permission and can grant this permission to others. </p>
  *          <p>The following operations are related to <code>DeleteBucketTagging</code>:</p>

@@ -134,6 +134,11 @@ import {
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
 import {
+  GetBucketAbacCommand,
+  GetBucketAbacCommandInput,
+  GetBucketAbacCommandOutput,
+} from "./commands/GetBucketAbacCommand";
+import {
   GetBucketAccelerateConfigurationCommand,
   GetBucketAccelerateConfigurationCommandInput,
   GetBucketAccelerateConfigurationCommandOutput,
@@ -330,6 +335,11 @@ import {
 } from "./commands/ListObjectVersionsCommand";
 import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
 import {
+  PutBucketAbacCommand,
+  PutBucketAbacCommandInput,
+  PutBucketAbacCommandOutput,
+} from "./commands/PutBucketAbacCommand";
+import {
   PutBucketAccelerateConfigurationCommand,
   PutBucketAccelerateConfigurationCommandInput,
   PutBucketAccelerateConfigurationCommandOutput,
@@ -516,6 +526,7 @@ const commands = {
   DeleteObjectsCommand,
   DeleteObjectTaggingCommand,
   DeletePublicAccessBlockCommand,
+  GetBucketAbacCommand,
   GetBucketAccelerateConfigurationCommand,
   GetBucketAclCommand,
   GetBucketAnalyticsConfigurationCommand,
@@ -560,6 +571,7 @@ const commands = {
   ListObjectsV2Command,
   ListObjectVersionsCommand,
   ListPartsCommand,
+  PutBucketAbacCommand,
   PutBucketAccelerateConfigurationCommand,
   PutBucketAclCommand,
   PutBucketAnalyticsConfigurationCommand,
@@ -1017,6 +1029,17 @@ export interface S3 {
     args: DeletePublicAccessBlockCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePublicAccessBlockCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBucketAbacCommand}
+   */
+  getBucketAbac(args: GetBucketAbacCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketAbacCommandOutput>;
+  getBucketAbac(args: GetBucketAbacCommandInput, cb: (err: any, data?: GetBucketAbacCommandOutput) => void): void;
+  getBucketAbac(
+    args: GetBucketAbacCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketAbacCommandOutput) => void
   ): void;
 
   /**
@@ -1704,6 +1727,17 @@ export interface S3 {
     args: ListPartsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPartsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutBucketAbacCommand}
+   */
+  putBucketAbac(args: PutBucketAbacCommandInput, options?: __HttpHandlerOptions): Promise<PutBucketAbacCommandOutput>;
+  putBucketAbac(args: PutBucketAbacCommandInput, cb: (err: any, data?: PutBucketAbacCommandOutput) => void): void;
+  putBucketAbac(
+    args: PutBucketAbacCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBucketAbacCommandOutput) => void
   ): void;
 
   /**

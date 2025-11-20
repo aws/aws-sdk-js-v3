@@ -27,9 +27,10 @@ const _APAc = "AccessPointArn";
 const _AQRD = "AllowQuotedRecordDelimiter";
 const _AR = "AcceptRanges";
 const _ARI = "AbortRuleId";
-const _AS = "ArchiveStatus";
+const _AS = "AbacStatus";
 const _ASBD = "AnalyticsS3BucketDestination";
 const _ASSEBD = "ApplyServerSideEncryptionByDefault";
+const _ASr = "ArchiveStatus";
 const _AT = "AccessTier";
 const _An = "And";
 const _B = "Bucket";
@@ -251,15 +252,18 @@ const _Fi = "Field";
 const _Fo = "Format";
 const _Fr = "Frequency";
 const _G = "Grants";
-const _GBA = "GetBucketAcl";
+const _GBA = "GetBucketAbac";
 const _GBAC = "GetBucketAccelerateConfiguration";
 const _GBACO = "GetBucketAccelerateConfigurationOutput";
 const _GBACOe = "GetBucketAnalyticsConfigurationOutput";
 const _GBACR = "GetBucketAccelerateConfigurationRequest";
 const _GBACRe = "GetBucketAnalyticsConfigurationRequest";
 const _GBACe = "GetBucketAnalyticsConfiguration";
-const _GBAO = "GetBucketAclOutput";
-const _GBAR = "GetBucketAclRequest";
+const _GBAO = "GetBucketAbacOutput";
+const _GBAOe = "GetBucketAclOutput";
+const _GBAR = "GetBucketAbacRequest";
+const _GBARe = "GetBucketAclRequest";
+const _GBAe = "GetBucketAcl";
 const _GBC = "GetBucketCors";
 const _GBCO = "GetBucketCorsOutput";
 const _GBCR = "GetBucketCorsRequest";
@@ -568,12 +572,14 @@ const _Ob = "Objects";
 const _Obj = "Object";
 const _P = "Prefix";
 const _PABC = "PublicAccessBlockConfiguration";
-const _PBA = "PutBucketAcl";
+const _PBA = "PutBucketAbac";
 const _PBAC = "PutBucketAccelerateConfiguration";
 const _PBACR = "PutBucketAccelerateConfigurationRequest";
 const _PBACRu = "PutBucketAnalyticsConfigurationRequest";
 const _PBACu = "PutBucketAnalyticsConfiguration";
-const _PBAR = "PutBucketAclRequest";
+const _PBAR = "PutBucketAbacRequest";
+const _PBARu = "PutBucketAclRequest";
+const _PBAu = "PutBucketAcl";
 const _PBC = "PutBucketCors";
 const _PBCR = "PutBucketCorsRequest";
 const _PBE = "PutBucketEncryption";
@@ -1043,6 +1049,7 @@ export var StreamingBlob: StaticSimpleSchema = [
   },
   42,
 ];
+export var AbacStatus: StaticStructureSchema = [3, n0, _AS, 0, [_S], [0]];
 export var AbortIncompleteMultipartUpload: StaticStructureSchema = [3, n0, _AIMU, 0, [_DAI], [1]];
 export var AbortMultipartUploadOutput: StaticStructureSchema = [
   3,
@@ -2963,6 +2970,23 @@ export var ErrorDocument: StaticStructureSchema = [3, n0, _EDr, 0, [_K], [0]];
 export var EventBridgeConfiguration: StaticStructureSchema = [3, n0, _EBC, 0, [], []];
 export var ExistingObjectReplication: StaticStructureSchema = [3, n0, _EOR, 0, [_S], [0]];
 export var FilterRule: StaticStructureSchema = [3, n0, _FR, 0, [_N, _V], [0, 0]];
+export var GetBucketAbacOutput: StaticStructureSchema = [3, n0, _GBAO, 0, [_AS], [[() => AbacStatus, 16]]];
+export var GetBucketAbacRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GBAR,
+  0,
+  [_B, _EBO],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _xaebo,
+      },
+    ],
+  ],
+];
 export var GetBucketAccelerateConfigurationOutput: StaticStructureSchema = [
   3,
   n0,
@@ -3006,7 +3030,7 @@ export var GetBucketAccelerateConfigurationRequest: StaticStructureSchema = [
 export var GetBucketAclOutput: StaticStructureSchema = [
   3,
   n0,
-  _GBAO,
+  _GBAOe,
   {
     [_xN]: _ACP,
   },
@@ -3024,7 +3048,7 @@ export var GetBucketAclOutput: StaticStructureSchema = [
 export var GetBucketAclRequest: StaticStructureSchema = [
   3,
   n0,
-  _GBAR,
+  _GBARe,
   0,
   [_B, _EBO],
   [
@@ -4516,7 +4540,7 @@ export var HeadObjectOutput: StaticStructureSchema = [
     _AR,
     _E,
     _Re,
-    _AS,
+    _ASr,
     _LM,
     _CLo,
     _CCRC,
@@ -6353,6 +6377,41 @@ export var PublicAccessBlockConfiguration: StaticStructureSchema = [
     ],
   ],
 ];
+export var PutBucketAbacRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _PBAR,
+  0,
+  [_B, _CMD, _CA, _EBO, _AS],
+  [
+    [0, 1],
+    [
+      0,
+      {
+        [_hH]: _CM,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _xasca,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _xaebo,
+      },
+    ],
+    [
+      () => AbacStatus,
+      {
+        [_xN]: _AS,
+        [_hP]: 1,
+      },
+    ],
+  ],
+];
 export var PutBucketAccelerateConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -6385,7 +6444,7 @@ export var PutBucketAccelerateConfigurationRequest: StaticStructureSchema = [
 export var PutBucketAclRequest: StaticStructureSchema = [
   3,
   n0,
-  _PBAR,
+  _PBARu,
   0,
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
   [
@@ -9591,6 +9650,16 @@ export var DeletePublicAccessBlock: StaticOperationSchema = [
   () => DeletePublicAccessBlockRequest,
   () => __Unit,
 ];
+export var GetBucketAbac: StaticOperationSchema = [
+  9,
+  n0,
+  _GBA,
+  {
+    [_h]: ["GET", "/?abac", 200],
+  },
+  () => GetBucketAbacRequest,
+  () => GetBucketAbacOutput,
+];
 export var GetBucketAccelerateConfiguration: StaticOperationSchema = [
   9,
   n0,
@@ -9604,7 +9673,7 @@ export var GetBucketAccelerateConfiguration: StaticOperationSchema = [
 export var GetBucketAcl: StaticOperationSchema = [
   9,
   n0,
-  _GBA,
+  _GBAe,
   {
     [_h]: ["GET", "/?acl", 200],
   },
@@ -10031,6 +10100,16 @@ export var ListParts: StaticOperationSchema = [
   () => ListPartsRequest,
   () => ListPartsOutput,
 ];
+export var PutBucketAbac: StaticOperationSchema = [
+  9,
+  n0,
+  _PBA,
+  {
+    [_h]: ["PUT", "/?abac", 200],
+  },
+  () => PutBucketAbacRequest,
+  () => __Unit,
+];
 export var PutBucketAccelerateConfiguration: StaticOperationSchema = [
   9,
   n0,
@@ -10044,7 +10123,7 @@ export var PutBucketAccelerateConfiguration: StaticOperationSchema = [
 export var PutBucketAcl: StaticOperationSchema = [
   9,
   n0,
-  _PBA,
+  _PBAu,
   {
     [_h]: ["PUT", "/?acl", 200],
   },

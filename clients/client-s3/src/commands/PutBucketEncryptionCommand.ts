@@ -28,7 +28,7 @@ export interface PutBucketEncryptionCommandInput extends PutBucketEncryptionRequ
 export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket. You can also block encryption types using this operation.</p>
+ * <p>This operation configures default encryption and Amazon S3 Bucket Keys for an existing bucket. You can also <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_BlockedEncryptionTypes.html">block encryption types</a> using this operation.</p>
  *          <note>
  *             <p>
  *                <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>

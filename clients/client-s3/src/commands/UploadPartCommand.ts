@@ -133,6 +133,9 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                 parameters in each UploadPart request. Instead, you only need to specify the server-side
  *                 encryption parameters in the initial Initiate Multipart request. For more information, see
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
+ *                      <note>
+ *                         <p>If you have server-side encryption with customer-provided keys (SSE-C) blocked for your general purpose bucket, you will get an HTTP 403 Access Denied error when you specify the SSE-C request headers while writing new data to your bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html">Blocking or unblocking SSE-C for a general purpose bucket</a>.</p>
+ *                      </note>
  *                      <p>If you request server-side encryption using a customer-provided encryption key (SSE-C) in
  *                 your initiate multipart upload request, you must provide identical encryption information in
  *                 each part upload using the following request headers.</p>

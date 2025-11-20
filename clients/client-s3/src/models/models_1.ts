@@ -3,10 +3,12 @@ import { StreamingBlobTypes } from "@smithy/types";
 
 import {
   ChecksumAlgorithm,
+  CompressionType,
   ExpressionType,
   InventoryConfigurationState,
   ObjectLockLegalHoldStatus,
   ObjectLockMode,
+  QuoteFields,
   ReplicationStatus,
   RequestCharged,
   RequestPayer,
@@ -17,13 +19,125 @@ import {
 } from "./enums";
 
 import {
+  CSVInput,
   GlacierJobParameters,
-  InputSerialization,
+  JSONInput,
   MetadataTableEncryptionConfiguration,
   OutputLocation,
-  OutputSerialization,
+  ParquetInput,
   RecordExpiration,
 } from "./models_0";
+
+/**
+ * <p>Describes the serialization format of the object.</p>
+ * @public
+ */
+export interface InputSerialization {
+  /**
+   * <p>Describes the serialization of a CSV-encoded object.</p>
+   * @public
+   */
+  CSV?: CSVInput | undefined;
+
+  /**
+   * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>
+   * @public
+   */
+  CompressionType?: CompressionType | undefined;
+
+  /**
+   * <p>Specifies JSON as object's input serialization format.</p>
+   * @public
+   */
+  JSON?: JSONInput | undefined;
+
+  /**
+   * <p>Specifies Parquet as object's input serialization format.</p>
+   * @public
+   */
+  Parquet?: ParquetInput | undefined;
+}
+
+/**
+ * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.</p>
+ * @public
+ */
+export interface CSVOutput {
+  /**
+   * <p>Indicates whether to use quotation marks around output fields. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALWAYS</code>: Always use quotation marks for output fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QuoteFields?: QuoteFields | undefined;
+
+  /**
+   * <p>The single character used for escaping the quote character inside an already escaped value.</p>
+   * @public
+   */
+  QuoteEscapeCharacter?: string | undefined;
+
+  /**
+   * <p>A single character used to separate individual records in the output. Instead of the default value,
+   *       you can specify an arbitrary delimiter.</p>
+   * @public
+   */
+  RecordDelimiter?: string | undefined;
+
+  /**
+   * <p>The value used to separate individual fields in a record. You can specify an arbitrary
+   *       delimiter.</p>
+   * @public
+   */
+  FieldDelimiter?: string | undefined;
+
+  /**
+   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if
+   *       the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a ,
+   *         b "</code>.</p>
+   * @public
+   */
+  QuoteCharacter?: string | undefined;
+}
+
+/**
+ * <p>Specifies JSON as request's output serialization format.</p>
+ * @public
+ */
+export interface JSONOutput {
+  /**
+   * <p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a
+   *       newline character ('\n').</p>
+   * @public
+   */
+  RecordDelimiter?: string | undefined;
+}
+
+/**
+ * <p>Describes how results of the Select job are serialized.</p>
+ * @public
+ */
+export interface OutputSerialization {
+  /**
+   * <p>Describes the serialization of CSV-encoded Select results.</p>
+   * @public
+   */
+  CSV?: CSVOutput | undefined;
+
+  /**
+   * <p>Specifies JSON as request's output serialization format.</p>
+   * @public
+   */
+  JSON?: JSONOutput | undefined;
+}
 
 /**
  * <important>

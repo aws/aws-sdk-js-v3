@@ -172,6 +172,7 @@ import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
+import { GetBucketAbacCommandInput, GetBucketAbacCommandOutput } from "./commands/GetBucketAbacCommand";
 import {
   GetBucketAccelerateConfigurationCommandInput,
   GetBucketAccelerateConfigurationCommandOutput,
@@ -288,6 +289,7 @@ import { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/Li
 import { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command";
 import { ListObjectVersionsCommandInput, ListObjectVersionsCommandOutput } from "./commands/ListObjectVersionsCommand";
 import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
+import { PutBucketAbacCommandInput, PutBucketAbacCommandOutput } from "./commands/PutBucketAbacCommand";
 import {
   PutBucketAccelerateConfigurationCommandInput,
   PutBucketAccelerateConfigurationCommandOutput,
@@ -417,6 +419,7 @@ export type ServiceInputTypes =
   | DeleteObjectTaggingCommandInput
   | DeleteObjectsCommandInput
   | DeletePublicAccessBlockCommandInput
+  | GetBucketAbacCommandInput
   | GetBucketAccelerateConfigurationCommandInput
   | GetBucketAclCommandInput
   | GetBucketAnalyticsConfigurationCommandInput
@@ -461,6 +464,7 @@ export type ServiceInputTypes =
   | ListObjectsCommandInput
   | ListObjectsV2CommandInput
   | ListPartsCommandInput
+  | PutBucketAbacCommandInput
   | PutBucketAccelerateConfigurationCommandInput
   | PutBucketAclCommandInput
   | PutBucketAnalyticsConfigurationCommandInput
@@ -526,6 +530,7 @@ export type ServiceOutputTypes =
   | DeleteObjectTaggingCommandOutput
   | DeleteObjectsCommandOutput
   | DeletePublicAccessBlockCommandOutput
+  | GetBucketAbacCommandOutput
   | GetBucketAccelerateConfigurationCommandOutput
   | GetBucketAclCommandOutput
   | GetBucketAnalyticsConfigurationCommandOutput
@@ -570,6 +575,7 @@ export type ServiceOutputTypes =
   | ListObjectsCommandOutput
   | ListObjectsV2CommandOutput
   | ListPartsCommandOutput
+  | PutBucketAbacCommandOutput
   | PutBucketAccelerateConfigurationCommandOutput
   | PutBucketAclCommandOutput
   | PutBucketAnalyticsConfigurationCommandOutput

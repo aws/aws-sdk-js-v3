@@ -32,6 +32,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the tag set associated with the general purpose bucket.</p>
+ *          <p>if ABAC is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable ABAC for a general purpose bucket</a>, you can no longer use this operation for that bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
  *          <p>To use this operation, you must have permission to perform the <code>s3:GetBucketTagging</code>
  *       action. By default, the bucket owner has this permission and can grant this permission to others.</p>
  *          <p>

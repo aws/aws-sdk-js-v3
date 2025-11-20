@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const BucketAbacStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type BucketAbacStatus = (typeof BucketAbacStatus)[keyof typeof BucketAbacStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RequestCharged = {
   requester: "requester",
 } as const;

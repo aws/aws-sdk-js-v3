@@ -4,6 +4,7 @@ import { StreamingBlobTypes } from "@smithy/types";
 import {
   AnalyticsS3ExportFileFormat,
   ArchiveStatus,
+  BucketAbacStatus,
   BucketAccelerateStatus,
   BucketCannedACL,
   BucketLocationConstraint,
@@ -13,7 +14,6 @@ import {
   ChecksumAlgorithm,
   ChecksumMode,
   ChecksumType,
-  CompressionType,
   DataRedundancy,
   DeleteMarkerReplicationStatus,
   EncodingType,
@@ -52,7 +52,6 @@ import {
   Payer,
   Permission,
   Protocol,
-  QuoteFields,
   ReplicaModificationsStatus,
   ReplicationRuleStatus,
   ReplicationStatus,
@@ -72,6 +71,18 @@ import {
   TransitionStorageClass,
   Type,
 } from "./enums";
+
+/**
+ * <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>. </p>
+ * @public
+ */
+export interface AbacStatus {
+  /**
+   * <p>The ABAC status of the general purpose bucket. </p>
+   * @public
+   */
+  Status?: BucketAbacStatus | undefined;
+}
 
 /**
  * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before
@@ -5897,6 +5908,36 @@ export interface DeletePublicAccessBlockRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBucketAbacOutput {
+  /**
+   * <p>The ABAC status of the general purpose bucket. </p>
+   * @public
+   */
+  AbacStatus?: AbacStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBucketAbacRequest {
+  /**
+   * <p>The name of the general purpose bucket.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the general purpose bucket's owner. </p>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -13868,6 +13909,45 @@ export interface ListPartsRequest {
 /**
  * @public
  */
+export interface PutBucketAbacRequest {
+  /**
+   * <p>The name of the general purpose bucket.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The MD5 hash of the <code>PutBucketAbac</code> request body. </p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the general purpose bucket's owner. </p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html">Using tags with S3 general purpose buckets</a>. </p>
+   * @public
+   */
+  AbacStatus: AbacStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutBucketAccelerateConfigurationRequest {
   /**
    * <p>The name of the bucket for which the accelerate configuration is set.</p>
@@ -16555,114 +16635,3 @@ export interface JSONInput {
  * @public
  */
 export interface ParquetInput {}
-
-/**
- * <p>Describes the serialization format of the object.</p>
- * @public
- */
-export interface InputSerialization {
-  /**
-   * <p>Describes the serialization of a CSV-encoded object.</p>
-   * @public
-   */
-  CSV?: CSVInput | undefined;
-
-  /**
-   * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>
-   * @public
-   */
-  CompressionType?: CompressionType | undefined;
-
-  /**
-   * <p>Specifies JSON as object's input serialization format.</p>
-   * @public
-   */
-  JSON?: JSONInput | undefined;
-
-  /**
-   * <p>Specifies Parquet as object's input serialization format.</p>
-   * @public
-   */
-  Parquet?: ParquetInput | undefined;
-}
-
-/**
- * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.</p>
- * @public
- */
-export interface CSVOutput {
-  /**
-   * <p>Indicates whether to use quotation marks around output fields. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALWAYS</code>: Always use quotation marks for output fields.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  QuoteFields?: QuoteFields | undefined;
-
-  /**
-   * <p>The single character used for escaping the quote character inside an already escaped value.</p>
-   * @public
-   */
-  QuoteEscapeCharacter?: string | undefined;
-
-  /**
-   * <p>A single character used to separate individual records in the output. Instead of the default value,
-   *       you can specify an arbitrary delimiter.</p>
-   * @public
-   */
-  RecordDelimiter?: string | undefined;
-
-  /**
-   * <p>The value used to separate individual fields in a record. You can specify an arbitrary
-   *       delimiter.</p>
-   * @public
-   */
-  FieldDelimiter?: string | undefined;
-
-  /**
-   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if
-   *       the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a ,
-   *         b "</code>.</p>
-   * @public
-   */
-  QuoteCharacter?: string | undefined;
-}
-
-/**
- * <p>Specifies JSON as request's output serialization format.</p>
- * @public
- */
-export interface JSONOutput {
-  /**
-   * <p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a
-   *       newline character ('\n').</p>
-   * @public
-   */
-  RecordDelimiter?: string | undefined;
-}
-
-/**
- * <p>Describes how results of the Select job are serialized.</p>
- * @public
- */
-export interface OutputSerialization {
-  /**
-   * <p>Describes the serialization of CSV-encoded Select results.</p>
-   * @public
-   */
-  CSV?: CSVOutput | undefined;
-
-  /**
-   * <p>Specifies JSON as request's output serialization format.</p>
-   * @public
-   */
-  JSON?: JSONOutput | undefined;
-}
