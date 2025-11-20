@@ -24,6 +24,7 @@ import {
   PredictiveScalingMaxCapacityBreachBehavior,
   PredictiveScalingMode,
   RefreshStrategy,
+  RetentionAction,
   RetryStrategy,
   ScaleInProtectedInstances,
   ScalingActivityStatusCode,
@@ -727,6 +728,46 @@ export interface CapacityReservationSpecification {
    * @public
    */
   CapacityReservationTarget?: CapacityReservationTarget | undefined;
+}
+
+/**
+ * <p>
+ *             Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
+ *         </p>
+ * @public
+ */
+export interface RetentionTriggers {
+  /**
+   * <p>
+   *             Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+   *         </p>
+   *          <p>
+   *             Set to <code>Retain</code> to move instances to a <code>Retained</code> state. Set to <code>Terminate</code> for default termination behavior.
+   *         </p>
+   *          <p>
+   *             Retained instances don't count toward desired capacity and remain until you call <code>TerminateInstanceInAutoScalingGroup</code>.
+   *         </p>
+   * @public
+   */
+  TerminateHookAbandon?: RetentionAction | undefined;
+}
+
+/**
+ * <p>
+ *             Defines the lifecycle policy for instances in an Auto Scaling group. This policy controls instance behavior when lifecycles transition and operations fail. Use lifecycle policies to ensure graceful shutdown for stateful workloads or applications requiring extended draining periods.
+ *         </p>
+ * @public
+ */
+export interface InstanceLifecyclePolicy {
+  /**
+   * <p>
+   *             Specifies the conditions that trigger instance retention behavior. These triggers determine when instances
+   *             should move to a Retained state instead of being terminated. This allows you to maintain control over
+   *             instance management when lifecycle operations fail.
+   *         </p>
+   * @public
+   */
+  RetentionTriggers?: RetentionTriggers | undefined;
 }
 
 /**
@@ -1732,6 +1773,30 @@ export interface LaunchTemplateOverrides {
    * @public
    */
   InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>
+   *             The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When
+   *             using Instance Refresh with <code>ReplaceRootVolume</code> strategy, this specifies the AMI for root volume
+   *             replacement operations.
+   *         </p>
+   *          <p>
+   *             For <code>ReplaceRootVolume</code> operations:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>All overrides in the <code>MixedInstancesPolicy</code> must specify an ImageId</p>
+   *             </li>
+   *             <li>
+   *                <p>The AMI must contain only a single root volume</p>
+   *             </li>
+   *             <li>
+   *                <p>Root volume replacement doesn't support multi-volume AMIs</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ImageId?: string | undefined;
 }
 
 /**
@@ -2151,6 +2216,20 @@ export interface CreateAutoScalingGroupType {
    * @public
    */
   CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
+
+  /**
+   * <p>
+   *             The instance lifecycle policy for the Auto Scaling group. This policy controls instance
+   *             behavior when an instance transitions through its lifecycle states. Configure retention
+   *             triggers to specify when instances should move to a <code>Retained</code>
+   *             state for manual intervention instead of automatic termination.
+   *         </p>
+   *          <note>
+   *             <p>Instances in a Retained state will continue to incur standard EC2 charges until terminated.</p>
+   *          </note>
+   * @public
+   */
+  InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
 }
 
 /**
@@ -3058,6 +3137,36 @@ export interface Instance {
   LaunchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
+   * <p>
+   *             The ID of the Amazon Machine Image (AMI) used for the instance's current root volume.
+   *             This value reflects the most recent AMI applied to the instance, including updates made
+   *             through root volume replacement operations.
+   *         </p>
+   *          <p>
+   *             This field appears for:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>Instances with root volume replacements through Instance Refresh</p>
+   *             </li>
+   *             <li>
+   *                <p>Instances launched with AMI overrides </p>
+   *             </li>
+   *          </ul>
+   *          <p>This field won't appear for:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Existing instances launched from Launch Templates without overrides</p>
+   *             </li>
+   *             <li>
+   *                <p>Existing instances that didn’t have their root volume replaced through Instance Refresh</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
    * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
    *             in.</p>
    * @public
@@ -3428,6 +3537,16 @@ export interface AutoScalingGroup {
    * @public
    */
   CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
+
+  /**
+   * <p>
+   *             The instance lifecycle policy applied to this Auto Scaling group. This policy determines
+   *             instance behavior when an instance transitions through its lifecycle states. It provides additional
+   *             control over graceful instance management processes.
+   *         </p>
+   * @public
+   */
+  InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
 }
 
 /**
@@ -3518,6 +3637,36 @@ export interface AutoScalingInstanceDetails {
    * @public
    */
   LaunchTemplate?: LaunchTemplateSpecification | undefined;
+
+  /**
+   * <p>
+   *             The ID of the Amazon Machine Image (AMI) associated with the instance. This field shows the
+   *             current AMI ID of the instance's root volume. It may differ from the original AMI used when
+   *             the instance was first launched.
+   *         </p>
+   *          <p>
+   *             This field appears for:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>Instances with root volume replacements through Instance Refresh</p>
+   *             </li>
+   *             <li>
+   *                <p>Instances launched with AMI overrides </p>
+   *             </li>
+   *          </ul>
+   *          <p>This field won't appear for:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Existing instances launched from Launch Templates without overrides</p>
+   *             </li>
+   *             <li>
+   *                <p>Existing instances that didn’t have their root volume replaced through Instance Refresh</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ImageId?: string | undefined;
 
   /**
    * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
@@ -4030,6 +4179,25 @@ export interface InstanceRefresh {
    * @public
    */
   RollbackDetails?: RollbackDetails | undefined;
+
+  /**
+   * <p>
+   *             The strategy to use for the instance refresh. This determines how instances in the Auto Scaling group are
+   *             updated. Default is Rolling.
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Rolling</code> – Terminates instances and launches replacements in batches</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReplaceRootVolume</code> – Updates instances by replacing only the root volume without terminating the instance</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Strategy?: RefreshStrategy | undefined;
 }
 
 /**
@@ -8229,4 +8397,14 @@ export interface UpdateAutoScalingGroupType {
    * @public
    */
   CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
+
+  /**
+   * <p>
+   *             The instance lifecycle policy for the Auto Scaling group. Use this to add, modify, or remove lifecycle
+   *             policies that control instance behavior when an instance transitions through its lifecycle states. Configure
+   *             retention triggers to specify when to preserve instances for manual intervention.
+   *         </p>
+   * @public
+   */
+  InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
 }

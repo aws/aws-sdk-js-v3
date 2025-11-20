@@ -53,6 +53,7 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
 export const ScalingActivityStatusCode = {
   Cancelled: "Cancelled",
   Failed: "Failed",
+  InPlaceUpdateInProgress: "InPlaceUpdateInProgress",
   InProgress: "InProgress",
   MidLifecycleAction: "MidLifecycleAction",
   PendingSpotBidPlacement: "PendingSpotBidPlacement",
@@ -60,6 +61,8 @@ export const ScalingActivityStatusCode = {
   Successful: "Successful",
   WaitingForConnectionDraining: "WaitingForConnectionDraining",
   WaitingForELBConnectionDraining: "WaitingForELBConnectionDraining",
+  WaitingForInPlaceUpdateToFinalize: "WaitingForInPlaceUpdateToFinalize",
+  WaitingForInPlaceUpdateToStart: "WaitingForInPlaceUpdateToStart",
   WaitingForInstanceId: "WaitingForInstanceId",
   WaitingForInstanceWarmup: "WaitingForInstanceWarmup",
   WaitingForSpotInstanceId: "WaitingForSpotInstanceId",
@@ -113,6 +116,19 @@ export const CapacityReservationPreference = {
  */
 export type CapacityReservationPreference =
   (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetentionAction = {
+  Retain: "retain",
+  Terminate: "terminate",
+} as const;
+/**
+ * @public
+ */
+export type RetentionAction = (typeof RetentionAction)[keyof typeof RetentionAction];
 
 /**
  * @public
@@ -338,6 +354,19 @@ export type InstanceRefreshStatus = (typeof InstanceRefreshStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const RefreshStrategy = {
+  ReplaceRootVolume: "ReplaceRootVolume",
+  Rolling: "Rolling",
+} as const;
+/**
+ * @public
+ */
+export type RefreshStrategy = (typeof RefreshStrategy)[keyof typeof RefreshStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const PredictiveScalingMaxCapacityBreachBehavior = {
   HonorMaxCapacity: "HonorMaxCapacity",
   IncreaseMaxCapacity: "IncreaseMaxCapacity",
@@ -450,15 +479,3 @@ export const RetryStrategy = {
  * @public
  */
 export type RetryStrategy = (typeof RetryStrategy)[keyof typeof RetryStrategy];
-
-/**
- * @public
- * @enum
- */
-export const RefreshStrategy = {
-  Rolling: "Rolling",
-} as const;
-/**
- * @public
- */
-export type RefreshStrategy = (typeof RefreshStrategy)[keyof typeof RefreshStrategy];

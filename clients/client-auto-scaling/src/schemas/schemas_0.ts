@@ -250,6 +250,7 @@ const _IIRF = "IrreversibleInstanceRefreshFault";
 const _IIm = "ImageId";
 const _IIn = "IncludeInstances";
 const _IIns = "InstanceId";
+const _ILP = "InstanceLifecyclePolicy";
 const _IM = "InstanceMonitoring";
 const _IMO = "InstanceMetadataOptions";
 const _IMP = "InstanceMaintenancePolicy";
@@ -463,7 +464,8 @@ const _RPe = "ResumeProcesses";
 const _RR = "RollbackReason";
 const _RS = "RetryStrategy";
 const _RST = "RollbackStartTime";
-const _RT = "ResourceType";
+const _RT = "RetentionTriggers";
+const _RTe = "ResourceType";
 const _Re = "Reference";
 const _Rec = "Recurrence";
 const _S = "Status";
@@ -528,6 +530,7 @@ const _TARN = "TopicARN";
 const _TD = "TagDescription";
 const _TDL = "TagDescriptionList";
 const _TGARN = "TargetGroupARNs";
+const _THA = "TerminateHookAbandon";
 const _TIIASG = "TerminateInstanceInAutoScalingGroup";
 const _TIIASGT = "TerminateInstanceInAutoScalingGroupType";
 const _TLSGB = "TotalLocalStorageGB";
@@ -712,6 +715,7 @@ export var AutoScalingGroup: StaticStructureSchema = [
     _AZD,
     _AZIP,
     _CRS,
+    _ILP,
   ],
   [
     0,
@@ -752,6 +756,7 @@ export var AutoScalingGroup: StaticStructureSchema = [
     () => AvailabilityZoneDistribution,
     () => AvailabilityZoneImpairmentPolicy,
     () => CapacityReservationSpecification,
+    () => InstanceLifecyclePolicy,
   ],
 ];
 export var AutoScalingGroupNamesType: StaticStructureSchema = [
@@ -775,8 +780,8 @@ export var AutoScalingInstanceDetails: StaticStructureSchema = [
   n0,
   _ASID,
   0,
-  [_IIns, _IT, _ASGN, _AZv, _LS, _HS, _LCN, _LT, _PFSI, _WC],
-  [0, 0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification, 2, 0],
+  [_IIns, _IT, _ASGN, _AZv, _LS, _HS, _LCN, _LT, _IIm, _PFSI, _WC],
+  [0, 0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification, 0, 2, 0],
 ];
 export var AutoScalingInstancesType: StaticStructureSchema = [
   3,
@@ -897,6 +902,7 @@ export var CreateAutoScalingGroupType: StaticStructureSchema = [
     _AZIP,
     _SZSV,
     _CRS,
+    _ILP,
   ],
   [
     0,
@@ -931,6 +937,7 @@ export var CreateAutoScalingGroupType: StaticStructureSchema = [
     () => AvailabilityZoneImpairmentPolicy,
     2,
     () => CapacityReservationSpecification,
+    () => InstanceLifecyclePolicy,
   ],
 ];
 export var CreateLaunchConfigurationType: StaticStructureSchema = [
@@ -1192,8 +1199,8 @@ export var Instance: StaticStructureSchema = [
   n0,
   _In,
   0,
-  [_IIns, _IT, _AZv, _LS, _HS, _LCN, _LT, _PFSI, _WC],
-  [0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification, 2, 0],
+  [_IIns, _IT, _AZv, _LS, _HS, _LCN, _LT, _IIm, _PFSI, _WC],
+  [0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification, 0, 2, 0],
 ];
 export var InstanceCollection: StaticStructureSchema = [
   3,
@@ -1203,6 +1210,7 @@ export var InstanceCollection: StaticStructureSchema = [
   [_IT, _MT, _SIu, _AZv, _AZI, _II],
   [0, 0, 0, 0, 0, 64 | 0],
 ];
+export var InstanceLifecyclePolicy: StaticStructureSchema = [3, n0, _ILP, 0, [_RT], [() => RetentionTriggers]];
 export var InstanceMaintenancePolicy: StaticStructureSchema = [3, n0, _IMP, 0, [_MHP, _MHPa], [1, 1]];
 export var InstanceMetadataOptions: StaticStructureSchema = [3, n0, _IMO, 0, [_HT, _HPRHL, _HE], [0, 1, 0]];
 export var InstanceMonitoring: StaticStructureSchema = [3, n0, _IM, 0, [_Ena], [2]];
@@ -1211,7 +1219,7 @@ export var InstanceRefresh: StaticStructureSchema = [
   n0,
   _IRn,
   0,
-  [_IRI, _ASGN, _S, _SR, _ST, _ET, _PCe, _ITU, _PD, _Pr, _DCes, _RD],
+  [_IRI, _ASGN, _S, _SR, _ST, _ET, _PCe, _ITU, _PD, _Pr, _DCes, _RD, _Str],
   [
     0,
     0,
@@ -1225,6 +1233,7 @@ export var InstanceRefresh: StaticStructureSchema = [
     () => RefreshPreferences,
     [() => DesiredConfiguration, 0],
     () => RollbackDetails,
+    0,
   ],
 ];
 export var InstanceRefreshInProgressFault: StaticErrorSchema = [
@@ -1445,8 +1454,8 @@ export var LaunchTemplateOverrides: StaticStructureSchema = [
   n0,
   _LTO,
   0,
-  [_IT, _WC, _LTS, _IRns],
-  [0, 0, () => LaunchTemplateSpecification, [() => InstanceRequirements, 0]],
+  [_IT, _WC, _LTS, _IRns, _IIm],
+  [0, 0, () => LaunchTemplateSpecification, [() => InstanceRequirements, 0], 0],
 ];
 export var LaunchTemplateSpecification: StaticStructureSchema = [3, n0, _LTS, 0, [_LTI, _LTN, _Ve], [0, 0, 0]];
 export var LifecycleHook: StaticStructureSchema = [
@@ -1674,6 +1683,7 @@ export var ResourceInUseFault: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ResourceInUseFault, __ResourceInUseFault);
 
+export var RetentionTriggers: StaticStructureSchema = [3, n0, _RT, 0, [_THA], [0]];
 export var RollbackDetails: StaticStructureSchema = [
   3,
   n0,
@@ -1777,8 +1787,8 @@ export var StartInstanceRefreshType: StaticStructureSchema = [
 ];
 export var StepAdjustment: StaticStructureSchema = [3, n0, _SAte, 0, [_MILB, _MIUB, _SA], [1, 1, 1]];
 export var SuspendedProcess: StaticStructureSchema = [3, n0, _SPu, 0, [_PNr, _SRu], [0, 0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_RIe, _RT, _K, _Va, _PAL], [0, 0, 0, 0, 2]];
-export var TagDescription: StaticStructureSchema = [3, n0, _TD, 0, [_RIe, _RT, _K, _Va, _PAL], [0, 0, 0, 0, 2]];
+export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_RIe, _RTe, _K, _Va, _PAL], [0, 0, 0, 0, 2]];
+export var TagDescription: StaticStructureSchema = [3, n0, _TD, 0, [_RIe, _RTe, _K, _Va, _PAL], [0, 0, 0, 0, 2]];
 export var TagsType: StaticStructureSchema = [3, n0, _TT, 0, [_T, _NT], [() => TagDescriptionList, 0]];
 export var TargetTrackingConfiguration: StaticStructureSchema = [
   3,
@@ -1847,6 +1857,7 @@ export var UpdateAutoScalingGroupType: StaticStructureSchema = [
     _AZIP,
     _SZSV,
     _CRS,
+    _ILP,
   ],
   [
     0,
@@ -1875,6 +1886,7 @@ export var UpdateAutoScalingGroupType: StaticStructureSchema = [
     () => AvailabilityZoneImpairmentPolicy,
     2,
     () => CapacityReservationSpecification,
+    () => InstanceLifecyclePolicy,
   ],
 ];
 export var VCpuCountRequest: StaticStructureSchema = [3, n0, _VCCR, 0, [_M, _Ma], [1, 1]];

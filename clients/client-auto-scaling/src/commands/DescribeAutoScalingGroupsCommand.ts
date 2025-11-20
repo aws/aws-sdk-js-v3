@@ -162,6 +162,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //                   },
  * //                 },
  * //               },
+ * //               ImageId: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -199,6 +200,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //           HealthStatus: "STRING_VALUE", // required
  * //           LaunchConfigurationName: "STRING_VALUE",
  * //           LaunchTemplate: "<LaunchTemplateSpecification>",
+ * //           ImageId: "STRING_VALUE",
  * //           ProtectedFromScaleIn: true || false, // required
  * //           WeightedCapacity: "STRING_VALUE",
  * //         },
@@ -274,6 +276,11 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //           CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArns
  * //             "STRING_VALUE",
  * //           ],
+ * //         },
+ * //       },
+ * //       InstanceLifecyclePolicy: { // InstanceLifecyclePolicy
+ * //         RetentionTriggers: { // RetentionTriggers
+ * //           TerminateHookAbandon: "retain" || "terminate",
  * //         },
  * //       },
  * //     },

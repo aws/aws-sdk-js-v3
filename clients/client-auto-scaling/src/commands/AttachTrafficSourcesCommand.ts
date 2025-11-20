@@ -82,6 +82,10 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @see {@link AttachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link InstanceRefreshInProgressFault} (client fault)
+ *  <p>The request failed because an active instance refresh already exists for the specified
+ *             Auto Scaling group.</p>
+ *
  * @throws {@link ResourceContentionFault} (server fault)
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>

@@ -60,7 +60,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * const client = new AutoScalingClient(config);
  * const input = { // StartInstanceRefreshType
  *   AutoScalingGroupName: "STRING_VALUE", // required
- *   Strategy: "Rolling",
+ *   Strategy: "Rolling" || "ReplaceRootVolume",
  *   DesiredConfiguration: { // DesiredConfiguration
  *     LaunchTemplate: { // LaunchTemplateSpecification
  *       LaunchTemplateId: "STRING_VALUE",
@@ -157,6 +157,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *                 },
  *               },
  *             },
+ *             ImageId: "STRING_VALUE",
  *           },
  *         ],
  *       },

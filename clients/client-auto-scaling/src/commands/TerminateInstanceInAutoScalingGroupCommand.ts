@@ -62,7 +62,7 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * //     Cause: "STRING_VALUE", // required
  * //     StartTime: new Date("TIMESTAMP"), // required
  * //     EndTime: new Date("TIMESTAMP"),
- * //     StatusCode: "PendingSpotBidPlacement" || "WaitingForSpotInstanceRequestId" || "WaitingForSpotInstanceId" || "WaitingForInstanceId" || "PreInService" || "InProgress" || "WaitingForELBConnectionDraining" || "MidLifecycleAction" || "WaitingForInstanceWarmup" || "Successful" || "Failed" || "Cancelled" || "WaitingForConnectionDraining", // required
+ * //     StatusCode: "PendingSpotBidPlacement" || "WaitingForSpotInstanceRequestId" || "WaitingForSpotInstanceId" || "WaitingForInstanceId" || "PreInService" || "InProgress" || "WaitingForELBConnectionDraining" || "MidLifecycleAction" || "WaitingForInstanceWarmup" || "Successful" || "Failed" || "Cancelled" || "WaitingForConnectionDraining" || "WaitingForInPlaceUpdateToStart" || "WaitingForInPlaceUpdateToFinalize" || "InPlaceUpdateInProgress", // required
  * //     StatusMessage: "STRING_VALUE",
  * //     Progress: Number("int"),
  * //     Details: "STRING_VALUE",

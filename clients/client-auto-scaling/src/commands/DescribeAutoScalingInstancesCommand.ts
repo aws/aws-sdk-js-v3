@@ -60,6 +60,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * //         LaunchTemplateName: "STRING_VALUE",
  * //         Version: "STRING_VALUE",
  * //       },
+ * //       ImageId: "STRING_VALUE",
  * //       ProtectedFromScaleIn: true || false, // required
  * //       WeightedCapacity: "STRING_VALUE",
  * //     },

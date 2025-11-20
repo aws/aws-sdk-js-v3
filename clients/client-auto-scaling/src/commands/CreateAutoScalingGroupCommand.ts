@@ -148,6 +148,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *               },
  *             },
  *           },
+ *           ImageId: "STRING_VALUE",
  *         },
  *       ],
  *     },
@@ -235,6 +236,11 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArns
  *         "STRING_VALUE",
  *       ],
+ *     },
+ *   },
+ *   InstanceLifecyclePolicy: { // InstanceLifecyclePolicy
+ *     RetentionTriggers: { // RetentionTriggers
+ *       TerminateHookAbandon: "retain" || "terminate",
  *     },
  *   },
  * };

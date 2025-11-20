@@ -66,6 +66,10 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @see {@link PutWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link InstanceRefreshInProgressFault} (client fault)
+ *  <p>The request failed because an active instance refresh already exists for the specified
+ *             Auto Scaling group.</p>
+ *
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
  *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For

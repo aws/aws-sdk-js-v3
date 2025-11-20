@@ -86,6 +86,27 @@ export class ServiceLinkedRoleFailure extends __BaseException {
 }
 
 /**
+ * <p>The request failed because an active instance refresh already exists for the specified
+ *             Auto Scaling group.</p>
+ * @public
+ */
+export class InstanceRefreshInProgressFault extends __BaseException {
+  readonly name = "InstanceRefreshInProgressFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InstanceRefreshInProgressFault, __BaseException>) {
+    super({
+      name: "InstanceRefreshInProgressFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InstanceRefreshInProgressFault.prototype);
+  }
+}
+
+/**
  * <p>You have already reached a limit for your Amazon EC2 Auto Scaling
  *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
  *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
@@ -213,26 +234,5 @@ export class IrreversibleInstanceRefreshFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IrreversibleInstanceRefreshFault.prototype);
-  }
-}
-
-/**
- * <p>The request failed because an active instance refresh already exists for the specified
- *             Auto Scaling group.</p>
- * @public
- */
-export class InstanceRefreshInProgressFault extends __BaseException {
-  readonly name = "InstanceRefreshInProgressFault" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceRefreshInProgressFault, __BaseException>) {
-    super({
-      name: "InstanceRefreshInProgressFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceRefreshInProgressFault.prototype);
   }
 }
