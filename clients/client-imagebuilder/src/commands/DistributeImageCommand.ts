@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
-import { CreateComponent } from "../schemas/schemas_0";
+import { DistributeImageRequest, DistributeImageResponse } from "../models/models_0";
+import { DistributeImage } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,76 +16,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateComponentCommand}.
+ * The input for {@link DistributeImageCommand}.
  */
-export interface CreateComponentCommandInput extends CreateComponentRequest {}
+export interface DistributeImageCommandInput extends DistributeImageRequest {}
 /**
  * @public
  *
- * The output of {@link CreateComponentCommand}.
+ * The output of {@link DistributeImageCommand}.
  */
-export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
+export interface DistributeImageCommandOutput extends DistributeImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new component that can be used to build, validate, test, and assess your
- * 			image. The component is based on a YAML document that you specify using exactly one of
- * 			the following methods:</p>
- *          <ul>
- *             <li>
- *                <p>Inline, using the <code>data</code> property in the request body.</p>
- *             </li>
- *             <li>
- *                <p>A URL that points to a YAML document file stored in Amazon S3, using the
- * 						<code>uri</code> property in the request body.</p>
- *             </li>
- *          </ul>
+ * <p>DistributeImage distributes existing AMIs to additional regions and accounts without rebuilding the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DistributeImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, DistributeImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
  * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
- * const input = { // CreateComponentRequest
- *   name: "STRING_VALUE", // required
- *   semanticVersion: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   changeDescription: "STRING_VALUE",
- *   platform: "Windows" || "Linux" || "macOS", // required
- *   supportedOsVersions: [ // OsVersionList
- *     "STRING_VALUE",
- *   ],
- *   data: "STRING_VALUE",
- *   uri: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
+ * const input = { // DistributeImageRequest
+ *   sourceImage: "STRING_VALUE", // required
+ *   distributionConfigurationArn: "STRING_VALUE", // required
+ *   executionRole: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE", // required
- *   dryRun: true || false,
+ *   loggingConfiguration: { // ImageLoggingConfiguration
+ *     logGroupName: "STRING_VALUE",
+ *   },
  * };
- * const command = new CreateComponentCommand(input);
+ * const command = new DistributeImageCommand(input);
  * const response = await client.send(command);
- * // { // CreateComponentResponse
- * //   requestId: "STRING_VALUE",
+ * // { // DistributeImageResponse
  * //   clientToken: "STRING_VALUE",
- * //   componentBuildVersionArn: "STRING_VALUE",
- * //   latestVersionReferences: { // LatestVersionReferences
- * //     latestVersionArn: "STRING_VALUE",
- * //     latestMajorVersionArn: "STRING_VALUE",
- * //     latestMinorVersionArn: "STRING_VALUE",
- * //     latestPatchVersionArn: "STRING_VALUE",
- * //   },
+ * //   imageBuildVersionArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
- * @returns {@link CreateComponentCommandOutput}
- * @see {@link CreateComponentCommandInput} for command's `input` shape.
- * @see {@link CreateComponentCommandOutput} for command's `response` shape.
+ * @param DistributeImageCommandInput - {@link DistributeImageCommandInput}
+ * @returns {@link DistributeImageCommandOutput}
+ * @see {@link DistributeImageCommandInput} for command's `input` shape.
+ * @see {@link DistributeImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permissions to perform the requested operation.</p>
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
@@ -95,9 +74,6 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * 			resource on behalf of a user that doesn't have permissions to use the action or
  * 			resource, or specifying an invalid resource identifier.</p>
  *
- * @throws {@link DryRunOperationException} (client fault)
- *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
- *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
@@ -105,19 +81,15 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *  <p>You have specified a client token for an operation using parameter values that differ
  * 			from a previous request that used the same client token.</p>
  *
- * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>You have specified two or more mutually exclusive parameters. Review the error message
- * 			for details.</p>
- *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
- *
- * @throws {@link InvalidVersionNumberException} (client fault)
- *  <p>Your version number is out of bounds or does not follow the required syntax.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
  * 			details and retry later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
@@ -131,16 +103,19 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You have attempted too many requests for the specific operation.</p>
+ *
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  *
  * @public
  */
-export class CreateComponentCommand extends $Command
+export class DistributeImageCommand extends $Command
   .classBuilder<
-    CreateComponentCommandInput,
-    CreateComponentCommandOutput,
+    DistributeImageCommandInput,
+    DistributeImageCommandOutput,
     ImagebuilderClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -149,19 +124,19 @@ export class CreateComponentCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("imagebuilder", "CreateComponent", {})
-  .n("ImagebuilderClient", "CreateComponentCommand")
-  .sc(CreateComponent)
+  .s("imagebuilder", "DistributeImage", {})
+  .n("ImagebuilderClient", "DistributeImageCommand")
+  .sc(DistributeImage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateComponentRequest;
-      output: CreateComponentResponse;
+      input: DistributeImageRequest;
+      output: DistributeImageResponse;
     };
     sdk: {
-      input: CreateComponentCommandInput;
-      output: CreateComponentCommandOutput;
+      input: DistributeImageCommandInput;
+      output: DistributeImageCommandOutput;
     };
   };
 }

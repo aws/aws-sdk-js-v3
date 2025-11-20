@@ -88,6 +88,12 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * //   requestId: "STRING_VALUE",
  * //   clientToken: "STRING_VALUE",
  * //   imageBuildVersionArn: "STRING_VALUE",
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

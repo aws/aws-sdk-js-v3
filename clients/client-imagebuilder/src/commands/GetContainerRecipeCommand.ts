@@ -98,6 +98,12 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * //       repositoryName: "STRING_VALUE", // required
  * //     },
  * //   },
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

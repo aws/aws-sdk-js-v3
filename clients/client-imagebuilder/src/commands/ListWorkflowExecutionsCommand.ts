@@ -60,6 +60,7 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  * //       startTime: "STRING_VALUE",
  * //       endTime: "STRING_VALUE",
  * //       parallelGroup: "STRING_VALUE",
+ * //       retried: true || false,
  * //     },
  * //   ],
  * //   imageBuildVersionArn: "STRING_VALUE",

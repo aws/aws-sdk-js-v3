@@ -1,6 +1,7 @@
 const _A = "Ami";
 const _AA = "AccountAggregation";
 const _ADC = "AmiDistributionConfiguration";
+const _ADE = "AccessDeniedException";
 const _ADP = "AutoDisablePolicy";
 const _AIC = "AdditionalInstanceConfiguration";
 const _AL = "AmiList";
@@ -87,10 +88,14 @@ const _DIRR = "DeleteImageRecipeRequest";
 const _DIRRe = "DeleteImageRecipeResponse";
 const _DIRe = "DeleteImageResponse";
 const _DIRel = "DeleteImageRecipe";
+const _DIRi = "DistributeImageRequest";
+const _DIRis = "DistributeImageResponse";
+const _DIi = "DistributeImage";
 const _DL = "DistributionList";
 const _DLP = "DeleteLifecyclePolicy";
 const _DLPR = "DeleteLifecyclePolicyRequest";
 const _DLPRe = "DeleteLifecyclePolicyResponse";
+const _DROE = "DryRunOperationException";
 const _DW = "DeleteWorkflow";
 const _DWR = "DeleteWorkflowRequest";
 const _DWRe = "DeleteWorkflowResponse";
@@ -282,6 +287,7 @@ const _LTCL = "LaunchTemplateConfigurationList";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LVR = "LatestVersionReferences";
 const _LW = "ListWorkflows";
 const _LWBV = "ListWorkflowBuildVersions";
 const _LWBVR = "ListWorkflowBuildVersionsRequest";
@@ -318,6 +324,9 @@ const _PVD = "PackageVulnerabilityDetails";
 const _R = "Remediation";
 const _RAEE = "ResourceAlreadyExistsException";
 const _RDE = "ResourceDependencyException";
+const _RI = "RetryImage";
+const _RIR = "RetryImageRequest";
+const _RIRe = "RetryImageResponse";
 const _RIUE = "ResourceInUseException";
 const _RNFE = "ResourceNotFoundException";
 const _RR = "RemediationRecommendation";
@@ -344,6 +353,7 @@ const _SWSA = "SendWorkflowStepAction";
 const _SWSAR = "SendWorkflowStepActionRequest";
 const _SWSARe = "SendWorkflowStepActionResponse";
 const _TCR = "TargetContainerRepository";
+const _TMRE = "TooManyRequestsException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
@@ -435,6 +445,7 @@ const _dLR = "dateLastRun";
 const _dN = "deviceName";
 const _dNR = "dateNextRun";
 const _dOT = "deleteOnTermination";
+const _dR = "dryRun";
 const _dT = "deprecationTime";
 const _dTD = "dockerfileTemplateData";
 const _dTU = "dockerfileTemplateUri";
@@ -521,9 +532,12 @@ const _lES = "lifecycleExecutionState";
 const _lEi = "lifecycleExecutions";
 const _lGN = "logGroupName";
 const _lL = "lastLaunched";
+const _lMVA = "latestMajorVersionArn";
+const _lMVAa = "latestMinorVersionArn";
 const _lP = "launchPermission";
 const _lPA = "lifecyclePolicyArn";
 const _lPSL = "lifecyclePolicySummaryList";
+const _lPVA = "latestPatchVersionArn";
 const _lPi = "lifecyclePolicy";
 const _lRS = "lastRunStatus";
 const _lT = "launchTemplate";
@@ -531,6 +545,8 @@ const _lTC = "launchTemplateConfigurations";
 const _lTI = "launchTemplateId";
 const _lTN = "launchTemplateName";
 const _lTV = "launchTemplateVersion";
+const _lVA = "latestVersionArn";
+const _lVR = "latestVersionReferences";
 const _m = "message";
 const _mPL = "maxParallelLaunches";
 const _mR = "maxResults";
@@ -590,6 +606,7 @@ const _rel = "release";
 const _rem = "remediation";
 const _res = "responses";
 const _reso = "resources";
+const _ret = "retried";
 const _s = "state";
 const _sA = "sharedAccounts";
 const _sB = "s3Bucket";
@@ -603,6 +620,7 @@ const _sEI = "stepExecutionId";
 const _sGI = "securityGroupIds";
 const _sI = "subnetId";
 const _sIn = "snapshotId";
+const _sIo = "sourceImage";
 const _sKP = "s3KeyPrefix";
 const _sL = "s3Logs";
 const _sLH = "sourceLayerHash";
@@ -693,8 +711,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AccessDeniedException as __AccessDeniedException,
   CallRateLimitExceededException as __CallRateLimitExceededException,
   ClientException as __ClientException,
+  DryRunOperationException as __DryRunOperationException,
   ForbiddenException as __ForbiddenException,
   IdempotentParameterMismatchException as __IdempotentParameterMismatchException,
   InvalidPaginationTokenException as __InvalidPaginationTokenException,
@@ -710,10 +730,24 @@ import {
   ServiceException as __ServiceException,
   ServiceQuotaExceededException as __ServiceQuotaExceededException,
   ServiceUnavailableException as __ServiceUnavailableException,
+  TooManyRequestsException as __TooManyRequestsException,
 } from "../models/errors";
 import { ImagebuilderServiceException as __ImagebuilderServiceException } from "../models/ImagebuilderServiceException";
 
 /* eslint no-var: 0 */
+
+export var AccessDeniedException: StaticErrorSchema = [
+  -3,
+  n0,
+  _ADE,
+  {
+    [_e]: _c,
+    [_hE]: 403,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
 
 export var AccountAggregation: StaticStructureSchema = [3, n0, _AA, 0, [_aI, _sC], [0, () => SeverityCounts]];
 export var AdditionalInstanceConfiguration: StaticStructureSchema = [
@@ -867,10 +901,17 @@ export var CreateComponentRequest: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_n, _sV, _d, _cD, _p, _sOV, _da, _u, _kKI, _ta, _cT],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 128 | 0, [0, 4]],
+  [_n, _sV, _d, _cD, _p, _sOV, _da, _u, _kKI, _ta, _cT, _dR],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 128 | 0, [0, 4], 2],
 ];
-export var CreateComponentResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_rI, _cT, _cBVA], [0, 0, 0]];
+export var CreateComponentResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CCRr,
+  0,
+  [_rI, _cT, _cBVA, _lVR],
+  [0, 0, 0, () => LatestVersionReferences],
+];
 export var CreateContainerRecipeRequest: StaticStructureSchema = [
   3,
   n0,
@@ -896,7 +937,14 @@ export var CreateContainerRecipeRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var CreateContainerRecipeResponse: StaticStructureSchema = [3, n0, _CCRRr, 0, [_rI, _cT, _cRA], [0, 0, 0]];
+export var CreateContainerRecipeResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CCRRr,
+  0,
+  [_rI, _cT, _cRA, _lVR],
+  [0, 0, 0, () => LatestVersionReferences],
+];
 export var CreateDistributionConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -959,7 +1007,14 @@ export var CreateImageRecipeRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var CreateImageRecipeResponse: StaticStructureSchema = [3, n0, _CIRRr, 0, [_rI, _cT, _iRA], [0, 0, 0]];
+export var CreateImageRecipeResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CIRRr,
+  0,
+  [_rI, _cT, _iRA, _lVR],
+  [0, 0, 0, () => LatestVersionReferences],
+];
 export var CreateImageRequest: StaticStructureSchema = [
   3,
   n0,
@@ -981,7 +1036,14 @@ export var CreateImageRequest: StaticStructureSchema = [
     () => ImageLoggingConfiguration,
   ],
 ];
-export var CreateImageResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_rI, _cT, _iBVA], [0, 0, 0]];
+export var CreateImageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CIRr,
+  0,
+  [_rI, _cT, _iBVA, _lVR],
+  [0, 0, 0, () => LatestVersionReferences],
+];
 export var CreateInfrastructureConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1028,10 +1090,17 @@ export var CreateWorkflowRequest: StaticStructureSchema = [
   n0,
   _CWR,
   0,
-  [_n, _sV, _d, _cD, _da, _u, _kKI, _ta, _cT, _t],
-  [0, 0, 0, 0, 0, 0, 0, 128 | 0, [0, 4], 0],
+  [_n, _sV, _d, _cD, _da, _u, _kKI, _ta, _cT, _t, _dR],
+  [0, 0, 0, 0, 0, 0, 0, 128 | 0, [0, 4], 0, 2],
 ];
-export var CreateWorkflowResponse: StaticStructureSchema = [3, n0, _CWRr, 0, [_cT, _wBVA], [0, 0]];
+export var CreateWorkflowResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CWRr,
+  0,
+  [_cT, _wBVA, _lVR],
+  [0, 0, () => LatestVersionReferences],
+];
 export var CvssScore: StaticStructureSchema = [3, n0, _CSv, 0, [_bS, _sVc, _v, _so], [1, 0, 0, 0]];
 export var CvssScoreAdjustment: StaticStructureSchema = [3, n0, _CSA, 0, [_me, _re], [0, 0]];
 export var CvssScoreDetails: StaticStructureSchema = [
@@ -1186,6 +1255,15 @@ export var DeleteWorkflowRequest: StaticStructureSchema = [
   ],
 ];
 export var DeleteWorkflowResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [_wBVA], [0]];
+export var DistributeImageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DIRi,
+  0,
+  [_sIo, _dCA, _eR, _ta, _cT, _lC],
+  [0, 0, 0, 128 | 0, [0, 4], () => ImageLoggingConfiguration],
+];
+export var DistributeImageResponse: StaticStructureSchema = [3, n0, _DIRis, 0, [_cT, _iBVA], [0, 0]];
 export var Distribution: StaticStructureSchema = [
   3,
   n0,
@@ -1219,6 +1297,19 @@ export var DistributionConfigurationSummary: StaticStructureSchema = [
   [_a, _n, _d, _dC, _dU, _ta, _reg],
   [0, 0, 0, 0, 0, 128 | 0, 64 | 0],
 ];
+export var DryRunOperationException: StaticErrorSchema = [
+  -3,
+  n0,
+  _DROE,
+  {
+    [_e]: _c,
+    [_hE]: 412,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(DryRunOperationException, __DryRunOperationException);
+
 export var EbsInstanceBlockDeviceSpecification: StaticStructureSchema = [
   3,
   n0,
@@ -1290,7 +1381,14 @@ export var GetComponentRequest: StaticStructureSchema = [
     ],
   ],
 ];
-export var GetComponentResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_rI, _com], [0, () => Component]];
+export var GetComponentResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GCRe,
+  0,
+  [_rI, _com, _lVR],
+  [0, () => Component, () => LatestVersionReferences],
+];
 export var GetContainerRecipePolicyRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1327,8 +1425,8 @@ export var GetContainerRecipeResponse: StaticStructureSchema = [
   n0,
   _GCRRe,
   0,
-  [_rI, _cR],
-  [0, () => ContainerRecipe],
+  [_rI, _cR, _lVR],
+  [0, () => ContainerRecipe, () => LatestVersionReferences],
 ];
 export var GetDistributionConfigurationRequest: StaticStructureSchema = [
   3,
@@ -1416,7 +1514,14 @@ export var GetImageRecipeRequest: StaticStructureSchema = [
     ],
   ],
 ];
-export var GetImageRecipeResponse: StaticStructureSchema = [3, n0, _GIRRe, 0, [_rI, _iR], [0, () => ImageRecipe]];
+export var GetImageRecipeResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GIRRe,
+  0,
+  [_rI, _iR, _lVR],
+  [0, () => ImageRecipe, () => LatestVersionReferences],
+];
 export var GetImageRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1432,7 +1537,14 @@ export var GetImageRequest: StaticStructureSchema = [
     ],
   ],
 ];
-export var GetImageResponse: StaticStructureSchema = [3, n0, _GIRe, 0, [_rI, _i], [0, () => Image]];
+export var GetImageResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GIRe,
+  0,
+  [_rI, _i, _lVR],
+  [0, () => Image, () => LatestVersionReferences],
+];
 export var GetInfrastructureConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1528,7 +1640,14 @@ export var GetWorkflowRequest: StaticStructureSchema = [
     ],
   ],
 ];
-export var GetWorkflowResponse: StaticStructureSchema = [3, n0, _GWRe, 0, [_wo], [() => Workflow]];
+export var GetWorkflowResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GWRe,
+  0,
+  [_wo, _lVR],
+  [() => Workflow, () => LatestVersionReferences],
+];
 export var GetWorkflowStepExecutionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1939,6 +2058,14 @@ export var InvalidVersionNumberException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidVersionNumberException, __InvalidVersionNumberException);
 
+export var LatestVersionReferences: StaticStructureSchema = [
+  3,
+  n0,
+  _LVR,
+  0,
+  [_lVA, _lMVA, _lMVAa, _lPVA],
+  [0, 0, 0, 0],
+];
 export var LaunchPermissionConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -2434,6 +2561,8 @@ export var ResourceStateUpdateExclusionRules: StaticStructureSchema = [
   [() => LifecyclePolicyDetailExclusionRulesAmis],
 ];
 export var ResourceStateUpdateIncludeResources: StaticStructureSchema = [3, n0, _RSUIR, 0, [_am, _sn, _con], [2, 2, 2]];
+export var RetryImageRequest: StaticStructureSchema = [3, n0, _RIR, 0, [_iBVA, _cT], [0, [0, 4]]];
+export var RetryImageResponse: StaticStructureSchema = [3, n0, _RIRe, 0, [_cT, _iBVA], [0, 0]];
 export var S3ExportConfiguration: StaticStructureSchema = [3, n0, _SEC, 0, [_rNo, _dIF, _sB, _sP], [0, 0, 0, 0]];
 export var S3Logs: StaticStructureSchema = [3, n0, _SL, 0, [_sBN, _sKP], [0, 0]];
 export var Schedule: StaticStructureSchema = [
@@ -2531,6 +2660,19 @@ export var SystemsManagerAgent: StaticStructureSchema = [3, n0, _SMA, 0, [_uAB],
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TargetContainerRepository: StaticStructureSchema = [3, n0, _TCR, 0, [_serv, _rN], [0, 0]];
+export var TooManyRequestsException: StaticErrorSchema = [
+  -3,
+  n0,
+  _TMRE,
+  {
+    [_e]: _c,
+    [_hE]: 429,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
+
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2644,8 +2786,8 @@ export var WorkflowExecutionMetadata: StaticStructureSchema = [
   n0,
   _WEM,
   0,
-  [_wBVA, _wEI, _t, _st, _m, _tSC, _tSS, _tSF, _tSSo, _sT, _eT, _pG],
-  [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+  [_wBVA, _wEI, _t, _st, _m, _tSC, _tSS, _tSF, _tSSo, _sT, _eT, _pG, _ret],
+  [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 2],
 ];
 export var WorkflowParameter: StaticStructureSchema = [3, n0, _WP, 0, [_n, _va], [0, 64 | 0]];
 export var WorkflowParameterDetail: StaticStructureSchema = [3, n0, _WPD, 0, [_n, _t, _dV, _d], [0, 0, 64 | 0, 0]];
@@ -2988,6 +3130,16 @@ export var DeleteWorkflow: StaticOperationSchema = [
   },
   () => DeleteWorkflowRequest,
   () => DeleteWorkflowResponse,
+];
+export var DistributeImage: StaticOperationSchema = [
+  9,
+  n0,
+  _DIi,
+  {
+    [_ht]: ["PUT", "/DistributeImage", 200],
+  },
+  () => DistributeImageRequest,
+  () => DistributeImageResponse,
 ];
 export var GetComponent: StaticOperationSchema = [
   9,
@@ -3448,6 +3600,16 @@ export var PutImageRecipePolicy: StaticOperationSchema = [
   },
   () => PutImageRecipePolicyRequest,
   () => PutImageRecipePolicyResponse,
+];
+export var RetryImage: StaticOperationSchema = [
+  9,
+  n0,
+  _RI,
+  {
+    [_ht]: ["PUT", "/RetryImage", 200],
+  },
+  () => RetryImageRequest,
+  () => RetryImageResponse,
 ];
 export var SendWorkflowStepAction: StaticOperationSchema = [
   9,

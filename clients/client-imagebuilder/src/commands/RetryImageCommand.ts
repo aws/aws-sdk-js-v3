@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
-import { CreateWorkflow } from "../schemas/schemas_0";
+import { RetryImageRequest, RetryImageResponse } from "../models/models_0";
+import { RetryImage } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,60 +16,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWorkflowCommand}.
+ * The input for {@link RetryImageCommand}.
  */
-export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
+export interface RetryImageCommandInput extends RetryImageRequest {}
 /**
  * @public
  *
- * The output of {@link CreateWorkflowCommand}.
+ * The output of {@link RetryImageCommand}.
  */
-export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
+export interface RetryImageCommandOutput extends RetryImageResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new workflow or a new version of an existing workflow.</p>
+ * <p>RetryImage retries an image distribution without rebuilding the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, CreateWorkflowCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, CreateWorkflowCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, RetryImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, RetryImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * // import type { ImagebuilderClientConfig } from "@aws-sdk/client-imagebuilder";
  * const config = {}; // type is ImagebuilderClientConfig
  * const client = new ImagebuilderClient(config);
- * const input = { // CreateWorkflowRequest
- *   name: "STRING_VALUE", // required
- *   semanticVersion: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   changeDescription: "STRING_VALUE",
- *   data: "STRING_VALUE",
- *   uri: "STRING_VALUE",
- *   kmsKeyId: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // RetryImageRequest
+ *   imageBuildVersionArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE", // required
- *   type: "BUILD" || "TEST" || "DISTRIBUTION", // required
- *   dryRun: true || false,
  * };
- * const command = new CreateWorkflowCommand(input);
+ * const command = new RetryImageCommand(input);
  * const response = await client.send(command);
- * // { // CreateWorkflowResponse
+ * // { // RetryImageResponse
  * //   clientToken: "STRING_VALUE",
- * //   workflowBuildVersionArn: "STRING_VALUE",
- * //   latestVersionReferences: { // LatestVersionReferences
- * //     latestVersionArn: "STRING_VALUE",
- * //     latestMajorVersionArn: "STRING_VALUE",
- * //     latestMinorVersionArn: "STRING_VALUE",
- * //     latestPatchVersionArn: "STRING_VALUE",
- * //   },
+ * //   imageBuildVersionArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
- * @returns {@link CreateWorkflowCommandOutput}
- * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
- * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
+ * @param RetryImageCommandInput - {@link RetryImageCommandInput}
+ * @returns {@link RetryImageCommandOutput}
+ * @see {@link RetryImageCommandInput} for command's `input` shape.
+ * @see {@link RetryImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
@@ -80,9 +63,6 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * 			resource on behalf of a user that doesn't have permissions to use the action or
  * 			resource, or specifying an invalid resource identifier.</p>
  *
- * @throws {@link DryRunOperationException} (client fault)
- *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
- *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
@@ -90,15 +70,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *  <p>You have specified a client token for an operation using parameter values that differ
  * 			from a previous request that used the same client token.</p>
  *
- * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>You have specified two or more mutually exclusive parameters. Review the error message
- * 			for details.</p>
- *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
- *
- * @throws {@link InvalidVersionNumberException} (client fault)
- *  <p>Your version number is out of bounds or does not follow the required syntax.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
@@ -107,11 +80,6 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
  * 			exception.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the number of permitted resources or operations for this service.
- * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
- * 				quotas</a>.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -122,10 +90,10 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *
  * @public
  */
-export class CreateWorkflowCommand extends $Command
+export class RetryImageCommand extends $Command
   .classBuilder<
-    CreateWorkflowCommandInput,
-    CreateWorkflowCommandOutput,
+    RetryImageCommandInput,
+    RetryImageCommandOutput,
     ImagebuilderClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -134,19 +102,19 @@ export class CreateWorkflowCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("imagebuilder", "CreateWorkflow", {})
-  .n("ImagebuilderClient", "CreateWorkflowCommand")
-  .sc(CreateWorkflow)
+  .s("imagebuilder", "RetryImage", {})
+  .n("ImagebuilderClient", "RetryImageCommand")
+  .sc(RetryImage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWorkflowRequest;
-      output: CreateWorkflowResponse;
+      input: RetryImageRequest;
+      output: RetryImageResponse;
     };
     sdk: {
-      input: CreateWorkflowCommandInput;
-      output: CreateWorkflowCommandOutput;
+      input: RetryImageCommandInput;
+      output: RetryImageCommandOutput;
     };
   };
 }

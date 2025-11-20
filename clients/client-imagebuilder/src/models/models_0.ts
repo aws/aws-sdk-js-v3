@@ -343,7 +343,7 @@ export interface CancelImageCreationResponse {
   clientToken?: string | undefined;
 
   /**
-   * <p>The ARN of the image whose creation this request canceled.</p>
+   * <p>The Amazon Resource Name (ARN) of the image whose creation this request canceled.</p>
    * @public
    */
   imageBuildVersionArn?: string | undefined;
@@ -1303,6 +1303,42 @@ export interface CreateComponentRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Validates the required permissions for the operation and the request parameters, without actually making the request, and provides an error response. Upon a successful request, the error response is <code>DryRunOperationException</code>.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+ * @public
+ */
+export interface LatestVersionReferences {
+  /**
+   * <p>The latest version Amazon Resource Name (ARN) of the Image Builder resource.</p>
+   * @public
+   */
+  latestVersionArn?: string | undefined;
+
+  /**
+   * <p>The latest version Amazon Resource Name (ARN) with the same <code>major</code> version of the Image Builder resource.</p>
+   * @public
+   */
+  latestMajorVersionArn?: string | undefined;
+
+  /**
+   * <p>The latest version Amazon Resource Name (ARN) with the same <code>minor</code> version of the Image Builder resource.</p>
+   * @public
+   */
+  latestMinorVersionArn?: string | undefined;
+
+  /**
+   * <p>The latest version Amazon Resource Name (ARN) with the same <code>patch</code> version of the Image Builder resource.</p>
+   * @public
+   */
+  latestPatchVersionArn?: string | undefined;
 }
 
 /**
@@ -1326,6 +1362,12 @@ export interface CreateComponentResponse {
    * @public
    */
   componentBuildVersionArn?: string | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -1470,6 +1512,12 @@ export interface CreateContainerRecipeResponse {
    * @public
    */
   containerRecipeArn?: string | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -2025,6 +2073,12 @@ export interface CreateImageResponse {
    * @public
    */
   imageBuildVersionArn?: string | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -2364,6 +2418,12 @@ export interface CreateImageRecipeResponse {
    * @public
    */
   imageRecipeArn?: string | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -3011,6 +3071,12 @@ export interface CreateWorkflowRequest {
    * @public
    */
   type: WorkflowType | undefined;
+
+  /**
+   * <p>Validates the required permissions for the operation and the request parameters, without actually making the request, and provides an error response. Upon a successful request, the error response is <code>DryRunOperationException</code>.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -3028,6 +3094,12 @@ export interface CreateWorkflowResponse {
    * @public
    */
   workflowBuildVersionArn?: string | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -3149,7 +3221,7 @@ export interface DeleteComponentResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The ARN of the component build version that this request deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the component build version that this request deleted.</p>
    * @public
    */
   componentBuildVersionArn?: string | undefined;
@@ -3234,7 +3306,7 @@ export interface DeleteImageResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The ARN of the Image Builder image resource that this request deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the Image Builder image resource that this request deleted.</p>
    * @public
    */
   imageBuildVersionArn?: string | undefined;
@@ -3341,7 +3413,7 @@ export interface DeleteLifecyclePolicyRequest {
  */
 export interface DeleteLifecyclePolicyResponse {
   /**
-   * <p>The ARN of the lifecycle policy that was deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy that was deleted.</p>
    * @public
    */
   lifecyclePolicyArn?: string | undefined;
@@ -3363,10 +3435,70 @@ export interface DeleteWorkflowRequest {
  */
 export interface DeleteWorkflowResponse {
   /**
-   * <p>The ARN of the workflow resource that this request deleted.</p>
+   * <p>The Amazon Resource Name (ARN) of the workflow resource that this request deleted.</p>
    * @public
    */
   workflowBuildVersionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DistributeImageRequest {
+  /**
+   * <p>The source image Amazon Resource Name (ARN) to distribute.</p>
+   * @public
+   */
+  sourceImage: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration to use.</p>
+   * @public
+   */
+  distributionConfigurationArn: string | undefined;
+
+  /**
+   * <p>The IAM role to use for the distribution.</p>
+   * @public
+   */
+  executionRole: string | undefined;
+
+  /**
+   * <p>The tags to apply to the distributed image.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The logging configuration for the distribution.</p>
+   * @public
+   */
+  loggingConfiguration?: ImageLoggingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DistributeImageResponse {
+  /**
+   * <p>The client token that uniquely identifies the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image to be distributed.</p>
+   * @public
+   */
+  imageBuildVersionArn?: string | undefined;
 }
 
 /**
@@ -3519,6 +3651,12 @@ export interface GetComponentResponse {
    * @public
    */
   component?: Component | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -3576,6 +3714,12 @@ export interface GetContainerRecipeResponse {
    * @public
    */
   containerRecipe?: ContainerRecipe | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -4167,6 +4311,12 @@ export interface GetImageResponse {
    * @public
    */
   image?: Image | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -4428,6 +4578,12 @@ export interface GetImageRecipeResponse {
    * @public
    */
   imageRecipe?: ImageRecipe | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -4684,7 +4840,7 @@ export interface LifecyclePolicy {
  */
 export interface GetLifecyclePolicyResponse {
   /**
-   * <p>The ARN of the image lifecycle policy resource that was returned.</p>
+   * <p>The Amazon Resource Name (ARN) of the image lifecycle policy resource that was returned.</p>
    * @public
    */
   lifecyclePolicy?: LifecyclePolicy | undefined;
@@ -4897,6 +5053,12 @@ export interface GetWorkflowResponse {
    * @public
    */
   workflow?: Workflow | undefined;
+
+  /**
+   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * @public
+   */
+  latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
@@ -6600,8 +6762,7 @@ export interface ImageScanFindingAggregation {
   accountAggregation?: AccountAggregation | undefined;
 
   /**
-   * <p>Returns an object that contains severity counts based on the Amazon Resource Name
-   * 			(ARN) for a specific image.</p>
+   * <p>Returns an object that contains severity counts based on the Amazon Resource Name (ARN) for a specific image.</p>
    * @public
    */
   imageAggregation?: ImageAggregation | undefined;
@@ -7576,7 +7737,7 @@ export interface WorkflowStepExecution {
   workflowExecutionId?: string | undefined;
 
   /**
-   * <p>The ARN of the workflow resource that ran.</p>
+   * <p>The Amazon Resource Name (ARN) of the workflow resource that ran.</p>
    * @public
    */
   workflowBuildVersionArn?: string | undefined;
@@ -7834,6 +7995,12 @@ export interface WorkflowExecutionMetadata {
    * @public
    */
   parallelGroup?: string | undefined;
+
+  /**
+   * <p>Indicates retry status for this runtime instance of the workflow.</p>
+   * @public
+   */
+  retried?: boolean | undefined;
 }
 
 /**
@@ -7854,7 +8021,7 @@ export interface ListWorkflowExecutionsResponse {
   workflowExecutions?: WorkflowExecutionMetadata[] | undefined;
 
   /**
-   * <p>The resource ARN of the image build version for which you requested a list of
+   * <p>The resource Amazon Resource Name (ARN) of the image build version for which you requested a list of
    * 			workflow runtime details.</p>
    * @public
    */
@@ -8094,7 +8261,7 @@ export interface ListWorkflowStepExecutionsResponse {
   steps?: WorkflowStepMetadata[] | undefined;
 
   /**
-   * <p>The build version ARN for the Image Builder workflow resource that defines the steps for
+   * <p>The build version Amazon Resource Name (ARN) for the Image Builder workflow resource that defines the steps for
    * 			this runtime instance of the workflow.</p>
    * @public
    */
@@ -8108,7 +8275,7 @@ export interface ListWorkflowStepExecutionsResponse {
   workflowExecutionId?: string | undefined;
 
   /**
-   * <p>The image build version resource ARN that's associated with the specified runtime
+   * <p>The image build version resource Amazon Resource Name (ARN) that's associated with the specified runtime
    * 			instance of the workflow.</p>
    * @public
    */
@@ -8270,6 +8437,42 @@ export interface PutImageRecipePolicyResponse {
    * @public
    */
   imageRecipeArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetryImageRequest {
+  /**
+   * <p>The source image Amazon Resource Name (ARN) to retry.</p>
+   * @public
+   */
+  imageBuildVersionArn: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetryImageResponse {
+  /**
+   * <p>The client token that uniquely identifies the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The ARN of the image to be retried.</p>
+   * @public
+   */
+  imageBuildVersionArn?: string | undefined;
 }
 
 /**
@@ -8437,7 +8640,7 @@ export interface ResourceState {
  */
 export interface StartResourceStateUpdateRequest {
   /**
-   * <p>The ARN of the Image Builder resource that is updated. The state update might also
+   * <p>The Amazon Resource Name (ARN) of the Image Builder resource that is updated. The state update might also
    * 			impact associated resources.</p>
    * @public
    */
@@ -8495,7 +8698,7 @@ export interface StartResourceStateUpdateResponse {
   lifecycleExecutionId?: string | undefined;
 
   /**
-   * <p>The requested ARN of the Image Builder resource for the asynchronous update.</p>
+   * <p>The requested Amazon Resource Name (ARN) of the Image Builder resource for the asynchronous update.</p>
    * @public
    */
   resourceArn?: string | undefined;
@@ -8938,7 +9141,7 @@ export interface UpdateLifecyclePolicyRequest {
  */
 export interface UpdateLifecyclePolicyResponse {
   /**
-   * <p>The ARN of the image lifecycle policy resource that was updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the image lifecycle policy resource that was updated.</p>
    * @public
    */
   lifecyclePolicyArn?: string | undefined;

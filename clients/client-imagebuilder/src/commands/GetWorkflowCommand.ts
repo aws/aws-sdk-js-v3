@@ -71,6 +71,12 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //       },
  * //     ],
  * //   },
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

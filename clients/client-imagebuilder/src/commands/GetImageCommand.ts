@@ -355,6 +355,12 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       logGroupName: "STRING_VALUE",
  * //     },
  * //   },
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

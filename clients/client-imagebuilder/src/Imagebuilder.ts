@@ -95,6 +95,11 @@ import {
   DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  DistributeImageCommand,
+  DistributeImageCommandInput,
+  DistributeImageCommandOutput,
+} from "./commands/DistributeImageCommand";
+import {
   GetComponentCommand,
   GetComponentCommandInput,
   GetComponentCommandOutput,
@@ -312,6 +317,7 @@ import {
   PutImageRecipePolicyCommandInput,
   PutImageRecipePolicyCommandOutput,
 } from "./commands/PutImageRecipePolicyCommand";
+import { RetryImageCommand, RetryImageCommandInput, RetryImageCommandOutput } from "./commands/RetryImageCommand";
 import {
   SendWorkflowStepActionCommand,
   SendWorkflowStepActionCommandInput,
@@ -376,6 +382,7 @@ const commands = {
   DeleteInfrastructureConfigurationCommand,
   DeleteLifecyclePolicyCommand,
   DeleteWorkflowCommand,
+  DistributeImageCommand,
   GetComponentCommand,
   GetComponentPolicyCommand,
   GetContainerRecipeCommand,
@@ -422,6 +429,7 @@ const commands = {
   PutContainerRecipePolicyCommand,
   PutImagePolicyCommand,
   PutImageRecipePolicyCommand,
+  RetryImageCommand,
   SendWorkflowStepActionCommand,
   StartImagePipelineExecutionCommand,
   StartResourceStateUpdateCommand,
@@ -748,6 +756,20 @@ export interface Imagebuilder {
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DistributeImageCommand}
+   */
+  distributeImage(
+    args: DistributeImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DistributeImageCommandOutput>;
+  distributeImage(args: DistributeImageCommandInput, cb: (err: any, data?: DistributeImageCommandOutput) => void): void;
+  distributeImage(
+    args: DistributeImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DistributeImageCommandOutput) => void
   ): void;
 
   /**
@@ -1491,6 +1513,17 @@ export interface Imagebuilder {
     args: PutImageRecipePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RetryImageCommand}
+   */
+  retryImage(args: RetryImageCommandInput, options?: __HttpHandlerOptions): Promise<RetryImageCommandOutput>;
+  retryImage(args: RetryImageCommandInput, cb: (err: any, data?: RetryImageCommandOutput) => void): void;
+  retryImage(
+    args: RetryImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetryImageCommandOutput) => void
   ): void;
 
   /**

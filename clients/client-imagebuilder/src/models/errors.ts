@@ -4,6 +4,26 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { ImagebuilderServiceException as __BaseException } from "./ImagebuilderServiceException";
 
 /**
+ * <p>You do not have permissions to perform the requested operation.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name = "AccessDeniedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
  * <p>You have exceeded the permitted request rate for the specific operation.</p>
  * @public
  */
@@ -169,6 +189,26 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
+ * @public
+ */
+export class DryRunOperationException extends __BaseException {
+  readonly name = "DryRunOperationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunOperationException, __BaseException>) {
+    super({
+      name: "DryRunOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunOperationException.prototype);
+  }
+}
+
+/**
  * <p>You have specified two or more mutually exclusive parameters. Review the error message
  * 			for details.</p>
  * @public
@@ -289,6 +329,26 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>You have attempted too many requests for the specific operation.</p>
+ * @public
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name = "TooManyRequestsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
   }
 }
 

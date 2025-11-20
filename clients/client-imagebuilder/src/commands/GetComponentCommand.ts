@@ -85,6 +85,12 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * //       },
  * //     ],
  * //   },
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

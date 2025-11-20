@@ -97,6 +97,12 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

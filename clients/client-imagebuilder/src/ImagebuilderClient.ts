@@ -113,6 +113,7 @@ import {
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
+import { DistributeImageCommandInput, DistributeImageCommandOutput } from "./commands/DistributeImageCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "./commands/GetComponentPolicyCommand";
 import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "./commands/GetContainerRecipeCommand";
@@ -237,6 +238,7 @@ import {
   PutImageRecipePolicyCommandInput,
   PutImageRecipePolicyCommandOutput,
 } from "./commands/PutImageRecipePolicyCommand";
+import { RetryImageCommandInput, RetryImageCommandOutput } from "./commands/RetryImageCommand";
 import {
   SendWorkflowStepActionCommandInput,
   SendWorkflowStepActionCommandOutput,
@@ -302,6 +304,7 @@ export type ServiceInputTypes =
   | DeleteInfrastructureConfigurationCommandInput
   | DeleteLifecyclePolicyCommandInput
   | DeleteWorkflowCommandInput
+  | DistributeImageCommandInput
   | GetComponentCommandInput
   | GetComponentPolicyCommandInput
   | GetContainerRecipeCommandInput
@@ -348,6 +351,7 @@ export type ServiceInputTypes =
   | PutContainerRecipePolicyCommandInput
   | PutImagePolicyCommandInput
   | PutImageRecipePolicyCommandInput
+  | RetryImageCommandInput
   | SendWorkflowStepActionCommandInput
   | StartImagePipelineExecutionCommandInput
   | StartResourceStateUpdateCommandInput
@@ -382,6 +386,7 @@ export type ServiceOutputTypes =
   | DeleteInfrastructureConfigurationCommandOutput
   | DeleteLifecyclePolicyCommandOutput
   | DeleteWorkflowCommandOutput
+  | DistributeImageCommandOutput
   | GetComponentCommandOutput
   | GetComponentPolicyCommandOutput
   | GetContainerRecipeCommandOutput
@@ -428,6 +433,7 @@ export type ServiceOutputTypes =
   | PutContainerRecipePolicyCommandOutput
   | PutImagePolicyCommandOutput
   | PutImageRecipePolicyCommandOutput
+  | RetryImageCommandOutput
   | SendWorkflowStepActionCommandOutput
   | StartImagePipelineExecutionCommandOutput
   | StartResourceStateUpdateCommandOutput

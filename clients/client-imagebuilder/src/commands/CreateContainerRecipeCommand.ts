@@ -97,6 +97,12 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * //   requestId: "STRING_VALUE",
  * //   clientToken: "STRING_VALUE",
  * //   containerRecipeArn: "STRING_VALUE",
+ * //   latestVersionReferences: { // LatestVersionReferences
+ * //     latestVersionArn: "STRING_VALUE",
+ * //     latestMajorVersionArn: "STRING_VALUE",
+ * //     latestMinorVersionArn: "STRING_VALUE",
+ * //     latestPatchVersionArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
