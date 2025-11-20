@@ -27,7 +27,7 @@ export interface PutEventConfigurationCommandInput extends PutEventConfiguration
 export interface PutEventConfigurationCommandOutput extends PutEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the event configuration settings for the specified event data store. You can update the maximum event size and context key selectors.</p>
+ * <p>Updates the event configuration settings for the specified event data store or trail. This operation supports updating the maximum event size, adding or modifying context key selectors for event data store, and configuring aggregation settings for the trail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,9 +37,10 @@ export interface PutEventConfigurationCommandOutput extends PutEventConfiguratio
  * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // PutEventConfigurationRequest
+ *   TrailName: "STRING_VALUE",
  *   EventDataStore: "STRING_VALUE",
- *   MaxEventSize: "Standard" || "Large", // required
- *   ContextKeySelectors: [ // ContextKeySelectors // required
+ *   MaxEventSize: "Standard" || "Large",
+ *   ContextKeySelectors: [ // ContextKeySelectors
  *     { // ContextKeySelector
  *       Type: "TagContext" || "RequestContext", // required
  *       Equals: [ // OperatorTargetList // required
@@ -47,10 +48,19 @@ export interface PutEventConfigurationCommandOutput extends PutEventConfiguratio
  *       ],
  *     },
  *   ],
+ *   AggregationConfigurations: [ // AggregationConfigurations
+ *     { // AggregationConfiguration
+ *       Templates: [ // Templates // required
+ *         "API_ACTIVITY" || "RESOURCE_ACCESS" || "USER_ACTIONS",
+ *       ],
+ *       EventCategory: "Data", // required
+ *     },
+ *   ],
  * };
  * const command = new PutEventConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // PutEventConfigurationResponse
+ * //   TrailARN: "STRING_VALUE",
  * //   EventDataStoreArn: "STRING_VALUE",
  * //   MaxEventSize: "Standard" || "Large",
  * //   ContextKeySelectors: [ // ContextKeySelectors
@@ -59,6 +69,14 @@ export interface PutEventConfigurationCommandOutput extends PutEventConfiguratio
  * //       Equals: [ // OperatorTargetList // required
  * //         "STRING_VALUE",
  * //       ],
+ * //     },
+ * //   ],
+ * //   AggregationConfigurations: [ // AggregationConfigurations
+ * //     { // AggregationConfiguration
+ * //       Templates: [ // Templates // required
+ * //         "API_ACTIVITY" || "RESOURCE_ACCESS" || "USER_ACTIONS",
+ * //       ],
+ * //       EventCategory: "Data", // required
  * //     },
  * //   ],
  * // };
@@ -115,12 +133,39 @@ export interface PutEventConfigurationCommandOutput extends PutEventConfiguratio
  * @throws {@link InvalidEventDataStoreStatusException} (client fault)
  *  <p>The event data store is not in a status that supports the operation.</p>
  *
+ * @throws {@link InvalidHomeRegionException} (client fault)
+ *  <p>This exception is thrown when an operation is called on a trail from a Region other than
+ *          the Region in which the trail was created.</p>
+ *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>This exception is thrown when the combination of parameters provided is not
  *          valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
  *  <p> This exception is thrown when the management account does not have a service-linked
@@ -138,6 +183,9 @@ export interface PutEventConfigurationCommandOutput extends PutEventConfiguratio
  *  <p>
  *          This exception is thrown when the request rate exceeds the limit.
  *       </p>
+ *
+ * @throws {@link TrailNotFoundException} (client fault)
+ *  <p>This exception is thrown when the trail with the given name is not found.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>

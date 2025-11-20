@@ -6,6 +6,7 @@ import {
   DeliveryStatus,
   DestinationType,
   EventCategory,
+  EventCategoryAggregation,
   EventDataStoreStatus,
   FederationStatus,
   ImportFailureStatus,
@@ -21,6 +22,7 @@ import {
   RefreshScheduleFrequencyUnit,
   RefreshScheduleStatus,
   SourceEventCategory,
+  Template,
   Type,
 } from "./enums";
 
@@ -169,6 +171,24 @@ export interface AdvancedEventSelector {
    * @public
    */
   FieldSelectors: AdvancedFieldSelector[] | undefined;
+}
+
+/**
+ * <p>An object that contains configuration settings for aggregating events.</p>
+ * @public
+ */
+export interface AggregationConfiguration {
+  /**
+   * <p>A list of aggregation templates that can be used to configure event aggregation.</p>
+   * @public
+   */
+  Templates: Template[] | undefined;
+
+  /**
+   * <p>Specifies the event category for which aggregation should be performed.</p>
+   * @public
+   */
+  EventCategory: EventCategoryAggregation | undefined;
 }
 
 /**
@@ -1889,6 +1909,12 @@ export interface GetDashboardResponse {
  */
 export interface GetEventConfigurationRequest {
   /**
+   * <p>The name of the trail for which you want to retrieve event configuration settings.</p>
+   * @public
+   */
+  TrailName?: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to retrieve event configuration settings.</p>
    * @public
    */
@@ -1918,6 +1944,12 @@ export interface ContextKeySelector {
  */
 export interface GetEventConfigurationResponse {
   /**
+   * <p>The Amazon Resource Name (ARN) of the trail for which the event configuration settings are returned.</p>
+   * @public
+   */
+  TrailARN?: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which the event configuration settings are returned.</p>
    * @public
    */
@@ -1934,6 +1966,12 @@ export interface GetEventConfigurationResponse {
    * @public
    */
   ContextKeySelectors?: ContextKeySelector[] | undefined;
+
+  /**
+   * <p>The list of aggregation configurations that are configured for the trail.</p>
+   * @public
+   */
+  AggregationConfigurations?: AggregationConfiguration[] | undefined;
 }
 
 /**
@@ -4061,7 +4099,13 @@ export interface LookupEventsResponse {
  */
 export interface PutEventConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to update event configuration settings.</p>
+   * <p>The name of the trail for which you want to update event configuration settings.</p>
+   * @public
+   */
+  TrailName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which event configuration settings are updated.</p>
    * @public
    */
   EventDataStore?: string | undefined;
@@ -4070,19 +4114,31 @@ export interface PutEventConfigurationRequest {
    * <p>The maximum allowed size for events to be stored in the specified event data store. If you are using context key selectors, MaxEventSize must be set to Large.</p>
    * @public
    */
-  MaxEventSize: MaxEventSize | undefined;
+  MaxEventSize?: MaxEventSize | undefined;
 
   /**
    * <p>A list of context key selectors that will be included to provide enriched event data.</p>
    * @public
    */
-  ContextKeySelectors: ContextKeySelector[] | undefined;
+  ContextKeySelectors?: ContextKeySelector[] | undefined;
+
+  /**
+   * <p>The list of aggregation configurations that you want to configure for the trail.</p>
+   * @public
+   */
+  AggregationConfigurations?: AggregationConfiguration[] | undefined;
 }
 
 /**
  * @public
  */
 export interface PutEventConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trail that has aggregation enabled.</p>
+   * @public
+   */
+  TrailARN?: string | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which the event configuration settings were updated.</p>
    * @public
@@ -4100,6 +4156,12 @@ export interface PutEventConfigurationResponse {
    * @public
    */
   ContextKeySelectors?: ContextKeySelector[] | undefined;
+
+  /**
+   * <p>A list of aggregation configurations that are configured for the trail.</p>
+   * @public
+   */
+  AggregationConfigurations?: AggregationConfiguration[] | undefined;
 }
 
 /**

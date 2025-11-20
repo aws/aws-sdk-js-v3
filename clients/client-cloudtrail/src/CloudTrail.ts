@@ -865,6 +865,7 @@ export interface CloudTrail {
   /**
    * @see {@link PutEventConfigurationCommand}
    */
+  putEventConfiguration(): Promise<PutEventConfigurationCommandOutput>;
   putEventConfiguration(
     args: PutEventConfigurationCommandInput,
     options?: __HttpHandlerOptions

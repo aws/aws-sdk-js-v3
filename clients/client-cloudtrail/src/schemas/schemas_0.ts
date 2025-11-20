@@ -1,3 +1,5 @@
+const _AC = "AggregationConfiguration";
+const _ACg = "AggregationConfigurations";
 const _ADE = "AccessDeniedException";
 const _AES = "AdvancedEventSelector";
 const _AESd = "AdvancedEventSelectors";
@@ -97,10 +99,10 @@ const _De = "Destination";
 const _Des = "Description";
 const _Di = "Dimensions";
 const _E = "Equals";
-const _EC = "EventsCompleted";
+const _EC = "EventCategory";
 const _ECr = "ErrorCode";
-const _ECv = "EventCategories";
-const _ECve = "EventCategory";
+const _ECv = "EventsCompleted";
+const _ECve = "EventCategories";
 const _EDS = "EventDataStore";
 const _EDSA = "EventDataStoreArn";
 const _EDSAEE = "EventDataStoreAlreadyExistsException";
@@ -447,7 +449,7 @@ const _STN = "SnsTopicName";
 const _SW = "StartsWith";
 const _S_ = "S3";
 const _St = "Status";
-const _T = "Type";
+const _T = "Templates";
 const _TAEE = "TrailAlreadyExistsException";
 const _TARN = "TrailARN";
 const _TE = "ThrottlingException";
@@ -468,6 +470,7 @@ const _Tag = "Tag";
 const _Ti = "Timestamps";
 const _Tr = "Trail";
 const _Tra = "Trails";
+const _Ty = "Type";
 const _U = "Username";
 const _UC = "UpdateChannel";
 const _UCR = "UpdateChannelRequest";
@@ -692,6 +695,7 @@ export var AdvancedFieldSelector: StaticStructureSchema = [
   [_F, _E, _SW, _EW, _NE, _NSW, _NEW],
   [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
+export var AggregationConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_T, _EC], [64 | 0, 0]];
 export var CancelQueryRequest: StaticStructureSchema = [3, n0, _CQR, 0, [_EDS, _QI, _EDSOAI], [0, 0, 0]];
 export var CancelQueryResponse: StaticStructureSchema = [3, n0, _CQRa, 0, [_QI, _QS, _EDSOAI], [0, 0, 0]];
 export var CannotDelegateManagementAccountException: StaticErrorSchema = [
@@ -869,7 +873,7 @@ export var ConflictException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
 
-export var ContextKeySelector: StaticStructureSchema = [3, n0, _CKS, 0, [_T, _E], [0, 64 | 0]];
+export var ContextKeySelector: StaticStructureSchema = [3, n0, _CKS, 0, [_Ty, _E], [0, 64 | 0]];
 export var CreateChannelRequest: StaticStructureSchema = [
   3,
   n0,
@@ -899,7 +903,7 @@ export var CreateDashboardResponse: StaticStructureSchema = [
   n0,
   _CDRr,
   0,
-  [_DA, _N, _T, _W, _TL, _RS, _TPE],
+  [_DA, _N, _Ty, _W, _TL, _RS, _TPE],
   [0, 0, 0, () => WidgetList, () => TagsList, () => RefreshSchedule, 2],
 ];
 export var CreateEventDataStoreRequest: StaticStructureSchema = [
@@ -934,8 +938,8 @@ export var CreateTrailResponse: StaticStructureSchema = [
   [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _IOT],
   [0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2],
 ];
-export var DashboardDetail: StaticStructureSchema = [3, n0, _DD, 0, [_DA, _T], [0, 0]];
-export var DataResource: StaticStructureSchema = [3, n0, _DR, 0, [_T, _V], [0, 64 | 0]];
+export var DashboardDetail: StaticStructureSchema = [3, n0, _DD, 0, [_DA, _Ty], [0, 0]];
+export var DataResource: StaticStructureSchema = [3, n0, _DR, 0, [_Ty, _V], [0, 64 | 0]];
 export var DelegatedAdminAccountLimitExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -983,7 +987,7 @@ export var DescribeQueryResponse: StaticStructureSchema = [
 ];
 export var DescribeTrailsRequest: StaticStructureSchema = [3, n0, _DTRes, 0, [_tNL, _iST], [64 | 0, 2]];
 export var DescribeTrailsResponse: StaticStructureSchema = [3, n0, _DTResc, 0, [_tL], [() => TrailList]];
-export var Destination: StaticStructureSchema = [3, n0, _De, 0, [_T, _L], [0, 0]];
+export var Destination: StaticStructureSchema = [3, n0, _De, 0, [_Ty, _L], [0, 0]];
 export var DisableFederationRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_EDS], [0]];
 export var DisableFederationResponse: StaticStructureSchema = [3, n0, _DFRi, 0, [_EDSA, _FSe], [0, 0]];
 export var EnableFederationRequest: StaticStructureSchema = [3, n0, _EFR, 0, [_EDS, _FRA], [0, 0]];
@@ -1147,17 +1151,17 @@ export var GetDashboardResponse: StaticStructureSchema = [
   n0,
   _GDRe,
   0,
-  [_DA, _T, _St, _W, _RS, _CT, _UT, _LRI, _LRFR, _TPE],
+  [_DA, _Ty, _St, _W, _RS, _CT, _UT, _LRI, _LRFR, _TPE],
   [0, 0, 0, () => WidgetList, () => RefreshSchedule, 4, 4, 0, 0, 2],
 ];
-export var GetEventConfigurationRequest: StaticStructureSchema = [3, n0, _GECR, 0, [_EDS], [0]];
+export var GetEventConfigurationRequest: StaticStructureSchema = [3, n0, _GECR, 0, [_TN, _EDS], [0, 0]];
 export var GetEventConfigurationResponse: StaticStructureSchema = [
   3,
   n0,
   _GECRe,
   0,
-  [_EDSA, _MES, _CKSo],
-  [0, 0, () => ContextKeySelectors],
+  [_TARN, _EDSA, _MES, _CKSo, _ACg],
+  [0, 0, 0, () => ContextKeySelectors, () => AggregationConfigurations],
 ];
 export var GetEventDataStoreRequest: StaticStructureSchema = [3, n0, _GEDSR, 0, [_EDS], [0]];
 export var GetEventDataStoreResponse: StaticStructureSchema = [
@@ -1248,7 +1252,7 @@ TypeRegistry.for(n0).registerError(ImportNotFoundException, __ImportNotFoundExce
 
 export var ImportsListItem: StaticStructureSchema = [3, n0, _ILI, 0, [_II, _ISmp, _D, _CT, _UT], [0, 0, 64 | 0, 4, 4]];
 export var ImportSource: StaticStructureSchema = [3, n0, _ISm, 0, [_S_], [() => S3ImportSource]];
-export var ImportStatistics: StaticStructureSchema = [3, n0, _ISmpo, 0, [_PF, _PC, _FC, _EC, _FE], [1, 1, 1, 1, 1]];
+export var ImportStatistics: StaticStructureSchema = [3, n0, _ISmpo, 0, [_PF, _PC, _FC, _ECv, _FE], [1, 1, 1, 1, 1]];
 export var InactiveEventDataStoreException: StaticErrorSchema = [
   -3,
   n0,
@@ -1299,7 +1303,7 @@ export var InsightNotEnabledException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InsightNotEnabledException, __InsightNotEnabledException);
 
-export var InsightSelector: StaticStructureSchema = [3, n0, _ISns, 0, [_IT, _ECv], [0, 64 | 0]];
+export var InsightSelector: StaticStructureSchema = [3, n0, _ISns, 0, [_IT, _ECve], [0, 64 | 0]];
 export var InsufficientDependencyServiceAccessPermissionException: StaticErrorSchema = [
   -3,
   n0,
@@ -1787,7 +1791,7 @@ TypeRegistry.for(n0).registerError(KmsKeyNotFoundException, __KmsKeyNotFoundExce
 
 export var ListChannelsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_MR, _NT], [1, 0]];
 export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_Ch, _NT], [() => Channels, 0]];
-export var ListDashboardsRequest: StaticStructureSchema = [3, n0, _LDR, 0, [_NP, _T, _NT, _MR], [0, 0, 0, 1]];
+export var ListDashboardsRequest: StaticStructureSchema = [3, n0, _LDR, 0, [_NP, _Ty, _NT, _MR], [0, 0, 0, 1]];
 export var ListDashboardsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Da, _NT], [() => Dashboards, 0]];
 export var ListEventDataStoresRequest: StaticStructureSchema = [3, n0, _LEDSR, 0, [_NT, _MR], [0, 1]];
 export var ListEventDataStoresResponse: StaticStructureSchema = [
@@ -1855,7 +1859,7 @@ export var LookupEventsRequest: StaticStructureSchema = [
   n0,
   _LER,
   0,
-  [_LAo, _ST, _ETn, _ECve, _MR, _NT],
+  [_LAo, _ST, _ETn, _EC, _MR, _NT],
   [() => LookupAttributesList, 4, 4, 0, 1, 0],
 ];
 export var LookupEventsResponse: StaticStructureSchema = [3, n0, _LERo, 0, [_Eve, _NT], [() => EventsList, 0]];
@@ -1977,23 +1981,23 @@ export var OrganizationsNotInUseException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(OrganizationsNotInUseException, __OrganizationsNotInUseException);
 
-export var PartitionKey: StaticStructureSchema = [3, n0, _PKa, 0, [_N, _T], [0, 0]];
+export var PartitionKey: StaticStructureSchema = [3, n0, _PKa, 0, [_N, _Ty], [0, 0]];
 export var PublicKey: StaticStructureSchema = [3, n0, _PKu, 0, [_Va, _VST, _VET, _Fi], [21, 4, 4, 0]];
 export var PutEventConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
   _PECR,
   0,
-  [_EDS, _MES, _CKSo],
-  [0, 0, () => ContextKeySelectors],
+  [_TN, _EDS, _MES, _CKSo, _ACg],
+  [0, 0, 0, () => ContextKeySelectors, () => AggregationConfigurations],
 ];
 export var PutEventConfigurationResponse: StaticStructureSchema = [
   3,
   n0,
   _PECRu,
   0,
-  [_EDSA, _MES, _CKSo],
-  [0, 0, () => ContextKeySelectors],
+  [_TARN, _EDSA, _MES, _CKSo, _ACg],
+  [0, 0, 0, () => ContextKeySelectors, () => AggregationConfigurations],
 ];
 export var PutEventSelectorsRequest: StaticStructureSchema = [
   3,
@@ -2355,7 +2359,7 @@ export var UpdateDashboardResponse: StaticStructureSchema = [
   n0,
   _UDRp,
   0,
-  [_DA, _N, _T, _W, _RS, _TPE, _CT, _UT],
+  [_DA, _N, _Ty, _W, _RS, _TPE, _CT, _UT],
   [0, 0, 0, () => WidgetList, () => RefreshSchedule, 2, 4, 4],
 ];
 export var UpdateEventDataStoreRequest: StaticStructureSchema = [
@@ -2398,6 +2402,7 @@ TypeRegistry.for(_s).registerError(CloudTrailServiceException, __CloudTrailServi
 
 export var AdvancedEventSelectors: StaticListSchema = [1, n0, _AESd, 0, () => AdvancedEventSelector];
 export var AdvancedFieldSelectors: StaticListSchema = [1, n0, _AFSd, 0, () => AdvancedFieldSelector];
+export var AggregationConfigurations: StaticListSchema = [1, n0, _ACg, 0, () => AggregationConfiguration];
 export var Channels: StaticListSchema = [1, n0, _Ch, 0, () => Channel];
 export var ContextKeySelectors: StaticListSchema = [1, n0, _CKSo, 0, () => ContextKeySelector];
 export var Dashboards: StaticListSchema = [1, n0, _Da, 0, () => DashboardDetail];
@@ -2446,6 +2451,8 @@ export var SearchSampleQueriesSearchResults: StaticListSchema = [
 export var SourceEventCategories = 64 | 0;
 
 export var TagsList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
+export var Templates = 64 | 0;
+
 export var Timestamps = 64 | 4;
 
 export var TrailList: StaticListSchema = [1, n0, _TLr, 0, () => Trail];

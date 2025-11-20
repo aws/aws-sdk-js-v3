@@ -27,8 +27,7 @@ export interface GetEventConfigurationCommandInput extends GetEventConfiguration
 export interface GetEventConfigurationCommandOutput extends GetEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current event configuration settings for the specified event data store, including details
- *          about maximum event size and context key selectors configured for the event data store.</p>
+ * <p>Retrieves the current event configuration settings for the specified event data store or trail. The response includes maximum event size configuration, the context key selectors configured for the event data store, and any aggregation settings configured for the trail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,11 +37,13 @@ export interface GetEventConfigurationCommandOutput extends GetEventConfiguratio
  * const config = {}; // type is CloudTrailClientConfig
  * const client = new CloudTrailClient(config);
  * const input = { // GetEventConfigurationRequest
+ *   TrailName: "STRING_VALUE",
  *   EventDataStore: "STRING_VALUE",
  * };
  * const command = new GetEventConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // GetEventConfigurationResponse
+ * //   TrailARN: "STRING_VALUE",
  * //   EventDataStoreArn: "STRING_VALUE",
  * //   MaxEventSize: "Standard" || "Large",
  * //   ContextKeySelectors: [ // ContextKeySelectors
@@ -51,6 +52,14 @@ export interface GetEventConfigurationCommandOutput extends GetEventConfiguratio
  * //       Equals: [ // OperatorTargetList // required
  * //         "STRING_VALUE",
  * //       ],
+ * //     },
+ * //   ],
+ * //   AggregationConfigurations: [ // AggregationConfigurations
+ * //     { // AggregationConfiguration
+ * //       Templates: [ // Templates // required
+ * //         "API_ACTIVITY" || "RESOURCE_ACCESS" || "USER_ACTIONS",
+ * //       ],
+ * //       EventCategory: "Data", // required
  * //     },
  * //   ],
  * // };
@@ -97,12 +106,38 @@ export interface GetEventConfigurationCommandOutput extends GetEventConfiguratio
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The request includes a parameter that is not valid.</p>
  *
+ * @throws {@link InvalidTrailNameException} (client fault)
+ *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
+ *          meet the following requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+ *                (_), or dashes (-)</p>
+ *             </li>
+ *             <li>
+ *                <p>Start with a letter or number, and end with a letter or number</p>
+ *             </li>
+ *             <li>
+ *                <p>Be between 3 and 128 characters</p>
+ *             </li>
+ *             <li>
+ *                <p>Have no adjacent periods, underscores or dashes. Names like
+ *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
  *  <p> This exception is thrown when the management account does not have a service-linked
  *          role. </p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link TrailNotFoundException} (client fault)
+ *  <p>This exception is thrown when the trail with the given name is not found.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>

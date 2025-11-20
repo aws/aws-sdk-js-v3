@@ -3,6 +3,32 @@
  * @public
  * @enum
  */
+export const EventCategoryAggregation = {
+  Data: "Data",
+} as const;
+/**
+ * @public
+ */
+export type EventCategoryAggregation = (typeof EventCategoryAggregation)[keyof typeof EventCategoryAggregation];
+
+/**
+ * @public
+ * @enum
+ */
+export const Template = {
+  API_ACTIVITY: "API_ACTIVITY",
+  RESOURCE_ACCESS: "RESOURCE_ACCESS",
+  USER_ACTIONS: "USER_ACTIONS",
+} as const;
+/**
+ * @public
+ */
+export type Template = (typeof Template)[keyof typeof Template];
+
+/**
+ * @public
+ * @enum
+ */
 export const BillingMode = {
   EXTENDABLE_RETENTION_PRICING: "EXTENDABLE_RETENTION_PRICING",
   FIXED_RETENTION_PRICING: "FIXED_RETENTION_PRICING",
