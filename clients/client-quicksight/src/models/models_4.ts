@@ -18,6 +18,7 @@ import {
   IncludeFolderMembers,
   IncludeGeneratedAnswer,
   IncludeQuickSightQIndex,
+  NetworkInterfaceStatus,
   PersonalizationMode,
   PurchaseMode,
   QAResultType,
@@ -51,7 +52,6 @@ import {
   AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSummary,
-  DashboardVisualId,
   SharedViewConfigurations,
 } from "./models_1";
 
@@ -79,11 +79,11 @@ import {
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardVersionDefinition,
+  DashboardVisualId,
   DataPrepConfiguration,
   DatasetParameter,
   DataSetRefreshProperties,
   DataSetUsageConfiguration,
-  DataSourceCredentials,
   DataSourceParameters,
   FieldFolder,
   LinkSharingConfiguration,
@@ -112,14 +112,13 @@ import {
   DataSetSearchFilter,
   DataSetSummary,
   DataSource,
+  DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
-  FailedKeyRegistrationEntry,
   Group,
   GroupMember,
   Ingestion,
   NamespaceInfoV2,
-  NetworkInterface,
   RefreshSchedule,
   RegisteredCustomerManagedKey,
   SnapshotConfiguration,
@@ -132,6 +131,196 @@ import {
   TopicRefreshSchedule,
   User,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeVPCConnectionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
+   * 			you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC connection that
+   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId: string | undefined;
+}
+
+/**
+ * <p>The structure that contains information about a network interface.</p>
+ * @public
+ */
+export interface NetworkInterface {
+  /**
+   * <p>The subnet ID associated with the network interface.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The availability zone that the network interface resides in.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>An error message.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The status of the network interface.</p>
+   * @public
+   */
+  Status?: NetworkInterfaceStatus | undefined;
+
+  /**
+   * <p>The network interface ID.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+}
+
+/**
+ * <p>The structure of a VPC connection.</p>
+ * @public
+ */
+export interface VPCConnection {
+  /**
+   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   *                 Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The display name for the VPC connection.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+   * @public
+   */
+  VPCId?: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
+   * @public
+   */
+  DnsResolvers?: string[] | undefined;
+
+  /**
+   * <p>The status of the VPC connection.</p>
+   * @public
+   */
+  Status?: VPCConnectionResourceStatus | undefined;
+
+  /**
+   * <p>The availability status of the VPC connection.</p>
+   * @public
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
+
+  /**
+   * <p>A list of network interfaces.</p>
+   * @public
+   */
+  NetworkInterfaces?: NetworkInterface[] | undefined;
+
+  /**
+   * <p>The ARN of the
+   *                 IAM role associated with the VPC
+   *             connection.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The time that the VPC connection was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that the VPC connection was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVPCConnectionResponse {
+  /**
+   * <p>A response object that provides information for the specified VPC connection.</p>
+   * @public
+   */
+  VPCConnection?: VPCConnection | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>An entry that appears when a <code>KeyRegistration</code> update to Quick Sight fails.</p>
+ * @public
+ */
+export interface FailedKeyRegistrationEntry {
+  /**
+   * <p>The ARN of the KMS key that failed to update.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+
+  /**
+   * <p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The HTTP status of a <code>FailedKeyRegistrationEntry</code> error.</p>
+   * @public
+   */
+  StatusCode: number | undefined;
+
+  /**
+   * <p>A boolean that indicates whether a <code>FailedKeyRegistrationEntry</code> resulted from user error. If the value of this property is <code>True</code>, the error was caused by user error. If the value of this property is <code>False</code>, the error occurred on the backend. If your job continues fail and with a <code>False</code>
+   *             <code>SenderFault</code> value, contact Amazon Web Services Support.</p>
+   * @public
+   */
+  SenderFault: boolean | undefined;
+}
 
 /**
  * <p>The basic information of the flow exluding its definition specifying the steps.</p>

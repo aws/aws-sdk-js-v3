@@ -160,6 +160,7 @@ const _AIs = "AssignmentId";
 const _AK = "ApiKey";
 const _AKCM = "ApiKeyConnectionMetadata";
 const _AL = "AggregationList";
+const _ALFC = "AxisLabelFontConfiguration";
 const _ALO = "AxisLabelOptions";
 const _ALOL = "AxisLabelOptionsList";
 const _ALRO = "AxisLabelReferenceOptions";
@@ -223,6 +224,7 @@ const _ASx = "AxisScale";
 const _AT = "AuthenticationType";
 const _ATBS = "AuthorizedTargetsByService";
 const _ATBSu = "AuthorizedTargetsByServices";
+const _ATFC = "AxisTitleFontConfiguration";
 const _ATLO = "AxisTickLabelOptions";
 const _ATl = "AltText";
 const _ATn = "AnchorType";
@@ -309,7 +311,8 @@ const _BPSC = "BoxPlotSortConfiguration";
 const _BPSO = "BoxPlotStyleOptions";
 const _BPV = "BoxPlotVisual";
 const _BQP = "BigQueryParameters";
-const _BR = "BucketRegion";
+const _BR = "BorderRadius";
+const _BRu = "BucketRegion";
 const _BS = "BorderStyle";
 const _BSC = "BodySectionConfiguration";
 const _BSCL = "BodySectionConfigurationList";
@@ -915,6 +918,7 @@ const _DKR = "DescribeKeyRegistration";
 const _DKRR = "DescribeKeyRegistrationRequest";
 const _DKRRe = "DescribeKeyRegistrationResponse";
 const _DL = "DataLabels";
+const _DLFC = "DataLabelFontConfiguration";
 const _DLO = "DataLabelOptions";
 const _DLOe = "DefaultListOptions";
 const _DLT = "DataLabelTypes";
@@ -1473,6 +1477,8 @@ const _GLCSO = "GridLayoutCanvasSizeOptions";
 const _GLD = "GeospatialLayerDefinition";
 const _GLDFL = "GeospatialLayerDimensionFieldList";
 const _GLE = "GridLayoutElement";
+const _GLEBS = "GridLayoutElementBackgroundStyle";
+const _GLEBSr = "GridLayoutElementBorderStyle";
 const _GLEL = "GridLayoutElementList";
 const _GLI = "GeospatialLayerItem";
 const _GLJD = "GeospatialLayerJoinDefinition";
@@ -1850,6 +1856,7 @@ const _LTARis = "ListThemeAliasesRequest";
 const _LTARist = "ListThemeAliasesResponse";
 const _LTAi = "ListThemeAliases";
 const _LTDSC = "LinkToDataSetColumn";
+const _LTFC = "LegendTitleFontConfiguration";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -1886,6 +1893,7 @@ const _LUR = "ListUsersRequest";
 const _LURi = "ListUsersResponse";
 const _LUT = "LastUpdatedTime";
 const _LV = "LineValues";
+const _LVFC = "LegendValueFontConfiguration";
 const _LVN = "LatestVersionNumber";
 const _LVPCC = "ListVPCConnections";
 const _LVPCCR = "ListVPCConnectionsRequest";
@@ -2475,6 +2483,7 @@ const _SBLPCSO = "SectionBasedLayoutPaperCanvasSizeOptions";
 const _SBM = "SortByMetrics";
 const _SBO = "ScrollBarOptions";
 const _SBS = "SelectedBorderStyle";
+const _SBSh = "SheetBackgroundStyle";
 const _SBT = "SelectedBinType";
 const _SBU = "SiteBaseUrl";
 const _SBe = "SectionBased";
@@ -2816,6 +2825,7 @@ const _TAOr = "TrendArrowOptions";
 const _TAe = "TemplateAlias";
 const _TAem = "TemplateArn";
 const _TAex = "TextArea";
+const _TAext = "TextAlignment";
 const _TAh = "ThemeAlias";
 const _TAhr = "ThresholdAlerts";
 const _TAo = "TopicArn";
@@ -3006,6 +3016,7 @@ const _TTOL = "TransposedTableOptionList";
 const _TTOr = "TransposedTableOption";
 const _TTT = "TooltipTitleType";
 const _TTe = "TemplateType";
+const _TTex = "TextTransform";
 const _TTo = "TooltipText";
 const _TTop = "TopicTemplate";
 const _TUFL = "TableUnaggregatedFieldList";
@@ -3303,12 +3314,14 @@ const _VPi = "VisualProperties";
 const _VR = "VisibleRange";
 const _VRO = "VisibleRangeOptions";
 const _VS = "VersionStatus";
+const _VSFC = "VisualSubtitleFontConfiguration";
 const _VSLO = "VisualSubtitleLabelOptions";
 const _VSa = "ValidationStrategy";
 const _VSi = "VisualSubtitle";
 const _VSis = "VisibilityState";
 const _VT = "VisualTitle";
 const _VTA = "VerticalTextAlignment";
+const _VTFC = "VisualTitleFontConfiguration";
 const _VTLO = "VisualTitleLabelOptions";
 const _VTa = "ValueType";
 const _VWU = "ValueWhenUnset";
@@ -3319,7 +3332,7 @@ const _Vi = "Visibility";
 const _Vis = "Visualization";
 const _Visu = "Visuals";
 const _Visua = "Visual";
-const _W = "Warning";
+const _W = "Width";
 const _WC = "WordCasing";
 const _WCAFW = "WaterfallChartAggregatedFieldWells";
 const _WCAFWo = "WordCloudAggregatedFieldWells";
@@ -3356,11 +3369,11 @@ const _WSe = "WeightSort";
 const _WSi = "WindowSize";
 const _WSo = "WordScaling";
 const _WV = "WaterfallVisual";
-const _Wa = "Warnings";
-const _War = "Warehouse";
+const _Wa = "Warning";
+const _War = "Warnings";
+const _Ware = "Warehouse";
 const _We = "West";
 const _Wei = "Weight";
-const _Wi = "Width";
 const _XA = "XAxis";
 const _XADO = "XAxisDisplayOptions";
 const _XAL = "XAxisLocation";
@@ -4369,7 +4382,7 @@ export var BodySectionRepeatPageBreakConfiguration: StaticStructureSchema = [
   [() => SectionAfterPageBreak],
 ];
 export var BookmarksConfigurations: StaticStructureSchema = [3, n0, _BC, 0, [_En], [2]];
-export var BorderStyle: StaticStructureSchema = [3, n0, _BS, 0, [_Sho], [2]];
+export var BorderStyle: StaticStructureSchema = [3, n0, _BS, 0, [_Col, _Sho, _W], [0, 2, 0]];
 export var BoxPlotAggregatedFieldWells: StaticStructureSchema = [
   3,
   n0,
@@ -4438,7 +4451,7 @@ export var BrandColorPalette: StaticStructureSchema = [
   n0,
   _BCP,
   0,
-  [_Prim, _Sec, _Acc, _Me, _Di, _Suc, _In, _W, _Dan],
+  [_Prim, _Sec, _Acc, _Me, _Di, _Suc, _In, _Wa, _Dan],
   [
     () => Palette,
     () => Palette,
@@ -6913,7 +6926,7 @@ export var DescribeAssetBundleExportJobResponse: StaticStructureSchema = [
   n0,
   _DABEJRe,
   0,
-  [_JS, _DUo, _Err, _A, _CT, _ABEJI, _AAI, _RAes, _IAD, _EFx, _CFOPC, _RI, _St, _IP, _IT, _VSa, _Wa, _IFM, _IFMn],
+  [_JS, _DUo, _Err, _A, _CT, _ABEJI, _AAI, _RAes, _IAD, _EFx, _CFOPC, _RI, _St, _IP, _IT, _VSa, _War, _IFM, _IFMn],
   [
     0,
     [() => SensitiveS3Uri, 0],
@@ -6952,7 +6965,7 @@ export var DescribeAssetBundleImportJobResponse: StaticStructureSchema = [
   n0,
   _DABIJRe,
   0,
-  [_JS, _Err, _RE, _A, _CT, _ABIJI, _AAI, _ABIS, _OP, _FA, _RI, _St, _OPv, _OT, _OVS, _Wa],
+  [_JS, _Err, _RE, _A, _CT, _ABIJI, _AAI, _ABIS, _OP, _FA, _RI, _St, _OPv, _OT, _OVS, _War],
   [
     0,
     () => AssetBundleImportJobErrorList,
@@ -8322,7 +8335,7 @@ export var FreeFormLayoutElement: StaticStructureSchema = [
   n0,
   _FFLE,
   0,
-  [_EIl, _ET, _XAL, _YAL, _Wi, _He, _Vi, _RRe, _BS, _SBS, _BSa, _LAo],
+  [_EIl, _ET, _XAL, _YAL, _W, _He, _Vi, _RRe, _BS, _SBS, _BSa, _LAo, _BR, _Pad],
   [
     0,
     0,
@@ -8336,10 +8349,12 @@ export var FreeFormLayoutElement: StaticStructureSchema = [
     () => FreeFormLayoutElementBorderStyle,
     () => FreeFormLayoutElementBackgroundStyle,
     () => LoadingAnimation,
+    0,
+    0,
   ],
 ];
 export var FreeFormLayoutElementBackgroundStyle: StaticStructureSchema = [3, n0, _FFLEBS, 0, [_Vi, _Col], [0, 0]];
-export var FreeFormLayoutElementBorderStyle: StaticStructureSchema = [3, n0, _FFLEBSr, 0, [_Vi, _Col], [0, 0]];
+export var FreeFormLayoutElementBorderStyle: StaticStructureSchema = [3, n0, _FFLEBSr, 0, [_Vi, _Col, _W], [0, 0, 0]];
 export var FreeFormLayoutScreenCanvasSizeOptions: StaticStructureSchema = [3, n0, _FFLSCSO, 0, [_OVPW], [0]];
 export var FreeFormSectionLayoutConfiguration: StaticStructureSchema = [
   3,
@@ -8961,9 +8976,24 @@ export var GridLayoutElement: StaticStructureSchema = [
   n0,
   _GLE,
   0,
-  [_EIl, _ET, _CIolu, _CSolumn, _RIo, _RSo],
-  [0, 0, 1, 1, 1, 1],
+  [_EIl, _ET, _CIolu, _CSolumn, _RIo, _RSo, _BS, _SBS, _BSa, _LAo, _BR, _Pad],
+  [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    () => GridLayoutElementBorderStyle,
+    () => GridLayoutElementBorderStyle,
+    () => GridLayoutElementBackgroundStyle,
+    () => LoadingAnimation,
+    0,
+    0,
+  ],
 ];
+export var GridLayoutElementBackgroundStyle: StaticStructureSchema = [3, n0, _GLEBS, 0, [_Vi, _Col], [0, 0]];
+export var GridLayoutElementBorderStyle: StaticStructureSchema = [3, n0, _GLEBSr, 0, [_Vi, _Col, _W], [0, 0, 0]];
 export var GridLayoutScreenCanvasSizeOptions: StaticStructureSchema = [3, n0, _GLSCSO, 0, [_RO, _OVPW], [0, 0]];
 export var Group: StaticStructureSchema = [3, n0, _Gr, 0, [_A, _GN, _D, _PIr], [0, 0, 0, 0]];
 export var GroupMember: StaticStructureSchema = [3, n0, _GM, 0, [_A, _MN], [0, 0]];
@@ -9507,7 +9537,7 @@ export var LegendOptions: StaticStructureSchema = [
   n0,
   _LOeg,
   0,
-  [_Vi, _Tit, _Pos, _Wi, _He, _VFC],
+  [_Vi, _Tit, _Pos, _W, _He, _VFC],
   [0, () => LabelOptions, 0, 0, 0, () => FontConfiguration],
 ];
 export var LimitExceededException: StaticErrorSchema = [
@@ -11264,7 +11294,7 @@ export var PivotTableDataPathOption: StaticStructureSchema = [
   n0,
   _PTDPO,
   0,
-  [_DPL, _Wi],
+  [_DPL, _W],
   [() => DataPathValueList, 0],
 ];
 export var PivotTableFieldCollapseStateOption: StaticStructureSchema = [
@@ -11971,7 +12001,7 @@ export var RowLevelPermissionTagRule: StaticStructureSchema = [
   [_TK, _CN, _TMVD, _MAV],
   [0, 0, 0, [() => SessionTagValue, 0]],
 ];
-export var S3BucketConfiguration: StaticStructureSchema = [3, n0, _SBC, 0, [_BNu, _BP, _BR], [0, 0, 0]];
+export var S3BucketConfiguration: StaticStructureSchema = [3, n0, _SBC, 0, [_BNu, _BP, _BRu], [0, 0, 0]];
 export var S3KnowledgeBaseParameters: StaticStructureSchema = [3, n0, _SKBP, 0, [_RA, _BU, _MFLe], [0, 0, 0]];
 export var S3Parameters: StaticStructureSchema = [3, n0, _SPa, 0, [_MFL, _RA], [() => ManifestFileLocation, 0]];
 export var S3Source: StaticStructureSchema = [
@@ -12428,6 +12458,7 @@ export var ShapeConditionalFormat: StaticStructureSchema = [
 ];
 export var SharedViewConfigurations: StaticStructureSchema = [3, n0, _SVC, 0, [_En], [2]];
 export var Sheet: StaticStructureSchema = [3, n0, _She, 0, [_SIh, _N, _Ima], [0, 0, () => SheetImageList]];
+export var SheetBackgroundStyle: StaticStructureSchema = [3, n0, _SBSh, 0, [_Col, _G], [0, 0]];
 export var SheetControlInfoIconLabelOptions: StaticStructureSchema = [3, n0, _SCIILO, 0, [_Vi, _IIT], [0, 0]];
 export var SheetControlLayout: StaticStructureSchema = [
   3,
@@ -12506,7 +12537,14 @@ export var SheetImageTooltipConfiguration: StaticStructureSchema = [
 ];
 export var SheetImageTooltipText: StaticStructureSchema = [3, n0, _SITT, 0, [_PT], [0]];
 export var SheetLayoutElementMaximizationOption: StaticStructureSchema = [3, n0, _SLEMO, 0, [_ASv], [0]];
-export var SheetStyle: StaticStructureSchema = [3, n0, _SSh, 0, [_Til, _TL], [() => TileStyle, () => TileLayoutStyle]];
+export var SheetStyle: StaticStructureSchema = [
+  3,
+  n0,
+  _SSh,
+  0,
+  [_Til, _TL, _Bac],
+  [() => TileStyle, () => TileLayoutStyle, () => SheetBackgroundStyle],
+];
 export var SheetTextBox: StaticStructureSchema = [
   3,
   n0,
@@ -12628,7 +12666,7 @@ export var SnowflakeParameters: StaticStructureSchema = [
   n0,
   _SPn,
   0,
-  [_H, _Dat, _War, _AT, _DACRa, _OAP],
+  [_H, _Dat, _Ware, _AT, _DACRa, _OAP],
   [0, 0, 0, 0, 0, () => OAuthParameters],
 ];
 export var SourceTable: StaticStructureSchema = [3, n0, _STou, 0, [_PTI, _DSata], [0, () => ParentDataSet]];
@@ -12914,7 +12952,7 @@ export var TableFieldOption: StaticStructureSchema = [
   n0,
   _TFO,
   0,
-  [_FIi, _Wi, _CL, _Vi, _URLS],
+  [_FIi, _W, _CL, _Vi, _URLS],
   [0, 0, 0, 0, () => TableFieldURLConfiguration],
 ];
 export var TableFieldOptions: StaticStructureSchema = [
@@ -13159,7 +13197,7 @@ export var TileLayoutStyle: StaticStructureSchema = [
   [_Gu, _Mar],
   [() => GutterStyle, () => MarginStyle],
 ];
-export var TileStyle: StaticStructureSchema = [3, n0, _TSi, 0, [_Bor], [() => BorderStyle]];
+export var TileStyle: StaticStructureSchema = [3, n0, _TSi, 0, [_BCa, _Bor, _BR, _Pad], [0, () => BorderStyle, 0, 0]];
 export var TimeBasedForecastProperties: StaticStructureSchema = [
   3,
   n0,
@@ -13630,13 +13668,29 @@ export var TreeMapVisual: StaticStructureSchema = [
 export var TrendArrowOptions: StaticStructureSchema = [3, n0, _TAOr, 0, [_Vi], [0]];
 export var TrinoParameters: StaticStructureSchema = [3, n0, _TPr, 0, [_H, _Po, _Cata], [0, 1, 0]];
 export var TwitterParameters: StaticStructureSchema = [3, n0, _TPw, 0, [_Qu, _MRa], [0, 1]];
-export var Typography: StaticStructureSchema = [3, n0, _Ty, 0, [_FFon], [() => FontList]];
+export var Typography: StaticStructureSchema = [
+  3,
+  n0,
+  _Ty,
+  0,
+  [_FFon, _ATFC, _ALFC, _LTFC, _LVFC, _DLFC, _VTFC, _VSFC],
+  [
+    () => FontList,
+    () => FontConfiguration,
+    () => FontConfiguration,
+    () => FontConfiguration,
+    () => FontConfiguration,
+    () => FontConfiguration,
+    () => VisualTitleFontConfiguration,
+    () => VisualSubtitleFontConfiguration,
+  ],
+];
 export var UIColorPalette: StaticStructureSchema = [
   3,
   n0,
   _UICP,
   0,
-  [_PFr, _PBri, _SFec, _SBec, _Acc, _AFc, _Dan, _DFan, _W, _WF, _Suc, _SFu, _Di, _DFime, _Me, _MFe],
+  [_PFr, _PBri, _SFec, _SBec, _Acc, _AFc, _Dan, _DFan, _Wa, _WF, _Suc, _SFu, _Di, _DFime, _Me, _MFe],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var UnaggregatedField: StaticStructureSchema = [
@@ -14584,6 +14638,14 @@ export var VisualInteractionOptions: StaticStructureSchema = [
 export var VisualMenuOption: StaticStructureSchema = [3, n0, _VMO, 0, [_ASv], [0]];
 export var VisualOptions: StaticStructureSchema = [3, n0, _VO, 0, [_t], [0]];
 export var VisualPalette: StaticStructureSchema = [3, n0, _VP, 0, [_CCha, _CMol], [0, () => DataPathColorList]];
+export var VisualSubtitleFontConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _VSFC,
+  0,
+  [_FCo, _TAext, _TTex],
+  [() => FontConfiguration, 0, 0],
+];
 export var VisualSubtitleLabelOptions: StaticStructureSchema = [
   3,
   n0,
@@ -14591,6 +14653,14 @@ export var VisualSubtitleLabelOptions: StaticStructureSchema = [
   0,
   [_Vi, _FTor],
   [0, () => LongFormatText],
+];
+export var VisualTitleFontConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _VTFC,
+  0,
+  [_FCo, _TAext, _TTex],
+  [() => FontConfiguration, 0, 0],
 ];
 export var VisualTitleLabelOptions: StaticStructureSchema = [3, n0, _VTLO, 0, [_Vi, _FTor], [0, () => ShortFormatText]];
 export var VPCConnection: StaticStructureSchema = [

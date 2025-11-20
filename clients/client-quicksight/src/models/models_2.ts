@@ -2,6 +2,8 @@
 import {
   ActionConnectorType,
   AggType,
+  AnonymousUserDashboardEmbeddingConfigurationDisabledFeature,
+  AnonymousUserDashboardEmbeddingConfigurationEnabledFeature,
   AssetBundleExportFormat,
   AssetBundleExportJobAnalysisPropertyToOverride,
   AssetBundleExportJobDashboardPropertyToOverride,
@@ -39,7 +41,6 @@ import {
   DataSetStringComparisonFilterOperator,
   DataSetStringListFilterOperator,
   DataSetUseAs,
-  DataSourceType,
   DisplayFormat,
   Edition,
   FileFormat,
@@ -99,12 +100,94 @@ import {
   AnalysisDefinition,
   AnalysisSourceEntity,
   Anchor,
-  AnonymousUserDashboardEmbeddingConfiguration,
-  DashboardVisualId,
+  AnonymousUserDashboardFeatureConfigurations,
   DataSetReference,
   SheetDefinition,
   StaticFile,
 } from "./models_1";
+
+/**
+ * <p>Information about the dashboard that you want to embed.</p>
+ * @public
+ */
+export interface AnonymousUserDashboardEmbeddingConfiguration {
+  /**
+   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is
+   *             included in the output URL. When the URL in response is accessed, Amazon Quick Sight
+   *             renders this dashboard.</p>
+   *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the
+   *                 <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with
+   *                 <code>InvalidParameterValueException</code>.</p>
+   * @public
+   */
+  InitialDashboardId: string | undefined;
+
+  /**
+   * <p>A list of all enabled features of a specified anonymous dashboard.</p>
+   * @public
+   */
+  EnabledFeatures?: AnonymousUserDashboardEmbeddingConfigurationEnabledFeature[] | undefined;
+
+  /**
+   * <p>A list of all disabled features of a specified anonymous dashboard.</p>
+   * @public
+   */
+  DisabledFeatures?: AnonymousUserDashboardEmbeddingConfigurationDisabledFeature[] | undefined;
+
+  /**
+   * <p>The feature configuration for an embedded dashboard.</p>
+   * @public
+   */
+  FeatureConfigurations?: AnonymousUserDashboardFeatureConfigurations | undefined;
+}
+
+/**
+ * <p>A structure that contains the following elements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you
+ *                     want to embed.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to
+ *                     embed.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be
+ *             found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
+ *             pane of the visual's on-visual menu of the Amazon Quick Sight console. You can also get
+ *             the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+ * @public
+ */
+export interface DashboardVisualId {
+  /**
+   * <p>The ID of the dashboard that has the visual that you want to embed. The
+   *                 <code>DashboardId</code> can be found in the <code>IDs for developers</code> section
+   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console. You can also get the <code>DashboardId</code> with a
+   *                 <code>ListDashboards</code> API operation.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the sheet that the has visual that you want to embed. The
+   *                 <code>SheetId</code> can be found in the <code>IDs for developers</code> section of
+   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console.</p>
+   * @public
+   */
+  SheetId: string | undefined;
+
+  /**
+   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in
+   *             the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the
+   *             visual's on-visual menu of the Amazon Quick Sight console.</p>
+   * @public
+   */
+  VisualId: string | undefined;
+}
 
 /**
  * <p>The experience that you are embedding. You can use this object to generate a url that
@@ -5368,10 +5451,22 @@ export interface BookmarksConfigurations {
  */
 export interface BorderStyle {
   /**
+   * <p>The option to add color for tile borders for visuals.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
    * <p>The option to enable display of borders for visuals.</p>
    * @public
    */
   Show?: boolean | undefined;
+
+  /**
+   * <p>The option to set the width of tile borders for visuals.</p>
+   * @public
+   */
+  Width?: string | undefined;
 }
 
 /**
@@ -9797,121 +9892,4 @@ export interface WebProxyCredentials {
    * @public
    */
   WebProxyPassword: string | undefined;
-}
-
-/**
- * <p>Data source credentials. This is a variant type structure. For this structure to be
- *             valid, only one of the attributes can be non-null.</p>
- * @public
- */
-export interface DataSourceCredentials {
-  /**
-   * <p>Credential pair. For more information, see
-   *             <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html">CredentialPair</a>
-   *             </code>.</p>
-   * @public
-   */
-  CredentialPair?: CredentialPair | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
-   *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
-   *             data source in the ARN is used as the credentials for the
-   *             <code>DataSourceCredentials</code> structure.</p>
-   * @public
-   */
-  CopySourceArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
-   * @public
-   */
-  SecretArn?: string | undefined;
-
-  /**
-   * <p>The credentials for connecting through a web proxy server.</p>
-   * @public
-   */
-  WebProxyCredentials?: WebProxyCredentials | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDataSourceRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each
-   * 				Amazon Web Services account. </p>
-   * @public
-   */
-  DataSourceId: string | undefined;
-
-  /**
-   * <p>A display name for the data source.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The type of the data source. To return a list of all data sources, use
-   * 				<code>ListDataSources</code>.</p>
-   *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
-   * @public
-   */
-  Type: DataSourceType | undefined;
-
-  /**
-   * <p>The parameters that Amazon Quick Sight uses to connect to your underlying
-   * 			source.</p>
-   * @public
-   */
-  DataSourceParameters?: DataSourceParameters | undefined;
-
-  /**
-   * <p>The credentials Amazon Quick Sight that uses to connect to your underlying source.
-   * 			Currently, only credentials based on user name and password are supported.</p>
-   * @public
-   */
-  Credentials?: DataSourceCredentials | undefined;
-
-  /**
-   * <p>A list of resource permissions on the data source.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>Use this parameter only when you want Amazon Quick Sight to use a VPC connection when
-   * 			connecting to your underlying source.</p>
-   * @public
-   */
-  VpcConnectionProperties?: VpcConnectionProperties | undefined;
-
-  /**
-   * <p>Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to
-   * 			your underlying source.</p>
-   * @public
-   */
-  SslProperties?: SslProperties | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			data source.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>When you create the data source, Amazon Quick Sight adds the data source to these
-   * 			folders.</p>
-   * @public
-   */
-  FolderArns?: string[] | undefined;
 }

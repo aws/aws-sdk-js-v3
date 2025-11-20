@@ -27,6 +27,7 @@ import {
   FilterClass,
   FilterOperator,
   FolderType,
+  HorizontalTextAlignment,
   IdentityStore,
   IdentityType,
   IncludeFolderMembers,
@@ -41,7 +42,6 @@ import {
   NamedFilterType,
   NamespaceErrorType,
   NamespaceStatus,
-  NetworkInterfaceStatus,
   NullFilterType,
   PersonalizationMode,
   PropertyRole,
@@ -55,6 +55,7 @@ import {
   SharingModel,
   SnapshotJobStatus,
   TemplateErrorType,
+  TextTransform,
   ThemeErrorType,
   ThemeType,
   TopicRefreshStatus,
@@ -80,6 +81,7 @@ import {
   ColumnConfiguration,
   Entity,
   FilterGroup,
+  FontConfiguration,
   ParameterDeclaration,
   QueryExecutionOptions,
   Sheet,
@@ -112,6 +114,7 @@ import {
   ColumnLevelPermissionRule,
   ColumnSchema,
   ComparativeOrder,
+  CredentialPair,
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DataPrepConfiguration,
@@ -135,7 +138,125 @@ import {
   Tag,
   ValidationStrategy,
   VpcConnectionProperties,
+  WebProxyCredentials,
 } from "./models_2";
+
+/**
+ * <p>Data source credentials. This is a variant type structure. For this structure to be
+ *             valid, only one of the attributes can be non-null.</p>
+ * @public
+ */
+export interface DataSourceCredentials {
+  /**
+   * <p>Credential pair. For more information, see
+   *             <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html">CredentialPair</a>
+   *             </code>.</p>
+   * @public
+   */
+  CredentialPair?: CredentialPair | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+   *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+   *             data source in the ARN is used as the credentials for the
+   *             <code>DataSourceCredentials</code> structure.</p>
+   * @public
+   */
+  CopySourceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+
+  /**
+   * <p>The credentials for connecting through a web proxy server.</p>
+   * @public
+   */
+  WebProxyCredentials?: WebProxyCredentials | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataSourceRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account. </p>
+   * @public
+   */
+  DataSourceId: string | undefined;
+
+  /**
+   * <p>A display name for the data source.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the data source. To return a list of all data sources, use
+   * 				<code>ListDataSources</code>.</p>
+   *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
+   * @public
+   */
+  Type: DataSourceType | undefined;
+
+  /**
+   * <p>The parameters that Amazon Quick Sight uses to connect to your underlying
+   * 			source.</p>
+   * @public
+   */
+  DataSourceParameters?: DataSourceParameters | undefined;
+
+  /**
+   * <p>The credentials Amazon Quick Sight that uses to connect to your underlying source.
+   * 			Currently, only credentials based on user name and password are supported.</p>
+   * @public
+   */
+  Credentials?: DataSourceCredentials | undefined;
+
+  /**
+   * <p>A list of resource permissions on the data source.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>Use this parameter only when you want Amazon Quick Sight to use a VPC connection when
+   * 			connecting to your underlying source.</p>
+   * @public
+   */
+  VpcConnectionProperties?: VpcConnectionProperties | undefined;
+
+  /**
+   * <p>Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to
+   * 			your underlying source.</p>
+   * @public
+   */
+  SslProperties?: SslProperties | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			data source.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>When you create the data source, Amazon Quick Sight adds the data source to these
+   * 			folders.</p>
+   * @public
+   */
+  FolderArns?: string[] | undefined;
+}
 
 /**
  * @public
@@ -1368,15 +1489,51 @@ export interface DataColorPalette {
 }
 
 /**
+ * <p>The background configuration for sheets.</p>
+ * @public
+ */
+export interface SheetBackgroundStyle {
+  /**
+   * <p>The solid color background option for sheets.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
+   * <p>The gradient background option for sheets.</p>
+   * @public
+   */
+  Gradient?: string | undefined;
+}
+
+/**
  * <p>Display options related to tiles on a sheet.</p>
  * @public
  */
 export interface TileStyle {
   /**
+   * <p>The background color of a tile.</p>
+   * @public
+   */
+  BackgroundColor?: string | undefined;
+
+  /**
    * <p>The border around a tile.</p>
    * @public
    */
   Border?: BorderStyle | undefined;
+
+  /**
+   * <p>The border radius of a tile.</p>
+   * @public
+   */
+  BorderRadius?: string | undefined;
+
+  /**
+   * <p>The padding of a tile.</p>
+   * @public
+   */
+  Padding?: string | undefined;
 }
 
 /**
@@ -1438,6 +1595,12 @@ export interface SheetStyle {
    * @public
    */
   TileLayout?: TileLayoutStyle | undefined;
+
+  /**
+   * <p>The background for sheets.</p>
+   * @public
+   */
+  Background?: SheetBackgroundStyle | undefined;
 }
 
 /**
@@ -1453,6 +1616,54 @@ export interface Font {
 }
 
 /**
+ * <p>Configures the display properties of the visual sub-title.</p>
+ * @public
+ */
+export interface VisualSubtitleFontConfiguration {
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Determines the alignment of visual sub-title.</p>
+   * @public
+   */
+  TextAlignment?: HorizontalTextAlignment | undefined;
+
+  /**
+   * <p>Determines the text transformation of visual sub-title.</p>
+   * @public
+   */
+  TextTransform?: TextTransform | undefined;
+}
+
+/**
+ * <p>Configures the display properties of the visual title.</p>
+ * @public
+ */
+export interface VisualTitleFontConfiguration {
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Determines the alignment of visual title.</p>
+   * @public
+   */
+  TextAlignment?: HorizontalTextAlignment | undefined;
+
+  /**
+   * <p>Determines the text transformation of visual title.</p>
+   * @public
+   */
+  TextTransform?: TextTransform | undefined;
+}
+
+/**
  * <p>Determines the typography options.</p>
  * @public
  */
@@ -1462,6 +1673,48 @@ export interface Typography {
    * @public
    */
   FontFamilies?: Font[] | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  AxisTitleFontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  AxisLabelFontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  LegendTitleFontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  LegendValueFontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  DataLabelFontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the visual title.</p>
+   * @public
+   */
+  VisualTitleFontConfiguration?: VisualTitleFontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the visual sub-title.</p>
+   * @public
+   */
+  VisualSubtitleFontConfiguration?: VisualSubtitleFontConfiguration | undefined;
 }
 
 /**
@@ -9373,194 +9626,4 @@ export interface DescribeUserResponse {
    * @public
    */
   Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
-   * 			you want described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId: string | undefined;
-}
-
-/**
- * <p>The structure that contains information about a network interface.</p>
- * @public
- */
-export interface NetworkInterface {
-  /**
-   * <p>The subnet ID associated with the network interface.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The availability zone that the network interface resides in.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>An error message.</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-
-  /**
-   * <p>The status of the network interface.</p>
-   * @public
-   */
-  Status?: NetworkInterfaceStatus | undefined;
-
-  /**
-   * <p>The network interface ID.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-}
-
-/**
- * <p>The structure of a VPC connection.</p>
- * @public
- */
-export interface VPCConnection {
-  /**
-   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   *                 Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The display name for the VPC connection.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
-   * @public
-   */
-  VPCId?: string | undefined;
-
-  /**
-   * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   * @public
-   */
-  DnsResolvers?: string[] | undefined;
-
-  /**
-   * <p>The status of the VPC connection.</p>
-   * @public
-   */
-  Status?: VPCConnectionResourceStatus | undefined;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
-
-  /**
-   * <p>A list of network interfaces.</p>
-   * @public
-   */
-  NetworkInterfaces?: NetworkInterface[] | undefined;
-
-  /**
-   * <p>The ARN of the
-   *                 IAM role associated with the VPC
-   *             connection.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The time that the VPC connection was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The time that the VPC connection was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVPCConnectionResponse {
-  /**
-   * <p>A response object that provides information for the specified VPC connection.</p>
-   * @public
-   */
-  VPCConnection?: VPCConnection | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>An entry that appears when a <code>KeyRegistration</code> update to Quick Sight fails.</p>
- * @public
- */
-export interface FailedKeyRegistrationEntry {
-  /**
-   * <p>The ARN of the KMS key that failed to update.</p>
-   * @public
-   */
-  KeyArn?: string | undefined;
-
-  /**
-   * <p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The HTTP status of a <code>FailedKeyRegistrationEntry</code> error.</p>
-   * @public
-   */
-  StatusCode: number | undefined;
-
-  /**
-   * <p>A boolean that indicates whether a <code>FailedKeyRegistrationEntry</code> resulted from user error. If the value of this property is <code>True</code>, the error was caused by user error. If the value of this property is <code>False</code>, the error occurred on the backend. If your job continues fail and with a <code>False</code>
-   *             <code>SenderFault</code> value, contact Amazon Web Services Support.</p>
-   * @public
-   */
-  SenderFault: boolean | undefined;
 }

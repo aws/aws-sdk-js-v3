@@ -4642,6 +4642,25 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     ColumnSpan: Number("int"), // required
  *                     RowIndex: Number("int"),
  *                     RowSpan: Number("int"), // required
+ *                     BorderStyle: { // GridLayoutElementBorderStyle
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
+ *                     },
+ *                     SelectedBorderStyle: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
+ *                     },
+ *                     BackgroundStyle: { // GridLayoutElementBackgroundStyle
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                     },
+ *                     LoadingAnimation: { // LoadingAnimation
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                     },
+ *                     BorderRadius: "STRING_VALUE",
+ *                     Padding: "STRING_VALUE",
  *                   },
  *                 ],
  *                 CanvasSizeOptions: { // GridLayoutCanvasSizeOptions
@@ -4672,18 +4691,22 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     BorderStyle: { // FreeFormLayoutElementBorderStyle
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
  *                     },
  *                     SelectedBorderStyle: {
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
  *                     },
  *                     BackgroundStyle: { // FreeFormLayoutElementBackgroundStyle
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                       Color: "STRING_VALUE",
  *                     },
- *                     LoadingAnimation: { // LoadingAnimation
+ *                     LoadingAnimation: {
  *                       Visibility: "HIDDEN" || "VISIBLE",
  *                     },
+ *                     BorderRadius: "STRING_VALUE",
+ *                     Padding: "STRING_VALUE",
  *                   },
  *                 ],
  *                 CanvasSizeOptions: { // FreeFormLayoutCanvasSizeOptions
@@ -4718,10 +4741,12 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                             BorderStyle: {
  *                               Visibility: "HIDDEN" || "VISIBLE",
  *                               Color: "STRING_VALUE",
+ *                               Width: "STRING_VALUE",
  *                             },
  *                             SelectedBorderStyle: {
  *                               Visibility: "HIDDEN" || "VISIBLE",
  *                               Color: "STRING_VALUE",
+ *                               Width: "STRING_VALUE",
  *                             },
  *                             BackgroundStyle: {
  *                               Visibility: "HIDDEN" || "VISIBLE",
@@ -4730,6 +4755,8 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                             LoadingAnimation: {
  *                               Visibility: "HIDDEN" || "VISIBLE",
  *                             },
+ *                             BorderRadius: "STRING_VALUE",
+ *                             Padding: "STRING_VALUE",
  *                           },
  *                         ],
  *                       },
@@ -4846,6 +4873,25 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     ColumnSpan: Number("int"), // required
  *                     RowIndex: Number("int"),
  *                     RowSpan: Number("int"), // required
+ *                     BorderStyle: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
+ *                     },
+ *                     SelectedBorderStyle: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                       Width: "STRING_VALUE",
+ *                     },
+ *                     BackgroundStyle: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                       Color: "STRING_VALUE",
+ *                     },
+ *                     LoadingAnimation: {
+ *                       Visibility: "HIDDEN" || "VISIBLE",
+ *                     },
+ *                     BorderRadius: "STRING_VALUE",
+ *                     Padding: "STRING_VALUE",
  *                   },
  *                 ],
  *                 CanvasSizeOptions: {

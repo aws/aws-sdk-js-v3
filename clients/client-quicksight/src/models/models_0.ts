@@ -5177,6 +5177,12 @@ export interface FreeFormLayoutElementBorderStyle {
    * @public
    */
   Color?: string | undefined;
+
+  /**
+   * <p>The border width of a free-form layout element.</p>
+   * @public
+   */
+  Width?: string | undefined;
 }
 
 /**
@@ -5309,6 +5315,18 @@ export interface FreeFormLayoutElement {
    * @public
    */
   LoadingAnimation?: LoadingAnimation | undefined;
+
+  /**
+   * <p>The border radius of a free-form layout element.</p>
+   * @public
+   */
+  BorderRadius?: string | undefined;
+
+  /**
+   * <p>The padding of a free-form layout element.</p>
+   * @public
+   */
+  Padding?: string | undefined;
 }
 
 /**
@@ -5327,6 +5345,48 @@ export interface FreeFormLayoutConfiguration {
    * @public
    */
   CanvasSizeOptions?: FreeFormLayoutCanvasSizeOptions | undefined;
+}
+
+/**
+ * <p>The background style configuration of a grid layout element.</p>
+ * @public
+ */
+export interface GridLayoutElementBackgroundStyle {
+  /**
+   * <p>The background visibility of a grid layout element.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The background color of a grid layout element.</p>
+   * @public
+   */
+  Color?: string | undefined;
+}
+
+/**
+ * <p>The border style configuration of a grid layout element.</p>
+ * @public
+ */
+export interface GridLayoutElementBorderStyle {
+  /**
+   * <p>The border visibility of a grid layout element.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The border color of a grid layout element.</p>
+   * @public
+   */
+  Color?: string | undefined;
+
+  /**
+   * <p>The border width of a grid layout element.</p>
+   * @public
+   */
+  Width?: string | undefined;
 }
 
 /**
@@ -5369,6 +5429,42 @@ export interface GridLayoutElement {
    * @public
    */
   RowSpan: number | undefined;
+
+  /**
+   * <p>The border style configuration of a grid layout element.</p>
+   * @public
+   */
+  BorderStyle?: GridLayoutElementBorderStyle | undefined;
+
+  /**
+   * <p>The border style configuration of a grid layout element. This border style is used when the element is selected.</p>
+   * @public
+   */
+  SelectedBorderStyle?: GridLayoutElementBorderStyle | undefined;
+
+  /**
+   * <p>The background style configuration of a grid layout element.</p>
+   * @public
+   */
+  BackgroundStyle?: GridLayoutElementBackgroundStyle | undefined;
+
+  /**
+   * <p>The configuration of loading animation in free-form layout. </p>
+   * @public
+   */
+  LoadingAnimation?: LoadingAnimation | undefined;
+
+  /**
+   * <p>The border radius of a grid layout element.</p>
+   * @public
+   */
+  BorderRadius?: string | undefined;
+
+  /**
+   * <p>The padding of a grid layout element.</p>
+   * @public
+   */
+  Padding?: string | undefined;
 }
 
 /**
@@ -8361,43 +8457,6 @@ export interface ColumnHierarchy {
  * @public
  */
 export interface LongFormatText {
-  /**
-   * <p>Plain text format.</p>
-   * @public
-   */
-  PlainText?: string | undefined;
-
-  /**
-   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
-   * @public
-   */
-  RichText?: string | undefined;
-}
-
-/**
- * <p>The subtitle label options for a visual.</p>
- * @public
- */
-export interface VisualSubtitleLabelOptions {
-  /**
-   * <p>The visibility of the subtitle label.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
-   * @public
-   */
-  FormatText?: LongFormatText | undefined;
-}
-
-/**
- * <p>The text format for the title.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface ShortFormatText {
   /**
    * <p>Plain text format.</p>
    * @public

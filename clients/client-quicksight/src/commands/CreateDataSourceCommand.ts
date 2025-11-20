@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDataSourceRequest } from "../models/models_2";
-import { CreateDataSourceResponse } from "../models/models_3";
+import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { CreateDataSource } from "../schemas/schemas_0";
 

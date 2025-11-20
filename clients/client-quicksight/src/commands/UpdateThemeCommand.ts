@@ -72,9 +72,14 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *     },
  *     Sheet: { // SheetStyle
  *       Tile: { // TileStyle
+ *         BackgroundColor: "STRING_VALUE",
  *         Border: { // BorderStyle
+ *           Color: "STRING_VALUE",
  *           Show: true || false,
+ *           Width: "STRING_VALUE",
  *         },
+ *         BorderRadius: "STRING_VALUE",
+ *         Padding: "STRING_VALUE",
  *       },
  *       TileLayout: { // TileLayoutStyle
  *         Gutter: { // GutterStyle
@@ -84,6 +89,10 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *           Show: true || false,
  *         },
  *       },
+ *       Background: { // SheetBackgroundStyle
+ *         Color: "STRING_VALUE",
+ *         Gradient: "STRING_VALUE",
+ *       },
  *     },
  *     Typography: { // Typography
  *       FontFamilies: [ // FontList
@@ -91,6 +100,81 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *           FontFamily: "STRING_VALUE",
  *         },
  *       ],
+ *       AxisTitleFontConfiguration: { // FontConfiguration
+ *         FontSize: { // FontSize
+ *           Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *           Absolute: "STRING_VALUE",
+ *         },
+ *         FontDecoration: "UNDERLINE" || "NONE",
+ *         FontColor: "STRING_VALUE",
+ *         FontWeight: { // FontWeight
+ *           Name: "NORMAL" || "BOLD",
+ *         },
+ *         FontStyle: "NORMAL" || "ITALIC",
+ *         FontFamily: "STRING_VALUE",
+ *       },
+ *       AxisLabelFontConfiguration: {
+ *         FontSize: {
+ *           Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *           Absolute: "STRING_VALUE",
+ *         },
+ *         FontDecoration: "UNDERLINE" || "NONE",
+ *         FontColor: "STRING_VALUE",
+ *         FontWeight: {
+ *           Name: "NORMAL" || "BOLD",
+ *         },
+ *         FontStyle: "NORMAL" || "ITALIC",
+ *         FontFamily: "STRING_VALUE",
+ *       },
+ *       LegendTitleFontConfiguration: {
+ *         FontSize: {
+ *           Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *           Absolute: "STRING_VALUE",
+ *         },
+ *         FontDecoration: "UNDERLINE" || "NONE",
+ *         FontColor: "STRING_VALUE",
+ *         FontWeight: {
+ *           Name: "NORMAL" || "BOLD",
+ *         },
+ *         FontStyle: "NORMAL" || "ITALIC",
+ *         FontFamily: "STRING_VALUE",
+ *       },
+ *       LegendValueFontConfiguration: {
+ *         FontSize: {
+ *           Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *           Absolute: "STRING_VALUE",
+ *         },
+ *         FontDecoration: "UNDERLINE" || "NONE",
+ *         FontColor: "STRING_VALUE",
+ *         FontWeight: {
+ *           Name: "NORMAL" || "BOLD",
+ *         },
+ *         FontStyle: "NORMAL" || "ITALIC",
+ *         FontFamily: "STRING_VALUE",
+ *       },
+ *       DataLabelFontConfiguration: {
+ *         FontSize: {
+ *           Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ *           Absolute: "STRING_VALUE",
+ *         },
+ *         FontDecoration: "UNDERLINE" || "NONE",
+ *         FontColor: "STRING_VALUE",
+ *         FontWeight: {
+ *           Name: "NORMAL" || "BOLD",
+ *         },
+ *         FontStyle: "NORMAL" || "ITALIC",
+ *         FontFamily: "STRING_VALUE",
+ *       },
+ *       VisualTitleFontConfiguration: { // VisualTitleFontConfiguration
+ *         FontConfiguration: "<FontConfiguration>",
+ *         TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ *         TextTransform: "CAPITALIZE",
+ *       },
+ *       VisualSubtitleFontConfiguration: { // VisualSubtitleFontConfiguration
+ *         FontConfiguration: "<FontConfiguration>",
+ *         TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ *         TextTransform: "CAPITALIZE",
+ *       },
  *     },
  *   },
  * };

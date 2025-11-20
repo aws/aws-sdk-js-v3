@@ -2,8 +2,6 @@
 import {
   AnalysisFilterAttribute,
   AnchorType,
-  AnonymousUserDashboardEmbeddingConfigurationDisabledFeature,
-  AnonymousUserDashboardEmbeddingConfigurationEnabledFeature,
   ArcThickness,
   ArcThicknessOptions,
   AxisBinding,
@@ -103,6 +101,7 @@ import {
   ItemsLimitConfiguration,
   Layout,
   LegendOptions,
+  LongFormatText,
   MeasureField,
   NumberDisplayFormatConfiguration,
   ParameterControl,
@@ -113,15 +112,50 @@ import {
   SheetControlLayout,
   SheetImage,
   SheetTextBox,
-  ShortFormatText,
   SmallMultiplesOptions,
   TooltipOptions,
   VisualCustomAction,
   VisualCustomActionDefaults,
   VisualInteractionOptions,
   VisualPalette,
-  VisualSubtitleLabelOptions,
 } from "./models_0";
+
+/**
+ * <p>The subtitle label options for a visual.</p>
+ * @public
+ */
+export interface VisualSubtitleLabelOptions {
+  /**
+   * <p>The visibility of the subtitle label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
+   * @public
+   */
+  FormatText?: LongFormatText | undefined;
+}
+
+/**
+ * <p>The text format for the title.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface ShortFormatText {
+  /**
+   * <p>Plain text format.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+
+  /**
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   * @public
+   */
+  RichText?: string | undefined;
+}
 
 /**
  * <p>The title label options for a visual.</p>
@@ -8551,87 +8585,4 @@ export interface AnonymousUserDashboardFeatureConfigurations {
    * @public
    */
   SharedView?: SharedViewConfigurations | undefined;
-}
-
-/**
- * <p>Information about the dashboard that you want to embed.</p>
- * @public
- */
-export interface AnonymousUserDashboardEmbeddingConfiguration {
-  /**
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is
-   *             included in the output URL. When the URL in response is accessed, Amazon Quick Sight
-   *             renders this dashboard.</p>
-   *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the
-   *                 <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with
-   *                 <code>InvalidParameterValueException</code>.</p>
-   * @public
-   */
-  InitialDashboardId: string | undefined;
-
-  /**
-   * <p>A list of all enabled features of a specified anonymous dashboard.</p>
-   * @public
-   */
-  EnabledFeatures?: AnonymousUserDashboardEmbeddingConfigurationEnabledFeature[] | undefined;
-
-  /**
-   * <p>A list of all disabled features of a specified anonymous dashboard.</p>
-   * @public
-   */
-  DisabledFeatures?: AnonymousUserDashboardEmbeddingConfigurationDisabledFeature[] | undefined;
-
-  /**
-   * <p>The feature configuration for an embedded dashboard.</p>
-   * @public
-   */
-  FeatureConfigurations?: AnonymousUserDashboardFeatureConfigurations | undefined;
-}
-
-/**
- * <p>A structure that contains the following elements:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you
- *                     want to embed.</p>
- *             </li>
- *             <li>
- *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to
- *                     embed.</p>
- *             </li>
- *             <li>
- *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
- *             </li>
- *          </ul>
- *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be
- *             found in the <code>IDs for developers</code> section of the <code>Embed visual</code>
- *             pane of the visual's on-visual menu of the Amazon Quick Sight console. You can also get
- *             the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
- * @public
- */
-export interface DashboardVisualId {
-  /**
-   * <p>The ID of the dashboard that has the visual that you want to embed. The
-   *                 <code>DashboardId</code> can be found in the <code>IDs for developers</code> section
-   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console. You can also get the <code>DashboardId</code> with a
-   *                 <code>ListDashboards</code> API operation.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The ID of the sheet that the has visual that you want to embed. The
-   *                 <code>SheetId</code> can be found in the <code>IDs for developers</code> section of
-   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console.</p>
-   * @public
-   */
-  SheetId: string | undefined;
-
-  /**
-   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in
-   *             the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the
-   *             visual's on-visual menu of the Amazon Quick Sight console.</p>
-   * @public
-   */
-  VisualId: string | undefined;
 }

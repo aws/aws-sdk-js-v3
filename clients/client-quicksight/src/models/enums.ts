@@ -3334,6 +3334,18 @@ export type Role = (typeof Role)[keyof typeof Role];
  * @public
  * @enum
  */
+export const TextTransform = {
+  CAPITALIZE: "CAPITALIZE",
+} as const;
+/**
+ * @public
+ */
+export type TextTransform = (typeof TextTransform)[keyof typeof TextTransform];
+
+/**
+ * @public
+ * @enum
+ */
 export const DefaultAggregation = {
   AVERAGE: "AVERAGE",
   COUNT: "COUNT",
